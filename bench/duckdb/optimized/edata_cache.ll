@@ -201,10 +201,10 @@ tsdn_witness_tsdp_get.exit:
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !32
   store ptr %12, ptr %1, align 8, !tbaa !21
-  %.not.i = icmp eq ptr %12, %.val
-  br i1 %.not.i, label %30, label %13
+  %13 = icmp eq ptr %12, %.val
+  br i1 %13, label %30, label %.thread.i
 
-13:                                               ; preds = %10
+.thread.i:                                        ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 72
@@ -332,10 +332,10 @@ edata_cache_fast_try_fill_from_fallback.exit:     ; preds = %malloc_mutex_lock.e
   %82 = getelementptr inbounds nuw i8, ptr %.val23, i64 64
   %83 = load ptr, ptr %82, align 8, !tbaa !32
   store ptr %83, ptr %1, align 8, !tbaa !21
-  %.not.i24 = icmp eq ptr %83, %.val23
-  br i1 %.not.i24, label %101, label %84
+  %84 = icmp eq ptr %83, %.val23
+  br i1 %84, label %101, label %.thread.i24
 
-84:                                               ; preds = %81
+.thread.i24:                                      ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 72
   %86 = load ptr, ptr %85, align 8, !tbaa !32
   %87 = getelementptr inbounds nuw i8, ptr %.val23, i64 72
@@ -370,8 +370,8 @@ edata_cache_fast_try_fill_from_fallback.exit:     ; preds = %malloc_mutex_lock.e
   %106 = tail call ptr @duckdb_je_base_alloc_edata(ptr noundef %0, ptr noundef %105) #4
   br label %edata_list_inactive_remove.exit
 
-edata_list_inactive_remove.exit:                  ; preds = %101, %84, %30, %13, %102, %5
-  %.019 = phi ptr [ %8, %5 ], [ %106, %102 ], [ %.val, %13 ], [ %.val, %30 ], [ %.val23, %84 ], [ %.val23, %101 ]
+edata_list_inactive_remove.exit:                  ; preds = %101, %.thread.i24, %30, %.thread.i, %102, %5
+  %.019 = phi ptr [ %8, %5 ], [ %106, %102 ], [ %.val, %.thread.i ], [ %.val, %30 ], [ %.val23, %.thread.i24 ], [ %.val23, %101 ]
   ret ptr %.019
 }
 
@@ -500,23 +500,23 @@ define void @duckdb_je_edata_cache_fast_disable(ptr noundef %0, ptr noundef capt
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %16, %10
-  %.val13.i = load ptr, ptr %1, align 8, !tbaa !21
-  %.not14.i = icmp eq ptr %.val13.i, null
-  br i1 %.not14.i, label %edata_cache_fast_flush_all.exit, label %.lr.ph.i
+  %.val12.i = load ptr, ptr %1, align 8, !tbaa !21
+  %.not13.i = icmp eq ptr %.val12.i, null
+  br i1 %.not13.i, label %edata_cache_fast_flush_all.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %malloc_mutex_lock.exit.i, %edata_list_inactive_remove.exit.i
-  %.val16.i = phi ptr [ %.val.i, %edata_list_inactive_remove.exit.i ], [ %.val13.i, %malloc_mutex_lock.exit.i ]
-  %.015.i = phi i64 [ %41, %edata_list_inactive_remove.exit.i ], [ 0, %malloc_mutex_lock.exit.i ]
-  %20 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 64
+  %.val15.i = phi ptr [ %.val.i, %edata_list_inactive_remove.exit.i ], [ %.val12.i, %malloc_mutex_lock.exit.i ]
+  %.014.i = phi i64 [ %41, %edata_list_inactive_remove.exit.i ], [ 0, %malloc_mutex_lock.exit.i ]
+  %20 = getelementptr inbounds nuw i8, ptr %.val15.i, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !32
   store ptr %21, ptr %1, align 8, !tbaa !21
-  %.not.i12.i = icmp eq ptr %21, %.val16.i
-  br i1 %.not.i12.i, label %39, label %22
+  %22 = icmp eq ptr %21, %.val15.i
+  br i1 %22, label %39, label %.thread.i.i
 
-22:                                               ; preds = %.lr.ph.i
+.thread.i.i:                                      ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %24 = load ptr, ptr %23, align 8, !tbaa !32
-  %25 = getelementptr inbounds nuw i8, ptr %.val16.i, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %.val15.i, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store ptr %24, ptr %27, align 8, !tbaa !32
@@ -534,17 +534,17 @@ malloc_mutex_lock.exit.i:                         ; preds = %16, %10
   store ptr %33, ptr %36, align 8, !tbaa !32
   %37 = load ptr, ptr %25, align 8, !tbaa !32
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  store ptr %.val16.i, ptr %38, align 8, !tbaa !32
+  store ptr %.val15.i, ptr %38, align 8, !tbaa !32
   br label %edata_list_inactive_remove.exit.i
 
 39:                                               ; preds = %.lr.ph.i
   store ptr null, ptr %1, align 8, !tbaa !21
   br label %edata_list_inactive_remove.exit.i
 
-edata_list_inactive_remove.exit.i:                ; preds = %39, %22
+edata_list_inactive_remove.exit.i:                ; preds = %39, %.thread.i.i
   %40 = load ptr, ptr %3, align 8, !tbaa !25
-  tail call void @duckdb_je_edata_avail_insert(ptr noundef %40, ptr noundef nonnull %.val16.i) #4
-  %41 = add i64 %.015.i, 1
+  tail call void @duckdb_je_edata_avail_insert(ptr noundef %40, ptr noundef nonnull %.val15.i) #4
+  %41 = add i64 %.014.i, 1
   %.val.i = load ptr, ptr %1, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.val.i, null
   br i1 %.not.i, label %edata_cache_fast_flush_all.exit, label %.lr.ph.i

@@ -5780,9 +5780,9 @@ _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.thread:  ; preds = %71, %71, %80, %_ZNS
   %.050.lcssa.ph = phi i1 [ %.353, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.thread ], [ %.050245, %71 ], [ %.050245, %71 ], [ %.050245, %71 ], [ %.050245, %71 ], [ %.050245, %71 ]
   %.pre = load ptr, ptr %26, align 8
   %.pre262 = load ptr, ptr %68, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %327 = icmp eq ptr %.pre, %.pre262
-  br i1 %327, label %.thread.thread, label %368
+  %326 = icmp eq ptr %.pre, %.pre262
+  %327 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  br i1 %326, label %.thread.thread, label %368
 
 .thread.thread:                                   ; preds = %24, %.thread
   %328 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -6112,7 +6112,7 @@ _ZNSt6vectorIPN6Assimp7ObjFile4FaceESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu
   br label %_ZNSt6vectorIPN6Assimp7ObjFile4FaceESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit
 
 _ZNSt6vectorIPN6Assimp7ObjFile4FaceESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit: ; preds = %428, %_ZNSt6vectorIPN6Assimp7ObjFile4FaceESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %451 = load ptr, ptr %326, align 8
+  %451 = load ptr, ptr %327, align 8
   %452 = load ptr, ptr %26, align 8
   %453 = ptrtoint ptr %451 to i64
   %454 = ptrtoint ptr %452 to i64

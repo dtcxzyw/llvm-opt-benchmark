@@ -943,7 +943,7 @@ _ZNK3sat3cutixEj.exit.lr.ph:                      ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZNK3sat3cutixEj.exit
 
-._crit_edge:                                      ; preds = %34, %2
+._crit_edge:                                      ; preds = %_ZNK3sat3cutixEj.exit, %32, %2
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 2)
   %8 = load i32, ptr %4, align 4, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -974,8 +974,8 @@ _ZNK3sat3cutixEj.exit.lr.ph:                      ; preds = %2
 _ZN3sat3cut13display_tableERSojm.exit:            ; preds = %18
   ret ptr %1
 
-_ZNK3sat3cutixEj.exit:                            ; preds = %_ZNK3sat3cutixEj.exit.lr.ph, %34
-  %indvars.iv = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph ], [ %indvars.iv.next, %34 ]
+_ZNK3sat3cutixEj.exit:                            ; preds = %_ZNK3sat3cutixEj.exit.lr.ph, %32
+  %indvars.iv = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph ], [ %indvars.iv.next, %32 ]
   %25 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !16
   %27 = zext i32 %26 to i64
@@ -984,18 +984,14 @@ _ZNK3sat3cutixEj.exit:                            ; preds = %_ZNK3sat3cutixEj.ex
   %29 = load i32, ptr %4, align 4, !tbaa !15
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %32, label %34
+  br i1 %31, label %32, label %._crit_edge
 
 32:                                               ; preds = %_ZNK3sat3cutixEj.exit
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i64 noundef 1)
   %.pre = load i32, ptr %4, align 4, !tbaa !15
   %.pre13 = zext i32 %.pre to i64
-  br label %34
-
-34:                                               ; preds = %_ZNK3sat3cutixEj.exit, %32
-  %.pre-phi = phi i64 [ %30, %_ZNK3sat3cutixEj.exit ], [ %.pre13, %32 ]
-  %35 = icmp samesign ult i64 %indvars.iv.next, %.pre-phi
-  br i1 %35, label %_ZNK3sat3cutixEj.exit, label %._crit_edge, !llvm.loop !51
+  %34 = icmp samesign ult i64 %indvars.iv.next, %.pre13
+  br i1 %34, label %_ZNK3sat3cutixEj.exit, label %._crit_edge, !llvm.loop !51
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

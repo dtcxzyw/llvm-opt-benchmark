@@ -37506,14 +37506,14 @@ if.end8600:                                       ; preds = %if.end8594, %land.l
   %sub.ptr.sub.i3792 = sub i64 %sub.ptr.lhs.cast.i3790, %sub.ptr.rhs.cast.i3791
   %sub.ptr.div.i3793 = sdiv exact i64 %sub.ptr.sub.i3792, 48
   %cmp8606 = icmp ugt i64 %sub.ptr.div.i3793, %i.1
-  br i1 %cmp8606, label %land.lhs.true8607, label %if.end8632
+  br i1 %cmp8606, label %land.lhs.true8607, label %if.end10552
 
 land.lhs.true8607:                                ; preds = %if.end8600
   %add.ptr.i3794 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2250, i64 %i.1
   %id8609 = getelementptr inbounds nuw i8, ptr %add.ptr.i3794, i64 32
   %2252 = load i32, ptr %id8609, align 8
   %cmp8610 = icmp eq i32 %2252, 1
-  br i1 %cmp8610, label %if.then8611, label %if.end8632
+  br i1 %cmp8610, label %if.then8611, label %land.lhs.true8639
 
 if.then8611:                                      ; preds = %land.lhs.true8607
   %2253 = load ptr, ptr %isolate_, align 8
@@ -37521,14 +37521,14 @@ if.then8611:                                      ; preds = %land.lhs.true8607
   %2254 = load i64, ptr %index8616, align 8
   %call.i17923 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2253, i64 noundef %2254) #24
   %cond2983 = icmp eq ptr %call.i17923, null
-  br i1 %cond2983, label %if.then8624, label %if.end8626
+  br i1 %cond2983, label %if.then8624, label %if.end8632
 
 if.then8624:                                      ; preds = %if.then8611
   %2255 = load ptr, ptr @stderr, align 8
   %2256 = call i64 @fwrite(ptr nonnull @.str.468, i64 76, i64 1, ptr %2255) #29
-  br label %if.end8626
+  br label %if.end8632
 
-if.end8626:                                       ; preds = %if.then8611, %if.then8624
+if.end8632:                                       ; preds = %if.then8624, %if.then8611
   %async_wrap_object_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2576
   %2257 = load ptr, ptr %isolate_, align 8
   %call8.i.i3797 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2257, ptr noundef %call.i17923) #24
@@ -37540,2462 +37540,2222 @@ if.end8626:                                       ; preds = %if.then8611, %if.th
   %.pre4462 = ptrtoint ptr %.pre4342 to i64
   %.pre4463 = sub i64 %.pre4461, %.pre4462
   %.pre4464 = sdiv exact i64 %.pre4463, 48
-  br label %if.end8632
+  %2258 = icmp ugt i64 %.pre4464, %inc8631
+  br i1 %2258, label %land.lhs.true8639, label %if.end10552
 
-if.end8632:                                       ; preds = %if.end8626, %land.lhs.true8607, %if.end8600
-  %sub.ptr.div.i3802.pre-phi = phi i64 [ %.pre4464, %if.end8626 ], [ %sub.ptr.div.i3793, %land.lhs.true8607 ], [ %sub.ptr.div.i3793, %if.end8600 ]
-  %2258 = phi ptr [ %.pre4342, %if.end8626 ], [ %2250, %land.lhs.true8607 ], [ %2250, %if.end8600 ]
-  %i.2 = phi i64 [ %inc8631, %if.end8626 ], [ %i.1, %land.lhs.true8607 ], [ %i.1, %if.end8600 ]
-  %cmp8638 = icmp ugt i64 %sub.ptr.div.i3802.pre-phi, %i.2
-  br i1 %cmp8638, label %land.lhs.true8639, label %if.end8664
-
-land.lhs.true8639:                                ; preds = %if.end8632
-  %add.ptr.i3803 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2258, i64 %i.2
+land.lhs.true8639:                                ; preds = %land.lhs.true8607, %if.end8632
+  %i.24703 = phi i64 [ %inc8631, %if.end8632 ], [ %i.1, %land.lhs.true8607 ]
+  %2259 = phi ptr [ %.pre4342, %if.end8632 ], [ %2250, %land.lhs.true8607 ]
+  %add.ptr.i3803 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2259, i64 %i.24703
   %id8641 = getelementptr inbounds nuw i8, ptr %add.ptr.i3803, i64 32
-  %2259 = load i32, ptr %id8641, align 8
-  %cmp8642 = icmp eq i32 %2259, 2
-  br i1 %cmp8642, label %if.then8643, label %if.end8664
+  %2260 = load i32, ptr %id8641, align 8
+  %cmp8642 = icmp eq i32 %2260, 2
+  br i1 %cmp8642, label %if.then8643, label %land.lhs.true8671
 
 if.then8643:                                      ; preds = %land.lhs.true8639
-  %2260 = load ptr, ptr %isolate_, align 8
+  %2261 = load ptr, ptr %isolate_, align 8
   %index8648 = getelementptr inbounds nuw i8, ptr %add.ptr.i3803, i64 40
-  %2261 = load i64, ptr %index8648, align 8
-  %call.i18548 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2260, i64 noundef %2261) #24
+  %2262 = load i64, ptr %index8648, align 8
+  %call.i18548 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2261, i64 noundef %2262) #24
   %cond2984 = icmp eq ptr %call.i18548, null
-  br i1 %cond2984, label %if.then8656, label %if.end8658
+  br i1 %cond2984, label %if.then8656, label %if.end8664
 
 if.then8656:                                      ; preds = %if.then8643
-  %2262 = load ptr, ptr @stderr, align 8
-  %2263 = call i64 @fwrite(ptr nonnull @.str.469, i64 74, i64 1, ptr %2262) #29
-  br label %if.end8658
+  %2263 = load ptr, ptr @stderr, align 8
+  %2264 = call i64 @fwrite(ptr nonnull @.str.469, i64 74, i64 1, ptr %2263) #29
+  br label %if.end8664
 
-if.end8658:                                       ; preds = %if.then8643, %if.then8656
+if.end8664:                                       ; preds = %if.then8656, %if.then8643
   %binding_data_default_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2584
-  %2264 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3806 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2264, ptr noundef %call.i18548) #24
+  %2265 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3806 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2265, ptr noundef %call.i18548) #24
   store ptr %call8.i.i3806, ptr %binding_data_default_template_.i, align 8
-  %inc8663 = add nuw nsw i64 %i.2, 1
+  %inc8663 = add nuw nsw i64 %i.24703, 1
   %.pre4343 = load ptr, ptr %_M_finish.i, align 8
   %.pre4344 = load ptr, ptr %template_values, align 8
   %.pre4465 = ptrtoint ptr %.pre4343 to i64
   %.pre4466 = ptrtoint ptr %.pre4344 to i64
   %.pre4467 = sub i64 %.pre4465, %.pre4466
   %.pre4468 = sdiv exact i64 %.pre4467, 48
-  br label %if.end8664
+  %2266 = icmp ugt i64 %.pre4468, %inc8663
+  br i1 %2266, label %land.lhs.true8671, label %if.end10552
 
-if.end8664:                                       ; preds = %if.end8658, %land.lhs.true8639, %if.end8632
-  %sub.ptr.div.i3811.pre-phi = phi i64 [ %.pre4468, %if.end8658 ], [ %sub.ptr.div.i3802.pre-phi, %land.lhs.true8639 ], [ %sub.ptr.div.i3802.pre-phi, %if.end8632 ]
-  %2265 = phi ptr [ %.pre4344, %if.end8658 ], [ %2258, %land.lhs.true8639 ], [ %2258, %if.end8632 ]
-  %i.3 = phi i64 [ %inc8663, %if.end8658 ], [ %i.2, %land.lhs.true8639 ], [ %i.2, %if.end8632 ]
-  %cmp8670 = icmp ugt i64 %sub.ptr.div.i3811.pre-phi, %i.3
-  br i1 %cmp8670, label %land.lhs.true8671, label %if.end8696
-
-land.lhs.true8671:                                ; preds = %if.end8664
-  %add.ptr.i3812 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2265, i64 %i.3
+land.lhs.true8671:                                ; preds = %land.lhs.true8639, %if.end8664
+  %i.34712 = phi i64 [ %inc8663, %if.end8664 ], [ %i.24703, %land.lhs.true8639 ]
+  %2267 = phi ptr [ %.pre4344, %if.end8664 ], [ %2259, %land.lhs.true8639 ]
+  %add.ptr.i3812 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2267, i64 %i.34712
   %id8673 = getelementptr inbounds nuw i8, ptr %add.ptr.i3812, i64 32
-  %2266 = load i32, ptr %id8673, align 8
-  %cmp8674 = icmp eq i32 %2266, 3
-  br i1 %cmp8674, label %if.then8675, label %if.end8696
+  %2268 = load i32, ptr %id8673, align 8
+  %cmp8674 = icmp eq i32 %2268, 3
+  br i1 %cmp8674, label %if.then8675, label %land.lhs.true8703
 
 if.then8675:                                      ; preds = %land.lhs.true8671
-  %2267 = load ptr, ptr %isolate_, align 8
+  %2269 = load ptr, ptr %isolate_, align 8
   %index8680 = getelementptr inbounds nuw i8, ptr %add.ptr.i3812, i64 40
-  %2268 = load i64, ptr %index8680, align 8
-  %call.i17911 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2267, i64 noundef %2268) #24
+  %2270 = load i64, ptr %index8680, align 8
+  %call.i17911 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2269, i64 noundef %2270) #24
   %cond2985 = icmp eq ptr %call.i17911, null
-  br i1 %cond2985, label %if.then8688, label %if.end8690
+  br i1 %cond2985, label %if.then8688, label %if.end8696
 
 if.then8688:                                      ; preds = %if.then8675
-  %2269 = load ptr, ptr @stderr, align 8
-  %2270 = call i64 @fwrite(ptr nonnull @.str.470, i64 70, i64 1, ptr %2269) #29
-  br label %if.end8690
+  %2271 = load ptr, ptr @stderr, align 8
+  %2272 = call i64 @fwrite(ptr nonnull @.str.470, i64 70, i64 1, ptr %2271) #29
+  br label %if.end8696
 
-if.end8690:                                       ; preds = %if.then8675, %if.then8688
+if.end8696:                                       ; preds = %if.then8688, %if.then8675
   %blob_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2592
-  %2271 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3815 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2271, ptr noundef %call.i17911) #24
+  %2273 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3815 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2273, ptr noundef %call.i17911) #24
   store ptr %call8.i.i3815, ptr %blob_constructor_template_.i, align 8
-  %inc8695 = add nuw nsw i64 %i.3, 1
+  %inc8695 = add nuw nsw i64 %i.34712, 1
   %.pre4345 = load ptr, ptr %_M_finish.i, align 8
   %.pre4346 = load ptr, ptr %template_values, align 8
   %.pre4469 = ptrtoint ptr %.pre4345 to i64
   %.pre4470 = ptrtoint ptr %.pre4346 to i64
   %.pre4471 = sub i64 %.pre4469, %.pre4470
   %.pre4472 = sdiv exact i64 %.pre4471, 48
-  br label %if.end8696
+  %2274 = icmp ugt i64 %.pre4472, %inc8695
+  br i1 %2274, label %land.lhs.true8703, label %if.end10552
 
-if.end8696:                                       ; preds = %if.end8690, %land.lhs.true8671, %if.end8664
-  %sub.ptr.div.i3820.pre-phi = phi i64 [ %.pre4472, %if.end8690 ], [ %sub.ptr.div.i3811.pre-phi, %land.lhs.true8671 ], [ %sub.ptr.div.i3811.pre-phi, %if.end8664 ]
-  %2272 = phi ptr [ %.pre4346, %if.end8690 ], [ %2265, %land.lhs.true8671 ], [ %2265, %if.end8664 ]
-  %i.4 = phi i64 [ %inc8695, %if.end8690 ], [ %i.3, %land.lhs.true8671 ], [ %i.3, %if.end8664 ]
-  %cmp8702 = icmp ugt i64 %sub.ptr.div.i3820.pre-phi, %i.4
-  br i1 %cmp8702, label %land.lhs.true8703, label %if.end8728
-
-land.lhs.true8703:                                ; preds = %if.end8696
-  %add.ptr.i3821 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2272, i64 %i.4
+land.lhs.true8703:                                ; preds = %land.lhs.true8671, %if.end8696
+  %i.44719 = phi i64 [ %inc8695, %if.end8696 ], [ %i.34712, %land.lhs.true8671 ]
+  %2275 = phi ptr [ %.pre4346, %if.end8696 ], [ %2267, %land.lhs.true8671 ]
+  %add.ptr.i3821 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2275, i64 %i.44719
   %id8705 = getelementptr inbounds nuw i8, ptr %add.ptr.i3821, i64 32
-  %2273 = load i32, ptr %id8705, align 8
-  %cmp8706 = icmp eq i32 %2273, 4
-  br i1 %cmp8706, label %if.then8707, label %if.end8728
+  %2276 = load i32, ptr %id8705, align 8
+  %cmp8706 = icmp eq i32 %2276, 4
+  br i1 %cmp8706, label %if.then8707, label %land.lhs.true8735
 
 if.then8707:                                      ; preds = %land.lhs.true8703
-  %2274 = load ptr, ptr %isolate_, align 8
+  %2277 = load ptr, ptr %isolate_, align 8
   %index8712 = getelementptr inbounds nuw i8, ptr %add.ptr.i3821, i64 40
-  %2275 = load i64, ptr %index8712, align 8
-  %call.i17899 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2274, i64 noundef %2275) #24
+  %2278 = load i64, ptr %index8712, align 8
+  %call.i17899 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2277, i64 noundef %2278) #24
   %cond2986 = icmp eq ptr %call.i17899, null
-  br i1 %cond2986, label %if.then8720, label %if.end8722
+  br i1 %cond2986, label %if.then8720, label %if.end8728
 
 if.then8720:                                      ; preds = %if.then8707
-  %2276 = load ptr, ptr @stderr, align 8
-  %2277 = call i64 @fwrite(ptr nonnull @.str.471, i64 77, i64 1, ptr %2276) #29
-  br label %if.end8722
+  %2279 = load ptr, ptr @stderr, align 8
+  %2280 = call i64 @fwrite(ptr nonnull @.str.471, i64 77, i64 1, ptr %2279) #29
+  br label %if.end8728
 
-if.end8722:                                       ; preds = %if.then8707, %if.then8720
+if.end8728:                                       ; preds = %if.then8720, %if.then8707
   %blob_reader_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2600
-  %2278 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3824 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2278, ptr noundef %call.i17899) #24
+  %2281 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3824 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2281, ptr noundef %call.i17899) #24
   store ptr %call8.i.i3824, ptr %blob_reader_constructor_template_.i, align 8
-  %inc8727 = add nuw nsw i64 %i.4, 1
+  %inc8727 = add nuw nsw i64 %i.44719, 1
   %.pre4347 = load ptr, ptr %_M_finish.i, align 8
   %.pre4348 = load ptr, ptr %template_values, align 8
   %.pre4473 = ptrtoint ptr %.pre4347 to i64
   %.pre4474 = ptrtoint ptr %.pre4348 to i64
   %.pre4475 = sub i64 %.pre4473, %.pre4474
   %.pre4476 = sdiv exact i64 %.pre4475, 48
-  br label %if.end8728
+  %2282 = icmp ugt i64 %.pre4476, %inc8727
+  br i1 %2282, label %land.lhs.true8735, label %if.end10552
 
-if.end8728:                                       ; preds = %if.end8722, %land.lhs.true8703, %if.end8696
-  %sub.ptr.div.i3829.pre-phi = phi i64 [ %.pre4476, %if.end8722 ], [ %sub.ptr.div.i3820.pre-phi, %land.lhs.true8703 ], [ %sub.ptr.div.i3820.pre-phi, %if.end8696 ]
-  %2279 = phi ptr [ %.pre4348, %if.end8722 ], [ %2272, %land.lhs.true8703 ], [ %2272, %if.end8696 ]
-  %i.5 = phi i64 [ %inc8727, %if.end8722 ], [ %i.4, %land.lhs.true8703 ], [ %i.4, %if.end8696 ]
-  %cmp8734 = icmp ugt i64 %sub.ptr.div.i3829.pre-phi, %i.5
-  br i1 %cmp8734, label %land.lhs.true8735, label %if.end8760
-
-land.lhs.true8735:                                ; preds = %if.end8728
-  %add.ptr.i3830 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2279, i64 %i.5
+land.lhs.true8735:                                ; preds = %land.lhs.true8703, %if.end8728
+  %i.54726 = phi i64 [ %inc8727, %if.end8728 ], [ %i.44719, %land.lhs.true8703 ]
+  %2283 = phi ptr [ %.pre4348, %if.end8728 ], [ %2275, %land.lhs.true8703 ]
+  %add.ptr.i3830 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2283, i64 %i.54726
   %id8737 = getelementptr inbounds nuw i8, ptr %add.ptr.i3830, i64 32
-  %2280 = load i32, ptr %id8737, align 8
-  %cmp8738 = icmp eq i32 %2280, 5
-  br i1 %cmp8738, label %if.then8739, label %if.end8760
+  %2284 = load i32, ptr %id8737, align 8
+  %cmp8738 = icmp eq i32 %2284, 5
+  br i1 %cmp8738, label %if.then8739, label %land.lhs.true8767
 
 if.then8739:                                      ; preds = %land.lhs.true8735
-  %2281 = load ptr, ptr %isolate_, align 8
+  %2285 = load ptr, ptr %isolate_, align 8
   %index8744 = getelementptr inbounds nuw i8, ptr %add.ptr.i3830, i64 40
-  %2282 = load i64, ptr %index8744, align 8
-  %call.i17887 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2281, i64 noundef %2282) #24
+  %2286 = load i64, ptr %index8744, align 8
+  %call.i17887 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2285, i64 noundef %2286) #24
   %cond2987 = icmp eq ptr %call.i17887, null
-  br i1 %cond2987, label %if.then8752, label %if.end8754
+  br i1 %cond2987, label %if.then8752, label %if.end8760
 
 if.then8752:                                      ; preds = %if.then8739
-  %2283 = load ptr, ptr @stderr, align 8
-  %2284 = call i64 @fwrite(ptr nonnull @.str.472, i64 75, i64 1, ptr %2283) #29
-  br label %if.end8754
+  %2287 = load ptr, ptr @stderr, align 8
+  %2288 = call i64 @fwrite(ptr nonnull @.str.472, i64 75, i64 1, ptr %2287) #29
+  br label %if.end8760
 
-if.end8754:                                       ; preds = %if.then8739, %if.then8752
+if.end8760:                                       ; preds = %if.then8752, %if.then8739
   %blocklist_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2608
-  %2285 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3833 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2285, ptr noundef %call.i17887) #24
+  %2289 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3833 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2289, ptr noundef %call.i17887) #24
   store ptr %call8.i.i3833, ptr %blocklist_constructor_template_.i, align 8
-  %inc8759 = add nuw nsw i64 %i.5, 1
+  %inc8759 = add nuw nsw i64 %i.54726, 1
   %.pre4349 = load ptr, ptr %_M_finish.i, align 8
   %.pre4350 = load ptr, ptr %template_values, align 8
   %.pre4477 = ptrtoint ptr %.pre4349 to i64
   %.pre4478 = ptrtoint ptr %.pre4350 to i64
   %.pre4479 = sub i64 %.pre4477, %.pre4478
   %.pre4480 = sdiv exact i64 %.pre4479, 48
-  br label %if.end8760
+  %2290 = icmp ugt i64 %.pre4480, %inc8759
+  br i1 %2290, label %land.lhs.true8767, label %if.end10552
 
-if.end8760:                                       ; preds = %if.end8754, %land.lhs.true8735, %if.end8728
-  %sub.ptr.div.i3838.pre-phi = phi i64 [ %.pre4480, %if.end8754 ], [ %sub.ptr.div.i3829.pre-phi, %land.lhs.true8735 ], [ %sub.ptr.div.i3829.pre-phi, %if.end8728 ]
-  %2286 = phi ptr [ %.pre4350, %if.end8754 ], [ %2279, %land.lhs.true8735 ], [ %2279, %if.end8728 ]
-  %i.6 = phi i64 [ %inc8759, %if.end8754 ], [ %i.5, %land.lhs.true8735 ], [ %i.5, %if.end8728 ]
-  %cmp8766 = icmp ugt i64 %sub.ptr.div.i3838.pre-phi, %i.6
-  br i1 %cmp8766, label %land.lhs.true8767, label %if.end8792
-
-land.lhs.true8767:                                ; preds = %if.end8760
-  %add.ptr.i3839 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2286, i64 %i.6
+land.lhs.true8767:                                ; preds = %land.lhs.true8735, %if.end8760
+  %i.64733 = phi i64 [ %inc8759, %if.end8760 ], [ %i.54726, %land.lhs.true8735 ]
+  %2291 = phi ptr [ %.pre4350, %if.end8760 ], [ %2283, %land.lhs.true8735 ]
+  %add.ptr.i3839 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2291, i64 %i.64733
   %id8769 = getelementptr inbounds nuw i8, ptr %add.ptr.i3839, i64 32
-  %2287 = load i32, ptr %id8769, align 8
-  %cmp8770 = icmp eq i32 %2287, 6
-  br i1 %cmp8770, label %if.then8771, label %if.end8792
+  %2292 = load i32, ptr %id8769, align 8
+  %cmp8770 = icmp eq i32 %2292, 6
+  br i1 %cmp8770, label %if.then8771, label %land.lhs.true8799
 
 if.then8771:                                      ; preds = %land.lhs.true8767
-  %2288 = load ptr, ptr %isolate_, align 8
+  %2293 = load ptr, ptr %isolate_, align 8
   %index8776 = getelementptr inbounds nuw i8, ptr %add.ptr.i3839, i64 40
-  %2289 = load i64, ptr %index8776, align 8
-  %call.i18536 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2288, i64 noundef %2289) #24
+  %2294 = load i64, ptr %index8776, align 8
+  %call.i18536 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2293, i64 noundef %2294) #24
   %cond2988 = icmp eq ptr %call.i18536, null
-  br i1 %cond2988, label %if.then8784, label %if.end8786
+  br i1 %cond2988, label %if.then8784, label %if.end8792
 
 if.then8784:                                      ; preds = %if.then8771
-  %2290 = load ptr, ptr @stderr, align 8
-  %2291 = call i64 @fwrite(ptr nonnull @.str.473, i64 71, i64 1, ptr %2290) #29
-  br label %if.end8786
+  %2295 = load ptr, ptr @stderr, align 8
+  %2296 = call i64 @fwrite(ptr nonnull @.str.473, i64 71, i64 1, ptr %2295) #29
+  br label %if.end8792
 
-if.end8786:                                       ; preds = %if.then8771, %if.then8784
+if.end8792:                                       ; preds = %if.then8784, %if.then8771
   %contextify_global_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2616
-  %2292 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3842 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2292, ptr noundef %call.i18536) #24
+  %2297 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3842 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2297, ptr noundef %call.i18536) #24
   store ptr %call8.i.i3842, ptr %contextify_global_template_.i, align 8
-  %inc8791 = add nuw nsw i64 %i.6, 1
+  %inc8791 = add nuw nsw i64 %i.64733, 1
   %.pre4351 = load ptr, ptr %_M_finish.i, align 8
   %.pre4352 = load ptr, ptr %template_values, align 8
   %.pre4481 = ptrtoint ptr %.pre4351 to i64
   %.pre4482 = ptrtoint ptr %.pre4352 to i64
   %.pre4483 = sub i64 %.pre4481, %.pre4482
   %.pre4484 = sdiv exact i64 %.pre4483, 48
-  br label %if.end8792
+  %2298 = icmp ugt i64 %.pre4484, %inc8791
+  br i1 %2298, label %land.lhs.true8799, label %if.end10552
 
-if.end8792:                                       ; preds = %if.end8786, %land.lhs.true8767, %if.end8760
-  %sub.ptr.div.i3847.pre-phi = phi i64 [ %.pre4484, %if.end8786 ], [ %sub.ptr.div.i3838.pre-phi, %land.lhs.true8767 ], [ %sub.ptr.div.i3838.pre-phi, %if.end8760 ]
-  %2293 = phi ptr [ %.pre4352, %if.end8786 ], [ %2286, %land.lhs.true8767 ], [ %2286, %if.end8760 ]
-  %i.7 = phi i64 [ %inc8791, %if.end8786 ], [ %i.6, %land.lhs.true8767 ], [ %i.6, %if.end8760 ]
-  %cmp8798 = icmp ugt i64 %sub.ptr.div.i3847.pre-phi, %i.7
-  br i1 %cmp8798, label %land.lhs.true8799, label %if.end8824
-
-land.lhs.true8799:                                ; preds = %if.end8792
-  %add.ptr.i3848 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2293, i64 %i.7
+land.lhs.true8799:                                ; preds = %land.lhs.true8767, %if.end8792
+  %i.74740 = phi i64 [ %inc8791, %if.end8792 ], [ %i.64733, %land.lhs.true8767 ]
+  %2299 = phi ptr [ %.pre4352, %if.end8792 ], [ %2291, %land.lhs.true8767 ]
+  %add.ptr.i3848 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2299, i64 %i.74740
   %id8801 = getelementptr inbounds nuw i8, ptr %add.ptr.i3848, i64 32
-  %2294 = load i32, ptr %id8801, align 8
-  %cmp8802 = icmp eq i32 %2294, 7
-  br i1 %cmp8802, label %if.then8803, label %if.end8824
+  %2300 = load i32, ptr %id8801, align 8
+  %cmp8802 = icmp eq i32 %2300, 7
+  br i1 %cmp8802, label %if.then8803, label %land.lhs.true8831
 
 if.then8803:                                      ; preds = %land.lhs.true8799
-  %2295 = load ptr, ptr %isolate_, align 8
+  %2301 = load ptr, ptr %isolate_, align 8
   %index8808 = getelementptr inbounds nuw i8, ptr %add.ptr.i3848, i64 40
-  %2296 = load i64, ptr %index8808, align 8
-  %call.i18524 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2295, i64 noundef %2296) #24
+  %2302 = load i64, ptr %index8808, align 8
+  %call.i18524 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2301, i64 noundef %2302) #24
   %cond2989 = icmp eq ptr %call.i18524, null
-  br i1 %cond2989, label %if.then8816, label %if.end8818
+  br i1 %cond2989, label %if.then8816, label %if.end8824
 
 if.then8816:                                      ; preds = %if.then8803
-  %2297 = load ptr, ptr @stderr, align 8
-  %2298 = call i64 @fwrite(ptr nonnull @.str.474, i64 72, i64 1, ptr %2297) #29
-  br label %if.end8818
+  %2303 = load ptr, ptr @stderr, align 8
+  %2304 = call i64 @fwrite(ptr nonnull @.str.474, i64 72, i64 1, ptr %2303) #29
+  br label %if.end8824
 
-if.end8818:                                       ; preds = %if.then8803, %if.then8816
+if.end8824:                                       ; preds = %if.then8816, %if.then8803
   %contextify_wrapper_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2624
-  %2299 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3851 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2299, ptr noundef %call.i18524) #24
+  %2305 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3851 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2305, ptr noundef %call.i18524) #24
   store ptr %call8.i.i3851, ptr %contextify_wrapper_template_.i, align 8
-  %inc8823 = add nuw nsw i64 %i.7, 1
+  %inc8823 = add nuw nsw i64 %i.74740, 1
   %.pre4353 = load ptr, ptr %_M_finish.i, align 8
   %.pre4354 = load ptr, ptr %template_values, align 8
   %.pre4485 = ptrtoint ptr %.pre4353 to i64
   %.pre4486 = ptrtoint ptr %.pre4354 to i64
   %.pre4487 = sub i64 %.pre4485, %.pre4486
   %.pre4488 = sdiv exact i64 %.pre4487, 48
-  br label %if.end8824
+  %2306 = icmp ugt i64 %.pre4488, %inc8823
+  br i1 %2306, label %land.lhs.true8831, label %if.end10552
 
-if.end8824:                                       ; preds = %if.end8818, %land.lhs.true8799, %if.end8792
-  %sub.ptr.div.i3856.pre-phi = phi i64 [ %.pre4488, %if.end8818 ], [ %sub.ptr.div.i3847.pre-phi, %land.lhs.true8799 ], [ %sub.ptr.div.i3847.pre-phi, %if.end8792 ]
-  %2300 = phi ptr [ %.pre4354, %if.end8818 ], [ %2293, %land.lhs.true8799 ], [ %2293, %if.end8792 ]
-  %i.8 = phi i64 [ %inc8823, %if.end8818 ], [ %i.7, %land.lhs.true8799 ], [ %i.7, %if.end8792 ]
-  %cmp8830 = icmp ugt i64 %sub.ptr.div.i3856.pre-phi, %i.8
-  br i1 %cmp8830, label %land.lhs.true8831, label %if.end8856
-
-land.lhs.true8831:                                ; preds = %if.end8824
-  %add.ptr.i3857 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2300, i64 %i.8
+land.lhs.true8831:                                ; preds = %land.lhs.true8799, %if.end8824
+  %i.84747 = phi i64 [ %inc8823, %if.end8824 ], [ %i.74740, %land.lhs.true8799 ]
+  %2307 = phi ptr [ %.pre4354, %if.end8824 ], [ %2299, %land.lhs.true8799 ]
+  %add.ptr.i3857 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2307, i64 %i.84747
   %id8833 = getelementptr inbounds nuw i8, ptr %add.ptr.i3857, i64 32
-  %2301 = load i32, ptr %id8833, align 8
-  %cmp8834 = icmp eq i32 %2301, 8
-  br i1 %cmp8834, label %if.then8835, label %if.end8856
+  %2308 = load i32, ptr %id8833, align 8
+  %cmp8834 = icmp eq i32 %2308, 8
+  br i1 %cmp8834, label %if.then8835, label %land.lhs.true8863
 
 if.then8835:                                      ; preds = %land.lhs.true8831
-  %2302 = load ptr, ptr %isolate_, align 8
+  %2309 = load ptr, ptr %isolate_, align 8
   %index8840 = getelementptr inbounds nuw i8, ptr %add.ptr.i3857, i64 40
-  %2303 = load i64, ptr %index8840, align 8
-  %call.i17875 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2302, i64 noundef %2303) #24
+  %2310 = load i64, ptr %index8840, align 8
+  %call.i17875 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2309, i64 noundef %2310) #24
   %cond2990 = icmp eq ptr %call.i17875, null
-  br i1 %cond2990, label %if.then8848, label %if.end8850
+  br i1 %cond2990, label %if.then8848, label %if.end8856
 
 if.then8848:                                      ; preds = %if.then8835
-  %2304 = load ptr, ptr @stderr, align 8
-  %2305 = call i64 @fwrite(ptr nonnull @.str.475, i64 81, i64 1, ptr %2304) #29
-  br label %if.end8850
+  %2311 = load ptr, ptr @stderr, align 8
+  %2312 = call i64 @fwrite(ptr nonnull @.str.475, i64 81, i64 1, ptr %2311) #29
+  br label %if.end8856
 
-if.end8850:                                       ; preds = %if.then8835, %if.then8848
+if.end8856:                                       ; preds = %if.then8848, %if.then8835
   %crypto_key_object_handle_constructor_.i = getelementptr inbounds nuw i8, ptr %this, i64 2632
-  %2306 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3860 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2306, ptr noundef %call.i17875) #24
+  %2313 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3860 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2313, ptr noundef %call.i17875) #24
   store ptr %call8.i.i3860, ptr %crypto_key_object_handle_constructor_.i, align 8
-  %inc8855 = add nuw nsw i64 %i.8, 1
+  %inc8855 = add nuw nsw i64 %i.84747, 1
   %.pre4355 = load ptr, ptr %_M_finish.i, align 8
   %.pre4356 = load ptr, ptr %template_values, align 8
   %.pre4489 = ptrtoint ptr %.pre4355 to i64
   %.pre4490 = ptrtoint ptr %.pre4356 to i64
   %.pre4491 = sub i64 %.pre4489, %.pre4490
   %.pre4492 = sdiv exact i64 %.pre4491, 48
-  br label %if.end8856
+  %2314 = icmp ugt i64 %.pre4492, %inc8855
+  br i1 %2314, label %land.lhs.true8863, label %if.end10552
 
-if.end8856:                                       ; preds = %if.end8850, %land.lhs.true8831, %if.end8824
-  %sub.ptr.div.i3865.pre-phi = phi i64 [ %.pre4492, %if.end8850 ], [ %sub.ptr.div.i3856.pre-phi, %land.lhs.true8831 ], [ %sub.ptr.div.i3856.pre-phi, %if.end8824 ]
-  %2307 = phi ptr [ %.pre4356, %if.end8850 ], [ %2300, %land.lhs.true8831 ], [ %2300, %if.end8824 ]
-  %i.9 = phi i64 [ %inc8855, %if.end8850 ], [ %i.8, %land.lhs.true8831 ], [ %i.8, %if.end8824 ]
-  %cmp8862 = icmp ugt i64 %sub.ptr.div.i3865.pre-phi, %i.9
-  br i1 %cmp8862, label %land.lhs.true8863, label %if.end8888
-
-land.lhs.true8863:                                ; preds = %if.end8856
-  %add.ptr.i3866 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2307, i64 %i.9
+land.lhs.true8863:                                ; preds = %land.lhs.true8831, %if.end8856
+  %i.94754 = phi i64 [ %inc8855, %if.end8856 ], [ %i.84747, %land.lhs.true8831 ]
+  %2315 = phi ptr [ %.pre4356, %if.end8856 ], [ %2307, %land.lhs.true8831 ]
+  %add.ptr.i3866 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2315, i64 %i.94754
   %id8865 = getelementptr inbounds nuw i8, ptr %add.ptr.i3866, i64 32
-  %2308 = load i32, ptr %id8865, align 8
-  %cmp8866 = icmp eq i32 %2308, 9
-  br i1 %cmp8866, label %if.then8867, label %if.end8888
+  %2316 = load i32, ptr %id8865, align 8
+  %cmp8866 = icmp eq i32 %2316, 9
+  br i1 %cmp8866, label %if.then8867, label %land.lhs.true8895
 
 if.then8867:                                      ; preds = %land.lhs.true8863
-  %2309 = load ptr, ptr %isolate_, align 8
+  %2317 = load ptr, ptr %isolate_, align 8
   %index8872 = getelementptr inbounds nuw i8, ptr %add.ptr.i3866, i64 40
-  %2310 = load i64, ptr %index8872, align 8
-  %call.i18512 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2309, i64 noundef %2310) #24
+  %2318 = load i64, ptr %index8872, align 8
+  %call.i18512 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2317, i64 noundef %2318) #24
   %cond2991 = icmp eq ptr %call.i18512, null
-  br i1 %cond2991, label %if.then8880, label %if.end8882
+  br i1 %cond2991, label %if.then8880, label %if.end8888
 
 if.then8880:                                      ; preds = %if.then8867
-  %2311 = load ptr, ptr @stderr, align 8
-  %2312 = call i64 @fwrite(ptr nonnull @.str.476, i64 63, i64 1, ptr %2311) #29
-  br label %if.end8882
+  %2319 = load ptr, ptr @stderr, align 8
+  %2320 = call i64 @fwrite(ptr nonnull @.str.476, i64 63, i64 1, ptr %2319) #29
+  br label %if.end8888
 
-if.end8882:                                       ; preds = %if.then8867, %if.then8880
+if.end8888:                                       ; preds = %if.then8880, %if.then8867
   %env_proxy_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2640
-  %2313 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3869 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2313, ptr noundef %call.i18512) #24
+  %2321 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3869 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2321, ptr noundef %call.i18512) #24
   store ptr %call8.i.i3869, ptr %env_proxy_template_.i, align 8
-  %inc8887 = add nuw nsw i64 %i.9, 1
+  %inc8887 = add nuw nsw i64 %i.94754, 1
   %.pre4357 = load ptr, ptr %_M_finish.i, align 8
   %.pre4358 = load ptr, ptr %template_values, align 8
   %.pre4493 = ptrtoint ptr %.pre4357 to i64
   %.pre4494 = ptrtoint ptr %.pre4358 to i64
   %.pre4495 = sub i64 %.pre4493, %.pre4494
   %.pre4496 = sdiv exact i64 %.pre4495, 48
-  br label %if.end8888
+  %2322 = icmp ugt i64 %.pre4496, %inc8887
+  br i1 %2322, label %land.lhs.true8895, label %if.end10552
 
-if.end8888:                                       ; preds = %if.end8882, %land.lhs.true8863, %if.end8856
-  %sub.ptr.div.i3874.pre-phi = phi i64 [ %.pre4496, %if.end8882 ], [ %sub.ptr.div.i3865.pre-phi, %land.lhs.true8863 ], [ %sub.ptr.div.i3865.pre-phi, %if.end8856 ]
-  %2314 = phi ptr [ %.pre4358, %if.end8882 ], [ %2307, %land.lhs.true8863 ], [ %2307, %if.end8856 ]
-  %i.10 = phi i64 [ %inc8887, %if.end8882 ], [ %i.9, %land.lhs.true8863 ], [ %i.9, %if.end8856 ]
-  %cmp8894 = icmp ugt i64 %sub.ptr.div.i3874.pre-phi, %i.10
-  br i1 %cmp8894, label %land.lhs.true8895, label %if.end8920
-
-land.lhs.true8895:                                ; preds = %if.end8888
-  %add.ptr.i3875 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2314, i64 %i.10
+land.lhs.true8895:                                ; preds = %land.lhs.true8863, %if.end8888
+  %i.104761 = phi i64 [ %inc8887, %if.end8888 ], [ %i.94754, %land.lhs.true8863 ]
+  %2323 = phi ptr [ %.pre4358, %if.end8888 ], [ %2315, %land.lhs.true8863 ]
+  %add.ptr.i3875 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2323, i64 %i.104761
   %id8897 = getelementptr inbounds nuw i8, ptr %add.ptr.i3875, i64 32
-  %2315 = load i32, ptr %id8897, align 8
-  %cmp8898 = icmp eq i32 %2315, 10
-  br i1 %cmp8898, label %if.then8899, label %if.end8920
+  %2324 = load i32, ptr %id8897, align 8
+  %cmp8898 = icmp eq i32 %2324, 10
+  br i1 %cmp8898, label %if.then8899, label %land.lhs.true8927
 
 if.then8899:                                      ; preds = %land.lhs.true8895
-  %2316 = load ptr, ptr %isolate_, align 8
+  %2325 = load ptr, ptr %isolate_, align 8
   %index8904 = getelementptr inbounds nuw i8, ptr %add.ptr.i3875, i64 40
-  %2317 = load i64, ptr %index8904, align 8
-  %call.i17863 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2316, i64 noundef %2317) #24
+  %2326 = load i64, ptr %index8904, align 8
+  %call.i17863 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2325, i64 noundef %2326) #24
   %cond2992 = icmp eq ptr %call.i17863, null
-  br i1 %cond2992, label %if.then8912, label %if.end8914
+  br i1 %cond2992, label %if.then8912, label %if.end8920
 
 if.then8912:                                      ; preds = %if.then8899
-  %2318 = load ptr, ptr @stderr, align 8
-  %2319 = call i64 @fwrite(ptr nonnull @.str.477, i64 68, i64 1, ptr %2318) #29
-  br label %if.end8914
+  %2327 = load ptr, ptr @stderr, align 8
+  %2328 = call i64 @fwrite(ptr nonnull @.str.477, i64 68, i64 1, ptr %2327) #29
+  br label %if.end8920
 
-if.end8914:                                       ; preds = %if.then8899, %if.then8912
+if.end8920:                                       ; preds = %if.then8912, %if.then8899
   %env_proxy_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2648
-  %2320 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3878 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2320, ptr noundef %call.i17863) #24
+  %2329 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3878 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2329, ptr noundef %call.i17863) #24
   store ptr %call8.i.i3878, ptr %env_proxy_ctor_template_.i, align 8
-  %inc8919 = add nuw nsw i64 %i.10, 1
+  %inc8919 = add nuw nsw i64 %i.104761, 1
   %.pre4359 = load ptr, ptr %_M_finish.i, align 8
   %.pre4360 = load ptr, ptr %template_values, align 8
   %.pre4497 = ptrtoint ptr %.pre4359 to i64
   %.pre4498 = ptrtoint ptr %.pre4360 to i64
   %.pre4499 = sub i64 %.pre4497, %.pre4498
   %.pre4500 = sdiv exact i64 %.pre4499, 48
-  br label %if.end8920
+  %2330 = icmp ugt i64 %.pre4500, %inc8919
+  br i1 %2330, label %land.lhs.true8927, label %if.end10552
 
-if.end8920:                                       ; preds = %if.end8914, %land.lhs.true8895, %if.end8888
-  %sub.ptr.div.i3883.pre-phi = phi i64 [ %.pre4500, %if.end8914 ], [ %sub.ptr.div.i3874.pre-phi, %land.lhs.true8895 ], [ %sub.ptr.div.i3874.pre-phi, %if.end8888 ]
-  %2321 = phi ptr [ %.pre4360, %if.end8914 ], [ %2314, %land.lhs.true8895 ], [ %2314, %if.end8888 ]
-  %i.11 = phi i64 [ %inc8919, %if.end8914 ], [ %i.10, %land.lhs.true8895 ], [ %i.10, %if.end8888 ]
-  %cmp8926 = icmp ugt i64 %sub.ptr.div.i3883.pre-phi, %i.11
-  br i1 %cmp8926, label %land.lhs.true8927, label %if.end8952
-
-land.lhs.true8927:                                ; preds = %if.end8920
-  %add.ptr.i3884 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2321, i64 %i.11
+land.lhs.true8927:                                ; preds = %land.lhs.true8895, %if.end8920
+  %i.114768 = phi i64 [ %inc8919, %if.end8920 ], [ %i.104761, %land.lhs.true8895 ]
+  %2331 = phi ptr [ %.pre4360, %if.end8920 ], [ %2323, %land.lhs.true8895 ]
+  %add.ptr.i3884 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2331, i64 %i.114768
   %id8929 = getelementptr inbounds nuw i8, ptr %add.ptr.i3884, i64 32
-  %2322 = load i32, ptr %id8929, align 8
-  %cmp8930 = icmp eq i32 %2322, 11
-  br i1 %cmp8930, label %if.then8931, label %if.end8952
+  %2332 = load i32, ptr %id8929, align 8
+  %cmp8930 = icmp eq i32 %2332, 11
+  br i1 %cmp8930, label %if.then8931, label %land.lhs.true8959
 
 if.then8931:                                      ; preds = %land.lhs.true8927
-  %2323 = load ptr, ptr %isolate_, align 8
+  %2333 = load ptr, ptr %isolate_, align 8
   %index8936 = getelementptr inbounds nuw i8, ptr %add.ptr.i3884, i64 40
-  %2324 = load i64, ptr %index8936, align 8
-  %call.i18500 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2323, i64 noundef %2324) #24
+  %2334 = load i64, ptr %index8936, align 8
+  %call.i18500 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2333, i64 noundef %2334) #24
   %cond2993 = icmp eq ptr %call.i18500, null
-  br i1 %cond2993, label %if.then8944, label %if.end8946
+  br i1 %cond2993, label %if.then8944, label %if.end8952
 
 if.then8944:                                      ; preds = %if.then8931
-  %2325 = load ptr, ptr @stderr, align 8
-  %2326 = call i64 @fwrite(ptr nonnull @.str.478, i64 66, i64 1, ptr %2325) #29
-  br label %if.end8946
+  %2335 = load ptr, ptr @stderr, align 8
+  %2336 = call i64 @fwrite(ptr nonnull @.str.478, i64 66, i64 1, ptr %2335) #29
+  br label %if.end8952
 
-if.end8946:                                       ; preds = %if.then8931, %if.then8944
+if.end8952:                                       ; preds = %if.then8944, %if.then8931
   %dir_instance_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2656
-  %2327 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3887 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2327, ptr noundef %call.i18500) #24
+  %2337 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3887 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2337, ptr noundef %call.i18500) #24
   store ptr %call8.i.i3887, ptr %dir_instance_template_.i, align 8
-  %inc8951 = add nuw nsw i64 %i.11, 1
+  %inc8951 = add nuw nsw i64 %i.114768, 1
   %.pre4361 = load ptr, ptr %_M_finish.i, align 8
   %.pre4362 = load ptr, ptr %template_values, align 8
   %.pre4501 = ptrtoint ptr %.pre4361 to i64
   %.pre4502 = ptrtoint ptr %.pre4362 to i64
   %.pre4503 = sub i64 %.pre4501, %.pre4502
   %.pre4504 = sdiv exact i64 %.pre4503, 48
-  br label %if.end8952
+  %2338 = icmp ugt i64 %.pre4504, %inc8951
+  br i1 %2338, label %land.lhs.true8959, label %if.end10552
 
-if.end8952:                                       ; preds = %if.end8946, %land.lhs.true8927, %if.end8920
-  %sub.ptr.div.i3892.pre-phi = phi i64 [ %.pre4504, %if.end8946 ], [ %sub.ptr.div.i3883.pre-phi, %land.lhs.true8927 ], [ %sub.ptr.div.i3883.pre-phi, %if.end8920 ]
-  %2328 = phi ptr [ %.pre4362, %if.end8946 ], [ %2321, %land.lhs.true8927 ], [ %2321, %if.end8920 ]
-  %i.12 = phi i64 [ %inc8951, %if.end8946 ], [ %i.11, %land.lhs.true8927 ], [ %i.11, %if.end8920 ]
-  %cmp8958 = icmp ugt i64 %sub.ptr.div.i3892.pre-phi, %i.12
-  br i1 %cmp8958, label %land.lhs.true8959, label %if.end8984
-
-land.lhs.true8959:                                ; preds = %if.end8952
-  %add.ptr.i3893 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2328, i64 %i.12
+land.lhs.true8959:                                ; preds = %land.lhs.true8927, %if.end8952
+  %i.124775 = phi i64 [ %inc8951, %if.end8952 ], [ %i.114768, %land.lhs.true8927 ]
+  %2339 = phi ptr [ %.pre4362, %if.end8952 ], [ %2331, %land.lhs.true8927 ]
+  %add.ptr.i3893 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2339, i64 %i.124775
   %id8961 = getelementptr inbounds nuw i8, ptr %add.ptr.i3893, i64 32
-  %2329 = load i32, ptr %id8961, align 8
-  %cmp8962 = icmp eq i32 %2329, 12
-  br i1 %cmp8962, label %if.then8963, label %if.end8984
+  %2340 = load i32, ptr %id8961, align 8
+  %cmp8962 = icmp eq i32 %2340, 12
+  br i1 %cmp8962, label %if.then8963, label %land.lhs.true8991
 
 if.then8963:                                      ; preds = %land.lhs.true8959
-  %2330 = load ptr, ptr %isolate_, align 8
+  %2341 = load ptr, ptr %isolate_, align 8
   %index8968 = getelementptr inbounds nuw i8, ptr %add.ptr.i3893, i64 40
-  %2331 = load i64, ptr %index8968, align 8
-  %call.i18488 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2330, i64 noundef %2331) #24
+  %2342 = load i64, ptr %index8968, align 8
+  %call.i18488 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2341, i64 noundef %2342) #24
   %cond2994 = icmp eq ptr %call.i18488, null
-  br i1 %cond2994, label %if.then8976, label %if.end8978
+  br i1 %cond2994, label %if.then8976, label %if.end8984
 
 if.then8976:                                      ; preds = %if.then8963
-  %2332 = load ptr, ptr @stderr, align 8
-  %2333 = call i64 @fwrite(ptr nonnull @.str.479, i64 68, i64 1, ptr %2332) #29
-  br label %if.end8978
+  %2343 = load ptr, ptr @stderr, align 8
+  %2344 = call i64 @fwrite(ptr nonnull @.str.479, i64 68, i64 1, ptr %2343) #29
+  br label %if.end8984
 
-if.end8978:                                       ; preds = %if.then8963, %if.then8976
+if.end8984:                                       ; preds = %if.then8976, %if.then8963
   %fd_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2664
-  %2334 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3896 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2334, ptr noundef %call.i18488) #24
+  %2345 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3896 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2345, ptr noundef %call.i18488) #24
   store ptr %call8.i.i3896, ptr %fd_constructor_template_.i, align 8
-  %inc8983 = add nuw nsw i64 %i.12, 1
+  %inc8983 = add nuw nsw i64 %i.124775, 1
   %.pre4363 = load ptr, ptr %_M_finish.i, align 8
   %.pre4364 = load ptr, ptr %template_values, align 8
   %.pre4505 = ptrtoint ptr %.pre4363 to i64
   %.pre4506 = ptrtoint ptr %.pre4364 to i64
   %.pre4507 = sub i64 %.pre4505, %.pre4506
   %.pre4508 = sdiv exact i64 %.pre4507, 48
-  br label %if.end8984
+  %2346 = icmp ugt i64 %.pre4508, %inc8983
+  br i1 %2346, label %land.lhs.true8991, label %if.end10552
 
-if.end8984:                                       ; preds = %if.end8978, %land.lhs.true8959, %if.end8952
-  %sub.ptr.div.i3901.pre-phi = phi i64 [ %.pre4508, %if.end8978 ], [ %sub.ptr.div.i3892.pre-phi, %land.lhs.true8959 ], [ %sub.ptr.div.i3892.pre-phi, %if.end8952 ]
-  %2335 = phi ptr [ %.pre4364, %if.end8978 ], [ %2328, %land.lhs.true8959 ], [ %2328, %if.end8952 ]
-  %i.13 = phi i64 [ %inc8983, %if.end8978 ], [ %i.12, %land.lhs.true8959 ], [ %i.12, %if.end8952 ]
-  %cmp8990 = icmp ugt i64 %sub.ptr.div.i3901.pre-phi, %i.13
-  br i1 %cmp8990, label %land.lhs.true8991, label %if.end9016
-
-land.lhs.true8991:                                ; preds = %if.end8984
-  %add.ptr.i3902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2335, i64 %i.13
+land.lhs.true8991:                                ; preds = %land.lhs.true8959, %if.end8984
+  %i.134782 = phi i64 [ %inc8983, %if.end8984 ], [ %i.124775, %land.lhs.true8959 ]
+  %2347 = phi ptr [ %.pre4364, %if.end8984 ], [ %2339, %land.lhs.true8959 ]
+  %add.ptr.i3902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2347, i64 %i.134782
   %id8993 = getelementptr inbounds nuw i8, ptr %add.ptr.i3902, i64 32
-  %2336 = load i32, ptr %id8993, align 8
-  %cmp8994 = icmp eq i32 %2336, 13
-  br i1 %cmp8994, label %if.then8995, label %if.end9016
+  %2348 = load i32, ptr %id8993, align 8
+  %cmp8994 = icmp eq i32 %2348, 13
+  br i1 %cmp8994, label %if.then8995, label %land.lhs.true9023
 
 if.then8995:                                      ; preds = %land.lhs.true8991
-  %2337 = load ptr, ptr %isolate_, align 8
+  %2349 = load ptr, ptr %isolate_, align 8
   %index9000 = getelementptr inbounds nuw i8, ptr %add.ptr.i3902, i64 40
-  %2338 = load i64, ptr %index9000, align 8
-  %call.i18476 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2337, i64 noundef %2338) #24
+  %2350 = load i64, ptr %index9000, align 8
+  %call.i18476 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2349, i64 noundef %2350) #24
   %cond2995 = icmp eq ptr %call.i18476, null
-  br i1 %cond2995, label %if.then9008, label %if.end9010
+  br i1 %cond2995, label %if.then9008, label %if.end9016
 
 if.then9008:                                      ; preds = %if.then8995
-  %2339 = load ptr, ptr @stderr, align 8
-  %2340 = call i64 @fwrite(ptr nonnull @.str.480, i64 73, i64 1, ptr %2339) #29
-  br label %if.end9010
+  %2351 = load ptr, ptr @stderr, align 8
+  %2352 = call i64 @fwrite(ptr nonnull @.str.480, i64 73, i64 1, ptr %2351) #29
+  br label %if.end9016
 
-if.end9010:                                       ; preds = %if.then8995, %if.then9008
+if.end9016:                                       ; preds = %if.then9008, %if.then8995
   %fdclose_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2672
-  %2341 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3905 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2341, ptr noundef %call.i18476) #24
+  %2353 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3905 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2353, ptr noundef %call.i18476) #24
   store ptr %call8.i.i3905, ptr %fdclose_constructor_template_.i, align 8
-  %inc9015 = add nuw nsw i64 %i.13, 1
+  %inc9015 = add nuw nsw i64 %i.134782, 1
   %.pre4365 = load ptr, ptr %_M_finish.i, align 8
   %.pre4366 = load ptr, ptr %template_values, align 8
   %.pre4509 = ptrtoint ptr %.pre4365 to i64
   %.pre4510 = ptrtoint ptr %.pre4366 to i64
   %.pre4511 = sub i64 %.pre4509, %.pre4510
   %.pre4512 = sdiv exact i64 %.pre4511, 48
-  br label %if.end9016
+  %2354 = icmp ugt i64 %.pre4512, %inc9015
+  br i1 %2354, label %land.lhs.true9023, label %if.end10552
 
-if.end9016:                                       ; preds = %if.end9010, %land.lhs.true8991, %if.end8984
-  %sub.ptr.div.i3910.pre-phi = phi i64 [ %.pre4512, %if.end9010 ], [ %sub.ptr.div.i3901.pre-phi, %land.lhs.true8991 ], [ %sub.ptr.div.i3901.pre-phi, %if.end8984 ]
-  %2342 = phi ptr [ %.pre4366, %if.end9010 ], [ %2335, %land.lhs.true8991 ], [ %2335, %if.end8984 ]
-  %i.14 = phi i64 [ %inc9015, %if.end9010 ], [ %i.13, %land.lhs.true8991 ], [ %i.13, %if.end8984 ]
-  %cmp9022 = icmp ugt i64 %sub.ptr.div.i3910.pre-phi, %i.14
-  br i1 %cmp9022, label %land.lhs.true9023, label %if.end9048
-
-land.lhs.true9023:                                ; preds = %if.end9016
-  %add.ptr.i3911 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2342, i64 %i.14
+land.lhs.true9023:                                ; preds = %land.lhs.true8991, %if.end9016
+  %i.144789 = phi i64 [ %inc9015, %if.end9016 ], [ %i.134782, %land.lhs.true8991 ]
+  %2355 = phi ptr [ %.pre4366, %if.end9016 ], [ %2347, %land.lhs.true8991 ]
+  %add.ptr.i3911 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2355, i64 %i.144789
   %id9025 = getelementptr inbounds nuw i8, ptr %add.ptr.i3911, i64 32
-  %2343 = load i32, ptr %id9025, align 8
-  %cmp9026 = icmp eq i32 %2343, 14
-  br i1 %cmp9026, label %if.then9027, label %if.end9048
+  %2356 = load i32, ptr %id9025, align 8
+  %cmp9026 = icmp eq i32 %2356, 14
+  br i1 %cmp9026, label %if.then9027, label %land.lhs.true9055
 
 if.then9027:                                      ; preds = %land.lhs.true9023
-  %2344 = load ptr, ptr %isolate_, align 8
+  %2357 = load ptr, ptr %isolate_, align 8
   %index9032 = getelementptr inbounds nuw i8, ptr %add.ptr.i3911, i64 40
-  %2345 = load i64, ptr %index9032, align 8
-  %call.i17851 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2344, i64 noundef %2345) #24
+  %2358 = load i64, ptr %index9032, align 8
+  %call.i17851 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2357, i64 noundef %2358) #24
   %cond2996 = icmp eq ptr %call.i17851, null
-  br i1 %cond2996, label %if.then9040, label %if.end9042
+  br i1 %cond2996, label %if.then9040, label %if.end9048
 
 if.then9040:                                      ; preds = %if.then9027
-  %2346 = load ptr, ptr @stderr, align 8
-  %2347 = call i64 @fwrite(ptr nonnull @.str.481, i64 73, i64 1, ptr %2346) #29
-  br label %if.end9042
+  %2359 = load ptr, ptr @stderr, align 8
+  %2360 = call i64 @fwrite(ptr nonnull @.str.481, i64 73, i64 1, ptr %2359) #29
+  br label %if.end9048
 
-if.end9042:                                       ; preds = %if.then9027, %if.then9040
+if.end9048:                                       ; preds = %if.then9040, %if.then9027
   %fdentry_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2680
-  %2348 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3914 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2348, ptr noundef %call.i17851) #24
+  %2361 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3914 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2361, ptr noundef %call.i17851) #24
   store ptr %call8.i.i3914, ptr %fdentry_constructor_template_.i, align 8
-  %inc9047 = add nuw nsw i64 %i.14, 1
+  %inc9047 = add nuw nsw i64 %i.144789, 1
   %.pre4367 = load ptr, ptr %_M_finish.i, align 8
   %.pre4368 = load ptr, ptr %template_values, align 8
   %.pre4513 = ptrtoint ptr %.pre4367 to i64
   %.pre4514 = ptrtoint ptr %.pre4368 to i64
   %.pre4515 = sub i64 %.pre4513, %.pre4514
   %.pre4516 = sdiv exact i64 %.pre4515, 48
-  br label %if.end9048
+  %2362 = icmp ugt i64 %.pre4516, %inc9047
+  br i1 %2362, label %land.lhs.true9055, label %if.end10552
 
-if.end9048:                                       ; preds = %if.end9042, %land.lhs.true9023, %if.end9016
-  %sub.ptr.div.i3919.pre-phi = phi i64 [ %.pre4516, %if.end9042 ], [ %sub.ptr.div.i3910.pre-phi, %land.lhs.true9023 ], [ %sub.ptr.div.i3910.pre-phi, %if.end9016 ]
-  %2349 = phi ptr [ %.pre4368, %if.end9042 ], [ %2342, %land.lhs.true9023 ], [ %2342, %if.end9016 ]
-  %i.15 = phi i64 [ %inc9047, %if.end9042 ], [ %i.14, %land.lhs.true9023 ], [ %i.14, %if.end9016 ]
-  %cmp9054 = icmp ugt i64 %sub.ptr.div.i3919.pre-phi, %i.15
-  br i1 %cmp9054, label %land.lhs.true9055, label %if.end9080
-
-land.lhs.true9055:                                ; preds = %if.end9048
-  %add.ptr.i3920 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2349, i64 %i.15
+land.lhs.true9055:                                ; preds = %land.lhs.true9023, %if.end9048
+  %i.154796 = phi i64 [ %inc9047, %if.end9048 ], [ %i.144789, %land.lhs.true9023 ]
+  %2363 = phi ptr [ %.pre4368, %if.end9048 ], [ %2355, %land.lhs.true9023 ]
+  %add.ptr.i3920 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2363, i64 %i.154796
   %id9057 = getelementptr inbounds nuw i8, ptr %add.ptr.i3920, i64 32
-  %2350 = load i32, ptr %id9057, align 8
-  %cmp9058 = icmp eq i32 %2350, 15
-  br i1 %cmp9058, label %if.then9059, label %if.end9080
+  %2364 = load i32, ptr %id9057, align 8
+  %cmp9058 = icmp eq i32 %2364, 15
+  br i1 %cmp9058, label %if.then9059, label %land.lhs.true9087
 
 if.then9059:                                      ; preds = %land.lhs.true9055
-  %2351 = load ptr, ptr %isolate_, align 8
+  %2365 = load ptr, ptr %isolate_, align 8
   %index9064 = getelementptr inbounds nuw i8, ptr %add.ptr.i3920, i64 40
-  %2352 = load i64, ptr %index9064, align 8
-  %call.i18464 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2351, i64 noundef %2352) #24
+  %2366 = load i64, ptr %index9064, align 8
+  %call.i18464 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2365, i64 noundef %2366) #24
   %cond2997 = icmp eq ptr %call.i18464, null
-  br i1 %cond2997, label %if.then9072, label %if.end9074
+  br i1 %cond2997, label %if.then9072, label %if.end9080
 
 if.then9072:                                      ; preds = %if.then9059
-  %2353 = load ptr, ptr @stderr, align 8
-  %2354 = call i64 @fwrite(ptr nonnull @.str.482, i64 72, i64 1, ptr %2353) #29
-  br label %if.end9074
+  %2367 = load ptr, ptr @stderr, align 8
+  %2368 = call i64 @fwrite(ptr nonnull @.str.482, i64 72, i64 1, ptr %2367) #29
+  br label %if.end9080
 
-if.end9074:                                       ; preds = %if.then9059, %if.then9072
+if.end9080:                                       ; preds = %if.then9072, %if.then9059
   %filehandlereadwrap_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2688
-  %2355 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3923 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2355, ptr noundef %call.i18464) #24
+  %2369 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3923 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2369, ptr noundef %call.i18464) #24
   store ptr %call8.i.i3923, ptr %filehandlereadwrap_template_.i, align 8
-  %inc9079 = add nuw nsw i64 %i.15, 1
+  %inc9079 = add nuw nsw i64 %i.154796, 1
   %.pre4369 = load ptr, ptr %_M_finish.i, align 8
   %.pre4370 = load ptr, ptr %template_values, align 8
   %.pre4517 = ptrtoint ptr %.pre4369 to i64
   %.pre4518 = ptrtoint ptr %.pre4370 to i64
   %.pre4519 = sub i64 %.pre4517, %.pre4518
   %.pre4520 = sdiv exact i64 %.pre4519, 48
-  br label %if.end9080
+  %2370 = icmp ugt i64 %.pre4520, %inc9079
+  br i1 %2370, label %land.lhs.true9087, label %if.end10552
 
-if.end9080:                                       ; preds = %if.end9074, %land.lhs.true9055, %if.end9048
-  %sub.ptr.div.i3928.pre-phi = phi i64 [ %.pre4520, %if.end9074 ], [ %sub.ptr.div.i3919.pre-phi, %land.lhs.true9055 ], [ %sub.ptr.div.i3919.pre-phi, %if.end9048 ]
-  %2356 = phi ptr [ %.pre4370, %if.end9074 ], [ %2349, %land.lhs.true9055 ], [ %2349, %if.end9048 ]
-  %i.16 = phi i64 [ %inc9079, %if.end9074 ], [ %i.15, %land.lhs.true9055 ], [ %i.15, %if.end9048 ]
-  %cmp9086 = icmp ugt i64 %sub.ptr.div.i3928.pre-phi, %i.16
-  br i1 %cmp9086, label %land.lhs.true9087, label %if.end9112
-
-land.lhs.true9087:                                ; preds = %if.end9080
-  %add.ptr.i3929 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2356, i64 %i.16
+land.lhs.true9087:                                ; preds = %land.lhs.true9055, %if.end9080
+  %i.164803 = phi i64 [ %inc9079, %if.end9080 ], [ %i.154796, %land.lhs.true9055 ]
+  %2371 = phi ptr [ %.pre4370, %if.end9080 ], [ %2363, %land.lhs.true9055 ]
+  %add.ptr.i3929 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2371, i64 %i.164803
   %id9089 = getelementptr inbounds nuw i8, ptr %add.ptr.i3929, i64 32
-  %2357 = load i32, ptr %id9089, align 8
-  %cmp9090 = icmp eq i32 %2357, 16
-  br i1 %cmp9090, label %if.then9091, label %if.end9112
+  %2372 = load i32, ptr %id9089, align 8
+  %cmp9090 = icmp eq i32 %2372, 16
+  br i1 %cmp9090, label %if.then9091, label %land.lhs.true9119
 
 if.then9091:                                      ; preds = %land.lhs.true9087
-  %2358 = load ptr, ptr %isolate_, align 8
+  %2373 = load ptr, ptr %isolate_, align 8
   %index9096 = getelementptr inbounds nuw i8, ptr %add.ptr.i3929, i64 40
-  %2359 = load i64, ptr %index9096, align 8
-  %call.i18452 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2358, i64 noundef %2359) #24
+  %2374 = load i64, ptr %index9096, align 8
+  %call.i18452 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2373, i64 noundef %2374) #24
   %cond2998 = icmp eq ptr %call.i18452, null
-  br i1 %cond2998, label %if.then9104, label %if.end9106
+  br i1 %cond2998, label %if.then9104, label %if.end9112
 
 if.then9104:                                      ; preds = %if.then9091
-  %2360 = load ptr, ptr @stderr, align 8
-  %2361 = call i64 @fwrite(ptr nonnull @.str.483, i64 78, i64 1, ptr %2360) #29
-  br label %if.end9106
+  %2375 = load ptr, ptr @stderr, align 8
+  %2376 = call i64 @fwrite(ptr nonnull @.str.483, i64 78, i64 1, ptr %2375) #29
+  br label %if.end9112
 
-if.end9106:                                       ; preds = %if.then9091, %if.then9104
+if.end9112:                                       ; preds = %if.then9104, %if.then9091
   %fsreqpromise_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2696
-  %2362 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3932 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2362, ptr noundef %call.i18452) #24
+  %2377 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3932 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2377, ptr noundef %call.i18452) #24
   store ptr %call8.i.i3932, ptr %fsreqpromise_constructor_template_.i, align 8
-  %inc9111 = add nuw nsw i64 %i.16, 1
+  %inc9111 = add nuw nsw i64 %i.164803, 1
   %.pre4371 = load ptr, ptr %_M_finish.i, align 8
   %.pre4372 = load ptr, ptr %template_values, align 8
   %.pre4521 = ptrtoint ptr %.pre4371 to i64
   %.pre4522 = ptrtoint ptr %.pre4372 to i64
   %.pre4523 = sub i64 %.pre4521, %.pre4522
   %.pre4524 = sdiv exact i64 %.pre4523, 48
-  br label %if.end9112
+  %2378 = icmp ugt i64 %.pre4524, %inc9111
+  br i1 %2378, label %land.lhs.true9119, label %if.end10552
 
-if.end9112:                                       ; preds = %if.end9106, %land.lhs.true9087, %if.end9080
-  %sub.ptr.div.i3937.pre-phi = phi i64 [ %.pre4524, %if.end9106 ], [ %sub.ptr.div.i3928.pre-phi, %land.lhs.true9087 ], [ %sub.ptr.div.i3928.pre-phi, %if.end9080 ]
-  %2363 = phi ptr [ %.pre4372, %if.end9106 ], [ %2356, %land.lhs.true9087 ], [ %2356, %if.end9080 ]
-  %i.17 = phi i64 [ %inc9111, %if.end9106 ], [ %i.16, %land.lhs.true9087 ], [ %i.16, %if.end9080 ]
-  %cmp9118 = icmp ugt i64 %sub.ptr.div.i3937.pre-phi, %i.17
-  br i1 %cmp9118, label %land.lhs.true9119, label %if.end9144
-
-land.lhs.true9119:                                ; preds = %if.end9112
-  %add.ptr.i3938 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2363, i64 %i.17
+land.lhs.true9119:                                ; preds = %land.lhs.true9087, %if.end9112
+  %i.174810 = phi i64 [ %inc9111, %if.end9112 ], [ %i.164803, %land.lhs.true9087 ]
+  %2379 = phi ptr [ %.pre4372, %if.end9112 ], [ %2371, %land.lhs.true9087 ]
+  %add.ptr.i3938 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2379, i64 %i.174810
   %id9121 = getelementptr inbounds nuw i8, ptr %add.ptr.i3938, i64 32
-  %2364 = load i32, ptr %id9121, align 8
-  %cmp9122 = icmp eq i32 %2364, 17
-  br i1 %cmp9122, label %if.then9123, label %if.end9144
+  %2380 = load i32, ptr %id9121, align 8
+  %cmp9122 = icmp eq i32 %2380, 17
+  br i1 %cmp9122, label %if.then9123, label %land.lhs.true9151
 
 if.then9123:                                      ; preds = %land.lhs.true9119
-  %2365 = load ptr, ptr %isolate_, align 8
+  %2381 = load ptr, ptr %isolate_, align 8
   %index9128 = getelementptr inbounds nuw i8, ptr %add.ptr.i3938, i64 40
-  %2366 = load i64, ptr %index9128, align 8
-  %call.i17839 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2365, i64 noundef %2366) #24
+  %2382 = load i64, ptr %index9128, align 8
+  %call.i17839 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2381, i64 noundef %2382) #24
   %cond2999 = icmp eq ptr %call.i17839, null
-  br i1 %cond2999, label %if.then9136, label %if.end9138
+  br i1 %cond2999, label %if.then9136, label %if.end9144
 
 if.then9136:                                      ; preds = %if.then9123
-  %2367 = load ptr, ptr @stderr, align 8
-  %2368 = call i64 @fwrite(ptr nonnull @.str.484, i64 70, i64 1, ptr %2367) #29
-  br label %if.end9138
+  %2383 = load ptr, ptr @stderr, align 8
+  %2384 = call i64 @fwrite(ptr nonnull @.str.484, i64 70, i64 1, ptr %2383) #29
+  br label %if.end9144
 
-if.end9138:                                       ; preds = %if.then9123, %if.then9136
+if.end9144:                                       ; preds = %if.then9136, %if.then9123
   %handle_wrap_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2704
-  %2369 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3941 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2369, ptr noundef %call.i17839) #24
+  %2385 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3941 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2385, ptr noundef %call.i17839) #24
   store ptr %call8.i.i3941, ptr %handle_wrap_ctor_template_.i, align 8
-  %inc9143 = add nuw nsw i64 %i.17, 1
+  %inc9143 = add nuw nsw i64 %i.174810, 1
   %.pre4373 = load ptr, ptr %_M_finish.i, align 8
   %.pre4374 = load ptr, ptr %template_values, align 8
   %.pre4525 = ptrtoint ptr %.pre4373 to i64
   %.pre4526 = ptrtoint ptr %.pre4374 to i64
   %.pre4527 = sub i64 %.pre4525, %.pre4526
   %.pre4528 = sdiv exact i64 %.pre4527, 48
-  br label %if.end9144
+  %2386 = icmp ugt i64 %.pre4528, %inc9143
+  br i1 %2386, label %land.lhs.true9151, label %if.end10552
 
-if.end9144:                                       ; preds = %if.end9138, %land.lhs.true9119, %if.end9112
-  %sub.ptr.div.i3946.pre-phi = phi i64 [ %.pre4528, %if.end9138 ], [ %sub.ptr.div.i3937.pre-phi, %land.lhs.true9119 ], [ %sub.ptr.div.i3937.pre-phi, %if.end9112 ]
-  %2370 = phi ptr [ %.pre4374, %if.end9138 ], [ %2363, %land.lhs.true9119 ], [ %2363, %if.end9112 ]
-  %i.18 = phi i64 [ %inc9143, %if.end9138 ], [ %i.17, %land.lhs.true9119 ], [ %i.17, %if.end9112 ]
-  %cmp9150 = icmp ugt i64 %sub.ptr.div.i3946.pre-phi, %i.18
-  br i1 %cmp9150, label %land.lhs.true9151, label %if.end9176
-
-land.lhs.true9151:                                ; preds = %if.end9144
-  %add.ptr.i3947 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2370, i64 %i.18
+land.lhs.true9151:                                ; preds = %land.lhs.true9119, %if.end9144
+  %i.184817 = phi i64 [ %inc9143, %if.end9144 ], [ %i.174810, %land.lhs.true9119 ]
+  %2387 = phi ptr [ %.pre4374, %if.end9144 ], [ %2379, %land.lhs.true9119 ]
+  %add.ptr.i3947 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2387, i64 %i.184817
   %id9153 = getelementptr inbounds nuw i8, ptr %add.ptr.i3947, i64 32
-  %2371 = load i32, ptr %id9153, align 8
-  %cmp9154 = icmp eq i32 %2371, 18
-  br i1 %cmp9154, label %if.then9155, label %if.end9176
+  %2388 = load i32, ptr %id9153, align 8
+  %cmp9154 = icmp eq i32 %2388, 18
+  br i1 %cmp9154, label %if.then9155, label %land.lhs.true9183
 
 if.then9155:                                      ; preds = %land.lhs.true9151
-  %2372 = load ptr, ptr %isolate_, align 8
+  %2389 = load ptr, ptr %isolate_, align 8
   %index9160 = getelementptr inbounds nuw i8, ptr %add.ptr.i3947, i64 40
-  %2373 = load i64, ptr %index9160, align 8
-  %call.i17827 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2372, i64 noundef %2373) #24
+  %2390 = load i64, ptr %index9160, align 8
+  %call.i17827 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2389, i64 noundef %2390) #24
   %cond3000 = icmp eq ptr %call.i17827, null
-  br i1 %cond3000, label %if.then9168, label %if.end9170
+  br i1 %cond3000, label %if.then9168, label %if.end9176
 
 if.then9168:                                      ; preds = %if.then9155
-  %2374 = load ptr, ptr @stderr, align 8
-  %2375 = call i64 @fwrite(ptr nonnull @.str.485, i64 68, i64 1, ptr %2374) #29
-  br label %if.end9170
+  %2391 = load ptr, ptr @stderr, align 8
+  %2392 = call i64 @fwrite(ptr nonnull @.str.485, i64 68, i64 1, ptr %2391) #29
+  br label %if.end9176
 
-if.end9170:                                       ; preds = %if.then9155, %if.then9168
+if.end9176:                                       ; preds = %if.then9168, %if.then9155
   %histogram_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2712
-  %2376 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3950 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2376, ptr noundef %call.i17827) #24
+  %2393 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3950 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2393, ptr noundef %call.i17827) #24
   store ptr %call8.i.i3950, ptr %histogram_ctor_template_.i, align 8
-  %inc9175 = add nuw nsw i64 %i.18, 1
+  %inc9175 = add nuw nsw i64 %i.184817, 1
   %.pre4375 = load ptr, ptr %_M_finish.i, align 8
   %.pre4376 = load ptr, ptr %template_values, align 8
   %.pre4529 = ptrtoint ptr %.pre4375 to i64
   %.pre4530 = ptrtoint ptr %.pre4376 to i64
   %.pre4531 = sub i64 %.pre4529, %.pre4530
   %.pre4532 = sdiv exact i64 %.pre4531, 48
-  br label %if.end9176
+  %2394 = icmp ugt i64 %.pre4532, %inc9175
+  br i1 %2394, label %land.lhs.true9183, label %if.end10552
 
-if.end9176:                                       ; preds = %if.end9170, %land.lhs.true9151, %if.end9144
-  %sub.ptr.div.i3955.pre-phi = phi i64 [ %.pre4532, %if.end9170 ], [ %sub.ptr.div.i3946.pre-phi, %land.lhs.true9151 ], [ %sub.ptr.div.i3946.pre-phi, %if.end9144 ]
-  %2377 = phi ptr [ %.pre4376, %if.end9170 ], [ %2370, %land.lhs.true9151 ], [ %2370, %if.end9144 ]
-  %i.19 = phi i64 [ %inc9175, %if.end9170 ], [ %i.18, %land.lhs.true9151 ], [ %i.18, %if.end9144 ]
-  %cmp9182 = icmp ugt i64 %sub.ptr.div.i3955.pre-phi, %i.19
-  br i1 %cmp9182, label %land.lhs.true9183, label %if.end9208
-
-land.lhs.true9183:                                ; preds = %if.end9176
-  %add.ptr.i3956 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2377, i64 %i.19
+land.lhs.true9183:                                ; preds = %land.lhs.true9151, %if.end9176
+  %i.194824 = phi i64 [ %inc9175, %if.end9176 ], [ %i.184817, %land.lhs.true9151 ]
+  %2395 = phi ptr [ %.pre4376, %if.end9176 ], [ %2387, %land.lhs.true9151 ]
+  %add.ptr.i3956 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2395, i64 %i.194824
   %id9185 = getelementptr inbounds nuw i8, ptr %add.ptr.i3956, i64 32
-  %2378 = load i32, ptr %id9185, align 8
-  %cmp9186 = icmp eq i32 %2378, 19
-  br i1 %cmp9186, label %if.then9187, label %if.end9208
+  %2396 = load i32, ptr %id9185, align 8
+  %cmp9186 = icmp eq i32 %2396, 19
+  br i1 %cmp9186, label %if.then9187, label %land.lhs.true9215
 
 if.then9187:                                      ; preds = %land.lhs.true9183
-  %2379 = load ptr, ptr %isolate_, align 8
+  %2397 = load ptr, ptr %isolate_, align 8
   %index9192 = getelementptr inbounds nuw i8, ptr %add.ptr.i3956, i64 40
-  %2380 = load i64, ptr %index9192, align 8
-  %call.i18440 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2379, i64 noundef %2380) #24
+  %2398 = load i64, ptr %index9192, align 8
+  %call.i18440 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2397, i64 noundef %2398) #24
   %cond3001 = icmp eq ptr %call.i18440, null
-  br i1 %cond3001, label %if.then9200, label %if.end9202
+  br i1 %cond3001, label %if.then9200, label %if.end9208
 
 if.then9200:                                      ; preds = %if.then9187
-  %2381 = load ptr, ptr @stderr, align 8
-  %2382 = call i64 @fwrite(ptr nonnull @.str.486, i64 79, i64 1, ptr %2381) #29
-  br label %if.end9202
+  %2399 = load ptr, ptr @stderr, align 8
+  %2400 = call i64 @fwrite(ptr nonnull @.str.486, i64 79, i64 1, ptr %2399) #29
+  br label %if.end9208
 
-if.end9202:                                       ; preds = %if.then9187, %if.then9200
+if.end9208:                                       ; preds = %if.then9200, %if.then9187
   %http2settings_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2720
-  %2383 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3959 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2383, ptr noundef %call.i18440) #24
+  %2401 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3959 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2401, ptr noundef %call.i18440) #24
   store ptr %call8.i.i3959, ptr %http2settings_constructor_template_.i, align 8
-  %inc9207 = add nuw nsw i64 %i.19, 1
+  %inc9207 = add nuw nsw i64 %i.194824, 1
   %.pre4377 = load ptr, ptr %_M_finish.i, align 8
   %.pre4378 = load ptr, ptr %template_values, align 8
   %.pre4533 = ptrtoint ptr %.pre4377 to i64
   %.pre4534 = ptrtoint ptr %.pre4378 to i64
   %.pre4535 = sub i64 %.pre4533, %.pre4534
   %.pre4536 = sdiv exact i64 %.pre4535, 48
-  br label %if.end9208
+  %2402 = icmp ugt i64 %.pre4536, %inc9207
+  br i1 %2402, label %land.lhs.true9215, label %if.end10552
 
-if.end9208:                                       ; preds = %if.end9202, %land.lhs.true9183, %if.end9176
-  %sub.ptr.div.i3964.pre-phi = phi i64 [ %.pre4536, %if.end9202 ], [ %sub.ptr.div.i3955.pre-phi, %land.lhs.true9183 ], [ %sub.ptr.div.i3955.pre-phi, %if.end9176 ]
-  %2384 = phi ptr [ %.pre4378, %if.end9202 ], [ %2377, %land.lhs.true9183 ], [ %2377, %if.end9176 ]
-  %i.20 = phi i64 [ %inc9207, %if.end9202 ], [ %i.19, %land.lhs.true9183 ], [ %i.19, %if.end9176 ]
-  %cmp9214 = icmp ugt i64 %sub.ptr.div.i3964.pre-phi, %i.20
-  br i1 %cmp9214, label %land.lhs.true9215, label %if.end9240
-
-land.lhs.true9215:                                ; preds = %if.end9208
-  %add.ptr.i3965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2384, i64 %i.20
+land.lhs.true9215:                                ; preds = %land.lhs.true9183, %if.end9208
+  %i.204831 = phi i64 [ %inc9207, %if.end9208 ], [ %i.194824, %land.lhs.true9183 ]
+  %2403 = phi ptr [ %.pre4378, %if.end9208 ], [ %2395, %land.lhs.true9183 ]
+  %add.ptr.i3965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2403, i64 %i.204831
   %id9217 = getelementptr inbounds nuw i8, ptr %add.ptr.i3965, i64 32
-  %2385 = load i32, ptr %id9217, align 8
-  %cmp9218 = icmp eq i32 %2385, 20
-  br i1 %cmp9218, label %if.then9219, label %if.end9240
+  %2404 = load i32, ptr %id9217, align 8
+  %cmp9218 = icmp eq i32 %2404, 20
+  br i1 %cmp9218, label %if.then9219, label %land.lhs.true9247
 
 if.then9219:                                      ; preds = %land.lhs.true9215
-  %2386 = load ptr, ptr %isolate_, align 8
+  %2405 = load ptr, ptr %isolate_, align 8
   %index9224 = getelementptr inbounds nuw i8, ptr %add.ptr.i3965, i64 40
-  %2387 = load i64, ptr %index9224, align 8
-  %call.i18428 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2386, i64 noundef %2387) #24
+  %2406 = load i64, ptr %index9224, align 8
+  %call.i18428 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2405, i64 noundef %2406) #24
   %cond3002 = icmp eq ptr %call.i18428, null
-  br i1 %cond3002, label %if.then9232, label %if.end9234
+  br i1 %cond3002, label %if.then9232, label %if.end9240
 
 if.then9232:                                      ; preds = %if.then9219
-  %2388 = load ptr, ptr @stderr, align 8
-  %2389 = call i64 @fwrite(ptr nonnull @.str.487, i64 77, i64 1, ptr %2388) #29
-  br label %if.end9234
+  %2407 = load ptr, ptr @stderr, align 8
+  %2408 = call i64 @fwrite(ptr nonnull @.str.487, i64 77, i64 1, ptr %2407) #29
+  br label %if.end9240
 
-if.end9234:                                       ; preds = %if.then9219, %if.then9232
+if.end9240:                                       ; preds = %if.then9232, %if.then9219
   %http2stream_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2728
-  %2390 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3968 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2390, ptr noundef %call.i18428) #24
+  %2409 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3968 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2409, ptr noundef %call.i18428) #24
   store ptr %call8.i.i3968, ptr %http2stream_constructor_template_.i, align 8
-  %inc9239 = add nuw nsw i64 %i.20, 1
+  %inc9239 = add nuw nsw i64 %i.204831, 1
   %.pre4379 = load ptr, ptr %_M_finish.i, align 8
   %.pre4380 = load ptr, ptr %template_values, align 8
   %.pre4537 = ptrtoint ptr %.pre4379 to i64
   %.pre4538 = ptrtoint ptr %.pre4380 to i64
   %.pre4539 = sub i64 %.pre4537, %.pre4538
   %.pre4540 = sdiv exact i64 %.pre4539, 48
-  br label %if.end9240
+  %2410 = icmp ugt i64 %.pre4540, %inc9239
+  br i1 %2410, label %land.lhs.true9247, label %if.end10552
 
-if.end9240:                                       ; preds = %if.end9234, %land.lhs.true9215, %if.end9208
-  %sub.ptr.div.i3973.pre-phi = phi i64 [ %.pre4540, %if.end9234 ], [ %sub.ptr.div.i3964.pre-phi, %land.lhs.true9215 ], [ %sub.ptr.div.i3964.pre-phi, %if.end9208 ]
-  %2391 = phi ptr [ %.pre4380, %if.end9234 ], [ %2384, %land.lhs.true9215 ], [ %2384, %if.end9208 ]
-  %i.21 = phi i64 [ %inc9239, %if.end9234 ], [ %i.20, %land.lhs.true9215 ], [ %i.20, %if.end9208 ]
-  %cmp9246 = icmp ugt i64 %sub.ptr.div.i3973.pre-phi, %i.21
-  br i1 %cmp9246, label %land.lhs.true9247, label %if.end9272
-
-land.lhs.true9247:                                ; preds = %if.end9240
-  %add.ptr.i3974 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2391, i64 %i.21
+land.lhs.true9247:                                ; preds = %land.lhs.true9215, %if.end9240
+  %i.214838 = phi i64 [ %inc9239, %if.end9240 ], [ %i.204831, %land.lhs.true9215 ]
+  %2411 = phi ptr [ %.pre4380, %if.end9240 ], [ %2403, %land.lhs.true9215 ]
+  %add.ptr.i3974 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2411, i64 %i.214838
   %id9249 = getelementptr inbounds nuw i8, ptr %add.ptr.i3974, i64 32
-  %2392 = load i32, ptr %id9249, align 8
-  %cmp9250 = icmp eq i32 %2392, 21
-  br i1 %cmp9250, label %if.then9251, label %if.end9272
+  %2412 = load i32, ptr %id9249, align 8
+  %cmp9250 = icmp eq i32 %2412, 21
+  br i1 %cmp9250, label %if.then9251, label %land.lhs.true9279
 
 if.then9251:                                      ; preds = %land.lhs.true9247
-  %2393 = load ptr, ptr %isolate_, align 8
+  %2413 = load ptr, ptr %isolate_, align 8
   %index9256 = getelementptr inbounds nuw i8, ptr %add.ptr.i3974, i64 40
-  %2394 = load i64, ptr %index9256, align 8
-  %call.i18416 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2393, i64 noundef %2394) #24
+  %2414 = load i64, ptr %index9256, align 8
+  %call.i18416 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2413, i64 noundef %2414) #24
   %cond3003 = icmp eq ptr %call.i18416, null
-  br i1 %cond3003, label %if.then9264, label %if.end9266
+  br i1 %cond3003, label %if.then9264, label %if.end9272
 
 if.then9264:                                      ; preds = %if.then9251
-  %2395 = load ptr, ptr @stderr, align 8
-  %2396 = call i64 @fwrite(ptr nonnull @.str.488, i64 75, i64 1, ptr %2395) #29
-  br label %if.end9266
+  %2415 = load ptr, ptr @stderr, align 8
+  %2416 = call i64 @fwrite(ptr nonnull @.str.488, i64 75, i64 1, ptr %2415) #29
+  br label %if.end9272
 
-if.end9266:                                       ; preds = %if.then9251, %if.then9264
+if.end9272:                                       ; preds = %if.then9264, %if.then9251
   %http2ping_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2736
-  %2397 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3977 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2397, ptr noundef %call.i18416) #24
+  %2417 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3977 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2417, ptr noundef %call.i18416) #24
   store ptr %call8.i.i3977, ptr %http2ping_constructor_template_.i, align 8
-  %inc9271 = add nuw nsw i64 %i.21, 1
+  %inc9271 = add nuw nsw i64 %i.214838, 1
   %.pre4381 = load ptr, ptr %_M_finish.i, align 8
   %.pre4382 = load ptr, ptr %template_values, align 8
   %.pre4541 = ptrtoint ptr %.pre4381 to i64
   %.pre4542 = ptrtoint ptr %.pre4382 to i64
   %.pre4543 = sub i64 %.pre4541, %.pre4542
   %.pre4544 = sdiv exact i64 %.pre4543, 48
-  br label %if.end9272
+  %2418 = icmp ugt i64 %.pre4544, %inc9271
+  br i1 %2418, label %land.lhs.true9279, label %if.end10552
 
-if.end9272:                                       ; preds = %if.end9266, %land.lhs.true9247, %if.end9240
-  %sub.ptr.div.i3982.pre-phi = phi i64 [ %.pre4544, %if.end9266 ], [ %sub.ptr.div.i3973.pre-phi, %land.lhs.true9247 ], [ %sub.ptr.div.i3973.pre-phi, %if.end9240 ]
-  %2398 = phi ptr [ %.pre4382, %if.end9266 ], [ %2391, %land.lhs.true9247 ], [ %2391, %if.end9240 ]
-  %i.22 = phi i64 [ %inc9271, %if.end9266 ], [ %i.21, %land.lhs.true9247 ], [ %i.21, %if.end9240 ]
-  %cmp9278 = icmp ugt i64 %sub.ptr.div.i3982.pre-phi, %i.22
-  br i1 %cmp9278, label %land.lhs.true9279, label %if.end9304
-
-land.lhs.true9279:                                ; preds = %if.end9272
-  %add.ptr.i3983 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2398, i64 %i.22
+land.lhs.true9279:                                ; preds = %land.lhs.true9247, %if.end9272
+  %i.224845 = phi i64 [ %inc9271, %if.end9272 ], [ %i.214838, %land.lhs.true9247 ]
+  %2419 = phi ptr [ %.pre4382, %if.end9272 ], [ %2411, %land.lhs.true9247 ]
+  %add.ptr.i3983 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2419, i64 %i.224845
   %id9281 = getelementptr inbounds nuw i8, ptr %add.ptr.i3983, i64 32
-  %2399 = load i32, ptr %id9281, align 8
-  %cmp9282 = icmp eq i32 %2399, 22
-  br i1 %cmp9282, label %if.then9283, label %if.end9304
+  %2420 = load i32, ptr %id9281, align 8
+  %cmp9282 = icmp eq i32 %2420, 22
+  br i1 %cmp9282, label %if.then9283, label %land.lhs.true9311
 
 if.then9283:                                      ; preds = %land.lhs.true9279
-  %2400 = load ptr, ptr %isolate_, align 8
+  %2421 = load ptr, ptr %isolate_, align 8
   %index9288 = getelementptr inbounds nuw i8, ptr %add.ptr.i3983, i64 40
-  %2401 = load i64, ptr %index9288, align 8
-  %call.i18404 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2400, i64 noundef %2401) #24
+  %2422 = load i64, ptr %index9288, align 8
+  %call.i18404 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2421, i64 noundef %2422) #24
   %cond3004 = icmp eq ptr %call.i18404, null
-  br i1 %cond3004, label %if.then9296, label %if.end9298
+  br i1 %cond3004, label %if.then9296, label %if.end9304
 
 if.then9296:                                      ; preds = %if.then9283
-  %2402 = load ptr, ptr @stderr, align 8
-  %2403 = call i64 @fwrite(ptr nonnull @.str.489, i64 68, i64 1, ptr %2402) #29
-  br label %if.end9298
+  %2423 = load ptr, ptr @stderr, align 8
+  %2424 = call i64 @fwrite(ptr nonnull @.str.489, i64 68, i64 1, ptr %2423) #29
+  br label %if.end9304
 
-if.end9298:                                       ; preds = %if.then9283, %if.then9296
+if.end9304:                                       ; preds = %if.then9296, %if.then9283
   %i18n_converter_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2744
-  %2404 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3986 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2404, ptr noundef %call.i18404) #24
+  %2425 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3986 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2425, ptr noundef %call.i18404) #24
   store ptr %call8.i.i3986, ptr %i18n_converter_template_.i, align 8
-  %inc9303 = add nuw nsw i64 %i.22, 1
+  %inc9303 = add nuw nsw i64 %i.224845, 1
   %.pre4383 = load ptr, ptr %_M_finish.i, align 8
   %.pre4384 = load ptr, ptr %template_values, align 8
   %.pre4545 = ptrtoint ptr %.pre4383 to i64
   %.pre4546 = ptrtoint ptr %.pre4384 to i64
   %.pre4547 = sub i64 %.pre4545, %.pre4546
   %.pre4548 = sdiv exact i64 %.pre4547, 48
-  br label %if.end9304
+  %2426 = icmp ugt i64 %.pre4548, %inc9303
+  br i1 %2426, label %land.lhs.true9311, label %if.end10552
 
-if.end9304:                                       ; preds = %if.end9298, %land.lhs.true9279, %if.end9272
-  %sub.ptr.div.i3991.pre-phi = phi i64 [ %.pre4548, %if.end9298 ], [ %sub.ptr.div.i3982.pre-phi, %land.lhs.true9279 ], [ %sub.ptr.div.i3982.pre-phi, %if.end9272 ]
-  %2405 = phi ptr [ %.pre4384, %if.end9298 ], [ %2398, %land.lhs.true9279 ], [ %2398, %if.end9272 ]
-  %i.23 = phi i64 [ %inc9303, %if.end9298 ], [ %i.22, %land.lhs.true9279 ], [ %i.22, %if.end9272 ]
-  %cmp9310 = icmp ugt i64 %sub.ptr.div.i3991.pre-phi, %i.23
-  br i1 %cmp9310, label %land.lhs.true9311, label %if.end9336
-
-land.lhs.true9311:                                ; preds = %if.end9304
-  %add.ptr.i3992 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2405, i64 %i.23
+land.lhs.true9311:                                ; preds = %land.lhs.true9279, %if.end9304
+  %i.234852 = phi i64 [ %inc9303, %if.end9304 ], [ %i.224845, %land.lhs.true9279 ]
+  %2427 = phi ptr [ %.pre4384, %if.end9304 ], [ %2419, %land.lhs.true9279 ]
+  %add.ptr.i3992 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2427, i64 %i.234852
   %id9313 = getelementptr inbounds nuw i8, ptr %add.ptr.i3992, i64 32
-  %2406 = load i32, ptr %id9313, align 8
-  %cmp9314 = icmp eq i32 %2406, 23
-  br i1 %cmp9314, label %if.then9315, label %if.end9336
+  %2428 = load i32, ptr %id9313, align 8
+  %cmp9314 = icmp eq i32 %2428, 23
+  br i1 %cmp9314, label %if.then9315, label %land.lhs.true9343
 
 if.then9315:                                      ; preds = %land.lhs.true9311
-  %2407 = load ptr, ptr %isolate_, align 8
+  %2429 = load ptr, ptr %isolate_, align 8
   %index9320 = getelementptr inbounds nuw i8, ptr %add.ptr.i3992, i64 40
-  %2408 = load i64, ptr %index9320, align 8
-  %call.i17815 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2407, i64 noundef %2408) #24
+  %2430 = load i64, ptr %index9320, align 8
+  %call.i17815 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2429, i64 noundef %2430) #24
   %cond3005 = icmp eq ptr %call.i17815, null
-  br i1 %cond3005, label %if.then9328, label %if.end9330
+  br i1 %cond3005, label %if.then9328, label %if.end9336
 
 if.then9328:                                      ; preds = %if.then9315
-  %2409 = load ptr, ptr @stderr, align 8
-  %2410 = call i64 @fwrite(ptr nonnull @.str.490, i64 83, i64 1, ptr %2409) #29
-  br label %if.end9330
+  %2431 = load ptr, ptr @stderr, align 8
+  %2432 = call i64 @fwrite(ptr nonnull @.str.490, i64 83, i64 1, ptr %2431) #29
+  br label %if.end9336
 
-if.end9330:                                       ; preds = %if.then9315, %if.then9328
+if.end9336:                                       ; preds = %if.then9328, %if.then9315
   %intervalhistogram_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2752
-  %2411 = load ptr, ptr %isolate_, align 8
-  %call8.i.i3995 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2411, ptr noundef %call.i17815) #24
+  %2433 = load ptr, ptr %isolate_, align 8
+  %call8.i.i3995 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2433, ptr noundef %call.i17815) #24
   store ptr %call8.i.i3995, ptr %intervalhistogram_constructor_template_.i, align 8
-  %inc9335 = add nuw nsw i64 %i.23, 1
+  %inc9335 = add nuw nsw i64 %i.234852, 1
   %.pre4385 = load ptr, ptr %_M_finish.i, align 8
   %.pre4386 = load ptr, ptr %template_values, align 8
   %.pre4549 = ptrtoint ptr %.pre4385 to i64
   %.pre4550 = ptrtoint ptr %.pre4386 to i64
   %.pre4551 = sub i64 %.pre4549, %.pre4550
   %.pre4552 = sdiv exact i64 %.pre4551, 48
-  br label %if.end9336
+  %2434 = icmp ugt i64 %.pre4552, %inc9335
+  br i1 %2434, label %land.lhs.true9343, label %if.end10552
 
-if.end9336:                                       ; preds = %if.end9330, %land.lhs.true9311, %if.end9304
-  %sub.ptr.div.i4000.pre-phi = phi i64 [ %.pre4552, %if.end9330 ], [ %sub.ptr.div.i3991.pre-phi, %land.lhs.true9311 ], [ %sub.ptr.div.i3991.pre-phi, %if.end9304 ]
-  %2412 = phi ptr [ %.pre4386, %if.end9330 ], [ %2405, %land.lhs.true9311 ], [ %2405, %if.end9304 ]
-  %i.24 = phi i64 [ %inc9335, %if.end9330 ], [ %i.23, %land.lhs.true9311 ], [ %i.23, %if.end9304 ]
-  %cmp9342 = icmp ugt i64 %sub.ptr.div.i4000.pre-phi, %i.24
-  br i1 %cmp9342, label %land.lhs.true9343, label %if.end9368
-
-land.lhs.true9343:                                ; preds = %if.end9336
-  %add.ptr.i4001 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2412, i64 %i.24
+land.lhs.true9343:                                ; preds = %land.lhs.true9311, %if.end9336
+  %i.244859 = phi i64 [ %inc9335, %if.end9336 ], [ %i.234852, %land.lhs.true9311 ]
+  %2435 = phi ptr [ %.pre4386, %if.end9336 ], [ %2427, %land.lhs.true9311 ]
+  %add.ptr.i4001 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2435, i64 %i.244859
   %id9345 = getelementptr inbounds nuw i8, ptr %add.ptr.i4001, i64 32
-  %2413 = load i32, ptr %id9345, align 8
-  %cmp9346 = icmp eq i32 %2413, 24
-  br i1 %cmp9346, label %if.then9347, label %if.end9368
+  %2436 = load i32, ptr %id9345, align 8
+  %cmp9346 = icmp eq i32 %2436, 24
+  br i1 %cmp9346, label %if.then9347, label %land.lhs.true9375
 
 if.then9347:                                      ; preds = %land.lhs.true9343
-  %2414 = load ptr, ptr %isolate_, align 8
+  %2437 = load ptr, ptr %isolate_, align 8
   %index9352 = getelementptr inbounds nuw i8, ptr %add.ptr.i4001, i64 40
-  %2415 = load i64, ptr %index9352, align 8
-  %call.i17803 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2414, i64 noundef %2415) #24
+  %2438 = load i64, ptr %index9352, align 8
+  %call.i17803 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2437, i64 noundef %2438) #24
   %cond3006 = icmp eq ptr %call.i17803, null
-  br i1 %cond3006, label %if.then9360, label %if.end9362
+  br i1 %cond3006, label %if.then9360, label %if.end9368
 
 if.then9360:                                      ; preds = %if.then9347
-  %2416 = load ptr, ptr @stderr, align 8
-  %2417 = call i64 @fwrite(ptr nonnull @.str.491, i64 81, i64 1, ptr %2416) #29
-  br label %if.end9362
+  %2439 = load ptr, ptr @stderr, align 8
+  %2440 = call i64 @fwrite(ptr nonnull @.str.491, i64 81, i64 1, ptr %2439) #29
+  br label %if.end9368
 
-if.end9362:                                       ; preds = %if.then9347, %if.then9360
+if.end9368:                                       ; preds = %if.then9360, %if.then9347
   %js_transferable_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2760
-  %2418 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4004 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2418, ptr noundef %call.i17803) #24
+  %2441 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4004 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2441, ptr noundef %call.i17803) #24
   store ptr %call8.i.i4004, ptr %js_transferable_constructor_template_.i, align 8
-  %inc9367 = add nuw nsw i64 %i.24, 1
+  %inc9367 = add nuw nsw i64 %i.244859, 1
   %.pre4387 = load ptr, ptr %_M_finish.i, align 8
   %.pre4388 = load ptr, ptr %template_values, align 8
   %.pre4553 = ptrtoint ptr %.pre4387 to i64
   %.pre4554 = ptrtoint ptr %.pre4388 to i64
   %.pre4555 = sub i64 %.pre4553, %.pre4554
   %.pre4556 = sdiv exact i64 %.pre4555, 48
-  br label %if.end9368
+  %2442 = icmp ugt i64 %.pre4556, %inc9367
+  br i1 %2442, label %land.lhs.true9375, label %if.end10552
 
-if.end9368:                                       ; preds = %if.end9362, %land.lhs.true9343, %if.end9336
-  %sub.ptr.div.i4009.pre-phi = phi i64 [ %.pre4556, %if.end9362 ], [ %sub.ptr.div.i4000.pre-phi, %land.lhs.true9343 ], [ %sub.ptr.div.i4000.pre-phi, %if.end9336 ]
-  %2419 = phi ptr [ %.pre4388, %if.end9362 ], [ %2412, %land.lhs.true9343 ], [ %2412, %if.end9336 ]
-  %i.25 = phi i64 [ %inc9367, %if.end9362 ], [ %i.24, %land.lhs.true9343 ], [ %i.24, %if.end9336 ]
-  %cmp9374 = icmp ugt i64 %sub.ptr.div.i4009.pre-phi, %i.25
-  br i1 %cmp9374, label %land.lhs.true9375, label %if.end9400
-
-land.lhs.true9375:                                ; preds = %if.end9368
-  %add.ptr.i4010 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2419, i64 %i.25
+land.lhs.true9375:                                ; preds = %land.lhs.true9343, %if.end9368
+  %i.254866 = phi i64 [ %inc9367, %if.end9368 ], [ %i.244859, %land.lhs.true9343 ]
+  %2443 = phi ptr [ %.pre4388, %if.end9368 ], [ %2435, %land.lhs.true9343 ]
+  %add.ptr.i4010 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2443, i64 %i.254866
   %id9377 = getelementptr inbounds nuw i8, ptr %add.ptr.i4010, i64 32
-  %2420 = load i32, ptr %id9377, align 8
-  %cmp9378 = icmp eq i32 %2420, 25
-  br i1 %cmp9378, label %if.then9379, label %if.end9400
+  %2444 = load i32, ptr %id9377, align 8
+  %cmp9378 = icmp eq i32 %2444, 25
+  br i1 %cmp9378, label %if.then9379, label %land.lhs.true9407
 
 if.then9379:                                      ; preds = %land.lhs.true9375
-  %2421 = load ptr, ptr %isolate_, align 8
+  %2445 = load ptr, ptr %isolate_, align 8
   %index9384 = getelementptr inbounds nuw i8, ptr %add.ptr.i4010, i64 40
-  %2422 = load i64, ptr %index9384, align 8
-  %call.i17791 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2421, i64 noundef %2422) #24
+  %2446 = load i64, ptr %index9384, align 8
+  %call.i17791 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2445, i64 noundef %2446) #24
   %cond3007 = icmp eq ptr %call.i17791, null
-  br i1 %cond3007, label %if.then9392, label %if.end9394
+  br i1 %cond3007, label %if.then9392, label %if.end9400
 
 if.then9392:                                      ; preds = %if.then9379
-  %2423 = load ptr, ptr @stderr, align 8
-  %2424 = call i64 @fwrite(ptr nonnull @.str.492, i64 76, i64 1, ptr %2423) #29
-  br label %if.end9394
+  %2447 = load ptr, ptr @stderr, align 8
+  %2448 = call i64 @fwrite(ptr nonnull @.str.492, i64 76, i64 1, ptr %2447) #29
+  br label %if.end9400
 
-if.end9394:                                       ; preds = %if.then9379, %if.then9392
+if.end9400:                                       ; preds = %if.then9392, %if.then9379
   %libuv_stream_wrap_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2768
-  %2425 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4013 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2425, ptr noundef %call.i17791) #24
+  %2449 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4013 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2449, ptr noundef %call.i17791) #24
   store ptr %call8.i.i4013, ptr %libuv_stream_wrap_ctor_template_.i, align 8
-  %inc9399 = add nuw nsw i64 %i.25, 1
+  %inc9399 = add nuw nsw i64 %i.254866, 1
   %.pre4389 = load ptr, ptr %_M_finish.i, align 8
   %.pre4390 = load ptr, ptr %template_values, align 8
   %.pre4557 = ptrtoint ptr %.pre4389 to i64
   %.pre4558 = ptrtoint ptr %.pre4390 to i64
   %.pre4559 = sub i64 %.pre4557, %.pre4558
   %.pre4560 = sdiv exact i64 %.pre4559, 48
-  br label %if.end9400
+  %2450 = icmp ugt i64 %.pre4560, %inc9399
+  br i1 %2450, label %land.lhs.true9407, label %if.end10552
 
-if.end9400:                                       ; preds = %if.end9394, %land.lhs.true9375, %if.end9368
-  %sub.ptr.div.i4018.pre-phi = phi i64 [ %.pre4560, %if.end9394 ], [ %sub.ptr.div.i4009.pre-phi, %land.lhs.true9375 ], [ %sub.ptr.div.i4009.pre-phi, %if.end9368 ]
-  %2426 = phi ptr [ %.pre4390, %if.end9394 ], [ %2419, %land.lhs.true9375 ], [ %2419, %if.end9368 ]
-  %i.26 = phi i64 [ %inc9399, %if.end9394 ], [ %i.25, %land.lhs.true9375 ], [ %i.25, %if.end9368 ]
-  %cmp9406 = icmp ugt i64 %sub.ptr.div.i4018.pre-phi, %i.26
-  br i1 %cmp9406, label %land.lhs.true9407, label %if.end9432
-
-land.lhs.true9407:                                ; preds = %if.end9400
-  %add.ptr.i4019 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2426, i64 %i.26
+land.lhs.true9407:                                ; preds = %land.lhs.true9375, %if.end9400
+  %i.264873 = phi i64 [ %inc9399, %if.end9400 ], [ %i.254866, %land.lhs.true9375 ]
+  %2451 = phi ptr [ %.pre4390, %if.end9400 ], [ %2443, %land.lhs.true9375 ]
+  %add.ptr.i4019 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2451, i64 %i.264873
   %id9409 = getelementptr inbounds nuw i8, ptr %add.ptr.i4019, i64 32
-  %2427 = load i32, ptr %id9409, align 8
-  %cmp9410 = icmp eq i32 %2427, 26
-  br i1 %cmp9410, label %if.then9411, label %if.end9432
+  %2452 = load i32, ptr %id9409, align 8
+  %cmp9410 = icmp eq i32 %2452, 26
+  br i1 %cmp9410, label %if.then9411, label %land.lhs.true9439
 
 if.then9411:                                      ; preds = %land.lhs.true9407
-  %2428 = load ptr, ptr %isolate_, align 8
+  %2453 = load ptr, ptr %isolate_, align 8
   %index9416 = getelementptr inbounds nuw i8, ptr %add.ptr.i4019, i64 40
-  %2429 = load i64, ptr %index9416, align 8
-  %call.i17779 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2428, i64 noundef %2429) #24
+  %2454 = load i64, ptr %index9416, align 8
+  %call.i17779 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2453, i64 noundef %2454) #24
   %cond3008 = icmp eq ptr %call.i17779, null
-  br i1 %cond3008, label %if.then9424, label %if.end9426
+  br i1 %cond3008, label %if.then9424, label %if.end9432
 
 if.then9424:                                      ; preds = %if.then9411
-  %2430 = load ptr, ptr @stderr, align 8
-  %2431 = call i64 @fwrite(ptr nonnull @.str.493, i64 78, i64 1, ptr %2430) #29
-  br label %if.end9426
+  %2455 = load ptr, ptr @stderr, align 8
+  %2456 = call i64 @fwrite(ptr nonnull @.str.493, i64 78, i64 1, ptr %2455) #29
+  br label %if.end9432
 
-if.end9426:                                       ; preds = %if.then9411, %if.then9424
+if.end9432:                                       ; preds = %if.then9424, %if.then9411
   %message_port_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2776
-  %2432 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4022 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2432, ptr noundef %call.i17779) #24
+  %2457 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4022 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2457, ptr noundef %call.i17779) #24
   store ptr %call8.i.i4022, ptr %message_port_constructor_template_.i, align 8
-  %inc9431 = add nuw nsw i64 %i.26, 1
+  %inc9431 = add nuw nsw i64 %i.264873, 1
   %.pre4391 = load ptr, ptr %_M_finish.i, align 8
   %.pre4392 = load ptr, ptr %template_values, align 8
   %.pre4561 = ptrtoint ptr %.pre4391 to i64
   %.pre4562 = ptrtoint ptr %.pre4392 to i64
   %.pre4563 = sub i64 %.pre4561, %.pre4562
   %.pre4564 = sdiv exact i64 %.pre4563, 48
-  br label %if.end9432
+  %2458 = icmp ugt i64 %.pre4564, %inc9431
+  br i1 %2458, label %land.lhs.true9439, label %if.end10552
 
-if.end9432:                                       ; preds = %if.end9426, %land.lhs.true9407, %if.end9400
-  %sub.ptr.div.i4027.pre-phi = phi i64 [ %.pre4564, %if.end9426 ], [ %sub.ptr.div.i4018.pre-phi, %land.lhs.true9407 ], [ %sub.ptr.div.i4018.pre-phi, %if.end9400 ]
-  %2433 = phi ptr [ %.pre4392, %if.end9426 ], [ %2426, %land.lhs.true9407 ], [ %2426, %if.end9400 ]
-  %i.27 = phi i64 [ %inc9431, %if.end9426 ], [ %i.26, %land.lhs.true9407 ], [ %i.26, %if.end9400 ]
-  %cmp9438 = icmp ugt i64 %sub.ptr.div.i4027.pre-phi, %i.27
-  br i1 %cmp9438, label %land.lhs.true9439, label %if.end9464
-
-land.lhs.true9439:                                ; preds = %if.end9432
-  %add.ptr.i4028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2433, i64 %i.27
+land.lhs.true9439:                                ; preds = %land.lhs.true9407, %if.end9432
+  %i.274880 = phi i64 [ %inc9431, %if.end9432 ], [ %i.264873, %land.lhs.true9407 ]
+  %2459 = phi ptr [ %.pre4392, %if.end9432 ], [ %2451, %land.lhs.true9407 ]
+  %add.ptr.i4028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2459, i64 %i.274880
   %id9441 = getelementptr inbounds nuw i8, ptr %add.ptr.i4028, i64 32
-  %2434 = load i32, ptr %id9441, align 8
-  %cmp9442 = icmp eq i32 %2434, 27
-  br i1 %cmp9442, label %if.then9443, label %if.end9464
+  %2460 = load i32, ptr %id9441, align 8
+  %cmp9442 = icmp eq i32 %2460, 27
+  br i1 %cmp9442, label %if.then9443, label %land.lhs.true9471
 
 if.then9443:                                      ; preds = %land.lhs.true9439
-  %2435 = load ptr, ptr %isolate_, align 8
+  %2461 = load ptr, ptr %isolate_, align 8
   %index9448 = getelementptr inbounds nuw i8, ptr %add.ptr.i4028, i64 40
-  %2436 = load i64, ptr %index9448, align 8
-  %call.i17767 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2435, i64 noundef %2436) #24
+  %2462 = load i64, ptr %index9448, align 8
+  %call.i17767 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2461, i64 noundef %2462) #24
   %cond3009 = icmp eq ptr %call.i17767, null
-  br i1 %cond3009, label %if.then9456, label %if.end9458
+  br i1 %cond3009, label %if.then9456, label %if.end9464
 
 if.then9456:                                      ; preds = %if.then9443
-  %2437 = load ptr, ptr @stderr, align 8
-  %2438 = call i64 @fwrite(ptr nonnull @.str.494, i64 74, i64 1, ptr %2437) #29
-  br label %if.end9458
+  %2463 = load ptr, ptr @stderr, align 8
+  %2464 = call i64 @fwrite(ptr nonnull @.str.494, i64 74, i64 1, ptr %2463) #29
+  br label %if.end9464
 
-if.end9458:                                       ; preds = %if.then9443, %if.then9456
+if.end9464:                                       ; preds = %if.then9456, %if.then9443
   %microtask_queue_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2784
-  %2439 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4031 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2439, ptr noundef %call.i17767) #24
+  %2465 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4031 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2465, ptr noundef %call.i17767) #24
   store ptr %call8.i.i4031, ptr %microtask_queue_ctor_template_.i, align 8
-  %inc9463 = add nuw nsw i64 %i.27, 1
+  %inc9463 = add nuw nsw i64 %i.274880, 1
   %.pre4393 = load ptr, ptr %_M_finish.i, align 8
   %.pre4394 = load ptr, ptr %template_values, align 8
   %.pre4565 = ptrtoint ptr %.pre4393 to i64
   %.pre4566 = ptrtoint ptr %.pre4394 to i64
   %.pre4567 = sub i64 %.pre4565, %.pre4566
   %.pre4568 = sdiv exact i64 %.pre4567, 48
-  br label %if.end9464
+  %2466 = icmp ugt i64 %.pre4568, %inc9463
+  br i1 %2466, label %land.lhs.true9471, label %if.end10552
 
-if.end9464:                                       ; preds = %if.end9458, %land.lhs.true9439, %if.end9432
-  %sub.ptr.div.i4036.pre-phi = phi i64 [ %.pre4568, %if.end9458 ], [ %sub.ptr.div.i4027.pre-phi, %land.lhs.true9439 ], [ %sub.ptr.div.i4027.pre-phi, %if.end9432 ]
-  %2440 = phi ptr [ %.pre4394, %if.end9458 ], [ %2433, %land.lhs.true9439 ], [ %2433, %if.end9432 ]
-  %i.28 = phi i64 [ %inc9463, %if.end9458 ], [ %i.27, %land.lhs.true9439 ], [ %i.27, %if.end9432 ]
-  %cmp9470 = icmp ugt i64 %sub.ptr.div.i4036.pre-phi, %i.28
-  br i1 %cmp9470, label %land.lhs.true9471, label %if.end9496
-
-land.lhs.true9471:                                ; preds = %if.end9464
-  %add.ptr.i4037 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2440, i64 %i.28
+land.lhs.true9471:                                ; preds = %land.lhs.true9439, %if.end9464
+  %i.284887 = phi i64 [ %inc9463, %if.end9464 ], [ %i.274880, %land.lhs.true9439 ]
+  %2467 = phi ptr [ %.pre4394, %if.end9464 ], [ %2459, %land.lhs.true9439 ]
+  %add.ptr.i4037 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2467, i64 %i.284887
   %id9473 = getelementptr inbounds nuw i8, ptr %add.ptr.i4037, i64 32
-  %2441 = load i32, ptr %id9473, align 8
-  %cmp9474 = icmp eq i32 %2441, 28
-  br i1 %cmp9474, label %if.then9475, label %if.end9496
+  %2468 = load i32, ptr %id9473, align 8
+  %cmp9474 = icmp eq i32 %2468, 28
+  br i1 %cmp9474, label %if.then9475, label %land.lhs.true9503
 
 if.then9475:                                      ; preds = %land.lhs.true9471
-  %2442 = load ptr, ptr %isolate_, align 8
+  %2469 = load ptr, ptr %isolate_, align 8
   %index9480 = getelementptr inbounds nuw i8, ptr %add.ptr.i4037, i64 40
-  %2443 = load i64, ptr %index9480, align 8
-  %call.i17755 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2442, i64 noundef %2443) #24
+  %2470 = load i64, ptr %index9480, align 8
+  %call.i17755 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2469, i64 noundef %2470) #24
   %cond3010 = icmp eq ptr %call.i17755, null
-  br i1 %cond3010, label %if.then9488, label %if.end9490
+  br i1 %cond3010, label %if.then9488, label %if.end9496
 
 if.then9488:                                      ; preds = %if.then9475
-  %2444 = load ptr, ptr @stderr, align 8
-  %2445 = call i64 @fwrite(ptr nonnull @.str.495, i64 70, i64 1, ptr %2444) #29
-  br label %if.end9490
+  %2471 = load ptr, ptr @stderr, align 8
+  %2472 = call i64 @fwrite(ptr nonnull @.str.495, i64 70, i64 1, ptr %2471) #29
+  br label %if.end9496
 
-if.end9490:                                       ; preds = %if.then9475, %if.then9488
+if.end9496:                                       ; preds = %if.then9488, %if.then9475
   %pipe_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2792
-  %2446 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4040 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2446, ptr noundef %call.i17755) #24
+  %2473 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4040 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2473, ptr noundef %call.i17755) #24
   store ptr %call8.i.i4040, ptr %pipe_constructor_template_.i, align 8
-  %inc9495 = add nuw nsw i64 %i.28, 1
+  %inc9495 = add nuw nsw i64 %i.284887, 1
   %.pre4395 = load ptr, ptr %_M_finish.i, align 8
   %.pre4396 = load ptr, ptr %template_values, align 8
   %.pre4569 = ptrtoint ptr %.pre4395 to i64
   %.pre4570 = ptrtoint ptr %.pre4396 to i64
   %.pre4571 = sub i64 %.pre4569, %.pre4570
   %.pre4572 = sdiv exact i64 %.pre4571, 48
-  br label %if.end9496
+  %2474 = icmp ugt i64 %.pre4572, %inc9495
+  br i1 %2474, label %land.lhs.true9503, label %if.end10552
 
-if.end9496:                                       ; preds = %if.end9490, %land.lhs.true9471, %if.end9464
-  %sub.ptr.div.i4045.pre-phi = phi i64 [ %.pre4572, %if.end9490 ], [ %sub.ptr.div.i4036.pre-phi, %land.lhs.true9471 ], [ %sub.ptr.div.i4036.pre-phi, %if.end9464 ]
-  %2447 = phi ptr [ %.pre4396, %if.end9490 ], [ %2440, %land.lhs.true9471 ], [ %2440, %if.end9464 ]
-  %i.29 = phi i64 [ %inc9495, %if.end9490 ], [ %i.28, %land.lhs.true9471 ], [ %i.28, %if.end9464 ]
-  %cmp9502 = icmp ugt i64 %sub.ptr.div.i4045.pre-phi, %i.29
-  br i1 %cmp9502, label %land.lhs.true9503, label %if.end9528
-
-land.lhs.true9503:                                ; preds = %if.end9496
-  %add.ptr.i4046 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2447, i64 %i.29
+land.lhs.true9503:                                ; preds = %land.lhs.true9471, %if.end9496
+  %i.294894 = phi i64 [ %inc9495, %if.end9496 ], [ %i.284887, %land.lhs.true9471 ]
+  %2475 = phi ptr [ %.pre4396, %if.end9496 ], [ %2467, %land.lhs.true9471 ]
+  %add.ptr.i4046 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2475, i64 %i.294894
   %id9505 = getelementptr inbounds nuw i8, ptr %add.ptr.i4046, i64 32
-  %2448 = load i32, ptr %id9505, align 8
-  %cmp9506 = icmp eq i32 %2448, 29
-  br i1 %cmp9506, label %if.then9507, label %if.end9528
+  %2476 = load i32, ptr %id9505, align 8
+  %cmp9506 = icmp eq i32 %2476, 29
+  br i1 %cmp9506, label %if.then9507, label %land.lhs.true9535
 
 if.then9507:                                      ; preds = %land.lhs.true9503
-  %2449 = load ptr, ptr %isolate_, align 8
+  %2477 = load ptr, ptr %isolate_, align 8
   %index9512 = getelementptr inbounds nuw i8, ptr %add.ptr.i4046, i64 40
-  %2450 = load i64, ptr %index9512, align 8
-  %call.i18392 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2449, i64 noundef %2450) #24
+  %2478 = load i64, ptr %index9512, align 8
+  %call.i18392 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2477, i64 noundef %2478) #24
   %cond3011 = icmp eq ptr %call.i18392, null
-  br i1 %cond3011, label %if.then9520, label %if.end9522
+  br i1 %cond3011, label %if.then9520, label %if.end9528
 
 if.then9520:                                      ; preds = %if.then9507
-  %2451 = load ptr, ptr @stderr, align 8
-  %2452 = call i64 @fwrite(ptr nonnull @.str.496, i64 66, i64 1, ptr %2451) #29
-  br label %if.end9522
+  %2479 = load ptr, ptr @stderr, align 8
+  %2480 = call i64 @fwrite(ptr nonnull @.str.496, i64 66, i64 1, ptr %2479) #29
+  br label %if.end9528
 
-if.end9522:                                       ; preds = %if.then9507, %if.then9520
+if.end9528:                                       ; preds = %if.then9520, %if.then9507
   %promise_wrap_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2800
-  %2453 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4049 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2453, ptr noundef %call.i18392) #24
+  %2481 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4049 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2481, ptr noundef %call.i18392) #24
   store ptr %call8.i.i4049, ptr %promise_wrap_template_.i, align 8
-  %inc9527 = add nuw nsw i64 %i.29, 1
+  %inc9527 = add nuw nsw i64 %i.294894, 1
   %.pre4397 = load ptr, ptr %_M_finish.i, align 8
   %.pre4398 = load ptr, ptr %template_values, align 8
   %.pre4573 = ptrtoint ptr %.pre4397 to i64
   %.pre4574 = ptrtoint ptr %.pre4398 to i64
   %.pre4575 = sub i64 %.pre4573, %.pre4574
   %.pre4576 = sdiv exact i64 %.pre4575, 48
-  br label %if.end9528
+  %2482 = icmp ugt i64 %.pre4576, %inc9527
+  br i1 %2482, label %land.lhs.true9535, label %if.end10552
 
-if.end9528:                                       ; preds = %if.end9522, %land.lhs.true9503, %if.end9496
-  %sub.ptr.div.i4054.pre-phi = phi i64 [ %.pre4576, %if.end9522 ], [ %sub.ptr.div.i4045.pre-phi, %land.lhs.true9503 ], [ %sub.ptr.div.i4045.pre-phi, %if.end9496 ]
-  %2454 = phi ptr [ %.pre4398, %if.end9522 ], [ %2447, %land.lhs.true9503 ], [ %2447, %if.end9496 ]
-  %i.30 = phi i64 [ %inc9527, %if.end9522 ], [ %i.29, %land.lhs.true9503 ], [ %i.29, %if.end9496 ]
-  %cmp9534 = icmp ugt i64 %sub.ptr.div.i4054.pre-phi, %i.30
-  br i1 %cmp9534, label %land.lhs.true9535, label %if.end9560
-
-land.lhs.true9535:                                ; preds = %if.end9528
-  %add.ptr.i4055 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2454, i64 %i.30
+land.lhs.true9535:                                ; preds = %land.lhs.true9503, %if.end9528
+  %i.304901 = phi i64 [ %inc9527, %if.end9528 ], [ %i.294894, %land.lhs.true9503 ]
+  %2483 = phi ptr [ %.pre4398, %if.end9528 ], [ %2475, %land.lhs.true9503 ]
+  %add.ptr.i4055 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2483, i64 %i.304901
   %id9537 = getelementptr inbounds nuw i8, ptr %add.ptr.i4055, i64 32
-  %2455 = load i32, ptr %id9537, align 8
-  %cmp9538 = icmp eq i32 %2455, 30
-  br i1 %cmp9538, label %if.then9539, label %if.end9560
+  %2484 = load i32, ptr %id9537, align 8
+  %cmp9538 = icmp eq i32 %2484, 30
+  br i1 %cmp9538, label %if.then9539, label %land.lhs.true9567
 
 if.then9539:                                      ; preds = %land.lhs.true9535
-  %2456 = load ptr, ptr %isolate_, align 8
+  %2485 = load ptr, ptr %isolate_, align 8
   %index9544 = getelementptr inbounds nuw i8, ptr %add.ptr.i4055, i64 40
-  %2457 = load i64, ptr %index9544, align 8
-  %call.i17743 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2456, i64 noundef %2457) #24
+  %2486 = load i64, ptr %index9544, align 8
+  %call.i17743 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2485, i64 noundef %2486) #24
   %cond3012 = icmp eq ptr %call.i17743, null
-  br i1 %cond3012, label %if.then9552, label %if.end9554
+  br i1 %cond3012, label %if.then9552, label %if.end9560
 
 if.then9552:                                      ; preds = %if.then9539
-  %2458 = load ptr, ptr @stderr, align 8
-  %2459 = call i64 @fwrite(ptr nonnull @.str.497, i64 85, i64 1, ptr %2458) #29
-  br label %if.end9554
+  %2487 = load ptr, ptr @stderr, align 8
+  %2488 = call i64 @fwrite(ptr nonnull @.str.497, i64 85, i64 1, ptr %2487) #29
+  br label %if.end9560
 
-if.end9554:                                       ; preds = %if.then9539, %if.then9552
+if.end9560:                                       ; preds = %if.then9552, %if.then9539
   %sab_lifetimepartner_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2808
-  %2460 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4058 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2460, ptr noundef %call.i17743) #24
+  %2489 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4058 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2489, ptr noundef %call.i17743) #24
   store ptr %call8.i.i4058, ptr %sab_lifetimepartner_constructor_template_.i, align 8
-  %inc9559 = add nuw nsw i64 %i.30, 1
+  %inc9559 = add nuw nsw i64 %i.304901, 1
   %.pre4399 = load ptr, ptr %_M_finish.i, align 8
   %.pre4400 = load ptr, ptr %template_values, align 8
   %.pre4577 = ptrtoint ptr %.pre4399 to i64
   %.pre4578 = ptrtoint ptr %.pre4400 to i64
   %.pre4579 = sub i64 %.pre4577, %.pre4578
   %.pre4580 = sdiv exact i64 %.pre4579, 48
-  br label %if.end9560
+  %2490 = icmp ugt i64 %.pre4580, %inc9559
+  br i1 %2490, label %land.lhs.true9567, label %if.end10552
 
-if.end9560:                                       ; preds = %if.end9554, %land.lhs.true9535, %if.end9528
-  %sub.ptr.div.i4063.pre-phi = phi i64 [ %.pre4580, %if.end9554 ], [ %sub.ptr.div.i4054.pre-phi, %land.lhs.true9535 ], [ %sub.ptr.div.i4054.pre-phi, %if.end9528 ]
-  %2461 = phi ptr [ %.pre4400, %if.end9554 ], [ %2454, %land.lhs.true9535 ], [ %2454, %if.end9528 ]
-  %i.31 = phi i64 [ %inc9559, %if.end9554 ], [ %i.30, %land.lhs.true9535 ], [ %i.30, %if.end9528 ]
-  %cmp9566 = icmp ugt i64 %sub.ptr.div.i4063.pre-phi, %i.31
-  br i1 %cmp9566, label %land.lhs.true9567, label %if.end9592
-
-land.lhs.true9567:                                ; preds = %if.end9560
-  %add.ptr.i4064 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2461, i64 %i.31
+land.lhs.true9567:                                ; preds = %land.lhs.true9535, %if.end9560
+  %i.314908 = phi i64 [ %inc9559, %if.end9560 ], [ %i.304901, %land.lhs.true9535 ]
+  %2491 = phi ptr [ %.pre4400, %if.end9560 ], [ %2483, %land.lhs.true9535 ]
+  %add.ptr.i4064 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2491, i64 %i.314908
   %id9569 = getelementptr inbounds nuw i8, ptr %add.ptr.i4064, i64 32
-  %2462 = load i32, ptr %id9569, align 8
-  %cmp9570 = icmp eq i32 %2462, 31
-  br i1 %cmp9570, label %if.then9571, label %if.end9592
+  %2492 = load i32, ptr %id9569, align 8
+  %cmp9570 = icmp eq i32 %2492, 31
+  br i1 %cmp9570, label %if.then9571, label %land.lhs.true9599
 
 if.then9571:                                      ; preds = %land.lhs.true9567
-  %2463 = load ptr, ptr %isolate_, align 8
+  %2493 = load ptr, ptr %isolate_, align 8
   %index9576 = getelementptr inbounds nuw i8, ptr %add.ptr.i4064, i64 40
-  %2464 = load i64, ptr %index9576, align 8
-  %call.i17731 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2463, i64 noundef %2464) #24
+  %2494 = load i64, ptr %index9576, align 8
+  %call.i17731 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2493, i64 noundef %2494) #24
   %cond3013 = icmp eq ptr %call.i17731, null
-  br i1 %cond3013, label %if.then9584, label %if.end9586
+  br i1 %cond3013, label %if.then9584, label %if.end9592
 
 if.then9584:                                      ; preds = %if.then9571
-  %2465 = load ptr, ptr @stderr, align 8
-  %2466 = call i64 @fwrite(ptr nonnull @.str.498, i64 80, i64 1, ptr %2465) #29
-  br label %if.end9586
+  %2495 = load ptr, ptr @stderr, align 8
+  %2496 = call i64 @fwrite(ptr nonnull @.str.498, i64 80, i64 1, ptr %2495) #29
+  br label %if.end9592
 
-if.end9586:                                       ; preds = %if.then9571, %if.then9584
+if.end9592:                                       ; preds = %if.then9584, %if.then9571
   %script_context_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2816
-  %2467 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4067 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2467, ptr noundef %call.i17731) #24
+  %2497 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4067 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2497, ptr noundef %call.i17731) #24
   store ptr %call8.i.i4067, ptr %script_context_constructor_template_.i, align 8
-  %inc9591 = add nuw nsw i64 %i.31, 1
+  %inc9591 = add nuw nsw i64 %i.314908, 1
   %.pre4401 = load ptr, ptr %_M_finish.i, align 8
   %.pre4402 = load ptr, ptr %template_values, align 8
   %.pre4581 = ptrtoint ptr %.pre4401 to i64
   %.pre4582 = ptrtoint ptr %.pre4402 to i64
   %.pre4583 = sub i64 %.pre4581, %.pre4582
   %.pre4584 = sdiv exact i64 %.pre4583, 48
-  br label %if.end9592
+  %2498 = icmp ugt i64 %.pre4584, %inc9591
+  br i1 %2498, label %land.lhs.true9599, label %if.end10552
 
-if.end9592:                                       ; preds = %if.end9586, %land.lhs.true9567, %if.end9560
-  %sub.ptr.div.i4072.pre-phi = phi i64 [ %.pre4584, %if.end9586 ], [ %sub.ptr.div.i4063.pre-phi, %land.lhs.true9567 ], [ %sub.ptr.div.i4063.pre-phi, %if.end9560 ]
-  %2468 = phi ptr [ %.pre4402, %if.end9586 ], [ %2461, %land.lhs.true9567 ], [ %2461, %if.end9560 ]
-  %i.32 = phi i64 [ %inc9591, %if.end9586 ], [ %i.31, %land.lhs.true9567 ], [ %i.31, %if.end9560 ]
-  %cmp9598 = icmp ugt i64 %sub.ptr.div.i4072.pre-phi, %i.32
-  br i1 %cmp9598, label %land.lhs.true9599, label %if.end9624
-
-land.lhs.true9599:                                ; preds = %if.end9592
-  %add.ptr.i4073 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2468, i64 %i.32
+land.lhs.true9599:                                ; preds = %land.lhs.true9567, %if.end9592
+  %i.324915 = phi i64 [ %inc9591, %if.end9592 ], [ %i.314908, %land.lhs.true9567 ]
+  %2499 = phi ptr [ %.pre4402, %if.end9592 ], [ %2491, %land.lhs.true9567 ]
+  %add.ptr.i4073 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2499, i64 %i.324915
   %id9601 = getelementptr inbounds nuw i8, ptr %add.ptr.i4073, i64 32
-  %2469 = load i32, ptr %id9601, align 8
-  %cmp9602 = icmp eq i32 %2469, 32
-  br i1 %cmp9602, label %if.then9603, label %if.end9624
+  %2500 = load i32, ptr %id9601, align 8
+  %cmp9602 = icmp eq i32 %2500, 32
+  br i1 %cmp9602, label %if.then9603, label %land.lhs.true9631
 
 if.then9603:                                      ; preds = %land.lhs.true9599
-  %2470 = load ptr, ptr %isolate_, align 8
+  %2501 = load ptr, ptr %isolate_, align 8
   %index9608 = getelementptr inbounds nuw i8, ptr %add.ptr.i4073, i64 40
-  %2471 = load i64, ptr %index9608, align 8
-  %call.i17719 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2470, i64 noundef %2471) #24
+  %2502 = load i64, ptr %index9608, align 8
+  %call.i17719 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2501, i64 noundef %2502) #24
   %cond3014 = icmp eq ptr %call.i17719, null
-  br i1 %cond3014, label %if.then9616, label %if.end9618
+  br i1 %cond3014, label %if.then9616, label %if.end9624
 
 if.then9616:                                      ; preds = %if.then9603
-  %2472 = load ptr, ptr @stderr, align 8
-  %2473 = call i64 @fwrite(ptr nonnull @.str.499, i64 80, i64 1, ptr %2472) #29
-  br label %if.end9618
+  %2503 = load ptr, ptr @stderr, align 8
+  %2504 = call i64 @fwrite(ptr nonnull @.str.499, i64 80, i64 1, ptr %2503) #29
+  br label %if.end9624
 
-if.end9618:                                       ; preds = %if.then9603, %if.then9616
+if.end9624:                                       ; preds = %if.then9616, %if.then9603
   %secure_context_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2824
-  %2474 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4076 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2474, ptr noundef %call.i17719) #24
+  %2505 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4076 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2505, ptr noundef %call.i17719) #24
   store ptr %call8.i.i4076, ptr %secure_context_constructor_template_.i, align 8
-  %inc9623 = add nuw nsw i64 %i.32, 1
+  %inc9623 = add nuw nsw i64 %i.324915, 1
   %.pre4403 = load ptr, ptr %_M_finish.i, align 8
   %.pre4404 = load ptr, ptr %template_values, align 8
   %.pre4585 = ptrtoint ptr %.pre4403 to i64
   %.pre4586 = ptrtoint ptr %.pre4404 to i64
   %.pre4587 = sub i64 %.pre4585, %.pre4586
   %.pre4588 = sdiv exact i64 %.pre4587, 48
-  br label %if.end9624
+  %2506 = icmp ugt i64 %.pre4588, %inc9623
+  br i1 %2506, label %land.lhs.true9631, label %if.end10552
 
-if.end9624:                                       ; preds = %if.end9618, %land.lhs.true9599, %if.end9592
-  %sub.ptr.div.i4081.pre-phi = phi i64 [ %.pre4588, %if.end9618 ], [ %sub.ptr.div.i4072.pre-phi, %land.lhs.true9599 ], [ %sub.ptr.div.i4072.pre-phi, %if.end9592 ]
-  %2475 = phi ptr [ %.pre4404, %if.end9618 ], [ %2468, %land.lhs.true9599 ], [ %2468, %if.end9592 ]
-  %i.33 = phi i64 [ %inc9623, %if.end9618 ], [ %i.32, %land.lhs.true9599 ], [ %i.32, %if.end9592 ]
-  %cmp9630 = icmp ugt i64 %sub.ptr.div.i4081.pre-phi, %i.33
-  br i1 %cmp9630, label %land.lhs.true9631, label %if.end9656
-
-land.lhs.true9631:                                ; preds = %if.end9624
-  %add.ptr.i4082 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2475, i64 %i.33
+land.lhs.true9631:                                ; preds = %land.lhs.true9599, %if.end9624
+  %i.334922 = phi i64 [ %inc9623, %if.end9624 ], [ %i.324915, %land.lhs.true9599 ]
+  %2507 = phi ptr [ %.pre4404, %if.end9624 ], [ %2499, %land.lhs.true9599 ]
+  %add.ptr.i4082 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2507, i64 %i.334922
   %id9633 = getelementptr inbounds nuw i8, ptr %add.ptr.i4082, i64 32
-  %2476 = load i32, ptr %id9633, align 8
-  %cmp9634 = icmp eq i32 %2476, 33
-  br i1 %cmp9634, label %if.then9635, label %if.end9656
+  %2508 = load i32, ptr %id9633, align 8
+  %cmp9634 = icmp eq i32 %2508, 33
+  br i1 %cmp9634, label %if.then9635, label %land.lhs.true9663
 
 if.then9635:                                      ; preds = %land.lhs.true9631
-  %2477 = load ptr, ptr %isolate_, align 8
+  %2509 = load ptr, ptr %isolate_, align 8
   %index9640 = getelementptr inbounds nuw i8, ptr %add.ptr.i4082, i64 40
-  %2478 = load i64, ptr %index9640, align 8
-  %call.i18380 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2477, i64 noundef %2478) #24
+  %2510 = load i64, ptr %index9640, align 8
+  %call.i18380 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2509, i64 noundef %2510) #24
   %cond3015 = icmp eq ptr %call.i18380, null
-  br i1 %cond3015, label %if.then9648, label %if.end9650
+  br i1 %cond3015, label %if.then9648, label %if.end9656
 
 if.then9648:                                      ; preds = %if.then9635
-  %2479 = load ptr, ptr @stderr, align 8
-  %2480 = call i64 @fwrite(ptr nonnull @.str.500, i64 67, i64 1, ptr %2479) #29
-  br label %if.end9650
+  %2511 = load ptr, ptr @stderr, align 8
+  %2512 = call i64 @fwrite(ptr nonnull @.str.500, i64 67, i64 1, ptr %2511) #29
+  br label %if.end9656
 
-if.end9650:                                       ; preds = %if.then9635, %if.then9648
+if.end9656:                                       ; preds = %if.then9648, %if.then9635
   %shutdown_wrap_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2832
-  %2481 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4085 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2481, ptr noundef %call.i18380) #24
+  %2513 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4085 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2513, ptr noundef %call.i18380) #24
   store ptr %call8.i.i4085, ptr %shutdown_wrap_template_.i, align 8
-  %inc9655 = add nuw nsw i64 %i.33, 1
+  %inc9655 = add nuw nsw i64 %i.334922, 1
   %.pre4405 = load ptr, ptr %_M_finish.i, align 8
   %.pre4406 = load ptr, ptr %template_values, align 8
   %.pre4589 = ptrtoint ptr %.pre4405 to i64
   %.pre4590 = ptrtoint ptr %.pre4406 to i64
   %.pre4591 = sub i64 %.pre4589, %.pre4590
   %.pre4592 = sdiv exact i64 %.pre4591, 48
-  br label %if.end9656
+  %2514 = icmp ugt i64 %.pre4592, %inc9655
+  br i1 %2514, label %land.lhs.true9663, label %if.end10552
 
-if.end9656:                                       ; preds = %if.end9650, %land.lhs.true9631, %if.end9624
-  %sub.ptr.div.i4090.pre-phi = phi i64 [ %.pre4592, %if.end9650 ], [ %sub.ptr.div.i4081.pre-phi, %land.lhs.true9631 ], [ %sub.ptr.div.i4081.pre-phi, %if.end9624 ]
-  %2482 = phi ptr [ %.pre4406, %if.end9650 ], [ %2475, %land.lhs.true9631 ], [ %2475, %if.end9624 ]
-  %i.34 = phi i64 [ %inc9655, %if.end9650 ], [ %i.33, %land.lhs.true9631 ], [ %i.33, %if.end9624 ]
-  %cmp9662 = icmp ugt i64 %sub.ptr.div.i4090.pre-phi, %i.34
-  br i1 %cmp9662, label %land.lhs.true9663, label %if.end9688
-
-land.lhs.true9663:                                ; preds = %if.end9656
-  %add.ptr.i4091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2482, i64 %i.34
+land.lhs.true9663:                                ; preds = %land.lhs.true9631, %if.end9656
+  %i.344929 = phi i64 [ %inc9655, %if.end9656 ], [ %i.334922, %land.lhs.true9631 ]
+  %2515 = phi ptr [ %.pre4406, %if.end9656 ], [ %2507, %land.lhs.true9631 ]
+  %add.ptr.i4091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2515, i64 %i.344929
   %id9665 = getelementptr inbounds nuw i8, ptr %add.ptr.i4091, i64 32
-  %2483 = load i32, ptr %id9665, align 8
-  %cmp9666 = icmp eq i32 %2483, 34
-  br i1 %cmp9666, label %if.then9667, label %if.end9688
+  %2516 = load i32, ptr %id9665, align 8
+  %cmp9666 = icmp eq i32 %2516, 34
+  br i1 %cmp9666, label %if.then9667, label %land.lhs.true9695
 
 if.then9667:                                      ; preds = %land.lhs.true9663
-  %2484 = load ptr, ptr %isolate_, align 8
+  %2517 = load ptr, ptr %isolate_, align 8
   %index9672 = getelementptr inbounds nuw i8, ptr %add.ptr.i4091, i64 40
-  %2485 = load i64, ptr %index9672, align 8
-  %call.i17707 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2484, i64 noundef %2485) #24
+  %2518 = load i64, ptr %index9672, align 8
+  %call.i17707 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2517, i64 noundef %2518) #24
   %cond3016 = icmp eq ptr %call.i17707, null
-  br i1 %cond3016, label %if.then9680, label %if.end9682
+  br i1 %cond3016, label %if.then9680, label %if.end9688
 
 if.then9680:                                      ; preds = %if.then9667
-  %2486 = load ptr, ptr @stderr, align 8
-  %2487 = call i64 @fwrite(ptr nonnull @.str.501, i64 79, i64 1, ptr %2486) #29
-  br label %if.end9682
+  %2519 = load ptr, ptr @stderr, align 8
+  %2520 = call i64 @fwrite(ptr nonnull @.str.501, i64 79, i64 1, ptr %2519) #29
+  br label %if.end9688
 
-if.end9682:                                       ; preds = %if.then9667, %if.then9680
+if.end9688:                                       ; preds = %if.then9680, %if.then9667
   %socketaddress_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2840
-  %2488 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4094 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2488, ptr noundef %call.i17707) #24
+  %2521 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4094 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2521, ptr noundef %call.i17707) #24
   store ptr %call8.i.i4094, ptr %socketaddress_constructor_template_.i, align 8
-  %inc9687 = add nuw nsw i64 %i.34, 1
+  %inc9687 = add nuw nsw i64 %i.344929, 1
   %.pre4407 = load ptr, ptr %_M_finish.i, align 8
   %.pre4408 = load ptr, ptr %template_values, align 8
   %.pre4593 = ptrtoint ptr %.pre4407 to i64
   %.pre4594 = ptrtoint ptr %.pre4408 to i64
   %.pre4595 = sub i64 %.pre4593, %.pre4594
   %.pre4596 = sdiv exact i64 %.pre4595, 48
-  br label %if.end9688
+  %2522 = icmp ugt i64 %.pre4596, %inc9687
+  br i1 %2522, label %land.lhs.true9695, label %if.end10552
 
-if.end9688:                                       ; preds = %if.end9682, %land.lhs.true9663, %if.end9656
-  %sub.ptr.div.i4099.pre-phi = phi i64 [ %.pre4596, %if.end9682 ], [ %sub.ptr.div.i4090.pre-phi, %land.lhs.true9663 ], [ %sub.ptr.div.i4090.pre-phi, %if.end9656 ]
-  %2489 = phi ptr [ %.pre4408, %if.end9682 ], [ %2482, %land.lhs.true9663 ], [ %2482, %if.end9656 ]
-  %i.35 = phi i64 [ %inc9687, %if.end9682 ], [ %i.34, %land.lhs.true9663 ], [ %i.34, %if.end9656 ]
-  %cmp9694 = icmp ugt i64 %sub.ptr.div.i4099.pre-phi, %i.35
-  br i1 %cmp9694, label %land.lhs.true9695, label %if.end9720
-
-land.lhs.true9695:                                ; preds = %if.end9688
-  %add.ptr.i4100 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2489, i64 %i.35
+land.lhs.true9695:                                ; preds = %land.lhs.true9663, %if.end9688
+  %i.354936 = phi i64 [ %inc9687, %if.end9688 ], [ %i.344929, %land.lhs.true9663 ]
+  %2523 = phi ptr [ %.pre4408, %if.end9688 ], [ %2515, %land.lhs.true9663 ]
+  %add.ptr.i4100 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2523, i64 %i.354936
   %id9697 = getelementptr inbounds nuw i8, ptr %add.ptr.i4100, i64 32
-  %2490 = load i32, ptr %id9697, align 8
-  %cmp9698 = icmp eq i32 %2490, 35
-  br i1 %cmp9698, label %if.then9699, label %if.end9720
+  %2524 = load i32, ptr %id9697, align 8
+  %cmp9698 = icmp eq i32 %2524, 35
+  br i1 %cmp9698, label %if.then9699, label %land.lhs.true9727
 
 if.then9699:                                      ; preds = %land.lhs.true9695
-  %2491 = load ptr, ptr %isolate_, align 8
+  %2525 = load ptr, ptr %isolate_, align 8
   %index9704 = getelementptr inbounds nuw i8, ptr %add.ptr.i4100, i64 40
-  %2492 = load i64, ptr %index9704, align 8
-  %call.i17695 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2491, i64 noundef %2492) #24
+  %2526 = load i64, ptr %index9704, align 8
+  %call.i17695 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2525, i64 noundef %2526) #24
   %cond3017 = icmp eq ptr %call.i17695, null
-  br i1 %cond3017, label %if.then9712, label %if.end9714
+  br i1 %cond3017, label %if.then9712, label %if.end9720
 
 if.then9712:                                      ; preds = %if.then9699
-  %2493 = load ptr, ptr @stderr, align 8
-  %2494 = call i64 @fwrite(ptr nonnull @.str.502, i64 74, i64 1, ptr %2493) #29
-  br label %if.end9714
+  %2527 = load ptr, ptr @stderr, align 8
+  %2528 = call i64 @fwrite(ptr nonnull @.str.502, i64 74, i64 1, ptr %2527) #29
+  br label %if.end9720
 
-if.end9714:                                       ; preds = %if.then9699, %if.then9712
+if.end9720:                                       ; preds = %if.then9712, %if.then9699
   %streambaseentry_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2848
-  %2495 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4103 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2495, ptr noundef %call.i17695) #24
+  %2529 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4103 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2529, ptr noundef %call.i17695) #24
   store ptr %call8.i.i4103, ptr %streambaseentry_ctor_template_.i, align 8
-  %inc9719 = add nuw nsw i64 %i.35, 1
+  %inc9719 = add nuw nsw i64 %i.354936, 1
   %.pre4409 = load ptr, ptr %_M_finish.i, align 8
   %.pre4410 = load ptr, ptr %template_values, align 8
   %.pre4597 = ptrtoint ptr %.pre4409 to i64
   %.pre4598 = ptrtoint ptr %.pre4410 to i64
   %.pre4599 = sub i64 %.pre4597, %.pre4598
   %.pre4600 = sdiv exact i64 %.pre4599, 48
-  br label %if.end9720
+  %2530 = icmp ugt i64 %.pre4600, %inc9719
+  br i1 %2530, label %land.lhs.true9727, label %if.end10552
 
-if.end9720:                                       ; preds = %if.end9714, %land.lhs.true9695, %if.end9688
-  %sub.ptr.div.i4108.pre-phi = phi i64 [ %.pre4600, %if.end9714 ], [ %sub.ptr.div.i4099.pre-phi, %land.lhs.true9695 ], [ %sub.ptr.div.i4099.pre-phi, %if.end9688 ]
-  %2496 = phi ptr [ %.pre4410, %if.end9714 ], [ %2489, %land.lhs.true9695 ], [ %2489, %if.end9688 ]
-  %i.36 = phi i64 [ %inc9719, %if.end9714 ], [ %i.35, %land.lhs.true9695 ], [ %i.35, %if.end9688 ]
-  %cmp9726 = icmp ugt i64 %sub.ptr.div.i4108.pre-phi, %i.36
-  br i1 %cmp9726, label %land.lhs.true9727, label %if.end9752
-
-land.lhs.true9727:                                ; preds = %if.end9720
-  %add.ptr.i4109 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2496, i64 %i.36
+land.lhs.true9727:                                ; preds = %land.lhs.true9695, %if.end9720
+  %i.364943 = phi i64 [ %inc9719, %if.end9720 ], [ %i.354936, %land.lhs.true9695 ]
+  %2531 = phi ptr [ %.pre4410, %if.end9720 ], [ %2523, %land.lhs.true9695 ]
+  %add.ptr.i4109 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2531, i64 %i.364943
   %id9729 = getelementptr inbounds nuw i8, ptr %add.ptr.i4109, i64 32
-  %2497 = load i32, ptr %id9729, align 8
-  %cmp9730 = icmp eq i32 %2497, 36
-  br i1 %cmp9730, label %if.then9731, label %if.end9752
+  %2532 = load i32, ptr %id9729, align 8
+  %cmp9730 = icmp eq i32 %2532, 36
+  br i1 %cmp9730, label %if.then9731, label %land.lhs.true9759
 
 if.then9731:                                      ; preds = %land.lhs.true9727
-  %2498 = load ptr, ptr %isolate_, align 8
+  %2533 = load ptr, ptr %isolate_, align 8
   %index9736 = getelementptr inbounds nuw i8, ptr %add.ptr.i4109, i64 40
-  %2499 = load i64, ptr %index9736, align 8
-  %call.i18368 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2498, i64 noundef %2499) #24
+  %2534 = load i64, ptr %index9736, align 8
+  %call.i18368 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2533, i64 noundef %2534) #24
   %cond3018 = icmp eq ptr %call.i18368, null
-  br i1 %cond3018, label %if.then9744, label %if.end9746
+  br i1 %cond3018, label %if.then9744, label %if.end9752
 
 if.then9744:                                      ; preds = %if.then9731
-  %2500 = load ptr, ptr @stderr, align 8
-  %2501 = call i64 @fwrite(ptr nonnull @.str.503, i64 88, i64 1, ptr %2500) #29
-  br label %if.end9746
+  %2535 = load ptr, ptr @stderr, align 8
+  %2536 = call i64 @fwrite(ptr nonnull @.str.503, i64 88, i64 1, ptr %2535) #29
+  br label %if.end9752
 
-if.end9746:                                       ; preds = %if.then9731, %if.then9744
+if.end9752:                                       ; preds = %if.then9744, %if.then9731
   %streambaseoutputstream_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2856
-  %2502 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4112 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2502, ptr noundef %call.i18368) #24
+  %2537 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4112 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2537, ptr noundef %call.i18368) #24
   store ptr %call8.i.i4112, ptr %streambaseoutputstream_constructor_template_.i, align 8
-  %inc9751 = add nuw nsw i64 %i.36, 1
+  %inc9751 = add nuw nsw i64 %i.364943, 1
   %.pre4411 = load ptr, ptr %_M_finish.i, align 8
   %.pre4412 = load ptr, ptr %template_values, align 8
   %.pre4601 = ptrtoint ptr %.pre4411 to i64
   %.pre4602 = ptrtoint ptr %.pre4412 to i64
   %.pre4603 = sub i64 %.pre4601, %.pre4602
   %.pre4604 = sdiv exact i64 %.pre4603, 48
-  br label %if.end9752
+  %2538 = icmp ugt i64 %.pre4604, %inc9751
+  br i1 %2538, label %land.lhs.true9759, label %if.end10552
 
-if.end9752:                                       ; preds = %if.end9746, %land.lhs.true9727, %if.end9720
-  %sub.ptr.div.i4117.pre-phi = phi i64 [ %.pre4604, %if.end9746 ], [ %sub.ptr.div.i4108.pre-phi, %land.lhs.true9727 ], [ %sub.ptr.div.i4108.pre-phi, %if.end9720 ]
-  %2503 = phi ptr [ %.pre4412, %if.end9746 ], [ %2496, %land.lhs.true9727 ], [ %2496, %if.end9720 ]
-  %i.37 = phi i64 [ %inc9751, %if.end9746 ], [ %i.36, %land.lhs.true9727 ], [ %i.36, %if.end9720 ]
-  %cmp9758 = icmp ugt i64 %sub.ptr.div.i4117.pre-phi, %i.37
-  br i1 %cmp9758, label %land.lhs.true9759, label %if.end9784
-
-land.lhs.true9759:                                ; preds = %if.end9752
-  %add.ptr.i4118 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2503, i64 %i.37
+land.lhs.true9759:                                ; preds = %land.lhs.true9727, %if.end9752
+  %i.374950 = phi i64 [ %inc9751, %if.end9752 ], [ %i.364943, %land.lhs.true9727 ]
+  %2539 = phi ptr [ %.pre4412, %if.end9752 ], [ %2531, %land.lhs.true9727 ]
+  %add.ptr.i4118 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2539, i64 %i.374950
   %id9761 = getelementptr inbounds nuw i8, ptr %add.ptr.i4118, i64 32
-  %2504 = load i32, ptr %id9761, align 8
-  %cmp9762 = icmp eq i32 %2504, 37
-  br i1 %cmp9762, label %if.then9763, label %if.end9784
+  %2540 = load i32, ptr %id9761, align 8
+  %cmp9762 = icmp eq i32 %2540, 37
+  br i1 %cmp9762, label %if.then9763, label %land.lhs.true9791
 
 if.then9763:                                      ; preds = %land.lhs.true9759
-  %2505 = load ptr, ptr %isolate_, align 8
+  %2541 = load ptr, ptr %isolate_, align 8
   %index9768 = getelementptr inbounds nuw i8, ptr %add.ptr.i4118, i64 40
-  %2506 = load i64, ptr %index9768, align 8
-  %call.i17683 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2505, i64 noundef %2506) #24
+  %2542 = load i64, ptr %index9768, align 8
+  %call.i17683 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2541, i64 noundef %2542) #24
   %cond3019 = icmp eq ptr %call.i17683, null
-  br i1 %cond3019, label %if.then9776, label %if.end9778
+  br i1 %cond3019, label %if.then9776, label %if.end9784
 
 if.then9776:                                      ; preds = %if.then9763
-  %2507 = load ptr, ptr @stderr, align 8
-  %2508 = call i64 @fwrite(ptr nonnull @.str.504, i64 70, i64 1, ptr %2507) #29
-  br label %if.end9778
+  %2543 = load ptr, ptr @stderr, align 8
+  %2544 = call i64 @fwrite(ptr nonnull @.str.504, i64 70, i64 1, ptr %2543) #29
+  br label %if.end9784
 
-if.end9778:                                       ; preds = %if.then9763, %if.then9776
+if.end9784:                                       ; preds = %if.then9776, %if.then9763
   %streamentry_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2864
-  %2509 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4121 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2509, ptr noundef %call.i17683) #24
+  %2545 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4121 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2545, ptr noundef %call.i17683) #24
   store ptr %call8.i.i4121, ptr %streamentry_ctor_template_.i, align 8
-  %inc9783 = add nuw nsw i64 %i.37, 1
+  %inc9783 = add nuw nsw i64 %i.374950, 1
   %.pre4413 = load ptr, ptr %_M_finish.i, align 8
   %.pre4414 = load ptr, ptr %template_values, align 8
   %.pre4605 = ptrtoint ptr %.pre4413 to i64
   %.pre4606 = ptrtoint ptr %.pre4414 to i64
   %.pre4607 = sub i64 %.pre4605, %.pre4606
   %.pre4608 = sdiv exact i64 %.pre4607, 48
-  br label %if.end9784
+  %2546 = icmp ugt i64 %.pre4608, %inc9783
+  br i1 %2546, label %land.lhs.true9791, label %if.end10552
 
-if.end9784:                                       ; preds = %if.end9778, %land.lhs.true9759, %if.end9752
-  %sub.ptr.div.i4126.pre-phi = phi i64 [ %.pre4608, %if.end9778 ], [ %sub.ptr.div.i4117.pre-phi, %land.lhs.true9759 ], [ %sub.ptr.div.i4117.pre-phi, %if.end9752 ]
-  %2510 = phi ptr [ %.pre4414, %if.end9778 ], [ %2503, %land.lhs.true9759 ], [ %2503, %if.end9752 ]
-  %i.38 = phi i64 [ %inc9783, %if.end9778 ], [ %i.37, %land.lhs.true9759 ], [ %i.37, %if.end9752 ]
-  %cmp9790 = icmp ugt i64 %sub.ptr.div.i4126.pre-phi, %i.38
-  br i1 %cmp9790, label %land.lhs.true9791, label %if.end9816
-
-land.lhs.true9791:                                ; preds = %if.end9784
-  %add.ptr.i4127 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2510, i64 %i.38
+land.lhs.true9791:                                ; preds = %land.lhs.true9759, %if.end9784
+  %i.384957 = phi i64 [ %inc9783, %if.end9784 ], [ %i.374950, %land.lhs.true9759 ]
+  %2547 = phi ptr [ %.pre4414, %if.end9784 ], [ %2539, %land.lhs.true9759 ]
+  %add.ptr.i4127 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2547, i64 %i.384957
   %id9793 = getelementptr inbounds nuw i8, ptr %add.ptr.i4127, i64 32
-  %2511 = load i32, ptr %id9793, align 8
-  %cmp9794 = icmp eq i32 %2511, 38
-  br i1 %cmp9794, label %if.then9795, label %if.end9816
+  %2548 = load i32, ptr %id9793, align 8
+  %cmp9794 = icmp eq i32 %2548, 38
+  br i1 %cmp9794, label %if.then9795, label %land.lhs.true9823
 
 if.then9795:                                      ; preds = %land.lhs.true9791
-  %2512 = load ptr, ptr %isolate_, align 8
+  %2549 = load ptr, ptr %isolate_, align 8
   %index9800 = getelementptr inbounds nuw i8, ptr %add.ptr.i4127, i64 40
-  %2513 = load i64, ptr %index9800, align 8
-  %call.i17671 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2512, i64 noundef %2513) #24
+  %2550 = load i64, ptr %index9800, align 8
+  %call.i17671 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2549, i64 noundef %2550) #24
   %cond3020 = icmp eq ptr %call.i17671, null
-  br i1 %cond3020, label %if.then9808, label %if.end9810
+  br i1 %cond3020, label %if.then9808, label %if.end9816
 
 if.then9808:                                      ; preds = %if.then9795
-  %2514 = load ptr, ptr @stderr, align 8
-  %2515 = call i64 @fwrite(ptr nonnull @.str.505, i64 77, i64 1, ptr %2514) #29
-  br label %if.end9810
+  %2551 = load ptr, ptr @stderr, align 8
+  %2552 = call i64 @fwrite(ptr nonnull @.str.505, i64 77, i64 1, ptr %2551) #29
+  br label %if.end9816
 
-if.end9810:                                       ; preds = %if.then9795, %if.then9808
+if.end9816:                                       ; preds = %if.then9808, %if.then9795
   %streamentry_opaque_ctor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2872
-  %2516 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4130 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2516, ptr noundef %call.i17671) #24
+  %2553 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4130 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2553, ptr noundef %call.i17671) #24
   store ptr %call8.i.i4130, ptr %streamentry_opaque_ctor_template_.i, align 8
-  %inc9815 = add nuw nsw i64 %i.38, 1
+  %inc9815 = add nuw nsw i64 %i.384957, 1
   %.pre4415 = load ptr, ptr %_M_finish.i, align 8
   %.pre4416 = load ptr, ptr %template_values, align 8
   %.pre4609 = ptrtoint ptr %.pre4415 to i64
   %.pre4610 = ptrtoint ptr %.pre4416 to i64
   %.pre4611 = sub i64 %.pre4609, %.pre4610
   %.pre4612 = sdiv exact i64 %.pre4611, 48
-  br label %if.end9816
+  %2554 = icmp ugt i64 %.pre4612, %inc9815
+  br i1 %2554, label %land.lhs.true9823, label %if.end10552
 
-if.end9816:                                       ; preds = %if.end9810, %land.lhs.true9791, %if.end9784
-  %sub.ptr.div.i4135.pre-phi = phi i64 [ %.pre4612, %if.end9810 ], [ %sub.ptr.div.i4126.pre-phi, %land.lhs.true9791 ], [ %sub.ptr.div.i4126.pre-phi, %if.end9784 ]
-  %2517 = phi ptr [ %.pre4416, %if.end9810 ], [ %2510, %land.lhs.true9791 ], [ %2510, %if.end9784 ]
-  %i.39 = phi i64 [ %inc9815, %if.end9810 ], [ %i.38, %land.lhs.true9791 ], [ %i.38, %if.end9784 ]
-  %cmp9822 = icmp ugt i64 %sub.ptr.div.i4135.pre-phi, %i.39
-  br i1 %cmp9822, label %land.lhs.true9823, label %if.end9848
-
-land.lhs.true9823:                                ; preds = %if.end9816
-  %add.ptr.i4136 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2517, i64 %i.39
+land.lhs.true9823:                                ; preds = %land.lhs.true9791, %if.end9816
+  %i.394964 = phi i64 [ %inc9815, %if.end9816 ], [ %i.384957, %land.lhs.true9791 ]
+  %2555 = phi ptr [ %.pre4416, %if.end9816 ], [ %2547, %land.lhs.true9791 ]
+  %add.ptr.i4136 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2555, i64 %i.394964
   %id9825 = getelementptr inbounds nuw i8, ptr %add.ptr.i4136, i64 32
-  %2518 = load i32, ptr %id9825, align 8
-  %cmp9826 = icmp eq i32 %2518, 39
-  br i1 %cmp9826, label %if.then9827, label %if.end9848
+  %2556 = load i32, ptr %id9825, align 8
+  %cmp9826 = icmp eq i32 %2556, 39
+  br i1 %cmp9826, label %if.then9827, label %land.lhs.true9855
 
 if.then9827:                                      ; preds = %land.lhs.true9823
-  %2519 = load ptr, ptr %isolate_, align 8
+  %2557 = load ptr, ptr %isolate_, align 8
   %index9832 = getelementptr inbounds nuw i8, ptr %add.ptr.i4136, i64 40
-  %2520 = load i64, ptr %index9832, align 8
-  %call.i18356 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2519, i64 noundef %2520) #24
+  %2558 = load i64, ptr %index9832, align 8
+  %call.i18356 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2557, i64 noundef %2558) #24
   %cond3021 = icmp eq ptr %call.i18356, null
-  br i1 %cond3021, label %if.then9840, label %if.end9842
+  br i1 %cond3021, label %if.then9840, label %if.end9848
 
 if.then9840:                                      ; preds = %if.then9827
-  %2521 = load ptr, ptr @stderr, align 8
-  %2522 = call i64 @fwrite(ptr nonnull @.str.506, i64 82, i64 1, ptr %2521) #29
-  br label %if.end9842
+  %2559 = load ptr, ptr @stderr, align 8
+  %2560 = call i64 @fwrite(ptr nonnull @.str.506, i64 82, i64 1, ptr %2559) #29
+  br label %if.end9848
 
-if.end9842:                                       ; preds = %if.then9827, %if.then9840
+if.end9848:                                       ; preds = %if.then9840, %if.then9827
   %qlogoutputstream_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2880
-  %2523 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4139 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2523, ptr noundef %call.i18356) #24
+  %2561 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4139 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2561, ptr noundef %call.i18356) #24
   store ptr %call8.i.i4139, ptr %qlogoutputstream_constructor_template_.i, align 8
-  %inc9847 = add nuw nsw i64 %i.39, 1
+  %inc9847 = add nuw nsw i64 %i.394964, 1
   %.pre4417 = load ptr, ptr %_M_finish.i, align 8
   %.pre4418 = load ptr, ptr %template_values, align 8
   %.pre4613 = ptrtoint ptr %.pre4417 to i64
   %.pre4614 = ptrtoint ptr %.pre4418 to i64
   %.pre4615 = sub i64 %.pre4613, %.pre4614
   %.pre4616 = sdiv exact i64 %.pre4615, 48
-  br label %if.end9848
+  %2562 = icmp ugt i64 %.pre4616, %inc9847
+  br i1 %2562, label %land.lhs.true9855, label %if.end10552
 
-if.end9848:                                       ; preds = %if.end9842, %land.lhs.true9823, %if.end9816
-  %sub.ptr.div.i4144.pre-phi = phi i64 [ %.pre4616, %if.end9842 ], [ %sub.ptr.div.i4135.pre-phi, %land.lhs.true9823 ], [ %sub.ptr.div.i4135.pre-phi, %if.end9816 ]
-  %2524 = phi ptr [ %.pre4418, %if.end9842 ], [ %2517, %land.lhs.true9823 ], [ %2517, %if.end9816 ]
-  %i.40 = phi i64 [ %inc9847, %if.end9842 ], [ %i.39, %land.lhs.true9823 ], [ %i.39, %if.end9816 ]
-  %cmp9854 = icmp ugt i64 %sub.ptr.div.i4144.pre-phi, %i.40
-  br i1 %cmp9854, label %land.lhs.true9855, label %if.end9880
-
-land.lhs.true9855:                                ; preds = %if.end9848
-  %add.ptr.i4145 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2524, i64 %i.40
+land.lhs.true9855:                                ; preds = %land.lhs.true9823, %if.end9848
+  %i.404971 = phi i64 [ %inc9847, %if.end9848 ], [ %i.394964, %land.lhs.true9823 ]
+  %2563 = phi ptr [ %.pre4418, %if.end9848 ], [ %2555, %land.lhs.true9823 ]
+  %add.ptr.i4145 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2563, i64 %i.404971
   %id9857 = getelementptr inbounds nuw i8, ptr %add.ptr.i4145, i64 32
-  %2525 = load i32, ptr %id9857, align 8
-  %cmp9858 = icmp eq i32 %2525, 40
-  br i1 %cmp9858, label %if.then9859, label %if.end9880
+  %2564 = load i32, ptr %id9857, align 8
+  %cmp9858 = icmp eq i32 %2564, 40
+  br i1 %cmp9858, label %if.then9859, label %land.lhs.true9887
 
 if.then9859:                                      ; preds = %land.lhs.true9855
-  %2526 = load ptr, ptr %isolate_, align 8
+  %2565 = load ptr, ptr %isolate_, align 8
   %index9864 = getelementptr inbounds nuw i8, ptr %add.ptr.i4145, i64 40
-  %2527 = load i64, ptr %index9864, align 8
-  %call.i17659 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2526, i64 noundef %2527) #24
+  %2566 = load i64, ptr %index9864, align 8
+  %call.i17659 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2565, i64 noundef %2566) #24
   %cond3022 = icmp eq ptr %call.i17659, null
-  br i1 %cond3022, label %if.then9872, label %if.end9874
+  br i1 %cond3022, label %if.then9872, label %if.end9880
 
 if.then9872:                                      ; preds = %if.then9859
-  %2528 = load ptr, ptr @stderr, align 8
-  %2529 = call i64 @fwrite(ptr nonnull @.str.507, i64 69, i64 1, ptr %2528) #29
-  br label %if.end9874
+  %2567 = load ptr, ptr @stderr, align 8
+  %2568 = call i64 @fwrite(ptr nonnull @.str.507, i64 69, i64 1, ptr %2567) #29
+  br label %if.end9880
 
-if.end9874:                                       ; preds = %if.then9859, %if.then9872
+if.end9880:                                       ; preds = %if.then9872, %if.then9859
   %tcp_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2888
-  %2530 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4148 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2530, ptr noundef %call.i17659) #24
+  %2569 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4148 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2569, ptr noundef %call.i17659) #24
   store ptr %call8.i.i4148, ptr %tcp_constructor_template_.i, align 8
-  %inc9879 = add nuw nsw i64 %i.40, 1
+  %inc9879 = add nuw nsw i64 %i.404971, 1
   %.pre4419 = load ptr, ptr %_M_finish.i, align 8
   %.pre4420 = load ptr, ptr %template_values, align 8
   %.pre4617 = ptrtoint ptr %.pre4419 to i64
   %.pre4618 = ptrtoint ptr %.pre4420 to i64
   %.pre4619 = sub i64 %.pre4617, %.pre4618
   %.pre4620 = sdiv exact i64 %.pre4619, 48
-  br label %if.end9880
+  %2570 = icmp ugt i64 %.pre4620, %inc9879
+  br i1 %2570, label %land.lhs.true9887, label %if.end10552
 
-if.end9880:                                       ; preds = %if.end9874, %land.lhs.true9855, %if.end9848
-  %sub.ptr.div.i4153.pre-phi = phi i64 [ %.pre4620, %if.end9874 ], [ %sub.ptr.div.i4144.pre-phi, %land.lhs.true9855 ], [ %sub.ptr.div.i4144.pre-phi, %if.end9848 ]
-  %2531 = phi ptr [ %.pre4420, %if.end9874 ], [ %2524, %land.lhs.true9855 ], [ %2524, %if.end9848 ]
-  %i.41 = phi i64 [ %inc9879, %if.end9874 ], [ %i.40, %land.lhs.true9855 ], [ %i.40, %if.end9848 ]
-  %cmp9886 = icmp ugt i64 %sub.ptr.div.i4153.pre-phi, %i.41
-  br i1 %cmp9886, label %land.lhs.true9887, label %if.end9912
-
-land.lhs.true9887:                                ; preds = %if.end9880
-  %add.ptr.i4154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2531, i64 %i.41
+land.lhs.true9887:                                ; preds = %land.lhs.true9855, %if.end9880
+  %i.414978 = phi i64 [ %inc9879, %if.end9880 ], [ %i.404971, %land.lhs.true9855 ]
+  %2571 = phi ptr [ %.pre4420, %if.end9880 ], [ %2563, %land.lhs.true9855 ]
+  %add.ptr.i4154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2571, i64 %i.414978
   %id9889 = getelementptr inbounds nuw i8, ptr %add.ptr.i4154, i64 32
-  %2532 = load i32, ptr %id9889, align 8
-  %cmp9890 = icmp eq i32 %2532, 41
-  br i1 %cmp9890, label %if.then9891, label %if.end9912
+  %2572 = load i32, ptr %id9889, align 8
+  %cmp9890 = icmp eq i32 %2572, 41
+  br i1 %cmp9890, label %if.then9891, label %land.lhs.true9919
 
 if.then9891:                                      ; preds = %land.lhs.true9887
-  %2533 = load ptr, ptr %isolate_, align 8
+  %2573 = load ptr, ptr %isolate_, align 8
   %index9896 = getelementptr inbounds nuw i8, ptr %add.ptr.i4154, i64 40
-  %2534 = load i64, ptr %index9896, align 8
-  %call.i17647 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2533, i64 noundef %2534) #24
+  %2574 = load i64, ptr %index9896, align 8
+  %call.i17647 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2573, i64 noundef %2574) #24
   %cond3023 = icmp eq ptr %call.i17647, null
-  br i1 %cond3023, label %if.then9904, label %if.end9906
+  br i1 %cond3023, label %if.then9904, label %if.end9912
 
 if.then9904:                                      ; preds = %if.then9891
-  %2535 = load ptr, ptr @stderr, align 8
-  %2536 = call i64 @fwrite(ptr nonnull @.str.508, i64 69, i64 1, ptr %2535) #29
-  br label %if.end9906
+  %2575 = load ptr, ptr @stderr, align 8
+  %2576 = call i64 @fwrite(ptr nonnull @.str.508, i64 69, i64 1, ptr %2575) #29
+  br label %if.end9912
 
-if.end9906:                                       ; preds = %if.then9891, %if.then9904
+if.end9912:                                       ; preds = %if.then9904, %if.then9891
   %tty_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2896
-  %2537 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4157 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2537, ptr noundef %call.i17647) #24
+  %2577 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4157 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2577, ptr noundef %call.i17647) #24
   store ptr %call8.i.i4157, ptr %tty_constructor_template_.i, align 8
-  %inc9911 = add nuw nsw i64 %i.41, 1
+  %inc9911 = add nuw nsw i64 %i.414978, 1
   %.pre4421 = load ptr, ptr %_M_finish.i, align 8
   %.pre4422 = load ptr, ptr %template_values, align 8
   %.pre4621 = ptrtoint ptr %.pre4421 to i64
   %.pre4622 = ptrtoint ptr %.pre4422 to i64
   %.pre4623 = sub i64 %.pre4621, %.pre4622
   %.pre4624 = sdiv exact i64 %.pre4623, 48
-  br label %if.end9912
+  %2578 = icmp ugt i64 %.pre4624, %inc9911
+  br i1 %2578, label %land.lhs.true9919, label %if.end10552
 
-if.end9912:                                       ; preds = %if.end9906, %land.lhs.true9887, %if.end9880
-  %sub.ptr.div.i4162.pre-phi = phi i64 [ %.pre4624, %if.end9906 ], [ %sub.ptr.div.i4153.pre-phi, %land.lhs.true9887 ], [ %sub.ptr.div.i4153.pre-phi, %if.end9880 ]
-  %2538 = phi ptr [ %.pre4422, %if.end9906 ], [ %2531, %land.lhs.true9887 ], [ %2531, %if.end9880 ]
-  %i.42 = phi i64 [ %inc9911, %if.end9906 ], [ %i.41, %land.lhs.true9887 ], [ %i.41, %if.end9880 ]
-  %cmp9918 = icmp ugt i64 %sub.ptr.div.i4162.pre-phi, %i.42
-  br i1 %cmp9918, label %land.lhs.true9919, label %if.end9944
-
-land.lhs.true9919:                                ; preds = %if.end9912
-  %add.ptr.i4163 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2538, i64 %i.42
+land.lhs.true9919:                                ; preds = %land.lhs.true9887, %if.end9912
+  %i.424985 = phi i64 [ %inc9911, %if.end9912 ], [ %i.414978, %land.lhs.true9887 ]
+  %2579 = phi ptr [ %.pre4422, %if.end9912 ], [ %2571, %land.lhs.true9887 ]
+  %add.ptr.i4163 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2579, i64 %i.424985
   %id9921 = getelementptr inbounds nuw i8, ptr %add.ptr.i4163, i64 32
-  %2539 = load i32, ptr %id9921, align 8
-  %cmp9922 = icmp eq i32 %2539, 42
-  br i1 %cmp9922, label %if.then9923, label %if.end9944
+  %2580 = load i32, ptr %id9921, align 8
+  %cmp9922 = icmp eq i32 %2580, 42
+  br i1 %cmp9922, label %if.then9923, label %land.lhs.true9951
 
 if.then9923:                                      ; preds = %land.lhs.true9919
-  %2540 = load ptr, ptr %isolate_, align 8
+  %2581 = load ptr, ptr %isolate_, align 8
   %index9928 = getelementptr inbounds nuw i8, ptr %add.ptr.i4163, i64 40
-  %2541 = load i64, ptr %index9928, align 8
-  %call.i18344 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2540, i64 noundef %2541) #24
+  %2582 = load i64, ptr %index9928, align 8
+  %call.i18344 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2581, i64 noundef %2582) #24
   %cond3024 = icmp eq ptr %call.i18344, null
-  br i1 %cond3024, label %if.then9936, label %if.end9938
+  br i1 %cond3024, label %if.then9936, label %if.end9944
 
 if.then9936:                                      ; preds = %if.then9923
-  %2542 = load ptr, ptr @stderr, align 8
-  %2543 = call i64 @fwrite(ptr nonnull @.str.509, i64 64, i64 1, ptr %2542) #29
-  br label %if.end9938
+  %2583 = load ptr, ptr @stderr, align 8
+  %2584 = call i64 @fwrite(ptr nonnull @.str.509, i64 64, i64 1, ptr %2583) #29
+  br label %if.end9944
 
-if.end9938:                                       ; preds = %if.then9923, %if.then9936
+if.end9944:                                       ; preds = %if.then9936, %if.then9923
   %write_wrap_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2904
-  %2544 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4166 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2544, ptr noundef %call.i18344) #24
+  %2585 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4166 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2585, ptr noundef %call.i18344) #24
   store ptr %call8.i.i4166, ptr %write_wrap_template_.i, align 8
-  %inc9943 = add nuw nsw i64 %i.42, 1
+  %inc9943 = add nuw nsw i64 %i.424985, 1
   %.pre4423 = load ptr, ptr %_M_finish.i, align 8
   %.pre4424 = load ptr, ptr %template_values, align 8
   %.pre4625 = ptrtoint ptr %.pre4423 to i64
   %.pre4626 = ptrtoint ptr %.pre4424 to i64
   %.pre4627 = sub i64 %.pre4625, %.pre4626
   %.pre4628 = sdiv exact i64 %.pre4627, 48
-  br label %if.end9944
+  %2586 = icmp ugt i64 %.pre4628, %inc9943
+  br i1 %2586, label %land.lhs.true9951, label %if.end10552
 
-if.end9944:                                       ; preds = %if.end9938, %land.lhs.true9919, %if.end9912
-  %sub.ptr.div.i4171.pre-phi = phi i64 [ %.pre4628, %if.end9938 ], [ %sub.ptr.div.i4162.pre-phi, %land.lhs.true9919 ], [ %sub.ptr.div.i4162.pre-phi, %if.end9912 ]
-  %2545 = phi ptr [ %.pre4424, %if.end9938 ], [ %2538, %land.lhs.true9919 ], [ %2538, %if.end9912 ]
-  %i.43 = phi i64 [ %inc9943, %if.end9938 ], [ %i.42, %land.lhs.true9919 ], [ %i.42, %if.end9912 ]
-  %cmp9950 = icmp ugt i64 %sub.ptr.div.i4171.pre-phi, %i.43
-  br i1 %cmp9950, label %land.lhs.true9951, label %if.end9976
-
-land.lhs.true9951:                                ; preds = %if.end9944
-  %add.ptr.i4172 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2545, i64 %i.43
+land.lhs.true9951:                                ; preds = %land.lhs.true9919, %if.end9944
+  %i.434992 = phi i64 [ %inc9943, %if.end9944 ], [ %i.424985, %land.lhs.true9919 ]
+  %2587 = phi ptr [ %.pre4424, %if.end9944 ], [ %2579, %land.lhs.true9919 ]
+  %add.ptr.i4172 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2587, i64 %i.434992
   %id9953 = getelementptr inbounds nuw i8, ptr %add.ptr.i4172, i64 32
-  %2546 = load i32, ptr %id9953, align 8
-  %cmp9954 = icmp eq i32 %2546, 43
-  br i1 %cmp9954, label %if.then9955, label %if.end9976
+  %2588 = load i32, ptr %id9953, align 8
+  %cmp9954 = icmp eq i32 %2588, 43
+  br i1 %cmp9954, label %if.then9955, label %land.lhs.true9983
 
 if.then9955:                                      ; preds = %land.lhs.true9951
-  %2547 = load ptr, ptr %isolate_, align 8
+  %2589 = load ptr, ptr %isolate_, align 8
   %index9960 = getelementptr inbounds nuw i8, ptr %add.ptr.i4172, i64 40
-  %2548 = load i64, ptr %index9960, align 8
-  %call.i18332 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2547, i64 noundef %2548) #24
+  %2590 = load i64, ptr %index9960, align 8
+  %call.i18332 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2589, i64 noundef %2590) #24
   %cond3025 = icmp eq ptr %call.i18332, null
-  br i1 %cond3025, label %if.then9968, label %if.end9970
+  br i1 %cond3025, label %if.then9968, label %if.end9976
 
 if.then9968:                                      ; preds = %if.then9955
-  %2549 = load ptr, ptr @stderr, align 8
-  %2550 = call i64 @fwrite(ptr nonnull @.str.510, i64 80, i64 1, ptr %2549) #29
-  br label %if.end9970
+  %2591 = load ptr, ptr @stderr, align 8
+  %2592 = call i64 @fwrite(ptr nonnull @.str.510, i64 80, i64 1, ptr %2591) #29
+  br label %if.end9976
 
-if.end9970:                                       ; preds = %if.then9955, %if.then9968
+if.end9976:                                       ; preds = %if.then9968, %if.then9955
   %worker_heap_snapshot_taker_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2912
-  %2551 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4175 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2551, ptr noundef %call.i18332) #24
+  %2593 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4175 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2593, ptr noundef %call.i18332) #24
   store ptr %call8.i.i4175, ptr %worker_heap_snapshot_taker_template_.i, align 8
-  %inc9975 = add nuw nsw i64 %i.43, 1
+  %inc9975 = add nuw nsw i64 %i.434992, 1
   %.pre4425 = load ptr, ptr %_M_finish.i, align 8
   %.pre4426 = load ptr, ptr %template_values, align 8
   %.pre4629 = ptrtoint ptr %.pre4425 to i64
   %.pre4630 = ptrtoint ptr %.pre4426 to i64
   %.pre4631 = sub i64 %.pre4629, %.pre4630
   %.pre4632 = sdiv exact i64 %.pre4631, 48
-  br label %if.end9976
+  %2594 = icmp ugt i64 %.pre4632, %inc9975
+  br i1 %2594, label %land.lhs.true9983, label %if.end10552
 
-if.end9976:                                       ; preds = %if.end9970, %land.lhs.true9951, %if.end9944
-  %sub.ptr.div.i4180.pre-phi = phi i64 [ %.pre4632, %if.end9970 ], [ %sub.ptr.div.i4171.pre-phi, %land.lhs.true9951 ], [ %sub.ptr.div.i4171.pre-phi, %if.end9944 ]
-  %2552 = phi ptr [ %.pre4426, %if.end9970 ], [ %2545, %land.lhs.true9951 ], [ %2545, %if.end9944 ]
-  %i.44 = phi i64 [ %inc9975, %if.end9970 ], [ %i.43, %land.lhs.true9951 ], [ %i.43, %if.end9944 ]
-  %cmp9982 = icmp ugt i64 %sub.ptr.div.i4180.pre-phi, %i.44
-  br i1 %cmp9982, label %land.lhs.true9983, label %if.end10008
-
-land.lhs.true9983:                                ; preds = %if.end9976
-  %add.ptr.i4181 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2552, i64 %i.44
+land.lhs.true9983:                                ; preds = %land.lhs.true9951, %if.end9976
+  %i.444999 = phi i64 [ %inc9975, %if.end9976 ], [ %i.434992, %land.lhs.true9951 ]
+  %2595 = phi ptr [ %.pre4426, %if.end9976 ], [ %2587, %land.lhs.true9951 ]
+  %add.ptr.i4181 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2595, i64 %i.444999
   %id9985 = getelementptr inbounds nuw i8, ptr %add.ptr.i4181, i64 32
-  %2553 = load i32, ptr %id9985, align 8
-  %cmp9986 = icmp eq i32 %2553, 44
-  br i1 %cmp9986, label %if.then9987, label %if.end10008
+  %2596 = load i32, ptr %id9985, align 8
+  %cmp9986 = icmp eq i32 %2596, 44
+  br i1 %cmp9986, label %if.then9987, label %land.lhs.true10015
 
 if.then9987:                                      ; preds = %land.lhs.true9983
-  %2554 = load ptr, ptr %isolate_, align 8
+  %2597 = load ptr, ptr %isolate_, align 8
   %index9992 = getelementptr inbounds nuw i8, ptr %add.ptr.i4181, i64 40
-  %2555 = load i64, ptr %index9992, align 8
-  %call.i17636 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2554, i64 noundef %2555) #24
+  %2598 = load i64, ptr %index9992, align 8
+  %call.i17636 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2597, i64 noundef %2598) #24
   %cond3026 = icmp eq ptr %call.i17636, null
-  br i1 %cond3026, label %if.then10000, label %if.end10002
+  br i1 %cond3026, label %if.then10000, label %if.end10008
 
 if.then10000:                                     ; preds = %if.then9987
-  %2556 = load ptr, ptr @stderr, align 8
-  %2557 = call i64 @fwrite(ptr nonnull @.str.511, i64 70, i64 1, ptr %2556) #29
-  br label %if.end10002
+  %2599 = load ptr, ptr @stderr, align 8
+  %2600 = call i64 @fwrite(ptr nonnull @.str.511, i64 70, i64 1, ptr %2599) #29
+  br label %if.end10008
 
-if.end10002:                                      ; preds = %if.then9987, %if.then10000
+if.end10008:                                      ; preds = %if.then10000, %if.then9987
   %x509_constructor_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 2920
-  %2558 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4184 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2558, ptr noundef %call.i17636) #24
+  %2601 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4184 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2601, ptr noundef %call.i17636) #24
   store ptr %call8.i.i4184, ptr %x509_constructor_template_.i, align 8
-  %inc10007 = add nuw nsw i64 %i.44, 1
+  %inc10007 = add nuw nsw i64 %i.444999, 1
   %.pre4427 = load ptr, ptr %_M_finish.i, align 8
   %.pre4428 = load ptr, ptr %template_values, align 8
   %.pre4633 = ptrtoint ptr %.pre4427 to i64
   %.pre4634 = ptrtoint ptr %.pre4428 to i64
   %.pre4635 = sub i64 %.pre4633, %.pre4634
   %.pre4636 = sdiv exact i64 %.pre4635, 48
-  br label %if.end10008
+  %2602 = icmp ugt i64 %.pre4636, %inc10007
+  br i1 %2602, label %land.lhs.true10015, label %if.end10552
 
-if.end10008:                                      ; preds = %if.end10002, %land.lhs.true9983, %if.end9976
-  %sub.ptr.div.i4189.pre-phi = phi i64 [ %.pre4636, %if.end10002 ], [ %sub.ptr.div.i4180.pre-phi, %land.lhs.true9983 ], [ %sub.ptr.div.i4180.pre-phi, %if.end9976 ]
-  %2559 = phi ptr [ %.pre4428, %if.end10002 ], [ %2552, %land.lhs.true9983 ], [ %2552, %if.end9976 ]
-  %i.45 = phi i64 [ %inc10007, %if.end10002 ], [ %i.44, %land.lhs.true9983 ], [ %i.44, %if.end9976 ]
-  %cmp10014 = icmp ugt i64 %sub.ptr.div.i4189.pre-phi, %i.45
-  br i1 %cmp10014, label %land.lhs.true10015, label %if.end10040
-
-land.lhs.true10015:                               ; preds = %if.end10008
-  %add.ptr.i4190 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2559, i64 %i.45
+land.lhs.true10015:                               ; preds = %land.lhs.true9983, %if.end10008
+  %i.455006 = phi i64 [ %inc10007, %if.end10008 ], [ %i.444999, %land.lhs.true9983 ]
+  %2603 = phi ptr [ %.pre4428, %if.end10008 ], [ %2595, %land.lhs.true9983 ]
+  %add.ptr.i4190 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2603, i64 %i.455006
   %id10017 = getelementptr inbounds nuw i8, ptr %add.ptr.i4190, i64 32
-  %2560 = load i32, ptr %id10017, align 8
-  %cmp10018 = icmp eq i32 %2560, 45
-  br i1 %cmp10018, label %if.then10019, label %if.end10040
+  %2604 = load i32, ptr %id10017, align 8
+  %cmp10018 = icmp eq i32 %2604, 45
+  br i1 %cmp10018, label %if.then10019, label %land.lhs.true10047
 
 if.then10019:                                     ; preds = %land.lhs.true10015
-  %2561 = load ptr, ptr %isolate_, align 8
+  %2605 = load ptr, ptr %isolate_, align 8
   %index10024 = getelementptr inbounds nuw i8, ptr %add.ptr.i4190, i64 40
-  %2562 = load i64, ptr %index10024, align 8
-  %call.i18320 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2561, i64 noundef %2562) #24
+  %2606 = load i64, ptr %index10024, align 8
+  %call.i18320 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2605, i64 noundef %2606) #24
   %cond3027 = icmp eq ptr %call.i18320, null
-  br i1 %cond3027, label %if.then10032, label %if.end10034
+  br i1 %cond3027, label %if.then10032, label %if.end10040
 
 if.then10032:                                     ; preds = %if.then10019
-  %2563 = load ptr, ptr @stderr, align 8
-  %2564 = call i64 @fwrite(ptr nonnull @.str.512, i64 72, i64 1, ptr %2563) #29
-  br label %if.end10034
+  %2607 = load ptr, ptr @stderr, align 8
+  %2608 = call i64 @fwrite(ptr nonnull @.str.512, i64 72, i64 1, ptr %2607) #29
+  br label %if.end10040
 
-if.end10034:                                      ; preds = %if.then10019, %if.then10032
+if.end10040:                                      ; preds = %if.then10032, %if.then10019
   %async_wrap_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3408
-  %2565 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4193 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2565, ptr noundef %call.i18320) #24
+  %2609 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4193 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2609, ptr noundef %call.i18320) #24
   store ptr %call8.i.i4193, ptr %async_wrap_binding_template_.i, align 8
-  %inc10039 = add nuw nsw i64 %i.45, 1
+  %inc10039 = add nuw nsw i64 %i.455006, 1
   %.pre4429 = load ptr, ptr %_M_finish.i, align 8
   %.pre4430 = load ptr, ptr %template_values, align 8
   %.pre4637 = ptrtoint ptr %.pre4429 to i64
   %.pre4638 = ptrtoint ptr %.pre4430 to i64
   %.pre4639 = sub i64 %.pre4637, %.pre4638
   %.pre4640 = sdiv exact i64 %.pre4639, 48
-  br label %if.end10040
+  %2610 = icmp ugt i64 %.pre4640, %inc10039
+  br i1 %2610, label %land.lhs.true10047, label %if.end10552
 
-if.end10040:                                      ; preds = %if.end10034, %land.lhs.true10015, %if.end10008
-  %sub.ptr.div.i4198.pre-phi = phi i64 [ %.pre4640, %if.end10034 ], [ %sub.ptr.div.i4189.pre-phi, %land.lhs.true10015 ], [ %sub.ptr.div.i4189.pre-phi, %if.end10008 ]
-  %2566 = phi ptr [ %.pre4430, %if.end10034 ], [ %2559, %land.lhs.true10015 ], [ %2559, %if.end10008 ]
-  %i.46 = phi i64 [ %inc10039, %if.end10034 ], [ %i.45, %land.lhs.true10015 ], [ %i.45, %if.end10008 ]
-  %cmp10046 = icmp ugt i64 %sub.ptr.div.i4198.pre-phi, %i.46
-  br i1 %cmp10046, label %land.lhs.true10047, label %if.end10072
-
-land.lhs.true10047:                               ; preds = %if.end10040
-  %add.ptr.i4199 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2566, i64 %i.46
+land.lhs.true10047:                               ; preds = %land.lhs.true10015, %if.end10040
+  %i.465013 = phi i64 [ %inc10039, %if.end10040 ], [ %i.455006, %land.lhs.true10015 ]
+  %2611 = phi ptr [ %.pre4430, %if.end10040 ], [ %2603, %land.lhs.true10015 ]
+  %add.ptr.i4199 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2611, i64 %i.465013
   %id10049 = getelementptr inbounds nuw i8, ptr %add.ptr.i4199, i64 32
-  %2567 = load i32, ptr %id10049, align 8
-  %cmp10050 = icmp eq i32 %2567, 46
-  br i1 %cmp10050, label %if.then10051, label %if.end10072
+  %2612 = load i32, ptr %id10049, align 8
+  %cmp10050 = icmp eq i32 %2612, 46
+  br i1 %cmp10050, label %if.then10051, label %land.lhs.true10079
 
 if.then10051:                                     ; preds = %land.lhs.true10047
-  %2568 = load ptr, ptr %isolate_, align 8
+  %2613 = load ptr, ptr %isolate_, align 8
   %index10056 = getelementptr inbounds nuw i8, ptr %add.ptr.i4199, i64 40
-  %2569 = load i64, ptr %index10056, align 8
-  %call.i18308 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2568, i64 noundef %2569) #24
+  %2614 = load i64, ptr %index10056, align 8
+  %call.i18308 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2613, i64 noundef %2614) #24
   %cond3028 = icmp eq ptr %call.i18308, null
-  br i1 %cond3028, label %if.then10064, label %if.end10066
+  br i1 %cond3028, label %if.then10064, label %if.end10072
 
 if.then10064:                                     ; preds = %if.then10051
-  %2570 = load ptr, ptr @stderr, align 8
-  %2571 = call i64 @fwrite(ptr nonnull @.str.513, i64 66, i64 1, ptr %2570) #29
-  br label %if.end10066
+  %2615 = load ptr, ptr @stderr, align 8
+  %2616 = call i64 @fwrite(ptr nonnull @.str.513, i64 66, i64 1, ptr %2615) #29
+  br label %if.end10072
 
-if.end10066:                                      ; preds = %if.then10051, %if.then10064
+if.end10072:                                      ; preds = %if.then10064, %if.then10051
   %blob_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3416
-  %2572 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4202 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2572, ptr noundef %call.i18308) #24
+  %2617 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4202 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2617, ptr noundef %call.i18308) #24
   store ptr %call8.i.i4202, ptr %blob_binding_template_.i, align 8
-  %inc10071 = add nuw nsw i64 %i.46, 1
+  %inc10071 = add nuw nsw i64 %i.465013, 1
   %.pre4431 = load ptr, ptr %_M_finish.i, align 8
   %.pre4432 = load ptr, ptr %template_values, align 8
   %.pre4641 = ptrtoint ptr %.pre4431 to i64
   %.pre4642 = ptrtoint ptr %.pre4432 to i64
   %.pre4643 = sub i64 %.pre4641, %.pre4642
   %.pre4644 = sdiv exact i64 %.pre4643, 48
-  br label %if.end10072
+  %2618 = icmp ugt i64 %.pre4644, %inc10071
+  br i1 %2618, label %land.lhs.true10079, label %if.end10552
 
-if.end10072:                                      ; preds = %if.end10066, %land.lhs.true10047, %if.end10040
-  %sub.ptr.div.i4207.pre-phi = phi i64 [ %.pre4644, %if.end10066 ], [ %sub.ptr.div.i4198.pre-phi, %land.lhs.true10047 ], [ %sub.ptr.div.i4198.pre-phi, %if.end10040 ]
-  %2573 = phi ptr [ %.pre4432, %if.end10066 ], [ %2566, %land.lhs.true10047 ], [ %2566, %if.end10040 ]
-  %i.47 = phi i64 [ %inc10071, %if.end10066 ], [ %i.46, %land.lhs.true10047 ], [ %i.46, %if.end10040 ]
-  %cmp10078 = icmp ugt i64 %sub.ptr.div.i4207.pre-phi, %i.47
-  br i1 %cmp10078, label %land.lhs.true10079, label %if.end10104
-
-land.lhs.true10079:                               ; preds = %if.end10072
-  %add.ptr.i4208 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2573, i64 %i.47
+land.lhs.true10079:                               ; preds = %land.lhs.true10047, %if.end10072
+  %i.475020 = phi i64 [ %inc10071, %if.end10072 ], [ %i.465013, %land.lhs.true10047 ]
+  %2619 = phi ptr [ %.pre4432, %if.end10072 ], [ %2611, %land.lhs.true10047 ]
+  %add.ptr.i4208 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2619, i64 %i.475020
   %id10081 = getelementptr inbounds nuw i8, ptr %add.ptr.i4208, i64 32
-  %2574 = load i32, ptr %id10081, align 8
-  %cmp10082 = icmp eq i32 %2574, 47
-  br i1 %cmp10082, label %if.then10083, label %if.end10104
+  %2620 = load i32, ptr %id10081, align 8
+  %cmp10082 = icmp eq i32 %2620, 47
+  br i1 %cmp10082, label %if.then10083, label %land.lhs.true10111
 
 if.then10083:                                     ; preds = %land.lhs.true10079
-  %2575 = load ptr, ptr %isolate_, align 8
+  %2621 = load ptr, ptr %isolate_, align 8
   %index10088 = getelementptr inbounds nuw i8, ptr %add.ptr.i4208, i64 40
-  %2576 = load i64, ptr %index10088, align 8
-  %call.i18296 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2575, i64 noundef %2576) #24
+  %2622 = load i64, ptr %index10088, align 8
+  %call.i18296 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2621, i64 noundef %2622) #24
   %cond3029 = icmp eq ptr %call.i18296, null
-  br i1 %cond3029, label %if.then10096, label %if.end10098
+  br i1 %cond3029, label %if.then10096, label %if.end10104
 
 if.then10096:                                     ; preds = %if.then10083
-  %2577 = load ptr, ptr @stderr, align 8
-  %2578 = call i64 @fwrite(ptr nonnull @.str.514, i64 70, i64 1, ptr %2577) #29
-  br label %if.end10098
+  %2623 = load ptr, ptr @stderr, align 8
+  %2624 = call i64 @fwrite(ptr nonnull @.str.514, i64 70, i64 1, ptr %2623) #29
+  br label %if.end10104
 
-if.end10098:                                      ; preds = %if.then10083, %if.then10096
+if.end10104:                                      ; preds = %if.then10096, %if.then10083
   %builtins_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3424
-  %2579 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4211 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2579, ptr noundef %call.i18296) #24
+  %2625 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4211 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2625, ptr noundef %call.i18296) #24
   store ptr %call8.i.i4211, ptr %builtins_binding_template_.i, align 8
-  %inc10103 = add nuw nsw i64 %i.47, 1
+  %inc10103 = add nuw nsw i64 %i.475020, 1
   %.pre4433 = load ptr, ptr %_M_finish.i, align 8
   %.pre4434 = load ptr, ptr %template_values, align 8
   %.pre4645 = ptrtoint ptr %.pre4433 to i64
   %.pre4646 = ptrtoint ptr %.pre4434 to i64
   %.pre4647 = sub i64 %.pre4645, %.pre4646
   %.pre4648 = sdiv exact i64 %.pre4647, 48
-  br label %if.end10104
+  %2626 = icmp ugt i64 %.pre4648, %inc10103
+  br i1 %2626, label %land.lhs.true10111, label %if.end10552
 
-if.end10104:                                      ; preds = %if.end10098, %land.lhs.true10079, %if.end10072
-  %sub.ptr.div.i4216.pre-phi = phi i64 [ %.pre4648, %if.end10098 ], [ %sub.ptr.div.i4207.pre-phi, %land.lhs.true10079 ], [ %sub.ptr.div.i4207.pre-phi, %if.end10072 ]
-  %2580 = phi ptr [ %.pre4434, %if.end10098 ], [ %2573, %land.lhs.true10079 ], [ %2573, %if.end10072 ]
-  %i.48 = phi i64 [ %inc10103, %if.end10098 ], [ %i.47, %land.lhs.true10079 ], [ %i.47, %if.end10072 ]
-  %cmp10110 = icmp ugt i64 %sub.ptr.div.i4216.pre-phi, %i.48
-  br i1 %cmp10110, label %land.lhs.true10111, label %if.end10136
-
-land.lhs.true10111:                               ; preds = %if.end10104
-  %add.ptr.i4217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2580, i64 %i.48
+land.lhs.true10111:                               ; preds = %land.lhs.true10079, %if.end10104
+  %i.485027 = phi i64 [ %inc10103, %if.end10104 ], [ %i.475020, %land.lhs.true10079 ]
+  %2627 = phi ptr [ %.pre4434, %if.end10104 ], [ %2619, %land.lhs.true10079 ]
+  %add.ptr.i4217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2627, i64 %i.485027
   %id10113 = getelementptr inbounds nuw i8, ptr %add.ptr.i4217, i64 32
-  %2581 = load i32, ptr %id10113, align 8
-  %cmp10114 = icmp eq i32 %2581, 48
-  br i1 %cmp10114, label %if.then10115, label %if.end10136
+  %2628 = load i32, ptr %id10113, align 8
+  %cmp10114 = icmp eq i32 %2628, 48
+  br i1 %cmp10114, label %if.then10115, label %land.lhs.true10143
 
 if.then10115:                                     ; preds = %land.lhs.true10111
-  %2582 = load ptr, ptr %isolate_, align 8
+  %2629 = load ptr, ptr %isolate_, align 8
   %index10120 = getelementptr inbounds nuw i8, ptr %add.ptr.i4217, i64 40
-  %2583 = load i64, ptr %index10120, align 8
-  %call.i18284 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2582, i64 noundef %2583) #24
+  %2630 = load i64, ptr %index10120, align 8
+  %call.i18284 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2629, i64 noundef %2630) #24
   %cond3030 = icmp eq ptr %call.i18284, null
-  br i1 %cond3030, label %if.then10128, label %if.end10130
+  br i1 %cond3030, label %if.then10128, label %if.end10136
 
 if.then10128:                                     ; preds = %if.then10115
-  %2584 = load ptr, ptr @stderr, align 8
-  %2585 = call i64 @fwrite(ptr nonnull @.str.515, i64 72, i64 1, ptr %2584) #29
-  br label %if.end10130
+  %2631 = load ptr, ptr @stderr, align 8
+  %2632 = call i64 @fwrite(ptr nonnull @.str.515, i64 72, i64 1, ptr %2631) #29
+  br label %if.end10136
 
-if.end10130:                                      ; preds = %if.then10115, %if.then10128
+if.end10136:                                      ; preds = %if.then10128, %if.then10115
   %contextify_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3432
-  %2586 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4220 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2586, ptr noundef %call.i18284) #24
+  %2633 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4220 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2633, ptr noundef %call.i18284) #24
   store ptr %call8.i.i4220, ptr %contextify_binding_template_.i, align 8
-  %inc10135 = add nuw nsw i64 %i.48, 1
+  %inc10135 = add nuw nsw i64 %i.485027, 1
   %.pre4435 = load ptr, ptr %_M_finish.i, align 8
   %.pre4436 = load ptr, ptr %template_values, align 8
   %.pre4649 = ptrtoint ptr %.pre4435 to i64
   %.pre4650 = ptrtoint ptr %.pre4436 to i64
   %.pre4651 = sub i64 %.pre4649, %.pre4650
   %.pre4652 = sdiv exact i64 %.pre4651, 48
-  br label %if.end10136
+  %2634 = icmp ugt i64 %.pre4652, %inc10135
+  br i1 %2634, label %land.lhs.true10143, label %if.end10552
 
-if.end10136:                                      ; preds = %if.end10130, %land.lhs.true10111, %if.end10104
-  %sub.ptr.div.i4225.pre-phi = phi i64 [ %.pre4652, %if.end10130 ], [ %sub.ptr.div.i4216.pre-phi, %land.lhs.true10111 ], [ %sub.ptr.div.i4216.pre-phi, %if.end10104 ]
-  %2587 = phi ptr [ %.pre4436, %if.end10130 ], [ %2580, %land.lhs.true10111 ], [ %2580, %if.end10104 ]
-  %i.49 = phi i64 [ %inc10135, %if.end10130 ], [ %i.48, %land.lhs.true10111 ], [ %i.48, %if.end10104 ]
-  %cmp10142 = icmp ugt i64 %sub.ptr.div.i4225.pre-phi, %i.49
-  br i1 %cmp10142, label %land.lhs.true10143, label %if.end10168
-
-land.lhs.true10143:                               ; preds = %if.end10136
-  %add.ptr.i4226 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2587, i64 %i.49
+land.lhs.true10143:                               ; preds = %land.lhs.true10111, %if.end10136
+  %i.495034 = phi i64 [ %inc10135, %if.end10136 ], [ %i.485027, %land.lhs.true10111 ]
+  %2635 = phi ptr [ %.pre4436, %if.end10136 ], [ %2627, %land.lhs.true10111 ]
+  %add.ptr.i4226 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2635, i64 %i.495034
   %id10145 = getelementptr inbounds nuw i8, ptr %add.ptr.i4226, i64 32
-  %2588 = load i32, ptr %id10145, align 8
-  %cmp10146 = icmp eq i32 %2588, 49
-  br i1 %cmp10146, label %if.then10147, label %if.end10168
+  %2636 = load i32, ptr %id10145, align 8
+  %cmp10146 = icmp eq i32 %2636, 49
+  br i1 %cmp10146, label %if.then10147, label %land.lhs.true10175
 
 if.then10147:                                     ; preds = %land.lhs.true10143
-  %2589 = load ptr, ptr %isolate_, align 8
+  %2637 = load ptr, ptr %isolate_, align 8
   %index10152 = getelementptr inbounds nuw i8, ptr %add.ptr.i4226, i64 40
-  %2590 = load i64, ptr %index10152, align 8
-  %call.i18272 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2589, i64 noundef %2590) #24
+  %2638 = load i64, ptr %index10152, align 8
+  %call.i18272 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2637, i64 noundef %2638) #24
   %cond3031 = icmp eq ptr %call.i18272, null
-  br i1 %cond3031, label %if.then10160, label %if.end10162
+  br i1 %cond3031, label %if.then10160, label %if.end10168
 
 if.then10160:                                     ; preds = %if.then10147
-  %2591 = load ptr, ptr @stderr, align 8
-  %2592 = call i64 @fwrite(ptr nonnull @.str.516, i64 78, i64 1, ptr %2591) #29
-  br label %if.end10162
+  %2639 = load ptr, ptr @stderr, align 8
+  %2640 = call i64 @fwrite(ptr nonnull @.str.516, i64 78, i64 1, ptr %2639) #29
+  br label %if.end10168
 
-if.end10162:                                      ; preds = %if.then10147, %if.then10160
+if.end10168:                                      ; preds = %if.then10160, %if.then10147
   %encoding_binding_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3440
-  %2593 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4229 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2593, ptr noundef %call.i18272) #24
+  %2641 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4229 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2641, ptr noundef %call.i18272) #24
   store ptr %call8.i.i4229, ptr %encoding_binding_binding_template_.i, align 8
-  %inc10167 = add nuw nsw i64 %i.49, 1
+  %inc10167 = add nuw nsw i64 %i.495034, 1
   %.pre4437 = load ptr, ptr %_M_finish.i, align 8
   %.pre4438 = load ptr, ptr %template_values, align 8
   %.pre4653 = ptrtoint ptr %.pre4437 to i64
   %.pre4654 = ptrtoint ptr %.pre4438 to i64
   %.pre4655 = sub i64 %.pre4653, %.pre4654
   %.pre4656 = sdiv exact i64 %.pre4655, 48
-  br label %if.end10168
+  %2642 = icmp ugt i64 %.pre4656, %inc10167
+  br i1 %2642, label %land.lhs.true10175, label %if.end10552
 
-if.end10168:                                      ; preds = %if.end10162, %land.lhs.true10143, %if.end10136
-  %sub.ptr.div.i4234.pre-phi = phi i64 [ %.pre4656, %if.end10162 ], [ %sub.ptr.div.i4225.pre-phi, %land.lhs.true10143 ], [ %sub.ptr.div.i4225.pre-phi, %if.end10136 ]
-  %2594 = phi ptr [ %.pre4438, %if.end10162 ], [ %2587, %land.lhs.true10143 ], [ %2587, %if.end10136 ]
-  %i.50 = phi i64 [ %inc10167, %if.end10162 ], [ %i.49, %land.lhs.true10143 ], [ %i.49, %if.end10136 ]
-  %cmp10174 = icmp ugt i64 %sub.ptr.div.i4234.pre-phi, %i.50
-  br i1 %cmp10174, label %land.lhs.true10175, label %if.end10200
-
-land.lhs.true10175:                               ; preds = %if.end10168
-  %add.ptr.i4235 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2594, i64 %i.50
+land.lhs.true10175:                               ; preds = %land.lhs.true10143, %if.end10168
+  %i.505041 = phi i64 [ %inc10167, %if.end10168 ], [ %i.495034, %land.lhs.true10143 ]
+  %2643 = phi ptr [ %.pre4438, %if.end10168 ], [ %2635, %land.lhs.true10143 ]
+  %add.ptr.i4235 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2643, i64 %i.505041
   %id10177 = getelementptr inbounds nuw i8, ptr %add.ptr.i4235, i64 32
-  %2595 = load i32, ptr %id10177, align 8
-  %cmp10178 = icmp eq i32 %2595, 50
-  br i1 %cmp10178, label %if.then10179, label %if.end10200
+  %2644 = load i32, ptr %id10177, align 8
+  %cmp10178 = icmp eq i32 %2644, 50
+  br i1 %cmp10178, label %if.then10179, label %land.lhs.true10207
 
 if.then10179:                                     ; preds = %land.lhs.true10175
-  %2596 = load ptr, ptr %isolate_, align 8
+  %2645 = load ptr, ptr %isolate_, align 8
   %index10184 = getelementptr inbounds nuw i8, ptr %add.ptr.i4235, i64 40
-  %2597 = load i64, ptr %index10184, align 8
-  %call.i18260 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2596, i64 noundef %2597) #24
+  %2646 = load i64, ptr %index10184, align 8
+  %call.i18260 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2645, i64 noundef %2646) #24
   %cond3032 = icmp eq ptr %call.i18260, null
-  br i1 %cond3032, label %if.then10192, label %if.end10194
+  br i1 %cond3032, label %if.then10192, label %if.end10200
 
 if.then10192:                                     ; preds = %if.then10179
-  %2598 = load ptr, ptr @stderr, align 8
-  %2599 = call i64 @fwrite(ptr nonnull @.str.517, i64 64, i64 1, ptr %2598) #29
-  br label %if.end10194
+  %2647 = load ptr, ptr @stderr, align 8
+  %2648 = call i64 @fwrite(ptr nonnull @.str.517, i64 64, i64 1, ptr %2647) #29
+  br label %if.end10200
 
-if.end10194:                                      ; preds = %if.then10179, %if.then10192
+if.end10200:                                      ; preds = %if.then10192, %if.then10179
   %fs_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3448
-  %2600 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4238 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2600, ptr noundef %call.i18260) #24
+  %2649 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4238 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2649, ptr noundef %call.i18260) #24
   store ptr %call8.i.i4238, ptr %fs_binding_template_.i, align 8
-  %inc10199 = add nuw nsw i64 %i.50, 1
+  %inc10199 = add nuw nsw i64 %i.505041, 1
   %.pre4439 = load ptr, ptr %_M_finish.i, align 8
   %.pre4440 = load ptr, ptr %template_values, align 8
   %.pre4657 = ptrtoint ptr %.pre4439 to i64
   %.pre4658 = ptrtoint ptr %.pre4440 to i64
   %.pre4659 = sub i64 %.pre4657, %.pre4658
   %.pre4660 = sdiv exact i64 %.pre4659, 48
-  br label %if.end10200
+  %2650 = icmp ugt i64 %.pre4660, %inc10199
+  br i1 %2650, label %land.lhs.true10207, label %if.end10552
 
-if.end10200:                                      ; preds = %if.end10194, %land.lhs.true10175, %if.end10168
-  %sub.ptr.div.i4243.pre-phi = phi i64 [ %.pre4660, %if.end10194 ], [ %sub.ptr.div.i4234.pre-phi, %land.lhs.true10175 ], [ %sub.ptr.div.i4234.pre-phi, %if.end10168 ]
-  %2601 = phi ptr [ %.pre4440, %if.end10194 ], [ %2594, %land.lhs.true10175 ], [ %2594, %if.end10168 ]
-  %i.51 = phi i64 [ %inc10199, %if.end10194 ], [ %i.50, %land.lhs.true10175 ], [ %i.50, %if.end10168 ]
-  %cmp10206 = icmp ugt i64 %sub.ptr.div.i4243.pre-phi, %i.51
-  br i1 %cmp10206, label %land.lhs.true10207, label %if.end10232
-
-land.lhs.true10207:                               ; preds = %if.end10200
-  %add.ptr.i4244 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2601, i64 %i.51
+land.lhs.true10207:                               ; preds = %land.lhs.true10175, %if.end10200
+  %i.515048 = phi i64 [ %inc10199, %if.end10200 ], [ %i.505041, %land.lhs.true10175 ]
+  %2651 = phi ptr [ %.pre4440, %if.end10200 ], [ %2643, %land.lhs.true10175 ]
+  %add.ptr.i4244 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2651, i64 %i.515048
   %id10209 = getelementptr inbounds nuw i8, ptr %add.ptr.i4244, i64 32
-  %2602 = load i32, ptr %id10209, align 8
-  %cmp10210 = icmp eq i32 %2602, 51
-  br i1 %cmp10210, label %if.then10211, label %if.end10232
+  %2652 = load i32, ptr %id10209, align 8
+  %cmp10210 = icmp eq i32 %2652, 51
+  br i1 %cmp10210, label %if.then10211, label %land.lhs.true10239
 
 if.then10211:                                     ; preds = %land.lhs.true10207
-  %2603 = load ptr, ptr %isolate_, align 8
+  %2653 = load ptr, ptr %isolate_, align 8
   %index10216 = getelementptr inbounds nuw i8, ptr %add.ptr.i4244, i64 40
-  %2604 = load i64, ptr %index10216, align 8
-  %call.i18248 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2603, i64 noundef %2604) #24
+  %2654 = load i64, ptr %index10216, align 8
+  %call.i18248 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2653, i64 noundef %2654) #24
   %cond3033 = icmp eq ptr %call.i18248, null
-  br i1 %cond3033, label %if.then10224, label %if.end10226
+  br i1 %cond3033, label %if.then10224, label %if.end10232
 
 if.then10224:                                     ; preds = %if.then10211
-  %2605 = load ptr, ptr @stderr, align 8
-  %2606 = call i64 @fwrite(ptr nonnull @.str.518, i64 68, i64 1, ptr %2605) #29
-  br label %if.end10226
+  %2655 = load ptr, ptr @stderr, align 8
+  %2656 = call i64 @fwrite(ptr nonnull @.str.518, i64 68, i64 1, ptr %2655) #29
+  br label %if.end10232
 
-if.end10226:                                      ; preds = %if.then10211, %if.then10224
+if.end10232:                                      ; preds = %if.then10224, %if.then10211
   %fs_dir_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3456
-  %2607 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4247 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2607, ptr noundef %call.i18248) #24
+  %2657 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4247 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2657, ptr noundef %call.i18248) #24
   store ptr %call8.i.i4247, ptr %fs_dir_binding_template_.i, align 8
-  %inc10231 = add nuw nsw i64 %i.51, 1
+  %inc10231 = add nuw nsw i64 %i.515048, 1
   %.pre4441 = load ptr, ptr %_M_finish.i, align 8
   %.pre4442 = load ptr, ptr %template_values, align 8
   %.pre4661 = ptrtoint ptr %.pre4441 to i64
   %.pre4662 = ptrtoint ptr %.pre4442 to i64
   %.pre4663 = sub i64 %.pre4661, %.pre4662
   %.pre4664 = sdiv exact i64 %.pre4663, 48
-  br label %if.end10232
+  %2658 = icmp ugt i64 %.pre4664, %inc10231
+  br i1 %2658, label %land.lhs.true10239, label %if.end10552
 
-if.end10232:                                      ; preds = %if.end10226, %land.lhs.true10207, %if.end10200
-  %sub.ptr.div.i4252.pre-phi = phi i64 [ %.pre4664, %if.end10226 ], [ %sub.ptr.div.i4243.pre-phi, %land.lhs.true10207 ], [ %sub.ptr.div.i4243.pre-phi, %if.end10200 ]
-  %2608 = phi ptr [ %.pre4442, %if.end10226 ], [ %2601, %land.lhs.true10207 ], [ %2601, %if.end10200 ]
-  %i.52 = phi i64 [ %inc10231, %if.end10226 ], [ %i.51, %land.lhs.true10207 ], [ %i.51, %if.end10200 ]
-  %cmp10238 = icmp ugt i64 %sub.ptr.div.i4252.pre-phi, %i.52
-  br i1 %cmp10238, label %land.lhs.true10239, label %if.end10264
-
-land.lhs.true10239:                               ; preds = %if.end10232
-  %add.ptr.i4253 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2608, i64 %i.52
+land.lhs.true10239:                               ; preds = %land.lhs.true10207, %if.end10232
+  %i.525055 = phi i64 [ %inc10231, %if.end10232 ], [ %i.515048, %land.lhs.true10207 ]
+  %2659 = phi ptr [ %.pre4442, %if.end10232 ], [ %2651, %land.lhs.true10207 ]
+  %add.ptr.i4253 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2659, i64 %i.525055
   %id10241 = getelementptr inbounds nuw i8, ptr %add.ptr.i4253, i64 32
-  %2609 = load i32, ptr %id10241, align 8
-  %cmp10242 = icmp eq i32 %2609, 52
-  br i1 %cmp10242, label %if.then10243, label %if.end10264
+  %2660 = load i32, ptr %id10241, align 8
+  %cmp10242 = icmp eq i32 %2660, 52
+  br i1 %cmp10242, label %if.then10243, label %land.lhs.true10271
 
 if.then10243:                                     ; preds = %land.lhs.true10239
-  %2610 = load ptr, ptr %isolate_, align 8
+  %2661 = load ptr, ptr %isolate_, align 8
   %index10248 = getelementptr inbounds nuw i8, ptr %add.ptr.i4253, i64 40
-  %2611 = load i64, ptr %index10248, align 8
-  %call.i18236 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2610, i64 noundef %2611) #24
+  %2662 = load i64, ptr %index10248, align 8
+  %call.i18236 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2661, i64 noundef %2662) #24
   %cond3034 = icmp eq ptr %call.i18236, null
-  br i1 %cond3034, label %if.then10256, label %if.end10258
+  br i1 %cond3034, label %if.then10256, label %if.end10264
 
 if.then10256:                                     ; preds = %if.then10243
-  %2612 = load ptr, ptr @stderr, align 8
-  %2613 = call i64 @fwrite(ptr nonnull @.str.519, i64 71, i64 1, ptr %2612) #29
-  br label %if.end10258
+  %2663 = load ptr, ptr @stderr, align 8
+  %2664 = call i64 @fwrite(ptr nonnull @.str.519, i64 71, i64 1, ptr %2663) #29
+  br label %if.end10264
 
-if.end10258:                                      ; preds = %if.then10243, %if.then10256
+if.end10264:                                      ; preds = %if.then10256, %if.then10243
   %messaging_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3464
-  %2614 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4256 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2614, ptr noundef %call.i18236) #24
+  %2665 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4256 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2665, ptr noundef %call.i18236) #24
   store ptr %call8.i.i4256, ptr %messaging_binding_template_.i, align 8
-  %inc10263 = add nuw nsw i64 %i.52, 1
+  %inc10263 = add nuw nsw i64 %i.525055, 1
   %.pre4443 = load ptr, ptr %_M_finish.i, align 8
   %.pre4444 = load ptr, ptr %template_values, align 8
   %.pre4665 = ptrtoint ptr %.pre4443 to i64
   %.pre4666 = ptrtoint ptr %.pre4444 to i64
   %.pre4667 = sub i64 %.pre4665, %.pre4666
   %.pre4668 = sdiv exact i64 %.pre4667, 48
-  br label %if.end10264
+  %2666 = icmp ugt i64 %.pre4668, %inc10263
+  br i1 %2666, label %land.lhs.true10271, label %if.end10552
 
-if.end10264:                                      ; preds = %if.end10258, %land.lhs.true10239, %if.end10232
-  %sub.ptr.div.i4261.pre-phi = phi i64 [ %.pre4668, %if.end10258 ], [ %sub.ptr.div.i4252.pre-phi, %land.lhs.true10239 ], [ %sub.ptr.div.i4252.pre-phi, %if.end10232 ]
-  %2615 = phi ptr [ %.pre4444, %if.end10258 ], [ %2608, %land.lhs.true10239 ], [ %2608, %if.end10232 ]
-  %i.53 = phi i64 [ %inc10263, %if.end10258 ], [ %i.52, %land.lhs.true10239 ], [ %i.52, %if.end10232 ]
-  %cmp10270 = icmp ugt i64 %sub.ptr.div.i4261.pre-phi, %i.53
-  br i1 %cmp10270, label %land.lhs.true10271, label %if.end10296
-
-land.lhs.true10271:                               ; preds = %if.end10264
-  %add.ptr.i4262 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2615, i64 %i.53
+land.lhs.true10271:                               ; preds = %land.lhs.true10239, %if.end10264
+  %i.535062 = phi i64 [ %inc10263, %if.end10264 ], [ %i.525055, %land.lhs.true10239 ]
+  %2667 = phi ptr [ %.pre4444, %if.end10264 ], [ %2659, %land.lhs.true10239 ]
+  %add.ptr.i4262 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2667, i64 %i.535062
   %id10273 = getelementptr inbounds nuw i8, ptr %add.ptr.i4262, i64 32
-  %2616 = load i32, ptr %id10273, align 8
-  %cmp10274 = icmp eq i32 %2616, 53
-  br i1 %cmp10274, label %if.then10275, label %if.end10296
+  %2668 = load i32, ptr %id10273, align 8
+  %cmp10274 = icmp eq i32 %2668, 53
+  br i1 %cmp10274, label %if.then10275, label %land.lhs.true10303
 
 if.then10275:                                     ; preds = %land.lhs.true10271
-  %2617 = load ptr, ptr %isolate_, align 8
+  %2669 = load ptr, ptr %isolate_, align 8
   %index10280 = getelementptr inbounds nuw i8, ptr %add.ptr.i4262, i64 40
-  %2618 = load i64, ptr %index10280, align 8
-  %call.i18224 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2617, i64 noundef %2618) #24
+  %2670 = load i64, ptr %index10280, align 8
+  %call.i18224 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2669, i64 noundef %2670) #24
   %cond3035 = icmp eq ptr %call.i18224, null
-  br i1 %cond3035, label %if.then10288, label %if.end10290
+  br i1 %cond3035, label %if.then10288, label %if.end10296
 
 if.then10288:                                     ; preds = %if.then10275
-  %2619 = load ptr, ptr @stderr, align 8
-  %2620 = call i64 @fwrite(ptr nonnull @.str.520, i64 72, i64 1, ptr %2619) #29
-  br label %if.end10290
+  %2671 = load ptr, ptr @stderr, align 8
+  %2672 = call i64 @fwrite(ptr nonnull @.str.520, i64 72, i64 1, ptr %2671) #29
+  br label %if.end10296
 
-if.end10290:                                      ; preds = %if.then10275, %if.then10288
+if.end10296:                                      ; preds = %if.then10288, %if.then10275
   %mksnapshot_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3472
-  %2621 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4265 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2621, ptr noundef %call.i18224) #24
+  %2673 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4265 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2673, ptr noundef %call.i18224) #24
   store ptr %call8.i.i4265, ptr %mksnapshot_binding_template_.i, align 8
-  %inc10295 = add nuw nsw i64 %i.53, 1
+  %inc10295 = add nuw nsw i64 %i.535062, 1
   %.pre4445 = load ptr, ptr %_M_finish.i, align 8
   %.pre4446 = load ptr, ptr %template_values, align 8
   %.pre4669 = ptrtoint ptr %.pre4445 to i64
   %.pre4670 = ptrtoint ptr %.pre4446 to i64
   %.pre4671 = sub i64 %.pre4669, %.pre4670
   %.pre4672 = sdiv exact i64 %.pre4671, 48
-  br label %if.end10296
+  %2674 = icmp ugt i64 %.pre4672, %inc10295
+  br i1 %2674, label %land.lhs.true10303, label %if.end10552
 
-if.end10296:                                      ; preds = %if.end10290, %land.lhs.true10271, %if.end10264
-  %sub.ptr.div.i4270.pre-phi = phi i64 [ %.pre4672, %if.end10290 ], [ %sub.ptr.div.i4261.pre-phi, %land.lhs.true10271 ], [ %sub.ptr.div.i4261.pre-phi, %if.end10264 ]
-  %2622 = phi ptr [ %.pre4446, %if.end10290 ], [ %2615, %land.lhs.true10271 ], [ %2615, %if.end10264 ]
-  %i.54 = phi i64 [ %inc10295, %if.end10290 ], [ %i.53, %land.lhs.true10271 ], [ %i.53, %if.end10264 ]
-  %cmp10302 = icmp ugt i64 %sub.ptr.div.i4270.pre-phi, %i.54
-  br i1 %cmp10302, label %land.lhs.true10303, label %if.end10328
-
-land.lhs.true10303:                               ; preds = %if.end10296
-  %add.ptr.i4271 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2622, i64 %i.54
+land.lhs.true10303:                               ; preds = %land.lhs.true10271, %if.end10296
+  %i.545069 = phi i64 [ %inc10295, %if.end10296 ], [ %i.535062, %land.lhs.true10271 ]
+  %2675 = phi ptr [ %.pre4446, %if.end10296 ], [ %2667, %land.lhs.true10271 ]
+  %add.ptr.i4271 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2675, i64 %i.545069
   %id10305 = getelementptr inbounds nuw i8, ptr %add.ptr.i4271, i64 32
-  %2623 = load i32, ptr %id10305, align 8
-  %cmp10306 = icmp eq i32 %2623, 54
-  br i1 %cmp10306, label %if.then10307, label %if.end10328
+  %2676 = load i32, ptr %id10305, align 8
+  %cmp10306 = icmp eq i32 %2676, 54
+  br i1 %cmp10306, label %if.then10307, label %land.lhs.true10335
 
 if.then10307:                                     ; preds = %land.lhs.true10303
-  %2624 = load ptr, ptr %isolate_, align 8
+  %2677 = load ptr, ptr %isolate_, align 8
   %index10312 = getelementptr inbounds nuw i8, ptr %add.ptr.i4271, i64 40
-  %2625 = load i64, ptr %index10312, align 8
-  %call.i18212 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2624, i64 noundef %2625) #24
+  %2678 = load i64, ptr %index10312, align 8
+  %call.i18212 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2677, i64 noundef %2678) #24
   %cond3036 = icmp eq ptr %call.i18212, null
-  br i1 %cond3036, label %if.then10320, label %if.end10322
+  br i1 %cond3036, label %if.then10320, label %if.end10328
 
 if.then10320:                                     ; preds = %if.then10307
-  %2626 = load ptr, ptr @stderr, align 8
-  %2627 = call i64 @fwrite(ptr nonnull @.str.521, i64 69, i64 1, ptr %2626) #29
-  br label %if.end10322
+  %2679 = load ptr, ptr @stderr, align 8
+  %2680 = call i64 @fwrite(ptr nonnull @.str.521, i64 69, i64 1, ptr %2679) #29
+  br label %if.end10328
 
-if.end10322:                                      ; preds = %if.then10307, %if.then10320
+if.end10328:                                      ; preds = %if.then10320, %if.then10307
   %modules_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3480
-  %2628 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4274 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2628, ptr noundef %call.i18212) #24
+  %2681 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4274 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2681, ptr noundef %call.i18212) #24
   store ptr %call8.i.i4274, ptr %modules_binding_template_.i, align 8
-  %inc10327 = add nuw nsw i64 %i.54, 1
+  %inc10327 = add nuw nsw i64 %i.545069, 1
   %.pre4447 = load ptr, ptr %_M_finish.i, align 8
   %.pre4448 = load ptr, ptr %template_values, align 8
   %.pre4673 = ptrtoint ptr %.pre4447 to i64
   %.pre4674 = ptrtoint ptr %.pre4448 to i64
   %.pre4675 = sub i64 %.pre4673, %.pre4674
   %.pre4676 = sdiv exact i64 %.pre4675, 48
-  br label %if.end10328
+  %2682 = icmp ugt i64 %.pre4676, %inc10327
+  br i1 %2682, label %land.lhs.true10335, label %if.end10552
 
-if.end10328:                                      ; preds = %if.end10322, %land.lhs.true10303, %if.end10296
-  %sub.ptr.div.i4279.pre-phi = phi i64 [ %.pre4676, %if.end10322 ], [ %sub.ptr.div.i4270.pre-phi, %land.lhs.true10303 ], [ %sub.ptr.div.i4270.pre-phi, %if.end10296 ]
-  %2629 = phi ptr [ %.pre4448, %if.end10322 ], [ %2622, %land.lhs.true10303 ], [ %2622, %if.end10296 ]
-  %i.55 = phi i64 [ %inc10327, %if.end10322 ], [ %i.54, %land.lhs.true10303 ], [ %i.54, %if.end10296 ]
-  %cmp10334 = icmp ugt i64 %sub.ptr.div.i4279.pre-phi, %i.55
-  br i1 %cmp10334, label %land.lhs.true10335, label %if.end10360
-
-land.lhs.true10335:                               ; preds = %if.end10328
-  %add.ptr.i4280 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2629, i64 %i.55
+land.lhs.true10335:                               ; preds = %land.lhs.true10303, %if.end10328
+  %i.555076 = phi i64 [ %inc10327, %if.end10328 ], [ %i.545069, %land.lhs.true10303 ]
+  %2683 = phi ptr [ %.pre4448, %if.end10328 ], [ %2675, %land.lhs.true10303 ]
+  %add.ptr.i4280 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2683, i64 %i.555076
   %id10337 = getelementptr inbounds nuw i8, ptr %add.ptr.i4280, i64 32
-  %2630 = load i32, ptr %id10337, align 8
-  %cmp10338 = icmp eq i32 %2630, 55
-  br i1 %cmp10338, label %if.then10339, label %if.end10360
+  %2684 = load i32, ptr %id10337, align 8
+  %cmp10338 = icmp eq i32 %2684, 55
+  br i1 %cmp10338, label %if.then10339, label %land.lhs.true10367
 
 if.then10339:                                     ; preds = %land.lhs.true10335
-  %2631 = load ptr, ptr %isolate_, align 8
+  %2685 = load ptr, ptr %isolate_, align 8
   %index10344 = getelementptr inbounds nuw i8, ptr %add.ptr.i4280, i64 40
-  %2632 = load i64, ptr %index10344, align 8
-  %call.i18200 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2631, i64 noundef %2632) #24
+  %2686 = load i64, ptr %index10344, align 8
+  %call.i18200 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2685, i64 noundef %2686) #24
   %cond3037 = icmp eq ptr %call.i18200, null
-  br i1 %cond3037, label %if.then10352, label %if.end10354
+  br i1 %cond3037, label %if.then10352, label %if.end10360
 
 if.then10352:                                     ; preds = %if.then10339
-  %2633 = load ptr, ptr @stderr, align 8
-  %2634 = call i64 @fwrite(ptr nonnull @.str.522, i64 73, i64 1, ptr %2633) #29
-  br label %if.end10354
+  %2687 = load ptr, ptr @stderr, align 8
+  %2688 = call i64 @fwrite(ptr nonnull @.str.522, i64 73, i64 1, ptr %2687) #29
+  br label %if.end10360
 
-if.end10354:                                      ; preds = %if.then10339, %if.then10352
+if.end10360:                                      ; preds = %if.then10352, %if.then10339
   %module_wrap_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3488
-  %2635 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4283 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2635, ptr noundef %call.i18200) #24
+  %2689 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4283 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2689, ptr noundef %call.i18200) #24
   store ptr %call8.i.i4283, ptr %module_wrap_binding_template_.i, align 8
-  %inc10359 = add nuw nsw i64 %i.55, 1
+  %inc10359 = add nuw nsw i64 %i.555076, 1
   %.pre4449 = load ptr, ptr %_M_finish.i, align 8
   %.pre4450 = load ptr, ptr %template_values, align 8
   %.pre4677 = ptrtoint ptr %.pre4449 to i64
   %.pre4678 = ptrtoint ptr %.pre4450 to i64
   %.pre4679 = sub i64 %.pre4677, %.pre4678
   %.pre4680 = sdiv exact i64 %.pre4679, 48
-  br label %if.end10360
+  %2690 = icmp ugt i64 %.pre4680, %inc10359
+  br i1 %2690, label %land.lhs.true10367, label %if.end10552
 
-if.end10360:                                      ; preds = %if.end10354, %land.lhs.true10335, %if.end10328
-  %sub.ptr.div.i4288.pre-phi = phi i64 [ %.pre4680, %if.end10354 ], [ %sub.ptr.div.i4279.pre-phi, %land.lhs.true10335 ], [ %sub.ptr.div.i4279.pre-phi, %if.end10328 ]
-  %2636 = phi ptr [ %.pre4450, %if.end10354 ], [ %2629, %land.lhs.true10335 ], [ %2629, %if.end10328 ]
-  %i.56 = phi i64 [ %inc10359, %if.end10354 ], [ %i.55, %land.lhs.true10335 ], [ %i.55, %if.end10328 ]
-  %cmp10366 = icmp ugt i64 %sub.ptr.div.i4288.pre-phi, %i.56
-  br i1 %cmp10366, label %land.lhs.true10367, label %if.end10392
-
-land.lhs.true10367:                               ; preds = %if.end10360
-  %add.ptr.i4289 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2636, i64 %i.56
+land.lhs.true10367:                               ; preds = %land.lhs.true10335, %if.end10360
+  %i.565083 = phi i64 [ %inc10359, %if.end10360 ], [ %i.555076, %land.lhs.true10335 ]
+  %2691 = phi ptr [ %.pre4450, %if.end10360 ], [ %2683, %land.lhs.true10335 ]
+  %add.ptr.i4289 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2691, i64 %i.565083
   %id10369 = getelementptr inbounds nuw i8, ptr %add.ptr.i4289, i64 32
-  %2637 = load i32, ptr %id10369, align 8
-  %cmp10370 = icmp eq i32 %2637, 56
-  br i1 %cmp10370, label %if.then10371, label %if.end10392
+  %2692 = load i32, ptr %id10369, align 8
+  %cmp10370 = icmp eq i32 %2692, 56
+  br i1 %cmp10370, label %if.then10371, label %land.lhs.true10399
 
 if.then10371:                                     ; preds = %land.lhs.true10367
-  %2638 = load ptr, ptr %isolate_, align 8
+  %2693 = load ptr, ptr %isolate_, align 8
   %index10376 = getelementptr inbounds nuw i8, ptr %add.ptr.i4289, i64 40
-  %2639 = load i64, ptr %index10376, align 8
-  %call.i18188 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2638, i64 noundef %2639) #24
+  %2694 = load i64, ptr %index10376, align 8
+  %call.i18188 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2693, i64 noundef %2694) #24
   %cond3038 = icmp eq ptr %call.i18188, null
-  br i1 %cond3038, label %if.then10384, label %if.end10386
+  br i1 %cond3038, label %if.then10384, label %if.end10392
 
 if.then10384:                                     ; preds = %if.then10371
-  %2640 = load ptr, ptr @stderr, align 8
-  %2641 = call i64 @fwrite(ptr nonnull @.str.523, i64 73, i64 1, ptr %2640) #29
-  br label %if.end10386
+  %2695 = load ptr, ptr @stderr, align 8
+  %2696 = call i64 @fwrite(ptr nonnull @.str.523, i64 73, i64 1, ptr %2695) #29
+  br label %if.end10392
 
-if.end10386:                                      ; preds = %if.then10371, %if.then10384
+if.end10392:                                      ; preds = %if.then10384, %if.then10371
   %performance_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3496
-  %2642 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4292 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2642, ptr noundef %call.i18188) #24
+  %2697 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4292 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2697, ptr noundef %call.i18188) #24
   store ptr %call8.i.i4292, ptr %performance_binding_template_.i, align 8
-  %inc10391 = add nuw nsw i64 %i.56, 1
+  %inc10391 = add nuw nsw i64 %i.565083, 1
   %.pre4451 = load ptr, ptr %_M_finish.i, align 8
   %.pre4452 = load ptr, ptr %template_values, align 8
   %.pre4681 = ptrtoint ptr %.pre4451 to i64
   %.pre4682 = ptrtoint ptr %.pre4452 to i64
   %.pre4683 = sub i64 %.pre4681, %.pre4682
   %.pre4684 = sdiv exact i64 %.pre4683, 48
-  br label %if.end10392
+  %2698 = icmp ugt i64 %.pre4684, %inc10391
+  br i1 %2698, label %land.lhs.true10399, label %if.end10552
 
-if.end10392:                                      ; preds = %if.end10386, %land.lhs.true10367, %if.end10360
-  %sub.ptr.div.i4297.pre-phi = phi i64 [ %.pre4684, %if.end10386 ], [ %sub.ptr.div.i4288.pre-phi, %land.lhs.true10367 ], [ %sub.ptr.div.i4288.pre-phi, %if.end10360 ]
-  %2643 = phi ptr [ %.pre4452, %if.end10386 ], [ %2636, %land.lhs.true10367 ], [ %2636, %if.end10360 ]
-  %i.57 = phi i64 [ %inc10391, %if.end10386 ], [ %i.56, %land.lhs.true10367 ], [ %i.56, %if.end10360 ]
-  %cmp10398 = icmp ugt i64 %sub.ptr.div.i4297.pre-phi, %i.57
-  br i1 %cmp10398, label %land.lhs.true10399, label %if.end10424
-
-land.lhs.true10399:                               ; preds = %if.end10392
-  %add.ptr.i4298 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2643, i64 %i.57
+land.lhs.true10399:                               ; preds = %land.lhs.true10367, %if.end10392
+  %i.575090 = phi i64 [ %inc10391, %if.end10392 ], [ %i.565083, %land.lhs.true10367 ]
+  %2699 = phi ptr [ %.pre4452, %if.end10392 ], [ %2691, %land.lhs.true10367 ]
+  %add.ptr.i4298 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2699, i64 %i.575090
   %id10401 = getelementptr inbounds nuw i8, ptr %add.ptr.i4298, i64 32
-  %2644 = load i32, ptr %id10401, align 8
-  %cmp10402 = icmp eq i32 %2644, 57
-  br i1 %cmp10402, label %if.then10403, label %if.end10424
+  %2700 = load i32, ptr %id10401, align 8
+  %cmp10402 = icmp eq i32 %2700, 57
+  br i1 %cmp10402, label %if.then10403, label %land.lhs.true10431
 
 if.then10403:                                     ; preds = %land.lhs.true10399
-  %2645 = load ptr, ptr %isolate_, align 8
+  %2701 = load ptr, ptr %isolate_, align 8
   %index10408 = getelementptr inbounds nuw i8, ptr %add.ptr.i4298, i64 40
-  %2646 = load i64, ptr %index10408, align 8
-  %call.i18176 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2645, i64 noundef %2646) #24
+  %2702 = load i64, ptr %index10408, align 8
+  %call.i18176 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2701, i64 noundef %2702) #24
   %cond3039 = icmp eq ptr %call.i18176, null
-  br i1 %cond3039, label %if.then10416, label %if.end10418
+  br i1 %cond3039, label %if.then10416, label %if.end10424
 
 if.then10416:                                     ; preds = %if.then10403
-  %2647 = load ptr, ptr @stderr, align 8
-  %2648 = call i64 @fwrite(ptr nonnull @.str.524, i64 77, i64 1, ptr %2647) #29
-  br label %if.end10418
+  %2703 = load ptr, ptr @stderr, align 8
+  %2704 = call i64 @fwrite(ptr nonnull @.str.524, i64 77, i64 1, ptr %2703) #29
+  br label %if.end10424
 
-if.end10418:                                      ; preds = %if.then10403, %if.then10416
+if.end10424:                                      ; preds = %if.then10416, %if.then10403
   %process_methods_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3504
-  %2649 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4301 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2649, ptr noundef %call.i18176) #24
+  %2705 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4301 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2705, ptr noundef %call.i18176) #24
   store ptr %call8.i.i4301, ptr %process_methods_binding_template_.i, align 8
-  %inc10423 = add nuw nsw i64 %i.57, 1
+  %inc10423 = add nuw nsw i64 %i.575090, 1
   %.pre4453 = load ptr, ptr %_M_finish.i, align 8
   %.pre4454 = load ptr, ptr %template_values, align 8
   %.pre4685 = ptrtoint ptr %.pre4453 to i64
   %.pre4686 = ptrtoint ptr %.pre4454 to i64
   %.pre4687 = sub i64 %.pre4685, %.pre4686
   %.pre4688 = sdiv exact i64 %.pre4687, 48
-  br label %if.end10424
+  %2706 = icmp ugt i64 %.pre4688, %inc10423
+  br i1 %2706, label %land.lhs.true10431, label %if.end10552
 
-if.end10424:                                      ; preds = %if.end10418, %land.lhs.true10399, %if.end10392
-  %sub.ptr.div.i4306.pre-phi = phi i64 [ %.pre4688, %if.end10418 ], [ %sub.ptr.div.i4297.pre-phi, %land.lhs.true10399 ], [ %sub.ptr.div.i4297.pre-phi, %if.end10392 ]
-  %2650 = phi ptr [ %.pre4454, %if.end10418 ], [ %2643, %land.lhs.true10399 ], [ %2643, %if.end10392 ]
-  %i.58 = phi i64 [ %inc10423, %if.end10418 ], [ %i.57, %land.lhs.true10399 ], [ %i.57, %if.end10392 ]
-  %cmp10430 = icmp ugt i64 %sub.ptr.div.i4306.pre-phi, %i.58
-  br i1 %cmp10430, label %land.lhs.true10431, label %if.end10456
-
-land.lhs.true10431:                               ; preds = %if.end10424
-  %add.ptr.i4307 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2650, i64 %i.58
+land.lhs.true10431:                               ; preds = %land.lhs.true10399, %if.end10424
+  %i.585097 = phi i64 [ %inc10423, %if.end10424 ], [ %i.575090, %land.lhs.true10399 ]
+  %2707 = phi ptr [ %.pre4454, %if.end10424 ], [ %2699, %land.lhs.true10399 ]
+  %add.ptr.i4307 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2707, i64 %i.585097
   %id10433 = getelementptr inbounds nuw i8, ptr %add.ptr.i4307, i64 32
-  %2651 = load i32, ptr %id10433, align 8
-  %cmp10434 = icmp eq i32 %2651, 58
-  br i1 %cmp10434, label %if.then10435, label %if.end10456
+  %2708 = load i32, ptr %id10433, align 8
+  %cmp10434 = icmp eq i32 %2708, 58
+  br i1 %cmp10434, label %if.then10435, label %land.lhs.true10463
 
 if.then10435:                                     ; preds = %land.lhs.true10431
-  %2652 = load ptr, ptr %isolate_, align 8
+  %2709 = load ptr, ptr %isolate_, align 8
   %index10440 = getelementptr inbounds nuw i8, ptr %add.ptr.i4307, i64 40
-  %2653 = load i64, ptr %index10440, align 8
-  %call.i18164 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2652, i64 noundef %2653) #24
+  %2710 = load i64, ptr %index10440, align 8
+  %call.i18164 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2709, i64 noundef %2710) #24
   %cond3040 = icmp eq ptr %call.i18164, null
-  br i1 %cond3040, label %if.then10448, label %if.end10450
+  br i1 %cond3040, label %if.then10448, label %if.end10456
 
 if.then10448:                                     ; preds = %if.then10435
-  %2654 = load ptr, ptr @stderr, align 8
-  %2655 = call i64 @fwrite(ptr nonnull @.str.525, i64 68, i64 1, ptr %2654) #29
-  br label %if.end10450
+  %2711 = load ptr, ptr @stderr, align 8
+  %2712 = call i64 @fwrite(ptr nonnull @.str.525, i64 68, i64 1, ptr %2711) #29
+  br label %if.end10456
 
-if.end10450:                                      ; preds = %if.then10435, %if.then10448
+if.end10456:                                      ; preds = %if.then10448, %if.then10435
   %timers_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3512
-  %2656 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4310 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2656, ptr noundef %call.i18164) #24
+  %2713 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4310 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2713, ptr noundef %call.i18164) #24
   store ptr %call8.i.i4310, ptr %timers_binding_template_.i, align 8
-  %inc10455 = add nuw nsw i64 %i.58, 1
+  %inc10455 = add nuw nsw i64 %i.585097, 1
   %.pre4455 = load ptr, ptr %_M_finish.i, align 8
   %.pre4456 = load ptr, ptr %template_values, align 8
   %.pre4689 = ptrtoint ptr %.pre4455 to i64
   %.pre4690 = ptrtoint ptr %.pre4456 to i64
   %.pre4691 = sub i64 %.pre4689, %.pre4690
   %.pre4692 = sdiv exact i64 %.pre4691, 48
-  br label %if.end10456
+  %2714 = icmp ugt i64 %.pre4692, %inc10455
+  br i1 %2714, label %land.lhs.true10463, label %if.end10552
 
-if.end10456:                                      ; preds = %if.end10450, %land.lhs.true10431, %if.end10424
-  %sub.ptr.div.i4315.pre-phi = phi i64 [ %.pre4692, %if.end10450 ], [ %sub.ptr.div.i4306.pre-phi, %land.lhs.true10431 ], [ %sub.ptr.div.i4306.pre-phi, %if.end10424 ]
-  %2657 = phi ptr [ %.pre4456, %if.end10450 ], [ %2650, %land.lhs.true10431 ], [ %2650, %if.end10424 ]
-  %i.59 = phi i64 [ %inc10455, %if.end10450 ], [ %i.58, %land.lhs.true10431 ], [ %i.58, %if.end10424 ]
-  %cmp10462 = icmp ugt i64 %sub.ptr.div.i4315.pre-phi, %i.59
-  br i1 %cmp10462, label %land.lhs.true10463, label %if.end10488
-
-land.lhs.true10463:                               ; preds = %if.end10456
-  %add.ptr.i4316 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2657, i64 %i.59
+land.lhs.true10463:                               ; preds = %land.lhs.true10431, %if.end10456
+  %i.595104 = phi i64 [ %inc10455, %if.end10456 ], [ %i.585097, %land.lhs.true10431 ]
+  %2715 = phi ptr [ %.pre4456, %if.end10456 ], [ %2707, %land.lhs.true10431 ]
+  %add.ptr.i4316 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2715, i64 %i.595104
   %id10465 = getelementptr inbounds nuw i8, ptr %add.ptr.i4316, i64 32
-  %2658 = load i32, ptr %id10465, align 8
-  %cmp10466 = icmp eq i32 %2658, 59
-  br i1 %cmp10466, label %if.then10467, label %if.end10488
+  %2716 = load i32, ptr %id10465, align 8
+  %cmp10466 = icmp eq i32 %2716, 59
+  br i1 %cmp10466, label %if.then10467, label %land.lhs.true10495
 
 if.then10467:                                     ; preds = %land.lhs.true10463
-  %2659 = load ptr, ptr %isolate_, align 8
+  %2717 = load ptr, ptr %isolate_, align 8
   %index10472 = getelementptr inbounds nuw i8, ptr %add.ptr.i4316, i64 40
-  %2660 = load i64, ptr %index10472, align 8
-  %call.i18152 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2659, i64 noundef %2660) #24
+  %2718 = load i64, ptr %index10472, align 8
+  %call.i18152 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2717, i64 noundef %2718) #24
   %cond3041 = icmp eq ptr %call.i18152, null
-  br i1 %cond3041, label %if.then10480, label %if.end10482
+  br i1 %cond3041, label %if.then10480, label %if.end10488
 
 if.then10480:                                     ; preds = %if.then10467
-  %2661 = load ptr, ptr @stderr, align 8
-  %2662 = call i64 @fwrite(ptr nonnull @.str.526, i64 65, i64 1, ptr %2661) #29
-  br label %if.end10482
+  %2719 = load ptr, ptr @stderr, align 8
+  %2720 = call i64 @fwrite(ptr nonnull @.str.526, i64 65, i64 1, ptr %2719) #29
+  br label %if.end10488
 
-if.end10482:                                      ; preds = %if.then10467, %if.then10480
+if.end10488:                                      ; preds = %if.then10480, %if.then10467
   %url_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3520
-  %2663 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4319 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2663, ptr noundef %call.i18152) #24
+  %2721 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4319 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2721, ptr noundef %call.i18152) #24
   store ptr %call8.i.i4319, ptr %url_binding_template_.i, align 8
-  %inc10487 = add nuw nsw i64 %i.59, 1
+  %inc10487 = add nuw nsw i64 %i.595104, 1
   %.pre4457 = load ptr, ptr %_M_finish.i, align 8
   %.pre4458 = load ptr, ptr %template_values, align 8
   %.pre4693 = ptrtoint ptr %.pre4457 to i64
   %.pre4694 = ptrtoint ptr %.pre4458 to i64
   %.pre4695 = sub i64 %.pre4693, %.pre4694
   %.pre4696 = sdiv exact i64 %.pre4695, 48
-  br label %if.end10488
+  %2722 = icmp ugt i64 %.pre4696, %inc10487
+  br i1 %2722, label %land.lhs.true10495, label %if.end10552
 
-if.end10488:                                      ; preds = %if.end10482, %land.lhs.true10463, %if.end10456
-  %sub.ptr.div.i4324.pre-phi = phi i64 [ %.pre4696, %if.end10482 ], [ %sub.ptr.div.i4315.pre-phi, %land.lhs.true10463 ], [ %sub.ptr.div.i4315.pre-phi, %if.end10456 ]
-  %2664 = phi ptr [ %.pre4458, %if.end10482 ], [ %2657, %land.lhs.true10463 ], [ %2657, %if.end10456 ]
-  %i.60 = phi i64 [ %inc10487, %if.end10482 ], [ %i.59, %land.lhs.true10463 ], [ %i.59, %if.end10456 ]
-  %cmp10494 = icmp ugt i64 %sub.ptr.div.i4324.pre-phi, %i.60
-  br i1 %cmp10494, label %land.lhs.true10495, label %if.end10520
-
-land.lhs.true10495:                               ; preds = %if.end10488
-  %add.ptr.i4325 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2664, i64 %i.60
+land.lhs.true10495:                               ; preds = %land.lhs.true10463, %if.end10488
+  %i.605111 = phi i64 [ %inc10487, %if.end10488 ], [ %i.595104, %land.lhs.true10463 ]
+  %2723 = phi ptr [ %.pre4458, %if.end10488 ], [ %2715, %land.lhs.true10463 ]
+  %add.ptr.i4325 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2723, i64 %i.605111
   %id10497 = getelementptr inbounds nuw i8, ptr %add.ptr.i4325, i64 32
-  %2665 = load i32, ptr %id10497, align 8
-  %cmp10498 = icmp eq i32 %2665, 60
-  br i1 %cmp10498, label %if.then10499, label %if.end10520
+  %2724 = load i32, ptr %id10497, align 8
+  %cmp10498 = icmp eq i32 %2724, 60
+  br i1 %cmp10498, label %if.then10499, label %land.lhs.true10527
 
 if.then10499:                                     ; preds = %land.lhs.true10495
-  %2666 = load ptr, ptr %isolate_, align 8
+  %2725 = load ptr, ptr %isolate_, align 8
   %index10504 = getelementptr inbounds nuw i8, ptr %add.ptr.i4325, i64 40
-  %2667 = load i64, ptr %index10504, align 8
-  %call.i18140 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2666, i64 noundef %2667) #24
+  %2726 = load i64, ptr %index10504, align 8
+  %call.i18140 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2725, i64 noundef %2726) #24
   %cond3042 = icmp eq ptr %call.i18140, null
-  br i1 %cond3042, label %if.then10512, label %if.end10514
+  br i1 %cond3042, label %if.then10512, label %if.end10520
 
 if.then10512:                                     ; preds = %if.then10499
-  %2668 = load ptr, ptr @stderr, align 8
-  %2669 = call i64 @fwrite(ptr nonnull @.str.527, i64 68, i64 1, ptr %2668) #29
-  br label %if.end10514
+  %2727 = load ptr, ptr @stderr, align 8
+  %2728 = call i64 @fwrite(ptr nonnull @.str.527, i64 68, i64 1, ptr %2727) #29
+  br label %if.end10520
 
-if.end10514:                                      ; preds = %if.then10499, %if.then10512
+if.end10520:                                      ; preds = %if.then10512, %if.then10499
   %worker_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3528
-  %2670 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4328 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2670, ptr noundef %call.i18140) #24
+  %2729 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4328 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2729, ptr noundef %call.i18140) #24
   store ptr %call8.i.i4328, ptr %worker_binding_template_.i, align 8
-  %inc10519 = add nuw nsw i64 %i.60, 1
+  %inc10519 = add nuw nsw i64 %i.605111, 1
   %.pre4459 = load ptr, ptr %_M_finish.i, align 8
   %.pre4460 = load ptr, ptr %template_values, align 8
   %.pre4697 = ptrtoint ptr %.pre4459 to i64
   %.pre4698 = ptrtoint ptr %.pre4460 to i64
   %.pre4699 = sub i64 %.pre4697, %.pre4698
   %.pre4700 = sdiv exact i64 %.pre4699, 48
-  br label %if.end10520
+  %2730 = icmp ugt i64 %.pre4700, %inc10519
+  br i1 %2730, label %land.lhs.true10527, label %if.end10552
 
-if.end10520:                                      ; preds = %if.end10514, %land.lhs.true10495, %if.end10488
-  %sub.ptr.div.i4333.pre-phi = phi i64 [ %.pre4700, %if.end10514 ], [ %sub.ptr.div.i4324.pre-phi, %land.lhs.true10495 ], [ %sub.ptr.div.i4324.pre-phi, %if.end10488 ]
-  %2671 = phi ptr [ %.pre4460, %if.end10514 ], [ %2664, %land.lhs.true10495 ], [ %2664, %if.end10488 ]
-  %i.61 = phi i64 [ %inc10519, %if.end10514 ], [ %i.60, %land.lhs.true10495 ], [ %i.60, %if.end10488 ]
-  %cmp10526 = icmp ugt i64 %sub.ptr.div.i4333.pre-phi, %i.61
-  br i1 %cmp10526, label %land.lhs.true10527, label %if.end10552
-
-land.lhs.true10527:                               ; preds = %if.end10520
-  %add.ptr.i4334 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2671, i64 %i.61
+land.lhs.true10527:                               ; preds = %land.lhs.true10495, %if.end10520
+  %i.615118 = phi i64 [ %inc10519, %if.end10520 ], [ %i.605111, %land.lhs.true10495 ]
+  %2731 = phi ptr [ %.pre4460, %if.end10520 ], [ %2723, %land.lhs.true10495 ]
+  %add.ptr.i4334 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %2731, i64 %i.615118
   %id10529 = getelementptr inbounds nuw i8, ptr %add.ptr.i4334, i64 32
-  %2672 = load i32, ptr %id10529, align 8
-  %cmp10530 = icmp eq i32 %2672, 61
+  %2732 = load i32, ptr %id10529, align 8
+  %cmp10530 = icmp eq i32 %2732, 61
   br i1 %cmp10530, label %if.then10531, label %if.end10552
 
 if.then10531:                                     ; preds = %land.lhs.true10527
-  %2673 = load ptr, ptr %isolate_, align 8
+  %2733 = load ptr, ptr %isolate_, align 8
   %index10536 = getelementptr inbounds nuw i8, ptr %add.ptr.i4334, i64 40
-  %2674 = load i64, ptr %index10536, align 8
-  %call.i18129 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2673, i64 noundef %2674) #24
+  %2734 = load i64, ptr %index10536, align 8
+  %call.i18129 = call noundef ptr @_ZN2v87Isolate23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %2733, i64 noundef %2734) #24
   %cond3043 = icmp eq ptr %call.i18129, null
   br i1 %cond3043, label %if.then10544, label %if.end10546
 
 if.then10544:                                     ; preds = %if.then10531
-  %2675 = load ptr, ptr @stderr, align 8
-  %2676 = call i64 @fwrite(ptr nonnull @.str.528, i64 65, i64 1, ptr %2675) #29
+  %2735 = load ptr, ptr @stderr, align 8
+  %2736 = call i64 @fwrite(ptr nonnull @.str.528, i64 65, i64 1, ptr %2735) #29
   br label %if.end10546
 
 if.end10546:                                      ; preds = %if.then10531, %if.then10544
   %icu_binding_template_.i = getelementptr inbounds nuw i8, ptr %this, i64 3536
-  %2677 = load ptr, ptr %isolate_, align 8
-  %call8.i.i4337 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2677, ptr noundef %call.i18129) #24
+  %2737 = load ptr, ptr %isolate_, align 8
+  %call8.i.i4337 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %2737, ptr noundef %call.i18129) #24
   store ptr %call8.i.i4337, ptr %icu_binding_template_.i, align 8
   br label %if.end10552
 
-if.end10552:                                      ; preds = %if.end10546, %land.lhs.true10527, %if.end10520
+if.end10552:                                      ; preds = %if.end8600, %if.end8632, %if.end8664, %if.end8696, %if.end8728, %if.end8760, %if.end8792, %if.end8824, %if.end8856, %if.end8888, %if.end8920, %if.end8952, %if.end8984, %if.end9016, %if.end9048, %if.end9080, %if.end9112, %if.end9144, %if.end9176, %if.end9208, %if.end9240, %if.end9272, %if.end9304, %if.end9336, %if.end9368, %if.end9400, %if.end9432, %if.end9464, %if.end9496, %if.end9528, %if.end9560, %if.end9592, %if.end9624, %if.end9656, %if.end9688, %if.end9720, %if.end9752, %if.end9784, %if.end9816, %if.end9848, %if.end9880, %if.end9912, %if.end9944, %if.end9976, %if.end10008, %if.end10040, %if.end10072, %if.end10104, %if.end10136, %if.end10168, %if.end10200, %if.end10232, %if.end10264, %if.end10296, %if.end10328, %if.end10360, %if.end10392, %if.end10424, %if.end10456, %if.end10488, %if.end10546, %land.lhs.true10527, %if.end10520
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #24
   call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #24
   ret void
@@ -70068,9 +69828,9 @@ if.end42:                                         ; preds = %if.then, %if.else
   %16 = load ptr, ptr %_M_finish.i, align 8
   %17 = load ptr, ptr %native_execution_async_resources_, align 8
   %cmp.i.not35 = icmp eq ptr %16, %17
-  br i1 %cmp.i.not35, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %if.then.i
+  br i1 %cmp.i.not35, label %do.body63, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
-if.then.i:                                        ; preds = %if.end42
+_ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %if.end42
   %sub.ptr.rhs.cast.i = ptrtoint ptr %17 to i64
   %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -70078,46 +69838,41 @@ if.then.i:                                        ; preds = %if.end42
   tail call void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %native_execution_async_resources.i, i64 noundef %sub.ptr.div.i)
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre34 = load ptr, ptr %native_execution_async_resources_, align 8
-  br label %_ZNSt6vectorImSaImEE6resizeEm.exit
-
-_ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %if.end42, %if.then.i
-  %18 = phi ptr [ %.pre34, %if.then.i ], [ %17, %if.end42 ]
-  %19 = phi ptr [ %.pre, %if.then.i ], [ %16, %if.end42 ]
-  %cmp4632.not = icmp eq ptr %19, %18
-  br i1 %cmp4632.not, label %do.body63, label %for.body
+  %18 = icmp eq ptr %.pre, %.pre34
+  br i1 %18, label %do.body63, label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit, %cond.end
-  %20 = phi ptr [ %25, %cond.end ], [ %18, %_ZNSt6vectorImSaImEE6resizeEm.exit ]
+  %19 = phi ptr [ %24, %cond.end ], [ %.pre34, %_ZNSt6vectorImSaImEE6resizeEm.exit ]
   %i.033 = phi i64 [ %inc, %cond.end ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit ]
-  %add.ptr.i23 = getelementptr inbounds %"class.v8::Local.256", ptr %20, i64 %i.033
-  %21 = load ptr, ptr %add.ptr.i23, align 8
-  %cmp.i129 = icmp eq ptr %21, null
+  %add.ptr.i23 = getelementptr inbounds %"class.v8::Local.256", ptr %19, i64 %i.033
+  %20 = load ptr, ptr %add.ptr.i23, align 8
+  %cmp.i129 = icmp eq ptr %20, null
   br i1 %cmp.i129, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %22 = load i64, ptr %21, align 8
-  %call11.i147 = tail call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %context.coerce, i64 noundef %22) #24
+  %21 = load i64, ptr %20, align 8
+  %call11.i147 = tail call noundef i64 @_ZN2v815SnapshotCreator7AddDataENS_5LocalINS_7ContextEEEm(ptr noundef nonnull align 8 dereferenceable(8) %creator, ptr %context.coerce, i64 noundef %21) #24
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.false
   %cond = phi i64 [ %call11.i147, %cond.false ], [ -1, %for.body ]
-  %23 = load ptr, ptr %native_execution_async_resources.i, align 8
-  %add.ptr.i25 = getelementptr inbounds i64, ptr %23, i64 %i.033
+  %22 = load ptr, ptr %native_execution_async_resources.i, align 8
+  %add.ptr.i25 = getelementptr inbounds i64, ptr %22, i64 %i.033
   store i64 %cond, ptr %add.ptr.i25, align 8
   %inc = add nuw i64 %i.033, 1
-  %24 = load ptr, ptr %_M_finish.i, align 8
-  %25 = load ptr, ptr %native_execution_async_resources_, align 8
-  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %25 to i64
+  %23 = load ptr, ptr %_M_finish.i, align 8
+  %24 = load ptr, ptr %native_execution_async_resources_, align 8
+  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 3
   %cmp46 = icmp ult i64 %inc, %sub.ptr.div.i22
   br i1 %cmp46, label %for.body, label %do.body63, !llvm.loop !1028
 
-do.body63:                                        ; preds = %cond.end, %_ZNSt6vectorImSaImEE6resizeEm.exit
+do.body63:                                        ; preds = %cond.end, %if.end42, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %js_promise_hooks_ = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %26 = load ptr, ptr %js_promise_hooks_, align 8
-  %cmp.i126.not = icmp eq ptr %26, null
+  %25 = load ptr, ptr %js_promise_hooks_, align 8
+  %cmp.i126.not = icmp eq ptr %25, null
   br i1 %cmp.i126.not, label %do.body76, label %do.body70
 
 do.body70:                                        ; preds = %do.body63
@@ -70127,8 +69882,8 @@ do.body70:                                        ; preds = %do.body63
 
 do.body76:                                        ; preds = %do.body63
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %27 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp.i123.not = icmp eq ptr %27, null
+  %26 = load ptr, ptr %arrayidx.i.i, align 8
+  %cmp.i123.not = icmp eq ptr %26, null
   br i1 %cmp.i123.not, label %do.body90, label %do.body84
 
 do.body84:                                        ; preds = %do.body76
@@ -70138,8 +69893,8 @@ do.body84:                                        ; preds = %do.body76
 
 do.body90:                                        ; preds = %do.body76
   %arrayidx.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %28 = load ptr, ptr %arrayidx.i.i26, align 8
-  %cmp.i120.not = icmp eq ptr %28, null
+  %27 = load ptr, ptr %arrayidx.i.i26, align 8
+  %cmp.i120.not = icmp eq ptr %27, null
   br i1 %cmp.i120.not, label %do.body104, label %do.body98
 
 do.body98:                                        ; preds = %do.body90
@@ -70149,8 +69904,8 @@ do.body98:                                        ; preds = %do.body90
 
 do.body104:                                       ; preds = %do.body90
   %arrayidx.i.i27 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %29 = load ptr, ptr %arrayidx.i.i27, align 8
-  %cmp.i.not = icmp eq ptr %29, null
+  %28 = load ptr, ptr %arrayidx.i.i27, align 8
+  %cmp.i.not = icmp eq ptr %28, null
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %do.body112
 
 do.body112:                                       ; preds = %do.body104

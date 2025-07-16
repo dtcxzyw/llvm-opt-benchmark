@@ -2039,8 +2039,8 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
   %.1.ph = phi ptr [ %.3.ph, %.thread ], [ %26, %25 ], [ %20, %19 ]
   %.pre = load i32, ptr %11, align 8
   %.pre55 = load i32, ptr @num_ieee802154_keys, align 4
-  store ptr null, ptr %5, align 8
   %34 = icmp eq i32 %.pre, %.pre55
+  store ptr null, ptr %5, align 8
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %._crit_edge.thread, %._crit_edge

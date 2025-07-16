@@ -334,7 +334,6 @@ define internal i32 @swf_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 18:                                               ; preds = %.lr.ph557, %.thread429
   %19 = phi i64 [ %13, %.lr.ph557 ], [ %483, %.thread429 ]
-  %.0291554 = phi ptr [ null, %.lr.ph557 ], [ %.4295434, %.thread429 ]
   %20 = call i32 @avio_rl16(ptr noundef %spec.select) #9
   %21 = and i32 %20, 63
   %22 = ashr i32 %20, 6
@@ -401,7 +400,6 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br i1 %exitcond681.not, label %._crit_edge528, label %36, !llvm.loop !55
 
 ._crit_edge528:                                   ; preds = %47, %31
-  %.2293.lcssa = phi ptr [ %.0291554, %31 ], [ %38, %47 ]
   %48 = call i32 @avio_rl16(ptr noundef %spec.select) #9
   %49 = call i32 @avio_rl16(ptr noundef %spec.select) #9
   %50 = call i32 @avio_rl16(ptr noundef %spec.select) #9
@@ -458,7 +456,6 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br i1 %exitcond676.not, label %._crit_edge523, label %66, !llvm.loop !58
 
 ._crit_edge523:                                   ; preds = %77, %63
-  %.5296.lcssa = phi ptr [ %.0291554, %63 ], [ %68, %77 ]
   %78 = call i32 @avio_r8(ptr noundef %spec.select) #9
   %79 = call i32 @avio_r8(ptr noundef %spec.select) #9
   %80 = call i32 @avio_rl16(ptr noundef %spec.select) #9
@@ -711,7 +708,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 .preheader446:                                    ; preds = %215
   %217 = load i32, ptr %15, align 4, !tbaa !40
   %.not583 = icmp eq i32 %217, 0
-  br i1 %.not583, label %._crit_edge532, label %.lr.ph531
+  br i1 %.not583, label %._crit_edge532.thread, label %.lr.ph531
 
 .lr.ph531:                                        ; preds = %.preheader446
   %218 = load ptr, ptr %16, align 8, !tbaa !41
@@ -829,7 +826,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 .preheader444:                                    ; preds = %263
   %267 = load i32, ptr %15, align 4, !tbaa !40
   %.not585 = icmp eq i32 %267, 0
-  br i1 %.not585, label %._crit_edge568, label %.lr.ph567
+  br i1 %.not585, label %._crit_edge568.thread, label %.lr.ph567
 
 .lr.ph567:                                        ; preds = %.preheader444
   %268 = load ptr, ptr %16, align 8, !tbaa !41
@@ -855,24 +852,19 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %279 = getelementptr inbounds nuw i8, ptr %272, i64 12
   %280 = load i32, ptr %279, align 4, !tbaa !54
   %281 = icmp eq i32 %280, -3
-  br i1 %281, label %._crit_edge568.loopexit, label %282
+  br i1 %281, label %._crit_edge568, label %282
 
 282:                                              ; preds = %270, %278
   %indvars.iv.next693 = add nuw nsw i64 %indvars.iv692, 1
   %exitcond696.not = icmp eq i64 %indvars.iv.next693, %wide.trip.count695
   br i1 %exitcond696.not, label %._crit_edge568.thread, label %270, !llvm.loop !84
 
-._crit_edge568.loopexit:                          ; preds = %278
+._crit_edge568:                                   ; preds = %278
   %283 = trunc nuw nsw i64 %indvars.iv692 to i32
-  br label %._crit_edge568
-
-._crit_edge568:                                   ; preds = %._crit_edge568.loopexit, %.preheader444
-  %.4303.lcssa = phi i32 [ 0, %.preheader444 ], [ %283, %._crit_edge568.loopexit ]
-  %.12 = phi ptr [ %.0291554, %.preheader444 ], [ %272, %._crit_edge568.loopexit ]
-  %284 = icmp eq i32 %.4303.lcssa, %267
+  %284 = icmp eq i32 %267, %283
   br i1 %284, label %._crit_edge568.thread, label %292
 
-._crit_edge568.thread:                            ; preds = %282, %._crit_edge568
+._crit_edge568.thread:                            ; preds = %282, %.preheader444, %._crit_edge568
   %285 = call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #9
   %.not353 = icmp eq ptr %285, null
   br i1 %.not353, label %.loopexit, label %286
@@ -890,7 +882,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br label %292
 
 292:                                              ; preds = %286, %._crit_edge568
-  %.13 = phi ptr [ %285, %286 ], [ %.12, %._crit_edge568 ]
+  %.13 = phi ptr [ %285, %286 ], [ %272, %._crit_edge568 ]
   %293 = load i64, ptr %3, align 8, !tbaa !83
   %294 = sext i32 %246 to i64
   %295 = trunc i64 %293 to i32
@@ -1146,24 +1138,19 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %420 = getelementptr inbounds nuw i8, ptr %413, i64 12
   %421 = load i32, ptr %420, align 4, !tbaa !54
   %422 = icmp eq i32 %421, -2
-  br i1 %422, label %._crit_edge532.loopexit, label %423
+  br i1 %422, label %._crit_edge532, label %423
 
 423:                                              ; preds = %411, %419
   %indvars.iv.next683 = add nuw nsw i64 %indvars.iv682, 1
   %exitcond686.not = icmp eq i64 %indvars.iv.next683, %wide.trip.count685
   br i1 %exitcond686.not, label %._crit_edge532.thread, label %411, !llvm.loop !92
 
-._crit_edge532.loopexit:                          ; preds = %419
+._crit_edge532:                                   ; preds = %419
   %424 = trunc nuw nsw i64 %indvars.iv682 to i32
-  br label %._crit_edge532
-
-._crit_edge532:                                   ; preds = %._crit_edge532.loopexit, %.preheader446
-  %.7306.lcssa = phi i32 [ 0, %.preheader446 ], [ %424, %._crit_edge532.loopexit ]
-  %.17 = phi ptr [ %.0291554, %.preheader446 ], [ %413, %._crit_edge532.loopexit ]
-  %425 = icmp eq i32 %.7306.lcssa, %217
+  %425 = icmp eq i32 %217, %424
   br i1 %425, label %._crit_edge532.thread, label %433
 
-._crit_edge532.thread:                            ; preds = %423, %._crit_edge532
+._crit_edge532.thread:                            ; preds = %423, %.preheader446, %._crit_edge532
   %426 = call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #9
   %.not345 = icmp eq ptr %426, null
   br i1 %.not345, label %.thread437, label %427
@@ -1181,7 +1168,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br label %433
 
 433:                                              ; preds = %427, %._crit_edge532
-  %.18 = phi ptr [ %426, %427 ], [ %.17, %._crit_edge532 ]
+  %.18 = phi ptr [ %426, %427 ], [ %413, %._crit_edge532 ]
   %434 = call i32 @avio_rl16(ptr noundef %spec.select) #9
   %435 = add nsw i32 %.13399, -2
   %436 = icmp slt i32 %.13399, 6
@@ -1264,7 +1251,6 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 .thread:                                          ; preds = %214, %117, %73, %43, %410, %167, %183, %53, %.thread423, %101, %433, %391
   %.3390 = phi i32 [ %393, %391 ], [ %435, %433 ], [ %105, %101 ], [ %.9395, %.thread423 ], [ %62, %53 ], [ %185, %183 ], [ %169, %167 ], [ %.13399, %410 ], [ %33, %43 ], [ %.13399, %73 ], [ %.13399, %117 ], [ %169, %214 ]
-  %.4295 = phi ptr [ %378, %391 ], [ %.18, %433 ], [ %.5296.lcssa, %101 ], [ %.0291554, %.thread423 ], [ %.2293.lcssa, %53 ], [ %174, %183 ], [ %.0291554, %167 ], [ %378, %410 ], [ %38, %43 ], [ %68, %73 ], [ %112, %117 ], [ %174, %214 ]
   %478 = icmp slt i32 %.3390, 0
   br i1 %478, label %479, label %.thread429
 
@@ -1273,7 +1259,6 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br label %.thread429
 
 .thread429:                                       ; preds = %.preheader445, %398, %193, %477, %479, %.thread
-  %.4295434 = phi ptr [ %.4295, %479 ], [ %.4295, %.thread ], [ %.0291554, %477 ], [ %174, %193 ], [ %.0291554, %.preheader445 ], [ %378, %398 ]
   %.3390433 = phi i32 [ %.3390, %479 ], [ %.3390, %.thread ], [ %.13399, %477 ], [ 0, %193 ], [ %.13399, %.preheader445 ], [ 0, %398 ]
   %480 = call i32 @llvm.smax.i32(i32 %.3390433, i32 0)
   %481 = zext nneg i32 %480 to i64

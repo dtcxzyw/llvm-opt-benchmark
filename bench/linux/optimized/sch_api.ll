@@ -4947,7 +4947,7 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
 10:                                               ; preds = %2
   %11 = sext i32 %8 to i64
   %12 = inttoptr i64 %11 to ptr
-  br label %100
+  br label %94
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4958,167 +4958,159 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
 17:                                               ; preds = %13
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_stab.__msg) #19
   %18 = icmp eq ptr %1, null
-  br i1 %18, label %100, label %19
+  br i1 %18, label %94, label %19
 
 19:                                               ; preds = %17
   store ptr @qdisc_get_stab.__msg, ptr %1, align 8
-  br label %100
+  br label %94
 
 20:                                               ; preds = %13
   %21 = getelementptr i8, ptr %15, i64 4
   %22 = getelementptr i8, ptr %15, i64 24
   %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %38, label %25
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %.thread20, label %24
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %27 = load ptr, ptr %26, align 16
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %32
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %26 = load ptr, ptr %25, align 16
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %31
 
-29:                                               ; preds = %25
+28:                                               ; preds = %24
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_stab.__msg.25) #19
-  %30 = icmp eq ptr %1, null
-  br i1 %30, label %100, label %31
+  %29 = icmp eq ptr %1, null
+  br i1 %29, label %94, label %30
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   store ptr @qdisc_get_stab.__msg.25, ptr %1, align 8
-  br label %100
+  br label %94
 
-32:                                               ; preds = %25
-  %33 = getelementptr i8, ptr %27, i64 4
-  %34 = load i16, ptr %27, align 2
-  %.fr = freeze i16 %34
-  %35 = add i16 %.fr, -4
-  %36 = lshr i16 %35, 1
-  %37 = zext nneg i16 %36 to i32
-  br label %38
+31:                                               ; preds = %24
+  %32 = getelementptr i8, ptr %26, i64 4
+  %33 = load i16, ptr %26, align 2
+  %.fr = freeze i16 %33
+  %34 = add i16 %.fr, -4
+  %35 = lshr i16 %34, 1
+  %36 = zext nneg i16 %35 to i32
+  %37 = icmp ne i32 %23, %36
+  %38 = icmp eq ptr %32, null
+  %or.cond = or i1 %37, %38
+  br i1 %or.cond, label %56, label %.thread20
 
-38:                                               ; preds = %32, %20
-  %39 = phi ptr [ %33, %32 ], [ null, %20 ]
-  %.fr12 = phi i32 [ %37, %32 ], [ 0, %20 ]
-  %40 = icmp eq i32 %.fr12, %23
-  br i1 %40, label %41, label %62
+.thread20:                                        ; preds = %31, %20
+  %39 = phi ptr [ null, %20 ], [ %32, %31 ]
+  %40 = load ptr, ptr @qdisc_stab_list, align 8
+  %41 = icmp eq ptr %40, @qdisc_stab_list
+  br i1 %41, label %.loopexit, label %42
 
-41:                                               ; preds = %38
-  %42 = icmp eq ptr %39, null
-  %43 = icmp ne i32 %23, 0
-  %44 = and i1 %42, %43
-  br i1 %44, label %62, label %45
+42:                                               ; preds = %.thread20
+  %43 = shl nuw nsw i32 %23, 1
+  %44 = zext nneg i32 %43 to i64
+  br i1 %.not, label %.split, label %.split.us
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr @qdisc_stab_list, align 8
-  %47 = icmp eq ptr %46, @qdisc_stab_list
-  br i1 %47, label %.loopexit, label %48
+.split.us:                                        ; preds = %42, %53
+  %45 = phi ptr [ %54, %53 ], [ %40, %42 ]
+  %46 = getelementptr i8, ptr %45, i64 16
+  %47 = call i32 @bcmp(ptr noundef dereferenceable(24) %46, ptr noundef dereferenceable(24) %21, i64 24)
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %45
-  %49 = shl nuw nsw i32 %23, 1
-  %50 = zext nneg i32 %49 to i64
-  br i1 %43, label %.split.us, label %.split
+49:                                               ; preds = %.split.us
+  %50 = getelementptr i8, ptr %45, i64 44
+  %51 = call i32 @bcmp(ptr %50, ptr %39, i64 %44)
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.split10.us, label %53
 
-.split.us:                                        ; preds = %48, %59
-  %51 = phi ptr [ %60, %59 ], [ %46, %48 ]
-  %52 = getelementptr i8, ptr %51, i64 16
-  %53 = call i32 @bcmp(ptr noundef dereferenceable(24) %52, ptr noundef dereferenceable(24) %21, i64 24)
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %59
+53:                                               ; preds = %49, %.split.us
+  %54 = load ptr, ptr %45, align 8
+  %55 = icmp eq ptr %54, @qdisc_stab_list
+  br i1 %55, label %.loopexit, label %.split.us, !llvm.loop !67
 
-55:                                               ; preds = %.split.us
-  %56 = getelementptr i8, ptr %51, i64 44
-  %57 = call i32 @bcmp(ptr %56, ptr %39, i64 %50)
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.split10.us, label %59
-
-59:                                               ; preds = %55, %.split.us
-  %60 = load ptr, ptr %51, align 8
-  %61 = icmp eq ptr %60, @qdisc_stab_list
-  br i1 %61, label %.loopexit, label %.split.us, !llvm.loop !67
-
-62:                                               ; preds = %41, %38
+56:                                               ; preds = %31
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_stab.__msg.26) #19
-  %63 = icmp eq ptr %1, null
-  br i1 %63, label %100, label %64
+  %57 = icmp eq ptr %1, null
+  br i1 %57, label %94, label %58
 
-64:                                               ; preds = %62
+58:                                               ; preds = %56
   store ptr @qdisc_get_stab.__msg.26, ptr %1, align 8
-  br label %100
+  br label %94
 
-.split:                                           ; preds = %48, %73
-  %65 = phi ptr [ %74, %73 ], [ %46, %48 ]
-  %66 = getelementptr i8, ptr %65, i64 16
-  %67 = call i32 @bcmp(ptr noundef dereferenceable(24) %66, ptr noundef dereferenceable(24) %21, i64 24)
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.split10.us, label %73
+.split:                                           ; preds = %42, %67
+  %59 = phi ptr [ %68, %67 ], [ %40, %42 ]
+  %60 = getelementptr i8, ptr %59, i64 16
+  %61 = call i32 @bcmp(ptr noundef dereferenceable(24) %60, ptr noundef dereferenceable(24) %21, i64 24)
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %.split10.us, label %67
 
-.split10.us:                                      ; preds = %.split, %55
-  %.us-phi = phi ptr [ %51, %55 ], [ %65, %.split ]
-  %69 = getelementptr i8, ptr %.us-phi, i64 -16
-  %70 = getelementptr i8, ptr %.us-phi, i64 40
-  %71 = load i32, ptr %70, align 8
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %70, align 8
-  br label %100
+.split10.us:                                      ; preds = %49, %.split
+  %.us-phi = phi ptr [ %59, %.split ], [ %45, %49 ]
+  %63 = getelementptr i8, ptr %.us-phi, i64 -16
+  %64 = getelementptr i8, ptr %.us-phi, i64 40
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %64, align 8
+  br label %94
 
-73:                                               ; preds = %.split
-  %74 = load ptr, ptr %65, align 8
-  %75 = icmp eq ptr %74, @qdisc_stab_list
-  br i1 %75, label %.loopexit, label %.split, !llvm.loop !67
+67:                                               ; preds = %.split
+  %68 = load ptr, ptr %59, align 8
+  %69 = icmp eq ptr %68, @qdisc_stab_list
+  br i1 %69, label %.loopexit, label %.split, !llvm.loop !67
 
-.loopexit:                                        ; preds = %73, %59, %45
-  %76 = getelementptr i8, ptr %15, i64 5
-  %77 = load i8, ptr %76, align 1
-  %78 = icmp ugt i8 %77, 30
-  br i1 %78, label %82, label %79
+.loopexit:                                        ; preds = %53, %67, %.thread20
+  %70 = getelementptr i8, ptr %15, i64 5
+  %71 = load i8, ptr %70, align 1
+  %72 = icmp ugt i8 %71, 30
+  br i1 %72, label %76, label %73
 
-79:                                               ; preds = %.loopexit
-  %80 = load i8, ptr %21, align 4
-  %81 = icmp ugt i8 %80, 30
-  br i1 %81, label %82, label %85
+73:                                               ; preds = %.loopexit
+  %74 = load i8, ptr %21, align 4
+  %75 = icmp ugt i8 %74, 30
+  br i1 %75, label %76, label %79
 
-82:                                               ; preds = %79, %.loopexit
+76:                                               ; preds = %73, %.loopexit
   call void @do_trace_netlink_extack(ptr noundef nonnull @qdisc_get_stab.__msg.27) #19
-  %83 = icmp eq ptr %1, null
-  br i1 %83, label %100, label %84
+  %77 = icmp eq ptr %1, null
+  br i1 %77, label %94, label %78
 
-84:                                               ; preds = %82
+78:                                               ; preds = %76
   store ptr @qdisc_get_stab.__msg.27, ptr %1, align 8
-  br label %100
+  br label %94
+
+79:                                               ; preds = %73
+  %80 = shl nuw nsw i32 %23, 1
+  %81 = zext nneg i32 %80 to i64
+  %82 = add nuw nsw i64 %81, 64
+  %83 = call noalias align 8 ptr @__kmalloc(i64 noundef %82, i32 noundef 3264) #22
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %94, label %85
 
 85:                                               ; preds = %79
-  %86 = shl nuw nsw i32 %23, 1
-  %87 = zext nneg i32 %86 to i64
-  %88 = add nuw nsw i64 %87, 64
-  %89 = call noalias align 8 ptr @__kmalloc(i64 noundef %88, i32 noundef 3264) #22
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %100, label %91
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 56
+  store i32 1, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef align 4 dereferenceable(24) %21, i64 24, i1 false)
+  br i1 %.not, label %90, label %88
 
-91:                                               ; preds = %85
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 56
-  store i32 1, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef align 4 dereferenceable(24) %21, i64 24, i1 false)
-  br i1 %43, label %94, label %96
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 60
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %89, ptr align 2 %39, i64 %81, i1 false)
+  br label %90
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 60
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %95, ptr align 2 %39, i64 %87, i1 false)
-  br label %96
+90:                                               ; preds = %88, %85
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @qdisc_stab_list, i64 8), align 8
+  store ptr %91, ptr getelementptr inbounds nuw (i8, ptr @qdisc_stab_list, i64 8), align 8
+  store ptr @qdisc_stab_list, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  store ptr %92, ptr %93, align 8
+  store volatile ptr %91, ptr %92, align 8
+  br label %94
 
-96:                                               ; preds = %94, %91
-  %97 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @qdisc_stab_list, i64 8), align 8
-  store ptr %97, ptr getelementptr inbounds nuw (i8, ptr @qdisc_stab_list, i64 8), align 8
-  store ptr @qdisc_stab_list, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store ptr %98, ptr %99, align 8
-  store volatile ptr %97, ptr %98, align 8
-  br label %100
-
-100:                                              ; preds = %96, %85, %84, %82, %.split10.us, %64, %62, %31, %29, %19, %17, %10
-  %101 = phi ptr [ %12, %10 ], [ %69, %.split10.us ], [ %89, %96 ], [ inttoptr (i64 -22 to ptr), %19 ], [ inttoptr (i64 -22 to ptr), %17 ], [ inttoptr (i64 -22 to ptr), %31 ], [ inttoptr (i64 -22 to ptr), %29 ], [ inttoptr (i64 -22 to ptr), %64 ], [ inttoptr (i64 -22 to ptr), %62 ], [ inttoptr (i64 -22 to ptr), %84 ], [ inttoptr (i64 -22 to ptr), %82 ], [ inttoptr (i64 -12 to ptr), %85 ]
+94:                                               ; preds = %90, %79, %78, %76, %.split10.us, %58, %56, %30, %28, %19, %17, %10
+  %95 = phi ptr [ %12, %10 ], [ %63, %.split10.us ], [ %83, %90 ], [ inttoptr (i64 -22 to ptr), %19 ], [ inttoptr (i64 -22 to ptr), %17 ], [ inttoptr (i64 -22 to ptr), %30 ], [ inttoptr (i64 -22 to ptr), %28 ], [ inttoptr (i64 -22 to ptr), %58 ], [ inttoptr (i64 -22 to ptr), %56 ], [ inttoptr (i64 -22 to ptr), %78 ], [ inttoptr (i64 -22 to ptr), %76 ], [ inttoptr (i64 -12 to ptr), %79 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
-  ret ptr %101
+  ret ptr %95
 }
 
 ; Function Attrs: null_pointer_is_valid

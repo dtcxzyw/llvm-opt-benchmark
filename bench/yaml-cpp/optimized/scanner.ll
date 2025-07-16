@@ -1804,46 +1804,46 @@ _ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit: ; pr
   br i1 %44, label %.critedge, label %16
 
 .thread:                                          ; preds = %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit, %33, %..thread.loopexit_crit_edge
-  %45 = phi ptr [ %.pre11.pre, %..thread.loopexit_crit_edge ], [ %.pre1115, %33 ], [ %.pre1115, %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit ]
-  %46 = phi ptr [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %17, %33 ], [ %17, %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit ]
-  %47 = icmp eq ptr %46, %45
-  br i1 %47, label %.critedge, label %.lr.ph10
+  %.pre11 = phi ptr [ %.pre11.pre, %..thread.loopexit_crit_edge ], [ %.pre1115, %33 ], [ %.pre1115, %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit ]
+  %.pre = phi ptr [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %17, %33 ], [ %17, %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit ]
+  %45 = icmp eq ptr %.pre, %.pre11
+  br i1 %45, label %.critedge, label %.lr.ph10
 
 .lr.ph10:                                         ; preds = %.thread
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  br label %50
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  br label %48
 
-50:                                               ; preds = %.lr.ph10, %65
-  %51 = phi ptr [ %46, %.lr.ph10 ], [ %66, %65 ]
-  %52 = load ptr, ptr %48, align 8, !tbaa !101, !noalias !146
-  %53 = icmp eq ptr %51, %52
-  br i1 %53, label %54, label %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4
+48:                                               ; preds = %.lr.ph10, %63
+  %49 = phi ptr [ %.pre, %.lr.ph10 ], [ %64, %63 ]
+  %50 = load ptr, ptr %46, align 8, !tbaa !101, !noalias !146
+  %51 = icmp eq ptr %49, %50
+  br i1 %51, label %52, label %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %49, align 8, !tbaa !105, !noalias !146
-  %56 = getelementptr inbounds i8, ptr %55, i64 -8
-  %57 = load ptr, ptr %56, align 8, !tbaa !24
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 512
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %47, align 8, !tbaa !105, !noalias !146
+  %54 = getelementptr inbounds i8, ptr %53, i64 -8
+  %55 = load ptr, ptr %54, align 8, !tbaa !24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 512
   br label %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4
 
-_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4: ; preds = %50, %54
-  %59 = phi ptr [ %58, %54 ], [ %51, %50 ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 -8
-  %61 = load ptr, ptr %60, align 8, !tbaa !10
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !121
-  %64 = icmp eq i32 %63, 1
-  br i1 %64, label %65, label %.critedge
+_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4: ; preds = %48, %52
+  %57 = phi ptr [ %56, %52 ], [ %49, %48 ]
+  %58 = getelementptr inbounds i8, ptr %57, i64 -8
+  %59 = load ptr, ptr %58, align 8, !tbaa !10
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load i32, ptr %60, align 8, !tbaa !121
+  %62 = icmp eq i32 %61, 1
+  br i1 %62, label %63, label %.critedge
 
-65:                                               ; preds = %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4
+63:                                               ; preds = %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4
   call void @_ZN4YAML7Scanner9PopIndentEv(ptr noundef nonnull align 8 dereferenceable(488) %0)
-  %66 = load ptr, ptr %7, align 8, !tbaa !100
-  %67 = load ptr, ptr %8, align 8, !tbaa !100
-  %68 = icmp eq ptr %66, %67
-  br i1 %68, label %.critedge, label %50, !llvm.loop !149
+  %64 = load ptr, ptr %7, align 8, !tbaa !100
+  %65 = load ptr, ptr %8, align 8, !tbaa !100
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %.critedge, label %48, !llvm.loop !149
 
-.critedge:                                        ; preds = %41, %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4, %65, %.preheader, %.thread, %1
+.critedge:                                        ; preds = %41, %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit4, %63, %.preheader, %.thread, %1
   ret void
 }
 

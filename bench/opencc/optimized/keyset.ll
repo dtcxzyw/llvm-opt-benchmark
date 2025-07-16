@@ -265,113 +265,115 @@ define void @_ZN6marisa6Keyset9push_backERKNS_3KeyEc(ptr noundef nonnull align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8, !tbaa !20
   %9 = icmp eq i64 %6, %8
-  br i1 %9, label %10, label %11
+  br i1 %9, label %12, label %.thread
 
-10:                                               ; preds = %3
+.thread:                                          ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load i32, ptr %10, align 8, !tbaa !12
+  br label %17
+
+12:                                               ; preds = %3
   tail call void @_ZN6marisa6Keyset16append_key_blockEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
   %.pre = load i64, ptr %4, align 8, !tbaa !15
   %.pre20 = load i64, ptr %7, align 8, !tbaa !20
   %.pre21 = lshr i64 %.pre, 8
-  br label %11
+  %13 = icmp eq i64 %.pre21, %.pre20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load i32, ptr %14, align 8, !tbaa !12
+  br i1 %13, label %16, label %17
 
-11:                                               ; preds = %10, %3
-  %.pre-phi = phi i64 [ %.pre21, %10 ], [ %6, %3 ]
-  %12 = phi i64 [ %.pre20, %10 ], [ %8, %3 ]
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !12
-  %15 = zext i32 %14 to i64
-  %16 = add nuw nsw i64 %15, 1
-  %17 = icmp eq i64 %.pre-phi, %12
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %11
+16:                                               ; preds = %12
   tail call void @_ZN6marisa6Keyset16append_key_blockEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  br label %19
+  br label %17
 
-19:                                               ; preds = %18, %11
-  %20 = icmp ugt i32 %14, 1023
-  br i1 %20, label %21, label %29
+17:                                               ; preds = %.thread, %16, %12
+  %18 = phi i32 [ %11, %.thread ], [ %15, %16 ], [ %15, %12 ]
+  %19 = phi ptr [ %10, %.thread ], [ %14, %16 ], [ %14, %12 ]
+  %20 = zext i32 %18 to i64
+  %21 = add nuw nsw i64 %20, 1
+  %22 = icmp ugt i32 %18, 1023
+  br i1 %22, label %23, label %31
 
-21:                                               ; preds = %19
-  tail call void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %16)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !21
-  %25 = load ptr, ptr %22, align 8, !tbaa !3
-  %26 = getelementptr %"class.marisa::scoped_array.2", ptr %25, i64 %24
-  %27 = getelementptr i8, ptr %26, i64 -8
-  %28 = load ptr, ptr %27, align 8, !tbaa !9
+23:                                               ; preds = %17
+  tail call void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %21)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load i64, ptr %25, align 8, !tbaa !21
+  %27 = load ptr, ptr %24, align 8, !tbaa !3
+  %28 = getelementptr %"class.marisa::scoped_array.2", ptr %27, i64 %26
+  %29 = getelementptr i8, ptr %28, i64 -8
+  %30 = load ptr, ptr %29, align 8, !tbaa !9
   br label %_ZN6marisa6Keyset7reserveEm.exit
 
-29:                                               ; preds = %19
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %31 = load i64, ptr %30, align 8, !tbaa !22
-  %.not = icmp ugt i64 %31, %15
-  br i1 %.not, label %33, label %32
+31:                                               ; preds = %17
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %33 = load i64, ptr %32, align 8, !tbaa !22
+  %.not = icmp ugt i64 %33, %20
+  br i1 %.not, label %35, label %34
 
-32:                                               ; preds = %29
+34:                                               ; preds = %31
   tail call void @_ZN6marisa6Keyset17append_base_blockEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %.pre.i = load i64, ptr %30, align 8, !tbaa !22
-  br label %33
+  %.pre.i = load i64, ptr %32, align 8, !tbaa !22
+  br label %35
 
-33:                                               ; preds = %32, %29
-  %34 = phi i64 [ %.pre.i, %32 ], [ %31, %29 ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %16
-  store ptr %37, ptr %35, align 8, !tbaa !23
-  %38 = sub i64 %34, %16
-  store i64 %38, ptr %30, align 8, !tbaa !22
+35:                                               ; preds = %34, %31
+  %36 = phi i64 [ %.pre.i, %34 ], [ %33, %31 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %38 = load ptr, ptr %37, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %21
+  store ptr %39, ptr %37, align 8, !tbaa !23
+  %40 = sub i64 %36, %21
+  store i64 %40, ptr %32, align 8, !tbaa !22
   br label %_ZN6marisa6Keyset7reserveEm.exit
 
-_ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %21, %33
-  %.0.i = phi ptr [ %28, %21 ], [ %36, %33 ]
-  %39 = load i32, ptr %13, align 8, !tbaa !12
-  %.not18 = icmp eq i32 %39, 0
+_ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %23, %35
+  %.0.i = phi ptr [ %30, %23 ], [ %38, %35 ]
+  %41 = load i32, ptr %19, align 8, !tbaa !12
+  %.not18 = icmp eq i32 %41, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN6marisa6Keyset7reserveEm.exit
-  %.lcssa = phi i64 [ 0, %_ZN6marisa6Keyset7reserveEm.exit ], [ %66, %.lr.ph ]
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.lcssa
-  store i8 %2, ptr %40, align 1, !tbaa !29
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %42 = load i64, ptr %4, align 8, !tbaa !15
-  %43 = lshr i64 %42, 8
-  %44 = load ptr, ptr %41, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %44, i64 %43
-  %46 = and i64 %42, 255
-  %47 = load ptr, ptr %45, align 8, !tbaa !25
-  %48 = getelementptr inbounds nuw %"class.marisa::Key", ptr %47, i64 %46
-  %49 = load i32, ptr %13, align 8, !tbaa !12
-  store ptr %.0.i, ptr %48, align 8, !tbaa !28
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %49, ptr %50, align 8, !tbaa !12
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !29
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  store i32 %52, ptr %53, align 4, !tbaa !29
-  %54 = load i64, ptr %4, align 8, !tbaa !15
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %4, align 8, !tbaa !15
-  %56 = zext i32 %49 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %58 = load i64, ptr %57, align 8, !tbaa !30
-  %59 = add i64 %58, %56
-  store i64 %59, ptr %57, align 8, !tbaa !30
+  %.lcssa = phi i64 [ 0, %_ZN6marisa6Keyset7reserveEm.exit ], [ %68, %.lr.ph ]
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.lcssa
+  store i8 %2, ptr %42, align 1, !tbaa !29
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %44 = load i64, ptr %4, align 8, !tbaa !15
+  %45 = lshr i64 %44, 8
+  %46 = load ptr, ptr %43, align 8, !tbaa !24
+  %47 = getelementptr inbounds nuw %"class.marisa::scoped_array.1", ptr %46, i64 %45
+  %48 = and i64 %44, 255
+  %49 = load ptr, ptr %47, align 8, !tbaa !25
+  %50 = getelementptr inbounds nuw %"class.marisa::Key", ptr %49, i64 %48
+  %51 = load i32, ptr %19, align 8, !tbaa !12
+  store ptr %.0.i, ptr %50, align 8, !tbaa !28
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 %51, ptr %52, align 8, !tbaa !12
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %54 = load i32, ptr %53, align 4, !tbaa !29
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  store i32 %54, ptr %55, align 4, !tbaa !29
+  %56 = load i64, ptr %4, align 8, !tbaa !15
+  %57 = add i64 %56, 1
+  store i64 %57, ptr %4, align 8, !tbaa !15
+  %58 = zext i32 %51 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %60 = load i64, ptr %59, align 8, !tbaa !30
+  %61 = add i64 %60, %58
+  store i64 %61, ptr %59, align 8, !tbaa !30
   ret void
 
 .lr.ph:                                           ; preds = %_ZN6marisa6Keyset7reserveEm.exit, %.lr.ph
-  %.017 = phi i64 [ %64, %.lr.ph ], [ 0, %_ZN6marisa6Keyset7reserveEm.exit ]
-  %60 = load ptr, ptr %1, align 8, !tbaa !28
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.017
-  %62 = load i8, ptr %61, align 1, !tbaa !29
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.017
-  store i8 %62, ptr %63, align 1, !tbaa !29
-  %64 = add nuw nsw i64 %.017, 1
-  %65 = load i32, ptr %13, align 8, !tbaa !12
-  %66 = zext i32 %65 to i64
-  %67 = icmp samesign ult i64 %64, %66
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  %.017 = phi i64 [ %66, %.lr.ph ], [ 0, %_ZN6marisa6Keyset7reserveEm.exit ]
+  %62 = load ptr, ptr %1, align 8, !tbaa !28
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.017
+  %64 = load i8, ptr %63, align 1, !tbaa !29
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.017
+  store i8 %64, ptr %65, align 1, !tbaa !29
+  %66 = add nuw nsw i64 %.017, 1
+  %67 = load i32, ptr %19, align 8, !tbaa !12
+  %68 = zext i32 %67 to i64
+  %69 = icmp samesign ult i64 %66, %68
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress uwtable

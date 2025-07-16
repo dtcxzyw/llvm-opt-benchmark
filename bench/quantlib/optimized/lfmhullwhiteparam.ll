@@ -2513,17 +2513,17 @@ while.body.i.i:                                   ; preds = %_ZN8QuantLib6Matrix
 
 invoke.cont:                                      ; preds = %while.body.i.i
   %.pre = ptrtoint ptr %__first.sroa.0.1.i.i to i64
+  %10 = icmp eq ptr %__first.sroa.0.1.i.i, %6
   %sub.ptr.sub.i = sub i64 %.pre, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp26.not = icmp eq ptr %__first.sroa.0.1.i.i, %6
-  br i1 %cmp26.not, label %nrvo.skipdtor, label %for.body.lr.ph
+  br i1 %10, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
   %sub24 = add i64 %1, -1
   %covariance_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %10 = load ptr, ptr %covariance_, align 8
-  %11 = load i64, ptr %columns_.i.i, align 8
+  %11 = load ptr, ptr %covariance_, align 8
+  %12 = load i64, ptr %columns_.i.i, align 8
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.cond28.for.cond.cleanup32_crit_edge.us, %cond.end
@@ -2544,16 +2544,16 @@ cond.true:                                        ; preds = %for.body
 cond.end:                                         ; preds = %for.body, %cond.true
   %cond.in.sroa.speculated = phi double [ %cond.in.sroa.speculate.load.cond.true, %cond.true ], [ %t, %for.body ]
   %add.ptr.i17 = getelementptr inbounds nuw double, ptr %6, i64 %i.027
-  %12 = load double, ptr %add.ptr.i17, align 8, !tbaa !38
-  %sub = fsub double %cond.in.sroa.speculated, %12
+  %13 = load double, ptr %add.ptr.i17, align 8, !tbaa !38
+  %sub = fsub double %cond.in.sroa.speculated, %13
   %cmp2524 = icmp ult i64 %i.027, %sub24
   br i1 %cmp2524, label %for.cond28.preheader.us, label %for.cond.loopexit
 
 for.cond28.preheader.us:                          ; preds = %cond.end, %for.cond28.for.cond.cleanup32_crit_edge.us
   %k.025.us = phi i64 [ %add39.us, %for.cond28.for.cond.cleanup32_crit_edge.us ], [ %i.027, %cond.end ]
   %sub34.us = sub nuw i64 %k.025.us, %i.027
-  %mul.i.i.us = mul i64 %11, %sub34.us
-  %add.ptr.i.i18.us = getelementptr inbounds nuw double, ptr %10, i64 %mul.i.i.us
+  %mul.i.i.us = mul i64 %12, %sub34.us
+  %add.ptr.i.i18.us = getelementptr inbounds nuw double, ptr %11, i64 %mul.i.i.us
   %add39.us = add nuw i64 %k.025.us, 1
   %mul.i.i20.us = mul i64 %1, %add39.us
   %add.ptr.i.i21.us = getelementptr inbounds nuw double, ptr %5, i64 %mul.i.i20.us
@@ -2563,12 +2563,12 @@ invoke.cont40.us:                                 ; preds = %for.cond28.preheade
   %l.023.us = phi i64 [ %i.027, %for.cond28.preheader.us ], [ %add42.us, %invoke.cont40.us ]
   %sub38.us = sub nuw i64 %l.023.us, %i.027
   %arrayidx.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i18.us, i64 %sub38.us
-  %13 = load double, ptr %arrayidx.us, align 8, !tbaa !38
+  %14 = load double, ptr %arrayidx.us, align 8, !tbaa !38
   %add42.us = add nuw i64 %l.023.us, 1
   %arrayidx43.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i21.us, i64 %add42.us
-  %14 = load double, ptr %arrayidx43.us, align 8, !tbaa !38
-  %15 = tail call double @llvm.fmuladd.f64(double %13, double %sub, double %14)
-  store double %15, ptr %arrayidx43.us, align 8, !tbaa !38
+  %15 = load double, ptr %arrayidx43.us, align 8, !tbaa !38
+  %16 = tail call double @llvm.fmuladd.f64(double %14, double %sub, double %15)
+  store double %16, ptr %arrayidx43.us, align 8, !tbaa !38
   %exitcond.not = icmp eq i64 %add42.us, %sub24
   br i1 %exitcond.not, label %for.cond28.for.cond.cleanup32_crit_edge.us, label %invoke.cont40.us, !llvm.loop !73
 

@@ -3181,43 +3181,44 @@ _ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDesc
   %268 = sub i64 %266, %267
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i45 = icmp eq ptr %264, %265
-  br i1 %.not.i.i.i.i.i45, label %272, label %269
+  br i1 %.not.i.i.i.i.i45, label %.thread, label %270
 
-269:                                              ; preds = %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit
-  %270 = icmp ugt i64 %268, 9223372036854775804
-  br i1 %270, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, !prof !24
+.thread:                                          ; preds = %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit
+  %269 = getelementptr inbounds nuw i8, ptr null, i64 %268
+  store i64 0, ptr %60, align 8
+  store ptr %269, ptr %62, align 8, !tbaa !220
+  br label %_ZN2cv8GMatDescC2ERKS0_.exit
 
-.noexc.i.i.i:                                     ; preds = %269
+270:                                              ; preds = %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit
+  %271 = icmp ugt i64 %268, 9223372036854775804
+  br i1 %271, label %.noexc.i.i.i, label %272, !prof !24
+
+.noexc.i.i.i:                                     ; preds = %270
   call void @_ZSt28__throw_bad_array_new_lengthv() #32
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %269
-  %271 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %268) #29
-  %.pre81 = load ptr, ptr %262, align 8, !tbaa !220
-  %.pre82 = load ptr, ptr %263, align 8, !tbaa !220
+272:                                              ; preds = %270
+  %273 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %268) #29
+  %.pre81 = load ptr, ptr %262, align 8, !tbaa !221
+  %.pre82 = load ptr, ptr %263, align 8, !tbaa !221
+  %274 = icmp eq ptr %.pre82, %.pre81
+  store ptr %273, ptr %60, align 8, !tbaa !219
+  store ptr %273, ptr %61, align 8, !tbaa !216
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 %268
+  store ptr %275, ptr %62, align 8, !tbaa !220
+  br i1 %274, label %_ZN2cv8GMatDescC2ERKS0_.exit, label %276
+
+276:                                              ; preds = %272
   %.pre83 = ptrtoint ptr %.pre82 to i64
   %.pre84 = ptrtoint ptr %.pre81 to i64
   %.pre86 = sub i64 %.pre83, %.pre84
-  br label %272
-
-272:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit
-  %.pre-phi87 = phi i64 [ %.pre86, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i ], [ 0, %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
-  %273 = phi ptr [ %.pre82, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i ], [ %264, %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
-  %274 = phi ptr [ %.pre81, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i ], [ %265, %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
-  %275 = phi ptr [ %271, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i ], [ null, %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
-  store ptr %275, ptr %60, align 8, !tbaa !219
-  store ptr %275, ptr %61, align 8, !tbaa !216
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 %268
-  store ptr %276, ptr %62, align 8, !tbaa !221
-  %.not.i.i.i.i.i.i.i.i.i.i46 = icmp eq ptr %273, %274
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i46, label %_ZN2cv8GMatDescC2ERKS0_.exit, label %277
-
-277:                                              ; preds = %272
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %275, ptr align 4 %274, i64 %.pre-phi87, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %273, ptr align 4 %.pre81, i64 %.pre86, i1 false)
   br label %_ZN2cv8GMatDescC2ERKS0_.exit
 
-_ZN2cv8GMatDescC2ERKS0_.exit:                     ; preds = %272, %277
-  %278 = getelementptr inbounds i8, ptr %275, i64 %.pre-phi87
+_ZN2cv8GMatDescC2ERKS0_.exit:                     ; preds = %.thread, %272, %276
+  %277 = phi ptr [ null, %.thread ], [ %273, %272 ], [ %273, %276 ]
+  %.pre-phi8795 = phi i64 [ 0, %.thread ], [ 0, %272 ], [ %.pre86, %276 ]
+  %278 = getelementptr inbounds i8, ptr %277, i64 %.pre-phi8795
   store ptr %278, ptr %61, align 8, !tbaa !216
   %279 = getelementptr inbounds nuw i8, ptr %246, i64 12
   %280 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiN2cv3MatEESaIS5_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 4 dereferenceable(4) %279)
@@ -7356,7 +7357,7 @@ _ZNSt8__detail9_Map_baseImSt4pairIKmN2cv4util7variantIJPNS3_4UMatEPNS3_3MatEPNS3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZNSt10unique_ptrIiZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleEUlPiE_ED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !220
+  %2 = load ptr, ptr %0, align 8, !tbaa !221
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.exit", label %3
 
@@ -7378,7 +7379,7 @@ define internal fastcc void @"_ZNSt10unique_ptrIiZNK2cv5gimpl12_GLOBAL__N_13$_0c
           to label %"_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.exit" unwind label %12
 
 "_ZZNK2cv5gimpl12_GLOBAL__N_13$_0clEP20___itt_string_handleENKUlPiE_clES5_.exit": ; preds = %6, %3, %11, %1
-  store ptr null, ptr %0, align 8, !tbaa !220
+  store ptr null, ptr %0, align 8, !tbaa !221
   ret void
 
 12:                                               ; preds = %11
@@ -17751,8 +17752,8 @@ attributes #32 = { noreturn }
 !217 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !218, i64 0, !218, i64 8, !218, i64 16}
 !218 = !{!"p1 int", !18, i64 0}
 !219 = !{!217, !218, i64 0}
-!220 = !{!218, !218, i64 0}
-!221 = !{!217, !218, i64 16}
+!220 = !{!217, !218, i64 16}
+!221 = !{!218, !218, i64 0}
 !222 = !{!79, !49, i64 16}
 !223 = !{!100, !101, i64 0}
 !224 = distinct !{!224, !150}

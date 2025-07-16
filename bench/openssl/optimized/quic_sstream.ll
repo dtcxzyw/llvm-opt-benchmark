@@ -90,7 +90,7 @@ define internal fastcc range(i32 0, 2) i32 @ring_buf_resize(ptr noundef captures
 
 ring_buf_get_buf_at.exit:                         ; preds = %.lr.ph, %21
   %.052 = phi i64 [ %22, %21 ], [ 0, %.lr.ph ]
-  %.sroa.11.051 = phi i64 [ %.sroa.11.2, %21 ], [ %.val23, %.lr.ph ]
+  %.sroa.11.051 = phi i64 [ %39, %21 ], [ %.val23, %.lr.ph ]
   %26 = add i64 %.052, %.val23
   %27 = urem i64 %26, %19
   %28 = sub i64 %16, %26
@@ -109,7 +109,7 @@ ring_buf_get_buf_at.exit:                         ; preds = %.lr.ph, %21
   %33 = sub i64 4611686018427387904, %.sroa.11.051
   %.240.i = tail call i64 @llvm.umin.i64(i64 %spec.select39.i, i64 %33)
   %34 = icmp eq i64 %.240.i, 0
-  br i1 %34, label %ring_buf_push.exit, label %.lr.ph.i.preheader
+  br i1 %34, label %ring_buf_push.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 %27
@@ -136,13 +136,11 @@ ring_buf_get_buf_at.exit:                         ; preds = %.lr.ph, %21
   %45 = icmp eq i64 %.2.i, 0
   br i1 %45, label %ring_buf_push.exit, label %.lr.ph.i
 
-ring_buf_push.exit:                               ; preds = %.lr.ph.i, %31
-  %.sroa.11.2 = phi i64 [ %.sroa.11.051, %31 ], [ %39, %.lr.ph.i ]
-  %.030.lcssa.i = phi i64 [ 0, %31 ], [ %42, %.lr.ph.i ]
-  %.not20 = icmp eq i64 %.030.lcssa.i, %spec.select.i
-  br i1 %.not20, label %21, label %46
+ring_buf_push.exit:                               ; preds = %.lr.ph.i
+  %46 = icmp eq i64 %42, %spec.select.i
+  br i1 %46, label %21, label %ring_buf_push.exit.thread
 
-46:                                               ; preds = %ring_buf_push.exit
+ring_buf_push.exit.thread:                        ; preds = %31, %ring_buf_push.exit
   tail call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str.1, i32 noundef 262) #12
   br label %49
 
@@ -166,8 +164,8 @@ ring_buf_destroy.exit:                            ; preds = %47, %48
   store i64 %.val23, ptr %9, align 8
   br label %49
 
-49:                                               ; preds = %12, %7, %3, %ring_buf_destroy.exit, %46, %._crit_edge
-  %.016 = phi i32 [ 1, %ring_buf_destroy.exit ], [ 0, %46 ], [ 0, %._crit_edge ], [ 1, %3 ], [ 0, %7 ], [ 0, %12 ]
+49:                                               ; preds = %12, %7, %3, %ring_buf_destroy.exit, %ring_buf_push.exit.thread, %._crit_edge
+  %.016 = phi i32 [ 1, %ring_buf_destroy.exit ], [ 0, %ring_buf_push.exit.thread ], [ 0, %._crit_edge ], [ 1, %3 ], [ 0, %7 ], [ 0, %12 ]
   ret i32 %.016
 }
 

@@ -2929,7 +2929,7 @@ select.unfold52:                                  ; preds = %197, %217, %185, %_
   %.idx.i.i = shl nuw nsw i64 %229, 3
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %228, 0
-  br i1 %.not.i.i, label %_ZN5clang15hasSpecificAttrINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %224, %235
   %.sroa.07.1.i.i.i.i = phi ptr [ %236, %235 ], [ %226, %224 ]
@@ -2937,21 +2937,20 @@ select.unfold52:                                  ; preds = %197, %217, %185, %_
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
   %233 = load i16, ptr %232, align 8
   %234 = icmp eq i16 %233, 411
-  br i1 %234, label %_ZN5clang15hasSpecificAttrINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %235
+  br i1 %234, label %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %235
 
 235:                                              ; preds = %.lr.ph.i.i.i.i.i
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %236, %230
-  br i1 %.not.i.i.i.i.i, label %_ZN5clang15hasSpecificAttrINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !197
+  br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !197
 
-_ZN5clang15hasSpecificAttrINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i: ; preds = %235, %.lr.ph.i.i.i.i.i, %224
-  %.sroa.07.0.i.i.i.i = phi ptr [ %226, %224 ], [ %230, %235 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %226, %224 ], [ %230, %.lr.ph.i.i.i.i.i ], [ %230, %235 ]
-  %237 = icmp ne ptr %.sroa.07.0.i.i.i.i, %.sroa.0.0.i.i.i.i
+_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %235, %.lr.ph.i.i.i.i.i
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %230, %235 ]
+  %237 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %230
   br label %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit
 
-_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit: ; preds = %select.unfold52, %_ZN5clang15hasSpecificAttrINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i
-  %238 = phi i1 [ false, %select.unfold52 ], [ %237, %_ZN5clang15hasSpecificAttrINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i ]
+_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit: ; preds = %select.unfold52, %224, %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i
+  %238 = phi i1 [ false, %select.unfold52 ], [ false, %224 ], [ %237, %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
   %or.cond = or i1 %.06.i, %238
   br i1 %or.cond, label %.thread56, label %239
 

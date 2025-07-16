@@ -8996,11 +8996,11 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$
 9:                                                ; preds = %2
   %.pre = load ptr, ptr %5, align 8, !alias.scope !2673, !noalias !2678
   %.pre1 = load ptr, ptr %6, align 8, !alias.scope !2673, !noalias !2678
+  %10 = icmp eq ptr %.pre1, %.pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2681)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2682)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2683)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2684)
-  %10 = icmp eq ptr %.pre1, %.pre
   br i1 %10, label %_ZN4core3ops8function6FnOnce9call_once17h5360a9af673d7c90E.exit.thread.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h5360a9af673d7c90E.exit.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h5360a9af673d7c90E.exit.thread.i.i: ; preds = %.thread, %9

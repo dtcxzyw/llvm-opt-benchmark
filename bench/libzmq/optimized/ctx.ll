@@ -1652,304 +1652,300 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5ctx_t3setEiPKvm(ptr noundef nonnull
 
 7:                                                ; preds = %6, %4
   %.0 = phi i32 [ %.0.copyload, %6 ], [ 0, %4 ]
-  switch i32 %1, label %148 [
+  switch i32 %1, label %146 [
     i32 2, label %8
-    i32 1, label %37
-    i32 42, label %58
-    i32 70, label %81
-    i32 5, label %104
-    i32 10, label %125
+    i32 1, label %35
+    i32 42, label %56
+    i32 70, label %79
+    i32 5, label %102
+    i32 10, label %123
   ]
 
 8:                                                ; preds = %7
   %9 = icmp sgt i32 %.0, 0
   %or.cond = select i1 %5, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %150
+  br i1 %or.cond, label %10, label %148
 
 10:                                               ; preds = %8
   %11 = tail call noundef i32 @_ZN3zmq7epoll_t7max_fdsEv()
   %.not.i = icmp slt i32 %.0, %11
-  br i1 %.not.i, label %_ZL17clipped_maxsocketi.exit, label %12
+  br i1 %.not.i, label %.critedge, label %12
 
 12:                                               ; preds = %10
   %13 = tail call noundef i32 @_ZN3zmq7epoll_t7max_fdsEv()
   %.not3.i = icmp eq i32 %13, -1
-  br i1 %.not3.i, label %_ZL17clipped_maxsocketi.exit, label %14
+  br i1 %.not3.i, label %.critedge, label %_ZL17clipped_maxsocketi.exit
 
-14:                                               ; preds = %12
-  %15 = tail call noundef i32 @_ZN3zmq7epoll_t7max_fdsEv()
-  %16 = add nsw i32 %15, -1
-  br label %_ZL17clipped_maxsocketi.exit
+_ZL17clipped_maxsocketi.exit:                     ; preds = %12
+  %14 = tail call noundef i32 @_ZN3zmq7epoll_t7max_fdsEv()
+  %15 = add nsw i32 %14, -1
+  %16 = icmp eq i32 %.0, %15
+  br i1 %16, label %.critedge, label %148
 
-_ZL17clipped_maxsocketi.exit:                     ; preds = %10, %12, %14
-  %.0.i = phi i32 [ %16, %14 ], [ %.0, %12 ], [ %.0, %10 ]
-  %17 = icmp eq i32 %.0, %.0.i
-  br i1 %17, label %18, label %150
+.critedge:                                        ; preds = %12, %10, %_ZL17clipped_maxsocketi.exit
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i = icmp eq i32 %17, 0
+  br i1 %.not.i.i, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit, label %18, !prof !93
 
-18:                                               ; preds = %_ZL17clipped_maxsocketi.exit
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit, label %20, !prof !93
-
-20:                                               ; preds = %18
-  %21 = tail call ptr @strerror(i32 noundef %19) #25
+18:                                               ; preds = %.critedge
+  %19 = tail call ptr @strerror(i32 noundef %17) #25
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.4, ptr noundef %19, ptr noundef nonnull @.str.10, i32 noundef 109) #27
   %22 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.4, ptr noundef %21, ptr noundef nonnull @.str.10, i32 noundef 109) #27
-  %24 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %25 = tail call i32 @fflush(ptr noundef %24)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %21)
+  %23 = tail call i32 @fflush(ptr noundef %22)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %19)
   br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit:      ; preds = %18, %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 %.0, ptr %26, align 8, !tbaa !82
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i41 = icmp eq i32 %27, 0
-  br i1 %.not.i.i41, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %28, !prof !93
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit:      ; preds = %.critedge, %18
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 %.0, ptr %24, align 8, !tbaa !82
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i41 = icmp eq i32 %25, 0
+  br i1 %.not.i.i41, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %26, !prof !93
 
-28:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit
-  %29 = tail call ptr @strerror(i32 noundef %27) #25
+26:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit
+  %27 = tail call ptr @strerror(i32 noundef %25) #25
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.4, ptr noundef %27, ptr noundef nonnull @.str.10, i32 noundef 125) #27
   %30 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.4, ptr noundef %29, ptr noundef nonnull @.str.10, i32 noundef 125) #27
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %33 = tail call i32 @fflush(ptr noundef %32)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %29)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %34
+  %31 = tail call i32 @fflush(ptr noundef %30)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %27)
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %32
 
-34:                                               ; preds = %28
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %26
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #28
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #28
   unreachable
 
-37:                                               ; preds = %7
-  %38 = icmp sgt i32 %.0, -1
-  %or.cond3 = select i1 %5, i1 %38, i1 false
-  br i1 %or.cond3, label %39, label %150
+35:                                               ; preds = %7
+  %36 = icmp sgt i32 %.0, -1
+  %or.cond3 = select i1 %5, i1 %36, i1 false
+  br i1 %or.cond3, label %37, label %148
+
+37:                                               ; preds = %35
+  %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i42 = icmp eq i32 %38, 0
+  br i1 %.not.i.i42, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43, label %39, !prof !93
 
 39:                                               ; preds = %37
-  %40 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i42 = icmp eq i32 %40, 0
-  br i1 %.not.i.i42, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43, label %41, !prof !93
-
-41:                                               ; preds = %39
-  %42 = tail call ptr @strerror(i32 noundef %40) #25
+  %40 = tail call ptr @strerror(i32 noundef %38) #25
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.4, ptr noundef %40, ptr noundef nonnull @.str.10, i32 noundef 109) #27
   %43 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.4, ptr noundef %42, ptr noundef nonnull @.str.10, i32 noundef 109) #27
-  %45 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %46 = tail call i32 @fflush(ptr noundef %45)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %42)
+  %44 = tail call i32 @fflush(ptr noundef %43)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %40)
   br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43:    ; preds = %39, %41
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store i32 %.0, ptr %47, align 8, !tbaa !84
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i44 = icmp eq i32 %48, 0
-  br i1 %.not.i.i44, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %49, !prof !93
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43:    ; preds = %37, %39
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  store i32 %.0, ptr %45, align 8, !tbaa !84
+  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i44 = icmp eq i32 %46, 0
+  br i1 %.not.i.i44, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %47, !prof !93
 
-49:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43
-  %50 = tail call ptr @strerror(i32 noundef %48) #25
+47:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43
+  %48 = tail call ptr @strerror(i32 noundef %46) #25
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.4, ptr noundef %48, ptr noundef nonnull @.str.10, i32 noundef 125) #27
   %51 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.4, ptr noundef %50, ptr noundef nonnull @.str.10, i32 noundef 125) #27
-  %53 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %54 = tail call i32 @fflush(ptr noundef %53)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %50)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %55
+  %52 = tail call i32 @fflush(ptr noundef %51)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %48)
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %53
 
-55:                                               ; preds = %49
-  %56 = landingpad { ptr, i32 }
+53:                                               ; preds = %47
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #28
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #28
   unreachable
 
-58:                                               ; preds = %7
-  %59 = icmp sgt i32 %.0, -1
-  %or.cond5 = select i1 %5, i1 %59, i1 false
-  br i1 %or.cond5, label %60, label %150
+56:                                               ; preds = %7
+  %57 = icmp sgt i32 %.0, -1
+  %or.cond5 = select i1 %5, i1 %57, i1 false
+  br i1 %or.cond5, label %58, label %148
+
+58:                                               ; preds = %56
+  %59 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i46 = icmp eq i32 %59, 0
+  br i1 %.not.i.i46, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47, label %60, !prof !93
 
 60:                                               ; preds = %58
-  %61 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i46 = icmp eq i32 %61, 0
-  br i1 %.not.i.i46, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47, label %62, !prof !93
-
-62:                                               ; preds = %60
-  %63 = tail call ptr @strerror(i32 noundef %61) #25
+  %61 = tail call ptr @strerror(i32 noundef %59) #25
+  %62 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.4, ptr noundef %61, ptr noundef nonnull @.str.10, i32 noundef 109) #27
   %64 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.4, ptr noundef %63, ptr noundef nonnull @.str.10, i32 noundef 109) #27
-  %66 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %67 = tail call i32 @fflush(ptr noundef %66)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %63)
+  %65 = tail call i32 @fflush(ptr noundef %64)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %61)
   br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47:    ; preds = %60, %62
-  %68 = icmp ne i32 %.0, 0
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 637
-  %70 = zext i1 %68 to i8
-  store i8 %70, ptr %69, align 1, !tbaa !86
-  %71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i48 = icmp eq i32 %71, 0
-  br i1 %.not.i.i48, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %72, !prof !93
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47:    ; preds = %58, %60
+  %66 = icmp ne i32 %.0, 0
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 637
+  %68 = zext i1 %66 to i8
+  store i8 %68, ptr %67, align 1, !tbaa !86
+  %69 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i48 = icmp eq i32 %69, 0
+  br i1 %.not.i.i48, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %70, !prof !93
 
-72:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47
-  %73 = tail call ptr @strerror(i32 noundef %71) #25
+70:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47
+  %71 = tail call ptr @strerror(i32 noundef %69) #25
+  %72 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.4, ptr noundef %71, ptr noundef nonnull @.str.10, i32 noundef 125) #27
   %74 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.4, ptr noundef %73, ptr noundef nonnull @.str.10, i32 noundef 125) #27
-  %76 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %77 = tail call i32 @fflush(ptr noundef %76)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %73)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %78
+  %75 = tail call i32 @fflush(ptr noundef %74)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %71)
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %76
 
-78:                                               ; preds = %72
-  %79 = landingpad { ptr, i32 }
+76:                                               ; preds = %70
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #28
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #28
   unreachable
 
-81:                                               ; preds = %7
-  %82 = icmp sgt i32 %.0, -1
-  %or.cond7 = select i1 %5, i1 %82, i1 false
-  br i1 %or.cond7, label %83, label %150
+79:                                               ; preds = %7
+  %80 = icmp sgt i32 %.0, -1
+  %or.cond7 = select i1 %5, i1 %80, i1 false
+  br i1 %or.cond7, label %81, label %148
+
+81:                                               ; preds = %79
+  %82 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i50 = icmp eq i32 %82, 0
+  br i1 %.not.i.i50, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51, label %83, !prof !93
 
 83:                                               ; preds = %81
-  %84 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i50 = icmp eq i32 %84, 0
-  br i1 %.not.i.i50, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51, label %85, !prof !93
-
-85:                                               ; preds = %83
-  %86 = tail call ptr @strerror(i32 noundef %84) #25
+  %84 = tail call ptr @strerror(i32 noundef %82) #25
+  %85 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.4, ptr noundef %84, ptr noundef nonnull @.str.10, i32 noundef 109) #27
   %87 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.4, ptr noundef %86, ptr noundef nonnull @.str.10, i32 noundef 109) #27
-  %89 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %90 = tail call i32 @fflush(ptr noundef %89)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %86)
+  %88 = tail call i32 @fflush(ptr noundef %87)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %84)
   br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51:    ; preds = %83, %85
-  %91 = icmp ne i32 %.0, 0
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 636
-  %93 = zext i1 %91 to i8
-  store i8 %93, ptr %92, align 4, !tbaa !85
-  %94 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i52 = icmp eq i32 %94, 0
-  br i1 %.not.i.i52, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %95, !prof !93
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51:    ; preds = %81, %83
+  %89 = icmp ne i32 %.0, 0
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 636
+  %91 = zext i1 %89 to i8
+  store i8 %91, ptr %90, align 4, !tbaa !85
+  %92 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i52 = icmp eq i32 %92, 0
+  br i1 %.not.i.i52, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %93, !prof !93
 
-95:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51
-  %96 = tail call ptr @strerror(i32 noundef %94) #25
+93:                                               ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51
+  %94 = tail call ptr @strerror(i32 noundef %92) #25
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.4, ptr noundef %94, ptr noundef nonnull @.str.10, i32 noundef 125) #27
   %97 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.4, ptr noundef %96, ptr noundef nonnull @.str.10, i32 noundef 125) #27
-  %99 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %100 = tail call i32 @fflush(ptr noundef %99)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %96)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %101
+  %98 = tail call i32 @fflush(ptr noundef %97)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %94)
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %99
 
-101:                                              ; preds = %95
-  %102 = landingpad { ptr, i32 }
+99:                                               ; preds = %93
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %103 = extractvalue { ptr, i32 } %102, 0
-  tail call void @__clang_call_terminate(ptr %103) #28
+  %101 = extractvalue { ptr, i32 } %100, 0
+  tail call void @__clang_call_terminate(ptr %101) #28
   unreachable
 
-104:                                              ; preds = %7
-  %105 = icmp sgt i32 %.0, -1
-  %or.cond9 = select i1 %5, i1 %105, i1 false
-  br i1 %or.cond9, label %106, label %150
+102:                                              ; preds = %7
+  %103 = icmp sgt i32 %.0, -1
+  %or.cond9 = select i1 %5, i1 %103, i1 false
+  br i1 %or.cond9, label %104, label %148
+
+104:                                              ; preds = %102
+  %105 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i54 = icmp eq i32 %105, 0
+  br i1 %.not.i.i54, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55, label %106, !prof !93
 
 106:                                              ; preds = %104
-  %107 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i54 = icmp eq i32 %107, 0
-  br i1 %.not.i.i54, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55, label %108, !prof !93
-
-108:                                              ; preds = %106
-  %109 = tail call ptr @strerror(i32 noundef %107) #25
+  %107 = tail call ptr @strerror(i32 noundef %105) #25
+  %108 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.4, ptr noundef %107, ptr noundef nonnull @.str.10, i32 noundef 109) #27
   %110 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.4, ptr noundef %109, ptr noundef nonnull @.str.10, i32 noundef 109) #27
-  %112 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %113 = tail call i32 @fflush(ptr noundef %112)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %109)
+  %111 = tail call i32 @fflush(ptr noundef %110)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %107)
   br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55:    ; preds = %106, %108
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 628
-  store i32 %.0, ptr %114, align 4, !tbaa !83
-  %115 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i56 = icmp eq i32 %115, 0
-  br i1 %.not.i.i56, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %116, !prof !93
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55:    ; preds = %104, %106
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 628
+  store i32 %.0, ptr %112, align 4, !tbaa !83
+  %113 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i56 = icmp eq i32 %113, 0
+  br i1 %.not.i.i56, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %114, !prof !93
 
-116:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55
-  %117 = tail call ptr @strerror(i32 noundef %115) #25
+114:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55
+  %115 = tail call ptr @strerror(i32 noundef %113) #25
+  %116 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.4, ptr noundef %115, ptr noundef nonnull @.str.10, i32 noundef 125) #27
   %118 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.4, ptr noundef %117, ptr noundef nonnull @.str.10, i32 noundef 125) #27
-  %120 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %121 = tail call i32 @fflush(ptr noundef %120)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %117)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %122
+  %119 = tail call i32 @fflush(ptr noundef %118)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %115)
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %120
 
-122:                                              ; preds = %116
-  %123 = landingpad { ptr, i32 }
+120:                                              ; preds = %114
+  %121 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  tail call void @__clang_call_terminate(ptr %124) #28
+  %122 = extractvalue { ptr, i32 } %121, 0
+  tail call void @__clang_call_terminate(ptr %122) #28
   unreachable
 
-125:                                              ; preds = %7
-  %126 = icmp sgt i32 %.0, -1
-  %or.cond11 = select i1 %5, i1 %126, i1 false
-  br i1 %or.cond11, label %127, label %150
+123:                                              ; preds = %7
+  %124 = icmp sgt i32 %.0, -1
+  %or.cond11 = select i1 %5, i1 %124, i1 false
+  br i1 %or.cond11, label %125, label %148
+
+125:                                              ; preds = %123
+  %126 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i58 = icmp eq i32 %126, 0
+  br i1 %.not.i.i58, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59, label %127, !prof !93
 
 127:                                              ; preds = %125
-  %128 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i58 = icmp eq i32 %128, 0
-  br i1 %.not.i.i58, label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59, label %129, !prof !93
-
-129:                                              ; preds = %127
-  %130 = tail call ptr @strerror(i32 noundef %128) #25
+  %128 = tail call ptr @strerror(i32 noundef %126) #25
+  %129 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.4, ptr noundef %128, ptr noundef nonnull @.str.10, i32 noundef 109) #27
   %131 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.4, ptr noundef %130, ptr noundef nonnull @.str.10, i32 noundef 109) #27
-  %133 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %134 = tail call i32 @fflush(ptr noundef %133)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %130)
+  %132 = tail call i32 @fflush(ptr noundef %131)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %128)
   br label %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59
 
-_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59:    ; preds = %127, %129
-  %135 = icmp ne i32 %.0, 0
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 638
-  %137 = zext i1 %135 to i8
-  store i8 %137, ptr %136, align 2, !tbaa !87
-  %138 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
-  %.not.i.i60 = icmp eq i32 %138, 0
-  br i1 %.not.i.i60, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %139, !prof !93
+_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59:    ; preds = %125, %127
+  %133 = icmp ne i32 %.0, 0
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 638
+  %135 = zext i1 %133 to i8
+  store i8 %135, ptr %134, align 2, !tbaa !87
+  %136 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %0) #25
+  %.not.i.i60 = icmp eq i32 %136, 0
+  br i1 %.not.i.i60, label %_ZN3zmq13scoped_lock_tD2Ev.exit, label %137, !prof !93
 
-139:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59
-  %140 = tail call ptr @strerror(i32 noundef %138) #25
+137:                                              ; preds = %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59
+  %138 = tail call ptr @strerror(i32 noundef %136) #25
+  %139 = load ptr, ptr @stderr, align 8, !tbaa !94
+  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.4, ptr noundef %138, ptr noundef nonnull @.str.10, i32 noundef 125) #27
   %141 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.4, ptr noundef %140, ptr noundef nonnull @.str.10, i32 noundef 125) #27
-  %143 = load ptr, ptr @stderr, align 8, !tbaa !94
-  %144 = tail call i32 @fflush(ptr noundef %143)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %140)
-          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %145
+  %142 = tail call i32 @fflush(ptr noundef %141)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %138)
+          to label %_ZN3zmq13scoped_lock_tD2Ev.exit unwind label %143
 
-145:                                              ; preds = %139
-  %146 = landingpad { ptr, i32 }
+143:                                              ; preds = %137
+  %144 = landingpad { ptr, i32 }
           catch ptr null
-  %147 = extractvalue { ptr, i32 } %146, 0
-  tail call void @__clang_call_terminate(ptr %147) #28
+  %145 = extractvalue { ptr, i32 } %144, 0
+  tail call void @__clang_call_terminate(ptr %145) #28
   unreachable
 
-148:                                              ; preds = %7
-  %149 = tail call noundef i32 @_ZN3zmq12thread_ctx_t3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3)
+146:                                              ; preds = %7
+  %147 = tail call noundef i32 @_ZN3zmq12thread_ctx_t3setEiPKvm(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3)
   br label %_ZN3zmq13scoped_lock_tD2Ev.exit
 
-150:                                              ; preds = %125, %104, %81, %58, %37, %8, %_ZL17clipped_maxsocketi.exit
-  %151 = tail call ptr @__errno_location() #30
-  store i32 22, ptr %151, align 4, !tbaa !124
+148:                                              ; preds = %123, %102, %79, %56, %35, %8, %_ZL17clipped_maxsocketi.exit
+  %149 = tail call ptr @__errno_location() #30
+  store i32 22, ptr %149, align 4, !tbaa !124
   br label %_ZN3zmq13scoped_lock_tD2Ev.exit
 
-_ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %139, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59, %116, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55, %95, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51, %72, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47, %49, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43, %28, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit, %150, %148
-  %.040 = phi i32 [ %149, %148 ], [ -1, %150 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit ], [ 0, %28 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43 ], [ 0, %49 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47 ], [ 0, %72 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51 ], [ 0, %95 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55 ], [ 0, %116 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59 ], [ 0, %139 ]
+_ZN3zmq13scoped_lock_tD2Ev.exit:                  ; preds = %137, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59, %114, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55, %93, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51, %70, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47, %47, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43, %26, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit, %148, %146
+  %.040 = phi i32 [ %147, %146 ], [ -1, %148 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit ], [ 0, %26 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit43 ], [ 0, %47 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit47 ], [ 0, %70 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit51 ], [ 0, %93 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit55 ], [ 0, %114 ], [ 0, %_ZN3zmq13scoped_lock_tC2ERNS_7mutex_tE.exit59 ], [ 0, %137 ]
   ret i32 %.040
 }
 
@@ -3754,15 +3750,15 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %57 = getelementptr inbounds nuw ptr, ptr %46, i64 %53
   store ptr %55, ptr %57, align 8, !tbaa !117
   store ptr %54, ptr %47, align 8, !tbaa !116
+  %58 = icmp eq ptr %46, %54
   br label %_ZN3zmq7array_tINS_13socket_base_tELi0EE5eraseEPS1_.exit
 
 _ZN3zmq7array_tINS_13socket_base_tELi0EE5eraseEPS1_.exit: ; preds = %50, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %58 = phi ptr [ %54, %50 ], [ %46, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %60 = load i8, ptr %59, align 1, !tbaa !81, !range !105, !noundef !106
-  %61 = trunc nuw i8 %60 to i1
-  %62 = icmp eq ptr %46, %58
-  %or.cond = and i1 %62, %61
+  %59 = phi i1 [ %58, %50 ], [ true, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %61 = load i8, ptr %60, align 1, !tbaa !81, !range !105, !noundef !106
+  %62 = trunc nuw i8 %61 to i1
+  %or.cond = and i1 %59, %62
   br i1 %or.cond, label %63, label %68
 
 63:                                               ; preds = %_ZN3zmq7array_tINS_13socket_base_tELi0EE5eraseEPS1_.exit

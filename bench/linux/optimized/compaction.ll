@@ -7208,7 +7208,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   br label %282
 
 282:                                              ; preds = %712, %273
-  %.not164 = phi i1 [ %281, %273 ], [ true, %712 ]
+  %.not163 = phi i1 [ %281, %273 ], [ true, %712 ]
   %283 = phi i64 [ %274, %273 ], [ %.pre129, %712 ]
   %284 = phi i32 [ %279, %273 ], [ 4, %712 ]
   %285 = phi i8 [ %155, %273 ], [ 0, %712 ]
@@ -7222,7 +7222,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %293 = zext nneg i16 %292 to i64
   %294 = lshr i64 32, %293
   %295 = trunc nuw nsw i64 %294 to i32
-  br i1 %.not164, label %.thread133, label %296
+  br i1 %.not163, label %.thread132, label %296
 
 296:                                              ; preds = %282
   %297 = load ptr, ptr %7, align 8
@@ -7232,12 +7232,12 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %301 = and i64 %283, 511
   %302 = icmp eq i64 %301, 0
   %303 = or i1 %302, %300
-  br i1 %303, label %304, label %.thread133
+  br i1 %303, label %304, label %.thread132
 
 304:                                              ; preds = %296
   %305 = load i32, ptr %32, align 8
   %306 = icmp slt i32 %305, 4
-  br i1 %306, label %.thread133, label %307
+  br i1 %306, label %.thread132, label %307
 
 307:                                              ; preds = %304
   %308 = load i8, ptr %142, align 1, !range !44, !noundef !45
@@ -7247,7 +7247,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 310:                                              ; preds = %307
   %311 = load i32, ptr %31, align 4
   %312 = icmp eq i32 %311, 1
-  br i1 %312, label %313, label %.thread133
+  br i1 %312, label %313, label %.thread132
 
 313:                                              ; preds = %310, %307
   %314 = load i64, ptr %140, align 8
@@ -7486,16 +7486,16 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 
 443:                                              ; preds = %439, %439
   %444 = load i64, ptr %141, align 8
-  br label %.thread133
+  br label %.thread132
 
 445:                                              ; preds = %439
   store i64 %442, ptr %141, align 8
   store i64 -1, ptr %66, align 8
-  br label %.thread133
+  br label %.thread132
 
-.thread133:                                       ; preds = %282, %296, %304, %310, %443, %445
-  %.ph132 = phi i64 [ %442, %445 ], [ %444, %443 ], [ %283, %310 ], [ %283, %304 ], [ %283, %296 ], [ %283, %282 ]
-  %446 = and i64 %.ph132, -512
+.thread132:                                       ; preds = %282, %296, %304, %310, %443, %445
+  %.ph131 = phi i64 [ %442, %445 ], [ %444, %443 ], [ %283, %310 ], [ %283, %304 ], [ %283, %296 ], [ %283, %282 ]
+  %446 = and i64 %.ph131, -512
   %447 = load ptr, ptr %7, align 8
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 128
   %449 = load i64, ptr %448, align 64
@@ -7504,24 +7504,24 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 
 451:                                              ; preds = %435
   %.pre128 = load i64, ptr %141, align 8
-  %452 = and i64 %426, -512
-  %453 = load ptr, ptr %7, align 8
-  %454 = getelementptr inbounds nuw i8, ptr %453, i64 128
-  %455 = load i64, ptr %454, align 64
-  %456 = call i64 @llvm.umax.i64(i64 %452, i64 %455)
-  %457 = icmp eq i64 %426, %.pre128
-  br i1 %457, label %461, label %458
+  %452 = icmp eq i64 %426, %.pre128
+  %453 = and i64 %426, -512
+  %454 = load ptr, ptr %7, align 8
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 128
+  %456 = load i64, ptr %455, align 64
+  %457 = call i64 @llvm.umax.i64(i64 %453, i64 %456)
+  br i1 %452, label %461, label %458
 
 458:                                              ; preds = %451
   %459 = load i16, ptr %146, align 8
   %460 = icmp eq i16 %459, 0
   br label %461
 
-461:                                              ; preds = %.thread133, %458, %451
-  %462 = phi i64 [ %456, %451 ], [ %456, %458 ], [ %450, %.thread133 ]
-  %463 = phi i64 [ %452, %451 ], [ %452, %458 ], [ %446, %.thread133 ]
-  %464 = phi i64 [ %426, %451 ], [ %426, %458 ], [ %.ph132, %.thread133 ]
-  %465 = phi i1 [ false, %451 ], [ %460, %458 ], [ false, %.thread133 ]
+461:                                              ; preds = %.thread132, %458, %451
+  %462 = phi i64 [ %457, %451 ], [ %457, %458 ], [ %450, %.thread132 ]
+  %463 = phi i64 [ %453, %451 ], [ %453, %458 ], [ %446, %.thread132 ]
+  %464 = phi i64 [ %426, %451 ], [ %426, %458 ], [ %.ph131, %.thread132 ]
+  %465 = phi i1 [ false, %451 ], [ %460, %458 ], [ false, %.thread132 ]
   %466 = add i64 %463, 512
   %467 = load i64, ptr %140, align 8
   %468 = icmp ugt i64 %466, %467

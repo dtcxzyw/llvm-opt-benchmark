@@ -21,152 +21,152 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %.not82 = icmp eq i64 %1, 0
-  br i1 %.not82, label %.thread, label %.lr.ph
+  br i1 %.not82, label %.thread.thread85, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %6 = tail call ptr @__errno_location() #8
   br label %7
 
-7:                                                ; preds = %.lr.ph, %18
-  %.05078 = phi i64 [ 0, %.lr.ph ], [ %.252, %18 ]
+7:                                                ; preds = %.lr.ph, %17
+  %.05078 = phi i64 [ 0, %.lr.ph ], [ %.252, %17 ]
   %8 = sub nuw i64 %1, %.05078
   store i32 0, ptr %6, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.05078
   %10 = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef nonnull %9, i64 noundef %8, i32 noundef 0) #9
   %11 = icmp eq i64 %10, -1
-  br i1 %11, label %12, label %16
+  br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
   %13 = load i32, ptr %6, align 4, !tbaa !4
   switch i32 %13, label %.thread [
-    i32 38, label %14
-    i32 4, label %18
-    i32 11, label %18
+    i32 38, label %.thread.thread
+    i32 4, label %17
+    i32 11, label %17
   ]
 
-14:                                               ; preds = %12
-  %15 = icmp eq i64 %.05078, 0
-  tail call void @llvm.assume(i1 %15)
-  br label %.thread
+.thread.thread:                                   ; preds = %12
+  %14 = icmp eq i64 %.05078, 0
+  tail call void @llvm.assume(i1 %14)
+  br label %20
 
-16:                                               ; preds = %7
-  %17 = add i64 %10, %.05078
-  br label %18
+15:                                               ; preds = %7
+  %16 = add i64 %10, %.05078
+  br label %17
 
-18:                                               ; preds = %12, %12, %16
-  %.252 = phi i64 [ %17, %16 ], [ %.05078, %12 ], [ %.05078, %12 ]
-  %19 = icmp ult i64 %.252, %1
-  br i1 %19, label %7, label %.thread
+17:                                               ; preds = %12, %12, %15
+  %.252 = phi i64 [ %16, %15 ], [ %.05078, %12 ], [ %.05078, %12 ]
+  %18 = icmp ult i64 %.252, %1
+  br i1 %18, label %7, label %.thread
 
-.thread:                                          ; preds = %18, %12, %4, %14
-  %.151 = phi i64 [ 0, %14 ], [ 0, %4 ], [ %.252, %18 ], [ %.05078, %12 ]
-  %20 = icmp ult i64 %.151, %1
-  br i1 %20, label %21, label %70
+.thread:                                          ; preds = %17, %12
+  %.151.ph = phi i64 [ %.05078, %12 ], [ %.252, %17 ]
+  %19 = icmp ult i64 %.151.ph, %1
+  br i1 %19, label %20, label %.thread.thread85
 
-21:                                               ; preds = %.thread
-  %22 = atomicrmw or ptr @random_fd, i32 0 seq_cst, align 4
+20:                                               ; preds = %.thread.thread, %.thread
+  %21 = atomicrmw or ptr @random_fd, i32 0 seq_cst, align 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #9
-  %23 = icmp slt i32 %22, 0
-  %24 = tail call ptr @__errno_location() #8
-  br i1 %23, label %25, label %zend_atomic_int_compare_exchange_ex.exit.thread
+  %22 = icmp slt i32 %21, 0
+  %23 = tail call ptr @__errno_location() #8
+  br i1 %22, label %24, label %zend_atomic_int_compare_exchange_ex.exit.thread
 
-25:                                               ; preds = %21
-  store i32 0, ptr %24, align 4, !tbaa !4
-  %26 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 0) #9
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %35
+24:                                               ; preds = %20
+  store i32 0, ptr %23, align 4, !tbaa !4
+  %25 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 0) #9
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %34
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %24, align 4, !tbaa !4
-  %.not66 = icmp eq i32 %29, 0
-  br i1 %.not66, label %33, label %30
+27:                                               ; preds = %24
+  %28 = load i32, ptr %23, align 4, !tbaa !4
+  %.not66 = icmp eq i32 %28, 0
+  br i1 %.not66, label %32, label %29
 
-30:                                               ; preds = %28
-  %31 = tail call ptr @strerror(i32 noundef %29) #9
-  %32 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.1, ptr noundef %31) #9
-  br label %.sink.split
+29:                                               ; preds = %27
+  %30 = tail call ptr @strerror(i32 noundef %28) #9
+  %31 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.1, ptr noundef %30) #9
+  br label %.thread.thread85.sink.split
 
-33:                                               ; preds = %28
-  %34 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.2) #9
-  br label %.sink.split
+32:                                               ; preds = %27
+  %33 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.2) #9
+  br label %.thread.thread85.sink.split
 
-35:                                               ; preds = %25
-  store i32 0, ptr %24, align 4, !tbaa !4
-  %36 = call i32 @fstat(i32 noundef %26, ptr noundef nonnull %5) #9
-  %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %37, label %42
+34:                                               ; preds = %24
+  store i32 0, ptr %23, align 4, !tbaa !4
+  %35 = call i32 @fstat(i32 noundef %25, ptr noundef nonnull %5) #9
+  %.not = icmp eq i32 %35, 0
+  br i1 %.not, label %36, label %41
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %39 = load i32, ptr %38, align 8, !tbaa !8
-  %40 = and i32 %39, 61440
-  %41 = icmp eq i32 %40, 8192
-  br i1 %41, label %50, label %42
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %38 = load i32, ptr %37, align 8, !tbaa !8
+  %39 = and i32 %38, 61440
+  %40 = icmp eq i32 %39, 8192
+  br i1 %40, label %49, label %41
 
-42:                                               ; preds = %37, %35
-  %43 = tail call i32 @close(i32 noundef %26) #9
-  %44 = load i32, ptr %24, align 4, !tbaa !4
-  %.not65 = icmp eq i32 %44, 0
-  br i1 %.not65, label %48, label %45
+41:                                               ; preds = %36, %34
+  %42 = tail call i32 @close(i32 noundef %25) #9
+  %43 = load i32, ptr %23, align 4, !tbaa !4
+  %.not65 = icmp eq i32 %43, 0
+  br i1 %.not65, label %47, label %44
 
-45:                                               ; preds = %42
-  %46 = tail call ptr @strerror(i32 noundef %44) #9
-  %47 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.3, ptr noundef %46) #9
-  br label %.sink.split
+44:                                               ; preds = %41
+  %45 = tail call ptr @strerror(i32 noundef %43) #9
+  %46 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.3, ptr noundef %45) #9
+  br label %.thread.thread85.sink.split
 
-48:                                               ; preds = %42
-  %49 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.4) #9
-  br label %.sink.split
+47:                                               ; preds = %41
+  %48 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.4) #9
+  br label %.thread.thread85.sink.split
 
-50:                                               ; preds = %37
-  %51 = cmpxchg ptr @random_fd, i32 -1, i32 %26 seq_cst seq_cst, align 4
-  %52 = extractvalue { i32, i1 } %51, 1
-  br i1 %52, label %zend_atomic_int_compare_exchange_ex.exit.thread, label %zend_atomic_int_compare_exchange_ex.exit
+49:                                               ; preds = %36
+  %50 = cmpxchg ptr @random_fd, i32 -1, i32 %25 seq_cst seq_cst, align 4
+  %51 = extractvalue { i32, i1 } %50, 1
+  br i1 %51, label %zend_atomic_int_compare_exchange_ex.exit.thread, label %zend_atomic_int_compare_exchange_ex.exit
 
-zend_atomic_int_compare_exchange_ex.exit:         ; preds = %50
-  %53 = extractvalue { i32, i1 } %51, 0
-  %54 = tail call i32 @close(i32 noundef %26) #9
+zend_atomic_int_compare_exchange_ex.exit:         ; preds = %49
+  %52 = extractvalue { i32, i1 } %50, 0
+  %53 = tail call i32 @close(i32 noundef %25) #9
   br label %zend_atomic_int_compare_exchange_ex.exit.thread
 
-zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %21, %50, %zend_atomic_int_compare_exchange_ex.exit
-  %.045 = phi i32 [ %26, %50 ], [ %53, %zend_atomic_int_compare_exchange_ex.exit ], [ %22, %21 ]
-  br label %58
+zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %20, %49, %zend_atomic_int_compare_exchange_ex.exit
+  %.045 = phi i32 [ %25, %49 ], [ %52, %zend_atomic_int_compare_exchange_ex.exit ], [ %21, %20 ]
+  br label %57
 
-55:                                               ; preds = %58
-  %56 = add i64 %61, %.35381
-  %57 = icmp ult i64 %56, %1
-  br i1 %57, label %58, label %.sink.split
+54:                                               ; preds = %57
+  %55 = add i64 %60, %.35381
+  %56 = icmp ult i64 %55, %1
+  br i1 %56, label %57, label %.thread.thread85.sink.split
 
-58:                                               ; preds = %zend_atomic_int_compare_exchange_ex.exit.thread, %55
-  %.35381 = phi i64 [ 0, %zend_atomic_int_compare_exchange_ex.exit.thread ], [ %56, %55 ]
-  store i32 0, ptr %24, align 4, !tbaa !4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.35381
-  %60 = sub nuw i64 %1, %.35381
-  %61 = tail call i64 @read(i32 noundef %.045, ptr noundef nonnull %59, i64 noundef %60) #9
-  %62 = icmp sgt i64 %61, 0
-  br i1 %62, label %55, label %63
+57:                                               ; preds = %zend_atomic_int_compare_exchange_ex.exit.thread, %54
+  %.35381 = phi i64 [ 0, %zend_atomic_int_compare_exchange_ex.exit.thread ], [ %55, %54 ]
+  store i32 0, ptr %23, align 4, !tbaa !4
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %.35381
+  %59 = sub nuw i64 %1, %.35381
+  %60 = tail call i64 @read(i32 noundef %.045, ptr noundef nonnull %58, i64 noundef %59) #9
+  %61 = icmp sgt i64 %60, 0
+  br i1 %61, label %54, label %62
 
-63:                                               ; preds = %58
-  %64 = load i32, ptr %24, align 4, !tbaa !4
-  %.not64 = icmp eq i32 %64, 0
-  br i1 %.not64, label %68, label %65
+62:                                               ; preds = %57
+  %63 = load i32, ptr %23, align 4, !tbaa !4
+  %.not64 = icmp eq i32 %63, 0
+  br i1 %.not64, label %67, label %64
 
-65:                                               ; preds = %63
-  %66 = tail call ptr @strerror(i32 noundef %64) #9
-  %67 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.5, ptr noundef %66) #9
-  br label %.sink.split
+64:                                               ; preds = %62
+  %65 = tail call ptr @strerror(i32 noundef %63) #9
+  %66 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.5, ptr noundef %65) #9
+  br label %.thread.thread85.sink.split
 
-68:                                               ; preds = %63
-  %69 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.6) #9
-  br label %.sink.split
+67:                                               ; preds = %62
+  %68 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.6) #9
+  br label %.thread.thread85.sink.split
 
-.sink.split:                                      ; preds = %55, %33, %30, %48, %45, %65, %68
-  %.3.ph = phi i32 [ -1, %68 ], [ -1, %65 ], [ -1, %45 ], [ -1, %48 ], [ -1, %30 ], [ -1, %33 ], [ 0, %55 ]
+.thread.thread85.sink.split:                      ; preds = %54, %32, %29, %47, %44, %64, %67
+  %.3.ph = phi i32 [ -1, %67 ], [ -1, %64 ], [ -1, %44 ], [ -1, %47 ], [ -1, %29 ], [ -1, %32 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #9
-  br label %70
+  br label %.thread.thread85
 
-70:                                               ; preds = %.sink.split, %.thread
-  %.3 = phi i32 [ 0, %.thread ], [ %.3.ph, %.sink.split ]
+.thread.thread85:                                 ; preds = %.thread.thread85.sink.split, %4, %.thread
+  %.3 = phi i32 [ 0, %.thread ], [ 0, %4 ], [ %.3.ph, %.thread.thread85.sink.split ]
   ret i32 %.3
 }
 

@@ -2307,11 +2307,11 @@ _ZN12_GLOBAL__N_112GCPtrTracker18getBasicBlockStateEPKN4llvm10BasicBlockE.exit.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %_ZN4llvm13set_intersectINS_8DenseSetIPKNS_5ValueENS_12DenseMapInfoIS4_vEEEES7_EEvRT_RKT0_.exit.i.i, %1045
   %.pre273.i.i = load i32, ptr %411, align 8, !tbaa !213
+  %426 = icmp ne i32 %412, %.pre273.i.i
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %420, %._crit_edge.loopexit.i.i, %410
-  %426 = phi i32 [ %.pre273.i.i, %._crit_edge.loopexit.i.i ], [ %412, %410 ], [ %412, %420 ]
-  %427 = icmp ne i32 %412, %426
+  %427 = phi i1 [ %426, %._crit_edge.loopexit.i.i ], [ false, %410 ], [ false, %420 ]
   %428 = getelementptr inbounds nuw i8, ptr %409, i64 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 16, i1 false)

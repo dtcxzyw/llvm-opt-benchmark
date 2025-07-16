@@ -1065,14 +1065,12 @@ _ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4l
 10:                                               ; preds = %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %12 = load i16, ptr %11, align 2, !tbaa !43
-  %13 = icmp ult i16 %1, %12
-  %spec.select.i.i = select i1 %13, ptr %5, ptr %.19.i.i.i
+  %13 = icmp uge i16 %1, %12
   br label %_ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE5countERS7_.exit
 
 _ZNKSt3mapIN4LIEF3DEX7MapItem5TYPESES2_St4lessIS3_ESaISt4pairIKS3_S2_EEE5countERS7_.exit: ; preds = %2, %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %10
-  %.sroa.0.0.i.i = phi ptr [ %5, %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ %5, %2 ], [ %spec.select.i.i, %10 ]
-  %14 = icmp ne ptr %.sroa.0.0.i.i, %5
-  ret i1 %14
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN4LIEF3DEX7MapItem5TYPESESt4pairIKS3_S2_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ false, %2 ], [ %13, %10 ]
+  ret i1 %.sroa.0.0.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

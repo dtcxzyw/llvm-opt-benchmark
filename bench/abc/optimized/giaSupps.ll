@@ -8936,11 +8936,11 @@ define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not, label %.lr.ph126.split.us, label %.lr.ph126.split
 
-.lr.ph126.split.us:                               ; preds = %.lr.ph126, %19
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %19 ], [ 0, %.lr.ph126 ]
-  %.066124.us = phi i32 [ %.3.us, %19 ], [ 1000000000, %.lr.ph126 ]
-  %.071122.us = phi i32 [ %.374.us, %19 ], [ -1, %.lr.ph126 ]
-  %.077121.us = phi i32 [ %18, %19 ], [ 0, %.lr.ph126 ]
+.lr.ph126.split.us:                               ; preds = %.lr.ph126, %.thread
+  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.thread ], [ 0, %.lr.ph126 ]
+  %.066124.us = phi i32 [ %.3.us180185, %.thread ], [ 1000000000, %.lr.ph126 ]
+  %.071122.us = phi i32 [ %.374.us178186, %.thread ], [ -1, %.lr.ph126 ]
+  %.077121.us = phi i32 [ %18, %.thread ], [ 0, %.lr.ph126 ]
   %.val89.us = load ptr, ptr %7, align 8, !tbaa !83
   %14 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val89.us, i64 %indvars.iv165
   %15 = getelementptr i8, ptr %14, i64 4
@@ -8948,28 +8948,27 @@ define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr
   %16 = icmp sgt i32 %.val85.us, 0
   %17 = zext i1 %16 to i32
   %18 = add nuw nsw i32 %.077121.us, %17
-  br i1 %16, label %.lr.ph.us, label %.critedge2.us
+  br i1 %16, label %.lr.ph.us, label %.critedge2.us.thread
 
-19:                                               ; preds = %.critedge2.us
+.thread:                                          ; preds = %.critedge2.us, %.critedge2.us.thread
+  %.374.us178186 = phi i32 [ %.071122.us, %.critedge2.us.thread ], [ %.475.us.us, %.critedge2.us ]
+  %.3.us180185 = phi i32 [ %.066124.us, %.critedge2.us.thread ], [ %.4.us.us, %.critedge2.us ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %.val90.us = load i32, ptr %5, align 4, !tbaa !84
-  %20 = sext i32 %.val90.us to i64
-  %21 = icmp slt i64 %indvars.iv.next166, %20
-  br i1 %21, label %.lr.ph126.split.us, label %.critedge, !llvm.loop !159
+  %19 = sext i32 %.val90.us to i64
+  %20 = icmp slt i64 %indvars.iv.next166, %19
+  br i1 %20, label %.lr.ph126.split.us, label %.critedge, !llvm.loop !159
 
-.critedge2.us.loopexit:                           ; preds = %56
-  %22 = trunc nuw nsw i64 %indvars.iv.next162 to i32
-  br label %.critedge2.us
-
-.critedge2.us:                                    ; preds = %.critedge2.us.loopexit, %.lr.ph126.split.us
-  %.val83.us = phi i32 [ %.val85.us, %.lr.ph126.split.us ], [ %.val84.us.us, %.critedge2.us.loopexit ]
-  %.065.lcssa.us = phi i32 [ 0, %.lr.ph126.split.us ], [ %22, %.critedge2.us.loopexit ]
-  %.374.us = phi i32 [ %.071122.us, %.lr.ph126.split.us ], [ %.475.us.us, %.critedge2.us.loopexit ]
-  %.3.us = phi i32 [ %.066124.us, %.lr.ph126.split.us ], [ %.4.us.us, %.critedge2.us.loopexit ]
+.critedge2.us:                                    ; preds = %56
+  %21 = trunc nuw nsw i64 %indvars.iv.next162 to i32
+  %22 = icmp sgt i32 %.val84.us.us, %21
   %23 = icmp eq i32 %18, 2
-  %24 = icmp slt i32 %.065.lcssa.us, %.val83.us
-  %or.cond178 = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond178, label %.critedge, label %19
+  %brmerge = select i1 %23, i1 true, i1 %22
+  br i1 %brmerge, label %.critedge, label %.thread
+
+.critedge2.us.thread:                             ; preds = %.lr.ph126.split.us
+  %24 = icmp eq i32 %18, 2
+  br i1 %24, label %.critedge, label %.thread
 
 .lr.ph.us:                                        ; preds = %.lr.ph126.split.us
   %25 = getelementptr i8, ptr %14, i64 8
@@ -9028,7 +9027,7 @@ define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr
   %.val84.us.us = load i32, ptr %15, align 4, !tbaa !30
   %57 = sext i32 %.val84.us.us to i64
   %58 = icmp slt i64 %indvars.iv.next162, %57
-  br i1 %58, label %26, label %.critedge2.us.loopexit, !llvm.loop !160
+  br i1 %58, label %26, label %.critedge2.us, !llvm.loop !160
 
 59:                                               ; preds = %105
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
@@ -9135,9 +9134,9 @@ define ptr @Supp_ManFindBestSolution(ptr noundef readonly captures(none) %0, ptr
   %106 = icmp slt i32 %.065.lcssa, %.val83
   br i1 %106, label %.critedge, label %59
 
-.critedge:                                        ; preds = %105, %.critedge2, %59, %.critedge2.us, %19
-  %.172 = phi i32 [ %.374.us, %19 ], [ %.374.us, %.critedge2.us ], [ %.374, %59 ], [ %.374, %.critedge2 ], [ %.374, %105 ]
-  %.1 = phi i32 [ %.3.us, %19 ], [ %.3.us, %.critedge2.us ], [ %.3, %59 ], [ %.3, %.critedge2 ], [ %.3, %105 ]
+.critedge:                                        ; preds = %105, %.critedge2, %59, %.thread, %.critedge2.us.thread, %.critedge2.us
+  %.172 = phi i32 [ %.475.us.us, %.critedge2.us ], [ %.374.us178186, %.thread ], [ %.071122.us, %.critedge2.us.thread ], [ %.374, %59 ], [ %.374, %.critedge2 ], [ %.374, %105 ]
+  %.1 = phi i32 [ %.4.us.us, %.critedge2.us ], [ %.3.us180185, %.thread ], [ %.066124.us, %.critedge2.us.thread ], [ %.3, %59 ], [ %.3, %.critedge2 ], [ %.3, %105 ]
   %107 = icmp sgt i32 %.172, 0
   %108 = icmp slt i32 %.1, 200
   %or.cond82 = select i1 %107, i1 %108, i1 false

@@ -530,9 +530,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h3698796112bedcb2E.exit.thread.
   store i64 %.sroa.0.112.i, ptr %10, align 8, !noalias !122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9.i, i64 48, i1 false), !noalias !122
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  %40 = load i64, ptr %12, align 8, !range !199, !alias.scope !200, !noalias !201, !noundef !3
+  %.not12.i.i = icmp ne i64 %.sroa.0.112.i, 5
+  %40 = load i64, ptr %12, align 8, !range !199, !alias.scope !200, !noalias !201
   %41 = icmp samesign ugt i64 %40, %.sroa.0.112.i
-  br i1 %41, label %42, label %43
+  %or.cond.i.i = select i1 %.not12.i.i, i1 %41, i1 false
+  br i1 %or.cond.i.i, label %42, label %43
 
 42:                                               ; preds = %39
   store i64 %.sroa.0.112.i, ptr %12, align 8, !alias.scope !200, !noalias !201
@@ -550,8 +552,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h3698796112bedcb2E.exit.thread.
     i64 1, label %._crit_edge.i.i.i
   ]
 
-._crit_edge.i.i.i:                                ; preds = %.noexc17.i.i, %43
-  %.sroa.05.0.lcssa.i.i.i = phi i64 [ 0, %43 ], [ %58, %.noexc17.i.i ]
+._crit_edge.i.i.i:                                ; preds = %.noexc16.i.i, %43
+  %.sroa.05.0.lcssa.i.i.i = phi i64 [ 0, %43 ], [ %58, %.noexc16.i.i ]
   %48 = icmp ult i64 %.sroa.05.0.lcssa.i.i.i, %.sink10.i.i.i
   call void @llvm.assume(i1 %48)
   %49 = getelementptr inbounds nuw { i64, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %.sink11.i.i.i, i64 %.sroa.05.0.lcssa.i.i.i
@@ -562,18 +564,18 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h3698796112bedcb2E.exit.thread.
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %67, label %61
 
-.lr.ph.i.i.i:                                     ; preds = %43, %.noexc17.i.i
-  %.sroa.01.025.i.i.i = phi i64 [ %59, %.noexc17.i.i ], [ %.sink10.i.i.i, %43 ]
-  %.sroa.05.024.i.i.i = phi i64 [ %58, %.noexc17.i.i ], [ 0, %43 ]
+.lr.ph.i.i.i:                                     ; preds = %43, %.noexc16.i.i
+  %.sroa.01.025.i.i.i = phi i64 [ %59, %.noexc16.i.i ], [ %.sink10.i.i.i, %43 ]
+  %.sroa.05.024.i.i.i = phi i64 [ %58, %.noexc16.i.i ], [ 0, %43 ]
   %52 = lshr i64 %.sroa.01.025.i.i.i, 1
   %53 = add i64 %52, %.sroa.05.024.i.i.i
   %54 = icmp ult i64 %53, %.sink10.i.i.i
   call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds nuw { i64, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %.sink11.i.i.i, i64 %53
   %56 = invoke noundef range(i8 -1, 2) i8 @"_ZN89_$LT$tracing_subscriber..filter..directive..StaticDirective$u20$as$u20$core..cmp..Ord$GT$3cmp17h2188bfdca1250078E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
-          to label %.noexc17.i.i unwind label %.loopexit.i.i, !noalias !162
+          to label %.noexc16.i.i unwind label %.loopexit.i.i, !noalias !162
 
-.noexc17.i.i:                                     ; preds = %.lr.ph.i.i.i
+.noexc16.i.i:                                     ; preds = %.lr.ph.i.i.i
   %57 = icmp eq i8 %56, 1
   %58 = select i1 %57, i64 %.sroa.05.024.i.i.i, i64 %53, !unpredictable !3
   %59 = sub i64 %.sroa.01.025.i.i.i, %52
@@ -754,9 +756,11 @@ define hidden void @"_ZN131_$LT$tracing_subscriber..filter..directive..Directive
   store i64 %.sroa.01.0.copyload2.i, ptr %5, align 8, !noalias !213
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.7.0..sroa_idx3.i, i64 72, i1 false), !noalias !215
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  %19 = load i64, ptr %7, align 8, !range !199, !alias.scope !225, !noalias !226, !noundef !3
+  %.not12.i.i = icmp ne i64 %.sroa.01.0.copyload2.i, 5
+  %19 = load i64, ptr %7, align 8, !range !199, !alias.scope !225, !noalias !226
   %20 = icmp samesign ugt i64 %19, %.sroa.01.0.copyload2.i
-  br i1 %20, label %21, label %22
+  %or.cond.i.i = select i1 %.not12.i.i, i1 %20, i1 false
+  br i1 %or.cond.i.i, label %21, label %22
 
 21:                                               ; preds = %18
   store i64 %.sroa.01.0.copyload2.i, ptr %7, align 8, !alias.scope !225, !noalias !226
@@ -774,8 +778,8 @@ define hidden void @"_ZN131_$LT$tracing_subscriber..filter..directive..Directive
     i64 1, label %._crit_edge.i.i.i
   ]
 
-._crit_edge.i.i.i:                                ; preds = %.noexc17.i.i, %22
-  %.sroa.05.0.lcssa.i.i.i = phi i64 [ 0, %22 ], [ %37, %.noexc17.i.i ]
+._crit_edge.i.i.i:                                ; preds = %.noexc16.i.i, %22
+  %.sroa.05.0.lcssa.i.i.i = phi i64 [ 0, %22 ], [ %37, %.noexc16.i.i ]
   %27 = icmp ult i64 %.sroa.05.0.lcssa.i.i.i, %.sink10.i.i.i
   call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw { i64, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink11.i.i.i, i64 %.sroa.05.0.lcssa.i.i.i
@@ -786,18 +790,18 @@ define hidden void @"_ZN131_$LT$tracing_subscriber..filter..directive..Directive
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %46, label %40
 
-.lr.ph.i.i.i:                                     ; preds = %22, %.noexc17.i.i
-  %.sroa.01.025.i.i.i = phi i64 [ %38, %.noexc17.i.i ], [ %.sink10.i.i.i, %22 ]
-  %.sroa.05.024.i.i.i = phi i64 [ %37, %.noexc17.i.i ], [ 0, %22 ]
+.lr.ph.i.i.i:                                     ; preds = %22, %.noexc16.i.i
+  %.sroa.01.025.i.i.i = phi i64 [ %38, %.noexc16.i.i ], [ %.sink10.i.i.i, %22 ]
+  %.sroa.05.024.i.i.i = phi i64 [ %37, %.noexc16.i.i ], [ 0, %22 ]
   %31 = lshr i64 %.sroa.01.025.i.i.i, 1
   %32 = add i64 %31, %.sroa.05.024.i.i.i
   %33 = icmp ult i64 %32, %.sink10.i.i.i
   call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw { i64, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink11.i.i.i, i64 %32
   %35 = invoke noundef range(i8 -1, 2) i8 @"_ZN88_$LT$tracing_subscriber..filter..env..directive..Directive$u20$as$u20$core..cmp..Ord$GT$3cmp17hff8b8e9743affa3aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5)
-          to label %.noexc17.i.i unwind label %.loopexit.i.i, !noalias !215
+          to label %.noexc16.i.i unwind label %.loopexit.i.i, !noalias !215
 
-.noexc17.i.i:                                     ; preds = %.lr.ph.i.i.i
+.noexc16.i.i:                                     ; preds = %.lr.ph.i.i.i
   %36 = icmp eq i8 %35, 1
   %37 = select i1 %36, i64 %.sroa.05.024.i.i.i, i64 %32, !unpredictable !3
   %38 = sub i64 %.sroa.01.025.i.i.i, %31

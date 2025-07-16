@@ -1331,7 +1331,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_image_block17h7c4f
   %12 = lshr i64 %3, 2
   %13 = load i64, ptr %1, align 8, !alias.scope !373, !noundef !13
   %14 = icmp ugt i64 %12, %13
-  br i1 %14, label %15, label %18
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %4
   %16 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6115b13b1c991622E.llvm.9742654456972663382"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef 0, i64 noundef %12)
@@ -1341,12 +1341,12 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_image_block17h7c4f
 
 ._crit_edge.i:                                    ; preds = %15
   %.pre.i = load i64, ptr %1, align 8, !alias.scope !373
-  br label %18
+  %18 = icmp ule i64 %12, %.pre.i
+  br label %19
 
-18:                                               ; preds = %4, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %13, %4 ]
-  %19 = icmp ule i64 %12, %.pre-phi.i
-  tail call void @llvm.assume(i1 %19)
+19:                                               ; preds = %4, %._crit_edge.i
+  %.pre-phi.i = phi i1 [ %18, %._crit_edge.i ], [ true, %4 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   tail call void @_ZN3gif7encoder10lzw_encode17h4f2982e96005c0baE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8, !noundef !13
@@ -1359,7 +1359,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_image_block17h7c4f
   store ptr inttoptr (i64 163208757251 to ptr), ptr %.sroa.424.0..sroa_idx, align 8
   br label %"_ZN3gif7encoder16Encoder$LT$W$GT$25write_encoded_image_block17h12d29058e360cc5dE.exit"
 
-24:                                               ; preds = %18
+24:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !376
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hd96ac60c1dd9bdefE.llvm.9832446184049035033(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull inttoptr (i64 154618822659 to ptr)), !noalias !376
   %25 = load i8, ptr %9, align 8, !range !159, !alias.scope !383, !noalias !376, !noundef !13
@@ -1602,7 +1602,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$17write_image_block17h7c4f
   store ptr %.0.i.i57.i, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !392, !noalias !409
   br label %"_ZN3gif7encoder16Encoder$LT$W$GT$25write_encoded_image_block17h12d29058e360cc5dE.exit"
 
-113:                                              ; preds = %18
+113:                                              ; preds = %19
   store i8 1, ptr %0, align 8
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 154618822659 to ptr), ptr %.sroa.427.0..sroa_idx, align 8

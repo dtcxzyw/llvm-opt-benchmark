@@ -11155,16 +11155,14 @@ _ZNKSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_t
   br i1 %29, label %_ZNKSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit, label %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i
 
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i:   ; preds = %22
-  %30 = icmp eq i32 %28, 0
-  %31 = icmp ult i64 %8, %26
-  %spec.select.i.i.i.i = and i1 %31, %30
-  %spec.select.i.i = select i1 %spec.select.i.i.i.i, ptr %5, ptr %.19.i.i.i
+  %30 = icmp ne i32 %28, 0
+  %31 = icmp uge i64 %8, %26
+  %spec.select.i.i.i.not.i = or i1 %31, %30
   br label %_ZNKSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit
 
 _ZNKSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit: ; preds = %2, %_ZNKSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %22, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i
-  %.sroa.0.0.i.i = phi ptr [ %5, %_ZNKSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %5, %2 ], [ %5, %22 ], [ %spec.select.i.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i ]
-  %32 = icmp ne ptr %.sroa.0.0.i.i, %5
-  ret i1 %32
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN3zmq6blob_tESt4pairIKS1_NS0_21routing_socket_base_t10out_pipe_tEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ false, %2 ], [ false, %22 ], [ %spec.select.i.i.i.not.i, %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i ]
+  ret i1 %.sroa.0.0.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable

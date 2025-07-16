@@ -7520,8 +7520,8 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantityeqERKS2_(ptr 
 .split.us:                                        ; preds = %53
   br i1 %62, label %.split.us.split.us, label %.split.us.split
 
-.split.us.split.us:                               ; preds = %.split.us, %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us
-  %.0.in.us.us = phi i32 [ %.0.us.us, %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us ], [ %..i, %.split.us ]
+.split.us.split.us:                               ; preds = %.split.us, %.split.us.split.us.backedge
+  %.0.in.us.us = phi i32 [ %.0.us.us, %.split.us.split.us.backedge ], [ %..i, %.split.us ]
   %.0.us.us = add nsw i32 %.0.in.us.us, -1
   %.not18.not.us.us.not.not = icmp sle i32 %.0.in.us.us, %..i20
   br i1 %.not18.not.us.us.not.not, label %.critedge, label %65
@@ -7531,22 +7531,20 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantityeqERKS2_(ptr 
   %67 = icmp sgt i32 %66, -1
   %.not.i.i.us.us = icmp slt i32 %66, %10
   %or.cond10.i.i.us.us = and i1 %67, %.not.i.i.us.us
-  br i1 %or.cond10.i.i.us.us, label %68, label %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us
+  br i1 %or.cond10.i.i.us.us, label %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us, label %.split.us.split.us.backedge
 
-68:                                               ; preds = %65
-  %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %.cast, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !26
-  %72 = zext nneg i32 %66 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %.cast41, i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !26
-  br label %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us
+_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us: ; preds = %65
+  %68 = zext nneg i32 %66 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %.cast, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !26
+  %71 = zext nneg i32 %66 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %.cast41, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !26
+  %74 = icmp eq i8 %70, %73
+  br i1 %74, label %.split.us.split.us.backedge, label %.critedge
 
-_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us: ; preds = %65, %68
-  %.0.i.i.us.us50 = phi i8 [ %71, %68 ], [ 0, %65 ]
-  %.0.i.i22.us.us = phi i8 [ %74, %68 ], [ 0, %65 ]
-  %.not19.us.us = icmp eq i8 %.0.i.i.us.us50, %.0.i.i22.us.us
-  br i1 %.not19.us.us, label %.split.us.split.us, label %.critedge, !llvm.loop !97
+.split.us.split.us.backedge:                      ; preds = %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us, %65
+  br label %.split.us.split.us, !llvm.loop !97
 
 .split.us.split:                                  ; preds = %.split.us, %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit.us
   %.0.in.us = phi i32 [ %.0.us, %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit.us ], [ %..i, %.split.us ]

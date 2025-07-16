@@ -734,14 +734,14 @@ define dso_local i64 @pg_listening_channels(ptr noundef %0) local_unnamed_addr #
   %10 = load i64, ptr %9, align 8
   %11 = load ptr, ptr @listenChannels, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
+  br i1 %.not.i, label %.critedge, label %list_length.exit
 
 list_length.exit:                                 ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = icmp ult i64 %10, %14
-  br i1 %15, label %16, label %list_length.exit.thread
+  br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %list_length.exit
   %17 = getelementptr i8, ptr %11, i64 16
@@ -760,7 +760,7 @@ list_length.exit:                                 ; preds = %8
   %26 = ptrtoint ptr %25 to i64
   br label %31
 
-list_length.exit.thread:                          ; preds = %8, %list_length.exit
+.critedge:                                        ; preds = %8, %list_length.exit
   tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %9) #16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
@@ -770,8 +770,8 @@ list_length.exit.thread:                          ; preds = %8, %list_length.exi
   store i8 1, ptr %30, align 4
   br label %31
 
-31:                                               ; preds = %16, %list_length.exit.thread
-  %.0 = phi i64 [ 0, %list_length.exit.thread ], [ %26, %16 ]
+31:                                               ; preds = %16, %.critedge
+  %.0 = phi i64 [ 0, %.critedge ], [ %26, %16 ]
   ret i64 %.0
 }
 

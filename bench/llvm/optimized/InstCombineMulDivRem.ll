@@ -21814,11 +21814,11 @@ _ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detai
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !295
   %.not.i.i.i.i.i.i.i = icmp eq ptr %17, %1
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_0EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i.i", label %"_ZSt6any_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0EbT_S9_T0_.exit"
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_0EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i.i", label %"_ZSt7find_ifIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0ET_S9_S9_T0_.exit.loopexit.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_0EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %18 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction15hasAllowReassocEv(ptr noundef nonnull align 8 dereferenceable(72) %15) #16
-  br i1 %18, label %19, label %"_ZSt6any_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0EbT_S9_T0_.exit"
+  br i1 %18, label %19, label %"_ZSt7find_ifIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0ET_S9_S9_T0_.exit.loopexit.i.i"
 
 19:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_0EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i.i"
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i, i64 8
@@ -21839,12 +21839,16 @@ _ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detai
 _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i.i: ; preds = %.critedge2.i6.i.i.i.i.i.i, %.lr.ph.i4.i.i.i.i.i.i, %19
   %.sroa.04.2.i.i.i.i.i = phi ptr [ %20, %19 ], [ %22, %.critedge2.i6.i.i.i.i.i.i ], [ %.sroa.04.1.i.i.i.i.i, %.lr.ph.i4.i.i.i.i.i.i ]
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.04.2.i.i.i.i.i, %14
-  br i1 %.not.i.i.i.i.i, label %"_ZSt6any_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0EbT_S9_T0_.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !537
+  br i1 %.not.i.i.i.i.i, label %"_ZSt7find_ifIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0ET_S9_S9_T0_.exit.loopexit.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !537
 
-"_ZSt6any_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0EbT_S9_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_0EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i.i", %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i.i, %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit
-  %.sroa.04.0.lcssa.i.i.i.i.i = phi ptr [ %.sroa.0.4.i8.i.i.i.i, %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit ], [ %.sroa.04.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_0EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i.i" ], [ %14, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i.i ], [ %.sroa.04.07.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %23 = icmp ne ptr %14, %.sroa.04.0.lcssa.i.i.i.i.i
-  ret i1 %23
+"_ZSt7find_ifIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0ET_S9_S9_T0_.exit.loopexit.i.i": ; preds = %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_0EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+  %.sroa.04.0.lcssa.i.i.i.ph.i.i = phi ptr [ %.sroa.04.07.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %14, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i.i ], [ %.sroa.04.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_0EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i.i" ]
+  %23 = icmp ne ptr %14, %.sroa.04.0.lcssa.i.i.i.ph.i.i
+  br label %"_ZSt6any_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0EbT_S9_T0_.exit"
+
+"_ZSt6any_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0EbT_S9_T0_.exit": ; preds = %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit, %"_ZSt7find_ifIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0ET_S9_S9_T0_.exit.loopexit.i.i"
+  %.sroa.04.0.lcssa.i.i.i.i.i = phi i1 [ false, %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit ], [ %23, %"_ZSt7find_ifIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_0ET_S9_S9_T0_.exit.loopexit.i.i" ]
+  ret i1 %.sroa.04.0.lcssa.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
@@ -21887,11 +21891,11 @@ _ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detai
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !295
   %18 = icmp eq ptr %17, %1
-  br i1 %18, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_1EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i", label %"_ZSt6all_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1EbT_S9_T0_.exit"
+  br i1 %18, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_1EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i", label %"_ZSt11find_if_notIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1ET_S9_S9_T0_.exit.loopexit.i"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_1EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   %19 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction15hasAllowReassocEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %15) #16
-  br i1 %19, label %20, label %"_ZSt6all_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1EbT_S9_T0_.exit"
+  br i1 %19, label %20, label %"_ZSt11find_if_notIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1ET_S9_S9_T0_.exit.loopexit.i"
 
 20:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_1EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i"
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i, i64 8
@@ -21912,12 +21916,16 @@ _ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detai
 _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i: ; preds = %.critedge2.i6.i.i.i.i.i, %.lr.ph.i4.i.i.i.i.i, %20
   %.sroa.04.2.i.i.i.i = phi ptr [ %21, %20 ], [ %.sroa.04.1.i.i.i.i, %.lr.ph.i4.i.i.i.i.i ], [ %23, %.critedge2.i6.i.i.i.i.i ]
   %.not.i.i.i.i = icmp eq ptr %.sroa.04.2.i.i.i.i, %14
-  br i1 %.not.i.i.i.i, label %"_ZSt6all_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1EbT_S9_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !538
+  br i1 %.not.i.i.i.i, label %"_ZSt11find_if_notIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1ET_S9_S9_T0_.exit.loopexit.i", label %.lr.ph.i.i.i.i, !llvm.loop !538
 
-"_ZSt6all_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1EbT_S9_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_1EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i", %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i, %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit
-  %.sroa.04.0.lcssa.i.i.i.i = phi ptr [ %.sroa.0.4.i8.i.i.i.i, %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit ], [ %.sroa.04.07.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i ], [ %.sroa.04.07.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_1EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i" ]
-  %24 = icmp eq ptr %14, %.sroa.04.0.lcssa.i.i.i.i
-  ret i1 %24
+"_ZSt11find_if_notIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1ET_S9_S9_T0_.exit.loopexit.i": ; preds = %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_1EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i", %.lr.ph.i.i.i.i
+  %.sroa.04.0.lcssa.i.i.i.ph.i = phi ptr [ %.sroa.04.07.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i ], [ %.sroa.04.07.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZL21isFSqrtDivToFMulLegalPN4llvm11InstructionERNS2_15SmallPtrSetImplIS4_EES7_E3$_1EclINS2_19SmallPtrSetIteratorIS4_EEEEbT_.exit.i.i.i.i" ]
+  %24 = icmp eq ptr %14, %.sroa.04.0.lcssa.i.i.i.ph.i
+  br label %"_ZSt6all_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1EbT_S9_T0_.exit"
+
+"_ZSt6all_ofIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1EbT_S9_T0_.exit": ; preds = %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit, %"_ZSt11find_if_notIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1ET_S9_S9_T0_.exit.loopexit.i"
+  %.sroa.04.0.lcssa.i.i.i.i = phi i1 [ true, %_ZN4llvm9adl_beginIRNS_15SmallPtrSetImplIPNS_11InstructionEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS6_.exit ], [ %24, %"_ZSt11find_if_notIN4llvm19SmallPtrSetIteratorIPNS0_11InstructionEEEZL21isFSqrtDivToFMulLegalS3_RNS0_15SmallPtrSetImplIS3_EES7_E3$_1ET_S9_S9_T0_.exit.loopexit.i" ]
+  ret i1 %.sroa.04.0.lcssa.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

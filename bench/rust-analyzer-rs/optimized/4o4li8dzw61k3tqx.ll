@@ -1793,12 +1793,12 @@ switch.lookup:
   %switch.masked4 = trunc i24 %switch.downshift3 to i8
   %7 = icmp eq i8 %6, 3
   %8 = icmp eq i8 %6, %switch.masked4
-  %9 = or i1 %7, %8
-  %spec.select.i.i = select i1 %9, i8 %switch.masked, i8 13
+  %.013.i.i.i = or i1 %7, %8
+  %spec.select.i.i = select i1 %.013.i.i.i, i8 %switch.masked, i8 13
   store i8 %spec.select.i.i, ptr %3, align 4, !alias.scope !416, !noalias !425
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %2, ptr %.sroa.41.0..sroa_idx.i.i, align 4, !alias.scope !416, !noalias !425
-  ret i1 %9
+  ret i1 %.013.i.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -20329,13 +20329,13 @@ switch.lookup:
   %switch.masked5 = trunc i24 %switch.downshift4 to i8
   %6 = icmp eq i8 %5, 3
   %7 = icmp eq i8 %5, %switch.masked5
-  %8 = or i1 %6, %7
-  %spec.select = select i1 %8, i8 %switch.masked, i8 13
-  %9 = load ptr, ptr %0, align 8, !nonnull !9, !align !127, !noundef !9
-  store i8 %spec.select, ptr %9, align 4
-  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.013.i = or i1 %6, %7
+  %spec.select = select i1 %.013.i, i8 %switch.masked, i8 13
+  %8 = load ptr, ptr %0, align 8, !nonnull !9, !align !127, !noundef !9
+  store i8 %spec.select, ptr %8, align 4
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %2, ptr %.sroa.41.0..sroa_idx, align 4
-  ret i1 %8
+  ret i1 %.013.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -20645,20 +20645,20 @@ switch.lookup:
   %switch.masked18 = trunc i24 %switch.downshift17 to i8
   %4 = icmp eq i8 %3, 3
   %5 = icmp eq i8 %3, %switch.masked18
-  %6 = or i1 %4, %5
-  br i1 %6, label %7, label %8
+  %.013 = or i1 %4, %5
+  br i1 %.013, label %6, label %7
 
-7:                                                ; preds = %switch.lookup
+6:                                                ; preds = %switch.lookup
   %switch.cast = trunc i32 %1 to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 525313, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %.sroa.3.0..sroa_idx, align 4
-  br label %8
+  br label %7
 
-8:                                                ; preds = %switch.lookup, %7
-  %.sink = phi i8 [ %switch.masked, %7 ], [ 13, %switch.lookup ]
+7:                                                ; preds = %switch.lookup, %6
+  %.sink = phi i8 [ %switch.masked, %6 ], [ 13, %switch.lookup ]
   store i8 %.sink, ptr %0, align 4
   ret void
 }

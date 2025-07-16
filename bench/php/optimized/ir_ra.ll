@@ -270,13 +270,13 @@ define hidden range(i32 0, 2) i32 @ir_compute_live_ranges(ptr noundef %0) local_
   %9 = load i32, ptr %8, align 4, !tbaa !40
   %10 = and i32 %9, 32
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %1609, label %11
+  br i1 %.not, label %1610, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8, !tbaa !39
   %.not336 = icmp eq ptr %13, null
-  br i1 %.not336, label %1609, label %14
+  br i1 %.not336, label %1610, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -3098,7 +3098,7 @@ ir_add_use_pos.exit412:                           ; preds = %ir_add_use_pos.exit
   %1474 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %1475 = load ptr, ptr %1474, align 8, !tbaa !102
   %.not340 = icmp eq ptr %1475, null
-  br i1 %.not340, label %1607, label %.preheader
+  br i1 %.not340, label %1608, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge530
   %1476 = load i32, ptr %49, align 8, !tbaa !48
@@ -3134,10 +3134,10 @@ ir_add_use_pos.exit412:                           ; preds = %ir_add_use_pos.exit
   %1494 = getelementptr inbounds nuw i8, ptr %1486, i64 4
   br label %1495
 
-1495:                                             ; preds = %1583, %.lr.ph.i470
-  %.070.i = phi i32 [ %1492, %.lr.ph.i470 ], [ %1503, %1583 ]
-  %.04869.i = phi i32 [ 0, %.lr.ph.i470 ], [ %.149.i, %1583 ]
-  %.05068.i = phi ptr [ %1493, %.lr.ph.i470 ], [ %.151.i, %1583 ]
+1495:                                             ; preds = %1584, %.lr.ph.i470
+  %.070.i = phi i32 [ %1492, %.lr.ph.i470 ], [ %1503, %1584 ]
+  %.04869.i = phi i32 [ 0, %.lr.ph.i470 ], [ %.149.i, %1584 ]
+  %.05068.i = phi ptr [ %1493, %.lr.ph.i470 ], [ %.151.i, %1584 ]
   %1496 = load ptr, ptr %6, align 8, !tbaa !49
   %1497 = zext i32 %.070.i to i64
   %1498 = getelementptr inbounds nuw i32, ptr %1496, i64 %1497
@@ -3188,7 +3188,7 @@ ir_add_use_pos.exit412:                           ; preds = %ir_add_use_pos.exit
   %1530 = getelementptr inbounds %struct._ir_insn, ptr %.pre.i471, i64 %1529
   %1531 = load i8, ptr %1530, align 8, !tbaa !32
   %1532 = icmp eq i8 %1531, 63
-  br i1 %1532, label %1583, label %1533
+  br i1 %1532, label %1584, label %1533
 
 1533:                                             ; preds = %1528
   %1534 = load ptr, ptr %1479, align 8, !tbaa !104
@@ -3206,7 +3206,7 @@ ir_add_use_pos.exit412:                           ; preds = %ir_add_use_pos.exit
 
 1538:                                             ; preds = %1535
   %.not59.i = icmp eq i32 %.04869.i, 0
-  br i1 %.not59.i, label %1539, label %1564
+  br i1 %.not59.i, label %1539, label %1565
 
 1539:                                             ; preds = %1538
   %1540 = load i32, ptr %1486, align 4, !tbaa !60
@@ -3233,143 +3233,143 @@ ir_add_use_pos.exit412:                           ; preds = %ir_add_use_pos.exit
   %.pre73.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !52
   %.phi.trans.insert74.i = getelementptr inbounds nuw i8, ptr %.05068.i, i64 8
   %.pre75.i = load i32, ptr %.phi.trans.insert74.i, align 8, !tbaa !51
-  %1549 = add i32 %.pre73.i, 1
-  store i32 %1549, ptr %.phi.trans.insert.i, align 8, !tbaa !52
-  %.not.i63.i = icmp ult i32 %.pre73.i, %.pre75.i
-  br i1 %.not.i63.i, label %ir_array_set.exit64.i, label %1550
+  %1549 = icmp ult i32 %.pre73.i, %.pre75.i
+  %1550 = add i32 %.pre73.i, 1
+  store i32 %1550, ptr %.phi.trans.insert.i, align 8, !tbaa !52
+  br i1 %1549, label %ir_array_set.exit64.i, label %1551
 
-1550:                                             ; preds = %1548
-  call void @ir_array_grow(ptr noundef nonnull %.05068.i, i32 noundef %1549) #18
+1551:                                             ; preds = %1548
+  call void @ir_array_grow(ptr noundef nonnull %.05068.i, i32 noundef %1550) #18
   br label %ir_array_set.exit64.i
 
-ir_array_set.exit64.i:                            ; preds = %1550, %1548, %.thread78.i
-  %1551 = phi ptr [ %1546, %.thread78.i ], [ %.phi.trans.insert74.i, %1548 ], [ %.phi.trans.insert74.i, %1550 ]
-  %1552 = phi ptr [ %1547, %.thread78.i ], [ %.phi.trans.insert.i, %1548 ], [ %.phi.trans.insert.i, %1550 ]
-  %.481.i = phi ptr [ %1544, %.thread78.i ], [ %.05068.i, %1548 ], [ %.05068.i, %1550 ]
-  %1553 = phi i32 [ 0, %.thread78.i ], [ %.pre73.i, %1548 ], [ %.pre73.i, %1550 ]
-  %1554 = load ptr, ptr %.481.i, align 8, !tbaa !49
-  %1555 = zext i32 %1553 to i64
-  %1556 = getelementptr inbounds nuw i32, ptr %1554, i64 %1555
-  store i32 %1483, ptr %1556, align 4, !tbaa !34
-  %1557 = load i32, ptr %1552, align 8, !tbaa !52
-  %1558 = add i32 %1557, 1
-  store i32 %1558, ptr %1552, align 8, !tbaa !52
-  %1559 = load i32, ptr %1551, align 8, !tbaa !51
-  %.not.i61.i = icmp ult i32 %1557, %1559
-  br i1 %.not.i61.i, label %ir_array_set.exit62.i, label %1560
+ir_array_set.exit64.i:                            ; preds = %1551, %1548, %.thread78.i
+  %1552 = phi ptr [ %1546, %.thread78.i ], [ %.phi.trans.insert74.i, %1548 ], [ %.phi.trans.insert74.i, %1551 ]
+  %1553 = phi ptr [ %1547, %.thread78.i ], [ %.phi.trans.insert.i, %1548 ], [ %.phi.trans.insert.i, %1551 ]
+  %.481.i = phi ptr [ %1544, %.thread78.i ], [ %.05068.i, %1548 ], [ %.05068.i, %1551 ]
+  %1554 = phi i32 [ 0, %.thread78.i ], [ %.pre73.i, %1548 ], [ %.pre73.i, %1551 ]
+  %1555 = load ptr, ptr %.481.i, align 8, !tbaa !49
+  %1556 = zext i32 %1554 to i64
+  %1557 = getelementptr inbounds nuw i32, ptr %1555, i64 %1556
+  store i32 %1483, ptr %1557, align 4, !tbaa !34
+  %1558 = load i32, ptr %1553, align 8, !tbaa !52
+  %1559 = add i32 %1558, 1
+  store i32 %1559, ptr %1553, align 8, !tbaa !52
+  %1560 = load i32, ptr %1552, align 8, !tbaa !51
+  %.not.i61.i = icmp ult i32 %1558, %1560
+  br i1 %.not.i61.i, label %ir_array_set.exit62.i, label %1561
 
-1560:                                             ; preds = %ir_array_set.exit64.i
-  call void @ir_array_grow(ptr noundef nonnull %.481.i, i32 noundef %1558) #18
+1561:                                             ; preds = %ir_array_set.exit64.i
+  call void @ir_array_grow(ptr noundef nonnull %.481.i, i32 noundef %1559) #18
   %.pre76.i = load ptr, ptr %.481.i, align 8, !tbaa !49
   br label %ir_array_set.exit62.i
 
-ir_array_set.exit62.i:                            ; preds = %1560, %ir_array_set.exit64.i
-  %1561 = phi ptr [ %1554, %ir_array_set.exit64.i ], [ %.pre76.i, %1560 ]
-  %1562 = zext i32 %1557 to i64
-  %1563 = getelementptr inbounds nuw i32, ptr %1561, i64 %1562
-  store i32 0, ptr %1563, align 4, !tbaa !34
-  br label %1564
+ir_array_set.exit62.i:                            ; preds = %1561, %ir_array_set.exit64.i
+  %1562 = phi ptr [ %1555, %ir_array_set.exit64.i ], [ %.pre76.i, %1561 ]
+  %1563 = zext i32 %1558 to i64
+  %1564 = getelementptr inbounds nuw i32, ptr %1562, i64 %1563
+  store i32 0, ptr %1564, align 4, !tbaa !34
+  br label %1565
 
-1564:                                             ; preds = %ir_array_set.exit62.i, %1538
+1565:                                             ; preds = %ir_array_set.exit62.i, %1538
   %.353.i = phi ptr [ %.05068.i, %1538 ], [ %.481.i, %ir_array_set.exit62.i ]
-  %1565 = getelementptr inbounds nuw i8, ptr %.353.i, i64 16
-  %1566 = load i32, ptr %1565, align 8, !tbaa !52
-  %1567 = add i32 %1566, 1
-  store i32 %1567, ptr %1565, align 8, !tbaa !52
-  %1568 = getelementptr inbounds nuw i8, ptr %.353.i, i64 8
-  %1569 = load i32, ptr %1568, align 8, !tbaa !51
-  %.not.i.i472 = icmp ult i32 %1566, %1569
-  br i1 %.not.i.i472, label %1571, label %1570
+  %1566 = getelementptr inbounds nuw i8, ptr %.353.i, i64 16
+  %1567 = load i32, ptr %1566, align 8, !tbaa !52
+  %1568 = add i32 %1567, 1
+  store i32 %1568, ptr %1566, align 8, !tbaa !52
+  %1569 = getelementptr inbounds nuw i8, ptr %.353.i, i64 8
+  %1570 = load i32, ptr %1569, align 8, !tbaa !51
+  %.not.i.i472 = icmp ult i32 %1567, %1570
+  br i1 %.not.i.i472, label %1572, label %1571
 
-1570:                                             ; preds = %1564
-  call void @ir_array_grow(ptr noundef nonnull %.353.i, i32 noundef %1567) #18
-  br label %1571
+1571:                                             ; preds = %1565
+  call void @ir_array_grow(ptr noundef nonnull %.353.i, i32 noundef %1568) #18
+  br label %1572
 
-1571:                                             ; preds = %1570, %1564
-  %1572 = load ptr, ptr %.353.i, align 8, !tbaa !49
-  %1573 = zext i32 %1566 to i64
-  %1574 = getelementptr inbounds nuw i32, ptr %1572, i64 %1573
-  store i32 %.047.i, ptr %1574, align 4, !tbaa !34
-  %1575 = add nsw i32 %.04869.i, 1
-  br label %1583
+1572:                                             ; preds = %1571, %1565
+  %1573 = load ptr, ptr %.353.i, align 8, !tbaa !49
+  %1574 = zext i32 %1567 to i64
+  %1575 = getelementptr inbounds nuw i32, ptr %1573, i64 %1574
+  store i32 %.047.i, ptr %1575, align 4, !tbaa !34
+  %1576 = add nsw i32 %.04869.i, 1
+  br label %1584
 
 .thread.i475:                                     ; preds = %..thread_crit_edge.i, %1533
-  %1576 = phi ptr [ %.pre77.i, %..thread_crit_edge.i ], [ %.pre.i471, %1533 ]
-  %1577 = load ptr, ptr @stderr, align 8, !tbaa !105
-  %1578 = load i32, ptr %1494, align 4, !tbaa !30
-  %1579 = sext i32 %1578 to i64
-  %1580 = getelementptr inbounds %struct._ir_insn, ptr %1576, i64 %1579, i32 1
-  %1581 = load i32, ptr %1580, align 8, !tbaa !32
-  %1582 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1577, ptr noundef nonnull @.str, i32 noundef %1581, i32 noundef %1483, i32 noundef %1578, i32 noundef %.047.i) #19
-  br label %1583
+  %1577 = phi ptr [ %.pre77.i, %..thread_crit_edge.i ], [ %.pre.i471, %1533 ]
+  %1578 = load ptr, ptr @stderr, align 8, !tbaa !105
+  %1579 = load i32, ptr %1494, align 4, !tbaa !30
+  %1580 = sext i32 %1579 to i64
+  %1581 = getelementptr inbounds %struct._ir_insn, ptr %1577, i64 %1580, i32 1
+  %1582 = load i32, ptr %1581, align 8, !tbaa !32
+  %1583 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1578, ptr noundef nonnull @.str, i32 noundef %1582, i32 noundef %1483, i32 noundef %1579, i32 noundef %.047.i) #19
+  br label %1584
 
-1583:                                             ; preds = %.thread.i475, %1571, %1528
-  %.151.i = phi ptr [ %.05068.i, %.thread.i475 ], [ %.353.i, %1571 ], [ %.05068.i, %1528 ]
-  %.149.i = phi i32 [ %.04869.i, %.thread.i475 ], [ %1575, %1571 ], [ %.04869.i, %1528 ]
+1584:                                             ; preds = %.thread.i475, %1572, %1528
+  %.151.i = phi ptr [ %.05068.i, %.thread.i475 ], [ %.353.i, %1572 ], [ %.05068.i, %1528 ]
+  %.149.i = phi i32 [ %.04869.i, %.thread.i475 ], [ %1576, %1572 ], [ %.04869.i, %1528 ]
   %.not.i473 = icmp eq i32 %1503, 0
   br i1 %.not.i473, label %._crit_edge.i474, label %1495
 
-._crit_edge.i474:                                 ; preds = %1583
+._crit_edge.i474:                                 ; preds = %1584
   %.not56.i = icmp eq i32 %.149.i, 0
-  br i1 %.not56.i, label %ir_add_osr_entry_loads.exit, label %1584
+  br i1 %.not56.i, label %ir_add_osr_entry_loads.exit, label %1585
 
-1584:                                             ; preds = %._crit_edge.i474
-  %1585 = load ptr, ptr %1478, align 8, !tbaa !103
-  %1586 = getelementptr inbounds nuw i8, ptr %1585, i64 16
-  %1587 = load i32, ptr %1586, align 8, !tbaa !52
+1585:                                             ; preds = %._crit_edge.i474
+  %1586 = load ptr, ptr %1478, align 8, !tbaa !103
+  %1587 = getelementptr inbounds nuw i8, ptr %1586, i64 16
+  %1588 = load i32, ptr %1587, align 8, !tbaa !52
   %.neg.i = xor i32 %.149.i, -1
-  %1588 = add i32 %1587, %.neg.i
-  %1589 = load ptr, ptr %.151.i, align 8, !tbaa !49
-  %1590 = zext i32 %1588 to i64
-  %1591 = getelementptr inbounds nuw i32, ptr %1589, i64 %1590
-  store i32 %.149.i, ptr %1591, align 4, !tbaa !34
+  %1589 = add i32 %1588, %.neg.i
+  %1590 = load ptr, ptr %.151.i, align 8, !tbaa !49
+  %1591 = zext i32 %1589 to i64
+  %1592 = getelementptr inbounds nuw i32, ptr %1590, i64 %1591
+  store i32 %.149.i, ptr %1592, align 4, !tbaa !34
   br label %ir_add_osr_entry_loads.exit
 
-ir_add_osr_entry_loads.exit:                      ; preds = %1480, %._crit_edge.i474, %1584
-  %1592 = load i32, ptr %49, align 8, !tbaa !48
-  %1593 = zext i32 %1592 to i64
-  %1594 = icmp samesign ult i64 %indvars.iv.next553, %1593
-  br i1 %1594, label %1480, label %._crit_edge533
+ir_add_osr_entry_loads.exit:                      ; preds = %1480, %._crit_edge.i474, %1585
+  %1593 = load i32, ptr %49, align 8, !tbaa !48
+  %1594 = zext i32 %1593 to i64
+  %1595 = icmp samesign ult i64 %indvars.iv.next553, %1594
+  br i1 %1595, label %1480, label %._crit_edge533
 
 ._crit_edge533:                                   ; preds = %ir_add_osr_entry_loads.exit, %.preheader
-  %1595 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %1596 = load ptr, ptr %1595, align 8, !tbaa !103
-  %.not341 = icmp eq ptr %1596, null
-  br i1 %.not341, label %1607, label %1597
+  %1596 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %1597 = load ptr, ptr %1596, align 8, !tbaa !103
+  %.not341 = icmp eq ptr %1597, null
+  br i1 %.not341, label %1608, label %1598
 
-1597:                                             ; preds = %._crit_edge533
-  %1598 = getelementptr inbounds nuw i8, ptr %1596, i64 16
-  %1599 = load i32, ptr %1598, align 8, !tbaa !52
-  %1600 = add i32 %1599, 1
-  store i32 %1600, ptr %1598, align 8, !tbaa !52
-  %1601 = getelementptr inbounds nuw i8, ptr %1596, i64 8
-  %1602 = load i32, ptr %1601, align 8, !tbaa !51
-  %.not.i384 = icmp ult i32 %1599, %1602
-  br i1 %.not.i384, label %ir_array_set.exit, label %1603
+1598:                                             ; preds = %._crit_edge533
+  %1599 = getelementptr inbounds nuw i8, ptr %1597, i64 16
+  %1600 = load i32, ptr %1599, align 8, !tbaa !52
+  %1601 = add i32 %1600, 1
+  store i32 %1601, ptr %1599, align 8, !tbaa !52
+  %1602 = getelementptr inbounds nuw i8, ptr %1597, i64 8
+  %1603 = load i32, ptr %1602, align 8, !tbaa !51
+  %.not.i384 = icmp ult i32 %1600, %1603
+  br i1 %.not.i384, label %ir_array_set.exit, label %1604
 
-1603:                                             ; preds = %1597
-  call void @ir_array_grow(ptr noundef nonnull %1596, i32 noundef %1600) #18
+1604:                                             ; preds = %1598
+  call void @ir_array_grow(ptr noundef nonnull %1597, i32 noundef %1601) #18
   br label %ir_array_set.exit
 
-ir_array_set.exit:                                ; preds = %1597, %1603
-  %1604 = load ptr, ptr %1596, align 8, !tbaa !49
-  %1605 = zext i32 %1599 to i64
-  %1606 = getelementptr inbounds nuw i32, ptr %1604, i64 %1605
-  store i32 0, ptr %1606, align 4, !tbaa !34
-  br label %1607
+ir_array_set.exit:                                ; preds = %1598, %1604
+  %1605 = load ptr, ptr %1597, align 8, !tbaa !49
+  %1606 = zext i32 %1600 to i64
+  %1607 = getelementptr inbounds nuw i32, ptr %1605, i64 %1606
+  store i32 0, ptr %1607, align 4, !tbaa !34
+  br label %1608
 
-1607:                                             ; preds = %._crit_edge533, %ir_array_set.exit, %._crit_edge530
-  %1608 = load ptr, ptr %6, align 8, !tbaa !49
-  call void @_efree(ptr noundef %1608) #18
+1608:                                             ; preds = %._crit_edge533, %ir_array_set.exit, %._crit_edge530
+  %1609 = load ptr, ptr %6, align 8, !tbaa !49
+  call void @_efree(ptr noundef %1609) #18
   store ptr null, ptr %6, align 8, !tbaa !49
   store i32 0, ptr %55, align 8, !tbaa !51
   store i32 0, ptr %56, align 8, !tbaa !52
   call void @_efree(ptr noundef %53) #18
   call void @_efree(ptr noundef %325) #18
-  br label %1609
+  br label %1610
 
-1609:                                             ; preds = %1, %11, %1607
-  %.0 = phi i32 [ 1, %1607 ], [ 0, %11 ], [ 0, %1 ]
+1610:                                             ; preds = %1, %11, %1608
+  %.0 = phi i32 [ 1, %1608 ], [ 0, %11 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
   ret i32 %.0
 }

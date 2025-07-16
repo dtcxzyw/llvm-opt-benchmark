@@ -333,7 +333,7 @@ _Z6inRectiiiib.exit:                              ; preds = %23, %37, %40, %42
 
 ._crit_edge.i:                                    ; preds = %54
   %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br label %62
+  br label %63
 
 56:                                               ; preds = %54, %.thread.i
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
@@ -347,28 +347,28 @@ _Z6inRectiiiib.exit:                              ; preds = %23, %37, %40, %42
   %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %60 = trunc i8 %59 to i1
   %.pre12.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br i1 %60, label %61, label %62
+  br i1 %60, label %61, label %63
 
 61:                                               ; preds = %58
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
-  br label %62
+  %62 = icmp eq i32 %29, 0
+  br label %63
 
-62:                                               ; preds = %61, %58, %._crit_edge.i
-  %63 = phi i32 [ 0, %61 ], [ %29, %58 ], [ %46, %._crit_edge.i ]
-  %64 = phi i32 [ %.pre12.i, %61 ], [ %.pre12.i, %58 ], [ %.pre.i, %._crit_edge.i ]
-  %65 = icmp eq i32 %64, %29
-  br i1 %65, label %66, label %_ZL11buttonLogicjb.exit
+63:                                               ; preds = %61, %58, %._crit_edge.i
+  %64 = phi i1 [ %62, %61 ], [ true, %58 ], [ false, %._crit_edge.i ]
+  %65 = phi i32 [ %.pre12.i, %61 ], [ %.pre12.i, %58 ], [ %.pre.i, %._crit_edge.i ]
+  %66 = icmp eq i32 %65, %29
+  br i1 %66, label %67, label %_ZL11buttonLogicjb.exit
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
-_ZL11buttonLogicjb.exit:                          ; preds = %62, %66
-  %67 = icmp eq i32 %63, %29
-  br i1 %67, label %68, label %91
+_ZL11buttonLogicjb.exit:                          ; preds = %63, %67
+  br i1 %64, label %68, label %91
 
 68:                                               ; preds = %_ZL11buttonLogicjb.exit
   %.neg70 = add i32 %15, 1
@@ -448,7 +448,7 @@ _ZL11buttonLogicjb.exit:                          ; preds = %62, %66
 _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %91, %94
   %112 = phi i32 [ %10, %91 ], [ %96, %94 ]
   %113 = icmp ugt i32 %112, 4999
-  br i1 %67, label %114, label %115
+  br i1 %64, label %114, label %115
 
 114:                                              ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit
   br i1 %113, label %_ZL20addGfxCmdRoundedRectfffffj.exit67, label %_ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split
@@ -457,7 +457,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %91, %94
   br i1 %113, label %_ZL20addGfxCmdRoundedRectfffffj.exit67, label %116
 
 116:                                              ; preds = %115
-  %spec.select = select i1 %65, i32 1610663167, i32 1090519039
+  %spec.select = select i1 %66, i32 1610663167, i32 1090519039
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split
 
 _ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split: ; preds = %114, %116
@@ -581,7 +581,7 @@ _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
 
 ._crit_edge.i:                                    ; preds = %30
   %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br label %39
+  br label %41
 
 32:                                               ; preds = %30, %.thread.i
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
@@ -595,7 +595,7 @@ _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
   %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %36 = trunc i8 %35 to i1
   %.pre12.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br i1 %36, label %37, label %39
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = icmp eq i32 %.pre12.i, %7
@@ -603,39 +603,39 @@ _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
-  br label %39
+  %39 = icmp eq i32 %7, 0
+  %40 = select i1 %39, i32 -998211456, i32 1619034240
+  br label %41
 
-39:                                               ; preds = %37, %34, %._crit_edge.i
-  %40 = phi i32 [ 0, %37 ], [ %7, %34 ], [ %22, %._crit_edge.i ]
-  %41 = phi i32 [ %.pre12.i, %37 ], [ %.pre12.i, %34 ], [ %.pre.i, %._crit_edge.i ]
+41:                                               ; preds = %37, %34, %._crit_edge.i
+  %42 = phi i32 [ %40, %37 ], [ -998211456, %34 ], [ 1619034240, %._crit_edge.i ]
+  %43 = phi i32 [ %.pre12.i, %37 ], [ %.pre12.i, %34 ], [ %.pre.i, %._crit_edge.i ]
   %.0.i = phi i1 [ %38, %37 ], [ false, %34 ], [ false, %._crit_edge.i ]
-  %42 = icmp eq i32 %41, %7
-  br i1 %42, label %43, label %_ZL11buttonLogicjb.exit
+  %44 = icmp eq i32 %43, %7
+  br i1 %44, label %45, label %_ZL11buttonLogicjb.exit
 
-43:                                               ; preds = %39
+45:                                               ; preds = %41
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
-_ZL11buttonLogicjb.exit:                          ; preds = %39, %43
-  %44 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %45 = icmp ugt i32 %44, 4999
-  br i1 %45, label %_ZL20addGfxCmdRoundedRectfffffj.exit, label %46
+_ZL11buttonLogicjb.exit:                          ; preds = %41, %45
+  %46 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %47 = icmp ugt i32 %46, 4999
+  br i1 %47, label %_ZL20addGfxCmdRoundedRectfffffj.exit, label %48
 
-46:                                               ; preds = %_ZL11buttonLogicjb.exit
-  %47 = icmp eq i32 %40, %7
-  %48 = select i1 %47, i32 -998211456, i32 1619034240
+48:                                               ; preds = %_ZL11buttonLogicjb.exit
   %49 = sitofp i32 %11 to float
   %50 = sitofp i32 %10 to float
   %51 = sitofp i32 %8 to float
-  %52 = add nuw nsw i32 %44, 1
+  %52 = add nuw nsw i32 %46, 1
   store i32 %52, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %53 = zext nneg i32 %44 to i64
+  %53 = zext nneg i32 %46 to i64
   %54 = getelementptr inbounds nuw [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %53
   store i8 0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store i8 0, ptr %55, align 1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  store i32 %48, ptr %56, align 4
+  store i32 %42, ptr %56, align 4
   %57 = fmul float %51, 8.000000e+00
   %58 = fptosi float %57 to i16
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -654,8 +654,8 @@ _ZL11buttonLogicjb.exit:                          ; preds = %39, %43
   store i16 72, ptr %67, align 8
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit
 
-_ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.exit, %46
-  %68 = phi i32 [ %44, %_ZL11buttonLogicjb.exit ], [ %52, %46 ]
+_ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.exit, %48
+  %68 = phi i32 [ %46, %_ZL11buttonLogicjb.exit ], [ %52, %48 ]
   %69 = icmp ugt i32 %68, 4999
   br i1 %1, label %70, label %90
 
@@ -663,7 +663,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   br i1 %69, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %71
 
 71:                                               ; preds = %70
-  %spec.select24 = select i1 %42, i32 -16726785, i32 -922746881
+  %spec.select24 = select i1 %44, i32 -16726785, i32 -922746881
   %72 = add nuw nsw i32 %68, 1
   store i32 %72, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %73 = zext nneg i32 %68 to i64
@@ -811,7 +811,7 @@ _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
 
 ._crit_edge.i:                                    ; preds = %30
   %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br label %39
+  br label %41
 
 32:                                               ; preds = %30, %.thread.i
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
@@ -825,7 +825,7 @@ _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
   %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %36 = trunc i8 %35 to i1
   %.pre12.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br i1 %36, label %37, label %39
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = icmp eq i32 %.pre12.i, %7
@@ -833,36 +833,36 @@ _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
-  br label %39
+  %39 = icmp eq i32 %7, 0
+  %40 = select i1 %39, i32 -1006582529, i32 1610663167
+  br label %41
 
-39:                                               ; preds = %37, %34, %._crit_edge.i
-  %40 = phi i32 [ 0, %37 ], [ %7, %34 ], [ %22, %._crit_edge.i ]
-  %41 = phi i32 [ %.pre12.i, %37 ], [ %.pre12.i, %34 ], [ %.pre.i, %._crit_edge.i ]
+41:                                               ; preds = %37, %34, %._crit_edge.i
+  %42 = phi i32 [ %40, %37 ], [ -1006582529, %34 ], [ 1610663167, %._crit_edge.i ]
+  %43 = phi i32 [ %.pre12.i, %37 ], [ %.pre12.i, %34 ], [ %.pre.i, %._crit_edge.i ]
   %.0.i = phi i1 [ %38, %37 ], [ false, %34 ], [ false, %._crit_edge.i ]
-  %42 = icmp eq i32 %41, %7
-  br i1 %42, label %43, label %_ZL20addGfxCmdRoundedRectfffffj.exit
+  %44 = icmp eq i32 %43, %7
+  br i1 %44, label %45, label %_ZL20addGfxCmdRoundedRectfffffj.exit
 
-43:                                               ; preds = %39
+45:                                               ; preds = %41
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
-  %44 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %45 = icmp ugt i32 %44, 4999
-  br i1 %45, label %_ZL20addGfxCmdRoundedRectfffffj.exit, label %46
+  %46 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %47 = icmp ugt i32 %46, 4999
+  br i1 %47, label %_ZL20addGfxCmdRoundedRectfffffj.exit, label %48
 
-46:                                               ; preds = %43
-  %47 = icmp eq i32 %40, %7
-  %48 = select i1 %47, i32 -1006582529, i32 1610663167
+48:                                               ; preds = %45
   %49 = sitofp i32 %11 to float
   %50 = sitofp i32 %10 to float
   %51 = sitofp i32 %8 to float
-  %52 = add nuw nsw i32 %44, 1
+  %52 = add nuw nsw i32 %46, 1
   store i32 %52, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %53 = zext nneg i32 %44 to i64
+  %53 = zext nneg i32 %46 to i64
   %54 = getelementptr inbounds nuw [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %53
   store i8 0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store i8 0, ptr %55, align 1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  store i32 %48, ptr %56, align 4
+  store i32 %42, ptr %56, align 4
   %57 = fmul float %51, 8.000000e+00
   %58 = fptosi float %57 to i16
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -881,7 +881,7 @@ _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
   store i16 16, ptr %67, align 8
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit
 
-_ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %39, %46, %43
+_ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %41, %48, %45
   %68 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %69 = icmp ugt i32 %68, 4999
   br i1 %1, label %70, label %90
@@ -1039,7 +1039,7 @@ _Z6inRectiiiib.exit:                              ; preds = %20, %17, %13, %3
 
 ._crit_edge.i:                                    ; preds = %32
   %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br label %41
+  br label %42
 
 34:                                               ; preds = %32, %.thread.i
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
@@ -1053,7 +1053,7 @@ _Z6inRectiiiib.exit:                              ; preds = %20, %17, %13, %3
   %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %38 = trunc i8 %37 to i1
   %.pre12.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br i1 %38, label %39, label %41
+  br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
   %40 = icmp eq i32 %.pre12.i, %8
@@ -1061,33 +1061,33 @@ _Z6inRectiiiib.exit:                              ; preds = %20, %17, %13, %3
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
-  br label %41
+  %41 = icmp eq i32 %8, 0
+  br label %42
 
-41:                                               ; preds = %39, %36, %._crit_edge.i
-  %42 = phi i32 [ 0, %39 ], [ %8, %36 ], [ %24, %._crit_edge.i ]
-  %43 = phi i32 [ %.pre12.i, %39 ], [ %.pre12.i, %36 ], [ %.pre.i, %._crit_edge.i ]
+42:                                               ; preds = %39, %36, %._crit_edge.i
+  %43 = phi i1 [ %41, %39 ], [ true, %36 ], [ false, %._crit_edge.i ]
+  %44 = phi i32 [ %.pre12.i, %39 ], [ %.pre12.i, %36 ], [ %.pre.i, %._crit_edge.i ]
   %.0.i = phi i1 [ %40, %39 ], [ false, %36 ], [ false, %._crit_edge.i ]
-  %44 = icmp eq i32 %43, %8
-  br i1 %44, label %45, label %_ZL11buttonLogicjb.exit
+  %45 = icmp eq i32 %44, %8
+  br i1 %45, label %46, label %_ZL11buttonLogicjb.exit
 
-45:                                               ; preds = %41
+46:                                               ; preds = %42
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
-_ZL11buttonLogicjb.exit:                          ; preds = %41, %45
-  %46 = add nsw i32 %9, 6
-  %47 = add nsw i32 %10, -14
-  %48 = sitofp i32 %46 to float
+_ZL11buttonLogicjb.exit:                          ; preds = %42, %46
+  %47 = add nsw i32 %9, 6
+  %48 = add nsw i32 %10, -14
   %49 = sitofp i32 %47 to float
-  %50 = icmp eq i32 %42, %8
+  %50 = sitofp i32 %48 to float
   %51 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %52 = icmp ugt i32 %51, 4999
   br i1 %52, label %_ZL20addGfxCmdRoundedRectfffffj.exit, label %53
 
 53:                                               ; preds = %_ZL11buttonLogicjb.exit
-  %54 = select i1 %50, i32 -998211456, i32 1619034240
-  %55 = fadd float %49, -3.000000e+00
-  %56 = fadd float %48, -3.000000e+00
+  %54 = select i1 %43, i32 -998211456, i32 1619034240
+  %55 = fadd float %50, -3.000000e+00
+  %56 = fadd float %49, -3.000000e+00
   %57 = add nuw nsw i32 %51, 1
   store i32 %57, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %58 = zext nneg i32 %51 to i64
@@ -1125,7 +1125,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   br i1 %73, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %75
 
 75:                                               ; preds = %74
-  %76 = select i1 %50, i32 -1, i32 -922746881
+  %76 = select i1 %43, i32 -1, i32 -922746881
   %77 = add nuw nsw i32 %71, 1
   store i32 %77, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %78 = zext nneg i32 %71 to i64
@@ -1135,11 +1135,11 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   store i8 0, ptr %80, align 1
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 %76, ptr %81, align 4
-  %82 = fmul float %48, 8.000000e+00
+  %82 = fmul float %49, 8.000000e+00
   %83 = fptosi float %82 to i16
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i16 %83, ptr %84, align 8
-  %85 = fmul float %49, 8.000000e+00
+  %85 = fmul float %50, 8.000000e+00
   %86 = fptosi float %85 to i16
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 10
   store i16 %86, ptr %87, align 2
@@ -1164,11 +1164,11 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   store i8 0, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 -931102592, ptr %97, align 4
-  %98 = fmul float %48, 8.000000e+00
+  %98 = fmul float %49, 8.000000e+00
   %99 = fptosi float %98 to i16
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i16 %99, ptr %100, align 8
-  %101 = fmul float %49, 8.000000e+00
+  %101 = fmul float %50, 8.000000e+00
   %102 = fptosi float %101 to i16
   %103 = getelementptr inbounds nuw i8, ptr %95, i64 10
   store i16 %102, ptr %103, align 2
@@ -1189,7 +1189,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit27.thread:    ; preds = %75, %_ZL20addGfxCmd
   br i1 %108, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %109
 
 109:                                              ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit27.thread
-  %spec.select34 = select i1 %44, i32 -16726785, i32 -922746881
+  %spec.select34 = select i1 %45, i32 -16726785, i32 -922746881
   %110 = add nuw nsw i32 %107, 1
   store i32 %110, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %111 = zext nneg i32 %107 to i64
@@ -1203,7 +1203,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit27.thread:    ; preds = %75, %_ZL20addGfxCmd
   %116 = add i16 %115, 20
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i16 %116, ptr %117, align 8
-  %118 = trunc i32 %47 to i16
+  %118 = trunc i32 %48 to i16
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 10
   store i16 %118, ptr %119, align 2
   %120 = getelementptr inbounds nuw i8, ptr %112, i64 12
@@ -1235,7 +1235,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit27.thread33:  ; preds = %92, %_ZL20addGfxCmd
   %135 = add i16 %134, 20
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i16 %135, ptr %136, align 8
-  %137 = trunc i32 %47 to i16
+  %137 = trunc i32 %48 to i16
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 10
   store i16 %137, ptr %138, align 2
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 12
@@ -1338,7 +1338,7 @@ _Z6inRectiiiib.exit:                              ; preds = %21, %18, %4
 
 ._crit_edge.i:                                    ; preds = %33
   %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br label %42
+  br label %44
 
 35:                                               ; preds = %33, %.thread.i
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
@@ -1352,7 +1352,7 @@ _Z6inRectiiiib.exit:                              ; preds = %21, %18, %4
   %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %39 = trunc i8 %38 to i1
   %.pre12.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br i1 %39, label %40, label %42
+  br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
   %41 = icmp eq i32 %.pre12.i, %9
@@ -1360,37 +1360,37 @@ _Z6inRectiiiib.exit:                              ; preds = %21, %18, %4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
-  br label %42
+  %42 = icmp eq i32 %9, 0
+  %43 = select i1 %42, i32 -1, i32 -922746881
+  br label %44
 
-42:                                               ; preds = %40, %37, %._crit_edge.i
-  %43 = phi i32 [ 0, %40 ], [ %9, %37 ], [ %25, %._crit_edge.i ]
-  %44 = phi i32 [ %.pre12.i, %40 ], [ %.pre12.i, %37 ], [ %.pre.i, %._crit_edge.i ]
+44:                                               ; preds = %40, %37, %._crit_edge.i
+  %45 = phi i32 [ %43, %40 ], [ -1, %37 ], [ -922746881, %._crit_edge.i ]
+  %46 = phi i32 [ %.pre12.i, %40 ], [ %.pre12.i, %37 ], [ %.pre.i, %._crit_edge.i ]
   %.0.i = phi i1 [ %41, %40 ], [ false, %37 ], [ false, %._crit_edge.i ]
-  %45 = icmp eq i32 %44, %9
-  br i1 %45, label %46, label %_ZL11buttonLogicjb.exit
+  %47 = icmp eq i32 %46, %9
+  br i1 %47, label %48, label %_ZL11buttonLogicjb.exit
 
-46:                                               ; preds = %42
+48:                                               ; preds = %44
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
-_ZL11buttonLogicjb.exit:                          ; preds = %42, %46
-  %47 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %48 = icmp ugt i32 %47, 4999
-  br i1 %48, label %_ZL17addGfxCmdTriangleiiiiij.exit, label %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split
+_ZL11buttonLogicjb.exit:                          ; preds = %44, %48
+  %49 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %50 = icmp ugt i32 %49, 4999
+  br i1 %50, label %_ZL17addGfxCmdTriangleiiiiij.exit, label %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split
 
 _ZL17addGfxCmdTriangleiiiiij.exit.sink.split:     ; preds = %_ZL11buttonLogicjb.exit
   %. = select i1 %2, i8 2, i8 1
-  %49 = icmp eq i32 %43, %9
-  %50 = select i1 %49, i32 -1, i32 -922746881
-  %51 = add nuw nsw i32 %47, 1
+  %51 = add nuw nsw i32 %49, 1
   store i32 %51, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %52 = zext nneg i32 %47 to i64
+  %52 = zext nneg i32 %49 to i64
   %53 = getelementptr inbounds nuw [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %52
   store i8 1, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store i8 %., ptr %54, align 1
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 %50, ptr %55, align 4
+  store i32 %45, ptr %55, align 4
   %56 = sitofp i32 %14 to float
   %57 = fmul float %56, 8.000000e+00
   %58 = fptosi float %57 to i16
@@ -1408,7 +1408,7 @@ _ZL17addGfxCmdTriangleiiiiij.exit.sink.split:     ; preds = %_ZL11buttonLogicjb.
   br label %_ZL17addGfxCmdTriangleiiiiij.exit
 
 _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.exit, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split
-  %66 = phi i32 [ %51, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split ], [ %47, %_ZL11buttonLogicjb.exit ]
+  %66 = phi i32 [ %51, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split ], [ %49, %_ZL11buttonLogicjb.exit ]
   %67 = icmp ugt i32 %66, 4999
   br i1 %3, label %68, label %87
 
@@ -1416,7 +1416,7 @@ _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.
   br i1 %67, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %69
 
 69:                                               ; preds = %68
-  %spec.select37 = select i1 %45, i32 -16726785, i32 -922746881
+  %spec.select37 = select i1 %47, i32 -16726785, i32 -922746881
   %70 = add nuw nsw i32 %66, 1
   store i32 %70, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %71 = zext nneg i32 %66 to i64
@@ -1474,23 +1474,23 @@ _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.
   br i1 %105, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %88, %69
-  %.sink61 = phi i32 [ %84, %69 ], [ %103, %88 ]
-  %.sink59 = phi i32 [ %83, %69 ], [ %102, %88 ]
-  %.sink = phi i32 [ %85, %69 ], [ %104, %88 ]
-  %.sink55.ph = phi ptr [ %72, %69 ], [ %91, %88 ]
+  %.sink60 = phi i32 [ %84, %69 ], [ %103, %88 ]
+  %.sink58 = phi i32 [ %83, %69 ], [ %102, %88 ]
+  %.sink55 = phi i32 [ %85, %69 ], [ %104, %88 ]
+  %.sink53.ph = phi ptr [ %72, %69 ], [ %91, %88 ]
   %.ph.ph = phi i32 [ %70, %69 ], [ %89, %88 ]
-  %106 = zext i32 %.sink61 to i64
+  %106 = zext i32 %.sink60 to i64
   %107 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %106
-  %108 = zext i32 %.sink59 to i64
+  %108 = zext i32 %.sink58 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull readonly align 1 %0, i64 %108, i1 false)
-  store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
+  store i32 %.sink55, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
 _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %88, %69
-  %.sink55 = phi ptr [ %72, %69 ], [ %91, %88 ], [ %.sink55.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %.sink53 = phi ptr [ %72, %69 ], [ %91, %88 ], [ %.sink53.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
   %.0.i.i31.sink = phi ptr [ null, %69 ], [ null, %88 ], [ %107, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
   %.ph = phi i32 [ %70, %69 ], [ %89, %88 ], [ %.ph.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %109 = getelementptr inbounds nuw i8, ptr %.sink55, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.sink53, i64 16
   store ptr %.0.i.i31.sink, ptr %109, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -1498,8 +1498,8 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
   %110 = phi i32 [ %66, %87 ], [ %66, %68 ], [ %.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split ]
   %.not = icmp eq ptr %1, null
   %111 = icmp ugt i32 %110, 4999
-  %or.cond56 = select i1 %.not, i1 true, i1 %111
-  br i1 %or.cond56, label %_ZL13addGfxCmdTextiiiPKcj.exit35, label %112
+  %or.cond54 = select i1 %.not, i1 true, i1 %111
+  br i1 %or.cond54, label %_ZL13addGfxCmdTextiiiPKcj.exit35, label %112
 
 112:                                              ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit
   %113 = add nsw i32 %13, %10
@@ -1778,7 +1778,7 @@ _Z6inRectiiiib.exit:                              ; preds = %58, %54, %_ZL20addG
 
 ._crit_edge.i:                                    ; preds = %70
   %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br label %79
+  br label %80
 
 72:                                               ; preds = %70, %.thread.i
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
@@ -1792,7 +1792,7 @@ _Z6inRectiiiib.exit:                              ; preds = %58, %54, %_ZL20addG
   %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %76 = trunc i8 %75 to i1
   %.pre12.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
-  br i1 %76, label %77, label %79
+  br i1 %76, label %77, label %80
 
 77:                                               ; preds = %74
   %78 = icmp eq i32 %.pre12.i, %13
@@ -1800,22 +1800,22 @@ _Z6inRectiiiib.exit:                              ; preds = %58, %54, %_ZL20addG
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
-  br label %79
+  %79 = icmp eq i32 %13, 0
+  br label %80
 
-79:                                               ; preds = %77, %74, %._crit_edge.i
-  %80 = phi i32 [ 0, %77 ], [ %13, %74 ], [ %62, %._crit_edge.i ]
-  %81 = phi i32 [ %.pre12.i, %77 ], [ %.pre12.i, %74 ], [ %.pre.i, %._crit_edge.i ]
+80:                                               ; preds = %77, %74, %._crit_edge.i
+  %81 = phi i1 [ %79, %77 ], [ true, %74 ], [ false, %._crit_edge.i ]
+  %82 = phi i32 [ %.pre12.i, %77 ], [ %.pre12.i, %74 ], [ %.pre.i, %._crit_edge.i ]
   %.0.i = phi i1 [ %78, %77 ], [ false, %74 ], [ false, %._crit_edge.i ]
-  %82 = icmp eq i32 %81, %13
-  br i1 %82, label %83, label %_ZL11buttonLogicjb.exit
+  %83 = icmp eq i32 %82, %13
+  br i1 %83, label %84, label %_ZL11buttonLogicjb.exit
 
-83:                                               ; preds = %79
+84:                                               ; preds = %80
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
-_ZL11buttonLogicjb.exit:                          ; preds = %79, %83
-  %84 = icmp eq i32 %80, %13
-  br i1 %84, label %85, label %109
+_ZL11buttonLogicjb.exit:                          ; preds = %80, %84
+  br i1 %81, label %85, label %109
 
 85:                                               ; preds = %_ZL11buttonLogicjb.exit
   %86 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
@@ -1869,7 +1869,7 @@ _ZL11buttonLogicjb.exit:                          ; preds = %79, %83
   br i1 %110, label %_ZL20addGfxCmdRoundedRectfffffj.exit69, label %111
 
 111:                                              ; preds = %109
-  %spec.select85 = select i1 %82, i32 -2147433217, i32 1090519039
+  %spec.select85 = select i1 %83, i32 -2147433217, i32 1090519039
   %112 = add nsw i32 %14, %51
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split
 

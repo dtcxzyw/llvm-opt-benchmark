@@ -912,38 +912,34 @@ _ZN10StateSplit15state_values_doEP12ValueVisitor.exit: ; preds = %_ZN11Instructi
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 4
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %_ZN10StateSplit15state_values_doEP12ValueVisitor.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  br label %17
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %.critedge, label %_ZN10BlockBegin26number_of_exception_statesEv.exit
 
-17:                                               ; preds = %.preheader, %25
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
-  %18 = load ptr, ptr %16, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN10BlockBegin26number_of_exception_statesEv.exit, label %20
+_ZN10BlockBegin26number_of_exception_statesEv.exit: ; preds = %.preheader, %23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
+  %19 = phi ptr [ %28, %23 ], [ %17, %.preheader ]
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv, %21
+  br i1 %22, label %23, label %.critedge
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %18, align 4
-  %22 = sext i32 %21 to i64
-  br label %_ZN10BlockBegin26number_of_exception_statesEv.exit
-
-_ZN10BlockBegin26number_of_exception_statesEv.exit: ; preds = %17, %20
-  %23 = phi i64 [ %22, %20 ], [ 0, %17 ]
-  %24 = icmp slt i64 %indvars.iv, %23
-  br i1 %24, label %25, label %.loopexit
-
-25:                                               ; preds = %_ZN10BlockBegin26number_of_exception_statesEv.exit
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
+23:                                               ; preds = %_ZN10BlockBegin26number_of_exception_statesEv.exit
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  %29 = load ptr, ptr %28, align 8
-  tail call void @_ZN10ValueStack9values_doEP12ValueVisitor(ptr noundef nonnull align 8 dereferenceable(81) %29, ptr noundef %1) #14
+  tail call void @_ZN10ValueStack9values_doEP12ValueVisitor(ptr noundef nonnull align 8 dereferenceable(81) %27, ptr noundef %1) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %17, !llvm.loop !9
+  %28 = load ptr, ptr %16, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.critedge, label %_ZN10BlockBegin26number_of_exception_statesEv.exit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %_ZN10BlockBegin26number_of_exception_statesEv.exit, %_ZN10StateSplit15state_values_doEP12ValueVisitor.exit
+.critedge:                                        ; preds = %_ZN10BlockBegin26number_of_exception_statesEv.exit, %23, %.preheader, %_ZN10StateSplit15state_values_doEP12ValueVisitor.exit
   ret void
 }
 
@@ -1888,162 +1884,157 @@ define hidden void @_ZN10BlockBegin7set_endEP8BlockEnd(ptr noundef nonnull align
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
-  br i1 %5, label %.loopexit, label %6
+  br i1 %5, label %.critedge13, label %6
 
 6:                                                ; preds = %2
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.loopexit14, label %.preheader
+  br i1 %.not, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %6, %_ZN10BlockBegin18remove_predecessorEPS_.exit
-  %7 = phi ptr [ %.pre, %_ZN10BlockBegin18remove_predecessorEPS_.exit ], [ %4, %6 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10BlockBegin18remove_predecessorEPS_.exit ], [ 0, %6 ]
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %9 = load ptr, ptr %8, align 8
-  %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %_ZNK10BlockBegin13number_of_suxEv.exit, label %10
+.preheader:                                       ; preds = %6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %8 = load ptr, ptr %7, align 8
+  %.not.i.i16 = icmp eq ptr %8, null
+  br i1 %.not.i.i16, label %.critedge, label %_ZNK10BlockBegin13number_of_suxEv.exit
 
-10:                                               ; preds = %.preheader
-  %11 = load i32, ptr %9, align 4
-  %12 = sext i32 %11 to i64
-  br label %_ZNK10BlockBegin13number_of_suxEv.exit
+_ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %.preheader, %_ZN10BlockBegin18remove_predecessorEPS_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10BlockBegin18remove_predecessorEPS_.exit ], [ 0, %.preheader ]
+  %9 = phi ptr [ %45, %_ZN10BlockBegin18remove_predecessorEPS_.exit ], [ %8, %.preheader ]
+  %10 = load i32, ptr %9, align 4
+  %11 = sext i32 %10 to i64
+  %12 = icmp slt i64 %indvars.iv, %11
+  br i1 %12, label %13, label %.critedge
 
-_ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %.preheader, %10
-  %13 = phi i64 [ %12, %10 ], [ 0, %.preheader ]
-  %14 = icmp slt i64 %indvars.iv, %13
-  br i1 %14, label %15, label %.loopexit14
-
-15:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
+13:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 160
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.i.lr.ph.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %.lr.ph.i.lr.ph.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit
 
-.lr.ph.i.lr.ph.i:                                 ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 168
+.lr.ph.i.lr.ph.i:                                 ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 168
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, %.lr.ph.i.lr.ph.i
-  %24 = phi i32 [ %21, %.lr.ph.i.lr.ph.i ], [ %43, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ]
-  %25 = load ptr, ptr %23, align 8
-  %wide.trip.count.i.i = zext nneg i32 %24 to i64
-  br label %26
+  %22 = phi i32 [ %19, %.lr.ph.i.lr.ph.i ], [ %41, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ]
+  %23 = load ptr, ptr %21, align 8
+  %wide.trip.count.i.i = zext nneg i32 %22 to i64
+  br label %24
 
-26:                                               ; preds = %30, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %30 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %0
-  br i1 %29, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i, label %30
+24:                                               ; preds = %28, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %28 ]
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, %0
+  br i1 %27, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i, label %28
 
-30:                                               ; preds = %26
+28:                                               ; preds = %24
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, label %26, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, label %24, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i: ; preds = %26
-  %31 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.06.i1.i = add nuw nsw i32 %31, 1
-  %32 = icmp slt i32 %.06.i1.i, %24
-  br i1 %32, label %.lr.ph.i2.i, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i
+_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i: ; preds = %24
+  %29 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i1.i = add nuw nsw i32 %29, 1
+  %30 = icmp slt i32 %.06.i1.i, %22
+  br i1 %30, label %.lr.ph.i2.i, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i
 
 .lr.ph.i2.i:                                      ; preds = %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i
-  %33 = and i64 %indvars.iv.i.i, 4294967295
-  %34 = add nuw nsw i64 %33, 1
-  br label %35
+  %31 = and i64 %indvars.iv.i.i, 4294967295
+  %32 = add nuw nsw i64 %31, 1
+  br label %33
 
-35:                                               ; preds = %35, %.lr.ph.i2.i
-  %indvars.iv10.i.i = phi i64 [ %33, %.lr.ph.i2.i ], [ %indvars.iv.next11.i.i, %35 ]
-  %indvars.iv.i3.i = phi i64 [ %34, %.lr.ph.i2.i ], [ %indvars.iv.next.i4.i, %35 ]
-  %36 = load ptr, ptr %23, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i3.i
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv10.i.i
-  store ptr %38, ptr %39, align 8
+33:                                               ; preds = %33, %.lr.ph.i2.i
+  %indvars.iv10.i.i = phi i64 [ %31, %.lr.ph.i2.i ], [ %indvars.iv.next11.i.i, %33 ]
+  %indvars.iv.i3.i = phi i64 [ %32, %.lr.ph.i2.i ], [ %indvars.iv.next.i4.i, %33 ]
+  %34 = load ptr, ptr %21, align 8
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i3.i
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv10.i.i
+  store ptr %36, ptr %37, align 8
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
-  %40 = load i32, ptr %20, align 8
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next.i4.i, %41
+  %38 = load i32, ptr %18, align 8
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next.i4.i, %39
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
-  br i1 %42, label %35, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, !llvm.loop !12
+  br i1 %40, label %33, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, !llvm.loop !12
 
-_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i: ; preds = %35, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i
-  %.lcssa.i.i = phi i32 [ %24, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i ], [ %40, %35 ]
-  %43 = add nsw i32 %.lcssa.i.i, -1
-  store i32 %43, ptr %20, align 8
-  %44 = icmp sgt i32 %.lcssa.i.i, 1
-  br i1 %44, label %.lr.ph.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, !llvm.loop !13
+_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i: ; preds = %33, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i
+  %.lcssa.i.i = phi i32 [ %22, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i ], [ %38, %33 ]
+  %41 = add nsw i32 %.lcssa.i.i, -1
+  store i32 %41, ptr %18, align 8
+  %42 = icmp sgt i32 %.lcssa.i.i, 1
+  br i1 %42, label %.lr.ph.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, !llvm.loop !13
 
-_ZN10BlockBegin18remove_predecessorEPS_.exit:     ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, %30, %15
+_ZN10BlockBegin18remove_predecessorEPS_.exit:     ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, %28, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.pre = load ptr, ptr %3, align 8
-  br label %.preheader, !llvm.loop !14
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 104
+  %45 = load ptr, ptr %44, align 8
+  %.not.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i, label %.critedge, label %_ZNK10BlockBegin13number_of_suxEv.exit, !llvm.loop !14
 
-.loopexit14:                                      ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit, %6
+.critedge:                                        ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit, %_ZN10BlockBegin18remove_predecessorEPS_.exit, %.preheader, %6
   store ptr %1, ptr %3, align 8
-  br label %45
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %47 = load ptr, ptr %46, align 8
+  %.not.i.i1118 = icmp eq ptr %47, null
+  br i1 %.not.i.i1118, label %.critedge13, label %_ZNK10BlockBegin13number_of_suxEv.exit12
 
-45:                                               ; preds = %_ZN10BlockBegin15add_predecessorEPS_.exit, %.loopexit14
-  %46 = phi ptr [ %.pre22, %_ZN10BlockBegin15add_predecessorEPS_.exit ], [ %1, %.loopexit14 ]
-  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %_ZN10BlockBegin15add_predecessorEPS_.exit ], [ 0, %.loopexit14 ]
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 104
-  %48 = load ptr, ptr %47, align 8
-  %.not.i.i11 = icmp eq ptr %48, null
-  br i1 %.not.i.i11, label %_ZNK10BlockBegin13number_of_suxEv.exit12, label %49
+_ZNK10BlockBegin13number_of_suxEv.exit12:         ; preds = %.critedge, %_ZN10BlockBegin15add_predecessorEPS_.exit
+  %indvars.iv23 = phi i64 [ %indvars.iv.next24, %_ZN10BlockBegin15add_predecessorEPS_.exit ], [ 0, %.critedge ]
+  %48 = phi ptr [ %78, %_ZN10BlockBegin15add_predecessorEPS_.exit ], [ %47, %.critedge ]
+  %49 = load i32, ptr %48, align 4
+  %50 = sext i32 %49 to i64
+  %51 = icmp slt i64 %indvars.iv23, %50
+  br i1 %51, label %52, label %.critedge13
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %48, align 4
-  %51 = sext i32 %50 to i64
-  br label %_ZNK10BlockBegin13number_of_suxEv.exit12
-
-_ZNK10BlockBegin13number_of_suxEv.exit12:         ; preds = %45, %49
-  %52 = phi i64 [ %51, %49 ], [ 0, %45 ]
-  %53 = icmp slt i64 %indvars.iv19, %52
-  br i1 %53, label %54, label %.loopexit
-
-54:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit12
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
+52:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit12
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv23
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv19
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 160
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 164
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp eq i32 %60, %62
-  br i1 %63, label %64, label %_ZN10BlockBegin15add_predecessorEPS_.exit
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 164
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp eq i32 %58, %60
+  br i1 %61, label %62, label %_ZN10BlockBegin15add_predecessorEPS_.exit
 
-64:                                               ; preds = %54
-  %65 = add nsw i32 %60, 1
-  %66 = icmp sgt i32 %60, -1
-  %67 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %65)
-  %68 = icmp samesign ult i32 %67, 2
-  %or.cond.i.i.i.i.i = select i1 %66, i1 %68, i1 false
-  %69 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %65, i1 true)
-  %70 = sub nuw nsw i32 32, %69
-  %71 = shl nuw i32 1, %70
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %65, i32 %71
-  tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %59, i32 noundef %.0.i.i.i.i.i)
-  %.pre.i.i = load i32, ptr %59, align 8
+62:                                               ; preds = %52
+  %63 = add nsw i32 %58, 1
+  %64 = icmp sgt i32 %58, -1
+  %65 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %63)
+  %66 = icmp samesign ult i32 %65, 2
+  %or.cond.i.i.i.i.i = select i1 %64, i1 %66, i1 false
+  %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %63, i1 true)
+  %68 = sub nuw nsw i32 32, %67
+  %69 = shl nuw i32 1, %68
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %63, i32 %69
+  tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %57, align 8
   br label %_ZN10BlockBegin15add_predecessorEPS_.exit
 
-_ZN10BlockBegin15add_predecessorEPS_.exit:        ; preds = %54, %64
-  %72 = phi i32 [ %.pre.i.i, %64 ], [ %60, %54 ]
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %59, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %58, i64 168
-  %75 = load ptr, ptr %74, align 8
-  %76 = sext i32 %72 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
-  store ptr %0, ptr %77, align 8
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %.pre22 = load ptr, ptr %3, align 8
-  br label %45, !llvm.loop !15
+_ZN10BlockBegin15add_predecessorEPS_.exit:        ; preds = %52, %62
+  %70 = phi i32 [ %.pre.i.i, %62 ], [ %58, %52 ]
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %57, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 168
+  %73 = load ptr, ptr %72, align 8
+  %74 = sext i32 %70 to i64
+  %75 = getelementptr inbounds ptr, ptr %73, i64 %74
+  store ptr %0, ptr %75, align 8
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 104
+  %78 = load ptr, ptr %77, align 8
+  %.not.i.i11 = icmp eq ptr %78, null
+  br i1 %.not.i.i11, label %.critedge13, label %_ZNK10BlockBegin13number_of_suxEv.exit12, !llvm.loop !15
 
-.loopexit:                                        ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit12, %2
+.critedge13:                                      ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit12, %_ZN10BlockBegin15add_predecessorEPS_.exit, %.critedge, %2
   ret void
 }
 
@@ -2153,8 +2144,8 @@ define hidden void @_ZN10BlockBegin15disconnect_edgeEPS_S0_(ptr noundef readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %.outer
 
-.outer:                                           ; preds = %57, %2
-  %.0.ph = phi i32 [ %58, %57 ], [ 0, %2 ]
+.outer:                                           ; preds = %55, %2
+  %.0.ph = phi i32 [ %56, %55 ], [ 0, %2 ]
   %4 = zext nneg i32 %.0.ph to i64
   %.06.i.i = add nuw nsw i32 %.0.ph, 1
   %5 = add nuw nsw i64 %4, 1
@@ -2165,342 +2156,341 @@ define hidden void @_ZN10BlockBegin15disconnect_edgeEPS_S0_(ptr noundef readonly
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %_ZNK10BlockBegin13number_of_suxEv.exit, label %10
+  br i1 %.not.i.i, label %.critedge, label %_ZNK10BlockBegin13number_of_suxEv.exit
 
-10:                                               ; preds = %6
-  %11 = load i32, ptr %9, align 4
-  br label %_ZNK10BlockBegin13number_of_suxEv.exit
+_ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %6
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp slt i32 %.0.ph, %10
+  br i1 %11, label %12, label %.critedge
 
-_ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %6, %10
-  %12 = phi i32 [ %11, %10 ], [ 0, %6 ]
-  %13 = icmp slt i32 %.0.ph, %12
-  br i1 %13, label %14, label %59
-
-14:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
+12:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %4
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %4
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, %1
-  br i1 %19, label %20, label %57
+  %17 = icmp eq ptr %16, %1
+  br i1 %17, label %18, label %55
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 160
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph.i, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 160
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph.i, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread
 
-.lr.ph.i:                                         ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 168
-  %25 = load ptr, ptr %24, align 8
-  %wide.trip.count.i = zext nneg i32 %22 to i64
-  br label %26
+.lr.ph.i:                                         ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 168
+  %23 = load ptr, ptr %22, align 8
+  %wide.trip.count.i = zext nneg i32 %20 to i64
+  br label %24
 
-26:                                               ; preds = %30, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %0
-  br i1 %29, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit, label %30
+24:                                               ; preds = %28, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, %0
+  br i1 %27, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit, label %28
 
-30:                                               ; preds = %26
+28:                                               ; preds = %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread, label %26, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread, label %24, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit: ; preds = %26
-  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.06.i11 = add nuw nsw i32 %31, 1
-  %32 = icmp slt i32 %.06.i11, %22
-  br i1 %32, label %.lr.ph.i12, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit
+_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit: ; preds = %24
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %.06.i11 = add nuw nsw i32 %29, 1
+  %30 = icmp slt i32 %.06.i11, %20
+  br i1 %30, label %.lr.ph.i12, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit
 
 .lr.ph.i12:                                       ; preds = %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit
-  %33 = and i64 %indvars.iv.i, 4294967295
-  %34 = add nuw nsw i64 %33, 1
-  br label %35
+  %31 = and i64 %indvars.iv.i, 4294967295
+  %32 = add nuw nsw i64 %31, 1
+  br label %33
 
-35:                                               ; preds = %35, %.lr.ph.i12
-  %indvars.iv10.i = phi i64 [ %33, %.lr.ph.i12 ], [ %indvars.iv.next11.i, %35 ]
-  %indvars.iv.i13 = phi i64 [ %34, %.lr.ph.i12 ], [ %indvars.iv.next.i14, %35 ]
-  %36 = load ptr, ptr %24, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i13
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv10.i
-  store ptr %38, ptr %39, align 8
+33:                                               ; preds = %33, %.lr.ph.i12
+  %indvars.iv10.i = phi i64 [ %31, %.lr.ph.i12 ], [ %indvars.iv.next11.i, %33 ]
+  %indvars.iv.i13 = phi i64 [ %32, %.lr.ph.i12 ], [ %indvars.iv.next.i14, %33 ]
+  %34 = load ptr, ptr %22, align 8
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i13
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv10.i
+  store ptr %36, ptr %37, align 8
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
-  %40 = load i32, ptr %21, align 8
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next.i14, %41
+  %38 = load i32, ptr %19, align 8
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next.i14, %39
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
-  br i1 %42, label %35, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit, !llvm.loop !12
+  br i1 %40, label %33, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit, !llvm.loop !12
 
-_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit: ; preds = %35, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit
-  %.lcssa.i = phi i32 [ %22, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit ], [ %40, %35 ]
-  %43 = add nsw i32 %.lcssa.i, -1
-  store i32 %43, ptr %21, align 8
+_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit: ; preds = %33, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit
+  %.lcssa.i = phi i32 [ %20, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit ], [ %38, %33 ]
+  %41 = add nsw i32 %.lcssa.i, -1
+  store i32 %41, ptr %19, align 8
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 104
   %.pre23 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread
 
-_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread: ; preds = %30, %20, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit
-  %44 = phi ptr [ %9, %20 ], [ %.pre23, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit ], [ %9, %30 ]
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp slt i32 %.06.i.i, %45
-  br i1 %46, label %.lr.ph.i.i, label %_ZN8BlockEnd13remove_sux_atEi.exit
+_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread: ; preds = %28, %18, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit
+  %42 = phi ptr [ %9, %18 ], [ %.pre23, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit ], [ %9, %28 ]
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp slt i32 %.06.i.i, %43
+  br i1 %44, label %.lr.ph.i.i, label %_ZN8BlockEnd13remove_sux_atEi.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  br label %48
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  br label %46
 
-48:                                               ; preds = %48, %.lr.ph.i.i
-  %indvars.iv10.i.i = phi i64 [ %4, %.lr.ph.i.i ], [ %indvars.iv.next11.i.i, %48 ]
-  %indvars.iv.i.i = phi i64 [ %5, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %48 ]
-  %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i.i
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv10.i.i
-  store ptr %51, ptr %52, align 8
+46:                                               ; preds = %46, %.lr.ph.i.i
+  %indvars.iv10.i.i = phi i64 [ %4, %.lr.ph.i.i ], [ %indvars.iv.next11.i.i, %46 ]
+  %indvars.iv.i.i = phi i64 [ %5, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %46 ]
+  %47 = load ptr, ptr %45, align 8
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i.i
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv10.i.i
+  store ptr %49, ptr %50, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %53 = load i32, ptr %44, align 8
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv.next.i.i, %54
+  %51 = load i32, ptr %42, align 8
+  %52 = sext i32 %51 to i64
+  %53 = icmp slt i64 %indvars.iv.next.i.i, %52
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
-  br i1 %55, label %48, label %_ZN8BlockEnd13remove_sux_atEi.exit, !llvm.loop !12
+  br i1 %53, label %46, label %_ZN8BlockEnd13remove_sux_atEi.exit, !llvm.loop !12
 
-_ZN8BlockEnd13remove_sux_atEi.exit:               ; preds = %48, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread
-  %.lcssa.i.i = phi i32 [ %45, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread ], [ %53, %48 ]
-  %56 = add nsw i32 %.lcssa.i.i, -1
-  store i32 %56, ptr %44, align 8
+_ZN8BlockEnd13remove_sux_atEi.exit:               ; preds = %46, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread
+  %.lcssa.i.i = phi i32 [ %43, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.thread ], [ %51, %46 ]
+  %54 = add nsw i32 %.lcssa.i.i, -1
+  store i32 %54, ptr %42, align 8
   br label %6, !llvm.loop !16
 
-57:                                               ; preds = %14
-  %58 = add nuw nsw i32 %.0.ph, 1
+55:                                               ; preds = %12
+  %56 = add nuw nsw i32 %.0.ph, 1
   br label %.outer, !llvm.loop !16
 
-59:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit
+.critedge:                                        ; preds = %6, %_ZNK10BlockBegin13number_of_suxEv.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10BlockBegin14substitute_suxEPS_S0_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 164
-  br label %8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %7 = load ptr, ptr %6, align 8
+  %.not.i.i37 = icmp eq ptr %7, null
+  br i1 %.not.i.i37, label %.critedge, label %_ZNK10BlockBegin13number_of_suxEv.exit.lr.ph
 
-8:                                                ; preds = %63, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %3 ]
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %11 = load ptr, ptr %10, align 8
-  %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %_ZNK10BlockBegin13number_of_suxEv.exit, label %12
-
-12:                                               ; preds = %8
-  %13 = load i32, ptr %11, align 4
-  %14 = sext i32 %13 to i64
+_ZNK10BlockBegin13number_of_suxEv.exit.lr.ph:     ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 164
   br label %_ZNK10BlockBegin13number_of_suxEv.exit
 
-_ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %8, %12
-  %15 = phi i64 [ %14, %12 ], [ 0, %8 ]
-  %16 = icmp slt i64 %indvars.iv, %15
-  br i1 %16, label %17, label %64
+_ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit.lr.ph, %62
+  %11 = phi ptr [ %5, %_ZNK10BlockBegin13number_of_suxEv.exit.lr.ph ], [ %63, %62 ]
+  %indvars.iv = phi i64 [ 0, %_ZNK10BlockBegin13number_of_suxEv.exit.lr.ph ], [ %indvars.iv.next, %62 ]
+  %12 = phi ptr [ %7, %_ZNK10BlockBegin13number_of_suxEv.exit.lr.ph ], [ %65, %62 ]
+  %13 = load i32, ptr %12, align 4
+  %14 = sext i32 %13 to i64
+  %15 = icmp slt i64 %indvars.iv, %14
+  br i1 %15, label %16, label %.critedge
 
-17:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %1
-  br i1 %22, label %23, label %63
+16:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, %1
+  br i1 %21, label %22, label %62
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr %5, align 8
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit
+22:                                               ; preds = %16
+  %23 = load i32, ptr %8, align 8
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit
 
-.lr.ph.i.i:                                       ; preds = %23, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i
-  %26 = phi i32 [ %45, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ], [ %24, %23 ]
-  %27 = load ptr, ptr %6, align 8
-  %wide.trip.count.i.i = zext nneg i32 %26 to i64
-  br label %28
+.lr.ph.i.i:                                       ; preds = %22, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i
+  %25 = phi i32 [ %44, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ], [ %23, %22 ]
+  %26 = load ptr, ptr %9, align 8
+  %wide.trip.count.i.i = zext nneg i32 %25 to i64
+  br label %27
 
-28:                                               ; preds = %32, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %1
-  br i1 %31, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i, label %32
+27:                                               ; preds = %31, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i.i
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, %1
+  br i1 %30, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i, label %31
 
-32:                                               ; preds = %28
+31:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, label %28, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, label %27, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i: ; preds = %28
-  %33 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.06.i1.i = add nuw nsw i32 %33, 1
-  %34 = icmp slt i32 %.06.i1.i, %26
-  br i1 %34, label %.lr.ph.i2.i, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i
+_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i: ; preds = %27
+  %32 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %.06.i1.i = add nuw nsw i32 %32, 1
+  %33 = icmp slt i32 %.06.i1.i, %25
+  br i1 %33, label %.lr.ph.i2.i, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i
 
 .lr.ph.i2.i:                                      ; preds = %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i
-  %35 = and i64 %indvars.iv.i.i, 4294967295
-  %36 = add nuw nsw i64 %35, 1
-  br label %37
+  %34 = and i64 %indvars.iv.i.i, 4294967295
+  %35 = add nuw nsw i64 %34, 1
+  br label %36
 
-37:                                               ; preds = %37, %.lr.ph.i2.i
-  %indvars.iv10.i.i = phi i64 [ %35, %.lr.ph.i2.i ], [ %indvars.iv.next11.i.i, %37 ]
-  %indvars.iv.i3.i = phi i64 [ %36, %.lr.ph.i2.i ], [ %indvars.iv.next.i4.i, %37 ]
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i3.i
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv10.i.i
-  store ptr %40, ptr %41, align 8
+36:                                               ; preds = %36, %.lr.ph.i2.i
+  %indvars.iv10.i.i = phi i64 [ %34, %.lr.ph.i2.i ], [ %indvars.iv.next11.i.i, %36 ]
+  %indvars.iv.i3.i = phi i64 [ %35, %.lr.ph.i2.i ], [ %indvars.iv.next.i4.i, %36 ]
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i3.i
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv10.i.i
+  store ptr %39, ptr %40, align 8
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
-  %42 = load i32, ptr %5, align 8
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next.i4.i, %43
+  %41 = load i32, ptr %8, align 8
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next.i4.i, %42
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
-  br i1 %44, label %37, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, !llvm.loop !12
+  br i1 %43, label %36, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, !llvm.loop !12
 
-_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i: ; preds = %37, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i
-  %.lcssa.i.i = phi i32 [ %26, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i ], [ %42, %37 ]
-  %45 = add nsw i32 %.lcssa.i.i, -1
-  store i32 %45, ptr %5, align 8
-  %46 = icmp sgt i32 %.lcssa.i.i, 1
-  br i1 %46, label %.lr.ph.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, !llvm.loop !13
+_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i: ; preds = %36, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i
+  %.lcssa.i.i = phi i32 [ %25, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i ], [ %41, %36 ]
+  %44 = add nsw i32 %.lcssa.i.i, -1
+  store i32 %44, ptr %8, align 8
+  %45 = icmp sgt i32 %.lcssa.i.i, 1
+  br i1 %45, label %.lr.ph.i.i, label %_ZN10BlockBegin18remove_predecessorEPS_.exit, !llvm.loop !13
 
-_ZN10BlockBegin18remove_predecessorEPS_.exit:     ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, %32, %23
-  %47 = phi i32 [ %24, %23 ], [ %26, %32 ], [ %45, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ]
-  %48 = load i32, ptr %7, align 4
-  %49 = icmp eq i32 %47, %48
-  br i1 %49, label %50, label %_ZN10BlockBegin15add_predecessorEPS_.exit
+_ZN10BlockBegin18remove_predecessorEPS_.exit:     ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i, %31, %22
+  %46 = phi i32 [ %23, %22 ], [ %25, %31 ], [ %44, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i ]
+  %47 = load i32, ptr %10, align 4
+  %48 = icmp eq i32 %46, %47
+  br i1 %48, label %49, label %_ZN10BlockBegin15add_predecessorEPS_.exit
 
-50:                                               ; preds = %_ZN10BlockBegin18remove_predecessorEPS_.exit
-  %51 = add nsw i32 %47, 1
-  %52 = icmp sgt i32 %47, -1
-  %53 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %51)
-  %54 = icmp samesign ult i32 %53, 2
-  %or.cond.i.i.i.i.i = select i1 %52, i1 %54, i1 false
-  %55 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %51, i1 true)
-  %56 = sub nuw nsw i32 32, %55
-  %57 = shl nuw i32 1, %56
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %51, i32 %57
-  tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %.0.i.i.i.i.i)
-  %.pre.i.i = load i32, ptr %5, align 8
+49:                                               ; preds = %_ZN10BlockBegin18remove_predecessorEPS_.exit
+  %50 = add nsw i32 %46, 1
+  %51 = icmp sgt i32 %46, -1
+  %52 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %50)
+  %53 = icmp samesign ult i32 %52, 2
+  %or.cond.i.i.i.i.i = select i1 %51, i1 %53, i1 false
+  %54 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
+  %55 = sub nuw nsw i32 32, %54
+  %56 = shl nuw i32 1, %55
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %50, i32 %56
+  tail call void @_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %8, align 8
   br label %_ZN10BlockBegin15add_predecessorEPS_.exit
 
-_ZN10BlockBegin15add_predecessorEPS_.exit:        ; preds = %_ZN10BlockBegin18remove_predecessorEPS_.exit, %50
-  %58 = phi i32 [ %.pre.i.i, %50 ], [ %47, %_ZN10BlockBegin18remove_predecessorEPS_.exit ]
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %5, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = sext i32 %58 to i64
-  %62 = getelementptr inbounds ptr, ptr %60, i64 %61
-  store ptr %0, ptr %62, align 8
-  br label %63
+_ZN10BlockBegin15add_predecessorEPS_.exit:        ; preds = %_ZN10BlockBegin18remove_predecessorEPS_.exit, %49
+  %57 = phi i32 [ %.pre.i.i, %49 ], [ %46, %_ZN10BlockBegin18remove_predecessorEPS_.exit ]
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %8, align 8
+  %59 = load ptr, ptr %9, align 8
+  %60 = sext i32 %57 to i64
+  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  store ptr %0, ptr %61, align 8
+  %.pre = load ptr, ptr %4, align 8
+  br label %62
 
-63:                                               ; preds = %17, %_ZN10BlockBegin15add_predecessorEPS_.exit
+62:                                               ; preds = %16, %_ZN10BlockBegin15add_predecessorEPS_.exit
+  %63 = phi ptr [ %11, %16 ], [ %.pre, %_ZN10BlockBegin15add_predecessorEPS_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %8, !llvm.loop !17
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 104
+  %65 = load ptr, ptr %64, align 8
+  %.not.i.i = icmp eq ptr %65, null
+  br i1 %.not.i.i, label %.critedge, label %_ZNK10BlockBegin13number_of_suxEv.exit, !llvm.loop !17
 
-64:                                               ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph.i.lr.ph.i11, label %_ZN10BlockBegin18remove_predecessorEPS_.exit26
+.critedge:                                        ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit, %62, %3
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %.lr.ph.i.lr.ph.i11, label %_ZN10BlockBegin18remove_predecessorEPS_.exit26
 
-.lr.ph.i.lr.ph.i11:                               ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 168
+.lr.ph.i.lr.ph.i11:                               ; preds = %.critedge
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 168
   br label %.lr.ph.i.i12
 
 .lr.ph.i.i12:                                     ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19, %.lr.ph.i.lr.ph.i11
-  %69 = phi i32 [ %66, %.lr.ph.i.lr.ph.i11 ], [ %88, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19 ]
-  %70 = load ptr, ptr %68, align 8
-  %wide.trip.count.i.i13 = zext nneg i32 %69 to i64
-  br label %71
+  %70 = phi i32 [ %67, %.lr.ph.i.lr.ph.i11 ], [ %89, %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19 ]
+  %71 = load ptr, ptr %69, align 8
+  %wide.trip.count.i.i13 = zext nneg i32 %70 to i64
+  br label %72
 
-71:                                               ; preds = %75, %.lr.ph.i.i12
-  %indvars.iv.i.i14 = phi i64 [ 0, %.lr.ph.i.i12 ], [ %indvars.iv.next.i.i15, %75 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv.i.i14
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, %0
-  br i1 %74, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17, label %75
+72:                                               ; preds = %76, %.lr.ph.i.i12
+  %indvars.iv.i.i14 = phi i64 [ 0, %.lr.ph.i.i12 ], [ %indvars.iv.next.i.i15, %76 ]
+  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv.i.i14
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, %0
+  br i1 %75, label %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17, label %76
 
-75:                                               ; preds = %71
+76:                                               ; preds = %72
   %indvars.iv.next.i.i15 = add nuw nsw i64 %indvars.iv.i.i14, 1
   %exitcond.not.i.i16 = icmp eq i64 %indvars.iv.next.i.i15, %wide.trip.count.i.i13
-  br i1 %exitcond.not.i.i16, label %_ZN10BlockBegin18remove_predecessorEPS_.exit26, label %71, !llvm.loop !11
+  br i1 %exitcond.not.i.i16, label %_ZN10BlockBegin18remove_predecessorEPS_.exit26, label %72, !llvm.loop !11
 
-_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17: ; preds = %71
-  %76 = trunc nuw nsw i64 %indvars.iv.i.i14 to i32
-  %.06.i1.i18 = add nuw nsw i32 %76, 1
-  %77 = icmp slt i32 %.06.i1.i18, %69
-  br i1 %77, label %.lr.ph.i2.i21, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19
+_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17: ; preds = %72
+  %77 = trunc nuw nsw i64 %indvars.iv.i.i14 to i32
+  %.06.i1.i18 = add nuw nsw i32 %77, 1
+  %78 = icmp slt i32 %.06.i1.i18, %70
+  br i1 %78, label %.lr.ph.i2.i21, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19
 
 .lr.ph.i2.i21:                                    ; preds = %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17
-  %78 = and i64 %indvars.iv.i.i14, 4294967295
-  %79 = add nuw nsw i64 %78, 1
-  br label %80
+  %79 = and i64 %indvars.iv.i.i14, 4294967295
+  %80 = add nuw nsw i64 %79, 1
+  br label %81
 
-80:                                               ; preds = %80, %.lr.ph.i2.i21
-  %indvars.iv10.i.i22 = phi i64 [ %78, %.lr.ph.i2.i21 ], [ %indvars.iv.next11.i.i25, %80 ]
-  %indvars.iv.i3.i23 = phi i64 [ %79, %.lr.ph.i2.i21 ], [ %indvars.iv.next.i4.i24, %80 ]
-  %81 = load ptr, ptr %68, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv.i3.i23
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv10.i.i22
-  store ptr %83, ptr %84, align 8
+81:                                               ; preds = %81, %.lr.ph.i2.i21
+  %indvars.iv10.i.i22 = phi i64 [ %79, %.lr.ph.i2.i21 ], [ %indvars.iv.next11.i.i25, %81 ]
+  %indvars.iv.i3.i23 = phi i64 [ %80, %.lr.ph.i2.i21 ], [ %indvars.iv.next.i4.i24, %81 ]
+  %82 = load ptr, ptr %69, align 8
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv.i3.i23
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv10.i.i22
+  store ptr %84, ptr %85, align 8
   %indvars.iv.next.i4.i24 = add nuw nsw i64 %indvars.iv.i3.i23, 1
-  %85 = load i32, ptr %65, align 8
-  %86 = sext i32 %85 to i64
-  %87 = icmp slt i64 %indvars.iv.next.i4.i24, %86
+  %86 = load i32, ptr %66, align 8
+  %87 = sext i32 %86 to i64
+  %88 = icmp slt i64 %indvars.iv.next.i4.i24, %87
   %indvars.iv.next11.i.i25 = add nuw nsw i64 %indvars.iv10.i.i22, 1
-  br i1 %87, label %80, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19, !llvm.loop !12
+  br i1 %88, label %81, label %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19, !llvm.loop !12
 
-_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19: ; preds = %80, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17
-  %.lcssa.i.i20 = phi i32 [ %69, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17 ], [ %85, %80 ]
-  %88 = add nsw i32 %.lcssa.i.i20, -1
-  store i32 %88, ptr %65, align 8
-  %89 = icmp sgt i32 %.lcssa.i.i20, 1
-  br i1 %89, label %.lr.ph.i.i12, label %_ZN10BlockBegin18remove_predecessorEPS_.exit26, !llvm.loop !13
+_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19: ; preds = %81, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17
+  %.lcssa.i.i20 = phi i32 [ %70, %_ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit.i17 ], [ %86, %81 ]
+  %89 = add nsw i32 %.lcssa.i.i20, -1
+  store i32 %89, ptr %66, align 8
+  %90 = icmp sgt i32 %.lcssa.i.i20, 1
+  br i1 %90, label %.lr.ph.i.i12, label %_ZN10BlockBegin18remove_predecessorEPS_.exit26, !llvm.loop !13
 
-_ZN10BlockBegin18remove_predecessorEPS_.exit26:   ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19, %75, %64
-  %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 104
-  %92 = load ptr, ptr %91, align 8
-  %93 = load i32, ptr %92, align 4
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph.i.i27, label %_ZN8BlockEnd14substitute_suxEP10BlockBeginS1_.exit
+_ZN10BlockBegin18remove_predecessorEPS_.exit26:   ; preds = %_ZN17GrowableArrayViewIP10BlockBeginE9remove_atEi.exit.i19, %76, %.critedge
+  %91 = load ptr, ptr %4, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 104
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %.lr.ph.i.i27, label %_ZN8BlockEnd14substitute_suxEP10BlockBeginS1_.exit
 
 .lr.ph.i.i27:                                     ; preds = %_ZN10BlockBegin18remove_predecessorEPS_.exit26
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  br label %96
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  br label %97
 
-96:                                               ; preds = %103, %.lr.ph.i.i27
-  %97 = phi i32 [ %93, %.lr.ph.i.i27 ], [ %104, %103 ]
-  %indvars.iv.i.i28 = phi i64 [ 0, %.lr.ph.i.i27 ], [ %indvars.iv.next.i.i29, %103 ]
-  %98 = load ptr, ptr %95, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv.i.i28
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, %1
-  br i1 %101, label %102, label %103
+97:                                               ; preds = %104, %.lr.ph.i.i27
+  %98 = phi i32 [ %94, %.lr.ph.i.i27 ], [ %105, %104 ]
+  %indvars.iv.i.i28 = phi i64 [ 0, %.lr.ph.i.i27 ], [ %indvars.iv.next.i.i29, %104 ]
+  %99 = load ptr, ptr %96, align 8
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.i.i28
+  %101 = load ptr, ptr %100, align 8
+  %102 = icmp eq ptr %101, %1
+  br i1 %102, label %103, label %104
 
-102:                                              ; preds = %96
-  store ptr %2, ptr %99, align 8
-  %.pre.i.i30 = load i32, ptr %92, align 4
-  br label %103
+103:                                              ; preds = %97
+  store ptr %2, ptr %100, align 8
+  %.pre.i.i30 = load i32, ptr %93, align 4
+  br label %104
 
-103:                                              ; preds = %102, %96
-  %104 = phi i32 [ %97, %96 ], [ %.pre.i.i30, %102 ]
+104:                                              ; preds = %103, %97
+  %105 = phi i32 [ %98, %97 ], [ %.pre.i.i30, %103 ]
   %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i28, 1
-  %105 = sext i32 %104 to i64
-  %106 = icmp slt i64 %indvars.iv.next.i.i29, %105
-  br i1 %106, label %96, label %_ZN8BlockEnd14substitute_suxEP10BlockBeginS1_.exit, !llvm.loop !8
+  %106 = sext i32 %105 to i64
+  %107 = icmp slt i64 %indvars.iv.next.i.i29, %106
+  br i1 %107, label %97, label %_ZN8BlockEnd14substitute_suxEP10BlockBeginS1_.exit, !llvm.loop !8
 
-_ZN8BlockEnd14substitute_suxEP10BlockBeginS1_.exit: ; preds = %103, %_ZN10BlockBegin18remove_predecessorEPS_.exit26
+_ZN8BlockEnd14substitute_suxEP10BlockBeginS1_.exit: ; preds = %104, %_ZN10BlockBegin18remove_predecessorEPS_.exit26
   ret void
 }
 

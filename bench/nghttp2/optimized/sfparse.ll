@@ -113,49 +113,49 @@ default.unreachable50:                            ; preds = %3
   br i1 %.not.i, label %parser_skip_inner_list.exit, label %.lr.ph.i, !llvm.loop !13
 
 parser_discard_sp.exit:                           ; preds = %.lr.ph.i
-  %.not45 = icmp eq ptr %.val46.i, %.val36
-  br i1 %.not45, label %parser_skip_inner_list.exit, label %26
+  %26 = icmp eq ptr %.val46.i, %.val36
+  br i1 %26, label %parser_skip_inner_list.exit, label %27
 
-26:                                               ; preds = %parser_discard_sp.exit
-  %27 = tail call fastcc i32 @parser_key(ptr noundef nonnull %0, ptr noundef %1)
-  %.not31 = icmp eq i32 %27, 0
-  br i1 %.not31, label %28, label %parser_skip_inner_list.exit
+27:                                               ; preds = %parser_discard_sp.exit
+  %28 = tail call fastcc i32 @parser_key(ptr noundef nonnull %0, ptr noundef %1)
+  %.not31 = icmp eq i32 %28, 0
+  br i1 %.not31, label %29, label %parser_skip_inner_list.exit
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   %.val39 = load ptr, ptr %0, align 8, !tbaa !10
   %.val40 = load ptr, ptr %15, align 8, !tbaa !11
   %.not46 = icmp eq ptr %.val39, %.val40
-  br i1 %.not46, label %31, label %29
+  br i1 %.not46, label %32, label %30
 
-29:                                               ; preds = %28
-  %30 = load i8, ptr %.val39, align 1, !tbaa !12
-  %.not33 = icmp eq i8 %30, 61
-  br i1 %.not33, label %35, label %31
+30:                                               ; preds = %29
+  %31 = load i8, ptr %.val39, align 1, !tbaa !12
+  %.not33 = icmp eq i8 %31, 61
+  br i1 %.not33, label %36, label %32
 
-31:                                               ; preds = %29, %28
+32:                                               ; preds = %30, %29
   %.not35 = icmp eq ptr %2, null
-  br i1 %.not35, label %parser_skip_inner_list.exit, label %32
+  br i1 %.not35, label %parser_skip_inner_list.exit, label %33
 
-32:                                               ; preds = %31
+33:                                               ; preds = %32
   store i32 0, ptr %2, align 8, !tbaa !15
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %33, align 4, !tbaa !17
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %34, align 8, !tbaa !12
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %34, align 4, !tbaa !17
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 1, ptr %35, align 8, !tbaa !12
   br label %parser_skip_inner_list.exit
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %.val39, i64 1
-  store ptr %36, ptr %0, align 8, !tbaa !10
-  %.not47 = icmp eq ptr %36, %.val40
-  br i1 %.not47, label %parser_skip_inner_list.exit, label %37
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %.val39, i64 1
+  store ptr %37, ptr %0, align 8, !tbaa !10
+  %.not47 = icmp eq ptr %37, %.val40
+  br i1 %.not47, label %parser_skip_inner_list.exit, label %38
 
-37:                                               ; preds = %35
-  %38 = tail call fastcc i32 @parser_bare_item(ptr noundef nonnull %0, ptr noundef %2)
+38:                                               ; preds = %36
+  %39 = tail call fastcc i32 @parser_bare_item(ptr noundef nonnull %0, ptr noundef %2)
   br label %parser_skip_inner_list.exit
 
-parser_skip_inner_list.exit:                      ; preds = %.preheader, %24, %20, %35, %31, %32, %26, %parser_discard_sp.exit, %37, %18
-  %.0 = phi i32 [ -2, %18 ], [ %38, %37 ], [ -1, %parser_discard_sp.exit ], [ -1, %26 ], [ 0, %32 ], [ 0, %31 ], [ -1, %35 ], [ -1, %20 ], [ -1, %24 ], [ %7, %.preheader ]
+parser_skip_inner_list.exit:                      ; preds = %.preheader, %24, %20, %36, %32, %33, %27, %parser_discard_sp.exit, %38, %18
+  %.0 = phi i32 [ -2, %18 ], [ %39, %38 ], [ -1, %parser_discard_sp.exit ], [ -1, %27 ], [ 0, %33 ], [ 0, %32 ], [ -1, %36 ], [ -1, %20 ], [ -1, %24 ], [ %7, %.preheader ]
   ret i32 %.0
 }
 
@@ -619,7 +619,7 @@ parser_skip_params.exit:                          ; preds = %.preheader, %.lr.ph
 define hidden range(i32 -2, 1) i32 @sfparse_parser_dict(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !3
-  switch i32 %5, label %25 [
+  switch i32 %5, label %26 [
     i32 12, label %.preheader
     i32 9, label %parser_skip_inner_list.exit.thread.preheader
     i32 11, label %parser_skip_params.exit.thread
@@ -700,8 +700,8 @@ parser_discard_ows.exit.i:                        ; preds = %10, %.lr.ph.i.i, %p
   br i1 %.not.i16.i, label %parser_skip_inner_list.exit, label %.lr.ph.i14.i, !llvm.loop !24
 
 parser_next_key_or_item.exit:                     ; preds = %.lr.ph.i14.i
-  %.not18.i.not = icmp eq ptr %.val57.i15.i, %.val4.i.i
-  br i1 %.not18.i.not, label %parser_skip_inner_list.exit, label %26
+  %.not43 = icmp eq ptr %.val57.i15.i, %.val4.i.i
+  br i1 %.not43, label %parser_skip_inner_list.exit, label %27
 
 19:                                               ; preds = %3
   %20 = getelementptr i8, ptr %0, i64 8
@@ -723,80 +723,80 @@ parser_next_key_or_item.exit:                     ; preds = %.lr.ph.i14.i
   br i1 %.not.i31, label %parser_skip_inner_list.exit, label %.lr.ph.i, !llvm.loop !13
 
 parser_discard_sp.exit:                           ; preds = %.lr.ph.i
-  %.not = icmp eq ptr %.val46.i, %.val3.i
-  br i1 %.not, label %parser_skip_inner_list.exit, label %26
+  %25 = icmp eq ptr %.val46.i, %.val3.i
+  br i1 %25, label %parser_skip_inner_list.exit, label %27
 
-25:                                               ; preds = %3
+26:                                               ; preds = %3
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1472, ptr noundef nonnull @__PRETTY_FUNCTION__.sfparse_parser_dict) #8
   unreachable
 
-26:                                               ; preds = %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %27 = tail call fastcc i32 @parser_key(ptr noundef nonnull %0, ptr noundef %1)
-  %.not25 = icmp eq i32 %27, 0
-  br i1 %.not25, label %28, label %parser_skip_inner_list.exit
+27:                                               ; preds = %parser_discard_sp.exit, %parser_next_key_or_item.exit
+  %28 = tail call fastcc i32 @parser_key(ptr noundef nonnull %0, ptr noundef %1)
+  %.not25 = icmp eq i32 %28, 0
+  br i1 %.not25, label %29, label %parser_skip_inner_list.exit
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   %.val28.i = load ptr, ptr %0, align 8, !tbaa !10
-  %29 = getelementptr i8, ptr %0, i64 8
-  %.val29.i = load ptr, ptr %29, align 8, !tbaa !11
+  %30 = getelementptr i8, ptr %0, i64 8
+  %.val29.i = load ptr, ptr %30, align 8, !tbaa !11
   %.not.i32 = icmp eq ptr %.val28.i, %.val29.i
-  br i1 %.not.i32, label %32, label %30
+  br i1 %.not.i32, label %33, label %31
 
-30:                                               ; preds = %28
-  %31 = load i8, ptr %.val28.i, align 1, !tbaa !12
-  %.not22.i = icmp eq i8 %31, 61
-  br i1 %.not22.i, label %36, label %32
+31:                                               ; preds = %29
+  %32 = load i8, ptr %.val28.i, align 1, !tbaa !12
+  %.not22.i = icmp eq i8 %32, 61
+  br i1 %.not22.i, label %37, label %33
 
-32:                                               ; preds = %30, %28
+33:                                               ; preds = %31, %29
   %.not26.i = icmp eq ptr %2, null
-  br i1 %.not26.i, label %.sink.split.i, label %33
+  br i1 %.not26.i, label %.sink.split.i, label %34
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   store i32 0, ptr %2, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %34, align 4, !tbaa !17
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %35, align 8, !tbaa !12
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %35, align 4, !tbaa !17
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 1, ptr %36, align 8, !tbaa !12
   br label %.sink.split.i
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 1
-  store ptr %37, ptr %0, align 8, !tbaa !10
-  %.not30.i = icmp eq ptr %37, %.val29.i
-  br i1 %.not30.i, label %parser_skip_inner_list.exit, label %38
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 1
+  store ptr %38, ptr %0, align 8, !tbaa !10
+  %.not30.i = icmp eq ptr %38, %.val29.i
+  br i1 %.not30.i, label %parser_skip_inner_list.exit, label %39
 
-38:                                               ; preds = %36
-  %39 = load i8, ptr %37, align 1, !tbaa !12
-  %40 = icmp eq i8 %39, 40
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %37
+  %40 = load i8, ptr %38, align 1, !tbaa !12
+  %41 = icmp eq i8 %40, 40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   %.not25.i = icmp eq ptr %2, null
-  br i1 %.not25.i, label %44, label %42
+  br i1 %.not25.i, label %45, label %43
 
-42:                                               ; preds = %41
+43:                                               ; preds = %42
   store i32 6, ptr %2, align 8, !tbaa !15
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %43, align 4, !tbaa !17
-  br label %44
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %44, align 4, !tbaa !17
+  br label %45
 
-44:                                               ; preds = %42, %41
-  %45 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 2
-  store ptr %45, ptr %0, align 8, !tbaa !10
+45:                                               ; preds = %43, %42
+  %46 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 2
+  store ptr %46, ptr %0, align 8, !tbaa !10
   br label %.sink.split.i
 
-46:                                               ; preds = %38
-  %47 = tail call fastcc i32 @parser_bare_item(ptr noundef nonnull %0, ptr noundef %2)
-  %.not24.i = icmp eq i32 %47, 0
+47:                                               ; preds = %39
+  %48 = tail call fastcc i32 @parser_bare_item(ptr noundef nonnull %0, ptr noundef %2)
+  %.not24.i = icmp eq i32 %48, 0
   br i1 %.not24.i, label %.sink.split.i, label %parser_skip_inner_list.exit
 
-.sink.split.i:                                    ; preds = %46, %44, %33, %32
-  %.sink.i = phi i32 [ 12, %44 ], [ 9, %33 ], [ 9, %32 ], [ 9, %46 ]
+.sink.split.i:                                    ; preds = %47, %45, %34, %33
+  %.sink.i = phi i32 [ 12, %45 ], [ 9, %34 ], [ 9, %33 ], [ 9, %47 ]
   store i32 %.sink.i, ptr %4, align 8, !tbaa !3
   br label %parser_skip_inner_list.exit
 
-parser_skip_inner_list.exit:                      ; preds = %23, %.preheader, %parser_skip_inner_list.exit.thread, %17, %19, %14, %12, %parser_discard_ows.exit.i, %.sink.split.i, %46, %36, %26, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ -1, %26 ], [ -1, %36 ], [ -1, %46 ], [ 0, %.sink.split.i ], [ -1, %12 ], [ -2, %parser_discard_ows.exit.i ], [ -1, %14 ], [ -2, %19 ], [ -1, %17 ], [ %7, %parser_skip_inner_list.exit.thread ], [ %6, %.preheader ], [ -2, %23 ]
+parser_skip_inner_list.exit:                      ; preds = %23, %.preheader, %parser_skip_inner_list.exit.thread, %17, %19, %14, %12, %parser_discard_ows.exit.i, %.sink.split.i, %47, %37, %27, %parser_discard_sp.exit, %parser_next_key_or_item.exit
+  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ -1, %27 ], [ -1, %37 ], [ -1, %47 ], [ 0, %.sink.split.i ], [ -1, %14 ], [ -1, %12 ], [ -2, %parser_discard_ows.exit.i ], [ -2, %19 ], [ -1, %17 ], [ %7, %parser_skip_inner_list.exit.thread ], [ %6, %.preheader ], [ -2, %23 ]
   ret i32 %.0
 }
 
@@ -885,8 +885,8 @@ parser_discard_ows.exit.i:                        ; preds = %9, %.lr.ph.i.i, %pa
   br i1 %.not.i16.i, label %parser_skip_inner_list.exit, label %.lr.ph.i14.i, !llvm.loop !24
 
 parser_next_key_or_item.exit:                     ; preds = %.lr.ph.i14.i
-  %.not18.i.not = icmp eq ptr %.val57.i15.i, %.val4.i.i
-  br i1 %.not18.i.not, label %parser_skip_inner_list.exit, label %25
+  %.not48 = icmp eq ptr %.val57.i15.i, %.val4.i.i
+  br i1 %.not48, label %parser_skip_inner_list.exit, label %25
 
 18:                                               ; preds = %2
   %19 = getelementptr i8, ptr %0, i64 8
@@ -952,7 +952,7 @@ parser_skip_inner_list.exit.sink.split:           ; preds = %34, %32
   br label %parser_skip_inner_list.exit
 
 parser_skip_inner_list.exit:                      ; preds = %.preheader, %parser_skip_inner_list.exit.thread, %16, %parser_skip_inner_list.exit.sink.split, %13, %11, %parser_discard_ows.exit.i, %34, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ -1, %34 ], [ -1, %11 ], [ -2, %parser_discard_ows.exit.i ], [ -1, %13 ], [ 0, %parser_skip_inner_list.exit.sink.split ], [ -1, %16 ], [ %6, %parser_skip_inner_list.exit.thread ], [ %5, %.preheader ]
+  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ -1, %34 ], [ -1, %13 ], [ -1, %11 ], [ -2, %parser_discard_ows.exit.i ], [ 0, %parser_skip_inner_list.exit.sink.split ], [ -1, %16 ], [ %6, %parser_skip_inner_list.exit.thread ], [ %5, %.preheader ]
   ret i32 %.0
 }
 
@@ -960,7 +960,7 @@ parser_skip_inner_list.exit:                      ; preds = %.preheader, %parser
 define hidden range(i32 -2, 1) i32 @sfparse_parser_item(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !3
-  switch i32 %4, label %18 [
+  switch i32 %4, label %20 [
     i32 0, label %5
     i32 28, label %.preheader
     i32 25, label %parser_skip_inner_list.exit.thread.preheader
@@ -992,7 +992,7 @@ parser_skip_inner_list.exit.thread.preheader:     ; preds = %.preheader, %2
 parser_discard_sp.exit:                           ; preds = %.lr.ph.i, %9, %5
   %.val32 = phi ptr [ %.promoted.i, %5 ], [ %.val46.i, %.lr.ph.i ], [ %10, %9 ]
   %.not48 = icmp eq ptr %.val32, %.val3.i
-  br i1 %.not48, label %parser_skip_inner_list.exit, label %19
+  br i1 %.not48, label %parser_skip_inner_list.exit, label %21
 
 .preheader:                                       ; preds = %2, %.preheader
   %11 = tail call i32 @sfparse_parser_inner_list(ptr noundef nonnull %0, ptr noundef null)
@@ -1018,62 +1018,62 @@ parser_skip_params.exit.thread:                   ; preds = %parser_skip_inner_l
   %.val3.i37 = load ptr, ptr %13, align 8, !tbaa !11
   %.promoted.i38 = load ptr, ptr %0, align 8, !tbaa !10
   %.not5.i39 = icmp eq ptr %.promoted.i38, %.val3.i37
-  br i1 %.not5.i39, label %parser_discard_sp.exit43, label %.lr.ph.i40
+  br i1 %.not5.i39, label %parser_skip_inner_list.exit, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %parser_skip_params.exit.thread, %16
   %.val46.i41 = phi ptr [ %17, %16 ], [ %.promoted.i38, %parser_skip_params.exit.thread ]
   %14 = load i8, ptr %.val46.i41, align 1, !tbaa !12
   %15 = icmp eq i8 %14, 32
-  br i1 %15, label %16, label %parser_discard_sp.exit43
+  br i1 %15, label %16, label %parser_discard_sp.exit43.loopexit
 
 16:                                               ; preds = %.lr.ph.i40
   %17 = getelementptr inbounds nuw i8, ptr %.val46.i41, i64 1
   store ptr %17, ptr %0, align 8, !tbaa !10
   %.not.i42 = icmp eq ptr %17, %.val3.i37
-  br i1 %.not.i42, label %parser_discard_sp.exit43, label %.lr.ph.i40, !llvm.loop !13
+  br i1 %.not.i42, label %parser_discard_sp.exit43.loopexit, label %.lr.ph.i40, !llvm.loop !13
 
-parser_discard_sp.exit43:                         ; preds = %.lr.ph.i40, %16, %parser_skip_params.exit.thread
-  %.val = phi ptr [ %.val3.i37, %parser_skip_params.exit.thread ], [ %.val46.i41, %.lr.ph.i40 ], [ %.val3.i37, %16 ]
-  %.not = icmp eq ptr %.val, %.val3.i37
-  %. = select i1 %.not, i32 -2, i32 -1
+parser_discard_sp.exit43.loopexit:                ; preds = %16, %.lr.ph.i40
+  %.val51 = phi ptr [ %.val3.i37, %16 ], [ %.val46.i41, %.lr.ph.i40 ]
+  %18 = icmp eq ptr %.val51, %.val3.i37
+  %19 = select i1 %18, i32 -2, i32 -1
   br label %parser_skip_inner_list.exit
 
-18:                                               ; preds = %2
+20:                                               ; preds = %2
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1580, ptr noundef nonnull @__PRETTY_FUNCTION__.sfparse_parser_item) #8
   unreachable
 
-19:                                               ; preds = %parser_discard_sp.exit
-  %20 = load i8, ptr %.val32, align 1, !tbaa !12
-  %21 = icmp eq i8 %20, 40
-  br i1 %21, label %22, label %27
+21:                                               ; preds = %parser_discard_sp.exit
+  %22 = load i8, ptr %.val32, align 1, !tbaa !12
+  %23 = icmp eq i8 %22, 40
+  br i1 %23, label %24, label %29
 
-22:                                               ; preds = %19
+24:                                               ; preds = %21
   %.not30 = icmp eq ptr %1, null
-  br i1 %.not30, label %25, label %23
+  br i1 %.not30, label %27, label %25
 
-23:                                               ; preds = %22
+25:                                               ; preds = %24
   store i32 6, ptr %1, align 8, !tbaa !15
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %24, align 4, !tbaa !17
-  br label %25
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 0, ptr %26, align 4, !tbaa !17
+  br label %27
 
-25:                                               ; preds = %23, %22
-  %26 = getelementptr inbounds nuw i8, ptr %.val32, i64 1
-  store ptr %26, ptr %0, align 8, !tbaa !10
+27:                                               ; preds = %25, %24
+  %28 = getelementptr inbounds nuw i8, ptr %.val32, i64 1
+  store ptr %28, ptr %0, align 8, !tbaa !10
   store i32 28, ptr %3, align 8, !tbaa !3
   br label %parser_skip_inner_list.exit
 
-27:                                               ; preds = %19
-  %28 = tail call fastcc i32 @parser_bare_item(ptr noundef nonnull %0, ptr noundef %1)
-  %.not29 = icmp eq i32 %28, 0
-  br i1 %.not29, label %29, label %parser_skip_inner_list.exit
+29:                                               ; preds = %21
+  %30 = tail call fastcc i32 @parser_bare_item(ptr noundef nonnull %0, ptr noundef %1)
+  %.not29 = icmp eq i32 %30, 0
+  br i1 %.not29, label %31, label %parser_skip_inner_list.exit
 
-29:                                               ; preds = %27
+31:                                               ; preds = %29
   store i32 25, ptr %3, align 8, !tbaa !3
   br label %parser_skip_inner_list.exit
 
-parser_skip_inner_list.exit:                      ; preds = %.preheader, %parser_skip_inner_list.exit.thread, %27, %parser_discard_sp.exit43, %parser_discard_sp.exit, %29, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %29 ], [ -1, %parser_discard_sp.exit ], [ %., %parser_discard_sp.exit43 ], [ -1, %27 ], [ %12, %parser_skip_inner_list.exit.thread ], [ %11, %.preheader ]
+parser_skip_inner_list.exit:                      ; preds = %.preheader, %parser_skip_inner_list.exit.thread, %parser_skip_params.exit.thread, %parser_discard_sp.exit43.loopexit, %29, %parser_discard_sp.exit, %31, %27
+  %.0 = phi i32 [ 0, %27 ], [ 0, %31 ], [ -1, %parser_discard_sp.exit ], [ -1, %29 ], [ %19, %parser_discard_sp.exit43.loopexit ], [ -2, %parser_skip_params.exit.thread ], [ %12, %parser_skip_inner_list.exit.thread ], [ %11, %.preheader ]
   ret i32 %.0
 }
 

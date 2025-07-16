@@ -823,7 +823,7 @@ ASN1_TIME_to_tm.exit:                             ; preds = %2
   br i1 %16, label %ossl_asn1_time_from_tm.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %.thread, %12
-  %.015 = phi ptr [ null, %.thread ], [ %13, %12 ]
+  %.015 = phi i1 [ false, %.thread ], [ true, %12 ]
   %.149.i = phi ptr [ %15, %.thread ], [ %13, %12 ]
   %17 = call i32 @ASN1_STRING_set(ptr noundef nonnull %.149.i, ptr noundef null, i32 noundef 20) #8
   %.not43.i = icmp eq i32 %17, 0
@@ -846,8 +846,7 @@ ASN1_TIME_to_tm.exit:                             ; preds = %2
   br i1 %28, label %29, label %ossl_asn1_time_from_tm.exit
 
 29:                                               ; preds = %25, %18, %.thread.i
-  %.not44.i = icmp eq ptr %.149.i, %.015
-  br i1 %.not44.i, label %ossl_asn1_time_from_tm.exit.thread, label %30
+  br i1 %.015, label %ossl_asn1_time_from_tm.exit.thread, label %30
 
 30:                                               ; preds = %29
   call void @ASN1_STRING_free(ptr noundef nonnull %.149.i) #8

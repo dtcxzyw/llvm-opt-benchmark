@@ -3703,11 +3703,11 @@ if.end308:                                        ; preds = %sw.bb288
   br i1 %cmp310, label %if.end308.if.then311_crit_edge, label %if.end313
 
 if.end308.if.then311_crit_edge:                   ; preds = %if.end308
-  %.pre34 = add nsw i32 %.pre953, -1
+  %.pre45 = add nsw i32 %.pre953, -1
   br label %if.then311
 
 if.then311:                                       ; preds = %if.end308.if.then311_crit_edge, %if.end308.thread
-  %dec.pre-phi = phi i32 [ %.pre34, %if.end308.if.then311_crit_edge ], [ %sub305, %if.end308.thread ]
+  %dec.pre-phi = phi i32 [ %.pre45, %if.end308.if.then311_crit_edge ], [ %sub305, %if.end308.thread ]
   %newMarkBegin.6966 = phi i32 [ 0, %if.end308.if.then311_crit_edge ], [ %spec.select, %if.end308.thread ]
   %newMarkEnd.3964 = phi i32 [ 0, %if.end308.if.then311_crit_edge ], [ %sub305, %if.end308.thread ]
   store i32 %dec.pre-phi, ptr %CursorPos309.phi.trans.insert, align 8, !tbaa !107
@@ -3726,42 +3726,43 @@ sw.bb316:                                         ; preds = %if.then211
   %bf.cast321.not = icmp eq i8 %105, 0
   %_M_string_length.i.i834.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 176
   %.pre951 = load i64, ptr %_M_string_length.i.i834.phi.trans.insert, align 8, !tbaa !57
-  br i1 %bf.cast321.not, label %sw.bb316.if.end338_crit_edge, label %if.then322
-
-sw.bb316.if.end338_crit_edge:                     ; preds = %sw.bb316
-  %CursorPos341.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 392
-  %.pre952 = load i32, ptr %CursorPos341.phi.trans.insert, align 8, !tbaa !107
-  %.pre956 = trunc i64 %.pre951 to i32
-  br label %if.end338
+  br i1 %bf.cast321.not, label %if.end338, label %if.then322
 
 if.then322:                                       ; preds = %sw.bb316
   %conv.i833 = trunc i64 %.pre951 to i32
   %CursorPos325 = getelementptr inbounds nuw i8, ptr %this, i64 392
   %106 = load i32, ptr %CursorPos325, align 8, !tbaa !107
   %cmp326 = icmp ult i32 %106, %conv.i833
-  br i1 %cmp326, label %if.then327, label %if.end338
+  br i1 %cmp326, label %if.end338.thread, label %if.end345
 
-if.then327:                                       ; preds = %if.then322
+if.end338.thread:                                 ; preds = %if.then322
   %cmp330 = icmp eq i32 %2, %3
   %spec.select720 = select i1 %cmp330, i32 %106, i32 %2
   %add335 = add nuw nsw i32 %106, 1
-  br label %if.end338
+  br label %if.then343
 
-if.end338:                                        ; preds = %if.then327, %if.then322, %sw.bb316.if.end338_crit_edge
-  %conv.i835.pre-phi = phi i32 [ %.pre956, %sw.bb316.if.end338_crit_edge ], [ %conv.i833, %if.then322 ], [ %conv.i833, %if.then327 ]
-  %107 = phi i32 [ %.pre952, %sw.bb316.if.end338_crit_edge ], [ %106, %if.then322 ], [ %106, %if.then327 ]
-  %newMarkEnd.4 = phi i32 [ 0, %sw.bb316.if.end338_crit_edge ], [ %3, %if.then322 ], [ %add335, %if.then327 ]
-  %newMarkBegin.8 = phi i32 [ 0, %sw.bb316.if.end338_crit_edge ], [ %2, %if.then322 ], [ %spec.select720, %if.then327 ]
-  %cmp342 = icmp ult i32 %107, %conv.i835.pre-phi
-  br i1 %cmp342, label %if.then343, label %if.end345
+if.end338:                                        ; preds = %sw.bb316
+  %CursorPos341.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 392
+  %.pre952 = load i32, ptr %CursorPos341.phi.trans.insert, align 8, !tbaa !107
+  %.pre956 = trunc i64 %.pre951 to i32
+  %107 = icmp ult i32 %.pre952, %.pre956
+  br i1 %107, label %if.end338.if.then343_crit_edge, label %if.end345
 
-if.then343:                                       ; preds = %if.end338
+if.end338.if.then343_crit_edge:                   ; preds = %if.end338
+  %.pre46 = add nuw nsw i32 %.pre952, 1
+  br label %if.then343
+
+if.then343:                                       ; preds = %if.end338.if.then343_crit_edge, %if.end338.thread
+  %inc.pre-phi = phi i32 [ %.pre46, %if.end338.if.then343_crit_edge ], [ %add335, %if.end338.thread ]
+  %newMarkBegin.838 = phi i32 [ 0, %if.end338.if.then343_crit_edge ], [ %spec.select720, %if.end338.thread ]
+  %newMarkEnd.436 = phi i32 [ 0, %if.end338.if.then343_crit_edge ], [ %add335, %if.end338.thread ]
   %CursorPos341 = getelementptr inbounds nuw i8, ptr %this, i64 392
-  %inc = add nuw nsw i32 %107, 1
-  store i32 %inc, ptr %CursorPos341, align 8, !tbaa !107
+  store i32 %inc.pre-phi, ptr %CursorPos341, align 8, !tbaa !107
   br label %if.end345
 
-if.end345:                                        ; preds = %if.then343, %if.end338
+if.end345:                                        ; preds = %if.then322, %if.then343, %if.end338
+  %newMarkBegin.837 = phi i32 [ %newMarkBegin.838, %if.then343 ], [ 0, %if.end338 ], [ %2, %if.then322 ]
+  %newMarkEnd.435 = phi i32 [ %newMarkEnd.436, %if.then343 ], [ 0, %if.end338 ], [ %3, %if.then322 ]
   %call346 = tail call noundef i32 @_ZN3irr2os5Timer7getTimeEv() #22
   %BlinkStartTime347 = getelementptr inbounds nuw i8, ptr %this, i64 352
   store i32 %call346, ptr %BlinkStartTime347, align 8, !tbaa !134
@@ -4280,8 +4281,8 @@ if.then.i929:                                     ; preds = %if.then634
   br label %return
 
 if.else635.critedge:                              ; preds = %if.end619, %if.then614, %if.end536, %sw.bb531, %if.end515, %sw.bb510, %if.end507, %sw.bb502, %if.end490, %if.end410, %if.end345, %if.end313, %if.end270, %if.end241, %if.else203, %if.then198, %if.else189, %if.then186, %if.end97, %sw.bb92, %land.lhs.true38, %sw.bb35, %_ZN3irr4core6stringIcED2Ev.exit, %land.lhs.true, %sw.bb9, %sw.bb
-  %newMarkEnd.7.ph = phi i32 [ %3, %sw.bb531 ], [ %3, %if.end536 ], [ %3, %if.then614 ], [ %3, %if.end619 ], [ %newMarkEnd.1, %if.end241 ], [ %newMarkEnd.2, %if.end270 ], [ %newMarkEnd.3963, %if.end313 ], [ %newMarkEnd.4, %if.end345 ], [ %newMarkEnd.5, %if.end410 ], [ %newMarkEnd.6, %if.end490 ], [ %3, %sw.bb502 ], [ %3, %if.end507 ], [ %3, %sw.bb510 ], [ %3, %if.end515 ], [ %conv.i, %sw.bb ], [ %3, %land.lhs.true ], [ %3, %_ZN3irr4core6stringIcED2Ev.exit ], [ %3, %sw.bb9 ], [ %3, %land.lhs.true38 ], [ %3, %sw.bb35 ], [ %3, %sw.bb92 ], [ %3, %if.end97 ], [ 0, %if.else189 ], [ %81, %if.then186 ], [ 0, %if.else203 ], [ %conv.i817, %if.then198 ]
-  %newMarkBegin.11.ph = phi i32 [ %2, %sw.bb531 ], [ %2, %if.end536 ], [ %2, %if.then614 ], [ %2, %if.end619 ], [ %newMarkBegin.2, %if.end241 ], [ %newMarkBegin.4, %if.end270 ], [ %newMarkBegin.6965, %if.end313 ], [ %newMarkBegin.8, %if.end345 ], [ %newMarkBegin.9, %if.end410 ], [ %newMarkBegin.10, %if.end490 ], [ %2, %sw.bb502 ], [ %2, %if.end507 ], [ %2, %sw.bb510 ], [ %2, %if.end515 ], [ 0, %sw.bb ], [ %2, %land.lhs.true ], [ %2, %_ZN3irr4core6stringIcED2Ev.exit ], [ %2, %sw.bb9 ], [ %2, %land.lhs.true38 ], [ %2, %sw.bb35 ], [ %2, %sw.bb92 ], [ %2, %if.end97 ], [ 0, %if.else189 ], [ 0, %if.then186 ], [ 0, %if.else203 ], [ %83, %if.then198 ]
+  %newMarkEnd.7.ph = phi i32 [ %3, %sw.bb531 ], [ %3, %if.end536 ], [ %3, %if.then614 ], [ %3, %if.end619 ], [ %newMarkEnd.1, %if.end241 ], [ %newMarkEnd.2, %if.end270 ], [ %newMarkEnd.3963, %if.end313 ], [ %newMarkEnd.435, %if.end345 ], [ %newMarkEnd.5, %if.end410 ], [ %newMarkEnd.6, %if.end490 ], [ %3, %sw.bb502 ], [ %3, %if.end507 ], [ %3, %sw.bb510 ], [ %3, %if.end515 ], [ %conv.i, %sw.bb ], [ %3, %land.lhs.true ], [ %3, %_ZN3irr4core6stringIcED2Ev.exit ], [ %3, %sw.bb9 ], [ %3, %land.lhs.true38 ], [ %3, %sw.bb35 ], [ %3, %sw.bb92 ], [ %3, %if.end97 ], [ 0, %if.else189 ], [ %81, %if.then186 ], [ 0, %if.else203 ], [ %conv.i817, %if.then198 ]
+  %newMarkBegin.11.ph = phi i32 [ %2, %sw.bb531 ], [ %2, %if.end536 ], [ %2, %if.then614 ], [ %2, %if.end619 ], [ %newMarkBegin.2, %if.end241 ], [ %newMarkBegin.4, %if.end270 ], [ %newMarkBegin.6965, %if.end313 ], [ %newMarkBegin.837, %if.end345 ], [ %newMarkBegin.9, %if.end410 ], [ %newMarkBegin.10, %if.end490 ], [ %2, %sw.bb502 ], [ %2, %if.end507 ], [ %2, %sw.bb510 ], [ %2, %if.end515 ], [ 0, %sw.bb ], [ %2, %land.lhs.true ], [ %2, %_ZN3irr4core6stringIcED2Ev.exit ], [ %2, %sw.bb9 ], [ %2, %land.lhs.true38 ], [ %2, %sw.bb35 ], [ %2, %sw.bb92 ], [ %2, %if.end97 ], [ 0, %if.else189 ], [ 0, %if.then186 ], [ 0, %if.else203 ], [ %83, %if.then198 ]
   call void @_ZN3irr3gui11CGUIEditBox14setTextMarkersEii(ptr noundef nonnull align 8 dereferenceable(520) %this, i32 noundef %newMarkBegin.11.ph, i32 noundef %newMarkEnd.7.ph)
   br label %if.else635
 

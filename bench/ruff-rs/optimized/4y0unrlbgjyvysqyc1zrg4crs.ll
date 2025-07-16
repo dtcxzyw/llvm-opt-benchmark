@@ -62266,7 +62266,7 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules7airflow7helpers30is_air
   %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 @anon.879c592214345ca999bafaa324406990.556, i64 noundef 9)
   br i1 %18, label %20, label %19
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit.thread": ; preds = %30, %20, %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit", %39, %37, %19, %6, %8
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit.thread": ; preds = %30, %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit", %46, %39, %37, %19, %6, %8
   %.sroa.0.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %19 ], [ %45, %39 ], [ false, %37 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit" ], [ %52, %46 ], [ false, %20 ], [ false, %30 ]
   ret i1 %.sroa.0.0
 
@@ -62305,10 +62305,10 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules7airflow7helpers30is_air
   %34 = icmp samesign ult i64 %.sroa.02.013.i, %25
   tail call void @llvm.assume(i1 %34)
   %35 = add nuw i64 %.sroa.02.013.i, 1
-  %.not8 = icmp ne i64 %21, 0
-  %36 = icmp ult i64 %35, %21
-  %or.cond13 = select i1 %.not8, i1 %36, i1 false
-  br i1 %or.cond13, label %46, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit.thread"
+  %36 = icmp uge i64 %35, %21
+  %.not8 = icmp eq i64 %21, 0
+  %brmerge = select i1 %.not8, i1 true, i1 %36
+  br i1 %brmerge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit.thread", label %46
 
 37:                                               ; preds = %19
   %38 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)

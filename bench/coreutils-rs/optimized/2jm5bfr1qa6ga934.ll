@@ -1133,8 +1133,8 @@ define internal fastcc void @_ZN5uu_cp8platform5linux22check_sparse_detection17h
   %.sroa.823.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
   %.sroa.823.0.copyload = load i64, ptr %.sroa.823.0..sroa_idx, align 8
   %23 = lshr i64 %.sroa.621.0.copyload, 9
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5)
   %24 = icmp ult i64 %.sroa.823.0.copyload, %23
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br i1 %24, label %32, label %30
 

@@ -2094,15 +2094,15 @@ define void @_ZN3url16ParseStandardURLEPKciPNS_6ParsedE(ptr noundef readonly cap
   br label %12
 
 .lr.ph.i.i:                                       ; preds = %12
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i39.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next.i.i
   %10 = load i8, ptr %9, align 1, !tbaa !21
   %11 = icmp ult i8 %10, 33
   br i1 %11, label %12, label %.critedge.i.i, !llvm.loop !45
 
 12:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %indvars.iv.i39.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i39.i, %8
+  %indvars.iv.i36.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i36.i, %8
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, label %.lr.ph.i.i, !llvm.loop !45
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
@@ -2110,26 +2110,26 @@ define void @_ZN3url16ParseStandardURLEPKciPNS_6ParsedE(ptr noundef readonly cap
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.01855.i = phi i32 [ %13, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %invariant.gep.i57.i = getelementptr i8, ptr %0, i64 -1
-  %gep.i41.i = getelementptr i8, ptr %invariant.gep.i57.i, i64 %7
-  %14 = load i8, ptr %gep.i41.i, align 1, !tbaa !21
+  %.152.i = phi i32 [ %13, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %invariant.gep.i54.i = getelementptr i8, ptr %0, i64 -1
+  %gep.i38.i = getelementptr i8, ptr %invariant.gep.i54.i, i64 %7
+  %14 = load i8, ptr %gep.i38.i, align 1, !tbaa !21
   %15 = icmp ult i8 %14, 33
-  br i1 %15, label %.lr.ph43.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+  br i1 %15, label %.lr.ph40.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
-.lr.ph43.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %16 = sext i32 %.01855.i to i64
+.lr.ph40.i:                                       ; preds = %.lr.ph14.preheader.i.i
+  %16 = sext i32 %.152.i to i64
   br label %19
 
 .lr.ph14.i.i:                                     ; preds = %19
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i57.i, i64 %indvars.iv.next18.i.i
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i54.i, i64 %indvars.iv.next18.i.i
   %17 = load i8, ptr %gep.i.i, align 1, !tbaa !21
   %18 = icmp ult i8 %17, 33
   br i1 %18, label %19, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, !llvm.loop !46
 
-19:                                               ; preds = %.lr.ph14.i.i, %.lr.ph43.i
-  %indvars.iv17.i42.i = phi i64 [ %7, %.lr.ph43.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
-  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i42.i, -1
+19:                                               ; preds = %.lr.ph14.i.i, %.lr.ph40.i
+  %indvars.iv17.i39.i = phi i64 [ %7, %.lr.ph40.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
+  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i39.i, -1
   %20 = icmp sgt i64 %indvars.iv.next18.i.i, %16
   br i1 %20, label %.lr.ph14.i.i, label %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, !llvm.loop !46
 
@@ -2141,8 +2141,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, %.lr.ph14.preheader.i.i
-  %.01856.i = phi i32 [ %.01855.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %.01855.i, %.lr.ph14.preheader.i.i ], [ %.01855.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
-  %.120.i = phi i32 [ %.01855.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %21, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
+  %.153.i = phi i32 [ %.152.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %.152.i, %.lr.ph14.preheader.i.i ], [ %.152.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
+  %.120.i = phi i32 [ %.152.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %21, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
   %22 = icmp sgt i32 %.120.i, 0
   br i1 %22, label %.lr.ph.preheader.i8.i, label %.critedge.i7.i
 
@@ -2167,15 +2167,15 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %.critedge.i7.i
 
 .critedge.i7.i:                                   ; preds = %.critedge.loopexit.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, %3
-  %.12028.i = phi i32 [ %.120.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.120.i, %.critedge.loopexit.i.i ], [ %1, %3 ]
-  %.0182327.i = phi i32 [ %.01856.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.01856.i, %.critedge.loopexit.i.i ], [ 0, %3 ]
+  %.226.i = phi i32 [ %.153.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.153.i, %.critedge.loopexit.i.i ], [ 0, %3 ]
+  %.12023.i = phi i32 [ %.120.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %.120.i, %.critedge.loopexit.i.i ], [ %1, %3 ]
   %.019.lcssa.i.i = phi i32 [ 0, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i ], [ %27, %.critedge.loopexit.i.i ], [ 0, %3 ]
-  %.not25.i.i = icmp slt i32 %.019.lcssa.i.i, %.12028.i
+  %.not25.i.i = icmp slt i32 %.019.lcssa.i.i, %.12023.i
   br i1 %.not25.i.i, label %.lr.ph27.preheader.i.i, label %.loopexit.i
 
 .lr.ph27.preheader.i.i:                           ; preds = %.critedge.i7.i
   %28 = zext i32 %.019.lcssa.i.i to i64
-  %wide.trip.count.i = zext i32 %.12028.i to i64
+  %wide.trip.count.i = zext i32 %.12023.i to i64
   br label %.lr.ph27.i.i
 
 .lr.ph27.i.i:                                     ; preds = %32, %.lr.ph27.preheader.i.i
@@ -2187,8 +2187,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
 
 32:                                               ; preds = %.lr.ph27.i.i
   %indvars.iv.next31.i.i = add nuw nsw i64 %indvars.iv30.i.i, 1
-  %exitcond52.not.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count.i
-  br i1 %exitcond52.not.i, label %.loopexit.i, label %.lr.ph27.i.i, !llvm.loop !24
+  %exitcond49.not.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count.i
+  br i1 %exitcond49.not.i, label %.loopexit.i, label %.lr.ph27.i.i, !llvm.loop !24
 
 33:                                               ; preds = %.lr.ph27.i.i
   %34 = trunc nuw i64 %indvars.iv30.i.i to i32
@@ -2201,17 +2201,17 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit
 
 .loopexit.i:                                      ; preds = %26, %32, %.critedge.i7.i
-  %.12029.ph.i = phi i32 [ %.12028.i, %.critedge.i7.i ], [ %.12028.i, %32 ], [ %.120.i, %26 ]
-  %.0182326.ph.i = phi i32 [ %.0182327.i, %.critedge.i7.i ], [ %.0182327.i, %32 ], [ %.01856.i, %26 ]
+  %.225.ph.i = phi i32 [ %.226.i, %.critedge.i7.i ], [ %.226.i, %32 ], [ %.153.i, %26 ]
+  %.12024.ph.i = phi i32 [ %.12023.i, %.critedge.i7.i ], [ %.12023.i, %32 ], [ %.120.i, %26 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %37, align 4, !tbaa !8
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit
 
 _ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %33, %.loopexit.i
-  %.1202933.i = phi i32 [ %.12028.i, %33 ], [ %.12029.ph.i, %.loopexit.i ]
-  %.0.i = phi i32 [ %36, %33 ], [ %.0182326.ph.i, %.loopexit.i ]
-  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef readonly %0, i32 noundef %.1202933.i, i32 noundef %.0.i, ptr noundef nonnull %2)
+  %.1202431.i = phi i32 [ %.12023.i, %33 ], [ %.12024.ph.i, %.loopexit.i ]
+  %.0.i = phi i32 [ %36, %33 ], [ %.225.ph.i, %.loopexit.i ]
+  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef readonly %0, i32 noundef %.1202431.i, i32 noundef %.0.i, ptr noundef nonnull %2)
   ret void
 }
 
@@ -2231,15 +2231,15 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_i
   br label %12
 
 .lr.ph.i:                                         ; preds = %12
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i39, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i36, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next.i
   %10 = load i8, ptr %9, align 1, !tbaa !21
   %11 = icmp ult i8 %10, 33
   br i1 %11, label %12, label %.critedge.i, !llvm.loop !45
 
 12:                                               ; preds = %.lr.ph, %.lr.ph.i
-  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %exitcond.not = icmp eq i64 %indvars.iv.i39, %8
+  %indvars.iv.i36 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %exitcond.not = icmp eq i64 %indvars.iv.i36, %8
   br i1 %exitcond.not, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit, label %.lr.ph.i, !llvm.loop !45
 
 .critedge.i:                                      ; preds = %.lr.ph.i
@@ -2248,27 +2248,27 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLIcEEvPKT_i
   br i1 %14, label %.lr.ph14.preheader.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
 
 .lr.ph14.preheader.i:                             ; preds = %.lr.ph.i.preheader, %.critedge.i
-  %.01855 = phi i32 [ %13, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %invariant.gep.i57 = getelementptr i8, ptr %0, i64 -1
+  %.152 = phi i32 [ %13, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
+  %invariant.gep.i54 = getelementptr i8, ptr %0, i64 -1
   %15 = zext nneg i32 %1 to i64
-  %gep.i41 = getelementptr i8, ptr %invariant.gep.i57, i64 %15
-  %16 = load i8, ptr %gep.i41, align 1, !tbaa !21
+  %gep.i38 = getelementptr i8, ptr %invariant.gep.i54, i64 %15
+  %16 = load i8, ptr %gep.i38, align 1, !tbaa !21
   %17 = icmp ult i8 %16, 33
-  br i1 %17, label %.lr.ph43, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
+  br i1 %17, label %.lr.ph40, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
 
-.lr.ph43:                                         ; preds = %.lr.ph14.preheader.i
-  %18 = sext i32 %.01855 to i64
+.lr.ph40:                                         ; preds = %.lr.ph14.preheader.i
+  %18 = sext i32 %.152 to i64
   br label %21
 
 .lr.ph14.i:                                       ; preds = %21
-  %gep.i = getelementptr i8, ptr %invariant.gep.i57, i64 %indvars.iv.next18.i
+  %gep.i = getelementptr i8, ptr %invariant.gep.i54, i64 %indvars.iv.next18.i
   %19 = load i8, ptr %gep.i, align 1, !tbaa !21
   %20 = icmp ult i8 %19, 33
   br i1 %20, label %21, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit, !llvm.loop !46
 
-21:                                               ; preds = %.lr.ph43, %.lr.ph14.i
-  %indvars.iv17.i42 = phi i64 [ %15, %.lr.ph43 ], [ %indvars.iv.next18.i, %.lr.ph14.i ]
-  %indvars.iv.next18.i = add nsw i64 %indvars.iv17.i42, -1
+21:                                               ; preds = %.lr.ph40, %.lr.ph14.i
+  %indvars.iv17.i39 = phi i64 [ %15, %.lr.ph40 ], [ %indvars.iv.next18.i, %.lr.ph14.i ]
+  %indvars.iv.next18.i = add nsw i64 %indvars.iv17.i39, -1
   %22 = icmp sgt i64 %indvars.iv.next18.i, %18
   br i1 %22, label %.lr.ph14.i, label %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge, !llvm.loop !46
 
@@ -2280,8 +2280,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit:     ; preds = %.lr.ph14.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit, %.lr.ph14.preheader.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge, %.critedge.i
-  %.01856 = phi i32 [ %13, %.critedge.i ], [ %.01855, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %.01855, %.lr.ph14.preheader.i ], [ %.01855, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
-  %.120 = phi i32 [ %1, %.critedge.i ], [ %.01855, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %1, %.lr.ph14.preheader.i ], [ %23, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
+  %.153 = phi i32 [ %13, %.critedge.i ], [ %.152, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %.152, %.lr.ph14.preheader.i ], [ %.152, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
+  %.120 = phi i32 [ %1, %.critedge.i ], [ %.152, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %1, %.lr.ph14.preheader.i ], [ %23, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
   %24 = icmp sgt i32 %.120, 0
   br i1 %24, label %.lr.ph.preheader.i8, label %.critedge.i7
 
@@ -2306,15 +2306,15 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %.critedge.i7
 
 .critedge.i7:                                     ; preds = %3, %.critedge.loopexit.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit
-  %.12028 = phi i32 [ %.120, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %.120, %.critedge.loopexit.i ], [ %1, %3 ]
-  %.0182327 = phi i32 [ %.01856, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %.01856, %.critedge.loopexit.i ], [ 0, %3 ]
+  %.226 = phi i32 [ %.153, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %.153, %.critedge.loopexit.i ], [ 0, %3 ]
+  %.12023 = phi i32 [ %.120, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %.120, %.critedge.loopexit.i ], [ %1, %3 ]
   %.019.lcssa.i = phi i32 [ 0, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit ], [ %29, %.critedge.loopexit.i ], [ 0, %3 ]
-  %.not25.i = icmp slt i32 %.019.lcssa.i, %.12028
+  %.not25.i = icmp slt i32 %.019.lcssa.i, %.12023
   br i1 %.not25.i, label %.lr.ph27.preheader.i, label %.loopexit
 
 .lr.ph27.preheader.i:                             ; preds = %.critedge.i7
   %30 = zext i32 %.019.lcssa.i to i64
-  %wide.trip.count = zext i32 %.12028 to i64
+  %wide.trip.count = zext i32 %.12023 to i64
   br label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %34, %.lr.ph27.preheader.i
@@ -2326,8 +2326,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
 
 34:                                               ; preds = %.lr.ph27.i
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph27.i, !llvm.loop !24
+  %exitcond49.not = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count
+  br i1 %exitcond49.not, label %.loopexit, label %.lr.ph27.i, !llvm.loop !24
 
 35:                                               ; preds = %.lr.ph27.i
   %36 = trunc nuw i64 %indvars.iv30.i to i32
@@ -2340,17 +2340,17 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %40
 
 .loopexit:                                        ; preds = %28, %34, %.critedge.i7
-  %.12029.ph = phi i32 [ %.12028, %.critedge.i7 ], [ %.12028, %34 ], [ %.120, %28 ]
-  %.0182326.ph = phi i32 [ %.0182327, %.critedge.i7 ], [ %.0182327, %34 ], [ %.01856, %28 ]
+  %.225.ph = phi i32 [ %.226, %.critedge.i7 ], [ %.226, %34 ], [ %.153, %28 ]
+  %.12024.ph = phi i32 [ %.12023, %.critedge.i7 ], [ %.12023, %34 ], [ %.120, %28 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %39, align 4, !tbaa !8
   br label %40
 
 40:                                               ; preds = %.loopexit, %35
-  %.1202933 = phi i32 [ %.12028, %35 ], [ %.12029.ph, %.loopexit ]
-  %.0 = phi i32 [ %38, %35 ], [ %.0182326.ph, %.loopexit ]
-  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %.1202933, i32 noundef %.0, ptr noundef nonnull %2)
+  %.1202431 = phi i32 [ %.12023, %35 ], [ %.12024.ph, %.loopexit ]
+  %.0 = phi i32 [ %38, %35 ], [ %.225.ph, %.loopexit ]
+  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeIcEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %.1202431, i32 noundef %.0, ptr noundef nonnull %2)
   ret void
 }
 
@@ -2370,15 +2370,15 @@ define void @_ZN3url16ParseStandardURLEPKtiPNS_6ParsedE(ptr noundef readonly cap
   br label %12
 
 .lr.ph.i.i:                                       ; preds = %12
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i39.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %9 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next.i.i
   %10 = load i16, ptr %9, align 2, !tbaa !25
   %11 = icmp ult i16 %10, 33
   br i1 %11, label %12, label %.critedge.i.i, !llvm.loop !47
 
 12:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %indvars.iv.i39.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i39.i, %8
+  %indvars.iv.i36.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i36.i, %8
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, label %.lr.ph.i.i, !llvm.loop !47
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
@@ -2386,26 +2386,26 @@ define void @_ZN3url16ParseStandardURLEPKtiPNS_6ParsedE(ptr noundef readonly cap
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.01855.i = phi i32 [ %13, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %invariant.gep.i57.i = getelementptr i8, ptr %0, i64 -2
-  %gep.i41.i = getelementptr i16, ptr %invariant.gep.i57.i, i64 %7
-  %14 = load i16, ptr %gep.i41.i, align 2, !tbaa !25
+  %.152.i = phi i32 [ %13, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %invariant.gep.i54.i = getelementptr i8, ptr %0, i64 -2
+  %gep.i38.i = getelementptr i16, ptr %invariant.gep.i54.i, i64 %7
+  %14 = load i16, ptr %gep.i38.i, align 2, !tbaa !25
   %15 = icmp ult i16 %14, 33
-  br i1 %15, label %.lr.ph43.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+  br i1 %15, label %.lr.ph40.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
-.lr.ph43.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %16 = sext i32 %.01855.i to i64
+.lr.ph40.i:                                       ; preds = %.lr.ph14.preheader.i.i
+  %16 = sext i32 %.152.i to i64
   br label %19
 
 .lr.ph14.i.i:                                     ; preds = %19
-  %gep.i.i = getelementptr i16, ptr %invariant.gep.i57.i, i64 %indvars.iv.next18.i.i
+  %gep.i.i = getelementptr i16, ptr %invariant.gep.i54.i, i64 %indvars.iv.next18.i.i
   %17 = load i16, ptr %gep.i.i, align 2, !tbaa !25
   %18 = icmp ult i16 %17, 33
   br i1 %18, label %19, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, !llvm.loop !48
 
-19:                                               ; preds = %.lr.ph14.i.i, %.lr.ph43.i
-  %indvars.iv17.i42.i = phi i64 [ %7, %.lr.ph43.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
-  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i42.i, -1
+19:                                               ; preds = %.lr.ph14.i.i, %.lr.ph40.i
+  %indvars.iv17.i39.i = phi i64 [ %7, %.lr.ph40.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
+  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i39.i, -1
   %20 = icmp sgt i64 %indvars.iv.next18.i.i, %16
   br i1 %20, label %.lr.ph14.i.i, label %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, !llvm.loop !48
 
@@ -2417,8 +2417,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, %.lr.ph14.preheader.i.i
-  %.01856.i = phi i32 [ %.01855.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %.01855.i, %.lr.ph14.preheader.i.i ], [ %.01855.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
-  %.120.i = phi i32 [ %.01855.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %21, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
+  %.153.i = phi i32 [ %.152.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %.152.i, %.lr.ph14.preheader.i.i ], [ %.152.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
+  %.120.i = phi i32 [ %.152.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %21, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %12 ]
   %22 = icmp sgt i32 %.120.i, 0
   br i1 %22, label %.lr.ph.preheader.i8.i, label %.critedge.i7.i
 
@@ -2443,15 +2443,15 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %.critedge.i7.i
 
 .critedge.i7.i:                                   ; preds = %.critedge.loopexit.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, %3
-  %.12028.i = phi i32 [ %.120.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.120.i, %.critedge.loopexit.i.i ], [ %1, %3 ]
-  %.0182327.i = phi i32 [ %.01856.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.01856.i, %.critedge.loopexit.i.i ], [ 0, %3 ]
+  %.226.i = phi i32 [ %.153.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.153.i, %.critedge.loopexit.i.i ], [ 0, %3 ]
+  %.12023.i = phi i32 [ %.120.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %.120.i, %.critedge.loopexit.i.i ], [ %1, %3 ]
   %.019.lcssa.i.i = phi i32 [ 0, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i ], [ %27, %.critedge.loopexit.i.i ], [ 0, %3 ]
-  %.not25.i.i = icmp slt i32 %.019.lcssa.i.i, %.12028.i
+  %.not25.i.i = icmp slt i32 %.019.lcssa.i.i, %.12023.i
   br i1 %.not25.i.i, label %.lr.ph27.preheader.i.i, label %.loopexit.i
 
 .lr.ph27.preheader.i.i:                           ; preds = %.critedge.i7.i
   %28 = zext i32 %.019.lcssa.i.i to i64
-  %wide.trip.count.i = zext i32 %.12028.i to i64
+  %wide.trip.count.i = zext i32 %.12023.i to i64
   br label %.lr.ph27.i.i
 
 .lr.ph27.i.i:                                     ; preds = %32, %.lr.ph27.preheader.i.i
@@ -2463,8 +2463,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
 
 32:                                               ; preds = %.lr.ph27.i.i
   %indvars.iv.next31.i.i = add nuw nsw i64 %indvars.iv30.i.i, 1
-  %exitcond52.not.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count.i
-  br i1 %exitcond52.not.i, label %.loopexit.i, label %.lr.ph27.i.i, !llvm.loop !28
+  %exitcond49.not.i = icmp eq i64 %indvars.iv.next31.i.i, %wide.trip.count.i
+  br i1 %exitcond49.not.i, label %.loopexit.i, label %.lr.ph27.i.i, !llvm.loop !28
 
 33:                                               ; preds = %.lr.ph27.i.i
   %34 = trunc nuw i64 %indvars.iv30.i.i to i32
@@ -2477,17 +2477,17 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %12, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit
 
 .loopexit.i:                                      ; preds = %26, %32, %.critedge.i7.i
-  %.12029.ph.i = phi i32 [ %.12028.i, %.critedge.i7.i ], [ %.12028.i, %32 ], [ %.120.i, %26 ]
-  %.0182326.ph.i = phi i32 [ %.0182327.i, %.critedge.i7.i ], [ %.0182327.i, %32 ], [ %.01856.i, %26 ]
+  %.225.ph.i = phi i32 [ %.226.i, %.critedge.i7.i ], [ %.226.i, %32 ], [ %.153.i, %26 ]
+  %.12024.ph.i = phi i32 [ %.12023.i, %.critedge.i7.i ], [ %.12023.i, %32 ], [ %.120.i, %26 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %37, align 4, !tbaa !8
   br label %_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit
 
 _ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_iPNS_6ParsedE.exit: ; preds = %33, %.loopexit.i
-  %.1202933.i = phi i32 [ %.12028.i, %33 ], [ %.12029.ph.i, %.loopexit.i ]
-  %.0.i = phi i32 [ %36, %33 ], [ %.0182326.ph.i, %.loopexit.i ]
-  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef readonly %0, i32 noundef %.1202933.i, i32 noundef %.0.i, ptr noundef nonnull %2)
+  %.1202431.i = phi i32 [ %.12023.i, %33 ], [ %.12024.ph.i, %.loopexit.i ]
+  %.0.i = phi i32 [ %36, %33 ], [ %.225.ph.i, %.loopexit.i ]
+  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef readonly %0, i32 noundef %.1202431.i, i32 noundef %.0.i, ptr noundef nonnull %2)
   ret void
 }
 
@@ -2507,15 +2507,15 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_i
   br label %12
 
 .lr.ph.i:                                         ; preds = %12
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i39, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i36, 1
   %9 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next.i
   %10 = load i16, ptr %9, align 2, !tbaa !25
   %11 = icmp ult i16 %10, 33
   br i1 %11, label %12, label %.critedge.i, !llvm.loop !47
 
 12:                                               ; preds = %.lr.ph, %.lr.ph.i
-  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %exitcond.not = icmp eq i64 %indvars.iv.i39, %8
+  %indvars.iv.i36 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %exitcond.not = icmp eq i64 %indvars.iv.i36, %8
   br i1 %exitcond.not, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit, label %.lr.ph.i, !llvm.loop !47
 
 .critedge.i:                                      ; preds = %.lr.ph.i
@@ -2524,27 +2524,27 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_118DoParseStandardURLItEEvPKT_i
   br i1 %14, label %.lr.ph14.preheader.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
 
 .lr.ph14.preheader.i:                             ; preds = %.lr.ph.i.preheader, %.critedge.i
-  %.01855 = phi i32 [ %13, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
-  %invariant.gep.i57 = getelementptr i8, ptr %0, i64 -2
+  %.152 = phi i32 [ %13, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
+  %invariant.gep.i54 = getelementptr i8, ptr %0, i64 -2
   %15 = zext nneg i32 %1 to i64
-  %gep.i41 = getelementptr i16, ptr %invariant.gep.i57, i64 %15
-  %16 = load i16, ptr %gep.i41, align 2, !tbaa !25
+  %gep.i38 = getelementptr i16, ptr %invariant.gep.i54, i64 %15
+  %16 = load i16, ptr %gep.i38, align 2, !tbaa !25
   %17 = icmp ult i16 %16, 33
-  br i1 %17, label %.lr.ph43, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
+  br i1 %17, label %.lr.ph40, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
 
-.lr.ph43:                                         ; preds = %.lr.ph14.preheader.i
-  %18 = sext i32 %.01855 to i64
+.lr.ph40:                                         ; preds = %.lr.ph14.preheader.i
+  %18 = sext i32 %.152 to i64
   br label %21
 
 .lr.ph14.i:                                       ; preds = %21
-  %gep.i = getelementptr i16, ptr %invariant.gep.i57, i64 %indvars.iv.next18.i
+  %gep.i = getelementptr i16, ptr %invariant.gep.i54, i64 %indvars.iv.next18.i
   %19 = load i16, ptr %gep.i, align 2, !tbaa !25
   %20 = icmp ult i16 %19, 33
   br i1 %20, label %21, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit, !llvm.loop !48
 
-21:                                               ; preds = %.lr.ph43, %.lr.ph14.i
-  %indvars.iv17.i42 = phi i64 [ %15, %.lr.ph43 ], [ %indvars.iv.next18.i, %.lr.ph14.i ]
-  %indvars.iv.next18.i = add nsw i64 %indvars.iv17.i42, -1
+21:                                               ; preds = %.lr.ph40, %.lr.ph14.i
+  %indvars.iv17.i39 = phi i64 [ %15, %.lr.ph40 ], [ %indvars.iv.next18.i, %.lr.ph14.i ]
+  %indvars.iv.next18.i = add nsw i64 %indvars.iv17.i39, -1
   %22 = icmp sgt i64 %indvars.iv.next18.i, %18
   br i1 %22, label %.lr.ph14.i, label %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge, !llvm.loop !48
 
@@ -2556,8 +2556,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit:     ; preds = %.lr.ph14.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit, %.lr.ph14.preheader.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge, %.critedge.i
-  %.01856 = phi i32 [ %13, %.critedge.i ], [ %.01855, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %.01855, %.lr.ph14.preheader.i ], [ %.01855, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
-  %.120 = phi i32 [ %1, %.critedge.i ], [ %.01855, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %1, %.lr.ph14.preheader.i ], [ %23, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
+  %.153 = phi i32 [ %13, %.critedge.i ], [ %.152, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %.152, %.lr.ph14.preheader.i ], [ %.152, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
+  %.120 = phi i32 [ %1, %.critedge.i ], [ %.152, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge ], [ %1, %.lr.ph14.preheader.i ], [ %23, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit ], [ %1, %12 ]
   %24 = icmp sgt i32 %.120, 0
   br i1 %24, label %.lr.ph.preheader.i8, label %.critedge.i7
 
@@ -2582,15 +2582,15 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %.critedge.i7
 
 .critedge.i7:                                     ; preds = %3, %.critedge.loopexit.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit
-  %.12028 = phi i32 [ %.120, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %.120, %.critedge.loopexit.i ], [ %1, %3 ]
-  %.0182327 = phi i32 [ %.01856, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %.01856, %.critedge.loopexit.i ], [ 0, %3 ]
+  %.226 = phi i32 [ %.153, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %.153, %.critedge.loopexit.i ], [ 0, %3 ]
+  %.12023 = phi i32 [ %.120, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %.120, %.critedge.loopexit.i ], [ %1, %3 ]
   %.019.lcssa.i = phi i32 [ 0, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit ], [ %29, %.critedge.loopexit.i ], [ 0, %3 ]
-  %.not25.i = icmp slt i32 %.019.lcssa.i, %.12028
+  %.not25.i = icmp slt i32 %.019.lcssa.i, %.12023
   br i1 %.not25.i, label %.lr.ph27.preheader.i, label %.loopexit
 
 .lr.ph27.preheader.i:                             ; preds = %.critedge.i7
   %30 = zext i32 %.019.lcssa.i to i64
-  %wide.trip.count = zext i32 %.12028 to i64
+  %wide.trip.count = zext i32 %.12023 to i64
   br label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %34, %.lr.ph27.preheader.i
@@ -2602,8 +2602,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
 
 34:                                               ; preds = %.lr.ph27.i
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph27.i, !llvm.loop !28
+  %exitcond49.not = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count
+  br i1 %exitcond49.not, label %.loopexit, label %.lr.ph27.i, !llvm.loop !28
 
 35:                                               ; preds = %.lr.ph27.i
   %36 = trunc nuw i64 %indvars.iv30.i to i32
@@ -2616,17 +2616,17 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit:              ; preds = %12, %_ZN3url7TrimUR
   br label %40
 
 .loopexit:                                        ; preds = %28, %34, %.critedge.i7
-  %.12029.ph = phi i32 [ %.12028, %.critedge.i7 ], [ %.12028, %34 ], [ %.120, %28 ]
-  %.0182326.ph = phi i32 [ %.0182327, %.critedge.i7 ], [ %.0182327, %34 ], [ %.01856, %28 ]
+  %.225.ph = phi i32 [ %.226, %.critedge.i7 ], [ %.226, %34 ], [ %.153, %28 ]
+  %.12024.ph = phi i32 [ %.12023, %.critedge.i7 ], [ %.12023, %34 ], [ %.120, %28 ]
   store i32 0, ptr %2, align 4, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %39, align 4, !tbaa !8
   br label %40
 
 40:                                               ; preds = %.loopexit, %35
-  %.1202933 = phi i32 [ %.12028, %35 ], [ %.12029.ph, %.loopexit ]
-  %.0 = phi i32 [ %38, %35 ], [ %.0182326.ph, %.loopexit ]
-  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %.1202933, i32 noundef %.0, ptr noundef nonnull %2)
+  %.1202431 = phi i32 [ %.12023, %35 ], [ %.12024.ph, %.loopexit ]
+  %.0 = phi i32 [ %38, %35 ], [ %.225.ph, %.loopexit ]
+  tail call fastcc void @_ZN3url12_GLOBAL__N_118DoParseAfterSchemeItEEvPKT_iiPNS_6ParsedE(ptr noundef %0, i32 noundef %.1202431, i32 noundef %.0, ptr noundef nonnull %2)
   ret void
 }
 
@@ -2661,7 +2661,7 @@ define void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr noundef readonly captur
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 -1, ptr %18, align 4, !tbaa !8
   %19 = icmp sgt i32 %1, 0
-  br i1 %19, label %.lr.ph.i.preheader.i, label %.critedge.i.i
+  br i1 %19, label %.lr.ph.i.preheader.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 .lr.ph.i.preheader.i:                             ; preds = %4
   %20 = load i8, ptr %0, align 1, !tbaa !21
@@ -2683,33 +2683,33 @@ define void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr noundef readonly captur
 27:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i
   %indvars.iv.i47.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i47.i, %23
-  br i1 %exitcond.not.i, label %..critedge.i.loopexit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %..critedge.i_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !45
 
-..critedge.i.loopexit_crit_edge.i:                ; preds = %27
+..critedge.i_crit_edge.i:                         ; preds = %27
   br label %.critedge.i.i, !llvm.loop !45
 
 .critedge.i.loopexit.i:                           ; preds = %.lr.ph.i.i
   %28 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %.critedge.i.loopexit.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %4
-  %.041.i = phi i32 [ 0, %4 ], [ %1, %..critedge.i.loopexit_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %28, %.critedge.i.loopexit.i ]
+.critedge.i.i:                                    ; preds = %.critedge.i.loopexit.i, %..critedge.i_crit_edge.i, %.lr.ph.i.preheader.i
+  %.142.i = phi i32 [ %1, %..critedge.i_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %28, %.critedge.i.loopexit.i ]
   br i1 %2, label %.preheader.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 .preheader.i.i:                                   ; preds = %.critedge.i.i
+  %29 = icmp sgt i32 %1, %.142.i
   %invariant.gep.i.i = getelementptr i8, ptr %0, i64 -1
-  %29 = icmp sgt i32 %1, %.041.i
   br i1 %29, label %.lr.ph14.preheader.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.preheader.i.i
-  %30 = sext i32 %1 to i64
+  %30 = zext nneg i32 %1 to i64
   %gep.i49.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %30
   %31 = load i8, ptr %gep.i49.i, align 1, !tbaa !21
   %32 = icmp ult i8 %31, 33
   br i1 %32, label %.lr.ph51.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 .lr.ph51.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %33 = sext i32 %.041.i to i64
+  %33 = sext i32 %.142.i to i64
   br label %36
 
 .lr.ph14.i.i:                                     ; preds = %36
@@ -2722,107 +2722,105 @@ define void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr noundef readonly captur
   %indvars.iv17.i50.i = phi i64 [ %30, %.lr.ph51.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
   %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i50.i, -1
   %37 = icmp sgt i64 %indvars.iv.next18.i.i, %33
-  br i1 %37, label %.lr.ph14.i.i, label %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, !llvm.loop !46
-
-._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i: ; preds = %36
-  br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, !llvm.loop !46
+  br i1 %37, label %.lr.ph14.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, !llvm.loop !46
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   %38 = trunc nsw i64 %indvars.iv.next18.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
-_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, %.lr.ph14.preheader.i.i, %.preheader.i.i, %.critedge.i.i
-  %.1.i = phi i32 [ %1, %.preheader.i.i ], [ %1, %.critedge.i.i ], [ %.041.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %38, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %39 = icmp eq i32 %.041.i, %.1.i
-  br i1 %39, label %40, label %42
+_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %.preheader.i.i, %.critedge.i.i, %4
+  %.2.i = phi i32 [ %.142.i, %.preheader.i.i ], [ %.142.i, %.critedge.i.i ], [ 0, %4 ], [ %.142.i, %.lr.ph14.preheader.i.i ], [ %.142.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.1.i = phi i32 [ %1, %.preheader.i.i ], [ %1, %.critedge.i.i ], [ %1, %4 ], [ %1, %.lr.ph14.preheader.i.i ], [ %38, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %39 = icmp eq i32 %.2.i, %.1.i
+  br i1 %39, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, label %41
 
-40:                                               ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %36, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
   store i32 0, ptr %3, align 4, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %41, align 4, !tbaa !8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 -1, ptr %40, align 4, !tbaa !8
   store i32 0, ptr %13, align 4, !tbaa !3
   store i32 -1, ptr %14, align 4, !tbaa !8
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit
 
-42:                                               ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
-  %43 = sext i32 %.041.i to i64
-  %44 = getelementptr inbounds i8, ptr %0, i64 %43
-  %45 = sub nsw i32 %.1.i, %.041.i
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph.preheader.i.i.i, label %.critedge.i.i.i
+41:                                               ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+  %42 = sext i32 %.2.i to i64
+  %43 = getelementptr inbounds i8, ptr %0, i64 %42
+  %44 = sub nsw i32 %.1.i, %.2.i
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph.preheader.i.i.i, label %.critedge.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %42
-  %wide.trip.count.i.i.i = zext nneg i32 %45 to i64
+.lr.ph.preheader.i.i.i:                           ; preds = %41
+  %wide.trip.count.i.i.i = zext nneg i32 %44 to i64
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %50, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %50 ]
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv.i.i.i
-  %48 = load i8, ptr %47, align 1, !tbaa !21
-  %49 = icmp ult i8 %48, 33
-  br i1 %49, label %50, label %.critedge.loopexit.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %49, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv.i.i.i
+  %47 = load i8, ptr %46, align 1, !tbaa !21
+  %48 = icmp ult i8 %47, 33
+  br i1 %48, label %49, label %.critedge.loopexit.i.i.i
 
-50:                                               ; preds = %.lr.ph.i.i.i
+49:                                               ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !22
 
 .critedge.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
-  %51 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %42
-  %.019.lcssa.i.i.i = phi i32 [ 0, %42 ], [ %51, %.critedge.loopexit.i.i.i ]
-  %.not25.i.i.i = icmp slt i32 %.019.lcssa.i.i.i, %45
+.critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %41
+  %.019.lcssa.i.i.i = phi i32 [ 0, %41 ], [ %50, %.critedge.loopexit.i.i.i ]
+  %.not25.i.i.i = icmp slt i32 %.019.lcssa.i.i.i, %44
   br i1 %.not25.i.i.i, label %.lr.ph27.preheader.i.i.i, label %.loopexit.i
 
 .lr.ph27.preheader.i.i.i:                         ; preds = %.critedge.i.i.i
-  %52 = zext i32 %.019.lcssa.i.i.i to i64
-  %wide.trip.count.i.i = zext i32 %45 to i64
+  %51 = zext i32 %.019.lcssa.i.i.i to i64
+  %wide.trip.count.i.i = zext i32 %44 to i64
   br label %.lr.ph27.i.i.i
 
-.lr.ph27.i.i.i:                                   ; preds = %56, %.lr.ph27.preheader.i.i.i
-  %indvars.iv30.i.i.i = phi i64 [ %52, %.lr.ph27.preheader.i.i.i ], [ %indvars.iv.next31.i.i.i, %56 ]
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv30.i.i.i
-  %54 = load i8, ptr %53, align 1, !tbaa !21
-  %55 = icmp eq i8 %54, 58
-  br i1 %55, label %57, label %56
+.lr.ph27.i.i.i:                                   ; preds = %55, %.lr.ph27.preheader.i.i.i
+  %indvars.iv30.i.i.i = phi i64 [ %51, %.lr.ph27.preheader.i.i.i ], [ %indvars.iv.next31.i.i.i, %55 ]
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv30.i.i.i
+  %53 = load i8, ptr %52, align 1, !tbaa !21
+  %54 = icmp eq i8 %53, 58
+  br i1 %54, label %56, label %55
 
-56:                                               ; preds = %.lr.ph27.i.i.i
+55:                                               ; preds = %.lr.ph27.i.i.i
   %indvars.iv.next31.i.i.i = add nuw nsw i64 %indvars.iv30.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next31.i.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph27.i.i.i, !llvm.loop !24
 
-57:                                               ; preds = %.lr.ph27.i.i.i
-  %58 = trunc nuw i64 %indvars.iv30.i.i.i to i32
-  %59 = sub nsw i32 %58, %.019.lcssa.i.i.i
-  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %59 to i64
+56:                                               ; preds = %.lr.ph27.i.i.i
+  %57 = trunc nuw i64 %indvars.iv30.i.i.i to i32
+  %58 = sub nsw i32 %57, %.019.lcssa.i.i.i
+  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %58 to i64
   %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i, 32
-  %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %52
+  %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %51
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %3, align 4
-  %60 = add nsw i32 %.019.lcssa.i.i.i, %.041.i
-  store i32 %60, ptr %3, align 8, !tbaa !13
-  %61 = add i32 %60, 1
-  %62 = add i32 %61, %59
-  br label %64
+  %59 = add nsw i32 %.019.lcssa.i.i.i, %.2.i
+  store i32 %59, ptr %3, align 8, !tbaa !13
+  %60 = add i32 %59, 1
+  %61 = add i32 %60, %58
+  br label %63
 
-.loopexit.i:                                      ; preds = %50, %56, %.critedge.i.i.i
+.loopexit.i:                                      ; preds = %49, %55, %.critedge.i.i.i
   store i32 0, ptr %3, align 4, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %63, align 4, !tbaa !8
-  br label %64
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 -1, ptr %62, align 4, !tbaa !8
+  br label %63
 
-64:                                               ; preds = %.loopexit.i, %57
-  %.0.i = phi i32 [ %62, %57 ], [ %.041.i, %.loopexit.i ]
-  %65 = icmp eq i32 %.0.i, %.1.i
-  br i1 %65, label %_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit, label %66
+63:                                               ; preds = %.loopexit.i, %56
+  %.0.i = phi i32 [ %61, %56 ], [ %.2.i, %.loopexit.i ]
+  %64 = icmp eq i32 %.0.i, %.1.i
+  br i1 %64, label %_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit, label %65
 
-66:                                               ; preds = %64
-  %67 = sub nsw i32 %.1.i, %.0.i
-  %68 = icmp eq i32 %67, -1
-  br i1 %68, label %69, label %70
+65:                                               ; preds = %63
+  %66 = sub nsw i32 %.1.i, %.0.i
+  %67 = icmp eq i32 %66, -1
+  br i1 %67, label %68, label %69
 
-69:                                               ; preds = %66
+68:                                               ; preds = %65
   store i32 0, ptr %13, align 4, !tbaa !3
   store i32 -1, ptr %14, align 4, !tbaa !8
   store i32 0, ptr %15, align 4, !tbaa !3
@@ -2831,108 +2829,108 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEE
   store i32 -1, ptr %18, align 4, !tbaa !8
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit
 
-70:                                               ; preds = %66
-  %71 = icmp sgt i32 %67, 0
-  br i1 %71, label %.lr.ph.preheader.i24.i, label %._crit_edge.thread.i.i
+69:                                               ; preds = %65
+  %70 = icmp sgt i32 %66, 0
+  br i1 %70, label %.lr.ph.preheader.i24.i, label %._crit_edge.thread.i.i
 
-.lr.ph.preheader.i24.i:                           ; preds = %70
-  %72 = sext i32 %.0.i to i64
-  %73 = sext i32 %.1.i to i64
+.lr.ph.preheader.i24.i:                           ; preds = %69
+  %71 = sext i32 %.0.i to i64
+  %72 = sext i32 %.1.i to i64
   br label %.lr.ph.i25.i
 
-._crit_edge.i.i:                                  ; preds = %84
-  %74 = icmp sgt i32 %.139.i.i, -1
-  br i1 %74, label %86, label %._crit_edge.thread.i.i
+._crit_edge.i.i:                                  ; preds = %83
+  %73 = icmp sgt i32 %.139.i.i, -1
+  br i1 %73, label %85, label %._crit_edge.thread.i.i
 
-.lr.ph.i25.i:                                     ; preds = %84, %.lr.ph.preheader.i24.i
-  %indvars.iv.i26.i = phi i64 [ %72, %.lr.ph.preheader.i24.i ], [ %indvars.iv.next.i27.i, %84 ]
-  %.058.i.i = phi i32 [ -1, %.lr.ph.preheader.i24.i ], [ %.1.i.i, %84 ]
-  %.03857.i.i = phi i32 [ -1, %.lr.ph.preheader.i24.i ], [ %.139.i.i, %84 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i26.i
-  %76 = load i8, ptr %75, align 1, !tbaa !21
-  switch i8 %76, label %84 [
-    i8 63, label %77
-    i8 35, label %81
+.lr.ph.i25.i:                                     ; preds = %83, %.lr.ph.preheader.i24.i
+  %indvars.iv.i26.i = phi i64 [ %71, %.lr.ph.preheader.i24.i ], [ %indvars.iv.next.i27.i, %83 ]
+  %.058.i.i = phi i32 [ -1, %.lr.ph.preheader.i24.i ], [ %.1.i.i, %83 ]
+  %.03857.i.i = phi i32 [ -1, %.lr.ph.preheader.i24.i ], [ %.139.i.i, %83 ]
+  %74 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i26.i
+  %75 = load i8, ptr %74, align 1, !tbaa !21
+  switch i8 %75, label %83 [
+    i8 63, label %76
+    i8 35, label %80
   ]
 
-77:                                               ; preds = %.lr.ph.i25.i
-  %78 = icmp slt i32 %.03857.i.i, 0
-  %79 = icmp slt i32 %.058.i.i, 0
-  %or.cond.i.i = select i1 %78, i1 %79, i1 false
-  %80 = trunc nsw i64 %indvars.iv.i26.i to i32
-  %spec.select.i.i = select i1 %or.cond.i.i, i32 %80, i32 %.058.i.i
-  br label %84
+76:                                               ; preds = %.lr.ph.i25.i
+  %77 = icmp slt i32 %.03857.i.i, 0
+  %78 = icmp slt i32 %.058.i.i, 0
+  %or.cond.i.i = select i1 %77, i1 %78, i1 false
+  %79 = trunc nsw i64 %indvars.iv.i26.i to i32
+  %spec.select.i.i = select i1 %or.cond.i.i, i32 %79, i32 %.058.i.i
+  br label %83
 
-81:                                               ; preds = %.lr.ph.i25.i
-  %82 = icmp slt i32 %.03857.i.i, 0
-  %83 = trunc nsw i64 %indvars.iv.i26.i to i32
-  %spec.select47.i.i = select i1 %82, i32 %83, i32 %.03857.i.i
-  br label %84
+80:                                               ; preds = %.lr.ph.i25.i
+  %81 = icmp slt i32 %.03857.i.i, 0
+  %82 = trunc nsw i64 %indvars.iv.i26.i to i32
+  %spec.select47.i.i = select i1 %81, i32 %82, i32 %.03857.i.i
+  br label %83
 
-84:                                               ; preds = %81, %77, %.lr.ph.i25.i
-  %.139.i.i = phi i32 [ %.03857.i.i, %.lr.ph.i25.i ], [ %.03857.i.i, %77 ], [ %spec.select47.i.i, %81 ]
-  %.1.i.i = phi i32 [ %.058.i.i, %.lr.ph.i25.i ], [ %spec.select.i.i, %77 ], [ %.058.i.i, %81 ]
+83:                                               ; preds = %80, %76, %.lr.ph.i25.i
+  %.139.i.i = phi i32 [ %.03857.i.i, %.lr.ph.i25.i ], [ %.03857.i.i, %76 ], [ %spec.select47.i.i, %80 ]
+  %.1.i.i = phi i32 [ %.058.i.i, %.lr.ph.i25.i ], [ %spec.select.i.i, %76 ], [ %.058.i.i, %80 ]
   %indvars.iv.next.i27.i = add nsw i64 %indvars.iv.i26.i, 1
-  %85 = icmp slt i64 %indvars.iv.next.i27.i, %73
-  br i1 %85, label %.lr.ph.i25.i, label %._crit_edge.i.i, !llvm.loop !49
+  %84 = icmp slt i64 %indvars.iv.next.i27.i, %72
+  br i1 %84, label %.lr.ph.i25.i, label %._crit_edge.i.i, !llvm.loop !49
 
-86:                                               ; preds = %._crit_edge.i.i
-  %87 = add nuw nsw i32 %.139.i.i, 1
-  %88 = sub nsw i32 %.1.i, %87
-  %.sroa.2.0.insert.ext.i.i.i = zext i32 %88 to i64
+85:                                               ; preds = %._crit_edge.i.i
+  %86 = add nuw nsw i32 %.139.i.i, 1
+  %87 = sub nsw i32 %.1.i, %86
+  %.sroa.2.0.insert.ext.i.i.i = zext i32 %87 to i64
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i = zext nneg i32 %87 to i64
+  %.sroa.0.0.insert.ext.i.i.i = zext nneg i32 %86 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %17, align 4
-  br label %89
+  br label %88
 
-._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %70
-  %.0.lcssa64.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ -1, %70 ]
+._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %69
+  %.0.lcssa64.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ -1, %69 ]
   store i32 0, ptr %17, align 4, !tbaa !3
   store i32 -1, ptr %18, align 4, !tbaa !8
-  br label %89
+  br label %88
 
-89:                                               ; preds = %._crit_edge.thread.i.i, %86
-  %.0.lcssa63.i.i = phi i32 [ %.1.i.i, %86 ], [ %.0.lcssa64.i.i, %._crit_edge.thread.i.i ]
-  %.041.i.i = phi i32 [ %.139.i.i, %86 ], [ %.1.i, %._crit_edge.thread.i.i ]
-  %90 = icmp sgt i32 %.0.lcssa63.i.i, -1
-  br i1 %90, label %91, label %94
+88:                                               ; preds = %._crit_edge.thread.i.i, %85
+  %.0.lcssa63.i.i = phi i32 [ %.1.i.i, %85 ], [ %.0.lcssa64.i.i, %._crit_edge.thread.i.i ]
+  %.041.i.i = phi i32 [ %.139.i.i, %85 ], [ %.1.i, %._crit_edge.thread.i.i ]
+  %89 = icmp sgt i32 %.0.lcssa63.i.i, -1
+  br i1 %89, label %90, label %93
 
-91:                                               ; preds = %89
-  %92 = add nuw nsw i32 %.0.lcssa63.i.i, 1
-  %93 = sub nsw i32 %.041.i.i, %92
-  %.sroa.2.0.insert.ext.i48.i.i = zext i32 %93 to i64
+90:                                               ; preds = %88
+  %91 = add nuw nsw i32 %.0.lcssa63.i.i, 1
+  %92 = sub nsw i32 %.041.i.i, %91
+  %.sroa.2.0.insert.ext.i48.i.i = zext i32 %92 to i64
   %.sroa.2.0.insert.shift.i49.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i48.i.i, 32
-  %.sroa.0.0.insert.ext.i50.i.i = zext nneg i32 %92 to i64
+  %.sroa.0.0.insert.ext.i50.i.i = zext nneg i32 %91 to i64
   %.sroa.0.0.insert.insert.i51.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i49.i.i, %.sroa.0.0.insert.ext.i50.i.i
   store i64 %.sroa.0.0.insert.insert.i51.i.i, ptr %15, align 4
-  br label %95
+  br label %94
 
-94:                                               ; preds = %89
+93:                                               ; preds = %88
   store i32 0, ptr %15, align 4, !tbaa !3
   store i32 -1, ptr %16, align 4, !tbaa !8
-  br label %95
+  br label %94
 
-95:                                               ; preds = %94, %91
-  %.143.i.i = phi i32 [ %.0.lcssa63.i.i, %91 ], [ %.041.i.i, %94 ]
+94:                                               ; preds = %93, %90
+  %.143.i.i = phi i32 [ %.0.lcssa63.i.i, %90 ], [ %.041.i.i, %93 ]
   %.not.i23.i = icmp eq i32 %.143.i.i, %.0.i
-  br i1 %.not.i23.i, label %98, label %96
+  br i1 %.not.i23.i, label %97, label %95
 
-96:                                               ; preds = %95
-  %97 = sub nsw i32 %.143.i.i, %.0.i
-  %.sroa.2.0.insert.ext.i52.i.i = zext i32 %97 to i64
+95:                                               ; preds = %94
+  %96 = sub nsw i32 %.143.i.i, %.0.i
+  %.sroa.2.0.insert.ext.i52.i.i = zext i32 %96 to i64
   %.sroa.2.0.insert.shift.i53.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i52.i.i, 32
   %.sroa.0.0.insert.ext.i54.i.i = zext i32 %.0.i to i64
   %.sroa.0.0.insert.insert.i55.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i53.i.i, %.sroa.0.0.insert.ext.i54.i.i
   store i64 %.sroa.0.0.insert.insert.i55.i.i, ptr %13, align 4
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit
 
-98:                                               ; preds = %95
+97:                                               ; preds = %94
   store i32 0, ptr %13, align 4, !tbaa !3
   store i32 -1, ptr %14, align 4, !tbaa !8
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit
 
-_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit: ; preds = %40, %64, %69, %96, %98
+_ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit: ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, %63, %68, %95, %97
   ret void
 }
 
@@ -2967,7 +2965,7 @@ define void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr noundef readonly captur
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 -1, ptr %18, align 4, !tbaa !8
   %19 = icmp sgt i32 %1, 0
-  br i1 %19, label %.lr.ph.i.preheader.i, label %.critedge.i.i
+  br i1 %19, label %.lr.ph.i.preheader.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 .lr.ph.i.preheader.i:                             ; preds = %4
   %20 = load i16, ptr %0, align 2, !tbaa !25
@@ -2989,33 +2987,33 @@ define void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr noundef readonly captur
 27:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i
   %indvars.iv.i47.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i47.i, %23
-  br i1 %exitcond.not.i, label %..critedge.i.loopexit_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %..critedge.i_crit_edge.i, label %.lr.ph.i.i, !llvm.loop !47
 
-..critedge.i.loopexit_crit_edge.i:                ; preds = %27
+..critedge.i_crit_edge.i:                         ; preds = %27
   br label %.critedge.i.i, !llvm.loop !47
 
 .critedge.i.loopexit.i:                           ; preds = %.lr.ph.i.i
   %28 = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %.critedge.i.loopexit.i, %..critedge.i.loopexit_crit_edge.i, %.lr.ph.i.preheader.i, %4
-  %.041.i = phi i32 [ 0, %4 ], [ %1, %..critedge.i.loopexit_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %28, %.critedge.i.loopexit.i ]
+.critedge.i.i:                                    ; preds = %.critedge.i.loopexit.i, %..critedge.i_crit_edge.i, %.lr.ph.i.preheader.i
+  %.142.i = phi i32 [ %1, %..critedge.i_crit_edge.i ], [ 0, %.lr.ph.i.preheader.i ], [ %28, %.critedge.i.loopexit.i ]
   br i1 %2, label %.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 .preheader.i.i:                                   ; preds = %.critedge.i.i
+  %29 = icmp sgt i32 %1, %.142.i
   %invariant.gep.i.i = getelementptr i8, ptr %0, i64 -2
-  %29 = icmp sgt i32 %1, %.041.i
   br i1 %29, label %.lr.ph14.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.preheader.i.i
-  %30 = sext i32 %1 to i64
+  %30 = zext nneg i32 %1 to i64
   %gep.i49.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %30
   %31 = load i16, ptr %gep.i49.i, align 2, !tbaa !25
   %32 = icmp ult i16 %31, 33
   br i1 %32, label %.lr.ph51.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 .lr.ph51.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %33 = sext i32 %.041.i to i64
+  %33 = sext i32 %.142.i to i64
   br label %36
 
 .lr.ph14.i.i:                                     ; preds = %36
@@ -3028,105 +3026,103 @@ define void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr noundef readonly captur
   %indvars.iv17.i50.i = phi i64 [ %30, %.lr.ph51.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
   %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i50.i, -1
   %37 = icmp sgt i64 %indvars.iv.next18.i.i, %33
-  br i1 %37, label %.lr.ph14.i.i, label %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, !llvm.loop !48
-
-._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i: ; preds = %36
-  br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, !llvm.loop !48
+  br i1 %37, label %.lr.ph14.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, !llvm.loop !48
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   %38 = trunc nsw i64 %indvars.iv.next18.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
-_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, %.lr.ph14.preheader.i.i, %.preheader.i.i, %.critedge.i.i
-  %.1.i = phi i32 [ %1, %.preheader.i.i ], [ %1, %.critedge.i.i ], [ %.041.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %38, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %39 = icmp eq i32 %.041.i, %.1.i
-  br i1 %39, label %40, label %42
+_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %.preheader.i.i, %.critedge.i.i, %4
+  %.2.i = phi i32 [ %.142.i, %.preheader.i.i ], [ %.142.i, %.critedge.i.i ], [ 0, %4 ], [ %.142.i, %.lr.ph14.preheader.i.i ], [ %.142.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.1.i = phi i32 [ %1, %.preheader.i.i ], [ %1, %.critedge.i.i ], [ %1, %4 ], [ %1, %.lr.ph14.preheader.i.i ], [ %38, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %39 = icmp eq i32 %.2.i, %.1.i
+  br i1 %39, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, label %41
 
-40:                                               ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %36, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
   store i32 0, ptr %3, align 4, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %41, align 4, !tbaa !8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 -1, ptr %40, align 4, !tbaa !8
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit
 
-42:                                               ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
-  %43 = sext i32 %.041.i to i64
-  %44 = getelementptr inbounds i16, ptr %0, i64 %43
-  %45 = sub nsw i32 %.1.i, %.041.i
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph.preheader.i.i.i, label %.critedge.i.i.i
+41:                                               ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+  %42 = sext i32 %.2.i to i64
+  %43 = getelementptr inbounds i16, ptr %0, i64 %42
+  %44 = sub nsw i32 %.1.i, %.2.i
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph.preheader.i.i.i, label %.critedge.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %42
-  %wide.trip.count.i.i.i = zext nneg i32 %45 to i64
+.lr.ph.preheader.i.i.i:                           ; preds = %41
+  %wide.trip.count.i.i.i = zext nneg i32 %44 to i64
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %50, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %50 ]
-  %47 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv.i.i.i
-  %48 = load i16, ptr %47, align 2, !tbaa !25
-  %49 = icmp ult i16 %48, 33
-  br i1 %49, label %50, label %.critedge.loopexit.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %49, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
+  %46 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv.i.i.i
+  %47 = load i16, ptr %46, align 2, !tbaa !25
+  %48 = icmp ult i16 %47, 33
+  br i1 %48, label %49, label %.critedge.loopexit.i.i.i
 
-50:                                               ; preds = %.lr.ph.i.i.i
+49:                                               ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 .critedge.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
-  %51 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %42
-  %.019.lcssa.i.i.i = phi i32 [ 0, %42 ], [ %51, %.critedge.loopexit.i.i.i ]
-  %.not25.i.i.i = icmp slt i32 %.019.lcssa.i.i.i, %45
+.critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %41
+  %.019.lcssa.i.i.i = phi i32 [ 0, %41 ], [ %50, %.critedge.loopexit.i.i.i ]
+  %.not25.i.i.i = icmp slt i32 %.019.lcssa.i.i.i, %44
   br i1 %.not25.i.i.i, label %.lr.ph27.preheader.i.i.i, label %.loopexit.i
 
 .lr.ph27.preheader.i.i.i:                         ; preds = %.critedge.i.i.i
-  %52 = zext i32 %.019.lcssa.i.i.i to i64
-  %wide.trip.count.i.i = zext i32 %45 to i64
+  %51 = zext i32 %.019.lcssa.i.i.i to i64
+  %wide.trip.count.i.i = zext i32 %44 to i64
   br label %.lr.ph27.i.i.i
 
-.lr.ph27.i.i.i:                                   ; preds = %56, %.lr.ph27.preheader.i.i.i
-  %indvars.iv30.i.i.i = phi i64 [ %52, %.lr.ph27.preheader.i.i.i ], [ %indvars.iv.next31.i.i.i, %56 ]
-  %53 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv30.i.i.i
-  %54 = load i16, ptr %53, align 2, !tbaa !25
-  %55 = icmp eq i16 %54, 58
-  br i1 %55, label %57, label %56
+.lr.ph27.i.i.i:                                   ; preds = %55, %.lr.ph27.preheader.i.i.i
+  %indvars.iv30.i.i.i = phi i64 [ %51, %.lr.ph27.preheader.i.i.i ], [ %indvars.iv.next31.i.i.i, %55 ]
+  %52 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv30.i.i.i
+  %53 = load i16, ptr %52, align 2, !tbaa !25
+  %54 = icmp eq i16 %53, 58
+  br i1 %54, label %56, label %55
 
-56:                                               ; preds = %.lr.ph27.i.i.i
+55:                                               ; preds = %.lr.ph27.i.i.i
   %indvars.iv.next31.i.i.i = add nuw nsw i64 %indvars.iv30.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next31.i.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph27.i.i.i, !llvm.loop !28
 
-57:                                               ; preds = %.lr.ph27.i.i.i
-  %58 = trunc nuw i64 %indvars.iv30.i.i.i to i32
-  %59 = sub nsw i32 %58, %.019.lcssa.i.i.i
-  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %59 to i64
+56:                                               ; preds = %.lr.ph27.i.i.i
+  %57 = trunc nuw i64 %indvars.iv30.i.i.i to i32
+  %58 = sub nsw i32 %57, %.019.lcssa.i.i.i
+  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %58 to i64
   %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i, 32
-  %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %52
+  %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %51
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %3, align 4
-  %60 = add nsw i32 %.019.lcssa.i.i.i, %.041.i
-  store i32 %60, ptr %3, align 8, !tbaa !13
-  %61 = add i32 %60, 1
-  %62 = add i32 %61, %59
-  br label %64
+  %59 = add nsw i32 %.019.lcssa.i.i.i, %.2.i
+  store i32 %59, ptr %3, align 8, !tbaa !13
+  %60 = add i32 %59, 1
+  %61 = add i32 %60, %58
+  br label %63
 
-.loopexit.i:                                      ; preds = %50, %56, %.critedge.i.i.i
+.loopexit.i:                                      ; preds = %49, %55, %.critedge.i.i.i
   store i32 0, ptr %3, align 4, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %63, align 4, !tbaa !8
-  br label %64
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 -1, ptr %62, align 4, !tbaa !8
+  br label %63
 
-64:                                               ; preds = %.loopexit.i, %57
-  %.0.i = phi i32 [ %62, %57 ], [ %.041.i, %.loopexit.i ]
-  %65 = icmp eq i32 %.0.i, %.1.i
-  br i1 %65, label %_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit, label %66
+63:                                               ; preds = %.loopexit.i, %56
+  %.0.i = phi i32 [ %61, %56 ], [ %.2.i, %.loopexit.i ]
+  %64 = icmp eq i32 %.0.i, %.1.i
+  br i1 %64, label %_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit, label %65
 
-66:                                               ; preds = %64
-  %67 = sub nsw i32 %.1.i, %.0.i
-  %68 = icmp eq i32 %67, -1
-  br i1 %68, label %69, label %70
+65:                                               ; preds = %63
+  %66 = sub nsw i32 %.1.i, %.0.i
+  %67 = icmp eq i32 %66, -1
+  br i1 %67, label %68, label %69
 
-69:                                               ; preds = %66
+68:                                               ; preds = %65
   store i32 0, ptr %13, align 4, !tbaa !3
   store i32 -1, ptr %14, align 4, !tbaa !8
   store i32 0, ptr %15, align 4, !tbaa !3
@@ -3135,108 +3131,108 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEE
   store i32 -1, ptr %18, align 4, !tbaa !8
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit
 
-70:                                               ; preds = %66
-  %71 = icmp sgt i32 %67, 0
-  br i1 %71, label %.lr.ph.preheader.i24.i, label %._crit_edge.thread.i.i
+69:                                               ; preds = %65
+  %70 = icmp sgt i32 %66, 0
+  br i1 %70, label %.lr.ph.preheader.i24.i, label %._crit_edge.thread.i.i
 
-.lr.ph.preheader.i24.i:                           ; preds = %70
-  %72 = sext i32 %.0.i to i64
-  %73 = sext i32 %.1.i to i64
+.lr.ph.preheader.i24.i:                           ; preds = %69
+  %71 = sext i32 %.0.i to i64
+  %72 = sext i32 %.1.i to i64
   br label %.lr.ph.i25.i
 
-._crit_edge.i.i:                                  ; preds = %84
-  %74 = icmp sgt i32 %.139.i.i, -1
-  br i1 %74, label %86, label %._crit_edge.thread.i.i
+._crit_edge.i.i:                                  ; preds = %83
+  %73 = icmp sgt i32 %.139.i.i, -1
+  br i1 %73, label %85, label %._crit_edge.thread.i.i
 
-.lr.ph.i25.i:                                     ; preds = %84, %.lr.ph.preheader.i24.i
-  %indvars.iv.i26.i = phi i64 [ %72, %.lr.ph.preheader.i24.i ], [ %indvars.iv.next.i27.i, %84 ]
-  %.058.i.i = phi i32 [ -1, %.lr.ph.preheader.i24.i ], [ %.1.i.i, %84 ]
-  %.03857.i.i = phi i32 [ -1, %.lr.ph.preheader.i24.i ], [ %.139.i.i, %84 ]
-  %75 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i26.i
-  %76 = load i16, ptr %75, align 2, !tbaa !25
-  switch i16 %76, label %84 [
-    i16 63, label %77
-    i16 35, label %81
+.lr.ph.i25.i:                                     ; preds = %83, %.lr.ph.preheader.i24.i
+  %indvars.iv.i26.i = phi i64 [ %71, %.lr.ph.preheader.i24.i ], [ %indvars.iv.next.i27.i, %83 ]
+  %.058.i.i = phi i32 [ -1, %.lr.ph.preheader.i24.i ], [ %.1.i.i, %83 ]
+  %.03857.i.i = phi i32 [ -1, %.lr.ph.preheader.i24.i ], [ %.139.i.i, %83 ]
+  %74 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i26.i
+  %75 = load i16, ptr %74, align 2, !tbaa !25
+  switch i16 %75, label %83 [
+    i16 63, label %76
+    i16 35, label %80
   ]
 
-77:                                               ; preds = %.lr.ph.i25.i
-  %78 = icmp slt i32 %.03857.i.i, 0
-  %79 = icmp slt i32 %.058.i.i, 0
-  %or.cond.i.i = select i1 %78, i1 %79, i1 false
-  %80 = trunc nsw i64 %indvars.iv.i26.i to i32
-  %spec.select.i.i = select i1 %or.cond.i.i, i32 %80, i32 %.058.i.i
-  br label %84
+76:                                               ; preds = %.lr.ph.i25.i
+  %77 = icmp slt i32 %.03857.i.i, 0
+  %78 = icmp slt i32 %.058.i.i, 0
+  %or.cond.i.i = select i1 %77, i1 %78, i1 false
+  %79 = trunc nsw i64 %indvars.iv.i26.i to i32
+  %spec.select.i.i = select i1 %or.cond.i.i, i32 %79, i32 %.058.i.i
+  br label %83
 
-81:                                               ; preds = %.lr.ph.i25.i
-  %82 = icmp slt i32 %.03857.i.i, 0
-  %83 = trunc nsw i64 %indvars.iv.i26.i to i32
-  %spec.select47.i.i = select i1 %82, i32 %83, i32 %.03857.i.i
-  br label %84
+80:                                               ; preds = %.lr.ph.i25.i
+  %81 = icmp slt i32 %.03857.i.i, 0
+  %82 = trunc nsw i64 %indvars.iv.i26.i to i32
+  %spec.select47.i.i = select i1 %81, i32 %82, i32 %.03857.i.i
+  br label %83
 
-84:                                               ; preds = %81, %77, %.lr.ph.i25.i
-  %.139.i.i = phi i32 [ %.03857.i.i, %.lr.ph.i25.i ], [ %.03857.i.i, %77 ], [ %spec.select47.i.i, %81 ]
-  %.1.i.i = phi i32 [ %.058.i.i, %.lr.ph.i25.i ], [ %spec.select.i.i, %77 ], [ %.058.i.i, %81 ]
+83:                                               ; preds = %80, %76, %.lr.ph.i25.i
+  %.139.i.i = phi i32 [ %.03857.i.i, %.lr.ph.i25.i ], [ %.03857.i.i, %76 ], [ %spec.select47.i.i, %80 ]
+  %.1.i.i = phi i32 [ %.058.i.i, %.lr.ph.i25.i ], [ %spec.select.i.i, %76 ], [ %.058.i.i, %80 ]
   %indvars.iv.next.i27.i = add nsw i64 %indvars.iv.i26.i, 1
-  %85 = icmp slt i64 %indvars.iv.next.i27.i, %73
-  br i1 %85, label %.lr.ph.i25.i, label %._crit_edge.i.i, !llvm.loop !50
+  %84 = icmp slt i64 %indvars.iv.next.i27.i, %72
+  br i1 %84, label %.lr.ph.i25.i, label %._crit_edge.i.i, !llvm.loop !50
 
-86:                                               ; preds = %._crit_edge.i.i
-  %87 = add nuw nsw i32 %.139.i.i, 1
-  %88 = sub nsw i32 %.1.i, %87
-  %.sroa.2.0.insert.ext.i.i.i = zext i32 %88 to i64
+85:                                               ; preds = %._crit_edge.i.i
+  %86 = add nuw nsw i32 %.139.i.i, 1
+  %87 = sub nsw i32 %.1.i, %86
+  %.sroa.2.0.insert.ext.i.i.i = zext i32 %87 to i64
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i = zext nneg i32 %87 to i64
+  %.sroa.0.0.insert.ext.i.i.i = zext nneg i32 %86 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %17, align 4
-  br label %89
+  br label %88
 
-._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %70
-  %.0.lcssa64.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ -1, %70 ]
+._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %69
+  %.0.lcssa64.i.i = phi i32 [ %.1.i.i, %._crit_edge.i.i ], [ -1, %69 ]
   store i32 0, ptr %17, align 4, !tbaa !3
   store i32 -1, ptr %18, align 4, !tbaa !8
-  br label %89
+  br label %88
 
-89:                                               ; preds = %._crit_edge.thread.i.i, %86
-  %.0.lcssa63.i.i = phi i32 [ %.1.i.i, %86 ], [ %.0.lcssa64.i.i, %._crit_edge.thread.i.i ]
-  %.041.i.i = phi i32 [ %.139.i.i, %86 ], [ %.1.i, %._crit_edge.thread.i.i ]
-  %90 = icmp sgt i32 %.0.lcssa63.i.i, -1
-  br i1 %90, label %91, label %94
+88:                                               ; preds = %._crit_edge.thread.i.i, %85
+  %.0.lcssa63.i.i = phi i32 [ %.1.i.i, %85 ], [ %.0.lcssa64.i.i, %._crit_edge.thread.i.i ]
+  %.041.i.i = phi i32 [ %.139.i.i, %85 ], [ %.1.i, %._crit_edge.thread.i.i ]
+  %89 = icmp sgt i32 %.0.lcssa63.i.i, -1
+  br i1 %89, label %90, label %93
 
-91:                                               ; preds = %89
-  %92 = add nuw nsw i32 %.0.lcssa63.i.i, 1
-  %93 = sub nsw i32 %.041.i.i, %92
-  %.sroa.2.0.insert.ext.i48.i.i = zext i32 %93 to i64
+90:                                               ; preds = %88
+  %91 = add nuw nsw i32 %.0.lcssa63.i.i, 1
+  %92 = sub nsw i32 %.041.i.i, %91
+  %.sroa.2.0.insert.ext.i48.i.i = zext i32 %92 to i64
   %.sroa.2.0.insert.shift.i49.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i48.i.i, 32
-  %.sroa.0.0.insert.ext.i50.i.i = zext nneg i32 %92 to i64
+  %.sroa.0.0.insert.ext.i50.i.i = zext nneg i32 %91 to i64
   %.sroa.0.0.insert.insert.i51.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i49.i.i, %.sroa.0.0.insert.ext.i50.i.i
   store i64 %.sroa.0.0.insert.insert.i51.i.i, ptr %15, align 4
-  br label %95
+  br label %94
 
-94:                                               ; preds = %89
+93:                                               ; preds = %88
   store i32 0, ptr %15, align 4, !tbaa !3
   store i32 -1, ptr %16, align 4, !tbaa !8
-  br label %95
+  br label %94
 
-95:                                               ; preds = %94, %91
-  %.143.i.i = phi i32 [ %.0.lcssa63.i.i, %91 ], [ %.041.i.i, %94 ]
+94:                                               ; preds = %93, %90
+  %.143.i.i = phi i32 [ %.0.lcssa63.i.i, %90 ], [ %.041.i.i, %93 ]
   %.not.i23.i = icmp eq i32 %.143.i.i, %.0.i
-  br i1 %.not.i23.i, label %98, label %96
+  br i1 %.not.i23.i, label %97, label %95
 
-96:                                               ; preds = %95
-  %97 = sub nsw i32 %.143.i.i, %.0.i
-  %.sroa.2.0.insert.ext.i52.i.i = zext i32 %97 to i64
+95:                                               ; preds = %94
+  %96 = sub nsw i32 %.143.i.i, %.0.i
+  %.sroa.2.0.insert.ext.i52.i.i = zext i32 %96 to i64
   %.sroa.2.0.insert.shift.i53.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i52.i.i, 32
   %.sroa.0.0.insert.ext.i54.i.i = zext i32 %.0.i to i64
   %.sroa.0.0.insert.insert.i55.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i53.i.i, %.sroa.0.0.insert.ext.i54.i.i
   store i64 %.sroa.0.0.insert.insert.i55.i.i, ptr %13, align 4
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit
 
-98:                                               ; preds = %95
+97:                                               ; preds = %94
   store i32 0, ptr %13, align 4, !tbaa !3
   store i32 -1, ptr %14, align 4, !tbaa !8
   br label %_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit
 
-_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit: ; preds = %40, %64, %69, %96, %98
+_ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit: ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, %63, %68, %95, %97
   ret void
 }
 
@@ -3298,15 +3294,15 @@ _ZN3url6Parsed18clear_inner_parsedEv.exit.i:      ; preds = %22, %3
   br label %31
 
 .lr.ph.i.i:                                       ; preds = %31
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i109.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i106.i, 1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next.i.i
   %29 = load i8, ptr %28, align 1, !tbaa !21
   %30 = icmp ult i8 %29, 33
   br i1 %30, label %31, label %.critedge.i.i, !llvm.loop !45
 
 31:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %indvars.iv.i109.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i109.i, %27
+  %indvars.iv.i106.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i106.i, %27
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !45
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
@@ -3314,26 +3310,26 @@ _ZN3url6Parsed18clear_inner_parsedEv.exit.i:      ; preds = %22, %3
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.091128.i = phi i32 [ %32, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %invariant.gep.i129.i = getelementptr i8, ptr %0, i64 -1
-  %gep.i111.i = getelementptr i8, ptr %invariant.gep.i129.i, i64 %26
-  %33 = load i8, ptr %gep.i111.i, align 1, !tbaa !21
+  %.1125.i = phi i32 [ %32, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %invariant.gep.i126.i = getelementptr i8, ptr %0, i64 -1
+  %gep.i108.i = getelementptr i8, ptr %invariant.gep.i126.i, i64 %26
+  %33 = load i8, ptr %gep.i108.i, align 1, !tbaa !21
   %34 = icmp ult i8 %33, 33
-  br i1 %34, label %.lr.ph113.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+  br i1 %34, label %.lr.ph110.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
-.lr.ph113.i:                                      ; preds = %.lr.ph14.preheader.i.i
-  %35 = sext i32 %.091128.i to i64
+.lr.ph110.i:                                      ; preds = %.lr.ph14.preheader.i.i
+  %35 = sext i32 %.1125.i to i64
   br label %38
 
 .lr.ph14.i.i:                                     ; preds = %38
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i129.i, i64 %indvars.iv.next18.i.i
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i126.i, i64 %indvars.iv.next18.i.i
   %36 = load i8, ptr %gep.i.i, align 1, !tbaa !21
   %37 = icmp ult i8 %36, 33
   br i1 %37, label %38, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, !llvm.loop !46
 
-38:                                               ; preds = %.lr.ph14.i.i, %.lr.ph113.i
-  %indvars.iv17.i112.i = phi i64 [ %26, %.lr.ph113.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
-  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i112.i, -1
+38:                                               ; preds = %.lr.ph14.i.i, %.lr.ph110.i
+  %indvars.iv17.i109.i = phi i64 [ %26, %.lr.ph110.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
+  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i109.i, -1
   %39 = icmp sgt i64 %indvars.iv.next18.i.i, %35
   br i1 %39, label %.lr.ph14.i.i, label %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, !llvm.loop !46
 
@@ -3345,9 +3341,9 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
-  %.09196.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %.091128.i, %.lr.ph14.preheader.i.i ], [ %.091128.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %.193.i = phi i32 [ %1, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %40, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %41 = icmp eq i32 %.09196.i, %.193.i
+  %.2.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %.1125.i, %.lr.ph14.preheader.i.i ], [ %.1125.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %41 = icmp eq i32 %.2.i, %.193.i
   br i1 %41, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, label %43
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i
@@ -3357,9 +3353,9 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit
 
 43:                                               ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
-  %44 = sext i32 %.09196.i to i64
+  %44 = sext i32 %.2.i to i64
   %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = sub nsw i32 %.193.i, %.09196.i
+  %46 = sub nsw i32 %.193.i, %.2.i
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.preheader.i57.i, label %.critedge.i55.i
 
@@ -3412,9 +3408,9 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %53
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %2, align 4
-  %62 = add nsw i32 %.019.lcssa.i.i, %.09196.i
+  %62 = add nsw i32 %.019.lcssa.i.i, %.2.i
   store i32 %62, ptr %2, align 8, !tbaa !13
-  %63 = add i32 %.09196.i, %60
+  %63 = add i32 %.2.i, %60
   %64 = add nsw i32 %.193.i, -1
   %65 = icmp eq i32 %63, %64
   br i1 %65, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit, label %66
@@ -3584,8 +3580,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %139 = load ptr, ptr %138, align 8
   %.not.i = icmp eq ptr %139, null
-  %or.cond102.i = select i1 %or.cond.i, i1 %.not.i, i1 false
-  br i1 %or.cond102.i, label %140, label %158
+  %or.cond99.i = select i1 %or.cond.i, i1 %.not.i, i1 false
+  br i1 %or.cond99.i, label %140, label %158
 
 140:                                              ; preds = %131
   %141 = load i32, ptr %124, align 8, !tbaa !20
@@ -3703,15 +3699,15 @@ _ZN3url6Parsed18clear_inner_parsedEv.exit.i:      ; preds = %22, %3
   br label %31
 
 .lr.ph.i.i:                                       ; preds = %31
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i109.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i106.i, 1
   %28 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next.i.i
   %29 = load i16, ptr %28, align 2, !tbaa !25
   %30 = icmp ult i16 %29, 33
   br i1 %30, label %31, label %.critedge.i.i, !llvm.loop !47
 
 31:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %indvars.iv.i109.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i109.i, %27
+  %indvars.iv.i106.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i106.i, %27
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !47
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
@@ -3719,26 +3715,26 @@ _ZN3url6Parsed18clear_inner_parsedEv.exit.i:      ; preds = %22, %3
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.091128.i = phi i32 [ %32, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %invariant.gep.i129.i = getelementptr i8, ptr %0, i64 -2
-  %gep.i111.i = getelementptr i16, ptr %invariant.gep.i129.i, i64 %26
-  %33 = load i16, ptr %gep.i111.i, align 2, !tbaa !25
+  %.1125.i = phi i32 [ %32, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %invariant.gep.i126.i = getelementptr i8, ptr %0, i64 -2
+  %gep.i108.i = getelementptr i16, ptr %invariant.gep.i126.i, i64 %26
+  %33 = load i16, ptr %gep.i108.i, align 2, !tbaa !25
   %34 = icmp ult i16 %33, 33
-  br i1 %34, label %.lr.ph113.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+  br i1 %34, label %.lr.ph110.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
-.lr.ph113.i:                                      ; preds = %.lr.ph14.preheader.i.i
-  %35 = sext i32 %.091128.i to i64
+.lr.ph110.i:                                      ; preds = %.lr.ph14.preheader.i.i
+  %35 = sext i32 %.1125.i to i64
   br label %38
 
 .lr.ph14.i.i:                                     ; preds = %38
-  %gep.i.i = getelementptr i16, ptr %invariant.gep.i129.i, i64 %indvars.iv.next18.i.i
+  %gep.i.i = getelementptr i16, ptr %invariant.gep.i126.i, i64 %indvars.iv.next18.i.i
   %36 = load i16, ptr %gep.i.i, align 2, !tbaa !25
   %37 = icmp ult i16 %36, 33
   br i1 %37, label %38, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, !llvm.loop !48
 
-38:                                               ; preds = %.lr.ph14.i.i, %.lr.ph113.i
-  %indvars.iv17.i112.i = phi i64 [ %26, %.lr.ph113.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
-  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i112.i, -1
+38:                                               ; preds = %.lr.ph14.i.i, %.lr.ph110.i
+  %indvars.iv17.i109.i = phi i64 [ %26, %.lr.ph110.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
+  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i109.i, -1
   %39 = icmp sgt i64 %indvars.iv.next18.i.i, %35
   br i1 %39, label %.lr.ph14.i.i, label %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, !llvm.loop !48
 
@@ -3750,9 +3746,9 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
-  %.09196.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %.091128.i, %.lr.ph14.preheader.i.i ], [ %.091128.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %.193.i = phi i32 [ %1, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %1, %.lr.ph14.preheader.i.i ], [ %40, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %41 = icmp eq i32 %.09196.i, %.193.i
+  %.2.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %.1125.i, %.lr.ph14.preheader.i.i ], [ %.1125.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %41 = icmp eq i32 %.2.i, %.193.i
   br i1 %41, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, label %43
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i
@@ -3762,9 +3758,9 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit
 
 43:                                               ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
-  %44 = sext i32 %.09196.i to i64
+  %44 = sext i32 %.2.i to i64
   %45 = getelementptr inbounds i16, ptr %0, i64 %44
-  %46 = sub nsw i32 %.193.i, %.09196.i
+  %46 = sub nsw i32 %.193.i, %.2.i
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.preheader.i57.i, label %.critedge.i55.i
 
@@ -3817,9 +3813,9 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %53
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %2, align 4
-  %62 = add nsw i32 %.019.lcssa.i.i, %.09196.i
+  %62 = add nsw i32 %.019.lcssa.i.i, %.2.i
   store i32 %62, ptr %2, align 8, !tbaa !13
-  %63 = add i32 %.09196.i, %60
+  %63 = add i32 %.2.i, %60
   %64 = add nsw i32 %.193.i, -1
   %65 = icmp eq i32 %63, %64
   br i1 %65, label %_ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit, label %66
@@ -3989,8 +3985,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %31, %_ZN3url7TrimUR
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %139 = load ptr, ptr %138, align 8
   %.not.i = icmp eq ptr %139, null
-  %or.cond102.i = select i1 %or.cond.i, i1 %.not.i, i1 false
-  br i1 %or.cond102.i, label %140, label %158
+  %or.cond99.i = select i1 %or.cond.i, i1 %.not.i, i1 false
+  br i1 %or.cond99.i, label %140, label %158
 
 140:                                              ; preds = %131
   %141 = load i32, ptr %124, align 8, !tbaa !20
@@ -4090,15 +4086,15 @@ define void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr noundef readonly captu
   br label %24
 
 .lr.ph.i.i:                                       ; preds = %24
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i63.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i60.i, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next.i.i
   %22 = load i8, ptr %21, align 1, !tbaa !21
   %23 = icmp ult i8 %22, 33
   br i1 %23, label %24, label %.critedge.i.i, !llvm.loop !45
 
 24:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %indvars.iv.i63.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i63.i, %20
+  %indvars.iv.i60.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i60.i, %20
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !45
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
@@ -4106,26 +4102,26 @@ define void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr noundef readonly captu
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.04983.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %invariant.gep.i84.i = getelementptr i8, ptr %0, i64 -1
-  %gep.i65.i = getelementptr i8, ptr %invariant.gep.i84.i, i64 %19
-  %26 = load i8, ptr %gep.i65.i, align 1, !tbaa !21
+  %.15080.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %invariant.gep.i81.i = getelementptr i8, ptr %0, i64 -1
+  %gep.i62.i = getelementptr i8, ptr %invariant.gep.i81.i, i64 %19
+  %26 = load i8, ptr %gep.i62.i, align 1, !tbaa !21
   %27 = icmp ult i8 %26, 33
-  br i1 %27, label %.lr.ph67.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+  br i1 %27, label %.lr.ph64.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
-.lr.ph67.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %28 = sext i32 %.04983.i to i64
+.lr.ph64.i:                                       ; preds = %.lr.ph14.preheader.i.i
+  %28 = sext i32 %.15080.i to i64
   br label %31
 
 .lr.ph14.i.i:                                     ; preds = %31
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i84.i, i64 %indvars.iv.next18.i.i
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i81.i, i64 %indvars.iv.next18.i.i
   %29 = load i8, ptr %gep.i.i, align 1, !tbaa !21
   %30 = icmp ult i8 %29, 33
   br i1 %30, label %31, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, !llvm.loop !46
 
-31:                                               ; preds = %.lr.ph14.i.i, %.lr.ph67.i
-  %indvars.iv17.i66.i = phi i64 [ %19, %.lr.ph67.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
-  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i66.i, -1
+31:                                               ; preds = %.lr.ph14.i.i, %.lr.ph64.i
+  %indvars.iv17.i63.i = phi i64 [ %19, %.lr.ph64.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
+  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i63.i, -1
   %32 = icmp sgt i64 %indvars.iv.next18.i.i, %28
   br i1 %32, label %.lr.ph14.i.i, label %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, !llvm.loop !46
 
@@ -4137,9 +4133,9 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %3
-  %.04955.i = phi i32 [ 0, %3 ], [ %.04983.i, %.lr.ph14.preheader.i.i ], [ %.04983.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %.152.i = phi i32 [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ], [ %33, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %34 = icmp eq i32 %.04955.i, %.152.i
+  %.2.i = phi i32 [ 0, %3 ], [ %.15080.i, %.lr.ph14.preheader.i.i ], [ %.15080.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %34 = icmp eq i32 %.2.i, %.152.i
   br i1 %34, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i, label %38
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i, %._ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit_crit_edge.i
@@ -4153,9 +4149,9 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE.exit
 
 38:                                               ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
-  %39 = sext i32 %.04955.i to i64
+  %39 = sext i32 %.2.i to i64
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
-  %41 = sub nsw i32 %.152.i, %.04955.i
+  %41 = sub nsw i32 %.152.i, %.2.i
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph.preheader.i.i.i, label %.critedge.i.i.i
 
@@ -4173,7 +4169,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
 46:                                               ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit58.i, label %.lr.ph.i.i.i, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i, label %.loopexit55.i, label %.lr.ph.i.i.i, !llvm.loop !22
 
 .critedge.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %47 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -4182,7 +4178,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
 .critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %38
   %.019.lcssa.i.i.i = phi i32 [ 0, %38 ], [ %47, %.critedge.loopexit.i.i.i ]
   %.not25.i.i.i = icmp slt i32 %.019.lcssa.i.i.i, %41
-  br i1 %.not25.i.i.i, label %.lr.ph27.preheader.i.i.i, label %.loopexit58.i
+  br i1 %.not25.i.i.i, label %.lr.ph27.preheader.i.i.i, label %.loopexit55.i
 
 .lr.ph27.preheader.i.i.i:                         ; preds = %.critedge.i.i.i
   %48 = zext i32 %.019.lcssa.i.i.i to i64
@@ -4199,7 +4195,7 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
 52:                                               ; preds = %.lr.ph27.i.i.i
   %indvars.iv.next31.i.i.i = add nuw nsw i64 %indvars.iv30.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next31.i.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit58.i, label %.lr.ph27.i.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %.loopexit55.i, label %.lr.ph27.i.i.i, !llvm.loop !24
 
 53:                                               ; preds = %.lr.ph27.i.i.i
   %54 = trunc nuw i64 %indvars.iv30.i.i.i to i32
@@ -4208,40 +4204,40 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
   %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %48
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %2, align 4
-  %56 = add nsw i32 %.019.lcssa.i.i.i, %.04955.i
+  %56 = add nsw i32 %.019.lcssa.i.i.i, %.2.i
   store i32 %56, ptr %2, align 8, !tbaa !13
-  %57 = add i32 %.04955.i, %54
+  %57 = add i32 %.2.i, %54
   %58 = add nsw i32 %.152.i, -1
   %.not.i = icmp eq i32 %57, %58
   %59 = add nsw i32 %57, 1
   %spec.select.i = select i1 %.not.i, i32 -1, i32 %.152.i
-  %spec.select57.i = select i1 %.not.i, i32 -1, i32 %59
+  %spec.select54.i = select i1 %.not.i, i32 -1, i32 %59
   br label %61
 
-.loopexit58.i:                                    ; preds = %46, %52, %.critedge.i.i.i
+.loopexit55.i:                                    ; preds = %46, %52, %.critedge.i.i.i
   store i32 0, ptr %2, align 4, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %60, align 4, !tbaa !8
   br label %61
 
-61:                                               ; preds = %.loopexit58.i, %53
-  %.032.i = phi i32 [ %.152.i, %.loopexit58.i ], [ %spec.select.i, %53 ]
-  %.0.i = phi i32 [ %.04955.i, %.loopexit58.i ], [ %spec.select57.i, %53 ]
+61:                                               ; preds = %.loopexit55.i, %53
+  %.032.i = phi i32 [ %.152.i, %.loopexit55.i ], [ %spec.select.i, %53 ]
+  %.0.i = phi i32 [ %.2.i, %.loopexit55.i ], [ %spec.select54.i, %53 ]
   %62 = icmp slt i32 %.0.i, %.032.i
-  br i1 %62, label %.lr.ph71.preheader.i, label %.loopexit.i
+  br i1 %62, label %.lr.ph68.preheader.i, label %.loopexit.i
 
-.lr.ph71.preheader.i:                             ; preds = %61
+.lr.ph68.preheader.i:                             ; preds = %61
   %63 = sext i32 %.0.i to i64
-  br label %.lr.ph71.i
+  br label %.lr.ph68.i
 
-.lr.ph71.i:                                       ; preds = %71, %.lr.ph71.preheader.i
-  %indvars.iv.i = phi i64 [ %63, %.lr.ph71.preheader.i ], [ %indvars.iv.next.i, %71 ]
+.lr.ph68.i:                                       ; preds = %71, %.lr.ph68.preheader.i
+  %indvars.iv.i = phi i64 [ %63, %.lr.ph68.preheader.i ], [ %indvars.iv.next.i, %71 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
   %65 = load i8, ptr %64, align 1, !tbaa !21
   %66 = icmp eq i8 %65, 63
   br i1 %66, label %67, label %71
 
-67:                                               ; preds = %.lr.ph71.i
+67:                                               ; preds = %.lr.ph68.i
   %68 = trunc nsw i64 %indvars.iv.i to i32
   %69 = add nsw i32 %68, 1
   %70 = sub nsw i32 %.032.i, %69
@@ -4252,11 +4248,11 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %14, align 8
   br label %.loopexit.i
 
-71:                                               ; preds = %.lr.ph71.i
+71:                                               ; preds = %.lr.ph68.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond80.not.i = icmp eq i32 %.032.i, %lftr.wideiv.i
-  br i1 %exitcond80.not.i, label %.loopexit.i, label %.lr.ph71.i, !llvm.loop !52
+  %exitcond77.not.i = icmp eq i32 %.032.i, %lftr.wideiv.i
+  br i1 %exitcond77.not.i, label %.loopexit.i, label %.lr.ph68.i, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %71, %67, %61
   %.1.i = phi i32 [ %68, %67 ], [ %.032.i, %61 ], [ %.032.i, %71 ]
@@ -4324,15 +4320,15 @@ define void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr noundef readonly captu
   br label %24
 
 .lr.ph.i.i:                                       ; preds = %24
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i63.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i60.i, 1
   %21 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next.i.i
   %22 = load i16, ptr %21, align 2, !tbaa !25
   %23 = icmp ult i16 %22, 33
   br i1 %23, label %24, label %.critedge.i.i, !llvm.loop !47
 
 24:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %indvars.iv.i63.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i63.i, %20
+  %indvars.iv.i60.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i60.i, %20
   br i1 %exitcond.not.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !47
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
@@ -4340,26 +4336,26 @@ define void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr noundef readonly captu
   br label %.lr.ph14.preheader.i.i
 
 .lr.ph14.preheader.i.i:                           ; preds = %.lr.ph.i.preheader.i, %.critedge.i.i
-  %.04983.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %invariant.gep.i84.i = getelementptr i8, ptr %0, i64 -2
-  %gep.i65.i = getelementptr i16, ptr %invariant.gep.i84.i, i64 %19
-  %26 = load i16, ptr %gep.i65.i, align 2, !tbaa !25
+  %.15080.i = phi i32 [ %25, %.critedge.i.i ], [ 0, %.lr.ph.i.preheader.i ]
+  %invariant.gep.i81.i = getelementptr i8, ptr %0, i64 -2
+  %gep.i62.i = getelementptr i16, ptr %invariant.gep.i81.i, i64 %19
+  %26 = load i16, ptr %gep.i62.i, align 2, !tbaa !25
   %27 = icmp ult i16 %26, 33
-  br i1 %27, label %.lr.ph67.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+  br i1 %27, label %.lr.ph64.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
-.lr.ph67.i:                                       ; preds = %.lr.ph14.preheader.i.i
-  %28 = sext i32 %.04983.i to i64
+.lr.ph64.i:                                       ; preds = %.lr.ph14.preheader.i.i
+  %28 = sext i32 %.15080.i to i64
   br label %31
 
 .lr.ph14.i.i:                                     ; preds = %31
-  %gep.i.i = getelementptr i16, ptr %invariant.gep.i84.i, i64 %indvars.iv.next18.i.i
+  %gep.i.i = getelementptr i16, ptr %invariant.gep.i81.i, i64 %indvars.iv.next18.i.i
   %29 = load i16, ptr %gep.i.i, align 2, !tbaa !25
   %30 = icmp ult i16 %29, 33
   br i1 %30, label %31, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, !llvm.loop !48
 
-31:                                               ; preds = %.lr.ph14.i.i, %.lr.ph67.i
-  %indvars.iv17.i66.i = phi i64 [ %19, %.lr.ph67.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
-  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i66.i, -1
+31:                                               ; preds = %.lr.ph14.i.i, %.lr.ph64.i
+  %indvars.iv17.i63.i = phi i64 [ %19, %.lr.ph64.i ], [ %indvars.iv.next18.i.i, %.lr.ph14.i.i ]
+  %indvars.iv.next18.i.i = add nsw i64 %indvars.iv17.i63.i, -1
   %32 = icmp sgt i64 %indvars.iv.next18.i.i, %28
   br i1 %32, label %.lr.ph14.i.i, label %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i, !llvm.loop !48
 
@@ -4371,9 +4367,9 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %3
-  %.04955.i = phi i32 [ 0, %3 ], [ %.04983.i, %.lr.ph14.preheader.i.i ], [ %.04983.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %.152.i = phi i32 [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ], [ %33, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %34 = icmp eq i32 %.04955.i, %.152.i
+  %.2.i = phi i32 [ 0, %3 ], [ %.15080.i, %.lr.ph14.preheader.i.i ], [ %.15080.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %34 = icmp eq i32 %.2.i, %.152.i
   br i1 %34, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i, label %38
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i, %._ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit_crit_edge.i
@@ -4387,9 +4383,9 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
   br label %_ZN3url12_GLOBAL__N_116DoParseMailtoURLItEEvPKT_iPNS_6ParsedE.exit
 
 38:                                               ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
-  %39 = sext i32 %.04955.i to i64
+  %39 = sext i32 %.2.i to i64
   %40 = getelementptr inbounds i16, ptr %0, i64 %39
-  %41 = sub nsw i32 %.152.i, %.04955.i
+  %41 = sub nsw i32 %.152.i, %.2.i
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph.preheader.i.i.i, label %.critedge.i.i.i
 
@@ -4407,7 +4403,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
 46:                                               ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit58.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i.i, label %.loopexit55.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 .critedge.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %47 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -4416,7 +4412,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
 .critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %38
   %.019.lcssa.i.i.i = phi i32 [ 0, %38 ], [ %47, %.critedge.loopexit.i.i.i ]
   %.not25.i.i.i = icmp slt i32 %.019.lcssa.i.i.i, %41
-  br i1 %.not25.i.i.i, label %.lr.ph27.preheader.i.i.i, label %.loopexit58.i
+  br i1 %.not25.i.i.i, label %.lr.ph27.preheader.i.i.i, label %.loopexit55.i
 
 .lr.ph27.preheader.i.i.i:                         ; preds = %.critedge.i.i.i
   %48 = zext i32 %.019.lcssa.i.i.i to i64
@@ -4433,7 +4429,7 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
 52:                                               ; preds = %.lr.ph27.i.i.i
   %indvars.iv.next31.i.i.i = add nuw nsw i64 %indvars.iv30.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next31.i.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit58.i, label %.lr.ph27.i.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i.i, label %.loopexit55.i, label %.lr.ph27.i.i.i, !llvm.loop !28
 
 53:                                               ; preds = %.lr.ph27.i.i.i
   %54 = trunc nuw i64 %indvars.iv30.i.i.i to i32
@@ -4442,40 +4438,40 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
   %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %48
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %2, align 4
-  %56 = add nsw i32 %.019.lcssa.i.i.i, %.04955.i
+  %56 = add nsw i32 %.019.lcssa.i.i.i, %.2.i
   store i32 %56, ptr %2, align 8, !tbaa !13
-  %57 = add i32 %.04955.i, %54
+  %57 = add i32 %.2.i, %54
   %58 = add nsw i32 %.152.i, -1
   %.not.i = icmp eq i32 %57, %58
   %59 = add nsw i32 %57, 1
   %spec.select.i = select i1 %.not.i, i32 -1, i32 %.152.i
-  %spec.select57.i = select i1 %.not.i, i32 -1, i32 %59
+  %spec.select54.i = select i1 %.not.i, i32 -1, i32 %59
   br label %61
 
-.loopexit58.i:                                    ; preds = %46, %52, %.critedge.i.i.i
+.loopexit55.i:                                    ; preds = %46, %52, %.critedge.i.i.i
   store i32 0, ptr %2, align 4, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %60, align 4, !tbaa !8
   br label %61
 
-61:                                               ; preds = %.loopexit58.i, %53
-  %.032.i = phi i32 [ %.152.i, %.loopexit58.i ], [ %spec.select.i, %53 ]
-  %.0.i = phi i32 [ %.04955.i, %.loopexit58.i ], [ %spec.select57.i, %53 ]
+61:                                               ; preds = %.loopexit55.i, %53
+  %.032.i = phi i32 [ %.152.i, %.loopexit55.i ], [ %spec.select.i, %53 ]
+  %.0.i = phi i32 [ %.2.i, %.loopexit55.i ], [ %spec.select54.i, %53 ]
   %62 = icmp slt i32 %.0.i, %.032.i
-  br i1 %62, label %.lr.ph71.preheader.i, label %.loopexit.i
+  br i1 %62, label %.lr.ph68.preheader.i, label %.loopexit.i
 
-.lr.ph71.preheader.i:                             ; preds = %61
+.lr.ph68.preheader.i:                             ; preds = %61
   %63 = sext i32 %.0.i to i64
-  br label %.lr.ph71.i
+  br label %.lr.ph68.i
 
-.lr.ph71.i:                                       ; preds = %71, %.lr.ph71.preheader.i
-  %indvars.iv.i = phi i64 [ %63, %.lr.ph71.preheader.i ], [ %indvars.iv.next.i, %71 ]
+.lr.ph68.i:                                       ; preds = %71, %.lr.ph68.preheader.i
+  %indvars.iv.i = phi i64 [ %63, %.lr.ph68.preheader.i ], [ %indvars.iv.next.i, %71 ]
   %64 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
   %65 = load i16, ptr %64, align 2, !tbaa !25
   %66 = icmp eq i16 %65, 63
   br i1 %66, label %67, label %71
 
-67:                                               ; preds = %.lr.ph71.i
+67:                                               ; preds = %.lr.ph68.i
   %68 = trunc nsw i64 %indvars.iv.i to i32
   %69 = add nsw i32 %68, 1
   %70 = sub nsw i32 %.032.i, %69
@@ -4486,11 +4482,11 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.thread.i:     ; preds = %24, %_ZN3url7TrimUR
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %14, align 8
   br label %.loopexit.i
 
-71:                                               ; preds = %.lr.ph71.i
+71:                                               ; preds = %.lr.ph68.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond80.not.i = icmp eq i32 %.032.i, %lftr.wideiv.i
-  br i1 %exitcond80.not.i, label %.loopexit.i, label %.lr.ph71.i, !llvm.loop !53
+  %exitcond77.not.i = icmp eq i32 %.032.i, %lftr.wideiv.i
+  br i1 %exitcond77.not.i, label %.loopexit.i, label %.lr.ph68.i, !llvm.loop !53
 
 .loopexit.i:                                      ; preds = %71, %67, %61
   %.1.i = phi i32 [ %68, %67 ], [ %.032.i, %61 ], [ %.032.i, %71 ]

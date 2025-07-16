@@ -1368,11 +1368,11 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen12SwiftABIInfo16occupiesM
 
 ._crit_edge.loopexit:                             ; preds = %32
   %9 = add i32 %.1, %.119
+  %10 = icmp ugt i32 %9, %3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %10 = phi i32 [ 0, %4 ], [ %9, %._crit_edge.loopexit ]
-  %11 = icmp ugt i32 %10, %3
+  %11 = phi i1 [ false, %4 ], [ %10, %._crit_edge.loopexit ]
   ret i1 %11
 
 12:                                               ; preds = %.lr.ph, %32

@@ -72,7 +72,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 define noundef ptr @RBTreeInsert(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #6
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %135, label %5
+  br i1 %4, label %140, label %5
 
 5:                                                ; preds = %2
   store ptr %1, ptr %3, align 8, !tbaa !17
@@ -109,10 +109,10 @@ define noundef ptr @RBTreeInsert(ptr noundef readonly captures(none) %0, ptr nou
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %10, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %.028.i, ptr %19, align 8, !tbaa !15
-  %20 = icmp eq ptr %.028.i, %.pre.i
-  br i1 %20, label %27, label %21
+  %19 = icmp eq ptr %.028.i, %.pre.i
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %.028.i, ptr %20, align 8, !tbaa !15
+  br i1 %19, label %27, label %21
 
 21:                                               ; preds = %._crit_edge.i
   %22 = load ptr, ptr %0, align 8, !tbaa !3
@@ -143,16 +143,16 @@ TreeInsertHelp.exit:                              ; preds = %27, %29
   %.not59 = icmp eq i32 %35, 0
   br i1 %.not59, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %TreeInsertHelp.exit, %126
-  %36 = phi ptr [ %129, %126 ], [ %34, %TreeInsertHelp.exit ]
-  %.pre69 = phi ptr [ %128, %126 ], [ %33, %TreeInsertHelp.exit ]
-  %.04360 = phi ptr [ %.2, %126 ], [ %3, %TreeInsertHelp.exit ]
+.lr.ph:                                           ; preds = %TreeInsertHelp.exit, %131
+  %36 = phi ptr [ %134, %131 ], [ %34, %TreeInsertHelp.exit ]
+  %.pre69 = phi ptr [ %133, %131 ], [ %33, %TreeInsertHelp.exit ]
+  %.04360 = phi ptr [ %.2, %131 ], [ %3, %TreeInsertHelp.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %.pre69, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !14
   %41 = icmp eq ptr %.pre69, %40
-  br i1 %41, label %42, label %83
+  br i1 %41, label %42, label %88
 
 42:                                               ; preds = %.lr.ph
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -167,7 +167,7 @@ TreeInsertHelp.exit:                              ; preds = %27, %29
   store i32 0, ptr %45, align 8, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 1, ptr %48, align 8, !tbaa !16
-  br label %126
+  br label %131
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %.pre69, i64 24
@@ -181,197 +181,210 @@ TreeInsertHelp.exit:                              ; preds = %27, %29
   %55 = load ptr, ptr %54, align 8, !tbaa !14
   store ptr %55, ptr %50, align 8, !tbaa !11
   %.not.i53 = icmp eq ptr %55, %.val
-  br i1 %.not.i53, label %LeftRotate.exit, label %56
+  br i1 %.not.i53, label %.thread, label %57
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store ptr %.pre69, ptr %57, align 8, !tbaa !15
+.thread:                                          ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  store ptr %38, ptr %56, align 8, !tbaa !15
+  br label %61
+
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store ptr %.pre69, ptr %58, align 8, !tbaa !15
   %.pre64 = load ptr, ptr %37, align 8, !tbaa !15
   %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %.pre64, i64 16
   %.pre66 = load ptr, ptr %.phi.trans.insert65, align 8, !tbaa !14
+  %59 = icmp eq ptr %.pre69, %.pre66
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  store ptr %.pre64, ptr %60, align 8, !tbaa !15
+  br i1 %59, label %61, label %65
+
+61:                                               ; preds = %.thread, %57
+  %62 = phi ptr [ %56, %.thread ], [ %60, %57 ]
+  %63 = phi ptr [ %38, %.thread ], [ %.pre64, %57 ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store ptr %51, ptr %64, align 8, !tbaa !14
   br label %LeftRotate.exit
 
-LeftRotate.exit:                                  ; preds = %56, %53
-  %58 = phi ptr [ %.pre66, %56 ], [ %.pre69, %53 ]
-  %59 = phi ptr [ %.pre64, %56 ], [ %38, %53 ]
-  %60 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store ptr %59, ptr %60, align 8, !tbaa !15
-  %61 = icmp eq ptr %.pre69, %58
-  %. = select i1 %61, i64 16, i64 24
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.
-  store ptr %51, ptr %62, align 8, !tbaa !19
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds nuw i8, ptr %.pre64, i64 24
+  store ptr %51, ptr %66, align 8, !tbaa !11
+  br label %LeftRotate.exit
+
+LeftRotate.exit:                                  ; preds = %61, %65
+  %67 = phi ptr [ %62, %61 ], [ %60, %65 ]
   store ptr %.pre69, ptr %54, align 8, !tbaa !14
   store ptr %51, ptr %37, align 8, !tbaa !15
-  %.pre72 = load ptr, ptr %60, align 8, !tbaa !15
+  %.pre72 = load ptr, ptr %67, align 8, !tbaa !15
   %.phi.trans.insert73 = getelementptr inbounds nuw i8, ptr %.pre72, i64 16
   %.pre74 = load ptr, ptr %.phi.trans.insert73, align 8, !tbaa !14
   br label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %49, %LeftRotate.exit
-  %63 = phi ptr [ %.pre74, %LeftRotate.exit ], [ %40, %49 ]
-  %64 = phi ptr [ %.pre72, %LeftRotate.exit ], [ %38, %49 ]
-  %65 = phi ptr [ %51, %LeftRotate.exit ], [ %.pre69, %49 ]
+  %68 = phi ptr [ %.pre74, %LeftRotate.exit ], [ %40, %49 ]
+  %69 = phi ptr [ %.pre72, %LeftRotate.exit ], [ %38, %49 ]
+  %70 = phi ptr [ %51, %LeftRotate.exit ], [ %.pre69, %49 ]
   %.1 = phi ptr [ %.pre69, %LeftRotate.exit ], [ %.04360, %49 ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 0, ptr %66, align 8, !tbaa !16
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i32 1, ptr %67, align 8, !tbaa !16
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !11
-  store ptr %70, ptr %68, align 8, !tbaa !14
-  %.not.i54 = icmp eq ptr %.val, %70
-  br i1 %.not.i54, label %73, label %71
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i32 0, ptr %71, align 8, !tbaa !16
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store i32 1, ptr %72, align 8, !tbaa !16
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !11
+  store ptr %75, ptr %73, align 8, !tbaa !14
+  %.not.i54 = icmp eq ptr %.val, %75
+  br i1 %.not.i54, label %78, label %76
 
-71:                                               ; preds = %._crit_edge67
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  store ptr %64, ptr %72, align 8, !tbaa !15
-  br label %73
+76:                                               ; preds = %._crit_edge67
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  store ptr %69, ptr %77, align 8, !tbaa !15
+  br label %78
 
-73:                                               ; preds = %71, %._crit_edge67
-  %74 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %75 = load ptr, ptr %74, align 8, !tbaa !15
-  %76 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store ptr %75, ptr %76, align 8, !tbaa !15
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !14
-  %79 = icmp eq ptr %64, %78
-  br i1 %79, label %80, label %81
+78:                                               ; preds = %76, %._crit_edge67
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %80 = load ptr, ptr %79, align 8, !tbaa !15
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  store ptr %80, ptr %81, align 8, !tbaa !15
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !14
+  %84 = icmp eq ptr %69, %83
+  br i1 %84, label %85, label %86
 
-80:                                               ; preds = %73
-  store ptr %63, ptr %77, align 8, !tbaa !14
+85:                                               ; preds = %78
+  store ptr %68, ptr %82, align 8, !tbaa !14
   br label %RightRotate.exit
 
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store ptr %63, ptr %82, align 8, !tbaa !11
+86:                                               ; preds = %78
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  store ptr %68, ptr %87, align 8, !tbaa !11
   br label %RightRotate.exit
 
-RightRotate.exit:                                 ; preds = %80, %81
-  store ptr %64, ptr %69, align 8, !tbaa !11
-  store ptr %63, ptr %74, align 8, !tbaa !15
-  br label %126
+RightRotate.exit:                                 ; preds = %85, %86
+  store ptr %69, ptr %74, align 8, !tbaa !11
+  store ptr %68, ptr %79, align 8, !tbaa !15
+  br label %131
 
-83:                                               ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %85 = load i32, ptr %84, align 8, !tbaa !16
-  %.not48 = icmp eq i32 %85, 0
-  br i1 %.not48, label %88, label %86
+88:                                               ; preds = %.lr.ph
+  %89 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %90 = load i32, ptr %89, align 8, !tbaa !16
+  %.not48 = icmp eq i32 %90, 0
+  br i1 %.not48, label %93, label %91
 
-86:                                               ; preds = %83
+91:                                               ; preds = %88
   store i32 0, ptr %36, align 8, !tbaa !16
-  store i32 0, ptr %84, align 8, !tbaa !16
-  %87 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i32 1, ptr %87, align 8, !tbaa !16
-  br label %126
+  store i32 0, ptr %89, align 8, !tbaa !16
+  %92 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i32 1, ptr %92, align 8, !tbaa !16
+  br label %131
 
-88:                                               ; preds = %83
-  %89 = getelementptr inbounds nuw i8, ptr %.pre69, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !14
-  %91 = icmp eq ptr %.04360, %90
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %.pre69, i64 16
+  %95 = load ptr, ptr %94, align 8, !tbaa !14
+  %96 = icmp eq ptr %.04360, %95
   %.val52 = load ptr, ptr %6, align 8, !tbaa !10
-  br i1 %91, label %92, label %._crit_edge61
+  br i1 %96, label %97, label %._crit_edge61
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !11
-  store ptr %94, ptr %89, align 8, !tbaa !14
-  %.not.i55 = icmp eq ptr %.val52, %94
-  br i1 %.not.i55, label %97, label %95
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %99 = load ptr, ptr %98, align 8, !tbaa !11
+  store ptr %99, ptr %94, align 8, !tbaa !14
+  %.not.i55 = icmp eq ptr %.val52, %99
+  br i1 %.not.i55, label %102, label %100
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  store ptr %.pre69, ptr %96, align 8, !tbaa !15
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  store ptr %.pre69, ptr %101, align 8, !tbaa !15
   %.pre = load ptr, ptr %37, align 8, !tbaa !15
-  br label %97
+  br label %102
 
-97:                                               ; preds = %95, %92
-  %98 = phi ptr [ %.pre, %95 ], [ %38, %92 ]
-  %99 = getelementptr inbounds nuw i8, ptr %90, i64 32
-  store ptr %98, ptr %99, align 8, !tbaa !15
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !14
-  %102 = icmp eq ptr %.pre69, %101
-  br i1 %102, label %103, label %104
+102:                                              ; preds = %100, %97
+  %103 = phi ptr [ %.pre, %100 ], [ %38, %97 ]
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  store ptr %103, ptr %104, align 8, !tbaa !15
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !14
+  %107 = icmp eq ptr %.pre69, %106
+  br i1 %107, label %108, label %109
 
-103:                                              ; preds = %97
-  store ptr %90, ptr %100, align 8, !tbaa !14
+108:                                              ; preds = %102
+  store ptr %95, ptr %105, align 8, !tbaa !14
   br label %RightRotate.exit56
 
-104:                                              ; preds = %97
-  %105 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  store ptr %90, ptr %105, align 8, !tbaa !11
+109:                                              ; preds = %102
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  store ptr %95, ptr %110, align 8, !tbaa !11
   br label %RightRotate.exit56
 
-RightRotate.exit56:                               ; preds = %103, %104
-  store ptr %.pre69, ptr %93, align 8, !tbaa !11
-  store ptr %90, ptr %37, align 8, !tbaa !15
-  %.pre71 = load ptr, ptr %99, align 8, !tbaa !15
+RightRotate.exit56:                               ; preds = %108, %109
+  store ptr %.pre69, ptr %98, align 8, !tbaa !11
+  store ptr %95, ptr %37, align 8, !tbaa !15
+  %.pre71 = load ptr, ptr %104, align 8, !tbaa !15
   br label %._crit_edge61
 
-._crit_edge61:                                    ; preds = %88, %RightRotate.exit56
-  %106 = phi ptr [ %.pre71, %RightRotate.exit56 ], [ %38, %88 ]
-  %107 = phi ptr [ %90, %RightRotate.exit56 ], [ %.pre69, %88 ]
-  %.3 = phi ptr [ %.pre69, %RightRotate.exit56 ], [ %.04360, %88 ]
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i32 0, ptr %108, align 8, !tbaa !16
-  %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store i32 1, ptr %109, align 8, !tbaa !16
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %111 = load ptr, ptr %110, align 8, !tbaa !11
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !14
-  store ptr %113, ptr %110, align 8, !tbaa !11
-  %.not.i57 = icmp eq ptr %113, %.val52
-  br i1 %.not.i57, label %116, label %114
+._crit_edge61:                                    ; preds = %93, %RightRotate.exit56
+  %111 = phi ptr [ %.pre71, %RightRotate.exit56 ], [ %38, %93 ]
+  %112 = phi ptr [ %95, %RightRotate.exit56 ], [ %.pre69, %93 ]
+  %.3 = phi ptr [ %.pre69, %RightRotate.exit56 ], [ %.04360, %93 ]
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  store i32 0, ptr %113, align 8, !tbaa !16
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  store i32 1, ptr %114, align 8, !tbaa !16
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 24
+  %116 = load ptr, ptr %115, align 8, !tbaa !11
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %118 = load ptr, ptr %117, align 8, !tbaa !14
+  store ptr %118, ptr %115, align 8, !tbaa !11
+  %.not.i57 = icmp eq ptr %118, %.val52
+  br i1 %.not.i57, label %121, label %119
 
-114:                                              ; preds = %._crit_edge61
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  store ptr %106, ptr %115, align 8, !tbaa !15
-  br label %116
+119:                                              ; preds = %._crit_edge61
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  store ptr %111, ptr %120, align 8, !tbaa !15
+  br label %121
 
-116:                                              ; preds = %114, %._crit_edge61
-  %117 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  %118 = load ptr, ptr %117, align 8, !tbaa !15
-  %119 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  store ptr %118, ptr %119, align 8, !tbaa !15
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %121 = load ptr, ptr %120, align 8, !tbaa !14
-  %122 = icmp eq ptr %106, %121
-  br i1 %122, label %123, label %124
+121:                                              ; preds = %119, %._crit_edge61
+  %122 = getelementptr inbounds nuw i8, ptr %111, i64 32
+  %123 = load ptr, ptr %122, align 8, !tbaa !15
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  store ptr %123, ptr %124, align 8, !tbaa !15
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %126 = load ptr, ptr %125, align 8, !tbaa !14
+  %127 = icmp eq ptr %111, %126
+  br i1 %127, label %128, label %129
 
-123:                                              ; preds = %116
-  store ptr %111, ptr %120, align 8, !tbaa !14
+128:                                              ; preds = %121
+  store ptr %116, ptr %125, align 8, !tbaa !14
   br label %LeftRotate.exit58
 
-124:                                              ; preds = %116
-  %125 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  store ptr %111, ptr %125, align 8, !tbaa !11
+129:                                              ; preds = %121
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  store ptr %116, ptr %130, align 8, !tbaa !11
   br label %LeftRotate.exit58
 
-LeftRotate.exit58:                                ; preds = %123, %124
-  store ptr %106, ptr %112, align 8, !tbaa !14
-  store ptr %111, ptr %117, align 8, !tbaa !15
-  br label %126
+LeftRotate.exit58:                                ; preds = %128, %129
+  store ptr %111, ptr %117, align 8, !tbaa !14
+  store ptr %116, ptr %122, align 8, !tbaa !15
+  br label %131
 
-126:                                              ; preds = %86, %LeftRotate.exit58, %47, %RightRotate.exit
-  %.2 = phi ptr [ %38, %47 ], [ %.1, %RightRotate.exit ], [ %38, %86 ], [ %.3, %LeftRotate.exit58 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.2, i64 32
-  %128 = load ptr, ptr %127, align 8, !tbaa !15
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %130 = load i32, ptr %129, align 8, !tbaa !16
-  %.not = icmp eq i32 %130, 0
+131:                                              ; preds = %91, %LeftRotate.exit58, %47, %RightRotate.exit
+  %.2 = phi ptr [ %38, %47 ], [ %.1, %RightRotate.exit ], [ %38, %91 ], [ %.3, %LeftRotate.exit58 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.2, i64 32
+  %133 = load ptr, ptr %132, align 8, !tbaa !15
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %135 = load i32, ptr %134, align 8, !tbaa !16
+  %.not = icmp eq i32 %135, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %126, %TreeInsertHelp.exit
-  %131 = load ptr, ptr %10, align 8, !tbaa !18
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %133 = load ptr, ptr %132, align 8, !tbaa !14
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  store i32 0, ptr %134, align 8, !tbaa !16
-  br label %135
+._crit_edge:                                      ; preds = %131, %TreeInsertHelp.exit
+  %136 = load ptr, ptr %10, align 8, !tbaa !18
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %138 = load ptr, ptr %137, align 8, !tbaa !14
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  store i32 0, ptr %139, align 8, !tbaa !16
+  br label %140
 
-135:                                              ; preds = %2, %._crit_edge
+140:                                              ; preds = %2, %._crit_edge
   ret ptr %3
 }
 

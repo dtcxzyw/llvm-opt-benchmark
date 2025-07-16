@@ -2458,7 +2458,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserv
   %.sroa.08.0 = select i1 %8, i64 -1, i64 %9
   %10 = sub i64 %.sroa.08.0, %1
   %11 = icmp ugt i64 %2, %10
-  br i1 %11, label %12, label %45
+  br i1 %11, label %12, label %46
 
 12:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
@@ -2533,17 +2533,17 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserv
   store ptr %43, ptr %44, align 8, !alias.scope !422
   store i64 %.sroa.0.0.sroa.speculated.i39.i, ptr %0, align 8, !alias.scope !422
   %.pre17 = sub i64 %.sroa.0.0.sroa.speculated.i39.i, %1
-  br label %45
+  %45 = icmp ule i64 %2, %.pre17
+  br label %46
 
-45:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17hfddbb519a70368a6E.llvm.11818661222504932795.exit", %5
-  %.pre-phi = phi i64 [ %.pre17, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17hfddbb519a70368a6E.llvm.11818661222504932795.exit" ], [ %10, %5 ]
-  %46 = icmp ule i64 %2, %.pre-phi
-  tail call void @llvm.assume(i1 %46)
+46:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17hfddbb519a70368a6E.llvm.11818661222504932795.exit", %5
+  %.pre-phi = phi i1 [ %45, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17hfddbb519a70368a6E.llvm.11818661222504932795.exit" ], [ true, %5 ]
+  tail call void @llvm.assume(i1 %.pre-phi)
   br label %47
 
-47:                                               ; preds = %16, %13, %12, %39, %45
-  %.sroa.3.0 = phi i64 [ undef, %45 ], [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %42, %39 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %45 ], [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %40, %39 ]
+47:                                               ; preds = %16, %13, %12, %39, %46
+  %.sroa.3.0 = phi i64 [ undef, %46 ], [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %42, %39 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %46 ], [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %40, %39 ]
   %48 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %49 = insertvalue { i64, i64 } %48, i64 %.sroa.3.0, 1
   ret { i64, i64 } %49

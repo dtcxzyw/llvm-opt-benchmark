@@ -2816,7 +2816,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_17MachineBasi
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i32, ptr %35, align 8, !tbaa !399
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit46.i, label %38
+  br i1 %37, label %"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit", label %38
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -2909,7 +2909,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12Den
   %97 = icmp eq i32 %96, -1
   %98 = icmp eq i32 %95, -1
   %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit46.i, label %100, !prof !33
+  br i1 %99, label %"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit", label %100, !prof !33
 
 100:                                              ; preds = %.lr.ph.i.i.i37.i
   %101 = add i32 %.01527.i.i.i38.i, 1
@@ -2930,12 +2930,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12Den
   %.sroa.3.0..sroa_idx.i42.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %34, i64 %112, i32 0, i32 1, i32 1
   %.sroa.3.0.copyload.i43.i = load i64, ptr %.sroa.3.0..sroa_idx.i42.i, align 4
   %113 = lshr i64 %.sroa.3.0.copyload.i43.i, 32
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit46.i
-
-_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit46.i: ; preds = %.lr.ph.i.i.i37.i, %.loopexit20.i40.i, %31
-  %.sroa.39.12.extract.shift58.i = phi i64 [ %.sroa.39.12.extract.shift.i, %.loopexit20.i40.i ], [ 0, %31 ], [ %.sroa.39.12.extract.shift.i, %.lr.ph.i.i.i37.i ]
-  %.sroa.32.12.extract.shift.i = phi i64 [ %113, %.loopexit20.i40.i ], [ 0, %31 ], [ 0, %.lr.ph.i.i.i37.i ]
-  %114 = icmp samesign ult i64 %.sroa.39.12.extract.shift58.i, %.sroa.32.12.extract.shift.i
+  %114 = icmp samesign ult i64 %.sroa.39.12.extract.shift.i, %113
   br label %"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit"
 
 115:                                              ; preds = %29
@@ -2946,8 +2941,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12Den
   %120 = icmp slt i32 %117, %119
   br label %"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit"
 
-"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit": ; preds = %9, %15, %19, %24, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit46.i, %115
-  %.0.i = phi i1 [ %114, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit46.i ], [ %120, %115 ], [ %23, %19 ], [ false, %15 ], [ true, %9 ], [ %27, %24 ]
+"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit": ; preds = %.lr.ph.i.i.i37.i, %9, %15, %19, %24, %31, %.loopexit20.i40.i, %115
+  %.0.i = phi i1 [ %120, %115 ], [ %23, %19 ], [ false, %15 ], [ true, %9 ], [ %27, %24 ], [ %114, %.loopexit20.i40.i ], [ false, %31 ], [ false, %.lr.ph.i.i.i37.i ]
   ret i1 %.0.i
 }
 

@@ -378,7 +378,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1152
   %67 = load i32, ptr %66, align 8, !tbaa !41
   %68 = icmp ult i32 %.092137, %67
-  br i1 %68, label %69, label %.critedge
+  br i1 %68, label %69, label %.critedge.thread
 
 69:                                               ; preds = %64
   %70 = trunc nuw nsw i64 %indvars.iv to i32
@@ -661,26 +661,21 @@ mbr_scanextprtn.exit:                             ; preds = %157, %158
   %.157 = phi i32 [ %.056138, %163 ], [ %.056138, %85 ], [ 2, %mbr_scanextprtn.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %..critedge_crit_edge, label %64
+  br i1 %exitcond.not, label %.critedge, label %64
 
-..critedge_crit_edge:                             ; preds = %167
+.critedge:                                        ; preds = %167
   %.pre = load ptr, ptr %62, align 8, !tbaa !40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1152
   %.pre165 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !41
-  br label %.critedge
+  %168 = icmp ult i32 %.1, %.pre165
+  br i1 %168, label %.loopexit, label %.critedge.thread
 
-.critedge:                                        ; preds = %64, %..critedge_crit_edge
-  %168 = phi i32 [ %.pre165, %..critedge_crit_edge ], [ %67, %64 ]
-  %.092.lcssa = phi i32 [ %.1, %..critedge_crit_edge ], [ %.092137, %64 ]
-  %.not78 = icmp ult i32 %.092.lcssa, %168
-  br i1 %.not78, label %.loopexit, label %169
-
-169:                                              ; preds = %.critedge
+.critedge.thread:                                 ; preds = %64, %.critedge
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %163, %mbr_scanextprtn.exit.thread, %mbr_check_mbr.exit, %.critedge, %169, %58, %43, %fmap_readn.exit.thread, %15, %8
-  %.0 = phi i32 [ 26, %15 ], [ 26, %fmap_readn.exit.thread ], [ 26, %mbr_check_mbr.exit ], [ %45, %43 ], [ %59, %58 ], [ 0, %169 ], [ 0, %.critedge ], [ 2, %8 ], [ %.058.i.ph, %mbr_scanextprtn.exit.thread ], [ %166, %163 ]
+.loopexit:                                        ; preds = %163, %mbr_scanextprtn.exit.thread, %mbr_check_mbr.exit, %.critedge, %.critedge.thread, %58, %43, %fmap_readn.exit.thread, %15, %8
+  %.0 = phi i32 [ 26, %15 ], [ 26, %fmap_readn.exit.thread ], [ 26, %mbr_check_mbr.exit ], [ %45, %43 ], [ %59, %58 ], [ 0, %.critedge.thread ], [ 0, %.critedge ], [ 2, %8 ], [ %.058.i.ph, %mbr_scanextprtn.exit.thread ], [ %166, %163 ]
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %4) #6
   ret i32 %.0
 }

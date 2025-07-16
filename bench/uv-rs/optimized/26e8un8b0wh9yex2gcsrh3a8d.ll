@@ -46433,9 +46433,6 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$13reserve_exact17h16
   unreachable
 
 44:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h9e4776ff93a505cbE.exit.i", %6
-  %.pre-phi.i = phi i64 [ %2, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h9e4776ff93a505cbE.exit.i" ], [ %11, %6 ]
-  %45 = icmp ule i64 %2, %.pre-phi.i
-  tail call void @llvm.assume(i1 %45)
   ret void
 }
 
@@ -46760,12 +46757,12 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15703)
   %.sink6.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sink6.i.sroa.gep39.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %8, label %44, label %13
+  br i1 %8, label %42, label %13
 
 13:                                               ; preds = %12
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %44, label %16, !prof !66
+  br i1 %15, label %42, label %16, !prof !66
 
 16:                                               ; preds = %13
   %17 = add nuw i64 %2, %1
@@ -46779,7 +46776,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserv
   %25 = sub nuw i64 -9223372036854775808, %3
   %26 = icmp ugt i64 %23, %25
   %27 = select i1 %24, i1 true, i1 %26
-  br i1 %27, label %44, label %28
+  br i1 %27, label %42, label %28
 
 28:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !15703
@@ -46813,7 +46810,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserv
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !15703
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !15703
-  br label %44
+  br label %42
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h9e4776ff93a505cbE.exit": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17ha7e9306e79ce94bfE.llvm.11984584770032924863.exit.i"
   %40 = load ptr, ptr %35, align 8, !noalias !15703, !nonnull !3, !noundef !3
@@ -46823,18 +46820,12 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserv
   store i64 %17, ptr %0, align 8, !alias.scope !15703
   br label %42
 
-42:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h9e4776ff93a505cbE.exit", %5
-  %.pre-phi = phi i64 [ %2, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h9e4776ff93a505cbE.exit" ], [ %10, %5 ]
-  %43 = icmp ule i64 %2, %.pre-phi
-  tail call void @llvm.assume(i1 %43)
-  br label %44
-
-44:                                               ; preds = %16, %13, %12, %36, %42
-  %.sroa.3.0 = phi i64 [ undef, %42 ], [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %39, %36 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %42 ], [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %37, %36 ]
-  %45 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %46 = insertvalue { i64, i64 } %45, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %46
+42:                                               ; preds = %5, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h9e4776ff93a505cbE.exit", %16, %13, %12, %36
+  %.sroa.3.0 = phi i64 [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %39, %36 ], [ undef, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h9e4776ff93a505cbE.exit" ], [ undef, %5 ]
+  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %37, %36 ], [ -9223372036854775807, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h9e4776ff93a505cbE.exit" ], [ -9223372036854775807, %5 ]
+  %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %44 = insertvalue { i64, i64 } %43, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %44
 }
 
 ; Function Attrs: cold nonlazybind uwtable

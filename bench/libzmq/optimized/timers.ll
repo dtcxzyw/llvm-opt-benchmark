@@ -655,12 +655,12 @@ _ZNSt8multimapImN3zmq8timers_t7timer_tESt4lessImESaISt4pairIKmS2_EEE6insertEOS7_
 ._crit_edge.loopexit:                             ; preds = %15, %37
   %.sroa.012.0.lcssa.ph = phi ptr [ %7, %37 ], [ %.sroa.012.021, %15 ]
   %.pre = load ptr, ptr %5, align 8, !tbaa !28
+  %39 = icmp eq ptr %6, %.pre
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %39 = phi ptr [ %6, %1 ], [ %.pre, %._crit_edge.loopexit ]
+  %40 = phi i1 [ true, %1 ], [ %39, %._crit_edge.loopexit ]
   %.sroa.012.0.lcssa = phi ptr [ %6, %1 ], [ %.sroa.012.0.lcssa.ph, %._crit_edge.loopexit ]
-  %40 = icmp eq ptr %6, %39
   %41 = icmp eq ptr %.sroa.012.0.lcssa, %7
   %or.cond = and i1 %41, %40
   br i1 %or.cond, label %42, label %.critedge.i.i.i

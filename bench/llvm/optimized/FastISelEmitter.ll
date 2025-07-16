@@ -2417,12 +2417,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227.i: ; preds = %
 _ZN12_GLOBAL__N_111FastISelMap15collectPatternsERKN4llvm18CodeGenDAGPatternsE.exit: ; preds = %.loopexit.i
   %.val.i22.pre = load ptr, ptr %141, align 8, !tbaa !265
   %.val8.i.pre = load ptr, ptr %162, align 8, !tbaa !265
+  %862 = icmp eq ptr %.val.i22.pre, %.val8.i.pre
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
-  %862 = getelementptr inbounds nuw i8, ptr %42, i64 192
-  %863 = icmp eq ptr %.val.i22.pre, %.val8.i.pre
-  br i1 %863, label %_ZN12_GLOBAL__N_111FastISelMap24printImmediatePredicatesERN4llvm11raw_ostreamE.exit, label %864
+  %863 = getelementptr inbounds nuw i8, ptr %42, i64 192
+  br i1 %862, label %_ZN12_GLOBAL__N_111FastISelMap24printImmediatePredicatesERN4llvm11raw_ostreamE.exit, label %864
 
 864:                                              ; preds = %_ZN12_GLOBAL__N_111FastISelMap15collectPatternsERKN4llvm18CodeGenDAGPatternsE.exit
   %865 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2448,7 +2448,7 @@ _ZN12_GLOBAL__N_111FastISelMap15collectPatternsERKN4llvm18CodeGenDAGPatternsE.ex
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %875, %873
   %.val7.i = load ptr, ptr %141, align 8, !tbaa !265
-  %.val9.i = load ptr, ptr %862, align 8, !tbaa !265
+  %.val9.i = load ptr, ptr %863, align 8, !tbaa !265
   %.not30.i = icmp eq ptr %.val7.i, %.val9.i
   br i1 %.not30.i, label %._crit_edge.i27, label %.lr.ph.i23
 

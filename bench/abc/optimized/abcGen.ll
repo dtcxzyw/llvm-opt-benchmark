@@ -1728,27 +1728,21 @@ Abc_Base10Log.exit101:                            ; preds = %.lr.ph.i96, %._crit
   %49 = getelementptr i8, ptr %46, i64 8
   br label %51
 
-.critedge6.loopexit.loopexit:                     ; preds = %57
+.critedge6.loopexit:                              ; preds = %57
   %.pre = sext i32 %.val92 to i64
-  br label %.critedge6.loopexit
-
-.critedge6.loopexit:                              ; preds = %.critedge6.loopexit.loopexit, %51
-  %.pre-phi = phi i64 [ %.pre, %.critedge6.loopexit.loopexit ], [ %52, %51 ]
-  %.val91 = phi i32 [ %.val92, %.critedge6.loopexit.loopexit ], [ %.val91145, %51 ]
-  %.277.lcssa = phi i32 [ %63, %.critedge6.loopexit.loopexit ], [ %.176118, %51 ]
-  %50 = icmp slt i64 %indvars.iv.next139, %.pre-phi
+  %50 = icmp slt i64 %indvars.iv.next139, %.pre
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   br i1 %50, label %51, label %.critedge4.loopexit, !llvm.loop !69
 
 51:                                               ; preds = %.lr.ph121, %.critedge6.loopexit
-  %.val91145 = phi i32 [ %.val91117, %.lr.ph121 ], [ %.val91, %.critedge6.loopexit ]
+  %.val91145 = phi i32 [ %.val91117, %.lr.ph121 ], [ %.val92, %.critedge6.loopexit ]
   %indvars.iv138 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next139, %.critedge6.loopexit ]
   %indvars.iv133 = phi i64 [ 1, %.lr.ph121 ], [ %indvars.iv.next134, %.critedge6.loopexit ]
-  %.176118 = phi i32 [ %.075125, %.lr.ph121 ], [ %.277.lcssa, %.critedge6.loopexit ]
+  %.176118 = phi i32 [ %.075125, %.lr.ph121 ], [ %63, %.critedge6.loopexit ]
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %52 = sext i32 %.val91145 to i64
   %53 = icmp slt i64 %indvars.iv.next139, %52
-  br i1 %53, label %.lr.ph115, label %.critedge6.loopexit
+  br i1 %53, label %.lr.ph115, label %.critedge4.loopexit
 
 .lr.ph115:                                        ; preds = %51
   %.val93 = load ptr, ptr %49, align 8, !tbaa !70
@@ -1771,15 +1765,16 @@ Abc_Base10Log.exit101:                            ; preds = %.lr.ph.i96, %._crit
   %.val92 = load i32, ptr %47, align 4, !tbaa !63
   %64 = trunc nuw i64 %indvars.iv.next136 to i32
   %65 = icmp sgt i32 %.val92, %64
-  br i1 %65, label %57, label %.critedge6.loopexit.loopexit, !llvm.loop !72
+  br i1 %65, label %57, label %.critedge6.loopexit, !llvm.loop !72
 
-.critedge4.loopexit:                              ; preds = %.critedge6.loopexit
+.critedge4.loopexit:                              ; preds = %51, %.critedge6.loopexit
+  %.277.lcssa153 = phi i32 [ %63, %.critedge6.loopexit ], [ %.176118, %51 ]
   %.val85.pre = load i32, ptr %8, align 4, !tbaa !55
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %44
   %.val85 = phi i32 [ %.val85147, %44 ], [ %.val85.pre, %.critedge4.loopexit ]
-  %.176.lcssa = phi i32 [ %.075125, %44 ], [ %.277.lcssa, %.critedge4.loopexit ]
+  %.176.lcssa = phi i32 [ %.075125, %44 ], [ %.277.lcssa153, %.critedge4.loopexit ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %66 = sext i32 %.val85 to i64
   %67 = icmp slt i64 %indvars.iv.next142, %66
@@ -4979,12 +4974,12 @@ define ptr @Abc_GenTreeFindGroups(ptr noundef readonly captures(none) %0, i32 no
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.013, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !63
   %.pre20 = load i32, ptr %.013, align 8, !tbaa !118
-  %18 = getelementptr inbounds nuw i8, ptr %.013, i64 4
-  %19 = icmp eq i32 %.pre, %.pre20
-  br i1 %19, label %21, label %.Vec_IntGrow.exit10_crit_edge.i
+  %18 = icmp eq i32 %.pre, %.pre20
+  %19 = getelementptr inbounds nuw i8, ptr %.013, i64 4
+  br i1 %18, label %21, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %.thread, %17
-  %20 = phi ptr [ %16, %.thread ], [ %18, %17 ]
+  %20 = phi ptr [ %16, %.thread ], [ %19, %17 ]
   %.21524 = phi ptr [ %12, %.thread ], [ %.013, %17 ]
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.21524, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !70
@@ -5038,7 +5033,7 @@ Vec_IntGrow.exit.i:                               ; preds = %28, %26
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %41
-  %43 = phi ptr [ %20, %.Vec_IntGrow.exit10_crit_edge.i ], [ %18, %41 ], [ %18, %Vec_IntGrow.exit.i ]
+  %43 = phi ptr [ %20, %.Vec_IntGrow.exit10_crit_edge.i ], [ %19, %41 ], [ %19, %Vec_IntGrow.exit.i ]
   %.21523 = phi ptr [ %.21524, %.Vec_IntGrow.exit10_crit_edge.i ], [ %.013, %41 ], [ %.013, %Vec_IntGrow.exit.i ]
   %44 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %42, %41 ], [ %30, %Vec_IntGrow.exit.i ]
   %45 = load i32, ptr %43, align 4, !tbaa !63

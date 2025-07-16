@@ -92,18 +92,18 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly captures(add
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %36, label %2
+  br i1 %.not, label %.critedge, label %2
 
 2:                                                ; preds = %1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
-  %.not1524 = icmp samesign eq i64 %3, 0
-  br i1 %.not1524, label %.critedge, label %.lr.ph
+  %.not1526 = icmp samesign eq i64 %3, 0
+  br i1 %.not1526, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %cm_utf8_decode_character.exit
-  %.025 = phi ptr [ %.030.ph.i, %cm_utf8_decode_character.exit ], [ %0, %2 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.025, i64 1
-  %6 = load i8, ptr %.025, align 1, !tbaa !4
+  %.027 = phi ptr [ %.030.ph.i, %cm_utf8_decode_character.exit ], [ %0, %2 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.027, i64 1
+  %6 = load i8, ptr %.027, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i8], ptr @cm_utf8_ones, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !4
@@ -168,14 +168,8 @@ cm_utf8_decode_character.exit:                    ; preds = %28, %.lr.ph
   %.not15 = icmp eq ptr %.030.ph.i, %4
   br i1 %.not15, label %.critedge, label %.lr.ph, !llvm.loop !11
 
-.critedge:                                        ; preds = %cm_utf8_decode_character.exit, %.lr.ph, %.lr.ph, %.lr.ph, %28, %._crit_edge.i, %10, %.lr.ph.i, %2
-  %.1 = phi ptr [ %0, %2 ], [ null, %.lr.ph.i ], [ %4, %cm_utf8_decode_character.exit ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %28 ], [ null, %._crit_edge.i ], [ null, %10 ]
-  %34 = icmp eq ptr %.1, %4
-  %35 = zext i1 %34 to i32
-  br label %36
-
-36:                                               ; preds = %1, %.critedge
-  %.010 = phi i32 [ %35, %.critedge ], [ 0, %1 ]
+.critedge:                                        ; preds = %10, %._crit_edge.i, %28, %.lr.ph, %.lr.ph, %.lr.ph, %cm_utf8_decode_character.exit, %.lr.ph.i, %2, %1
+  %.010 = phi i32 [ 0, %1 ], [ 1, %2 ], [ 0, %.lr.ph.i ], [ 1, %cm_utf8_decode_character.exit ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %._crit_edge.i ], [ 0, %10 ]
   ret i32 %.010
 }
 

@@ -569,9 +569,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
   %.0.i.i.i.i.i.i = phi i32 [ %33, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
-  %35 = icmp slt i32 %.0.i.i.i.i.i.i, 0
+  %35 = icmp sgt i32 %.0.i.i.i.i.i.i, -1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
-  br i1 %35, label %38, label %51
+  br i1 %35, label %51, label %38
 
 36:                                               ; preds = %2
   %37 = landingpad { ptr, i32 }

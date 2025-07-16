@@ -1235,8 +1235,8 @@ for.body.i:                                       ; preds = %_ZN4llvh3sys15Smart
 for.end.i:                                        ; preds = %for.body.i
   %.pre.i = load ptr, ptr %atomic-temp.i.0.i1.i.i, align 8
   %.pre13.i = load ptr, ptr %_M_finish.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %.pre13.i, %.pre.i
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE5clearEv.exit.i, label %if.then.i.i3.i
+  %8 = icmp eq ptr %.pre13.i, %.pre.i
+  br i1 %8, label %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE5clearEv.exit.i, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %for.end.i
   store ptr %.pre.i, ptr %_M_finish.i.i, align 8
@@ -1252,8 +1252,8 @@ if.then.i.i7.i:                                   ; preds = %_ZNSt6vectorIPN4llv
 
 if.else.i.i5.i:                                   ; preds = %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE5clearEv.exit.i
   %acquired.i.i6.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i.i2, i64 8
-  %8 = load i32, ptr %acquired.i.i6.i, align 8
-  %dec.i.i.i = add i32 %8, -1
+  %9 = load i32, ptr %acquired.i.i6.i, align 8
+  %dec.i.i.i = add i32 %9, -1
   store i32 %dec.i.i.i, ptr %acquired.i.i6.i, align 8
   br label %_ZN12_GLOBAL__N_113StatisticInfo5resetEv.exit
 

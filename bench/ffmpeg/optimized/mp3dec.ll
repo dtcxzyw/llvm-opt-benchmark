@@ -156,7 +156,7 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
 ._crit_edge120:                                   ; preds = %.loopexit
   %57 = icmp ne i32 %.177, 0
   %58 = icmp sgt i32 %.1, 6
-  br i1 %58, label %86, label %59
+  br i1 %58, label %85, label %59
 
 59:                                               ; preds = %._crit_edge120
   %60 = icmp sgt i32 %50, 200
@@ -166,64 +166,59 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   %62 = load i32, ptr %5, align 8, !tbaa !11
   %63 = shl nuw nsw i32 %51, 1
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %86, label %.thread96
+  br i1 %64, label %85, label %.thread165
 
 65:                                               ; preds = %59
   %66 = icmp sgt i32 %50, 3
-  br i1 %66, label %..thread96_crit_edge, label %.thread165
+  br i1 %66, label %.thread96, label %.thread165
 
-..thread96_crit_edge:                             ; preds = %65
+.thread96:                                        ; preds = %65
   %.pre = load i32, ptr %5, align 8, !tbaa !11
   %.pre138 = shl nuw nsw i32 %51, 1
-  br label %.thread96
+  %67 = icmp slt i32 %.pre, %.pre138
+  br i1 %67, label %85, label %.thread165
 
-.thread96:                                        ; preds = %..thread96_crit_edge, %61
-  %.pre-phi = phi i32 [ %.pre138, %..thread96_crit_edge ], [ %63, %61 ]
-  %67 = phi i32 [ %.pre, %..thread96_crit_edge ], [ %62, %61 ]
-  %68 = icmp slt i32 %67, %.pre-phi
-  br i1 %68, label %86, label %.thread165
+.thread165:                                       ; preds = %61, %.critedge, %.thread96, %65
+  %.076.lcssa146160 = phi i1 [ %57, %.thread96 ], [ %57, %65 ], [ false, %.critedge ], [ %57, %61 ]
+  %.070.lcssa147157 = phi i32 [ %.1, %.thread96 ], [ %.1, %65 ], [ 0, %.critedge ], [ %.1, %61 ]
+  %.068.lcssa148154 = phi i32 [ %50, %.thread96 ], [ %50, %65 ], [ 0, %.critedge ], [ %50, %61 ]
+  %.078.lcssa145 = phi i32 [ %51, %.thread96 ], [ %51, %65 ], [ 0, %.critedge ], [ %51, %61 ]
+  %68 = call i32 @ff_id3v2_match(ptr noundef %.074.lcssa, ptr noundef nonnull @.str.8) #6
+  %.not88 = icmp eq i32 %68, 0
+  br i1 %.not88, label %76, label %69
 
-.thread165:                                       ; preds = %.critedge, %.thread96, %65
-  %.076.lcssa146160 = phi i1 [ %57, %.thread96 ], [ %57, %65 ], [ false, %.critedge ]
-  %.070.lcssa147157 = phi i32 [ %.1, %.thread96 ], [ %.1, %65 ], [ 0, %.critedge ]
-  %.068.lcssa148154 = phi i32 [ %50, %.thread96 ], [ %50, %65 ], [ 0, %.critedge ]
-  %.078.lcssa145 = phi i32 [ %51, %.thread96 ], [ %51, %65 ], [ 0, %.critedge ]
-  %69 = call i32 @ff_id3v2_match(ptr noundef %.074.lcssa, ptr noundef nonnull @.str.8) #6
-  %.not88 = icmp eq i32 %69, 0
-  br i1 %.not88, label %77, label %70
+69:                                               ; preds = %.thread165
+  %70 = call i32 @ff_id3v2_tag_len(ptr noundef %.074.lcssa) #6
+  %71 = shl nsw i32 %70, 1
+  %72 = load i32, ptr %5, align 8, !tbaa !11
+  %.not89 = icmp slt i32 %71, %72
+  br i1 %.not89, label %76, label %73
 
-70:                                               ; preds = %.thread165
-  %71 = call i32 @ff_id3v2_tag_len(ptr noundef %.074.lcssa) #6
-  %72 = shl nsw i32 %71, 1
-  %73 = load i32, ptr %5, align 8, !tbaa !11
-  %.not89 = icmp slt i32 %72, %73
-  br i1 %.not89, label %77, label %74
+73:                                               ; preds = %69
+  %74 = icmp slt i32 %72, 1048576
+  %75 = select i1 %74, i32 12, i32 48
+  br label %85
 
-74:                                               ; preds = %70
-  %75 = icmp slt i32 %73, 1048576
-  %76 = select i1 %75, i32 12, i32 48
-  br label %86
+76:                                               ; preds = %69, %.thread165
+  %77 = icmp sgt i32 %.070.lcssa147157, 1
+  %or.cond = select i1 %77, i1 %.076.lcssa146160, i1 false
+  br i1 %or.cond, label %85, label %78
 
-77:                                               ; preds = %70, %.thread165
-  %78 = icmp sgt i32 %.070.lcssa147157, 1
-  %or.cond = select i1 %78, i1 %.076.lcssa146160, i1 false
-  br i1 %or.cond, label %86, label %79
+78:                                               ; preds = %76
+  %79 = icmp sgt i32 %.068.lcssa148154, 0
+  br i1 %79, label %80, label %84
 
-79:                                               ; preds = %77
-  %80 = icmp sgt i32 %.068.lcssa148154, 0
-  br i1 %80, label %81, label %85
+80:                                               ; preds = %78
+  %81 = load i32, ptr %5, align 8, !tbaa !11
+  %82 = mul nsw i32 %.078.lcssa145, 10
+  %83 = icmp slt i32 %81, %82
+  br i1 %83, label %85, label %84
 
-81:                                               ; preds = %79
-  %82 = load i32, ptr %5, align 8, !tbaa !11
-  %83 = mul nsw i32 %.078.lcssa145, 10
-  %84 = icmp slt i32 %82, %83
-  br i1 %84, label %86, label %85
+84:                                               ; preds = %80, %78
+  br label %85
 
-85:                                               ; preds = %81, %79
-  br label %86
-
-86:                                               ; preds = %81, %77, %.thread96, %61, %._crit_edge120, %85, %74
-  %.0 = phi i32 [ %76, %74 ], [ 0, %85 ], [ 51, %._crit_edge120 ], [ 50, %61 ], [ 25, %.thread96 ], [ 5, %77 ], [ 1, %81 ]
+85:                                               ; preds = %80, %76, %.thread96, %61, %._crit_edge120, %84, %73
+  %.0 = phi i32 [ %75, %73 ], [ 0, %84 ], [ 51, %._crit_edge120 ], [ 50, %61 ], [ 25, %.thread96 ], [ 5, %76 ], [ 1, %80 ]
   ret i32 %.0
 }
 

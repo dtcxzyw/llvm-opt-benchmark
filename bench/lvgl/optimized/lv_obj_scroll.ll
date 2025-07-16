@@ -1225,11 +1225,11 @@ lv_obj_get_scroll_snap_y.exit:                    ; preds = %7
   %60 = icmp sgt i32 %49, -1
   %61 = icmp slt i32 %56, 1
   %or.cond = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond, label %78, label %62
+  br i1 %or.cond, label %lv_obj_get_scroll_top.exit, label %62
 
 62:                                               ; preds = %20
   %63 = icmp sgt i32 %49, 0
-  br i1 %63, label %64, label %72
+  br i1 %63, label %64, label %73
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %8, align 8, !tbaa !3
@@ -1240,27 +1240,23 @@ lv_obj_get_scroll_snap_y.exit:                    ; preds = %7
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 52
   %69 = load i32, ptr %68, align 4, !tbaa !24
   %70 = sub nsw i32 0, %69
+  %71 = icmp sgt i32 %49, %70
+  %72 = select i1 %71, i32 0, i32 %49
   br label %lv_obj_get_scroll_top.exit
 
-lv_obj_get_scroll_top.exit:                       ; preds = %64, %67
-  %.0.i160 = phi i32 [ %70, %67 ], [ 0, %64 ]
-  %71 = icmp slt i32 %.0.i160, %49
-  %spec.store.select = select i1 %71, i32 0, i32 %49
-  br label %78
+73:                                               ; preds = %62
+  %74 = icmp slt i32 %56, 0
+  br i1 %74, label %75, label %lv_obj_get_scroll_top.exit
 
-72:                                               ; preds = %62
-  %73 = icmp slt i32 %56, 0
-  br i1 %73, label %74, label %78
+75:                                               ; preds = %73
+  %76 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %5)
+  %77 = add nsw i32 %76, %56
+  %78 = icmp slt i32 %77, 0
+  %spec.store.select2 = select i1 %78, i32 0, i32 %56
+  br label %lv_obj_get_scroll_top.exit
 
-74:                                               ; preds = %72
-  %75 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %5)
-  %76 = add nsw i32 %75, %56
-  %77 = icmp slt i32 %76, 0
-  %spec.store.select2 = select i1 %77, i32 0, i32 %56
-  br label %78
-
-78:                                               ; preds = %20, %lv_obj_get_scroll_top.exit, %74, %72
-  %.0146 = phi i32 [ %spec.store.select, %lv_obj_get_scroll_top.exit ], [ %spec.store.select2, %74 ], [ 0, %72 ], [ 0, %20 ]
+lv_obj_get_scroll_top.exit:                       ; preds = %67, %64, %20, %75, %73
+  %.0146 = phi i32 [ %spec.store.select2, %75 ], [ 0, %73 ], [ 0, %20 ], [ %72, %67 ], [ 0, %64 ]
   switch i32 %.0.i155177, label %default.unreachable [
     i32 1, label %79
     i32 2, label %84
@@ -1268,21 +1264,21 @@ lv_obj_get_scroll_top.exit:                       ; preds = %64, %67
     i32 0, label %98
   ]
 
-79:                                               ; preds = %78
+79:                                               ; preds = %lv_obj_get_scroll_top.exit
   %80 = load i32, ptr %42, align 4, !tbaa !39
   %81 = load i32, ptr %44, align 4, !tbaa !40
   %82 = add i32 %80, %31
   %83 = sub i32 %82, %81
   br label %98
 
-84:                                               ; preds = %78
+84:                                               ; preds = %lv_obj_get_scroll_top.exit
   %85 = load i32, ptr %50, align 4, !tbaa !27
   %86 = load i32, ptr %52, align 4, !tbaa !41
   %87 = add i32 %40, %86
   %88 = sub i32 %85, %87
   br label %98
 
-89:                                               ; preds = %78
+89:                                               ; preds = %lv_obj_get_scroll_top.exit
   %90 = load i32, ptr %42, align 4, !tbaa !39
   %91 = sdiv i32 %59, 2
   %92 = tail call i32 @lv_area_get_height(ptr noundef nonnull %22) #5
@@ -1294,11 +1290,11 @@ lv_obj_get_scroll_top.exit:                       ; preds = %64, %67
   %97 = add i32 %96, %.neg
   br label %98
 
-default.unreachable:                              ; preds = %149, %78
+default.unreachable:                              ; preds = %149, %lv_obj_get_scroll_top.exit
   unreachable
 
-98:                                               ; preds = %78, %89, %84, %79
-  %.1147 = phi i32 [ %.0146, %78 ], [ %83, %79 ], [ %88, %84 ], [ %97, %89 ]
+98:                                               ; preds = %lv_obj_get_scroll_top.exit, %89, %84, %79
+  %.1147 = phi i32 [ %.0146, %lv_obj_get_scroll_top.exit ], [ %83, %79 ], [ %88, %84 ], [ %97, %89 ]
   %99 = load ptr, ptr %8, align 8, !tbaa !3
   %.not.i161 = icmp eq ptr %99, null
   br i1 %.not.i161, label %lv_obj_get_scroll_snap_x.exit.thread, label %lv_obj_get_scroll_snap_x.exit

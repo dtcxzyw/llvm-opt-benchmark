@@ -1323,7 +1323,7 @@ ddIsIthAddVar.exit.thread:                        ; preds = %16, %ddIsIthAddVar.
 define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 -2147483648, 2147483647) %4) unnamed_addr #0 {
   %6 = load i32, ptr %2, align 8, !tbaa !30
   %7 = icmp eq i32 %6, 2147483647
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1332,19 +1332,19 @@ define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr nounde
   %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !31
   %14 = icmp sgt i32 %13, %4
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %8
   %16 = tail call ptr @cuddHashTableLookup1(ptr noundef nonnull %1, ptr noundef nonnull %2) #7
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %17, label %.thread
+  br i1 %.not, label %17, label %.critedge
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !32
   %20 = tail call fastcc ptr @cuddAddVectorComposeRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %19, ptr noundef %3, i32 noundef %4)
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread, label %22
+  br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %17
   %23 = ptrtoint ptr %20 to i64
@@ -1362,7 +1362,7 @@ define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr nounde
 
 33:                                               ; preds = %22
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %20) #7
-  br label %.thread
+  br label %.critedge
 
 34:                                               ; preds = %22
   %35 = ptrtoint ptr %31 to i64
@@ -1383,7 +1383,7 @@ define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr nounde
 47:                                               ; preds = %34
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %20) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %31) #7
-  br label %.thread
+  br label %.critedge
 
 48:                                               ; preds = %34
   %49 = ptrtoint ptr %45 to i64
@@ -1398,27 +1398,27 @@ define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr nounde
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !33
   %.not60 = icmp eq i32 %56, 1
-  br i1 %.not60, label %.critedge, label %57
+  br i1 %.not60, label %.critedge63, label %57
 
 57:                                               ; preds = %48
   %58 = zext i32 %56 to i64
   %59 = add nsw i64 %58, -1
   %60 = tail call i32 @cuddHashTableInsert1(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %45, i64 noundef %59) #7
   %.not61.not = icmp eq i32 %60, 0
-  br i1 %.not61.not, label %61, label %.critedge
+  br i1 %.not61.not, label %61, label %.critedge63
 
 61:                                               ; preds = %57
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %45) #7
-  br label %.thread
+  br label %.critedge
 
-.critedge:                                        ; preds = %57, %48
+.critedge63:                                      ; preds = %57, %48
   %62 = load i32, ptr %52, align 4, !tbaa !33
   %63 = add i32 %62, -1
   store i32 %63, ptr %52, align 4, !tbaa !33
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %5, %61, %17, %15, %8, %.critedge, %47, %33
-  %.0 = phi ptr [ null, %33 ], [ null, %47 ], [ %45, %.critedge ], [ null, %61 ], [ %2, %8 ], [ %16, %15 ], [ null, %17 ], [ %2, %5 ]
+.critedge:                                        ; preds = %61, %5, %17, %15, %8, %.critedge63, %47, %33
+  %.0 = phi ptr [ null, %33 ], [ null, %47 ], [ %45, %.critedge63 ], [ null, %61 ], [ %2, %8 ], [ %16, %15 ], [ null, %17 ], [ %2, %5 ]
   ret ptr %.0
 }
 
@@ -1568,7 +1568,7 @@ ddIsIthAddVarPair.exit.thread:                    ; preds = %17, %ddIsIthAddVarP
 define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483648, 2147483647) %5) unnamed_addr #0 {
   %7 = load i32, ptr %2, align 8, !tbaa !30
   %8 = icmp eq i32 %7, 2147483647
-  br i1 %8, label %.thread, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1577,19 +1577,19 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !31
   %15 = icmp sgt i32 %14, %5
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %9
   %17 = tail call ptr @cuddHashTableLookup1(ptr noundef nonnull %1, ptr noundef nonnull %2) #7
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %18, label %.thread
+  br i1 %.not, label %18, label %.critedge
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = tail call fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %20, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %18
   %24 = ptrtoint ptr %21 to i64
@@ -1607,7 +1607,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
 
 34:                                               ; preds = %23
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %21) #7
-  br label %.thread
+  br label %.critedge
 
 35:                                               ; preds = %23
   %36 = ptrtoint ptr %32 to i64
@@ -1628,7 +1628,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
 48:                                               ; preds = %35
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %21) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %32) #7
-  br label %.thread
+  br label %.critedge
 
 49:                                               ; preds = %35
   %50 = ptrtoint ptr %46 to i64
@@ -1650,7 +1650,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %21) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %32) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %46) #7
-  br label %.thread
+  br label %.critedge
 
 63:                                               ; preds = %49
   %64 = ptrtoint ptr %60 to i64
@@ -1669,7 +1669,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %32) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %46) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %60) #7
-  br label %.thread
+  br label %.critedge
 
 73:                                               ; preds = %63
   %74 = ptrtoint ptr %70 to i64
@@ -1686,27 +1686,27 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !33
   %.not92 = icmp eq i32 %81, 1
-  br i1 %.not92, label %.critedge, label %82
+  br i1 %.not92, label %.critedge95, label %82
 
 82:                                               ; preds = %73
   %83 = zext i32 %81 to i64
   %84 = add nsw i64 %83, -1
   %85 = tail call i32 @cuddHashTableInsert1(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %70, i64 noundef %84) #7
   %.not93.not = icmp eq i32 %85, 0
-  br i1 %.not93.not, label %86, label %.critedge
+  br i1 %.not93.not, label %86, label %.critedge95
 
 86:                                               ; preds = %82
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %70) #7
-  br label %.thread
+  br label %.critedge
 
-.critedge:                                        ; preds = %82, %73
+.critedge95:                                      ; preds = %82, %73
   %87 = load i32, ptr %77, align 4, !tbaa !33
   %88 = add i32 %87, -1
   store i32 %88, ptr %77, align 4, !tbaa !33
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %6, %86, %18, %16, %9, %.critedge, %72, %62, %48, %34
-  %.0 = phi ptr [ null, %34 ], [ null, %48 ], [ null, %62 ], [ null, %72 ], [ %70, %.critedge ], [ null, %86 ], [ %2, %9 ], [ %17, %16 ], [ null, %18 ], [ %2, %6 ]
+.critedge:                                        ; preds = %86, %6, %18, %16, %9, %.critedge95, %72, %62, %48, %34
+  %.0 = phi ptr [ null, %34 ], [ null, %48 ], [ null, %62 ], [ null, %72 ], [ %70, %.critedge95 ], [ null, %86 ], [ %2, %9 ], [ %17, %16 ], [ null, %18 ], [ %2, %6 ]
   ret ptr %.0
 }
 
@@ -2323,7 +2323,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   %8 = inttoptr i64 %7 to ptr
   %9 = load i32, ptr %8, align 8, !tbaa !30
   %10 = icmp eq i32 %9, 2147483647
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -2332,7 +2332,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !31
   %17 = icmp sgt i32 %16, %4
-  br i1 %17, label %.thread, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %11
   %19 = tail call ptr @cuddHashTableLookup1(ptr noundef nonnull %1, ptr noundef nonnull %8) #7
@@ -2345,14 +2345,14 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   %23 = zext i1 %22 to i64
   %24 = xor i64 %21, %23
   %25 = inttoptr i64 %24 to ptr
-  br label %.thread
+  br label %.critedge
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !32
   %29 = tail call fastcc ptr @cuddBddVectorComposeRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %28, ptr noundef %3, i32 noundef %4)
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %26
   %32 = ptrtoint ptr %29 to i64
@@ -2370,7 +2370,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
 
 42:                                               ; preds = %31
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %29) #7
-  br label %.thread
+  br label %.critedge
 
 43:                                               ; preds = %31
   %44 = ptrtoint ptr %40 to i64
@@ -2391,7 +2391,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
 56:                                               ; preds = %43
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %29) #7
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %40) #7
-  br label %.thread
+  br label %.critedge
 
 57:                                               ; preds = %43
   %58 = ptrtoint ptr %54 to i64
@@ -2406,20 +2406,20 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !33
   %.not65 = icmp eq i32 %65, 1
-  br i1 %.not65, label %.critedge, label %66
+  br i1 %.not65, label %.critedge68, label %66
 
 66:                                               ; preds = %57
   %67 = zext i32 %65 to i64
   %68 = add nsw i64 %67, -1
   %69 = tail call i32 @cuddHashTableInsert1(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %54, i64 noundef %68) #7
   %.not66.not = icmp eq i32 %69, 0
-  br i1 %.not66.not, label %70, label %.critedge
+  br i1 %.not66.not, label %70, label %.critedge68
 
 70:                                               ; preds = %66
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef nonnull %54) #7
-  br label %.thread
+  br label %.critedge
 
-.critedge:                                        ; preds = %66, %57
+.critedge68:                                      ; preds = %66, %57
   %71 = load i32, ptr %61, align 4, !tbaa !33
   %72 = add i32 %71, -1
   store i32 %72, ptr %61, align 4, !tbaa !33
@@ -2427,10 +2427,10 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   %74 = zext i1 %73 to i64
   %75 = xor i64 %58, %74
   %76 = inttoptr i64 %75 to ptr
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %5, %70, %26, %11, %.critedge, %56, %42, %20
-  %.0 = phi ptr [ %25, %20 ], [ null, %42 ], [ null, %56 ], [ %76, %.critedge ], [ null, %70 ], [ %2, %11 ], [ null, %26 ], [ %2, %5 ]
+.critedge:                                        ; preds = %70, %5, %26, %11, %.critedge68, %56, %42, %20
+  %.0 = phi ptr [ %25, %20 ], [ null, %42 ], [ null, %56 ], [ %76, %.critedge68 ], [ null, %70 ], [ %2, %11 ], [ null, %26 ], [ %2, %5 ]
   ret ptr %.0
 }
 

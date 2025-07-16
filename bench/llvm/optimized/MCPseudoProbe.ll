@@ -1461,19 +1461,19 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEjEE12emplace_backIJS3_EEERS3_DpO
 _ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread: ; preds = %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit, %_ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEjEE12emplace_backIJS3_EEERS3_DpOT_.exit
   %.pre = load i32, ptr %6, align 8, !tbaa !90
   %.pre16 = zext i32 %.pre to i64
-  %51 = load ptr, ptr %1, align 8, !tbaa !89
-  %52 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %51, i64 %8
-  %53 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %51, i64 %.pre16
-  %54 = icmp ne i32 %7, %.pre
-  %.012.i.i = getelementptr inbounds i8, ptr %53, i64 -24
-  %55 = icmp ult ptr %52, %.012.i.i
-  %or.cond.i.i = select i1 %54, i1 %55, i1 false
+  %51 = icmp ne i32 %7, %.pre
+  %52 = load ptr, ptr %1, align 8, !tbaa !89
+  %53 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %52, i64 %8
+  %54 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %52, i64 %.pre16
+  %.012.i.i = getelementptr inbounds i8, ptr %54, i64 -24
+  %55 = icmp ult ptr %53, %.012.i.i
+  %or.cond.i.i = select i1 %51, i1 %55, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPSt4pairIN4llvm9StringRefEjEEvT_S5_.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread, %.lr.ph.i.i
   %.015.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread ]
-  %.pn14.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %53, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread ]
-  %.0913.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %52, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread ]
+  %.pn14.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %54, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread ]
+  %.0913.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %53, %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %.0913.i.i, i64 16, i1 false), !tbaa.struct !376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.0913.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.015.i.i, i64 16, i1 false), !tbaa.struct !376

@@ -1016,40 +1016,40 @@ define hidden void @_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable216codepoints_inner17hf4281c2894d00523E.llvm.15772558698018558306(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable(2456) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.val62 = load ptr, ptr %0, align 8
+  %.val65 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val63 = load i64, ptr %4, align 8, !noundef !4
-  %5 = lshr i64 %.val63, 1
-  %6 = icmp ne ptr %.val62, null
+  %.val66 = load i64, ptr %4, align 8, !noundef !4
+  %5 = lshr i64 %.val66, 1
+  %6 = icmp ne ptr %.val65, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val64 = load ptr, ptr %7, align 8
+  %.val67 = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val65 = load i64, ptr %8, align 8
-  %9 = lshr i64 %.val65, 3
+  %.val68 = load i64, ptr %8, align 8
+  %9 = lshr i64 %.val68, 3
   %10 = trunc i64 %9 to i16
-  %11 = icmp ne ptr %.val64, null
+  %11 = icmp ne ptr %.val67, null
   %wide.trip.count = and i64 %5, 65535
   br label %12
 
-12:                                               ; preds = %3, %.thread83
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %.thread83 ]
+12:                                               ; preds = %3, %.thread86
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %.thread86 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond92.not, label %.thread, label %13
+  %exitcond95.not = icmp eq i64 %indvars.iv, %wide.trip.count
+  br i1 %exitcond95.not, label %.thread, label %13
 
 13:                                               ; preds = %12
   tail call void @llvm.assume(i1 %6)
   %14 = shl nuw nsw i64 %indvars.iv, 1
   %15 = add nuw nsw i64 %14, 2
-  %16 = icmp ugt i64 %15, %.val63
+  %16 = icmp ugt i64 %15, %.val66
   br i1 %16, label %.thread, label %18
 
-.thread:                                          ; preds = %18, %23, %13, %12, %.thread83, %34, %37, %.lr.ph
-  %17 = phi i1 [ false, %.lr.ph ], [ false, %37 ], [ false, %34 ], [ true, %.thread83 ], [ false, %12 ], [ false, %13 ], [ false, %23 ], [ false, %18 ]
+.thread:                                          ; preds = %18, %23, %13, %12, %.thread86, %34, %37, %.lr.ph
+  %17 = phi i1 [ false, %.lr.ph ], [ false, %37 ], [ false, %34 ], [ true, %.thread86 ], [ false, %12 ], [ false, %13 ], [ false, %23 ], [ false, %18 ]
   ret i1 %17
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %.val62, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %.val65, i64 %14
   %.val.i.i.i.i = load i16, ptr %19, align 1, !alias.scope !142
   %20 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i)
   %21 = lshr i16 %20, 3
@@ -1061,11 +1061,11 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
   %24 = and i16 %20, -8
   %25 = zext i16 %24 to i64
   %26 = add nuw nsw i64 %25, 8
-  %27 = icmp ugt i64 %26, %.val65
+  %27 = icmp ugt i64 %26, %.val68
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %.val64, i64 %25
+  %29 = getelementptr inbounds nuw i8, ptr %.val67, i64 %25
   %.val.i.i.i.i.i.i = load i16, ptr %29, align 1, !alias.scope !149, !noalias !160
   %30 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i)
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 2
@@ -1089,39 +1089,39 @@ define hidden noundef zeroext i1 @_ZN10ttf_parser6tables4cmap7format29Subtable21
 
 .preheader:                                       ; preds = %37
   %.not = icmp eq i16 %.val.i.i.i49.i.i.i, 0
-  br i1 %.not, label %.thread83, label %.lr.ph
+  br i1 %.not, label %.thread86, label %.lr.ph
 
 42:                                               ; preds = %34
   %43 = extractvalue { i16, i1 } %35, 0
-  %44 = zext i16 %30 to i64
-  %45 = icmp samesign uge i64 %indvars.iv, %44
-  %46 = zext i16 %43 to i64
-  %47 = icmp samesign ult i64 %indvars.iv, %46
-  %or.cond = and i1 %45, %47
-  br i1 %or.cond, label %48, label %.thread83
+  %44 = zext i16 %43 to i64
+  %45 = icmp samesign ult i64 %indvars.iv, %44
+  %46 = zext i16 %30 to i64
+  %47 = icmp samesign uge i64 %indvars.iv, %46
+  %or.cond = and i1 %47, %45
+  br i1 %or.cond, label %48, label %.thread86
 
 48:                                               ; preds = %42
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %49)
-  br label %.thread83
+  br label %.thread86
 
-.thread83:                                        ; preds = %52, %.preheader, %42, %48
-  %exitcond93 = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond93, label %.thread, label %12
+.thread86:                                        ; preds = %52, %.preheader, %42, %48
+  %exitcond96 = icmp eq i64 %indvars.iv.next, 256
+  br i1 %exitcond96, label %.thread, label %12
 
 .lr.ph:                                           ; preds = %.preheader, %52
-  %.sroa.017.088 = phi i16 [ %55, %52 ], [ 0, %.preheader ]
-  %50 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %41, i16 %.sroa.017.088)
+  %.sroa.017.091 = phi i16 [ %55, %52 ], [ 0, %.preheader ]
+  %50 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %41, i16 %.sroa.017.091)
   %51 = extractvalue { i16, i1 } %50, 1
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %.lr.ph
   %53 = extractvalue { i16, i1 } %50, 0
   %54 = zext i16 %53 to i32
-  %55 = add nuw i16 %.sroa.017.088, 1
+  %55 = add nuw i16 %.sroa.017.091, 1
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %54)
   %exitcond.not = icmp eq i16 %55, %32
-  br i1 %exitcond.not, label %.thread83, label %.lr.ph
+  br i1 %exitcond.not, label %.thread86, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1281,36 +1281,36 @@ default.unreachable61:                            ; preds = %3
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  %.val62.i = load ptr, ptr %20, align 8, !alias.scope !202, !noalias !205
+  %.val65.i = load ptr, ptr %20, align 8, !alias.scope !202, !noalias !205
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val63.i = load i64, ptr %21, align 8, !alias.scope !202, !noalias !205, !noundef !4
-  %22 = lshr i64 %.val63.i, 1
-  %23 = icmp ne ptr %.val62.i, null
+  %.val66.i = load i64, ptr %21, align 8, !alias.scope !202, !noalias !205, !noundef !4
+  %22 = lshr i64 %.val66.i, 1
+  %23 = icmp ne ptr %.val65.i, null
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val64.i = load ptr, ptr %24, align 8, !alias.scope !202, !noalias !205
+  %.val67.i = load ptr, ptr %24, align 8, !alias.scope !202, !noalias !205
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val65.i = load i64, ptr %25, align 8, !alias.scope !202, !noalias !205
-  %26 = lshr i64 %.val65.i, 3
+  %.val68.i = load i64, ptr %25, align 8, !alias.scope !202, !noalias !205
+  %26 = lshr i64 %.val68.i, 3
   %27 = trunc i64 %26 to i16
-  %28 = icmp ne ptr %.val64.i, null
+  %28 = icmp ne ptr %.val67.i, null
   %wide.trip.count.i = and i64 %22, 65535
   br label %29
 
-29:                                               ; preds = %.thread83.i, %19
-  %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %.thread83.i ]
+29:                                               ; preds = %.thread86.i, %19
+  %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %.thread86.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond92.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
-  br i1 %exitcond92.not.i, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %30
+  %exitcond95.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
+  br i1 %exitcond95.not.i, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %30
 
 30:                                               ; preds = %29
   tail call void @llvm.assume(i1 %23)
   %31 = shl nuw nsw i64 %indvars.iv.i, 1
   %32 = add nuw nsw i64 %31, 2
-  %33 = icmp ugt i64 %32, %.val63.i
+  %33 = icmp ugt i64 %32, %.val66.i
   br i1 %33, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %.val62.i, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %.val65.i, i64 %31
   %.val.i.i.i.i.i = load i16, ptr %35, align 1, !alias.scope !208, !noalias !215
   %36 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i)
   %37 = lshr i16 %36, 3
@@ -1322,11 +1322,11 @@ default.unreachable61:                            ; preds = %3
   %40 = and i16 %36, -8
   %41 = zext i16 %40 to i64
   %42 = add nuw nsw i64 %41, 8
-  %43 = icmp ugt i64 %42, %.val65.i
+  %43 = icmp ugt i64 %42, %.val68.i
   br i1 %43, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %.val64.i, i64 %41
+  %45 = getelementptr inbounds nuw i8, ptr %.val67.i, i64 %41
   %.val.i.i.i.i.i.i.i = load i16, ptr %45, align 1, !alias.scope !216, !noalias !227
   %46 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i.i)
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 2
@@ -1350,39 +1350,39 @@ default.unreachable61:                            ; preds = %3
 
 .preheader.i:                                     ; preds = %53
   %.not.i = icmp eq i16 %.val.i.i.i49.i.i.i.i, 0
-  br i1 %.not.i, label %.thread83.i, label %.lr.ph.i1
+  br i1 %.not.i, label %.thread86.i, label %.lr.ph.i1
 
 58:                                               ; preds = %50
   %59 = extractvalue { i16, i1 } %51, 0
-  %60 = zext i16 %46 to i64
-  %61 = icmp samesign uge i64 %indvars.iv.i, %60
-  %62 = zext i16 %59 to i64
-  %63 = icmp samesign ult i64 %indvars.iv.i, %62
-  %or.cond.i = and i1 %61, %63
-  br i1 %or.cond.i, label %64, label %.thread83.i
+  %60 = zext i16 %59 to i64
+  %61 = icmp samesign ult i64 %indvars.iv.i, %60
+  %62 = zext i16 %46 to i64
+  %63 = icmp samesign uge i64 %indvars.iv.i, %62
+  %or.cond.i = and i1 %63, %61
+  br i1 %or.cond.i, label %64, label %.thread86.i
 
 64:                                               ; preds = %58
   %65 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly align 8 dereferenceable(2456) %1, ptr nonnull align 8 dereferenceable(24) %2, i32 noundef %65), !noalias !202
-  br label %.thread83.i
+  br label %.thread86.i
 
-.thread83.i:                                      ; preds = %68, %64, %58, %.preheader.i
-  %exitcond93.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond93.i, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %29
+.thread86.i:                                      ; preds = %68, %64, %58, %.preheader.i
+  %exitcond96.i = icmp eq i64 %indvars.iv.next.i, 256
+  br i1 %exitcond96.i, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %29
 
 .lr.ph.i1:                                        ; preds = %.preheader.i, %68
-  %.sroa.017.088.i = phi i16 [ %71, %68 ], [ 0, %.preheader.i ]
-  %66 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %57, i16 %.sroa.017.088.i)
+  %.sroa.017.091.i = phi i16 [ %71, %68 ], [ 0, %.preheader.i ]
+  %66 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %57, i16 %.sroa.017.091.i)
   %67 = extractvalue { i16, i1 } %66, 1
   br i1 %67, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %68
 
 68:                                               ; preds = %.lr.ph.i1
   %69 = extractvalue { i16, i1 } %66, 0
   %70 = zext i16 %69 to i32
-  %71 = add nuw i16 %.sroa.017.088.i, 1
+  %71 = add nuw i16 %.sroa.017.091.i, 1
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly align 8 dereferenceable(2456) %1, ptr nonnull align 8 dereferenceable(24) %2, i32 noundef %70), !noalias !202
   %exitcond.not.i = icmp eq i16 %71, %48
-  br i1 %exitcond.not.i, label %.thread83.i, label %.lr.ph.i1
+  br i1 %exitcond.not.i, label %.thread86.i, label %.lr.ph.i1
 
 72:                                               ; preds = %3
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1596,7 +1596,7 @@ default.unreachable61:                            ; preds = %3
   %or.cond.i36 = select i1 %161, i1 true, i1 %.not.i.i35
   br i1 %or.cond.i36, label %.loopexit.i37, label %.lr.ph.i31
 
-_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit: ; preds = %.lr.ph33.i26, %.loopexit.i37, %.lr.ph33.i, %.loopexit.i21, %128, %114, %.loopexit.i, %.lr.ph, %89, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.i", %.thread83.i, %53, %50, %39, %34, %30, %29, %.lr.ph.i1, %17, %72, %146, %129, %115, %100, %5, %3, %3
+_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit: ; preds = %.lr.ph33.i26, %.loopexit.i37, %.lr.ph33.i, %.loopexit.i21, %128, %114, %.loopexit.i, %.lr.ph, %89, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.i", %.thread86.i, %53, %50, %39, %34, %30, %29, %.lr.ph.i1, %17, %72, %146, %129, %115, %100, %5, %3, %3
   ret void
 }
 

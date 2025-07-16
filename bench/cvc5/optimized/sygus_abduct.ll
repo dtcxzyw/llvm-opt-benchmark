@@ -898,13 +898,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit376: ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
   %.pre1437 = load ptr, ptr %43, align 8, !tbaa !134
   %.pre1438 = load ptr, ptr %119, align 8, !tbaa !134
+  %354 = icmp eq ptr %.pre1437, %.pre1438
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #23
-  %354 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %355 = icmp eq ptr %.pre1437, %.pre1438
-  br i1 %355, label %356, label %358
+  %355 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  br i1 %354, label %356, label %358
 
 356:                                              ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit376.thread, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit376
-  %357 = phi ptr [ %105, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit376.thread ], [ %354, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit376 ]
+  %357 = phi ptr [ %105, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit376.thread ], [ %355, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit376 ]
   invoke void @_ZN4cvc58internal11NodeManager11booleanTypeEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %49, ptr noundef nonnull align 8 dereferenceable(3560) %1)
           to label %359 unwind label %529
 
@@ -913,7 +913,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit376: ; preds = %_ZN4cvc58internal
           to label %359 unwind label %529
 
 359:                                              ; preds = %358, %356
-  %360 = phi ptr [ %354, %358 ], [ %357, %356 ]
+  %360 = phi ptr [ %355, %358 ], [ %357, %356 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51) #23
   %361 = load ptr, ptr %2, align 8, !tbaa !49

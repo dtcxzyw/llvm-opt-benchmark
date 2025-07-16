@@ -3579,7 +3579,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit96:   ; preds = %77, %81
   %86 = phi ptr [ %.pre265, %._crit_edge219.loopexit ], [ %73, %._crit_edge214 ]
   %87 = phi ptr [ %.pre264, %._crit_edge219.loopexit ], [ %74, %._crit_edge214 ]
   %.not.i = icmp eq ptr %87, %86
-  br i1 %.not.i, label %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge222, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge219, %91
   %.01225.i = phi i1 [ %.214.i, %91 ], [ false, %._crit_edge219 ]
@@ -3600,7 +3600,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit96:   ; preds = %77, %81
   %.217.i = select i1 %93, i1 true, i1 %.01524.i
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.020.023.i, i64 160
   %.not29.i = icmp eq ptr %94, %86
-  br i1 %.not29.i, label %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit, label %.lr.ph.i
+  br i1 %.not29.i, label %.lr.ph221, label %.lr.ph.i
 
 95:                                               ; preds = %.lr.ph218, %106
   %.sroa.0188.0216 = phi ptr [ %74, %.lr.ph218 ], [ %107, %106 ]
@@ -3804,16 +3804,10 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i.i: ; preds = %166, %_ZNSt12__shar
   %168 = load ptr, ptr %167, align 8, !tbaa !29
   %169 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %170 = icmp eq ptr %168, %169
-  br i1 %170, label %_ZNSt4pairIN6open3d4core6TensorESt6vectorIS2_SaIS2_EEED2Ev.exit, label %171
+  br i1 %170, label %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit, label %171
 
 171:                                              ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i.i
   call void @free(ptr noundef %168) #30
-  br label %_ZNSt4pairIN6open3d4core6TensorESt6vectorIS2_SaIS2_EEED2Ev.exit
-
-_ZNSt4pairIN6open3d4core6TensorESt6vectorIS2_SaIS2_EEED2Ev.exit: ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i.i, %171
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %15) #30
-  %.pre266 = load ptr, ptr %26, align 8, !tbaa !36
-  %.pre267 = load ptr, ptr %25, align 8, !tbaa !12
   br label %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit
 
 172:                                              ; preds = %108
@@ -3832,13 +3826,15 @@ _ZNSt4pairIN6open3d4core6TensorESt6vectorIS2_SaIS2_EEED2Ev.exit: ; preds = %_ZN6
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %15) #30
   br label %622
 
-_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit: ; preds = %91, %._crit_edge219, %_ZNSt4pairIN6open3d4core6TensorESt6vectorIS2_SaIS2_EEED2Ev.exit
-  %177 = phi ptr [ %87, %._crit_edge219 ], [ %.pre267, %_ZNSt4pairIN6open3d4core6TensorESt6vectorIS2_SaIS2_EEED2Ev.exit ], [ %87, %91 ]
-  %178 = phi ptr [ %86, %._crit_edge219 ], [ %.pre266, %_ZNSt4pairIN6open3d4core6TensorESt6vectorIS2_SaIS2_EEED2Ev.exit ], [ %86, %91 ]
-  %.not251 = icmp eq ptr %178, %177
-  br i1 %.not251, label %._crit_edge222, label %.lr.ph221
+_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit: ; preds = %171, %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %15) #30
+  %.pre266 = load ptr, ptr %26, align 8, !tbaa !36
+  %.pre267 = load ptr, ptr %25, align 8, !tbaa !12
+  %177 = icmp eq ptr %.pre266, %.pre267
+  br i1 %177, label %._crit_edge222, label %.lr.ph221
 
-.lr.ph221:                                        ; preds = %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit
+.lr.ph221:                                        ; preds = %91, %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit
+  %178 = phi ptr [ %.pre267, %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit ], [ %87, %91 ]
   %179 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %180 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %181 = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -3847,7 +3843,7 @@ _ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorIN
   br label %184
 
 184:                                              ; preds = %.lr.ph221, %244
-  %185 = phi ptr [ %177, %.lr.ph221 ], [ %247, %244 ]
+  %185 = phi ptr [ %178, %.lr.ph221 ], [ %247, %244 ]
   %.048220 = phi i64 [ 0, %.lr.ph221 ], [ %245, %244 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #30
   %186 = getelementptr inbounds nuw %"class.open3d::core::Tensor", ptr %185, i64 %.048220
@@ -4009,7 +4005,7 @@ _ZN6open3d4core6TensorD2Ev.exit:                  ; preds = %_ZN6open3d4core11Sm
   %252 = icmp ult i64 %245, %251
   br i1 %252, label %184, label %._crit_edge222, !llvm.loop !66
 
-._crit_edge222:                                   ; preds = %244, %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit
+._crit_edge222:                                   ; preds = %244, %._crit_edge219, %_ZN6open3d4core25AdvancedIndexPreprocessor22IsIndexSplittedBySliceERKSt6vectorINS0_6TensorESaIS3_EE.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20) #30
   %253 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %253, ptr %20, align 8, !tbaa !29
@@ -4160,13 +4156,13 @@ _ZNSt4pairISt6vectorIN6open3d4core6TensorESaIS3_EENS2_10SizeVectorEED2Ev.exit: ;
   %314 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i.i = load i64, ptr %314, align 8, !tbaa !14
   %315 = icmp eq i64 %.val.i.i.i.i.i.i, 0
-  br i1 %315, label %.loopexit205.loopexit.split.loop.exit273, label %316
+  br i1 %315, label %.loopexit205.loopexit.split.loop.exit276, label %316
 
 316:                                              ; preds = %313
   %317 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load i64, ptr %317, align 8, !tbaa !14
   %318 = icmp eq i64 %.val30.i.i.i.i.i.i, 0
-  br i1 %318, label %.loopexit205.loopexit.split.loop.exit271, label %319
+  br i1 %318, label %.loopexit205.loopexit.split.loop.exit274, label %319
 
 319:                                              ; preds = %316
   %320 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
@@ -4401,16 +4397,16 @@ _ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit132: ; preds = %
   %430 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %.loopexit205
 
-.loopexit205.loopexit.split.loop.exit271:         ; preds = %316
+.loopexit205.loopexit.split.loop.exit274:         ; preds = %316
   %431 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   br label %.loopexit205
 
-.loopexit205.loopexit.split.loop.exit273:         ; preds = %313
+.loopexit205.loopexit.split.loop.exit276:         ; preds = %313
   %432 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 8
   br label %.loopexit205
 
-.loopexit205:                                     ; preds = %.lr.ph.i.i.i.i.i.i119, %.loopexit205.loopexit.split.loop.exit, %.loopexit205.loopexit.split.loop.exit271, %.loopexit205.loopexit.split.loop.exit273, %335, %331, %327
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %327 ], [ %.1.i.i.i.i.i.i, %331 ], [ %.2.i.i.i.i.i.i, %335 ], [ %430, %.loopexit205.loopexit.split.loop.exit ], [ %431, %.loopexit205.loopexit.split.loop.exit271 ], [ %432, %.loopexit205.loopexit.split.loop.exit273 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i119 ]
+.loopexit205:                                     ; preds = %.lr.ph.i.i.i.i.i.i119, %.loopexit205.loopexit.split.loop.exit, %.loopexit205.loopexit.split.loop.exit274, %.loopexit205.loopexit.split.loop.exit276, %335, %331, %327
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %327 ], [ %.1.i.i.i.i.i.i, %331 ], [ %.2.i.i.i.i.i.i, %335 ], [ %430, %.loopexit205.loopexit.split.loop.exit ], [ %431, %.loopexit205.loopexit.split.loop.exit274 ], [ %432, %.loopexit205.loopexit.split.loop.exit276 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i119 ]
   %.not203 = icmp eq ptr %309, %.028.i.i.i.i.i.i
   br i1 %.not203, label %.thread, label %433
 
@@ -4440,13 +4436,13 @@ _ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit132: ; preds = %
   %440 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i139, i64 8
   %.val.i.i.i.i.i.i141 = load i64, ptr %440, align 8, !tbaa !14
   %441 = icmp eq i64 %.val.i.i.i.i.i.i141, 0
-  br i1 %441, label %.loopexit.loopexit.split.loop.exit281, label %442
+  br i1 %441, label %.loopexit.loopexit.split.loop.exit284, label %442
 
 442:                                              ; preds = %439
   %443 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i139, i64 16
   %.val30.i.i.i.i.i.i142 = load i64, ptr %443, align 8, !tbaa !14
   %444 = icmp eq i64 %.val30.i.i.i.i.i.i142, 0
-  br i1 %444, label %.loopexit.loopexit.split.loop.exit279, label %445
+  br i1 %444, label %.loopexit.loopexit.split.loop.exit282, label %445
 
 445:                                              ; preds = %442
   %446 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i139, i64 24
@@ -4506,16 +4502,16 @@ _ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit132: ; preds = %
   %463 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i139, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit279:            ; preds = %442
+.loopexit.loopexit.split.loop.exit282:            ; preds = %442
   %464 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i139, i64 16
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit281:            ; preds = %439
+.loopexit.loopexit.split.loop.exit284:            ; preds = %439
   %465 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i139, i64 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i137, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit279, %.loopexit.loopexit.split.loop.exit281, %461, %457, %453
-  %.028.i.i.i.i.i.i148 = phi ptr [ %.029.lcssa.i.i.i.i.i.i147, %453 ], [ %.1.i.i.i.i.i.i151, %457 ], [ %.2.i.i.i.i.i.i149, %461 ], [ %463, %.loopexit.loopexit.split.loop.exit ], [ %464, %.loopexit.loopexit.split.loop.exit279 ], [ %465, %.loopexit.loopexit.split.loop.exit281 ], [ %.02943.i.i.i.i.i.i139, %.lr.ph.i.i.i.i.i.i137 ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i137, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit282, %.loopexit.loopexit.split.loop.exit284, %461, %457, %453
+  %.028.i.i.i.i.i.i148 = phi ptr [ %.029.lcssa.i.i.i.i.i.i147, %453 ], [ %.1.i.i.i.i.i.i151, %457 ], [ %.2.i.i.i.i.i.i149, %461 ], [ %463, %.loopexit.loopexit.split.loop.exit ], [ %464, %.loopexit.loopexit.split.loop.exit282 ], [ %465, %.loopexit.loopexit.split.loop.exit284 ], [ %.02943.i.i.i.i.i.i139, %.lr.ph.i.i.i.i.i.i137 ]
   %.not204 = icmp eq ptr %435, %.028.i.i.i.i.i.i148
   br i1 %.not204, label %.thread199, label %.thread
 

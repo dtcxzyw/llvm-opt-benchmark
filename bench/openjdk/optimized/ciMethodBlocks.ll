@@ -354,6 +354,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %12, %19
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %27, ptr %28, align 8
+  %.not100 = icmp eq i32 %22, 0
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
@@ -363,8 +364,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %12, %19
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %20, ptr %35, align 8
-  %.not.i84.not = icmp eq i32 %22, 0
-  br i1 %.not.i84.not, label %_ZN16ciBytecodeStream4nextEv.exit.thread, label %.lr.ph86
+  br i1 %.not100, label %_ZN16ciBytecodeStream4nextEv.exit.thread, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %_ZN16ciBytecodeStreamC2EP8ciMethod.exit
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 68

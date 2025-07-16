@@ -364,19 +364,19 @@ _ZN4base19PersistentSampleMap10GetRecordsEv.exit: ; preds = %3, %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.outer
 
-.outer:                                           ; preds = %37, %_ZN4base19PersistentSampleMap10GetRecordsEv.exit
-  %.014.ph = phi ptr [ %spec.select, %37 ], [ null, %_ZN4base19PersistentSampleMap10GetRecordsEv.exit ]
+.outer:                                           ; preds = %36, %_ZN4base19PersistentSampleMap10GetRecordsEv.exit
+  %.014.ph = phi ptr [ %spec.select, %36 ], [ null, %_ZN4base19PersistentSampleMap10GetRecordsEv.exit ]
   %17 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
   %.not31 = icmp eq i32 %17, 0
   br i1 %.not31, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.outer, %39
-  %18 = phi i32 [ %40, %39 ], [ %17, %.outer ]
+.lr.ph:                                           ; preds = %.outer, %38
+  %18 = phi i32 [ %39, %38 ], [ %17, %.outer ]
   %.val = load ptr, ptr %13, align 8, !tbaa !42
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !49
   %19 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %.val.val, i32 noundef range(i32 1, 0) %18, i32 noundef -1880709472, i32 noundef 16)
   %.not17 = icmp eq ptr %19, null
-  br i1 %.not17, label %39, label %20, !llvm.loop !62
+  br i1 %.not17, label %38, label %20, !llvm.loop !62
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -408,34 +408,34 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_bo
 _ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %30 = load i32, ptr %29, align 4, !tbaa !32
-  %31 = icmp slt i32 %23, %30
-  br i1 %31, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread, label %34
+  %.not26 = icmp slt i32 %23, %30
+  br i1 %.not26, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread, label %33
 
 _ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread: ; preds = %20, %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit
-  %32 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(4) %21)
-  store ptr %32, ptr %33, align 8, !tbaa !39
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(4) %21)
+  store ptr %31, ptr %32, align 8, !tbaa !39
   %.pre = load i32, ptr %21, align 8, !tbaa !64
-  br label %34
+  br label %33
 
-34:                                               ; preds = %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread
-  %35 = phi i32 [ %23, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit ], [ %.pre, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread ]
-  %36 = icmp eq i32 %35, %1
-  br i1 %36, label %37, label %39
+33:                                               ; preds = %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread
+  %34 = phi i32 [ %23, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit ], [ %.pre, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread ]
+  %35 = icmp eq i32 %34, %1
+  br i1 %35, label %36, label %38
 
-37:                                               ; preds = %34
+36:                                               ; preds = %33
   %.not18 = icmp eq ptr %.014.ph, null
-  %38 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %spec.select = select i1 %.not18, ptr %38, ptr %.014.ph
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %spec.select = select i1 %.not18, ptr %37, ptr %.014.ph
   br i1 %2, label %.outer, label %.loopexit
 
-39:                                               ; preds = %34, %.lr.ph
-  %40 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
-  %.not = icmp eq i32 %40, 0
+38:                                               ; preds = %33, %.lr.ph
+  %39 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
+  %.not = icmp eq i32 %39, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %37, %.outer, %39
-  %.1 = phi ptr [ %.014.ph, %39 ], [ %spec.select, %37 ], [ %.014.ph, %.outer ]
+.loopexit:                                        ; preds = %36, %.outer, %38
+  %.1 = phi ptr [ %.014.ph, %38 ], [ %spec.select, %36 ], [ %.014.ph, %.outer ]
   ret ptr %.1
 }
 

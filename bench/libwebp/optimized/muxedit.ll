@@ -453,7 +453,7 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8, !tbaa !21
   %.not51 = icmp eq ptr %20, null
-  br i1 %.not51, label %26, label %21
+  br i1 %.not51, label %27, label %21
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %20, align 8, !tbaa !35
@@ -464,81 +464,81 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %24 = load i32, ptr %22, align 8, !tbaa !17
   %25 = tail call i32 @ChunkGetIdFromTag(i32 noundef %24) #7
   %.pre = load i32, ptr %10, align 4, !tbaa !31
-  %.not53 = icmp eq i32 %25, %.pre
-  br i1 %.not53, label %26, label %.thread76
+  %26 = icmp eq i32 %25, %.pre
+  br i1 %26, label %27, label %.thread76
 
-26:                                               ; preds = %23, %19
+27:                                               ; preds = %23, %19
   call void @MuxImageInit(ptr noundef nonnull %4) #7
-  %27 = call fastcc i32 @SetAlphaAndImageChunks(ptr noundef %1, i32 noundef %2, ptr noundef %4)
-  %.not54 = icmp eq i32 %27, 1
-  br i1 %.not54, label %28, label %56
+  %28 = call fastcc i32 @SetAlphaAndImageChunks(ptr noundef %1, i32 noundef %2, ptr noundef %4)
+  %.not54 = icmp eq i32 %28, 1
+  br i1 %.not54, label %29, label %57
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 36), align 4, !tbaa !29
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 36), align 4, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !36
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !39
-  %32 = and i32 %31, -2
-  store i32 %32, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %34 = load i32, ptr %33, align 4, !tbaa !40
-  %35 = and i32 %34, -2
-  store i32 %35, ptr %33, align 4, !tbaa !40
-  %36 = icmp sgt i32 %31, -1
-  %37 = icmp slt i32 %32, 16777216
-  %or.cond4.not72 = and i1 %36, %37
-  %38 = icmp sgt i32 %34, -1
-  %39 = icmp slt i32 %35, 16777216
-  %.not75 = and i1 %38, %39
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %32 = load i32, ptr %31, align 8, !tbaa !39
+  %33 = and i32 %32, -2
+  store i32 %33, ptr %31, align 8, !tbaa !39
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %35 = load i32, ptr %34, align 4, !tbaa !40
+  %36 = and i32 %35, -2
+  store i32 %36, ptr %34, align 4, !tbaa !40
+  %37 = icmp sgt i32 %32, -1
+  %38 = icmp slt i32 %33, 16777216
+  %or.cond4.not72 = and i1 %37, %38
+  %39 = icmp sgt i32 %35, -1
+  %40 = icmp slt i32 %36, 16777216
+  %.not75 = and i1 %39, %40
   %or.cond10.not69 = select i1 %or.cond4.not72, i1 %.not75, i1 false
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp ult i32 %41, 16777216
-  %or.cond16.not67 = select i1 %or.cond10.not69, i1 %42, i1 false
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %44 = load i32, ptr %43, align 8
-  %.not55 = icmp ult i32 %44, 2
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp ult i32 %42, 16777216
+  %or.cond16.not67 = select i1 %or.cond10.not69, i1 %43, i1 false
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %45 = load i32, ptr %44, align 8
+  %.not55 = icmp ult i32 %45, 2
   %or.cond60 = select i1 %or.cond16.not67, i1 %.not55, i1 false
-  br i1 %or.cond60, label %45, label %.thread
+  br i1 %or.cond60, label %46, label %.thread
 
-45:                                               ; preds = %28
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %47 = load i32, ptr %46, align 8, !tbaa !41
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %49 = load i32, ptr %48, align 4, !tbaa !42
-  %50 = call fastcc i32 @CreateFrameData(i32 noundef %47, i32 noundef %49, ptr noundef %6, ptr noundef %5)
-  %.not56 = icmp eq i32 %50, 1
-  br i1 %.not56, label %51, label %.thread
+46:                                               ; preds = %29
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %48 = load i32, ptr %47, align 8, !tbaa !41
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %50 = load i32, ptr %49, align 4, !tbaa !42
+  %51 = call fastcc i32 @CreateFrameData(i32 noundef %48, i32 noundef %50, ptr noundef %6, ptr noundef %5)
+  %.not56 = icmp eq i32 %51, 1
+  br i1 %.not56, label %52, label %.thread
 
-51:                                               ; preds = %45
-  %52 = call fastcc i32 @AddDataToChunkList(ptr noundef %5, i32 noundef 1, i32 noundef %29, ptr noundef %4)
-  %53 = load ptr, ptr %5, align 8, !tbaa !10
-  call void @WebPFree(ptr noundef %53) #7
-  %.not57 = icmp eq i32 %52, 1
-  br i1 %.not57, label %54, label %.thread
+52:                                               ; preds = %46
+  %53 = call fastcc i32 @AddDataToChunkList(ptr noundef %5, i32 noundef 1, i32 noundef %30, ptr noundef %4)
+  %54 = load ptr, ptr %5, align 8, !tbaa !10
+  call void @WebPFree(ptr noundef %54) #7
+  %.not57 = icmp eq i32 %53, 1
+  br i1 %.not57, label %55, label %.thread
 
-.thread:                                          ; preds = %28, %45, %51
-  %.140.ph = phi i32 [ %52, %51 ], [ %50, %45 ], [ -1, %28 ]
+.thread:                                          ; preds = %29, %46, %52
+  %.140.ph = phi i32 [ %53, %52 ], [ %51, %46 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  br label %56
+  br label %57
 
-54:                                               ; preds = %51
+55:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  %55 = call i32 @MuxImagePush(ptr noundef nonnull %4, ptr noundef nonnull %0) #7
-  %.not58 = icmp eq i32 %55, 1
-  br i1 %.not58, label %.thread76, label %56
+  %56 = call i32 @MuxImagePush(ptr noundef nonnull %4, ptr noundef nonnull %0) #7
+  %.not58 = icmp eq i32 %56, 1
+  br i1 %.not58, label %.thread76, label %57
 
-56:                                               ; preds = %.thread, %54, %26
-  %.039 = phi i32 [ %27, %26 ], [ %55, %54 ], [ %.140.ph, %.thread ]
-  %57 = call ptr @MuxImageRelease(ptr noundef nonnull %4) #7
+57:                                               ; preds = %.thread, %55, %27
+  %.039 = phi i32 [ %28, %27 ], [ %56, %55 ], [ %.140.ph, %.thread ]
+  %58 = call ptr @MuxImageRelease(ptr noundef nonnull %4) #7
   br label %.thread76
 
-.thread76:                                        ; preds = %21, %54, %12, %15, %9, %3, %23, %56
-  %.0 = phi i32 [ %.039, %56 ], [ -1, %23 ], [ -1, %3 ], [ -1, %9 ], [ -1, %15 ], [ -1, %12 ], [ 1, %54 ], [ -1, %21 ]
+.thread76:                                        ; preds = %21, %55, %12, %15, %9, %3, %23, %57
+  %.0 = phi i32 [ %.039, %57 ], [ -1, %23 ], [ -1, %3 ], [ -1, %9 ], [ -1, %15 ], [ -1, %12 ], [ 1, %55 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
   ret i32 %.0
 }

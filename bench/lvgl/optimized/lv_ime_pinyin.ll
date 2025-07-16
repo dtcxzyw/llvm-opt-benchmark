@@ -1930,42 +1930,37 @@ define internal fastcc void @pinyin_input_proc(ptr noundef %0) unnamed_addr #0 {
   br i1 %24, label %pinyin_search_matching.exit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.split.us.i
+  %26 = trunc i64 %.fr52.i to i8
   %wide.trip.count = and i64 %.fr52.i, 255
   br label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %35, %.preheader.us.preheader.i
-  %.02943.us.i = phi ptr [ %36, %35 ], [ %16, %.preheader.us.preheader.i ]
-  %26 = load ptr, ptr %.02943.us.i, align 8, !tbaa !29
-  %27 = load i8, ptr %26, align 1, !tbaa !8
-  %.not33.us48.i = icmp eq i8 %25, %27
-  br i1 %.not33.us48.i, label %.lr.ph.i, label %._crit_edge.us.i
+.preheader.us.i:                                  ; preds = %._crit_edge.us.thread.i, %.preheader.us.preheader.i
+  %.02943.us.i = phi ptr [ %36, %._crit_edge.us.thread.i ], [ %16, %.preheader.us.preheader.i ]
+  %27 = load ptr, ptr %.02943.us.i, align 8, !tbaa !29
+  %28 = load i8, ptr %27, align 1, !tbaa !8
+  %.not33.us48.i = icmp eq i8 %25, %28
+  br i1 %.not33.us48.i, label %.lr.ph.i, label %._crit_edge.us.thread.i
 
-.lr.ph.i:                                         ; preds = %.preheader.us.i, %28
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 1, %.preheader.us.i ]
+.lr.ph.i:                                         ; preds = %.preheader.us.i, %29
+  %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 1, %.preheader.us.i ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit.i, label %28, !llvm.loop !47
+  br i1 %exitcond.not, label %pinyin_search_matching.exit, label %29, !llvm.loop !47
 
-28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %30 = load i8, ptr %29, align 1, !tbaa !8
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
-  %32 = load i8, ptr %31, align 1, !tbaa !8
-  %.not33.us.i = icmp eq i8 %30, %32
+29:                                               ; preds = %.lr.ph.i
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %31 = load i8, ptr %30, align 1, !tbaa !8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
+  %33 = load i8, ptr %32, align 1, !tbaa !8
+  %.not33.us.i = icmp eq i8 %31, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not33.us.i, label %.lr.ph.i, label %._crit_edge.us.loopexit.i, !llvm.loop !47
+  br i1 %.not33.us.i, label %.lr.ph.i, label %._crit_edge.us.i, !llvm.loop !47
 
-._crit_edge.us.loopexit.i:                        ; preds = %28, %.lr.ph.i
-  %.lcssa.in = phi i64 [ %indvars.iv, %28 ], [ %.fr52.i, %.lr.ph.i ]
-  %.lcssa = trunc i64 %.lcssa.in to i32
-  %33 = and i32 %.lcssa, 255
-  br label %._crit_edge.us.i
+._crit_edge.us.i:                                 ; preds = %29
+  %34 = trunc nuw i64 %indvars.iv to i8
+  %35 = icmp eq i8 %34, %26
+  br i1 %35, label %pinyin_search_matching.exit, label %._crit_edge.us.thread.i
 
-._crit_edge.us.i:                                 ; preds = %._crit_edge.us.loopexit.i, %.preheader.us.i
-  %.lcssa34.us.i = phi i32 [ 0, %.preheader.us.i ], [ %33, %._crit_edge.us.loopexit.i ]
-  %34 = icmp eq i32 %23, %.lcssa34.us.i
-  br i1 %34, label %pinyin_search_matching.exit, label %35
-
-35:                                               ; preds = %._crit_edge.us.i
+._crit_edge.us.thread.i:                          ; preds = %._crit_edge.us.i, %.preheader.us.i
   %36 = getelementptr inbounds nuw i8, ptr %.02943.us.i, i64 16
   %.0..0..0..0..0..0..us.i = load volatile i8, ptr %2, align 1, !tbaa !8
   %37 = add i8 %.0..0..0..0..0..0..us.i, -1
@@ -1973,14 +1968,14 @@ define internal fastcc void @pinyin_input_proc(ptr noundef %0) unnamed_addr #0 {
   %.not.us.i = icmp eq i8 %.0..0..0..0..0..0..us.i, 0
   br i1 %.not.us.i, label %pinyin_search_matching.exit.thread, label %.preheader.us.i, !llvm.loop !48
 
-pinyin_search_matching.exit.thread:               ; preds = %35, %1, %1, %1, %1, %1, %6
+pinyin_search_matching.exit.thread:               ; preds = %._crit_edge.us.thread.i, %1, %1, %1, %1, %1, %6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %38, align 8, !tbaa !41
   br label %67
 
-pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %.preheader.lr.ph.split.us.i
-  %.us-phi.i = phi ptr [ %16, %.preheader.lr.ph.i ], [ %16, %.preheader.lr.ph.split.us.i ], [ %.02943.us.i, %._crit_edge.us.i ]
+pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %.lr.ph.i, %.preheader.lr.ph.i, %.preheader.lr.ph.split.us.i
+  %.us-phi.i = phi ptr [ %16, %.preheader.lr.ph.i ], [ %16, %.preheader.lr.ph.split.us.i ], [ %.02943.us.i, %.lr.ph.i ], [ %.02943.us.i, %._crit_edge.us.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !26
   %41 = tail call i64 @lv_strlen(ptr noundef %40) #6
@@ -2127,42 +2122,37 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   br i1 %37, label %.loopexit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.split.us.i
+  %39 = trunc i64 %.fr47.i to i8
   %wide.trip.count = and i64 %.fr47.i, 255
   br label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %48, %.preheader.us.preheader.i
-  %.02438.us.i = phi ptr [ %49, %48 ], [ %30, %.preheader.us.preheader.i ]
-  %39 = load ptr, ptr %.02438.us.i, align 8, !tbaa !29
-  %40 = load i8, ptr %39, align 1, !tbaa !8
-  %.not29.us43.i = icmp eq i8 %38, %40
-  br i1 %.not29.us43.i, label %.lr.ph.i, label %._crit_edge.us.i
+.preheader.us.i:                                  ; preds = %._crit_edge.us.thread.i, %.preheader.us.preheader.i
+  %.02438.us.i = phi ptr [ %49, %._crit_edge.us.thread.i ], [ %30, %.preheader.us.preheader.i ]
+  %40 = load ptr, ptr %.02438.us.i, align 8, !tbaa !29
+  %41 = load i8, ptr %40, align 1, !tbaa !8
+  %.not29.us43.i = icmp eq i8 %38, %41
+  br i1 %.not29.us43.i, label %.lr.ph.i, label %._crit_edge.us.thread.i
 
-.lr.ph.i:                                         ; preds = %.preheader.us.i, %41
-  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 1, %.preheader.us.i ]
+.lr.ph.i:                                         ; preds = %.preheader.us.i, %42
+  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 1, %.preheader.us.i ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit.i, label %41, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !52
 
-41:                                               ; preds = %.lr.ph.i
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %43 = load i8, ptr %42, align 1, !tbaa !8
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv
-  %45 = load i8, ptr %44, align 1, !tbaa !8
-  %.not29.us.i = icmp eq i8 %43, %45
+42:                                               ; preds = %.lr.ph.i
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %44 = load i8, ptr %43, align 1, !tbaa !8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv
+  %46 = load i8, ptr %45, align 1, !tbaa !8
+  %.not29.us.i = icmp eq i8 %44, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not29.us.i, label %.lr.ph.i, label %._crit_edge.us.loopexit.i, !llvm.loop !52
+  br i1 %.not29.us.i, label %.lr.ph.i, label %._crit_edge.us.i, !llvm.loop !52
 
-._crit_edge.us.loopexit.i:                        ; preds = %41, %.lr.ph.i
-  %.lcssa.in = phi i64 [ %indvars.iv, %41 ], [ %.fr47.i, %.lr.ph.i ]
-  %.lcssa = trunc i64 %.lcssa.in to i32
-  %46 = and i32 %.lcssa, 255
-  br label %._crit_edge.us.i
+._crit_edge.us.i:                                 ; preds = %42
+  %47 = trunc nuw i64 %indvars.iv to i8
+  %48 = icmp eq i8 %47, %39
+  br i1 %48, label %.loopexit, label %._crit_edge.us.thread.i
 
-._crit_edge.us.i:                                 ; preds = %._crit_edge.us.loopexit.i, %.preheader.us.i
-  %.lcssa30.us.i = phi i32 [ 0, %.preheader.us.i ], [ %46, %._crit_edge.us.loopexit.i ]
-  %47 = icmp eq i32 %36, %.lcssa30.us.i
-  br i1 %47, label %.loopexit, label %48
-
-48:                                               ; preds = %._crit_edge.us.i
+._crit_edge.us.thread.i:                          ; preds = %._crit_edge.us.i, %.preheader.us.i
   %49 = getelementptr inbounds nuw i8, ptr %.02438.us.i, i64 16
   %.0..0..0..0..0..0..us.i = load volatile i8, ptr %3, align 1, !tbaa !8
   %50 = add i8 %.0..0..0..0..0..0..us.i, -1
@@ -2170,11 +2160,11 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   %.not.us.i = icmp eq i8 %.0..0..0..0..0..0..us.i, 0
   br i1 %.not.us.i, label %pinyin_k9_is_valid_py.exit, label %.preheader.us.i, !llvm.loop !53
 
-pinyin_k9_is_valid_py.exit:                       ; preds = %48, %20, %20, %20, %20, %22
+pinyin_k9_is_valid_py.exit:                       ; preds = %._crit_edge.us.thread.i, %20, %20, %20, %20, %22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %82
 
-.loopexit:                                        ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %.preheader.lr.ph.split.us.i
+.loopexit:                                        ; preds = %._crit_edge.us.i, %.lr.ph.i, %.preheader.lr.ph.i, %.preheader.lr.ph.split.us.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %51 = zext i16 %.0444 to i32
   %.not52 = icmp ugt i32 %12, %51

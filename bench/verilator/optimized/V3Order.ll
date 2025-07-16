@@ -2077,49 +2077,49 @@ define linkonce_odr dso_local void @_ZN7V3Sched12LogicByScope13deleteActivesEv(p
   %.not1415 = icmp eq ptr %2, %4
   br i1 %.not1415, label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE5clearEv.exit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %19
+._crit_edge:                                      ; preds = %20
   %.pre = load ptr, ptr %0, align 8, !tbaa !131
   %.pre18 = load ptr, ptr %3, align 8, !tbaa !133
-  %.not.i.i = icmp eq ptr %.pre18, %.pre
-  br i1 %.not.i.i, label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE5clearEv.exit, label %5
+  %5 = icmp eq ptr %.pre18, %.pre
+  br i1 %5, label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE5clearEv.exit, label %6
 
-5:                                                ; preds = %._crit_edge
+6:                                                ; preds = %._crit_edge
   store ptr %.pre, ptr %3, align 8, !tbaa !133
   br label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE5clearEv.exit
 
-_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE5clearEv.exit: ; preds = %1, %._crit_edge, %5
+_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE5clearEv.exit: ; preds = %1, %._crit_edge, %6
   ret void
 
-.lr.ph:                                           ; preds = %1, %19
-  %.sroa.011.016 = phi ptr [ %20, %19 ], [ %2, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !134
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !87
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %14, label %10, !prof !137
+.lr.ph:                                           ; preds = %1, %20
+  %.sroa.011.016 = phi ptr [ %21, %20 ], [ %2, %1 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !134
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %10 = load ptr, ptr %9, align 8, !tbaa !87
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %15, label %11, !prof !137
 
-10:                                               ; preds = %.lr.ph
-  %11 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.13, i32 noundef 61)
-  %12 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.14)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(112) %13) #17
+11:                                               ; preds = %.lr.ph
+  %12 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.13, i32 noundef 61)
+  %13 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.14)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(112) %14) #17
   unreachable
 
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !138
-  %.not9 = icmp eq ptr %16, null
-  br i1 %.not9, label %19, label %17
+15:                                               ; preds = %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !138
+  %.not9 = icmp eq ptr %17, null
+  br i1 %.not9, label %20, label %18
 
-17:                                               ; preds = %14
-  %18 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(192) %7, ptr noundef null)
-  br label %19
+18:                                               ; preds = %15
+  %19 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(192) %8, ptr noundef null)
+  br label %20
 
-19:                                               ; preds = %17, %14
-  tail call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %7)
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 16
-  %.not14 = icmp eq ptr %20, %4
+20:                                               ; preds = %18, %15
+  tail call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %8)
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 16
+  %.not14 = icmp eq ptr %21, %4
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 }
 

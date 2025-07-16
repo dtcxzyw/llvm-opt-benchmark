@@ -3379,8 +3379,8 @@ _ZN4llvh6detail12DenseSetImplIPN6hermes8VariableENS_8DenseMapIS4_NS0_13DenseSetE
 
 _ZN12_GLOBAL__N_19unionSetsERN4llvh8DenseSetIPN6hermes8VariableENS0_12DenseMapInfoIS4_EEEES8_.exit.i: ; preds = %_ZN4llvh6detail12DenseSetImplIPN6hermes8VariableENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E8IteratorppEv.exit.i.i.i
   %.pre.i.i = load i32, ptr %NumEntries.i.i.i.i.i249.i, align 8
-  %cmp.i256.not.i = icmp eq i32 %171, %.pre.i.i
-  br i1 %cmp.i256.not.i, label %for.inc80.i, label %if.then75.i
+  %.not.i = icmp eq i32 %171, %.pre.i.i
+  br i1 %.not.i, label %for.inc80.i, label %if.then75.i
 
 if.then75.i:                                      ; preds = %_ZN12_GLOBAL__N_19unionSetsERN4llvh8DenseSetIPN6hermes8VariableENS0_12DenseMapInfoIS4_EEEES8_.exit.i
   %call.i260.i = call noundef ptr @_ZNK6hermes14TerminatorInst12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(132) %call.i165.i, i32 noundef %I64.sroa.3.01650.i) #12

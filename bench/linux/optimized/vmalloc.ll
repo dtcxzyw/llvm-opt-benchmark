@@ -3505,8 +3505,8 @@ define internal fastcc ptr @alloc_vmap_area(i64 noundef %0, i64 noundef %1, i64 
   %.be = phi ptr [ %88, %96 ], [ %61, %69 ], [ null, %.preheader ]
   br label %.loopexit, !llvm.loop !129
 
-.preheader:                                       ; preds = %96, %129
-  %99 = phi ptr [ %102, %129 ], [ %56, %96 ]
+.preheader:                                       ; preds = %96, %130
+  %99 = phi ptr [ %102, %130 ], [ %56, %96 ]
   %100 = load i64, ptr %99, align 8
   %101 = and i64 %100, -4
   %102 = inttoptr i64 %101 to ptr
@@ -3539,21 +3539,21 @@ define internal fastcc ptr @alloc_vmap_area(i64 noundef %0, i64 noundef %1, i64 
   %123 = getelementptr i8, ptr %121, i64 -16
   %124 = icmp eq ptr %123, null
   %125 = or i1 %122, %124
-  br i1 %125, label %129, label %126
+  br i1 %125, label %130, label %126
 
 126:                                              ; preds = %119
   %127 = getelementptr i8, ptr %121, i64 40
   %128 = load i64, ptr %127, align 8
-  br label %129
+  %129 = icmp ult i64 %128, %33
+  br label %130
 
-129:                                              ; preds = %126, %119
-  %130 = phi i64 [ %128, %126 ], [ 0, %119 ]
-  %131 = icmp ult i64 %130, %33
+130:                                              ; preds = %126, %119
+  %131 = phi i1 [ %129, %126 ], [ true, %119 ]
   %132 = icmp ugt i64 %53, %106
   %133 = or i1 %132, %131
   br i1 %133, label %.preheader, label %134, !llvm.loop !130
 
-134:                                              ; preds = %129
+134:                                              ; preds = %130
   %135 = add i64 %106, 1
   br label %51, !llvm.loop !129
 

@@ -5975,8 +5975,8 @@ define internal fastcc noundef zeroext i1 @_ZL11isInMIGCallRN5clang4ento14Checke
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.02566 = phi ptr [ %9, %.lr.ph ], [ %6, %1 ]
-  %7 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %.02566) #20
+  %.02563 = phi ptr [ %9, %.lr.ph ], [ %6, %1 ]
+  %7 = tail call noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48) %.02563) #20
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !180
   %.not = icmp eq ptr %9, null
@@ -6047,7 +6047,7 @@ define internal fastcc noundef zeroext i1 @_ZL11isInMIGCallRN5clang4ento14Checke
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
   %42 = and i32 %41, 256
   %.not.i35 = icmp eq i32 %42, 0
-  br i1 %.not.i35, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread, label %43
+  br i1 %.not.i35, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread48, label %43
 
 43:                                               ; preds = %.critedge
   %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %13) #20
@@ -6058,7 +6058,7 @@ define internal fastcc noundef zeroext i1 @_ZL11isInMIGCallRN5clang4ento14Checke
   %.idx.i.i = shl nuw nsw i64 %48, 3
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %47, 0
-  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread48, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %43, %54
   %.sroa.07.1.i.i.i.i = phi ptr [ %55, %54 ], [ %45, %43 ]
@@ -6071,17 +6071,17 @@ define internal fastcc noundef zeroext i1 @_ZL11isInMIGCallRN5clang4ento14Checke
 54:                                               ; preds = %.lr.ph.i.i.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %55, %49
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !385
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread48, label %.lr.ph.i.i.i.i.i, !llvm.loop !385
 
 _ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not60 = icmp eq ptr %.sroa.07.1.i.i.i.i, %49
-  br i1 %.not60, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread, label %.thread
+  %.not57 = icmp eq ptr %.sroa.07.1.i.i.i.i, %49
+  br i1 %.not57, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread48, label %.thread
 
 56:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #20
   br label %.thread
 
-_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread: ; preds = %54, %43, %.critedge, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit
+_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread48: ; preds = %54, %43, %.critedge, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit
   %57 = load i32, ptr %14, align 4
   %58 = and i32 %57, 127
   %59 = add nsw i32 %58, -37
@@ -6089,23 +6089,23 @@ _ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread: ; preds = %5
   %.not32 = or i1 %.not17.i, %60
   br i1 %.not32, label %.thread, label %61
 
-61:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread
+61:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread48
   %62 = call { ptr, ptr } @_ZNK5clang13CXXMethodDecl18overridden_methodsEv(ptr noundef nonnull align 8 dereferenceable(168) %13) #20
   %63 = extractvalue { ptr, ptr } %62, 0
   %64 = extractvalue { ptr, ptr } %62, 1
-  %.not3367 = icmp eq ptr %63, %64
-  br i1 %.not3367, label %.thread, label %.lr.ph70
+  %.not3364 = icmp eq ptr %63, %64
+  br i1 %.not3364, label %.thread, label %.lr.ph67
 
-.lr.ph70:                                         ; preds = %61, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread
-  %.02668 = phi ptr [ %82, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread ], [ %63, %61 ]
-  %65 = load ptr, ptr %.02668, align 8, !tbaa !386
+.lr.ph67:                                         ; preds = %61, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52
+  %.02665 = phi ptr [ %82, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52 ], [ %63, %61 ]
+  %65 = load ptr, ptr %.02665, align 8, !tbaa !386
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 28
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 256
   %.not.i36 = icmp eq i32 %68, 0
-  br i1 %.not.i36, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread, label %69
+  br i1 %.not.i36, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52, label %69
 
-69:                                               ; preds = %.lr.ph70
+69:                                               ; preds = %.lr.ph67
   %70 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %65) #20
   %71 = load ptr, ptr %70, align 8, !tbaa !381
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -6114,7 +6114,7 @@ _ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread: ; preds = %5
   %.idx.i.i37 = shl nuw nsw i64 %74, 3
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i37
   %.not.i.i38 = icmp eq i32 %73, 0
-  br i1 %.not.i.i38, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread, label %.lr.ph.i.i.i.i.i39
+  br i1 %.not.i.i38, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52, label %.lr.ph.i.i.i.i.i39
 
 .lr.ph.i.i.i.i.i39:                               ; preds = %69, %80
   %.sroa.07.1.i.i.i.i40 = phi ptr [ %81, %80 ], [ %71, %69 ]
@@ -6122,24 +6122,24 @@ _ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread: ; preds = %5
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %78 = load i16, ptr %77, align 8
   %79 = icmp eq i16 %78, 237
-  br i1 %79, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45, label %80
+  br i1 %79, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i.i.i39
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i40, i64 8
   %.not.i.i.i.i.i41 = icmp eq ptr %81, %75
-  br i1 %.not.i.i.i.i.i41, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread, label %.lr.ph.i.i.i.i.i39, !llvm.loop !385
+  br i1 %.not.i.i.i.i.i41, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52, label %.lr.ph.i.i.i.i.i39, !llvm.loop !385
 
-_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45: ; preds = %.lr.ph.i.i.i.i.i39
-  %.not62 = icmp eq ptr %.sroa.07.1.i.i.i.i40, %75
-  br i1 %.not62, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread, label %.thread
+_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44: ; preds = %.lr.ph.i.i.i.i.i39
+  %.not59 = icmp eq ptr %.sroa.07.1.i.i.i.i40, %75
+  br i1 %.not59, label %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52, label %.thread
 
-_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread: ; preds = %80, %69, %.lr.ph70, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45
-  %82 = getelementptr inbounds nuw i8, ptr %.02668, i64 8
+_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52: ; preds = %80, %69, %.lr.ph67, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44
+  %82 = getelementptr inbounds nuw i8, ptr %.02665, i64 8
   %.not33 = icmp eq ptr %82, %64
-  br i1 %.not33, label %.thread, label %.lr.ph70
+  br i1 %.not33, label %.thread, label %.lr.ph67
 
-.thread:                                          ; preds = %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread, %61, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit, %56
-  %.1 = phi i1 [ false, %56 ], [ true, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit ], [ false, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread ], [ false, %61 ], [ true, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45 ], [ false, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit45.thread ]
+.thread:                                          ; preds = %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52, %61, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread48, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit, %56
+  %.1 = phi i1 [ false, %56 ], [ true, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit ], [ false, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit.thread48 ], [ false, %61 ], [ true, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44 ], [ false, %_ZNK5clang4Decl7hasAttrINS_20MIGServerRoutineAttrEEEbv.exit44.thread52 ]
   ret i1 %.1
 }
 
@@ -6789,7 +6789,7 @@ _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getH
   %14 = phi i32 [ %13, %10 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit ]
   %15 = add nuw nsw i32 %14, 2
   %16 = icmp samesign ugt i32 %9, %15
-  br i1 %16, label %17, label %49
+  br i1 %16, label %17, label %47
 
 17:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit49
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6808,102 +6808,94 @@ _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getH
 _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit51: ; preds = %17, %22
   %26 = phi i32 [ %25, %22 ], [ 0, %17 ]
   %.not.i52 = icmp eq ptr %21, null
-  br i1 %.not.i52, label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53, label %27
+  br i1 %.not.i52, label %.critedge, label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53
 
-27:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit51
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %29 = load i32, ptr %28, align 8
-  %30 = and i32 %29, 268435455
-  br label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53
+_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit51
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %28 = load i32, ptr %27, align 8
+  %29 = and i32 %28, 268435455
+  %30 = icmp samesign ult i32 %26, %29
+  br i1 %30, label %35, label %.critedge
 
-_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit51, %27
-  %31 = phi i32 [ %30, %27 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit51 ]
-  %.not47 = icmp samesign ult i32 %26, %31
-  br i1 %.not47, label %37, label %32
+.critedge:                                        ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit51, %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53
+  %31 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %21, ptr noundef %2, ptr noundef %3)
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %33 = load ptr, ptr %32, align 8, !tbaa !416
+  %34 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %19, ptr noundef %33, ptr noundef %31)
+  br label %82
 
-32:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53
-  %33 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %21, ptr noundef %2, ptr noundef %3)
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !416
-  %36 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %19, ptr noundef %35, ptr noundef %33)
-  br label %86
+35:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !417
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !418
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %41 = load ptr, ptr %40, align 8, !tbaa !416
+  %42 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %19, ptr noundef %41, ptr noundef %37)
+  %43 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %39, ptr noundef %2, ptr noundef %3)
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %45 = load ptr, ptr %44, align 8, !tbaa !416
+  %46 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %42, ptr noundef %45, ptr noundef %43)
+  br label %82
 
-37:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit53
-  %38 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !417
-  %40 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !418
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !416
-  %44 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %19, ptr noundef %43, ptr noundef %39)
-  %45 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %41, ptr noundef %2, ptr noundef %3)
-  %46 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %47 = load ptr, ptr %46, align 8, !tbaa !416
-  %48 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %44, ptr noundef %47, ptr noundef %45)
-  br label %86
+47:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit49
+  %48 = add nuw nsw i32 %9, 2
+  %49 = icmp samesign ugt i32 %14, %48
+  br i1 %49, label %50, label %80
 
-49:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit49
-  %50 = add nuw nsw i32 %9, 2
-  %51 = icmp samesign ugt i32 %14, %50
-  br i1 %51, label %52, label %84
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !417
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !418
+  %.not.i54 = icmp eq ptr %54, null
+  br i1 %.not.i54, label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55, label %55
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !417
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !418
-  %.not.i54 = icmp eq ptr %56, null
-  br i1 %.not.i54, label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55, label %57
-
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %59 = load i32, ptr %58, align 8
-  %60 = and i32 %59, 268435455
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %57 = load i32, ptr %56, align 8
+  %58 = and i32 %57, 268435455
   br label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55
 
-_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55: ; preds = %52, %57
-  %61 = phi i32 [ %60, %57 ], [ 0, %52 ]
-  %.not.i56 = icmp eq ptr %54, null
-  br i1 %.not.i56, label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57, label %62
+_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55: ; preds = %50, %55
+  %59 = phi i32 [ %58, %55 ], [ 0, %50 ]
+  %.not.i56 = icmp eq ptr %52, null
+  br i1 %.not.i56, label %.critedge58, label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57
 
-62:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55
-  %63 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, 268435455
-  br label %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57
+_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %61 = load i32, ptr %60, align 8
+  %62 = and i32 %61, 268435455
+  %63 = icmp samesign ult i32 %59, %62
+  br i1 %63, label %68, label %.critedge58
 
-_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57: ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55, %62
-  %66 = phi i32 [ %65, %62 ], [ 0, %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55 ]
-  %.not = icmp samesign ult i32 %61, %66
-  br i1 %.not, label %72, label %67
+.critedge58:                                      ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit55, %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57
+  %64 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %52)
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %66 = load ptr, ptr %65, align 8, !tbaa !416
+  %67 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %64, ptr noundef %66, ptr noundef %54)
+  br label %82
 
-67:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57
-  %68 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %54)
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %70 = load ptr, ptr %69, align 8, !tbaa !416
-  %71 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %68, ptr noundef %70, ptr noundef %56)
-  br label %86
+68:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !417
+  %71 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !418
+  %73 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %70)
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %75 = load ptr, ptr %74, align 8, !tbaa !416
+  %76 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %72, ptr noundef %75, ptr noundef %54)
+  %77 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %78 = load ptr, ptr %77, align 8, !tbaa !416
+  %79 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %73, ptr noundef %78, ptr noundef %76)
+  br label %82
 
-72:                                               ; preds = %_ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE9getHeightEPNS_11ImutAVLTreeIS6_EE.exit57
-  %73 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !417
-  %75 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !418
-  %77 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %74)
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %79 = load ptr, ptr %78, align 8, !tbaa !416
-  %80 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %76, ptr noundef %79, ptr noundef %56)
-  %81 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %82 = load ptr, ptr %81, align 8, !tbaa !416
-  %83 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %77, ptr noundef %82, ptr noundef %80)
-  br label %86
+80:                                               ; preds = %47
+  %81 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %82
 
-84:                                               ; preds = %49
-  %85 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIPKN5clang11ParmVarDeclEEEE10createNodeEPNS_11ImutAVLTreeIS6_EES5_SA_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %86
-
-86:                                               ; preds = %67, %72, %32, %37, %84
-  %.1 = phi ptr [ %85, %84 ], [ %36, %32 ], [ %48, %37 ], [ %71, %67 ], [ %83, %72 ]
+82:                                               ; preds = %.critedge58, %68, %.critedge, %35, %80
+  %.1 = phi ptr [ %81, %80 ], [ %34, %.critedge ], [ %46, %35 ], [ %67, %.critedge58 ], [ %79, %68 ]
   ret ptr %.1
 }
 

@@ -83,12 +83,12 @@ define noundef range(i64 0, 2147483648) i64 @_ZN3gmx25numberOfExpectedDataItemsE
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %.1.val.i.i.i.i.i.i = load i32, ptr %7, align 4
   %8 = icmp slt i32 %.1.val.i.i.i.i.i.i, 0
-  %or.cond = select i1 %6, i1 true, i1 %8
+  %or.cond.i = select i1 %6, i1 true, i1 %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %.2.val.i.i.i.i.i.i = load i32, ptr %9, align 8
   %10 = icmp slt i32 %.2.val.i.i.i.i.i.i, 0
-  %or.cond22 = select i1 %or.cond, i1 true, i1 %10
-  br i1 %or.cond22, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %21
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %10
+  br i1 %or.cond, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %21
 
 _ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread: ; preds = %1
   %11 = tail call ptr @__cxa_allocate_exception(i64 24) #18
@@ -607,67 +607,67 @@ define noundef zeroext i1 @_ZN3gmx15mrcHeaderIsSaneERKNS_19MrcDensityMapHeaderE(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %.1.val.i.i.i.i.i.i = load i32, ptr %4, align 4
   %5 = icmp slt i32 %.1.val.i.i.i.i.i.i, 0
-  %or.cond = select i1 %3, i1 true, i1 %5
+  %or.cond.i = select i1 %3, i1 true, i1 %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %.2.val.i.i.i.i.i.i = load i32, ptr %6, align 8
   %7 = icmp slt i32 %.2.val.i.i.i.i.i.i, 0
-  %or.cond48 = select i1 %or.cond, i1 true, i1 %7
-  br i1 %or.cond48, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %8
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %7
+  br i1 %or.cond, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %.029.val32.i.i.i.i.i.i7 = load float, ptr %9, align 8, !tbaa !46
   %10 = fcmp olt float %.029.val32.i.i.i.i.i.i7, 0.000000e+00
-  %.ptr2.i = getelementptr inbounds nuw i8, ptr %0, i64 892
-  %.1.val.i.i.i.i.i.i8 = load float, ptr %.ptr2.i, align 4
-  %11 = fcmp olt float %.1.val.i.i.i.i.i.i8, 0.000000e+00
-  %or.cond.i = select i1 %10, i1 true, i1 %11
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %.2.val.i.i.i.i.i.i9 = load float, ptr %.ptr.i, align 8
-  %12 = fcmp olt float %.2.val.i.i.i.i.i.i9, 0.000000e+00
-  %or.cond4.i = select i1 %or.cond.i, i1 true, i1 %12
-  br i1 %or.cond4.i, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %13
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 892
+  %.1.val.i.i.i.i.i.i8 = load float, ptr %11, align 4
+  %12 = fcmp olt float %.1.val.i.i.i.i.i.i8, 0.000000e+00
+  %or.cond.i9 = select i1 %10, i1 true, i1 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %.2.val.i.i.i.i.i.i10 = load float, ptr %13, align 8
+  %14 = fcmp olt float %.2.val.i.i.i.i.i.i10, 0.000000e+00
+  %or.cond4.i = select i1 %or.cond.i9, i1 true, i1 %14
+  br i1 %or.cond4.i, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %15
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %.029.val32.i.i.i.i.i.i10 = load i32, ptr %14, align 8, !tbaa !4
-  %15 = icmp slt i32 %.029.val32.i.i.i.i.i.i10, 0
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  %.1.val.i.i.i.i.i.i11 = load i32, ptr %16, align 4
-  %17 = icmp slt i32 %.1.val.i.i.i.i.i.i11, 0
-  %or.cond37 = select i1 %15, i1 true, i1 %17
-  br i1 %or.cond37, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit15
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %.029.val32.i.i.i.i.i.i11 = load i32, ptr %16, align 8, !tbaa !4
+  %17 = icmp slt i32 %.029.val32.i.i.i.i.i.i11, 0
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  %.1.val.i.i.i.i.i.i12 = load i32, ptr %18, align 4
+  %19 = icmp slt i32 %.1.val.i.i.i.i.i.i12, 0
+  %or.cond.i13 = select i1 %17, i1 true, i1 %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %.2.val.i.i.i.i.i.i14 = load i32, ptr %20, align 8
+  %21 = icmp slt i32 %.2.val.i.i.i.i.i.i14, 0
+  %or.cond37 = select i1 %or.cond.i13, i1 true, i1 %21
+  br i1 %or.cond37, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %22
 
-_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit15: ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %.2.val.i.i.i.i.i.i12 = load i32, ptr %18, align 8, !tbaa !4
-  %19 = icmp slt i32 %.2.val.i.i.i.i.i.i12, 0
-  %20 = icmp samesign ugt i32 %.029.val32.i.i.i.i.i.i, 100000
-  %or.cond38 = select i1 %19, i1 true, i1 %20
-  %21 = icmp samesign ugt i32 %.1.val.i.i.i.i.i.i, 100000
-  %or.cond40 = select i1 %or.cond38, i1 true, i1 %21
-  br i1 %or.cond40, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %_ZN3gmx12_GLOBAL__N_118anyLargerThanValueISt5arrayIiLm3EEEEbRKT_NS4_10value_typeE.exit
+22:                                               ; preds = %15
+  %23 = icmp samesign ugt i32 %.029.val32.i.i.i.i.i.i, 100000
+  %24 = icmp samesign ugt i32 %.1.val.i.i.i.i.i.i, 100000
+  %or.cond.i18 = select i1 %23, i1 true, i1 %24
+  %25 = icmp samesign ugt i32 %.2.val.i.i.i.i.i.i, 100000
+  %or.cond39 = select i1 %or.cond.i18, i1 true, i1 %25
+  br i1 %or.cond39, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %26
 
-_ZN3gmx12_GLOBAL__N_118anyLargerThanValueISt5arrayIiLm3EEEEbRKT_NS4_10value_typeE.exit: ; preds = %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit15
-  %22 = icmp samesign ugt i32 %.2.val.i.i.i.i.i.i, 100000
-  %23 = icmp samesign ugt i32 %.029.val32.i.i.i.i.i.i10, 100000
-  %or.cond41 = select i1 %22, i1 true, i1 %23
-  %24 = icmp samesign ugt i32 %.1.val.i.i.i.i.i.i11, 100000
-  %or.cond43 = select i1 %or.cond41, i1 true, i1 %24
-  %25 = icmp samesign ugt i32 %.2.val.i.i.i.i.i.i12, 100000
-  %or.cond50 = or i1 %or.cond43, %25
-  br i1 %or.cond50, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %26
+26:                                               ; preds = %22
+  %27 = icmp samesign ugt i32 %.029.val32.i.i.i.i.i.i11, 100000
+  %28 = icmp samesign ugt i32 %.1.val.i.i.i.i.i.i12, 100000
+  %or.cond.i23 = select i1 %27, i1 true, i1 %28
+  %29 = icmp samesign ugt i32 %.2.val.i.i.i.i.i.i14, 100000
+  %or.cond41 = select i1 %or.cond.i23, i1 true, i1 %29
+  br i1 %or.cond41, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %30
 
-26:                                               ; preds = %_ZN3gmx12_GLOBAL__N_118anyLargerThanValueISt5arrayIiLm3EEEEbRKT_NS4_10value_typeE.exit
-  %27 = fcmp ule float %.029.val32.i.i.i.i.i.i7, 3.600000e+02
-  %28 = fcmp ule float %.1.val.i.i.i.i.i.i8, 3.600000e+02
-  %or.cond.i28.not46 = select i1 %27, i1 %28, i1 false
-  %29 = fcmp ule float %.2.val.i.i.i.i.i.i9, 3.600000e+02
-  %or.cond5.i.not = select i1 %or.cond.i28.not46, i1 %29, i1 false
+30:                                               ; preds = %26
+  %31 = fcmp ule float %.029.val32.i.i.i.i.i.i7, 3.600000e+02
+  %32 = fcmp ule float %.1.val.i.i.i.i.i.i8, 3.600000e+02
+  %or.cond.i29.not44 = select i1 %31, i1 %32, i1 false
+  %33 = fcmp ule float %.2.val.i.i.i.i.i.i10, 3.600000e+02
+  %or.cond5.i.not = select i1 %or.cond.i29.not44, i1 %33, i1 false
   br label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread
 
-_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread: ; preds = %13, %1, %26, %_ZN3gmx12_GLOBAL__N_118anyLargerThanValueISt5arrayIiLm3EEEEbRKT_NS4_10value_typeE.exit, %8, %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit15
-  %.0 = phi i1 [ false, %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit15 ], [ false, %8 ], [ %or.cond5.i.not, %26 ], [ false, %_ZN3gmx12_GLOBAL__N_118anyLargerThanValueISt5arrayIiLm3EEEEbRKT_NS4_10value_typeE.exit ], [ false, %1 ], [ false, %13 ]
+_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread: ; preds = %26, %22, %15, %1, %30, %8
+  %.0 = phi i1 [ false, %8 ], [ %or.cond5.i.not, %30 ], [ false, %1 ], [ false, %15 ], [ false, %22 ], [ false, %26 ]
   ret i1 %.0
 }
 

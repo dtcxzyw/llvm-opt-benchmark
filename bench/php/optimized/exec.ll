@@ -65,7 +65,7 @@ define dso_local i32 @php_exec(i32 noundef %0, ptr noundef %1, ptr noundef %2, p
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %1) #11
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 2, ptr %8, align 8, !tbaa !8
-  br label %140
+  br label %141
 
 9:                                                ; preds = %4
   %10 = tail call ptr @_php_stream_fopen_from_pipe(ptr noundef nonnull %6, ptr noundef nonnull @.str.2) #11
@@ -123,7 +123,7 @@ define dso_local i32 @php_exec(i32 noundef %0, ptr noundef %1, ptr noundef %2, p
   %.1 = phi ptr [ %28, %27 ], [ %.0.ph103, %31 ]
   %33 = call ptr @_php_stream_get_line(ptr noundef %10, ptr noundef %.153, i64 noundef 4096, ptr noundef nonnull %5) #11
   %.not6280 = icmp eq ptr %33, null
-  br i1 %.not6280, label %.outer._crit_edge, label %.lr.ph
+  br i1 %.not6280, label %.outer._crit_edge.loopexit112, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader78, %.outer
   %.0.ph103 = phi ptr [ %.1, %.outer ], [ %11, %.preheader78 ]
@@ -265,146 +265,149 @@ handle_line.exit:                                 ; preds = %80, %81
   %.not62 = icmp eq ptr %86, null
   br i1 %.not62, label %.outer._crit_edge, label %.lr.ph.split
 
-.outer._crit_edge:                                ; preds = %.outer, %strip_trailing_whitespace.exit.i.us, %handle_line.exit.us, %handle_line.exit, %.preheader78
-  %.0.ph.lcssa = phi ptr [ %11, %.preheader78 ], [ %.0.ph103, %handle_line.exit ], [ %.0.ph103, %handle_line.exit.us ], [ %.0.ph103, %strip_trailing_whitespace.exit.i.us ], [ %.1, %.outer ]
-  %.052.lcssa = phi ptr [ %11, %.preheader78 ], [ %.0.ph103, %handle_line.exit ], [ %.0.ph103, %handle_line.exit.us ], [ %.0.ph103, %strip_trailing_whitespace.exit.i.us ], [ %.153, %.outer ]
-  %87 = load i64, ptr %5, align 8, !tbaa !4
-  %.not63 = icmp eq i64 %87, 0
-  br i1 %.not63, label %132, label %88
+.outer._crit_edge.loopexit112:                    ; preds = %.outer
+  %87 = icmp eq ptr %.1, %.153
+  br label %.outer._crit_edge
 
-88:                                               ; preds = %.outer._crit_edge
-  %.not64 = icmp eq ptr %.0.ph.lcssa, %.052.lcssa
-  br i1 %.not64, label %109, label %89
+.outer._crit_edge:                                ; preds = %strip_trailing_whitespace.exit.i.us, %handle_line.exit.us, %handle_line.exit, %.outer._crit_edge.loopexit112, %.preheader78
+  %.0.ph.lcssa = phi ptr [ %11, %.preheader78 ], [ %.1, %.outer._crit_edge.loopexit112 ], [ %.0.ph103, %handle_line.exit ], [ %.0.ph103, %handle_line.exit.us ], [ %.0.ph103, %strip_trailing_whitespace.exit.i.us ]
+  %.052.lcssa = phi i1 [ true, %.preheader78 ], [ %87, %.outer._crit_edge.loopexit112 ], [ true, %handle_line.exit ], [ true, %handle_line.exit.us ], [ true, %strip_trailing_whitespace.exit.i.us ]
+  %88 = load i64, ptr %5, align 8, !tbaa !4
+  %.not63 = icmp eq i64 %88, 0
+  br i1 %.not63, label %133, label %89
 
-89:                                               ; preds = %88
+89:                                               ; preds = %.outer._crit_edge
+  br i1 %.052.lcssa, label %110, label %90
+
+90:                                               ; preds = %89
   switch i32 %0, label %handle_line.exit76 [
-    i32 1, label %90
+    i32 1, label %91
     i32 2, label %.preheader.i67
   ]
 
-90:                                               ; preds = %89
-  %91 = call i64 @php_output_write(ptr noundef %.0.ph.lcssa, i64 noundef %87) #11
-  %92 = call i32 @php_output_get_level() #11
-  %93 = icmp slt i32 %92, 1
-  br i1 %93, label %94, label %handle_line.exit76
+91:                                               ; preds = %90
+  %92 = call i64 @php_output_write(ptr noundef %.0.ph.lcssa, i64 noundef %88) #11
+  %93 = call i32 @php_output_get_level() #11
+  %94 = icmp slt i32 %93, 1
+  br i1 %94, label %95, label %handle_line.exit76
 
-94:                                               ; preds = %90
-  %95 = call i32 @sapi_flush() #11
+95:                                               ; preds = %91
+  %96 = call i32 @sapi_flush() #11
   br label %handle_line.exit76
 
-.preheader.i67:                                   ; preds = %89, %96
-  %.0.i.i68 = phi i64 [ %97, %96 ], [ %87, %89 ]
+.preheader.i67:                                   ; preds = %90, %97
+  %.0.i.i68 = phi i64 [ %98, %97 ], [ %88, %90 ]
   %.not.i.i69 = icmp eq i64 %.0.i.i68, 0
-  br i1 %.not.i.i69, label %.critedge.i.i71, label %96
+  br i1 %.not.i.i69, label %.critedge.i.i71, label %97
 
-96:                                               ; preds = %.preheader.i67
-  %97 = add i64 %.0.i.i68, -1
-  %98 = tail call ptr @__ctype_b_loc() #14
-  %99 = load ptr, ptr %98, align 8, !tbaa !9
-  %100 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 %97
-  %101 = load i8, ptr %100, align 1, !tbaa !8
-  %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %99, i64 %102
-  %104 = load i16, ptr %103, align 2, !tbaa !12
-  %105 = and i16 %104, 8192
-  %.not10.i.i70 = icmp eq i16 %105, 0
+97:                                               ; preds = %.preheader.i67
+  %98 = add i64 %.0.i.i68, -1
+  %99 = tail call ptr @__ctype_b_loc() #14
+  %100 = load ptr, ptr %99, align 8, !tbaa !9
+  %101 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 %98
+  %102 = load i8, ptr %101, align 1, !tbaa !8
+  %103 = zext i8 %102 to i64
+  %104 = getelementptr inbounds nuw i16, ptr %100, i64 %103
+  %105 = load i16, ptr %104, align 2, !tbaa !12
+  %106 = and i16 %105, 8192
+  %.not10.i.i70 = icmp eq i16 %106, 0
   br i1 %.not10.i.i70, label %.critedge.i.i71, label %.preheader.i67
 
-.critedge.i.i71:                                  ; preds = %96, %.preheader.i67
-  %.not11.i.i72 = icmp eq i64 %.0.i.i68, %87
-  br i1 %.not11.i.i72, label %strip_trailing_whitespace.exit.i73, label %106
+.critedge.i.i71:                                  ; preds = %97, %.preheader.i67
+  %.not11.i.i72 = icmp eq i64 %.0.i.i68, %88
+  br i1 %.not11.i.i72, label %strip_trailing_whitespace.exit.i73, label %107
 
-106:                                              ; preds = %.critedge.i.i71
-  %107 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 %.0.i.i68
-  store i8 0, ptr %107, align 1, !tbaa !8
+107:                                              ; preds = %.critedge.i.i71
+  %108 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 %.0.i.i68
+  store i8 0, ptr %108, align 1, !tbaa !8
   br label %strip_trailing_whitespace.exit.i73
 
-strip_trailing_whitespace.exit.i73:               ; preds = %106, %.critedge.i.i71
-  %.09.i.i74 = phi i64 [ %.0.i.i68, %106 ], [ %87, %.critedge.i.i71 ]
-  %108 = call i32 @add_next_index_stringl(ptr noundef %2, ptr noundef %.0.ph.lcssa, i64 noundef %.09.i.i74) #11
+strip_trailing_whitespace.exit.i73:               ; preds = %107, %.critedge.i.i71
+  %.09.i.i74 = phi i64 [ %.0.i.i68, %107 ], [ %88, %.critedge.i.i71 ]
+  %109 = call i32 @add_next_index_stringl(ptr noundef %2, ptr noundef %.0.ph.lcssa, i64 noundef %.09.i.i74) #11
   br label %handle_line.exit76
 
-handle_line.exit76:                               ; preds = %89, %90, %94, %strip_trailing_whitespace.exit.i73
-  %.0.i75 = phi i64 [ %87, %94 ], [ %87, %90 ], [ %.09.i.i74, %strip_trailing_whitespace.exit.i73 ], [ %87, %89 ]
+handle_line.exit76:                               ; preds = %90, %91, %95, %strip_trailing_whitespace.exit.i73
+  %.0.i75 = phi i64 [ %88, %95 ], [ %88, %91 ], [ %.09.i.i74, %strip_trailing_whitespace.exit.i73 ], [ %88, %90 ]
   store i64 %.0.i75, ptr %5, align 8, !tbaa !4
-  br label %109
+  br label %110
 
-109:                                              ; preds = %handle_line.exit76, %88
-  %110 = phi i64 [ %.0.i75, %handle_line.exit76 ], [ %87, %88 ]
-  br label %111
+110:                                              ; preds = %handle_line.exit76, %89
+  %111 = phi i64 [ %.0.i75, %handle_line.exit76 ], [ %88, %89 ]
+  br label %112
 
-111:                                              ; preds = %112, %109
-  %.0.i77 = phi i64 [ %110, %109 ], [ %113, %112 ]
+112:                                              ; preds = %113, %110
+  %.0.i77 = phi i64 [ %111, %110 ], [ %114, %113 ]
   %.not.i = icmp eq i64 %.0.i77, 0
-  br i1 %.not.i, label %.critedge.i, label %112
+  br i1 %.not.i, label %.critedge.i, label %113
 
-112:                                              ; preds = %111
-  %113 = add i64 %.0.i77, -1
-  %114 = tail call ptr @__ctype_b_loc() #14
-  %115 = load ptr, ptr %114, align 8, !tbaa !9
-  %116 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 %113
-  %117 = load i8, ptr %116, align 1, !tbaa !8
-  %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %115, i64 %118
-  %120 = load i16, ptr %119, align 2, !tbaa !12
-  %121 = and i16 %120, 8192
-  %.not10.i = icmp eq i16 %121, 0
-  br i1 %.not10.i, label %.critedge.i, label %111
+113:                                              ; preds = %112
+  %114 = add i64 %.0.i77, -1
+  %115 = tail call ptr @__ctype_b_loc() #14
+  %116 = load ptr, ptr %115, align 8, !tbaa !9
+  %117 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 %114
+  %118 = load i8, ptr %117, align 1, !tbaa !8
+  %119 = zext i8 %118 to i64
+  %120 = getelementptr inbounds nuw i16, ptr %116, i64 %119
+  %121 = load i16, ptr %120, align 2, !tbaa !12
+  %122 = and i16 %121, 8192
+  %.not10.i = icmp eq i16 %122, 0
+  br i1 %.not10.i, label %.critedge.i, label %112
 
-.critedge.i:                                      ; preds = %112, %111
-  %.not11.i = icmp eq i64 %.0.i77, %110
-  br i1 %.not11.i, label %strip_trailing_whitespace.exit, label %122
+.critedge.i:                                      ; preds = %113, %112
+  %.not11.i = icmp eq i64 %.0.i77, %111
+  br i1 %.not11.i, label %strip_trailing_whitespace.exit, label %123
 
-122:                                              ; preds = %.critedge.i
-  %123 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 %.0.i77
-  store i8 0, ptr %123, align 1, !tbaa !8
+123:                                              ; preds = %.critedge.i
+  %124 = getelementptr inbounds nuw i8, ptr %.0.ph.lcssa, i64 %.0.i77
+  store i8 0, ptr %124, align 1, !tbaa !8
   br label %strip_trailing_whitespace.exit
 
-strip_trailing_whitespace.exit:                   ; preds = %.critedge.i, %122
+strip_trailing_whitespace.exit:                   ; preds = %.critedge.i, %123
   store i64 %.0.i77, ptr %5, align 8, !tbaa !4
-  %124 = and i64 %.0.i77, -8
-  %125 = add i64 %124, 32
-  %126 = call noalias ptr @_emalloc(i64 noundef %125) #12
-  store i32 1, ptr %126, align 4, !tbaa !14
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  store i32 22, ptr %127, align 4, !tbaa !8
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i64 0, ptr %128, align 8, !tbaa !17
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store i64 %.0.i77, ptr %129, align 8, !tbaa !19
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %130, ptr align 1 %.0.ph.lcssa, i64 %.0.i77, i1 false)
-  %131 = getelementptr inbounds nuw [1 x i8], ptr %130, i64 0, i64 %.0.i77
-  store i8 0, ptr %131, align 1, !tbaa !8
+  %125 = and i64 %.0.i77, -8
+  %126 = add i64 %125, 32
+  %127 = call noalias ptr @_emalloc(i64 noundef %126) #12
+  store i32 1, ptr %127, align 4, !tbaa !14
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
+  store i32 22, ptr %128, align 4, !tbaa !8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  store i64 0, ptr %129, align 8, !tbaa !17
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  store i64 %.0.i77, ptr %130, align 8, !tbaa !19
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %131, ptr align 1 %.0.ph.lcssa, i64 %.0.i77, i1 false)
+  %132 = getelementptr inbounds nuw [1 x i8], ptr %131, i64 0, i64 %.0.i77
+  store i8 0, ptr %132, align 1, !tbaa !8
   br label %.loopexit.sink.split
 
-132:                                              ; preds = %.outer._crit_edge
-  %133 = load ptr, ptr @zend_empty_string, align 8, !tbaa !20
+133:                                              ; preds = %.outer._crit_edge
+  %134 = load ptr, ptr @zend_empty_string, align 8, !tbaa !20
   br label %.loopexit.sink.split
 
 .lr.ph107:                                        ; preds = %.preheader, %.lr.ph107
-  %134 = phi i64 [ %136, %.lr.ph107 ], [ %13, %.preheader ]
-  %135 = tail call i64 @php_output_write(ptr noundef %11, i64 noundef %134) #11
-  %136 = tail call i64 @_php_stream_read(ptr noundef %10, ptr noundef %11, i64 noundef 4096) #11
-  %137 = icmp sgt i64 %136, 0
-  br i1 %137, label %.lr.ph107, label %.loopexit
+  %135 = phi i64 [ %137, %.lr.ph107 ], [ %13, %.preheader ]
+  %136 = tail call i64 @php_output_write(ptr noundef %11, i64 noundef %135) #11
+  %137 = tail call i64 @_php_stream_read(ptr noundef %10, ptr noundef %11, i64 noundef 4096) #11
+  %138 = icmp sgt i64 %137, 0
+  br i1 %138, label %.lr.ph107, label %.loopexit
 
-.loopexit.sink.split:                             ; preds = %132, %strip_trailing_whitespace.exit
-  %.sink135 = phi ptr [ %126, %strip_trailing_whitespace.exit ], [ %133, %132 ]
-  %.sink = phi i32 [ 262, %strip_trailing_whitespace.exit ], [ 6, %132 ]
-  store ptr %.sink135, ptr %3, align 8, !tbaa !8
-  %138 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sink, ptr %138, align 8, !tbaa !8
+.loopexit.sink.split:                             ; preds = %133, %strip_trailing_whitespace.exit
+  %.sink134 = phi ptr [ %127, %strip_trailing_whitespace.exit ], [ %134, %133 ]
+  %.sink = phi i32 [ 262, %strip_trailing_whitespace.exit ], [ 6, %133 ]
+  store ptr %.sink134, ptr %3, align 8, !tbaa !8
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %.sink, ptr %139, align 8, !tbaa !8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph107, %.loopexit.sink.split, %.preheader
   %.2 = phi ptr [ %11, %.preheader ], [ %.0.ph.lcssa, %.loopexit.sink.split ], [ %11, %.lr.ph107 ]
-  %139 = call i32 @_php_stream_free(ptr noundef %10, i32 noundef 3) #11
+  %140 = call i32 @_php_stream_free(ptr noundef %10, i32 noundef 3) #11
   call void @_efree(ptr noundef %.2) #11
-  br label %140
+  br label %141
 
-140:                                              ; preds = %.loopexit, %7
-  %.051 = phi i32 [ %139, %.loopexit ], [ -1, %7 ]
+141:                                              ; preds = %.loopexit, %7
+  %.051 = phi i32 [ %140, %.loopexit ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   ret i32 %.051
 }

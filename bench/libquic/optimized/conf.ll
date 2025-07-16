@@ -67,7 +67,7 @@ define internal i32 @conf_value_cmp(ptr noundef readonly captures(none) %0, ptr 
 5:                                                ; preds = %2
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #13
   %.not19 = icmp eq i32 %6, 0
-  br i1 %.not19, label %7, label %16
+  br i1 %.not19, label %7, label %15
 
 7:                                                ; preds = %5, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75,25 +75,23 @@ define internal i32 @conf_value_cmp(ptr noundef readonly captures(none) %0, ptr 
   %.not20 = icmp eq ptr %9, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !15
-  br i1 %.not20, label %._crit_edge, label %10
+  br i1 %.not20, label %._crit_edge, label %12
 
-10:                                               ; preds = %7
+._crit_edge:                                      ; preds = %7
+  %10 = icmp ne ptr %9, %.pre
+  %11 = sext i1 %10 to i32
+  br label %15
+
+12:                                               ; preds = %7
   %.not21 = icmp eq ptr %.pre, null
-  br i1 %.not21, label %._crit_edge, label %11
+  br i1 %.not21, label %15, label %13
 
-11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #13
-  br label %16
+13:                                               ; preds = %12
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #13
+  br label %15
 
-._crit_edge:                                      ; preds = %7, %10
-  %13 = phi ptr [ null, %10 ], [ %.pre, %7 ]
-  %14 = phi i32 [ 1, %10 ], [ -1, %7 ]
-  %15 = icmp eq ptr %9, %13
-  %spec.select = select i1 %15, i32 0, i32 %14
-  br label %16
-
-16:                                               ; preds = %._crit_edge, %5, %11
-  %.0 = phi i32 [ %12, %11 ], [ %6, %5 ], [ %spec.select, %._crit_edge ]
+15:                                               ; preds = %12, %._crit_edge, %5, %13
+  %.0 = phi i32 [ %14, %13 ], [ %6, %5 ], [ 1, %12 ], [ %11, %._crit_edge ]
   ret i32 %.0
 }
 

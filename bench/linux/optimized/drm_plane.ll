@@ -1352,7 +1352,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_check_pixel_format(ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.loopexit, label %7
+  br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1365,69 +1365,65 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_check_pixel_format(ptr
   %12 = getelementptr i32, ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
-  br i1 %14, label %.loopexit.loopexit, label %15
+  br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = icmp eq i64 %indvars.iv.next, %10
   br i1 %16, label %.thread, label %11, !llvm.loop !79
 
-.loopexit.loopexit:                               ; preds = %11
+.loopexit:                                        ; preds = %11
   %17 = trunc nuw i64 %indvars.iv to i32
-  br label %.loopexit
+  %18 = icmp eq i32 %5, %17
+  br i1 %18, label %.thread, label %19
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %18 = phi i32 [ 0, %3 ], [ %17, %.loopexit.loopexit ]
-  %19 = icmp eq i32 %18, %5
-  br i1 %19, label %.thread, label %20
+19:                                               ; preds = %.loopexit
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %27, label %25
 
-20:                                               ; preds = %.loopexit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %28, label %26
+25:                                               ; preds = %19
+  %26 = tail call zeroext i1 %23(ptr noundef %0, i32 noundef %1, i64 noundef %2) #13
+  br i1 %26, label %44, label %.thread
 
-26:                                               ; preds = %20
-  %27 = tail call zeroext i1 %24(ptr noundef %0, i32 noundef %1, i64 noundef %2) #13
-  br i1 %27, label %45, label %.thread
+27:                                               ; preds = %19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %.thread, label %31
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread, label %32
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %33 = load ptr, ptr %32, align 8
+  %34 = zext i32 %29 to i64
+  br label %35
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %34 = load ptr, ptr %33, align 8
-  %35 = zext i32 %30 to i64
-  br label %36
+35:                                               ; preds = %39, %31
+  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %39 ], [ 0, %31 ]
+  %36 = getelementptr i64, ptr %33, i64 %indvars.iv15
+  %37 = load i64, ptr %36, align 8
+  %38 = icmp eq i64 %37, %2
+  br i1 %38, label %41, label %39
 
-36:                                               ; preds = %40, %32
-  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %40 ], [ 0, %32 ]
-  %37 = getelementptr i64, ptr %34, i64 %indvars.iv15
-  %38 = load i64, ptr %37, align 8
-  %39 = icmp eq i64 %38, %2
-  br i1 %39, label %42, label %40
-
-40:                                               ; preds = %36
+39:                                               ; preds = %35
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
-  %41 = icmp eq i64 %indvars.iv.next16, %35
-  br i1 %41, label %.thread, label %36, !llvm.loop !80
+  %40 = icmp eq i64 %indvars.iv.next16, %34
+  br i1 %40, label %.thread, label %35, !llvm.loop !80
 
-42:                                               ; preds = %36
-  %43 = trunc nuw i64 %indvars.iv15 to i32
-  %44 = icmp eq i32 %30, %43
-  br i1 %44, label %.thread, label %45
+41:                                               ; preds = %35
+  %42 = trunc nuw i64 %indvars.iv15 to i32
+  %43 = icmp eq i32 %29, %42
+  br i1 %43, label %.thread, label %44
 
-45:                                               ; preds = %42, %26
+44:                                               ; preds = %41, %25
   br label %.thread
 
-.thread:                                          ; preds = %15, %40, %45, %42, %28, %26, %.loopexit
-  %46 = phi i32 [ 0, %45 ], [ -22, %.loopexit ], [ -22, %26 ], [ 0, %28 ], [ -22, %42 ], [ -22, %40 ], [ -22, %15 ]
-  ret i32 %46
+.thread:                                          ; preds = %15, %39, %3, %44, %41, %27, %25, %.loopexit
+  %45 = phi i32 [ 0, %44 ], [ -22, %.loopexit ], [ -22, %25 ], [ 0, %27 ], [ -22, %41 ], [ -22, %3 ], [ -22, %39 ], [ -22, %15 ]
+  ret i32 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1437,13 +1433,13 @@ define dso_local noundef zeroext i1 @drm_any_plane_has_format(ptr noundef readon
   %.not = icmp eq ptr %5, %4
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %3, %.thread
-  %6 = phi ptr [ %55, %.thread ], [ %5, %3 ]
+.preheader:                                       ; preds = %3, %.critedge
+  %6 = phi ptr [ %53, %.critedge ], [ %5, %3 ]
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = getelementptr i8, ptr %6, i64 128
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %25, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %.preheader
   %12 = getelementptr i8, ptr %6, i64 120
@@ -1461,66 +1457,62 @@ define dso_local noundef zeroext i1 @drm_any_plane_has_format(ptr noundef readon
 20:                                               ; preds = %15
   %21 = add nuw nsw i64 %16, 1
   %22 = icmp eq i64 %21, %14
-  br i1 %22, label %.thread, label %15, !llvm.loop !79
+  br i1 %22, label %.critedge, label %15, !llvm.loop !79
 
 23:                                               ; preds = %15
   %24 = trunc i64 %16 to i32
-  br label %25
+  %25 = icmp eq i32 %9, %24
+  br i1 %25, label %.critedge, label %26
 
-25:                                               ; preds = %23, %.preheader
-  %26 = phi i32 [ 0, %.preheader ], [ %24, %23 ]
-  %27 = icmp eq i32 %26, %9
-  br i1 %27, label %.thread, label %28
-
-28:                                               ; preds = %25
-  %29 = getelementptr i8, ptr %6, i64 176
+26:                                               ; preds = %23
+  %27 = getelementptr i8, ptr %6, i64 176
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %36, label %34
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %34, label %32
 
-34:                                               ; preds = %28
-  %35 = tail call zeroext i1 %32(ptr noundef %7, i32 noundef %1, i64 noundef %2) #13
-  br i1 %35, label %.loopexit, label %.thread
+32:                                               ; preds = %26
+  %33 = tail call zeroext i1 %30(ptr noundef %7, i32 noundef %1, i64 noundef %2) #13
+  br i1 %33, label %.loopexit, label %.critedge
 
-36:                                               ; preds = %28
-  %37 = getelementptr i8, ptr %6, i64 144
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.loopexit, label %40
+34:                                               ; preds = %26
+  %35 = getelementptr i8, ptr %6, i64 144
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %.loopexit, label %38
 
-40:                                               ; preds = %36
-  %41 = getelementptr i8, ptr %6, i64 136
-  %42 = load ptr, ptr %41, align 8
-  %43 = zext i32 %38 to i64
-  br label %44
+38:                                               ; preds = %34
+  %39 = getelementptr i8, ptr %6, i64 136
+  %40 = load ptr, ptr %39, align 8
+  %41 = zext i32 %36 to i64
+  br label %42
 
-44:                                               ; preds = %49, %40
-  %45 = phi i64 [ %50, %49 ], [ 0, %40 ]
-  %46 = getelementptr i64, ptr %42, i64 %45
-  %47 = load i64, ptr %46, align 8
-  %48 = icmp eq i64 %47, %2
-  br i1 %48, label %52, label %49
+42:                                               ; preds = %47, %38
+  %43 = phi i64 [ %48, %47 ], [ 0, %38 ]
+  %44 = getelementptr i64, ptr %40, i64 %43
+  %45 = load i64, ptr %44, align 8
+  %46 = icmp eq i64 %45, %2
+  br i1 %46, label %50, label %47
 
-49:                                               ; preds = %44
-  %50 = add nuw nsw i64 %45, 1
-  %51 = icmp eq i64 %50, %43
-  br i1 %51, label %.thread, label %44, !llvm.loop !80
+47:                                               ; preds = %42
+  %48 = add nuw nsw i64 %43, 1
+  %49 = icmp eq i64 %48, %41
+  br i1 %49, label %.critedge, label %42, !llvm.loop !80
 
-52:                                               ; preds = %44
-  %53 = trunc i64 %45 to i32
-  %54 = icmp eq i32 %38, %53
-  br i1 %54, label %.thread, label %.loopexit
+50:                                               ; preds = %42
+  %51 = trunc i64 %43 to i32
+  %52 = icmp eq i32 %36, %51
+  br i1 %52, label %.critedge, label %.loopexit
 
-.thread:                                          ; preds = %20, %49, %52, %34, %25
-  %55 = load ptr, ptr %6, align 8
-  %.not10 = icmp eq ptr %55, %4
+.critedge:                                        ; preds = %20, %47, %.preheader, %50, %32, %23
+  %53 = load ptr, ptr %6, align 8
+  %.not10 = icmp eq ptr %53, %4
   br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !81
 
-.loopexit:                                        ; preds = %.thread, %52, %36, %34, %3
-  %56 = phi i1 [ false, %3 ], [ true, %36 ], [ true, %52 ], [ true, %34 ], [ false, %.thread ]
-  ret i1 %56
+.loopexit:                                        ; preds = %.critedge, %50, %34, %32, %3
+  %54 = phi i1 [ false, %3 ], [ true, %34 ], [ true, %50 ], [ true, %32 ], [ false, %.critedge ]
+  ret i1 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2984,7 +2976,7 @@ define internal fastcc i32 @__setplane_check(ptr noundef nonnull %0, i32 %.144.v
 
 16:                                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.25) #13
-  br label %85
+  br label %82
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -2995,7 +2987,7 @@ define internal fastcc i32 @__setplane_check(ptr noundef nonnull %0, i32 %.144.v
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %40, label %26
+  br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3013,94 +3005,90 @@ define internal fastcc i32 @__setplane_check(ptr noundef nonnull %0, i32 %.144.v
 35:                                               ; preds = %30
   %36 = add nuw nsw i64 %31, 1
   %37 = icmp eq i64 %36, %29
-  br i1 %37, label %.thread, label %30, !llvm.loop !79
+  br i1 %37, label %.loopexit, label %30, !llvm.loop !79
 
 38:                                               ; preds = %30
   %39 = trunc i64 %31 to i32
-  br label %40
+  %40 = icmp eq i32 %24, %39
+  br i1 %40, label %.loopexit, label %41
 
-40:                                               ; preds = %38, %17
-  %41 = phi i32 [ 0, %17 ], [ %39, %38 ]
-  %42 = icmp eq i32 %41, %24
-  br i1 %42, label %.thread, label %43
-
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %51, label %49
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %49, label %47
 
-49:                                               ; preds = %43
-  %50 = tail call zeroext i1 %47(ptr noundef nonnull %0, i32 noundef %20, i64 noundef %22) #13
-  br i1 %50, label %72, label %..thread_crit_edge
+47:                                               ; preds = %41
+  %48 = tail call zeroext i1 %45(ptr noundef nonnull %0, i32 noundef %20, i64 noundef %22) #13
+  br i1 %48, label %.critedge, label %..loopexit_crit_edge
 
-..thread_crit_edge:                               ; preds = %49
+..loopexit_crit_edge:                             ; preds = %47
   %.pre = load ptr, ptr %18, align 8
-  %.pre11 = load i64, ptr %21, align 8
-  br label %.thread
+  %.pre9 = load i64, ptr %21, align 8
+  br label %.loopexit
 
-51:                                               ; preds = %43
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %72, label %55
+49:                                               ; preds = %41
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %.critedge, label %53
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %57 = load ptr, ptr %56, align 8
-  %58 = zext i32 %53 to i64
-  br label %59
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %55 = load ptr, ptr %54, align 8
+  %56 = zext i32 %51 to i64
+  br label %57
 
-59:                                               ; preds = %64, %55
-  %60 = phi i64 [ %65, %64 ], [ 0, %55 ]
-  %61 = getelementptr i64, ptr %57, i64 %60
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp eq i64 %62, %22
-  br i1 %63, label %67, label %64
+57:                                               ; preds = %62, %53
+  %58 = phi i64 [ %63, %62 ], [ 0, %53 ]
+  %59 = getelementptr i64, ptr %55, i64 %58
+  %60 = load i64, ptr %59, align 8
+  %61 = icmp eq i64 %60, %22
+  br i1 %61, label %65, label %62
 
-64:                                               ; preds = %59
-  %65 = add nuw nsw i64 %60, 1
-  %66 = icmp eq i64 %65, %58
-  br i1 %66, label %.thread, label %59, !llvm.loop !80
+62:                                               ; preds = %57
+  %63 = add nuw nsw i64 %58, 1
+  %64 = icmp eq i64 %63, %56
+  br i1 %64, label %.loopexit, label %57, !llvm.loop !80
 
-67:                                               ; preds = %59
-  %68 = trunc i64 %60 to i32
-  %69 = icmp eq i32 %53, %68
-  br i1 %69, label %.thread, label %72
+65:                                               ; preds = %57
+  %66 = trunc i64 %58 to i32
+  %67 = icmp eq i32 %51, %66
+  br i1 %67, label %.loopexit, label %.critedge
 
-.thread:                                          ; preds = %35, %64, %..thread_crit_edge, %40, %67
-  %70 = phi i64 [ %.pre11, %..thread_crit_edge ], [ %22, %40 ], [ %22, %67 ], [ %22, %64 ], [ %22, %35 ]
-  %71 = phi ptr [ %.pre, %..thread_crit_edge ], [ %19, %40 ], [ %19, %67 ], [ %19, %64 ], [ %19, %35 ]
-  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef %71, i64 noundef %70) #13
-  br label %85
+.loopexit:                                        ; preds = %35, %62, %..loopexit_crit_edge, %38, %65, %17
+  %68 = phi i64 [ %.pre9, %..loopexit_crit_edge ], [ %22, %38 ], [ %22, %65 ], [ %22, %17 ], [ %22, %62 ], [ %22, %35 ]
+  %69 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %19, %38 ], [ %19, %65 ], [ %19, %17 ], [ %19, %62 ], [ %19, %35 ]
+  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef %69, i64 noundef %68) #13
+  br label %82
 
-72:                                               ; preds = %49, %67, %51
-  %73 = icmp slt i32 %4, 0
-  br i1 %73, label %82, label %74
+.critedge:                                        ; preds = %47, %65, %49
+  %70 = icmp slt i32 %4, 0
+  br i1 %70, label %79, label %71
 
-74:                                               ; preds = %72
-  %75 = xor i32 %4, 2147483647
-  %76 = icmp slt i32 %75, %2
-  %77 = icmp slt i32 %5, 0
-  %78 = or i1 %76, %77
-  %79 = xor i32 %5, 2147483647
-  %80 = icmp slt i32 %79, %3
-  %81 = or i1 %78, %80
-  br i1 %81, label %82, label %83
+71:                                               ; preds = %.critedge
+  %72 = xor i32 %4, 2147483647
+  %73 = icmp slt i32 %72, %2
+  %74 = icmp slt i32 %5, 0
+  %75 = or i1 %73, %74
+  %76 = xor i32 %5, 2147483647
+  %77 = icmp slt i32 %76, %3
+  %78 = or i1 %75, %77
+  br i1 %78, label %79, label %80
 
-82:                                               ; preds = %74, %72
+79:                                               ; preds = %71, %.critedge
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %4, i32 noundef %5, i32 noundef %2, i32 noundef %3) #13
-  br label %85
+  br label %82
 
-83:                                               ; preds = %74
-  %84 = tail call i32 @drm_framebuffer_check_src_coords(i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %1) #13
-  br label %85
+80:                                               ; preds = %71
+  %81 = tail call i32 @drm_framebuffer_check_src_coords(i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %1) #13
+  br label %82
 
-85:                                               ; preds = %83, %82, %.thread, %16
-  %86 = phi i32 [ -22, %.thread ], [ -34, %82 ], [ -22, %16 ], [ %84, %83 ]
-  ret i32 %86
+82:                                               ; preds = %80, %79, %.loopexit, %16
+  %83 = phi i32 [ -22, %.loopexit ], [ -34, %79 ], [ -22, %16 ], [ %81, %80 ]
+  ret i32 %83
 }
 
 ; Function Attrs: null_pointer_is_valid

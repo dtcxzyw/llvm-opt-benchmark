@@ -11996,99 +11996,99 @@ _ZN4Luau14TypedAllocatorINS_23TypeFunctionTypePackVarEE8unfreezeEv.exit: ; preds
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !460
   %.not13.i = icmp eq ptr %13, %15
-  br i1 %.not13.i, label %37, label %.lr.ph16.i
+  br i1 %.not13.i, label %38, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %18
+  br label %19
 
 ._crit_edge17.i:                                  ; preds = %.noexc3
   %.pre.i = load ptr, ptr %12, align 8, !tbaa !463
   %.pre19.i = load ptr, ptr %14, align 8, !tbaa !464
-  %.not.i.i.i = icmp eq ptr %.pre19.i, %.pre.i
-  br i1 %.not.i.i.i, label %37, label %17
+  %17 = icmp eq ptr %.pre19.i, %.pre.i
+  br i1 %17, label %38, label %18
 
-17:                                               ; preds = %._crit_edge17.i
+18:                                               ; preds = %._crit_edge17.i
   store ptr %.pre.i, ptr %14, align 8, !tbaa !464
-  br label %37
+  br label %38
 
-18:                                               ; preds = %.noexc3, %.lr.ph16.i
-  %.sroa.09.014.i = phi ptr [ %13, %.lr.ph16.i ], [ %26, %.noexc3 ]
-  %19 = load ptr, ptr %.sroa.09.014.i, align 8, !tbaa !461
-  %20 = load ptr, ptr %14, align 8, !tbaa !460
-  %21 = getelementptr inbounds i8, ptr %20, i64 -8
-  %22 = load ptr, ptr %21, align 8, !tbaa !461
-  %23 = icmp eq ptr %19, %22
-  %24 = load i64, ptr %16, align 8
-  %25 = select i1 %23, i64 %24, i64 682
-  %.not18.i = icmp eq i64 %25, 0
+19:                                               ; preds = %.noexc3, %.lr.ph16.i
+  %.sroa.09.014.i = phi ptr [ %13, %.lr.ph16.i ], [ %27, %.noexc3 ]
+  %20 = load ptr, ptr %.sroa.09.014.i, align 8, !tbaa !461
+  %21 = load ptr, ptr %14, align 8, !tbaa !460
+  %22 = getelementptr inbounds i8, ptr %21, i64 -8
+  %23 = load ptr, ptr %22, align 8, !tbaa !461
+  %24 = icmp eq ptr %20, %23
+  %25 = load i64, ptr %16, align 8
+  %26 = select i1 %24, i64 %25, i64 682
+  %.not18.i = icmp eq i64 %26, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i1
 
-._crit_edge.i:                                    ; preds = %_ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i, %18
-  invoke void @_ZN4Luau15pagedDeallocateEPvm(ptr noundef %19, i64 noundef 32768)
+._crit_edge.i:                                    ; preds = %_ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i, %19
+  invoke void @_ZN4Luau15pagedDeallocateEPvm(ptr noundef %20, i64 noundef 32768)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %._crit_edge.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
-  %.not.i2 = icmp eq ptr %26, %15
-  br i1 %.not.i2, label %._crit_edge17.i, label %18
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
+  %.not.i2 = icmp eq ptr %27, %15
+  br i1 %.not.i2, label %._crit_edge17.i, label %19
 
-.lr.ph.i1:                                        ; preds = %18, %_ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i
-  %.012.i = phi i64 [ %36, %_ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i ], [ 0, %18 ]
-  %27 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionTypePackVar", ptr %19, i64 %.012.i
-  %28 = load i32, ptr %27, align 8, !tbaa !465
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [3 x ptr], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !15
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  invoke void %31(ptr noundef nonnull %32)
-          to label %_ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i unwind label %33
+.lr.ph.i1:                                        ; preds = %19, %_ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i
+  %.012.i = phi i64 [ %37, %_ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i ], [ 0, %19 ]
+  %28 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionTypePackVar", ptr %20, i64 %.012.i
+  %29 = load i32, ptr %28, align 8, !tbaa !465
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds [3 x ptr], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 0, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  invoke void %32(ptr noundef nonnull %33)
+          to label %_ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i unwind label %34
 
-33:                                               ; preds = %.lr.ph.i1
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %.lr.ph.i1
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #31
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #31
   unreachable
 
 _ZN4Luau23TypeFunctionTypePackVarD2Ev.exit.i:     ; preds = %.lr.ph.i1
-  %36 = add nuw i64 %.012.i, 1
-  %exitcond.not.i = icmp eq i64 %36, %25
+  %37 = add nuw i64 %.012.i, 1
+  %exitcond.not.i = icmp eq i64 %37, %26
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i1, !llvm.loop !467
 
-37:                                               ; preds = %17, %._crit_edge17.i, %11
-  %38 = phi ptr [ %.pre.i, %17 ], [ %.pre.i, %._crit_edge17.i ], [ %13, %11 ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %39, align 8, !tbaa !458
-  %.not.i.i.i4 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i4, label %_ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EED2Ev.exit, label %40
+38:                                               ; preds = %18, %._crit_edge17.i, %11
+  %39 = phi ptr [ %.pre.i, %18 ], [ %.pre.i, %._crit_edge17.i ], [ %13, %11 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %40, align 8, !tbaa !458
+  %.not.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EED2Ev.exit, label %41
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !468
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %38 to i64
-  %45 = sub i64 %43, %44
-  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %45) #32
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !468
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %39 to i64
+  %46 = sub i64 %44, %45
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %46) #32
   br label %_ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EED2Ev.exit: ; preds = %37, %40
+_ZNSt6vectorIPN4Luau23TypeFunctionTypePackVarESaIS2_EED2Ev.exit: ; preds = %38, %41
   ret void
 
 .loopexit:                                        ; preds = %._crit_edge.i
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %46
+  br label %47
 
 .loopexit.split-lp:                               ; preds = %.lr.ph.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %46
+  br label %47
 
-46:                                               ; preds = %.loopexit.split-lp, %.loopexit
+47:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %47 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %47) #31
+  %48 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %48) #31
   unreachable
 }
 
@@ -12127,99 +12127,99 @@ _ZN4Luau14TypedAllocatorINS_16TypeFunctionTypeEE8unfreezeEv.exit: ; preds = %.no
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !469
   %.not13.i = icmp eq ptr %13, %15
-  br i1 %.not13.i, label %37, label %.lr.ph16.i
+  br i1 %.not13.i, label %38, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %18
+  br label %19
 
 ._crit_edge17.i:                                  ; preds = %.noexc3
   %.pre.i = load ptr, ptr %12, align 8, !tbaa !472
   %.pre19.i = load ptr, ptr %14, align 8, !tbaa !473
-  %.not.i.i.i = icmp eq ptr %.pre19.i, %.pre.i
-  br i1 %.not.i.i.i, label %37, label %17
+  %17 = icmp eq ptr %.pre19.i, %.pre.i
+  br i1 %17, label %38, label %18
 
-17:                                               ; preds = %._crit_edge17.i
+18:                                               ; preds = %._crit_edge17.i
   store ptr %.pre.i, ptr %14, align 8, !tbaa !473
-  br label %37
+  br label %38
 
-18:                                               ; preds = %.noexc3, %.lr.ph16.i
-  %.sroa.09.014.i = phi ptr [ %13, %.lr.ph16.i ], [ %26, %.noexc3 ]
-  %19 = load ptr, ptr %.sroa.09.014.i, align 8, !tbaa !470
-  %20 = load ptr, ptr %14, align 8, !tbaa !469
-  %21 = getelementptr inbounds i8, ptr %20, i64 -8
-  %22 = load ptr, ptr %21, align 8, !tbaa !470
-  %23 = icmp eq ptr %19, %22
-  %24 = load i64, ptr %16, align 8
-  %25 = select i1 %23, i64 %24, i64 215
-  %.not18.i = icmp eq i64 %25, 0
+19:                                               ; preds = %.noexc3, %.lr.ph16.i
+  %.sroa.09.014.i = phi ptr [ %13, %.lr.ph16.i ], [ %27, %.noexc3 ]
+  %20 = load ptr, ptr %.sroa.09.014.i, align 8, !tbaa !470
+  %21 = load ptr, ptr %14, align 8, !tbaa !469
+  %22 = getelementptr inbounds i8, ptr %21, i64 -8
+  %23 = load ptr, ptr %22, align 8, !tbaa !470
+  %24 = icmp eq ptr %20, %23
+  %25 = load i64, ptr %16, align 8
+  %26 = select i1 %24, i64 %25, i64 215
+  %.not18.i = icmp eq i64 %26, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i1
 
-._crit_edge.i:                                    ; preds = %_ZN4Luau16TypeFunctionTypeD2Ev.exit.i, %18
-  invoke void @_ZN4Luau15pagedDeallocateEPvm(ptr noundef %19, i64 noundef 32768)
+._crit_edge.i:                                    ; preds = %_ZN4Luau16TypeFunctionTypeD2Ev.exit.i, %19
+  invoke void @_ZN4Luau15pagedDeallocateEPvm(ptr noundef %20, i64 noundef 32768)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %._crit_edge.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
-  %.not.i2 = icmp eq ptr %26, %15
-  br i1 %.not.i2, label %._crit_edge17.i, label %18
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
+  %.not.i2 = icmp eq ptr %27, %15
+  br i1 %.not.i2, label %._crit_edge17.i, label %19
 
-.lr.ph.i1:                                        ; preds = %18, %_ZN4Luau16TypeFunctionTypeD2Ev.exit.i
-  %.012.i = phi i64 [ %36, %_ZN4Luau16TypeFunctionTypeD2Ev.exit.i ], [ 0, %18 ]
-  %27 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %19, i64 %.012.i
-  %28 = load i32, ptr %27, align 8, !tbaa !304
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [12 x ptr], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !15
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  invoke void %31(ptr noundef nonnull %32)
-          to label %_ZN4Luau16TypeFunctionTypeD2Ev.exit.i unwind label %33
+.lr.ph.i1:                                        ; preds = %19, %_ZN4Luau16TypeFunctionTypeD2Ev.exit.i
+  %.012.i = phi i64 [ %37, %_ZN4Luau16TypeFunctionTypeD2Ev.exit.i ], [ 0, %19 ]
+  %28 = getelementptr inbounds nuw %"struct.Luau::TypeFunctionType", ptr %20, i64 %.012.i
+  %29 = load i32, ptr %28, align 8, !tbaa !304
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds [12 x ptr], ptr @_ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23TypeFunctionUnknownTypeENS_21TypeFunctionNeverTypeENS_25TypeFunctionSingletonTypeENS_21TypeFunctionUnionTypeENS_28TypeFunctionIntersectionTypeENS_24TypeFunctionNegationTypeENS_24TypeFunctionFunctionTypeENS_21TypeFunctionTableTypeENS_21TypeFunctionClassTypeENS_23TypeFunctionGenericTypeEEE9tableDtorE, i64 0, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  invoke void %32(ptr noundef nonnull %33)
+          to label %_ZN4Luau16TypeFunctionTypeD2Ev.exit.i unwind label %34
 
-33:                                               ; preds = %.lr.ph.i1
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %.lr.ph.i1
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #31
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #31
   unreachable
 
 _ZN4Luau16TypeFunctionTypeD2Ev.exit.i:            ; preds = %.lr.ph.i1
-  %36 = add nuw i64 %.012.i, 1
-  %exitcond.not.i = icmp eq i64 %36, %25
+  %37 = add nuw i64 %.012.i, 1
+  %exitcond.not.i = icmp eq i64 %37, %26
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i1, !llvm.loop !474
 
-37:                                               ; preds = %17, %._crit_edge17.i, %11
-  %38 = phi ptr [ %.pre.i, %17 ], [ %.pre.i, %._crit_edge17.i ], [ %13, %11 ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %39, align 8, !tbaa !456
-  %.not.i.i.i4 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i4, label %_ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EED2Ev.exit, label %40
+38:                                               ; preds = %18, %._crit_edge17.i, %11
+  %39 = phi ptr [ %.pre.i, %18 ], [ %.pre.i, %._crit_edge17.i ], [ %13, %11 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %40, align 8, !tbaa !456
+  %.not.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EED2Ev.exit, label %41
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !475
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %38 to i64
-  %45 = sub i64 %43, %44
-  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %45) #32
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !475
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %39 to i64
+  %46 = sub i64 %44, %45
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %46) #32
   br label %_ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EED2Ev.exit: ; preds = %37, %40
+_ZNSt6vectorIPN4Luau16TypeFunctionTypeESaIS2_EED2Ev.exit: ; preds = %38, %41
   ret void
 
 .loopexit:                                        ; preds = %._crit_edge.i
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %46
+  br label %47
 
 .loopexit.split-lp:                               ; preds = %.lr.ph.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %46
+  br label %47
 
-46:                                               ; preds = %.loopexit.split-lp, %.loopexit
+47:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %47 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %47) #31
+  %48 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %48) #31
   unreachable
 }
 

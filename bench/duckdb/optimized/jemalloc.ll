@@ -891,7 +891,7 @@ define ptr @duckdb_je_arena_choose_hard(ptr noundef %0, i1 noundef zeroext %1) l
   %.sroa.5 = alloca i8, align 1
   %3 = load i32, ptr @duckdb_je_narenas_auto, align 4, !tbaa !3
   %4 = icmp ugt i32 %3, 1
-  br i1 %4, label %5, label %108
+  br i1 %4, label %5, label %106
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0148)
@@ -939,7 +939,7 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 161
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %22 = zext i1 %1 to i64
+  %22 = xor i1 %1, true
   br label %arena_bind.exit
 
 .lr.ph:                                           ; preds = %malloc_mutex_lock.exit, %.loopexit118
@@ -1012,12 +1012,12 @@ arena_get.exit.thread:                            ; preds = %.lr.ph
   %47 = icmp samesign ult i64 %indvars.iv.next131, %46
   br i1 %47, label %.lr.ph, label %.preheader
 
-arena_bind.exit:                                  ; preds = %90, %.preheader
-  %48 = phi i1 [ false, %.preheader ], [ true, %90 ]
-  %indvars.iv133.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.5, %90 ]
-  %indvars.iv133.sroa.phi144 = phi ptr [ %.sroa.0148, %.preheader ], [ %.sroa.6, %90 ]
-  %indvars.iv133 = phi i64 [ 0, %.preheader ], [ 1, %90 ]
-  %.066124 = phi ptr [ null, %.preheader ], [ %.167, %90 ]
+arena_bind.exit:                                  ; preds = %88, %.preheader
+  %48 = phi i1 [ false, %.preheader ], [ true, %88 ]
+  %indvars.iv133.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.5, %88 ]
+  %indvars.iv133.sroa.phi144 = phi ptr [ %.sroa.0148, %.preheader ], [ %.sroa.6, %88 ]
+  %indvars.iv133 = phi i1 [ %22, %.preheader ], [ %1, %88 ]
+  %.066124 = phi ptr [ null, %.preheader ], [ %.167, %88 ]
   %49 = load i32, ptr %indvars.iv133.sroa.phi144, align 4, !tbaa !3
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %50
@@ -1036,130 +1036,128 @@ arena_get.exit84:                                 ; preds = %arena_bind.exit, %5
   %57 = load i32, ptr @duckdb_je_narenas_auto, align 4
   %58 = icmp eq i32 %.059.lcssa, %57
   %or.cond = select i1 %56, i1 true, i1 %58
-  br i1 %or.cond, label %59, label %68
+  br i1 %or.cond, label %59, label %67
 
 59:                                               ; preds = %arena_get.exit84
-  %60 = icmp eq i64 %indvars.iv133, %22
-  br i1 %60, label %61, label %arena_get.exit87
+  br i1 %indvars.iv133, label %60, label %arena_get.exit87
 
-61:                                               ; preds = %59
-  %62 = load i32, ptr %indvars.iv133.sroa.phi144, align 4, !tbaa !3
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %63
-  %65 = load atomic i64, ptr %64 acquire, align 8
-  %.0.i.i85 = inttoptr i64 %65 to ptr
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %arena_get.exit87, !prof !7
+60:                                               ; preds = %59
+  %61 = load i32, ptr %indvars.iv133.sroa.phi144, align 4, !tbaa !3
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %62
+  %64 = load atomic i64, ptr %63 acquire, align 8
+  %.0.i.i85 = inttoptr i64 %64 to ptr
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %66, label %arena_get.exit87, !prof !7
 
-67:                                               ; preds = %61
+66:                                               ; preds = %60
   br label %arena_get.exit87
 
-68:                                               ; preds = %arena_get.exit84
+67:                                               ; preds = %arena_get.exit84
   store i32 %.059.lcssa, ptr %indvars.iv133.sroa.phi144, align 4, !tbaa !3
-  br i1 %16, label %.thread, label %69
+  br i1 %16, label %.thread, label %68
 
-69:                                               ; preds = %68
-  %70 = load atomic i32, ptr @narenas_total acquire, align 4
-  %71 = icmp eq i32 %.059.lcssa, %70
-  br i1 %71, label %72, label %74
+68:                                               ; preds = %67
+  %69 = load atomic i32, ptr @narenas_total acquire, align 4
+  %70 = icmp eq i32 %.059.lcssa, %69
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %69
-  %73 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
-  br label %74
+71:                                               ; preds = %68
+  %72 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  br label %73
 
-74:                                               ; preds = %72, %69
-  %75 = load atomic i64, ptr %18 acquire, align 8
-  %.0.i.i.i = inttoptr i64 %75 to ptr
-  %.not.i88 = icmp eq i64 %75, 0
+73:                                               ; preds = %71, %68
+  %74 = load atomic i64, ptr %18 acquire, align 8
+  %.0.i.i.i = inttoptr i64 %74 to ptr
+  %.not.i88 = icmp eq i64 %74, 0
   br i1 %.not.i88, label %arena_get.exit.thread.i, label %arena_init_locked.exit, !prof !49
 
-arena_get.exit.thread.i:                          ; preds = %74
-  %76 = tail call ptr @duckdb_je_arena_new(ptr noundef %0, i32 noundef %.059.lcssa, ptr noundef nonnull @duckdb_je_arena_config_default) #21
+arena_get.exit.thread.i:                          ; preds = %73
+  %75 = tail call ptr @duckdb_je_arena_new(ptr noundef %0, i32 noundef %.059.lcssa, ptr noundef nonnull @duckdb_je_arena_config_default) #21
   br label %arena_init_locked.exit
 
-arena_init_locked.exit:                           ; preds = %74, %arena_get.exit.thread.i
-  %.0.i89 = phi ptr [ %76, %arena_get.exit.thread.i ], [ %.0.i.i.i, %74 ]
+arena_init_locked.exit:                           ; preds = %73, %arena_get.exit.thread.i
+  %.0.i89 = phi ptr [ %75, %arena_get.exit.thread.i ], [ %.0.i.i.i, %73 ]
   %.not = icmp eq ptr %.0.i89, null
-  br i1 %.not, label %.thread, label %78
+  br i1 %.not, label %.thread, label %77
 
-.thread:                                          ; preds = %arena_init_locked.exit, %68
+.thread:                                          ; preds = %arena_init_locked.exit, %67
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_arenas_lock, i64 64) monotonic, align 8
-  %77 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_arenas_lock, i64 72)) #21
+  %76 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_arenas_lock, i64 72)) #21
   br label %.loopexit
 
-78:                                               ; preds = %arena_init_locked.exit
+77:                                               ; preds = %arena_init_locked.exit
   store i8 1, ptr %indvars.iv133.sroa.phi, align 1, !tbaa !50
-  %79 = icmp eq i64 %indvars.iv133, %22
-  %spec.select74 = select i1 %79, ptr %.0.i89, ptr %.066124
+  %spec.select74 = select i1 %indvars.iv133, ptr %.0.i89, ptr %.066124
   br label %arena_get.exit87
 
-arena_get.exit87:                                 ; preds = %78, %67, %61, %59
-  %.167 = phi ptr [ %.066124, %59 ], [ %spec.select74, %78 ], [ null, %67 ], [ %.0.i.i85, %61 ]
-  %80 = load i32, ptr %indvars.iv133.sroa.phi144, align 4, !tbaa !3
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %81
-  %83 = load atomic i64, ptr %82 acquire, align 8
-  %.0.i.i.i91 = inttoptr i64 %83 to ptr
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %85, label %arena_get.exit.i, !prof !7
+arena_get.exit87:                                 ; preds = %77, %66, %60, %59
+  %.167 = phi ptr [ %.066124, %59 ], [ %spec.select74, %77 ], [ null, %66 ], [ %.0.i.i85, %60 ]
+  %78 = load i32, ptr %indvars.iv133.sroa.phi144, align 4, !tbaa !3
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %79
+  %81 = load atomic i64, ptr %80 acquire, align 8
+  %.0.i.i.i91 = inttoptr i64 %81 to ptr
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %arena_get.exit.i, !prof !7
 
-85:                                               ; preds = %arena_get.exit87
+83:                                               ; preds = %arena_get.exit87
   br label %arena_get.exit.i
 
-arena_get.exit.i:                                 ; preds = %85, %arena_get.exit87
-  %.0.i.i92 = phi ptr [ null, %85 ], [ %.0.i.i.i91, %arena_get.exit87 ]
+arena_get.exit.i:                                 ; preds = %83, %arena_get.exit87
+  %.0.i.i92 = phi ptr [ null, %83 ], [ %.0.i.i.i91, %arena_get.exit87 ]
   tail call void @duckdb_je_arena_nthreads_inc(ptr noundef %.0.i.i92, i1 noundef zeroext %48) #21
-  br i1 %48, label %96, label %86
+  br i1 %48, label %94, label %84
 
-86:                                               ; preds = %arena_get.exit.i
+84:                                               ; preds = %arena_get.exit.i
   store ptr %.0.i.i92, ptr %19, align 8, !tbaa !47
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i92, i64 8
-  %88 = atomicrmw add ptr %87, i32 1 monotonic, align 4
-  %89 = and i32 %88, 255
-  br label %90
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i92, i64 8
+  %86 = atomicrmw add ptr %85, i32 1 monotonic, align 4
+  %87 = and i32 %86, 255
+  br label %88
 
-90:                                               ; preds = %90, %86
-  %indvars.iv.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i, %90 ]
-  %91 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @duckdb_je_bin_infos, i64 0, i64 %indvars.iv.i, i32 3
-  %92 = load i32, ptr %91, align 4, !tbaa !52
-  %93 = urem i32 %89, %92
-  %94 = trunc nuw i32 %93 to i8
-  %95 = getelementptr inbounds nuw [36 x i8], ptr %20, i64 0, i64 %indvars.iv.i
-  store i8 %94, ptr %95, align 1, !tbaa !10
+88:                                               ; preds = %88, %84
+  %indvars.iv.i = phi i64 [ 0, %84 ], [ %indvars.iv.next.i, %88 ]
+  %89 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @duckdb_je_bin_infos, i64 0, i64 %indvars.iv.i, i32 3
+  %90 = load i32, ptr %89, align 4, !tbaa !52
+  %91 = urem i32 %87, %90
+  %92 = trunc nuw i32 %91 to i8
+  %93 = getelementptr inbounds nuw [36 x i8], ptr %20, i64 0, i64 %indvars.iv.i
+  store i8 %92, ptr %93, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 36
-  br i1 %exitcond.not.i, label %arena_bind.exit, label %90
+  br i1 %exitcond.not.i, label %arena_bind.exit, label %88
 
-96:                                               ; preds = %arena_get.exit.i
+94:                                               ; preds = %arena_get.exit.i
   store ptr %.0.i.i92, ptr %21, align 8, !tbaa !47
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_arenas_lock, i64 64) monotonic, align 8
-  %97 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_arenas_lock, i64 72)) #21
-  br label %98
+  %95 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_arenas_lock, i64 72)) #21
+  br label %96
 
-98:                                               ; preds = %96, %arena_new_create_background_thread.exit
-  %99 = phi i1 [ true, %96 ], [ false, %arena_new_create_background_thread.exit ]
-  %indvars.iv136.sroa.phi = phi ptr [ %.sroa.0, %96 ], [ %.sroa.5, %arena_new_create_background_thread.exit ]
-  %indvars.iv136.sroa.phi146 = phi ptr [ %.sroa.0148, %96 ], [ %.sroa.6, %arena_new_create_background_thread.exit ]
-  %100 = load i8, ptr %indvars.iv136.sroa.phi, align 1, !tbaa !50, !range !55, !noundef !56
-  %101 = trunc nuw i8 %100 to i1
-  br i1 %101, label %102, label %arena_new_create_background_thread.exit
+96:                                               ; preds = %94, %arena_new_create_background_thread.exit
+  %97 = phi i1 [ true, %94 ], [ false, %arena_new_create_background_thread.exit ]
+  %indvars.iv136.sroa.phi = phi ptr [ %.sroa.0, %94 ], [ %.sroa.5, %arena_new_create_background_thread.exit ]
+  %indvars.iv136.sroa.phi146 = phi ptr [ %.sroa.0148, %94 ], [ %.sroa.6, %arena_new_create_background_thread.exit ]
+  %98 = load i8, ptr %indvars.iv136.sroa.phi, align 1, !tbaa !50, !range !55, !noundef !56
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %arena_new_create_background_thread.exit
 
-102:                                              ; preds = %98
-  %103 = load i32, ptr %indvars.iv136.sroa.phi146, align 4, !tbaa !3
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %arena_new_create_background_thread.exit, label %105
+100:                                              ; preds = %96
+  %101 = load i32, ptr %indvars.iv136.sroa.phi146, align 4, !tbaa !3
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %arena_new_create_background_thread.exit, label %103
 
-105:                                              ; preds = %102
-  %106 = tail call zeroext i1 @duckdb_je_background_thread_create(ptr noundef %0, i32 noundef %103) #21
-  br i1 %106, label %107, label %arena_new_create_background_thread.exit
+103:                                              ; preds = %100
+  %104 = tail call zeroext i1 @duckdb_je_background_thread_create(ptr noundef %0, i32 noundef %101) #21
+  br i1 %104, label %105, label %arena_new_create_background_thread.exit
 
-107:                                              ; preds = %105
-  tail call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.177, i32 noundef %103) #21
+105:                                              ; preds = %103
+  tail call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.177, i32 noundef %101) #21
   tail call void @abort() #22
   unreachable
 
-arena_new_create_background_thread.exit:          ; preds = %105, %102, %98
-  br i1 %99, label %98, label %.loopexit
+arena_new_create_background_thread.exit:          ; preds = %103, %100, %96
+  br i1 %97, label %96, label %.loopexit
 
 .loopexit:                                        ; preds = %arena_new_create_background_thread.exit, %.thread
   %spec.select75 = phi ptr [ null, %.thread ], [ %.167, %arena_new_create_background_thread.exit ]
@@ -1167,67 +1165,67 @@ arena_new_create_background_thread.exit:          ; preds = %105, %102, %98
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0148)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
-  br label %130
+  br label %128
 
-108:                                              ; preds = %2
-  %109 = load atomic i64, ptr @duckdb_je_arenas acquire, align 64
-  %.0.i.i94 = inttoptr i64 %109 to ptr
-  %110 = icmp eq i64 %109, 0
-  br i1 %110, label %111, label %arena_get.exit96, !prof !7
+106:                                              ; preds = %2
+  %107 = load atomic i64, ptr @duckdb_je_arenas acquire, align 64
+  %.0.i.i94 = inttoptr i64 %107 to ptr
+  %108 = icmp eq i64 %107, 0
+  br i1 %108, label %109, label %arena_get.exit96, !prof !7
 
-111:                                              ; preds = %108
+109:                                              ; preds = %106
   br label %arena_get.exit96
 
-arena_get.exit96:                                 ; preds = %108, %111
-  %.0.i95 = phi ptr [ null, %111 ], [ %.0.i.i94, %108 ]
-  %112 = load atomic i64, ptr @duckdb_je_arenas acquire, align 64
-  %.0.i.i.i97 = inttoptr i64 %112 to ptr
-  %113 = icmp eq i64 %112, 0
-  br i1 %113, label %114, label %arena_get.exit.i98, !prof !7
+arena_get.exit96:                                 ; preds = %106, %109
+  %.0.i95 = phi ptr [ null, %109 ], [ %.0.i.i94, %106 ]
+  %110 = load atomic i64, ptr @duckdb_je_arenas acquire, align 64
+  %.0.i.i.i97 = inttoptr i64 %110 to ptr
+  %111 = icmp eq i64 %110, 0
+  br i1 %111, label %112, label %arena_get.exit.i98, !prof !7
 
-114:                                              ; preds = %arena_get.exit96
+112:                                              ; preds = %arena_get.exit96
   br label %arena_get.exit.i98
 
-arena_get.exit.i98:                               ; preds = %114, %arena_get.exit96
-  %.0.i.i99 = phi ptr [ null, %114 ], [ %.0.i.i.i97, %arena_get.exit96 ]
+arena_get.exit.i98:                               ; preds = %112, %arena_get.exit96
+  %.0.i.i99 = phi ptr [ null, %112 ], [ %.0.i.i.i97, %arena_get.exit96 ]
   tail call void @duckdb_je_arena_nthreads_inc(ptr noundef %.0.i.i99, i1 noundef zeroext false) #21
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %.0.i.i99, ptr %115, align 8, !tbaa !47
-  %116 = getelementptr inbounds nuw i8, ptr %.0.i.i99, i64 8
-  %117 = atomicrmw add ptr %116, i32 1 monotonic, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %119 = and i32 %117, 255
-  br label %120
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %.0.i.i99, ptr %113, align 8, !tbaa !47
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i.i99, i64 8
+  %115 = atomicrmw add ptr %114, i32 1 monotonic, align 4
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 161
+  %117 = and i32 %115, 255
+  br label %118
 
-120:                                              ; preds = %120, %arena_get.exit.i98
-  %indvars.iv.i100 = phi i64 [ 0, %arena_get.exit.i98 ], [ %indvars.iv.next.i101, %120 ]
-  %121 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @duckdb_je_bin_infos, i64 0, i64 %indvars.iv.i100, i32 3
-  %122 = load i32, ptr %121, align 4, !tbaa !52
-  %123 = urem i32 %119, %122
-  %124 = trunc nuw i32 %123 to i8
-  %125 = getelementptr inbounds nuw [36 x i8], ptr %118, i64 0, i64 %indvars.iv.i100
-  store i8 %124, ptr %125, align 1, !tbaa !10
+118:                                              ; preds = %118, %arena_get.exit.i98
+  %indvars.iv.i100 = phi i64 [ 0, %arena_get.exit.i98 ], [ %indvars.iv.next.i101, %118 ]
+  %119 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @duckdb_je_bin_infos, i64 0, i64 %indvars.iv.i100, i32 3
+  %120 = load i32, ptr %119, align 4, !tbaa !52
+  %121 = urem i32 %117, %120
+  %122 = trunc nuw i32 %121 to i8
+  %123 = getelementptr inbounds nuw [36 x i8], ptr %116, i64 0, i64 %indvars.iv.i100
+  store i8 %122, ptr %123, align 1, !tbaa !10
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i100, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, 36
-  br i1 %exitcond.not.i102, label %arena_bind.exit103, label %120
+  br i1 %exitcond.not.i102, label %arena_bind.exit103, label %118
 
-arena_bind.exit103:                               ; preds = %120
-  %126 = load atomic i64, ptr @duckdb_je_arenas acquire, align 64
-  %.0.i.i.i104 = inttoptr i64 %126 to ptr
-  %127 = icmp eq i64 %126, 0
-  br i1 %127, label %128, label %arena_bind.exit107, !prof !7
+arena_bind.exit103:                               ; preds = %118
+  %124 = load atomic i64, ptr @duckdb_je_arenas acquire, align 64
+  %.0.i.i.i104 = inttoptr i64 %124 to ptr
+  %125 = icmp eq i64 %124, 0
+  br i1 %125, label %126, label %arena_bind.exit107, !prof !7
 
-128:                                              ; preds = %arena_bind.exit103
+126:                                              ; preds = %arena_bind.exit103
   br label %arena_bind.exit107
 
-arena_bind.exit107:                               ; preds = %arena_bind.exit103, %128
-  %.0.i.i106 = phi ptr [ null, %128 ], [ %.0.i.i.i104, %arena_bind.exit103 ]
+arena_bind.exit107:                               ; preds = %arena_bind.exit103, %126
+  %.0.i.i106 = phi ptr [ null, %126 ], [ %.0.i.i.i104, %arena_bind.exit103 ]
   tail call void @duckdb_je_arena_nthreads_inc(ptr noundef %.0.i.i106, i1 noundef zeroext true) #21
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %.0.i.i106, ptr %129, align 8, !tbaa !47
-  br label %130
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %.0.i.i106, ptr %127, align 8, !tbaa !47
+  br label %128
 
-130:                                              ; preds = %.loopexit, %arena_bind.exit107
+128:                                              ; preds = %.loopexit, %arena_bind.exit107
   %.4 = phi ptr [ %.0.i95, %arena_bind.exit107 ], [ %spec.select75, %.loopexit ]
   ret ptr %.4
 }

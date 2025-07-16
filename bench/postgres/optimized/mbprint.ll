@@ -581,14 +581,14 @@ select.unfold.i:                                  ; preds = %69, %63, %57, %44, 
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
-  %.not22.i = icmp eq ptr %.220.i, %.2.i
-  br i1 %.not22.i, label %mb_utf_validate.exit, label %85
+  %85 = icmp eq ptr %.220.i, %.2.i
+  br i1 %85, label %mb_utf_validate.exit, label %86
 
-85:                                               ; preds = %._crit_edge.i
+86:                                               ; preds = %._crit_edge.i
   store i8 0, ptr %.220.i, align 1
   br label %mb_utf_validate.exit
 
-mb_utf_validate.exit:                             ; preds = %85, %._crit_edge.i, %9, %pg_get_utf8_id.exit
+mb_utf_validate.exit:                             ; preds = %86, %._crit_edge.i, %9, %pg_get_utf8_id.exit
   ret ptr %0
 }
 

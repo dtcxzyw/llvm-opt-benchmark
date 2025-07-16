@@ -938,13 +938,13 @@ if.end:                                           ; preds = %entry
   %agent_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre12 = load ptr, ptr %_M_start.i, align 8
+  %1 = icmp eq ptr %.pre, %.pre12
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end
-  %1 = phi ptr [ %31, %do.cond ], [ %.pre12, %if.end ]
-  %2 = phi ptr [ %30, %do.cond ], [ %.pre, %if.end ]
-  %3 = phi ptr [ %30, %do.cond ], [ %.pre12, %if.end ]
-  %cmp.i.i = icmp eq ptr %2, %3
+  %2 = phi ptr [ %31, %do.cond ], [ %.pre12, %if.end ]
+  %3 = phi ptr [ %30, %do.cond ], [ %.pre, %if.end ]
+  %cmp.i.i = phi i1 [ true, %do.cond ], [ %1, %if.end ]
   br i1 %cmp.i.i, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %do.body
@@ -976,8 +976,8 @@ if.then3:                                         ; preds = %do.body
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %do.body
-  %12 = phi ptr [ %.pre14, %if.then3 ], [ %1, %do.body ]
-  %13 = phi ptr [ %.pre13, %if.then3 ], [ %2, %do.body ]
+  %12 = phi ptr [ %.pre14, %if.then3 ], [ %2, %do.body ]
+  %13 = phi ptr [ %.pre13, %if.then3 ], [ %3, %do.body ]
   %cmp.i.i3 = icmp eq ptr %13, %12
   br i1 %cmp.i.i3, label %do.end, label %while.body
 

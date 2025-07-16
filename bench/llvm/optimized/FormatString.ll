@@ -645,84 +645,75 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgP
   br i1 %.not35.i, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %5
-  %7 = ptrtoint ptr %6 to i64
-  %8 = ptrtoint ptr %4 to i64
-  %9 = sub i64 %8, %7
-  %scevgep.i = getelementptr i8, ptr %6, i64 %9
-  %10 = load i8, ptr %6, align 1, !tbaa !8, !noalias !41
-  %11 = add i8 %10, -48
-  %or.cond.i41 = icmp ult i8 %11, 10
-  br i1 %or.cond.i41, label %.lr.ph, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit
+  %7 = load i8, ptr %6, align 1, !tbaa !8, !noalias !41
+  %8 = add i8 %7, -48
+  %or.cond.i41 = icmp ult i8 %8, 10
+  br i1 %or.cond.i41, label %.lr.ph, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %12 = mul i32 %.01338.i42, 10
-  %13 = add i32 %12, -48
-  %14 = zext nneg i8 %18 to i32
-  %15 = add i32 %13, %14
-  %16 = load i8, ptr %19, align 1, !tbaa !8, !noalias !41
-  %17 = add i8 %16, -48
-  %or.cond.i = icmp ult i8 %17, 10
+  %9 = mul i32 %.01338.i42, 10
+  %10 = add i32 %9, -48
+  %11 = zext nneg i8 %15 to i32
+  %12 = add i32 %10, %11
+  %13 = load i8, ptr %16, align 1, !tbaa !8, !noalias !41
+  %14 = add i8 %13, -48
+  %or.cond.i = icmp ult i8 %14, 10
   br i1 %or.cond.i, label %.lr.ph, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %18 = phi i8 [ %16, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
-  %.02036.i43 = phi ptr [ %19, %.lr.ph.i ], [ %6, %.lr.ph.preheader.i ]
-  %.01338.i42 = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %.02036.i43, i64 1
-  %.not.i = icmp eq ptr %19, %4
-  br i1 %.not.i, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit, label %.lr.ph.i, !llvm.loop !9
+  %15 = phi i8 [ %13, %.lr.ph.i ], [ %7, %.lr.ph.preheader.i ]
+  %.02036.i43 = phi ptr [ %16, %.lr.ph.i ], [ %6, %.lr.ph.preheader.i ]
+  %.01338.i42 = phi i32 [ %12, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %16 = getelementptr inbounds nuw i8, ptr %.02036.i43, i64 1
+  %.not.i = icmp eq ptr %16, %4
+  br i1 %.not.i, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge, label %.lr.ph.i, !llvm.loop !9
 
-_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit: ; preds = %.lr.ph, %.lr.ph.preheader.i
-  %.02033.i = phi ptr [ %6, %.lr.ph.preheader.i ], [ %scevgep.i, %.lr.ph ]
-  %20 = icmp eq ptr %.02033.i, %4
-  br i1 %20, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
-
-_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge: ; preds = %5, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit
+_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge: ; preds = %.lr.ph, %5
   %.pre = ptrtoint ptr %4 to i64
-  %21 = ptrtoint ptr %2 to i64
-  %22 = sub i64 %.pre, %21
-  %23 = trunc i64 %22 to i32
-  %24 = load ptr, ptr %0, align 8, !tbaa !27
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %23) #17
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
+  %17 = ptrtoint ptr %2 to i64
+  %18 = sub i64 %.pre, %17
+  %19 = trunc i64 %18 to i32
+  %20 = load ptr, ptr %0, align 8, !tbaa !27
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %19) #17
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
 
 _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.lr.ph.i
-  %27 = getelementptr inbounds nuw i8, ptr %.02036.i43, i64 2
-  %28 = icmp eq i8 %16, 36
-  br i1 %28, label %29, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
+  %23 = getelementptr inbounds nuw i8, ptr %.02036.i43, i64 2
+  %24 = icmp eq i8 %13, 36
+  br i1 %24, label %25, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
 
-29:                                               ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread
-  %30 = ptrtoint ptr %27 to i64
-  %31 = ptrtoint ptr %2 to i64
-  %32 = sub i64 %30, %31
-  %33 = trunc i64 %32 to i32
-  %34 = load ptr, ptr %0, align 8, !tbaa !27
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %33) #17
-  %37 = icmp eq i32 %15, 0
-  br i1 %37, label %38, label %42
+25:                                               ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread
+  %26 = ptrtoint ptr %23 to i64
+  %27 = ptrtoint ptr %2 to i64
+  %28 = sub i64 %26, %27
+  %29 = trunc i64 %28 to i32
+  %30 = load ptr, ptr %0, align 8, !tbaa !27
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %29) #17
+  %33 = icmp eq i32 %12, 0
+  br i1 %33, label %34, label %38
 
-38:                                               ; preds = %29
-  %39 = load ptr, ptr %0, align 8, !tbaa !27
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %33) #17
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
+34:                                               ; preds = %25
+  %35 = load ptr, ptr %0, align 8, !tbaa !27
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %29) #17
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
 
-42:                                               ; preds = %29
-  %43 = add i32 %15, -1
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  store i32 %43, ptr %44, align 4, !tbaa !44
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i8 1, ptr %45, align 8, !tbaa !50
-  store ptr %27, ptr %3, align 8, !tbaa !3
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
+38:                                               ; preds = %25
+  %39 = add i32 %12, -1
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  store i32 %39, ptr %40, align 4, !tbaa !44
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store i8 1, ptr %41, align 8, !tbaa !50
+  store ptr %23, ptr %3, align 8, !tbaa !3
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
 
-_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52: ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread, %42, %38, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge
-  %.0 = phi i1 [ true, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge ], [ true, %38 ], [ false, %42 ], [ false, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread ], [ false, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit ]
+_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50: ; preds = %.lr.ph.preheader.i, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread, %38, %34, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge
+  %.0 = phi i1 [ true, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge ], [ true, %34 ], [ false, %38 ], [ false, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread ], [ false, %.lr.ph.preheader.i ]
   ret i1 %.0
 }
 

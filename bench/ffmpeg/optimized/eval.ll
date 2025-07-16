@@ -581,7 +581,7 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
   %or.cond = and i1 %5, %6
   %7 = icmp ne i32 %2, 0
   %or.cond3 = and i1 %or.cond, %7
-  br i1 %or.cond3, label %.preheader, label %27
+  br i1 %or.cond3, label %.preheader, label %.critedge42
 
 .preheader:                                       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -592,14 +592,14 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
 .lr.ph.preheader:                                 ; preds = %.preheader
   %10 = load ptr, ptr %8, align 8, !tbaa !15
   %.not38 = icmp eq ptr %10, null
-  br i1 %.not38, label %.critedge, label %.lr.ph40
+  br i1 %.not38, label %.critedge42, label %.lr.ph40
 
 .lr.ph:                                           ; preds = %.lr.ph40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv39, 1
   %11 = getelementptr inbounds nuw [3 x ptr], ptr %8, i64 0, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.critedge, label %.lr.ph40, !llvm.loop !42
+  br i1 %.not, label %.critedge42, label %.lr.ph40, !llvm.loop !42
 
 .lr.ph40:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %12, %.lr.ph ], [ %10, %.lr.ph.preheader ]
@@ -612,18 +612,14 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
   br i1 %or.cond5, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !42
 
 ..critedge_crit_edge:                             ; preds = %.lr.ph40
-  br label %.critedge, !llvm.loop !42
+  %18 = icmp eq i32 %15, %3
+  br i1 %18, label %.critedge.thread, label %.critedge42
 
-.critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
-  %.lcssa = phi i32 [ %15, %..critedge_crit_edge ], [ %9, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %18 = icmp eq i32 %.lcssa, %3
-  br i1 %18, label %.critedge.thread, label %27
-
-.critedge.thread:                                 ; preds = %.preheader, %.critedge
+.critedge.thread:                                 ; preds = %.preheader, %..critedge_crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !43
   %21 = icmp slt i32 %20, %2
-  br i1 %21, label %22, label %27
+  br i1 %21, label %22, label %.critedge42
 
 22:                                               ; preds = %.critedge.thread
   %23 = sext i32 %20 to i64
@@ -631,10 +627,10 @@ define internal fastcc range(i32 -22, 1) i32 @expr_count(ptr noundef readonly ca
   %25 = load i32, ptr %24, align 4, !tbaa !44
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !44
-  br label %27
+  br label %.critedge42
 
-27:                                               ; preds = %.critedge, %.critedge.thread, %22, %4
-  %.025 = phi i32 [ -22, %4 ], [ 0, %22 ], [ 0, %.critedge.thread ], [ 0, %.critedge ]
+.critedge42:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge_crit_edge, %.critedge.thread, %22, %4
+  %.025 = phi i32 [ -22, %4 ], [ 0, %22 ], [ 0, %.critedge.thread ], [ 0, %..critedge_crit_edge ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph ]
   ret i32 %.025
 }
 

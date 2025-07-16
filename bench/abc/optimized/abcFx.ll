@@ -2940,25 +2940,20 @@ define range(i32 -1073741824, 1073741824) i32 @Fx_ManCubeSingleCubeDivisors(ptr 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %16
 
-.critedge2.loopexit.loopexit:                     ; preds = %154
+.critedge2.loopexit:                              ; preds = %154
   %.pre87 = sext i32 %.val49 to i64
-  br label %.critedge2.loopexit
-
-.critedge2.loopexit:                              ; preds = %.critedge2.loopexit.loopexit, %16
-  %.pre-phi = phi i64 [ %.pre87, %.critedge2.loopexit.loopexit ], [ %17, %16 ]
-  %.val50 = phi i32 [ %.val49, %.critedge2.loopexit.loopexit ], [ %.val5084, %16 ]
-  %15 = icmp slt i64 %indvars.iv.next78, %.pre-phi
+  %15 = icmp slt i64 %indvars.iv.next78, %.pre87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %15, label %16, label %.critedge, !llvm.loop !129
 
 16:                                               ; preds = %.lr.ph72, %.critedge2.loopexit
-  %.val5084 = phi i32 [ %.val51, %.lr.ph72 ], [ %.val50, %.critedge2.loopexit ]
+  %.val5084 = phi i32 [ %.val51, %.lr.ph72 ], [ %.val49, %.critedge2.loopexit ]
   %indvars.iv77 = phi i64 [ 1, %.lr.ph72 ], [ %indvars.iv.next78, %.critedge2.loopexit ]
   %indvars.iv = phi i64 [ 2, %.lr.ph72 ], [ %indvars.iv.next, %.critedge2.loopexit ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %17 = sext i32 %.val5084 to i64
   %18 = icmp slt i64 %indvars.iv.next78, %17
-  br i1 %18, label %.lr.ph, label %.critedge2.loopexit
+  br i1 %18, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %16
   %.val53 = load ptr, ptr %7, align 8, !tbaa !38
@@ -3200,18 +3195,18 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
   br label %134
 
 134:                                              ; preds = %Vec_IntPush.exit63, %81, %Vec_FltPush.exit
-  %.sink93 = phi ptr [ %.pre82, %Vec_FltPush.exit ], [ %80, %81 ], [ %80, %Vec_IntPush.exit63 ]
-  %.sink91 = phi float [ 1.000000e+00, %Vec_FltPush.exit ], [ 1.000000e+00, %81 ], [ -1.000000e+00, %Vec_IntPush.exit63 ]
-  %.sink88 = phi i32 [ 1, %Vec_FltPush.exit ], [ 1, %81 ], [ -1, %Vec_IntPush.exit63 ]
-  %135 = getelementptr i8, ptr %.sink93, i64 8
+  %.sink97 = phi ptr [ %.pre82, %Vec_FltPush.exit ], [ %80, %81 ], [ %80, %Vec_IntPush.exit63 ]
+  %.sink95 = phi float [ 1.000000e+00, %Vec_FltPush.exit ], [ 1.000000e+00, %81 ], [ -1.000000e+00, %Vec_IntPush.exit63 ]
+  %.sink92 = phi i32 [ 1, %Vec_FltPush.exit ], [ 1, %81 ], [ -1, %Vec_IntPush.exit63 ]
+  %135 = getelementptr i8, ptr %.sink97, i64 8
   %.val56 = load ptr, ptr %135, align 8, !tbaa !110
   %136 = sext i32 %79 to i64
   %137 = getelementptr inbounds float, ptr %.val56, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !87
-  %139 = fadd float %138, %.sink91
+  %139 = fadd float %138, %.sink95
   store float %139, ptr %137, align 4, !tbaa !87
   %140 = load i32, ptr %11, align 8, !tbaa !133
-  %141 = add nsw i32 %140, %.sink88
+  %141 = add nsw i32 %140, %.sink92
   store i32 %141, ptr %11, align 8, !tbaa !133
   br i1 %.not46, label %154, label %142
 
@@ -3246,11 +3241,12 @@ Vec_QueIsMember.exit.thread:                      ; preds = %142, %Vec_QueIsMemb
   %.val49 = load i32, ptr %5, align 4, !tbaa !36
   %155 = trunc nuw i64 %indvars.iv.next75 to i32
   %156 = icmp sgt i32 %.val49, %155
-  br i1 %156, label %23, label %.critedge2.loopexit.loopexit, !llvm.loop !135
+  br i1 %156, label %23, label %.critedge2.loopexit, !llvm.loop !135
 
-.critedge:                                        ; preds = %.critedge2.loopexit
-  %157 = add nsw i32 %.val50, -1
-  %158 = mul nsw i32 %157, %.val50
+.critedge:                                        ; preds = %.critedge2.loopexit, %16
+  %.val5091 = phi i32 [ %.val49, %.critedge2.loopexit ], [ %.val5084, %16 ]
+  %157 = add nsw i32 %.val5091, -1
+  %158 = mul nsw i32 %157, %.val5091
   %159 = sdiv i32 %158, 2
   br label %160
 

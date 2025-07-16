@@ -608,7 +608,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %10 = alloca [7 x i64], align 16
   %11 = alloca [7 x i8], align 1
   %12 = icmp sgt i32 %5, 0
-  br i1 %12, label %.lr.ph.i, label %.critedge.i
+  br i1 %12, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %9, %37
   %.051.i = phi i32 [ %.1.i, %37 ], [ 0, %9 ]
@@ -661,32 +661,34 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %38 = icmp slt i32 %.144.i, %5
   br i1 %38, label %.lr.ph.i, label %.critedge.i, !llvm.loop !7
 
-.critedge.i:                                      ; preds = %37, %.lr.ph.i, %9
-  %.043.lcssa.i = phi i32 [ 0, %9 ], [ %.04348.i, %.lr.ph.i ], [ %.144.i, %37 ]
-  %.040.lcssa.i = phi i32 [ 0, %9 ], [ %.04049.i, %.lr.ph.i ], [ %.141.i, %37 ]
-  %.037.lcssa.i = phi i32 [ 0, %9 ], [ %.03750.i, %.lr.ph.i ], [ %.138.i, %37 ]
-  %.0.lcssa.i = phi i32 [ 0, %9 ], [ %.051.i, %.lr.ph.i ], [ %.1.i, %37 ]
-  %39 = icmp slt i32 %.043.lcssa.i, %5
-  br i1 %39, label %.lr.ph62.preheader.i, label %.preheader.i
+.critedge.i:                                      ; preds = %37, %.lr.ph.i
+  %.043.lcssa.ph.i = phi i32 [ %.04348.i, %.lr.ph.i ], [ %.144.i, %37 ]
+  %.040.lcssa.ph.i = phi i32 [ %.04049.i, %.lr.ph.i ], [ %.141.i, %37 ]
+  %.037.lcssa.ph.i = phi i32 [ %.03750.i, %.lr.ph.i ], [ %.138.i, %37 ]
+  %.0.lcssa.ph.i = phi i32 [ %.051.i, %.lr.ph.i ], [ %.1.i, %37 ]
+  %39 = icmp slt i32 %.043.lcssa.ph.i, %5
+  br i1 %39, label %.lr.ph62.i.preheader, label %.preheader.i
 
-.lr.ph62.preheader.i:                             ; preds = %.critedge.i
-  %40 = sext i32 %.043.lcssa.i to i64
-  %41 = sext i32 %5 to i64
+.lr.ph62.i.preheader:                             ; preds = %.critedge.i
+  %40 = sext i32 %.043.lcssa.ph.i to i64
+  %41 = zext nneg i32 %5 to i64
   br label %.lr.ph62.i
 
-.preheader.i:                                     ; preds = %.lr.ph62.i, %.critedge.i
-  %.239.lcssa.i = phi i32 [ %.037.lcssa.i, %.critedge.i ], [ %47, %.lr.ph62.i ]
-  %42 = icmp slt i32 %.040.lcssa.i, %7
+.preheader.i:                                     ; preds = %.lr.ph62.i, %.critedge.i, %9
+  %.0.lcssa78.i = phi i32 [ %.0.lcssa.ph.i, %.critedge.i ], [ 0, %9 ], [ %.0.lcssa.ph.i, %.lr.ph62.i ]
+  %.040.lcssa77.i = phi i32 [ %.040.lcssa.ph.i, %.critedge.i ], [ 0, %9 ], [ %.040.lcssa.ph.i, %.lr.ph62.i ]
+  %.239.lcssa.i = phi i32 [ %.037.lcssa.ph.i, %.critedge.i ], [ 0, %9 ], [ %47, %.lr.ph62.i ]
+  %42 = icmp slt i32 %.040.lcssa77.i, %7
   br i1 %42, label %.lr.ph66.preheader.i, label %getOidListDiff.exit
 
 .lr.ph66.preheader.i:                             ; preds = %.preheader.i
-  %43 = sext i32 %.040.lcssa.i to i64
+  %43 = sext i32 %.040.lcssa77.i to i64
   %44 = sext i32 %7 to i64
   br label %.lr.ph66.i
 
-.lr.ph62.i:                                       ; preds = %.lr.ph62.i, %.lr.ph62.preheader.i
-  %indvars.iv.i = phi i64 [ %40, %.lr.ph62.preheader.i ], [ %indvars.iv.next.i, %.lr.ph62.i ]
-  %.23961.i = phi i32 [ %.037.lcssa.i, %.lr.ph62.preheader.i ], [ %47, %.lr.ph62.i ]
+.lr.ph62.i:                                       ; preds = %.lr.ph62.i.preheader, %.lr.ph62.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph62.i ], [ %40, %.lr.ph62.i.preheader ]
+  %.23961.i = phi i32 [ %47, %.lr.ph62.i ], [ %.037.lcssa.ph.i, %.lr.ph62.i.preheader ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %45 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4
@@ -699,7 +701,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
 
 .lr.ph66.i:                                       ; preds = %.lr.ph66.i, %.lr.ph66.preheader.i
   %indvars.iv70.i = phi i64 [ %43, %.lr.ph66.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph66.i ]
-  %.265.i = phi i32 [ %.0.lcssa.i, %.lr.ph66.preheader.i ], [ %52, %.lr.ph66.i ]
+  %.265.i = phi i32 [ %.0.lcssa78.i, %.lr.ph66.preheader.i ], [ %52, %.lr.ph66.i ]
   %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, 1
   %50 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv70.i
   %51 = load i32, ptr %50, align 4
@@ -711,7 +713,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   br i1 %exitcond58.not, label %getOidListDiff.exit, label %.lr.ph66.i, !llvm.loop !9
 
 getOidListDiff.exit:                              ; preds = %.lr.ph66.i, %.preheader.i
-  %.2.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %52, %.lr.ph66.i ]
+  %.2.lcssa.i = phi i32 [ %.0.lcssa78.i, %.preheader.i ], [ %52, %.lr.ph66.i ]
   %55 = icmp sgt i32 %.239.lcssa.i, 0
   %56 = icmp sgt i32 %.2.lcssa.i, 0
   %or.cond = select i1 %55, i1 true, i1 %56

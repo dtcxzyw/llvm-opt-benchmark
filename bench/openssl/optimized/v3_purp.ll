@@ -1214,7 +1214,7 @@ select.unfold81:                                  ; preds = %64, %60
 
 66:                                               ; preds = %X509_PURPOSE_get_by_id.exit75.thread, %X509_PURPOSE_get0.exit, %48
   %.0.i77 = phi i32 [ -1, %48 ], [ %58, %X509_PURPOSE_get0.exit ], [ %58, %X509_PURPOSE_get_by_id.exit75.thread ]
-  %.052 = phi i32 [ 0, %48 ], [ %0, %X509_PURPOSE_get0.exit ], [ %59, %X509_PURPOSE_get_by_id.exit75.thread ]
+  %.052 = phi i1 [ false, %48 ], [ true, %X509_PURPOSE_get0.exit ], [ false, %X509_PURPOSE_get_by_id.exit75.thread ]
   %.0 = phi ptr [ %46, %48 ], [ %.0.i69, %X509_PURPOSE_get0.exit ], [ %.0.i69, %X509_PURPOSE_get_by_id.exit75.thread ]
   %67 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !82
@@ -1277,8 +1277,7 @@ select.unfold81:                                  ; preds = %64, %60
   br i1 %.not66, label %.thread.sink.split, label %107
 
 100:                                              ; preds = %83
-  %.not65 = icmp eq i32 %0, %.052
-  br i1 %.not65, label %107, label %101
+  br i1 %.052, label %107, label %101
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr @xptable, align 8, !tbaa !3

@@ -1546,7 +1546,7 @@ find_copy_in_blob.exit.i.i:                       ; preds = %.lr.ph.i265.i
   %435 = getelementptr inbounds nuw i8, ptr %.02358.i.i, i64 16
   %436 = load ptr, ptr %435, align 8, !tbaa !48
   %.not.i.i.i.i.i = icmp eq ptr %436, null
-  br i1 %.not.i.i.i.i.i, label %442, label %437
+  br i1 %.not.i.i.i.i.i, label %443, label %437
 
 437:                                              ; preds = %434
   %438 = load i32, ptr %436, align 8, !tbaa !23
@@ -1555,32 +1555,32 @@ find_copy_in_blob.exit.i.i:                       ; preds = %.lr.ph.i265.i
   %.pre69.i.i.i.i = load i32, ptr %422, align 8, !tbaa !49
   %.pre.pre.i.i.i = load i32, ptr %401, align 4, !tbaa !50
   %.pre63.i.i = add nsw i32 %.pre.pre.i.i.i, %.pre69.i.i.i.i
-  br label %442
+  %440 = icmp slt i32 %432, %.pre63.i.i
+  br label %443
 
 .thread.i.i:                                      ; preds = %430
-  %440 = load i32, ptr %392, align 8, !tbaa !35
-  store i32 %440, ptr %59, align 16, !tbaa !35
-  %441 = sub i32 %419, %417
-  store i32 %441, ptr %64, align 16, !tbaa !49
+  %441 = load i32, ptr %392, align 8, !tbaa !35
+  store i32 %441, ptr %59, align 16, !tbaa !35
+  %442 = sub i32 %419, %417
+  store i32 %442, ptr %64, align 16, !tbaa !49
   br label %460
 
-442:                                              ; preds = %437, %434
-  %.pre62.pre-phi.i.i = phi i32 [ %.pre63.i.i, %437 ], [ %432, %434 ]
+443:                                              ; preds = %437, %434
+  %.pre62.pre-phi.i.i = phi i1 [ %440, %437 ], [ false, %434 ]
   %.pre.i.i283.i = phi i32 [ %.pre.pre.i.i.i, %437 ], [ %420, %434 ]
-  %443 = phi i32 [ %.pre69.i.i.i.i, %437 ], [ %423, %434 ]
+  %444 = phi i32 [ %.pre69.i.i.i.i, %437 ], [ %423, %434 ]
   store ptr %436, ptr %60, align 16, !tbaa !48
-  %444 = load i32, ptr %392, align 8, !tbaa !35
-  store i32 %444, ptr %61, align 8, !tbaa !35
-  store i32 %443, ptr %62, align 8, !tbaa !49
-  %445 = sub i32 %431, %443
-  store i32 %445, ptr %63, align 4, !tbaa !50
-  %446 = add i32 %444, %445
-  store i32 %446, ptr %59, align 16, !tbaa !35
+  %445 = load i32, ptr %392, align 8, !tbaa !35
+  store i32 %445, ptr %61, align 8, !tbaa !35
+  store i32 %444, ptr %62, align 8, !tbaa !49
+  %446 = sub i32 %431, %444
+  store i32 %446, ptr %63, align 4, !tbaa !50
+  %447 = add i32 %445, %446
+  store i32 %447, ptr %59, align 16, !tbaa !35
   store i32 %419, ptr %64, align 16, !tbaa !49
-  %447 = icmp slt i32 %432, %.pre62.pre-phi.i.i
-  br i1 %447, label %448, label %460
+  br i1 %.pre62.pre-phi.i.i, label %448, label %460
 
-448:                                              ; preds = %442
+448:                                              ; preds = %443
   %449 = load ptr, ptr %435, align 8, !tbaa !48
   %.not.i60.i.i.i.i = icmp eq ptr %449, null
   br i1 %.not.i60.i.i.i.i, label %blame_origin_incref.exit61.i.i.i.i, label %450
@@ -1595,9 +1595,9 @@ find_copy_in_blob.exit.i.i:                       ; preds = %.lr.ph.i265.i
   br label %blame_origin_incref.exit61.i.i.i.i
 
 blame_origin_incref.exit61.i.i.i.i:               ; preds = %450, %448
-  %453 = phi i32 [ %444, %448 ], [ %.pre19.i.i.i, %450 ]
+  %453 = phi i32 [ %445, %448 ], [ %.pre19.i.i.i, %450 ]
   %454 = phi i32 [ %.pre.i.i283.i, %448 ], [ %.pre71.i.i.i.i, %450 ]
-  %455 = phi i32 [ %443, %448 ], [ %.pre70.i.i.i.i, %450 ]
+  %455 = phi i32 [ %444, %448 ], [ %.pre70.i.i.i.i, %450 ]
   store ptr %449, ptr %65, align 16, !tbaa !48
   %456 = sub nsw i32 %432, %455
   %457 = add nsw i32 %456, %453
@@ -1608,15 +1608,15 @@ blame_origin_incref.exit61.i.i.i.i:               ; preds = %450, %448
   store i32 %459, ptr %68, align 4, !tbaa !50
   br label %465
 
-460:                                              ; preds = %442, %.thread.i.i
-  %461 = phi i32 [ %440, %.thread.i.i ], [ %446, %442 ]
-  %462 = phi i32 [ %420, %.thread.i.i ], [ %.pre.i.i283.i, %442 ]
-  %463 = phi i32 [ %440, %.thread.i.i ], [ %444, %442 ]
+460:                                              ; preds = %443, %.thread.i.i
+  %461 = phi i32 [ %441, %.thread.i.i ], [ %447, %443 ]
+  %462 = phi i32 [ %420, %.thread.i.i ], [ %.pre.i.i283.i, %443 ]
+  %463 = phi i32 [ %441, %.thread.i.i ], [ %445, %443 ]
   %464 = add nsw i32 %463, %462
   br label %465
 
 465:                                              ; preds = %460, %blame_origin_incref.exit61.i.i.i.i
-  %466 = phi i32 [ %446, %blame_origin_incref.exit61.i.i.i.i ], [ %461, %460 ]
+  %466 = phi i32 [ %447, %blame_origin_incref.exit61.i.i.i.i ], [ %461, %460 ]
   %.057.i.i.i.i = phi i32 [ %457, %blame_origin_incref.exit61.i.i.i.i ], [ %464, %460 ]
   %467 = sub nsw i32 %.057.i.i.i.i, %466
   store i32 %467, ptr %69, align 4, !tbaa !50
@@ -2803,7 +2803,7 @@ find_copy_in_blob.exit.i357.i:                    ; preds = %.lr.ph184.i.i
   %925 = getelementptr inbounds nuw i8, ptr %881, i64 16
   %926 = load ptr, ptr %925, align 8, !tbaa !48
   %.not.i.i.i.i398.i = icmp eq ptr %926, null
-  br i1 %.not.i.i.i.i398.i, label %932, label %927
+  br i1 %.not.i.i.i.i398.i, label %933, label %927
 
 927:                                              ; preds = %924
   %928 = load i32, ptr %926, align 8, !tbaa !23
@@ -2812,32 +2812,32 @@ find_copy_in_blob.exit.i357.i:                    ; preds = %.lr.ph184.i.i
   %.pre69.i.i.i399.i = load i32, ptr %912, align 8, !tbaa !49
   %.pre.pre.i.i400.i = load i32, ptr %891, align 4, !tbaa !50
   %.pre215.i.i = add nsw i32 %.pre.pre.i.i400.i, %.pre69.i.i.i399.i
-  br label %932
+  %930 = icmp slt i32 %922, %.pre215.i.i
+  br label %933
 
 .thread.i393.i:                                   ; preds = %920
-  %930 = load i32, ptr %882, align 8, !tbaa !35
-  store i32 %930, ptr %93, align 16, !tbaa !35
-  %931 = sub i32 %909, %907
-  store i32 %931, ptr %98, align 16, !tbaa !49
+  %931 = load i32, ptr %882, align 8, !tbaa !35
+  store i32 %931, ptr %93, align 16, !tbaa !35
+  %932 = sub i32 %909, %907
+  store i32 %932, ptr %98, align 16, !tbaa !49
   br label %949
 
-932:                                              ; preds = %927, %924
-  %.pre214.pre-phi.i.i = phi i32 [ %.pre215.i.i, %927 ], [ %922, %924 ]
+933:                                              ; preds = %927, %924
+  %.pre214.pre-phi.i.i = phi i1 [ %930, %927 ], [ false, %924 ]
   %.pre.i.i401.i = phi i32 [ %.pre.pre.i.i400.i, %927 ], [ %910, %924 ]
-  %933 = phi i32 [ %.pre69.i.i.i399.i, %927 ], [ %913, %924 ]
+  %934 = phi i32 [ %.pre69.i.i.i399.i, %927 ], [ %913, %924 ]
   store ptr %926, ptr %94, align 16, !tbaa !48
-  %934 = load i32, ptr %882, align 8, !tbaa !35
-  store i32 %934, ptr %95, align 8, !tbaa !35
-  store i32 %933, ptr %96, align 8, !tbaa !49
-  %935 = sub i32 %921, %933
-  store i32 %935, ptr %97, align 4, !tbaa !50
-  %936 = add i32 %934, %935
-  store i32 %936, ptr %93, align 16, !tbaa !35
+  %935 = load i32, ptr %882, align 8, !tbaa !35
+  store i32 %935, ptr %95, align 8, !tbaa !35
+  store i32 %934, ptr %96, align 8, !tbaa !49
+  %936 = sub i32 %921, %934
+  store i32 %936, ptr %97, align 4, !tbaa !50
+  %937 = add i32 %935, %936
+  store i32 %937, ptr %93, align 16, !tbaa !35
   store i32 %909, ptr %98, align 16, !tbaa !49
-  %937 = icmp slt i32 %922, %.pre214.pre-phi.i.i
-  br i1 %937, label %938, label %949
+  br i1 %.pre214.pre-phi.i.i, label %938, label %949
 
-938:                                              ; preds = %932
+938:                                              ; preds = %933
   br i1 %.not.i.i.i.i398.i, label %blame_origin_incref.exit61.i.i.i406.i, label %939
 
 939:                                              ; preds = %938
@@ -2850,9 +2850,9 @@ find_copy_in_blob.exit.i357.i:                    ; preds = %.lr.ph184.i.i
   br label %blame_origin_incref.exit61.i.i.i406.i
 
 blame_origin_incref.exit61.i.i.i406.i:            ; preds = %939, %938
-  %942 = phi i32 [ %934, %938 ], [ %.pre19.i.i405.i, %939 ]
+  %942 = phi i32 [ %935, %938 ], [ %.pre19.i.i405.i, %939 ]
   %943 = phi i32 [ %.pre.i.i401.i, %938 ], [ %.pre71.i.i.i404.i, %939 ]
-  %944 = phi i32 [ %933, %938 ], [ %.pre70.i.i.i403.i, %939 ]
+  %944 = phi i32 [ %934, %938 ], [ %.pre70.i.i.i403.i, %939 ]
   store ptr %926, ptr %99, align 16, !tbaa !48
   %945 = sub nsw i32 %922, %944
   %946 = add nsw i32 %945, %942
@@ -2863,15 +2863,15 @@ blame_origin_incref.exit61.i.i.i406.i:            ; preds = %939, %938
   store i32 %948, ptr %102, align 4, !tbaa !50
   br label %953
 
-949:                                              ; preds = %932, %.thread.i393.i
-  %.pre72.pre.i.i225.i.i = phi i32 [ %930, %.thread.i393.i ], [ %936, %932 ]
-  %950 = phi i32 [ %910, %.thread.i393.i ], [ %.pre.i.i401.i, %932 ]
-  %951 = phi i32 [ %930, %.thread.i393.i ], [ %934, %932 ]
+949:                                              ; preds = %933, %.thread.i393.i
+  %.pre72.pre.i.i225.i.i = phi i32 [ %931, %.thread.i393.i ], [ %937, %933 ]
+  %950 = phi i32 [ %910, %.thread.i393.i ], [ %.pre.i.i401.i, %933 ]
+  %951 = phi i32 [ %931, %.thread.i393.i ], [ %935, %933 ]
   %952 = add nsw i32 %951, %950
   br label %953
 
 953:                                              ; preds = %949, %blame_origin_incref.exit61.i.i.i406.i
-  %.pre72.pre.i.i224.i.i = phi i32 [ %936, %blame_origin_incref.exit61.i.i.i406.i ], [ %.pre72.pre.i.i225.i.i, %949 ]
+  %.pre72.pre.i.i224.i.i = phi i32 [ %937, %blame_origin_incref.exit61.i.i.i406.i ], [ %.pre72.pre.i.i225.i.i, %949 ]
   %.057.i.i.i394.i = phi i32 [ %946, %blame_origin_incref.exit61.i.i.i406.i ], [ %952, %949 ]
   %954 = sub nsw i32 %.057.i.i.i394.i, %.pre72.pre.i.i224.i.i
   store i32 %954, ptr %103, align 4, !tbaa !50

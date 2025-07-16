@@ -12934,7 +12934,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
 
 "_ZN70_$LT$serde..de..impls..StringVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h0bf14696f3f3c522E.exit": ; preds = %44
   %54 = load ptr, ptr %51, align 8, !noalias !2325, !nonnull !3, !noundef !3
-  %55 = icmp uge i64 %50, %.sroa.46.0.i
+  %55 = icmp ule i64 %.sroa.46.0.i, %50
   tail call void @llvm.assume(i1 %55)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2325
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %.sroa.04.0.i, i64 %.sroa.46.0.i, i1 false), !noalias !2333

@@ -1143,7 +1143,7 @@ define internal fastcc void @perform_base_backup(ptr noundef nonnull readonly ca
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load i32, ptr %90, align 4
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph356, label %._crit_edge256
+  br i1 %96, label %.lr.ph353, label %._crit_edge256
 
 ._crit_edge256:                                   ; preds = %156, %.lr.ph255, %84
   call void @basebackup_progress_wait_wal_archive(ptr noundef nonnull %10) #19
@@ -1167,17 +1167,17 @@ define internal fastcc void @perform_base_backup(ptr noundef nonnull readonly ca
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %161, label %369
 
-.lr.ph356:                                        ; preds = %.lr.ph255, %156
-  %indvars.iv296355 = phi i64 [ %indvars.iv.next297, %156 ], [ 0, %.lr.ph255 ]
+.lr.ph353:                                        ; preds = %.lr.ph255, %156
+  %indvars.iv296352 = phi i64 [ %indvars.iv.next297, %156 ], [ 0, %.lr.ph255 ]
   %108 = load ptr, ptr %91, align 8
-  %109 = getelementptr inbounds nuw %union.ListCell, ptr %108, i64 %indvars.iv296355
+  %109 = getelementptr inbounds nuw %union.ListCell, ptr %108, i64 %indvars.iv296352
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %133
 
-114:                                              ; preds = %.lr.ph356
+114:                                              ; preds = %.lr.ph353
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13) #19
   %115 = load ptr, ptr %1, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -1216,7 +1216,7 @@ define internal fastcc void @perform_base_backup(ptr noundef nonnull readonly ca
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13) #19
   br label %142
 
-133:                                              ; preds = %.lr.ph356
+133:                                              ; preds = %.lr.ph353
   %134 = load i32, ptr %110, align 8
   %135 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.43, i32 noundef %134) #19
   %136 = load ptr, ptr %1, align 8
@@ -1252,11 +1252,11 @@ define internal fastcc void @perform_base_backup(ptr noundef nonnull readonly ca
   br label %156
 
 156:                                              ; preds = %145, %148
-  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296355, 1
+  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296352, 1
   %157 = load i32, ptr %90, align 4
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next297, %158
-  br i1 %159, label %.lr.ph356, label %._crit_edge256
+  br i1 %159, label %.lr.ph353, label %._crit_edge256
 
 160:                                              ; preds = %3
   store ptr %45, ptr @PG_exception_stack, align 8
@@ -1485,7 +1485,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %187, %IsXLogFileNam
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.perform_base_backup) #19
   unreachable
 
-.preheader:                                       ; preds = %342, %._crit_edge269.thread, %.preheader234
+.preheader:                                       ; preds = %split.thread, %._crit_edge269.thread, %.preheader234
   %.not199 = icmp eq ptr %.0166.lcssa, null
   br i1 %.not199, label %._crit_edge276, label %.lr.ph275
 
@@ -1496,8 +1496,8 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %187, %IsXLogFileNam
   %273 = icmp sgt i32 %272, 0
   br i1 %273, label %.lr.ph279, label %._crit_edge276
 
-274:                                              ; preds = %.lr.ph273, %342
-  %indvars.iv302 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next303, %342 ]
+274:                                              ; preds = %.lr.ph273, %split.thread
+  %indvars.iv302 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next303, %split.thread ]
   %275 = load ptr, ptr %220, align 8
   %276 = getelementptr inbounds nuw %union.ListCell, ptr %275, i64 %indvars.iv302
   %277 = load ptr, ptr %276, align 8
@@ -1594,12 +1594,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %187, %IsXLogFileNam
 
 basebackup_read_file.exit:                        ; preds = %314
   %.not205 = icmp eq i64 %321, 0
-  br i1 %.not205, label %basebackup_read_file.exit._crit_edge, label %328
-
-basebackup_read_file.exit._crit_edge:             ; preds = %basebackup_read_file.exit
-  %.pre308 = load i32, ptr @wal_segment_size, align 4
-  %.pre309 = sext i32 %.pre308 to i64
-  br label %split
+  br i1 %.not205, label %split, label %328
 
 328:                                              ; preds = %basebackup_read_file.exit
   %329 = load i32, ptr %18, align 4
@@ -1612,25 +1607,25 @@ basebackup_read_file.exit._crit_edge:             ; preds = %basebackup_read_fil
   %334 = load i32, ptr @wal_segment_size, align 4
   %335 = sext i32 %334 to i64
   %336 = icmp eq i64 %333, %335
-  br i1 %336, label %split, label %314, !llvm.loop !9
+  br i1 %336, label %split.thread, label %314, !llvm.loop !9
 
-split:                                            ; preds = %328, %basebackup_read_file.exit._crit_edge
-  %.pre-phi = phi i64 [ %.pre309, %basebackup_read_file.exit._crit_edge ], [ %335, %328 ]
-  %.1165 = phi i64 [ %.0164, %basebackup_read_file.exit._crit_edge ], [ %333, %328 ]
-  %.not206 = icmp eq i64 %.1165, %.pre-phi
-  br i1 %.not206, label %342, label %337
+split:                                            ; preds = %basebackup_read_file.exit
+  %.pre308 = load i32, ptr @wal_segment_size, align 4
+  %.pre309 = sext i32 %.pre308 to i64
+  %337 = icmp eq i64 %.0164, %.pre309
+  br i1 %337, label %split.thread, label %338
 
-337:                                              ; preds = %split
-  %338 = load i32, ptr %18, align 4
-  call void @CheckXLogRemoved(i64 noundef %288, i32 noundef %338) #19
-  %339 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  call void @llvm.assume(i1 %339)
-  %340 = call i32 @errcode_for_file_access() #19
-  %341 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef %277) #19
+338:                                              ; preds = %split
+  %339 = load i32, ptr %18, align 4
+  call void @CheckXLogRemoved(i64 noundef %288, i32 noundef %339) #19
+  %340 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  call void @llvm.assume(i1 %340)
+  %341 = call i32 @errcode_for_file_access() #19
+  %342 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef %277) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 587, ptr noundef nonnull @__func__.perform_base_backup) #19
   unreachable
 
-342:                                              ; preds = %split
+split.thread:                                     ; preds = %328, %split
   %343 = call i32 @CloseTransientFile(i32 noundef %289) #19
   %344 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.113, ptr noundef %277, ptr noundef nonnull @.str.50) #19
   call fastcc void @sendFileWithContent(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull @.str.51, ptr noundef %11)

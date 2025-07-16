@@ -1232,64 +1232,67 @@ define dso_local i32 @_ZNK8V3HasherclEP7AstNode(ptr noundef nonnull readnone ali
   %10 = and i64 %9, 4294967295
   %.not4 = icmp eq i64 %10, 0
   %.not = select i1 %7, i1 true, i1 %.not4
-  br i1 %.not, label %11, label %_ZN13HasherVisitorD2Ev.exit
+  br i1 %.not, label %12, label %_ZN13HasherVisitorD2Ev.exit.thread
 
-11:                                               ; preds = %2
+_ZN13HasherVisitorD2Ev.exit.thread:               ; preds = %2
+  %11 = trunc i64 %9 to i32
+  br label %33
+
+12:                                               ; preds = %2
   store ptr getelementptr inbounds nuw inrange(-16, 3736) (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %3, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !23
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %13, align 4, !tbaa !25
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %14, align 8, !tbaa !38
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %15, align 8, !tbaa !39
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %14, ptr %16, align 8, !tbaa !40
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %14, ptr %17, align 8, !tbaa !41
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 0, ptr %18, align 8, !tbaa !42
-  %19 = load ptr, ptr %1, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 288
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(64) %3)
-          to label %_ZN13HasherVisitorC2EP7AstNode.exit unwind label %22
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %13, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %14, align 4, !tbaa !25
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 0, ptr %15, align 8, !tbaa !38
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %16, align 8, !tbaa !39
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr %15, ptr %17, align 8, !tbaa !40
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr %15, ptr %18, align 8, !tbaa !41
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i64 0, ptr %19, align 8, !tbaa !42
+  %20 = load ptr, ptr %1, align 8, !tbaa !21
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 288
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(64) %3)
+          to label %_ZN13HasherVisitorC2EP7AstNode.exit unwind label %23
 
-22:                                               ; preds = %11
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %12
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @_ZNSt3setIP7AstNodeSt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %24) #19
-  resume { ptr, i32 } %23
-
-_ZN13HasherVisitorC2EP7AstNode.exit:              ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %26 = load ptr, ptr %15, align 8, !tbaa !39
-  invoke void @_ZNSt8_Rb_treeIP7AstNodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef %26)
-          to label %_ZN13HasherVisitorC2EP7AstNode.exit._ZN13HasherVisitorD2Ev.exit_crit_edge unwind label %27
+  call void @_ZNSt3setIP7AstNodeSt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %25) #19
+  resume { ptr, i32 } %24
 
-_ZN13HasherVisitorC2EP7AstNode.exit._ZN13HasherVisitorD2Ev.exit_crit_edge: ; preds = %_ZN13HasherVisitorC2EP7AstNode.exit
+_ZN13HasherVisitorC2EP7AstNode.exit:              ; preds = %12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %27 = load ptr, ptr %16, align 8, !tbaa !39
+  invoke void @_ZNSt8_Rb_treeIP7AstNodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef %27)
+          to label %_ZN13HasherVisitorD2Ev.exit unwind label %28
+
+28:                                               ; preds = %_ZN13HasherVisitorC2EP7AstNode.exit
+  %29 = landingpad { ptr, i32 }
+          catch ptr null
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #20
+  unreachable
+
+_ZN13HasherVisitorD2Ev.exit:                      ; preds = %_ZN13HasherVisitorC2EP7AstNode.exit
   %.pre = load i32, ptr %4, align 4, !tbaa !4
   %.pre5 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4, !tbaa !20
   %.pre6 = load i64, ptr %8, align 8
-  br label %_ZN13HasherVisitorD2Ev.exit
+  %31 = icmp eq i32 %.pre, %.pre5
+  %32 = trunc i64 %.pre6 to i32
+  %cond.fr = freeze i1 %31
+  %spec.select = select i1 %cond.fr, i32 %32, i32 0
+  br label %33
 
-27:                                               ; preds = %_ZN13HasherVisitorC2EP7AstNode.exit
-  %28 = landingpad { ptr, i32 }
-          catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #20
-  unreachable
-
-_ZN13HasherVisitorD2Ev.exit:                      ; preds = %_ZN13HasherVisitorC2EP7AstNode.exit._ZN13HasherVisitorD2Ev.exit_crit_edge, %2
-  %30 = phi i64 [ %.pre6, %_ZN13HasherVisitorC2EP7AstNode.exit._ZN13HasherVisitorD2Ev.exit_crit_edge ], [ %9, %2 ]
-  %31 = phi i32 [ %.pre5, %_ZN13HasherVisitorC2EP7AstNode.exit._ZN13HasherVisitorD2Ev.exit_crit_edge ], [ %5, %2 ]
-  %32 = phi i32 [ %.pre, %_ZN13HasherVisitorC2EP7AstNode.exit._ZN13HasherVisitorD2Ev.exit_crit_edge ], [ %5, %2 ]
-  %33 = icmp eq i32 %32, %31
-  %34 = trunc i64 %30 to i32
-  %.sroa.0.0.extract.trunc.i3 = select i1 %33, i32 %34, i32 0
-  ret i32 %.sroa.0.0.extract.trunc.i3
+33:                                               ; preds = %_ZN13HasherVisitorD2Ev.exit, %_ZN13HasherVisitorD2Ev.exit.thread
+  %34 = phi i32 [ %11, %_ZN13HasherVisitorD2Ev.exit.thread ], [ %spec.select, %_ZN13HasherVisitorD2Ev.exit ]
+  ret i32 %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

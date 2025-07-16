@@ -718,16 +718,16 @@ select.unfold:                                    ; preds = %13, %19
   %95 = zext nneg i32 %94 to i64
   %96 = lshr i64 %93, %95
   %97 = icmp slt i32 %82, %62
-  br i1 %97, label %135, label %98
+  br i1 %97, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit, label %98
 
 98:                                               ; preds = %78
   %99 = icmp slt i32 %83, 32
-  br i1 %99, label %100, label %135
+  br i1 %99, label %100, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
 100:                                              ; preds = %98
   %101 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0169266317332, i1 true)
   %102 = icmp uge i32 %101, %83
-  br label %135
+  br label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
 103:                                              ; preds = %75
   %104 = sub nsw i32 0, %62
@@ -753,106 +753,111 @@ select.unfold:                                    ; preds = %13, %19
   %122 = zext nneg i32 %121 to i64
   %123 = lshr i64 %119, %122
   %124 = icmp slt i32 %108, %62
-  br i1 %124, label %129, label %125
+  br i1 %124, label %130, label %125
 
 125:                                              ; preds = %103
   %126 = icmp slt i32 %109, 32
   %127 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0169266317332, i1 true)
   %128 = icmp uge i32 %127, %109
   %or.cond250 = select i1 %126, i1 %128, i1 false
-  br i1 %or.cond250, label %129, label %135
+  %129 = urem i32 %.0169266317332, 5
+  %.not15.i.i = icmp eq i32 %129, 0
+  %or.cond351 = and i1 %or.cond250, %.not15.i.i
+  br i1 %or.cond351, label %.lr.ph.i.i.preheader, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
-129:                                              ; preds = %125, %103
-  %130 = urem i32 %.0169266317332, 5
-  %.not15.i.i = icmp eq i32 %130, 0
-  br i1 %.not15.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
+130:                                              ; preds = %103
+  %.old = urem i32 %.0169266317332, 5
+  %.not15.i.i.old = icmp eq i32 %.old, 0
+  br i1 %.not15.i.i.old, label %.lr.ph.i.i.preheader, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
-.lr.ph.i.i:                                       ; preds = %129, %.lr.ph.i.i
-  %.0717.i.i = phi i32 [ %131, %.lr.ph.i.i ], [ %.0169266317332, %129 ]
-  %.0816.i.i = phi i32 [ %132, %.lr.ph.i.i ], [ 0, %129 ]
+.lr.ph.i.i.preheader:                             ; preds = %125, %130
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.0717.i.i = phi i32 [ %131, %.lr.ph.i.i ], [ %.0169266317332, %.lr.ph.i.i.preheader ]
+  %.0816.i.i = phi i32 [ %132, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %131 = udiv i32 %.0717.i.i, 5
   %132 = add i32 %.0816.i.i, 1
   %133 = urem i32 %131, 5
   %.not.i.i = icmp eq i32 %133, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit
 
-_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.ph.i.i, %129
-  %.08.lcssa.i.i = phi i32 [ 0, %129 ], [ %132, %.lr.ph.i.i ]
-  %134 = icmp uge i32 %.08.lcssa.i.i, %104
-  br label %135
+_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit: ; preds = %.lr.ph.i.i
+  %134 = icmp uge i32 %132, %104
+  br label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
-135:                                              ; preds = %125, %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit, %78, %100, %98
-  %.0165 = phi i32 [ %82, %98 ], [ %82, %100 ], [ %82, %78 ], [ %108, %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit ], [ %108, %125 ]
-  %.0164.in = phi i64 [ %96, %98 ], [ %96, %100 ], [ %96, %78 ], [ %123, %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit ], [ %123, %125 ]
-  %.0163 = phi i1 [ false, %98 ], [ %102, %100 ], [ true, %78 ], [ %134, %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit ], [ false, %125 ]
+_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %130, %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit, %125, %78, %100, %98
+  %.0165 = phi i32 [ %82, %98 ], [ %82, %100 ], [ %82, %78 ], [ %108, %125 ], [ %108, %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit ], [ %108, %130 ]
+  %.0164.in = phi i64 [ %96, %98 ], [ %96, %100 ], [ %96, %78 ], [ %123, %125 ], [ %123, %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit ], [ %123, %130 ]
+  %.0163 = phi i1 [ false, %98 ], [ %102, %100 ], [ true, %78 ], [ false, %125 ], [ %134, %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit ], [ false, %130 ]
   %.0164 = trunc i64 %.0164.in to i32
-  %136 = add i32 %.0165, 127
-  %137 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0164, i1 true)
-  %138 = xor i32 %137, 31
-  %139 = add i32 %136, %138
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %139, i32 0)
-  %140 = icmp sgt i32 %139, 254
-  br i1 %140, label %141, label %143
+  %135 = add i32 %.0165, 127
+  %136 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0164, i1 true)
+  %137 = xor i32 %136, 31
+  %138 = add i32 %135, %137
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
+  %139 = icmp sgt i32 %138, 254
+  br i1 %139, label %140, label %142
 
-141:                                              ; preds = %135
-  %142 = select i1 %7, float 0xFFF0000000000000, float 0x7FF0000000000000
-  store float %142, ptr %2, align 4, !tbaa !16
+140:                                              ; preds = %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
+  %141 = select i1 %7, float 0xFFF0000000000000, float 0x7FF0000000000000
+  store float %141, ptr %2, align 4, !tbaa !16
   br label %.thread
 
-143:                                              ; preds = %135
-  %144 = tail call i32 @llvm.smax.i32(i32 %139, i32 1)
-  %145 = sub i32 %144, %.0165
-  %146 = add i32 %145, -150
-  %147 = add i32 %145, -151
-  %148 = shl nuw i32 1, %147
-  %149 = and i32 %148, %.0164
-  %.not197 = icmp eq i32 %149, 0
-  br i1 %.not197, label %159, label %150
+142:                                              ; preds = %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
+  %143 = tail call i32 @llvm.smax.i32(i32 %138, i32 1)
+  %144 = sub i32 %143, %.0165
+  %145 = add i32 %144, -150
+  %146 = add i32 %144, -151
+  %147 = shl nuw i32 1, %146
+  %148 = and i32 %147, %.0164
+  %.not197 = icmp eq i32 %148, 0
+  br i1 %.not197, label %158, label %149
 
-150:                                              ; preds = %143
-  %notmask = shl nsw i32 -1, %147
-  %151 = xor i32 %notmask, -1
-  %152 = and i32 %151, %.0164
-  %153 = icmp eq i32 %152, 0
-  %154 = and i1 %.0163, %153
-  br i1 %154, label %155, label %159
+149:                                              ; preds = %142
+  %notmask = shl nsw i32 -1, %146
+  %150 = xor i32 %notmask, -1
+  %151 = and i32 %150, %.0164
+  %152 = icmp eq i32 %151, 0
+  %153 = and i1 %.0163, %152
+  br i1 %153, label %154, label %158
 
-155:                                              ; preds = %150
-  %156 = shl nuw i32 1, %146
-  %157 = and i32 %156, %.0164
-  %158 = icmp ne i32 %157, 0
-  br label %159
+154:                                              ; preds = %149
+  %155 = shl nuw i32 1, %145
+  %156 = and i32 %155, %.0164
+  %157 = icmp ne i32 %156, 0
+  br label %158
 
-159:                                              ; preds = %150, %155, %143
-  %160 = phi i1 [ false, %143 ], [ true, %150 ], [ %158, %155 ]
-  %161 = lshr i32 %.0164, %146
-  %162 = zext i1 %160 to i32
-  %163 = add i32 %161, %162
-  %164 = and i32 %163, 8388607
-  %165 = icmp eq i32 %164, 0
-  %or.cond9 = and i1 %160, %165
-  %166 = zext i1 %or.cond9 to i32
-  %spec.select203 = add nuw nsw i32 %.sroa.speculated, %166
-  %167 = select i1 %7, i32 256, i32 0
-  %168 = or i32 %spec.select203, %167
-  %169 = shl nuw i32 %168, 23
-  %170 = or disjoint i32 %169, %164
-  store i32 %170, ptr %2, align 4, !tbaa !16
+158:                                              ; preds = %149, %154, %142
+  %159 = phi i1 [ false, %142 ], [ true, %149 ], [ %157, %154 ]
+  %160 = lshr i32 %.0164, %145
+  %161 = zext i1 %159 to i32
+  %162 = add i32 %160, %161
+  %163 = and i32 %162, 8388607
+  %164 = icmp eq i32 %163, 0
+  %or.cond9 = and i1 %159, %164
+  %165 = zext i1 %or.cond9 to i32
+  %spec.select203 = add nuw nsw i32 %.sroa.speculated, %165
+  %166 = select i1 %7, i32 256, i32 0
+  %167 = or i32 %spec.select203, %166
+  %168 = shl nuw i32 %167, 23
+  %169 = or disjoint i32 %168, %163
+  store i32 %169, ptr %2, align 4, !tbaa !16
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %.lr.ph283, %45
   %.sroa.12.0.ph = phi i32 [ 22, %.lr.ph283 ], [ 34, %45 ]
-  %171 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv306
+  %170 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv306
   br label %.thread
 
 .thread.loopexit333:                              ; preds = %13, %17
   %.sroa.12.0.ph334 = phi i32 [ 34, %17 ], [ 22, %13 ]
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit333, %.thread.loopexit, %53, %64, %69, %73, %159, %141, %3
-  %.sroa.0.0 = phi ptr [ %0, %3 ], [ %55, %53 ], [ null, %64 ], [ null, %69 ], [ null, %73 ], [ null, %159 ], [ null, %141 ], [ %171, %.thread.loopexit ], [ %172, %.thread.loopexit333 ]
-  %.sroa.12.0 = phi i32 [ 22, %3 ], [ 22, %53 ], [ 0, %64 ], [ 0, %69 ], [ 0, %73 ], [ 0, %159 ], [ 0, %141 ], [ %.sroa.12.0.ph, %.thread.loopexit ], [ %.sroa.12.0.ph334, %.thread.loopexit333 ]
+.thread:                                          ; preds = %.thread.loopexit333, %.thread.loopexit, %53, %64, %69, %73, %158, %140, %3
+  %.sroa.0.0 = phi ptr [ %0, %3 ], [ %55, %53 ], [ null, %64 ], [ null, %69 ], [ null, %73 ], [ null, %158 ], [ null, %140 ], [ %170, %.thread.loopexit ], [ %171, %.thread.loopexit333 ]
+  %.sroa.12.0 = phi i32 [ 22, %3 ], [ 22, %53 ], [ 0, %64 ], [ 0, %69 ], [ 0, %73 ], [ 0, %158 ], [ 0, %140 ], [ %.sroa.12.0.ph, %.thread.loopexit ], [ %.sroa.12.0.ph334, %.thread.loopexit333 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.12.0, 1
   ret { ptr, i32 } %.fca.1.insert

@@ -18575,7 +18575,7 @@ _ZNK4llvm4User10getOperandEj.exit10.i.i.i.i.i.i.i.i: ; preds = %7
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   %20 = icmp eq ptr %19, %0
   %or.cond7.i.i.i.i.i.i = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond7.i.i.i.i.i.i, label %"_ZSt7none_ofIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1EbT_S9_T0_.exit", label %_ZNK4llvm4User10getOperandEj.exit14.i.i.i.i.i.i.i.i
+  br i1 %or.cond7.i.i.i.i.i.i, label %"_ZSt7find_ifIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1ET_S9_S9_T0_.exit.loopexit.i", label %_ZNK4llvm4User10getOperandEj.exit14.i.i.i.i.i.i.i.i
 
 _ZNK4llvm4User10getOperandEj.exit10.thread.i.i.i.i.i.i.i.i: ; preds = %7
   %21 = getelementptr inbounds i8, ptr %4, i64 -8
@@ -18587,7 +18587,7 @@ _ZNK4llvm4User10getOperandEj.exit10.thread.i.i.i.i.i.i.i.i: ; preds = %7
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = icmp eq ptr %27, %0
   %or.cond8.i.i.i.i.i.i = select i1 %25, i1 %28, i1 false
-  br i1 %or.cond8.i.i.i.i.i.i, label %"_ZSt7none_ofIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1EbT_S9_T0_.exit", label %_ZNK4llvm4User10getOperandEj.exit14.thread.i.i.i.i.i.i.i.i
+  br i1 %or.cond8.i.i.i.i.i.i, label %"_ZSt7find_ifIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1ET_S9_S9_T0_.exit.loopexit.i", label %_ZNK4llvm4User10getOperandEj.exit14.thread.i.i.i.i.i.i.i.i
 
 _ZNK4llvm4User10getOperandEj.exit14.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm4User10getOperandEj.exit10.i.i.i.i.i.i.i.i
   %29 = icmp eq ptr %19, %1
@@ -18600,18 +18600,22 @@ _ZNK4llvm4User10getOperandEj.exit14.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i": ; preds = %_ZNK4llvm4User10getOperandEj.exit14.thread.i.i.i.i.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit14.i.i.i.i.i.i.i.i
   %31 = phi ptr [ %24, %_ZNK4llvm4User10getOperandEj.exit14.thread.i.i.i.i.i.i.i.i ], [ %16, %_ZNK4llvm4User10getOperandEj.exit14.i.i.i.i.i.i.i.i ]
   %32 = icmp eq ptr %31, %0
-  br i1 %32, label %"_ZSt7none_ofIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1EbT_S9_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i"
+  br i1 %32, label %"_ZSt7find_ifIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1ET_S9_S9_T0_.exit.loopexit.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i", %_ZNK4llvm4User10getOperandEj.exit14.thread.i.i.i.i.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit14.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.011.i.i.i.i, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %.not.i.i.i.i = icmp eq ptr %34, %.8.val
-  br i1 %.not.i.i.i.i, label %"_ZSt7none_ofIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1EbT_S9_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !529
+  br i1 %.not.i.i.i.i, label %"_ZSt7find_ifIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1ET_S9_S9_T0_.exit.loopexit.i", label %.lr.ph.i.i.i.i, !llvm.loop !529
 
-"_ZSt7none_ofIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1EbT_S9_T0_.exit": ; preds = %_ZNK4llvm4User10getOperandEj.exit10.i.i.i.i.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit10.thread.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i", %2
-  %.sroa.04.0.lcssa.i.i.i.i = phi ptr [ %.0.val, %2 ], [ %.sroa.04.011.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit10.thread.i.i.i.i.i.i.i.i ], [ %.sroa.04.011.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit10.i.i.i.i.i.i.i.i ], [ %.8.val, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i" ], [ %.sroa.04.011.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i" ]
-  %35 = icmp eq ptr %.8.val, %.sroa.04.0.lcssa.i.i.i.i
-  ret i1 %35
+"_ZSt7find_ifIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1ET_S9_S9_T0_.exit.loopexit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i", %_ZNK4llvm4User10getOperandEj.exit10.thread.i.i.i.i.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit10.i.i.i.i.i.i.i.i
+  %.sroa.04.0.lcssa.i.i.i.ph.i = phi ptr [ %.sroa.04.011.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit10.thread.i.i.i.i.i.i.i.i ], [ %.sroa.04.011.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit10.i.i.i.i.i.i.i.i ], [ %.8.val, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i" ], [ %.sroa.04.011.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16InstCombinerImpl8visitSubERNS2_14BinaryOperatorEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i" ]
+  %35 = icmp eq ptr %.8.val, %.sroa.04.0.lcssa.i.i.i.ph.i
+  br label %"_ZSt7none_ofIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1EbT_S9_T0_.exit"
+
+"_ZSt7none_ofIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1EbT_S9_T0_.exit": ; preds = %2, %"_ZSt7find_ifIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1ET_S9_S9_T0_.exit.loopexit.i"
+  %.sroa.04.0.lcssa.i.i.i.i = phi i1 [ true, %2 ], [ %35, %"_ZSt7find_ifIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl8visitSubERNS0_14BinaryOperatorEE3$_1ET_S9_S9_T0_.exit.loopexit.i" ]
+  ret i1 %.sroa.04.0.lcssa.i.i.i.i
 }
 
 declare noundef ptr @_ZN4llvm7Negator6NegateEbbPNS_5ValueERNS_16InstCombinerImplE(i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef nonnull align 8 dereferenceable(1088)) local_unnamed_addr #2

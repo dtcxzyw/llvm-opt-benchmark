@@ -2332,14 +2332,14 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.pre = zext nneg i32 %storemerge.i.i.ph.sink.i.i to i64
   %.phi.trans.insert = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %40, i64 %.pre
   %.pre93 = load i32, ptr %.phi.trans.insert, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq i32 %.pre93, %41
-  br i1 %71, label %72, label %101
+  %69 = icmp eq i32 %.pre93, %41
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %71 = load ptr, ptr %70, align 8
+  br i1 %69, label %72, label %101
 
 72:                                               ; preds = %.thread, %68
   %.pn = phi i64 [ %47, %.thread ], [ %.pre, %68 ]
-  %73 = phi ptr [ %51, %.thread ], [ %70, %68 ]
+  %73 = phi ptr [ %51, %.thread ], [ %71, %68 ]
   %.04897 = phi i32 [ %43, %.thread ], [ %storemerge.i.i.ph.sink.i.i, %68 ]
   %74 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %40, i64 %.pn
   %75 = load i32, ptr %1, align 4
@@ -2402,7 +2402,7 @@ thread-pre-split.i:                               ; preds = %.lr.ph
   br label %101
 
 101:                                              ; preds = %.loopexit, %68
-  %102 = phi ptr [ %73, %.loopexit ], [ %70, %68 ]
+  %102 = phi ptr [ %73, %.loopexit ], [ %71, %68 ]
   %103 = phi i32 [ %.pre94, %.loopexit ], [ %45, %68 ]
   %.1 = phi i32 [ %100, %.loopexit ], [ %storemerge.i.i.ph.sink.i.i, %68 ]
   %104 = icmp ult i32 %.1, %103

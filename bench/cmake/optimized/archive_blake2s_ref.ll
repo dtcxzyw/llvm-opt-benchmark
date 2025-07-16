@@ -1747,9 +1747,9 @@ blake2s_init.exit:                                ; preds = %54
   store i64 %96, ptr %66, align 16, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 120
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !13
+  %97 = icmp ult i64 %1, %.pre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %97 = icmp ult i64 %1, %.pre
   br i1 %97, label %blake2s_final.exit, label %98
 
 98:                                               ; preds = %.thread, %.loopexit

@@ -7912,15 +7912,15 @@ default.unreachable:                              ; preds = %10
   %28 = load i16, ptr %27, align 8, !range !1102, !alias.scope !1802, !noalias !1805, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 34
   %30 = load i16, ptr %29, align 2, !alias.scope !1802, !noalias !1805
+  %31 = icmp eq i16 %30, %8
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i: ; preds = %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %10
-  %.sroa.15.0.i.i = phi i16 [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ undef, %24 ], [ undef, %25 ], [ %30, %26 ], [ undef, %10 ]
+  %.sroa.15.0.i.i = phi i1 [ undef, %14 ], [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ undef, %24 ], [ undef, %25 ], [ %31, %26 ], [ undef, %10 ]
   %.sroa.0.0.i.i = phi i16 [ 0, %14 ], [ 20, %15 ], [ 35, %16 ], [ 16, %17 ], [ 31, %18 ], [ 21, %19 ], [ 19, %20 ], [ 5, %21 ], [ 23, %22 ], [ 32, %23 ], [ 36, %24 ], [ 22, %25 ], [ %28, %26 ], [ 11, %10 ]
-  %31 = icmp eq i16 %.sroa.0.0.i.i, %6
-  %32 = icmp eq i16 %.sroa.15.0.i.i, %8
-  %or.cond = select i1 %9, i1 true, i1 %32
-  %or.cond28 = select i1 %31, i1 %or.cond, i1 false
+  %32 = icmp eq i16 %.sroa.0.0.i.i, %6
+  %or.cond = select i1 %9, i1 true, i1 %.sroa.15.0.i.i
+  %or.cond28 = select i1 %32, i1 %or.cond, i1 false
   br i1 %or.cond28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a7d9cf6308a1214E.llvm.9964311202002838858.exit.thread.sink.split", label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10"
 
 "_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10": ; preds = %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i
@@ -17054,15 +17054,15 @@ default.unreachable:                              ; preds = %11
   %29 = load i16, ptr %28, align 8, !range !1102, !alias.scope !3651, !noalias !3654, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 34
   %31 = load i16, ptr %30, align 2, !alias.scope !3651, !noalias !3654
+  %32 = icmp eq i16 %31, %2
   br label %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
 
 _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i: ; preds = %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %11
-  %.sroa.15.0.i.i.i = phi i16 [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ undef, %24 ], [ undef, %25 ], [ undef, %26 ], [ %31, %27 ], [ undef, %11 ]
+  %.sroa.15.0.i.i.i = phi i1 [ undef, %15 ], [ undef, %16 ], [ undef, %17 ], [ undef, %18 ], [ undef, %19 ], [ undef, %20 ], [ undef, %21 ], [ undef, %22 ], [ undef, %23 ], [ undef, %24 ], [ undef, %25 ], [ undef, %26 ], [ %32, %27 ], [ undef, %11 ]
   %.sroa.0.0.i.i.i = phi i16 [ 0, %15 ], [ 20, %16 ], [ 35, %17 ], [ 16, %18 ], [ 31, %19 ], [ 21, %20 ], [ 19, %21 ], [ 5, %22 ], [ 23, %23 ], [ 32, %24 ], [ 36, %25 ], [ 22, %26 ], [ %29, %27 ], [ 11, %11 ]
-  %32 = icmp eq i16 %.sroa.0.0.i.i.i, %1
-  %33 = icmp eq i16 %.sroa.15.0.i.i.i, %2
-  %or.cond.i = select i1 %10, i1 true, i1 %33
-  %or.cond28.i = select i1 %32, i1 %or.cond.i, i1 false
+  %33 = icmp eq i16 %.sroa.0.0.i.i.i, %1
+  %or.cond.i = select i1 %10, i1 true, i1 %.sroa.15.0.i.i.i
+  %or.cond28.i = select i1 %33, i1 %or.cond.i, i1 false
   br i1 %or.cond28.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf657ed8c5228b563E.llvm.9964311202002838858.exit", label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i"
 
 "_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i": ; preds = %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i

@@ -1812,7 +1812,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit164.thread:          ; preds = %_ZNKSt6vectorIdSaId
 116:                                              ; preds = %_ZN2cv4Mat_IhEC2Eii.exit, %98, %107
   %.sroa.23.0 = phi ptr [ null, %_ZN2cv4Mat_IhEC2Eii.exit ], [ %108, %107 ], [ null, %98 ]
   %.sroa.0182.1 = phi ptr [ null, %_ZN2cv4Mat_IhEC2Eii.exit ], [ %106, %107 ], [ null, %98 ]
-  %.sroa.20.0 = phi ptr [ null, %_ZN2cv4Mat_IhEC2Eii.exit ], [ %101, %107 ], [ null, %98 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZN2cv4Mat_IhEC2Eii.exit ], [ %101, %107 ], [ null, %98 ]
   %.sroa.0195.1 = phi ptr [ null, %_ZN2cv4Mat_IhEC2Eii.exit ], [ %99, %107 ], [ null, %98 ]
   %.063 = phi i1 [ true, %_ZN2cv4Mat_IhEC2Eii.exit ], [ false, %107 ], [ true, %98 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !72
@@ -1827,7 +1827,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit164.thread:          ; preds = %_ZNKSt6vectorIdSaId
   br i1 %120, label %122, label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit112
 
 122:                                              ; preds = %121
-  %123 = ptrtoint ptr %.sroa.20.0 to i64
+  %123 = ptrtoint ptr %.sroa.12.0 to i64
   %124 = ptrtoint ptr %.sroa.0195.1 to i64
   %125 = sub i64 %123, %124
   %126 = icmp eq i64 %125, 9223372036854775776
@@ -1856,7 +1856,7 @@ _ZNKSt6vectorIN2cv5Rect_IdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i88: ; preds = %1
 .noexc101:                                        ; preds = %_ZNKSt6vectorIN2cv5Rect_IdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i88
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 %125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !tbaa.struct !72
-  %.not10.i.i.i.i.i.i91 = icmp eq ptr %.sroa.0195.1, %.sroa.20.0
+  %.not10.i.i.i.i.i.i91 = icmp eq ptr %.sroa.0195.1, %.sroa.12.0
   br i1 %.not10.i.i.i.i.i.i91, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i96, label %.lr.ph.i.i.i.i.i.i92.preheader
 
 .lr.ph.i.i.i.i.i.i92.preheader:                   ; preds = %.noexc101

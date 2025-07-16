@@ -1618,25 +1618,20 @@ define void @Fra_OneHotAddKnownConstraint(ptr noundef captures(none) %0, ptr nou
   %16 = getelementptr i8, ptr %13, i64 8
   br label %18
 
-.critedge4.loopexit.loopexit:                     ; preds = %24
+.critedge4.loopexit:                              ; preds = %24
   %.pre = sext i32 %.val31 to i64
-  br label %.critedge4.loopexit
-
-.critedge4.loopexit:                              ; preds = %.critedge4.loopexit.loopexit, %18
-  %.pre-phi = phi i64 [ %.pre, %.critedge4.loopexit.loopexit ], [ %19, %18 ]
-  %.val32 = phi i32 [ %.val31, %.critedge4.loopexit.loopexit ], [ %.val3260, %18 ]
-  %17 = icmp slt i64 %indvars.iv.next53, %.pre-phi
+  %17 = icmp slt i64 %indvars.iv.next53, %.pre
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %17, label %18, label %.critedge2.loopexit, !llvm.loop !84
 
 18:                                               ; preds = %.lr.ph45, %.critedge4.loopexit
-  %.val3260 = phi i32 [ %.val3243, %.lr.ph45 ], [ %.val32, %.critedge4.loopexit ]
+  %.val3260 = phi i32 [ %.val3243, %.lr.ph45 ], [ %.val31, %.critedge4.loopexit ]
   %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %.critedge4.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph45 ], [ %indvars.iv.next, %.critedge4.loopexit ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %19 = sext i32 %.val3260 to i64
   %20 = icmp slt i64 %indvars.iv.next53, %19
-  br i1 %20, label %.lr.ph, label %.critedge4.loopexit
+  br i1 %20, label %.lr.ph, label %.critedge2.loopexit
 
 .lr.ph:                                           ; preds = %18
   %.val34 = load ptr, ptr %16, align 8, !tbaa !36
@@ -1650,7 +1645,7 @@ define void @Fra_OneHotAddKnownConstraint(ptr noundef captures(none) %0, ptr nou
   %.val31 = load i32, ptr %14, align 4, !tbaa !33
   %25 = trunc nuw i64 %indvars.iv.next50 to i32
   %26 = icmp sgt i32 %.val31, %25
-  br i1 %26, label %27, label %.critedge4.loopexit.loopexit, !llvm.loop !85
+  br i1 %26, label %27, label %.critedge4.loopexit, !llvm.loop !85
 
 27:                                               ; preds = %.lr.ph, %24
   %indvars.iv49 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next50, %24 ]
@@ -1703,7 +1698,7 @@ define void @Fra_OneHotAddKnownConstraint(ptr noundef captures(none) %0, ptr nou
   store ptr null, ptr %9, align 8, !tbaa !55
   br label %.critedge
 
-.critedge2.loopexit:                              ; preds = %.critedge4.loopexit
+.critedge2.loopexit:                              ; preds = %18, %.critedge4.loopexit
   %.val.pre = load i32, ptr %4, align 4, !tbaa !38
   br label %.critedge2
 

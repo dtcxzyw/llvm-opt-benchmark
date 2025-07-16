@@ -2095,8 +2095,8 @@ _ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.ex
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24, !noalias !132
-  store ptr %108, ptr %9, align 8, !tbaa !27
   %109 = icmp eq ptr %108, %.pre
+  store ptr %108, ptr %9, align 8, !tbaa !27
   br i1 %109, label %110, label %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE4backEv.exit
 
 110:                                              ; preds = %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.thread, %_ZNSt5dequeIN12_GLOBAL__N_111ModuleStateESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit

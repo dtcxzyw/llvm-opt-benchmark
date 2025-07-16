@@ -341,7 +341,7 @@ gv_calloc.exit.i:                                 ; preds = %124
   br label %standardize.exit.i
 
 standardize.exit.i:                               ; preds = %152, %._crit_edge27.i.i
-  br i1 %.not.i, label %154, label %.loopexit.thread208.i.i
+  br i1 %.not.i, label %154, label %gv_calloc.exit172.i.i
 
 154:                                              ; preds = %standardize.exit.i
   %155 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %145, i64 noundef 8) #14
@@ -358,7 +358,7 @@ standardize.exit.i:                               ; preds = %152, %._crit_edge27
 gv_calloc.exit.i.i:                               ; preds = %154
   %161 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %145, i64 noundef 8) #14
   %162 = icmp eq ptr %161, null
-  br i1 %162, label %163, label %.lr.ph.us.preheader.i.i
+  br i1 %162, label %163, label %.split.us.i.i
 
 163:                                              ; preds = %gv_calloc.exit.i.i
   %164 = load ptr, ptr @stderr, align 8, !tbaa !3
@@ -367,118 +367,118 @@ gv_calloc.exit.i.i:                               ; preds = %154
   tail call fastcc void @graphviz_exit() #13
   unreachable
 
-.lr.ph.us.preheader.i.i:                          ; preds = %gv_calloc.exit.i.i
-  %wide.trip.count34.i.i.i = zext nneg i32 %1 to i64
+gv_calloc.exit172.i.i:                            ; preds = %standardize.exit.i
+  %167 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #14
+  %168 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #14
+  br label %power_iteration_orthog.exit.i
+
+.split.us.i.i:                                    ; preds = %gv_calloc.exit.i.i
+  %wide.trip.count.i43.i = zext nneg i32 %1 to i64
   br label %.lr.ph.us.i.i
 
-.lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.i.i.backedge, %.lr.ph.us.preheader.i.i
-  %indvars.iv.i43.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.i43.i.be, %.lr.ph.us.i.i.backedge ]
-  %167 = tail call i32 @rand() #15
-  %168 = srem i32 %167, 100
-  %169 = sitofp i32 %168 to double
-  %170 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i43.i
-  store double %169, ptr %170, align 8, !tbaa !15
-  %indvars.iv.next.i44.i = add nuw nsw i64 %indvars.iv.i43.i, 1
-  %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i44.i, %wide.trip.count34.i.i.i
-  br i1 %exitcond.not.i45.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i.backedge
+.lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.i.i.backedge, %.split.us.i.i
+  %indvars.iv.i44.i = phi i64 [ 0, %.split.us.i.i ], [ %indvars.iv.i44.i.be, %.lr.ph.us.i.i.backedge ]
+  %169 = tail call i32 @rand() #15
+  %170 = srem i32 %169, 100
+  %171 = sitofp i32 %170 to double
+  %172 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i44.i
+  store double %171, ptr %172, align 8, !tbaa !15
+  %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i44.i, 1
+  %exitcond.not.i46.i = icmp eq i64 %indvars.iv.next.i45.i, %wide.trip.count.i43.i
+  br i1 %exitcond.not.i46.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i.backedge
 
 .lr.ph.us.i.i.backedge:                           ; preds = %.lr.ph.us.i.i, %._crit_edge.us.i.i
-  %indvars.iv.i43.i.be = phi i64 [ %indvars.iv.next.i44.i, %.lr.ph.us.i.i ], [ 0, %._crit_edge.us.i.i ]
+  %indvars.iv.i44.i.be = phi i64 [ %indvars.iv.next.i45.i, %.lr.ph.us.i.i ], [ 0, %._crit_edge.us.i.i ]
   br label %.lr.ph.us.i.i, !llvm.loop !31
 
 ._crit_edge.us.i.i:                               ; preds = %.lr.ph.us.i.i
-  %171 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef %147, ptr noundef nonnull %3) #15
-  %172 = fneg double %171
-  tail call void @scadd(ptr noundef nonnull %3, i32 noundef %148, double noundef %172, ptr noundef %147) #15
-  %173 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
-  %174 = fcmp olt double %173, 1.000000e-10
-  br i1 %174, label %.lr.ph.us.i.i.backedge, label %.split182.us.i.i
+  %173 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef %147, ptr noundef nonnull %3) #15
+  %174 = fneg double %173
+  tail call void @scadd(ptr noundef nonnull %3, i32 noundef %148, double noundef %174, ptr noundef %147) #15
+  %175 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
+  %176 = fcmp olt double %175, 1.000000e-10
+  br i1 %176, label %.lr.ph.us.i.i.backedge, label %.split182.us.i.i
 
 .split182.us.i.i:                                 ; preds = %._crit_edge.us.i.i
-  %175 = fsub double 1.000000e+00, %4
-  %176 = fdiv double 1.000000e+00, %173
-  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %176, ptr noundef nonnull %3) #15
-  br label %.preheader.us.i.preheader.i.i
+  %177 = fsub double 1.000000e+00, %4
+  %178 = fdiv double 1.000000e+00, %175
+  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %178, ptr noundef nonnull %3) #15
+  br label %.preheader.lr.ph.i.i47.i
 
-.preheader.us.i.preheader.i.i:                    ; preds = %191, %.split182.us.i.i
+.preheader.lr.ph.i.i47.i:                         ; preds = %193, %.split182.us.i.i
   tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %161) #15
-  br label %.preheader.us.i.i46.i
+  br label %.preheader.us.i.i48.i
 
-.preheader.us.i.i46.i:                            ; preds = %._crit_edge.us.i.i50.i, %.preheader.us.i.preheader.i.i
-  %indvars.iv31.i.i.i = phi i64 [ %indvars.iv.next32.i.i.i, %._crit_edge.us.i.i50.i ], [ 0, %.preheader.us.i.preheader.i.i ]
-  %177 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv31.i.i.i
-  %178 = load ptr, ptr %177, align 8, !tbaa !20
-  br label %179
+.preheader.us.i.i48.i:                            ; preds = %._crit_edge.us.i.i52.i, %.preheader.lr.ph.i.i47.i
+  %indvars.iv31.i.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i47.i ], [ %indvars.iv.next32.i.i.i, %._crit_edge.us.i.i52.i ]
+  %179 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv31.i.i.i
+  %180 = load ptr, ptr %179, align 8, !tbaa !20
+  br label %181
 
-179:                                              ; preds = %179, %.preheader.us.i.i46.i
-  %indvars.iv.i.i47.i = phi i64 [ 0, %.preheader.us.i.i46.i ], [ %indvars.iv.next.i.i48.i, %179 ]
-  %.02125.us.i.i.i = phi double [ 0.000000e+00, %.preheader.us.i.i46.i ], [ %185, %179 ]
-  %180 = getelementptr inbounds nuw float, ptr %178, i64 %indvars.iv.i.i47.i
-  %181 = load float, ptr %180, align 4, !tbaa !24
-  %182 = fpext float %181 to double
-  %183 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i47.i
-  %184 = load double, ptr %183, align 8, !tbaa !15
-  %185 = tail call double @llvm.fmuladd.f64(double %182, double %184, double %.02125.us.i.i.i)
-  %indvars.iv.next.i.i48.i = add nuw nsw i64 %indvars.iv.i.i47.i, 1
-  %exitcond.not.i.i49.i = icmp eq i64 %indvars.iv.next.i.i48.i, %wide.trip.count34.i.i.i
-  br i1 %exitcond.not.i.i49.i, label %._crit_edge.us.i.i50.i, label %179, !llvm.loop !32
+181:                                              ; preds = %181, %.preheader.us.i.i48.i
+  %indvars.iv.i.i49.i = phi i64 [ 0, %.preheader.us.i.i48.i ], [ %indvars.iv.next.i.i50.i, %181 ]
+  %.02125.us.i.i.i = phi double [ 0.000000e+00, %.preheader.us.i.i48.i ], [ %187, %181 ]
+  %182 = getelementptr inbounds nuw float, ptr %180, i64 %indvars.iv.i.i49.i
+  %183 = load float, ptr %182, align 4, !tbaa !24
+  %184 = fpext float %183 to double
+  %185 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i49.i
+  %186 = load double, ptr %185, align 8, !tbaa !15
+  %187 = tail call double @llvm.fmuladd.f64(double %184, double %186, double %.02125.us.i.i.i)
+  %indvars.iv.next.i.i50.i = add nuw nsw i64 %indvars.iv.i.i49.i, 1
+  %exitcond.not.i.i51.i = icmp eq i64 %indvars.iv.next.i.i50.i, %wide.trip.count.i43.i
+  br i1 %exitcond.not.i.i51.i, label %._crit_edge.us.i.i52.i, label %181, !llvm.loop !32
 
-._crit_edge.us.i.i50.i:                           ; preds = %179
-  %186 = getelementptr inbounds nuw double, ptr %155, i64 %indvars.iv31.i.i.i
-  store double %185, ptr %186, align 8, !tbaa !15
+._crit_edge.us.i.i52.i:                           ; preds = %181
+  %188 = getelementptr inbounds nuw double, ptr %155, i64 %indvars.iv31.i.i.i
+  store double %187, ptr %188, align 8, !tbaa !15
   %indvars.iv.next32.i.i.i = add nuw nsw i64 %indvars.iv31.i.i.i, 1
-  %exitcond35.not.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i, %wide.trip.count34.i.i.i
-  br i1 %exitcond35.not.i.i.i, label %mat_mult_vec_orthog.exit.i.i, label %.preheader.us.i.i46.i, !llvm.loop !33
+  %exitcond35.not.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i, %wide.trip.count.i43.i
+  br i1 %exitcond35.not.i.i.i, label %mat_mult_vec_orthog.exit.loopexit.i.i, label %.preheader.us.i.i48.i, !llvm.loop !33
 
-mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i50.i
-  %187 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %155, ptr noundef %147) #15
-  %188 = fneg double %187
-  tail call void @scadd(ptr noundef nonnull %155, i32 noundef %148, double noundef %188, ptr noundef %147) #15
+mat_mult_vec_orthog.exit.loopexit.i.i:            ; preds = %._crit_edge.us.i.i52.i
+  %189 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %155, ptr noundef %147) #15
+  %190 = fneg double %189
+  tail call void @scadd(ptr noundef nonnull %155, i32 noundef %148, double noundef %190, ptr noundef %147) #15
   tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %155, ptr noundef nonnull %3) #15
-  %189 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
-  %190 = fcmp olt double %189, 1.000000e-10
-  br i1 %190, label %.lr.ph188.i.i, label %191
+  %191 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
+  %192 = fcmp olt double %191, 1.000000e-10
+  br i1 %192, label %.lr.ph.i54.i, label %193
 
-191:                                              ; preds = %mat_mult_vec_orthog.exit.i.i
-  %192 = fdiv double 1.000000e+00, %189
-  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %192, ptr noundef nonnull %3) #15
-  %193 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %161) #15
-  %194 = tail call double @llvm.fabs.f64(double %193)
-  %195 = fcmp olt double %194, %175
-  br i1 %195, label %.preheader.us.i.preheader.i.i, label %.loopexit.thread.i.i, !llvm.loop !34
+193:                                              ; preds = %mat_mult_vec_orthog.exit.loopexit.i.i
+  %194 = fdiv double 1.000000e+00, %191
+  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %194, ptr noundef nonnull %3) #15
+  %195 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %161) #15
+  %196 = tail call double @llvm.fabs.f64(double %195)
+  %197 = fcmp olt double %196, %177
+  br i1 %197, label %.preheader.lr.ph.i.i47.i, label %.critedge167.critedge.i.i, !llvm.loop !34
 
-.loopexit.thread.i.i:                             ; preds = %191
-  %196 = fmul double %189, %193
+.critedge167.critedge.i.i:                        ; preds = %193
+  %198 = fmul double %191, %195
   br label %power_iteration_orthog.exit.i
 
-.loopexit.thread208.i.i:                          ; preds = %standardize.exit.i
-  %197 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #14
-  %198 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #14
-  br label %power_iteration_orthog.exit.i
-
-.lr.ph188.i.i:                                    ; preds = %mat_mult_vec_orthog.exit.i.i, %.lr.ph188.i.i
-  %indvars.iv198.i.i = phi i64 [ %indvars.iv.next199.i.i, %.lr.ph188.i.i ], [ 0, %mat_mult_vec_orthog.exit.i.i ]
+.lr.ph.i54.i:                                     ; preds = %mat_mult_vec_orthog.exit.loopexit.i.i, %.lr.ph.i54.i
+  %indvars.iv190.i.i = phi i64 [ %indvars.iv.next191.i.i, %.lr.ph.i54.i ], [ 0, %mat_mult_vec_orthog.exit.loopexit.i.i ]
   %199 = tail call i32 @rand() #15
   %200 = srem i32 %199, 100
   %201 = sitofp i32 %200 to double
-  %202 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv198.i.i
+  %202 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv190.i.i
   store double %201, ptr %202, align 8, !tbaa !15
-  %indvars.iv.next199.i.i = add nuw nsw i64 %indvars.iv198.i.i, 1
-  %exitcond202.not.i.i = icmp eq i64 %indvars.iv.next199.i.i, %wide.trip.count34.i.i.i
-  br i1 %exitcond202.not.i.i, label %._crit_edge.us190.i.i, label %.lr.ph188.i.i, !llvm.loop !35
+  %indvars.iv.next191.i.i = add nuw nsw i64 %indvars.iv190.i.i, 1
+  %exitcond194.not.i.i = icmp eq i64 %indvars.iv.next191.i.i, %wide.trip.count.i43.i
+  br i1 %exitcond194.not.i.i, label %.critedge.i.i, label %.lr.ph.i54.i, !llvm.loop !35
 
-._crit_edge.us190.i.i:                            ; preds = %.lr.ph188.i.i
+.critedge.i.i:                                    ; preds = %.lr.ph.i54.i
   %203 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %148) #15
   %204 = fdiv double 1.000000e+00, %203
   tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %204, ptr noundef nonnull %3) #15
   br label %power_iteration_orthog.exit.i
 
-power_iteration_orthog.exit.i:                    ; preds = %._crit_edge.us190.i.i, %.loopexit.thread208.i.i, %.loopexit.thread.i.i
-  %205 = phi double [ %196, %.loopexit.thread.i.i ], [ 0.000000e+00, %._crit_edge.us190.i.i ], [ 0.000000e+00, %.loopexit.thread208.i.i ]
-  %206 = phi ptr [ %155, %.loopexit.thread.i.i ], [ %155, %._crit_edge.us190.i.i ], [ %197, %.loopexit.thread208.i.i ]
-  %207 = phi ptr [ %161, %.loopexit.thread.i.i ], [ %161, %._crit_edge.us190.i.i ], [ %198, %.loopexit.thread208.i.i ]
-  tail call void @free(ptr noundef %206) #15
+power_iteration_orthog.exit.i:                    ; preds = %.critedge.i.i, %.critedge167.critedge.i.i, %gv_calloc.exit172.i.i
+  %205 = phi double [ %198, %.critedge167.critedge.i.i ], [ 0.000000e+00, %gv_calloc.exit172.i.i ], [ 0.000000e+00, %.critedge.i.i ]
+  %206 = phi ptr [ %161, %.critedge167.critedge.i.i ], [ %168, %gv_calloc.exit172.i.i ], [ %161, %.critedge.i.i ]
+  %207 = phi ptr [ %155, %.critedge167.critedge.i.i ], [ %167, %gv_calloc.exit172.i.i ], [ %155, %.critedge.i.i ]
   tail call void @free(ptr noundef %207) #15
+  tail call void @free(ptr noundef %206) #15
   br i1 %.not.i, label %.lr.ph10.i, label %.thread.i231.critedge
 
 .lr.ph10.i:                                       ; preds = %power_iteration_orthog.exit.i

@@ -136,181 +136,177 @@ define noundef i64 @_ZNK5folly10symbolizer4Path8toBufferEPcm(ptr noundef nonnull
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %4 to i64
   %12 = sub i64 %10, %11
-  br i1 %9, label %13, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit"
+  br i1 %9, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit", label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread"
 
-13:                                               ; preds = %8
-  %14 = add i64 %2, -1
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %12)
+"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit": ; preds = %8
+  %13 = add i64 %2, -1
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %12)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %4, i64 %.sroa.speculated.i, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.speculated.i
-  %16 = sub i64 %2, %.sroa.speculated.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.speculated.i
+  %15 = sub i64 %2, %.sroa.speculated.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !13
   %.pre84 = load ptr, ptr %5, align 8, !tbaa !15
-  br label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit"
+  %16 = icmp eq ptr %.pre, %.pre84
+  br i1 %16, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread"
 
-"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit": ; preds = %8, %13
-  %17 = phi ptr [ %.pre84, %13 ], [ %6, %8 ]
-  %18 = phi ptr [ %.pre, %13 ], [ %4, %8 ]
-  %.579 = phi i64 [ %16, %13 ], [ %2, %8 ]
-  %.5 = phi ptr [ %15, %13 ], [ %1, %8 ]
-  %19 = icmp eq ptr %18, %17
-  br i1 %19, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit, label %20
-
-20:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit"
-  %21 = getelementptr inbounds i8, ptr %17, i64 -1
-  %22 = load i8, ptr %21, align 1, !tbaa !16
-  %23 = icmp ne i8 %22, 47
-  %24 = zext i1 %23 to i8
+"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread": ; preds = %8, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit"
+  %.598 = phi ptr [ %14, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %1, %8 ]
+  %.57997 = phi i64 [ %15, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %2, %8 ]
+  %17 = phi ptr [ %.pre84, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %6, %8 ]
+  %18 = getelementptr inbounds i8, ptr %17, i64 -1
+  %19 = load i8, ptr %18, align 1, !tbaa !16
+  %20 = icmp ne i8 %19, 47
+  %21 = zext i1 %20 to i8
   br label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit
 
-_ZNK5folly5RangeIPKcE8endsWithERS1_.exit:         ; preds = %20, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit", %3
-  %.074 = phi i64 [ %2, %3 ], [ %.579, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %.579, %20 ]
-  %.069 = phi ptr [ %1, %3 ], [ %.5, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %.5, %20 ]
-  %.067 = phi i64 [ 0, %3 ], [ %12, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %12, %20 ]
-  %.0 = phi i8 [ 0, %3 ], [ 1, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %24, %20 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !13
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !15
-  %29 = icmp eq ptr %26, %28
-  br i1 %29, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10, label %30
+_ZNK5folly5RangeIPKcE8endsWithERS1_.exit:         ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread", %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit", %3
+  %.074 = phi i64 [ %2, %3 ], [ %15, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %.57997, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
+  %.069 = phi ptr [ %1, %3 ], [ %14, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %.598, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
+  %.067 = phi i64 [ 0, %3 ], [ %12, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %12, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
+  %.0 = phi i8 [ 0, %3 ], [ 1, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %21, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = icmp eq ptr %23, %25
+  br i1 %26, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10, label %27
 
-30:                                               ; preds = %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit
-  %31 = trunc nuw i8 %.0 to i1
-  br i1 %31, label %32, label %38
+27:                                               ; preds = %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit
+  %28 = trunc nuw i8 %.0 to i1
+  br i1 %28, label %29, label %35
 
-32:                                               ; preds = %30
-  %33 = icmp ugt i64 %.074, 1
-  br i1 %33, label %34, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7"
+29:                                               ; preds = %27
+  %30 = icmp ugt i64 %.074, 1
+  br i1 %30, label %31, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7"
 
-34:                                               ; preds = %32
+31:                                               ; preds = %29
   store i8 47, ptr %.069, align 1
-  %35 = getelementptr inbounds nuw i8, ptr %.069, i64 1
-  %36 = add i64 %.074, -1
-  %.sroa.01.0.copyload.pre.pre = load ptr, ptr %25, align 8, !tbaa !7
-  %.sroa.22.0.copyload.pre.pre = load ptr, ptr %27, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw i8, ptr %.069, i64 1
+  %33 = add i64 %.074, -1
+  %.sroa.01.0.copyload.pre.pre = load ptr, ptr %22, align 8, !tbaa !7
+  %.sroa.22.0.copyload.pre.pre = load ptr, ptr %24, align 8, !tbaa !7
   br label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7"
 
-"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7": ; preds = %32, %34
-  %.sroa.22.0.copyload.pre = phi ptr [ %.sroa.22.0.copyload.pre.pre, %34 ], [ %28, %32 ]
-  %.sroa.01.0.copyload.pre = phi ptr [ %.sroa.01.0.copyload.pre.pre, %34 ], [ %26, %32 ]
-  %.680 = phi i64 [ %36, %34 ], [ %.074, %32 ]
-  %.6 = phi ptr [ %35, %34 ], [ %.069, %32 ]
-  %37 = add i64 %.067, 1
-  br label %38
+"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7": ; preds = %29, %31
+  %.sroa.22.0.copyload.pre = phi ptr [ %.sroa.22.0.copyload.pre.pre, %31 ], [ %25, %29 ]
+  %.sroa.01.0.copyload.pre = phi ptr [ %.sroa.01.0.copyload.pre.pre, %31 ], [ %23, %29 ]
+  %.680 = phi i64 [ %33, %31 ], [ %.074, %29 ]
+  %.6 = phi ptr [ %32, %31 ], [ %.069, %29 ]
+  %34 = add i64 %.067, 1
+  br label %35
 
-38:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7", %30
-  %.sroa.22.0.copyload = phi ptr [ %.sroa.22.0.copyload.pre, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %28, %30 ]
-  %.sroa.01.0.copyload = phi ptr [ %.sroa.01.0.copyload.pre, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %26, %30 ]
-  %.276 = phi i64 [ %.680, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %.074, %30 ]
-  %.271 = phi ptr [ %.6, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %.069, %30 ]
-  %.2 = phi i64 [ %37, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %.067, %30 ]
-  %39 = icmp ugt i64 %.276, 1
-  %40 = ptrtoint ptr %.sroa.22.0.copyload to i64
-  %41 = ptrtoint ptr %.sroa.01.0.copyload to i64
-  %42 = sub i64 %40, %41
-  br i1 %39, label %43, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9"
+35:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7", %27
+  %.sroa.22.0.copyload = phi ptr [ %.sroa.22.0.copyload.pre, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %25, %27 ]
+  %.sroa.01.0.copyload = phi ptr [ %.sroa.01.0.copyload.pre, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %23, %27 ]
+  %.276 = phi i64 [ %.680, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %.074, %27 ]
+  %.271 = phi ptr [ %.6, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %.069, %27 ]
+  %.2 = phi i64 [ %34, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit7" ], [ %.067, %27 ]
+  %36 = icmp ugt i64 %.276, 1
+  %37 = ptrtoint ptr %.sroa.22.0.copyload to i64
+  %38 = ptrtoint ptr %.sroa.01.0.copyload to i64
+  %39 = sub i64 %37, %38
+  br i1 %36, label %40, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9"
 
-43:                                               ; preds = %38
-  %44 = add i64 %.276, -1
-  %.sroa.speculated.i8 = tail call i64 @llvm.umin.i64(i64 %44, i64 %42)
+40:                                               ; preds = %35
+  %41 = add i64 %.276, -1
+  %.sroa.speculated.i8 = tail call i64 @llvm.umin.i64(i64 %41, i64 %39)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.271, ptr align 1 %.sroa.01.0.copyload, i64 %.sroa.speculated.i8, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %.271, i64 %.sroa.speculated.i8
-  %46 = sub i64 %.276, %.sroa.speculated.i8
-  %.pre87 = load ptr, ptr %25, align 8, !tbaa !13
-  %.pre88 = load ptr, ptr %27, align 8, !tbaa !15
+  %42 = getelementptr inbounds nuw i8, ptr %.271, i64 %.sroa.speculated.i8
+  %43 = sub i64 %.276, %.sroa.speculated.i8
+  %.pre87 = load ptr, ptr %22, align 8, !tbaa !13
+  %.pre88 = load ptr, ptr %24, align 8, !tbaa !15
   br label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9"
 
-"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9": ; preds = %38, %43
-  %47 = phi ptr [ %.pre88, %43 ], [ %.sroa.22.0.copyload, %38 ]
-  %48 = phi ptr [ %.pre87, %43 ], [ %.sroa.01.0.copyload, %38 ]
-  %.781 = phi i64 [ %46, %43 ], [ %.276, %38 ]
-  %.7 = phi ptr [ %45, %43 ], [ %.271, %38 ]
-  %49 = add i64 %42, %.2
-  %50 = icmp eq ptr %48, %47
-  br i1 %50, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10, label %51
+"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9": ; preds = %35, %40
+  %44 = phi ptr [ %.pre88, %40 ], [ %.sroa.22.0.copyload, %35 ]
+  %45 = phi ptr [ %.pre87, %40 ], [ %.sroa.01.0.copyload, %35 ]
+  %.781 = phi i64 [ %43, %40 ], [ %.276, %35 ]
+  %.7 = phi ptr [ %42, %40 ], [ %.271, %35 ]
+  %46 = add i64 %39, %.2
+  %47 = icmp eq ptr %45, %44
+  br i1 %47, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10, label %48
 
-51:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9"
-  %52 = getelementptr inbounds i8, ptr %47, i64 -1
-  %53 = load i8, ptr %52, align 1, !tbaa !16
-  %54 = icmp ne i8 %53, 47
-  %55 = zext i1 %54 to i8
+48:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9"
+  %49 = getelementptr inbounds i8, ptr %44, i64 -1
+  %50 = load i8, ptr %49, align 1, !tbaa !16
+  %51 = icmp ne i8 %50, 47
+  %52 = zext i1 %51 to i8
   br label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10
 
-_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10:       ; preds = %51, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9", %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit
-  %.175 = phi i64 [ %.074, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit ], [ %.781, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9" ], [ %.781, %51 ]
-  %.170 = phi ptr [ %.069, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit ], [ %.7, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9" ], [ %.7, %51 ]
-  %.168 = phi i64 [ %.067, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit ], [ %49, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9" ], [ %49, %51 ]
-  %.1 = phi i8 [ %.0, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit ], [ 1, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9" ], [ %55, %51 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load ptr, ptr %56, align 8, !tbaa !13
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !15
-  %60 = icmp eq ptr %57, %59
-  br i1 %60, label %79, label %61
+_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10:       ; preds = %48, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9", %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit
+  %.175 = phi i64 [ %.074, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit ], [ %.781, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9" ], [ %.781, %48 ]
+  %.170 = phi ptr [ %.069, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit ], [ %.7, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9" ], [ %.7, %48 ]
+  %.168 = phi i64 [ %.067, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit ], [ %46, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9" ], [ %46, %48 ]
+  %.1 = phi i8 [ %.0, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit ], [ 1, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit9" ], [ %52, %48 ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %54 = load ptr, ptr %53, align 8, !tbaa !13
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %56 = load ptr, ptr %55, align 8, !tbaa !15
+  %57 = icmp eq ptr %54, %56
+  br i1 %57, label %76, label %58
 
-61:                                               ; preds = %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10
-  %62 = trunc nuw i8 %.1 to i1
-  br i1 %62, label %63, label %69
+58:                                               ; preds = %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10
+  %59 = trunc nuw i8 %.1 to i1
+  br i1 %59, label %60, label %66
 
-63:                                               ; preds = %61
-  %64 = icmp ugt i64 %.175, 1
-  br i1 %64, label %65, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12"
+60:                                               ; preds = %58
+  %61 = icmp ugt i64 %.175, 1
+  br i1 %61, label %62, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12"
 
-65:                                               ; preds = %63
+62:                                               ; preds = %60
   store i8 47, ptr %.170, align 1
-  %66 = getelementptr inbounds nuw i8, ptr %.170, i64 1
-  %67 = add i64 %.175, -1
-  %.sroa.0.0.copyload.pre.pre = load ptr, ptr %56, align 8, !tbaa !7
-  %.sroa.2.0.copyload.pre.pre = load ptr, ptr %58, align 8, !tbaa !7
+  %63 = getelementptr inbounds nuw i8, ptr %.170, i64 1
+  %64 = add i64 %.175, -1
+  %.sroa.0.0.copyload.pre.pre = load ptr, ptr %53, align 8, !tbaa !7
+  %.sroa.2.0.copyload.pre.pre = load ptr, ptr %55, align 8, !tbaa !7
   br label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12"
 
-"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12": ; preds = %63, %65
-  %.sroa.2.0.copyload.pre = phi ptr [ %.sroa.2.0.copyload.pre.pre, %65 ], [ %59, %63 ]
-  %.sroa.0.0.copyload.pre = phi ptr [ %.sroa.0.0.copyload.pre.pre, %65 ], [ %57, %63 ]
-  %.882 = phi i64 [ %67, %65 ], [ %.175, %63 ]
-  %.8 = phi ptr [ %66, %65 ], [ %.170, %63 ]
-  %68 = add i64 %.168, 1
-  br label %69
+"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12": ; preds = %60, %62
+  %.sroa.2.0.copyload.pre = phi ptr [ %.sroa.2.0.copyload.pre.pre, %62 ], [ %56, %60 ]
+  %.sroa.0.0.copyload.pre = phi ptr [ %.sroa.0.0.copyload.pre.pre, %62 ], [ %54, %60 ]
+  %.882 = phi i64 [ %64, %62 ], [ %.175, %60 ]
+  %.8 = phi ptr [ %63, %62 ], [ %.170, %60 ]
+  %65 = add i64 %.168, 1
+  br label %66
 
-69:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12", %61
-  %.sroa.2.0.copyload = phi ptr [ %.sroa.2.0.copyload.pre, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %59, %61 ]
-  %.sroa.0.0.copyload = phi ptr [ %.sroa.0.0.copyload.pre, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %57, %61 ]
-  %.478 = phi i64 [ %.882, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %.175, %61 ]
-  %.473 = phi ptr [ %.8, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %.170, %61 ]
-  %.4 = phi i64 [ %68, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %.168, %61 ]
-  %70 = icmp ugt i64 %.478, 1
-  %71 = ptrtoint ptr %.sroa.2.0.copyload to i64
-  %72 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %73 = sub i64 %71, %72
-  br i1 %70, label %74, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14"
+66:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12", %58
+  %.sroa.2.0.copyload = phi ptr [ %.sroa.2.0.copyload.pre, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %56, %58 ]
+  %.sroa.0.0.copyload = phi ptr [ %.sroa.0.0.copyload.pre, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %54, %58 ]
+  %.478 = phi i64 [ %.882, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %.175, %58 ]
+  %.473 = phi ptr [ %.8, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %.170, %58 ]
+  %.4 = phi i64 [ %65, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit12" ], [ %.168, %58 ]
+  %67 = icmp ugt i64 %.478, 1
+  %68 = ptrtoint ptr %.sroa.2.0.copyload to i64
+  %69 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %70 = sub i64 %68, %69
+  br i1 %67, label %71, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14"
 
-74:                                               ; preds = %69
-  %75 = add i64 %.478, -1
-  %.sroa.speculated.i13 = tail call i64 @llvm.umin.i64(i64 %75, i64 %73)
+71:                                               ; preds = %66
+  %72 = add i64 %.478, -1
+  %.sroa.speculated.i13 = tail call i64 @llvm.umin.i64(i64 %72, i64 %70)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.473, ptr align 1 %.sroa.0.0.copyload, i64 %.sroa.speculated.i13, i1 false)
-  %76 = getelementptr inbounds nuw i8, ptr %.473, i64 %.sroa.speculated.i13
-  %77 = sub i64 %.478, %.sroa.speculated.i13
+  %73 = getelementptr inbounds nuw i8, ptr %.473, i64 %.sroa.speculated.i13
+  %74 = sub i64 %.478, %.sroa.speculated.i13
   br label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14"
 
-"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14": ; preds = %69, %74
-  %.983 = phi i64 [ %77, %74 ], [ %.478, %69 ]
-  %.9 = phi ptr [ %76, %74 ], [ %.473, %69 ]
-  %78 = add i64 %73, %.4
-  br label %79
+"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14": ; preds = %66, %71
+  %.983 = phi i64 [ %74, %71 ], [ %.478, %66 ]
+  %.9 = phi ptr [ %73, %71 ], [ %.473, %66 ]
+  %75 = add i64 %70, %.4
+  br label %76
 
-79:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14", %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10
+76:                                               ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14", %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10
   %.377 = phi i64 [ %.175, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10 ], [ %.983, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14" ]
   %.372 = phi ptr [ %.170, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10 ], [ %.9, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14" ]
-  %.3 = phi i64 [ %.168, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10 ], [ %78, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14" ]
+  %.3 = phi i64 [ %.168, %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit10 ], [ %75, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit14" ]
   %.not = icmp eq i64 %.377, 0
-  br i1 %.not, label %81, label %80
+  br i1 %.not, label %78, label %77
 
-80:                                               ; preds = %79
+77:                                               ; preds = %76
   store i8 0, ptr %.372, align 1, !tbaa !16
-  br label %81
+  br label %78
 
-81:                                               ; preds = %80, %79
+78:                                               ; preds = %77, %76
   ret i64 %.3
 }
 

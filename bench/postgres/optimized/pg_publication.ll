@@ -1969,14 +1969,14 @@ filter_partitions.exit:                           ; preds = %.loopexit.i, %.lr.p
   %124 = load ptr, ptr %123, align 8
   %125 = load i64, ptr %122, align 8
   %.not.i111 = icmp eq ptr %124, null
-  br i1 %.not.i111, label %list_length.exit.thread, label %list_length.exit
+  br i1 %.not.i111, label %.critedge, label %list_length.exit
 
 list_length.exit:                                 ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
   %129 = icmp ult i64 %125, %128
-  br i1 %129, label %130, label %list_length.exit.thread
+  br i1 %129, label %130, label %.critedge
 
 130:                                              ; preds = %list_length.exit
   %131 = getelementptr i8, ptr %124, i64 16
@@ -2137,7 +2137,7 @@ list_length.exit:                                 ; preds = %121
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
   br label %221
 
-list_length.exit.thread:                          ; preds = %121, %list_length.exit
+.critedge:                                        ; preds = %121, %list_length.exit
   call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %122) #6
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %218 = load ptr, ptr %217, align 8
@@ -2147,8 +2147,8 @@ list_length.exit.thread:                          ; preds = %121, %list_length.e
   store i8 1, ptr %220, align 4
   br label %221
 
-221:                                              ; preds = %206, %list_length.exit.thread
-  %.0 = phi i64 [ 0, %list_length.exit.thread ], [ %216, %206 ]
+221:                                              ; preds = %206, %.critedge
+  %.0 = phi i64 [ 0, %.critedge ], [ %216, %206 ]
   ret i64 %.0
 }
 

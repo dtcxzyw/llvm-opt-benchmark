@@ -936,12 +936,12 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %74, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !43
   %.pre77 = load i32, ptr %74, align 8, !tbaa !80
-  %82 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %83 = icmp eq i32 %.pre, %.pre77
-  br i1 %83, label %86, label %.Vec_PtrGrow.exit11_crit_edge.i
+  %82 = icmp eq i32 %.pre, %.pre77
+  %83 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  br i1 %82, label %86, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %.thread, %81
-  %84 = phi ptr [ %80, %.thread ], [ %82, %81 ]
+  %84 = phi ptr [ %80, %.thread ], [ %83, %81 ]
   %85 = phi ptr [ %76, %.thread ], [ %74, %81 ]
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !24
@@ -995,7 +995,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %93, %91
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %106
-  %108 = phi ptr [ %84, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %82, %106 ], [ %82, %Vec_PtrGrow.exit.i ]
+  %108 = phi ptr [ %84, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %83, %106 ], [ %83, %Vec_PtrGrow.exit.i ]
   %109 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %107, %106 ], [ %95, %Vec_PtrGrow.exit.i ]
   %110 = load i32, ptr %108, align 4, !tbaa !43
   %111 = add nsw i32 %110, 1

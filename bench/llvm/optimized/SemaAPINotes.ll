@@ -664,7 +664,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalVariableInfoEEC2E
   %199 = load i32, ptr %129, align 4
   %200 = and i32 %199, 256
   %.not.i.i.i372 = icmp eq i32 %200, 0
-  br i1 %.not.i.i.i372, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i, label %201
+  br i1 %.not.i.i.i372, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i, label %201
 
 201:                                              ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalVariableInfoEEC2ERKS4_.exit.i
   %202 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -675,7 +675,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalVariableInfoEEC2E
   %.idx.i.i.i.i = shl nuw nsw i64 %206, 3
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 %.idx.i.i.i.i
   %.not.i.i.i14.i = icmp eq i32 %205, 0
-  br i1 %.not.i.i.i14.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i14.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %201, %212
   %.sroa.07.1.i.i.i.i.i.i = phi ptr [ %213, %212 ], [ %203, %201 ]
@@ -688,19 +688,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalVariableInfoEEC2E
 212:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %213, %207
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not38.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %207
-  br i1 %.not38.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalVariableInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
+  %.not37.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %207
+  br i1 %.not37.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalVariableInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i: ; preds = %212, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i, %201, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalVariableInfoEEC2ERKS4_.exit.i
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i: ; preds = %212, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i, %201, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalVariableInfoEEC2ERKS4_.exit.i
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %151, align 8
   %214 = and i64 %.sroa.0.0.copyload.i.i.i, 4294967296
-  %.not39.i.i = icmp eq i64 %214, 0
-  br i1 %.not39.i.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalVariableInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %215
+  %.not38.i.i = icmp eq i64 %214, 0
+  br i1 %.not38.i.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalVariableInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %215
 
-215:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i
+215:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %59) #19
   store ptr %152, ptr %59, align 8, !tbaa !29
   store i64 0, ptr %153, align 8, !tbaa !32
@@ -735,11 +735,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i: ; preds = %212,
   %or.cond.i.i.i = icmp eq i64 %226, 0
   %227 = and i64 %.sroa.6.0.copyload.i.i, 9223372034707292159
   %228 = icmp eq i64 %227, 0
-  %or.cond32.i.i = select i1 %or.cond.i.i.i, i1 %228, i1 false
+  %or.cond31.i.i = select i1 %or.cond.i.i.i, i1 %228, i1 false
   %229 = load i64, ptr %157, align 8
   %230 = icmp eq i64 %229, 0
-  %or.cond35.i.i = select i1 %or.cond32.i.i, i1 true, i1 %230
-  br i1 %or.cond35.i.i, label %.loopexit.i.i, label %231
+  %or.cond34.i.i = select i1 %or.cond31.i.i, i1 true, i1 %230
+  br i1 %or.cond34.i.i, label %.loopexit.i.i, label %231
 
 231:                                              ; preds = %215
   %232 = load ptr, ptr %62, align 8, !tbaa !11
@@ -747,31 +747,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i: ; preds = %212,
   %234 = zext i32 %233 to i64
   %.idx.i.i = shl nuw nsw i64 %234, 7
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 %.idx.i.i
-  %.not41.i.i = icmp eq i32 %233, 0
-  br i1 %.not41.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+  %.not40.i.i = icmp eq i32 %233, 0
+  br i1 %.not40.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %231, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i
-  %.01242.i.i = phi ptr [ %246, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i ], [ %232, %231 ]
-  %236 = load i64, ptr %.01242.i.i, align 4
+  %.01241.i.i = phi ptr [ %246, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i ], [ %232, %231 ]
+  %236 = load i64, ptr %.01241.i.i, align 4
   %237 = and i64 %236, 9223372036854775807
   %or.cond.i14.i.i = icmp eq i64 %237, 0
   br i1 %or.cond.i14.i.i, label %238, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i
 
 238:                                              ; preds = %.lr.ph.i.i
-  %239 = getelementptr inbounds nuw i8, ptr %.01242.i.i, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %.01241.i.i, i64 8
   %240 = load i64, ptr %239, align 4
   %241 = and i64 %240, 9223372034707292159
-  %or.cond37.i.i = icmp eq i64 %241, 0
-  br i1 %or.cond37.i.i, label %242, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i
+  %or.cond36.i.i = icmp eq i64 %241, 0
+  br i1 %or.cond36.i.i, label %242, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i
 
 242:                                              ; preds = %238
-  %243 = getelementptr inbounds nuw i8, ptr %.01242.i.i, i64 64
+  %243 = getelementptr inbounds nuw i8, ptr %.01241.i.i, i64 64
   %244 = load i64, ptr %243, align 8, !tbaa !32
   %245 = icmp eq i64 %244, 0
   br i1 %245, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i, label %.loopexit.i.i
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i: ; preds = %242, %238, %.lr.ph.i.i
-  %246 = getelementptr inbounds nuw i8, ptr %.01242.i.i, i64 128
+  %246 = getelementptr inbounds nuw i8, ptr %.01241.i.i, i64 128
   %.not.i.i = icmp eq ptr %246, %235
   br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
@@ -839,7 +839,7 @@ _ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i:   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %59) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalVariableInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalVariableInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalVariableInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %60)
   %265 = load ptr, ptr %62, align 8, !tbaa !11
   %266 = load i32, ptr %149, align 8, !tbaa !13
@@ -1426,7 +1426,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalFunctionInfoEEC2E
   %500 = load i32, ptr %129, align 4
   %501 = and i32 %500, 256
   %.not.i.i.i411 = icmp eq i32 %501, 0
-  br i1 %.not.i.i.i411, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417, label %502
+  br i1 %.not.i.i.i411, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i417, label %502
 
 502:                                              ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalFunctionInfoEEC2ERKS4_.exit.i
   %503 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -1437,7 +1437,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalFunctionInfoEEC2E
   %.idx.i.i.i.i412 = shl nuw nsw i64 %507, 3
   %508 = getelementptr inbounds nuw i8, ptr %504, i64 %.idx.i.i.i.i412
   %.not.i.i.i14.i413 = icmp eq i32 %506, 0
-  br i1 %.not.i.i.i14.i413, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417, label %.lr.ph.i.i.i.i.i.i.i414
+  br i1 %.not.i.i.i14.i413, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i417, label %.lr.ph.i.i.i.i.i.i.i414
 
 .lr.ph.i.i.i.i.i.i.i414:                          ; preds = %502, %513
   %.sroa.07.1.i.i.i.i.i.i415 = phi ptr [ %514, %513 ], [ %504, %502 ]
@@ -1450,19 +1450,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalFunctionInfoEEC2E
 513:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i414
   %514 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i415, i64 8
   %.not.i.i.i.i.i.i.i416 = icmp eq ptr %514, %508
-  br i1 %.not.i.i.i.i.i.i.i416, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417, label %.lr.ph.i.i.i.i.i.i.i414, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i416, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i417, label %.lr.ph.i.i.i.i.i.i.i414, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i468: ; preds = %.lr.ph.i.i.i.i.i.i.i414
-  %.not38.i.i469 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i415, %508
-  br i1 %.not38.i.i469, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalFunctionInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
+  %.not37.i.i469 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i415, %508
+  br i1 %.not37.i.i469, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i417, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalFunctionInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417: ; preds = %513, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i468, %502, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalFunctionInfoEEC2ERKS4_.exit.i
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i417: ; preds = %513, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i468, %502, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_18GlobalFunctionInfoEEC2ERKS4_.exit.i
   %.sroa.0.0.copyload.i.i.i418 = load i64, ptr %437, align 8
   %515 = and i64 %.sroa.0.0.copyload.i.i.i418, 4294967296
-  %.not39.i.i419 = icmp eq i64 %515, 0
-  br i1 %.not39.i.i419, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalFunctionInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %516
+  %.not38.i.i419 = icmp eq i64 %515, 0
+  br i1 %.not38.i.i419, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalFunctionInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %516
 
-516:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417
+516:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i417
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %53) #19
   store ptr %438, ptr %53, align 8, !tbaa !29
   store i64 0, ptr %439, align 8, !tbaa !32
@@ -1505,11 +1505,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417: ; preds = %5
   %or.cond.i.i.i423 = icmp eq i64 %529, 0
   %530 = and i64 %.sroa.6.0.copyload.i.i422, 9223372034707292159
   %531 = icmp eq i64 %530, 0
-  %or.cond32.i.i424 = select i1 %or.cond.i.i.i423, i1 %531, i1 false
+  %or.cond31.i.i424 = select i1 %or.cond.i.i.i423, i1 %531, i1 false
   %532 = load i64, ptr %443, align 8
   %533 = icmp eq i64 %532, 0
-  %or.cond35.i.i425 = select i1 %or.cond32.i.i424, i1 true, i1 %533
-  br i1 %or.cond35.i.i425, label %.loopexit.i.i436, label %534
+  %or.cond34.i.i425 = select i1 %or.cond31.i.i424, i1 true, i1 %533
+  br i1 %or.cond34.i.i425, label %.loopexit.i.i436, label %534
 
 534:                                              ; preds = %516
   %535 = load ptr, ptr %56, align 8, !tbaa !11
@@ -1517,31 +1517,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417: ; preds = %5
   %537 = zext i32 %536 to i64
   %.idx.i.i426 = mul nuw nsw i64 %537, 192
   %538 = getelementptr inbounds nuw i8, ptr %535, i64 %.idx.i.i426
-  %.not41.i.i427 = icmp eq i32 %536, 0
-  br i1 %.not41.i.i427, label %.critedge.i.i433, label %.lr.ph.i.i428
+  %.not40.i.i427 = icmp eq i32 %536, 0
+  br i1 %.not40.i.i427, label %.critedge.i.i433, label %.lr.ph.i.i428
 
 .lr.ph.i.i428:                                    ; preds = %534, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i431
-  %.01242.i.i429 = phi ptr [ %549, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i431 ], [ %535, %534 ]
-  %539 = load i64, ptr %.01242.i.i429, align 4
+  %.01241.i.i429 = phi ptr [ %549, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i431 ], [ %535, %534 ]
+  %539 = load i64, ptr %.01241.i.i429, align 4
   %540 = and i64 %539, 9223372036854775807
   %or.cond.i14.i.i430 = icmp eq i64 %540, 0
   br i1 %or.cond.i14.i.i430, label %541, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i431
 
 541:                                              ; preds = %.lr.ph.i.i428
-  %542 = getelementptr inbounds nuw i8, ptr %.01242.i.i429, i64 8
+  %542 = getelementptr inbounds nuw i8, ptr %.01241.i.i429, i64 8
   %543 = load i64, ptr %542, align 4
   %544 = and i64 %543, 9223372034707292159
-  %or.cond37.i.i467 = icmp eq i64 %544, 0
-  br i1 %or.cond37.i.i467, label %545, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i431
+  %or.cond36.i.i467 = icmp eq i64 %544, 0
+  br i1 %or.cond36.i.i467, label %545, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i431
 
 545:                                              ; preds = %541
-  %546 = getelementptr inbounds nuw i8, ptr %.01242.i.i429, i64 64
+  %546 = getelementptr inbounds nuw i8, ptr %.01241.i.i429, i64 64
   %547 = load i64, ptr %546, align 8, !tbaa !32
   %548 = icmp eq i64 %547, 0
   br i1 %548, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i431, label %.loopexit.i.i436
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i431: ; preds = %545, %541, %.lr.ph.i.i428
-  %549 = getelementptr inbounds nuw i8, ptr %.01242.i.i429, i64 192
+  %549 = getelementptr inbounds nuw i8, ptr %.01241.i.i429, i64 192
   %.not.i.i432 = icmp eq ptr %549, %538
   br i1 %.not.i.i432, label %.critedge.i.i433, label %.lr.ph.i.i428
 
@@ -1714,7 +1714,7 @@ _ZN5clang9api_notes12FunctionInfoD2Ev.exit.i.i:   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %53) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalFunctionInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalFunctionInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes12FunctionInfoD2Ev.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i417, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i468
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes18GlobalFunctionInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes12FunctionInfoD2Ev.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i417, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i468
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %54)
   %609 = load ptr, ptr %56, align 8, !tbaa !11
   %610 = load i32, ptr %435, align 8, !tbaa !13
@@ -4222,7 +4222,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_11TypedefInfoEEC2ERKS4_.e
   %1654 = load i32, ptr %129, align 4
   %1655 = and i32 %1654, 256
   %.not.i.i.i628 = icmp eq i32 %1655, 0
-  br i1 %.not.i.i.i628, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634, label %1656
+  br i1 %.not.i.i.i628, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i634, label %1656
 
 1656:                                             ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_11TypedefInfoEEC2ERKS4_.exit.i
   %1657 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -4233,7 +4233,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_11TypedefInfoEEC2ERKS4_.e
   %.idx.i.i.i.i629 = shl nuw nsw i64 %1661, 3
   %1662 = getelementptr inbounds nuw i8, ptr %1658, i64 %.idx.i.i.i.i629
   %.not.i.i.i14.i630 = icmp eq i32 %1660, 0
-  br i1 %.not.i.i.i14.i630, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634, label %.lr.ph.i.i.i.i.i.i.i631
+  br i1 %.not.i.i.i14.i630, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i634, label %.lr.ph.i.i.i.i.i.i.i631
 
 .lr.ph.i.i.i.i.i.i.i631:                          ; preds = %1656, %1667
   %.sroa.07.1.i.i.i.i.i.i632 = phi ptr [ %1668, %1667 ], [ %1658, %1656 ]
@@ -4246,19 +4246,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_11TypedefInfoEEC2ERKS4_.e
 1667:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i631
   %1668 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i632, i64 8
   %.not.i.i.i.i.i.i.i633 = icmp eq ptr %1668, %1662
-  br i1 %.not.i.i.i.i.i.i.i633, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634, label %.lr.ph.i.i.i.i.i.i.i631, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i633, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i634, label %.lr.ph.i.i.i.i.i.i.i631, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i735: ; preds = %.lr.ph.i.i.i.i.i.i.i631
-  %.not38.i.i736 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i632, %1662
-  br i1 %.not38.i.i736, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11TypedefInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
+  %.not37.i.i736 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i632, %1662
+  br i1 %.not37.i.i736, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i634, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11TypedefInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634: ; preds = %1667, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i735, %1656, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_11TypedefInfoEEC2ERKS4_.exit.i
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i634: ; preds = %1667, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i735, %1656, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_11TypedefInfoEEC2ERKS4_.exit.i
   %.sroa.0.0.copyload.i.i.i635 = load i64, ptr %1591, align 8
   %1669 = and i64 %.sroa.0.0.copyload.i.i.i635, 4294967296
-  %.not39.i.i636 = icmp eq i64 %1669, 0
-  br i1 %.not39.i.i636, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11TypedefInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %1670
+  %.not38.i.i636 = icmp eq i64 %1669, 0
+  br i1 %.not38.i.i636, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11TypedefInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %1670
 
-1670:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634
+1670:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i634
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %36) #19
   store ptr %1592, ptr %36, align 8, !tbaa !29
   store i64 0, ptr %1593, align 8, !tbaa !32
@@ -4294,11 +4294,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634: ; preds = %1
   %or.cond.i.i.i640 = icmp eq i64 %1682, 0
   %1683 = and i64 %.sroa.6.0.copyload.i.i639, 9223372034707292159
   %1684 = icmp eq i64 %1683, 0
-  %or.cond32.i.i641 = select i1 %or.cond.i.i.i640, i1 %1684, i1 false
+  %or.cond31.i.i641 = select i1 %or.cond.i.i.i640, i1 %1684, i1 false
   %1685 = load i64, ptr %1597, align 8
   %1686 = icmp eq i64 %1685, 0
-  %or.cond35.i.i642 = select i1 %or.cond32.i.i641, i1 true, i1 %1686
-  br i1 %or.cond35.i.i642, label %.loopexit.i.i653, label %1687
+  %or.cond34.i.i642 = select i1 %or.cond31.i.i641, i1 true, i1 %1686
+  br i1 %or.cond34.i.i642, label %.loopexit.i.i653, label %1687
 
 1687:                                             ; preds = %1670
   %1688 = load ptr, ptr %39, align 8, !tbaa !11
@@ -4306,31 +4306,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634: ; preds = %1
   %1690 = zext i32 %1689 to i64
   %.idx.i.i643 = mul nuw nsw i64 %1690, 176
   %1691 = getelementptr inbounds nuw i8, ptr %1688, i64 %.idx.i.i643
-  %.not41.i.i644 = icmp eq i32 %1689, 0
-  br i1 %.not41.i.i644, label %.critedge.i.i650, label %.lr.ph.i.i645
+  %.not40.i.i644 = icmp eq i32 %1689, 0
+  br i1 %.not40.i.i644, label %.critedge.i.i650, label %.lr.ph.i.i645
 
 .lr.ph.i.i645:                                    ; preds = %1687, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i648
-  %.01242.i.i646 = phi ptr [ %1702, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i648 ], [ %1688, %1687 ]
-  %1692 = load i64, ptr %.01242.i.i646, align 4
+  %.01241.i.i646 = phi ptr [ %1702, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i648 ], [ %1688, %1687 ]
+  %1692 = load i64, ptr %.01241.i.i646, align 4
   %1693 = and i64 %1692, 9223372036854775807
   %or.cond.i14.i.i647 = icmp eq i64 %1693, 0
   br i1 %or.cond.i14.i.i647, label %1694, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i648
 
 1694:                                             ; preds = %.lr.ph.i.i645
-  %1695 = getelementptr inbounds nuw i8, ptr %.01242.i.i646, i64 8
+  %1695 = getelementptr inbounds nuw i8, ptr %.01241.i.i646, i64 8
   %1696 = load i64, ptr %1695, align 4
   %1697 = and i64 %1696, 9223372034707292159
-  %or.cond37.i.i734 = icmp eq i64 %1697, 0
-  br i1 %or.cond37.i.i734, label %1698, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i648
+  %or.cond36.i.i734 = icmp eq i64 %1697, 0
+  br i1 %or.cond36.i.i734, label %1698, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i648
 
 1698:                                             ; preds = %1694
-  %1699 = getelementptr inbounds nuw i8, ptr %.01242.i.i646, i64 64
+  %1699 = getelementptr inbounds nuw i8, ptr %.01241.i.i646, i64 64
   %1700 = load i64, ptr %1699, align 8, !tbaa !32
   %1701 = icmp eq i64 %1700, 0
   br i1 %1701, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i648, label %.loopexit.i.i653
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i648: ; preds = %1698, %1694, %.lr.ph.i.i645
-  %1702 = getelementptr inbounds nuw i8, ptr %.01242.i.i646, i64 176
+  %1702 = getelementptr inbounds nuw i8, ptr %.01241.i.i646, i64 176
   %.not.i.i649 = icmp eq ptr %1702, %1691
   br i1 %.not.i.i649, label %.critedge.i.i650, label %.lr.ph.i.i645
 
@@ -4427,7 +4427,7 @@ _ZN5clang9api_notes14CommonTypeInfoD2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %36) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11TypedefInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11TypedefInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes14CommonTypeInfoD2Ev.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i634, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i735
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes11TypedefInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes14CommonTypeInfoD2Ev.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i634, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i735
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %37)
   %1733 = load ptr, ptr %39, align 8, !tbaa !11
   %1734 = load i32, ptr %1589, align 8, !tbaa !13
@@ -5115,7 +5115,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16EnumConstantInfoEEC2ERK
   %2022 = load i32, ptr %1961, align 4
   %2023 = and i32 %2022, 256
   %.not.i.i.i751 = icmp eq i32 %2023, 0
-  br i1 %.not.i.i.i751, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757, label %2024
+  br i1 %.not.i.i.i751, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i757, label %2024
 
 2024:                                             ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16EnumConstantInfoEEC2ERKS4_.exit.i
   %2025 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -5126,7 +5126,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16EnumConstantInfoEEC2ERK
   %.idx.i.i.i.i752 = shl nuw nsw i64 %2029, 3
   %2030 = getelementptr inbounds nuw i8, ptr %2026, i64 %.idx.i.i.i.i752
   %.not.i.i.i14.i753 = icmp eq i32 %2028, 0
-  br i1 %.not.i.i.i14.i753, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757, label %.lr.ph.i.i.i.i.i.i.i754
+  br i1 %.not.i.i.i14.i753, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i757, label %.lr.ph.i.i.i.i.i.i.i754
 
 .lr.ph.i.i.i.i.i.i.i754:                          ; preds = %2024, %2035
   %.sroa.07.1.i.i.i.i.i.i755 = phi ptr [ %2036, %2035 ], [ %2026, %2024 ]
@@ -5139,19 +5139,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16EnumConstantInfoEEC2ERK
 2035:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i754
   %2036 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i755, i64 8
   %.not.i.i.i.i.i.i.i756 = icmp eq ptr %2036, %2030
-  br i1 %.not.i.i.i.i.i.i.i756, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757, label %.lr.ph.i.i.i.i.i.i.i754, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i756, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i757, label %.lr.ph.i.i.i.i.i.i.i754, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i816: ; preds = %.lr.ph.i.i.i.i.i.i.i754
-  %.not38.i.i817 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i755, %2030
-  br i1 %.not38.i.i817, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16EnumConstantInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
+  %.not37.i.i817 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i755, %2030
+  br i1 %.not37.i.i817, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i757, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16EnumConstantInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757: ; preds = %2035, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i816, %2024, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16EnumConstantInfoEEC2ERKS4_.exit.i
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i757: ; preds = %2035, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i816, %2024, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16EnumConstantInfoEEC2ERKS4_.exit.i
   %.sroa.0.0.copyload.i.i.i758 = load i64, ptr %1982, align 8
   %2037 = and i64 %.sroa.0.0.copyload.i.i.i758, 4294967296
-  %.not39.i.i759 = icmp eq i64 %2037, 0
-  br i1 %.not39.i.i759, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16EnumConstantInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %2038
+  %.not38.i.i759 = icmp eq i64 %2037, 0
+  br i1 %.not38.i.i759, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16EnumConstantInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %2038
 
-2038:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757
+2038:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i757
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28) #19
   store ptr %1983, ptr %28, align 8, !tbaa !29
   store i64 0, ptr %1984, align 8, !tbaa !32
@@ -5177,11 +5177,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757: ; preds = %2
   %or.cond.i.i.i763 = icmp eq i64 %2046, 0
   %2047 = and i64 %.sroa.6.0.copyload.i.i762, 9223372034707292159
   %2048 = icmp eq i64 %2047, 0
-  %or.cond32.i.i764 = select i1 %or.cond.i.i.i763, i1 %2048, i1 false
+  %or.cond31.i.i764 = select i1 %or.cond.i.i.i763, i1 %2048, i1 false
   %2049 = load i64, ptr %1988, align 8
   %2050 = icmp eq i64 %2049, 0
-  %or.cond35.i.i765 = select i1 %or.cond32.i.i764, i1 true, i1 %2050
-  br i1 %or.cond35.i.i765, label %.loopexit.i.i776, label %2051
+  %or.cond34.i.i765 = select i1 %or.cond31.i.i764, i1 true, i1 %2050
+  br i1 %or.cond34.i.i765, label %.loopexit.i.i776, label %2051
 
 2051:                                             ; preds = %2038
   %2052 = load ptr, ptr %31, align 8, !tbaa !11
@@ -5189,31 +5189,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757: ; preds = %2
   %2054 = zext i32 %2053 to i64
   %.idx.i.i766 = mul nuw nsw i64 %2054, 88
   %2055 = getelementptr inbounds nuw i8, ptr %2052, i64 %.idx.i.i766
-  %.not41.i.i767 = icmp eq i32 %2053, 0
-  br i1 %.not41.i.i767, label %.critedge.i.i773, label %.lr.ph.i.i768
+  %.not40.i.i767 = icmp eq i32 %2053, 0
+  br i1 %.not40.i.i767, label %.critedge.i.i773, label %.lr.ph.i.i768
 
 .lr.ph.i.i768:                                    ; preds = %2051, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i771
-  %.01242.i.i769 = phi ptr [ %2066, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i771 ], [ %2052, %2051 ]
-  %2056 = load i64, ptr %.01242.i.i769, align 4
+  %.01241.i.i769 = phi ptr [ %2066, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i771 ], [ %2052, %2051 ]
+  %2056 = load i64, ptr %.01241.i.i769, align 4
   %2057 = and i64 %2056, 9223372036854775807
   %or.cond.i14.i.i770 = icmp eq i64 %2057, 0
   br i1 %or.cond.i14.i.i770, label %2058, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i771
 
 2058:                                             ; preds = %.lr.ph.i.i768
-  %2059 = getelementptr inbounds nuw i8, ptr %.01242.i.i769, i64 8
+  %2059 = getelementptr inbounds nuw i8, ptr %.01241.i.i769, i64 8
   %2060 = load i64, ptr %2059, align 4
   %2061 = and i64 %2060, 9223372034707292159
-  %or.cond37.i.i815 = icmp eq i64 %2061, 0
-  br i1 %or.cond37.i.i815, label %2062, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i771
+  %or.cond36.i.i815 = icmp eq i64 %2061, 0
+  br i1 %or.cond36.i.i815, label %2062, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i771
 
 2062:                                             ; preds = %2058
-  %2063 = getelementptr inbounds nuw i8, ptr %.01242.i.i769, i64 64
+  %2063 = getelementptr inbounds nuw i8, ptr %.01241.i.i769, i64 64
   %2064 = load i64, ptr %2063, align 8, !tbaa !32
   %2065 = icmp eq i64 %2064, 0
   br i1 %2065, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i771, label %.loopexit.i.i776
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i771: ; preds = %2062, %2058, %.lr.ph.i.i768
-  %2066 = getelementptr inbounds nuw i8, ptr %.01242.i.i769, i64 88
+  %2066 = getelementptr inbounds nuw i8, ptr %.01241.i.i769, i64 88
   %.not.i.i772 = icmp eq ptr %2066, %2055
   br i1 %.not.i.i772, label %.critedge.i.i773, label %.lr.ph.i.i768
 
@@ -5264,7 +5264,7 @@ _ZN5clang9api_notes16CommonEntityInfoD2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112b
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %28) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16EnumConstantInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16EnumConstantInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes16CommonEntityInfoD2Ev.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i757, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i816
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16EnumConstantInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes16CommonEntityInfoD2Ev.exit.i.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i757, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i816
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %29)
   %2079 = load ptr, ptr %31, align 8, !tbaa !11
   %2080 = load i32, ptr %1980, align 8, !tbaa !13
@@ -5856,7 +5856,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_14ObjCMethodInfoEEC2ERKS4
   %2322 = load i32, ptr %2198, align 4
   %2323 = and i32 %2322, 256
   %.not.i.i.i856 = icmp eq i32 %2323, 0
-  br i1 %.not.i.i.i856, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862, label %2324
+  br i1 %.not.i.i.i856, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i862, label %2324
 
 2324:                                             ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_14ObjCMethodInfoEEC2ERKS4_.exit.i
   %2325 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -5867,7 +5867,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_14ObjCMethodInfoEEC2ERKS4
   %.idx.i.i.i.i857 = shl nuw nsw i64 %2329, 3
   %2330 = getelementptr inbounds nuw i8, ptr %2326, i64 %.idx.i.i.i.i857
   %.not.i.i.i14.i858 = icmp eq i32 %2328, 0
-  br i1 %.not.i.i.i14.i858, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862, label %.lr.ph.i.i.i.i.i.i.i859
+  br i1 %.not.i.i.i14.i858, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i862, label %.lr.ph.i.i.i.i.i.i.i859
 
 .lr.ph.i.i.i.i.i.i.i859:                          ; preds = %2324, %2335
   %.sroa.07.1.i.i.i.i.i.i860 = phi ptr [ %2336, %2335 ], [ %2326, %2324 ]
@@ -5880,19 +5880,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_14ObjCMethodInfoEEC2ERKS4
 2335:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i859
   %2336 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i860, i64 8
   %.not.i.i.i.i.i.i.i861 = icmp eq ptr %2336, %2330
-  br i1 %.not.i.i.i.i.i.i.i861, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862, label %.lr.ph.i.i.i.i.i.i.i859, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i861, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i862, label %.lr.ph.i.i.i.i.i.i.i859, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i955: ; preds = %.lr.ph.i.i.i.i.i.i.i859
-  %.not38.i.i956 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i860, %2330
-  br i1 %.not38.i.i956, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes14ObjCMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
+  %.not37.i.i956 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i860, %2330
+  br i1 %.not37.i.i956, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i862, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes14ObjCMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862: ; preds = %2335, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i955, %2324, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_14ObjCMethodInfoEEC2ERKS4_.exit.i
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i862: ; preds = %2335, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i955, %2324, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_14ObjCMethodInfoEEC2ERKS4_.exit.i
   %.sroa.0.0.copyload.i.i.i863 = load i64, ptr %2223, align 8
   %2337 = and i64 %.sroa.0.0.copyload.i.i.i863, 4294967296
-  %.not39.i.i864 = icmp eq i64 %2337, 0
-  br i1 %.not39.i.i864, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes14ObjCMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %2338
+  %.not38.i.i864 = icmp eq i64 %2337, 0
+  br i1 %.not38.i.i864, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes14ObjCMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %2338
 
-2338:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862
+2338:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i862
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %22) #19
   store ptr %2224, ptr %22, align 8, !tbaa !29
   store i64 0, ptr %2225, align 8, !tbaa !32
@@ -5941,11 +5941,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862: ; preds = %2
   %or.cond.i.i.i868 = icmp eq i64 %2354, 0
   %2355 = and i64 %.sroa.6.0.copyload.i.i867, 9223372034707292159
   %2356 = icmp eq i64 %2355, 0
-  %or.cond32.i.i869 = select i1 %or.cond.i.i.i868, i1 %2356, i1 false
+  %or.cond31.i.i869 = select i1 %or.cond.i.i.i868, i1 %2356, i1 false
   %2357 = load i64, ptr %2229, align 8
   %2358 = icmp eq i64 %2357, 0
-  %or.cond35.i.i870 = select i1 %or.cond32.i.i869, i1 true, i1 %2358
-  br i1 %or.cond35.i.i870, label %.loopexit.i.i881, label %2359
+  %or.cond34.i.i870 = select i1 %or.cond31.i.i869, i1 true, i1 %2358
+  br i1 %or.cond34.i.i870, label %.loopexit.i.i881, label %2359
 
 2359:                                             ; preds = %2338
   %2360 = load ptr, ptr %25, align 8, !tbaa !11
@@ -5953,31 +5953,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862: ; preds = %2
   %2362 = zext i32 %2361 to i64
   %.idx.i.i871 = mul nuw nsw i64 %2362, 328
   %2363 = getelementptr inbounds nuw i8, ptr %2360, i64 %.idx.i.i871
-  %.not41.i.i872 = icmp eq i32 %2361, 0
-  br i1 %.not41.i.i872, label %.critedge.i.i878, label %.lr.ph.i.i873
+  %.not40.i.i872 = icmp eq i32 %2361, 0
+  br i1 %.not40.i.i872, label %.critedge.i.i878, label %.lr.ph.i.i873
 
 .lr.ph.i.i873:                                    ; preds = %2359, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876
-  %.01242.i.i874 = phi ptr [ %2374, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876 ], [ %2360, %2359 ]
-  %2364 = load i64, ptr %.01242.i.i874, align 4
+  %.01241.i.i874 = phi ptr [ %2374, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876 ], [ %2360, %2359 ]
+  %2364 = load i64, ptr %.01241.i.i874, align 4
   %2365 = and i64 %2364, 9223372036854775807
   %or.cond.i14.i.i875 = icmp eq i64 %2365, 0
   br i1 %or.cond.i14.i.i875, label %2366, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876
 
 2366:                                             ; preds = %.lr.ph.i.i873
-  %2367 = getelementptr inbounds nuw i8, ptr %.01242.i.i874, i64 8
+  %2367 = getelementptr inbounds nuw i8, ptr %.01241.i.i874, i64 8
   %2368 = load i64, ptr %2367, align 4
   %2369 = and i64 %2368, 9223372034707292159
-  %or.cond37.i.i954 = icmp eq i64 %2369, 0
-  br i1 %or.cond37.i.i954, label %2370, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876
+  %or.cond36.i.i954 = icmp eq i64 %2369, 0
+  br i1 %or.cond36.i.i954, label %2370, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876
 
 2370:                                             ; preds = %2366
-  %2371 = getelementptr inbounds nuw i8, ptr %.01242.i.i874, i64 64
+  %2371 = getelementptr inbounds nuw i8, ptr %.01241.i.i874, i64 64
   %2372 = load i64, ptr %2371, align 8, !tbaa !32
   %2373 = icmp eq i64 %2372, 0
   br i1 %2373, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876, label %.loopexit.i.i881
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876: ; preds = %2370, %2366, %.lr.ph.i.i873
-  %2374 = getelementptr inbounds nuw i8, ptr %.01242.i.i874, i64 328
+  %2374 = getelementptr inbounds nuw i8, ptr %.01241.i.i874, i64 328
   %.not.i.i877 = icmp eq ptr %2374, %2363
   br i1 %.not.i.i877, label %.critedge.i.i878, label %.lr.ph.i.i873
 
@@ -5995,7 +5995,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i876: ; preds = %2370, %2366, %.
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %22) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes14ObjCMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes14ObjCMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %.loopexit.i.i881, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i862, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i955
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes14ObjCMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %.loopexit.i.i881, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i862, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i955
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23)
   %2375 = load ptr, ptr %25, align 8, !tbaa !11
   %2376 = load i32, ptr %2221, align 8, !tbaa !13
@@ -6618,7 +6618,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16ObjCPropertyInfoEEC2ERK
   %2623 = load i32, ptr %2198, align 4
   %2624 = and i32 %2623, 256
   %.not.i.i.i986 = icmp eq i32 %2624, 0
-  br i1 %.not.i.i.i986, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992, label %2625
+  br i1 %.not.i.i.i986, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i992, label %2625
 
 2625:                                             ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16ObjCPropertyInfoEEC2ERKS4_.exit.i
   %2626 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -6629,7 +6629,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16ObjCPropertyInfoEEC2ERK
   %.idx.i.i.i.i987 = shl nuw nsw i64 %2630, 3
   %2631 = getelementptr inbounds nuw i8, ptr %2627, i64 %.idx.i.i.i.i987
   %.not.i.i.i14.i988 = icmp eq i32 %2629, 0
-  br i1 %.not.i.i.i14.i988, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992, label %.lr.ph.i.i.i.i.i.i.i989
+  br i1 %.not.i.i.i14.i988, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i992, label %.lr.ph.i.i.i.i.i.i.i989
 
 .lr.ph.i.i.i.i.i.i.i989:                          ; preds = %2625, %2636
   %.sroa.07.1.i.i.i.i.i.i990 = phi ptr [ %2637, %2636 ], [ %2627, %2625 ]
@@ -6642,19 +6642,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16ObjCPropertyInfoEEC2ERK
 2636:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i989
   %2637 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i990, i64 8
   %.not.i.i.i.i.i.i.i991 = icmp eq ptr %2637, %2631
-  br i1 %.not.i.i.i.i.i.i.i991, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992, label %.lr.ph.i.i.i.i.i.i.i989, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i991, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i992, label %.lr.ph.i.i.i.i.i.i.i989, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1105: ; preds = %.lr.ph.i.i.i.i.i.i.i989
-  %.not38.i.i1106 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i990, %2631
-  br i1 %.not38.i.i1106, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16ObjCPropertyInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
+  %.not37.i.i1106 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i990, %2631
+  br i1 %.not37.i.i1106, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i992, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16ObjCPropertyInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992: ; preds = %2636, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1105, %2625, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16ObjCPropertyInfoEEC2ERKS4_.exit.i
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i992: ; preds = %2636, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1105, %2625, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16ObjCPropertyInfoEEC2ERKS4_.exit.i
   %.sroa.0.0.copyload.i.i.i993 = load i64, ptr %2565, align 8
   %2638 = and i64 %.sroa.0.0.copyload.i.i.i993, 4294967296
-  %.not39.i.i994 = icmp eq i64 %2638, 0
-  br i1 %.not39.i.i994, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16ObjCPropertyInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %2639
+  %.not38.i.i994 = icmp eq i64 %2638, 0
+  br i1 %.not38.i.i994, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16ObjCPropertyInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %2639
 
-2639:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992
+2639:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i992
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %14) #19
   store ptr %2566, ptr %14, align 8, !tbaa !29
   store i64 0, ptr %2567, align 8, !tbaa !32
@@ -6693,11 +6693,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992: ; preds = %2
   %or.cond.i.i.i998 = icmp eq i64 %2652, 0
   %2653 = and i64 %.sroa.6.0.copyload.i.i997, 9223372034707292159
   %2654 = icmp eq i64 %2653, 0
-  %or.cond32.i.i999 = select i1 %or.cond.i.i.i998, i1 %2654, i1 false
+  %or.cond31.i.i999 = select i1 %or.cond.i.i.i998, i1 %2654, i1 false
   %2655 = load i64, ptr %2571, align 8
   %2656 = icmp eq i64 %2655, 0
-  %or.cond35.i.i1000 = select i1 %or.cond32.i.i999, i1 true, i1 %2656
-  br i1 %or.cond35.i.i1000, label %.loopexit.i.i1011, label %2657
+  %or.cond34.i.i1000 = select i1 %or.cond31.i.i999, i1 true, i1 %2656
+  br i1 %or.cond34.i.i1000, label %.loopexit.i.i1011, label %2657
 
 2657:                                             ; preds = %2639
   %2658 = load ptr, ptr %17, align 8, !tbaa !11
@@ -6705,31 +6705,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992: ; preds = %2
   %2660 = zext i32 %2659 to i64
   %.idx.i.i1001 = mul nuw nsw i64 %2660, 136
   %2661 = getelementptr inbounds nuw i8, ptr %2658, i64 %.idx.i.i1001
-  %.not41.i.i1002 = icmp eq i32 %2659, 0
-  br i1 %.not41.i.i1002, label %.critedge.i.i1008, label %.lr.ph.i.i1003
+  %.not40.i.i1002 = icmp eq i32 %2659, 0
+  br i1 %.not40.i.i1002, label %.critedge.i.i1008, label %.lr.ph.i.i1003
 
 .lr.ph.i.i1003:                                   ; preds = %2657, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1006
-  %.01242.i.i1004 = phi ptr [ %2672, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1006 ], [ %2658, %2657 ]
-  %2662 = load i64, ptr %.01242.i.i1004, align 4
+  %.01241.i.i1004 = phi ptr [ %2672, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1006 ], [ %2658, %2657 ]
+  %2662 = load i64, ptr %.01241.i.i1004, align 4
   %2663 = and i64 %2662, 9223372036854775807
   %or.cond.i14.i.i1005 = icmp eq i64 %2663, 0
   br i1 %or.cond.i14.i.i1005, label %2664, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1006
 
 2664:                                             ; preds = %.lr.ph.i.i1003
-  %2665 = getelementptr inbounds nuw i8, ptr %.01242.i.i1004, i64 8
+  %2665 = getelementptr inbounds nuw i8, ptr %.01241.i.i1004, i64 8
   %2666 = load i64, ptr %2665, align 4
   %2667 = and i64 %2666, 9223372034707292159
-  %or.cond37.i.i1104 = icmp eq i64 %2667, 0
-  br i1 %or.cond37.i.i1104, label %2668, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1006
+  %or.cond36.i.i1104 = icmp eq i64 %2667, 0
+  br i1 %or.cond36.i.i1104, label %2668, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1006
 
 2668:                                             ; preds = %2664
-  %2669 = getelementptr inbounds nuw i8, ptr %.01242.i.i1004, i64 64
+  %2669 = getelementptr inbounds nuw i8, ptr %.01241.i.i1004, i64 64
   %2670 = load i64, ptr %2669, align 8, !tbaa !32
   %2671 = icmp eq i64 %2670, 0
   br i1 %2671, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1006, label %.loopexit.i.i1011
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1006: ; preds = %2668, %2664, %.lr.ph.i.i1003
-  %2672 = getelementptr inbounds nuw i8, ptr %.01242.i.i1004, i64 136
+  %2672 = getelementptr inbounds nuw i8, ptr %.01241.i.i1004, i64 136
   %.not.i.i1007 = icmp eq ptr %2672, %2661
   br i1 %.not.i.i1007, label %.critedge.i.i1008, label %.lr.ph.i.i1003
 
@@ -6797,7 +6797,7 @@ _ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i1017: ; preds = %_ZNKSt7__cxx1112b
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %14) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16ObjCPropertyInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16ObjCPropertyInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i1017, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i992, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1105
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes16ObjCPropertyInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i1017, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i992, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1105
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15)
   %2691 = load ptr, ptr %17, align 8, !tbaa !11
   %2692 = load i32, ptr %2563, align 8, !tbaa !13
@@ -7839,7 +7839,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_9FieldInfoEEC2ERKS4_.exit
   %3122 = load i32, ptr %2994, align 4
   %3123 = and i32 %3122, 256
   %.not.i.i.i1167 = icmp eq i32 %3123, 0
-  br i1 %.not.i.i.i1167, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173, label %3124
+  br i1 %.not.i.i.i1167, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i1173, label %3124
 
 3124:                                             ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_9FieldInfoEEC2ERKS4_.exit.i
   %3125 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -7850,7 +7850,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_9FieldInfoEEC2ERKS4_.exit
   %.idx.i.i.i.i1168 = shl nuw nsw i64 %3129, 3
   %3130 = getelementptr inbounds nuw i8, ptr %3126, i64 %.idx.i.i.i.i1168
   %.not.i.i.i14.i1169 = icmp eq i32 %3128, 0
-  br i1 %.not.i.i.i14.i1169, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173, label %.lr.ph.i.i.i.i.i.i.i1170
+  br i1 %.not.i.i.i14.i1169, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i1173, label %.lr.ph.i.i.i.i.i.i.i1170
 
 .lr.ph.i.i.i.i.i.i.i1170:                         ; preds = %3124, %3135
   %.sroa.07.1.i.i.i.i.i.i1171 = phi ptr [ %3136, %3135 ], [ %3126, %3124 ]
@@ -7863,19 +7863,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_9FieldInfoEEC2ERKS4_.exit
 3135:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i1170
   %3136 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i1171, i64 8
   %.not.i.i.i.i.i.i.i1172 = icmp eq ptr %3136, %3130
-  br i1 %.not.i.i.i.i.i.i.i1172, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173, label %.lr.ph.i.i.i.i.i.i.i1170, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i.i1172, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i1173, label %.lr.ph.i.i.i.i.i.i.i1170, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1253: ; preds = %.lr.ph.i.i.i.i.i.i.i1170
-  %.not38.i.i1254 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i1171, %3130
-  br i1 %.not38.i.i1254, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes9FieldInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
+  %.not37.i.i1254 = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i1171, %3130
+  br i1 %.not37.i.i1254, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i1173, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes9FieldInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173: ; preds = %3135, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1253, %3124, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_9FieldInfoEEC2ERKS4_.exit.i
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i1173: ; preds = %3135, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1253, %3124, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_9FieldInfoEEC2ERKS4_.exit.i
   %.sroa.0.0.copyload.i.i.i1174 = load i64, ptr %3071, align 8
   %3137 = and i64 %.sroa.0.0.copyload.i.i.i1174, 4294967296
-  %.not39.i.i1175 = icmp eq i64 %3137, 0
-  br i1 %.not39.i.i1175, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes9FieldInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %3138
+  %.not38.i.i1175 = icmp eq i64 %3137, 0
+  br i1 %.not38.i.i1175, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes9FieldInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i, label %3138
 
-3138:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173
+3138:                                             ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i1173
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #19
   store ptr %3072, ptr %6, align 8, !tbaa !29
   store i64 0, ptr %3073, align 8, !tbaa !32
@@ -7910,11 +7910,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173: ; preds = %
   %or.cond.i.i.i1179 = icmp eq i64 %3149, 0
   %3150 = and i64 %.sroa.6.0.copyload.i.i1178, 9223372034707292159
   %3151 = icmp eq i64 %3150, 0
-  %or.cond32.i.i1180 = select i1 %or.cond.i.i.i1179, i1 %3151, i1 false
+  %or.cond31.i.i1180 = select i1 %or.cond.i.i.i1179, i1 %3151, i1 false
   %3152 = load i64, ptr %3077, align 8
   %3153 = icmp eq i64 %3152, 0
-  %or.cond35.i.i1181 = select i1 %or.cond32.i.i1180, i1 true, i1 %3153
-  br i1 %or.cond35.i.i1181, label %.loopexit.i.i1192, label %3154
+  %or.cond34.i.i1181 = select i1 %or.cond31.i.i1180, i1 true, i1 %3153
+  br i1 %or.cond34.i.i1181, label %.loopexit.i.i1192, label %3154
 
 3154:                                             ; preds = %3138
   %3155 = load ptr, ptr %9, align 8, !tbaa !11
@@ -7922,31 +7922,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173: ; preds = %
   %3157 = zext i32 %3156 to i64
   %.idx.i.i1182 = shl nuw nsw i64 %3157, 7
   %3158 = getelementptr inbounds nuw i8, ptr %3155, i64 %.idx.i.i1182
-  %.not41.i.i1183 = icmp eq i32 %3156, 0
-  br i1 %.not41.i.i1183, label %.critedge.i.i1189, label %.lr.ph.i.i1184
+  %.not40.i.i1183 = icmp eq i32 %3156, 0
+  br i1 %.not40.i.i1183, label %.critedge.i.i1189, label %.lr.ph.i.i1184
 
 .lr.ph.i.i1184:                                   ; preds = %3154, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1187
-  %.01242.i.i1185 = phi ptr [ %3169, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1187 ], [ %3155, %3154 ]
-  %3159 = load i64, ptr %.01242.i.i1185, align 4
+  %.01241.i.i1185 = phi ptr [ %3169, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1187 ], [ %3155, %3154 ]
+  %3159 = load i64, ptr %.01241.i.i1185, align 4
   %3160 = and i64 %3159, 9223372036854775807
   %or.cond.i14.i.i1186 = icmp eq i64 %3160, 0
   br i1 %or.cond.i14.i.i1186, label %3161, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1187
 
 3161:                                             ; preds = %.lr.ph.i.i1184
-  %3162 = getelementptr inbounds nuw i8, ptr %.01242.i.i1185, i64 8
+  %3162 = getelementptr inbounds nuw i8, ptr %.01241.i.i1185, i64 8
   %3163 = load i64, ptr %3162, align 4
   %3164 = and i64 %3163, 9223372034707292159
-  %or.cond37.i.i1252 = icmp eq i64 %3164, 0
-  br i1 %or.cond37.i.i1252, label %3165, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1187
+  %or.cond36.i.i1252 = icmp eq i64 %3164, 0
+  br i1 %or.cond36.i.i1252, label %3165, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1187
 
 3165:                                             ; preds = %3161
-  %3166 = getelementptr inbounds nuw i8, ptr %.01242.i.i1185, i64 64
+  %3166 = getelementptr inbounds nuw i8, ptr %.01241.i.i1185, i64 64
   %3167 = load i64, ptr %3166, align 8, !tbaa !32
   %3168 = icmp eq i64 %3167, 0
   br i1 %3168, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1187, label %.loopexit.i.i1192
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i.i1187: ; preds = %3165, %3161, %.lr.ph.i.i1184
-  %3169 = getelementptr inbounds nuw i8, ptr %.01242.i.i1185, i64 128
+  %3169 = getelementptr inbounds nuw i8, ptr %.01241.i.i1185, i64 128
   %.not.i.i1188 = icmp eq ptr %3169, %3158
   br i1 %.not.i.i1188, label %.critedge.i.i1189, label %.lr.ph.i.i1184
 
@@ -8014,7 +8014,7 @@ _ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i1198: ; preds = %_ZNKSt7__cxx1112b
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes9FieldInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes9FieldInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i1198, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i.i1173, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1253
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes9FieldInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit.i: ; preds = %_ZN5clang9api_notes12VariableInfoD2Ev.exit.i.i1198, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i.i1173, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i.i1253
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7)
   %3188 = load ptr, ptr %9, align 8, !tbaa !11
   %3189 = load i32, ptr %3069, align 8, !tbaa !13
@@ -9395,7 +9395,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_7TagInfoEEC2ERKS4_.exit: 
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 256
   %.not.i.i = icmp eq i32 %38, 0
-  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, label %39
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, label %39
 
 39:                                               ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_7TagInfoEEC2ERKS4_.exit
   %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -9406,7 +9406,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_7TagInfoEEC2ERKS4_.exit: 
   %.idx.i.i.i = shl nuw nsw i64 %44, 3
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i.i
   %.not.i.i.i14 = icmp eq i32 %43, 0
-  br i1 %.not.i.i.i14, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not.i.i.i14, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %39, %50
   %.sroa.07.1.i.i.i.i.i = phi ptr [ %51, %50 ], [ %41, %39 ]
@@ -9419,19 +9419,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_7TagInfoEEC2ERKS4_.exit: 
 50:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %51, %45
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not38.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %45
-  br i1 %.not38.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes7TagInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit
+  %.not37.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %45
+  br i1 %.not37.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes7TagInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i: ; preds = %50, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i, %39, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_7TagInfoEEC2ERKS4_.exit
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i: ; preds = %50, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i, %39, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_7TagInfoEEC2ERKS4_.exit
   %.sroa.0.0.copyload.i.i = load i64, ptr %33, align 8
   %52 = and i64 %.sroa.0.0.copyload.i.i, 4294967296
-  %.not39.i = icmp eq i64 %52, 0
-  br i1 %.not39.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes7TagInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit, label %53
+  %.not38.i = icmp eq i64 %52, 0
+  br i1 %.not38.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes7TagInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit, label %53
 
-53:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i
+53:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %21) #19
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %54, ptr %21, align 8, !tbaa !29
@@ -9504,11 +9504,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i: ; preds = %50, %_
   %or.cond.i.i = icmp eq i64 %92, 0
   %93 = and i64 %.sroa.6.0.copyload.i, 9223372034707292159
   %94 = icmp eq i64 %93, 0
-  %or.cond32.i = select i1 %or.cond.i.i, i1 %94, i1 false
+  %or.cond31.i = select i1 %or.cond.i.i, i1 %94, i1 false
   %95 = load i64, ptr %59, align 8
   %96 = icmp eq i64 %95, 0
-  %or.cond35.i = select i1 %or.cond32.i, i1 true, i1 %96
-  br i1 %or.cond35.i, label %.loopexit.i, label %97
+  %or.cond34.i = select i1 %or.cond31.i, i1 true, i1 %96
+  br i1 %or.cond34.i, label %.loopexit.i, label %97
 
 97:                                               ; preds = %53
   %98 = load ptr, ptr %24, align 8, !tbaa !11
@@ -9516,31 +9516,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i: ; preds = %50, %_
   %100 = zext i32 %99 to i64
   %.idx.i = mul nuw nsw i64 %100, 344
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i
-  %.not41.i = icmp eq i32 %99, 0
-  br i1 %.not41.i, label %.critedge.i, label %.lr.ph.i
+  %.not40.i = icmp eq i32 %99, 0
+  br i1 %.not40.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %97, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i
-  %.01242.i = phi ptr [ %112, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i ], [ %98, %97 ]
-  %102 = load i64, ptr %.01242.i, align 4
+  %.01241.i = phi ptr [ %112, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i ], [ %98, %97 ]
+  %102 = load i64, ptr %.01241.i, align 4
   %103 = and i64 %102, 9223372036854775807
   %or.cond.i14.i = icmp eq i64 %103, 0
   br i1 %or.cond.i14.i, label %104, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i
 
 104:                                              ; preds = %.lr.ph.i
-  %105 = getelementptr inbounds nuw i8, ptr %.01242.i, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.01241.i, i64 8
   %106 = load i64, ptr %105, align 4
   %107 = and i64 %106, 9223372034707292159
-  %or.cond37.i = icmp eq i64 %107, 0
-  br i1 %or.cond37.i, label %108, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i
+  %or.cond36.i = icmp eq i64 %107, 0
+  br i1 %or.cond36.i, label %108, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %.01242.i, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %.01241.i, i64 64
   %110 = load i64, ptr %109, align 8, !tbaa !32
   %111 = icmp eq i64 %110, 0
   br i1 %111, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i, label %.loopexit.i
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i:  ; preds = %108, %104, %.lr.ph.i
-  %112 = getelementptr inbounds nuw i8, ptr %.01242.i, i64 344
+  %112 = getelementptr inbounds nuw i8, ptr %.01241.i, i64 344
   %.not.i = icmp eq ptr %112, %101
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
@@ -9561,7 +9561,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i:  ; preds = %108, %104, %.lr.ph.
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %21) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes7TagInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes7TagInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, %.loopexit.i
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes7TagInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22)
   %114 = load ptr, ptr %24, align 8, !tbaa !11
   %115 = load i32, ptr %27, align 8, !tbaa !13
@@ -10989,7 +10989,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_13CXXMethodInfoEEC2ERKS4_
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 256
   %.not.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, label %25
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, label %25
 
 25:                                               ; preds = %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_13CXXMethodInfoEEC2ERKS4_.exit
   %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -11000,7 +11000,7 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_13CXXMethodInfoEEC2ERKS4_
   %.idx.i.i.i = shl nuw nsw i64 %30, 3
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i
   %.not.i.i.i14 = icmp eq i32 %29, 0
-  br i1 %.not.i.i.i14, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not.i.i.i14, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %25, %36
   %.sroa.07.1.i.i.i.i.i = phi ptr [ %37, %36 ], [ %27, %25 ]
@@ -11013,19 +11013,19 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_13CXXMethodInfoEEC2ERKS4_
 36:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %37, %31
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not38.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %31
-  br i1 %.not38.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes13CXXMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit
+  %.not37.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %31
+  br i1 %.not37.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes13CXXMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i: ; preds = %36, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i, %25, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_13CXXMethodInfoEEC2ERKS4_.exit
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i: ; preds = %36, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i, %25, %_ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_13CXXMethodInfoEEC2ERKS4_.exit
   %.sroa.0.0.copyload.i.i = load i64, ptr %19, align 8
   %38 = and i64 %.sroa.0.0.copyload.i.i, 4294967296
-  %.not39.i = icmp eq i64 %38, 0
-  br i1 %.not39.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes13CXXMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit, label %39
+  %.not38.i = icmp eq i64 %38, 0
+  br i1 %.not38.i, label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes13CXXMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit, label %39
 
-39:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i
+39:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %7) #19
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %40, ptr %7, align 8, !tbaa !29
@@ -11088,11 +11088,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i: ; preds = %36, %_
   %or.cond.i.i = icmp eq i64 %70, 0
   %71 = and i64 %.sroa.6.0.copyload.i, 9223372034707292159
   %72 = icmp eq i64 %71, 0
-  %or.cond32.i = select i1 %or.cond.i.i, i1 %72, i1 false
+  %or.cond31.i = select i1 %or.cond.i.i, i1 %72, i1 false
   %73 = load i64, ptr %45, align 8
   %74 = icmp eq i64 %73, 0
-  %or.cond35.i = select i1 %or.cond32.i, i1 true, i1 %74
-  br i1 %or.cond35.i, label %.loopexit.i, label %75
+  %or.cond34.i = select i1 %or.cond31.i, i1 true, i1 %74
+  br i1 %or.cond34.i, label %.loopexit.i, label %75
 
 75:                                               ; preds = %39
   %76 = load ptr, ptr %10, align 8, !tbaa !11
@@ -11100,31 +11100,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i: ; preds = %36, %_
   %78 = zext i32 %77 to i64
   %.idx.i = mul nuw nsw i64 %78, 320
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
-  %.not41.i = icmp eq i32 %77, 0
-  br i1 %.not41.i, label %.critedge.i, label %.lr.ph.i
+  %.not40.i = icmp eq i32 %77, 0
+  br i1 %.not40.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %75, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i
-  %.01242.i = phi ptr [ %90, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i ], [ %76, %75 ]
-  %80 = load i64, ptr %.01242.i, align 4
+  %.01241.i = phi ptr [ %90, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i ], [ %76, %75 ]
+  %80 = load i64, ptr %.01241.i, align 4
   %81 = and i64 %80, 9223372036854775807
   %or.cond.i14.i = icmp eq i64 %81, 0
   br i1 %or.cond.i14.i, label %82, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i
 
 82:                                               ; preds = %.lr.ph.i
-  %83 = getelementptr inbounds nuw i8, ptr %.01242.i, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.01241.i, i64 8
   %84 = load i64, ptr %83, align 4
   %85 = and i64 %84, 9223372034707292159
-  %or.cond37.i = icmp eq i64 %85, 0
-  br i1 %or.cond37.i, label %86, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i
+  %or.cond36.i = icmp eq i64 %85, 0
+  br i1 %or.cond36.i, label %86, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %.01242.i, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %.01241.i, i64 64
   %88 = load i64, ptr %87, align 8, !tbaa !32
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i, label %.loopexit.i
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i:  ; preds = %86, %82, %.lr.ph.i
-  %90 = getelementptr inbounds nuw i8, ptr %.01242.i, i64 320
+  %90 = getelementptr inbounds nuw i8, ptr %.01241.i, i64 320
   %.not.i = icmp eq ptr %90, %79
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
@@ -11145,7 +11145,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit15.thread.i:  ; preds = %86, %82, %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %7) #19
   br label %_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes13CXXMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit
 
-_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes13CXXMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread.i, %.loopexit.i
+_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_notes13CXXMethodInfoEEvRNS0_4SemaEPNS0_4DeclENS1_14APINotesReader13VersionedInfoIT_EE.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.i, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
   %92 = load ptr, ptr %10, align 8, !tbaa !11
   %93 = load i32, ptr %13, align 8, !tbaa !13
@@ -25911,7 +25911,7 @@ define internal fastcc void @_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_no
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 256
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread, label %10
+  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26, label %10
 
 10:                                               ; preds = %3
   %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #19
@@ -25922,7 +25922,7 @@ define internal fastcc void @_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_no
   %.idx.i.i = shl nuw nsw i64 %15, 3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %10, %21
   %.sroa.07.1.i.i.i.i = phi ptr [ %22, %21 ], [ %12, %10 ]
@@ -25935,20 +25935,20 @@ define internal fastcc void @_ZL31maybeAttachUnversionedSwiftNameIN5clang9api_no
 21:                                               ; preds = %.lr.ph.i.i.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %22, %16
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26, label %.lr.ph.i.i.i.i.i, !llvm.loop !27
 
 _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not38 = icmp eq ptr %.sroa.07.1.i.i.i.i, %16
-  br i1 %.not38, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread, label %105
+  %.not37 = icmp eq ptr %.sroa.07.1.i.i.i.i, %16
+  br i1 %.not37, label %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26, label %105
 
-_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread: ; preds = %21, %10, %3, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit
+_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26: ; preds = %21, %10, %3, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %.sroa.0.0.copyload.i = load i64, ptr %23, align 8
   %24 = and i64 %.sroa.0.0.copyload.i, 4294967296
-  %.not39 = icmp eq i64 %24, 0
-  br i1 %.not39, label %105, label %25
+  %.not38 = icmp eq i64 %24, 0
+  br i1 %.not38, label %105, label %25
 
-25:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread
+25:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #19
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %26, ptr %4, align 8, !tbaa !29
@@ -25995,11 +25995,11 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread: ; preds = %21, %10,
   %or.cond.i = icmp eq i64 %48, 0
   %49 = and i64 %.sroa.6.0.copyload, 9223372034707292159
   %50 = icmp eq i64 %49, 0
-  %or.cond32 = select i1 %or.cond.i, i1 %50, i1 false
+  %or.cond31 = select i1 %or.cond.i, i1 %50, i1 false
   %51 = load i64, ptr %31, align 8
   %52 = icmp eq i64 %51, 0
-  %or.cond35 = select i1 %or.cond32, i1 true, i1 %52
-  br i1 %or.cond35, label %.loopexit, label %53
+  %or.cond34 = select i1 %or.cond31, i1 true, i1 %52
+  br i1 %or.cond34, label %.loopexit, label %53
 
 53:                                               ; preds = %25
   %54 = load ptr, ptr %2, align 8, !tbaa !11
@@ -26008,31 +26008,31 @@ _ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread: ; preds = %21, %10,
   %57 = zext i32 %56 to i64
   %.idx = mul nuw nsw i64 %57, 176
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx
-  %.not41 = icmp eq i32 %56, 0
-  br i1 %.not41, label %.critedge, label %.lr.ph
+  %.not40 = icmp eq i32 %56, 0
+  br i1 %.not40, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread
-  %.01242 = phi ptr [ %69, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread ], [ %54, %53 ]
-  %59 = load i64, ptr %.01242, align 4
+  %.01241 = phi ptr [ %69, %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread ], [ %54, %53 ]
+  %59 = load i64, ptr %.01241, align 4
   %60 = and i64 %59, 9223372036854775807
   %or.cond.i14 = icmp eq i64 %60, 0
   br i1 %or.cond.i14, label %61, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread
 
 61:                                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds nuw i8, ptr %.01242, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.01241, i64 8
   %63 = load i64, ptr %62, align 4
   %64 = and i64 %63, 9223372034707292159
-  %or.cond37 = icmp eq i64 %64, 0
-  br i1 %or.cond37, label %65, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread
+  %or.cond36 = icmp eq i64 %64, 0
+  br i1 %or.cond36, label %65, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %.01242, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %.01241, i64 64
   %67 = load i64, ptr %66, align 8, !tbaa !32
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %_ZNK4llvm12VersionTuple5emptyEv.exit15.thread, label %.loopexit
 
 _ZNK4llvm12VersionTuple5emptyEv.exit15.thread:    ; preds = %65, %.lr.ph, %61
-  %69 = getelementptr inbounds nuw i8, ptr %.01242, i64 176
+  %69 = getelementptr inbounds nuw i8, ptr %.01241, i64 176
   %.not = icmp eq ptr %69, %58
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -26136,7 +26136,7 @@ _ZN5clang9api_notes14CommonTypeInfoD2Ev.exit:     ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #19
   br label %105
 
-105:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit, %_ZN5clang9api_notes14CommonTypeInfoD2Ev.exit
+105:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit.thread26, %_ZNK5clang4Decl7hasAttrINS_13SwiftNameAttrEEEbv.exit, %_ZN5clang9api_notes14CommonTypeInfoD2Ev.exit
   ret void
 }
 

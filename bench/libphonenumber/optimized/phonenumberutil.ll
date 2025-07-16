@@ -28495,27 +28495,25 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_n
 17:                                               ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %19 = load i32, ptr %18, align 4, !tbaa !124
-  %20 = icmp slt i32 %5, %19
-  %spec.select.i.i.i = select i1 %20, ptr %12, ptr %.19.i.i.i.i
+  %20 = icmp sge i32 %5, %19
   br label %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i
 
 _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i:      ; preds = %17, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i.i, %7
-  %.sroa.0.0.i.i.i = phi ptr [ %12, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i.i ], [ %12, %7 ], [ %spec.select.i.i.i, %17 ]
-  %21 = icmp ne ptr %.sroa.0.0.i.i.i, %12
-  %22 = icmp eq i32 %3, 1
-  %23 = and i1 %22, %21
+  %.sroa.0.0.i.i.i = phi i1 [ false, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i.i ], [ false, %7 ], [ %20, %17 ]
+  %21 = icmp eq i32 %3, 1
+  %22 = and i1 %21, %.sroa.0.0.i.i.i
   br label %_ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberGeographicalENS1_15PhoneNumberTypeEi.exit
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberGeographicalENS1_15PhoneNumberTypeEi.exit: ; preds = %2, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i
-  %24 = phi i1 [ true, %2 ], [ %23, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i ]
-  ret i1 %24
+  %23 = phi i1 [ true, %2 ], [ %22, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i ]
+  ret i1 %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberGeographicalENS1_15PhoneNumberTypeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
   %4 = and i32 %1, -3
   %or.cond = icmp eq i32 %4, 0
-  br i1 %or.cond, label %22, label %5
+  br i1 %or.cond, label %21, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -28546,20 +28544,18 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_n
 15:                                               ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %17 = load i32, ptr %16, align 4, !tbaa !124
-  %18 = icmp slt i32 %2, %17
-  %spec.select.i.i = select i1 %18, ptr %10, ptr %.19.i.i.i
+  %18 = icmp sge i32 %2, %17
   br label %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit
 
 _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit:        ; preds = %5, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, %15
-  %.sroa.0.0.i.i = phi ptr [ %10, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i ], [ %10, %5 ], [ %spec.select.i.i, %15 ]
-  %19 = icmp ne ptr %.sroa.0.0.i.i, %10
-  %20 = icmp eq i32 %1, 1
-  %21 = and i1 %20, %19
-  br label %22
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i ], [ false, %5 ], [ %18, %15 ]
+  %19 = icmp eq i32 %1, 1
+  %20 = and i1 %19, %.sroa.0.0.i.i
+  br label %21
 
-22:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %3
-  %23 = phi i1 [ true, %3 ], [ %21, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit ]
-  ret i1 %23
+21:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %3
+  %22 = phi i1 [ true, %3 ], [ %20, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit ]
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress uwtable

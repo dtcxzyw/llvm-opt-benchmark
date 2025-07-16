@@ -4703,7 +4703,7 @@ thread-pre-split:                                 ; preds = %46
 define dso_local range(i32 0, 2) i32 @lpCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = load i8, ptr %0, align 1, !tbaa !5
   %5 = icmp eq i8 %4, -1
-  br i1 %5, label %107, label %6
+  br i1 %5, label %lpStringToInt64.exit, label %6
 
 6:                                                ; preds = %3
   %7 = zext i8 %4 to i32
@@ -4806,14 +4806,14 @@ define dso_local range(i32 0, 2) i32 @lpCompare(ptr noundef readonly captures(no
   %.sink = phi i64 [ 1, %10 ], [ 2, %15 ], [ 5, %24 ]
   %.016.ph.in = phi i32 [ %11, %10 ], [ %21, %15 ], [ %26, %24 ]
   %67 = icmp eq i32 %.016.ph.in, %2
-  br i1 %67, label %68, label %107
+  br i1 %67, label %68, label %lpStringToInt64.exit
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %70 = zext i32 %2 to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %69, ptr %1, i64 %70)
   %71 = icmp eq i32 %bcmp, 0
-  br label %107
+  br label %lpStringToInt64.exit
 
 72:                                               ; preds = %63, %60, %56, %47, %43, %34, %29
   %.061.i.i = phi i64 [ %30, %29 ], [ %41, %34 ], [ %46, %43 ], [ %55, %47 ], [ %59, %56 ], [ %62, %60 ], [ %65, %63 ]
@@ -4916,17 +4916,11 @@ define dso_local range(i32 0, 2) i32 @lpCompare(ptr noundef readonly captures(no
 
 .critedge.sink.split.i:                           ; preds = %.thread87.i, %104, %79, %102
   %.sink.i = phi i64 [ %103, %102 ], [ 0, %79 ], [ %85, %.thread87.i ], [ %.0.lcssa.i, %104 ]
+  %106 = icmp eq i64 %.062.i.i, %.sink.i
   br label %lpStringToInt64.exit
 
-lpStringToInt64.exit:                             ; preds = %.lr.ph.i, %92, %72, %79, %81, %.thread70.i, %100, %104, %.critedge.sink.split.i
-  %.0 = phi i64 [ undef, %72 ], [ %.sink.i, %.critedge.sink.split.i ], [ undef, %.thread70.i ], [ undef, %79 ], [ undef, %100 ], [ undef, %104 ], [ undef, %81 ], [ undef, %92 ], [ undef, %.lr.ph.i ]
-  %not..not13 = phi i1 [ false, %72 ], [ true, %.critedge.sink.split.i ], [ false, %.thread70.i ], [ false, %79 ], [ false, %100 ], [ false, %104 ], [ false, %81 ], [ false, %92 ], [ false, %.lr.ph.i ]
-  %106 = icmp eq i64 %.062.i.i, %.0
-  %narrow = select i1 %not..not13, i1 %106, i1 false
-  br label %107
-
-107:                                              ; preds = %lpStringToInt64.exit, %66, %68, %3
-  %.010.shrunk = phi i1 [ false, %3 ], [ false, %66 ], [ %71, %68 ], [ %narrow, %lpStringToInt64.exit ]
+lpStringToInt64.exit:                             ; preds = %92, %.lr.ph.i, %.critedge.sink.split.i, %104, %100, %.thread70.i, %81, %79, %72, %66, %68, %3
+  %.010.shrunk = phi i1 [ false, %3 ], [ false, %66 ], [ %71, %68 ], [ false, %72 ], [ %106, %.critedge.sink.split.i ], [ false, %.thread70.i ], [ false, %79 ], [ false, %100 ], [ false, %104 ], [ false, %81 ], [ false, %.lr.ph.i ], [ false, %92 ]
   %.010 = zext i1 %.010.shrunk to i32
   ret i32 %.010
 }

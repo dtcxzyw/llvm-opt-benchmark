@@ -6807,8 +6807,8 @@ do.cond:                                          ; preds = %lpad23
   %.pre85 = ptrtoint ptr %.pre81 to i64
   %.pre86 = sub i64 %.pre84, %.pre85
   %.pre87 = ashr exact i64 %.pre86, 4
-  %cmp = icmp ult i64 %inc, %.pre87
-  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !177
+  %71 = icmp ult i64 %inc, %.pre87
+  br i1 %71, label %do.body, label %do.end, !llvm.loop !177
 
 do.end:                                           ; preds = %invoke.cont24, %do.cond
   %incdec.ptr.i51 = getelementptr inbounds nuw i8, ptr %__begin211.sroa.0.070, i64 16
@@ -6816,12 +6816,12 @@ do.end:                                           ; preds = %invoke.cont24, %do.
   br i1 %cmp.i26.not, label %for.cond.cleanup19.loopexit, label %do.body.preheader
 
 lpad29:                                           ; preds = %lpad23
-  %71 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6.loopexit, %lpad6.loopexit.split-lp, %lpad29, %lpad
-  %.pn = phi { ptr, i32 } [ %71, %lpad29 ], [ %7, %lpad ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %72, %lpad29 ], [ %7, %lpad ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ]
   call fastcc void @_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %setter) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %setter) #29
   resume { ptr, i32 } %.pn

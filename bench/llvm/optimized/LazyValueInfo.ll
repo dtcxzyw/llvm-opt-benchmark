@@ -1487,7 +1487,7 @@ define dso_local void @_ZN4llvm17LazyValueInfoImpl45intersectAssumeOrGuardBlockV
 10:                                               ; preds = %4
   %11 = load i8, ptr %1, align 8, !tbaa !73
   %12 = icmp ugt i8 %11, 28
-  br i1 %12, label %select.unfold, label %293
+  br i1 %12, label %select.unfold, label %.critedge169
 
 select.unfold:                                    ; preds = %10, %4
   %.ph = phi ptr [ %3, %4 ], [ %1, %10 ]
@@ -1566,8 +1566,8 @@ _ZN4llvm15AssumptionCache14assumptionsForEPKNS_5ValueE.exit: ; preds = %_ZN4llvm
   %59 = zext i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 5
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 %60
-  %.not91170 = icmp eq i32 %58, 0
-  br i1 %.not91170, label %._crit_edge, label %.lr.ph
+  %.not91171 = icmp eq i32 %58, 0
+  br i1 %.not91171, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm15AssumptionCache14assumptionsForEPKNS_5ValueE.exit
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1592,8 +1592,8 @@ _ZN4llvm15AssumptionCache14assumptionsForEPKNS_5ValueE.exit: ; preds = %_ZN4llvm
   br i1 %.not92, label %.critedge, label %138
 
 77:                                               ; preds = %.lr.ph, %136
-  %.0171 = phi ptr [ %56, %.lr.ph ], [ %137, %136 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.0171, i64 16
+  %.0172 = phi ptr [ %56, %.lr.ph ], [ %137, %136 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.0172, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !130
   %.not94 = icmp eq ptr %79, null
   br i1 %.not94, label %136, label %80
@@ -1732,7 +1732,7 @@ _ZNSt14_Optional_baseIN4llvm19ValueLatticeElementELb0ELb0EED2Ev.exit: ; preds = 
   br label %136
 
 136:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm19ValueLatticeElementELb0ELb0EED2Ev.exit, %83, %80, %77
-  %137 = getelementptr inbounds nuw i8, ptr %.0171, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %.0172, i64 32
   %.not91 = icmp eq ptr %137, %61
   br i1 %.not91, label %._crit_edge, label %77
 
@@ -1751,10 +1751,10 @@ _ZNSt14_Optional_baseIN4llvm19ValueLatticeElementELb0ELb0EED2Ev.exit: ; preds = 
 .preheader.i.i.i.preheader:                       ; preds = %142
   %145 = load ptr, ptr %13, align 8, !tbaa !145
   %146 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %.not167172 = icmp eq ptr %145, %146
-  br i1 %.not167172, label %.critedge, label %.lr.ph174
+  %.not167173 = icmp eq ptr %145, %146
+  br i1 %.not167173, label %.critedge, label %.lr.ph175
 
-.lr.ph174:                                        ; preds = %.preheader.i.i.i.preheader
+.lr.ph175:                                        ; preds = %.preheader.i.i.i.preheader
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1770,15 +1770,15 @@ _ZNSt14_Optional_baseIN4llvm19ValueLatticeElementELb0ELb0EED2Ev.exit: ; preds = 
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %160
 
-160:                                              ; preds = %.lr.ph174, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread
-  %.sroa.0146.0173 = phi ptr [ %145, %.lr.ph174 ], [ %229, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread ]
-  %161 = getelementptr inbounds i8, ptr %.sroa.0146.0173, i64 -24
+160:                                              ; preds = %.lr.ph175, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread
+  %.sroa.0146.0174 = phi ptr [ %145, %.lr.ph175 ], [ %229, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread ]
+  %161 = getelementptr inbounds i8, ptr %.sroa.0146.0174, i64 -24
   %162 = load i8, ptr %161, align 8, !tbaa !73
   %.not.i.i.i = icmp eq i8 %162, 85
   br i1 %.not.i.i.i, label %163, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread
 
 163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %.sroa.0146.0173, i64 -56
+  %164 = getelementptr inbounds i8, ptr %.sroa.0146.0174, i64 -56
   %165 = load ptr, ptr %164, align 8, !tbaa !137
   %.not.i.i.i.i.i.i = icmp eq ptr %165, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread, label %166
@@ -1791,7 +1791,7 @@ _ZNSt14_Optional_baseIN4llvm19ValueLatticeElementELb0ELb0EED2Ev.exit: ; preds = 
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i: ; preds = %166
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %170 = load ptr, ptr %169, align 8, !tbaa !146
-  %171 = getelementptr inbounds nuw i8, ptr %.sroa.0146.0173, i64 56
+  %171 = getelementptr inbounds nuw i8, ptr %.sroa.0146.0174, i64 56
   %172 = load ptr, ptr %171, align 8, !tbaa !151
   %173 = icmp eq ptr %170, %172
   br i1 %173, label %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread
@@ -1803,7 +1803,7 @@ _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
   br i1 %176, label %177, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread
 
 177:                                              ; preds = %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
-  %178 = getelementptr inbounds i8, ptr %.sroa.0146.0173, i64 -20
+  %178 = getelementptr inbounds i8, ptr %.sroa.0146.0174, i64 -20
   %179 = load i32, ptr %178, align 4
   %180 = and i32 %179, 134217727
   %181 = zext nneg i32 %180 to i64
@@ -1930,7 +1930,7 @@ _ZNSt14_Optional_baseIN4llvm19ValueLatticeElementELb0ELb0EED2Ev.exit128: ; preds
   br label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread
 
 _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEEEEbPT_RKT0_.exit.thread: ; preds = %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i, %160, %166, %163, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i, %177, %_ZNSt14_Optional_baseIN4llvm19ValueLatticeElementELb0ELb0EED2Ev.exit128
-  %229 = load ptr, ptr %.sroa.0146.0173, align 8, !tbaa !145
+  %229 = load ptr, ptr %.sroa.0146.0174, align 8, !tbaa !145
   %.not167 = icmp eq ptr %229, %146
   br i1 %.not167, label %.critedge, label %160
 
@@ -1938,7 +1938,7 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17Intr
   %230 = load i16, ptr %2, align 8
   %231 = and i16 %230, 255
   %232 = icmp eq i16 %231, 6
-  br i1 %232, label %233, label %293
+  br i1 %232, label %233, label %.critedge169
 
 233:                                              ; preds = %.critedge
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1949,30 +1949,26 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17Intr
   %239 = icmp ne i32 %238, 14
   %.not93168 = icmp eq ptr %235, null
   %.not93 = or i1 %.not93168, %239
-  br i1 %.not93, label %293, label %240
+  br i1 %.not93, label %.critedge169, label %240
 
 240:                                              ; preds = %233
   %241 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %242 = load ptr, ptr %241, align 8, !tbaa !145
   %243 = icmp eq ptr %241, %242
-  br i1 %243, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %244
+  br i1 %243, label %.critedge169, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
-244:                                              ; preds = %240
-  %245 = getelementptr inbounds i8, ptr %242, i64 -24
-  %246 = load i8, ptr %245, align 8, !tbaa !73
-  %247 = add i8 %246, -30
-  %248 = icmp ult i8 %247, 11
-  %spec.select.i.i130 = select i1 %248, ptr %245, ptr null
-  br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-
-_ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %240, %244
-  %.0.i.i131 = phi ptr [ null, %240 ], [ %spec.select.i.i130, %244 ]
-  %249 = icmp eq ptr %.0.i.i131, %.ph
-  br i1 %249, label %250, label %293
+_ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %240
+  %244 = getelementptr inbounds i8, ptr %242, i64 -24
+  %245 = load i8, ptr %244, align 8, !tbaa !73
+  %246 = add i8 %245, -30
+  %247 = icmp ult i8 %246, 11
+  %248 = icmp eq ptr %244, %.ph
+  %249 = and i1 %248, %247
+  br i1 %249, label %250, label %.critedge169
 
 250:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
   %251 = call noundef zeroext i1 @_ZN4llvm17LazyValueInfoImpl21isNonNullAtEndOfBlockEPNS_5ValueEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %1, ptr noundef nonnull %15)
-  br i1 %251, label %252, label %293
+  br i1 %251, label %252, label %.critedge169
 
 252:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #21
@@ -2057,9 +2053,9 @@ _ZN4llvm19ValueLatticeElement7destroyEv.exit.i133: ; preds = %273, %270, %_ZN4ll
 
 _ZN4llvm19ValueLatticeElementD2Ev.exit140:        ; preds = %289, %276, %_ZN4llvm19ValueLatticeElement7destroyEv.exit.i133
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #21
-  br label %293
+  br label %.critedge169
 
-293:                                              ; preds = %10, %.critedge, %_ZN4llvm19ValueLatticeElementD2Ev.exit140, %250, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %233
+.critedge169:                                     ; preds = %240, %10, %.critedge, %_ZN4llvm19ValueLatticeElementD2Ev.exit140, %250, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %233
   ret void
 }
 

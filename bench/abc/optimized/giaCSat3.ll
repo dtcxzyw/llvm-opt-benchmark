@@ -1472,21 +1472,21 @@ Vec_IntPush.exit.i.i:                             ; preds = %112, %Vec_IntGrow.e
   %.pre.i.i = load i32, ptr %87, align 4, !tbaa !37
   %.val14.pre.i.i = load ptr, ptr %13, align 8, !tbaa !28
   %.pre117.i = load i32, ptr %77, align 4, !tbaa !37
+  %119 = icmp eq i32 %84, %.pre117.i
+  %120 = zext i1 %119 to i32
   br label %Cbs3_ManWatchClause.exit.i
 
 Cbs3_ManWatchClause.exit.i:                       ; preds = %Vec_IntPush.exit.i.i, %75
-  %119 = phi i32 [ %.pre117.i, %Vec_IntPush.exit.i.i ], [ %84, %75 ]
+  %121 = phi i32 [ %120, %Vec_IntPush.exit.i.i ], [ 1, %75 ]
   %.val82115.i = phi ptr [ %.val14.pre.i.i, %Vec_IntPush.exit.i.i ], [ %.val82.i, %75 ]
-  %120 = phi i32 [ %.pre.i.i, %Vec_IntPush.exit.i.i ], [ %88, %75 ]
-  %121 = icmp eq i32 %84, %119
-  %122 = zext i1 %121 to i32
+  %122 = phi i32 [ %.pre.i.i, %Vec_IntPush.exit.i.i ], [ %88, %75 ]
   %123 = getelementptr inbounds i32, ptr %.val82115.i, i64 %33
   %124 = load i32, ptr %123, align 4, !tbaa !37
-  %125 = add i32 %83, %122
+  %125 = add i32 %83, %121
   %126 = add i32 %125, %124
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %.val82115.i, i64 %127
-  store i32 %120, ptr %128, align 4, !tbaa !37
+  store i32 %122, ptr %128, align 4, !tbaa !37
   store i32 %.073105.i, ptr %87, align 4, !tbaa !37
   br label %165
 
@@ -5092,21 +5092,21 @@ Vec_IntPush.exit.i75.i:                           ; preds = %352, %Vec_IntGrow.e
   %.pre.i76.i = load i32, ptr %323, align 4, !tbaa !37
   %.val14.pre.i77.i = load ptr, ptr %177, align 8, !tbaa !28
   %.pre.i90 = load i32, ptr %319, align 4, !tbaa !37
+  %359 = icmp eq i32 %320, %.pre.i90
+  %360 = zext i1 %359 to i32
   br label %Cbs3_ManWatchClause.exit81.i
 
 Cbs3_ManWatchClause.exit81.i:                     ; preds = %Vec_IntPush.exit.i75.i, %Cbs3_ManWatchClause.exit.i
-  %359 = phi i32 [ %.pre.i90, %Vec_IntPush.exit.i75.i ], [ %320, %Cbs3_ManWatchClause.exit.i ]
+  %361 = phi i32 [ %360, %Vec_IntPush.exit.i75.i ], [ 1, %Cbs3_ManWatchClause.exit.i ]
   %.val14.i71.i = phi ptr [ %.val14.pre.i77.i, %Vec_IntPush.exit.i75.i ], [ %.val44.i, %Cbs3_ManWatchClause.exit.i ]
-  %360 = phi i32 [ %.pre.i76.i, %Vec_IntPush.exit.i75.i ], [ %324, %Cbs3_ManWatchClause.exit.i ]
-  %361 = icmp eq i32 %320, %359
-  %362 = zext i1 %361 to i32
+  %362 = phi i32 [ %.pre.i76.i, %Vec_IntPush.exit.i75.i ], [ %324, %Cbs3_ManWatchClause.exit.i ]
   %363 = getelementptr inbounds i32, ptr %.val14.i71.i, i64 %307
   %364 = load i32, ptr %363, align 4, !tbaa !37
-  %365 = add i32 %263, %362
+  %365 = add i32 %361, %263
   %366 = add i32 %365, %364
   %367 = sext i32 %366 to i64
   %368 = getelementptr inbounds i32, ptr %.val14.i71.i, i64 %367
-  store i32 %360, ptr %368, align 4, !tbaa !37
+  store i32 %362, ptr %368, align 4, !tbaa !37
   store i32 %180, ptr %323, align 4, !tbaa !37
   br label %Cbs3_QueFinish.exit
 

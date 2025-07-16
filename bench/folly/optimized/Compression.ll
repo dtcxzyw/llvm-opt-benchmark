@@ -6809,17 +6809,17 @@ _ZN5folly5RangeIPKhE7advanceEm.exit.i:            ; preds = %79
   %.pre43 = ptrtoint ptr %.pre to i64
   %.pre44 = ptrtoint ptr %.pre42 to i64
   %.pre46 = sub i64 %.pre43, %.pre44
-  %82 = getelementptr inbounds nuw i8, ptr %.pre12.i, i64 %.sroa.speculated.i
-  store ptr %82, ptr %63, align 8, !tbaa !53
-  %83 = icmp ugt i64 %.sroa.speculated.i, %.pre46
-  br i1 %83, label %84, label %_ZN5folly11compression12_GLOBAL__N_116LZMA2StreamCodec17flushVarintBufferERNS_5RangeIPhEE.exit, !prof !193
+  %82 = icmp ugt i64 %.sroa.speculated.i, %.pre46
+  %83 = getelementptr inbounds nuw i8, ptr %.pre12.i, i64 %.sroa.speculated.i
+  store ptr %83, ptr %63, align 8, !tbaa !53
+  br i1 %82, label %84, label %_ZN5folly11compression12_GLOBAL__N_116LZMA2StreamCodec17flushVarintBufferERNS_5RangeIPhEE.exit, !prof !193
 
 84:                                               ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit.i
   tail call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.58) #7
   unreachable
 
 _ZN5folly11compression12_GLOBAL__N_116LZMA2StreamCodec17flushVarintBufferERNS_5RangeIPhEE.exit: ; preds = %_ZN5folly5RangeIPKhE7advanceEm.exit.i.thread, %_ZN5folly5RangeIPKhE7advanceEm.exit.i
-  %85 = phi ptr [ %78, %_ZN5folly5RangeIPKhE7advanceEm.exit.i.thread ], [ %82, %_ZN5folly5RangeIPKhE7advanceEm.exit.i ]
+  %85 = phi ptr [ %78, %_ZN5folly5RangeIPKhE7advanceEm.exit.i.thread ], [ %83, %_ZN5folly5RangeIPKhE7advanceEm.exit.i ]
   %86 = phi ptr [ %66, %_ZN5folly5RangeIPKhE7advanceEm.exit.i.thread ], [ %.pre.i, %_ZN5folly5RangeIPKhE7advanceEm.exit.i ]
   %87 = phi ptr [ %74, %_ZN5folly5RangeIPKhE7advanceEm.exit.i.thread ], [ %.pre42, %_ZN5folly5RangeIPKhE7advanceEm.exit.i ]
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.sroa.speculated.i

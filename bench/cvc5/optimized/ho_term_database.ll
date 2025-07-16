@@ -1549,9 +1549,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit101: ; preds = %_ZNSt6vectorIN4cvc
 ._crit_edge:                                      ; preds = %.backedge
   %.pre203 = load ptr, ptr %19, align 8, !tbaa !42
   %.pre204 = load ptr, ptr %72, align 8, !tbaa !42
-  %515 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %516 = icmp eq ptr %.pre203, %.pre204
-  br i1 %516, label %._crit_edge.thread, label %517
+  %515 = icmp eq ptr %.pre203, %.pre204
+  %516 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  br i1 %515, label %._crit_edge.thread, label %517
 
 517:                                              ; preds = %._crit_edge
   %518 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %513)
@@ -1574,7 +1574,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit101: ; preds = %_ZNSt6vectorIN4cvc
 
 .noexc118:                                        ; preds = %523
   %524 = load ptr, ptr %19, align 8, !tbaa !42, !noalias !167
-  %525 = load ptr, ptr %515, align 8, !tbaa !42, !noalias !167
+  %525 = load ptr, ptr %516, align 8, !tbaa !42, !noalias !167
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !167
   %.not6.i.i.i107 = icmp eq ptr %525, %524
   br i1 %.not6.i.i.i107, label %.loopexit4.i115, label %.lr.ph.i.i.i108
@@ -1738,7 +1738,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129: ; preds = %_ZN4cvc58internal1
   br label %621
 
 ._crit_edge.thread:                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129, %519, %._crit_edge
-  %583 = phi ptr [ %515, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129 ], [ %515, %519 ], [ %515, %._crit_edge ], [ %72, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ]
+  %583 = phi ptr [ %516, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129 ], [ %516, %519 ], [ %516, %._crit_edge ], [ %72, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ]
   %584 = phi ptr [ %.pre205, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit129 ], [ %.pre206, %519 ], [ %.pre203, %._crit_edge ], [ null, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ]
   %585 = load ptr, ptr %583, align 8, !tbaa !48
   %.not4.i.i.i.i130 = icmp eq ptr %584, %585

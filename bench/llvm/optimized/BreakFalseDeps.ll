@@ -755,8 +755,8 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
 
 _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i.i.i.i, %13, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i.i.i.i
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %24, %13 ], [ %24, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i.i.i.i ], [ %30, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i.i.i.i ]
-  %.not34 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i.i.i, %22
-  br i1 %.not34, label %.loopexit, label %.lr.ph
+  %.not36 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i.i.i, %22
+  br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -766,17 +766,17 @@ _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit: ; preds = %_ZNK4llvm14ili
   br label %38
 
 38:                                               ; preds = %.lr.ph, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit
-  %.037 = phi ptr [ %19, %.lr.ph ], [ %.2.ph, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
-  %.01636 = phi i32 [ %21, %.lr.ph ], [ %.218.ph, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
-  %.sroa.021.035 = phi ptr [ %.sroa.0.0.i.i.i.i.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
-  tail call void @_ZN4llvm12LivePhysRegs12stepBackwardERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.021.035) #17
-  %39 = icmp eq ptr %.037, %.sroa.021.035
+  %.039 = phi ptr [ %19, %.lr.ph ], [ %.2.ph, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
+  %.01638 = phi i32 [ %21, %.lr.ph ], [ %.218.ph, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
+  %.sroa.021.037 = phi ptr [ %.sroa.0.0.i.i.i.i.i.i.i.i, %.lr.ph ], [ %.sroa.0.0.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
+  tail call void @_ZN4llvm12LivePhysRegs12stepBackwardERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.021.037) #17
+  %39 = icmp eq ptr %.039, %.sroa.021.037
   br i1 %39, label %40, label %74
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %.037, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.039, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !93
-  %43 = zext i32 %.01636 to i64
+  %43 = zext i32 %.01638 to i64
   %44 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %42, i64 %43, i32 1
   %45 = load i32, ptr %44, align 4, !tbaa !113
   %46 = trunc i32 %45 to i16
@@ -806,8 +806,8 @@ _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit: ; preds = %_ZNK4llvm14ili
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm12LivePhysRegs8containsEt.exit, label %54
 
 _ZNK4llvm12LivePhysRegs8containsEt.exit:          ; preds = %.lr.ph.i.i.i.i.i
-  %.not30 = icmp samesign eq i64 %52, %56
-  br i1 %.not30, label %_ZNK4llvm12LivePhysRegs8containsEt.exit.thread, label %64
+  %.not32 = icmp samesign eq i64 %52, %56
+  br i1 %.not32, label %_ZNK4llvm12LivePhysRegs8containsEt.exit.thread, label %64
 
 _ZNK4llvm12LivePhysRegs8containsEt.exit.thread:   ; preds = %54, %40, %_ZNK4llvm12LivePhysRegs8containsEt.exit
   %59 = load ptr, ptr %37, align 8, !tbaa !140
@@ -815,7 +815,7 @@ _ZNK4llvm12LivePhysRegs8containsEt.exit.thread:   ; preds = %54, %40, %_ZNK4llvm
   %61 = load ptr, ptr %59, align 8, !tbaa !26
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1136
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(80) %59, ptr noundef nonnull align 8 dereferenceable(70) %.037, i32 noundef %.01636, ptr noundef %60) #17
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(80) %59, ptr noundef nonnull align 8 dereferenceable(70) %.039, i32 noundef %.01638, ptr noundef %60) #17
   br label %64
 
 64:                                               ; preds = %_ZNK4llvm12LivePhysRegs8containsEt.exit.thread, %_ZNK4llvm12LivePhysRegs8containsEt.exit
@@ -834,9 +834,9 @@ _ZNK4llvm12LivePhysRegs8containsEt.exit.thread:   ; preds = %54, %40, %_ZNK4llvm
   br label %74
 
 74:                                               ; preds = %69, %38
-  %.218.ph = phi i32 [ %.01636, %38 ], [ %73, %69 ]
-  %.2.ph = phi ptr [ %.037, %38 ], [ %71, %69 ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.021.035, align 8
+  %.218.ph = phi i32 [ %.01638, %38 ], [ %73, %69 ]
+  %.2.ph = phi ptr [ %.039, %38 ], [ %71, %69 ]
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.021.037, align 8
   %75 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %76 = inttoptr i64 %75 to ptr
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %76, align 8

@@ -13192,48 +13192,48 @@ define dso_local void @_ZN4Type14doFinalizationEv() local_unnamed_addr #3 align 
 
 ._crit_edge:                                      ; preds = %7
   %.pre23 = load ptr, ptr @_ZL8AllTypes, align 8, !tbaa !4
-  %.not.i.i = icmp eq ptr %8, %.pre23
-  br i1 %.not.i.i, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, label %10
+  %10 = icmp eq ptr %8, %.pre23
+  br i1 %10, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, label %11
 
-10:                                               ; preds = %._crit_edge
+11:                                               ; preds = %._crit_edge
   store ptr %.pre23, ptr getelementptr inbounds nuw (i8, ptr @_ZL8AllTypes, i64 8), align 8, !tbaa !97
   br label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit:         ; preds = %0, %._crit_edge, %10
-  %11 = load ptr, ptr @_ZL13derived_types, align 8, !tbaa !80
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13derived_types, i64 8), align 8, !tbaa !80
-  %.not1216 = icmp eq ptr %11, %12
+_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit:         ; preds = %0, %._crit_edge, %11
+  %12 = load ptr, ptr @_ZL13derived_types, align 8, !tbaa !80
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13derived_types, i64 8), align 8, !tbaa !80
+  %.not1216 = icmp eq ptr %12, %13
   br i1 %.not1216, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit4, label %.lr.ph18
 
-.lr.ph18:                                         ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, %17
-  %13 = phi ptr [ %18, %17 ], [ %12, %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit ]
-  %.sroa.06.117 = phi ptr [ %19, %17 ], [ %11, %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit ]
-  %14 = load ptr, ptr %.sroa.06.117, align 8, !tbaa !35
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %17, label %16
+.lr.ph18:                                         ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, %18
+  %14 = phi ptr [ %19, %18 ], [ %13, %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit ]
+  %.sroa.06.117 = phi ptr [ %20, %18 ], [ %12, %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit ]
+  %15 = load ptr, ptr %.sroa.06.117, align 8, !tbaa !35
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %18, label %17
 
-16:                                               ; preds = %.lr.ph18
-  tail call void @_ZN4TypeD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %14) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 136) #26
+17:                                               ; preds = %.lr.ph18
+  tail call void @_ZN4TypeD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %15) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 136) #26
   %.pre24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13derived_types, i64 8), align 8, !tbaa !80
-  br label %17
+  br label %18
 
-17:                                               ; preds = %.lr.ph18, %16
-  %18 = phi ptr [ %13, %.lr.ph18 ], [ %.pre24, %16 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.117, i64 8
-  %.not12 = icmp eq ptr %19, %18
+18:                                               ; preds = %.lr.ph18, %17
+  %19 = phi ptr [ %14, %.lr.ph18 ], [ %.pre24, %17 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.06.117, i64 8
+  %.not12 = icmp eq ptr %20, %19
   br i1 %.not12, label %._crit_edge19, label %.lr.ph18, !llvm.loop !287
 
-._crit_edge19:                                    ; preds = %17
+._crit_edge19:                                    ; preds = %18
   %.pre25 = load ptr, ptr @_ZL13derived_types, align 8, !tbaa !4
-  %.not.i.i3 = icmp eq ptr %18, %.pre25
-  br i1 %.not.i.i3, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit4, label %20
+  %21 = icmp eq ptr %19, %.pre25
+  br i1 %21, label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit4, label %22
 
-20:                                               ; preds = %._crit_edge19
+22:                                               ; preds = %._crit_edge19
   store ptr %.pre25, ptr getelementptr inbounds nuw (i8, ptr @_ZL13derived_types, i64 8), align 8, !tbaa !97
   br label %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit4
 
-_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit4:        ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, %._crit_edge19, %20
+_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit4:        ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE5clearEv.exit, %._crit_edge19, %22
   ret void
 }
 

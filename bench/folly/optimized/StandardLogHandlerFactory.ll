@@ -594,9 +594,9 @@ define void @_ZN5folly25StandardLogHandlerFactory13createHandlerENS_5RangeIPKcEE
 ._crit_edge:                                      ; preds = %.critedge
   %.pre253 = load ptr, ptr %12, align 8, !tbaa !31
   %.pre254 = load ptr, ptr %37, align 8, !tbaa !31
-  %43 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %44 = icmp eq ptr %.pre253, %.pre254
-  br i1 %44, label %254, label %238
+  %43 = icmp eq ptr %.pre253, %.pre254
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  br i1 %43, label %254, label %238
 
 45:                                               ; preds = %.lr.ph, %.critedge
   %.sroa.0209.0250 = phi ptr [ %.sroa.0209.0246, %.lr.ph ], [ %.sroa.0209.0, %.critedge ]
@@ -1137,7 +1137,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %24
   br label %.loopexit
 
 254:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %255 = phi ptr [ %29, %._crit_edge.thread ], [ %43, %._crit_edge ]
+  %255 = phi ptr [ %29, %._crit_edge.thread ], [ %44, %._crit_edge ]
   %.sroa.6.0.lcssa262 = phi i1 [ false, %._crit_edge.thread ], [ %.sroa.6.1, %._crit_edge ]
   %.sroa.0212.0.lcssa261 = phi i32 [ 0, %._crit_edge.thread ], [ %.sroa.0212.1, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #24

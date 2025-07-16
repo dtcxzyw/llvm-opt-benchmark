@@ -4878,92 +4878,92 @@ define linkonce_odr hidden void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl16u
 ._crit_edge.i:                                    ; preds = %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !625
   %.pre37.i = load ptr, ptr %5, align 8, !tbaa !626
-  %.not.i.i.i = icmp eq ptr %.pre37.i, %.pre.i
-  br i1 %.not.i.i.i, label %_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit, label %7
+  %7 = icmp eq ptr %.pre37.i, %.pre.i
+  br i1 %7, label %_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit, label %8
 
-7:                                                ; preds = %._crit_edge.i
+8:                                                ; preds = %._crit_edge.i
   store ptr %.pre.i, ptr %5, align 8, !tbaa !626
   br label %_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit
 
 .lr.ph36.i:                                       ; preds = %2, %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i
-  %.sroa.024.035.i = phi ptr [ %33, %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i ], [ %4, %2 ]
+  %.sroa.024.035.i = phi ptr [ %34, %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i ], [ %4, %2 ]
   %.sroa.0.0.copyload.i = load ptr, ptr %.sroa.024.035.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.024.035.i, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.not.i.i18.i = icmp eq ptr %.sroa.4.0.copyload.i, null
-  br i1 %.not.i.i18.i, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i, label %8
+  br i1 %.not.i.i18.i, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i, label %9
 
-8:                                                ; preds = %.lr.ph36.i
-  %9 = load i8, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !268
-  %10 = icmp eq i8 %9, 5
-  br i1 %10, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.i, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i
+9:                                                ; preds = %.lr.ph36.i
+  %10 = load i8, ptr %.sroa.4.0.copyload.i, align 4, !tbaa !268
+  %11 = icmp eq i8 %10, 5
+  br i1 %11, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.i, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i
 
-_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.i: ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 -16
-  %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, 2
-  %.not.i.i19.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i19.i, label %20, label %14
+_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.i: ; preds = %9
+  %12 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 -16
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, 2
+  %.not.i.i19.i = icmp eq i64 %14, 0
+  br i1 %.not.i.i19.i, label %21, label %15
 
-14:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.i
-  %15 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 -32
-  %16 = load ptr, ptr %15, align 8, !tbaa !25
-  %17 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 -24
-  %18 = load i32, ptr %17, align 8, !tbaa !26
-  %19 = zext i32 %18 to i64
+15:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.i
+  %16 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 -32
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %18 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 -24
+  %19 = load i32, ptr %18, align 8, !tbaa !26
+  %20 = zext i32 %19 to i64
   br label %_ZNK4llvm6MDNode8operandsEv.exit.i
 
-20:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.i
-  %21 = lshr i64 %12, 2
-  %22 = and i64 %21, 15
-  %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %"class.llvm::MDOperand", ptr %11, i64 %23
-  %25 = lshr i64 %12, 6
-  %26 = and i64 %25, 15
+21:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.i
+  %22 = lshr i64 %13, 2
+  %23 = and i64 %22, 15
+  %24 = sub nsw i64 0, %23
+  %25 = getelementptr inbounds %"class.llvm::MDOperand", ptr %12, i64 %24
+  %26 = lshr i64 %13, 6
+  %27 = and i64 %26, 15
   br label %_ZNK4llvm6MDNode8operandsEv.exit.i
 
-_ZNK4llvm6MDNode8operandsEv.exit.i:               ; preds = %20, %14
-  %.sroa.3.0.i.i.i = phi i64 [ %26, %20 ], [ %19, %14 ]
-  %.sroa.0.0.i.i.i = phi ptr [ %24, %20 ], [ %16, %14 ]
+_ZNK4llvm6MDNode8operandsEv.exit.i:               ; preds = %21, %15
+  %.sroa.3.0.i.i.i = phi i64 [ %27, %21 ], [ %20, %15 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %25, %21 ], [ %17, %15 ]
   %.idx.i = shl nuw nsw i64 %.sroa.3.0.i.i.i, 3
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 %.idx.i
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 %.idx.i
   %.not1632.i = icmp eq i64 %.sroa.3.0.i.i.i, 0
   br i1 %.not1632.i, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm6MDNode8operandsEv.exit.i, %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i
-  %.033.i = phi ptr [ %32, %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i ], [ %.sroa.0.0.i.i.i, %_ZNK4llvm6MDNode8operandsEv.exit.i ]
-  %28 = load ptr, ptr %.033.i, align 8, !tbaa !627
-  %.not.i.i20.i = icmp eq ptr %28, null
-  br i1 %.not.i.i20.i, label %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i, label %29
+  %.033.i = phi ptr [ %33, %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i ], [ %.sroa.0.0.i.i.i, %_ZNK4llvm6MDNode8operandsEv.exit.i ]
+  %29 = load ptr, ptr %.033.i, align 8, !tbaa !627
+  %.not.i.i20.i = icmp eq ptr %29, null
+  br i1 %.not.i.i20.i, label %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i, label %30
 
-29:                                               ; preds = %.lr.ph.i
-  %30 = load i8, ptr %28, align 4, !tbaa !268
-  %31 = icmp eq i8 %30, 18
-  br i1 %31, label %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.i, label %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i
+30:                                               ; preds = %.lr.ph.i
+  %31 = load i8, ptr %29, align 4, !tbaa !268
+  %32 = icmp eq i8 %31, 18
+  br i1 %32, label %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.i, label %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i
 
-_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.i: ; preds = %29
-  tail call void @_ZN4llvm6MDNode18replaceOperandWithEjPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef 5, ptr noundef %.sroa.0.0.copyload.i) #26
+_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.i: ; preds = %30
+  tail call void @_ZN4llvm6MDNode18replaceOperandWithEjPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %29, i32 noundef 5, ptr noundef %.sroa.0.0.copyload.i) #26
   br label %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i
 
-_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.i, %29, %.lr.ph.i
-  %32 = getelementptr inbounds nuw i8, ptr %.033.i, i64 8
-  %.not16.i = icmp eq ptr %32, %27
+_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.i, %30, %.lr.ph.i
+  %33 = getelementptr inbounds nuw i8, ptr %.033.i, i64 8
+  %.not16.i = icmp eq ptr %33, %28
   br i1 %.not16.i, label %_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i, label %.lr.ph.i
 
-_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i, %_ZNK4llvm6MDNode8operandsEv.exit.i, %8, %.lr.ph36.i
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.024.035.i, i64 16
-  %.not.i = icmp eq ptr %33, %6
+_ZN4llvm16dyn_cast_or_nullINS_7MDTupleENS_8MetadataEEEDaPT0_.exit.thread.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_12DISubprogramENS_9MDOperandEEEDaRKT0_.exit.thread.i, %_ZNK4llvm6MDNode8operandsEv.exit.i, %9, %.lr.ph36.i
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.024.035.i, i64 16
+  %.not.i = icmp eq ptr %34, %6
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph36.i
 
-_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit: ; preds = %2, %._crit_edge.i, %7
+_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit: ; preds = %2, %._crit_edge.i, %8
   tail call void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl18upgradeCUVariablesEv(ptr noundef nonnull align 8 dereferenceable(1073) %0)
-  br i1 %1, label %34, label %35
+  br i1 %1, label %35, label %36
 
-34:                                               ; preds = %_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit
+35:                                               ; preds = %_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit
   tail call void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl15upgradeCULocalsEv(ptr noundef nonnull align 8 dereferenceable(1073) %0)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %34, %_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit
+36:                                               ; preds = %35, %_ZN4llvm14MetadataLoader18MetadataLoaderImpl20upgradeCUSubprogramsEv.exit
   ret void
 }
 

@@ -16300,8 +16300,8 @@ _ZN4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE24changeImmediateDominatorEPS1_
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store ptr %15, ptr %149, align 8, !tbaa !383
   %150 = load i32, ptr %10, align 8, !tbaa !26
-  %.not.i39 = icmp eq i32 %150, 0
-  br i1 %.not.i39, label %.critedge, label %.lr.ph
+  %.not.i41 = icmp eq i32 %150, 0
+  br i1 %.not.i41, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE24changeImmediateDominatorEPS1_S3_.exit
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -16336,15 +16336,15 @@ _ZN4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE24changeImmediateDominatorEPS1_
 
 _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit: ; preds = %153
   %166 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %17, ptr noundef %2) #26
-  %.not35 = icmp eq ptr %166, null
-  br i1 %.not35, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread_crit_edge, label %.critedge
+  %.not37 = icmp eq ptr %166, null
+  br i1 %.not37, label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread_crit_edge, label %.critedge
 
 _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread_crit_edge: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit
-  %.pre43 = load i32, ptr %10, align 8, !tbaa !26
+  %.pre45 = load i32, ptr %10, align 8, !tbaa !26
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread
 
 _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread: ; preds = %162, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread_crit_edge, %157
-  %167 = phi i32 [ %.pre43, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread_crit_edge ], [ %154, %157 ], [ %154, %162 ]
+  %167 = phi i32 [ %.pre45, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit._ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.thread_crit_edge ], [ %154, %157 ], [ %154, %162 ]
   %168 = load ptr, ptr %8, align 8, !tbaa !25
   %169 = zext i32 %167 to i64
   %170 = getelementptr inbounds nuw ptr, ptr %168, i64 %169

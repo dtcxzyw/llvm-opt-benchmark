@@ -3415,13 +3415,13 @@ if.else.i:                                        ; preds = %if.then3.i
   store i64 %.sroa.speculated, ptr %peakBytes_.i, align 8
   %minReservationBytes_.i27.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 320
   %.pre53 = load i64, ptr %minReservationBytes_.i27.phi.trans.insert, align 8
+  %9 = icmp slt i64 %.lcssa38, %.pre53
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else.i, %if.then4.i
-  %9 = phi i64 [ %.pre53, %if.else.i ], [ %.lcssa38, %if.then4.i ]
+  %cmp3.i = phi i1 [ %9, %if.else.i ], [ false, %if.then4.i ]
   %10 = phi i64 [ %add.i, %if.else.i ], [ %.lcssa, %if.then4.i ]
   %cmp.i26 = icmp slt i64 %.lcssa38, %10
-  %cmp3.i = icmp slt i64 %.lcssa38, %9
   %or.cond = select i1 %cmp.i26, i1 true, i1 %cmp3.i
   %cmp5.i = icmp slt i64 %10, 0
   %or.cond17 = or i1 %cmp5.i, %or.cond
@@ -6576,13 +6576,13 @@ if.else:                                          ; preds = %if.then3
   store i64 %.sroa.speculated, ptr %peakBytes_.i, align 8
   %minReservationBytes_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 320
   %.pre = load i64, ptr %minReservationBytes_.i.phi.trans.insert, align 8
+  %5 = icmp slt i64 %1, %.pre
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then4
-  %5 = phi i64 [ %.pre, %if.else ], [ %1, %if.then4 ]
+  %cmp3.i = phi i1 [ %5, %if.else ], [ false, %if.then4 ]
   %6 = phi i64 [ %sub.i.neg, %if.else ], [ %2, %if.then4 ]
   %cmp.i45 = icmp slt i64 %1, %6
-  %cmp3.i = icmp slt i64 %1, %5
   %or.cond = select i1 %cmp.i45, i1 true, i1 %cmp3.i
   %cmp5.i = icmp slt i64 %6, 0
   %or.cond16 = or i1 %cmp5.i, %or.cond

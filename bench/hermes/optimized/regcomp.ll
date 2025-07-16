@@ -292,13 +292,13 @@ if.then36:                                        ; preds = %if.else33
   br i1 %cmp.i, label %while.body.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then36
-  br i1 %cmp.i.i, label %if.then.i.i, label %lor.end.thread.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %lor.end.i
 
 if.then.i.i:                                      ; preds = %lor.rhs.i
   store i32 14, ptr %error, align 8
-  br label %lor.end.thread.i
+  br label %lor.end.i
 
-lor.end.thread.i:                                 ; preds = %if.then.i.i, %lor.rhs.i
+lor.end.i:                                        ; preds = %if.then.i.i, %lor.rhs.i
   store ptr @nuls, ptr %pa, align 8
   store ptr @nuls, ptr %end, align 8
   br label %if.end39
@@ -319,7 +319,7 @@ if.else37:                                        ; preds = %if.else33
   call fastcc void @p_bre(ptr noundef %pa, i32 noundef 128, i32 noundef 128)
   br label %if.end39
 
-if.end39:                                         ; preds = %while.body.i, %lor.end.thread.i, %if.else37, %if.then32
+if.end39:                                         ; preds = %while.body.i, %lor.end.i, %if.else37, %if.then32
   %9 = load i32, ptr %error, align 8
   %cmp.not.i78 = icmp eq i32 %9, 0
   %10 = load i64, ptr %slen, align 8

@@ -1229,8 +1229,8 @@ Aig_ManObj.exit73:                                ; preds = %13, %17
   %invariant.gep = getelementptr ptr, ptr %.val57.val67, i64 %41
   br label %42
 
-42:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
+42:                                               ; preds = %.lr.ph, %65
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %43 = load ptr, ptr %gep, align 8, !tbaa !84
   %44 = ptrtoint ptr %43 to i64
@@ -1261,27 +1261,27 @@ Aig_ManObj.exit73:                                ; preds = %13, %17
   %.val69 = load i64, ptr %60, align 8
   %61 = and i64 %.val69, 7
   %.not76 = icmp eq i64 %61, 0
-  br i1 %.not76, label %62, label %64
+  br i1 %.not76, label %62, label %65
 
 62:                                               ; preds = %49, %42
   %63 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 0, ptr %14, align 4, !tbaa !29
   %.pre = load i32, ptr %31, align 8, !tbaa !79
+  %64 = icmp sgt i32 %.pre, %63
   br label %.loopexit77
 
-64:                                               ; preds = %49
+65:                                               ; preds = %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %42, !llvm.loop !85
 
 .loopexit77:                                      ; preds = %Aig_ManObj.exit73, %62
-  %65 = phi i32 [ %.pre, %62 ], [ %32, %Aig_ManObj.exit73 ]
-  %.04980 = phi i32 [ %63, %62 ], [ 0, %Aig_ManObj.exit73 ]
-  %66 = icmp slt i32 %.04980, %65
-  br i1 %66, label %.loopexit, label %.preheader
+  %66 = phi i32 [ %.pre, %62 ], [ %32, %Aig_ManObj.exit73 ]
+  %.04980 = phi i1 [ %64, %62 ], [ false, %Aig_ManObj.exit73 ]
+  br i1 %.04980, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %64, %.loopexit77
-  %67 = phi i32 [ %65, %.loopexit77 ], [ %32, %64 ]
+.preheader:                                       ; preds = %65, %.loopexit77
+  %67 = phi i32 [ %66, %.loopexit77 ], [ %32, %65 ]
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %.lr.ph88, label %.loopexit
 

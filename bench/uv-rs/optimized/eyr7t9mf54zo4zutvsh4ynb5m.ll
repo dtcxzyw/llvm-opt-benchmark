@@ -2757,27 +2757,27 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h5d
   %5 = alloca [48 x i8], align 8
   %6 = icmp ne i64 %3, 0
   %7 = load i64, ptr %0, align 8, !range !68
-  %.not3 = icmp ult i64 %7, %1
-  %.not = select i1 %6, i1 %.not3, i1 false
-  br i1 %.not, label %8, label %13, !prof !69
+  %8 = icmp ugt i64 %1, %7
+  %.sroa.02.0 = select i1 %6, i1 %8, i1 false
+  br i1 %.sroa.02.0, label %9, label %14, !prof !69
 
-8:                                                ; preds = %4
+9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr @anon.ee8f13fada914bd11c9c2be8f18adb40.17.llvm.667510928281626808, ptr %5, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %12, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %13, align 8
   call void @_ZN4core9panicking9panic_fmt17h5764ee7030b7a73dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ee8f13fada914bd11c9c2be8f18adb40.19.llvm.667510928281626808) #21
   unreachable
 
-13:                                               ; preds = %4
-  %14 = tail call { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17he6882b14b23615edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3)
-  ret { i64, i64 } %14
+14:                                               ; preds = %4
+  %15 = tail call { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17he6882b14b23615edE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3)
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable

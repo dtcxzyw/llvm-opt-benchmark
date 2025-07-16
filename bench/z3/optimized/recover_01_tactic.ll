@@ -6134,7 +6134,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17recover_01_tactic3imp10find_
 12:                                               ; preds = %5
   store i32 0, ptr %3, align 4, !tbaa !121
   %.not5391.not = icmp eq i32 %9, 0
-  br i1 %.not5391.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not5391.not, label %.loopexit87, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -6356,23 +6356,23 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %110
 _ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %131, %110, %103, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %121
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge, label %103, !llvm.loop !271
+  br i1 %exitcond112.not, label %._crit_edge.loopexit, label %103, !llvm.loop !271
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %131
   %133 = trunc nuw i64 %indvars.iv108 to i32
-  br label %._crit_edge
+  br label %._crit_edge.loopexit
 
 ._crit_edge.loopexit.split.loop.exit117:          ; preds = %125
   %134 = trunc nuw i64 %indvars.iv108 to i32
-  br label %._crit_edge
+  br label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit117, %12
-  %.0.lcssa = phi i32 [ 0, %12 ], [ %133, %._crit_edge.loopexit.split.loop.exit ], [ %134, %._crit_edge.loopexit.split.loop.exit117 ], [ %9, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread ]
-  %135 = icmp ne i32 %.0.lcssa, %9
+._crit_edge.loopexit:                             ; preds = %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, %._crit_edge.loopexit.split.loop.exit117, %._crit_edge.loopexit.split.loop.exit
+  %.0.lcssa.ph = phi i32 [ %133, %._crit_edge.loopexit.split.loop.exit ], [ %134, %._crit_edge.loopexit.split.loop.exit117 ], [ %9, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread ]
+  %135 = icmp ne i32 %.0.lcssa.ph, %9
   br label %.loopexit87
 
-.loopexit87:                                      ; preds = %.loopexit, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread63, %._crit_edge, %5
-  %.039 = phi i1 [ false, %5 ], [ %135, %._crit_edge ], [ false, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread63 ], [ false, %.loopexit ]
+.loopexit87:                                      ; preds = %.loopexit, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread63, %12, %._crit_edge.loopexit, %5
+  %.039 = phi i1 [ false, %5 ], [ %135, %._crit_edge.loopexit ], [ false, %12 ], [ false, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread63 ], [ false, %.loopexit ]
   ret i1 %.039
 }
 

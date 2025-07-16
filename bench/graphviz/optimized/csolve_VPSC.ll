@@ -535,44 +535,149 @@ define void @remapInConstraints(ptr noundef captures(none) %0, ptr noundef %1, d
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.pre = load ptr, ptr %9, align 8, !tbaa !46
   %.pre13 = load ptr, ptr %10, align 8, !tbaa !32
-  br label %12
+  br label %13
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
   %.pre14 = load ptr, ptr %4, align 8, !tbaa !31
   %.pre15 = load ptr, ptr %6, align 8, !tbaa !46
-  %.not.i.i = icmp eq ptr %.pre15, %.pre14
-  br i1 %.not.i.i, label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit, label %11
+  %11 = icmp eq ptr %.pre15, %.pre14
+  br i1 %11, label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit, label %12
 
-11:                                               ; preds = %._crit_edge
+12:                                               ; preds = %._crit_edge
   store ptr %.pre14, ptr %6, align 8, !tbaa !46
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit:  ; preds = %3, %._crit_edge, %11
+_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit:  ; preds = %3, %._crit_edge, %12
   ret void
 
-12:                                               ; preds = %.lr.ph, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
-  %13 = phi ptr [ %.pre13, %.lr.ph ], [ %42, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
-  %14 = phi ptr [ %.pre, %.lr.ph ], [ %43, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
+13:                                               ; preds = %.lr.ph, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
+  %14 = phi ptr [ %.pre13, %.lr.ph ], [ %43, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
+  %15 = phi ptr [ %.pre, %.lr.ph ], [ %44, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.08.012 = phi ptr [ %5, %.lr.ph ], [ %45, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
+  %16 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %1, ptr %17, align 8, !tbaa !47
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %19 = load double, ptr %18, align 8, !tbaa !50
+  %20 = fadd double %2, %19
+  store double %20, ptr %18, align 8, !tbaa !50
+  %.not.i = icmp eq ptr %15, %14
+  br i1 %.not.i, label %23, label %21
+
+21:                                               ; preds = %13
+  store ptr %16, ptr %15, align 8, !tbaa !28
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %22, ptr %9, align 8, !tbaa !46
+  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
+
+23:                                               ; preds = %13
+  %24 = load ptr, ptr %8, align 8, !tbaa !31
+  %25 = ptrtoint ptr %14 to i64
+  %26 = ptrtoint ptr %24 to i64
+  %27 = sub i64 %25, %26
+  %28 = icmp eq i64 %27, 9223372036854775800
+  br i1 %28, label %29, label %_ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+
+29:                                               ; preds = %23
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #25
+  unreachable
+
+_ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %23
+  %30 = ashr exact i64 %27, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
+  %31 = add nsw i64 %.sroa.speculated.i.i.i, %30
+  %32 = icmp ult i64 %31, %30
+  %33 = tail call i64 @llvm.umin.i64(i64 %31, i64 1152921504606846975)
+  %34 = select i1 %32, i64 1152921504606846975, i64 %33
+  %.not.i.i.i = icmp ne i64 %34, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i)
+  %35 = shl nuw nsw i64 %34, 3
+  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #21
+  %37 = getelementptr inbounds i8, ptr %36, i64 %27
+  store ptr %16, ptr %37, align 8, !tbaa !28
+  %38 = icmp sgt i64 %27, 0
+  br i1 %38, label %39, label %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+
+39:                                               ; preds = %_ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr align 8 %24, i64 %27, i1 false)
+  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+
+_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %39, %_ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.not.i17.i.i = icmp eq ptr %24, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %41
+
+41:                                               ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %27) #22
+  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
+
+_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %36, ptr %8, align 8, !tbaa !31
+  store ptr %40, ptr %9, align 8, !tbaa !46
+  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+  store ptr %42, ptr %10, align 8, !tbaa !32
+  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
+
+_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit: ; preds = %21, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
+  %43 = phi ptr [ %14, %21 ], [ %42, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %44 = phi ptr [ %22, %21 ], [ %40, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
+  %.not = icmp eq ptr %45, %7
+  br i1 %.not, label %._crit_edge, label %13
+}
+
+; Function Attrs: mustprogress uwtable
+define void @remapOutConstraints(ptr noundef captures(none) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %.not11 = icmp eq ptr %5, %7
+  br i1 %.not11, label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.pre = load ptr, ptr %9, align 8, !tbaa !46
+  %.pre13 = load ptr, ptr %10, align 8, !tbaa !32
+  br label %13
+
+._crit_edge:                                      ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
+  %.pre14 = load ptr, ptr %4, align 8, !tbaa !31
+  %.pre15 = load ptr, ptr %6, align 8, !tbaa !46
+  %11 = icmp eq ptr %.pre15, %.pre14
+  br i1 %11, label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit, label %12
+
+12:                                               ; preds = %._crit_edge
+  store ptr %.pre14, ptr %6, align 8, !tbaa !46
+  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit
+
+_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit:  ; preds = %3, %._crit_edge, %12
+  ret void
+
+13:                                               ; preds = %.lr.ph, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
+  %14 = phi ptr [ %.pre13, %.lr.ph ], [ %42, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
+  %15 = phi ptr [ %.pre, %.lr.ph ], [ %43, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
   %.sroa.08.012 = phi ptr [ %5, %.lr.ph ], [ %44, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
-  %15 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %1, ptr %16, align 8, !tbaa !47
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %16 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !28
+  store ptr %1, ptr %16, align 8, !tbaa !51
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load double, ptr %17, align 8, !tbaa !50
   %19 = fadd double %2, %18
   store double %19, ptr %17, align 8, !tbaa !50
-  %.not.i = icmp eq ptr %14, %13
+  %.not.i = icmp eq ptr %15, %14
   br i1 %.not.i, label %22, label %20
 
-20:                                               ; preds = %12
-  store ptr %15, ptr %14, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
+20:                                               ; preds = %13
+  store ptr %16, ptr %15, align 8, !tbaa !28
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %21, ptr %9, align 8, !tbaa !46
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
 
-22:                                               ; preds = %12
+22:                                               ; preds = %13
   %23 = load ptr, ptr %8, align 8, !tbaa !31
-  %24 = ptrtoint ptr %13 to i64
+  %24 = ptrtoint ptr %14 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %27 = icmp eq i64 %26, 9223372036854775800
@@ -594,7 +699,7 @@ _ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %22
   %34 = shl nuw nsw i64 %33, 3
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #21
   %36 = getelementptr inbounds i8, ptr %35, i64 %26
-  store ptr %15, ptr %36, align 8, !tbaa !28
+  store ptr %16, ptr %36, align 8, !tbaa !28
   %37 = icmp sgt i64 %26, 0
   br i1 %37, label %38, label %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
@@ -619,116 +724,11 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit: ; preds = %20, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %42 = phi ptr [ %13, %20 ], [ %41, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %42 = phi ptr [ %14, %20 ], [ %41, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %43 = phi ptr [ %21, %20 ], [ %39, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
   %.not = icmp eq ptr %44, %7
-  br i1 %.not, label %._crit_edge, label %12
-}
-
-; Function Attrs: mustprogress uwtable
-define void @remapOutConstraints(ptr noundef captures(none) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !45
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load ptr, ptr %6, align 8, !tbaa !45
-  %.not11 = icmp eq ptr %5, %7
-  br i1 %.not11, label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.pre = load ptr, ptr %9, align 8, !tbaa !46
-  %.pre13 = load ptr, ptr %10, align 8, !tbaa !32
-  br label %12
-
-._crit_edge:                                      ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
-  %.pre14 = load ptr, ptr %4, align 8, !tbaa !31
-  %.pre15 = load ptr, ptr %6, align 8, !tbaa !46
-  %.not.i.i = icmp eq ptr %.pre15, %.pre14
-  br i1 %.not.i.i, label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit, label %11
-
-11:                                               ; preds = %._crit_edge
-  store ptr %.pre14, ptr %6, align 8, !tbaa !46
-  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit
-
-_ZNSt6vectorIP10ConstraintSaIS1_EE5clearEv.exit:  ; preds = %3, %._crit_edge, %11
-  ret void
-
-12:                                               ; preds = %.lr.ph, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
-  %13 = phi ptr [ %.pre13, %.lr.ph ], [ %41, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
-  %14 = phi ptr [ %.pre, %.lr.ph ], [ %42, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.08.012 = phi ptr [ %5, %.lr.ph ], [ %43, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit ]
-  %15 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !28
-  store ptr %1, ptr %15, align 8, !tbaa !51
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load double, ptr %16, align 8, !tbaa !50
-  %18 = fadd double %2, %17
-  store double %18, ptr %16, align 8, !tbaa !50
-  %.not.i = icmp eq ptr %14, %13
-  br i1 %.not.i, label %21, label %19
-
-19:                                               ; preds = %12
-  store ptr %15, ptr %14, align 8, !tbaa !28
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %20, ptr %9, align 8, !tbaa !46
-  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
-
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %8, align 8, !tbaa !31
-  %23 = ptrtoint ptr %13 to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %26 = icmp eq i64 %25, 9223372036854775800
-  br i1 %26, label %27, label %_ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i
-
-27:                                               ; preds = %21
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #25
-  unreachable
-
-_ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %21
-  %28 = ashr exact i64 %25, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
-  %29 = add nsw i64 %.sroa.speculated.i.i.i, %28
-  %30 = icmp ult i64 %29, %28
-  %31 = tail call i64 @llvm.umin.i64(i64 %29, i64 1152921504606846975)
-  %32 = select i1 %30, i64 1152921504606846975, i64 %31
-  %.not.i.i.i = icmp ne i64 %32, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i)
-  %33 = shl nuw nsw i64 %32, 3
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #21
-  %35 = getelementptr inbounds i8, ptr %34, i64 %25
-  store ptr %15, ptr %35, align 8, !tbaa !28
-  %36 = icmp sgt i64 %25, 0
-  br i1 %36, label %37, label %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-
-37:                                               ; preds = %_ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr align 8 %22, i64 %25, i1 false)
-  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-
-_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %37, %_ZNKSt6vectorIP10ConstraintSaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.not.i17.i.i = icmp eq ptr %22, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %39
-
-39:                                               ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %25) #22
-  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-
-_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %34, ptr %8, align 8, !tbaa !31
-  store ptr %38, ptr %9, align 8, !tbaa !46
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
-  store ptr %40, ptr %10, align 8, !tbaa !32
-  br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
-
-_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit: ; preds = %19, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %41 = phi ptr [ %13, %19 ], [ %40, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %42 = phi ptr [ %20, %19 ], [ %38, %_ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
-  %.not = icmp eq ptr %43, %7
-  br i1 %.not, label %._crit_edge, label %12
+  br i1 %.not, label %._crit_edge, label %13
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable

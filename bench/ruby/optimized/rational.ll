@@ -4079,14 +4079,14 @@ define hidden i64 @rb_flo_round_by_rational(i32 noundef %0, ptr noundef readonly
   unreachable
 
 nurat_round_n.exit:                               ; preds = %6, %12, %14
-  %.087.i1019.i = phi i64 [ %15, %14 ], [ 4, %6 ], [ 4, %12 ]
-  %.0.i1117.i = phi i32 [ %16, %14 ], [ %0, %6 ], [ 0, %12 ]
-  %18 = tail call i32 @rb_num_get_rounding_option(i64 noundef %.087.i1019.i) #17
+  %.087.i1018.i = phi i64 [ %15, %14 ], [ 4, %6 ], [ 4, %12 ]
+  %.0.i1116.i = phi i32 [ %16, %14 ], [ %0, %6 ], [ 0, %12 ]
+  %18 = tail call i32 @rb_num_get_rounding_option(i64 noundef %.087.i1018.i) #17
   %19 = icmp eq i32 %18, 1
   %20 = icmp eq i32 %18, 0
   %21 = select i1 %20, ptr @nurat_round_half_up, ptr @nurat_round_half_down
   %22 = select i1 %19, ptr @nurat_round_half_even, ptr %21
-  %23 = tail call fastcc i64 @f_round_common(i32 noundef %.0.i1117.i, ptr noundef readonly %1, i64 noundef %4, ptr noundef nonnull %22)
+  %23 = tail call fastcc i64 @f_round_common(i32 noundef %.0.i1116.i, ptr noundef readonly %1, i64 noundef %4, ptr noundef nonnull %22)
   %24 = tail call i64 @nurat_to_f(i64 noundef %23)
   ret i64 %24
 }
@@ -4120,14 +4120,14 @@ rb_scan_args_n_opt.exit:
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %12, %10, %4
-  %.087.i1019 = phi i64 [ %13, %12 ], [ 4, %4 ], [ 4, %10 ]
-  %.0.i1117 = phi i32 [ %14, %12 ], [ %0, %4 ], [ 0, %10 ]
-  %16 = tail call i32 @rb_num_get_rounding_option(i64 noundef %.087.i1019) #17
+  %.087.i1018 = phi i64 [ %13, %12 ], [ 4, %4 ], [ 4, %10 ]
+  %.0.i1116 = phi i32 [ %14, %12 ], [ %0, %4 ], [ 0, %10 ]
+  %16 = tail call i32 @rb_num_get_rounding_option(i64 noundef %.087.i1018) #17
   %17 = icmp eq i32 %16, 1
   %18 = icmp eq i32 %16, 0
   %19 = select i1 %18, ptr @nurat_round_half_up, ptr @nurat_round_half_down
   %20 = select i1 %17, ptr @nurat_round_half_even, ptr %19
-  %21 = tail call fastcc i64 @f_round_common(i32 noundef %.0.i1117, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %20)
+  %21 = tail call fastcc i64 @f_round_common(i32 noundef %.0.i1116, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %20)
   ret i64 %21
 }
 

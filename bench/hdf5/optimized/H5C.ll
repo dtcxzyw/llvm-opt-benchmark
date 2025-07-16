@@ -1210,7 +1210,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, pt
 8:                                                ; preds = %2
   %9 = xor i1 %6, true
   %10 = select i1 %4, i1 true, i1 %9
-  br i1 %10, label %11, label %274, !prof !83
+  br i1 %10, label %11, label %284, !prof !83
 
 11:                                               ; preds = %.thread, %8
   %12 = icmp eq ptr %0, null
@@ -1220,7 +1220,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, pt
   %14 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
   %15 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
   %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 826, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.20) #9
-  br label %274
+  br label %284
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %1, null
@@ -1230,7 +1230,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, pt
   %20 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
   %21 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
   %22 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 828, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.21) #9
-  br label %274
+  br label %284
 
 23:                                               ; preds = %17
   %24 = load i32, ptr %1, align 8, !tbaa !145
@@ -1241,7 +1241,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, pt
   %26 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
   %27 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 830, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.22) #9
-  br label %274
+  br label %284
 
 29:                                               ; preds = %23
   %30 = tail call i32 @H5C_validate_resize_config(ptr noundef nonnull %1, i32 noundef 1)
@@ -1252,7 +1252,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, pt
   %33 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %34 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !11
   %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 834, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.23) #9
-  br label %274
+  br label %284
 
 36:                                               ; preds = %29
   %37 = tail call i32 @H5C_validate_resize_config(ptr noundef nonnull %1, i32 noundef 2)
@@ -1263,7 +1263,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, pt
   %40 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %41 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !11
   %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 838, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.24) #9
-  br label %274
+  br label %284
 
 43:                                               ; preds = %36
   %44 = tail call i32 @H5C_validate_resize_config(ptr noundef nonnull %1, i32 noundef 4)
@@ -1274,7 +1274,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, pt
   %47 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %48 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !11
   %49 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 842, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.25) #9
-  br label %274
+  br label %284
 
 50:                                               ; preds = %43
   %51 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -1341,7 +1341,7 @@ H5C_validate_resize_config.exit:                  ; preds = %78, %61
   %82 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %83 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !11
   %84 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 846, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.26) #9
-  br label %274
+  br label %284
 
 .thread101:                                       ; preds = %72, %69
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 524840
@@ -1404,7 +1404,7 @@ H5C_validate_resize_config.exit:                  ; preds = %78, %61
   %115 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
   %116 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
   %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 865, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.27) #9
-  br label %274
+  br label %284
 
 118:                                              ; preds = %105, %109, %113, %93
   %119 = phi ptr [ %95, %105 ], [ %95, %109 ], [ %95, %113 ], [ %92, %93 ]
@@ -1502,7 +1502,7 @@ H5C_validate_resize_config.exit:                  ; preds = %78, %61
   %178 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
   %179 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
   %180 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 898, i64 noundef %178, i64 noundef %179, ptr noundef nonnull @.str.28) #9
-  br label %274
+  br label %284
 
 .sink.split:                                      ; preds = %161, %169, %173, %145, %153, %125, %129, %137, %118
   store i8 0, ptr %119, align 8, !tbaa !152
@@ -1536,143 +1536,153 @@ H5C_validate_resize_config.exit:                  ; preds = %78, %61
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 524880
   %194 = load i8, ptr %193, align 8, !tbaa !44, !range !7, !noundef !8
   %195 = trunc nuw i8 %194 to i1
-  br i1 %195, label %196, label %199
+  br i1 %195, label %216, label %196
 
 196:                                              ; preds = %189
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 524888
-  %198 = load i64, ptr %197, align 8, !tbaa !45
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %198 = load i64, ptr %197, align 8, !tbaa !32
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 524904
+  %200 = load i64, ptr %199, align 8, !tbaa !47
+  %201 = icmp ugt i64 %198, %200
+  br i1 %201, label %.thread103, label %.thread107
+
+.thread103:                                       ; preds = %196
+  %202 = uitofp i64 %200 to double
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 524896
+  %204 = load double, ptr %203, align 8, !tbaa !46
+  %205 = fmul double %204, %202
+  %206 = fptoui double %205 to i64
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %226
+
+.thread107:                                       ; preds = %196
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 524912
+  %209 = load i64, ptr %208, align 8, !tbaa !48
+  %. = tail call i64 @llvm.umax.i64(i64 %198, i64 %209)
+  %210 = uitofp i64 %. to double
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 524896
+  %212 = load double, ptr %211, align 8, !tbaa !46
+  %213 = fmul double %212, %210
+  %214 = fptoui double %213 to i64
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %230
+
+216:                                              ; preds = %189
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 524888
+  %218 = load i64, ptr %217, align 8, !tbaa !45
   %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre100 = load i64, ptr %.phi.trans.insert99, align 8, !tbaa !32
-  br label %211
+  %219 = icmp ult i64 %218, %.pre100
+  %220 = uitofp i64 %218 to double
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 524896
+  %222 = load double, ptr %221, align 8, !tbaa !46
+  %223 = fmul double %222, %220
+  %224 = fptoui double %223 to i64
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br i1 %219, label %226, label %230
 
-199:                                              ; preds = %189
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %201 = load i64, ptr %200, align 8, !tbaa !32
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 524904
-  %203 = load i64, ptr %202, align 8, !tbaa !47
-  %204 = icmp ugt i64 %201, %203
-  br i1 %204, label %211, label %.thread103
+226:                                              ; preds = %.thread103, %216
+  %227 = phi ptr [ %207, %.thread103 ], [ %225, %216 ]
+  %228 = phi i64 [ %206, %.thread103 ], [ %224, %216 ]
+  %.091106 = phi i64 [ %200, %.thread103 ], [ %218, %216 ]
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 524859
+  store i8 1, ptr %229, align 1, !tbaa !167
+  br label %230
 
-.thread103:                                       ; preds = %199
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 524912
-  %206 = load i64, ptr %205, align 8, !tbaa !48
-  %. = tail call i64 @llvm.umax.i64(i64 %201, i64 %206)
-  %207 = uitofp i64 %. to double
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 524896
-  %209 = load double, ptr %208, align 8, !tbaa !46
-  %210 = fmul double %209, %207
-  br label %220
+230:                                              ; preds = %.thread107, %226, %216
+  %231 = phi ptr [ %227, %226 ], [ %225, %216 ], [ %215, %.thread107 ]
+  %232 = phi i64 [ %228, %226 ], [ %224, %216 ], [ %214, %.thread107 ]
+  %.091105 = phi i64 [ %.091106, %226 ], [ %218, %216 ], [ %., %.thread107 ]
+  store i64 %.091105, ptr %231, align 8, !tbaa !32
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %232, ptr %233, align 8, !tbaa !33
+  %234 = tail call i32 @H5C_reset_cache_hit_rate_stats(ptr noundef nonnull %0)
+  %235 = icmp slt i32 %234, 0
+  br i1 %235, label %236, label %240
 
-211:                                              ; preds = %199, %196
-  %212 = phi i64 [ %.pre100, %196 ], [ %201, %199 ]
-  %.091 = phi i64 [ %198, %196 ], [ %203, %199 ]
-  %213 = uitofp i64 %.091 to double
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 524896
-  %215 = load double, ptr %214, align 8, !tbaa !46
-  %216 = fmul double %215, %213
-  %217 = icmp ult i64 %.091, %212
-  br i1 %217, label %218, label %220
+236:                                              ; preds = %230
+  %237 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
+  %238 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
+  %239 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 950, i64 noundef %237, i64 noundef %238, ptr noundef nonnull @.str.4) #9
+  br label %284
 
-218:                                              ; preds = %211
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 524859
-  store i8 1, ptr %219, align 1, !tbaa !167
-  br label %220
+240:                                              ; preds = %230
+  %241 = load i32, ptr %123, align 8, !tbaa !147
+  %242 = and i32 %241, -2
+  %switch = icmp eq i32 %242, 2
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 525048
+  %244 = load i32, ptr %243, align 8, !tbaa !66
+  br i1 %switch, label %245, label %256
 
-220:                                              ; preds = %.thread103, %218, %211
-  %.in = phi double [ %210, %.thread103 ], [ %216, %218 ], [ %216, %211 ]
-  %.091105 = phi i64 [ %., %.thread103 ], [ %.091, %218 ], [ %.091, %211 ]
-  %221 = fptoui double %.in to i64
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.091105, ptr %222, align 8, !tbaa !32
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %221, ptr %223, align 8, !tbaa !33
-  %224 = tail call i32 @H5C_reset_cache_hit_rate_stats(ptr noundef nonnull %0)
-  %225 = icmp slt i32 %224, 0
-  br i1 %225, label %226, label %230
+245:                                              ; preds = %240
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 525032
+  %247 = load i32, ptr %246, align 8, !tbaa !63
+  %248 = icmp sgt i32 %244, %247
+  br i1 %248, label %249, label %265
 
-226:                                              ; preds = %220
-  %227 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
-  %228 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
-  %229 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 950, i64 noundef %227, i64 noundef %228, ptr noundef nonnull @.str.4) #9
-  br label %274
+249:                                              ; preds = %245
+  %250 = tail call i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr noundef nonnull %0) #9
+  %251 = icmp slt i32 %250, 0
+  br i1 %251, label %252, label %265
 
-230:                                              ; preds = %220
-  %231 = load i32, ptr %123, align 8, !tbaa !147
-  %232 = and i32 %231, -2
-  %switch = icmp eq i32 %232, 2
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 525048
-  %234 = load i32, ptr %233, align 8, !tbaa !66
-  br i1 %switch, label %235, label %246
+252:                                              ; preds = %249
+  %253 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
+  %254 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
+  %255 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 957, i64 noundef %253, i64 noundef %254, ptr noundef nonnull @.str.29) #9
+  br label %284
 
-235:                                              ; preds = %230
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 525032
-  %237 = load i32, ptr %236, align 8, !tbaa !63
-  %238 = icmp sgt i32 %234, %237
-  br i1 %238, label %239, label %255
+256:                                              ; preds = %240
+  %257 = icmp sgt i32 %244, 0
+  br i1 %257, label %258, label %265
 
-239:                                              ; preds = %235
-  %240 = tail call i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr noundef nonnull %0) #9
-  %241 = icmp slt i32 %240, 0
-  br i1 %241, label %242, label %255
-
-242:                                              ; preds = %239
-  %243 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
-  %244 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
-  %245 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 957, i64 noundef %243, i64 noundef %244, ptr noundef nonnull @.str.29) #9
-  br label %274
-
-246:                                              ; preds = %230
-  %247 = icmp sgt i32 %234, 0
-  br i1 %247, label %248, label %255
-
-248:                                              ; preds = %246
-  %249 = tail call i32 @H5C__autoadjust__ageout__remove_all_markers(ptr noundef nonnull %0) #9
-  %250 = icmp slt i32 %249, 0
-  br i1 %250, label %251, label %255
-
-251:                                              ; preds = %248
-  %252 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
-  %253 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
-  %254 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 961, i64 noundef %252, i64 noundef %253, ptr noundef nonnull @.str.30) #9
-  br label %274
-
-255:                                              ; preds = %246, %248, %235, %239
-  %256 = load i8, ptr %120, align 1, !tbaa !151, !range !7, !noundef !8
-  %257 = trunc nuw i8 %256 to i1
-  br i1 %257, label %258, label %274
-
-258:                                              ; preds = %255
-  %259 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %260 = load i32, ptr %259, align 8, !tbaa !168
-  switch i32 %260, label %270 [
-    i32 0, label %261
-    i32 1, label %262
-  ]
+258:                                              ; preds = %256
+  %259 = tail call i32 @H5C__autoadjust__ageout__remove_all_markers(ptr noundef nonnull %0) #9
+  %260 = icmp slt i32 %259, 0
+  br i1 %260, label %261, label %265
 
 261:                                              ; preds = %258
+  %262 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
+  %263 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
+  %264 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 961, i64 noundef %262, i64 noundef %263, ptr noundef nonnull @.str.30) #9
+  br label %284
+
+265:                                              ; preds = %256, %258, %245, %249
+  %266 = load i8, ptr %120, align 1, !tbaa !151, !range !7, !noundef !8
+  %267 = trunc nuw i8 %266 to i1
+  br i1 %267, label %268, label %284
+
+268:                                              ; preds = %265
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %270 = load i32, ptr %269, align 8, !tbaa !168
+  switch i32 %270, label %280 [
+    i32 0, label %271
+    i32 1, label %272
+  ]
+
+271:                                              ; preds = %268
   store i8 0, ptr %120, align 1, !tbaa !151
-  br label %274
+  br label %284
 
-262:                                              ; preds = %258
+272:                                              ; preds = %268
   store i8 1, ptr %120, align 1, !tbaa !151
-  %263 = load i64, ptr %222, align 8, !tbaa !32
-  %264 = uitofp i64 %263 to double
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 524984
-  %266 = load double, ptr %265, align 8, !tbaa !57
-  %267 = fmul double %266, %264
-  %268 = fptoui double %267 to i64
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 524848
-  store i64 %268, ptr %269, align 8, !tbaa !169
-  br label %274
+  %273 = load i64, ptr %231, align 8, !tbaa !32
+  %274 = uitofp i64 %273 to double
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 524984
+  %276 = load double, ptr %275, align 8, !tbaa !57
+  %277 = fmul double %276, %274
+  %278 = fptoui double %277 to i64
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 524848
+  store i64 %278, ptr %279, align 8, !tbaa !169
+  br label %284
 
-270:                                              ; preds = %258
-  %271 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
-  %272 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
-  %273 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 984, i64 noundef %271, i64 noundef %272, ptr noundef nonnull @.str.31) #9
-  br label %274
+280:                                              ; preds = %268
+  %281 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !11
+  %282 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !11
+  %283 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_set_cache_auto_resize_config, i32 noundef 984, i64 noundef %281, i64 noundef %282, ptr noundef nonnull @.str.31) #9
+  br label %284
 
-274:                                              ; preds = %13, %19, %25, %32, %39, %46, %H5C_validate_resize_config.exit, %114, %177, %226, %242, %251, %270, %261, %262, %255, %8
-  %.0 = phi i32 [ -1, %13 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ -1, %39 ], [ -1, %46 ], [ -1, %H5C_validate_resize_config.exit ], [ -1, %114 ], [ -1, %177 ], [ -1, %226 ], [ -1, %242 ], [ -1, %270 ], [ 0, %261 ], [ 0, %262 ], [ 0, %255 ], [ -1, %251 ], [ 0, %8 ]
+284:                                              ; preds = %13, %19, %25, %32, %39, %46, %H5C_validate_resize_config.exit, %114, %177, %236, %252, %261, %280, %271, %272, %265, %8
+  %.0 = phi i32 [ -1, %13 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ -1, %39 ], [ -1, %46 ], [ -1, %H5C_validate_resize_config.exit ], [ -1, %114 ], [ -1, %177 ], [ -1, %236 ], [ -1, %252 ], [ -1, %280 ], [ 0, %271 ], [ 0, %272 ], [ 0, %265 ], [ -1, %261 ], [ 0, %8 ]
   ret i32 %.0
 }
 

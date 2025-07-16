@@ -7475,8 +7475,8 @@ _ZN4absl18ToInt64NanosecondsENS_8DurationE.exit875: ; preds = %_ZN4abslngENS_8Du
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
   %.pre = load i32, ptr %24, align 4, !tbaa !56, !noalias !122
   %342 = sext i32 %.pre to i64
-  store i64 %341, ptr %25, align 8, !tbaa !121
   %343 = icmp eq i64 %341, %342
+  store i64 %341, ptr %25, align 8, !tbaa !121
   br i1 %343, label %344, label %345
 
 344:                                              ; preds = %_ZN4absl18ToInt64NanosecondsENS_8DurationE.exit875
@@ -8899,8 +8899,8 @@ _ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit1036: ; preds = %_ZN4abslngENS_8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   %.pre1831 = load i32, ptr %70, align 4, !tbaa !56, !noalias !137
   %785 = sext i32 %.pre1831 to i64
-  store i64 %784, ptr %71, align 8, !tbaa !121
   %786 = icmp eq i64 %784, %785
+  store i64 %784, ptr %71, align 8, !tbaa !121
   br i1 %786, label %787, label %788
 
 787:                                              ; preds = %_ZN4absl19ToInt64MicrosecondsENS_8DurationE.exit1036
@@ -10323,8 +10323,8 @@ _ZN4absl19ToInt64MillisecondsENS_8DurationE.exit1200: ; preds = %_ZN4abslngENS_8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %.pre1833 = load i32, ptr %116, align 4, !tbaa !56, !noalias !152
   %1228 = sext i32 %.pre1833 to i64
-  store i64 %1227, ptr %117, align 8, !tbaa !121
   %1229 = icmp eq i64 %1227, %1228
+  store i64 %1227, ptr %117, align 8, !tbaa !121
   br i1 %1229, label %1230, label %1231
 
 1230:                                             ; preds = %_ZN4absl19ToInt64MillisecondsENS_8DurationE.exit1200

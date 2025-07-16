@@ -4299,8 +4299,8 @@ define internal fastcc i32 @ape_decode_value_3860(ptr noundef captures(none) %0,
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i32, ptr %4, align 8, !tbaa !77
   %5 = getelementptr i8, ptr %1, i64 20
-  %.val41 = load i32, ptr %5, align 4, !tbaa !74
-  %6 = sub nsw i32 %.val41, %.val
+  %.val42 = load i32, ptr %5, align 4, !tbaa !74
+  %6 = sub nsw i32 %.val42, %.val
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.i, label %thread-pre-split
 
@@ -4404,22 +4404,23 @@ thread-pre-split:                                 ; preds = %3, %get_unary.exit
   %63 = sub i32 %.031, %62
   %64 = add i32 %63, %60
   store i32 %64, ptr %59, align 4, !tbaa !136
-  %65 = shl nuw nsw i32 16, %37
-  %66 = icmp ugt i32 %65, %64
+  %65 = add nuw nsw i32 %37, 4
+  %.highbits = lshr i32 %64, %65
+  %66 = icmp eq i32 %.highbits, 0
   %67 = select i1 %.not, i1 %66, i1 false
   br i1 %67, label %.sink.split, label %68
 
 68:                                               ; preds = %58
   %69 = add nuw nsw i32 %37, 5
-  %.highbits = lshr i32 %64, %69
-  %.not39 = icmp ne i32 %.highbits, 0
+  %.highbits40 = lshr i32 %64, %69
+  %.not39 = icmp ne i32 %.highbits40, 0
   %70 = icmp samesign ult i32 %37, 24
-  %or.cond40 = and i1 %70, %.not39
-  br i1 %or.cond40, label %.sink.split, label %72
+  %or.cond41 = and i1 %70, %.not39
+  br i1 %or.cond41, label %.sink.split, label %72
 
 .sink.split:                                      ; preds = %68, %58
-  %.sink47 = phi i32 [ -1, %58 ], [ 1, %68 ]
-  %71 = add nsw i32 %37, %.sink47
+  %.sink48 = phi i32 [ -1, %58 ], [ 1, %68 ]
+  %71 = add nsw i32 %37, %.sink48
   store i32 %71, ptr %2, align 4, !tbaa !139
   br label %72
 

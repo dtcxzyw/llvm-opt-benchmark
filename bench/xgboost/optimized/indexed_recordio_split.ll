@@ -5038,7 +5038,7 @@ define linkonce_odr noundef i32 @_ZN4dmlc7istream5InBuf9underflowEv(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %7, label %25
+  br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5062,21 +5062,17 @@ define linkonce_odr noundef i32 @_ZN4dmlc7istream5InBuf9underflowEv(ptr noundef 
   %23 = load i64, ptr %22, align 8, !tbaa !186
   %24 = add i64 %23, %19
   store i64 %24, ptr %22, align 8, !tbaa !186
-  br label %25
+  %25 = icmp samesign eq i64 %19, 0
+  br i1 %25, label %29, label %.thread
 
-25:                                               ; preds = %7, %1
-  %26 = phi ptr [ %20, %7 ], [ %5, %1 ]
-  %27 = phi ptr [ %9, %7 ], [ %3, %1 ]
-  %28 = icmp eq ptr %27, %26
-  br i1 %28, label %32, label %29
+.thread:                                          ; preds = %1, %7
+  %26 = phi ptr [ %9, %7 ], [ %3, %1 ]
+  %27 = load i8, ptr %26, align 1, !tbaa !75
+  %28 = zext i8 %27 to i32
+  br label %29
 
-29:                                               ; preds = %25
-  %30 = load i8, ptr %27, align 1, !tbaa !75
-  %31 = zext i8 %30 to i32
-  br label %32
-
-32:                                               ; preds = %25, %29
-  %.0 = phi i32 [ %31, %29 ], [ -1, %25 ]
+29:                                               ; preds = %7, %.thread
+  %.0 = phi i32 [ %28, %.thread ], [ -1, %7 ]
   ret i32 %.0
 }
 

@@ -2533,7 +2533,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr noundef
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %86, !prof !9
+  br i1 %11, label %12, label %87, !prof !9
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2542,14 +2542,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %15, i8 0, i64 280, i1 false)
   %16 = load i64, ptr @H5P_LST_DATASET_ACCESS_ID_g, align 8, !tbaa !10
   %.not = icmp eq i64 %1, %16
-  br i1 %.not, label %86, label %17
+  br i1 %.not, label %87, label %17
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %13, align 8, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 248
   %20 = load i32, ptr %19, align 8, !tbaa !58
   %21 = icmp eq i32 %20, 2
-  br i1 %21, label %22, label %86
+  br i1 %21, label %22, label %87
 
 22:                                               ; preds = %17
   %23 = tail call ptr @H5I_object(i64 noundef %1) #12
@@ -2560,12 +2560,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr noundef
   %26 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
   %27 = load i64, ptr @H5E_BADID_g, align 8, !tbaa !10
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__append_flush_setup, i32 noundef 1661, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.246) #12
-  br label %86
+  br label %87
 
 29:                                               ; preds = %22
   %30 = tail call i32 @H5P_exist_plist(ptr noundef nonnull %23, ptr noundef nonnull @.str.166) #12
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %32, label %86
+  br i1 %31, label %32, label %87
 
 32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %3) #12
@@ -2577,12 +2577,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr noundef
   %36 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %37 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__append_flush_setup, i32 noundef 1669, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.247) #12
-  br label %85
+  br label %86
 
 39:                                               ; preds = %32
   %40 = load i32, ptr %3, align 8, !tbaa !92
   %.not39 = icmp eq i32 %40, 0
-  br i1 %.not39, label %85, label %41
+  br i1 %.not39, label %86, label %41
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #12
@@ -2598,7 +2598,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr noundef
   %48 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !10
   %49 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %50 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__append_flush_setup, i32 noundef 1678, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.248) #12
-  br label %84
+  br label %85
 
 51:                                               ; preds = %41
   %52 = load i32, ptr %3, align 8, !tbaa !92
@@ -2607,7 +2607,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr noundef
 
 .preheader:                                       ; preds = %51
   %.not48 = icmp eq i32 %45, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  br i1 %.not48, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2618,7 +2618,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr noundef
   %55 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !10
   %56 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %57 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__append_flush_setup, i32 noundef 1681, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.249) #12
-  br label %84
+  br label %85
 
 58:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
@@ -2637,58 +2637,54 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__append_flush_setup(ptr noundef
   %65 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !10
   %67 = icmp eq i64 %63, %66
-  br i1 %67, label %._crit_edge.loopexit, label %68
+  br i1 %67, label %._crit_edge, label %68
 
 68:                                               ; preds = %58, %64, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %58, !llvm.loop !93
 
-._crit_edge.loopexit:                             ; preds = %64
+._crit_edge:                                      ; preds = %64
   %69 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge
+  %70 = icmp eq i32 %45, %69
+  br i1 %70, label %._crit_edge.thread, label %71
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.029.lcssa = phi i32 [ 0, %.preheader ], [ %69, %._crit_edge.loopexit ]
-  %.not43 = icmp eq i32 %.029.lcssa, %45
-  br i1 %.not43, label %._crit_edge.thread, label %70
-
-70:                                               ; preds = %._crit_edge
-  %71 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !10
-  %72 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %73 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__append_flush_setup, i32 noundef 1692, i64 noundef %71, i64 noundef %72, ptr noundef nonnull @.str.250) #12
-  br label %84
-
-._crit_edge.thread:                               ; preds = %68, %._crit_edge
-  %74 = load ptr, ptr %13, align 8, !tbaa !52
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4376
-  store i32 %45, ptr %75, align 8, !tbaa !95
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 264
-  %77 = load ptr, ptr %76, align 8, !tbaa !96
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 4640
-  store ptr %77, ptr %78, align 8, !tbaa !97
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 272
-  %80 = load ptr, ptr %79, align 8, !tbaa !98
-  %81 = getelementptr inbounds nuw i8, ptr %74, i64 4648
-  store ptr %80, ptr %81, align 8, !tbaa !99
-  %82 = getelementptr inbounds nuw i8, ptr %74, i64 4384
-  %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %82, ptr noundef nonnull align 8 dereferenceable(256) %83, i64 256, i1 false)
-  br label %84
-
-84:                                               ; preds = %._crit_edge.thread, %70, %54, %47
-  %.5 = phi i32 [ -1, %47 ], [ -1, %54 ], [ -1, %70 ], [ 0, %._crit_edge.thread ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #12
+71:                                               ; preds = %._crit_edge
+  %72 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !10
+  %73 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
+  %74 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__append_flush_setup, i32 noundef 1692, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.250) #12
   br label %85
 
-85:                                               ; preds = %84, %39, %35
-  %.3 = phi i32 [ -1, %35 ], [ 0, %39 ], [ %.5, %84 ]
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %3) #12
+._crit_edge.thread:                               ; preds = %68, %.preheader, %._crit_edge
+  %75 = load ptr, ptr %13, align 8, !tbaa !52
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4376
+  store i32 %45, ptr %76, align 8, !tbaa !95
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  %78 = load ptr, ptr %77, align 8, !tbaa !96
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 4640
+  store ptr %78, ptr %79, align 8, !tbaa !97
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 272
+  %81 = load ptr, ptr %80, align 8, !tbaa !98
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 4648
+  store ptr %81, ptr %82, align 8, !tbaa !99
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 4384
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %83, ptr noundef nonnull align 8 dereferenceable(256) %84, i64 256, i1 false)
+  br label %85
+
+85:                                               ; preds = %._crit_edge.thread, %71, %54, %47
+  %.5 = phi i32 [ -1, %47 ], [ -1, %54 ], [ -1, %71 ], [ 0, %._crit_edge.thread ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #12
   br label %86
 
-86:                                               ; preds = %85, %25, %29, %2, %12, %17
-  %.030 = phi i32 [ 0, %17 ], [ 0, %12 ], [ 0, %2 ], [ -1, %25 ], [ 0, %29 ], [ %.3, %85 ]
+86:                                               ; preds = %85, %39, %35
+  %.3 = phi i32 [ -1, %35 ], [ 0, %39 ], [ %.5, %85 ]
+  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %3) #12
+  br label %87
+
+87:                                               ; preds = %86, %25, %29, %2, %12, %17
+  %.030 = phi i32 [ 0, %17 ], [ 0, %12 ], [ 0, %2 ], [ -1, %25 ], [ 0, %29 ], [ %.3, %86 ]
   ret i32 %.030
 }
 

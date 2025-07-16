@@ -26300,12 +26300,15 @@ define void @_ZN8language6buffer14BufferSnapshot17diagnostic_groups17he5a5ee3aa9
   %.sroa.013.0.i.i = select i1 %25, i64 %26, i64 %.sroa.03.019.i.i
   %27 = sub i64 %.sroa.014.0.i.i, %.sroa.013.0.i.i
   %28 = icmp ult i64 %.sroa.013.0.i.i, %.sroa.014.0.i.i
-  br i1 %28, label %.lr.ph.i.i, label %.loopexit25
+  br i1 %28, label %.lr.ph.i.i, label %.loopexit25.loopexit
 
-.loopexit25:                                      ; preds = %23, %17
-  %.sroa.03.0.lcssa.i.i = phi i64 [ 0, %17 ], [ %.sroa.013.0.i.i, %23 ]
-  %29 = icmp ule i64 %.sroa.03.0.lcssa.i.i, %.sink11.i
-  tail call void @llvm.assume(i1 %29)
+.loopexit25.loopexit:                             ; preds = %23
+  %29 = icmp ule i64 %.sroa.013.0.i.i, %.sink11.i
+  br label %.loopexit25
+
+.loopexit25:                                      ; preds = %.loopexit25.loopexit, %17
+  %.sroa.03.0.lcssa.i.i = phi i1 [ true, %17 ], [ %29, %.loopexit25.loopexit ]
+  tail call void @llvm.assume(i1 %.sroa.03.0.lcssa.i.i)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cb3dc6aedef7abE.exit.thread"
 
 30:                                               ; preds = %.lr.ph.i.i

@@ -97500,73 +97500,70 @@ define linkonce_odr hidden void @_ZN5boost4asio15basic_streambufISaIcEE7reserveE
   %18 = sub i64 %17, %9
   %19 = sub i64 %18, %14
   %.not = icmp ugt i64 %1, %19
-  br i1 %.not, label %20, label %43
+  br i1 %.not, label %20, label %41
 
 20:                                               ; preds = %2
   %.not21 = icmp eq ptr %5, %7
-  br i1 %.not21, label %24, label %21
+  br i1 %.not21, label %.thread, label %21
 
 21:                                               ; preds = %20
   %22 = sub i64 %14, %10
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %23, i64 %22, i1 false)
   %.pre = sub i64 %18, %22
-  br label %24
+  %24 = icmp ugt i64 %1, %.pre
+  br i1 %24, label %.thread, label %34
 
-24:                                               ; preds = %21, %20
-  %.pre-phi = phi i64 [ %.pre, %21 ], [ %19, %20 ]
-  %.0 = phi i64 [ %22, %21 ], [ %14, %20 ]
-  %25 = icmp ugt i64 %1, %.pre-phi
-  br i1 %25, label %26, label %36
-
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %28 = load i64, ptr %27, align 8, !tbaa !676
-  %.not22 = icmp ugt i64 %1, %28
-  %29 = sub nuw i64 %28, %1
-  %.not23 = icmp ugt i64 %.0, %29
+.thread:                                          ; preds = %20, %21
+  %.033 = phi i64 [ %22, %21 ], [ %14, %20 ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %26 = load i64, ptr %25, align 8, !tbaa !676
+  %.not22 = icmp ugt i64 %1, %26
+  %27 = sub nuw i64 %26, %1
+  %.not23 = icmp ugt i64 %.033, %27
   %or.cond = select i1 %.not22, i1 true, i1 %.not23
-  br i1 %or.cond, label %32, label %30
+  br i1 %or.cond, label %30, label %28
 
-30:                                               ; preds = %26
-  %31 = add i64 %.0, %1
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
+28:                                               ; preds = %.thread
+  %29 = add i64 %.033, %1
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %.sroa.speculated)
-  br label %36
+  br label %34
 
-32:                                               ; preds = %26
+30:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #37
   call void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.197)
   invoke void @_ZN5boost15throw_exceptionISt12length_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3) #41
-          to label %33 unwind label %34
+          to label %31 unwind label %32
 
-33:                                               ; preds = %32
+31:                                               ; preds = %30
   unreachable
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %30
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #37
-  resume { ptr, i32 } %35
+  resume { ptr, i32 } %33
 
-36:                                               ; preds = %30, %24
-  %.029 = phi i64 [ %31, %30 ], [ %18, %24 ]
-  %37 = load ptr, ptr %6, align 8, !tbaa !683
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.0
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %37, ptr %39, align 8, !tbaa !686
-  store ptr %37, ptr %4, align 8, !tbaa !687
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %38, ptr %40, align 8, !tbaa !688
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.029
-  store ptr %38, ptr %11, align 8, !tbaa !689
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %38, ptr %42, align 8, !tbaa !690
-  store ptr %41, ptr %15, align 8, !tbaa !691
-  br label %43
+34:                                               ; preds = %28, %21
+  %.032 = phi i64 [ %.033, %28 ], [ %22, %21 ]
+  %.029 = phi i64 [ %29, %28 ], [ %18, %21 ]
+  %35 = load ptr, ptr %6, align 8, !tbaa !683
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.032
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %35, ptr %37, align 8, !tbaa !686
+  store ptr %35, ptr %4, align 8, !tbaa !687
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %36, ptr %38, align 8, !tbaa !688
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.029
+  store ptr %36, ptr %11, align 8, !tbaa !689
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %36, ptr %40, align 8, !tbaa !690
+  store ptr %39, ptr %15, align 8, !tbaa !691
+  br label %41
 
-43:                                               ; preds = %2, %36
+41:                                               ; preds = %2, %34
   ret void
 }
 

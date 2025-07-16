@@ -4605,8 +4605,8 @@ proto_item_set_generated.exit:                    ; preds = %18, %21, %24
 33:                                               ; preds = %proto_item_set_generated.exit
   %34 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %9)
   %35 = load i32, ptr %9, align 4
-  %.not5560 = icmp eq i32 %35, 0
-  br i1 %.not5560, label %.loopexit, label %.lr.ph
+  %.not5559 = icmp eq i32 %35, 0
+  br i1 %.not5559, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
   %36 = add i32 %35, -1
@@ -4616,20 +4616,20 @@ proto_item_set_generated.exit:                    ; preds = %18, %21, %24
 
 cba_connection_disconnect.exit.us:                ; preds = %.lr.ph, %cba_connection_disconnect.exit.us
   %39 = phi i32 [ %42, %cba_connection_disconnect.exit.us ], [ %36, %.lr.ph ]
-  %.162.us = phi i32 [ %40, %cba_connection_disconnect.exit.us ], [ %34, %.lr.ph ]
-  %.05161.us = phi i32 [ %41, %cba_connection_disconnect.exit.us ], [ 1, %.lr.ph ]
-  %40 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.162.us, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %.05161.us)
-  %41 = add i32 %.05161.us, 1
+  %.161.us = phi i32 [ %40, %cba_connection_disconnect.exit.us ], [ %34, %.lr.ph ]
+  %.05160.us = phi i32 [ %41, %cba_connection_disconnect.exit.us ], [ 1, %.lr.ph ]
+  %40 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.161.us, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %.05160.us)
+  %41 = add i32 %.05160.us, 1
   %42 = add i32 %39, -1
   %.not55.us = icmp eq i32 %39, 0
   br i1 %.not55.us, label %.loopexit, label %cba_connection_disconnect.exit.us, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %cba_connection_disconnect.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %cba_connection_disconnect.exit ], [ 1, %.lr.ph ]
-  %43 = phi i32 [ %61, %cba_connection_disconnect.exit ], [ %36, %.lr.ph ]
-  %.162 = phi i32 [ %45, %cba_connection_disconnect.exit ], [ %34, %.lr.ph ]
+  %43 = phi i32 [ %62, %cba_connection_disconnect.exit ], [ %36, %.lr.ph ]
+  %.161 = phi i32 [ %45, %cba_connection_disconnect.exit ], [ %34, %.lr.ph ]
   %44 = trunc nuw i64 %indvars.iv to i32
-  %45 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.162, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %44)
+  %45 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.161, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %44)
   %46 = load i32, ptr %13, align 8
   %47 = zext i32 %46 to i64
   %.not57 = icmp samesign ugt i64 %indvars.iv, %47
@@ -4655,32 +4655,32 @@ cba_connection_disconnect.exit.us:                ; preds = %.lr.ph, %cba_connec
   br label %cba_connection_disconnect.exit
 
 58:                                               ; preds = %53
-  %.not.i59 = icmp eq i32 %55, %57
-  br i1 %.not.i59, label %cba_connection_disconnect.exit, label %59
+  %59 = icmp eq i32 %55, %57
+  br i1 %59, label %cba_connection_disconnect.exit, label %60
 
-59:                                               ; preds = %58
-  %60 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_disconnect, ptr noundef nonnull @.str.318, i32 noundef %55)
+60:                                               ; preds = %58
+  %61 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_disconnect, ptr noundef nonnull @.str.318, i32 noundef %55)
   br label %cba_connection_disconnect.exit
 
-cba_connection_disconnect.exit:                   ; preds = %59, %58, %.thread.i, %48, %.lr.ph.split
+cba_connection_disconnect.exit:                   ; preds = %60, %58, %.thread.i, %48, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = add i32 %43, -1
+  %62 = add i32 %43, -1
   %.not55 = icmp eq i32 %43, 0
   br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !33
 
 .loopexit:                                        ; preds = %cba_connection_disconnect.exit, %cba_connection_disconnect.exit.us, %33, %proto_item_set_generated.exit
   %.0 = phi i32 [ %31, %proto_item_set_generated.exit ], [ %34, %33 ], [ %40, %cba_connection_disconnect.exit.us ], [ %45, %cba_connection_disconnect.exit ]
-  %62 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %9, align 4
-  %66 = load i32, ptr %7, align 4
-  %67 = call ptr @val_to_str(i32 noundef %66, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.259)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.262, i32 noundef %65, ptr noundef %67)
+  %63 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i32, ptr %9, align 4
+  %67 = load i32, ptr %7, align 4
+  %68 = call ptr @val_to_str(i32 noundef %67, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.259)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.262, i32 noundef %66, ptr noundef %68)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  ret i32 %62
+  ret i32 %63
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

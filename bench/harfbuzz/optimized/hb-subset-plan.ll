@@ -7364,13 +7364,13 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.pre.i632.i = zext nneg i32 %storemerge.i.i.ph.sink.i.i.i.i to i64
   %.phi.trans.insert.i.i = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %2032, i64 %.pre.i632.i
   %.pre70.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !296
-  %2057 = load ptr, ptr %1981, align 8, !tbaa !292
-  %2058 = icmp eq i32 %.pre70.i.i, %2033
-  br i1 %2058, label %2059, label %2087, !prof !301
+  %2057 = icmp eq i32 %.pre70.i.i, %2033
+  %2058 = load ptr, ptr %1981, align 8, !tbaa !292
+  br i1 %2057, label %2059, label %2087, !prof !301
 
 2059:                                             ; preds = %2056, %.thread.i639.i
   %.pn.i.i = phi i64 [ %2037, %.thread.i639.i ], [ %.pre.i632.i, %2056 ]
-  %2060 = phi ptr [ %2040, %.thread.i639.i ], [ %2057, %2056 ]
+  %2060 = phi ptr [ %2040, %.thread.i639.i ], [ %2058, %2056 ]
   %.04374.i.i = phi i32 [ %2034, %.thread.i639.i ], [ %storemerge.i.i.ph.sink.i.i.i.i, %2056 ]
   %2061 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %2032, i64 %.pn.i.i
   %2062 = and i32 %2000, 511
@@ -7431,7 +7431,7 @@ thread-pre-split.i.i.i:                           ; preds = %.lr.ph.i634.i
   br label %2087
 
 2087:                                             ; preds = %.loopexit.i636.i, %2056
-  %2088 = phi ptr [ %2060, %.loopexit.i636.i ], [ %2057, %2056 ]
+  %2088 = phi ptr [ %2060, %.loopexit.i636.i ], [ %2058, %2056 ]
   %.144.i.i = phi i32 [ %2086, %.loopexit.i636.i ], [ %storemerge.i.i.ph.sink.i.i.i.i, %2056 ]
   %2089 = icmp ult i32 %.144.i.i, %2035
   br i1 %2089, label %.lr.ph62.i.preheader.i, label %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE10next_rangeEPjS2_.exit.i
@@ -8258,13 +8258,13 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.pre.i668.i = zext nneg i32 %storemerge.i.i.ph.sink.i.i.i665.i to i64
   %.phi.trans.insert.i669.i = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %2423, i64 %.pre.i668.i
   %.pre70.i670.i = load i32, ptr %.phi.trans.insert.i669.i, align 4, !tbaa !296
-  %2448 = load ptr, ptr %2378, align 8, !tbaa !292
-  %2449 = icmp eq i32 %.pre70.i670.i, %2424
-  br i1 %2449, label %2450, label %2478, !prof !301
+  %2448 = icmp eq i32 %.pre70.i670.i, %2424
+  %2449 = load ptr, ptr %2378, align 8, !tbaa !292
+  br i1 %2448, label %2450, label %2478, !prof !301
 
 2450:                                             ; preds = %2447, %.thread.i708.i
   %.pn.i682.i = phi i64 [ %2428, %.thread.i708.i ], [ %.pre.i668.i, %2447 ]
-  %2451 = phi ptr [ %2431, %.thread.i708.i ], [ %2448, %2447 ]
+  %2451 = phi ptr [ %2431, %.thread.i708.i ], [ %2449, %2447 ]
   %.04374.i683.i = phi i32 [ %2425, %.thread.i708.i ], [ %storemerge.i.i.ph.sink.i.i.i665.i, %2447 ]
   %2452 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %2423, i64 %.pn.i682.i
   %2453 = and i32 %2391, 511
@@ -8325,7 +8325,7 @@ thread-pre-split.i.i694.i:                        ; preds = %.lr.ph.i690.i
   br label %2478
 
 2478:                                             ; preds = %.loopexit.i698.i, %2447
-  %2479 = phi ptr [ %2451, %.loopexit.i698.i ], [ %2448, %2447 ]
+  %2479 = phi ptr [ %2451, %.loopexit.i698.i ], [ %2449, %2447 ]
   %.144.i671.i = phi i32 [ %2477, %.loopexit.i698.i ], [ %storemerge.i.i.ph.sink.i.i.i665.i, %2447 ]
   %2480 = icmp ult i32 %.144.i671.i, %2426
   br i1 %2480, label %.lr.ph62.i673.preheader.i, label %_ZNK12hb_bit_set_t10next_rangeEPjS0_.exit.i.i574.i
@@ -9054,13 +9054,13 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.pre.i.i.i.i = zext nneg i32 %storemerge.i.i.ph.sink.i.i.i.i.i.i to i64
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %2753, i64 %.pre.i.i.i.i
   %.pre70.i.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i.i, align 4, !tbaa !296
-  %2778 = load ptr, ptr %2696, align 8, !tbaa !292
-  %2779 = icmp eq i32 %.pre70.i.i.i.i, %2754
-  br i1 %2779, label %2780, label %2806, !prof !301
+  %2778 = icmp eq i32 %.pre70.i.i.i.i, %2754
+  %2779 = load ptr, ptr %2696, align 8, !tbaa !292
+  br i1 %2778, label %2780, label %2806, !prof !301
 
 2780:                                             ; preds = %2777, %.thread.i.i.i613.i
   %.pn.i.i.i.i = phi i64 [ %2758, %.thread.i.i.i613.i ], [ %.pre.i.i.i.i, %2777 ]
-  %2781 = phi ptr [ %2761, %.thread.i.i.i613.i ], [ %2778, %2777 ]
+  %2781 = phi ptr [ %2761, %.thread.i.i.i613.i ], [ %2779, %2777 ]
   %.04374.i.i.i.i = phi i32 [ %2755, %.thread.i.i.i613.i ], [ %storemerge.i.i.ph.sink.i.i.i.i.i.i, %2777 ]
   %2782 = and i32 %2717, 511
   %.not.i.i2.i.i.i = icmp eq i32 %2782, 511
@@ -9116,7 +9116,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i612.i
   br label %2806
 
 2806:                                             ; preds = %.loopexit.i.i.i.i, %2777
-  %2807 = phi ptr [ %2781, %.loopexit.i.i.i.i ], [ %2778, %2777 ]
+  %2807 = phi ptr [ %2781, %.loopexit.i.i.i.i ], [ %2779, %2777 ]
   %.144.i.i.i.i = phi i32 [ %2805, %.loopexit.i.i.i.i ], [ %storemerge.i.i.ph.sink.i.i.i.i.i.i, %2777 ]
   %2808 = icmp ult i32 %.144.i.i.i.i, %2756
   br i1 %2808, label %.lr.ph62.i.preheader.i.i.i, label %_ZL28_populate_unicodes_to_retainPK8hb_set_tS1_P16hb_subset_plan_t.exit
@@ -26405,14 +26405,14 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.pre = zext nneg i32 %storemerge.i.i.ph.sink.i.i to i64
   %.phi.trans.insert = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %10, i64 %.pre
   %.pre70 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !296
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !292
-  %41 = icmp eq i32 %.pre70, %11
-  br i1 %41, label %42, label %71, !prof !301
+  %39 = icmp eq i32 %.pre70, %11
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = load ptr, ptr %40, align 8, !tbaa !292
+  br i1 %39, label %42, label %71, !prof !301
 
 42:                                               ; preds = %.thread, %38
   %.pn = phi i64 [ %17, %.thread ], [ %.pre, %38 ]
-  %43 = phi ptr [ %21, %.thread ], [ %40, %38 ]
+  %43 = phi ptr [ %21, %.thread ], [ %41, %38 ]
   %.04374 = phi i32 [ %13, %.thread ], [ %storemerge.i.i.ph.sink.i.i, %38 ]
   %44 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %10, i64 %.pn
   %45 = load i32, ptr %1, align 4, !tbaa !245
@@ -26475,7 +26475,7 @@ thread-pre-split.i:                               ; preds = %.lr.ph
   br label %71
 
 71:                                               ; preds = %.loopexit, %38
-  %72 = phi ptr [ %43, %.loopexit ], [ %40, %38 ]
+  %72 = phi ptr [ %43, %.loopexit ], [ %41, %38 ]
   %73 = phi i32 [ %.pre71, %.loopexit ], [ %15, %38 ]
   %.144 = phi i32 [ %70, %.loopexit ], [ %storemerge.i.i.ph.sink.i.i, %38 ]
   %74 = icmp ult i32 %.144, %73
@@ -57099,13 +57099,13 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.pre.i = zext nneg i32 %storemerge.i.i.ph.sink.i.i.i to i64
   %.phi.trans.insert.i = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %75, i64 %.pre.i
   %.pre70.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !296
-  %100 = load ptr, ptr %16, align 8, !tbaa !292
-  %101 = icmp eq i32 %.pre70.i, %76
-  br i1 %101, label %102, label %128, !prof !301
+  %100 = icmp eq i32 %.pre70.i, %76
+  %101 = load ptr, ptr %16, align 8, !tbaa !292
+  br i1 %100, label %102, label %128, !prof !301
 
 102:                                              ; preds = %99, %.thread.i
   %.pn.i = phi i64 [ %80, %.thread.i ], [ %.pre.i, %99 ]
-  %103 = phi ptr [ %83, %.thread.i ], [ %100, %99 ]
+  %103 = phi ptr [ %83, %.thread.i ], [ %101, %99 ]
   %.04374.i = phi i32 [ %77, %.thread.i ], [ %storemerge.i.i.ph.sink.i.i.i, %99 ]
   %104 = and i32 %.048, 511
   %.not.i.i = icmp eq i32 %104, 511
@@ -57161,7 +57161,7 @@ thread-pre-split.i.i:                             ; preds = %.lr.ph.i
   br label %128
 
 128:                                              ; preds = %.loopexit.i, %99
-  %129 = phi ptr [ %103, %.loopexit.i ], [ %100, %99 ]
+  %129 = phi ptr [ %103, %.loopexit.i ], [ %101, %99 ]
   %.144.i = phi i32 [ %127, %.loopexit.i ], [ %storemerge.i.i.ph.sink.i.i.i, %99 ]
   %130 = icmp ult i32 %.144.i, %78
   br i1 %130, label %.lr.ph62.i.preheader, label %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE4nextEPj.exit.thread
@@ -86086,169 +86086,167 @@ declare i32 @hb_ot_layout_has_positioning(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNK2OT6Layout4GPOS25collect_variation_indicesEPNS_38hb_collect_variation_indices_context_tE(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %5
+  %3 = load i16, ptr %0, align 1, !tbaa !40
+  %cond.i13 = icmp eq i16 %3, 256
+  br i1 %cond.i13, label %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit.lr.ph, label %.critedge
 
-5:                                                ; preds = %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, %2
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit ], [ 0, %2 ]
-  %6 = load i16, ptr %0, align 1, !tbaa !40
-  %cond.i = icmp eq i16 %6, 256
-  br i1 %cond.i, label %7, label %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit
-
-7:                                                ; preds = %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %8 = load i16, ptr %3, align 1, !tbaa !40
-  %9 = icmp eq i16 %8, 0
-  %10 = tail call i16 @llvm.bswap.i16(i16 %8)
-  %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
-  %.0.i.i.i = select i1 %9, ptr @_hb_NullPool, ptr %12, !prof !33
-  %13 = load i16, ptr %.0.i.i.i, align 1, !tbaa !40
-  %14 = tail call noundef i16 @llvm.bswap.i16(i16 %13)
-  %15 = zext i16 %14 to i64
+_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit.lr.ph:  ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit
 
-_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %5, %7
-  %.0.i = phi i64 [ %15, %7 ], [ 0, %5 ]
-  %16 = icmp samesign ult i64 %indvars.iv, %.0.i
-  br i1 %16, label %18, label %17
+_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit:        ; preds = %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit.lr.ph, %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit
+  %indvars.iv = phi i64 [ 0, %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit.lr.ph ], [ %indvars.iv.next, %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit ]
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
+  %6 = load i16, ptr %4, align 1, !tbaa !40
+  %7 = icmp eq i16 %6, 0
+  %8 = tail call i16 @llvm.bswap.i16(i16 %6)
+  %9 = zext i16 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
+  %.0.i.i.i = select i1 %7, ptr @_hb_NullPool, ptr %10, !prof !33
+  %11 = load i16, ptr %.0.i.i.i, align 1, !tbaa !40
+  %12 = tail call noundef i16 @llvm.bswap.i16(i16 %11)
+  %13 = zext i16 %12 to i64
+  %14 = icmp samesign ult i64 %indvars.iv, %13
+  br i1 %14, label %15, label %.critedge
 
-17:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit
+.critedge:                                        ; preds = %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit, %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, %2
   ret void
 
-18:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit
-  %19 = load ptr, ptr %4, align 8, !tbaa !542
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !124
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %22
+15:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit
+  %16 = load ptr, ptr %5, align 8, !tbaa !542
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %19
 
-22:                                               ; preds = %18
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %24 = mul i32 %23, 506952113
-  %25 = and i32 %24, 1073741823
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %27 = load i32, ptr %26, align 8, !tbaa !282
-  %28 = urem i32 %25, %27
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %21, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 2
-  %.not16.i.i = icmp eq i32 %33, 0
+19:                                               ; preds = %15
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
+  %21 = mul i32 %20, 506952113
+  %22 = and i32 %21, 1073741823
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %24 = load i32, ptr %23, align 8, !tbaa !282
+  %25 = urem i32 %22, %24
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %18, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %29 = load i32, ptr %28, align 4
+  %30 = and i32 %29, 2
+  %.not16.i.i = icmp eq i32 %30, 0
   br i1 %.not16.i.i, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %22
-  %34 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  %35 = load i32, ptr %34, align 4
-  %36 = load i32, ptr %30, align 4, !tbaa !245
-  %37 = zext i32 %36 to i64
-  %38 = icmp eq i64 %indvars.iv, %37
-  br i1 %38, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %.lr.ph.i
+.lr.ph.i.i:                                       ; preds = %19
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %32 = load i32, ptr %31, align 4
+  %33 = load i32, ptr %27, align 4, !tbaa !245
+  %34 = zext i32 %33 to i64
+  %35 = icmp eq i64 %indvars.iv, %34
+  br i1 %35, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %.lr.ph.i
 
-39:                                               ; preds = %.lr.ph.i
-  %40 = load i32, ptr %47, align 4, !tbaa !245
-  %41 = zext i32 %40 to i64
-  %42 = icmp eq i64 %indvars.iv, %41
-  br i1 %42, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %.lr.ph.i, !llvm.loop !283
+36:                                               ; preds = %.lr.ph.i
+  %37 = load i32, ptr %44, align 4, !tbaa !245
+  %38 = zext i32 %37 to i64
+  %39 = icmp eq i64 %indvars.iv, %38
+  br i1 %39, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %.lr.ph.i, !llvm.loop !283
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %39
-  %.01017.i21.i = phi i32 [ %45, %39 ], [ %28, %.lr.ph.i.i ]
-  %.018.i20.i = phi i32 [ %43, %39 ], [ 0, %.lr.ph.i.i ]
-  %43 = add i32 %.018.i20.i, 1
-  %44 = add i32 %43, %.01017.i21.i
-  %45 = and i32 %44, %35
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %21, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %49 = load i32, ptr %48, align 4
-  %50 = and i32 %49, 2
-  %.not.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %39, !llvm.loop !283
+.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %36
+  %.01017.i21.i = phi i32 [ %42, %36 ], [ %25, %.lr.ph.i.i ]
+  %.018.i20.i = phi i32 [ %40, %36 ], [ 0, %.lr.ph.i.i ]
+  %40 = add i32 %.018.i20.i, 1
+  %41 = add i32 %40, %.01017.i21.i
+  %42 = and i32 %41, %32
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %18, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %46 = load i32, ptr %45, align 4
+  %47 = and i32 %46, 2
+  %.not.i.i = icmp eq i32 %47, 0
+  br i1 %.not.i.i, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %36, !llvm.loop !283
 
-_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit:  ; preds = %39, %.lr.ph.i.i
-  %.lcssa18.i = phi i32 [ %32, %.lr.ph.i.i ], [ %49, %39 ]
-  %51 = and i32 %.lcssa18.i, 1
-  %.not12.i.i.not = icmp eq i32 %51, 0
-  br i1 %.not12.i.i.not, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %52
+_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit:  ; preds = %36, %.lr.ph.i.i
+  %.lcssa18.i = phi i32 [ %29, %.lr.ph.i.i ], [ %46, %36 ]
+  %48 = and i32 %.lcssa18.i, 1
+  %.not12.i.i.not = icmp eq i32 %48, 0
+  br i1 %.not12.i.i.not, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %49
 
-52:                                               ; preds = %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit
-  %53 = load i16, ptr %0, align 1, !tbaa !40
-  %cond.i.i = icmp eq i16 %53, 256
-  br i1 %cond.i.i, label %54, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
+49:                                               ; preds = %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit
+  %50 = load i16, ptr %0, align 1, !tbaa !40
+  %cond.i.i = icmp eq i16 %50, 256
+  br i1 %cond.i.i, label %51, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
-54:                                               ; preds = %52
+51:                                               ; preds = %49
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %55 = load i16, ptr %3, align 1, !tbaa !40
-  %56 = icmp eq i16 %55, 0
-  %57 = tail call i16 @llvm.bswap.i16(i16 %55)
-  %58 = zext i16 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %58
-  %.0.i.i.i.i = select i1 %56, ptr @_hb_NullPool, ptr %59, !prof !33
-  %60 = load i16, ptr %.0.i.i.i.i, align 1, !tbaa !40
-  %61 = tail call noundef i16 @llvm.bswap.i16(i16 %60)
-  %62 = zext i16 %61 to i64
-  %.not.i.i.i = icmp samesign ult i64 %indvars.iv, %62
-  br i1 %.not.i.i.i, label %63, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit, !prof !35
+  %52 = load i16, ptr %4, align 1, !tbaa !40
+  %53 = icmp eq i16 %52, 0
+  %54 = tail call i16 @llvm.bswap.i16(i16 %52)
+  %55 = zext i16 %54 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %55
+  %.0.i.i.i.i = select i1 %53, ptr @_hb_NullPool, ptr %56, !prof !33
+  %57 = load i16, ptr %.0.i.i.i.i, align 1, !tbaa !40
+  %58 = tail call noundef i16 @llvm.bswap.i16(i16 %57)
+  %59 = zext i16 %58 to i64
+  %.not.i.i.i = icmp samesign ult i64 %indvars.iv, %59
+  br i1 %.not.i.i.i, label %60, label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit, !prof !35
 
-63:                                               ; preds = %54
+60:                                               ; preds = %51
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
-  %65 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.634"], ptr %64, i64 0, i64 %indvars.iv
-  %66 = load i16, ptr %65, align 1, !tbaa !40
-  %67 = icmp eq i16 %66, 0
-  %68 = tail call i16 @llvm.bswap.i16(i16 %66)
-  %69 = zext i16 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %69
-  %.0.i.i.i.i.i = select i1 %67, ptr @_hb_NullPool, ptr %70, !prof !33
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 2
+  %62 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.634"], ptr %61, i64 0, i64 %indvars.iv
+  %63 = load i16, ptr %62, align 1, !tbaa !40
+  %64 = icmp eq i16 %63, 0
+  %65 = tail call i16 @llvm.bswap.i16(i16 %63)
+  %66 = zext i16 %65 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %66
+  %.0.i.i.i.i.i = select i1 %64, ptr @_hb_NullPool, ptr %67, !prof !33
   br label %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
 
-_ZNK2OT6Layout4GPOS10get_lookupEj.exit:           ; preds = %52, %54, %63
-  %.0.i.i = phi ptr [ %.0.i.i.i.i.i, %63 ], [ @_hb_NullPool, %54 ], [ @_hb_NullPool, %52 ]
-  %71 = load i16, ptr %.0.i.i, align 1, !tbaa !40
-  %72 = tail call noundef i16 @llvm.bswap.i16(i16 %71)
-  %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %75 = load i16, ptr %74, align 1, !tbaa !40
-  %.not14.not.i.i = icmp eq i16 %75, 0
+_ZNK2OT6Layout4GPOS10get_lookupEj.exit:           ; preds = %49, %51, %60
+  %.0.i.i = phi ptr [ %.0.i.i.i.i.i, %60 ], [ @_hb_NullPool, %51 ], [ @_hb_NullPool, %49 ]
+  %68 = load i16, ptr %.0.i.i, align 1, !tbaa !40
+  %69 = tail call noundef i16 @llvm.bswap.i16(i16 %68)
+  %70 = zext i16 %69 to i32
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  %72 = load i16, ptr %71, align 1, !tbaa !40
+  %.not14.not.i.i = icmp eq i16 %72, 0
   br i1 %.not14.not.i.i, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %.lr.ph.i.i5
 
 .lr.ph.i.i5:                                      ; preds = %_ZNK2OT6Layout4GPOS10get_lookupEj.exit
-  %76 = tail call noundef i16 @llvm.bswap.i16(i16 %75)
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
-  %wide.trip.count.i.i = zext i16 %76 to i64
-  br label %78
+  %73 = tail call noundef i16 @llvm.bswap.i16(i16 %72)
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
+  %wide.trip.count.i.i = zext i16 %73 to i64
+  br label %75
 
-78:                                               ; preds = %.critedge.i.i, %.lr.ph.i.i5
+75:                                               ; preds = %.critedge.i.i, %.lr.ph.i.i5
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i5 ], [ %indvars.iv.next.i.i, %.critedge.i.i ]
-  %79 = load i16, ptr %74, align 1, !tbaa !40
-  %80 = tail call noundef i16 @llvm.bswap.i16(i16 %79)
-  %81 = zext i16 %80 to i64
-  %.not.i.i.i.i = icmp samesign ult i64 %indvars.iv.i.i, %81
-  br i1 %.not.i.i.i.i, label %82, label %.critedge.i.i, !prof !35
+  %76 = load i16, ptr %71, align 1, !tbaa !40
+  %77 = tail call noundef i16 @llvm.bswap.i16(i16 %76)
+  %78 = zext i16 %77 to i64
+  %.not.i.i.i.i = icmp samesign ult i64 %indvars.iv.i.i, %78
+  br i1 %.not.i.i.i.i, label %79, label %.critedge.i.i, !prof !35
 
-82:                                               ; preds = %78
+79:                                               ; preds = %75
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !36
-  %83 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.875"], ptr %77, i64 0, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [1 x %"struct.OT::OffsetTo.875"], ptr %74, i64 0, i64 %indvars.iv.i.i
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %82, %78
-  %.0.i.i.i.i6 = phi ptr [ %83, %82 ], [ @_hb_NullPool, %78 ]
-  %84 = load i16, ptr %.0.i.i.i.i6, align 1, !tbaa !40
-  %85 = icmp eq i16 %84, 0
-  %86 = tail call i16 @llvm.bswap.i16(i16 %84)
-  %87 = zext i16 %86 to i64
-  %88 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %87
-  %.0.i.i.i.i.i7 = select i1 %85, ptr @_hb_NullPool, ptr %88, !prof !33
-  tail call void @_ZNK2OT6Layout9GPOS_impl17PosLookupSubTable8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_jDpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i.i.i.i7, ptr noundef %1, i32 noundef %73)
+.critedge.i.i:                                    ; preds = %79, %75
+  %.0.i.i.i.i6 = phi ptr [ %80, %79 ], [ @_hb_NullPool, %75 ]
+  %81 = load i16, ptr %.0.i.i.i.i6, align 1, !tbaa !40
+  %82 = icmp eq i16 %81, 0
+  %83 = tail call i16 @llvm.bswap.i16(i16 %81)
+  %84 = zext i16 %83 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %84
+  %.0.i.i.i.i.i7 = select i1 %82, ptr @_hb_NullPool, ptr %85, !prof !33
+  tail call void @_ZNK2OT6Layout9GPOS_impl17PosLookupSubTable8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_jDpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.0.i.i.i.i.i7, ptr noundef %1, i32 noundef %70)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %78, !llvm.loop !1474
+  br i1 %exitcond.not.i.i, label %_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit, label %75, !llvm.loop !1474
 
-_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit: ; preds = %.lr.ph.i, %.critedge.i.i, %22, %18, %_ZNK2OT6Layout4GPOS10get_lookupEj.exit, %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit
+_ZNK2OT6Layout9GPOS_impl9PosLookup8dispatchINS_38hb_collect_variation_indices_context_tEJEEENT_8return_tEPS5_DpOT0_.exit: ; preds = %.lr.ph.i, %.critedge.i.i, %19, %15, %_ZNK2OT6Layout4GPOS10get_lookupEj.exit, %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %5, !llvm.loop !1475
+  %86 = load i16, ptr %0, align 1, !tbaa !40
+  %cond.i = icmp eq i16 %86, 256
+  br i1 %cond.i, label %_ZNK2OT8GSUBGPOS16get_lookup_countEv.exit, label %.critedge, !llvm.loop !1475
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

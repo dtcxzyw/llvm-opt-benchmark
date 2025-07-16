@@ -20791,16 +20791,14 @@ _ZNKSt8_Rb_treeIN7cmCTest4PartES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lowe
   %13 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %14 = load i32, ptr %13, align 4, !tbaa !563
   %15 = sext i32 %14 to i64
-  %16 = icmp slt i64 %indvars.iv, %15
-  %spec.select.i.i = select i1 %16, ptr %5, ptr %.19.i.i.i
+  %16 = icmp sge i64 %indvars.iv, %15
+  %17 = zext i1 %16 to i8
   br label %_ZNKSt3setIN7cmCTest4PartESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN7cmCTest4PartESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %_ZNKSt8_Rb_treeIN7cmCTest4PartES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %12
-  %.sroa.0.0.i.i = phi ptr [ %5, %_ZNKSt8_Rb_treeIN7cmCTest4PartES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %spec.select.i.i, %12 ]
-  %17 = icmp ne ptr %.sroa.0.0.i.i, %5
+  %.sroa.0.0.i.i = phi i8 [ 0, %_ZNKSt8_Rb_treeIN7cmCTest4PartES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %17, %12 ]
   %18 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 0, i64 %indvars.iv
-  %19 = zext i1 %17 to i8
-  store i8 %19, ptr %18, align 1, !tbaa !52
+  store i8 %.sroa.0.0.i.i, ptr %18, align 1, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %.not, label %.split8.us, label %.lr.ph.i.i.i.preheader, !llvm.loop !567

@@ -298,13 +298,13 @@ _ZN5ZXing9BitMatrixD2Ev.exit.i:                   ; preds = %.split25.us.invoke.
 _ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit: ; preds = %.split28.us.i
   %.pre = load ptr, ptr %39, align 8, !tbaa !51
   %.pre33 = load ptr, ptr %41, align 8, !tbaa !51
+  %112 = icmp eq ptr %.pre, %.pre33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16, !noalias !35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16, !noalias !35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16, !noalias !35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16, !noalias !35
-  %112 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %113 = icmp eq ptr %.pre, %.pre33
-  br i1 %113, label %114, label %139
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br i1 %112, label %114, label %139
 
 114:                                              ; preds = %_ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit.thread, %_ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit
   %115 = phi ptr [ null, %_ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit.thread ], [ %.pre, %_ZN5ZXing8MaxiCodeL15ExtractPureBitsERKNS_9BitMatrixE.exit ]
@@ -481,7 +481,7 @@ _ZN5ZXing14DetectorResultD2Ev.exit17:             ; preds = %182, %186
 192:                                              ; preds = %_ZN5ZXing6ResultC2Ev.exit12, %_ZN5ZXing14DetectorResultD2Ev.exit
   call void @_ZN5ZXing13DecoderResultD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %9) #16
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9) #16
-  %.pre35 = load ptr, ptr %112, align 8, !tbaa !45
+  %.pre35 = load ptr, ptr %113, align 8, !tbaa !45
   br label %195
 
 193:                                              ; preds = %_ZN5ZXing14DetectorResultD2Ev.exit17, %170
@@ -492,7 +492,7 @@ _ZN5ZXing14DetectorResultD2Ev.exit17:             ; preds = %182, %186
 194:                                              ; preds = %193, %168
   %.pn.pn = phi { ptr, i32 } [ %.pn, %193 ], [ %169, %168 ]
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %9) #16
-  %.pre34 = load ptr, ptr %112, align 8, !tbaa !45
+  %.pre34 = load ptr, ptr %113, align 8, !tbaa !45
   br label %203
 
 195:                                              ; preds = %_ZN5ZXing6ResultC2Ev.exit, %192

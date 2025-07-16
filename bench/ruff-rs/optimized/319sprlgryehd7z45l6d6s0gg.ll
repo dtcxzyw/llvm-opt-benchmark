@@ -389,11 +389,11 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h196
   unreachable
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %27
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit86, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h08608a2be4078eb0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #20
           to label %81 unwind label %79
 
-27:                                               ; preds = %.loopexit81
+27:                                               ; preds = %.loopexit84
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -434,7 +434,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h196
   %37 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !39, !noalias !42
   %.not35.i = icmp ugt i64 %35, %37
   %or.cond36.i = select i1 %36, i1 true, i1 %.not35.i
-  br i1 %or.cond36.i, label %.loopexit81, label %.lr.ph.i
+  br i1 %or.cond36.i, label %.loopexit84, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %62
   %.pre4547.i = phi i64 [ %.pre4548.i, %62 ], [ %37, %33 ]
@@ -452,7 +452,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h196
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i
   %.not.i.i = icmp eq i64 %38, %39
-  br i1 %.not.i.i, label %.loopexit81, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit84, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %50
   %.sroa.01.05.i.i = phi i64 [ %51, %50 ], [ 0, %.preheader.i.i ]
@@ -464,7 +464,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h196
 50:                                               ; preds = %.lr.ph.i.i
   %51 = add nuw i64 %.sroa.01.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %51, %41
-  br i1 %exitcond.not.i.i, label %.loopexit81, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit84, label %.lr.ph.i.i
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i: ; preds = %.lr.ph.i
   %52 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h9672377a6eaa3e7eE(i8 noundef %45, ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %41)
@@ -473,7 +473,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i: ; preds = %.lr.ph.i
 .noexc:                                           ; preds = %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i
   %53 = extractvalue { i64, i64 } %52, 0
   %54 = trunc nuw i64 %53 to i1
-  br i1 %54, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16_crit_edge.i, label %.loopexit81
+  br i1 %54, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16_crit_edge.i, label %.loopexit84
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit._ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16_crit_edge.i: ; preds = %.noexc
   %55 = extractvalue { i64, i64 } %52, 1
@@ -507,7 +507,7 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i: ; preds = %.lr
   %65 = icmp ult i64 %64, %63
   %.not.i = icmp ugt i64 %64, %.pre4548.i
   %or.cond.i = select i1 %65, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %.loopexit81, label %.lr.ph.i
+  br i1 %or.cond.i, label %.loopexit84, label %.lr.ph.i
 
 66:                                               ; preds = %60
   %67 = icmp ugt i8 %56, 4
@@ -540,12 +540,12 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i: ; preds = %.lr
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %78, %72
-  %lpad.loopexit83 = landingpad { ptr, i32 }
+  %lpad.loopexit86 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %68
-  %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp87 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -555,14 +555,14 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i: ; preds = %.lr
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h22fddd060d536848E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.246bbae1f16cbeb8d51f07fa78d1fd94.44)
           to label %78 unwind label %.loopexit.split-lp.loopexit
 
-.loopexit81:                                      ; preds = %33, %62, %.noexc, %.preheader.i.i, %50
+.loopexit84:                                      ; preds = %33, %62, %.noexc, %.preheader.i.i, %50
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.07.0
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h22fddd060d536848E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %75, ptr noundef nonnull %76, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.246bbae1f16cbeb8d51f07fa78d1fd94.44)
           to label %77 unwind label %27
 
-77:                                               ; preds = %.loopexit81
+77:                                               ; preds = %.loopexit84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %18

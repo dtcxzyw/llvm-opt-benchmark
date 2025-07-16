@@ -4094,19 +4094,19 @@ define linkonce_odr hidden void @_ZN8rawspeed10PrefixCodeINS_15BaselineCodeTagEE
   %10 = icmp ugt i64 %9, 1
   br i1 %10, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %32, %1
+._crit_edge:                                      ; preds = %31, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !217
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !217
   %15 = icmp eq ptr %12, %14
-  br i1 %15, label %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixCodeINS2_15BaselineCodeTagEE10CodeSymbolESt6vectorIS6_SaIS6_EEEEZNS2_10PrefixCodeIS4_E17verifyCodeSymbolsEvEUlRS7_SF_E_ET_SH_SH_T0_.exit, label %.preheader.i.i
+  br i1 %15, label %._crit_edge30, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge, %18
   %.sroa.09.0.i.i = phi ptr [ %16, %18 ], [ %12, %._crit_edge ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i, i64 4
   %17 = icmp eq ptr %16, %14
-  br i1 %17, label %.preheader22, label %18
+  br i1 %17, label %.preheader.preheader, label %18
 
 18:                                               ; preds = %.preheader.i.i
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i, i64 2
@@ -4116,91 +4116,83 @@ define linkonce_odr hidden void @_ZN8rawspeed10PrefixCodeINS_15BaselineCodeTagEE
   %.not.i.i.i.i = icmp ugt i8 %21, %22
   br i1 %.not.i.i.i.i, label %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixCodeINS2_15BaselineCodeTagEE10CodeSymbolESt6vectorIS6_SaIS6_EEEEZNS2_10PrefixCodeIS4_E17verifyCodeSymbolsEvEUlRS7_SF_E_ET_SH_SH_T0_.exit, label %.preheader.i.i, !llvm.loop !220
 
-_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixCodeINS2_15BaselineCodeTagEE10CodeSymbolESt6vectorIS6_SaIS6_EEEEZNS2_10PrefixCodeIS4_E17verifyCodeSymbolsEvEUlRS7_SF_E_ET_SH_SH_T0_.exit: ; preds = %18, %._crit_edge
-  %.sroa.02.0.i.i = phi ptr [ %12, %._crit_edge ], [ %.sroa.09.0.i.i, %18 ]
-  %23 = icmp eq ptr %.sroa.02.0.i.i, %14
-  br i1 %23, label %.preheader22, label %36
-
-.preheader22:                                     ; preds = %.preheader.i.i, %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixCodeINS2_15BaselineCodeTagEE10CodeSymbolESt6vectorIS6_SaIS6_EEEEZNS2_10PrefixCodeIS4_E17verifyCodeSymbolsEvEUlRS7_SF_E_ET_SH_SH_T0_.exit
-  br i1 %15, label %._crit_edge30, label %.preheader.preheader
-
-.preheader.preheader:                             ; preds = %.preheader22
-  %24 = ptrtoint ptr %14 to i64
-  %25 = ptrtoint ptr %12 to i64
-  %26 = sub i64 %24, %25
-  %27 = ashr exact i64 %26, 2
+.preheader.preheader:                             ; preds = %.preheader.i.i
+  %23 = ptrtoint ptr %14 to i64
+  %24 = ptrtoint ptr %12 to i64
+  %25 = sub i64 %23, %24
+  %26 = ashr exact i64 %25, 2
   br label %.preheader
 
-.lr.ph:                                           ; preds = %1, %32
-  %.01825 = phi i32 [ %34, %32 ], [ 2, %1 ]
-  %.01924 = phi i64 [ %35, %32 ], [ 1, %1 ]
-  %28 = getelementptr inbounds nuw i32, ptr %5, i64 %.01924
-  %29 = load i32, ptr %28, align 4, !tbaa !31
-  %30 = icmp ugt i32 %29, %.01825
-  br i1 %30, label %31, label %32
+.lr.ph:                                           ; preds = %1, %31
+  %.01825 = phi i32 [ %33, %31 ], [ 2, %1 ]
+  %.01924 = phi i64 [ %34, %31 ], [ 1, %1 ]
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %.01924
+  %28 = load i32, ptr %27, align 4, !tbaa !31
+  %29 = icmp ugt i32 %28, %.01825
+  br i1 %29, label %30, label %31
 
-31:                                               ; preds = %.lr.ph
+30:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10PrefixCodeINS_15BaselineCodeTagEE17verifyCodeSymbolsEv, i64 noundef %.01924) #17
   unreachable
 
-32:                                               ; preds = %.lr.ph
-  %33 = sub nuw i32 %.01825, %29
-  %34 = shl i32 %33, 1
-  %35 = add nuw i64 %.01924, 1
-  %exitcond.not = icmp eq i64 %35, %9
+31:                                               ; preds = %.lr.ph
+  %32 = sub nuw i32 %.01825, %28
+  %33 = shl i32 %32, 1
+  %34 = add nuw i64 %.01924, 1
+  %exitcond.not = icmp eq i64 %34, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !221
 
-36:                                               ; preds = %_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixCodeINS2_15BaselineCodeTagEE10CodeSymbolESt6vectorIS6_SaIS6_EEEEZNS2_10PrefixCodeIS4_E17verifyCodeSymbolsEvEUlRS7_SF_E_ET_SH_SH_T0_.exit
+_ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPKN8rawspeed18AbstractPrefixCodeINS2_15BaselineCodeTagEE10CodeSymbolESt6vectorIS6_SaIS6_EEEEZNS2_10PrefixCodeIS4_E17verifyCodeSymbolsEvEUlRS7_SF_E_ET_SH_SH_T0_.exit: ; preds = %18
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10PrefixCodeINS_15BaselineCodeTagEE17verifyCodeSymbolsEv) #17
   unreachable
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge28
-  %.01729 = phi i64 [ %46, %._crit_edge28 ], [ 0, %.preheader.preheader ]
+  %.01729 = phi i64 [ %44, %._crit_edge28 ], [ 0, %.preheader.preheader ]
   %.not31 = icmp eq i64 %.01729, 0
   br i1 %.not31, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %.preheader
-  %37 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::BaselineCodeTag>::CodeSymbol", ptr %12, i64 %.01729
-  %38 = load i16, ptr %37, align 2, !tbaa !74
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %40 = load i8, ptr %39, align 2, !tbaa !72
-  %41 = zext nneg i8 %40 to i32
-  %42 = icmp ult i8 %40, 17
-  tail call void @llvm.assume(i1 %42)
-  %43 = zext i16 %38 to i32
-  br label %47
+  %35 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::BaselineCodeTag>::CodeSymbol", ptr %12, i64 %.01729
+  %36 = load i16, ptr %35, align 2, !tbaa !74
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  %38 = load i8, ptr %37, align 2, !tbaa !72
+  %39 = zext nneg i8 %38 to i32
+  %40 = icmp ult i8 %38, 17
+  tail call void @llvm.assume(i1 %40)
+  %41 = zext i16 %36 to i32
+  br label %45
 
-._crit_edge30:                                    ; preds = %._crit_edge28, %.preheader22
+._crit_edge30:                                    ; preds = %._crit_edge28, %._crit_edge
   ret void
 
-44:                                               ; preds = %47
-  %45 = add nuw i64 %.026, 1
-  %exitcond33.not = icmp eq i64 %45, %.01729
-  br i1 %exitcond33.not, label %._crit_edge28, label %47, !llvm.loop !222
+42:                                               ; preds = %45
+  %43 = add nuw i64 %.026, 1
+  %exitcond33.not = icmp eq i64 %43, %.01729
+  br i1 %exitcond33.not, label %._crit_edge28, label %45, !llvm.loop !222
 
-._crit_edge28:                                    ; preds = %44, %.preheader
-  %46 = add nuw i64 %.01729, 1
-  %exitcond34.not = icmp eq i64 %46, %27
+._crit_edge28:                                    ; preds = %42, %.preheader
+  %44 = add nuw i64 %.01729, 1
+  %exitcond34.not = icmp eq i64 %44, %26
   br i1 %exitcond34.not, label %._crit_edge30, label %.preheader, !llvm.loop !223
 
-47:                                               ; preds = %.lr.ph27, %44
-  %.026 = phi i64 [ 0, %.lr.ph27 ], [ %45, %44 ]
-  %48 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::BaselineCodeTag>::CodeSymbol", ptr %12, i64 %.026
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  %50 = load i8, ptr %49, align 2, !tbaa !72
-  %51 = zext i8 %50 to i32
-  %52 = icmp ule i8 %50, %40
+45:                                               ; preds = %.lr.ph27, %42
+  %.026 = phi i64 [ 0, %.lr.ph27 ], [ %43, %42 ]
+  %46 = getelementptr inbounds nuw %"struct.rawspeed::AbstractPrefixCode<rawspeed::BaselineCodeTag>::CodeSymbol", ptr %12, i64 %.026
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
+  %48 = load i8, ptr %47, align 2, !tbaa !72
+  %49 = zext i8 %48 to i32
+  %50 = icmp ule i8 %48, %38
+  tail call void @llvm.assume(i1 %50)
+  %51 = sub nsw i32 %39, %49
+  %52 = icmp ult i32 %51, 16
   tail call void @llvm.assume(i1 %52)
-  %53 = sub nsw i32 %41, %51
-  %54 = icmp ult i32 %53, 16
-  tail call void @llvm.assume(i1 %54)
-  %55 = lshr i32 %43, %53
-  %56 = trunc nuw i32 %55 to i16
-  %57 = load i16, ptr %48, align 2, !tbaa !74
-  %58 = icmp eq i16 %57, %56
-  br i1 %58, label %59, label %44
+  %53 = lshr i32 %41, %51
+  %54 = trunc nuw i32 %53 to i16
+  %55 = load i16, ptr %46, align 2, !tbaa !74
+  %56 = icmp eq i16 %55, %54
+  br i1 %56, label %57, label %42
 
-59:                                               ; preds = %47
+57:                                               ; preds = %45
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.17, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10PrefixCodeINS_15BaselineCodeTagEE17verifyCodeSymbolsEv) #17
   unreachable
 }

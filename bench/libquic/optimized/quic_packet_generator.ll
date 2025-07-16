@@ -778,7 +778,7 @@ define { i64, i8 } @_ZN3net19QuicPacketGenerator19ConsumeDataFastPathEjRKNS_12Qu
 
 ..critedge.loopexit_crit_edge:                    ; preds = %12
   %.pre.pre = load i64, ptr %9, align 8
-  br label %.critedge
+  br label %.critedge.loopexit
 
 18:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
@@ -790,12 +790,17 @@ define { i64, i8 } @_ZN3net19QuicPacketGenerator19ConsumeDataFastPathEjRKNS_12Qu
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   %22 = load i64, ptr %9, align 8, !tbaa !99
   %23 = icmp ult i64 %21, %22
-  br i1 %23, label %12, label %.critedge, !llvm.loop !103
+  br i1 %23, label %12, label %.critedge.loopexit, !llvm.loop !103
 
-.critedge:                                        ; preds = %18, %..critedge.loopexit_crit_edge, %6
-  %24 = phi i64 [ 0, %6 ], [ %.pre.pre, %..critedge.loopexit_crit_edge ], [ %22, %18 ]
-  %.0.lcssa = phi i64 [ 0, %6 ], [ %.015, %..critedge.loopexit_crit_edge ], [ %21, %18 ]
-  %25 = icmp eq i64 %.0.lcssa, %24
+.critedge.loopexit:                               ; preds = %18, %..critedge.loopexit_crit_edge
+  %.pre = phi i64 [ %.pre.pre, %..critedge.loopexit_crit_edge ], [ %22, %18 ]
+  %.0.lcssa.ph = phi i64 [ %.015, %..critedge.loopexit_crit_edge ], [ %21, %18 ]
+  %24 = icmp eq i64 %.0.lcssa.ph, %.pre
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %6
+  %25 = phi i1 [ true, %6 ], [ %24, %.critedge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %6 ], [ %.0.lcssa.ph, %.critedge.loopexit ]
   %26 = select i1 %4, i1 %25, i1 false
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %7, i64 noundef %.0.lcssa, i1 noundef zeroext %26)
   %.fca.0.load = load i64, ptr %7, align 8

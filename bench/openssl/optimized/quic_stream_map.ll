@@ -556,50 +556,43 @@ stream_has_data_to_send.exit:                     ; preds = %97
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %133 = load ptr, ptr %132, align 8, !tbaa !46
   %134 = icmp eq ptr %133, %1
-  br i1 %134, label %135, label %143
+  br i1 %134, label %135, label %.thread.i
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %137 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %137, align 8, !tbaa !38
   %138 = icmp eq ptr %.val.i, %136
-  br i1 %138, label %139, label %list_next.exit.i
+  br i1 %138, label %139, label %142
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %141 = load ptr, ptr %140, align 8, !tbaa !38
-  br label %list_next.exit.i
+  br label %142
 
-list_next.exit.i:                                 ; preds = %139, %135
+142:                                              ; preds = %139, %135
   %.08.i.i = phi ptr [ %141, %139 ], [ %.val.i, %135 ]
-  %142 = icmp eq ptr %.08.i.i, %136
-  %.0.i.i = select i1 %142, ptr null, ptr %.08.i.i
-  store ptr %.0.i.i, ptr %132, align 8, !tbaa !46
-  br label %143
+  %143 = icmp eq ptr %.08.i.i, %136
+  %.0.i.i = select i1 %143, ptr null, ptr %.08.i.i
+  %144 = icmp eq ptr %.0.i.i, %1
+  %spec.store.select.i = select i1 %144, ptr null, ptr %.0.i.i
+  store ptr %spec.store.select.i, ptr %132, align 8
+  br label %.thread.i
 
-143:                                              ; preds = %list_next.exit.i, %131
-  %144 = phi ptr [ %.0.i.i, %list_next.exit.i ], [ %133, %131 ]
-  %145 = icmp eq ptr %144, %1
-  br i1 %145, label %146, label %147
-
-146:                                              ; preds = %143
-  store ptr null, ptr %132, align 8, !tbaa !46
-  br label %147
-
-147:                                              ; preds = %146, %143
-  %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %149 = load ptr, ptr %148, align 8, !tbaa !38
-  %150 = load ptr, ptr %1, align 8, !tbaa !37
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store ptr %149, ptr %151, align 8, !tbaa !38
-  store ptr %150, ptr %149, align 8, !tbaa !37
+.thread.i:                                        ; preds = %142, %131
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !38
+  %147 = load ptr, ptr %1, align 8, !tbaa !37
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  store ptr %146, ptr %148, align 8, !tbaa !38
+  store ptr %147, ptr %146, align 8, !tbaa !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %152 = load i64, ptr %6, align 8
-  %153 = and i64 %152, -16777217
+  %149 = load i64, ptr %6, align 8
+  %150 = and i64 %149, -16777217
   br label %stream_map_mark_active.exit.sink.split
 
-stream_map_mark_active.exit.sink.split:           ; preds = %126, %147
-  %.sink = phi i64 [ %153, %147 ], [ %128, %126 ]
+stream_map_mark_active.exit.sink.split:           ; preds = %126, %.thread.i
+  %.sink = phi i64 [ %150, %.thread.i ], [ %128, %126 ]
   store i64 %.sink, ptr %6, align 8
   br label %stream_map_mark_active.exit
 

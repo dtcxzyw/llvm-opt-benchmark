@@ -1417,19 +1417,14 @@ define void @Min_SopContain(ptr noundef captures(none) %0) local_unnamed_addr #0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %7
 
-.loopexit60.loopexit:                             ; preds = %._crit_edge74
+.loopexit60:                                      ; preds = %._crit_edge74
   %.pre94 = sext i32 %48 to i64
-  br label %.loopexit60
-
-.loopexit60:                                      ; preds = %.loopexit60.loopexit, %._crit_edge
-  %.pre-phi = phi i64 [ %.pre94, %.loopexit60.loopexit ], [ %28, %._crit_edge ]
-  %6 = phi i32 [ %48, %.loopexit60.loopexit ], [ %27, %._crit_edge ]
-  %.not.not = icmp slt i64 %indvars.iv87, %.pre-phi
+  %6 = icmp slt i64 %indvars.iv87, %.pre94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not.not, label %7, label %._crit_edge83, !llvm.loop !43
+  br i1 %6, label %7, label %._crit_edge83, !llvm.loop !43
 
 7:                                                ; preds = %.lr.ph82, %.loopexit60
-  %8 = phi i32 [ %2, %.lr.ph82 ], [ %6, %.loopexit60 ]
+  %8 = phi i32 [ %2, %.lr.ph82 ], [ %48, %.loopexit60 ]
   %indvars.iv87 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next88, %.loopexit60 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph82 ], [ %indvars.iv.next, %.loopexit60 ]
   %9 = load ptr, ptr %3, align 8, !tbaa !12
@@ -1506,7 +1501,7 @@ Min_CubesAreEqual.exit:                           ; preds = %19, %.loopexit58
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %28 = sext i32 %27 to i64
   %.not4275.not = icmp slt i64 %indvars.iv87, %28
-  br i1 %.not4275.not, label %.lr.ph78, label %.loopexit60
+  br i1 %.not4275.not, label %.lr.ph78, label %._crit_edge83
 
 .lr.ph78:                                         ; preds = %._crit_edge, %._crit_edge74
   %29 = phi i32 [ %48, %._crit_edge74 ], [ %27, %._crit_edge ]
@@ -1578,9 +1573,9 @@ Min_CubeIsContained.exit:                         ; preds = %38, %.loopexit
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %50 = trunc nuw i64 %indvars.iv84 to i32
   %.not42.not = icmp sgt i32 %49, %50
-  br i1 %.not42.not, label %.lr.ph78, label %.loopexit60.loopexit, !llvm.loop !47
+  br i1 %.not42.not, label %.lr.ph78, label %.loopexit60, !llvm.loop !47
 
-._crit_edge83:                                    ; preds = %.loopexit60, %1
+._crit_edge83:                                    ; preds = %.loopexit60, %._crit_edge, %1
   ret void
 }
 

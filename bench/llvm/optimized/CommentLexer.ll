@@ -3386,11 +3386,11 @@ _ZN5clang8comments12_GLOBAL__N_112isWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.i.
   br i1 %70, label %_ZN5clang8comments12_GLOBAL__N_112isWhitespaceEPKcS3_.exit.thread, label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.loopexit
 
 _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.loopexit: ; preds = %_ZN5clang8comments12_GLOBAL__N_112isWhitespaceEPKcS3_.exit
-  %.pre47 = ptrtoint ptr %62 to i64
+  %.pre49 = ptrtoint ptr %62 to i64
   br label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit
 
 _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit: ; preds = %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.loopexit, %32, %28, %25
-  %.pre-phi = phi i64 [ %.pre47, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.loopexit ], [ %19, %32 ], [ %19, %28 ], [ %19, %25 ]
+  %.pre-phi = phi i64 [ %.pre49, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.loopexit ], [ %19, %32 ], [ %19, %28 ], [ %19, %25 ]
   %.022 = phi ptr [ %62, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.loopexit ], [ %spec.select.i, %32 ], [ %31, %28 ], [ %.0.i, %25 ]
   %71 = load ptr, ptr %4, align 8, !tbaa !60
   %72 = ptrtoint ptr %71 to i64
@@ -3423,10 +3423,10 @@ _ZN5clang8comments12_GLOBAL__N_112isWhitespaceEPKcS3_.exit.thread: ; preds = %68
   br label %9
 
 89:                                               ; preds = %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit, %36
-  %.sink55 = phi i32 [ %88, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit ], [ %59, %36 ]
+  %.sink57 = phi i32 [ %88, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit ], [ %59, %36 ]
   %.sink = phi i8 [ 2, %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit ], [ 0, %36 ]
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink55, ptr %90, align 8, !tbaa !71
+  store i32 %.sink57, ptr %90, align 8, !tbaa !71
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 62
   store i8 %.sink, ptr %91, align 2, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20

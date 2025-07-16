@@ -4376,18 +4376,18 @@ _ZN7rocksdbL11ClipToRangeImmEEvPT_T0_S3_.exit:    ; preds = %9, %.sink.split.i
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %73 = load double, ptr %72, align 8, !tbaa !446
   %74 = fcmp ogt double %73, 2.500000e-01
-  br i1 %74, label %.sink.split133, label %75
+  br i1 %74, label %.sink.split132, label %75
 
 75:                                               ; preds = %71
   %76 = fcmp olt double %73, 0.000000e+00
-  br i1 %76, label %.sink.split133, label %77
+  br i1 %76, label %.sink.split132, label %77
 
-.sink.split133:                                   ; preds = %75, %71
-  %.sink134 = phi double [ 2.500000e-01, %71 ], [ 0.000000e+00, %75 ]
-  store double %.sink134, ptr %72, align 8, !tbaa !446
+.sink.split132:                                   ; preds = %75, %71
+  %.sink133 = phi double [ 2.500000e-01, %71 ], [ 0.000000e+00, %75 ]
+  store double %.sink133, ptr %72, align 8, !tbaa !446
   br label %77
 
-77:                                               ; preds = %.sink.split133, %75
+77:                                               ; preds = %.sink.split132, %75
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %79 = load ptr, ptr %78, align 8, !tbaa !109
   %.not109 = icmp eq ptr %79, null
@@ -4594,19 +4594,19 @@ _ZNSt12__shared_ptrIN7rocksdb15SkipListFactoryELN9__gnu_cxx12_Lock_policyE2EED2E
   %173 = icmp eq i64 %172, 0
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %175 = load i64, ptr %174, align 8, !tbaa !456
-  br i1 %173, label %.sink.split135, label %176
+  br i1 %173, label %.sink.split134, label %176
 
 176:                                              ; preds = %170
   %.not = icmp ne i64 %175, 0
   %177 = icmp ugt i64 %172, %175
   %or.cond74 = and i1 %.not, %177
-  br i1 %or.cond74, label %.sink.split135, label %178
+  br i1 %or.cond74, label %.sink.split134, label %178
 
-.sink.split135:                                   ; preds = %176, %170
+.sink.split134:                                   ; preds = %176, %170
   store i64 %175, ptr %171, align 8, !tbaa !455
   br label %178
 
-178:                                              ; preds = %.sink.split135, %176
+178:                                              ; preds = %.sink.split134, %176
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %180 = load ptr, ptr %179, align 8, !tbaa !457
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -4698,13 +4698,13 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %192, %_ZNKSt14defau
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %225 = load ptr, ptr %224, align 8, !tbaa !462
   invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext %222, ptr noundef %225, ptr noundef nonnull %223, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.52, i64 93))
-          to label %.sink.split136 unwind label %206
+          to label %.sink.split135 unwind label %206
 
-.sink.split136:                                   ; preds = %.invoke
+.sink.split135:                                   ; preds = %.invoke
   store i8 0, ptr %209, align 4, !tbaa !461
   br label %226
 
-226:                                              ; preds = %.sink.split136, %214, %208
+226:                                              ; preds = %.sink.split135, %214, %208
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %228 = load i64, ptr %227, align 8, !tbaa !463
   %229 = icmp eq i64 %228, 0
@@ -4756,9 +4756,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %251 = load i64, ptr %250, align 8, !tbaa !465
   %252 = icmp eq i64 %251, -2
-  br i1 %252, label %.sink.split137, label %261
+  br i1 %252, label %.sink.split136, label %261
 
-.sink.split137:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.sink.split136:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %. = select i1 %242, i64 2592000, i64 0
   store i64 %., ptr %250, align 8, !tbaa !465
   br label %261
@@ -4786,7 +4786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #36
   br label %.body
 
-261:                                              ; preds = %.sink.split137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+261:                                              ; preds = %.sink.split136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %262 = load i8, ptr %41, align 8, !tbaa !432
   switch i8 %262, label %.thread108 [
     i8 0, label %263
@@ -4888,8 +4888,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   br label %.thread108.sink.split
 
 .thread108.sink.split:                            ; preds = %298, %304
-  %.sink139 = phi i64 [ %305, %304 ], [ %302, %298 ]
-  store i64 %.sink139, ptr %299, align 8, !tbaa !466
+  %.sink138 = phi i64 [ %305, %304 ], [ %302, %298 ]
+  store i64 %.sink138, ptr %299, align 8, !tbaa !466
   br label %.thread108
 
 .thread108:                                       ; preds = %.thread108.sink.split, %261, %303, %296

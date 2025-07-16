@@ -133,7 +133,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17XCOFFSymbolInfoTyltERKS0_(ptr no
 
 7:                                                ; preds = %2
   %8 = trunc nuw i8 %6 to i1
-  br label %25
+  br label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -145,7 +145,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17XCOFFSymbolInfoTyltERKS0_(ptr no
   %16 = and i8 %13, %11
   %.not11 = icmp eq i8 %16, 0
   %.mux = select i1 %15, i1 %14, i1 false
-  br i1 %.not11, label %25, label %17
+  br i1 %.not11, label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9, label %17
 
 17:                                               ; preds = %9
   %18 = load i8, ptr %0, align 4, !tbaa !36
@@ -168,15 +168,11 @@ switch.lookup12:                                  ; preds = %_ZL14getSMCPriority
   %23 = zext nneg i8 %21 to i64
   %switch.gep13 = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %23
   %switch.load14 = load i8, ptr %switch.gep13, align 1
+  %24 = icmp samesign ult i8 %.0.i, %switch.load14
   br label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9
 
-_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9: ; preds = %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit, %switch.lookup12
-  %.0.i8 = phi i8 [ %switch.load14, %switch.lookup12 ], [ 0, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit ]
-  %24 = icmp samesign ult i8 %.0.i, %.0.i8
-  br label %25
-
-25:                                               ; preds = %9, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9, %7
-  %.0 = phi i1 [ %8, %7 ], [ %24, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9 ], [ %.mux, %9 ]
+_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9: ; preds = %switch.lookup12, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit, %9, %7
+  %.0 = phi i1 [ %8, %7 ], [ %.mux, %9 ], [ %24, %switch.lookup12 ], [ false, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit ]
   ret i1 %.0
 }
 

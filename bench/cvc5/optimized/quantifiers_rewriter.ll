@@ -56836,12 +56836,12 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i: ; 
   %.pre = load ptr, ptr %8, align 8, !tbaa !64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre302 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !64
-  %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %110 = icmp eq ptr %.pre, %.pre302
-  br i1 %110, label %111, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit96
+  %109 = icmp eq ptr %.pre, %.pre302
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br i1 %109, label %111, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit96
 
 111:                                              ; preds = %.thread303, %108
-  %112 = phi ptr [ %47, %.thread303 ], [ %109, %108 ]
+  %112 = phi ptr [ %47, %.thread303 ], [ %110, %108 ]
   %113 = load ptr, ptr %15, align 8, !tbaa !290
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 344
   %115 = load ptr, ptr %114, align 8, !tbaa !291
@@ -56984,7 +56984,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit67: ; preds = %136, %140, %146
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit96: ; preds = %176, %170, %.critedge56, %111, %108
-  %180 = phi ptr [ %112, %176 ], [ %112, %170 ], [ %112, %.critedge56 ], [ %112, %111 ], [ %109, %108 ]
+  %180 = phi ptr [ %112, %176 ], [ %112, %170 ], [ %112, %.critedge56 ], [ %112, %111 ], [ %110, %108 ]
   %181 = load ptr, ptr %8, align 8, !tbaa !64
   %182 = load ptr, ptr %180, align 8, !tbaa !64
   %183 = icmp eq ptr %181, %182

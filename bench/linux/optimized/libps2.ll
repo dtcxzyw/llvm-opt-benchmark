@@ -65,93 +65,93 @@ define internal fastcc i32 @ps2_do_sendbyte(ptr noundef initializes((81, 82)) %0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %9
+  %9 = icmp samesign ugt i32 %3, 1
+  br label %10
 
-9:                                                ; preds = %.thread, %4
-  %10 = phi i32 [ 1, %4 ], [ 2, %.thread ]
+10:                                               ; preds = %.thread, %4
+  %11 = phi i1 [ %9, %4 ], [ false, %.thread ]
   store i8 1, ptr %6, align 1
-  %11 = load i64, ptr %7, align 8
-  %12 = or i64 %11, 1
-  store i64 %12, ptr %7, align 8
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 208
-  call void @_raw_spin_unlock_irq(ptr noundef nonnull %14) #7
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 216
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread, label %19
+  %12 = load i64, ptr %7, align 8
+  %13 = or i64 %12, 1
+  store i64 %13, ptr %7, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 208
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %15) #7
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 216
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %.thread, label %20
 
-19:                                               ; preds = %9
-  %20 = call i32 %17(ptr noundef %15, i8 noundef zeroext %1) #7
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %.thread
+20:                                               ; preds = %10
+  %21 = call i32 %18(ptr noundef %16, i8 noundef zeroext %1) #7
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %.thread
 
-22:                                               ; preds = %19
-  %23 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
-  %24 = call i32 @__SCT__might_resched() #7
-  %25 = load i64, ptr %7, align 8
-  %26 = and i64 %25, 1
-  %.not = icmp eq i64 %26, 0
-  %27 = icmp eq i64 %23, 0
-  %28 = select i1 %.not, i1 true, i1 %27
-  br i1 %28, label %.thread, label %29
+23:                                               ; preds = %20
+  %24 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
+  %25 = call i32 @__SCT__might_resched() #7
+  %26 = load i64, ptr %7, align 8
+  %27 = and i64 %26, 1
+  %.not = icmp eq i64 %27, 0
+  %28 = icmp eq i64 %24, 0
+  %29 = select i1 %.not, i1 true, i1 %28
+  br i1 %29, label %.thread, label %30
 
-29:                                               ; preds = %22
+30:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !5
-  %30 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
+  %31 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
   call void @init_wait_entry(ptr noundef nonnull %5, i32 noundef 0) #7
-  %31 = call i64 @prepare_to_wait_event(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2) #7
-  %32 = load i64, ptr %7, align 8
-  %33 = and i64 %32, 1
-  %34 = icmp ne i64 %33, 0
-  %35 = icmp ne i64 %30, 0
-  %36 = select i1 %34, i1 true, i1 %35
-  %37 = select i1 %36, i64 %30, i64 1
-  %38 = icmp ne i64 %37, 0
-  %39 = select i1 %34, i1 %38, i1 false
-  br i1 %39, label %.lr.ph, label %._crit_edge
+  %32 = call i64 @prepare_to_wait_event(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2) #7
+  %33 = load i64, ptr %7, align 8
+  %34 = and i64 %33, 1
+  %35 = icmp ne i64 %34, 0
+  %36 = icmp ne i64 %31, 0
+  %37 = select i1 %35, i1 true, i1 %36
+  %38 = select i1 %37, i64 %31, i64 1
+  %39 = icmp ne i64 %38, 0
+  %40 = select i1 %35, i1 %39, i1 false
+  br i1 %40, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %29, %.lr.ph
-  %40 = phi i64 [ %48, %.lr.ph ], [ %37, %29 ]
-  %41 = call i64 @schedule_timeout(i64 noundef %40) #7
-  %42 = call i64 @prepare_to_wait_event(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2) #7
-  %43 = load i64, ptr %7, align 8
-  %44 = and i64 %43, 1
-  %45 = icmp ne i64 %44, 0
-  %46 = icmp ne i64 %41, 0
-  %47 = select i1 %45, i1 true, i1 %46
-  %48 = select i1 %47, i64 %41, i64 1
-  %49 = icmp ne i64 %48, 0
-  %50 = select i1 %45, i1 %49, i1 false
-  br i1 %50, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %30, %.lr.ph
+  %41 = phi i64 [ %49, %.lr.ph ], [ %38, %30 ]
+  %42 = call i64 @schedule_timeout(i64 noundef %41) #7
+  %43 = call i64 @prepare_to_wait_event(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2) #7
+  %44 = load i64, ptr %7, align 8
+  %45 = and i64 %44, 1
+  %46 = icmp ne i64 %45, 0
+  %47 = icmp ne i64 %42, 0
+  %48 = select i1 %46, i1 true, i1 %47
+  %49 = select i1 %48, i64 %42, i64 1
+  %50 = icmp ne i64 %49, 0
+  %51 = select i1 %46, i1 %50, i1 false
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %29
+._crit_edge:                                      ; preds = %.lr.ph, %30
   call void @finish_wait(ptr noundef nonnull %8, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #7
   br label %.thread
 
-.thread:                                          ; preds = %9, %._crit_edge, %22, %19
-  %51 = phi i1 [ true, %._crit_edge ], [ true, %22 ], [ false, %19 ], [ false, %9 ]
-  %52 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ %20, %19 ], [ -1, %9 ]
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 208
-  call void @_raw_spin_lock_irq(ptr noundef nonnull %54) #7
-  %55 = load i8, ptr %6, align 1
-  %56 = icmp eq i8 %55, -2
-  %57 = icmp samesign ult i32 %10, %3
-  %58 = and i1 %57, %56
-  br i1 %58, label %9, label %59, !llvm.loop !6
+.thread:                                          ; preds = %10, %._crit_edge, %23, %20
+  %52 = phi i1 [ true, %._crit_edge ], [ true, %23 ], [ false, %20 ], [ false, %10 ]
+  %53 = phi i32 [ 0, %._crit_edge ], [ 0, %23 ], [ %21, %20 ], [ -1, %10 ]
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 208
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %55) #7
+  %56 = load i8, ptr %6, align 1
+  %57 = icmp eq i8 %56, -2
+  %58 = and i1 %11, %57
+  br i1 %58, label %10, label %59, !llvm.loop !6
 
 59:                                               ; preds = %.thread
   %60 = load i64, ptr %7, align 8
   %61 = and i64 %60, -2
   store i64 %61, ptr %7, align 8
-  br i1 %51, label %62, label %66
+  br i1 %52, label %62, label %66
 
 62:                                               ; preds = %59
-  switch i8 %55, label %65 [
+  switch i8 %56, label %65 [
     i8 0, label %66
     i8 -2, label %63
     i8 -4, label %64
@@ -167,7 +167,7 @@ define internal fastcc i32 @ps2_do_sendbyte(ptr noundef initializes((81, 82)) %0
   br label %66
 
 66:                                               ; preds = %65, %64, %63, %62, %59
-  %67 = phi i32 [ %52, %59 ], [ -5, %65 ], [ -71, %64 ], [ -11, %63 ], [ 0, %62 ]
+  %67 = phi i32 [ %53, %59 ], [ -5, %65 ], [ -71, %64 ], [ -11, %63 ], [ 0, %62 ]
   ret i32 %67
 }
 

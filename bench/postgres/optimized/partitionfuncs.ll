@@ -85,16 +85,16 @@ check_rel_can_be_partition.exit.thread79:         ; preds = %check_rel_can_be_pa
   %36 = call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #6
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = load i64, ptr %36, align 8
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
+  br i1 %.not.i, label %.critedge, label %list_length.exit
 
 list_length.exit:                                 ; preds = %35
+  %39 = load i64, ptr %36, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp ult i64 %39, %42
-  br i1 %43, label %44, label %list_length.exit.thread
+  br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %list_length.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
@@ -201,7 +201,7 @@ list_length.exit:                                 ; preds = %35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
   br label %93
 
-list_length.exit.thread:                          ; preds = %35, %list_length.exit
+.critedge:                                        ; preds = %35, %list_length.exit
   call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %36) #6
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8
@@ -211,8 +211,8 @@ list_length.exit.thread:                          ; preds = %35, %list_length.ex
   store i8 1, ptr %92, align 4
   br label %93
 
-93:                                               ; preds = %check_rel_can_be_partition.exit.thread79, %.thread86, %list_length.exit.thread
-  %.2 = phi i64 [ 0, %list_length.exit.thread ], [ %83, %.thread86 ], [ 0, %check_rel_can_be_partition.exit.thread79 ]
+93:                                               ; preds = %check_rel_can_be_partition.exit.thread79, %.thread86, %.critedge
+  %.2 = phi i64 [ 0, %.critedge ], [ %83, %.thread86 ], [ 0, %check_rel_can_be_partition.exit.thread79 ]
   ret i64 %.2
 }
 
@@ -356,14 +356,14 @@ check_rel_can_be_partition.exit.thread42:         ; preds = %check_rel_can_be_pa
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %28, align 8
   %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
+  br i1 %.not.i, label %.critedge, label %list_length.exit
 
 list_length.exit:                                 ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp ult i64 %31, %34
-  br i1 %35, label %36, label %list_length.exit.thread
+  br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %list_length.exit
   %37 = getelementptr i8, ptr %30, i64 16
@@ -381,7 +381,7 @@ list_length.exit:                                 ; preds = %27
   %45 = zext i32 %40 to i64
   br label %50
 
-list_length.exit.thread:                          ; preds = %27, %list_length.exit
+.critedge:                                        ; preds = %27, %list_length.exit
   tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %28) #6
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
@@ -391,8 +391,8 @@ list_length.exit.thread:                          ; preds = %27, %list_length.ex
   store i8 1, ptr %49, align 4
   br label %50
 
-50:                                               ; preds = %check_rel_can_be_partition.exit.thread42, %36, %list_length.exit.thread
-  %.2 = phi i64 [ 0, %list_length.exit.thread ], [ %45, %36 ], [ 0, %check_rel_can_be_partition.exit.thread42 ]
+50:                                               ; preds = %check_rel_can_be_partition.exit.thread42, %36, %.critedge
+  %.2 = phi i64 [ 0, %.critedge ], [ %45, %36 ], [ 0, %check_rel_can_be_partition.exit.thread42 ]
   ret i64 %.2
 }
 

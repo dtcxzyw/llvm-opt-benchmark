@@ -2279,7 +2279,7 @@ define void @Res_WinFinalizeRoots_rec(ptr noundef %0, ptr noundef captures(none)
   %3 = getelementptr i8, ptr %0, i64 44
   %.val1925 = load i32, ptr %3, align 4, !tbaa !70
   %4 = icmp sgt i32 %.val1925, 0
-  br i1 %4, label %.lr.ph, label %.critedge
+  br i1 %4, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 48
@@ -2301,27 +2301,22 @@ define void @Res_WinFinalizeRoots_rec(ptr noundef %0, ptr noundef captures(none)
   %14 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %13)
   %.not = icmp eq i32 %14, 0
   %.val18.pre.pre = load i32, ptr %3, align 4, !tbaa !70
-  br i1 %.not, label %.critedge.loopexit, label %15
+  br i1 %.not, label %.critedge, label %15
 
 15:                                               ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %.val18.pre.pre to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %6, label %.critedge.loopexit, !llvm.loop !78
+  br i1 %17, label %6, label %.critedge, !llvm.loop !78
 
-.critedge.loopexit:                               ; preds = %15, %6
+.critedge:                                        ; preds = %6, %15
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %6 ], [ %indvars.iv.next, %15 ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.loopexit, %2
-  %.val29 = phi i32 [ %.val1925, %2 ], [ %.val18.pre.pre, %.critedge.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.0.lcssa.ph, %.critedge.loopexit ]
-  %18 = icmp slt i32 %.0.lcssa, %.val29
+  %18 = icmp sgt i32 %.val18.pre.pre, %.0.lcssa.ph
   br i1 %18, label %21, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
-  %19 = icmp sgt i32 %.val29, 0
+  %19 = icmp sgt i32 %.val18.pre.pre, 0
   br i1 %19, label %.lr.ph31, label %.critedge2
 
 .lr.ph31:                                         ; preds = %.preheader
@@ -2439,7 +2434,7 @@ Vec_PtrPush.exit.i:                               ; preds = %54, %Vec_PtrGrow.ex
   %70 = icmp slt i64 %indvars.iv.next35, %69
   br i1 %70, label %61, label %.critedge2, !llvm.loop !80
 
-.critedge2:                                       ; preds = %61, %28, %.preheader, %Vec_PtrPush.exit.i
+.critedge2:                                       ; preds = %61, %28, %2, %.preheader, %Vec_PtrPush.exit.i
   ret void
 }
 

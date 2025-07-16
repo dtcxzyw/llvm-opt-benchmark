@@ -452,10 +452,11 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   %97 = phi i64 [ %95, %..critedge.loopexit_crit_edge ], [ %31, %.lr.ph.preheader ], [ %95, %.lr.ph ]
   %.pre = load ptr, ptr %10, align 8, !tbaa !25
   %.pre96 = load ptr, ptr %9, align 8, !tbaa !23
+  %98 = icmp eq i64 %31, %97
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %28
-  %98 = phi i64 [ %97, %.critedge.loopexit ], [ %31, %28 ]
+  %.not64 = phi i1 [ %98, %.critedge.loopexit ], [ true, %28 ]
   %99 = phi ptr [ %.pre96, %.critedge.loopexit ], [ %29, %28 ]
   %100 = phi ptr [ %.pre, %.critedge.loopexit ], [ %29, %28 ]
   %101 = ptrtoint ptr %100 to i64
@@ -471,7 +472,6 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   br i1 %108, label %109, label %122
 
 109:                                              ; preds = %.critedge
-  %.not64 = icmp eq i64 %31, %98
   br i1 %.not64, label %121, label %110
 
 110:                                              ; preds = %109

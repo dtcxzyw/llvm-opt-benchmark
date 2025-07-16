@@ -1446,20 +1446,20 @@ qrx_process_datagram.exit.thread.i.i:             ; preds = %PACKET_buf_init.exi
 qrx_process_datagram.exit.i.i:                    ; preds = %408, %53
   %.013.i.ph.i.i = phi i32 [ %.01225.i.i.i, %53 ], [ %409, %408 ]
   %.pre.i.i = load ptr, ptr %12, align 8, !tbaa !48
-  %411 = icmp eq i32 %.013.i.ph.i.i, 0
+  %411 = icmp eq ptr %.pre.i.i, %.val30.i
+  %412 = icmp eq i32 %.013.i.ph.i.i, 0
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
-  %412 = icmp eq ptr %.pre.i.i, %.val30.i
-  br i1 %412, label %413, label %415
+  br i1 %411, label %413, label %415
 
 413:                                              ; preds = %qrx_process_datagram.exit.i.i, %qrx_process_datagram.exit.thread.i.i
-  %.013.i32.i.i = phi i1 [ true, %qrx_process_datagram.exit.thread.i.i ], [ %411, %qrx_process_datagram.exit.i.i ]
+  %.013.i32.i.i = phi i1 [ true, %qrx_process_datagram.exit.thread.i.i ], [ %412, %qrx_process_datagram.exit.i.i ]
   %414 = load ptr, ptr %.val30.i, align 8, !tbaa !49
   store ptr %414, ptr %12, align 8, !tbaa !48
   br label %415
 
 415:                                              ; preds = %413, %qrx_process_datagram.exit.i.i
-  %.013.i31.i.i = phi i1 [ %.013.i32.i.i, %413 ], [ %411, %qrx_process_datagram.exit.i.i ]
+  %.013.i31.i.i = phi i1 [ %.013.i32.i.i, %413 ], [ %412, %qrx_process_datagram.exit.i.i ]
   %416 = load ptr, ptr %32, align 8, !tbaa !52
   %417 = icmp eq ptr %416, %.val30.i
   %418 = getelementptr inbounds nuw i8, ptr %.val30.i, i64 8

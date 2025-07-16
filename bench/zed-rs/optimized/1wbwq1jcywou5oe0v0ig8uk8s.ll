@@ -6466,7 +6466,7 @@ _ZN4text14BufferSnapshot14text_for_range17h7a31a193af91d49eE.exit.i: ; preds = %
           cleanup
   br label %.body103.i
 
-.loopexit.split-lp.i:                             ; preds = %344, %343, %290, %287, %.noexc101.i, %285, %.thread124.thread.i, %251, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h532f5af5f7a5c5f6E.exit98.i"
+.loopexit.split-lp.i:                             ; preds = %344, %343, %290, %287, %.noexc101.i, %285, %.thread124.i, %251, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h532f5af5f7a5c5f6E.exit98.i"
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body103.i
@@ -6499,7 +6499,7 @@ _ZN4text14BufferSnapshot14text_for_range17h7a31a193af91d49eE.exit.i: ; preds = %
   %.sroa.04.0162.i = phi i64 [ 0, %.lr.ph.i ], [ %365, %361 ]
   %.sroa.0.0161.i = phi i64 [ 0, %.lr.ph.i ], [ %363, %361 ]
   %exitcond.not.i = icmp eq i64 %.sroa.0.0161.i, %256
-  br i1 %exitcond.not.i, label %.thread124.thread.i, label %265
+  br i1 %exitcond.not.i, label %.thread124.i, label %265
 
 265:                                              ; preds = %264
   %.idx128.i = shl nsw i64 %.sroa.04.0162.i, 4
@@ -6542,19 +6542,19 @@ _ZN4text14BufferSnapshot14text_for_range17h7a31a193af91d49eE.exit.i: ; preds = %
   %282 = icmp eq i64 %.sroa.02.018.us.i.i, 0
   br i1 %282, label %361, label %334
 
-.thread122.i:                                     ; preds = %265, %361, %"_ZN10supermaven30supermaven_completion_provider26completion_state_from_diff28_$u7b$$u7b$closure$u7d$$u7d$17hf6dc1da92bf13c29E.exit.thread.us.i.i", %303, %.preheader.i
+.thread122.i:                                     ; preds = %361, %265, %"_ZN10supermaven30supermaven_completion_provider26completion_state_from_diff28_$u7b$$u7b$closure$u7d$$u7d$17hf6dc1da92bf13c29E.exit.thread.us.i.i", %303, %.preheader.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !882
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !882
   %283 = invoke noundef nonnull ptr @"_ZN65_$LT$rope..Rope$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h276218c60d5df810E"(ptr noalias noundef nonnull readonly align 1 %60, i64 noundef %switch.i)
           to label %309 unwind label %307, !noalias !887
 
-.thread124.thread.i:                              ; preds = %264
+.thread124.i:                                     ; preds = %264
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %16), !noalias !882
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !882
   %284 = invoke noundef align 8 dereferenceable(104) ptr @"_ZN76_$LT$language..buffer..BufferSnapshot$u20$as$u20$core..ops..deref..Deref$GT$5deref17ha0e77dc05ab79c69E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %36)
           to label %285 unwind label %.loopexit.split-lp.i, !noalias !887
 
-285:                                              ; preds = %.thread124.thread.i
+285:                                              ; preds = %.thread124.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !882
   store i64 %.sroa.01.0163.i, ptr %8, align 8, !noalias !943
   %286 = invoke noundef i64 @"_ZN40_$LT$usize$u20$as$u20$text..ToOffset$GT$9to_offset17hda642f81ebac2c8aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %284)

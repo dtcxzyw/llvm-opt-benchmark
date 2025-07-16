@@ -2498,7 +2498,7 @@ define internal fastcc range(i32 0, 2) i32 @r_check_vowel_harmony(ptr noundef %0
   store i32 %16, ptr %4, align 8
   %21 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel1, i32 noundef 97, i32 noundef 305, i32 noundef 1) #3
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %._crit_edge, label %88
+  br i1 %22, label %._crit_edge, label %86
 
 ._crit_edge:                                      ; preds = %20
   %.pre = load i32, ptr %2, align 4
@@ -2526,7 +2526,7 @@ define internal fastcc range(i32 0, 2) i32 @r_check_vowel_harmony(ptr noundef %0
   store i32 %29, ptr %4, align 8
   %34 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel2, i32 noundef 101, i32 noundef 252, i32 noundef 1) #3
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %._crit_edge92, label %88
+  br i1 %35, label %._crit_edge92, label %86
 
 ._crit_edge92:                                    ; preds = %33
   %.pre93 = load i32, ptr %2, align 4
@@ -2543,7 +2543,7 @@ define internal fastcc range(i32 0, 2) i32 @r_check_vowel_harmony(ptr noundef %0
 38:                                               ; preds = %36
   %39 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel3, i32 noundef 97, i32 noundef 305, i32 noundef 1) #3
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %41, label %88
+  br i1 %40, label %41, label %86
 
 41:                                               ; preds = %38, %36
   %42 = load i32, ptr %2, align 4
@@ -2551,7 +2551,7 @@ define internal fastcc range(i32 0, 2) i32 @r_check_vowel_harmony(ptr noundef %0
   store i32 %43, ptr %4, align 8
   %44 = load i32, ptr %12, align 8
   %.not77 = icmp sgt i32 %43, %44
-  br i1 %.not77, label %45, label %54
+  br i1 %.not77, label %45, label %.thread111
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %0, align 8
@@ -2560,108 +2560,104 @@ define internal fastcc range(i32 0, 2) i32 @r_check_vowel_harmony(ptr noundef %0
   %49 = getelementptr inbounds i8, ptr %46, i64 %48
   %50 = load i8, ptr %49, align 1
   %.not78 = icmp eq i8 %50, 105
-  br i1 %.not78, label %51, label %54
+  br i1 %.not78, label %51, label %.thread
 
 51:                                               ; preds = %45
   store i32 %47, ptr %4, align 8
   %52 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel4, i32 noundef 101, i32 noundef 105, i32 noundef 1) #3
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %._crit_edge94, label %88
+  br i1 %53, label %54, label %86
 
-._crit_edge94:                                    ; preds = %51
+54:                                               ; preds = %51
   %.pre95 = load i32, ptr %2, align 4
   %.pre96 = load i32, ptr %12, align 8
   %.pre102 = sub i32 %.pre95, %11
-  br label %54
+  %55 = icmp sgt i32 %.pre102, %.pre96
+  store i32 %.pre102, ptr %4, align 8
+  br i1 %55, label %.thread, label %.thread111
 
-54:                                               ; preds = %._crit_edge94, %41, %45
-  %.pre-phi103 = phi i32 [ %.pre102, %._crit_edge94 ], [ %43, %41 ], [ %43, %45 ]
-  %55 = phi i32 [ %.pre96, %._crit_edge94 ], [ %44, %41 ], [ %44, %45 ]
-  store i32 %.pre-phi103, ptr %4, align 8
-  %.not79 = icmp sgt i32 %.pre-phi103, %55
-  br i1 %.not79, label %56, label %65
+.thread:                                          ; preds = %45, %54
+  %.pre-phi103110 = phi i32 [ %.pre102, %54 ], [ %43, %45 ]
+  %56 = load ptr, ptr %0, align 8
+  %57 = add nsw i32 %.pre-phi103110, -1
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %56, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %.not80 = icmp eq i8 %60, 111
+  br i1 %.not80, label %61, label %.thread111
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %0, align 8
-  %58 = add nsw i32 %.pre-phi103, -1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %57, i64 %59
-  %61 = load i8, ptr %60, align 1
-  %.not80 = icmp eq i8 %61, 111
-  br i1 %.not80, label %62, label %65
+61:                                               ; preds = %.thread
+  store i32 %57, ptr %4, align 8
+  %62 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel5, i32 noundef 111, i32 noundef 117, i32 noundef 1) #3
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %._crit_edge97, label %86
 
-62:                                               ; preds = %56
-  store i32 %58, ptr %4, align 8
-  %63 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel5, i32 noundef 111, i32 noundef 117, i32 noundef 1) #3
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %._crit_edge97, label %88
-
-._crit_edge97:                                    ; preds = %62
+._crit_edge97:                                    ; preds = %61
   %.pre98 = load i32, ptr %2, align 4
   %.pre104 = sub i32 %.pre98, %11
-  br label %65
+  br label %.thread111
 
-65:                                               ; preds = %._crit_edge97, %54, %56
-  %.pre-phi105 = phi i32 [ %.pre104, %._crit_edge97 ], [ %.pre-phi103, %54 ], [ %.pre-phi103, %56 ]
+.thread111:                                       ; preds = %41, %._crit_edge97, %54, %.thread
+  %.pre-phi105 = phi i32 [ %.pre104, %._crit_edge97 ], [ %.pre102, %54 ], [ %.pre-phi103110, %.thread ], [ %43, %41 ]
   store i32 %.pre-phi105, ptr %4, align 8
-  %66 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_1) #3
-  %.not81 = icmp eq i32 %66, 0
-  br i1 %.not81, label %70, label %67
+  %64 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_1) #3
+  %.not81 = icmp eq i32 %64, 0
+  br i1 %.not81, label %68, label %65
 
-67:                                               ; preds = %65
-  %68 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel6, i32 noundef 246, i32 noundef 252, i32 noundef 1) #3
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %88
+65:                                               ; preds = %.thread111
+  %66 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel6, i32 noundef 246, i32 noundef 252, i32 noundef 1) #3
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %68, label %86
 
-70:                                               ; preds = %67, %65
-  %71 = load i32, ptr %2, align 4
-  %72 = sub i32 %71, %11
-  store i32 %72, ptr %4, align 8
-  %73 = load i32, ptr %12, align 8
-  %.not82 = icmp sgt i32 %72, %73
-  br i1 %.not82, label %74, label %83
+68:                                               ; preds = %65, %.thread111
+  %69 = load i32, ptr %2, align 4
+  %70 = sub i32 %69, %11
+  store i32 %70, ptr %4, align 8
+  %71 = load i32, ptr %12, align 8
+  %.not82 = icmp sgt i32 %70, %71
+  br i1 %.not82, label %72, label %81
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %0, align 8
-  %76 = add nsw i32 %72, -1
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %75, i64 %77
-  %79 = load i8, ptr %78, align 1
-  %.not83 = icmp eq i8 %79, 117
-  br i1 %.not83, label %80, label %83
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %0, align 8
+  %74 = add nsw i32 %70, -1
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i8, ptr %73, i64 %75
+  %77 = load i8, ptr %76, align 1
+  %.not83 = icmp eq i8 %77, 117
+  br i1 %.not83, label %78, label %81
 
-80:                                               ; preds = %74
-  store i32 %76, ptr %4, align 8
-  %81 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel5, i32 noundef 111, i32 noundef 117, i32 noundef 1) #3
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %._crit_edge99, label %88
+78:                                               ; preds = %72
+  store i32 %74, ptr %4, align 8
+  %79 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel5, i32 noundef 111, i32 noundef 117, i32 noundef 1) #3
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %._crit_edge99, label %86
 
-._crit_edge99:                                    ; preds = %80
+._crit_edge99:                                    ; preds = %78
   %.pre100 = load i32, ptr %2, align 4
   %.pre106 = sub i32 %.pre100, %11
-  br label %83
+  br label %81
 
-83:                                               ; preds = %._crit_edge99, %70, %74
-  %.pre-phi107 = phi i32 [ %.pre106, %._crit_edge99 ], [ %72, %70 ], [ %72, %74 ]
+81:                                               ; preds = %._crit_edge99, %68, %72
+  %.pre-phi107 = phi i32 [ %.pre106, %._crit_edge99 ], [ %70, %68 ], [ %70, %72 ]
   store i32 %.pre-phi107, ptr %4, align 8
-  %84 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_2) #3
-  %.not84 = icmp eq i32 %84, 0
-  br i1 %.not84, label %.thread87, label %85
+  %82 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_2) #3
+  %.not84 = icmp eq i32 %82, 0
+  br i1 %.not84, label %.thread87, label %83
 
-85:                                               ; preds = %83
-  %86 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel6, i32 noundef 246, i32 noundef 252, i32 noundef 1) #3
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %.thread87, label %88
+83:                                               ; preds = %81
+  %84 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel6, i32 noundef 246, i32 noundef 252, i32 noundef 1) #3
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %.thread87, label %86
 
-88:                                               ; preds = %20, %33, %38, %51, %62, %67, %80, %85
-  %89 = load i32, ptr %2, align 4
-  %90 = add i32 %.neg, %89
-  store i32 %90, ptr %4, align 8
+86:                                               ; preds = %20, %33, %38, %51, %61, %65, %78, %83
+  %87 = load i32, ptr %2, align 4
+  %88 = add i32 %.neg, %87
+  store i32 %88, ptr %4, align 8
   br label %.thread87
 
-.thread87:                                        ; preds = %85, %83, %1, %88
-  %91 = phi i32 [ 1, %88 ], [ 0, %1 ], [ 0, %83 ], [ 0, %85 ]
-  ret i32 %91
+.thread87:                                        ; preds = %83, %81, %1, %86
+  %89 = phi i32 [ 1, %86 ], [ 0, %1 ], [ 0, %81 ], [ 0, %83 ]
+  ret i32 %89
 }
 
 declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

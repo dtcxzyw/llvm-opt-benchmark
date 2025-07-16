@@ -259,7 +259,7 @@ define i64 @rsock_sock_s_socketpair(i32 noundef %0, ptr noundef readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %6, ptr %10, align 8, !tbaa !19
   %11 = icmp slt i32 %0, 2
-  br i1 %11, label %23, label %.preheader20
+  br i1 %11, label %22, label %.preheader20
 
 .preheader20:                                     ; preds = %3, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %3 ]
@@ -281,96 +281,95 @@ define i64 @rsock_sock_s_socketpair(i32 noundef %0, ptr noundef readonly capture
 
 .preheader:                                       ; preds = %17
   %.not33 = icmp eq i32 %0, 2
-  br i1 %.not33, label %21, label %18
+  br i1 %.not33, label %rb_scan_args_set.exit.critedge, label %18
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !10
-  br label %21
+  %21 = icmp eq i32 %0, 3
+  store i64 %20, ptr %6, align 8, !tbaa !10
+  br i1 %21, label %rb_scan_args_set.exit, label %22
 
-21:                                               ; preds = %.preheader, %18
-  %.sink = phi i64 [ %20, %18 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 3, %18 ], [ 2, %.preheader ]
-  store i64 %.sink, ptr %6, align 8, !tbaa !10
-  %22 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %22, label %rb_scan_args_set.exit, label %23
-
-23:                                               ; preds = %21, %3
+22:                                               ; preds = %18, %3
   call void @rb_error_arity(i32 noundef %0, i32 noundef 2, i32 noundef 3) #18
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %21
-  %24 = load i64, ptr %6, align 8, !tbaa !10
-  %25 = icmp eq i64 %24, 4
-  br i1 %25, label %26, label %27
+rb_scan_args_set.exit.critedge:                   ; preds = %.preheader
+  store i64 4, ptr %6, align 8, !tbaa !10
+  br label %rb_scan_args_set.exit
 
-26:                                               ; preds = %rb_scan_args_set.exit
+rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.exit.critedge, %18
+  %23 = load i64, ptr %6, align 8, !tbaa !10
+  %24 = icmp eq i64 %23, 4
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %rb_scan_args_set.exit
   store i64 1, ptr %6, align 8, !tbaa !10
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %rb_scan_args_set.exit
-  %28 = load i64, ptr %4, align 8, !tbaa !10
-  %29 = load i64, ptr %5, align 8, !tbaa !10
-  %30 = call i32 @rsock_family_arg(i64 noundef %28) #16
-  %31 = call i32 @rsock_socktype_arg(i64 noundef %29) #16
-  %32 = load i64, ptr %6, align 8, !tbaa !10
-  %33 = and i64 %32, 1
-  %.not.i12 = icmp eq i64 %33, 0
-  br i1 %.not.i12, label %36, label %34
+26:                                               ; preds = %25, %rb_scan_args_set.exit
+  %27 = load i64, ptr %4, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = call i32 @rsock_family_arg(i64 noundef %27) #16
+  %30 = call i32 @rsock_socktype_arg(i64 noundef %28) #16
+  %31 = load i64, ptr %6, align 8, !tbaa !10
+  %32 = and i64 %31, 1
+  %.not.i12 = icmp eq i64 %32, 0
+  br i1 %.not.i12, label %35, label %33
 
-34:                                               ; preds = %27
-  %35 = call i64 @rb_fix2int(i64 noundef %32) #16
+33:                                               ; preds = %26
+  %34 = call i64 @rb_fix2int(i64 noundef %31) #16
   br label %rb_num2int_inline.exit
 
-36:                                               ; preds = %27
-  %37 = call i64 @rb_num2int(i64 noundef %32) #16
+35:                                               ; preds = %26
+  %36 = call i64 @rb_num2int(i64 noundef %31) #16
   br label %rb_num2int_inline.exit
 
-rb_num2int_inline.exit:                           ; preds = %34, %36
-  %.0.i13 = phi i64 [ %35, %34 ], [ %37, %36 ]
-  %38 = trunc i64 %.0.i13 to i32
-  %39 = or i32 %31, 526336
-  %40 = call i32 @socketpair(i32 noundef %30, i32 noundef %39, i32 noundef %38, ptr noundef nonnull %7) #16
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %42, label %rsock_socketpair.exit.thread18
+rb_num2int_inline.exit:                           ; preds = %33, %35
+  %.0.i13 = phi i64 [ %34, %33 ], [ %36, %35 ]
+  %37 = trunc i64 %.0.i13 to i32
+  %38 = or i32 %30, 526336
+  %39 = call i32 @socketpair(i32 noundef %29, i32 noundef %38, i32 noundef %37, ptr noundef nonnull %7) #16
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %rsock_socketpair.exit.thread18
 
-42:                                               ; preds = %rb_num2int_inline.exit
-  %43 = call ptr @rb_errno_ptr() #16
-  %44 = load i32, ptr %43, align 4, !tbaa !6
-  %45 = call i32 @rb_gc_for_fd(i32 noundef %44) #16
-  %.not.i15 = icmp eq i32 %45, 0
+41:                                               ; preds = %rb_num2int_inline.exit
+  %42 = call ptr @rb_errno_ptr() #16
+  %43 = load i32, ptr %42, align 4, !tbaa !6
+  %44 = call i32 @rb_gc_for_fd(i32 noundef %43) #16
+  %.not.i15 = icmp eq i32 %44, 0
   br i1 %.not.i15, label %rsock_socketpair.exit.thread, label %rsock_socketpair.exit
 
-rsock_socketpair.exit:                            ; preds = %42
-  %46 = call i32 @socketpair(i32 noundef %30, i32 noundef %39, i32 noundef %38, ptr noundef nonnull %7) #16
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %rsock_socketpair.exit.thread, label %rsock_socketpair.exit.thread18
+rsock_socketpair.exit:                            ; preds = %41
+  %45 = call i32 @socketpair(i32 noundef %29, i32 noundef %38, i32 noundef %37, ptr noundef nonnull %7) #16
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %rsock_socketpair.exit.thread, label %rsock_socketpair.exit.thread18
 
-rsock_socketpair.exit.thread:                     ; preds = %42, %rsock_socketpair.exit
-  %48 = call ptr @rb_errno_ptr() #16
-  %49 = load i32, ptr %48, align 4, !tbaa !6
-  call void @rb_syserr_fail(i32 noundef %49, ptr noundef nonnull @.str.4) #18
+rsock_socketpair.exit.thread:                     ; preds = %41, %rsock_socketpair.exit
+  %47 = call ptr @rb_errno_ptr() #16
+  %48 = load i32, ptr %47, align 4, !tbaa !6
+  call void @rb_syserr_fail(i32 noundef %48, ptr noundef nonnull @.str.4) #18
   unreachable
 
 rsock_socketpair.exit.thread18:                   ; preds = %rb_num2int_inline.exit, %rsock_socketpair.exit
-  %50 = call i64 @rb_obj_alloc(i64 noundef %2) #16
-  %51 = load i32, ptr %7, align 4, !tbaa !6
-  %52 = call i64 @rsock_init_sock(i64 noundef %50, i32 noundef %51) #16
-  %53 = call i64 @rb_obj_alloc(i64 noundef %2) #16
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !6
-  %56 = call i64 @rsock_init_sock(i64 noundef %53, i32 noundef %55) #16
-  %57 = call i64 @rb_assoc_new(i64 noundef %52, i64 noundef %56) #16
-  %58 = call i32 @rb_block_given_p() #16
-  %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %61, label %59
+  %49 = call i64 @rb_obj_alloc(i64 noundef %2) #16
+  %50 = load i32, ptr %7, align 4, !tbaa !6
+  %51 = call i64 @rsock_init_sock(i64 noundef %49, i32 noundef %50) #16
+  %52 = call i64 @rb_obj_alloc(i64 noundef %2) #16
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %54 = load i32, ptr %53, align 4, !tbaa !6
+  %55 = call i64 @rsock_init_sock(i64 noundef %52, i32 noundef %54) #16
+  %56 = call i64 @rb_assoc_new(i64 noundef %51, i64 noundef %55) #16
+  %57 = call i32 @rb_block_given_p() #16
+  %.not = icmp eq i32 %57, 0
+  br i1 %.not, label %60, label %58
 
-59:                                               ; preds = %rsock_socketpair.exit.thread18
-  %60 = call i64 @rb_ensure(ptr noundef nonnull @pair_yield, i64 noundef %57, ptr noundef nonnull @io_close, i64 noundef %52) #16
-  br label %61
+58:                                               ; preds = %rsock_socketpair.exit.thread18
+  %59 = call i64 @rb_ensure(ptr noundef nonnull @pair_yield, i64 noundef %56, ptr noundef nonnull @io_close, i64 noundef %51) #16
+  br label %60
 
-61:                                               ; preds = %rsock_socketpair.exit.thread18, %59
-  %.0 = phi i64 [ %60, %59 ], [ %57, %rsock_socketpair.exit.thread18 ]
+60:                                               ; preds = %rsock_socketpair.exit.thread18, %58
+  %.0 = phi i64 [ %59, %58 ], [ %56, %rsock_socketpair.exit.thread18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
@@ -668,7 +667,7 @@ define internal i64 @sock_initialize(i32 noundef %0, ptr noundef readonly captur
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %9, align 8, !tbaa !19
   %10 = icmp slt i32 %0, 2
-  br i1 %10, label %22, label %.preheader8
+  br i1 %10, label %21, label %.preheader8
 
 .preheader8:                                      ; preds = %3, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %3 ]
@@ -690,70 +689,69 @@ define internal i64 @sock_initialize(i32 noundef %0, ptr noundef readonly captur
 
 .preheader:                                       ; preds = %16
   %.not = icmp eq i32 %0, 2
-  br i1 %.not, label %20, label %17
+  br i1 %.not, label %rb_scan_args_set.exit.critedge, label %17
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !10
-  br label %20
+  %20 = icmp eq i32 %0, 3
+  store i64 %19, ptr %6, align 8, !tbaa !10
+  br i1 %20, label %rb_scan_args_set.exit, label %21
 
-20:                                               ; preds = %.preheader, %17
-  %.sink = phi i64 [ %19, %17 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 3, %17 ], [ 2, %.preheader ]
-  store i64 %.sink, ptr %6, align 8, !tbaa !10
-  %21 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %21, label %rb_scan_args_set.exit, label %22
-
-22:                                               ; preds = %20, %3
+21:                                               ; preds = %17, %3
   call void @rb_error_arity(i32 noundef %0, i32 noundef 2, i32 noundef 3) #18
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %20
-  %23 = load i64, ptr %6, align 8, !tbaa !10
-  %24 = icmp eq i64 %23, 4
-  br i1 %24, label %25, label %26
+rb_scan_args_set.exit.critedge:                   ; preds = %.preheader
+  store i64 4, ptr %6, align 8, !tbaa !10
+  br label %rb_scan_args_set.exit
 
-25:                                               ; preds = %rb_scan_args_set.exit
+rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.exit.critedge, %17
+  %22 = load i64, ptr %6, align 8, !tbaa !10
+  %23 = icmp eq i64 %22, 4
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %rb_scan_args_set.exit
   store i64 1, ptr %6, align 8, !tbaa !10
-  br label %26
+  br label %25
 
-26:                                               ; preds = %25, %rb_scan_args_set.exit
-  %27 = load i64, ptr %4, align 8, !tbaa !10
-  %28 = load i64, ptr %5, align 8, !tbaa !10
-  %29 = call i32 @rsock_family_arg(i64 noundef %27) #16
-  %30 = call i32 @rsock_socktype_arg(i64 noundef %28) #16
-  %31 = load i64, ptr %6, align 8, !tbaa !10
-  %32 = and i64 %31, 1
-  %.not.i5 = icmp eq i64 %32, 0
-  br i1 %.not.i5, label %35, label %33
+25:                                               ; preds = %24, %rb_scan_args_set.exit
+  %26 = load i64, ptr %4, align 8, !tbaa !10
+  %27 = load i64, ptr %5, align 8, !tbaa !10
+  %28 = call i32 @rsock_family_arg(i64 noundef %26) #16
+  %29 = call i32 @rsock_socktype_arg(i64 noundef %27) #16
+  %30 = load i64, ptr %6, align 8, !tbaa !10
+  %31 = and i64 %30, 1
+  %.not.i5 = icmp eq i64 %31, 0
+  br i1 %.not.i5, label %34, label %32
 
-33:                                               ; preds = %26
-  %34 = call i64 @rb_fix2int(i64 noundef %31) #16
+32:                                               ; preds = %25
+  %33 = call i64 @rb_fix2int(i64 noundef %30) #16
   br label %rb_num2int_inline.exit
 
-35:                                               ; preds = %26
-  %36 = call i64 @rb_num2int(i64 noundef %31) #16
+34:                                               ; preds = %25
+  %35 = call i64 @rb_num2int(i64 noundef %30) #16
   br label %rb_num2int_inline.exit
 
-rb_num2int_inline.exit:                           ; preds = %33, %35
-  %.0.i6 = phi i64 [ %34, %33 ], [ %36, %35 ]
-  %37 = trunc i64 %.0.i6 to i32
-  %38 = call i32 @rsock_socket(i32 noundef %29, i32 noundef %30, i32 noundef %37) #16
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %40, label %43
+rb_num2int_inline.exit:                           ; preds = %32, %34
+  %.0.i6 = phi i64 [ %33, %32 ], [ %35, %34 ]
+  %36 = trunc i64 %.0.i6 to i32
+  %37 = call i32 @rsock_socket(i32 noundef %28, i32 noundef %29, i32 noundef %36) #16
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %39, label %42
 
-40:                                               ; preds = %rb_num2int_inline.exit
-  %41 = call ptr @rb_errno_ptr() #16
-  %42 = load i32, ptr %41, align 4, !tbaa !6
-  call void @rb_syserr_fail(i32 noundef %42, ptr noundef nonnull @.str.39) #18
+39:                                               ; preds = %rb_num2int_inline.exit
+  %40 = call ptr @rb_errno_ptr() #16
+  %41 = load i32, ptr %40, align 4, !tbaa !6
+  call void @rb_syserr_fail(i32 noundef %41, ptr noundef nonnull @.str.39) #18
   unreachable
 
-43:                                               ; preds = %rb_num2int_inline.exit
-  %44 = call i64 @rsock_init_sock(i64 noundef %2, i32 noundef %38) #16
+42:                                               ; preds = %rb_num2int_inline.exit
+  %43 = call i64 @rsock_init_sock(i64 noundef %2, i32 noundef %37) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  ret i64 %44
+  ret i64 %43
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1360,30 +1358,30 @@ define internal i64 @sock_s_getservbyport(i32 noundef %0, ptr noundef readonly c
 .preheader:                                       ; preds = %3
   %6 = load i64, ptr %1, align 8, !tbaa !10
   %.not22 = icmp eq i32 %0, 1
-  br i1 %.not22, label %11, label %7
+  br i1 %.not22, label %12, label %7
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !10
   store i64 %9, ptr %4, align 8, !tbaa !10
   %10 = icmp eq i64 %9, 4
-  br label %12
+  %11 = icmp eq i32 %0, 2
+  br label %13
 
-11:                                               ; preds = %.preheader
+12:                                               ; preds = %.preheader
   store i64 4, ptr %4, align 8, !tbaa !10
-  br label %12
+  br label %13
 
-12:                                               ; preds = %7, %11
-  %13 = phi i1 [ %10, %7 ], [ true, %11 ]
-  %.185.i.lcssa = phi i32 [ 2, %7 ], [ 1, %11 ]
-  %14 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %14, label %rb_scan_args_set.exit, label %15
+13:                                               ; preds = %7, %12
+  %14 = phi i1 [ %10, %7 ], [ true, %12 ]
+  %.185.i.lcssa = phi i1 [ %11, %7 ], [ true, %12 ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %15
 
-15:                                               ; preds = %12, %3
+15:                                               ; preds = %13, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #18
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %12
+rb_scan_args_set.exit:                            ; preds = %13
   %16 = and i64 %6, 1
   %.not.i15 = icmp eq i64 %16, 0
   br i1 %.not.i15, label %19, label %17
@@ -1410,7 +1408,7 @@ rb_num2long_inline.exit:                          ; preds = %17, %19
   unreachable
 
 26:                                               ; preds = %rb_num2long_inline.exit
-  br i1 %13, label %29, label %27
+  br i1 %14, label %29, label %27
 
 27:                                               ; preds = %26
   %28 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #16

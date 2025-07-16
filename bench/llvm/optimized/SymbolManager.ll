@@ -1588,30 +1588,30 @@ _ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_d
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !115
   %.phi.trans.insert6 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %.pre7 = load i32, ptr %.phi.trans.insert6, align 4, !tbaa !117
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.not.i.i.not.i = icmp ult i32 %.pre, %.pre7
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit, label %14, !prof !157
+  %13 = icmp ult i32 %.pre, %.pre7
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %13, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit, label %15, !prof !157
 
-14:                                               ; preds = %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit
-  %15 = zext i32 %.pre to i64
-  %16 = add nuw nsw i64 %15, 1
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 8) #21
-  %.pre.i = load i32, ptr %13, align 8, !tbaa !115
+15:                                               ; preds = %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit
+  %16 = zext i32 %.pre to i64
+  %17 = add nuw nsw i64 %16, 1
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %18, i64 noundef %17, i64 noundef 8) #21
+  %.pre.i = load i32, ptr %14, align 8, !tbaa !115
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit: ; preds = %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit, %14
-  %18 = phi ptr [ %13, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit ], [ %13, %14 ], [ %12, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit.thread ]
-  %19 = phi ptr [ %7, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit ], [ %7, %14 ], [ %8, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit.thread ]
-  %20 = phi i32 [ %.pre, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit ], [ %.pre.i, %14 ], [ 0, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit.thread ]
-  %21 = load ptr, ptr %19, align 8, !tbaa !116
-  %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
-  %24 = ptrtoint ptr %2 to i64
-  store i64 %24, ptr %23, align 1
-  %25 = load i32, ptr %18, align 8, !tbaa !115
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %18, align 8, !tbaa !115
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit: ; preds = %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit, %15
+  %19 = phi ptr [ %14, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit ], [ %14, %15 ], [ %12, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit.thread ]
+  %20 = phi ptr [ %7, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit ], [ %7, %15 ], [ %8, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit.thread ]
+  %21 = phi i32 [ %.pre, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit ], [ %.pre.i, %15 ], [ 0, %_ZNSt10unique_ptrIN4llvm11SmallVectorIPKN5clang4ento7SymExprELj2EEESt14default_deleteIS7_EED2Ev.exit.thread ]
+  %22 = load ptr, ptr %20, align 8, !tbaa !116
+  %23 = zext i32 %21 to i64
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = ptrtoint ptr %2 to i64
+  store i64 %25, ptr %24, align 1
+  %26 = load i32, ptr %19, align 8, !tbaa !115
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %19, align 8, !tbaa !115
   ret void
 }
 

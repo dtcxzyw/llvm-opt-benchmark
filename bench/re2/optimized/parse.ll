@@ -2508,7 +2508,7 @@ if.else:                                          ; preds = %for.cond
 for.cond26.preheader:                             ; preds = %if.else
   %4 = load i32, ptr %nsub6, align 4
   %cmp27164 = icmp sgt i32 %4, 0
-  br i1 %cmp27164, label %while.cond.preheader, label %for.end
+  br i1 %cmp27164, label %while.cond.preheader, label %invoke.cont.i.i
 
 if.then15:                                        ; preds = %if.else
   %conv16 = sext i32 %3 to i64
@@ -2741,26 +2741,23 @@ if.end:                                           ; preds = %if.end.loopexit, %s
   %out.3 = phi i32 [ %out.2, %sw.epilog ], [ %39, %if.end.loopexit ]
   %i.3 = phi i32 [ %i.2, %sw.epilog ], [ %40, %if.end.loopexit ]
   %cmp27 = icmp slt i32 %i.3, %41
-  br i1 %cmp27, label %while.cond.preheader, label %for.end.loopexit, !llvm.loop !20
+  br i1 %cmp27, label %while.cond.preheader, label %for.end, !llvm.loop !20
 
-for.end.loopexit:                                 ; preds = %if.end
+for.end:                                          ; preds = %if.end
   %.pre192 = load ptr, ptr %splices10, align 8
   %.pre193 = load ptr, ptr %_M_finish.i.i62, align 8
-  br label %for.end
+  %42 = icmp eq ptr %.pre193, %.pre192
+  br i1 %42, label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit, label %invoke.cont.i.i
 
-for.end:                                          ; preds = %for.end.loopexit, %for.cond26.preheader
-  %42 = phi ptr [ %2, %for.cond26.preheader ], [ %.pre193, %for.end.loopexit ]
-  %43 = phi ptr [ %1, %for.cond26.preheader ], [ %.pre192, %for.end.loopexit ]
-  %out.0.lcssa = phi i32 [ 0, %for.cond26.preheader ], [ %out.3, %for.end.loopexit ]
-  %tobool.not.i.i = icmp eq ptr %42, %43
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %for.end
+invoke.cont.i.i:                                  ; preds = %for.cond26.preheader, %for.end
+  %out.0.lcssa197 = phi i32 [ %out.3, %for.end ], [ 0, %for.cond26.preheader ]
+  %43 = phi ptr [ %.pre192, %for.end ], [ %1, %for.cond26.preheader ]
   store ptr %43, ptr %_M_finish.i.i62, align 8
   br label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit:  ; preds = %for.end, %invoke.cont.i.i
-  store i32 %out.0.lcssa, ptr %nsub6, align 4
+  %out.0.lcssa198 = phi i32 [ %out.3, %for.end ], [ %out.0.lcssa197, %invoke.cont.i.i ]
+  store i32 %out.0.lcssa198, ptr %nsub6, align 4
   br label %if.end85
 
 if.end85:                                         ; preds = %for.cond, %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit
@@ -9152,72 +9149,70 @@ sw.epilog:                                        ; preds = %if.end10, %if.end75
   %42 = load ptr, ptr %_M_finish.i.i.i, align 8
   %43 = load ptr, ptr %_M_first3.i.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %42, %43
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
-if.then.i.i:                                      ; preds = %sw.epilog
+_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %sw.epilog
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %42, i64 -32
-  br label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
-
-if.else.i.i:                                      ; preds = %sw.epilog
-  call void @_ZdlPv(ptr noundef %43) #29
-  %44 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i66 = getelementptr inbounds i8, ptr %44, i64 -8
-  store ptr %add.ptr.i.i.i66, ptr %_M_node5.i.i.i.i, align 8
-  %45 = load ptr, ptr %add.ptr.i.i.i66, align 8
-  store ptr %45, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %45, i64 512
-  store ptr %add.ptr.i.i.i.i67, ptr %_M_last.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 480
-  br label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
-
-_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %46 = phi ptr [ %43, %if.then.i.i ], [ %45, %if.else.i.i ]
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %add.ptr8.i.i.i, %if.else.i.i ]
-  store ptr %storemerge.i.i, ptr %_M_finish.i.i.i, align 8
-  %47 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i69 = icmp eq ptr %storemerge.i.i, %47
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8
+  %44 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i69 = icmp eq ptr %incdec.ptr.i.i, %44
   br i1 %cmp.i.i.i69, label %return, label %if.end93
 
+_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread: ; preds = %sw.epilog
+  call void @_ZdlPv(ptr noundef %43) #29
+  %45 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %add.ptr.i.i.i66 = getelementptr inbounds i8, ptr %45, i64 -8
+  store ptr %add.ptr.i.i.i66, ptr %_M_node5.i.i.i.i, align 8
+  %46 = load ptr, ptr %add.ptr.i.i.i66, align 8
+  store ptr %46, ptr %_M_first3.i.i.i.i, align 8
+  %add.ptr.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %46, i64 512
+  store ptr %add.ptr.i.i.i.i67, ptr %_M_last.i.i.i, align 8
+  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 480
+  store ptr %add.ptr8.i.i.i, ptr %_M_finish.i.i.i, align 8
+  %47 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i6984 = icmp eq ptr %add.ptr8.i.i.i, %47
+  br i1 %cmp.i.i.i6984, label %return, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
+
 if.end93:                                         ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit
-  %cmp.i.i.i72 = icmp eq ptr %storemerge.i.i, %46
-  br i1 %cmp.i.i.i72, label %if.then.i.i.i74, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
+  %48 = icmp eq ptr %incdec.ptr.i.i, %43
+  br i1 %48, label %if.then.i.i.i74, label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
 
 if.then.i.i.i74:                                  ; preds = %if.end93
-  %48 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !72
-  %add.ptr.i.i.i76 = getelementptr inbounds i8, ptr %48, i64 -8
-  %49 = load ptr, ptr %add.ptr.i.i.i76, align 8
-  %add.ptr.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %49, i64 512
+  %49 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !72
+  %add.ptr.i.i.i76 = getelementptr inbounds i8, ptr %49, i64 -8
+  %50 = load ptr, ptr %add.ptr.i.i.i76, align 8
+  %add.ptr.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %50, i64 512
   br label %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
 
-_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78: ; preds = %if.end93, %if.then.i.i.i74
-  %50 = phi ptr [ %add.ptr.i.i.i.i77, %if.then.i.i.i74 ], [ %storemerge.i.i, %if.end93 ]
-  %child_args96 = getelementptr inbounds i8, ptr %50, i64 -8
-  %51 = load ptr, ptr %child_args96, align 8
-  %cmp97.not = icmp eq ptr %51, null
+_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78: ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread, %if.end93, %if.then.i.i.i74
+  %51 = phi ptr [ %add.ptr.i.i.i.i77, %if.then.i.i.i74 ], [ %incdec.ptr.i.i, %if.end93 ], [ %add.ptr8.i.i.i, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
+  %child_args96 = getelementptr inbounds i8, ptr %51, i64 -8
+  %52 = load ptr, ptr %child_args96, align 8
+  %cmp97.not = icmp eq ptr %52, null
   br i1 %cmp97.not, label %if.else103, label %if.then98
 
 if.then98:                                        ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
-  %n100 = getelementptr inbounds i8, ptr %50, i64 -24
-  %52 = load i32, ptr %n100, align 8
-  %idxprom101 = sext i32 %52 to i64
-  %arrayidx102 = getelementptr inbounds i32, ptr %51, i64 %idxprom101
+  %n100 = getelementptr inbounds i8, ptr %51, i64 -24
+  %53 = load i32, ptr %n100, align 8
+  %idxprom101 = sext i32 %53 to i64
+  %arrayidx102 = getelementptr inbounds i32, ptr %52, i64 %idxprom101
   store i32 %t.0, ptr %arrayidx102, align 4
   br label %if.end105
 
 if.else103:                                       ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3topEv.exit78
-  %child_arg104 = getelementptr inbounds i8, ptr %50, i64 -12
+  %child_arg104 = getelementptr inbounds i8, ptr %51, i64 -12
   store i32 %t.0, ptr %child_arg104, align 4
   br label %if.end105
 
 if.end105:                                        ; preds = %if.else103, %if.then98
-  %n106 = getelementptr inbounds i8, ptr %50, i64 -24
-  %53 = load i32, ptr %n106, align 8
-  %inc107 = add nsw i32 %53, 1
+  %n106 = getelementptr inbounds i8, ptr %51, i64 -24
+  %54 = load i32, ptr %n106, align 8
+  %inc107 = add nsw i32 %54, 1
   store i32 %inc107, ptr %n106, align 8
   br label %for.cond.backedge
 
-return:                                           ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit, %invoke.cont
-  %retval.0 = phi i32 [ %top_arg, %invoke.cont ], [ %t.0, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit ]
+return:                                           ; preds = %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread, %invoke.cont
+  %retval.0 = phi i32 [ %top_arg, %invoke.cont ], [ %t.0, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ], [ %t.0, %_ZNSt5stackIN3re29WalkStateIiEESt5dequeIS2_SaIS2_EEE3popEv.exit ]
   ret i32 %retval.0
 }
 

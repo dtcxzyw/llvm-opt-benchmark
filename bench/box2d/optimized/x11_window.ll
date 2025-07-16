@@ -3518,7 +3518,7 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
 
 .preheader29:                                     ; preds = %36
   %.not35 = icmp eq i64 %42, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  br i1 %.not35, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader29
   %43 = load ptr, ptr %9, align 8, !tbaa !128
@@ -3537,12 +3537,11 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   %exitcond.not = icmp eq i64 %50, %42
   br i1 %exitcond.not, label %._crit_edge.thread, label %45
 
-._crit_edge:                                      ; preds = %45, %.preheader29
-  %.021.lcssa = phi i64 [ 0, %.preheader29 ], [ %.02130, %45 ]
-  %51 = icmp eq i64 %.021.lcssa, %42
+._crit_edge:                                      ; preds = %45
+  %51 = icmp eq i64 %.02130, %42
   br i1 %51, label %._crit_edge.thread, label %.loopexit
 
-._crit_edge.thread:                               ; preds = %49, %._crit_edge
+._crit_edge.thread:                               ; preds = %49, %.preheader29, %._crit_edge
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %54 = load i64, ptr %17, align 8, !tbaa !140
@@ -3595,9 +3594,9 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   br i1 %.not26, label %.thread, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %.pr42 = phi ptr [ %.pr.pr, %.loopexit ], [ %58, %.preheader ]
+  %.pr44 = phi ptr [ %.pr.pr, %.loopexit ], [ %58, %.preheader ]
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
-  %78 = call i32 %77(ptr noundef nonnull %.pr42) #17
+  %78 = call i32 %77(ptr noundef nonnull %.pr44) #17
   br label %.thread
 
 .thread:                                          ; preds = %57, %.loopexit.thread, %.loopexit

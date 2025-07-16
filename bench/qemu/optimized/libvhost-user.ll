@@ -180,57 +180,68 @@ define dso_local ptr @vu_gpa_to_va(ptr noundef readonly captures(none) %0, ptr n
   %11 = load ptr, ptr %10, align 8
   br label %12
 
-12:                                               ; preds = %._crit_edge.i, %.lr.ph.i
-  %.02339.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %._crit_edge.i ]
-  %.02638.i = phi i32 [ %9, %.lr.ph.i ], [ %.228.i, %._crit_edge.i ]
+12:                                               ; preds = %24, %.lr.ph.i
+  %.02339.i = phi i32 [ 0, %.lr.ph.i ], [ %25, %24 ]
+  %.02638.i = phi i32 [ %9, %.lr.ph.i ], [ %.228.i, %24 ]
   %13 = sub i32 %.02638.i, %.02339.i
   %14 = sdiv i32 %13, 2
   %15 = add i32 %14, %.02339.i
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
-  %.not31.i = icmp uge i64 %2, %18
+  %.not31.i = icmp ult i64 %2, %18
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %.pre42.i = add i64 %.pre.i, %18
-  %19 = icmp ult i64 %2, %.pre42.i
-  %or.cond.i = select i1 %.not31.i, i1 %19, i1 false
-  br i1 %or.cond.i, label %vu_gpa_to_mem_region.exit, label %._crit_edge.i
+  %.pre42.fr.i = freeze i64 %.pre42.i
+  %19 = icmp ult i64 %2, %.pre42.fr.i
+  br i1 %.not31.i, label %22, label %20
 
-._crit_edge.i:                                    ; preds = %12
-  %20 = add i32 %15, 1
-  %spec.select.i = select i1 %19, i32 %.02339.i, i32 %20
-  %21 = add i32 %15, -1
-  %.228.i = select i1 %.not31.i, i32 %.02638.i, i32 %21
-  %.not.i = icmp sgt i32 %spec.select.i, %.228.i
+20:                                               ; preds = %12
+  br i1 %19, label %vu_gpa_to_mem_region.exit, label %.thread43.i
+
+.thread43.i:                                      ; preds = %20
+  %21 = add i32 %15, 1
+  br label %24
+
+22:                                               ; preds = %12
+  %23 = add i32 %15, 1
+  %spec.select.i = select i1 %19, i32 %.02339.i, i32 %23
+  br label %24
+
+24:                                               ; preds = %22, %.thread43.i
+  %25 = phi i32 [ %21, %.thread43.i ], [ %spec.select.i, %22 ]
+  %26 = add i32 %15, -1
+  %.228.i = select i1 %.not31.i, i32 %26, i32 %.02638.i
+  %.not.i = icmp sgt i32 %25, %.228.i
   br i1 %.not.i, label %vu_gpa_to_mem_region.exit.thread, label %12
 
-vu_gpa_to_mem_region.exit:                        ; preds = %12
-  %22 = add i64 %4, %2
-  %23 = icmp ugt i64 %22, %.pre42.i
-  br i1 %23, label %24, label %26
+vu_gpa_to_mem_region.exit:                        ; preds = %20
+  %27 = add i64 %4, %2
+  %28 = icmp ugt i64 %27, %.pre42.fr.i
+  br i1 %28, label %29, label %31
 
-24:                                               ; preds = %vu_gpa_to_mem_region.exit
-  %25 = sub i64 %.pre42.i, %2
-  store i64 %25, ptr %1, align 8
+29:                                               ; preds = %vu_gpa_to_mem_region.exit
+  %30 = sub i64 %.pre42.fr.i, %2
+  store i64 %30, ptr %1, align 8
   %.pre = load i64, ptr %17, align 8
-  br label %26
+  br label %31
 
-26:                                               ; preds = %24, %vu_gpa_to_mem_region.exit
-  %27 = phi i64 [ %.pre, %24 ], [ %18, %vu_gpa_to_mem_region.exit ]
-  %28 = inttoptr i64 %2 to ptr
-  %29 = sub i64 0, %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
+31:                                               ; preds = %29, %vu_gpa_to_mem_region.exit
+  %32 = phi i64 [ %.pre, %29 ], [ %18, %vu_gpa_to_mem_region.exit ]
+  %33 = inttoptr i64 %2 to ptr
+  %34 = sub i64 0, %32
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
   br label %vu_gpa_to_mem_region.exit.thread
 
-vu_gpa_to_mem_region.exit.thread:                 ; preds = %._crit_edge.i, %6, %3, %26
-  %.0 = phi ptr [ %36, %26 ], [ null, %3 ], [ null, %6 ], [ null, %._crit_edge.i ]
+vu_gpa_to_mem_region.exit.thread:                 ; preds = %24, %6, %3, %31
+  %.0 = phi ptr [ %41, %31 ], [ null, %3 ], [ null, %6 ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -1799,19 +1810,19 @@ vu_is_vq_usable.exit:                             ; preds = %.vu_is_vq_usable.ex
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %41
 
-.thread143:                                       ; preds = %129, %vu_is_vq_usable.exit
-  %.073.lcssa = phi i32 [ %10, %vu_is_vq_usable.exit ], [ %44, %129 ]
-  %.lcssa159 = phi i16 [ %32, %vu_is_vq_usable.exit ], [ %133, %129 ]
+.thread143:                                       ; preds = %134, %vu_is_vq_usable.exit
+  %.073.lcssa = phi i32 [ %10, %vu_is_vq_usable.exit ], [ %44, %134 ]
+  %.lcssa159 = phi i16 [ %32, %vu_is_vq_usable.exit ], [ %138, %134 ]
   %40 = zext i16 %.lcssa159 to i32
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.99, i32 noundef %.073.lcssa, i32 noundef %40)
   br label %vu_is_vq_usable.exit.thread
 
-41:                                               ; preds = %.lr.ph, %129
-  %42 = phi i16 [ %32, %.lr.ph ], [ %133, %129 ]
-  %.164207 = phi i32 [ 0, %.lr.ph ], [ %.4, %129 ]
-  %.166206 = phi i32 [ 0, %.lr.ph ], [ %.469, %129 ]
-  %.070205 = phi i32 [ 0, %.lr.ph ], [ %.272, %129 ]
-  %.073204 = phi i32 [ %10, %.lr.ph ], [ %44, %129 ]
+41:                                               ; preds = %.lr.ph, %134
+  %42 = phi i16 [ %32, %.lr.ph ], [ %138, %134 ]
+  %.164207 = phi i32 [ 0, %.lr.ph ], [ %.4, %134 ]
+  %.166206 = phi i32 [ 0, %.lr.ph ], [ %.469, %134 ]
+  %.070205 = phi i32 [ 0, %.lr.ph ], [ %.272, %134 ]
+  %.073204 = phi i32 [ %10, %.lr.ph ], [ %44, %134 ]
   %indvars260 = trunc i32 %.073204 to i16
   %.not.i90 = icmp eq i16 %42, %indvars260
   br i1 %.not.i90, label %vu_is_vq_usable.exit.thread, label %virtqueue_num_heads.exit
@@ -1884,174 +1895,185 @@ virtqueue_get_head.exit:                          ; preds = %virtqueue_num_heads
   %73 = load ptr, ptr %39, align 8
   br label %74
 
-74:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.02339.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %._crit_edge.i.i ]
-  %.02638.i.i = phi i32 [ %72, %.lr.ph.i.i ], [ %.228.i.i, %._crit_edge.i.i ]
+74:                                               ; preds = %86, %.lr.ph.i.i
+  %.02339.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %87, %86 ]
+  %.02638.i.i = phi i32 [ %72, %.lr.ph.i.i ], [ %.228.i.i, %86 ]
   %75 = sub i32 %.02638.i.i, %.02339.i.i
   %76 = sdiv i32 %75, 2
   %77 = add i32 %76, %.02339.i.i
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %73, i64 %78
   %80 = load i64, ptr %79, align 8
-  %.not31.i.i = icmp uge i64 %66, %80
+  %.not31.i.i = icmp ult i64 %66, %80
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %.pre42.i.i = add i64 %.pre.i.i, %80
-  %81 = icmp ult i64 %66, %.pre42.i.i
-  %or.cond.i.i = select i1 %.not31.i.i, i1 %81, i1 false
-  br i1 %or.cond.i.i, label %vu_gpa_to_mem_region.exit.i, label %._crit_edge.i.i
+  %.pre42.fr.i.i = freeze i64 %.pre42.i.i
+  %81 = icmp ult i64 %66, %.pre42.fr.i.i
+  br i1 %.not31.i.i, label %84, label %82
 
-._crit_edge.i.i:                                  ; preds = %74
-  %82 = add i32 %77, 1
-  %spec.select.i.i = select i1 %81, i32 %.02339.i.i, i32 %82
-  %83 = add i32 %77, -1
-  %.228.i.i = select i1 %.not31.i.i, i32 %.02638.i.i, i32 %83
-  %.not.i.i = icmp sgt i32 %spec.select.i.i, %.228.i.i
+82:                                               ; preds = %74
+  br i1 %81, label %vu_gpa_to_mem_region.exit.i, label %.thread43.i.i
+
+.thread43.i.i:                                    ; preds = %82
+  %83 = add i32 %77, 1
+  br label %86
+
+84:                                               ; preds = %74
+  %85 = add i32 %77, 1
+  %spec.select.i.i = select i1 %81, i32 %.02339.i.i, i32 %85
+  br label %86
+
+86:                                               ; preds = %84, %.thread43.i.i
+  %87 = phi i32 [ %83, %.thread43.i.i ], [ %spec.select.i.i, %84 ]
+  %88 = add i32 %77, -1
+  %.228.i.i = select i1 %.not31.i.i, i32 %88, i32 %.02638.i.i
+  %.not.i.i = icmp sgt i32 %87, %.228.i.i
   br i1 %.not.i.i, label %.thread, label %74
 
-vu_gpa_to_mem_region.exit.i:                      ; preds = %74
-  %84 = add i64 %66, %67
-  %85 = icmp ugt i64 %84, %.pre42.i.i
-  br i1 %85, label %vu_gpa_to_va.exit, label %vu_gpa_to_va.exit.thread117
+vu_gpa_to_mem_region.exit.i:                      ; preds = %82
+  %89 = add i64 %66, %67
+  %90 = icmp ugt i64 %89, %.pre42.fr.i.i
+  br i1 %90, label %vu_gpa_to_va.exit, label %vu_gpa_to_va.exit.thread117
 
 vu_gpa_to_va.exit.thread117:                      ; preds = %vu_gpa_to_mem_region.exit.i
-  %86 = inttoptr i64 %66 to ptr
-  %87 = sub i64 0, %80
-  %88 = getelementptr inbounds i8, ptr %86, i64 %87
-  %89 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %90
-  %92 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %93
-  br label %110
+  %91 = inttoptr i64 %66 to ptr
+  %92 = sub i64 0, %80
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %95 = load i64, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %98
+  br label %115
 
 vu_gpa_to_va.exit:                                ; preds = %vu_gpa_to_mem_region.exit.i
-  %95 = sub i64 %.pre42.i.i, %66
-  %96 = inttoptr i64 %66 to ptr
-  %97 = sub i64 0, %80
-  %98 = getelementptr inbounds i8, ptr %96, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %100
-  %102 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 %103
-  %105 = icmp ne i64 %66, 0
-  %106 = icmp ne i64 %95, %67
-  %107 = select i1 %105, i1 %106, i1 false
-  br i1 %107, label %108, label %110, !prof !9
+  %100 = sub i64 %.pre42.fr.i.i, %66
+  %101 = inttoptr i64 %66 to ptr
+  %102 = sub i64 0, %80
+  %103 = getelementptr inbounds i8, ptr %101, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %105
+  %107 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 %108
+  %110 = icmp ne i64 %66, 0
+  %111 = icmp ne i64 %100, %67
+  %112 = and i1 %110, %111
+  br i1 %112, label %113, label %115, !prof !9
 
-108:                                              ; preds = %vu_gpa_to_va.exit
-  %109 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %7, i64 noundef %66, i64 noundef %67)
-  %.not82 = icmp eq i32 %109, 0
+113:                                              ; preds = %vu_gpa_to_va.exit
+  %114 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %7, i64 noundef %66, i64 noundef %67)
+  %.not82 = icmp eq i32 %114, 0
   br i1 %.not82, label %.thread121, label %.thread
 
-110:                                              ; preds = %vu_gpa_to_va.exit.thread117, %vu_gpa_to_va.exit
-  %.1 = phi ptr [ %104, %vu_gpa_to_va.exit ], [ %94, %vu_gpa_to_va.exit.thread117 ]
+115:                                              ; preds = %vu_gpa_to_va.exit.thread117, %vu_gpa_to_va.exit
+  %.1 = phi ptr [ %109, %vu_gpa_to_va.exit ], [ %99, %vu_gpa_to_va.exit.thread117 ]
   %.not83 = icmp eq ptr %.1, null
   br i1 %.not83, label %.thread, label %.thread121
 
-.thread:                                          ; preds = %70, %64, %108, %110, %._crit_edge.i.i
+.thread:                                          ; preds = %70, %64, %113, %115, %86
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.49)
   br label %.thread131
 
-.thread121:                                       ; preds = %108, %110, %51
-  %.0107 = phi i32 [ %50, %51 ], [ 0, %110 ], [ 0, %108 ]
-  %.062 = phi i32 [ %43, %51 ], [ %68, %110 ], [ %68, %108 ]
-  %.060 = phi i32 [ %.070205, %51 ], [ 0, %110 ], [ 0, %108 ]
-  %.058 = phi ptr [ %52, %51 ], [ %.1, %110 ], [ %7, %108 ]
+.thread121:                                       ; preds = %113, %115, %51
+  %.0107 = phi i32 [ %50, %51 ], [ 0, %115 ], [ 0, %113 ]
+  %.062 = phi i32 [ %43, %51 ], [ %68, %115 ], [ %68, %113 ]
+  %.060 = phi i32 [ %.070205, %51 ], [ 0, %115 ], [ 0, %113 ]
+  %.058 = phi ptr [ %52, %51 ], [ %.1, %115 ], [ %7, %113 ]
   br label %virtqueue_read_next_desc.exit
 
-virtqueue_read_next_desc.exit:                    ; preds = %125, %.thread121
-  %.1108 = phi i32 [ %.0107, %.thread121 ], [ %128, %125 ]
-  %.368 = phi i32 [ %.166206, %.thread121 ], [ %.469, %125 ]
-  %.3 = phi i32 [ %.164207, %.thread121 ], [ %.4, %125 ]
-  %.161 = phi i32 [ %.060, %.thread121 ], [ %111, %125 ]
-  %111 = add i32 %.161, 1
-  %112 = icmp ugt i32 %111, %.062
-  br i1 %112, label %113, label %114
+virtqueue_read_next_desc.exit:                    ; preds = %130, %.thread121
+  %.1108 = phi i32 [ %.0107, %.thread121 ], [ %133, %130 ]
+  %.368 = phi i32 [ %.166206, %.thread121 ], [ %.469, %130 ]
+  %.3 = phi i32 [ %.164207, %.thread121 ], [ %.4, %130 ]
+  %.161 = phi i32 [ %.060, %.thread121 ], [ %116, %130 ]
+  %116 = add i32 %.161, 1
+  %117 = icmp ugt i32 %116, %.062
+  br i1 %117, label %118, label %119
 
-113:                                              ; preds = %virtqueue_read_next_desc.exit
+118:                                              ; preds = %virtqueue_read_next_desc.exit
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.48)
   br label %.thread131
 
-114:                                              ; preds = %virtqueue_read_next_desc.exit
-  %115 = zext nneg i32 %.1108 to i64
-  %116 = getelementptr inbounds nuw %struct.vring_desc, ptr %.058, i64 %115, i32 2
-  %117 = load i16, ptr %116, align 4
-  %118 = and i16 %117, 2
-  %.not84 = icmp eq i16 %118, 0
-  %119 = getelementptr inbounds nuw %struct.vring_desc, ptr %.058, i64 %115, i32 1
-  %120 = load i32, ptr %119, align 8
-  %121 = select i1 %.not84, i32 0, i32 %120
-  %.469 = add i32 %.368, %121
-  %122 = select i1 %.not84, i32 %120, i32 0
-  %.4 = add i32 %.3, %122
+119:                                              ; preds = %virtqueue_read_next_desc.exit
+  %120 = zext nneg i32 %.1108 to i64
+  %121 = getelementptr inbounds nuw %struct.vring_desc, ptr %.058, i64 %120, i32 2
+  %122 = load i16, ptr %121, align 4
+  %123 = and i16 %122, 2
+  %.not84 = icmp eq i16 %123, 0
+  %124 = getelementptr inbounds nuw %struct.vring_desc, ptr %.058, i64 %120, i32 1
+  %125 = load i32, ptr %124, align 8
+  %126 = select i1 %.not84, i32 0, i32 %125
+  %.469 = add i32 %.368, %126
+  %127 = select i1 %.not84, i32 %125, i32 0
+  %.4 = add i32 %.3, %127
   %.not85 = icmp ult i32 %.469, %4
   %.not86 = icmp ult i32 %.4, %5
   %or.cond = select i1 %.not85, i1 true, i1 %.not86
-  br i1 %or.cond, label %123, label %.thread136
+  br i1 %or.cond, label %128, label %.thread136
 
-.thread136:                                       ; preds = %114
+.thread136:                                       ; preds = %119
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7) #21
   br label %vu_is_vq_usable.exit.thread
 
-123:                                              ; preds = %114
-  %124 = and i16 %117, 1
-  %.not.i94 = icmp eq i16 %124, 0
-  br i1 %.not.i94, label %129, label %125
+128:                                              ; preds = %119
+  %129 = and i16 %122, 1
+  %.not.i94 = icmp eq i16 %129, 0
+  br i1 %.not.i94, label %134, label %130
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw %struct.vring_desc, ptr %.058, i64 %115, i32 3
-  %127 = load i16, ptr %126, align 2
-  %128 = zext i16 %127 to i32
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds nuw %struct.vring_desc, ptr %.058, i64 %120, i32 3
+  %132 = load i16, ptr %131, align 2
+  %133 = zext i16 %132 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   fence release
-  %.not10.i95 = icmp ugt i32 %.062, %128
+  %.not10.i95 = icmp ugt i32 %.062, %133
   br i1 %.not10.i95, label %virtqueue_read_next_desc.exit, label %virtqueue_read_next_desc.exit.thread127
 
-virtqueue_read_next_desc.exit.thread127:          ; preds = %125
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef %128)
+virtqueue_read_next_desc.exit.thread127:          ; preds = %130
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef %133)
   br label %.thread131
 
-.thread131:                                       ; preds = %61, %63, %113, %.thread, %virtqueue_get_head.exit, %virtqueue_read_next_desc.exit.thread127
+.thread131:                                       ; preds = %61, %63, %118, %.thread, %virtqueue_get_head.exit, %virtqueue_read_next_desc.exit.thread127
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7) #21
   br label %vu_is_vq_usable.exit.thread
 
-129:                                              ; preds = %123
-  %130 = add i32 %.070205, 1
-  %.272 = select i1 %.not, i32 %111, i32 %130
+134:                                              ; preds = %128
+  %135 = add i32 %.070205, 1
+  %.272 = select i1 %.not, i32 %116, i32 %135
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7) #21
-  %131 = load ptr, ptr %15, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
-  %133 = load i16, ptr %132, align 2
-  store i16 %133, ptr %30, align 2
-  %134 = sub i16 %133, %indvars
-  %135 = zext i16 %134 to i32
-  %136 = load i32, ptr %1, align 8
-  %137 = icmp ult i32 %136, %135
-  br i1 %137, label %.thread143, label %41
+  %136 = load ptr, ptr %15, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 2
+  %138 = load i16, ptr %137, align 2
+  store i16 %138, ptr %30, align 2
+  %139 = sub i16 %138, %indvars
+  %140 = zext i16 %139 to i32
+  %141 = load i32, ptr %1, align 8
+  %142 = icmp ult i32 %141, %140
+  br i1 %142, label %.thread143, label %41
 
 vu_is_vq_usable.exit.thread:                      ; preds = %41, %17, %20, %23, %6, %28, %.thread131, %.thread143, %.thread136
   %.065 = phi i32 [ %.469, %.thread136 ], [ 0, %.thread143 ], [ 0, %.thread131 ], [ 0, %28 ], [ 0, %6 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ %.166206, %41 ]
   %.063 = phi i32 [ %.4, %.thread136 ], [ 0, %.thread143 ], [ 0, %.thread131 ], [ 0, %28 ], [ 0, %6 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ %.164207, %41 ]
   %.not88 = icmp eq ptr %2, null
-  br i1 %.not88, label %139, label %138
+  br i1 %.not88, label %144, label %143
 
-138:                                              ; preds = %vu_is_vq_usable.exit.thread
+143:                                              ; preds = %vu_is_vq_usable.exit.thread
   store i32 %.065, ptr %2, align 4
-  br label %139
+  br label %144
 
-139:                                              ; preds = %138, %vu_is_vq_usable.exit.thread
+144:                                              ; preds = %143, %vu_is_vq_usable.exit.thread
   %.not89 = icmp eq ptr %3, null
-  br i1 %.not89, label %141, label %140
+  br i1 %.not89, label %146, label %145
 
-140:                                              ; preds = %139
+145:                                              ; preds = %144
   store i32 %.063, ptr %3, align 4
-  br label %141
+  br label %146
 
-141:                                              ; preds = %139, %140
+146:                                              ; preds = %144, %145
   ret void
 }
 
@@ -2098,10 +2120,10 @@ define internal fastcc range(i32 -1, 1) i32 @virtqueue_read_indirect_desc(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %22
-  %.031 = phi i64 [ %3, %.lr.ph ], [ %35, %22 ]
-  %.01230 = phi i64 [ %2, %.lr.ph ], [ %36, %22 ]
-  %.01329 = phi ptr [ %1, %.lr.ph ], [ %37, %22 ]
+8:                                                ; preds = %.lr.ph, %27
+  %.031 = phi i64 [ %3, %.lr.ph ], [ %40, %27 ]
+  %.01230 = phi i64 [ %2, %.lr.ph ], [ %41, %27 ]
+  %.01329 = phi ptr [ %1, %.lr.ph ], [ %42, %27 ]
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, -1
   %.not37.i.i = icmp slt i32 %10, 0
@@ -2111,58 +2133,69 @@ define internal fastcc range(i32 -1, 1) i32 @virtqueue_read_indirect_desc(ptr no
   %11 = load ptr, ptr %7, align 8
   br label %12
 
-12:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.02339.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %._crit_edge.i.i ]
-  %.02638.i.i = phi i32 [ %10, %.lr.ph.i.i ], [ %.228.i.i, %._crit_edge.i.i ]
+12:                                               ; preds = %24, %.lr.ph.i.i
+  %.02339.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %25, %24 ]
+  %.02638.i.i = phi i32 [ %10, %.lr.ph.i.i ], [ %.228.i.i, %24 ]
   %13 = sub i32 %.02638.i.i, %.02339.i.i
   %14 = sdiv i32 %13, 2
   %15 = add i32 %14, %.02339.i.i
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
-  %.not31.i.i = icmp uge i64 %.01230, %18
+  %.not31.i.i = icmp ult i64 %.01230, %18
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %.pre42.i.i = add i64 %.pre.i.i, %18
-  %19 = icmp ult i64 %.01230, %.pre42.i.i
-  %or.cond.i.i = select i1 %.not31.i.i, i1 %19, i1 false
-  br i1 %or.cond.i.i, label %vu_gpa_to_mem_region.exit.i, label %._crit_edge.i.i
+  %.pre42.fr.i.i = freeze i64 %.pre42.i.i
+  %19 = icmp ult i64 %.01230, %.pre42.fr.i.i
+  br i1 %.not31.i.i, label %22, label %20
 
-._crit_edge.i.i:                                  ; preds = %12
-  %20 = add i32 %15, 1
-  %spec.select.i.i = select i1 %19, i32 %.02339.i.i, i32 %20
-  %21 = add i32 %15, -1
-  %.228.i.i = select i1 %.not31.i.i, i32 %.02638.i.i, i32 %21
-  %.not.i.i = icmp sgt i32 %spec.select.i.i, %.228.i.i
+20:                                               ; preds = %12
+  br i1 %19, label %vu_gpa_to_mem_region.exit.i, label %.thread43.i.i
+
+.thread43.i.i:                                    ; preds = %20
+  %21 = add i32 %15, 1
+  br label %24
+
+22:                                               ; preds = %12
+  %23 = add i32 %15, 1
+  %spec.select.i.i = select i1 %19, i32 %.02339.i.i, i32 %23
+  br label %24
+
+24:                                               ; preds = %22, %.thread43.i.i
+  %25 = phi i32 [ %21, %.thread43.i.i ], [ %spec.select.i.i, %22 ]
+  %26 = add i32 %15, -1
+  %.228.i.i = select i1 %.not31.i.i, i32 %26, i32 %.02638.i.i
+  %.not.i.i = icmp sgt i32 %25, %.228.i.i
   br i1 %.not.i.i, label %vu_gpa_to_va.exit.thread, label %12
 
-vu_gpa_to_mem_region.exit.i:                      ; preds = %12
+vu_gpa_to_mem_region.exit.i:                      ; preds = %20
   %.not17 = icmp eq i64 %.01230, 0
-  br i1 %.not17, label %vu_gpa_to_va.exit.thread, label %22
+  br i1 %.not17, label %vu_gpa_to_va.exit.thread, label %27
 
-22:                                               ; preds = %vu_gpa_to_mem_region.exit.i
-  %23 = inttoptr i64 %.01230 to ptr
-  %24 = sub i64 0, %18
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
-  %32 = add i64 %.031, %.01230
-  %33 = icmp ugt i64 %32, %.pre42.i.i
-  %34 = sub nuw i64 %.pre42.i.i, %.01230
-  %spec.select = select i1 %33, i64 %34, i64 %.031
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.01329, ptr nonnull align 8 %31, i64 %spec.select, i1 false)
-  %35 = sub i64 %.031, %spec.select
-  %36 = add i64 %spec.select, %.01230
-  %37 = getelementptr inbounds nuw %struct.vring_desc, ptr %.01329, i64 %spec.select
-  %.not = icmp eq i64 %35, 0
+27:                                               ; preds = %vu_gpa_to_mem_region.exit.i
+  %28 = inttoptr i64 %.01230 to ptr
+  %29 = sub i64 0, %18
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
+  %37 = add i64 %.031, %.01230
+  %38 = icmp ugt i64 %37, %.pre42.fr.i.i
+  %39 = sub nuw i64 %.pre42.fr.i.i, %.01230
+  %spec.select = select i1 %38, i64 %39, i64 %.031
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.01329, ptr nonnull align 8 %36, i64 %spec.select, i1 false)
+  %40 = sub i64 %.031, %spec.select
+  %41 = add i64 %spec.select, %.01230
+  %42 = getelementptr inbounds nuw %struct.vring_desc, ptr %.01329, i64 %spec.select
+  %.not = icmp eq i64 %40, 0
   br i1 %.not, label %vu_gpa_to_va.exit.thread, label %8
 
-vu_gpa_to_va.exit.thread:                         ; preds = %vu_gpa_to_mem_region.exit.i, %22, %8, %._crit_edge.i.i, %4
-  %.014 = phi i32 [ -1, %4 ], [ -1, %._crit_edge.i.i ], [ -1, %vu_gpa_to_mem_region.exit.i ], [ 0, %22 ], [ -1, %8 ]
+vu_gpa_to_va.exit.thread:                         ; preds = %vu_gpa_to_mem_region.exit.i, %27, %8, %24, %4
+  %.014 = phi i32 [ -1, %4 ], [ -1, %24 ], [ -1, %vu_gpa_to_mem_region.exit.i ], [ 0, %27 ], [ -1, %8 ]
   ret i32 %.014
 }
 
@@ -2816,224 +2849,235 @@ define internal fastcc noundef ptr @vu_queue_map_desc(ptr noundef %0, i32 %.0.va
   %27 = load ptr, ptr %26, align 8
   br label %28
 
-28:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.02339.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %._crit_edge.i.i ]
-  %.02638.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ %.228.i.i, %._crit_edge.i.i ]
+28:                                               ; preds = %40, %.lr.ph.i.i
+  %.02339.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %41, %40 ]
+  %.02638.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ %.228.i.i, %40 ]
   %29 = sub i32 %.02638.i.i, %.02339.i.i
   %30 = sdiv i32 %29, 2
   %31 = add i32 %30, %.02339.i.i
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %27, i64 %32
   %34 = load i64, ptr %33, align 8
-  %.not31.i.i = icmp uge i64 %18, %34
+  %.not31.i.i = icmp ult i64 %18, %34
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %.pre42.i.i = add i64 %.pre.i.i, %34
-  %35 = icmp ult i64 %18, %.pre42.i.i
-  %or.cond.i.i = select i1 %.not31.i.i, i1 %35, i1 false
-  br i1 %or.cond.i.i, label %vu_gpa_to_mem_region.exit.i, label %._crit_edge.i.i
+  %.pre42.fr.i.i = freeze i64 %.pre42.i.i
+  %35 = icmp ult i64 %18, %.pre42.fr.i.i
+  br i1 %.not31.i.i, label %38, label %36
 
-._crit_edge.i.i:                                  ; preds = %28
-  %36 = add i32 %31, 1
-  %spec.select.i.i = select i1 %35, i32 %.02339.i.i, i32 %36
-  %37 = add i32 %31, -1
-  %.228.i.i = select i1 %.not31.i.i, i32 %.02638.i.i, i32 %37
-  %.not.i.i = icmp sgt i32 %spec.select.i.i, %.228.i.i
+36:                                               ; preds = %28
+  br i1 %35, label %vu_gpa_to_mem_region.exit.i, label %.thread43.i.i
+
+.thread43.i.i:                                    ; preds = %36
+  %37 = add i32 %31, 1
+  br label %40
+
+38:                                               ; preds = %28
+  %39 = add i32 %31, 1
+  %spec.select.i.i = select i1 %35, i32 %.02339.i.i, i32 %39
+  br label %40
+
+40:                                               ; preds = %38, %.thread43.i.i
+  %41 = phi i32 [ %37, %.thread43.i.i ], [ %spec.select.i.i, %38 ]
+  %42 = add i32 %31, -1
+  %.228.i.i = select i1 %.not31.i.i, i32 %42, i32 %.02638.i.i
+  %.not.i.i = icmp sgt i32 %41, %.228.i.i
   br i1 %.not.i.i, label %virtqueue_alloc_element.exit.thread.sink.split, label %28
 
-vu_gpa_to_mem_region.exit.i:                      ; preds = %28
-  %38 = add i64 %18, %19
-  %39 = icmp ugt i64 %38, %.pre42.i.i
-  br i1 %39, label %vu_gpa_to_va.exit, label %vu_gpa_to_va.exit.thread21
+vu_gpa_to_mem_region.exit.i:                      ; preds = %36
+  %43 = add i64 %18, %19
+  %44 = icmp ugt i64 %43, %.pre42.fr.i.i
+  br i1 %44, label %vu_gpa_to_va.exit, label %vu_gpa_to_va.exit.thread21
 
 vu_gpa_to_va.exit.thread21:                       ; preds = %vu_gpa_to_mem_region.exit.i
-  %40 = inttoptr i64 %18 to ptr
-  %41 = sub i64 0, %34
-  %42 = getelementptr inbounds i8, ptr %40, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
-  br label %64
+  %45 = inttoptr i64 %18 to ptr
+  %46 = sub i64 0, %34
+  %47 = getelementptr inbounds i8, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %52
+  br label %69
 
 vu_gpa_to_va.exit:                                ; preds = %vu_gpa_to_mem_region.exit.i
-  %49 = sub i64 %.pre42.i.i, %18
-  %50 = inttoptr i64 %18 to ptr
-  %51 = sub i64 0, %34
-  %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %57
-  %59 = icmp ne i64 %18, 0
-  %60 = icmp ne i64 %49, %19
-  %61 = select i1 %59, i1 %60, i1 false
-  br i1 %61, label %62, label %64, !prof !15
+  %54 = sub i64 %.pre42.fr.i.i, %18
+  %55 = inttoptr i64 %18 to ptr
+  %56 = sub i64 0, %34
+  %57 = getelementptr inbounds i8, ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
+  %64 = icmp ne i64 %18, 0
+  %65 = icmp ne i64 %54, %19
+  %66 = and i1 %64, %65
+  br i1 %66, label %67, label %69, !prof !9
 
-62:                                               ; preds = %vu_gpa_to_va.exit
-  %63 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %7, i64 noundef %18, i64 noundef %19)
-  %.not50 = icmp eq i32 %63, 0
+67:                                               ; preds = %vu_gpa_to_va.exit
+  %68 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %7, i64 noundef %18, i64 noundef %19)
+  %.not50 = icmp eq i32 %68, 0
   br i1 %.not50, label %.thread25, label %virtqueue_alloc_element.exit.thread.sink.split
 
-64:                                               ; preds = %vu_gpa_to_va.exit.thread21, %vu_gpa_to_va.exit
-  %.1 = phi ptr [ %58, %vu_gpa_to_va.exit ], [ %48, %vu_gpa_to_va.exit.thread21 ]
+69:                                               ; preds = %vu_gpa_to_va.exit.thread21, %vu_gpa_to_va.exit
+  %.1 = phi ptr [ %63, %vu_gpa_to_va.exit ], [ %53, %vu_gpa_to_va.exit.thread21 ]
   %.not51 = icmp eq ptr %.1, null
   br i1 %.not51, label %virtqueue_alloc_element.exit.thread.sink.split, label %.thread25
 
-.thread25:                                        ; preds = %62, %64, %3
-  %.015 = phi i32 [ %1, %3 ], [ 0, %64 ], [ 0, %62 ]
-  %.042 = phi ptr [ %.8.val, %3 ], [ %.1, %64 ], [ %7, %62 ]
-  %.0 = phi i32 [ %.0.val, %3 ], [ %20, %64 ], [ %20, %62 ]
+.thread25:                                        ; preds = %67, %69, %3
+  %.015 = phi i32 [ %1, %3 ], [ 0, %69 ], [ 0, %67 ]
+  %.042 = phi ptr [ %.8.val, %3 ], [ %.1, %69 ], [ %7, %67 ]
+  %.0 = phi i32 [ %.0.val, %3 ], [ %20, %69 ], [ %20, %67 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %6, i8 0, i64 16384, i1 false), !annotation !4
   br label %virtqueue_read_next_desc.exit
 
-virtqueue_read_next_desc.exit:                    ; preds = %100, %.thread25
-  %65 = phi i32 [ 0, %.thread25 ], [ %90, %100 ]
-  %66 = phi i32 [ 0, %.thread25 ], [ %91, %100 ]
-  %.116 = phi i32 [ %.015, %.thread25 ], [ %103, %100 ]
-  %67 = zext i32 %.116 to i64
-  %68 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %67, i32 2
-  %69 = load i16, ptr %68, align 4
-  %70 = and i16 %69, 2
-  %.not52 = icmp eq i16 %70, 0
-  br i1 %.not52, label %81, label %71
+virtqueue_read_next_desc.exit:                    ; preds = %105, %.thread25
+  %70 = phi i32 [ 0, %.thread25 ], [ %95, %105 ]
+  %71 = phi i32 [ 0, %.thread25 ], [ %96, %105 ]
+  %.116 = phi i32 [ %.015, %.thread25 ], [ %108, %105 ]
+  %72 = zext i32 %.116 to i64
+  %73 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %72, i32 2
+  %74 = load i16, ptr %73, align 4
+  %75 = and i16 %74, 2
+  %.not52 = icmp eq i16 %75, 0
+  br i1 %.not52, label %86, label %76
 
-71:                                               ; preds = %virtqueue_read_next_desc.exit
-  %72 = zext i32 %65 to i64
-  %73 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %72
-  %74 = sub i32 1024, %65
-  %75 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %67
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %67, i32 1
-  %78 = load i32, ptr %77, align 8
-  %79 = zext i32 %78 to i64
-  %80 = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef %5, ptr noundef %73, i32 noundef %74, i64 noundef %76, i64 noundef %79)
-  br i1 %80, label %._crit_edge, label %virtqueue_alloc_element.exit.thread
+76:                                               ; preds = %virtqueue_read_next_desc.exit
+  %77 = zext i32 %70 to i64
+  %78 = getelementptr inbounds nuw %struct.iovec, ptr %6, i64 %77
+  %79 = sub i32 1024, %70
+  %80 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %72
+  %81 = load i64, ptr %80, align 8
+  %82 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %72, i32 1
+  %83 = load i32, ptr %82, align 8
+  %84 = zext i32 %83 to i64
+  %85 = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef %5, ptr noundef %78, i32 noundef %79, i64 noundef %81, i64 noundef %84)
+  br i1 %85, label %._crit_edge, label %virtqueue_alloc_element.exit.thread
 
-._crit_edge:                                      ; preds = %71
+._crit_edge:                                      ; preds = %76
   %.pre = load i32, ptr %5, align 4
-  br label %89
+  br label %94
 
-81:                                               ; preds = %virtqueue_read_next_desc.exit
-  %.not53 = icmp eq i32 %66, 0
-  br i1 %.not53, label %82, label %virtqueue_alloc_element.exit.thread.sink.split
+86:                                               ; preds = %virtqueue_read_next_desc.exit
+  %.not53 = icmp eq i32 %71, 0
+  br i1 %.not53, label %87, label %virtqueue_alloc_element.exit.thread.sink.split
 
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %67
-  %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %67, i32 1
-  %86 = load i32, ptr %85, align 8
-  %87 = zext i32 %86 to i64
-  %88 = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef %4, ptr noundef %6, i32 noundef 1024, i64 noundef %84, i64 noundef %87)
-  br i1 %88, label %._crit_edge57, label %virtqueue_alloc_element.exit.thread
+87:                                               ; preds = %86
+  %88 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %72
+  %89 = load i64, ptr %88, align 8
+  %90 = getelementptr inbounds nuw %struct.vring_desc, ptr %.042, i64 %72, i32 1
+  %91 = load i32, ptr %90, align 8
+  %92 = zext i32 %91 to i64
+  %93 = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef %4, ptr noundef %6, i32 noundef 1024, i64 noundef %89, i64 noundef %92)
+  br i1 %93, label %._crit_edge57, label %virtqueue_alloc_element.exit.thread
 
-._crit_edge57:                                    ; preds = %82
+._crit_edge57:                                    ; preds = %87
   %.pre58 = load i32, ptr %4, align 4
-  br label %89
+  br label %94
 
-89:                                               ; preds = %._crit_edge57, %._crit_edge
-  %90 = phi i32 [ %65, %._crit_edge ], [ %.pre58, %._crit_edge57 ]
-  %91 = phi i32 [ %.pre, %._crit_edge ], [ 0, %._crit_edge57 ]
-  %92 = add i32 %90, %91
-  %93 = icmp ugt i32 %92, %.0
-  br i1 %93, label %virtqueue_alloc_element.exit.thread.sink.split, label %94
+94:                                               ; preds = %._crit_edge57, %._crit_edge
+  %95 = phi i32 [ %70, %._crit_edge ], [ %.pre58, %._crit_edge57 ]
+  %96 = phi i32 [ %.pre, %._crit_edge ], [ 0, %._crit_edge57 ]
+  %97 = add i32 %95, %96
+  %98 = icmp ugt i32 %97, %.0
+  br i1 %98, label %virtqueue_alloc_element.exit.thread.sink.split, label %99
 
-94:                                               ; preds = %89
-  %95 = sext i32 %.116 to i64
-  %96 = getelementptr inbounds %struct.vring_desc, ptr %.042, i64 %95
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
-  %98 = load i16, ptr %97, align 4
-  %99 = and i16 %98, 1
-  %.not.i = icmp eq i16 %99, 0
-  br i1 %.not.i, label %105, label %100
+99:                                               ; preds = %94
+  %100 = sext i32 %.116 to i64
+  %101 = getelementptr inbounds %struct.vring_desc, ptr %.042, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 12
+  %103 = load i16, ptr %102, align 4
+  %104 = and i16 %103, 1
+  %.not.i = icmp eq i16 %104, 0
+  br i1 %.not.i, label %110, label %105
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw i8, ptr %96, i64 14
-  %102 = load i16, ptr %101, align 2
-  %103 = zext i16 %102 to i32
+105:                                              ; preds = %99
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 14
+  %107 = load i16, ptr %106, align 2
+  %108 = zext i16 %107 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   fence release
-  %.not10.i = icmp ugt i32 %.0, %103
-  br i1 %.not10.i, label %virtqueue_read_next_desc.exit, label %104
+  %.not10.i = icmp ugt i32 %.0, %108
+  br i1 %.not10.i, label %virtqueue_read_next_desc.exit, label %109
 
-104:                                              ; preds = %100
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef %103)
+109:                                              ; preds = %105
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef %108)
   br label %virtqueue_alloc_element.exit.thread.sink.split
 
-105:                                              ; preds = %94
-  %106 = add i64 %2, 7
-  %107 = and i64 %106, -8
-  %108 = zext i32 %91 to i64
-  %109 = shl nuw nsw i64 %108, 4
-  %110 = icmp ugt i64 %2, 31
-  br i1 %110, label %112, label %111
+110:                                              ; preds = %99
+  %111 = add i64 %2, 7
+  %112 = and i64 %111, -8
+  %113 = zext i32 %96 to i64
+  %114 = shl nuw nsw i64 %113, 4
+  %115 = icmp ugt i64 %2, 31
+  br i1 %115, label %117, label %116
 
-111:                                              ; preds = %105
+116:                                              ; preds = %110
   tail call void @__assert_fail(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.40, i32 noundef 2772, ptr noundef nonnull @__PRETTY_FUNCTION__.virtqueue_alloc_element) #23
   unreachable
 
-112:                                              ; preds = %105
-  %113 = zext i32 %90 to i64
-  %114 = add nuw nsw i64 %108, %113
-  %115 = shl nuw nsw i64 %114, 4
-  %116 = add i64 %115, %107
-  %117 = tail call noalias ptr @malloc(i64 noundef %116) #25
-  %.not.i57 = icmp eq ptr %117, null
-  br i1 %.not.i57, label %virtqueue_alloc_element.exit.thread, label %118
+117:                                              ; preds = %110
+  %118 = zext i32 %95 to i64
+  %119 = add nuw nsw i64 %113, %118
+  %120 = shl nuw nsw i64 %119, 4
+  %121 = add i64 %120, %112
+  %122 = tail call noalias ptr @malloc(i64 noundef %121) #25
+  %.not.i57 = icmp eq ptr %122, null
+  br i1 %.not.i57, label %virtqueue_alloc_element.exit.thread, label %123
 
-118:                                              ; preds = %112
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  store i32 %90, ptr %119, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store i32 %91, ptr %120, align 8
-  %121 = getelementptr i8, ptr %117, i64 %107
-  %122 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  store ptr %121, ptr %122, align 8
-  %123 = getelementptr i8, ptr %121, i64 %109
-  %124 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  store ptr %123, ptr %124, align 8
-  store i32 %1, ptr %117, align 8
-  %.not43 = icmp eq i32 %90, 0
+123:                                              ; preds = %117
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  store i32 %95, ptr %124, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store i32 %96, ptr %125, align 8
+  %126 = getelementptr i8, ptr %122, i64 %112
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  store ptr %126, ptr %127, align 8
+  %128 = getelementptr i8, ptr %126, i64 %114
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  store ptr %128, ptr %129, align 8
+  store i32 %1, ptr %122, align 8
+  %.not43 = icmp eq i32 %95, 0
   br i1 %.not43, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %118
-  %.not44 = icmp eq i32 %91, 0
+.preheader:                                       ; preds = %.lr.ph, %123
+  %.not44 = icmp eq i32 %96, 0
   br i1 %.not44, label %virtqueue_alloc_element.exit.thread, label %.lr.ph42
 
-.lr.ph:                                           ; preds = %118, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %118 ]
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw %struct.iovec, ptr %125, i64 %indvars.iv
-  %127 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %6, i64 0, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 16 dereferenceable(16) %127, i64 16, i1 false)
+.lr.ph:                                           ; preds = %123, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %123 ]
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw %struct.iovec, ptr %130, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %6, i64 0, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 16 dereferenceable(16) %132, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %113
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %118
   br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
 .lr.ph42:                                         ; preds = %.preheader, %.lr.ph42
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph42 ], [ 0, %.preheader ]
-  %128 = load ptr, ptr %122, align 8
-  %129 = getelementptr inbounds nuw %struct.iovec, ptr %128, i64 %indvars.iv52
-  %130 = trunc nuw i64 %indvars.iv52 to i32
-  %131 = add i32 %90, %130
-  %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %6, i64 0, i64 %132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 16 dereferenceable(16) %133, i64 16, i1 false)
+  %133 = load ptr, ptr %127, align 8
+  %134 = getelementptr inbounds nuw %struct.iovec, ptr %133, i64 %indvars.iv52
+  %135 = trunc nuw i64 %indvars.iv52 to i32
+  %136 = add i32 %95, %135
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds nuw [1024 x %struct.iovec], ptr %6, i64 0, i64 %137
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 16 dereferenceable(16) %138, i64 16, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %108
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %113
   br i1 %exitcond56.not, label %virtqueue_alloc_element.exit.thread, label %.lr.ph42
 
-virtqueue_alloc_element.exit.thread.sink.split:   ; preds = %._crit_edge.i.i, %89, %81, %64, %62, %16, %22, %12, %104
-  %.str.104.sink = phi ptr [ @.str.104, %104 ], [ @.str.47, %12 ], [ @.str.49, %22 ], [ @.str.49, %16 ], [ @.str.49, %62 ], [ @.str.49, %64 ], [ @.str.103, %81 ], [ @.str.48, %89 ], [ @.str.49, %._crit_edge.i.i ]
+virtqueue_alloc_element.exit.thread.sink.split:   ; preds = %40, %94, %86, %69, %67, %16, %22, %12, %109
+  %.str.104.sink = phi ptr [ @.str.104, %109 ], [ @.str.47, %12 ], [ @.str.49, %22 ], [ @.str.49, %16 ], [ @.str.49, %67 ], [ @.str.49, %69 ], [ @.str.103, %86 ], [ @.str.48, %94 ], [ @.str.49, %40 ]
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull %.str.104.sink)
   br label %virtqueue_alloc_element.exit.thread
 
-virtqueue_alloc_element.exit.thread:              ; preds = %82, %71, %.lr.ph42, %virtqueue_alloc_element.exit.thread.sink.split, %.preheader, %112
-  %.043 = phi ptr [ null, %112 ], [ %117, %.preheader ], [ null, %virtqueue_alloc_element.exit.thread.sink.split ], [ %117, %.lr.ph42 ], [ null, %71 ], [ null, %82 ]
+virtqueue_alloc_element.exit.thread:              ; preds = %87, %76, %.lr.ph42, %virtqueue_alloc_element.exit.thread.sink.split, %.preheader, %117
+  %.043 = phi ptr [ null, %117 ], [ %122, %.preheader ], [ null, %virtqueue_alloc_element.exit.thread.sink.split ], [ %122, %.lr.ph42 ], [ null, %76 ], [ null, %87 ]
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
@@ -3160,167 +3204,178 @@ vu_is_vq_usable.exit:                             ; preds = %22, %10
   %46 = load ptr, ptr %45, align 8
   br label %47
 
-47:                                               ; preds = %._crit_edge.i.i.i, %.lr.ph.i.i.i
-  %.02339.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %._crit_edge.i.i.i ]
-  %.02638.i.i.i = phi i32 [ %44, %.lr.ph.i.i.i ], [ %.228.i.i.i, %._crit_edge.i.i.i ]
+47:                                               ; preds = %59, %.lr.ph.i.i.i
+  %.02339.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %60, %59 ]
+  %.02638.i.i.i = phi i32 [ %44, %.lr.ph.i.i.i ], [ %.228.i.i.i, %59 ]
   %48 = sub i32 %.02638.i.i.i, %.02339.i.i.i
   %49 = sdiv i32 %48, 2
   %50 = add i32 %49, %.02339.i.i.i
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %46, i64 %51
   %53 = load i64, ptr %52, align 8
-  %.not31.i.i.i = icmp uge i64 %37, %53
+  %.not31.i.i.i = icmp ult i64 %37, %53
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre42.i.i.i = add i64 %.pre.i.i.i, %53
-  %54 = icmp ult i64 %37, %.pre42.i.i.i
-  %or.cond.i.i.i = select i1 %.not31.i.i.i, i1 %54, i1 false
-  br i1 %or.cond.i.i.i, label %vu_gpa_to_mem_region.exit.i.i, label %._crit_edge.i.i.i
+  %.pre42.fr.i.i.i = freeze i64 %.pre42.i.i.i
+  %54 = icmp ult i64 %37, %.pre42.fr.i.i.i
+  br i1 %.not31.i.i.i, label %57, label %55
 
-._crit_edge.i.i.i:                                ; preds = %47
-  %55 = add i32 %50, 1
-  %spec.select.i.i.i = select i1 %54, i32 %.02339.i.i.i, i32 %55
-  %56 = add i32 %50, -1
-  %.228.i.i.i = select i1 %.not31.i.i.i, i32 %.02638.i.i.i, i32 %56
-  %.not.i.i.i = icmp sgt i32 %spec.select.i.i.i, %.228.i.i.i
+55:                                               ; preds = %47
+  br i1 %54, label %vu_gpa_to_mem_region.exit.i.i, label %.thread43.i.i.i
+
+.thread43.i.i.i:                                  ; preds = %55
+  %56 = add i32 %50, 1
+  br label %59
+
+57:                                               ; preds = %47
+  %58 = add i32 %50, 1
+  %spec.select.i.i.i = select i1 %54, i32 %.02339.i.i.i, i32 %58
+  br label %59
+
+59:                                               ; preds = %57, %.thread43.i.i.i
+  %60 = phi i32 [ %56, %.thread43.i.i.i ], [ %spec.select.i.i.i, %57 ]
+  %61 = add i32 %50, -1
+  %.228.i.i.i = select i1 %.not31.i.i.i, i32 %61, i32 %.02638.i.i.i
+  %.not.i.i.i = icmp sgt i32 %60, %.228.i.i.i
   br i1 %.not.i.i.i, label %.thread.i, label %47
 
-vu_gpa_to_mem_region.exit.i.i:                    ; preds = %47
-  %57 = add i64 %37, %38
-  %58 = icmp ugt i64 %57, %.pre42.i.i.i
-  br i1 %58, label %vu_gpa_to_va.exit.i, label %vu_gpa_to_va.exit.thread18.i
+vu_gpa_to_mem_region.exit.i.i:                    ; preds = %55
+  %62 = add i64 %37, %38
+  %63 = icmp ugt i64 %62, %.pre42.fr.i.i.i
+  br i1 %63, label %vu_gpa_to_va.exit.i, label %vu_gpa_to_va.exit.thread18.i
 
 vu_gpa_to_va.exit.thread18.i:                     ; preds = %vu_gpa_to_mem_region.exit.i.i
-  %59 = inttoptr i64 %37 to ptr
-  %60 = sub i64 0, %53
-  %61 = getelementptr inbounds i8, ptr %59, i64 %60
-  %62 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %66
-  br label %83
+  %64 = inttoptr i64 %37 to ptr
+  %65 = sub i64 0, %53
+  %66 = getelementptr inbounds i8, ptr %64, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %68 = load i64, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %71
+  br label %88
 
 vu_gpa_to_va.exit.i:                              ; preds = %vu_gpa_to_mem_region.exit.i.i
-  %68 = sub i64 %.pre42.i.i.i, %37
-  %69 = inttoptr i64 %37 to ptr
-  %70 = sub i64 0, %53
-  %71 = getelementptr inbounds i8, ptr %69, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %76
-  %78 = icmp ne i64 %37, 0
-  %79 = icmp ne i64 %68, %38
-  %80 = select i1 %78, i1 %79, i1 false
-  br i1 %80, label %81, label %83, !prof !15
+  %73 = sub i64 %.pre42.fr.i.i.i, %37
+  %74 = inttoptr i64 %37 to ptr
+  %75 = sub i64 0, %53
+  %76 = getelementptr inbounds i8, ptr %74, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %81 = load i64, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %81
+  %83 = icmp ne i64 %37, 0
+  %84 = icmp ne i64 %73, %38
+  %85 = and i1 %83, %84
+  br i1 %85, label %86, label %88, !prof !15
 
-81:                                               ; preds = %vu_gpa_to_va.exit.i
-  %82 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %6, i64 noundef %37, i64 noundef %38)
-  %.not45.i = icmp eq i32 %82, 0
+86:                                               ; preds = %vu_gpa_to_va.exit.i
+  %87 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %6, i64 noundef %37, i64 noundef %38)
+  %.not45.i = icmp eq i32 %87, 0
   br i1 %.not45.i, label %.thread22.i, label %.thread.i
 
-83:                                               ; preds = %vu_gpa_to_va.exit.i, %vu_gpa_to_va.exit.thread18.i
-  %.139.i = phi ptr [ %77, %vu_gpa_to_va.exit.i ], [ %67, %vu_gpa_to_va.exit.thread18.i ]
+88:                                               ; preds = %vu_gpa_to_va.exit.i, %vu_gpa_to_va.exit.thread18.i
+  %.139.i = phi ptr [ %82, %vu_gpa_to_va.exit.i ], [ %72, %vu_gpa_to_va.exit.thread18.i ]
   %.not46.i = icmp eq ptr %.139.i, null
   br i1 %.not46.i, label %.thread.i, label %.thread22.i
 
-.thread.i:                                        ; preds = %._crit_edge.i.i.i, %83, %81, %41, %35
+.thread.i:                                        ; preds = %59, %88, %86, %41, %35
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.49)
   br label %vu_log_queue_fill.exit
 
-.thread22.i:                                      ; preds = %83, %81, %vu_is_vq_usable.exit
-  %.014.i = phi i32 [ %.val14, %vu_is_vq_usable.exit ], [ 0, %83 ], [ 0, %81 ]
-  %.040.i = phi i32 [ %.val, %vu_is_vq_usable.exit ], [ %39, %83 ], [ %39, %81 ]
-  %.038.i = phi ptr [ %.val13, %vu_is_vq_usable.exit ], [ %.139.i, %83 ], [ %6, %81 ]
+.thread22.i:                                      ; preds = %88, %86, %vu_is_vq_usable.exit
+  %.014.i = phi i32 [ %.val14, %vu_is_vq_usable.exit ], [ 0, %88 ], [ 0, %86 ]
+  %.040.i = phi i32 [ %.val, %vu_is_vq_usable.exit ], [ %39, %88 ], [ %39, %86 ]
+  %.038.i = phi ptr [ %.val13, %vu_is_vq_usable.exit ], [ %.139.i, %88 ], [ %6, %86 ]
   br label %virtqueue_read_next_desc.exit.i
 
-virtqueue_read_next_desc.exit.i:                  ; preds = %107, %.thread22.i
-  %.115.i = phi i32 [ %.014.i, %.thread22.i ], [ %110, %107 ]
-  %.041.i = phi i32 [ 0, %.thread22.i ], [ %84, %107 ]
-  %.0.i17 = phi i32 [ %3, %.thread22.i ], [ %.1.i, %107 ]
-  %84 = add i32 %.041.i, 1
-  %85 = icmp ugt i32 %84, %.040.i
-  br i1 %85, label %86, label %87
+virtqueue_read_next_desc.exit.i:                  ; preds = %112, %.thread22.i
+  %.115.i = phi i32 [ %.014.i, %.thread22.i ], [ %115, %112 ]
+  %.041.i = phi i32 [ 0, %.thread22.i ], [ %89, %112 ]
+  %.0.i17 = phi i32 [ %3, %.thread22.i ], [ %.1.i, %112 ]
+  %89 = add i32 %.041.i, 1
+  %90 = icmp ugt i32 %89, %.040.i
+  br i1 %90, label %91, label %92
 
-86:                                               ; preds = %virtqueue_read_next_desc.exit.i
+91:                                               ; preds = %virtqueue_read_next_desc.exit.i
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.48)
   br label %vu_log_queue_fill.exit
 
-87:                                               ; preds = %virtqueue_read_next_desc.exit.i
-  %88 = zext i32 %.115.i to i64
-  %89 = getelementptr inbounds nuw %struct.vring_desc, ptr %.038.i, i64 %88, i32 2
-  %90 = load i16, ptr %89, align 4
-  %91 = and i16 %90, 2
-  %.not47.i = icmp eq i16 %91, 0
-  br i1 %.not47.i, label %100, label %92
+92:                                               ; preds = %virtqueue_read_next_desc.exit.i
+  %93 = zext i32 %.115.i to i64
+  %94 = getelementptr inbounds nuw %struct.vring_desc, ptr %.038.i, i64 %93, i32 2
+  %95 = load i16, ptr %94, align 4
+  %96 = and i16 %95, 2
+  %.not47.i = icmp eq i16 %96, 0
+  br i1 %.not47.i, label %105, label %97
 
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw %struct.vring_desc, ptr %.038.i, i64 %88, i32 1
-  %94 = load i32, ptr %93, align 8
-  %95 = tail call i32 @llvm.umin.i32(i32 %94, i32 %.0.i17)
-  %96 = getelementptr inbounds nuw %struct.vring_desc, ptr %.038.i, i64 %88
-  %97 = load i64, ptr %96, align 8
-  %98 = zext i32 %95 to i64
-  tail call fastcc void @vu_log_write(ptr noundef %0, i64 noundef %97, i64 noundef %98)
-  %99 = sub i32 %.0.i17, %95
-  br label %100
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds nuw %struct.vring_desc, ptr %.038.i, i64 %93, i32 1
+  %99 = load i32, ptr %98, align 8
+  %100 = tail call i32 @llvm.umin.i32(i32 %99, i32 %.0.i17)
+  %101 = getelementptr inbounds nuw %struct.vring_desc, ptr %.038.i, i64 %93
+  %102 = load i64, ptr %101, align 8
+  %103 = zext i32 %100 to i64
+  tail call fastcc void @vu_log_write(ptr noundef %0, i64 noundef %102, i64 noundef %103)
+  %104 = sub i32 %.0.i17, %100
+  br label %105
 
-100:                                              ; preds = %92, %87
-  %.1.i = phi i32 [ %99, %92 ], [ %.0.i17, %87 ]
+105:                                              ; preds = %97, %92
+  %.1.i = phi i32 [ %104, %97 ], [ %.0.i17, %92 ]
   %.not48.i = icmp eq i32 %.1.i, 0
-  br i1 %.not48.i, label %vu_log_queue_fill.exit, label %101
+  br i1 %.not48.i, label %vu_log_queue_fill.exit, label %106
 
-101:                                              ; preds = %100
-  %102 = sext i32 %.115.i to i64
-  %103 = getelementptr inbounds %struct.vring_desc, ptr %.038.i, i64 %102
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 12
-  %105 = load i16, ptr %104, align 4
-  %106 = and i16 %105, 1
-  %.not.i.i = icmp eq i16 %106, 0
-  br i1 %.not.i.i, label %vu_log_queue_fill.exit, label %107
+106:                                              ; preds = %105
+  %107 = sext i32 %.115.i to i64
+  %108 = getelementptr inbounds %struct.vring_desc, ptr %.038.i, i64 %107
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 12
+  %110 = load i16, ptr %109, align 4
+  %111 = and i16 %110, 1
+  %.not.i.i = icmp eq i16 %111, 0
+  br i1 %.not.i.i, label %vu_log_queue_fill.exit, label %112
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 14
-  %109 = load i16, ptr %108, align 2
-  %110 = zext i16 %109 to i32
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 14
+  %114 = load i16, ptr %113, align 2
+  %115 = zext i16 %114 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   fence release
-  %.not10.i.i = icmp ugt i32 %.040.i, %110
-  br i1 %.not10.i.i, label %virtqueue_read_next_desc.exit.i, label %111
+  %.not10.i.i = icmp ugt i32 %.040.i, %115
+  br i1 %.not10.i.i, label %virtqueue_read_next_desc.exit.i, label %116
 
-111:                                              ; preds = %107
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef %110)
+116:                                              ; preds = %112
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef %115)
   br label %vu_log_queue_fill.exit
 
-vu_log_queue_fill.exit:                           ; preds = %100, %101, %34, %.thread.i, %86, %111
+vu_log_queue_fill.exit:                           ; preds = %105, %106, %34, %.thread.i, %91, %116
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %6) #21
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %113 = load i16, ptr %112, align 4
-  %114 = zext i16 %113 to i32
-  %115 = add i32 %4, %114
-  %116 = load i32, ptr %1, align 8
-  %117 = urem i32 %115, %116
-  %118 = load i32, ptr %2, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %118 = load i16, ptr %117, align 4
+  %119 = zext i16 %118 to i32
+  %120 = add i32 %4, %119
+  %121 = load i32, ptr %1, align 8
+  %122 = urem i32 %120, %121
+  %123 = load i32, ptr %2, align 8
   %.sroa.5.0.insert.ext = zext i32 %3 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %118 to i64
+  %.sroa.0.0.insert.ext = zext i32 %123 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  %122 = sext i32 %117 to i64
-  %123 = getelementptr inbounds [0 x %struct.vring_used_elem], ptr %121, i64 0, i64 %122
-  store i64 %.sroa.0.0.insert.insert, ptr %123, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %125 = load i64, ptr %124, align 8
-  %126 = shl nsw i64 %122, 3
-  %127 = or disjoint i64 %126, 4
-  %128 = add i64 %127, %125
-  tail call fastcc void @vu_log_write(ptr noundef %0, i64 noundef %128, i64 noundef 8)
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %127 = sext i32 %122 to i64
+  %128 = getelementptr inbounds [0 x %struct.vring_used_elem], ptr %126, i64 0, i64 %127
+  store i64 %.sroa.0.0.insert.insert, ptr %128, align 4
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %130 = load i64, ptr %129, align 8
+  %131 = shl nsw i64 %127, 3
+  %132 = or disjoint i64 %131, 4
+  %133 = add i64 %132, %130
+  tail call fastcc void @vu_log_write(ptr noundef %0, i64 noundef %133, i64 noundef 8)
   br label %vu_is_vq_usable.exit.thread
 
 vu_is_vq_usable.exit.thread:                      ; preds = %13, %16, %19, %5, %24, %vu_log_queue_fill.exit
@@ -5024,7 +5079,7 @@ define internal fastcc void @vu_rem_mem_reg(ptr noundef %0, ptr noundef nonnull 
 
 vmsg_close_fds.exit:                              ; preds = %8
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.93, i32 noundef %12)
-  br label %vmsg_close_fds.exit55
+  br label %vmsg_close_fds.exit51
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5052,13 +5107,13 @@ vmsg_close_fds.exit:                              ; preds = %8
   br i1 %28, label %22, label %vmsg_close_fds.exit36.loopexit
 
 vmsg_close_fds.exit36.loopexit:                   ; preds = %22
-  %.pre63 = load i32, ptr %16, align 1
+  %.pre59 = load i32, ptr %16, align 1
   br label %vmsg_close_fds.exit36
 
 vmsg_close_fds.exit36:                            ; preds = %vmsg_close_fds.exit36.loopexit, %19
-  %29 = phi i32 [ %.pre63, %vmsg_close_fds.exit36.loopexit ], [ %17, %19 ]
+  %29 = phi i32 [ %.pre59, %vmsg_close_fds.exit36.loopexit ], [ %17, %19 ]
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.94, i64 noundef 32, i32 noundef %29)
-  br label %vmsg_close_fds.exit55
+  br label %vmsg_close_fds.exit51
 
 30:                                               ; preds = %15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5072,183 +5127,194 @@ vmsg_close_fds.exit36:                            ; preds = %vmsg_close_fds.exit
   %35 = load ptr, ptr %34, align 8
   br label %36
 
-36:                                               ; preds = %._crit_edge.i, %.lr.ph.i37
-  %.02339.i = phi i32 [ 0, %.lr.ph.i37 ], [ %spec.select.i, %._crit_edge.i ]
-  %.02638.i = phi i32 [ %33, %.lr.ph.i37 ], [ %.228.i, %._crit_edge.i ]
+36:                                               ; preds = %48, %.lr.ph.i37
+  %.02339.i = phi i32 [ 0, %.lr.ph.i37 ], [ %49, %48 ]
+  %.02638.i = phi i32 [ %33, %.lr.ph.i37 ], [ %.228.i, %48 ]
   %37 = sub i32 %.02638.i, %.02339.i
   %38 = sdiv i32 %37, 2
   %39 = add i32 %38, %.02339.i
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %35, i64 %40
   %42 = load i64, ptr %41, align 8
-  %.not31.i = icmp uge i64 %.sroa.0.0.copyload, %42
+  %.not31.i = icmp ult i64 %.sroa.0.0.copyload, %42
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %.pre42.i = add i64 %.pre.i, %42
-  %43 = icmp ult i64 %.sroa.0.0.copyload, %.pre42.i
-  %or.cond.i = select i1 %.not31.i, i1 %43, i1 false
-  br i1 %or.cond.i, label %vu_gpa_to_mem_region.exit, label %._crit_edge.i
+  %.pre42.fr.i = freeze i64 %.pre42.i
+  %43 = icmp ult i64 %.sroa.0.0.copyload, %.pre42.fr.i
+  br i1 %.not31.i, label %46, label %44
 
-._crit_edge.i:                                    ; preds = %36
-  %44 = add i32 %39, 1
-  %spec.select.i = select i1 %43, i32 %.02339.i, i32 %44
-  %45 = add i32 %39, -1
-  %.228.i = select i1 %.not31.i, i32 %.02638.i, i32 %45
-  %.not.i = icmp sgt i32 %spec.select.i, %.228.i
+44:                                               ; preds = %36
+  br i1 %43, label %vu_gpa_to_mem_region.exit, label %.thread43.i
+
+.thread43.i:                                      ; preds = %44
+  %45 = add i32 %39, 1
+  br label %48
+
+46:                                               ; preds = %36
+  %47 = add i32 %39, 1
+  %spec.select.i = select i1 %43, i32 %.02339.i, i32 %47
+  br label %48
+
+48:                                               ; preds = %46, %.thread43.i
+  %49 = phi i32 [ %45, %.thread43.i ], [ %spec.select.i, %46 ]
+  %50 = add i32 %39, -1
+  %.228.i = select i1 %.not31.i, i32 %50, i32 %.02638.i
+  %.not.i = icmp sgt i32 %49, %.228.i
   br i1 %.not.i, label %reg_equal.exit, label %36
 
-vu_gpa_to_mem_region.exit:                        ; preds = %36
+vu_gpa_to_mem_region.exit:                        ; preds = %44
   %.phi.trans.insert.i.le = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %46 = icmp eq i64 %42, %.sroa.0.0.copyload
-  br i1 %46, label %47, label %reg_equal.exit
+  %51 = icmp eq i64 %42, %.sroa.0.0.copyload
+  br i1 %51, label %52, label %reg_equal.exit
 
-47:                                               ; preds = %vu_gpa_to_mem_region.exit
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp eq i64 %49, %.sroa.7.0.copyload
-  %51 = icmp eq i64 %.pre.i, %.sroa.6.0.copyload
-  %or.cond = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond, label %61, label %reg_equal.exit
+52:                                               ; preds = %vu_gpa_to_mem_region.exit
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp eq i64 %54, %.sroa.7.0.copyload
+  %56 = icmp eq i64 %.pre.i, %.sroa.6.0.copyload
+  %or.cond = select i1 %55, i1 %56, i1 false
+  br i1 %or.cond, label %66, label %reg_equal.exit
 
-reg_equal.exit:                                   ; preds = %._crit_edge.i, %30, %47, %vu_gpa_to_mem_region.exit
-  %52 = icmp eq i32 %5, 1
-  br i1 %52, label %.lr.ph.i39, label %vmsg_close_fds.exit42
+reg_equal.exit:                                   ; preds = %48, %30, %52, %vu_gpa_to_mem_region.exit
+  %57 = icmp eq i32 %5, 1
+  br i1 %57, label %.lr.ph.i38, label %vmsg_close_fds.exit41
 
-.lr.ph.i39:                                       ; preds = %reg_equal.exit
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  br label %54
+.lr.ph.i38:                                       ; preds = %reg_equal.exit
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  br label %59
 
-54:                                               ; preds = %54, %.lr.ph.i39
-  %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i41, %54 ]
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %53, i64 0, i64 %indvars.iv.i40
-  %56 = load i32, ptr %55, align 1
-  %57 = tail call i32 @close(i32 noundef %56) #21
-  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
-  %58 = load i32, ptr %4, align 1
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next.i41, %59
-  br i1 %60, label %54, label %vmsg_close_fds.exit42
+59:                                               ; preds = %59, %.lr.ph.i38
+  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i40, %59 ]
+  %60 = getelementptr inbounds nuw [8 x i32], ptr %58, i64 0, i64 %indvars.iv.i39
+  %61 = load i32, ptr %60, align 1
+  %62 = tail call i32 @close(i32 noundef %61) #21
+  %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
+  %63 = load i32, ptr %4, align 1
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next.i40, %64
+  br i1 %65, label %59, label %vmsg_close_fds.exit41
 
-vmsg_close_fds.exit42:                            ; preds = %54, %reg_equal.exit
+vmsg_close_fds.exit41:                            ; preds = %59, %reg_equal.exit
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.95)
-  br label %vmsg_close_fds.exit55
+  br label %vmsg_close_fds.exit51
 
-61:                                               ; preds = %47
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %63 = load i16, ptr %62, align 2
-  %.not34.i = icmp eq i16 %63, 0
-  br i1 %.not34.i, label %unmap_rings.exit, label %.lr.ph.i43
+66:                                               ; preds = %52
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  %68 = load i16, ptr %67, align 2
+  %.not34.i = icmp eq i16 %68, 0
+  br i1 %.not34.i, label %unmap_rings.exit, label %.lr.ph.i42
 
-.lr.ph.i43:                                       ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  br label %66
+.lr.ph.i42:                                       ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  br label %71
 
-66:                                               ; preds = %89, %.lr.ph.i43
-  %67 = phi i16 [ %63, %.lr.ph.i43 ], [ %90, %89 ]
-  %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.i43 ], [ %indvars.iv.next.i46, %89 ]
-  %68 = load ptr, ptr %64, align 8
-  %69 = getelementptr inbounds nuw %struct.VuVirtq, ptr %68, i64 %indvars.iv.i44
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = ptrtoint ptr %71 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %74 = load ptr, ptr %73, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %79 = load i64, ptr %65, align 8
-  %80 = icmp ugt i64 %79, %72
-  br i1 %80, label %89, label %81
+71:                                               ; preds = %94, %.lr.ph.i42
+  %72 = phi i16 [ %68, %.lr.ph.i42 ], [ %95, %94 ]
+  %indvars.iv.i43 = phi i64 [ 0, %.lr.ph.i42 ], [ %indvars.iv.next.i45, %94 ]
+  %73 = load ptr, ptr %69, align 8
+  %74 = getelementptr inbounds nuw %struct.VuVirtq, ptr %73, i64 %indvars.iv.i43
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %79 = load ptr, ptr %78, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %82 = load ptr, ptr %81, align 8
+  %83 = ptrtoint ptr %82 to i64
+  %84 = load i64, ptr %70, align 8
+  %85 = icmp ugt i64 %84, %77
+  br i1 %85, label %94, label %86
 
-81:                                               ; preds = %66
-  %82 = load i64, ptr %.phi.trans.insert.i.le, align 8
-  %83 = add i64 %82, %79
-  %.not.i45 = icmp ugt i64 %83, %72
-  br i1 %.not.i45, label %84, label %89
+86:                                               ; preds = %71
+  %87 = load i64, ptr %.phi.trans.insert.i.le, align 8
+  %88 = add i64 %87, %84
+  %.not.i44 = icmp ugt i64 %88, %77
+  br i1 %.not.i44, label %89, label %94
 
-84:                                               ; preds = %81
-  %85 = icmp ule i64 %79, %75
-  %.not30.i = icmp ugt i64 %83, %75
-  %or.cond.i48 = and i1 %85, %.not30.i
-  br i1 %or.cond.i48, label %86, label %89
+89:                                               ; preds = %86
+  %90 = icmp ule i64 %84, %80
+  %.not30.i = icmp ugt i64 %88, %80
+  %or.cond.i = and i1 %90, %.not30.i
+  br i1 %or.cond.i, label %91, label %94
 
-86:                                               ; preds = %84
-  %87 = icmp ule i64 %79, %78
-  %.not31.i49 = icmp ugt i64 %83, %78
-  %or.cond32.i = and i1 %87, %.not31.i49
-  br i1 %or.cond32.i, label %88, label %89
+91:                                               ; preds = %89
+  %92 = icmp ule i64 %84, %83
+  %.not31.i46 = icmp ugt i64 %88, %83
+  %or.cond32.i = and i1 %92, %.not31.i46
+  br i1 %or.cond32.i, label %93, label %94
 
-88:                                               ; preds = %86
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
-  %.pre.i50 = load i16, ptr %62, align 2
-  br label %89
+93:                                               ; preds = %91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
+  %.pre.i47 = load i16, ptr %67, align 2
+  br label %94
 
-89:                                               ; preds = %88, %86, %84, %81, %66
-  %90 = phi i16 [ %67, %86 ], [ %67, %84 ], [ %67, %66 ], [ %67, %81 ], [ %.pre.i50, %88 ]
-  %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i44, 1
-  %91 = zext i16 %90 to i64
-  %92 = icmp samesign ult i64 %indvars.iv.next.i46, %91
-  br i1 %92, label %66, label %unmap_rings.exit.loopexit
+94:                                               ; preds = %93, %91, %89, %86, %71
+  %95 = phi i16 [ %72, %91 ], [ %72, %89 ], [ %72, %71 ], [ %72, %86 ], [ %.pre.i47, %93 ]
+  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
+  %96 = zext i16 %95 to i64
+  %97 = icmp samesign ult i64 %indvars.iv.next.i45, %96
+  br i1 %97, label %71, label %unmap_rings.exit.loopexit
 
-unmap_rings.exit.loopexit:                        ; preds = %89
+unmap_rings.exit.loopexit:                        ; preds = %94
   %.pre = load i64, ptr %.phi.trans.insert.i.le, align 8
   br label %unmap_rings.exit
 
-unmap_rings.exit:                                 ; preds = %unmap_rings.exit.loopexit, %61
-  %93 = phi i64 [ %.pre, %unmap_rings.exit.loopexit ], [ %.sroa.6.0.copyload, %61 ]
-  %94 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %95 = load i64, ptr %94, align 8
-  %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %98 = load i64, ptr %97, align 8
-  %99 = add i64 %98, %93
-  %100 = tail call i32 @munmap(ptr noundef %96, i64 noundef %99) #21
-  %101 = load ptr, ptr %34, align 8
-  %102 = ptrtoint ptr %41 to i64
-  %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  %105 = sdiv exact i64 %104, 40
-  %106 = trunc i64 %105 to i32
-  %107 = load i32, ptr %31, align 4
-  %108 = icmp ugt i32 %107, %106
-  br i1 %108, label %110, label %109
+unmap_rings.exit:                                 ; preds = %unmap_rings.exit.loopexit, %66
+  %98 = phi i64 [ %.pre, %unmap_rings.exit.loopexit ], [ %.sroa.6.0.copyload, %66 ]
+  %99 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %100 = load i64, ptr %99, align 8
+  %101 = inttoptr i64 %100 to ptr
+  %102 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %103 = load i64, ptr %102, align 8
+  %104 = add i64 %103, %98
+  %105 = tail call i32 @munmap(ptr noundef %101, i64 noundef %104) #21
+  %106 = load ptr, ptr %34, align 8
+  %107 = ptrtoint ptr %41 to i64
+  %108 = ptrtoint ptr %106 to i64
+  %109 = sub i64 %107, %108
+  %110 = sdiv exact i64 %109, 40
+  %111 = trunc i64 %110 to i32
+  %112 = load i32, ptr %31, align 4
+  %113 = icmp ugt i32 %112, %111
+  br i1 %113, label %115, label %114
 
-109:                                              ; preds = %unmap_rings.exit
+114:                                              ; preds = %unmap_rings.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.40, i32 noundef 1062, ptr noundef nonnull @__PRETTY_FUNCTION__.vu_rem_mem_reg) #23
   unreachable
 
-110:                                              ; preds = %unmap_rings.exit
-  %111 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %112 = xor i32 %106, -1
-  %113 = add i32 %107, %112
-  %114 = zext i32 %113 to i64
-  %115 = mul nuw nsw i64 %114, 40
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %111, i64 %115, i1 false)
-  %116 = load i32, ptr %31, align 4
-  %117 = add i32 %116, -1
-  store i32 %117, ptr %31, align 4
-  %118 = load i32, ptr %4, align 1
-  %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %.lr.ph.i52, label %vmsg_close_fds.exit55
+115:                                              ; preds = %unmap_rings.exit
+  %116 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %117 = xor i32 %111, -1
+  %118 = add i32 %112, %117
+  %119 = zext i32 %118 to i64
+  %120 = mul nuw nsw i64 %119, 40
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %41, ptr nonnull align 8 %116, i64 %120, i1 false)
+  %121 = load i32, ptr %31, align 4
+  %122 = add i32 %121, -1
+  store i32 %122, ptr %31, align 4
+  %123 = load i32, ptr %4, align 1
+  %124 = icmp sgt i32 %123, 0
+  br i1 %124, label %.lr.ph.i48, label %vmsg_close_fds.exit51
 
-.lr.ph.i52:                                       ; preds = %110
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  br label %121
+.lr.ph.i48:                                       ; preds = %115
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  br label %126
 
-121:                                              ; preds = %121, %.lr.ph.i52
-  %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i52 ], [ %indvars.iv.next.i54, %121 ]
-  %122 = getelementptr inbounds nuw [8 x i32], ptr %120, i64 0, i64 %indvars.iv.i53
-  %123 = load i32, ptr %122, align 1
-  %124 = tail call i32 @close(i32 noundef %123) #21
-  %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
-  %125 = load i32, ptr %4, align 1
-  %126 = sext i32 %125 to i64
-  %127 = icmp slt i64 %indvars.iv.next.i54, %126
-  br i1 %127, label %121, label %vmsg_close_fds.exit55
+126:                                              ; preds = %126, %.lr.ph.i48
+  %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i50, %126 ]
+  %127 = getelementptr inbounds nuw [8 x i32], ptr %125, i64 0, i64 %indvars.iv.i49
+  %128 = load i32, ptr %127, align 1
+  %129 = tail call i32 @close(i32 noundef %128) #21
+  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
+  %130 = load i32, ptr %4, align 1
+  %131 = sext i32 %130 to i64
+  %132 = icmp slt i64 %indvars.iv.next.i50, %131
+  br i1 %132, label %126, label %vmsg_close_fds.exit51
 
-vmsg_close_fds.exit55:                            ; preds = %121, %110, %vmsg_close_fds.exit42, %vmsg_close_fds.exit36, %vmsg_close_fds.exit
+vmsg_close_fds.exit51:                            ; preds = %126, %115, %vmsg_close_fds.exit41, %vmsg_close_fds.exit36, %vmsg_close_fds.exit
   ret void
 }
 
@@ -5749,10 +5815,10 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.106)
   br label %.thread
 
-13:                                               ; preds = %.preheader, %44
-  %.02557 = phi i32 [ %7, %.preheader ], [ %49, %44 ]
-  %.02656 = phi i64 [ %5, %.preheader ], [ %50, %44 ]
-  %.02855 = phi i64 [ %4, %.preheader ], [ %51, %44 ]
+13:                                               ; preds = %.preheader, %49
+  %.02557 = phi i32 [ %7, %.preheader ], [ %54, %49 ]
+  %.02656 = phi i64 [ %5, %.preheader ], [ %55, %49 ]
+  %.02855 = phi i64 [ %4, %.preheader ], [ %56, %49 ]
   %14 = icmp eq i32 %.02557, %3
   br i1 %14, label %15, label %16
 
@@ -5770,76 +5836,87 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %19 = load ptr, ptr %11, align 8
   br label %20
 
-20:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
-  %.02339.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %._crit_edge.i.i ]
-  %.02638.i.i = phi i32 [ %18, %.lr.ph.i.i ], [ %.228.i.i, %._crit_edge.i.i ]
+20:                                               ; preds = %32, %.lr.ph.i.i
+  %.02339.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %33, %32 ]
+  %.02638.i.i = phi i32 [ %18, %.lr.ph.i.i ], [ %.228.i.i, %32 ]
   %21 = sub i32 %.02638.i.i, %.02339.i.i
   %22 = sdiv i32 %21, 2
   %23 = add i32 %22, %.02339.i.i
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %19, i64 %24
   %26 = load i64, ptr %25, align 8
-  %.not31.i.i = icmp uge i64 %.02855, %26
+  %.not31.i.i = icmp ult i64 %.02855, %26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %.pre42.i.i = add i64 %.pre.i.i, %26
-  %27 = icmp ult i64 %.02855, %.pre42.i.i
-  %or.cond.i.i = select i1 %.not31.i.i, i1 %27, i1 false
-  br i1 %or.cond.i.i, label %vu_gpa_to_mem_region.exit.i, label %._crit_edge.i.i
+  %.pre42.fr.i.i = freeze i64 %.pre42.i.i
+  %27 = icmp ult i64 %.02855, %.pre42.fr.i.i
+  br i1 %.not31.i.i, label %30, label %28
 
-._crit_edge.i.i:                                  ; preds = %20
-  %28 = add i32 %23, 1
-  %spec.select.i.i = select i1 %27, i32 %.02339.i.i, i32 %28
-  %29 = add i32 %23, -1
-  %.228.i.i = select i1 %.not31.i.i, i32 %.02638.i.i, i32 %29
-  %.not.i.i = icmp sgt i32 %spec.select.i.i, %.228.i.i
+28:                                               ; preds = %20
+  br i1 %27, label %vu_gpa_to_mem_region.exit.i, label %.thread43.i.i
+
+.thread43.i.i:                                    ; preds = %28
+  %29 = add i32 %23, 1
+  br label %32
+
+30:                                               ; preds = %20
+  %31 = add i32 %23, 1
+  %spec.select.i.i = select i1 %27, i32 %.02339.i.i, i32 %31
+  br label %32
+
+32:                                               ; preds = %30, %.thread43.i.i
+  %33 = phi i32 [ %29, %.thread43.i.i ], [ %spec.select.i.i, %30 ]
+  %34 = add i32 %23, -1
+  %.228.i.i = select i1 %.not31.i.i, i32 %34, i32 %.02638.i.i
+  %.not.i.i = icmp sgt i32 %33, %.228.i.i
   br i1 %.not.i.i, label %vu_gpa_to_va.exit.thread, label %20
 
-vu_gpa_to_mem_region.exit.i:                      ; preds = %20
-  %30 = inttoptr i64 %.02855 to ptr
-  %31 = sub i64 0, %26
-  %32 = getelementptr inbounds i8, ptr %30, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
-  %39 = zext i32 %.02557 to i64
-  %40 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %39
-  store ptr %38, ptr %40, align 8
-  %41 = icmp eq i64 %.02855, 0
-  br i1 %41, label %.loopexit, label %44
+vu_gpa_to_mem_region.exit.i:                      ; preds = %28
+  %35 = inttoptr i64 %.02855 to ptr
+  %36 = sub i64 0, %26
+  %37 = getelementptr inbounds i8, ptr %35, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
+  %44 = zext i32 %.02557 to i64
+  %45 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %44
+  store ptr %43, ptr %45, align 8
+  %46 = icmp eq i64 %.02855, 0
+  br i1 %46, label %.loopexit, label %49
 
-vu_gpa_to_va.exit.thread:                         ; preds = %16, %._crit_edge.i.i
-  %42 = zext i32 %.02557 to i64
-  %43 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %42
-  store ptr null, ptr %43, align 8
+vu_gpa_to_va.exit.thread:                         ; preds = %16, %32
+  %47 = zext i32 %.02557 to i64
+  %48 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %47
+  store ptr null, ptr %48, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %vu_gpa_to_mem_region.exit.i, %vu_gpa_to_va.exit.thread
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.108)
   br label %.thread
 
-44:                                               ; preds = %vu_gpa_to_mem_region.exit.i
-  %45 = add i64 %.02656, %.02855
-  %46 = icmp ugt i64 %45, %.pre42.i.i
-  %47 = sub nuw i64 %.pre42.i.i, %.02855
-  %spec.select = select i1 %46, i64 %47, i64 %.02656
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 %spec.select, ptr %48, align 8
-  %49 = add i32 %.02557, 1
-  %50 = sub i64 %.02656, %spec.select
-  %51 = add i64 %spec.select, %.02855
-  %.not36 = icmp eq i64 %50, 0
-  br i1 %.not36, label %52, label %13
+49:                                               ; preds = %vu_gpa_to_mem_region.exit.i
+  %50 = add i64 %.02656, %.02855
+  %51 = icmp ugt i64 %50, %.pre42.fr.i.i
+  %52 = sub nuw i64 %.pre42.fr.i.i, %.02855
+  %spec.select = select i1 %51, i64 %52, i64 %.02656
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i64 %spec.select, ptr %53, align 8
+  %54 = add i32 %.02557, 1
+  %55 = sub i64 %.02656, %spec.select
+  %56 = add i64 %spec.select, %.02855
+  %.not36 = icmp eq i64 %55, 0
+  br i1 %.not36, label %57, label %13
 
-52:                                               ; preds = %44
-  store i32 %49, ptr %1, align 4
+57:                                               ; preds = %49
+  store i32 %54, ptr %1, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit, %15, %52, %12
-  %.030 = phi i1 [ true, %52 ], [ false, %12 ], [ false, %15 ], [ false, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %15, %57, %12
+  %.030 = phi i1 [ true, %57 ], [ false, %12 ], [ false, %15 ], [ false, %.loopexit ]
   ret i1 %.030
 }
 
@@ -5960,13 +6037,13 @@ attributes #27 = { nounwind allocsize(0,1) }
 !6 = !{}
 !7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !8 = !{i64 2148592474}
-!9 = !{!"branch_weights", !"expected", i32 10817905, i32 2136665743}
+!9 = !{!"branch_weights", !"expected", i32 16312714, i32 2131170934}
 !10 = !{i64 2148592685}
 !11 = !{i64 2148593138}
 !12 = !{i64 2148593860}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{i64 2148596084}
-!15 = !{!"branch_weights", !"expected", i32 10817906, i32 2136665742}
+!15 = !{!"branch_weights", !"expected", i32 16312716, i32 2131170932}
 !16 = !{i64 2148597061}
 !17 = !{i64 2148595815}
 !18 = !{i64 2148595861}

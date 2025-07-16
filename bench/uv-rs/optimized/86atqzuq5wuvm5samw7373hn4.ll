@@ -757,7 +757,7 @@ define hidden void @_ZN10serde_json5value8to_value17h11fef6cec9b2b86aE(ptr dead_
 
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hb2d4b4bf84525b7bE.llvm.9681354954309223308.exit.i.i": ; preds = %.noexc1
   %22 = load ptr, ptr %19, align 8, !noalias !70, !nonnull !3, !noundef !3
-  %23 = icmp uge i64 %18, %15
+  %23 = icmp ule i64 %15, %18
   tail call void @llvm.assume(i1 %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !70
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %13, i64 %15, i1 false), !noalias !78
@@ -881,7 +881,7 @@ define hidden void @_ZN10serde_json5value8to_value17h5f322803fcda95c2E(ptr dead_
 
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17hb72200e79f9096d1E.llvm.9681354954309223308.exit.i.i": ; preds = %7
   %18 = load ptr, ptr %15, align 8, !noalias !127, !nonnull !3, !noundef !3
-  %19 = icmp uge i64 %14, %11
+  %19 = icmp ule i64 %11, %14
   tail call void @llvm.assume(i1 %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !127
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %9, i64 %11, i1 false), !noalias !135
@@ -959,7 +959,7 @@ define hidden void @_ZN10serde_json5value8to_value17h82de0e20a1e1f61bE(ptr dead_
 
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h92466ac32c3c6d79E.llvm.9681354954309223308.exit": ; preds = %.noexc
   %20 = load ptr, ptr %15, align 8, !noalias !168, !nonnull !3, !noundef !3
-  %21 = icmp uge i64 %14, %11
+  %21 = icmp ule i64 %11, %14
   tail call void @llvm.assume(i1 %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !168
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %9, i64 %11, i1 false), !noalias !175
@@ -1037,7 +1037,7 @@ define hidden void @_ZN10serde_json5value8to_value17ha6b95fff63684a2eE(ptr dead_
 
 "_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17hc6017f47deb1bb1bE.llvm.9681354954309223308.exit": ; preds = %2
   %15 = load ptr, ptr %12, align 8, !noalias !212, !nonnull !3, !noundef !3
-  %16 = icmp uge i64 %11, %8
+  %16 = icmp ule i64 %8, %11
   tail call void @llvm.assume(i1 %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !212
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %6, i64 %8, i1 false), !noalias !220
@@ -3278,7 +3278,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hc6f322e1fa336e48E.llvm.9681354954309223308.exit": ; preds = %3
   %11 = load ptr, ptr %8, align 8, !noalias !652, !nonnull !3, !noundef !3
-  %12 = icmp uge i64 %7, %2
+  %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !652
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %1, i64 %2, i1 false)
@@ -6848,7 +6848,7 @@ define hidden void @"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hbcc57ac2b29dcbacE.llvm.9681354954309223308.exit": ; preds = %3
   %11 = load ptr, ptr %8, align 8, !noalias !1080, !nonnull !3, !noundef !3
-  %12 = icmp uge i64 %7, %2
+  %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1080
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1087
@@ -6911,22 +6911,22 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !range !77, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %trunc, label %17, label %10
+  br i1 %trunc, label %16, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %12 = icmp eq i64 %2, 0
-  %13 = icmp uge i64 %8, %0
-  %14 = or i1 %12, %13
-  tail call void @llvm.assume(i1 %14)
+  %13 = icmp ule i64 %0, %8
+  %.sroa.03.0 = or i1 %12, %13
+  tail call void @llvm.assume(i1 %.sroa.03.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %15 = insertvalue { i64, ptr } poison, i64 %8, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %11, 1
-  ret { i64, ptr } %16
+  %14 = insertvalue { i64, ptr } poison, i64 %8, 0
+  %15 = insertvalue { i64, ptr } %14, ptr %11, 1
+  ret { i64, ptr } %15
 
-17:                                               ; preds = %4
-  %18 = load i64, ptr %9, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #34
+16:                                               ; preds = %4
+  %17 = load i64, ptr %9, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #34
   unreachable
 }
 
@@ -7296,7 +7296,7 @@ define hidden void @"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u2
 
 "_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17hdb72d54492f8dadcE.llvm.9681354954309223308.exit": ; preds = %2
   %16 = load ptr, ptr %13, align 8, !noalias !1229, !nonnull !3, !noundef !3
-  %17 = icmp uge i64 %12, %9
+  %17 = icmp ule i64 %9, %12
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1229
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %7, i64 %9, i1 false), !noalias !1237
@@ -7337,7 +7337,7 @@ define hidden void @"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u2
 
 "_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17h2bfe69c08cfa28e1E.llvm.9681354954309223308.exit": ; preds = %2
   %15 = load ptr, ptr %12, align 8, !noalias !1248, !nonnull !3, !noundef !3
-  %16 = icmp uge i64 %11, %8
+  %16 = icmp ule i64 %8, %11
   tail call void @llvm.assume(i1 %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1248
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %6, i64 %8, i1 false), !noalias !1256
@@ -7391,7 +7391,7 @@ define hidden void @"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u2
 
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17hb72200e79f9096d1E.llvm.9681354954309223308.exit.i": ; preds = %8
   %19 = load ptr, ptr %16, align 8, !noalias !1282, !nonnull !3, !noundef !3
-  %20 = icmp uge i64 %15, %12
+  %20 = icmp ule i64 %12, %15
   tail call void @llvm.assume(i1 %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1282
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %10, i64 %12, i1 false), !noalias !1290
@@ -7441,7 +7441,7 @@ define hidden void @"_ZN5serde3ser5impls67_$LT$impl$u20$serde..ser..Serialize$u2
 
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hb2d4b4bf84525b7bE.llvm.9681354954309223308.exit": ; preds = %7
   %18 = load ptr, ptr %15, align 8, !noalias !1296, !nonnull !3, !noundef !3
-  %19 = icmp uge i64 %14, %11
+  %19 = icmp ule i64 %11, %14
   tail call void @llvm.assume(i1 %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1296
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %9, i64 %11, i1 false), !noalias !1304
@@ -7504,7 +7504,7 @@ define hidden void @"_ZN5serde3ser5impls70_$LT$impl$u20$serde..ser..Serialize$u2
 
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hb2d4b4bf84525b7bE.llvm.9681354954309223308.exit.i": ; preds = %10
   %21 = load ptr, ptr %18, align 8, !noalias !1314, !nonnull !3, !noundef !3
-  %22 = icmp uge i64 %17, %14
+  %22 = icmp ule i64 %14, %17
   tail call void @llvm.assume(i1 %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1314
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %12, i64 %14, i1 false), !noalias !1323
@@ -7553,7 +7553,7 @@ define hidden void @"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u2
 
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hb2d4b4bf84525b7bE.llvm.9681354954309223308.exit": ; preds = %2
   %14 = load ptr, ptr %11, align 8, !noalias !1330, !nonnull !3, !noundef !3
-  %15 = icmp uge i64 %10, %7
+  %15 = icmp ule i64 %7, %10
   tail call void @llvm.assume(i1 %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1330
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %5, i64 %7, i1 false), !noalias !1338
@@ -7644,7 +7644,7 @@ define hidden void @"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u2
 
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17hb72200e79f9096d1E.llvm.9681354954309223308.exit": ; preds = %7
   %18 = load ptr, ptr %15, align 8, !noalias !1381, !nonnull !3, !noundef !3
-  %19 = icmp uge i64 %14, %11
+  %19 = icmp ule i64 %11, %14
   tail call void @llvm.assume(i1 %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1381
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %9, i64 %11, i1 false), !noalias !1389
@@ -7846,7 +7846,7 @@ define hidden void @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clon
 
 "_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h31baa798e2d3db9cE.llvm.9681354954309223308.exit": ; preds = %13
   %20 = load ptr, ptr %17, align 8, !noalias !1407, !nonnull !3, !noundef !3
-  %21 = icmp uge i64 %16, %9
+  %21 = icmp ule i64 %9, %16
   tail call void @llvm.assume(i1 %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1407
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %7, i64 %9, i1 false), !noalias !1417
@@ -8200,7 +8200,7 @@ define hidden void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$ser
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hbcc57ac2b29dcbacE.llvm.9681354954309223308.exit": ; preds = %3
   %11 = load ptr, ptr %8, align 8, !noalias !1500, !nonnull !3, !noundef !3
-  %12 = icmp uge i64 %7, %2
+  %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1500
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1507
@@ -8279,7 +8279,7 @@ define hidden void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$ser
 
 "_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17h2bfe69c08cfa28e1E.llvm.9681354954309223308.exit": ; preds = %2
   %14 = load ptr, ptr %11, align 8, !noalias !1532, !nonnull !3, !noundef !3
-  %15 = icmp uge i64 %10, %7
+  %15 = icmp ule i64 %7, %10
   tail call void @llvm.assume(i1 %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1532
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %5, i64 %7, i1 false), !noalias !1540

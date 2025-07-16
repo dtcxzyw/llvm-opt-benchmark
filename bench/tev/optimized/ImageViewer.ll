@@ -18533,9 +18533,9 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 ._crit_edge:                                      ; preds = %113
   %.pre = load ptr, ptr %13, align 8
   %.pre202 = load ptr, ptr %51, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %123 = icmp eq ptr %.pre, %.pre202
-  br i1 %123, label %199, label %124
+  %122 = icmp eq ptr %.pre, %.pre202
+  %123 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  br i1 %122, label %199, label %124
 
 124:                                              ; preds = %._crit_edge
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %.pre)
@@ -18560,7 +18560,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.ex
   %137 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %138 = select i1 %.not.i93, ptr %137, ptr %136
   %139 = load ptr, ptr %13, align 8
-  %140 = load ptr, ptr %122, align 8
+  %140 = load ptr, ptr %123, align 8
   %.not9.i = icmp eq ptr %139, %140
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.exit
 
@@ -18704,7 +18704,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEixB8ne190000Em.ex
   br label %199
 
 199:                                              ; preds = %._crit_edge.thread, %.thread, %._crit_edge
-  %200 = phi ptr [ %122, %._crit_edge ], [ %122, %.thread ], [ %48, %._crit_edge.thread ]
+  %200 = phi ptr [ %123, %._crit_edge ], [ %123, %.thread ], [ %48, %._crit_edge.thread ]
   %201 = phi ptr [ %116, %._crit_edge ], [ %.pre204, %.thread ], [ %47, %._crit_edge.thread ]
   %202 = phi ptr [ %115, %._crit_edge ], [ %.pre203, %.thread ], [ %46, %._crit_edge.thread ]
   %.075 = phi i64 [ 0, %._crit_edge ], [ %198, %.thread ], [ 0, %._crit_edge.thread ]

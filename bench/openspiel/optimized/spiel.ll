@@ -1564,8 +1564,8 @@ _ZN4absl7debian27StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.not6577.i = icmp eq ptr %100, %101
-  br i1 %.not6577.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not6476.i = icmp eq ptr %100, %101
+  br i1 %.not6476.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 176
@@ -1573,8 +1573,8 @@ _ZN4absl7debian27StrJoinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %104
 
 104:                                              ; preds = %156, %.lr.ph.i
-  %.sroa.059.078.i = phi ptr [ %100, %.lr.ph.i ], [ %157, %156 ]
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.059.078.i, i64 32
+  %.sroa.058.077.i = phi ptr [ %100, %.lr.ph.i ], [ %157, %156 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.058.077.i, i64 32
   %106 = load ptr, ptr %102, align 8
   %.not11.i.i.i.i = icmp eq ptr %106, null
   br i1 %.not11.i.i.i.i, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.thread.i, label %.lr.ph.i.i.i.i16
@@ -1656,14 +1656,14 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13Ga
 129:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.i
   %130 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 168
   %131 = load i32, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.059.078.i, i64 168
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.058.077.i, i64 168
   %133 = load i32, ptr %132, align 8
   %.not25.i = icmp eq i32 %131, %133
   br i1 %.not25.i, label %156, label %_ZN4absl7debian28AlphaNumC2EPKc.exit33.i
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit33.i:         ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 168
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.059.078.i, i64 168
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.058.077.i, i64 168
   store ptr @.str.159, ptr %11, align 8
   %136 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 25, ptr %136, align 8
@@ -1684,7 +1684,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit33.i:         ; preds = %129
           to label %141 unwind label %146
 
 141:                                              ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit33.i
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.059.078.i, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.058.077.i, i64 64
   invoke void @_ZNK10open_spiel13GameParameter8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(108) %142)
           to label %143 unwind label %148
 
@@ -1731,25 +1731,25 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit33.i:         ; preds = %129
   br label %189
 
 156:                                              ; preds = %129
-  %157 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.059.078.i) #30
-  %.not65.i = icmp eq ptr %157, %101
-  br i1 %.not65.i, label %._crit_edge.i, label %104
+  %157 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.058.077.i) #30
+  %.not64.i = icmp eq ptr %157, %101
+  br i1 %.not64.i, label %._crit_edge.i, label %104
 
 ._crit_edge.i:                                    ; preds = %156, %97
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 184
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 168
-  %.not6679.i = icmp eq ptr %159, %160
-  br i1 %.not6679.i, label %_ZN10open_spiel12_GLOBAL__N_114ValidateParamsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS7_ESaISt4pairIKS7_S8_EEESH_.exit, label %.lr.ph82.i
+  %.not6578.i = icmp eq ptr %159, %160
+  br i1 %.not6578.i, label %_ZN10open_spiel12_GLOBAL__N_114ValidateParamsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS7_ESaISt4pairIKS7_S8_EEESH_.exit, label %.lr.ph81.i
 
-.lr.ph82.i:                                       ; preds = %._crit_edge.i
+.lr.ph81.i:                                       ; preds = %._crit_edge.i
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %162
 
-162:                                              ; preds = %187, %.lr.ph82.i
-  %.sroa.051.080.i = phi ptr [ %159, %.lr.ph82.i ], [ %188, %187 ]
-  %163 = getelementptr inbounds nuw i8, ptr %.sroa.051.080.i, i64 32
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.051.080.i, i64 64
+162:                                              ; preds = %187, %.lr.ph81.i
+  %.sroa.050.079.i = phi ptr [ %159, %.lr.ph81.i ], [ %188, %187 ]
+  %163 = getelementptr inbounds nuw i8, ptr %.sroa.050.079.i, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.050.079.i, i64 64
   %165 = load i8, ptr %164, align 8
   %166 = trunc i8 %165 to i1
   br i1 %166, label %167, label %187
@@ -1820,9 +1820,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13Ga
   br label %189
 
 187:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEE5countERSB_.exit.i, %162
-  %188 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.051.080.i) #30
-  %.not66.i = icmp eq ptr %188, %160
-  br i1 %.not66.i, label %_ZN10open_spiel12_GLOBAL__N_114ValidateParamsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS7_ESaISt4pairIKS7_S8_EEESH_.exit, label %162
+  %188 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.050.079.i) #30
+  %.not65.i = icmp eq ptr %188, %160
+  br i1 %.not65.i, label %_ZN10open_spiel12_GLOBAL__N_114ValidateParamsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS7_ESaISt4pairIKS7_S8_EEESH_.exit, label %162
 
 common.resume:                                    ; preds = %51, %96, %189
   %common.resume.op = phi { ptr, i32 } [ %.pn29.pn.i, %189 ], [ %.pn.pn, %96 ], [ %52, %51 ]
@@ -9382,8 +9382,8 @@ define void @_ZN10open_spiel18GameTypeFromStringERKNSt7__cxx1112basic_stringIcSt
   br i1 %66, label %.preheader, label %74
 
 .preheader:                                       ; preds = %58
-  %.not232 = icmp eq ptr %61, %60
-  br i1 %.not232, label %._crit_edge, label %.lr.ph
+  %.not282 = icmp eq ptr %61, %60
+  br i1 %.not282, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %67 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -9411,7 +9411,7 @@ define void @_ZN10open_spiel18GameTypeFromStringERKNSt7__cxx1112basic_stringIcSt
 77:                                               ; preds = %56
   %78 = landingpad { ptr, i32 }
           cleanup
-  br label %576
+  br label %516
 
 .loopexit:                                        ; preds = %_ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit23
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -9430,9 +9430,9 @@ define void @_ZN10open_spiel18GameTypeFromStringERKNSt7__cxx1112basic_stringIcSt
   br label %.body
 
 81:                                               ; preds = %.lr.ph, %99
-  %.sroa.0219.0233 = phi ptr [ %61, %.lr.ph ], [ %100, %99 ]
-  %82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0219.0233) #28
-  %83 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0219.0233) #28
+  %.sroa.0269.0283 = phi ptr [ %61, %.lr.ph ], [ %100, %99 ]
+  %82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0269.0283) #28
+  %83 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0269.0283) #28
   %84 = icmp sgt i64 %83, -1
   br i1 %84, label %_ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit23, label %85
 
@@ -9525,7 +9525,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %34) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %31) #28
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0233, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0269.0283, i64 32
   %.not = icmp eq ptr %100, %60
   br i1 %.not, label %._crit_edge, label %81
 
@@ -9588,7 +9588,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   store i8 0, ptr %116, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA11_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(11) @.str.124)
-          to label %.noexc34 unwind label %323
+          to label %.noexc34 unwind label %291
 
 .noexc34:                                         ; preds = %._crit_edge
   %117 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -9600,698 +9600,819 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   %.not.i10.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i, null
   %.not.i.i.i.i = select i1 %119, i1 true, i1 %.not.i10.i.i.i
-  %120 = load ptr, ptr %50, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 10
-  %122 = load i8, ptr %121, align 1
-  %123 = zext i8 %122 to i32
-  %..sroa.0.0.copyload.i.i.i.i = select i1 %.not.i.i.i.i, ptr %120, ptr %.sroa.0.0.copyload.i.i.i.i
-  %..sroa.3.0.copyload.i.i.i.i = select i1 %.not.i.i.i.i, i32 %123, i32 %.sroa.3.0.copyload.i.i.i.i
-  %124 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i, %120
-  %125 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i, %123
-  %126 = select i1 %124, i1 %125, i1 false
-  br i1 %126, label %.invoke, label %127
+  br i1 %.not.i.i.i.i, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA11_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-127:                                              ; preds = %.noexc34
-  %.not1.i.i.i = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i, 0
-  br i1 %.not1.i.i.i, label %128, label %129
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA11_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc34
+  %.pre.i = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 10
+  %.pre10.i = load i8, ptr %.phi.trans.insert9.i, align 1
+  %.pre11.i = zext i8 %.pre10.i to i32
+  %120 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i, %.pre.i
+  %121 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i, %.pre11.i
+  %122 = select i1 %120, i1 %121, i1 false
+  br i1 %122, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %123
 
-128:                                              ; preds = %127
+123:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA11_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i, 0
+  br i1 %.not1.i.i.i, label %124, label %125
+
+124:                                              ; preds = %123
   call void @llvm.trap()
   unreachable
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i, i64 10
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i32
-  %133 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i, %132
-  br i1 %133, label %135, label %134
+125:                                              ; preds = %123
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 10
+  %127 = load i8, ptr %126, align 1
+  %128 = zext i8 %127 to i32
+  %129 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i, %128
+  br i1 %129, label %131, label %130
 
-134:                                              ; preds = %129
+130:                                              ; preds = %125
   call void @llvm.trap()
   unreachable
 
-135:                                              ; preds = %129
-  %136 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i to i64
-  %.idx.i = shl nuw nsw i64 %136, 6
-  %137 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i, i64 48
-  %138 = getelementptr i8, ptr %137, i64 %.idx.i
-  %139 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %138)
-          to label %140 unwind label %323
+131:                                              ; preds = %125
+  %132 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i to i64
+  %.idx.i = shl nuw nsw i64 %132, 6
+  %133 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 48
+  %134 = getelementptr i8, ptr %133, i64 %.idx.i
+  %135 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %134)
+          to label %136 unwind label %291
 
-140:                                              ; preds = %135
+136:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA10_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(10) @.str.125)
-          to label %.noexc45 unwind label %323
+          to label %.noexc48 unwind label %291
 
-.noexc45:                                         ; preds = %140
-  %141 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %142 = load i8, ptr %141, align 8
-  %143 = icmp ne i8 %142, 0
+.noexc48:                                         ; preds = %136
+  %137 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %138 = load i8, ptr %137, align 8
+  %139 = icmp ne i8 %138, 0
   %.sroa.0.0.copyload.i.i.i.i36 = load ptr, ptr %18, align 8
   %.sroa.3.0..sroa_idx.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.3.0.copyload.i.i.i.i38 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i37, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   %.not.i10.i.i.i39 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i36, null
-  %.not.i.i.i.i40 = select i1 %143, i1 true, i1 %.not.i10.i.i.i39
-  %144 = load ptr, ptr %50, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 10
-  %146 = load i8, ptr %145, align 1
-  %147 = zext i8 %146 to i32
-  %..sroa.0.0.copyload.i.i.i.i41 = select i1 %.not.i.i.i.i40, ptr %144, ptr %.sroa.0.0.copyload.i.i.i.i36
-  %..sroa.3.0.copyload.i.i.i.i42 = select i1 %.not.i.i.i.i40, i32 %147, i32 %.sroa.3.0.copyload.i.i.i.i38
-  %148 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i41, %144
-  %149 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i42, %147
-  %150 = select i1 %148, i1 %149, i1 false
-  br i1 %150, label %.invoke, label %151
+  %.not.i.i.i.i40 = select i1 %139, i1 true, i1 %.not.i10.i.i.i39
+  br i1 %.not.i.i.i.i40, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA10_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-151:                                              ; preds = %.noexc45
-  %.not1.i.i.i43 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i42, 0
-  br i1 %.not1.i.i.i43, label %152, label %153
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA10_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc48
+  %.pre.i42 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i43 = getelementptr inbounds nuw i8, ptr %.pre.i42, i64 10
+  %.pre10.i44 = load i8, ptr %.phi.trans.insert9.i43, align 1
+  %.pre11.i45 = zext i8 %.pre10.i44 to i32
+  %140 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i36, %.pre.i42
+  %141 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i38, %.pre11.i45
+  %142 = select i1 %140, i1 %141, i1 false
+  br i1 %142, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %143
 
-152:                                              ; preds = %151
+143:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA10_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i46 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i38, 0
+  br i1 %.not1.i.i.i46, label %144, label %145
+
+144:                                              ; preds = %143
   call void @llvm.trap()
   unreachable
 
-153:                                              ; preds = %151
-  %154 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i41, i64 10
-  %155 = load i8, ptr %154, align 1
-  %156 = zext i8 %155 to i32
-  %157 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i42, %156
-  br i1 %157, label %159, label %158
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i36, i64 10
+  %147 = load i8, ptr %146, align 1
+  %148 = zext i8 %147 to i32
+  %149 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i38, %148
+  br i1 %149, label %151, label %150
 
-158:                                              ; preds = %153
+150:                                              ; preds = %145
   call void @llvm.trap()
   unreachable
 
-159:                                              ; preds = %153
-  %160 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i42 to i64
-  %.idx.i44 = shl nuw nsw i64 %160, 6
-  %161 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i41, i64 48
-  %162 = getelementptr i8, ptr %161, i64 %.idx.i44
-  %163 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %162)
-          to label %164 unwind label %323
+151:                                              ; preds = %145
+  %152 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i38 to i64
+  %.idx.i47 = shl nuw nsw i64 %152, 6
+  %153 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i36, i64 48
+  %154 = getelementptr i8, ptr %153, i64 %.idx.i47
+  %155 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %154)
+          to label %156 unwind label %291
 
-164:                                              ; preds = %159
+156:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA9_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(9) @.str.126)
-          to label %.noexc56 unwind label %323
+          to label %.noexc62 unwind label %291
 
-.noexc56:                                         ; preds = %164
-  %165 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %166 = load i8, ptr %165, align 8
-  %167 = icmp ne i8 %166, 0
-  %.sroa.0.0.copyload.i.i.i.i47 = load ptr, ptr %17, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.3.0.copyload.i.i.i.i49 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i48, align 8
+.noexc62:                                         ; preds = %156
+  %157 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %158 = load i8, ptr %157, align 8
+  %159 = icmp ne i8 %158, 0
+  %.sroa.0.0.copyload.i.i.i.i50 = load ptr, ptr %17, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sroa.3.0.copyload.i.i.i.i52 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i51, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %.not.i10.i.i.i50 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i47, null
-  %.not.i.i.i.i51 = select i1 %167, i1 true, i1 %.not.i10.i.i.i50
-  %168 = load ptr, ptr %50, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 10
-  %170 = load i8, ptr %169, align 1
-  %171 = zext i8 %170 to i32
-  %..sroa.0.0.copyload.i.i.i.i52 = select i1 %.not.i.i.i.i51, ptr %168, ptr %.sroa.0.0.copyload.i.i.i.i47
-  %..sroa.3.0.copyload.i.i.i.i53 = select i1 %.not.i.i.i.i51, i32 %171, i32 %.sroa.3.0.copyload.i.i.i.i49
-  %172 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i52, %168
-  %173 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i53, %171
-  %174 = select i1 %172, i1 %173, i1 false
-  br i1 %174, label %.invoke, label %175
+  %.not.i10.i.i.i53 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i50, null
+  %.not.i.i.i.i54 = select i1 %159, i1 true, i1 %.not.i10.i.i.i53
+  br i1 %.not.i.i.i.i54, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA9_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-175:                                              ; preds = %.noexc56
-  %.not1.i.i.i54 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i53, 0
-  br i1 %.not1.i.i.i54, label %176, label %177
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA9_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc62
+  %.pre.i56 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i57 = getelementptr inbounds nuw i8, ptr %.pre.i56, i64 10
+  %.pre10.i58 = load i8, ptr %.phi.trans.insert9.i57, align 1
+  %.pre11.i59 = zext i8 %.pre10.i58 to i32
+  %160 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i50, %.pre.i56
+  %161 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i52, %.pre11.i59
+  %162 = select i1 %160, i1 %161, i1 false
+  br i1 %162, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %163
 
-176:                                              ; preds = %175
+163:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA9_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i60 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i52, 0
+  br i1 %.not1.i.i.i60, label %164, label %165
+
+164:                                              ; preds = %163
   call void @llvm.trap()
   unreachable
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i52, i64 10
-  %179 = load i8, ptr %178, align 1
-  %180 = zext i8 %179 to i32
-  %181 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i53, %180
-  br i1 %181, label %183, label %182
+165:                                              ; preds = %163
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i50, i64 10
+  %167 = load i8, ptr %166, align 1
+  %168 = zext i8 %167 to i32
+  %169 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i52, %168
+  br i1 %169, label %171, label %170
 
-182:                                              ; preds = %177
+170:                                              ; preds = %165
   call void @llvm.trap()
   unreachable
 
-183:                                              ; preds = %177
-  %184 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i53 to i64
-  %.idx.i55 = shl nuw nsw i64 %184, 6
-  %185 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i52, i64 48
-  %186 = getelementptr i8, ptr %185, i64 %.idx.i55
-  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %36, ptr noundef nonnull align 8 dereferenceable(32) %186, i32 noundef 8)
-          to label %187 unwind label %323
+171:                                              ; preds = %165
+  %172 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i52 to i64
+  %.idx.i61 = shl nuw nsw i64 %172, 6
+  %173 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i50, i64 48
+  %174 = getelementptr i8, ptr %173, i64 %.idx.i61
+  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %36, ptr noundef nonnull align 8 dereferenceable(32) %174, i32 noundef 8)
+          to label %175 unwind label %291
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %189 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType8DynamicsE(ptr noundef nonnull align 8 dereferenceable(120) %36, ptr noundef nonnull align 4 dereferenceable(4) %188)
-          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit unwind label %325
+175:                                              ; preds = %171
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %177 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType8DynamicsE(ptr noundef nonnull align 8 dereferenceable(120) %36, ptr noundef nonnull align 4 dereferenceable(4) %176)
+          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit unwind label %293
 
-_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit: ; preds = %187
+_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit: ; preds = %175
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %36) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA12_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(12) @.str.127)
-          to label %.noexc68 unwind label %323
+          to label %.noexc77 unwind label %291
 
-.noexc68:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit
-  %190 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %191 = load i8, ptr %190, align 8
-  %192 = icmp ne i8 %191, 0
-  %.sroa.0.0.copyload.i.i.i.i59 = load ptr, ptr %16, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.3.0.copyload.i.i.i.i61 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i60, align 8
+.noexc77:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit
+  %178 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %179 = load i8, ptr %178, align 8
+  %180 = icmp ne i8 %179, 0
+  %.sroa.0.0.copyload.i.i.i.i65 = load ptr, ptr %16, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.3.0.copyload.i.i.i.i67 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i66, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %.not.i10.i.i.i62 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i59, null
-  %.not.i.i.i.i63 = select i1 %192, i1 true, i1 %.not.i10.i.i.i62
-  %193 = load ptr, ptr %50, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 10
-  %195 = load i8, ptr %194, align 1
-  %196 = zext i8 %195 to i32
-  %..sroa.0.0.copyload.i.i.i.i64 = select i1 %.not.i.i.i.i63, ptr %193, ptr %.sroa.0.0.copyload.i.i.i.i59
-  %..sroa.3.0.copyload.i.i.i.i65 = select i1 %.not.i.i.i.i63, i32 %196, i32 %.sroa.3.0.copyload.i.i.i.i61
-  %197 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i64, %193
-  %198 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i65, %196
-  %199 = select i1 %197, i1 %198, i1 false
-  br i1 %199, label %.invoke, label %200
+  %.not.i10.i.i.i68 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i65, null
+  %.not.i.i.i.i69 = select i1 %180, i1 true, i1 %.not.i10.i.i.i68
+  br i1 %.not.i.i.i.i69, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA12_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-200:                                              ; preds = %.noexc68
-  %.not1.i.i.i66 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i65, 0
-  br i1 %.not1.i.i.i66, label %201, label %202
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA12_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc77
+  %.pre.i71 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i72 = getelementptr inbounds nuw i8, ptr %.pre.i71, i64 10
+  %.pre10.i73 = load i8, ptr %.phi.trans.insert9.i72, align 1
+  %.pre11.i74 = zext i8 %.pre10.i73 to i32
+  %181 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i65, %.pre.i71
+  %182 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i67, %.pre11.i74
+  %183 = select i1 %181, i1 %182, i1 false
+  br i1 %183, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %184
 
-201:                                              ; preds = %200
+184:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA12_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i75 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i67, 0
+  br i1 %.not1.i.i.i75, label %185, label %186
+
+185:                                              ; preds = %184
   call void @llvm.trap()
   unreachable
 
-202:                                              ; preds = %200
-  %203 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i64, i64 10
-  %204 = load i8, ptr %203, align 1
-  %205 = zext i8 %204 to i32
-  %206 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i65, %205
-  br i1 %206, label %208, label %207
+186:                                              ; preds = %184
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i65, i64 10
+  %188 = load i8, ptr %187, align 1
+  %189 = zext i8 %188 to i32
+  %190 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i67, %189
+  br i1 %190, label %192, label %191
 
-207:                                              ; preds = %202
+191:                                              ; preds = %186
   call void @llvm.trap()
   unreachable
 
-208:                                              ; preds = %202
-  %209 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i65 to i64
-  %.idx.i67 = shl nuw nsw i64 %209, 6
-  %210 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i64, i64 48
-  %211 = getelementptr i8, ptr %210, i64 %.idx.i67
-  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 8 dereferenceable(32) %211, i32 noundef 8)
-          to label %212 unwind label %323
+192:                                              ; preds = %186
+  %193 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i67 to i64
+  %.idx.i76 = shl nuw nsw i64 %193, 6
+  %194 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i65, i64 48
+  %195 = getelementptr i8, ptr %194, i64 %.idx.i76
+  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 8 dereferenceable(32) %195, i32 noundef 8)
+          to label %196 unwind label %291
 
-212:                                              ; preds = %208
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %214 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType10ChanceModeE(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 4 dereferenceable(4) %213)
-          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit unwind label %327
+196:                                              ; preds = %192
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %198 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType10ChanceModeE(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 4 dereferenceable(4) %197)
+          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit unwind label %295
 
-_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit: ; preds = %212
+_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit: ; preds = %196
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %37) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA12_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(12) @.str.128)
-          to label %.noexc80 unwind label %323
+          to label %.noexc94 unwind label %291
 
-.noexc80:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit
-  %215 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %216 = load i8, ptr %215, align 8
-  %217 = icmp ne i8 %216, 0
-  %.sroa.0.0.copyload.i.i.i.i71 = load ptr, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.3.0.copyload.i.i.i.i73 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i72, align 8
+.noexc94:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit
+  %199 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %200 = load i8, ptr %199, align 8
+  %201 = icmp ne i8 %200, 0
+  %.sroa.0.0.copyload.i.i.i.i80 = load ptr, ptr %15, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.3.0.copyload.i.i.i.i82 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i81, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %.not.i10.i.i.i74 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i71, null
-  %.not.i.i.i.i75 = select i1 %217, i1 true, i1 %.not.i10.i.i.i74
-  %218 = load ptr, ptr %50, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 10
-  %220 = load i8, ptr %219, align 1
-  %221 = zext i8 %220 to i32
-  %..sroa.0.0.copyload.i.i.i.i76 = select i1 %.not.i.i.i.i75, ptr %218, ptr %.sroa.0.0.copyload.i.i.i.i71
-  %..sroa.3.0.copyload.i.i.i.i77 = select i1 %.not.i.i.i.i75, i32 %221, i32 %.sroa.3.0.copyload.i.i.i.i73
-  %222 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i76, %218
-  %223 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i77, %221
-  %224 = select i1 %222, i1 %223, i1 false
-  br i1 %224, label %.invoke, label %225
+  %.not.i10.i.i.i83 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i80, null
+  %.not.i.i.i.i84 = select i1 %201, i1 true, i1 %.not.i10.i.i.i83
+  br i1 %.not.i.i.i.i84, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA12_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i85
 
-225:                                              ; preds = %.noexc80
-  %.not1.i.i.i78 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i77, 0
-  br i1 %.not1.i.i.i78, label %226, label %227
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA12_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i85: ; preds = %.noexc94
+  %.pre.i87 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i88 = getelementptr inbounds nuw i8, ptr %.pre.i87, i64 10
+  %.pre10.i89 = load i8, ptr %.phi.trans.insert9.i88, align 1
+  %.pre11.i90 = zext i8 %.pre10.i89 to i32
+  %202 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i80, %.pre.i87
+  %203 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i82, %.pre11.i90
+  %204 = select i1 %202, i1 %203, i1 false
+  br i1 %204, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %205
 
-226:                                              ; preds = %225
+205:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA12_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i85
+  %.not1.i.i.i91 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i82, 0
+  br i1 %.not1.i.i.i91, label %206, label %207
+
+206:                                              ; preds = %205
   call void @llvm.trap()
   unreachable
 
-227:                                              ; preds = %225
-  %228 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i76, i64 10
-  %229 = load i8, ptr %228, align 1
-  %230 = zext i8 %229 to i32
-  %231 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i77, %230
-  br i1 %231, label %233, label %232
+207:                                              ; preds = %205
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i80, i64 10
+  %209 = load i8, ptr %208, align 1
+  %210 = zext i8 %209 to i32
+  %211 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i82, %210
+  br i1 %211, label %213, label %212
 
-232:                                              ; preds = %227
+212:                                              ; preds = %207
   call void @llvm.trap()
   unreachable
 
-233:                                              ; preds = %227
-  %234 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i77 to i64
-  %.idx.i79 = shl nuw nsw i64 %234, 6
-  %235 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i76, i64 48
-  %236 = getelementptr i8, ptr %235, i64 %.idx.i79
-  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 8 dereferenceable(32) %236, i32 noundef 8)
-          to label %237 unwind label %323
+213:                                              ; preds = %207
+  %214 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i82 to i64
+  %.idx.i92 = shl nuw nsw i64 %214, 6
+  %215 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i80, i64 48
+  %216 = getelementptr i8, ptr %215, i64 %.idx.i92
+  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 8 dereferenceable(32) %216, i32 noundef 8)
+          to label %217 unwind label %291
 
-237:                                              ; preds = %233
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %239 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType11InformationE(ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 4 dereferenceable(4) %238)
-          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit unwind label %329
+217:                                              ; preds = %213
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %219 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType11InformationE(ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 4 dereferenceable(4) %218)
+          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit unwind label %297
 
-_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit: ; preds = %237
+_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit: ; preds = %217
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %38) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA8_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(8) @.str.129)
-          to label %.noexc93 unwind label %323
+          to label %.noexc110 unwind label %291
 
-.noexc93:                                         ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit
-  %240 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %241 = load i8, ptr %240, align 8
-  %242 = icmp ne i8 %241, 0
-  %.sroa.0.0.copyload.i.i.i.i84 = load ptr, ptr %14, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sroa.3.0.copyload.i.i.i.i86 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i85, align 8
+.noexc110:                                        ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit
+  %220 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %221 = load i8, ptr %220, align 8
+  %222 = icmp ne i8 %221, 0
+  %.sroa.0.0.copyload.i.i.i.i98 = load ptr, ptr %14, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i99 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.3.0.copyload.i.i.i.i100 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i99, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  %.not.i10.i.i.i87 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i84, null
-  %.not.i.i.i.i88 = select i1 %242, i1 true, i1 %.not.i10.i.i.i87
-  %243 = load ptr, ptr %50, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 10
-  %245 = load i8, ptr %244, align 1
-  %246 = zext i8 %245 to i32
-  %..sroa.0.0.copyload.i.i.i.i89 = select i1 %.not.i.i.i.i88, ptr %243, ptr %.sroa.0.0.copyload.i.i.i.i84
-  %..sroa.3.0.copyload.i.i.i.i90 = select i1 %.not.i.i.i.i88, i32 %246, i32 %.sroa.3.0.copyload.i.i.i.i86
-  %247 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i89, %243
-  %248 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i90, %246
-  %249 = select i1 %247, i1 %248, i1 false
-  br i1 %249, label %.invoke, label %250
+  %.not.i10.i.i.i101 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i98, null
+  %.not.i.i.i.i102 = select i1 %222, i1 true, i1 %.not.i10.i.i.i101
+  br i1 %.not.i.i.i.i102, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA8_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-250:                                              ; preds = %.noexc93
-  %.not1.i.i.i91 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i90, 0
-  br i1 %.not1.i.i.i91, label %251, label %252
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA8_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc110
+  %.pre.i104 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i105 = getelementptr inbounds nuw i8, ptr %.pre.i104, i64 10
+  %.pre10.i106 = load i8, ptr %.phi.trans.insert9.i105, align 1
+  %.pre11.i107 = zext i8 %.pre10.i106 to i32
+  %223 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i98, %.pre.i104
+  %224 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i100, %.pre11.i107
+  %225 = select i1 %223, i1 %224, i1 false
+  br i1 %225, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %226
 
-251:                                              ; preds = %250
+226:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA8_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i108 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i100, 0
+  br i1 %.not1.i.i.i108, label %227, label %228
+
+227:                                              ; preds = %226
   call void @llvm.trap()
   unreachable
 
-252:                                              ; preds = %250
-  %253 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i89, i64 10
-  %254 = load i8, ptr %253, align 1
-  %255 = zext i8 %254 to i32
-  %256 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i90, %255
-  br i1 %256, label %258, label %257
+228:                                              ; preds = %226
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i98, i64 10
+  %230 = load i8, ptr %229, align 1
+  %231 = zext i8 %230 to i32
+  %232 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i100, %231
+  br i1 %232, label %234, label %233
 
-257:                                              ; preds = %252
+233:                                              ; preds = %228
   call void @llvm.trap()
   unreachable
 
-258:                                              ; preds = %252
-  %259 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i90 to i64
-  %.idx.i92 = shl nuw nsw i64 %259, 6
-  %260 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i89, i64 48
-  %261 = getelementptr i8, ptr %260, i64 %.idx.i92
-  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 8 dereferenceable(32) %261, i32 noundef 8)
-          to label %262 unwind label %323
+234:                                              ; preds = %228
+  %235 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i100 to i64
+  %.idx.i109 = shl nuw nsw i64 %235, 6
+  %236 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i98, i64 48
+  %237 = getelementptr i8, ptr %236, i64 %.idx.i109
+  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 8 dereferenceable(32) %237, i32 noundef 8)
+          to label %238 unwind label %291
 
-262:                                              ; preds = %258
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %264 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType7UtilityE(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 4 dereferenceable(4) %263)
-          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit unwind label %331
+238:                                              ; preds = %234
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %240 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType7UtilityE(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 4 dereferenceable(4) %239)
+          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit unwind label %299
 
-_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit: ; preds = %262
+_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit: ; preds = %238
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %39) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA13_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(13) @.str.130)
-          to label %.noexc105 unwind label %323
+          to label %.noexc125 unwind label %291
 
-.noexc105:                                        ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit
-  %265 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %266 = load i8, ptr %265, align 8
-  %267 = icmp ne i8 %266, 0
-  %.sroa.0.0.copyload.i.i.i.i96 = load ptr, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.3.0.copyload.i.i.i.i98 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i97, align 8
+.noexc125:                                        ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit
+  %241 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %242 = load i8, ptr %241, align 8
+  %243 = icmp ne i8 %242, 0
+  %.sroa.0.0.copyload.i.i.i.i113 = load ptr, ptr %13, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i114 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.3.0.copyload.i.i.i.i115 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i114, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %.not.i10.i.i.i99 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i96, null
-  %.not.i.i.i.i100 = select i1 %267, i1 true, i1 %.not.i10.i.i.i99
-  %268 = load ptr, ptr %50, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 10
-  %270 = load i8, ptr %269, align 1
-  %271 = zext i8 %270 to i32
-  %..sroa.0.0.copyload.i.i.i.i101 = select i1 %.not.i.i.i.i100, ptr %268, ptr %.sroa.0.0.copyload.i.i.i.i96
-  %..sroa.3.0.copyload.i.i.i.i102 = select i1 %.not.i.i.i.i100, i32 %271, i32 %.sroa.3.0.copyload.i.i.i.i98
-  %272 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i101, %268
-  %273 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i102, %271
-  %274 = select i1 %272, i1 %273, i1 false
-  br i1 %274, label %.invoke, label %275
+  %.not.i10.i.i.i116 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i113, null
+  %.not.i.i.i.i117 = select i1 %243, i1 true, i1 %.not.i10.i.i.i116
+  br i1 %.not.i.i.i.i117, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA13_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-275:                                              ; preds = %.noexc105
-  %.not1.i.i.i103 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i102, 0
-  br i1 %.not1.i.i.i103, label %276, label %277
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA13_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc125
+  %.pre.i119 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i120 = getelementptr inbounds nuw i8, ptr %.pre.i119, i64 10
+  %.pre10.i121 = load i8, ptr %.phi.trans.insert9.i120, align 1
+  %.pre11.i122 = zext i8 %.pre10.i121 to i32
+  %244 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i113, %.pre.i119
+  %245 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i115, %.pre11.i122
+  %246 = select i1 %244, i1 %245, i1 false
+  br i1 %246, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %247
 
-276:                                              ; preds = %275
+247:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA13_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i123 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i115, 0
+  br i1 %.not1.i.i.i123, label %248, label %249
+
+248:                                              ; preds = %247
   call void @llvm.trap()
   unreachable
 
-277:                                              ; preds = %275
-  %278 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i101, i64 10
-  %279 = load i8, ptr %278, align 1
-  %280 = zext i8 %279 to i32
-  %281 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i102, %280
-  br i1 %281, label %283, label %282
+249:                                              ; preds = %247
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i113, i64 10
+  %251 = load i8, ptr %250, align 1
+  %252 = zext i8 %251 to i32
+  %253 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i115, %252
+  br i1 %253, label %255, label %254
 
-282:                                              ; preds = %277
+254:                                              ; preds = %249
   call void @llvm.trap()
   unreachable
 
-283:                                              ; preds = %277
-  %284 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i102 to i64
-  %.idx.i104 = shl nuw nsw i64 %284, 6
-  %285 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i101, i64 48
-  %286 = getelementptr i8, ptr %285, i64 %.idx.i104
-  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr noundef nonnull align 8 dereferenceable(32) %286, i32 noundef 8)
-          to label %287 unwind label %323
+255:                                              ; preds = %249
+  %256 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i115 to i64
+  %.idx.i124 = shl nuw nsw i64 %256, 6
+  %257 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i113, i64 48
+  %258 = getelementptr i8, ptr %257, i64 %.idx.i124
+  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr noundef nonnull align 8 dereferenceable(32) %258, i32 noundef 8)
+          to label %259 unwind label %291
 
-287:                                              ; preds = %283
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %289 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType11RewardModelE(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr noundef nonnull align 4 dereferenceable(4) %288)
-          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit unwind label %333
+259:                                              ; preds = %255
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %261 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN10open_spielrsERSiRNS_8GameType11RewardModelE(ptr noundef nonnull align 8 dereferenceable(120) %40, ptr noundef nonnull align 4 dereferenceable(4) %260)
+          to label %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit unwind label %301
 
-_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit: ; preds = %287
+_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit: ; preds = %259
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %40) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA16_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(16) @.str.131)
-          to label %.noexc117 unwind label %323
+          to label %.noexc140 unwind label %291
 
-.noexc117:                                        ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit
-  %290 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %291 = load i8, ptr %290, align 8
-  %292 = icmp ne i8 %291, 0
-  %.sroa.0.0.copyload.i.i.i.i108 = load ptr, ptr %12, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i109 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.3.0.copyload.i.i.i.i110 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i109, align 8
+.noexc140:                                        ; preds = %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit
+  %262 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %263 = load i8, ptr %262, align 8
+  %264 = icmp ne i8 %263, 0
+  %.sroa.0.0.copyload.i.i.i.i128 = load ptr, ptr %12, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i129 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.3.0.copyload.i.i.i.i130 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i129, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %.not.i10.i.i.i111 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i108, null
-  %.not.i.i.i.i112 = select i1 %292, i1 true, i1 %.not.i10.i.i.i111
-  %293 = load ptr, ptr %50, align 8
-  %294 = getelementptr inbounds nuw i8, ptr %293, i64 10
-  %295 = load i8, ptr %294, align 1
-  %296 = zext i8 %295 to i32
-  %..sroa.0.0.copyload.i.i.i.i113 = select i1 %.not.i.i.i.i112, ptr %293, ptr %.sroa.0.0.copyload.i.i.i.i108
-  %..sroa.3.0.copyload.i.i.i.i114 = select i1 %.not.i.i.i.i112, i32 %296, i32 %.sroa.3.0.copyload.i.i.i.i110
-  %297 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i113, %293
-  %298 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i114, %296
-  %299 = select i1 %297, i1 %298, i1 false
-  br i1 %299, label %.invoke, label %300
+  %.not.i10.i.i.i131 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i128, null
+  %.not.i.i.i.i132 = select i1 %264, i1 true, i1 %.not.i10.i.i.i131
+  br i1 %.not.i.i.i.i132, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA16_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-300:                                              ; preds = %.noexc117
-  %.not1.i.i.i115 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i114, 0
-  br i1 %.not1.i.i.i115, label %301, label %302
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA16_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc140
+  %.pre.i134 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i135 = getelementptr inbounds nuw i8, ptr %.pre.i134, i64 10
+  %.pre10.i136 = load i8, ptr %.phi.trans.insert9.i135, align 1
+  %.pre11.i137 = zext i8 %.pre10.i136 to i32
+  %265 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i128, %.pre.i134
+  %266 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i130, %.pre11.i137
+  %267 = select i1 %265, i1 %266, i1 false
+  br i1 %267, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %268
 
-301:                                              ; preds = %300
+268:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA16_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i138 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i130, 0
+  br i1 %.not1.i.i.i138, label %269, label %270
+
+269:                                              ; preds = %268
   call void @llvm.trap()
   unreachable
 
-302:                                              ; preds = %300
-  %303 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i113, i64 10
-  %304 = load i8, ptr %303, align 1
-  %305 = zext i8 %304 to i32
-  %306 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i114, %305
-  br i1 %306, label %308, label %307
+270:                                              ; preds = %268
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i128, i64 10
+  %272 = load i8, ptr %271, align 1
+  %273 = zext i8 %272 to i32
+  %274 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i130, %273
+  br i1 %274, label %276, label %275
 
-307:                                              ; preds = %302
+275:                                              ; preds = %270
   call void @llvm.trap()
   unreachable
 
-308:                                              ; preds = %302
-  %309 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i114 to i64
-  %.idx.i116 = shl nuw nsw i64 %309, 6
-  %310 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i113, i64 48
-  %311 = getelementptr i8, ptr %310, i64 %.idx.i116
-  %312 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %311) #28
-  %313 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %311) #28
-  %314 = icmp sgt i64 %313, -1
-  br i1 %314, label %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %315
+276:                                              ; preds = %270
+  %277 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i130 to i64
+  %.idx.i139 = shl nuw nsw i64 %277, 6
+  %278 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i128, i64 48
+  %279 = getelementptr i8, ptr %278, i64 %.idx.i139
+  %280 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %279) #28
+  %281 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %279) #28
+  %282 = icmp sgt i64 %281, -1
+  br i1 %282, label %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %283
 
-315:                                              ; preds = %308
+283:                                              ; preds = %276
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %308
+_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %276
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %316 = invoke noundef zeroext i1 @_ZN4absl7debian216numbers_internal17safe_strto32_baseENS0_11string_viewEPii(ptr %312, i64 %313, ptr noundef nonnull %11, i32 noundef 10)
-          to label %317 unwind label %323
+  %284 = invoke noundef zeroext i1 @_ZN4absl7debian216numbers_internal17safe_strto32_baseENS0_11string_viewEPii(ptr %280, i64 %281, ptr noundef nonnull %11, i32 noundef 10)
+          to label %285 unwind label %291
 
-317:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %319 = load i32, ptr %11, align 4
-  store i32 %319, ptr %318, align 4
+285:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %287 = load i32, ptr %11, align 4
+  store i32 %287, ptr %286, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br i1 %316, label %337, label %320
+  br i1 %284, label %305, label %288
 
-320:                                              ; preds = %317
+288:                                              ; preds = %285
   store i32 759, ptr %42, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iRA13_S2_RA87_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %41, ptr noundef nonnull align 1 dereferenceable(118) @.str.16, ptr noundef nonnull align 1 dereferenceable(2) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 1 dereferenceable(13) @.str.117, ptr noundef nonnull align 1 dereferenceable(87) @.str.132, ptr noundef nonnull align 1 dereferenceable(2) @.str.33)
-          to label %321 unwind label %323
+          to label %289 unwind label %291
 
-321:                                              ; preds = %320
+289:                                              ; preds = %288
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %41) #29
-          to label %322 unwind label %335
+          to label %290 unwind label %303
 
-322:                                              ; preds = %321
+290:                                              ; preds = %289
   unreachable
 
-323:                                              ; preds = %.invoke, %496, %470, %444, %418, %392, %373, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit132, %337, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit, %164, %140, %._crit_edge, %368, %320, %283, %258, %233, %208, %183, %159, %135
-  %324 = landingpad { ptr, i32 }
+291:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, %440, %418, %396, %374, %352, %337, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit160, %305, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11RewardModelEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType7UtilityEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType11InformationEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType10ChanceModeEEOT_SB_OT0_.exit, %_ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel8GameType8DynamicsEEOT_SB_OT0_.exit, %156, %136, %._crit_edge, %332, %288, %255, %234, %213, %192, %171, %151, %131
+  %292 = landingpad { ptr, i32 }
           cleanup
-  br label %575
+  br label %515
 
-325:                                              ; preds = %187
-  %326 = landingpad { ptr, i32 }
+293:                                              ; preds = %175
+  %294 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %36) #28
-  br label %575
+  br label %515
 
-327:                                              ; preds = %212
-  %328 = landingpad { ptr, i32 }
+295:                                              ; preds = %196
+  %296 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %37) #28
-  br label %575
+  br label %515
 
-329:                                              ; preds = %237
-  %330 = landingpad { ptr, i32 }
+297:                                              ; preds = %217
+  %298 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %38) #28
-  br label %575
+  br label %515
 
-331:                                              ; preds = %262
-  %332 = landingpad { ptr, i32 }
+299:                                              ; preds = %238
+  %300 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %39) #28
-  br label %575
+  br label %515
 
-333:                                              ; preds = %287
-  %334 = landingpad { ptr, i32 }
+301:                                              ; preds = %259
+  %302 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %40) #28
-  br label %575
+  br label %515
 
-335:                                              ; preds = %321
-  %336 = landingpad { ptr, i32 }
+303:                                              ; preds = %289
+  %304 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #28
-  br label %575
+  br label %515
 
-337:                                              ; preds = %317
+305:                                              ; preds = %285
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA16_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(16) @.str.133)
-          to label %.noexc129 unwind label %323
+          to label %.noexc157 unwind label %291
 
-.noexc129:                                        ; preds = %337
-  %338 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %339 = load i8, ptr %338, align 8
-  %340 = icmp ne i8 %339, 0
-  %.sroa.0.0.copyload.i.i.i.i120 = load ptr, ptr %10, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.3.0.copyload.i.i.i.i122 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i121, align 8
+.noexc157:                                        ; preds = %305
+  %306 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %307 = load i8, ptr %306, align 8
+  %308 = icmp ne i8 %307, 0
+  %.sroa.0.0.copyload.i.i.i.i143 = load ptr, ptr %10, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i144 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.3.0.copyload.i.i.i.i145 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i144, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %.not.i10.i.i.i123 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i120, null
-  %.not.i.i.i.i124 = select i1 %340, i1 true, i1 %.not.i10.i.i.i123
-  %341 = load ptr, ptr %50, align 8
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 10
-  %343 = load i8, ptr %342, align 1
-  %344 = zext i8 %343 to i32
-  %..sroa.0.0.copyload.i.i.i.i125 = select i1 %.not.i.i.i.i124, ptr %341, ptr %.sroa.0.0.copyload.i.i.i.i120
-  %..sroa.3.0.copyload.i.i.i.i126 = select i1 %.not.i.i.i.i124, i32 %344, i32 %.sroa.3.0.copyload.i.i.i.i122
-  %345 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i125, %341
-  %346 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i126, %344
-  %347 = select i1 %345, i1 %346, i1 false
-  br i1 %347, label %.invoke, label %348
+  %.not.i10.i.i.i146 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i143, null
+  %.not.i.i.i.i147 = select i1 %308, i1 true, i1 %.not.i10.i.i.i146
+  br i1 %.not.i.i.i.i147, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA16_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i148
 
-348:                                              ; preds = %.noexc129
-  %.not1.i.i.i127 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i126, 0
-  br i1 %.not1.i.i.i127, label %349, label %350
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA16_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i148: ; preds = %.noexc157
+  %.pre.i150 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i151 = getelementptr inbounds nuw i8, ptr %.pre.i150, i64 10
+  %.pre10.i152 = load i8, ptr %.phi.trans.insert9.i151, align 1
+  %.pre11.i153 = zext i8 %.pre10.i152 to i32
+  %309 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i143, %.pre.i150
+  %310 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i145, %.pre11.i153
+  %311 = select i1 %309, i1 %310, i1 false
+  br i1 %311, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %312
 
-349:                                              ; preds = %348
+312:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA16_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i148
+  %.not1.i.i.i154 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i145, 0
+  br i1 %.not1.i.i.i154, label %313, label %314
+
+313:                                              ; preds = %312
   call void @llvm.trap()
   unreachable
 
-350:                                              ; preds = %348
-  %351 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i125, i64 10
-  %352 = load i8, ptr %351, align 1
-  %353 = zext i8 %352 to i32
-  %354 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i126, %353
-  br i1 %354, label %356, label %355
+314:                                              ; preds = %312
+  %315 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i143, i64 10
+  %316 = load i8, ptr %315, align 1
+  %317 = zext i8 %316 to i32
+  %318 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i145, %317
+  br i1 %318, label %320, label %319
 
-355:                                              ; preds = %350
+319:                                              ; preds = %314
   call void @llvm.trap()
   unreachable
 
-356:                                              ; preds = %350
-  %357 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i126 to i64
-  %.idx.i128 = shl nuw nsw i64 %357, 6
-  %358 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i125, i64 48
-  %359 = getelementptr i8, ptr %358, i64 %.idx.i128
-  %360 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %359) #28
-  %361 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %359) #28
-  %362 = icmp sgt i64 %361, -1
-  br i1 %362, label %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit132, label %363
+320:                                              ; preds = %314
+  %321 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i145 to i64
+  %.idx.i155 = shl nuw nsw i64 %321, 6
+  %322 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i143, i64 48
+  %323 = getelementptr i8, ptr %322, i64 %.idx.i155
+  %324 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %323) #28
+  %325 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %323) #28
+  %326 = icmp sgt i64 %325, -1
+  br i1 %326, label %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit160, label %327
 
-363:                                              ; preds = %356
+327:                                              ; preds = %320
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit132: ; preds = %356
+_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit160: ; preds = %320
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %364 = invoke noundef zeroext i1 @_ZN4absl7debian216numbers_internal17safe_strto32_baseENS0_11string_viewEPii(ptr %360, i64 %361, ptr noundef nonnull %9, i32 noundef 10)
-          to label %365 unwind label %323
+  %328 = invoke noundef zeroext i1 @_ZN4absl7debian216numbers_internal17safe_strto32_baseENS0_11string_viewEPii(ptr %324, i64 %325, ptr noundef nonnull %9, i32 noundef 10)
+          to label %329 unwind label %291
 
-365:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit132
-  %366 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %367 = load i32, ptr %9, align 4
-  store i32 %367, ptr %366, align 8
+329:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit160
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %331 = load i32, ptr %9, align 4
+  store i32 %331, ptr %330, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br i1 %364, label %373, label %368
+  br i1 %328, label %337, label %332
 
-368:                                              ; preds = %365
+332:                                              ; preds = %329
   store i32 761, ptr %44, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA118_KcRA2_S2_iRA13_S2_RA87_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull align 1 dereferenceable(118) @.str.16, ptr noundef nonnull align 1 dereferenceable(2) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 1 dereferenceable(13) @.str.117, ptr noundef nonnull align 1 dereferenceable(87) @.str.134, ptr noundef nonnull align 1 dereferenceable(2) @.str.33)
-          to label %369 unwind label %323
+          to label %333 unwind label %291
 
-369:                                              ; preds = %368
+333:                                              ; preds = %332
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %43) #29
-          to label %370 unwind label %371
+          to label %334 unwind label %335
 
-370:                                              ; preds = %369
+334:                                              ; preds = %333
   unreachable
 
-371:                                              ; preds = %369
-  %372 = landingpad { ptr, i32 }
+335:                                              ; preds = %333
+  %336 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #28
-  br label %575
+  br label %515
 
-373:                                              ; preds = %365
+337:                                              ; preds = %329
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA34_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(34) @.str.135)
-          to label %.noexc144 unwind label %323
+          to label %.noexc175 unwind label %291
 
-.noexc144:                                        ; preds = %373
-  %374 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %375 = load i8, ptr %374, align 8
-  %376 = icmp ne i8 %375, 0
-  %.sroa.0.0.copyload.i.i.i.i135 = load ptr, ptr %8, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i136 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.3.0.copyload.i.i.i.i137 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i136, align 8
+.noexc175:                                        ; preds = %337
+  %338 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %339 = load i8, ptr %338, align 8
+  %340 = icmp ne i8 %339, 0
+  %.sroa.0.0.copyload.i.i.i.i163 = load ptr, ptr %8, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i164 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.3.0.copyload.i.i.i.i165 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i164, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %.not.i10.i.i.i138 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i135, null
-  %.not.i.i.i.i139 = select i1 %376, i1 true, i1 %.not.i10.i.i.i138
-  %377 = load ptr, ptr %50, align 8
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 10
-  %379 = load i8, ptr %378, align 1
-  %380 = zext i8 %379 to i32
-  %..sroa.0.0.copyload.i.i.i.i140 = select i1 %.not.i.i.i.i139, ptr %377, ptr %.sroa.0.0.copyload.i.i.i.i135
-  %..sroa.3.0.copyload.i.i.i.i141 = select i1 %.not.i.i.i.i139, i32 %380, i32 %.sroa.3.0.copyload.i.i.i.i137
-  %381 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i140, %377
-  %382 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i141, %380
-  %383 = select i1 %381, i1 %382, i1 false
-  br i1 %383, label %.invoke, label %384
+  %.not.i10.i.i.i166 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i163, null
+  %.not.i.i.i.i167 = select i1 %340, i1 true, i1 %.not.i10.i.i.i166
+  br i1 %.not.i.i.i.i167, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA34_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-384:                                              ; preds = %.noexc144
-  %.not1.i.i.i142 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i141, 0
-  br i1 %.not1.i.i.i142, label %385, label %386
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA34_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc175
+  %.pre.i169 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i170 = getelementptr inbounds nuw i8, ptr %.pre.i169, i64 10
+  %.pre10.i171 = load i8, ptr %.phi.trans.insert9.i170, align 1
+  %.pre11.i172 = zext i8 %.pre10.i171 to i32
+  %341 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i163, %.pre.i169
+  %342 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i165, %.pre11.i172
+  %343 = select i1 %341, i1 %342, i1 false
+  br i1 %343, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %344
 
-385:                                              ; preds = %384
+344:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA34_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i173 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i165, 0
+  br i1 %.not1.i.i.i173, label %345, label %346
+
+345:                                              ; preds = %344
   call void @llvm.trap()
   unreachable
 
-386:                                              ; preds = %384
-  %387 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i140, i64 10
-  %388 = load i8, ptr %387, align 1
-  %389 = zext i8 %388 to i32
-  %390 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i141, %389
-  br i1 %390, label %392, label %391
+346:                                              ; preds = %344
+  %347 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i163, i64 10
+  %348 = load i8, ptr %347, align 1
+  %349 = zext i8 %348 to i32
+  %350 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i165, %349
+  br i1 %350, label %352, label %351
 
-391:                                              ; preds = %386
+351:                                              ; preds = %346
   call void @llvm.trap()
   unreachable
 
-392:                                              ; preds = %386
-  %393 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i141 to i64
-  %.idx.i143 = shl nuw nsw i64 %393, 6
-  %394 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i140, i64 48
-  %395 = getelementptr i8, ptr %394, i64 %.idx.i143
-  %396 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %395, ptr noundef nonnull @.str.109) #28
-  %397 = icmp eq i32 %396, 0
-  %398 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %399 = zext i1 %397 to i8
-  store i8 %399, ptr %398, align 4
+352:                                              ; preds = %346
+  %353 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i165 to i64
+  %.idx.i174 = shl nuw nsw i64 %353, 6
+  %354 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i163, i64 48
+  %355 = getelementptr i8, ptr %354, i64 %.idx.i174
+  %356 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef nonnull @.str.109) #28
+  %357 = icmp eq i32 %356, 0
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %359 = zext i1 %357 to i8
+  store i8 %359, ptr %358, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA34_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(34) @.str.136)
-          to label %.noexc155 unwind label %323
+          to label %.noexc191 unwind label %291
 
-.noexc155:                                        ; preds = %392
-  %400 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %401 = load i8, ptr %400, align 8
-  %402 = icmp ne i8 %401, 0
-  %.sroa.0.0.copyload.i.i.i.i146 = load ptr, ptr %7, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i147 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.3.0.copyload.i.i.i.i148 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i147, align 8
+.noexc191:                                        ; preds = %352
+  %360 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %361 = load i8, ptr %360, align 8
+  %362 = icmp ne i8 %361, 0
+  %.sroa.0.0.copyload.i.i.i.i177 = load ptr, ptr %7, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i178 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.3.0.copyload.i.i.i.i179 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i178, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %.not.i10.i.i.i149 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i146, null
-  %.not.i.i.i.i150 = select i1 %402, i1 true, i1 %.not.i10.i.i.i149
-  %403 = load ptr, ptr %50, align 8
-  %404 = getelementptr inbounds nuw i8, ptr %403, i64 10
-  %405 = load i8, ptr %404, align 1
-  %406 = zext i8 %405 to i32
-  %..sroa.0.0.copyload.i.i.i.i151 = select i1 %.not.i.i.i.i150, ptr %403, ptr %.sroa.0.0.copyload.i.i.i.i146
-  %..sroa.3.0.copyload.i.i.i.i152 = select i1 %.not.i.i.i.i150, i32 %406, i32 %.sroa.3.0.copyload.i.i.i.i148
-  %407 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i151, %403
-  %408 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i152, %406
-  %409 = select i1 %407, i1 %408, i1 false
-  br i1 %409, label %.invoke, label %410
+  %.not.i10.i.i.i180 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i177, null
+  %.not.i.i.i.i181 = select i1 %362, i1 true, i1 %.not.i10.i.i.i180
+  br i1 %.not.i.i.i.i181, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA34_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i182
 
-410:                                              ; preds = %.noexc155
-  %.not1.i.i.i153 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i152, 0
-  br i1 %.not1.i.i.i153, label %411, label %412
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA34_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i182: ; preds = %.noexc191
+  %.pre.i184 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i185 = getelementptr inbounds nuw i8, ptr %.pre.i184, i64 10
+  %.pre10.i186 = load i8, ptr %.phi.trans.insert9.i185, align 1
+  %.pre11.i187 = zext i8 %.pre10.i186 to i32
+  %363 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i177, %.pre.i184
+  %364 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i179, %.pre11.i187
+  %365 = select i1 %363, i1 %364, i1 false
+  br i1 %365, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %366
+
+366:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA34_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i182
+  %.not1.i.i.i188 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i179, 0
+  br i1 %.not1.i.i.i188, label %367, label %368
+
+367:                                              ; preds = %366
+  call void @llvm.trap()
+  unreachable
+
+368:                                              ; preds = %366
+  %369 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i177, i64 10
+  %370 = load i8, ptr %369, align 1
+  %371 = zext i8 %370 to i32
+  %372 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i179, %371
+  br i1 %372, label %374, label %373
+
+373:                                              ; preds = %368
+  call void @llvm.trap()
+  unreachable
+
+374:                                              ; preds = %368
+  %375 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i179 to i64
+  %.idx.i189 = shl nuw nsw i64 %375, 6
+  %376 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i177, i64 48
+  %377 = getelementptr i8, ptr %376, i64 %.idx.i189
+  %378 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %377, ptr noundef nonnull @.str.109) #28
+  %379 = icmp eq i32 %378, 0
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 93
+  %381 = zext i1 %379 to i8
+  store i8 %381, ptr %380, align 1
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA28_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(28) @.str.137)
+          to label %.noexc206 unwind label %291
+
+.noexc206:                                        ; preds = %374
+  %382 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %383 = load i8, ptr %382, align 8
+  %384 = icmp ne i8 %383, 0
+  %.sroa.0.0.copyload.i.i.i.i194 = load ptr, ptr %6, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.3.0.copyload.i.i.i.i196 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i195, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  %.not.i10.i.i.i197 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i194, null
+  %.not.i.i.i.i198 = select i1 %384, i1 true, i1 %.not.i10.i.i.i197
+  br i1 %.not.i.i.i.i198, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA28_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA28_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc206
+  %.pre.i200 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i201 = getelementptr inbounds nuw i8, ptr %.pre.i200, i64 10
+  %.pre10.i202 = load i8, ptr %.phi.trans.insert9.i201, align 1
+  %.pre11.i203 = zext i8 %.pre10.i202 to i32
+  %385 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i194, %.pre.i200
+  %386 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i196, %.pre11.i203
+  %387 = select i1 %385, i1 %386, i1 false
+  br i1 %387, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %388
+
+388:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA28_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i204 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i196, 0
+  br i1 %.not1.i.i.i204, label %389, label %390
+
+389:                                              ; preds = %388
+  call void @llvm.trap()
+  unreachable
+
+390:                                              ; preds = %388
+  %391 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i194, i64 10
+  %392 = load i8, ptr %391, align 1
+  %393 = zext i8 %392 to i32
+  %394 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i196, %393
+  br i1 %394, label %396, label %395
+
+395:                                              ; preds = %390
+  call void @llvm.trap()
+  unreachable
+
+396:                                              ; preds = %390
+  %397 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i196 to i64
+  %.idx.i205 = shl nuw nsw i64 %397, 6
+  %398 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i194, i64 48
+  %399 = getelementptr i8, ptr %398, i64 %.idx.i205
+  %400 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %399, ptr noundef nonnull @.str.109) #28
+  %401 = icmp eq i32 %400, 0
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 94
+  %403 = zext i1 %401 to i8
+  store i8 %403, ptr %402, align 2
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA28_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(28) @.str.138)
+          to label %.noexc222 unwind label %291
+
+.noexc222:                                        ; preds = %396
+  %404 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %405 = load i8, ptr %404, align 8
+  %406 = icmp ne i8 %405, 0
+  %.sroa.0.0.copyload.i.i.i.i208 = load ptr, ptr %5, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.3.0.copyload.i.i.i.i210 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i209, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  %.not.i10.i.i.i211 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i208, null
+  %.not.i.i.i.i212 = select i1 %406, i1 true, i1 %.not.i10.i.i.i211
+  br i1 %.not.i.i.i.i212, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA28_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i213
+
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA28_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i213: ; preds = %.noexc222
+  %.pre.i215 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i216 = getelementptr inbounds nuw i8, ptr %.pre.i215, i64 10
+  %.pre10.i217 = load i8, ptr %.phi.trans.insert9.i216, align 1
+  %.pre11.i218 = zext i8 %.pre10.i217 to i32
+  %407 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i208, %.pre.i215
+  %408 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i210, %.pre11.i218
+  %409 = select i1 %407, i1 %408, i1 false
+  br i1 %409, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %410
+
+410:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA28_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i213
+  %.not1.i.i.i219 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i210, 0
+  br i1 %.not1.i.i.i219, label %411, label %412
 
 411:                                              ; preds = %410
   call void @llvm.trap()
   unreachable
 
 412:                                              ; preds = %410
-  %413 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i151, i64 10
+  %413 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i208, i64 10
   %414 = load i8, ptr %413, align 1
   %415 = zext i8 %414 to i32
-  %416 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i152, %415
+  %416 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i210, %415
   br i1 %416, label %418, label %417
 
 417:                                              ; preds = %412
@@ -10299,327 +10420,221 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 418:                                              ; preds = %412
-  %419 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i152 to i64
-  %.idx.i154 = shl nuw nsw i64 %419, 6
-  %420 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i151, i64 48
-  %421 = getelementptr i8, ptr %420, i64 %.idx.i154
+  %419 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i210 to i64
+  %.idx.i220 = shl nuw nsw i64 %419, 6
+  %420 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i208, i64 48
+  %421 = getelementptr i8, ptr %420, i64 %.idx.i220
   %422 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %421, ptr noundef nonnull @.str.109) #28
   %423 = icmp eq i32 %422, 0
-  %424 = getelementptr inbounds nuw i8, ptr %0, i64 93
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 95
   %425 = zext i1 %423 to i8
   store i8 %425, ptr %424, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA28_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(28) @.str.137)
-          to label %.noexc167 unwind label %323
-
-.noexc167:                                        ; preds = %418
-  %426 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %427 = load i8, ptr %426, align 8
-  %428 = icmp ne i8 %427, 0
-  %.sroa.0.0.copyload.i.i.i.i158 = load ptr, ptr %6, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i159 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.3.0.copyload.i.i.i.i160 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i159, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %.not.i10.i.i.i161 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i158, null
-  %.not.i.i.i.i162 = select i1 %428, i1 true, i1 %.not.i10.i.i.i161
-  %429 = load ptr, ptr %50, align 8
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 10
-  %431 = load i8, ptr %430, align 1
-  %432 = zext i8 %431 to i32
-  %..sroa.0.0.copyload.i.i.i.i163 = select i1 %.not.i.i.i.i162, ptr %429, ptr %.sroa.0.0.copyload.i.i.i.i158
-  %..sroa.3.0.copyload.i.i.i.i164 = select i1 %.not.i.i.i.i162, i32 %432, i32 %.sroa.3.0.copyload.i.i.i.i160
-  %433 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i163, %429
-  %434 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i164, %432
-  %435 = select i1 %433, i1 %434, i1 false
-  br i1 %435, label %.invoke, label %436
-
-436:                                              ; preds = %.noexc167
-  %.not1.i.i.i165 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i164, 0
-  br i1 %.not1.i.i.i165, label %437, label %438
-
-437:                                              ; preds = %436
-  call void @llvm.trap()
-  unreachable
-
-438:                                              ; preds = %436
-  %439 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i163, i64 10
-  %440 = load i8, ptr %439, align 1
-  %441 = zext i8 %440 to i32
-  %442 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i164, %441
-  br i1 %442, label %444, label %443
-
-443:                                              ; preds = %438
-  call void @llvm.trap()
-  unreachable
-
-444:                                              ; preds = %438
-  %445 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i164 to i64
-  %.idx.i166 = shl nuw nsw i64 %445, 6
-  %446 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i163, i64 48
-  %447 = getelementptr i8, ptr %446, i64 %.idx.i166
-  %448 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %447, ptr noundef nonnull @.str.109) #28
-  %449 = icmp eq i32 %448, 0
-  %450 = getelementptr inbounds nuw i8, ptr %0, i64 94
-  %451 = zext i1 %449 to i8
-  store i8 %451, ptr %450, align 2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA28_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(28) @.str.138)
-          to label %.noexc178 unwind label %323
-
-.noexc178:                                        ; preds = %444
-  %452 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %453 = load i8, ptr %452, align 8
-  %454 = icmp ne i8 %453, 0
-  %.sroa.0.0.copyload.i.i.i.i169 = load ptr, ptr %5, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.3.0.copyload.i.i.i.i171 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i170, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.not.i10.i.i.i172 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i169, null
-  %.not.i.i.i.i173 = select i1 %454, i1 true, i1 %.not.i10.i.i.i172
-  %455 = load ptr, ptr %50, align 8
-  %456 = getelementptr inbounds nuw i8, ptr %455, i64 10
-  %457 = load i8, ptr %456, align 1
-  %458 = zext i8 %457 to i32
-  %..sroa.0.0.copyload.i.i.i.i174 = select i1 %.not.i.i.i.i173, ptr %455, ptr %.sroa.0.0.copyload.i.i.i.i169
-  %..sroa.3.0.copyload.i.i.i.i175 = select i1 %.not.i.i.i.i173, i32 %458, i32 %.sroa.3.0.copyload.i.i.i.i171
-  %459 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i174, %455
-  %460 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i175, %458
-  %461 = select i1 %459, i1 %460, i1 false
-  br i1 %461, label %.invoke, label %462
-
-462:                                              ; preds = %.noexc178
-  %.not1.i.i.i176 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i175, 0
-  br i1 %.not1.i.i.i176, label %463, label %464
-
-463:                                              ; preds = %462
-  call void @llvm.trap()
-  unreachable
-
-464:                                              ; preds = %462
-  %465 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i174, i64 10
-  %466 = load i8, ptr %465, align 1
-  %467 = zext i8 %466 to i32
-  %468 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i175, %467
-  br i1 %468, label %470, label %469
-
-469:                                              ; preds = %464
-  call void @llvm.trap()
-  unreachable
-
-470:                                              ; preds = %464
-  %471 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i175 to i64
-  %.idx.i177 = shl nuw nsw i64 %471, 6
-  %472 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i174, i64 48
-  %473 = getelementptr i8, ptr %472, i64 %.idx.i177
-  %474 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %473, ptr noundef nonnull @.str.109) #28
-  %475 = icmp eq i32 %474, 0
-  %476 = getelementptr inbounds nuw i8, ptr %0, i64 95
-  %477 = zext i1 %475 to i8
-  store i8 %477, ptr %476, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA37_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(37) @.str.139)
-          to label %.noexc190 unwind label %323
+          to label %.noexc237 unwind label %291
 
-.noexc190:                                        ; preds = %470
-  %478 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %479 = load i8, ptr %478, align 8
-  %480 = icmp ne i8 %479, 0
-  %.sroa.0.0.copyload.i.i.i.i181 = load ptr, ptr %4, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i182 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.3.0.copyload.i.i.i.i183 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i182, align 8
+.noexc237:                                        ; preds = %418
+  %426 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %427 = load i8, ptr %426, align 8
+  %428 = icmp ne i8 %427, 0
+  %.sroa.0.0.copyload.i.i.i.i225 = load ptr, ptr %4, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i226 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.3.0.copyload.i.i.i.i227 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i226, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %.not.i10.i.i.i184 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i181, null
-  %.not.i.i.i.i185 = select i1 %480, i1 true, i1 %.not.i10.i.i.i184
-  %481 = load ptr, ptr %50, align 8
-  %482 = getelementptr inbounds nuw i8, ptr %481, i64 10
-  %483 = load i8, ptr %482, align 1
-  %484 = zext i8 %483 to i32
-  %..sroa.0.0.copyload.i.i.i.i186 = select i1 %.not.i.i.i.i185, ptr %481, ptr %.sroa.0.0.copyload.i.i.i.i181
-  %..sroa.3.0.copyload.i.i.i.i187 = select i1 %.not.i.i.i.i185, i32 %484, i32 %.sroa.3.0.copyload.i.i.i.i183
-  %485 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i186, %481
-  %486 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i187, %484
-  %487 = select i1 %485, i1 %486, i1 false
-  br i1 %487, label %.invoke, label %488
+  %.not.i10.i.i.i228 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i225, null
+  %.not.i.i.i.i229 = select i1 %428, i1 true, i1 %.not.i10.i.i.i228
+  br i1 %.not.i.i.i.i229, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA37_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-488:                                              ; preds = %.noexc190
-  %.not1.i.i.i188 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i187, 0
-  br i1 %.not1.i.i.i188, label %489, label %490
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA37_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc237
+  %.pre.i231 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i232 = getelementptr inbounds nuw i8, ptr %.pre.i231, i64 10
+  %.pre10.i233 = load i8, ptr %.phi.trans.insert9.i232, align 1
+  %.pre11.i234 = zext i8 %.pre10.i233 to i32
+  %429 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i225, %.pre.i231
+  %430 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i227, %.pre11.i234
+  %431 = select i1 %429, i1 %430, i1 false
+  br i1 %431, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %432
 
-489:                                              ; preds = %488
+432:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA37_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i235 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i227, 0
+  br i1 %.not1.i.i.i235, label %433, label %434
+
+433:                                              ; preds = %432
   call void @llvm.trap()
   unreachable
 
-490:                                              ; preds = %488
-  %491 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i186, i64 10
-  %492 = load i8, ptr %491, align 1
-  %493 = zext i8 %492 to i32
-  %494 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i187, %493
-  br i1 %494, label %496, label %495
+434:                                              ; preds = %432
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i225, i64 10
+  %436 = load i8, ptr %435, align 1
+  %437 = zext i8 %436 to i32
+  %438 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i227, %437
+  br i1 %438, label %440, label %439
 
-495:                                              ; preds = %490
+439:                                              ; preds = %434
   call void @llvm.trap()
   unreachable
 
-496:                                              ; preds = %490
-  %497 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i187 to i64
-  %.idx.i189 = shl nuw nsw i64 %497, 6
-  %498 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i186, i64 48
-  %499 = getelementptr i8, ptr %498, i64 %.idx.i189
-  %500 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %499, ptr noundef nonnull @.str.109) #28
-  %501 = icmp eq i32 %500, 0
-  %502 = zext i1 %501 to i8
-  store i8 %502, ptr %116, align 1
+440:                                              ; preds = %434
+  %441 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i227 to i64
+  %.idx.i236 = shl nuw nsw i64 %441, 6
+  %442 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i225, i64 48
+  %443 = getelementptr i8, ptr %442, i64 %.idx.i236
+  %444 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %443, ptr noundef nonnull @.str.109) #28
+  %445 = icmp eq i32 %444, 0
+  %446 = zext i1 %445 to i8
+  store i8 %446, ptr %116, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15internal_locateIA24_cEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EELb1EEERKT_(ptr dead_on_unwind nonnull writable sret(%"struct.absl::debian2::container_internal::SearchResult") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 1 dereferenceable(24) @.str.140)
-          to label %.noexc201 unwind label %323
+          to label %.noexc251 unwind label %291
 
-.noexc201:                                        ; preds = %496
-  %503 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %504 = load i8, ptr %503, align 8
-  %505 = icmp ne i8 %504, 0
-  %.sroa.0.0.copyload.i.i.i.i192 = load ptr, ptr %3, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i193 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.3.0.copyload.i.i.i.i194 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i193, align 8
+.noexc251:                                        ; preds = %440
+  %447 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %448 = load i8, ptr %447, align 8
+  %449 = icmp ne i8 %448, 0
+  %.sroa.0.0.copyload.i.i.i.i239 = load ptr, ptr %3, align 8
+  %.sroa.3.0..sroa_idx.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.3.0.copyload.i.i.i.i241 = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i240, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %.not.i10.i.i.i195 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i192, null
-  %.not.i.i.i.i196 = select i1 %505, i1 true, i1 %.not.i10.i.i.i195
-  %506 = load ptr, ptr %50, align 8
-  %507 = getelementptr inbounds nuw i8, ptr %506, i64 10
-  %508 = load i8, ptr %507, align 1
-  %509 = zext i8 %508 to i32
-  %..sroa.0.0.copyload.i.i.i.i197 = select i1 %.not.i.i.i.i196, ptr %506, ptr %.sroa.0.0.copyload.i.i.i.i192
-  %..sroa.3.0.copyload.i.i.i.i198 = select i1 %.not.i.i.i.i196, i32 %509, i32 %.sroa.3.0.copyload.i.i.i.i194
-  %510 = icmp eq ptr %..sroa.0.0.copyload.i.i.i.i197, %506
-  %511 = icmp eq i32 %..sroa.3.0.copyload.i.i.i.i198, %509
-  %512 = select i1 %510, i1 %511, i1 false
-  br i1 %512, label %.invoke, label %513
+  %.not.i10.i.i.i242 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i239, null
+  %.not.i.i.i.i243 = select i1 %449, i1 true, i1 %.not.i10.i.i.i242
+  br i1 %.not.i.i.i.i243, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
 
-.invoke:                                          ; preds = %.noexc117, %.noexc105, %.noexc93, %.noexc80, %.noexc68, %.noexc56, %.noexc45, %.noexc34, %.noexc201, %.noexc190, %.noexc178, %.noexc167, %.noexc155, %.noexc144, %.noexc129
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i: ; preds = %.noexc251
+  %.pre.i245 = load ptr, ptr %50, align 8
+  %.phi.trans.insert9.i246 = getelementptr inbounds nuw i8, ptr %.pre.i245, i64 10
+  %.pre10.i247 = load i8, ptr %.phi.trans.insert9.i246, align 1
+  %.pre11.i248 = zext i8 %.pre10.i247 to i32
+  %450 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i239, %.pre.i245
+  %451 = icmp eq i32 %.sroa.3.0.copyload.i.i.i.i241, %.pre11.i248
+  %452 = select i1 %450, i1 %451, i1 false
+  br i1 %452, label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke, label %453
+
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke: ; preds = %.noexc140, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA16_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc125, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA13_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc110, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA8_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc94, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA12_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i85, %.noexc77, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA12_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc62, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA9_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc48, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA10_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc34, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA11_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc251, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc237, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA37_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc222, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA28_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i213, %.noexc206, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA28_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc191, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA34_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i182, %.noexc175, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA34_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i, %.noexc157, %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA16_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i148
   invoke void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.206) #29
-          to label %.cont unwind label %323
+          to label %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.cont unwind label %291
 
-.cont:                                            ; preds = %.invoke
+_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.cont: ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.thread.i.invoke
   unreachable
 
-513:                                              ; preds = %.noexc201
-  %.not1.i.i.i199 = icmp slt i32 %..sroa.3.0.copyload.i.i.i.i198, 0
-  br i1 %.not1.i.i.i199, label %514, label %515
+453:                                              ; preds = %_ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEEE4findIA24_cEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EERKT_.exit.i
+  %.not1.i.i.i249 = icmp slt i32 %.sroa.3.0.copyload.i.i.i.i241, 0
+  br i1 %.not1.i.i.i249, label %454, label %455
 
-514:                                              ; preds = %513
+454:                                              ; preds = %453
   call void @llvm.trap()
   unreachable
 
-515:                                              ; preds = %513
-  %516 = getelementptr inbounds nuw i8, ptr %..sroa.0.0.copyload.i.i.i.i197, i64 10
-  %517 = load i8, ptr %516, align 1
-  %518 = zext i8 %517 to i32
-  %519 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i198, %518
-  br i1 %519, label %521, label %520
+455:                                              ; preds = %453
+  %456 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i239, i64 10
+  %457 = load i8, ptr %456, align 1
+  %458 = zext i8 %457 to i32
+  %459 = icmp samesign ult i32 %.sroa.3.0.copyload.i.i.i.i241, %458
+  br i1 %459, label %461, label %460
 
-520:                                              ; preds = %515
+460:                                              ; preds = %455
   call void @llvm.trap()
   unreachable
 
-521:                                              ; preds = %515
-  %522 = zext nneg i32 %..sroa.3.0.copyload.i.i.i.i198 to i64
-  %.idx.i200 = shl nuw nsw i64 %522, 6
-  %523 = getelementptr i8, ptr %..sroa.0.0.copyload.i.i.i.i197, i64 48
-  %524 = getelementptr i8, ptr %523, i64 %.idx.i200
+461:                                              ; preds = %455
+  %462 = zext nneg i32 %.sroa.3.0.copyload.i.i.i.i241 to i64
+  %.idx.i250 = shl nuw nsw i64 %462, 6
+  %463 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i239, i64 48
+  %464 = getelementptr i8, ptr %463, i64 %.idx.i250
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #28
-  %525 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %46)
-          to label %.noexc203 unwind label %569
+  %465 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %46)
+          to label %.noexc253 unwind label %509
 
-.noexc203:                                        ; preds = %521
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef %525, ptr noundef nonnull align 1 dereferenceable(1) %47)
-          to label %.noexc204 unwind label %569
+.noexc253:                                        ; preds = %461
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef %465, ptr noundef nonnull align 1 dereferenceable(1) %47)
+          to label %.noexc254 unwind label %509
 
-.noexc204:                                        ; preds = %.noexc203
+.noexc254:                                        ; preds = %.noexc253
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull @.str.115, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.115, i64 1))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %526
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %466
 
-526:                                              ; preds = %.noexc204
-  %527 = landingpad { ptr, i32 }
+466:                                              ; preds = %.noexc254
+  %467 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #28
-  br label %.body205
+  br label %.body255
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc204
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc254
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #28
-  %528 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %48)
-          to label %.noexc207 unwind label %571
+  %468 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %48)
+          to label %.noexc257 unwind label %511
 
-.noexc207:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef %528, ptr noundef nonnull align 1 dereferenceable(1) %49)
-          to label %.noexc208 unwind label %571
+.noexc257:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef %468, ptr noundef nonnull align 1 dereferenceable(1) %49)
+          to label %.noexc258 unwind label %511
 
-.noexc208:                                        ; preds = %.noexc207
+.noexc258:                                        ; preds = %.noexc257
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull @.str.116, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.116, i64 3))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211 unwind label %529
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit261 unwind label %469
 
-529:                                              ; preds = %.noexc208
-  %530 = landingpad { ptr, i32 }
+469:                                              ; preds = %.noexc258
+  %470 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #28
-  br label %.body209
+  br label %.body259
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ; preds = %.noexc208
-  invoke void @_ZN10open_spiel25DeserializeGameParametersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::map") align 8 %45, ptr noundef nonnull align 8 dereferenceable(32) %524, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %48)
-          to label %531 unwind label %573
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit261: ; preds = %.noexc258
+  invoke void @_ZN10open_spiel25DeserializeGameParametersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::map") align 8 %45, ptr noundef nonnull align 8 dereferenceable(32) %464, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %48)
+          to label %471 unwind label %513
 
-531:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211
-  %532 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %533 = load ptr, ptr %111, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %532, ptr noundef %533)
-          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE5clearEv.exit.i.i.i unwind label %534
+471:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit261
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %473 = load ptr, ptr %111, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %472, ptr noundef %473)
+          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE5clearEv.exit.i.i.i unwind label %474
 
-534:                                              ; preds = %531
-  %535 = landingpad { ptr, i32 }
+474:                                              ; preds = %471
+  %475 = landingpad { ptr, i32 }
           catch ptr null
-  %536 = extractvalue { ptr, i32 } %535, 0
-  call void @__clang_call_terminate(ptr %536) #31
+  %476 = extractvalue { ptr, i32 } %475, 0
+  call void @__clang_call_terminate(ptr %476) #31
   unreachable
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE5clearEv.exit.i.i.i: ; preds = %531
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE5clearEv.exit.i.i.i: ; preds = %471
   store ptr null, ptr %111, align 8
   store ptr %110, ptr %112, align 8
   store ptr %110, ptr %113, align 8
   store i64 0, ptr %114, align 8
-  %537 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %538 = load ptr, ptr %537, align 8
-  %.not.i.i.i = icmp eq ptr %538, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSEOSE_.exit, label %539
+  %477 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %478 = load ptr, ptr %477, align 8
+  %.not.i.i.i = icmp eq ptr %478, null
+  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSEOSE_.exit, label %479
 
-539:                                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE5clearEv.exit.i.i.i
-  %540 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %541 = load i32, ptr %540, align 8
-  store i32 %541, ptr %110, align 8
-  store ptr %538, ptr %111, align 8
-  %542 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %543 = load ptr, ptr %542, align 8
-  store ptr %543, ptr %112, align 8
-  %544 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %545 = load ptr, ptr %544, align 8
-  store ptr %545, ptr %113, align 8
-  %546 = getelementptr inbounds nuw i8, ptr %538, i64 8
-  store ptr %110, ptr %546, align 8
-  %547 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %548 = load i64, ptr %547, align 8
-  store i64 %548, ptr %114, align 8
-  store ptr null, ptr %537, align 8
-  store ptr %540, ptr %542, align 8
-  store ptr %540, ptr %544, align 8
-  store i64 0, ptr %547, align 8
+479:                                              ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE5clearEv.exit.i.i.i
+  %480 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %481 = load i32, ptr %480, align 8
+  store i32 %481, ptr %110, align 8
+  store ptr %478, ptr %111, align 8
+  %482 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %483 = load ptr, ptr %482, align 8
+  store ptr %483, ptr %112, align 8
+  %484 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %485 = load ptr, ptr %484, align 8
+  store ptr %485, ptr %113, align 8
+  %486 = getelementptr inbounds nuw i8, ptr %478, i64 8
+  store ptr %110, ptr %486, align 8
+  %487 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %488 = load i64, ptr %487, align 8
+  store i64 %488, ptr %114, align 8
+  store ptr null, ptr %477, align 8
+  store ptr %480, ptr %482, align 8
+  store ptr %480, ptr %484, align 8
+  store i64 0, ptr %487, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSEOSE_.exit
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSEOSE_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE5clearEv.exit.i.i.i, %539
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSEOSE_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE5clearEv.exit.i.i.i, %479
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef null)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit unwind label %549
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit unwind label %489
 
-549:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSEOSE_.exit
-  %550 = landingpad { ptr, i32 }
+489:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSEOSE_.exit
+  %490 = landingpad { ptr, i32 }
           catch ptr null
-  %551 = extractvalue { ptr, i32 } %550, 0
-  call void @__clang_call_terminate(ptr %551) #31
+  %491 = extractvalue { ptr, i32 } %490, 0
+  call void @__clang_call_terminate(ptr %491) #31
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSEOSE_.exit
@@ -10627,94 +10642,94 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13Gam
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #28
-  %552 = load ptr, ptr %25, align 8
-  %553 = load ptr, ptr %59, align 8
-  %.not4.i.i.i.i = icmp eq ptr %552, %553
+  %492 = load ptr, ptr %25, align 8
+  %493 = load ptr, ptr %59, align 8
+  %.not4.i.i.i.i = icmp eq ptr %492, %493
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %554, %.lr.ph.i.i.i.i ], [ %552, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ]
+  %.05.i.i.i.i = phi ptr [ %494, %.lr.ph.i.i.i.i ], [ %492, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #28
-  %554 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i212 = icmp eq ptr %554, %553
-  br i1 %.not.i.i.i.i212, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  %494 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i262 = icmp eq ptr %494, %493
+  br i1 %.not.i.i.i.i262, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %25, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
-  %555 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %552, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ]
-  %.not.i.i.i213 = icmp eq ptr %555, null
-  br i1 %.not.i.i.i213, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %556
+  %495 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %492, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ]
+  %.not.i.i.i263 = icmp eq ptr %495, null
+  br i1 %.not.i.i.i263, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %496
 
-556:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %557 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %558 = load ptr, ptr %557, align 8
-  %559 = ptrtoint ptr %558 to i64
-  %560 = ptrtoint ptr %555 to i64
-  %561 = sub i64 %559, %560
-  call void @_ZdlPvm(ptr noundef nonnull %555, i64 noundef %561) #32
+496:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+  %497 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %498 = load ptr, ptr %497, align 8
+  %499 = ptrtoint ptr %498 to i64
+  %500 = ptrtoint ptr %495 to i64
+  %501 = sub i64 %499, %500
+  call void @_ZdlPvm(ptr noundef nonnull %495, i64 noundef %501) #32
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %556
-  %562 = load i64, ptr %51, align 8
-  %563 = icmp eq i64 %562, 0
-  br i1 %563, label %_ZN4absl7debian29btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev.exit, label %564
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %496
+  %502 = load i64, ptr %51, align 8
+  %503 = icmp eq i64 %502, 0
+  br i1 %503, label %_ZN4absl7debian29btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev.exit, label %504
 
-564:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %565 = load ptr, ptr %24, align 8
-  invoke void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE16clear_and_deleteEPSH_PSF_(ptr noundef %565, ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %_ZN4absl7debian29btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev.exit unwind label %566
+504:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+  %505 = load ptr, ptr %24, align 8
+  invoke void @_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE16clear_and_deleteEPSH_PSF_(ptr noundef %505, ptr noundef nonnull align 8 dereferenceable(24) %24)
+          to label %_ZN4absl7debian29btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev.exit unwind label %506
 
-566:                                              ; preds = %564
-  %567 = landingpad { ptr, i32 }
+506:                                              ; preds = %504
+  %507 = landingpad { ptr, i32 }
           catch ptr null
-  %568 = extractvalue { ptr, i32 } %567, 0
-  call void @__clang_call_terminate(ptr %568) #31
+  %508 = extractvalue { ptr, i32 } %507, 0
+  call void @__clang_call_terminate(ptr %508) #31
   unreachable
 
-_ZN4absl7debian29btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %564
+_ZN4absl7debian29btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %504
   ret void
 
-569:                                              ; preds = %.noexc203, %521
-  %570 = landingpad { ptr, i32 }
+509:                                              ; preds = %.noexc253, %461
+  %510 = landingpad { ptr, i32 }
           cleanup
-  br label %.body205
+  br label %.body255
 
-571:                                              ; preds = %.noexc207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %572 = landingpad { ptr, i32 }
+511:                                              ; preds = %.noexc257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %512 = landingpad { ptr, i32 }
           cleanup
-  br label %.body209
+  br label %.body259
 
-573:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211
-  %574 = landingpad { ptr, i32 }
+513:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit261
+  %514 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #28
-  br label %.body209
+  br label %.body259
 
-.body209:                                         ; preds = %571, %529, %573
-  %.pn = phi { ptr, i32 } [ %574, %573 ], [ %572, %571 ], [ %530, %529 ]
+.body259:                                         ; preds = %511, %469, %513
+  %.pn = phi { ptr, i32 } [ %514, %513 ], [ %512, %511 ], [ %470, %469 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #28
-  br label %.body205
+  br label %.body255
 
-.body205:                                         ; preds = %569, %526, %.body209
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body209 ], [ %570, %569 ], [ %527, %526 ]
+.body255:                                         ; preds = %509, %466, %.body259
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body259 ], [ %510, %509 ], [ %467, %466 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #28
-  br label %575
+  br label %515
 
-575:                                              ; preds = %.body205, %371, %335, %333, %331, %329, %327, %325, %323
-  %.pn15 = phi { ptr, i32 } [ %336, %335 ], [ %324, %323 ], [ %372, %371 ], [ %.pn.pn, %.body205 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ]
+515:                                              ; preds = %.body255, %335, %303, %301, %299, %297, %295, %293, %291
+  %.pn15 = phi { ptr, i32 } [ %304, %303 ], [ %292, %291 ], [ %336, %335 ], [ %.pn.pn, %.body255 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %294, %293 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %0) #28
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %575, %.body29, %.body26, %79
-  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %.body29 ], [ %.pn17, %.body26 ], [ %.pn15, %575 ], [ %80, %79 ], [ %87, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %86, %515, %.body29, %.body26, %79
+  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %.body29 ], [ %.pn17, %.body26 ], [ %.pn15, %515 ], [ %80, %79 ], [ %87, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #28
-  br label %576
+  br label %516
 
-576:                                              ; preds = %.body, %77
+516:                                              ; preds = %.body, %77
   %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %.body ], [ %78, %77 ]
   call void @_ZN4absl7debian29btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #28
   resume { ptr, i32 } %.pn19.pn.pn

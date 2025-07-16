@@ -27873,10 +27873,13 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit: ; preds = %.no
   %.val1.i.i = load i64, ptr %255, align 8, !alias.scope !4608, !noalias !4605, !noundef !4
   br label %257
 
-._crit_edge.i:                                    ; preds = %263, %253
-  %.sroa.03.0.lcssa.i = phi i64 [ 0, %253 ], [ %.sroa.013.0.i, %263 ]
-  %256 = icmp ule i64 %.sroa.03.0.lcssa.i, %spec.select80
-  call void @llvm.assume(i1 %256)
+._crit_edge.i.loopexit:                           ; preds = %263
+  %256 = icmp ule i64 %.sroa.013.0.i, %spec.select80
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %253
+  %.sroa.03.0.lcssa.i = phi i1 [ true, %253 ], [ %256, %._crit_edge.i.loopexit ]
+  call void @llvm.assume(i1 %.sroa.03.0.lcssa.i)
   br label %.loopexit240
 
 257:                                              ; preds = %263, %.lr.ph.i
@@ -27900,7 +27903,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit: ; preds = %.no
   %.sroa.013.0.i = select i1 %265, i64 %266, i64 %.sroa.03.019.i
   %267 = sub i64 %.sroa.014.0.i, %.sroa.013.0.i
   %268 = icmp ult i64 %.sroa.013.0.i, %.sroa.014.0.i
-  br i1 %268, label %257, label %._crit_edge.i
+  br i1 %268, label %257, label %._crit_edge.i.loopexit
 
 .loopexit240:                                     ; preds = %257, %._crit_edge.i
   %switch = phi i1 [ false, %._crit_edge.i ], [ true, %257 ]
@@ -29156,10 +29159,13 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit: ; preds = %.no
   %.val1.i.i = load i64, ptr %261, align 8, !alias.scope !4849, !noalias !4846, !noundef !4
   br label %263
 
-._crit_edge.i:                                    ; preds = %269, %259
-  %.sroa.03.0.lcssa.i = phi i64 [ 0, %259 ], [ %.sroa.013.0.i, %269 ]
-  %262 = icmp ule i64 %.sroa.03.0.lcssa.i, %spec.select80
-  call void @llvm.assume(i1 %262)
+._crit_edge.i.loopexit:                           ; preds = %269
+  %262 = icmp ule i64 %.sroa.013.0.i, %spec.select80
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %259
+  %.sroa.03.0.lcssa.i = phi i1 [ true, %259 ], [ %262, %._crit_edge.i.loopexit ]
+  call void @llvm.assume(i1 %.sroa.03.0.lcssa.i)
   br label %.loopexit244
 
 263:                                              ; preds = %269, %.lr.ph.i
@@ -29183,7 +29189,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit: ; preds = %.no
   %.sroa.013.0.i = select i1 %271, i64 %272, i64 %.sroa.03.019.i
   %273 = sub i64 %.sroa.014.0.i, %.sroa.013.0.i
   %274 = icmp ult i64 %.sroa.013.0.i, %.sroa.014.0.i
-  br i1 %274, label %263, label %._crit_edge.i
+  br i1 %274, label %263, label %._crit_edge.i.loopexit
 
 .loopexit244:                                     ; preds = %263, %._crit_edge.i
   %switch = phi i1 [ false, %._crit_edge.i ], [ true, %263 ]

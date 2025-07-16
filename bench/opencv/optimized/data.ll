@@ -3095,13 +3095,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit318: ; preds = %_Z
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 %436
   %439 = load i8, ptr %438, align 1, !tbaa !32
   %440 = icmp eq i8 %439, 0
-  br i1 %440, label %.preheader, label %.thread417
-
-.preheader:                                       ; preds = %435
   %441 = icmp sgt i32 %385, 0
-  br i1 %441, label %.lr.ph800.preheader, label %._crit_edge801
+  %or.cond1031 = and i1 %440, %441
+  br i1 %or.cond1031, label %.lr.ph800.preheader, label %.thread417
 
-.lr.ph800.preheader:                              ; preds = %.preheader
+.lr.ph800.preheader:                              ; preds = %435
   %wide.trip.count932 = zext nneg i32 %385 to i64
   br label %.lr.ph800
 
@@ -3113,27 +3111,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit318: ; preds = %_Z
   %445 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %444)
   %446 = sitofp i32 %445 to float
   %447 = fcmp une float %443, %446
-  br i1 %447, label %._crit_edge801.loopexit, label %448
+  br i1 %447, label %._crit_edge801, label %448
 
 448:                                              ; preds = %.lr.ph800
   %indvars.iv.next930 = add nuw nsw i64 %indvars.iv929, 1
   %exitcond933.not = icmp eq i64 %indvars.iv.next930, %wide.trip.count932
-  br i1 %exitcond933.not, label %._crit_edge801.thread, label %.lr.ph800, !llvm.loop !120
+  br i1 %exitcond933.not, label %._crit_edge801.thread936, label %.lr.ph800, !llvm.loop !120
 
-._crit_edge801.loopexit:                          ; preds = %.lr.ph800
+._crit_edge801:                                   ; preds = %.lr.ph800
   %449 = trunc nuw nsw i64 %indvars.iv929 to i32
-  br label %._crit_edge801
+  %450 = icmp eq i32 %385, %449
+  br i1 %450, label %._crit_edge801.thread936, label %451
 
-._crit_edge801:                                   ; preds = %._crit_edge801.loopexit, %.preheader
-  %.6165.lcssa = phi i32 [ 0, %.preheader ], [ %449, %._crit_edge801.loopexit ]
-  %450 = icmp eq i32 %.6165.lcssa, %385
-  br i1 %450, label %._crit_edge801.thread, label %451
-
-._crit_edge801.thread:                            ; preds = %448, %._crit_edge801
+._crit_edge801.thread936:                         ; preds = %448, %._crit_edge801
   store i8 1, ptr %438, align 1, !tbaa !32
   br label %451
 
-451:                                              ; preds = %._crit_edge801, %._crit_edge801.thread, %.loopexit
+451:                                              ; preds = %._crit_edge801, %._crit_edge801.thread936, %.loopexit
   %.not = icmp eq i32 %.0135.lcssa, 0
   br i1 %.not, label %511, label %.thread417
 

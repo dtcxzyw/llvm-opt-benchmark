@@ -1488,8 +1488,8 @@ define internal void @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo19setTargetAttri
   %27 = icmp ult i32 %26, -6
   %28 = and i32 %24, 256
   %.not.i = icmp eq i32 %28, 0
-  %or.cond49 = or i1 %27, %.not.i
-  br i1 %or.cond49, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %29
+  %or.cond48 = or i1 %27, %.not.i
+  br i1 %or.cond48, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %29
 
 29:                                               ; preds = %22
   %30 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #13
@@ -1516,8 +1516,8 @@ define internal void @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo19setTargetAttri
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !805
 
 _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not41 = icmp eq ptr %.sroa.07.1.i.i.i.i, %35
-  br i1 %.not41, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %42
+  %.not40 = icmp eq ptr %.sroa.07.1.i.i.i.i, %35
+  br i1 %.not40, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %42
 
 42:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit
   %43 = load ptr, ptr %7, align 8, !tbaa !798

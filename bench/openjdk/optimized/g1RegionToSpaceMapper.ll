@@ -239,7 +239,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
   %5 = zext i32 %1 to i64
   %6 = add i64 %2, %5
   %7 = icmp ugt i64 %6, %5
-  br i1 %7, label %8, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread
+  br i1 %7, label %8, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -251,7 +251,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
   %15 = lshr i64 %13, %14
   %16 = and i64 %15, 1
   %.not.i.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i.i, label %17, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
+  br i1 %.not.i.i.i, label %17, label %34
 
 17:                                               ; preds = %8
   %18 = icmp eq i64 %15, 0
@@ -266,7 +266,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
   %.025.i.i.i = phi i64 [ %10, %19 ], [ %23, %25 ]
   %23 = add nuw nsw i64 %.025.i.i.i, 1
   %24 = icmp samesign ult i64 %23, %21
-  br i1 %24, label %25, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread
+  br i1 %24, label %25, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i64, ptr %11, i64 %23
@@ -284,72 +284,67 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
   %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %32 = add nuw i64 %.026.ph.i.i.i, %31
   %33 = icmp ult i64 %32, %6
-  br i1 %33, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread
+  br i1 %33, label %34, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
 
-_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit: ; preds = %8, %30
-  %.0.i.i.i = phi i64 [ %5, %8 ], [ %32, %30 ]
-  %34 = icmp eq i64 %.0.i.i.i, %6
-  br i1 %34, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread, label %35
-
-35:                                               ; preds = %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
-  %36 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %36, align 1
+34:                                               ; preds = %8, %30
+  %35 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %35, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %1, i64 noundef %2) #9
   unreachable
 
-_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread: ; preds = %22, %30, %4, %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %38 = load i64, ptr %37, align 8
-  %39 = mul i64 %38, %5
-  %40 = mul i64 %38, %2
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = tail call noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr noundef nonnull align 8 dereferenceable(81) %41, i64 noundef %39, i64 noundef %40) #8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %44 = load i8, ptr %43, align 8
-  %45 = icmp eq i8 %44, 0
-  %or.cond = and i1 %45, %7
+_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit: ; preds = %22, %30, %4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %37 = load i64, ptr %36, align 8
+  %38 = mul i64 %37, %5
+  %39 = mul i64 %37, %2
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = tail call noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr noundef nonnull align 8 dereferenceable(81) %40, i64 noundef %38, i64 noundef %39) #8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %43 = load i8, ptr %42, align 8
+  %44 = icmp eq i8 %43, 0
+  %or.cond = and i1 %44, %7
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread, %.lr.ph
-  %46 = phi i64 [ %55, %.lr.ph ], [ %5, %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread ]
-  %.030 = phi i32 [ %54, %.lr.ph ], [ %1, %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread ]
-  %47 = load i64, ptr %37, align 8
-  %48 = mul i64 %47, %46
-  %49 = tail call noundef ptr @_ZNK23G1PageBasedVirtualSpace10page_startEm(ptr noundef nonnull align 8 dereferenceable(81) %41, i64 noundef %48) #8
-  %50 = tail call noundef i64 @_ZNK23G1PageBasedVirtualSpace9page_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %41) #8
-  %51 = load i64, ptr %37, align 8
-  %52 = mul i64 %51, %50
-  %53 = load ptr, ptr @_ZN6G1NUMA5_instE, align 8
-  tail call void @_ZN6G1NUMA22request_memory_on_nodeEPvmj(ptr noundef nonnull align 8 dereferenceable(56) %53, ptr noundef %49, i64 noundef %52, i32 noundef %.030) #8
-  %54 = add i32 %.030, 1
-  %55 = zext i32 %54 to i64
-  %56 = icmp ugt i64 %6, %55
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !8
+.lr.ph:                                           ; preds = %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit, %.lr.ph
+  %45 = phi i64 [ %54, %.lr.ph ], [ %5, %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit ]
+  %.030 = phi i32 [ %53, %.lr.ph ], [ %1, %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit ]
+  %46 = load i64, ptr %36, align 8
+  %47 = mul i64 %46, %45
+  %48 = tail call noundef ptr @_ZNK23G1PageBasedVirtualSpace10page_startEm(ptr noundef nonnull align 8 dereferenceable(81) %40, i64 noundef %47) #8
+  %49 = tail call noundef i64 @_ZNK23G1PageBasedVirtualSpace9page_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %40) #8
+  %50 = load i64, ptr %36, align 8
+  %51 = mul i64 %50, %49
+  %52 = load ptr, ptr @_ZN6G1NUMA5_instE, align 8
+  tail call void @_ZN6G1NUMA22request_memory_on_nodeEPvmj(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef %48, i64 noundef %51, i32 noundef %.030) #8
+  %53 = add i32 %.030, 1
+  %54 = zext i32 %53 to i64
+  %55 = icmp ugt i64 %6, %54
+  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread
-  %57 = load i8, ptr @AlwaysPreTouch, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %60
+.loopexit:                                        ; preds = %.lr.ph, %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
+  %56 = load i8, ptr @AlwaysPreTouch, align 1
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %59
 
-59:                                               ; preds = %.loopexit
-  tail call void @_ZN23G1PageBasedVirtualSpace8pretouchEmmP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(81) %41, i64 noundef %39, i64 noundef %40, ptr noundef %3) #8
-  br label %60
+58:                                               ; preds = %.loopexit
+  tail call void @_ZN23G1PageBasedVirtualSpace8pretouchEmmP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(81) %40, i64 noundef %38, i64 noundef %39, ptr noundef %3) #8
+  br label %59
 
-60:                                               ; preds = %59, %.loopexit
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %61, i64 noundef %5, i64 noundef %6, i1 noundef zeroext true) #8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %.not.i = icmp eq ptr %63, null
-  br i1 %.not.i, label %_ZN21G1RegionToSpaceMapper14fire_on_commitEjmb.exit, label %64
+59:                                               ; preds = %58, %.loopexit
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %60, i64 noundef %5, i64 noundef %6, i1 noundef zeroext true) #8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %.not.i = icmp eq ptr %62, null
+  br i1 %.not.i, label %_ZN21G1RegionToSpaceMapper14fire_on_commitEjmb.exit, label %63
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %63, align 8
-  %66 = load ptr, ptr %65, align 8
-  tail call void %66(ptr noundef nonnull align 8 dereferenceable(8) %63, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %42) #8
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %62, align 8
+  %65 = load ptr, ptr %64, align 8
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(8) %62, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %41) #8
   br label %_ZN21G1RegionToSpaceMapper14fire_on_commitEjmb.exit
 
-_ZN21G1RegionToSpaceMapper14fire_on_commitEjmb.exit: ; preds = %60, %64
+_ZN21G1RegionToSpaceMapper14fire_on_commitEjmb.exit: ; preds = %59, %63
   ret void
 }
 
@@ -358,7 +353,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
   %4 = zext i32 %1 to i64
   %5 = add i64 %2, %4
   %6 = icmp ugt i64 %5, %4
-  br i1 %6, label %7, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit.thread
+  br i1 %6, label %7, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -371,7 +366,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
   %15 = lshr i64 %13, %14
   %16 = and i64 %15, 1
   %.not.i.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i.i, label %17, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit
+  br i1 %.not.i.i.i, label %17, label %35
 
 17:                                               ; preds = %7
   %18 = icmp eq i64 %15, 0
@@ -386,7 +381,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
   %.025.i.i.i = phi i64 [ %9, %19 ], [ %23, %25 ]
   %23 = add nuw nsw i64 %.025.i.i.i, 1
   %24 = icmp samesign ult i64 %23, %21
-  br i1 %24, label %25, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit.thread
+  br i1 %24, label %25, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i64, ptr %10, i64 %23
@@ -405,28 +400,23 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
   %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %33 = add nuw i64 %.026.ph.i.i.i, %32
   %34 = icmp ult i64 %33, %5
-  br i1 %34, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit.thread
+  br i1 %34, label %35, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit
 
-_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit: ; preds = %7, %31
-  %.0.i.i.i = phi i64 [ %4, %7 ], [ %33, %31 ]
-  %35 = icmp eq i64 %.0.i.i.i, %5
-  br i1 %35, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit.thread, label %36
-
-36:                                               ; preds = %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit
-  %37 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %37, align 1
+35:                                               ; preds = %7, %31
+  %36 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %36, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 117, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %1, i64 noundef %2) #9
   unreachable
 
-_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit.thread: ; preds = %22, %31, %3, %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %40 = load i64, ptr %39, align 8
-  %41 = mul i64 %40, %4
-  %42 = mul i64 %40, %2
-  tail call void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(81) %38, i64 noundef %41, i64 noundef %42) #8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %4, i64 noundef %5, i1 noundef zeroext false) #8
+_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit: ; preds = %22, %31, %3
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %39 = load i64, ptr %38, align 8
+  %40 = mul i64 %39, %4
+  %41 = mul i64 %39, %2
+  tail call void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(81) %37, i64 noundef %40, i64 noundef %41) #8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %4, i64 noundef %5, i1 noundef zeroext false) #8
   ret void
 }
 
@@ -495,8 +485,8 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   %13 = udiv i64 %12, %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #8
-  %.not34 = icmp samesign ugt i64 %10, %13
-  br i1 %.not34, label %_ZN11MutexLockerD2Ev.exit, label %.lr.ph
+  %.not33 = icmp samesign ugt i64 %10, %13
+  br i1 %.not33, label %_ZN11MutexLockerD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -505,15 +495,15 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   br label %18
 
 18:                                               ; preds = %.lr.ph, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit
-  %.038 = phi i64 [ %10, %.lr.ph ], [ %60, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
-  %.02437 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
-  %.02536 = phi i64 [ -1, %.lr.ph ], [ %.227, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
-  %.02835 = phi i64 [ 0, %.lr.ph ], [ %.129, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
+  %.037 = phi i64 [ %10, %.lr.ph ], [ %60, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
+  %.02436 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
+  %.02535 = phi i64 [ -1, %.lr.ph ], [ %.227, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
+  %.02834 = phi i64 [ 0, %.lr.ph ], [ %.129, %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit ]
   %19 = load i64, ptr %8, align 8
-  %20 = mul i64 %19, %.038
+  %20 = mul i64 %19, %.037
   %21 = add i64 %20, %19
   %22 = icmp ult i64 %20, %21
-  br i1 %22, label %23, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
+  br i1 %22, label %23, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
 
 23:                                               ; preds = %18
   %24 = lshr i64 %20, 6
@@ -524,7 +514,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   %29 = lshr i64 %27, %28
   %30 = and i64 %29, 1
   %.not.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i, label %31, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
+  br i1 %.not.i.i.i, label %31, label %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit
 
 31:                                               ; preds = %23
   %32 = icmp eq i64 %29, 0
@@ -539,7 +529,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   %.025.i.i.i = phi i64 [ %24, %33 ], [ %37, %39 ]
   %37 = add nuw nsw i64 %.025.i.i.i, 1
   %38 = icmp samesign ult i64 %37, %35
-  br i1 %38, label %39, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
+  br i1 %38, label %39, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i64, ptr %25, i64 %37
@@ -557,39 +547,34 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %46 = add i64 %.026.ph.i.i.i, %45
   %47 = icmp ult i64 %46, %21
-  br i1 %47, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
+  br i1 %47, label %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
 
-_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit: ; preds = %23, %44
-  %.0.i.i.i = phi i64 [ %20, %23 ], [ %46, %44 ]
-  %.not31 = icmp eq i64 %.0.i.i.i, %21
-  br i1 %.not31, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread, label %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit
-
-_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread: ; preds = %36, %44, %18, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
-  %48 = icmp eq i64 %.02835, 0
-  %spec.select = select i1 %48, i64 %.038, i64 %.02536
-  %49 = add i64 %.02835, 1
-  %50 = tail call noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr noundef nonnull align 8 dereferenceable(81) %16, i64 noundef %.038, i64 noundef 1) #8
-  %.1 = select i1 %50, i1 %.02437, i1 false
+_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit: ; preds = %36, %44, %18
+  %48 = icmp eq i64 %.02834, 0
+  %spec.select = select i1 %48, i64 %.037, i64 %.02535
+  %49 = add i64 %.02834, 1
+  %50 = tail call noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr noundef nonnull align 8 dereferenceable(81) %16, i64 noundef %.037, i64 noundef 1) #8
+  %.1 = select i1 %50, i1 %.02436, i1 false
   %51 = load i8, ptr %17, align 8
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %53, label %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit
 
-53:                                               ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
+53:                                               ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
   %54 = load i64, ptr %8, align 8
-  %55 = mul i64 %54, %.038
+  %55 = mul i64 %54, %.037
   %56 = trunc i64 %55 to i32
-  %57 = tail call noundef ptr @_ZNK23G1PageBasedVirtualSpace10page_startEm(ptr noundef nonnull align 8 dereferenceable(81) %16, i64 noundef %.038) #8
+  %57 = tail call noundef ptr @_ZNK23G1PageBasedVirtualSpace10page_startEm(ptr noundef nonnull align 8 dereferenceable(81) %16, i64 noundef %.037) #8
   %58 = tail call noundef i64 @_ZNK23G1PageBasedVirtualSpace9page_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %16) #8
   %59 = load ptr, ptr @_ZN6G1NUMA5_instE, align 8
   tail call void @_ZN6G1NUMA22request_memory_on_nodeEPvmj(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef %57, i64 noundef %58, i32 noundef %56) #8
   br label %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit
 
-_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit: ; preds = %53, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
-  %.129 = phi i64 [ %.02835, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %49, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread ], [ %49, %53 ]
-  %.227 = phi i64 [ %.02536, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %spec.select, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread ], [ %spec.select, %53 ]
-  %.2 = phi i1 [ false, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %.1, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread ], [ %.1, %53 ]
-  %60 = add nuw nsw i64 %.038, 1
-  %.not.not = icmp samesign ult i64 %.038, %13
+_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit: ; preds = %44, %23, %53, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
+  %.129 = phi i64 [ %49, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %49, %53 ], [ %.02834, %23 ], [ %.02834, %44 ]
+  %.227 = phi i64 [ %spec.select, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %spec.select, %53 ], [ %.02535, %23 ], [ %.02535, %44 ]
+  %.2 = phi i1 [ %.1, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit ], [ %.1, %53 ], [ false, %23 ], [ false, %44 ]
+  %60 = add nuw nsw i64 %.037, 1
+  %.not.not = icmp samesign ult i64 %.037, %13
   br i1 %.not.not, label %18, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !10
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper20numa_request_on_nodeEm.exit, %4
@@ -663,20 +648,20 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper16unco
   br label %_ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit
 
 _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
-  %.not16 = icmp samesign ugt i64 %9, %12
-  br i1 %.not16, label %_ZN11MutexLockerD2Ev.exit, label %.lr.ph
+  %.not15 = icmp samesign ugt i64 %9, %12
+  br i1 %.not15, label %_ZN11MutexLockerD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %29
 
-29:                                               ; preds = %.lr.ph, %59
-  %.017 = phi i64 [ %9, %.lr.ph ], [ %60, %59 ]
+29:                                               ; preds = %.lr.ph, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
+  %.016 = phi i64 [ %9, %.lr.ph ], [ %59, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread ]
   %30 = load i64, ptr %7, align 8
-  %31 = mul i64 %30, %.017
+  %31 = mul i64 %30, %.016
   %32 = add i64 %31, %30
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %34, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
+  br i1 %33, label %34, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
 
 34:                                               ; preds = %29
   %35 = lshr i64 %31, 6
@@ -687,7 +672,7 @@ _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
   %40 = lshr i64 %38, %39
   %41 = and i64 %40, 1
   %.not.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i.i, label %42, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
+  br i1 %.not.i.i.i, label %42, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
 
 42:                                               ; preds = %34
   %43 = icmp eq i64 %40, 0
@@ -702,7 +687,7 @@ _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
   %.025.i.i.i = phi i64 [ %35, %44 ], [ %48, %50 ]
   %48 = add nuw nsw i64 %.025.i.i.i, 1
   %49 = icmp samesign ult i64 %48, %46
-  br i1 %49, label %50, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
+  br i1 %49, label %50, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i64, ptr %36, i64 %48
@@ -720,23 +705,18 @@ _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
   %56 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %57 = add i64 %.026.ph.i.i.i, %56
   %58 = icmp ult i64 %57, %32
-  br i1 %58, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
+  br i1 %58, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
 
-_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit: ; preds = %34, %55
-  %.0.i.i.i = phi i64 [ %31, %34 ], [ %57, %55 ]
-  %.not13 = icmp eq i64 %.0.i.i.i, %32
-  br i1 %.not13, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread, label %59
+_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit: ; preds = %47, %55, %29
+  tail call void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(81) %28, i64 noundef %.016, i64 noundef 1) #8
+  br label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
 
-_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread: ; preds = %47, %55, %29, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
-  tail call void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(81) %28, i64 noundef %.017, i64 noundef 1) #8
-  br label %59
-
-59:                                               ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
-  %60 = add nuw nsw i64 %.017, 1
-  %.not.not = icmp samesign ult i64 %.017, %12
+_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread: ; preds = %55, %34, %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
+  %59 = add nuw nsw i64 %.016, 1
+  %.not.not = icmp samesign ult i64 %.016, %12
   br i1 %.not.not, label %29, label %_ZN11MutexLockerD2Ev.exit, !llvm.loop !11
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %59, %_ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread, %_ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #8
   ret void
 }

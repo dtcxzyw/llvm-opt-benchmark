@@ -1010,7 +1010,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us: ;
   br i1 %.not12.us, label %.split19.us, label %.split.us
 
 .split19.us:                                      ; preds = %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us
-  %.us-phi = phi i1 [ %36, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us ], [ %47, %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit ]
+  %.us-phi = phi i1 [ %36, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us ], [ %45, %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit ]
   %37 = load i8, ptr %0, align 1, !tbaa !27, !range !31, !noundef !32
   %38 = icmp ne i8 %37, 0
   %39 = and i1 %.us-phi, %38
@@ -1020,30 +1020,26 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us: ;
   ret void
 
 .split:                                           ; preds = %25, %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
-  %.017 = phi i1 [ %47, %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit ], [ false, %25 ]
+  %.017 = phi i1 [ %45, %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit ], [ false, %25 ]
   %.010.idx16 = phi i64 [ %.010.add, %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit ], [ 0, %25 ]
   %.010.ptr = getelementptr inbounds nuw i8, ptr @_ZZN11OpenImageIO6v3_1_07Sysutil4TermC1ERKSoE19supported_terminals, i64 %.010.idx16
   %41 = load ptr, ptr %.010.ptr, align 8, !tbaa !30
   %.not.i = icmp eq ptr %41, null
-  br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit, label %42
+  br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
 
-42:                                               ; preds = %.split
-  %43 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #32
-  br label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
-
-_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %.split, %42
-  %44 = phi i64 [ %43, %42 ], [ 0, %.split ]
-  %45 = icmp eq i64 %.fr21, %44
-  br i1 %45, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
+_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %.split
+  %42 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #32
+  %43 = icmp eq i64 %.fr21, %42
+  br i1 %43, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
-  %bcmp.i = tail call i32 @bcmp(ptr %28, ptr %41, i64 %.fr21)
+  %bcmp.i = tail call i32 @bcmp(ptr %28, ptr nonnull %41, i64 %.fr21)
   %.not.i.i = icmp eq i32 %bcmp.i, 0
   br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
 
-_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
-  %46 = phi i1 [ false, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit ], [ %.not.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
-  %47 = or i1 %.017, %46
+_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit: ; preds = %.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
+  %44 = phi i1 [ false, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit ], [ %.not.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %.split ]
+  %45 = or i1 %.017, %44
   %.010.add = add nuw nsw i64 %.010.idx16, 8
   %.not12 = icmp eq i64 %.010.add, 160
   br i1 %.not12, label %.split19.us, label %.split

@@ -12030,7 +12030,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit94:                  ; preds = %.lr.ph.i87
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %3, align 8
   %.not.i97 = icmp eq ptr %212, %213
-  br i1 %.not.i97, label %._crit_edge.i, label %.lr.ph.i98
+  br i1 %.not.i97, label %_ZN10open_spiel14colored_trails5Trade6reduceEv.exit, label %.lr.ph.i98
 
 .lr.ph.i98:                                       ; preds = %._crit_edge235
   %214 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -12060,9 +12060,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit94:                  ; preds = %.lr.ph.i87
   %232 = sub i64 %230, %231
   %233 = ashr exact i64 %232, 2
   %234 = icmp ugt i64 %233, %indvars.iv.next.i
-  br i1 %234, label %215, label %._crit_edge.i, !llvm.loop !45
+  br i1 %234, label %215, label %_ZN10open_spiel14colored_trails5Trade6reduceEv.exit, !llvm.loop !45
 
-._crit_edge.i:                                    ; preds = %215, %._crit_edge235
+_ZN10open_spiel14colored_trails5Trade6reduceEv.exit: ; preds = %215, %._crit_edge235
   %235 = load ptr, ptr %206, align 8
   %236 = getelementptr inbounds %"class.std::vector", ptr %235, i64 %207
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 48
@@ -12073,7 +12073,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit94:                  ; preds = %.lr.ph.i87
   %239 = tail call fastcc noundef zeroext i1 @_ZN10open_spiel14colored_trails12_GLOBAL__N_112IsLegalTradeERKNS0_5BoardERKNS0_5TradeERKSt6vectorIiSaIiEESC_(i32 %.val.i, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.val2.i, ptr %.val3.i)
   br i1 %239, label %_ZNSt6vectorIN10open_spiel14colored_trails5TradeESaIS2_EED2Ev.exit, label %240
 
-240:                                              ; preds = %._crit_edge.i
+240:                                              ; preds = %_ZN10open_spiel14colored_trails5Trade6reduceEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %241 = load ptr, ptr %206, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 48
@@ -12497,7 +12497,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit119:                 ; preds = %427, %.loopexit, %3
   call void @_ZNSt6vectorIN10open_spiel14colored_trails5TradeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #28
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit75
 
-_ZNSt6vectorIN10open_spiel14colored_trails5TradeESaIS2_EED2Ev.exit: ; preds = %420, %_ZSt8_DestroyIPN10open_spiel14colored_trails5TradeES2_EvT_S4_RSaIT0_E.exit.i, %._crit_edge.i
+_ZNSt6vectorIN10open_spiel14colored_trails5TradeESaIS2_EED2Ev.exit: ; preds = %420, %_ZSt8_DestroyIPN10open_spiel14colored_trails5TradeES2_EvT_S4_RSaIT0_E.exit.i, %_ZN10open_spiel14colored_trails5Trade6reduceEv.exit
   switch i32 %1, label %464 [
     i32 0, label %433
     i32 1, label %445

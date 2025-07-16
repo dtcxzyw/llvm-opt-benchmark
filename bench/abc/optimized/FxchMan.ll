@@ -1498,25 +1498,20 @@ define internal fastcc void @Fxch_ManDivSingleCube(ptr noundef %0, i32 noundef %
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %17
 
-.critedge2.loopexit.loopexit:                     ; preds = %.loopexit
+.critedge2.loopexit:                              ; preds = %.loopexit
   %.pre102 = sext i32 %.val59 to i64
-  br label %.critedge2.loopexit
-
-.critedge2.loopexit:                              ; preds = %.critedge2.loopexit.loopexit, %17
-  %.pre-phi = phi i64 [ %.pre102, %.critedge2.loopexit.loopexit ], [ %18, %17 ]
-  %.val60 = phi i32 [ %.val59, %.critedge2.loopexit.loopexit ], [ %.val6099, %17 ]
-  %16 = icmp slt i64 %indvars.iv.next94, %.pre-phi
+  %16 = icmp slt i64 %indvars.iv.next94, %.pre102
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   br i1 %16, label %17, label %.critedge, !llvm.loop !80
 
 17:                                               ; preds = %.lr.ph81, %.critedge2.loopexit
-  %.val6099 = phi i32 [ %.val61, %.lr.ph81 ], [ %.val60, %.critedge2.loopexit ]
+  %.val6099 = phi i32 [ %.val61, %.lr.ph81 ], [ %.val59, %.critedge2.loopexit ]
   %indvars.iv93 = phi i64 [ 1, %.lr.ph81 ], [ %indvars.iv.next94, %.critedge2.loopexit ]
   %indvars.iv88 = phi i64 [ 2, %.lr.ph81 ], [ %indvars.iv.next89, %.critedge2.loopexit ]
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %18 = sext i32 %.val6099 to i64
   %19 = icmp slt i64 %indvars.iv.next94, %18
-  br i1 %19, label %.lr.ph78, label %.critedge2.loopexit
+  br i1 %19, label %.lr.ph78, label %.critedge
 
 .lr.ph78:                                         ; preds = %17
   %.val56 = load ptr, ptr %11, align 8, !tbaa !25
@@ -1702,17 +1697,17 @@ Vec_IntPush.exit69:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond87.not, label %.loopexit, label %.preheader, !llvm.loop !85
 
 .loopexit:                                        ; preds = %.preheader70, %.preheader
-  %.sink103 = phi i32 [ -1, %.preheader ], [ 1, %.preheader70 ]
+  %.sink107 = phi i32 [ -1, %.preheader ], [ 1, %.preheader70 ]
   %111 = load i32, ptr %15, align 8, !tbaa !86
-  %112 = add nsw i32 %111, %.sink103
+  %112 = add nsw i32 %111, %.sink107
   store i32 %112, ptr %15, align 8, !tbaa !86
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %.val59 = load i32, ptr %9, align 4, !tbaa !26
   %113 = trunc nuw i64 %indvars.iv.next91 to i32
   %114 = icmp sgt i32 %.val59, %113
-  br i1 %114, label %24, label %.critedge2.loopexit.loopexit, !llvm.loop !87
+  br i1 %114, label %24, label %.critedge2.loopexit, !llvm.loop !87
 
-.critedge:                                        ; preds = %.critedge2.loopexit, %4
+.critedge:                                        ; preds = %17, %.critedge2.loopexit, %4
   ret void
 }
 

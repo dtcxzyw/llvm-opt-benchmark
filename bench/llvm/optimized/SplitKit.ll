@@ -2111,7 +2111,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !26
   %.not.i.i54 = icmp eq i32 %71, 0
-  br i1 %.not.i.i54, label %370, label %72
+  br i1 %.not.i.i54, label %367, label %72
 
 72:                                               ; preds = %_ZN4llvm9BitVector6resizeEjb.exit
   %73 = load ptr, ptr %69, align 8, !tbaa !25
@@ -2594,38 +2594,31 @@ _ZNK4llvm13LiveIntervals15getMBBFromIndexENS_9SlotIndexE.exit84: ; preds = %_ZNK
   %357 = load i32, ptr %126, align 8
   %358 = icmp eq i32 %357, 2
   %or.cond = select i1 %356, i1 %358, i1 false
-  br i1 %or.cond, label %._crit_edge._crit_edge.i.i.i.i.i.i, label %367
+  br i1 %or.cond, label %._crit_edge._crit_edge.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit"
 
 ._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %354
   %.val = load ptr, ptr %125, align 8, !tbaa !25
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val53 = load ptr, ptr %359, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %.val34.val.val.pre.i.i.i.i.i.i = load ptr, ptr %.val53, align 8, !tbaa !374
   %.phi.trans.insert48.i.i.i.i.i.i = getelementptr i8, ptr %.val53, i64 16
   %.val34.val.val41.pre.i.i.i.i.i.i = load i32, ptr %.phi.trans.insert48.i.i.i.i.i.i, align 8, !tbaa !377
-  %361 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13SplitAnalysis17calcLiveBlockInfoEvE3$_0EclIPNS3_9BlockInfoEEEbT_"(ptr %.val34.val.val.pre.i.i.i.i.i.i, i32 %.val34.val.val41.pre.i.i.i.i.i.i, ptr noundef %.val)
-  br i1 %361, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit", label %362
+  %360 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13SplitAnalysis17calcLiveBlockInfoEvE3$_0EclIPNS3_9BlockInfoEEEbT_"(ptr %.val34.val.val.pre.i.i.i.i.i.i, i32 %.val34.val.val41.pre.i.i.i.i.i.i, ptr noundef %.val)
+  br i1 %360, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit", label %361
 
-362:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
-  %363 = getelementptr inbounds nuw i8, ptr %.val, i64 40
-  %364 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13SplitAnalysis17calcLiveBlockInfoEvE3$_0EclIPNS3_9BlockInfoEEEbT_"(ptr %.val34.val.val.pre.i.i.i.i.i.i, i32 %.val34.val.val41.pre.i.i.i.i.i.i, ptr noundef nonnull %363)
-  %spec.select = select i1 %364, ptr %363, ptr %360
+361:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
+  %362 = getelementptr inbounds nuw i8, ptr %.val, i64 40
+  %363 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm13SplitAnalysis17calcLiveBlockInfoEvE3$_0EclIPNS3_9BlockInfoEEEbT_"(ptr %.val34.val.val.pre.i.i.i.i.i.i, i32 %.val34.val.val41.pre.i.i.i.i.i.i, ptr noundef nonnull %362)
+  %364 = zext i1 %363 to i8
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit": ; preds = %362, %._crit_edge._crit_edge.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %.val, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %spec.select, %362 ]
-  %365 = icmp ne ptr %360, %.028.i.i.i.i.i.i
-  %366 = zext i1 %365 to i8
+"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit": ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i, %361, %354
+  %365 = phi i8 [ 0, %354 ], [ 1, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %364, %361 ]
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 700
+  store i8 %365, ptr %366, align 4, !tbaa !355
   br label %367
 
-367:                                              ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit", %354
-  %368 = phi i8 [ 0, %354 ], [ %366, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit" ]
-  %369 = getelementptr inbounds nuw i8, ptr %0, i64 700
-  store i8 %368, ptr %369, align 4, !tbaa !355
-  br label %370
-
-370:                                              ; preds = %_ZN4llvm9BitVector6resizeEjb.exit, %367
+367:                                              ; preds = %_ZN4llvm9BitVector6resizeEjb.exit, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SplitAnalysis9BlockInfoELj8EEEZNS2_17calcLiveBlockInfoEvE3$_0EEbOT_T0_.exit"
   ret void
 }
 

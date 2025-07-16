@@ -13541,9 +13541,9 @@ _ZNSt3__115basic_streambufIwNS_11char_traitsIwEEE6sbumpcEv.exit26: ; preds = %52
 _ZNSt3__113basic_istreamIwNS_11char_traitsIwEEE12__inc_gcountB8ne210000Ev.exit29: ; preds = %73
   %75 = add nsw i64 %74, 1
   store i64 %75, ptr %5, align 8, !tbaa !79
-  %76 = icmp ne i32 %.0.i24, %2
-  %77 = icmp slt i64 %75, %1
-  %or.cond = select i1 %76, i1 %77, i1 false
+  %76 = icmp slt i64 %75, %1
+  %77 = icmp ne i32 %.0.i24, %2
+  %or.cond = select i1 %77, i1 %76, i1 false
   br i1 %or.cond, label %37, label %.thread
 
 78:                                               ; preds = %72
@@ -18757,7 +18757,7 @@ define weak_odr dso_local noundef i32 @_ZNSt3__115basic_stringbufIcNS_11char_tra
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !33
-  br label %119
+  br label %120
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -18832,7 +18832,7 @@ define weak_odr dso_local noundef i32 @_ZNSt3__115basic_stringbufIcNS_11char_tra
   %.014192934.i = phi i64 [ %57, %53 ], [ %37, %.critedge.i ]
   %61 = phi i64 [ %56, %53 ], [ -9, %.critedge.i ]
   %62 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %61) #25
-          to label %.noexc unwind label %115
+          to label %.noexc unwind label %116
 
 .noexc:                                           ; preds = %58
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %59, i64 %.013222836.i, i1 false)
@@ -18893,7 +18893,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE25__grow_by_witho
 89:                                               ; preds = %74
   %90 = sub nuw i64 %81, %87
   %91 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %90, i8 noundef signext 0)
-          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit unwind label %115
+          to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit unwind label %116
 
 92:                                               ; preds = %74
   br i1 %.not.i.i.i, label %96, label %93
@@ -18935,52 +18935,52 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000
   %113 = getelementptr inbounds i8, ptr %107, i64 %26
   store ptr %113, ptr %12, align 8, !tbaa !30
   %114 = getelementptr inbounds i8, ptr %107, i64 %30
-  br label %119
+  %115 = icmp eq i64 %26, %111
+  br label %120
 
-115:                                              ; preds = %89, %58
-  %116 = landingpad { ptr, i32 }
+116:                                              ; preds = %89, %58
+  %117 = landingpad { ptr, i32 }
           catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  %118 = tail call ptr @__cxa_begin_catch(ptr %117) #21
+  %118 = extractvalue { ptr, i32 } %117, 0
+  %119 = tail call ptr @__cxa_begin_catch(ptr %118) #21
   tail call void @__cxa_end_catch()
   br label %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit
 
-119:                                              ; preds = %._crit_edge, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit
-  %120 = phi ptr [ %112, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit ], [ %15, %._crit_edge ]
-  %121 = phi ptr [ %114, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit ], [ %.pre, %._crit_edge ]
-  %122 = phi ptr [ %113, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit ], [ %13, %._crit_edge ]
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %125 = icmp ult ptr %123, %121
-  %.sroa.speculated = select i1 %125, ptr %121, ptr %123
-  store ptr %.sroa.speculated, ptr %124, align 8, !tbaa !93
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %127 = load i32, ptr %126, align 8, !tbaa !90
-  %128 = and i32 %127, 8
-  %.not12 = icmp eq i32 %128, 0
-  br i1 %.not12, label %139, label %129
+120:                                              ; preds = %._crit_edge, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit
+  %121 = phi i1 [ %115, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit ], [ false, %._crit_edge ]
+  %122 = phi ptr [ %114, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit ], [ %.pre, %._crit_edge ]
+  %123 = phi ptr [ %113, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000Em.exit ], [ %13, %._crit_edge ]
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %126 = icmp ult ptr %124, %122
+  %.sroa.speculated = select i1 %126, ptr %122, ptr %124
+  store ptr %.sroa.speculated, ptr %125, align 8, !tbaa !93
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %128 = load i32, ptr %127, align 8, !tbaa !90
+  %129 = and i32 %128, 8
+  %.not12 = icmp eq i32 %129, 0
+  br i1 %.not12, label %140, label %130
 
-129:                                              ; preds = %119
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %131 = load i8, ptr %130, align 8
-  %132 = and i8 %131, 1
-  %.not.i.i16 = icmp eq i8 %132, 0
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %136 = select i1 %.not.i.i16, ptr %135, ptr %134
-  %137 = getelementptr inbounds i8, ptr %136, i64 %11
-  store ptr %136, ptr %7, align 8, !tbaa !29
-  store ptr %137, ptr %5, align 8, !tbaa !22
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.speculated, ptr %138, align 8, !tbaa !27
-  br label %139
+130:                                              ; preds = %120
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %132 = load i8, ptr %131, align 8
+  %133 = and i8 %132, 1
+  %.not.i.i16 = icmp eq i8 %133, 0
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  %137 = select i1 %.not.i.i16, ptr %136, ptr %135
+  %138 = getelementptr inbounds i8, ptr %137, i64 %11
+  store ptr %137, ptr %7, align 8, !tbaa !29
+  store ptr %138, ptr %5, align 8, !tbaa !22
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sroa.speculated, ptr %139, align 8, !tbaa !27
+  br label %140
 
-139:                                              ; preds = %129, %119
-  %140 = icmp eq ptr %122, %120
-  br i1 %140, label %141, label %147
+140:                                              ; preds = %130, %120
+  br i1 %121, label %141, label %147
 
-141:                                              ; preds = %139
+141:                                              ; preds = %140
   %142 = and i32 %1, 255
   %143 = load ptr, ptr %0, align 8, !tbaa !20
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 104
@@ -18988,15 +18988,15 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeB8ne210000
   %146 = tail call noundef i32 %145(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %142)
   br label %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit
 
-147:                                              ; preds = %139
+147:                                              ; preds = %140
   %148 = trunc i32 %1 to i8
-  store ptr %123, ptr %12, align 8, !tbaa !30
-  store i8 %148, ptr %122, align 1, !tbaa !28
+  store ptr %124, ptr %12, align 8, !tbaa !30
+  store i8 %148, ptr %123, align 1, !tbaa !28
   %149 = and i32 %1, 255
   br label %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit
 
-_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit: ; preds = %2, %147, %141, %17, %115
-  %.1 = phi i32 [ -1, %115 ], [ -1, %17 ], [ %146, %141 ], [ %149, %147 ], [ 0, %2 ]
+_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputcEc.exit: ; preds = %2, %147, %141, %17, %116
+  %.1 = phi i32 [ -1, %116 ], [ -1, %17 ], [ %146, %141 ], [ %149, %147 ], [ 0, %2 ]
   ret i32 %.1
 }
 

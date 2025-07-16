@@ -7970,28 +7970,28 @@ if.end24:                                         ; preds = %if.end, %land.lhs.t
   %sub.ptr.sub.i852 = sub i64 %sub.ptr.lhs.cast.i850, %sub.ptr.rhs.cast.i851
   %sub.ptr.div.i853 = sdiv exact i64 %sub.ptr.sub.i852, 48
   %cmp28 = icmp ugt i64 %sub.ptr.div.i853, %i.0
-  br i1 %cmp28, label %land.lhs.true29, label %if.end56
+  br i1 %cmp28, label %land.lhs.true29, label %if.end1970
 
 land.lhs.true29:                                  ; preds = %if.end24
   %add.ptr.i = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %8, i64 %i.0
   %id31 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %10 = load i32, ptr %id31, align 8
   %cmp32 = icmp eq i32 %10, 1
-  br i1 %cmp32, label %if.then33, label %if.end56
+  br i1 %cmp32, label %if.then33, label %land.lhs.true62
 
 if.then33:                                        ; preds = %land.lhs.true29
   %index38 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
   %11 = load i64, ptr %index38, align 8
   %call.i2775 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %11) #20
   %cond788 = icmp eq ptr %call.i2775, null
-  br i1 %cond788, label %if.then46, label %if.end48
+  br i1 %cond788, label %if.then46, label %if.end56
 
 if.then46:                                        ; preds = %if.then33
   %12 = load ptr, ptr @stderr, align 8
   %13 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 62, i64 1, ptr %12) #25
-  br label %if.end48
+  br label %if.end56
 
-if.end48:                                         ; preds = %if.then33, %if.then46
+if.end56:                                         ; preds = %if.then46, %if.then33
   %vtable53 = load ptr, ptr %this, align 8
   %vfn54 = getelementptr inbounds nuw i8, ptr %vtable53, i64 96
   %14 = load ptr, ptr %vfn54, align 8
@@ -8003,2337 +8003,2105 @@ if.end48:                                         ; preds = %if.then33, %if.then
   %.pre1380 = ptrtoint ptr %.pre1264 to i64
   %.pre1381 = sub i64 %.pre1379, %.pre1380
   %.pre1382 = sdiv exact i64 %.pre1381, 48
-  br label %if.end56
+  %15 = icmp ugt i64 %.pre1382, %inc55
+  br i1 %15, label %land.lhs.true62, label %if.end1970
 
-if.end56:                                         ; preds = %if.end48, %land.lhs.true29, %if.end24
-  %sub.ptr.div.i859.pre-phi = phi i64 [ %.pre1382, %if.end48 ], [ %sub.ptr.div.i853, %land.lhs.true29 ], [ %sub.ptr.div.i853, %if.end24 ]
-  %15 = phi ptr [ %.pre1264, %if.end48 ], [ %8, %land.lhs.true29 ], [ %8, %if.end24 ]
-  %i.1 = phi i64 [ %inc55, %if.end48 ], [ %i.0, %land.lhs.true29 ], [ %i.0, %if.end24 ]
-  %cmp61 = icmp ugt i64 %sub.ptr.div.i859.pre-phi, %i.1
-  br i1 %cmp61, label %land.lhs.true62, label %if.end89
-
-land.lhs.true62:                                  ; preds = %if.end56
-  %add.ptr.i860 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %15, i64 %i.1
+land.lhs.true62:                                  ; preds = %land.lhs.true29, %if.end56
+  %i.11613 = phi i64 [ %inc55, %if.end56 ], [ %i.0, %land.lhs.true29 ]
+  %16 = phi ptr [ %.pre1264, %if.end56 ], [ %8, %land.lhs.true29 ]
+  %add.ptr.i860 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %16, i64 %i.11613
   %id64 = getelementptr inbounds nuw i8, ptr %add.ptr.i860, i64 32
-  %16 = load i32, ptr %id64, align 8
-  %cmp65 = icmp eq i32 %16, 2
-  br i1 %cmp65, label %if.then66, label %if.end89
+  %17 = load i32, ptr %id64, align 8
+  %cmp65 = icmp eq i32 %17, 2
+  br i1 %cmp65, label %if.then66, label %land.lhs.true95
 
 if.then66:                                        ; preds = %land.lhs.true62
   %index71 = getelementptr inbounds nuw i8, ptr %add.ptr.i860, i64 40
-  %17 = load i64, ptr %index71, align 8
-  %call.i2763 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %17) #20
+  %18 = load i64, ptr %index71, align 8
+  %call.i2763 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %18) #20
   %cond789 = icmp eq ptr %call.i2763, null
-  br i1 %cond789, label %if.then79, label %if.end81
+  br i1 %cond789, label %if.then79, label %if.end89
 
 if.then79:                                        ; preds = %if.then66
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 66, i64 1, ptr %18) #25
-  br label %if.end81
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.83, i64 66, i64 1, ptr %19) #25
+  br label %if.end89
 
-if.end81:                                         ; preds = %if.then66, %if.then79
+if.end89:                                         ; preds = %if.then79, %if.then66
   %vtable86 = load ptr, ptr %this, align 8
   %vfn87 = getelementptr inbounds nuw i8, ptr %vtable86, i64 112
-  %20 = load ptr, ptr %vfn87, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2763) #20
-  %inc88 = add nuw nsw i64 %i.1, 1
+  %21 = load ptr, ptr %vfn87, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2763) #20
+  %inc88 = add nuw nsw i64 %i.11613, 1
   %.pre1265 = load ptr, ptr %_M_finish.i, align 8
   %.pre1266 = load ptr, ptr %persistent_values, align 8
   %.pre1383 = ptrtoint ptr %.pre1265 to i64
   %.pre1384 = ptrtoint ptr %.pre1266 to i64
   %.pre1385 = sub i64 %.pre1383, %.pre1384
   %.pre1386 = sdiv exact i64 %.pre1385, 48
-  br label %if.end89
+  %22 = icmp ugt i64 %.pre1386, %inc88
+  br i1 %22, label %land.lhs.true95, label %if.end1970
 
-if.end89:                                         ; preds = %if.end81, %land.lhs.true62, %if.end56
-  %sub.ptr.div.i866.pre-phi = phi i64 [ %.pre1386, %if.end81 ], [ %sub.ptr.div.i859.pre-phi, %land.lhs.true62 ], [ %sub.ptr.div.i859.pre-phi, %if.end56 ]
-  %21 = phi ptr [ %.pre1266, %if.end81 ], [ %15, %land.lhs.true62 ], [ %15, %if.end56 ]
-  %i.2 = phi i64 [ %inc88, %if.end81 ], [ %i.1, %land.lhs.true62 ], [ %i.1, %if.end56 ]
-  %cmp94 = icmp ugt i64 %sub.ptr.div.i866.pre-phi, %i.2
-  br i1 %cmp94, label %land.lhs.true95, label %if.end122
-
-land.lhs.true95:                                  ; preds = %if.end89
-  %add.ptr.i867 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %21, i64 %i.2
+land.lhs.true95:                                  ; preds = %land.lhs.true62, %if.end89
+  %i.21622 = phi i64 [ %inc88, %if.end89 ], [ %i.11613, %land.lhs.true62 ]
+  %23 = phi ptr [ %.pre1266, %if.end89 ], [ %16, %land.lhs.true62 ]
+  %add.ptr.i867 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %23, i64 %i.21622
   %id97 = getelementptr inbounds nuw i8, ptr %add.ptr.i867, i64 32
-  %22 = load i32, ptr %id97, align 8
-  %cmp98 = icmp eq i32 %22, 3
-  br i1 %cmp98, label %if.then99, label %if.end122
+  %24 = load i32, ptr %id97, align 8
+  %cmp98 = icmp eq i32 %24, 3
+  br i1 %cmp98, label %if.then99, label %land.lhs.true128
 
 if.then99:                                        ; preds = %land.lhs.true95
   %index104 = getelementptr inbounds nuw i8, ptr %add.ptr.i867, i64 40
-  %23 = load i64, ptr %index104, align 8
-  %call.i3249 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %23) #20
+  %25 = load i64, ptr %index104, align 8
+  %call.i3249 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %25) #20
   %cond790 = icmp eq ptr %call.i3249, null
-  br i1 %cond790, label %if.then112, label %if.end114
+  br i1 %cond790, label %if.then112, label %if.end122
 
 if.then112:                                       ; preds = %if.then99
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 54, i64 1, ptr %24) #25
-  br label %if.end114
+  %26 = load ptr, ptr @stderr, align 8
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 54, i64 1, ptr %26) #25
+  br label %if.end122
 
-if.end114:                                        ; preds = %if.then99, %if.then112
+if.end122:                                        ; preds = %if.then112, %if.then99
   %vtable119 = load ptr, ptr %this, align 8
   %vfn120 = getelementptr inbounds nuw i8, ptr %vtable119, i64 128
-  %26 = load ptr, ptr %vfn120, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3249) #20
-  %inc121 = add nuw nsw i64 %i.2, 1
+  %28 = load ptr, ptr %vfn120, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3249) #20
+  %inc121 = add nuw nsw i64 %i.21622, 1
   %.pre1267 = load ptr, ptr %_M_finish.i, align 8
   %.pre1268 = load ptr, ptr %persistent_values, align 8
   %.pre1387 = ptrtoint ptr %.pre1267 to i64
   %.pre1388 = ptrtoint ptr %.pre1268 to i64
   %.pre1389 = sub i64 %.pre1387, %.pre1388
   %.pre1390 = sdiv exact i64 %.pre1389, 48
-  br label %if.end122
+  %29 = icmp ugt i64 %.pre1390, %inc121
+  br i1 %29, label %land.lhs.true128, label %if.end1970
 
-if.end122:                                        ; preds = %if.end114, %land.lhs.true95, %if.end89
-  %sub.ptr.div.i873.pre-phi = phi i64 [ %.pre1390, %if.end114 ], [ %sub.ptr.div.i866.pre-phi, %land.lhs.true95 ], [ %sub.ptr.div.i866.pre-phi, %if.end89 ]
-  %27 = phi ptr [ %.pre1268, %if.end114 ], [ %21, %land.lhs.true95 ], [ %21, %if.end89 ]
-  %i.3 = phi i64 [ %inc121, %if.end114 ], [ %i.2, %land.lhs.true95 ], [ %i.2, %if.end89 ]
-  %cmp127 = icmp ugt i64 %sub.ptr.div.i873.pre-phi, %i.3
-  br i1 %cmp127, label %land.lhs.true128, label %if.end155
-
-land.lhs.true128:                                 ; preds = %if.end122
-  %add.ptr.i874 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %27, i64 %i.3
+land.lhs.true128:                                 ; preds = %land.lhs.true95, %if.end122
+  %i.31629 = phi i64 [ %inc121, %if.end122 ], [ %i.21622, %land.lhs.true95 ]
+  %30 = phi ptr [ %.pre1268, %if.end122 ], [ %23, %land.lhs.true95 ]
+  %add.ptr.i874 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %30, i64 %i.31629
   %id130 = getelementptr inbounds nuw i8, ptr %add.ptr.i874, i64 32
-  %28 = load i32, ptr %id130, align 8
-  %cmp131 = icmp eq i32 %28, 4
-  br i1 %cmp131, label %if.then132, label %if.end155
+  %31 = load i32, ptr %id130, align 8
+  %cmp131 = icmp eq i32 %31, 4
+  br i1 %cmp131, label %if.then132, label %land.lhs.true161
 
 if.then132:                                       ; preds = %land.lhs.true128
   %index137 = getelementptr inbounds nuw i8, ptr %add.ptr.i874, i64 40
-  %29 = load i64, ptr %index137, align 8
-  %call.i2751 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %29) #20
+  %32 = load i64, ptr %index137, align 8
+  %call.i2751 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %32) #20
   %cond791 = icmp eq ptr %call.i2751, null
-  br i1 %cond791, label %if.then145, label %if.end147
+  br i1 %cond791, label %if.then145, label %if.end155
 
 if.then145:                                       ; preds = %if.then132
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.85, i64 63, i64 1, ptr %30) #25
-  br label %if.end147
+  %33 = load ptr, ptr @stderr, align 8
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.85, i64 63, i64 1, ptr %33) #25
+  br label %if.end155
 
-if.end147:                                        ; preds = %if.then132, %if.then145
+if.end155:                                        ; preds = %if.then145, %if.then132
   %vtable152 = load ptr, ptr %this, align 8
   %vfn153 = getelementptr inbounds nuw i8, ptr %vtable152, i64 144
-  %32 = load ptr, ptr %vfn153, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2751) #20
-  %inc154 = add nuw nsw i64 %i.3, 1
+  %35 = load ptr, ptr %vfn153, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2751) #20
+  %inc154 = add nuw nsw i64 %i.31629, 1
   %.pre1269 = load ptr, ptr %_M_finish.i, align 8
   %.pre1270 = load ptr, ptr %persistent_values, align 8
   %.pre1391 = ptrtoint ptr %.pre1269 to i64
   %.pre1392 = ptrtoint ptr %.pre1270 to i64
   %.pre1393 = sub i64 %.pre1391, %.pre1392
   %.pre1394 = sdiv exact i64 %.pre1393, 48
-  br label %if.end155
+  %36 = icmp ugt i64 %.pre1394, %inc154
+  br i1 %36, label %land.lhs.true161, label %if.end1970
 
-if.end155:                                        ; preds = %if.end147, %land.lhs.true128, %if.end122
-  %sub.ptr.div.i880.pre-phi = phi i64 [ %.pre1394, %if.end147 ], [ %sub.ptr.div.i873.pre-phi, %land.lhs.true128 ], [ %sub.ptr.div.i873.pre-phi, %if.end122 ]
-  %33 = phi ptr [ %.pre1270, %if.end147 ], [ %27, %land.lhs.true128 ], [ %27, %if.end122 ]
-  %i.4 = phi i64 [ %inc154, %if.end147 ], [ %i.3, %land.lhs.true128 ], [ %i.3, %if.end122 ]
-  %cmp160 = icmp ugt i64 %sub.ptr.div.i880.pre-phi, %i.4
-  br i1 %cmp160, label %land.lhs.true161, label %if.end188
-
-land.lhs.true161:                                 ; preds = %if.end155
-  %add.ptr.i881 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %33, i64 %i.4
+land.lhs.true161:                                 ; preds = %land.lhs.true128, %if.end155
+  %i.41636 = phi i64 [ %inc154, %if.end155 ], [ %i.31629, %land.lhs.true128 ]
+  %37 = phi ptr [ %.pre1270, %if.end155 ], [ %30, %land.lhs.true128 ]
+  %add.ptr.i881 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %37, i64 %i.41636
   %id163 = getelementptr inbounds nuw i8, ptr %add.ptr.i881, i64 32
-  %34 = load i32, ptr %id163, align 8
-  %cmp164 = icmp eq i32 %34, 5
-  br i1 %cmp164, label %if.then165, label %if.end188
+  %38 = load i32, ptr %id163, align 8
+  %cmp164 = icmp eq i32 %38, 5
+  br i1 %cmp164, label %if.then165, label %land.lhs.true194
 
 if.then165:                                       ; preds = %land.lhs.true161
   %index170 = getelementptr inbounds nuw i8, ptr %add.ptr.i881, i64 40
-  %35 = load i64, ptr %index170, align 8
-  %call.i2739 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %35) #20
+  %39 = load i64, ptr %index170, align 8
+  %call.i2739 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %39) #20
   %cond792 = icmp eq ptr %call.i2739, null
-  br i1 %cond792, label %if.then178, label %if.end180
+  br i1 %cond792, label %if.then178, label %if.end188
 
 if.then178:                                       ; preds = %if.then165
-  %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 60, i64 1, ptr %36) #25
-  br label %if.end180
+  %40 = load ptr, ptr @stderr, align 8
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.86, i64 60, i64 1, ptr %40) #25
+  br label %if.end188
 
-if.end180:                                        ; preds = %if.then165, %if.then178
+if.end188:                                        ; preds = %if.then178, %if.then165
   %vtable185 = load ptr, ptr %this, align 8
   %vfn186 = getelementptr inbounds nuw i8, ptr %vtable185, i64 160
-  %38 = load ptr, ptr %vfn186, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2739) #20
-  %inc187 = add nuw nsw i64 %i.4, 1
+  %42 = load ptr, ptr %vfn186, align 8
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2739) #20
+  %inc187 = add nuw nsw i64 %i.41636, 1
   %.pre1271 = load ptr, ptr %_M_finish.i, align 8
   %.pre1272 = load ptr, ptr %persistent_values, align 8
   %.pre1395 = ptrtoint ptr %.pre1271 to i64
   %.pre1396 = ptrtoint ptr %.pre1272 to i64
   %.pre1397 = sub i64 %.pre1395, %.pre1396
   %.pre1398 = sdiv exact i64 %.pre1397, 48
-  br label %if.end188
+  %43 = icmp ugt i64 %.pre1398, %inc187
+  br i1 %43, label %land.lhs.true194, label %if.end1970
 
-if.end188:                                        ; preds = %if.end180, %land.lhs.true161, %if.end155
-  %sub.ptr.div.i887.pre-phi = phi i64 [ %.pre1398, %if.end180 ], [ %sub.ptr.div.i880.pre-phi, %land.lhs.true161 ], [ %sub.ptr.div.i880.pre-phi, %if.end155 ]
-  %39 = phi ptr [ %.pre1272, %if.end180 ], [ %33, %land.lhs.true161 ], [ %33, %if.end155 ]
-  %i.5 = phi i64 [ %inc187, %if.end180 ], [ %i.4, %land.lhs.true161 ], [ %i.4, %if.end155 ]
-  %cmp193 = icmp ugt i64 %sub.ptr.div.i887.pre-phi, %i.5
-  br i1 %cmp193, label %land.lhs.true194, label %if.end221
-
-land.lhs.true194:                                 ; preds = %if.end188
-  %add.ptr.i888 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %39, i64 %i.5
+land.lhs.true194:                                 ; preds = %land.lhs.true161, %if.end188
+  %i.51643 = phi i64 [ %inc187, %if.end188 ], [ %i.41636, %land.lhs.true161 ]
+  %44 = phi ptr [ %.pre1272, %if.end188 ], [ %37, %land.lhs.true161 ]
+  %add.ptr.i888 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %44, i64 %i.51643
   %id196 = getelementptr inbounds nuw i8, ptr %add.ptr.i888, i64 32
-  %40 = load i32, ptr %id196, align 8
-  %cmp197 = icmp eq i32 %40, 6
-  br i1 %cmp197, label %if.then198, label %if.end221
+  %45 = load i32, ptr %id196, align 8
+  %cmp197 = icmp eq i32 %45, 6
+  br i1 %cmp197, label %if.then198, label %land.lhs.true227
 
 if.then198:                                       ; preds = %land.lhs.true194
   %index203 = getelementptr inbounds nuw i8, ptr %add.ptr.i888, i64 40
-  %41 = load i64, ptr %index203, align 8
-  %call.i2727 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %41) #20
+  %46 = load i64, ptr %index203, align 8
+  %call.i2727 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %46) #20
   %cond793 = icmp eq ptr %call.i2727, null
-  br i1 %cond793, label %if.then211, label %if.end213
+  br i1 %cond793, label %if.then211, label %if.end221
 
 if.then211:                                       ; preds = %if.then198
-  %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 71, i64 1, ptr %42) #25
-  br label %if.end213
+  %47 = load ptr, ptr @stderr, align 8
+  %48 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 71, i64 1, ptr %47) #25
+  br label %if.end221
 
-if.end213:                                        ; preds = %if.then198, %if.then211
+if.end221:                                        ; preds = %if.then211, %if.then198
   %vtable218 = load ptr, ptr %this, align 8
   %vfn219 = getelementptr inbounds nuw i8, ptr %vtable218, i64 176
-  %44 = load ptr, ptr %vfn219, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2727) #20
-  %inc220 = add nuw nsw i64 %i.5, 1
+  %49 = load ptr, ptr %vfn219, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2727) #20
+  %inc220 = add nuw nsw i64 %i.51643, 1
   %.pre1273 = load ptr, ptr %_M_finish.i, align 8
   %.pre1274 = load ptr, ptr %persistent_values, align 8
   %.pre1399 = ptrtoint ptr %.pre1273 to i64
   %.pre1400 = ptrtoint ptr %.pre1274 to i64
   %.pre1401 = sub i64 %.pre1399, %.pre1400
   %.pre1402 = sdiv exact i64 %.pre1401, 48
-  br label %if.end221
+  %50 = icmp ugt i64 %.pre1402, %inc220
+  br i1 %50, label %land.lhs.true227, label %if.end1970
 
-if.end221:                                        ; preds = %if.end213, %land.lhs.true194, %if.end188
-  %sub.ptr.div.i894.pre-phi = phi i64 [ %.pre1402, %if.end213 ], [ %sub.ptr.div.i887.pre-phi, %land.lhs.true194 ], [ %sub.ptr.div.i887.pre-phi, %if.end188 ]
-  %45 = phi ptr [ %.pre1274, %if.end213 ], [ %39, %land.lhs.true194 ], [ %39, %if.end188 ]
-  %i.6 = phi i64 [ %inc220, %if.end213 ], [ %i.5, %land.lhs.true194 ], [ %i.5, %if.end188 ]
-  %cmp226 = icmp ugt i64 %sub.ptr.div.i894.pre-phi, %i.6
-  br i1 %cmp226, label %land.lhs.true227, label %if.end254
-
-land.lhs.true227:                                 ; preds = %if.end221
-  %add.ptr.i895 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %45, i64 %i.6
+land.lhs.true227:                                 ; preds = %land.lhs.true194, %if.end221
+  %i.61650 = phi i64 [ %inc220, %if.end221 ], [ %i.51643, %land.lhs.true194 ]
+  %51 = phi ptr [ %.pre1274, %if.end221 ], [ %44, %land.lhs.true194 ]
+  %add.ptr.i895 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %51, i64 %i.61650
   %id229 = getelementptr inbounds nuw i8, ptr %add.ptr.i895, i64 32
-  %46 = load i32, ptr %id229, align 8
-  %cmp230 = icmp eq i32 %46, 7
-  br i1 %cmp230, label %if.then231, label %if.end254
+  %52 = load i32, ptr %id229, align 8
+  %cmp230 = icmp eq i32 %52, 7
+  br i1 %cmp230, label %if.then231, label %land.lhs.true260
 
 if.then231:                                       ; preds = %land.lhs.true227
   %index236 = getelementptr inbounds nuw i8, ptr %add.ptr.i895, i64 40
-  %47 = load i64, ptr %index236, align 8
-  %call.i3237 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %47) #20
+  %53 = load i64, ptr %index236, align 8
+  %call.i3237 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %53) #20
   %cond794 = icmp eq ptr %call.i3237, null
-  br i1 %cond794, label %if.then244, label %if.end246
+  br i1 %cond794, label %if.then244, label %if.end254
 
 if.then244:                                       ; preds = %if.then231
-  %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 58, i64 1, ptr %48) #25
-  br label %if.end246
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 58, i64 1, ptr %54) #25
+  br label %if.end254
 
-if.end246:                                        ; preds = %if.then231, %if.then244
+if.end254:                                        ; preds = %if.then244, %if.then231
   %vtable251 = load ptr, ptr %this, align 8
   %vfn252 = getelementptr inbounds nuw i8, ptr %vtable251, i64 192
-  %50 = load ptr, ptr %vfn252, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3237) #20
-  %inc253 = add nuw nsw i64 %i.6, 1
+  %56 = load ptr, ptr %vfn252, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3237) #20
+  %inc253 = add nuw nsw i64 %i.61650, 1
   %.pre1275 = load ptr, ptr %_M_finish.i, align 8
   %.pre1276 = load ptr, ptr %persistent_values, align 8
   %.pre1403 = ptrtoint ptr %.pre1275 to i64
   %.pre1404 = ptrtoint ptr %.pre1276 to i64
   %.pre1405 = sub i64 %.pre1403, %.pre1404
   %.pre1406 = sdiv exact i64 %.pre1405, 48
-  br label %if.end254
+  %57 = icmp ugt i64 %.pre1406, %inc253
+  br i1 %57, label %land.lhs.true260, label %if.end1970
 
-if.end254:                                        ; preds = %if.end246, %land.lhs.true227, %if.end221
-  %sub.ptr.div.i901.pre-phi = phi i64 [ %.pre1406, %if.end246 ], [ %sub.ptr.div.i894.pre-phi, %land.lhs.true227 ], [ %sub.ptr.div.i894.pre-phi, %if.end221 ]
-  %51 = phi ptr [ %.pre1276, %if.end246 ], [ %45, %land.lhs.true227 ], [ %45, %if.end221 ]
-  %i.7 = phi i64 [ %inc253, %if.end246 ], [ %i.6, %land.lhs.true227 ], [ %i.6, %if.end221 ]
-  %cmp259 = icmp ugt i64 %sub.ptr.div.i901.pre-phi, %i.7
-  br i1 %cmp259, label %land.lhs.true260, label %if.end287
-
-land.lhs.true260:                                 ; preds = %if.end254
-  %add.ptr.i902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %51, i64 %i.7
+land.lhs.true260:                                 ; preds = %land.lhs.true227, %if.end254
+  %i.71657 = phi i64 [ %inc253, %if.end254 ], [ %i.61650, %land.lhs.true227 ]
+  %58 = phi ptr [ %.pre1276, %if.end254 ], [ %51, %land.lhs.true227 ]
+  %add.ptr.i902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %58, i64 %i.71657
   %id262 = getelementptr inbounds nuw i8, ptr %add.ptr.i902, i64 32
-  %52 = load i32, ptr %id262, align 8
-  %cmp263 = icmp eq i32 %52, 8
-  br i1 %cmp263, label %if.then264, label %if.end287
+  %59 = load i32, ptr %id262, align 8
+  %cmp263 = icmp eq i32 %59, 8
+  br i1 %cmp263, label %if.then264, label %land.lhs.true293
 
 if.then264:                                       ; preds = %land.lhs.true260
   %index269 = getelementptr inbounds nuw i8, ptr %add.ptr.i902, i64 40
-  %53 = load i64, ptr %index269, align 8
-  %call.i2715 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %53) #20
+  %60 = load i64, ptr %index269, align 8
+  %call.i2715 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %60) #20
   %cond795 = icmp eq ptr %call.i2715, null
-  br i1 %cond795, label %if.then277, label %if.end279
+  br i1 %cond795, label %if.then277, label %if.end287
 
 if.then277:                                       ; preds = %if.then264
-  %54 = load ptr, ptr @stderr, align 8
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 64, i64 1, ptr %54) #25
-  br label %if.end279
+  %61 = load ptr, ptr @stderr, align 8
+  %62 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 64, i64 1, ptr %61) #25
+  br label %if.end287
 
-if.end279:                                        ; preds = %if.then264, %if.then277
+if.end287:                                        ; preds = %if.then277, %if.then264
   %vtable284 = load ptr, ptr %this, align 8
   %vfn285 = getelementptr inbounds nuw i8, ptr %vtable284, i64 208
-  %56 = load ptr, ptr %vfn285, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2715) #20
-  %inc286 = add nuw nsw i64 %i.7, 1
+  %63 = load ptr, ptr %vfn285, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2715) #20
+  %inc286 = add nuw nsw i64 %i.71657, 1
   %.pre1277 = load ptr, ptr %_M_finish.i, align 8
   %.pre1278 = load ptr, ptr %persistent_values, align 8
   %.pre1407 = ptrtoint ptr %.pre1277 to i64
   %.pre1408 = ptrtoint ptr %.pre1278 to i64
   %.pre1409 = sub i64 %.pre1407, %.pre1408
   %.pre1410 = sdiv exact i64 %.pre1409, 48
-  br label %if.end287
+  %64 = icmp ugt i64 %.pre1410, %inc286
+  br i1 %64, label %land.lhs.true293, label %if.end1970
 
-if.end287:                                        ; preds = %if.end279, %land.lhs.true260, %if.end254
-  %sub.ptr.div.i908.pre-phi = phi i64 [ %.pre1410, %if.end279 ], [ %sub.ptr.div.i901.pre-phi, %land.lhs.true260 ], [ %sub.ptr.div.i901.pre-phi, %if.end254 ]
-  %57 = phi ptr [ %.pre1278, %if.end279 ], [ %51, %land.lhs.true260 ], [ %51, %if.end254 ]
-  %i.8 = phi i64 [ %inc286, %if.end279 ], [ %i.7, %land.lhs.true260 ], [ %i.7, %if.end254 ]
-  %cmp292 = icmp ugt i64 %sub.ptr.div.i908.pre-phi, %i.8
-  br i1 %cmp292, label %land.lhs.true293, label %if.end320
-
-land.lhs.true293:                                 ; preds = %if.end287
-  %add.ptr.i909 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %57, i64 %i.8
+land.lhs.true293:                                 ; preds = %land.lhs.true260, %if.end287
+  %i.81664 = phi i64 [ %inc286, %if.end287 ], [ %i.71657, %land.lhs.true260 ]
+  %65 = phi ptr [ %.pre1278, %if.end287 ], [ %58, %land.lhs.true260 ]
+  %add.ptr.i909 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %65, i64 %i.81664
   %id295 = getelementptr inbounds nuw i8, ptr %add.ptr.i909, i64 32
-  %58 = load i32, ptr %id295, align 8
-  %cmp296 = icmp eq i32 %58, 9
-  br i1 %cmp296, label %if.then297, label %if.end320
+  %66 = load i32, ptr %id295, align 8
+  %cmp296 = icmp eq i32 %66, 9
+  br i1 %cmp296, label %if.then297, label %land.lhs.true326
 
 if.then297:                                       ; preds = %land.lhs.true293
   %index302 = getelementptr inbounds nuw i8, ptr %add.ptr.i909, i64 40
-  %59 = load i64, ptr %index302, align 8
-  %call.i2703 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %59) #20
+  %67 = load i64, ptr %index302, align 8
+  %call.i2703 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %67) #20
   %cond796 = icmp eq ptr %call.i2703, null
-  br i1 %cond796, label %if.then310, label %if.end312
+  br i1 %cond796, label %if.then310, label %if.end320
 
 if.then310:                                       ; preds = %if.then297
-  %60 = load ptr, ptr @stderr, align 8
-  %61 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 72, i64 1, ptr %60) #25
-  br label %if.end312
+  %68 = load ptr, ptr @stderr, align 8
+  %69 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 72, i64 1, ptr %68) #25
+  br label %if.end320
 
-if.end312:                                        ; preds = %if.then297, %if.then310
+if.end320:                                        ; preds = %if.then310, %if.then297
   %vtable317 = load ptr, ptr %this, align 8
   %vfn318 = getelementptr inbounds nuw i8, ptr %vtable317, i64 224
-  %62 = load ptr, ptr %vfn318, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2703) #20
-  %inc319 = add nuw nsw i64 %i.8, 1
+  %70 = load ptr, ptr %vfn318, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2703) #20
+  %inc319 = add nuw nsw i64 %i.81664, 1
   %.pre1279 = load ptr, ptr %_M_finish.i, align 8
   %.pre1280 = load ptr, ptr %persistent_values, align 8
   %.pre1411 = ptrtoint ptr %.pre1279 to i64
   %.pre1412 = ptrtoint ptr %.pre1280 to i64
   %.pre1413 = sub i64 %.pre1411, %.pre1412
   %.pre1414 = sdiv exact i64 %.pre1413, 48
-  br label %if.end320
+  %71 = icmp ugt i64 %.pre1414, %inc319
+  br i1 %71, label %land.lhs.true326, label %if.end1970
 
-if.end320:                                        ; preds = %if.end312, %land.lhs.true293, %if.end287
-  %sub.ptr.div.i915.pre-phi = phi i64 [ %.pre1414, %if.end312 ], [ %sub.ptr.div.i908.pre-phi, %land.lhs.true293 ], [ %sub.ptr.div.i908.pre-phi, %if.end287 ]
-  %63 = phi ptr [ %.pre1280, %if.end312 ], [ %57, %land.lhs.true293 ], [ %57, %if.end287 ]
-  %i.9 = phi i64 [ %inc319, %if.end312 ], [ %i.8, %land.lhs.true293 ], [ %i.8, %if.end287 ]
-  %cmp325 = icmp ugt i64 %sub.ptr.div.i915.pre-phi, %i.9
-  br i1 %cmp325, label %land.lhs.true326, label %if.end353
-
-land.lhs.true326:                                 ; preds = %if.end320
-  %add.ptr.i916 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %63, i64 %i.9
+land.lhs.true326:                                 ; preds = %land.lhs.true293, %if.end320
+  %i.91671 = phi i64 [ %inc319, %if.end320 ], [ %i.81664, %land.lhs.true293 ]
+  %72 = phi ptr [ %.pre1280, %if.end320 ], [ %65, %land.lhs.true293 ]
+  %add.ptr.i916 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %72, i64 %i.91671
   %id328 = getelementptr inbounds nuw i8, ptr %add.ptr.i916, i64 32
-  %64 = load i32, ptr %id328, align 8
-  %cmp329 = icmp eq i32 %64, 10
-  br i1 %cmp329, label %if.then330, label %if.end353
+  %73 = load i32, ptr %id328, align 8
+  %cmp329 = icmp eq i32 %73, 10
+  br i1 %cmp329, label %if.then330, label %land.lhs.true359
 
 if.then330:                                       ; preds = %land.lhs.true326
   %index335 = getelementptr inbounds nuw i8, ptr %add.ptr.i916, i64 40
-  %65 = load i64, ptr %index335, align 8
-  %call.i2691 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %65) #20
+  %74 = load i64, ptr %index335, align 8
+  %call.i2691 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %74) #20
   %cond797 = icmp eq ptr %call.i2691, null
-  br i1 %cond797, label %if.then343, label %if.end345
+  br i1 %cond797, label %if.then343, label %if.end353
 
 if.then343:                                       ; preds = %if.then330
-  %66 = load ptr, ptr @stderr, align 8
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 71, i64 1, ptr %66) #25
-  br label %if.end345
+  %75 = load ptr, ptr @stderr, align 8
+  %76 = tail call i64 @fwrite(ptr nonnull @.str.91, i64 71, i64 1, ptr %75) #25
+  br label %if.end353
 
-if.end345:                                        ; preds = %if.then330, %if.then343
+if.end353:                                        ; preds = %if.then343, %if.then330
   %vtable350 = load ptr, ptr %this, align 8
   %vfn351 = getelementptr inbounds nuw i8, ptr %vtable350, i64 240
-  %68 = load ptr, ptr %vfn351, align 8
-  tail call void %68(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2691) #20
-  %inc352 = add nuw nsw i64 %i.9, 1
+  %77 = load ptr, ptr %vfn351, align 8
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2691) #20
+  %inc352 = add nuw nsw i64 %i.91671, 1
   %.pre1281 = load ptr, ptr %_M_finish.i, align 8
   %.pre1282 = load ptr, ptr %persistent_values, align 8
   %.pre1415 = ptrtoint ptr %.pre1281 to i64
   %.pre1416 = ptrtoint ptr %.pre1282 to i64
   %.pre1417 = sub i64 %.pre1415, %.pre1416
   %.pre1418 = sdiv exact i64 %.pre1417, 48
-  br label %if.end353
+  %78 = icmp ugt i64 %.pre1418, %inc352
+  br i1 %78, label %land.lhs.true359, label %if.end1970
 
-if.end353:                                        ; preds = %if.end345, %land.lhs.true326, %if.end320
-  %sub.ptr.div.i922.pre-phi = phi i64 [ %.pre1418, %if.end345 ], [ %sub.ptr.div.i915.pre-phi, %land.lhs.true326 ], [ %sub.ptr.div.i915.pre-phi, %if.end320 ]
-  %69 = phi ptr [ %.pre1282, %if.end345 ], [ %63, %land.lhs.true326 ], [ %63, %if.end320 ]
-  %i.10 = phi i64 [ %inc352, %if.end345 ], [ %i.9, %land.lhs.true326 ], [ %i.9, %if.end320 ]
-  %cmp358 = icmp ugt i64 %sub.ptr.div.i922.pre-phi, %i.10
-  br i1 %cmp358, label %land.lhs.true359, label %if.end386
-
-land.lhs.true359:                                 ; preds = %if.end353
-  %add.ptr.i923 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %69, i64 %i.10
+land.lhs.true359:                                 ; preds = %land.lhs.true326, %if.end353
+  %i.101678 = phi i64 [ %inc352, %if.end353 ], [ %i.91671, %land.lhs.true326 ]
+  %79 = phi ptr [ %.pre1282, %if.end353 ], [ %72, %land.lhs.true326 ]
+  %add.ptr.i923 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %79, i64 %i.101678
   %id361 = getelementptr inbounds nuw i8, ptr %add.ptr.i923, i64 32
-  %70 = load i32, ptr %id361, align 8
-  %cmp362 = icmp eq i32 %70, 11
-  br i1 %cmp362, label %if.then363, label %if.end386
+  %80 = load i32, ptr %id361, align 8
+  %cmp362 = icmp eq i32 %80, 11
+  br i1 %cmp362, label %if.then363, label %land.lhs.true392
 
 if.then363:                                       ; preds = %land.lhs.true359
   %index368 = getelementptr inbounds nuw i8, ptr %add.ptr.i923, i64 40
-  %71 = load i64, ptr %index368, align 8
-  %call.i2679 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %71) #20
+  %81 = load i64, ptr %index368, align 8
+  %call.i2679 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %81) #20
   %cond798 = icmp eq ptr %call.i2679, null
-  br i1 %cond798, label %if.then376, label %if.end378
+  br i1 %cond798, label %if.then376, label %if.end386
 
 if.then376:                                       ; preds = %if.then363
-  %72 = load ptr, ptr @stderr, align 8
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 71, i64 1, ptr %72) #25
-  br label %if.end378
+  %82 = load ptr, ptr @stderr, align 8
+  %83 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 71, i64 1, ptr %82) #25
+  br label %if.end386
 
-if.end378:                                        ; preds = %if.then363, %if.then376
+if.end386:                                        ; preds = %if.then376, %if.then363
   %vtable383 = load ptr, ptr %this, align 8
   %vfn384 = getelementptr inbounds nuw i8, ptr %vtable383, i64 256
-  %74 = load ptr, ptr %vfn384, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2679) #20
-  %inc385 = add nuw nsw i64 %i.10, 1
+  %84 = load ptr, ptr %vfn384, align 8
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2679) #20
+  %inc385 = add nuw nsw i64 %i.101678, 1
   %.pre1283 = load ptr, ptr %_M_finish.i, align 8
   %.pre1284 = load ptr, ptr %persistent_values, align 8
   %.pre1419 = ptrtoint ptr %.pre1283 to i64
   %.pre1420 = ptrtoint ptr %.pre1284 to i64
   %.pre1421 = sub i64 %.pre1419, %.pre1420
   %.pre1422 = sdiv exact i64 %.pre1421, 48
-  br label %if.end386
+  %85 = icmp ugt i64 %.pre1422, %inc385
+  br i1 %85, label %land.lhs.true392, label %if.end1970
 
-if.end386:                                        ; preds = %if.end378, %land.lhs.true359, %if.end353
-  %sub.ptr.div.i929.pre-phi = phi i64 [ %.pre1422, %if.end378 ], [ %sub.ptr.div.i922.pre-phi, %land.lhs.true359 ], [ %sub.ptr.div.i922.pre-phi, %if.end353 ]
-  %75 = phi ptr [ %.pre1284, %if.end378 ], [ %69, %land.lhs.true359 ], [ %69, %if.end353 ]
-  %i.11 = phi i64 [ %inc385, %if.end378 ], [ %i.10, %land.lhs.true359 ], [ %i.10, %if.end353 ]
-  %cmp391 = icmp ugt i64 %sub.ptr.div.i929.pre-phi, %i.11
-  br i1 %cmp391, label %land.lhs.true392, label %if.end419
-
-land.lhs.true392:                                 ; preds = %if.end386
-  %add.ptr.i930 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %75, i64 %i.11
+land.lhs.true392:                                 ; preds = %land.lhs.true359, %if.end386
+  %i.111685 = phi i64 [ %inc385, %if.end386 ], [ %i.101678, %land.lhs.true359 ]
+  %86 = phi ptr [ %.pre1284, %if.end386 ], [ %79, %land.lhs.true359 ]
+  %add.ptr.i930 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %86, i64 %i.111685
   %id394 = getelementptr inbounds nuw i8, ptr %add.ptr.i930, i64 32
-  %76 = load i32, ptr %id394, align 8
-  %cmp395 = icmp eq i32 %76, 12
-  br i1 %cmp395, label %if.then396, label %if.end419
+  %87 = load i32, ptr %id394, align 8
+  %cmp395 = icmp eq i32 %87, 12
+  br i1 %cmp395, label %if.then396, label %land.lhs.true425
 
 if.then396:                                       ; preds = %land.lhs.true392
   %index401 = getelementptr inbounds nuw i8, ptr %add.ptr.i930, i64 40
-  %77 = load i64, ptr %index401, align 8
-  %call.i2667 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %77) #20
+  %88 = load i64, ptr %index401, align 8
+  %call.i2667 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %88) #20
   %cond799 = icmp eq ptr %call.i2667, null
-  br i1 %cond799, label %if.then409, label %if.end411
+  br i1 %cond799, label %if.then409, label %if.end419
 
 if.then409:                                       ; preds = %if.then396
-  %78 = load ptr, ptr @stderr, align 8
-  %79 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 56, i64 1, ptr %78) #25
-  br label %if.end411
+  %89 = load ptr, ptr @stderr, align 8
+  %90 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 56, i64 1, ptr %89) #25
+  br label %if.end419
 
-if.end411:                                        ; preds = %if.then396, %if.then409
+if.end419:                                        ; preds = %if.then409, %if.then396
   %vtable416 = load ptr, ptr %this, align 8
   %vfn417 = getelementptr inbounds nuw i8, ptr %vtable416, i64 272
-  %80 = load ptr, ptr %vfn417, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2667) #20
-  %inc418 = add nuw nsw i64 %i.11, 1
+  %91 = load ptr, ptr %vfn417, align 8
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2667) #20
+  %inc418 = add nuw nsw i64 %i.111685, 1
   %.pre1285 = load ptr, ptr %_M_finish.i, align 8
   %.pre1286 = load ptr, ptr %persistent_values, align 8
   %.pre1423 = ptrtoint ptr %.pre1285 to i64
   %.pre1424 = ptrtoint ptr %.pre1286 to i64
   %.pre1425 = sub i64 %.pre1423, %.pre1424
   %.pre1426 = sdiv exact i64 %.pre1425, 48
-  br label %if.end419
+  %92 = icmp ugt i64 %.pre1426, %inc418
+  br i1 %92, label %land.lhs.true425, label %if.end1970
 
-if.end419:                                        ; preds = %if.end411, %land.lhs.true392, %if.end386
-  %sub.ptr.div.i936.pre-phi = phi i64 [ %.pre1426, %if.end411 ], [ %sub.ptr.div.i929.pre-phi, %land.lhs.true392 ], [ %sub.ptr.div.i929.pre-phi, %if.end386 ]
-  %81 = phi ptr [ %.pre1286, %if.end411 ], [ %75, %land.lhs.true392 ], [ %75, %if.end386 ]
-  %i.12 = phi i64 [ %inc418, %if.end411 ], [ %i.11, %land.lhs.true392 ], [ %i.11, %if.end386 ]
-  %cmp424 = icmp ugt i64 %sub.ptr.div.i936.pre-phi, %i.12
-  br i1 %cmp424, label %land.lhs.true425, label %if.end452
-
-land.lhs.true425:                                 ; preds = %if.end419
-  %add.ptr.i937 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %81, i64 %i.12
+land.lhs.true425:                                 ; preds = %land.lhs.true392, %if.end419
+  %i.121692 = phi i64 [ %inc418, %if.end419 ], [ %i.111685, %land.lhs.true392 ]
+  %93 = phi ptr [ %.pre1286, %if.end419 ], [ %86, %land.lhs.true392 ]
+  %add.ptr.i937 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %93, i64 %i.121692
   %id427 = getelementptr inbounds nuw i8, ptr %add.ptr.i937, i64 32
-  %82 = load i32, ptr %id427, align 8
-  %cmp428 = icmp eq i32 %82, 13
-  br i1 %cmp428, label %if.then429, label %if.end452
+  %94 = load i32, ptr %id427, align 8
+  %cmp428 = icmp eq i32 %94, 13
+  br i1 %cmp428, label %if.then429, label %land.lhs.true458
 
 if.then429:                                       ; preds = %land.lhs.true425
   %index434 = getelementptr inbounds nuw i8, ptr %add.ptr.i937, i64 40
-  %83 = load i64, ptr %index434, align 8
-  %call.i2655 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %83) #20
+  %95 = load i64, ptr %index434, align 8
+  %call.i2655 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %95) #20
   %cond800 = icmp eq ptr %call.i2655, null
-  br i1 %cond800, label %if.then442, label %if.end444
+  br i1 %cond800, label %if.then442, label %if.end452
 
 if.then442:                                       ; preds = %if.then429
-  %84 = load ptr, ptr @stderr, align 8
-  %85 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 70, i64 1, ptr %84) #25
-  br label %if.end444
+  %96 = load ptr, ptr @stderr, align 8
+  %97 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 70, i64 1, ptr %96) #25
+  br label %if.end452
 
-if.end444:                                        ; preds = %if.then429, %if.then442
+if.end452:                                        ; preds = %if.then442, %if.then429
   %vtable449 = load ptr, ptr %this, align 8
   %vfn450 = getelementptr inbounds nuw i8, ptr %vtable449, i64 288
-  %86 = load ptr, ptr %vfn450, align 8
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2655) #20
-  %inc451 = add nuw nsw i64 %i.12, 1
+  %98 = load ptr, ptr %vfn450, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2655) #20
+  %inc451 = add nuw nsw i64 %i.121692, 1
   %.pre1287 = load ptr, ptr %_M_finish.i, align 8
   %.pre1288 = load ptr, ptr %persistent_values, align 8
   %.pre1427 = ptrtoint ptr %.pre1287 to i64
   %.pre1428 = ptrtoint ptr %.pre1288 to i64
   %.pre1429 = sub i64 %.pre1427, %.pre1428
   %.pre1430 = sdiv exact i64 %.pre1429, 48
-  br label %if.end452
+  %99 = icmp ugt i64 %.pre1430, %inc451
+  br i1 %99, label %land.lhs.true458, label %if.end1970
 
-if.end452:                                        ; preds = %if.end444, %land.lhs.true425, %if.end419
-  %sub.ptr.div.i943.pre-phi = phi i64 [ %.pre1430, %if.end444 ], [ %sub.ptr.div.i936.pre-phi, %land.lhs.true425 ], [ %sub.ptr.div.i936.pre-phi, %if.end419 ]
-  %87 = phi ptr [ %.pre1288, %if.end444 ], [ %81, %land.lhs.true425 ], [ %81, %if.end419 ]
-  %i.13 = phi i64 [ %inc451, %if.end444 ], [ %i.12, %land.lhs.true425 ], [ %i.12, %if.end419 ]
-  %cmp457 = icmp ugt i64 %sub.ptr.div.i943.pre-phi, %i.13
-  br i1 %cmp457, label %land.lhs.true458, label %if.end485
-
-land.lhs.true458:                                 ; preds = %if.end452
-  %add.ptr.i944 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %87, i64 %i.13
+land.lhs.true458:                                 ; preds = %land.lhs.true425, %if.end452
+  %i.131699 = phi i64 [ %inc451, %if.end452 ], [ %i.121692, %land.lhs.true425 ]
+  %100 = phi ptr [ %.pre1288, %if.end452 ], [ %93, %land.lhs.true425 ]
+  %add.ptr.i944 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %100, i64 %i.131699
   %id460 = getelementptr inbounds nuw i8, ptr %add.ptr.i944, i64 32
-  %88 = load i32, ptr %id460, align 8
-  %cmp461 = icmp eq i32 %88, 14
-  br i1 %cmp461, label %if.then462, label %if.end485
+  %101 = load i32, ptr %id460, align 8
+  %cmp461 = icmp eq i32 %101, 14
+  br i1 %cmp461, label %if.then462, label %land.lhs.true491
 
 if.then462:                                       ; preds = %land.lhs.true458
   %index467 = getelementptr inbounds nuw i8, ptr %add.ptr.i944, i64 40
-  %89 = load i64, ptr %index467, align 8
-  %call.i2643 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %89) #20
+  %102 = load i64, ptr %index467, align 8
+  %call.i2643 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %102) #20
   %cond801 = icmp eq ptr %call.i2643, null
-  br i1 %cond801, label %if.then475, label %if.end477
+  br i1 %cond801, label %if.then475, label %if.end485
 
 if.then475:                                       ; preds = %if.then462
-  %90 = load ptr, ptr @stderr, align 8
-  %91 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 71, i64 1, ptr %90) #25
-  br label %if.end477
+  %103 = load ptr, ptr @stderr, align 8
+  %104 = tail call i64 @fwrite(ptr nonnull @.str.95, i64 71, i64 1, ptr %103) #25
+  br label %if.end485
 
-if.end477:                                        ; preds = %if.then462, %if.then475
+if.end485:                                        ; preds = %if.then475, %if.then462
   %vtable482 = load ptr, ptr %this, align 8
   %vfn483 = getelementptr inbounds nuw i8, ptr %vtable482, i64 304
-  %92 = load ptr, ptr %vfn483, align 8
-  tail call void %92(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2643) #20
-  %inc484 = add nuw nsw i64 %i.13, 1
+  %105 = load ptr, ptr %vfn483, align 8
+  tail call void %105(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2643) #20
+  %inc484 = add nuw nsw i64 %i.131699, 1
   %.pre1289 = load ptr, ptr %_M_finish.i, align 8
   %.pre1290 = load ptr, ptr %persistent_values, align 8
   %.pre1431 = ptrtoint ptr %.pre1289 to i64
   %.pre1432 = ptrtoint ptr %.pre1290 to i64
   %.pre1433 = sub i64 %.pre1431, %.pre1432
   %.pre1434 = sdiv exact i64 %.pre1433, 48
-  br label %if.end485
+  %106 = icmp ugt i64 %.pre1434, %inc484
+  br i1 %106, label %land.lhs.true491, label %if.end1970
 
-if.end485:                                        ; preds = %if.end477, %land.lhs.true458, %if.end452
-  %sub.ptr.div.i950.pre-phi = phi i64 [ %.pre1434, %if.end477 ], [ %sub.ptr.div.i943.pre-phi, %land.lhs.true458 ], [ %sub.ptr.div.i943.pre-phi, %if.end452 ]
-  %93 = phi ptr [ %.pre1290, %if.end477 ], [ %87, %land.lhs.true458 ], [ %87, %if.end452 ]
-  %i.14 = phi i64 [ %inc484, %if.end477 ], [ %i.13, %land.lhs.true458 ], [ %i.13, %if.end452 ]
-  %cmp490 = icmp ugt i64 %sub.ptr.div.i950.pre-phi, %i.14
-  br i1 %cmp490, label %land.lhs.true491, label %if.end518
-
-land.lhs.true491:                                 ; preds = %if.end485
-  %add.ptr.i951 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %93, i64 %i.14
+land.lhs.true491:                                 ; preds = %land.lhs.true458, %if.end485
+  %i.141706 = phi i64 [ %inc484, %if.end485 ], [ %i.131699, %land.lhs.true458 ]
+  %107 = phi ptr [ %.pre1290, %if.end485 ], [ %100, %land.lhs.true458 ]
+  %add.ptr.i951 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %107, i64 %i.141706
   %id493 = getelementptr inbounds nuw i8, ptr %add.ptr.i951, i64 32
-  %94 = load i32, ptr %id493, align 8
-  %cmp494 = icmp eq i32 %94, 15
-  br i1 %cmp494, label %if.then495, label %if.end518
+  %108 = load i32, ptr %id493, align 8
+  %cmp494 = icmp eq i32 %108, 15
+  br i1 %cmp494, label %if.then495, label %land.lhs.true524
 
 if.then495:                                       ; preds = %land.lhs.true491
   %index500 = getelementptr inbounds nuw i8, ptr %add.ptr.i951, i64 40
-  %95 = load i64, ptr %index500, align 8
-  %call.i2631 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %95) #20
+  %109 = load i64, ptr %index500, align 8
+  %call.i2631 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %109) #20
   %cond802 = icmp eq ptr %call.i2631, null
-  br i1 %cond802, label %if.then508, label %if.end510
+  br i1 %cond802, label %if.then508, label %if.end518
 
 if.then508:                                       ; preds = %if.then495
-  %96 = load ptr, ptr @stderr, align 8
-  %97 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 62, i64 1, ptr %96) #25
-  br label %if.end510
+  %110 = load ptr, ptr @stderr, align 8
+  %111 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 62, i64 1, ptr %110) #25
+  br label %if.end518
 
-if.end510:                                        ; preds = %if.then495, %if.then508
+if.end518:                                        ; preds = %if.then508, %if.then495
   %vtable515 = load ptr, ptr %this, align 8
   %vfn516 = getelementptr inbounds nuw i8, ptr %vtable515, i64 320
-  %98 = load ptr, ptr %vfn516, align 8
-  tail call void %98(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2631) #20
-  %inc517 = add nuw nsw i64 %i.14, 1
+  %112 = load ptr, ptr %vfn516, align 8
+  tail call void %112(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2631) #20
+  %inc517 = add nuw nsw i64 %i.141706, 1
   %.pre1291 = load ptr, ptr %_M_finish.i, align 8
   %.pre1292 = load ptr, ptr %persistent_values, align 8
   %.pre1435 = ptrtoint ptr %.pre1291 to i64
   %.pre1436 = ptrtoint ptr %.pre1292 to i64
   %.pre1437 = sub i64 %.pre1435, %.pre1436
   %.pre1438 = sdiv exact i64 %.pre1437, 48
-  br label %if.end518
+  %113 = icmp ugt i64 %.pre1438, %inc517
+  br i1 %113, label %land.lhs.true524, label %if.end1970
 
-if.end518:                                        ; preds = %if.end510, %land.lhs.true491, %if.end485
-  %sub.ptr.div.i957.pre-phi = phi i64 [ %.pre1438, %if.end510 ], [ %sub.ptr.div.i950.pre-phi, %land.lhs.true491 ], [ %sub.ptr.div.i950.pre-phi, %if.end485 ]
-  %99 = phi ptr [ %.pre1292, %if.end510 ], [ %93, %land.lhs.true491 ], [ %93, %if.end485 ]
-  %i.15 = phi i64 [ %inc517, %if.end510 ], [ %i.14, %land.lhs.true491 ], [ %i.14, %if.end485 ]
-  %cmp523 = icmp ugt i64 %sub.ptr.div.i957.pre-phi, %i.15
-  br i1 %cmp523, label %land.lhs.true524, label %if.end551
-
-land.lhs.true524:                                 ; preds = %if.end518
-  %add.ptr.i958 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %99, i64 %i.15
+land.lhs.true524:                                 ; preds = %land.lhs.true491, %if.end518
+  %i.151713 = phi i64 [ %inc517, %if.end518 ], [ %i.141706, %land.lhs.true491 ]
+  %114 = phi ptr [ %.pre1292, %if.end518 ], [ %107, %land.lhs.true491 ]
+  %add.ptr.i958 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %114, i64 %i.151713
   %id526 = getelementptr inbounds nuw i8, ptr %add.ptr.i958, i64 32
-  %100 = load i32, ptr %id526, align 8
-  %cmp527 = icmp eq i32 %100, 16
-  br i1 %cmp527, label %if.then528, label %if.end551
+  %115 = load i32, ptr %id526, align 8
+  %cmp527 = icmp eq i32 %115, 16
+  br i1 %cmp527, label %if.then528, label %land.lhs.true557
 
 if.then528:                                       ; preds = %land.lhs.true524
   %index533 = getelementptr inbounds nuw i8, ptr %add.ptr.i958, i64 40
-  %101 = load i64, ptr %index533, align 8
-  %call.i2619 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %101) #20
+  %116 = load i64, ptr %index533, align 8
+  %call.i2619 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %116) #20
   %cond803 = icmp eq ptr %call.i2619, null
-  br i1 %cond803, label %if.then541, label %if.end543
+  br i1 %cond803, label %if.then541, label %if.end551
 
 if.then541:                                       ; preds = %if.then528
-  %102 = load ptr, ptr @stderr, align 8
-  %103 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 74, i64 1, ptr %102) #25
-  br label %if.end543
+  %117 = load ptr, ptr @stderr, align 8
+  %118 = tail call i64 @fwrite(ptr nonnull @.str.97, i64 74, i64 1, ptr %117) #25
+  br label %if.end551
 
-if.end543:                                        ; preds = %if.then528, %if.then541
+if.end551:                                        ; preds = %if.then541, %if.then528
   %vtable548 = load ptr, ptr %this, align 8
   %vfn549 = getelementptr inbounds nuw i8, ptr %vtable548, i64 336
-  %104 = load ptr, ptr %vfn549, align 8
-  tail call void %104(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2619) #20
-  %inc550 = add nuw nsw i64 %i.15, 1
+  %119 = load ptr, ptr %vfn549, align 8
+  tail call void %119(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2619) #20
+  %inc550 = add nuw nsw i64 %i.151713, 1
   %.pre1293 = load ptr, ptr %_M_finish.i, align 8
   %.pre1294 = load ptr, ptr %persistent_values, align 8
   %.pre1439 = ptrtoint ptr %.pre1293 to i64
   %.pre1440 = ptrtoint ptr %.pre1294 to i64
   %.pre1441 = sub i64 %.pre1439, %.pre1440
   %.pre1442 = sdiv exact i64 %.pre1441, 48
-  br label %if.end551
+  %120 = icmp ugt i64 %.pre1442, %inc550
+  br i1 %120, label %land.lhs.true557, label %if.end1970
 
-if.end551:                                        ; preds = %if.end543, %land.lhs.true524, %if.end518
-  %sub.ptr.div.i964.pre-phi = phi i64 [ %.pre1442, %if.end543 ], [ %sub.ptr.div.i957.pre-phi, %land.lhs.true524 ], [ %sub.ptr.div.i957.pre-phi, %if.end518 ]
-  %105 = phi ptr [ %.pre1294, %if.end543 ], [ %99, %land.lhs.true524 ], [ %99, %if.end518 ]
-  %i.16 = phi i64 [ %inc550, %if.end543 ], [ %i.15, %land.lhs.true524 ], [ %i.15, %if.end518 ]
-  %cmp556 = icmp ugt i64 %sub.ptr.div.i964.pre-phi, %i.16
-  br i1 %cmp556, label %land.lhs.true557, label %if.end584
-
-land.lhs.true557:                                 ; preds = %if.end551
-  %add.ptr.i965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %105, i64 %i.16
+land.lhs.true557:                                 ; preds = %land.lhs.true524, %if.end551
+  %i.161720 = phi i64 [ %inc550, %if.end551 ], [ %i.151713, %land.lhs.true524 ]
+  %121 = phi ptr [ %.pre1294, %if.end551 ], [ %114, %land.lhs.true524 ]
+  %add.ptr.i965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %121, i64 %i.161720
   %id559 = getelementptr inbounds nuw i8, ptr %add.ptr.i965, i64 32
-  %106 = load i32, ptr %id559, align 8
-  %cmp560 = icmp eq i32 %106, 17
-  br i1 %cmp560, label %if.then561, label %if.end584
+  %122 = load i32, ptr %id559, align 8
+  %cmp560 = icmp eq i32 %122, 17
+  br i1 %cmp560, label %if.then561, label %land.lhs.true590
 
 if.then561:                                       ; preds = %land.lhs.true557
   %index566 = getelementptr inbounds nuw i8, ptr %add.ptr.i965, i64 40
-  %107 = load i64, ptr %index566, align 8
-  %call.i2607 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %107) #20
+  %123 = load i64, ptr %index566, align 8
+  %call.i2607 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %123) #20
   %cond804 = icmp eq ptr %call.i2607, null
-  br i1 %cond804, label %if.then574, label %if.end576
+  br i1 %cond804, label %if.then574, label %if.end584
 
 if.then574:                                       ; preds = %if.then561
-  %108 = load ptr, ptr @stderr, align 8
-  %109 = tail call i64 @fwrite(ptr nonnull @.str.98, i64 78, i64 1, ptr %108) #25
-  br label %if.end576
+  %124 = load ptr, ptr @stderr, align 8
+  %125 = tail call i64 @fwrite(ptr nonnull @.str.98, i64 78, i64 1, ptr %124) #25
+  br label %if.end584
 
-if.end576:                                        ; preds = %if.then561, %if.then574
+if.end584:                                        ; preds = %if.then574, %if.then561
   %vtable581 = load ptr, ptr %this, align 8
   %vfn582 = getelementptr inbounds nuw i8, ptr %vtable581, i64 352
-  %110 = load ptr, ptr %vfn582, align 8
-  tail call void %110(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2607) #20
-  %inc583 = add nuw nsw i64 %i.16, 1
+  %126 = load ptr, ptr %vfn582, align 8
+  tail call void %126(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2607) #20
+  %inc583 = add nuw nsw i64 %i.161720, 1
   %.pre1295 = load ptr, ptr %_M_finish.i, align 8
   %.pre1296 = load ptr, ptr %persistent_values, align 8
   %.pre1443 = ptrtoint ptr %.pre1295 to i64
   %.pre1444 = ptrtoint ptr %.pre1296 to i64
   %.pre1445 = sub i64 %.pre1443, %.pre1444
   %.pre1446 = sdiv exact i64 %.pre1445, 48
-  br label %if.end584
+  %127 = icmp ugt i64 %.pre1446, %inc583
+  br i1 %127, label %land.lhs.true590, label %if.end1970
 
-if.end584:                                        ; preds = %if.end576, %land.lhs.true557, %if.end551
-  %sub.ptr.div.i971.pre-phi = phi i64 [ %.pre1446, %if.end576 ], [ %sub.ptr.div.i964.pre-phi, %land.lhs.true557 ], [ %sub.ptr.div.i964.pre-phi, %if.end551 ]
-  %111 = phi ptr [ %.pre1296, %if.end576 ], [ %105, %land.lhs.true557 ], [ %105, %if.end551 ]
-  %i.17 = phi i64 [ %inc583, %if.end576 ], [ %i.16, %land.lhs.true557 ], [ %i.16, %if.end551 ]
-  %cmp589 = icmp ugt i64 %sub.ptr.div.i971.pre-phi, %i.17
-  br i1 %cmp589, label %land.lhs.true590, label %if.end617
-
-land.lhs.true590:                                 ; preds = %if.end584
-  %add.ptr.i972 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %111, i64 %i.17
+land.lhs.true590:                                 ; preds = %land.lhs.true557, %if.end584
+  %i.171727 = phi i64 [ %inc583, %if.end584 ], [ %i.161720, %land.lhs.true557 ]
+  %128 = phi ptr [ %.pre1296, %if.end584 ], [ %121, %land.lhs.true557 ]
+  %add.ptr.i972 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %128, i64 %i.171727
   %id592 = getelementptr inbounds nuw i8, ptr %add.ptr.i972, i64 32
-  %112 = load i32, ptr %id592, align 8
-  %cmp593 = icmp eq i32 %112, 18
-  br i1 %cmp593, label %if.then594, label %if.end617
+  %129 = load i32, ptr %id592, align 8
+  %cmp593 = icmp eq i32 %129, 18
+  br i1 %cmp593, label %if.then594, label %land.lhs.true623
 
 if.then594:                                       ; preds = %land.lhs.true590
   %index599 = getelementptr inbounds nuw i8, ptr %add.ptr.i972, i64 40
-  %113 = load i64, ptr %index599, align 8
-  %call.i2595 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %113) #20
+  %130 = load i64, ptr %index599, align 8
+  %call.i2595 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %130) #20
   %cond805 = icmp eq ptr %call.i2595, null
-  br i1 %cond805, label %if.then607, label %if.end609
+  br i1 %cond805, label %if.then607, label %if.end617
 
 if.then607:                                       ; preds = %if.then594
-  %114 = load ptr, ptr @stderr, align 8
-  %115 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 66, i64 1, ptr %114) #25
-  br label %if.end609
+  %131 = load ptr, ptr @stderr, align 8
+  %132 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 66, i64 1, ptr %131) #25
+  br label %if.end617
 
-if.end609:                                        ; preds = %if.then594, %if.then607
+if.end617:                                        ; preds = %if.then607, %if.then594
   %vtable614 = load ptr, ptr %this, align 8
   %vfn615 = getelementptr inbounds nuw i8, ptr %vtable614, i64 368
-  %116 = load ptr, ptr %vfn615, align 8
-  tail call void %116(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2595) #20
-  %inc616 = add nuw nsw i64 %i.17, 1
+  %133 = load ptr, ptr %vfn615, align 8
+  tail call void %133(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2595) #20
+  %inc616 = add nuw nsw i64 %i.171727, 1
   %.pre1297 = load ptr, ptr %_M_finish.i, align 8
   %.pre1298 = load ptr, ptr %persistent_values, align 8
   %.pre1447 = ptrtoint ptr %.pre1297 to i64
   %.pre1448 = ptrtoint ptr %.pre1298 to i64
   %.pre1449 = sub i64 %.pre1447, %.pre1448
   %.pre1450 = sdiv exact i64 %.pre1449, 48
-  br label %if.end617
+  %134 = icmp ugt i64 %.pre1450, %inc616
+  br i1 %134, label %land.lhs.true623, label %if.end1970
 
-if.end617:                                        ; preds = %if.end609, %land.lhs.true590, %if.end584
-  %sub.ptr.div.i978.pre-phi = phi i64 [ %.pre1450, %if.end609 ], [ %sub.ptr.div.i971.pre-phi, %land.lhs.true590 ], [ %sub.ptr.div.i971.pre-phi, %if.end584 ]
-  %117 = phi ptr [ %.pre1298, %if.end609 ], [ %111, %land.lhs.true590 ], [ %111, %if.end584 ]
-  %i.18 = phi i64 [ %inc616, %if.end609 ], [ %i.17, %land.lhs.true590 ], [ %i.17, %if.end584 ]
-  %cmp622 = icmp ugt i64 %sub.ptr.div.i978.pre-phi, %i.18
-  br i1 %cmp622, label %land.lhs.true623, label %if.end650
-
-land.lhs.true623:                                 ; preds = %if.end617
-  %add.ptr.i979 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %117, i64 %i.18
+land.lhs.true623:                                 ; preds = %land.lhs.true590, %if.end617
+  %i.181734 = phi i64 [ %inc616, %if.end617 ], [ %i.171727, %land.lhs.true590 ]
+  %135 = phi ptr [ %.pre1298, %if.end617 ], [ %128, %land.lhs.true590 ]
+  %add.ptr.i979 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %135, i64 %i.181734
   %id625 = getelementptr inbounds nuw i8, ptr %add.ptr.i979, i64 32
-  %118 = load i32, ptr %id625, align 8
-  %cmp626 = icmp eq i32 %118, 19
-  br i1 %cmp626, label %if.then627, label %if.end650
+  %136 = load i32, ptr %id625, align 8
+  %cmp626 = icmp eq i32 %136, 19
+  br i1 %cmp626, label %if.then627, label %land.lhs.true656
 
 if.then627:                                       ; preds = %land.lhs.true623
   %index632 = getelementptr inbounds nuw i8, ptr %add.ptr.i979, i64 40
-  %119 = load i64, ptr %index632, align 8
-  %call.i2583 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %119) #20
+  %137 = load i64, ptr %index632, align 8
+  %call.i2583 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %137) #20
   %cond806 = icmp eq ptr %call.i2583, null
-  br i1 %cond806, label %if.then640, label %if.end642
+  br i1 %cond806, label %if.then640, label %if.end650
 
 if.then640:                                       ; preds = %if.then627
-  %120 = load ptr, ptr @stderr, align 8
-  %121 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 65, i64 1, ptr %120) #25
-  br label %if.end642
+  %138 = load ptr, ptr @stderr, align 8
+  %139 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 65, i64 1, ptr %138) #25
+  br label %if.end650
 
-if.end642:                                        ; preds = %if.then627, %if.then640
+if.end650:                                        ; preds = %if.then640, %if.then627
   %vtable647 = load ptr, ptr %this, align 8
   %vfn648 = getelementptr inbounds nuw i8, ptr %vtable647, i64 384
-  %122 = load ptr, ptr %vfn648, align 8
-  tail call void %122(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2583) #20
-  %inc649 = add nuw nsw i64 %i.18, 1
+  %140 = load ptr, ptr %vfn648, align 8
+  tail call void %140(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2583) #20
+  %inc649 = add nuw nsw i64 %i.181734, 1
   %.pre1299 = load ptr, ptr %_M_finish.i, align 8
   %.pre1300 = load ptr, ptr %persistent_values, align 8
   %.pre1451 = ptrtoint ptr %.pre1299 to i64
   %.pre1452 = ptrtoint ptr %.pre1300 to i64
   %.pre1453 = sub i64 %.pre1451, %.pre1452
   %.pre1454 = sdiv exact i64 %.pre1453, 48
-  br label %if.end650
+  %141 = icmp ugt i64 %.pre1454, %inc649
+  br i1 %141, label %land.lhs.true656, label %if.end1970
 
-if.end650:                                        ; preds = %if.end642, %land.lhs.true623, %if.end617
-  %sub.ptr.div.i985.pre-phi = phi i64 [ %.pre1454, %if.end642 ], [ %sub.ptr.div.i978.pre-phi, %land.lhs.true623 ], [ %sub.ptr.div.i978.pre-phi, %if.end617 ]
-  %123 = phi ptr [ %.pre1300, %if.end642 ], [ %117, %land.lhs.true623 ], [ %117, %if.end617 ]
-  %i.19 = phi i64 [ %inc649, %if.end642 ], [ %i.18, %land.lhs.true623 ], [ %i.18, %if.end617 ]
-  %cmp655 = icmp ugt i64 %sub.ptr.div.i985.pre-phi, %i.19
-  br i1 %cmp655, label %land.lhs.true656, label %if.end683
-
-land.lhs.true656:                                 ; preds = %if.end650
-  %add.ptr.i986 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %123, i64 %i.19
+land.lhs.true656:                                 ; preds = %land.lhs.true623, %if.end650
+  %i.191741 = phi i64 [ %inc649, %if.end650 ], [ %i.181734, %land.lhs.true623 ]
+  %142 = phi ptr [ %.pre1300, %if.end650 ], [ %135, %land.lhs.true623 ]
+  %add.ptr.i986 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %142, i64 %i.191741
   %id658 = getelementptr inbounds nuw i8, ptr %add.ptr.i986, i64 32
-  %124 = load i32, ptr %id658, align 8
-  %cmp659 = icmp eq i32 %124, 20
-  br i1 %cmp659, label %if.then660, label %if.end683
+  %143 = load i32, ptr %id658, align 8
+  %cmp659 = icmp eq i32 %143, 20
+  br i1 %cmp659, label %if.then660, label %land.lhs.true689
 
 if.then660:                                       ; preds = %land.lhs.true656
   %index665 = getelementptr inbounds nuw i8, ptr %add.ptr.i986, i64 40
-  %125 = load i64, ptr %index665, align 8
-  %call.i2571 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %125) #20
+  %144 = load i64, ptr %index665, align 8
+  %call.i2571 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %144) #20
   %cond807 = icmp eq ptr %call.i2571, null
-  br i1 %cond807, label %if.then673, label %if.end675
+  br i1 %cond807, label %if.then673, label %if.end683
 
 if.then673:                                       ; preds = %if.then660
-  %126 = load ptr, ptr @stderr, align 8
-  %127 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 71, i64 1, ptr %126) #25
-  br label %if.end675
+  %145 = load ptr, ptr @stderr, align 8
+  %146 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 71, i64 1, ptr %145) #25
+  br label %if.end683
 
-if.end675:                                        ; preds = %if.then660, %if.then673
+if.end683:                                        ; preds = %if.then673, %if.then660
   %vtable680 = load ptr, ptr %this, align 8
   %vfn681 = getelementptr inbounds nuw i8, ptr %vtable680, i64 400
-  %128 = load ptr, ptr %vfn681, align 8
-  tail call void %128(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2571) #20
-  %inc682 = add nuw nsw i64 %i.19, 1
+  %147 = load ptr, ptr %vfn681, align 8
+  tail call void %147(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2571) #20
+  %inc682 = add nuw nsw i64 %i.191741, 1
   %.pre1301 = load ptr, ptr %_M_finish.i, align 8
   %.pre1302 = load ptr, ptr %persistent_values, align 8
   %.pre1455 = ptrtoint ptr %.pre1301 to i64
   %.pre1456 = ptrtoint ptr %.pre1302 to i64
   %.pre1457 = sub i64 %.pre1455, %.pre1456
   %.pre1458 = sdiv exact i64 %.pre1457, 48
-  br label %if.end683
+  %148 = icmp ugt i64 %.pre1458, %inc682
+  br i1 %148, label %land.lhs.true689, label %if.end1970
 
-if.end683:                                        ; preds = %if.end675, %land.lhs.true656, %if.end650
-  %sub.ptr.div.i992.pre-phi = phi i64 [ %.pre1458, %if.end675 ], [ %sub.ptr.div.i985.pre-phi, %land.lhs.true656 ], [ %sub.ptr.div.i985.pre-phi, %if.end650 ]
-  %129 = phi ptr [ %.pre1302, %if.end675 ], [ %123, %land.lhs.true656 ], [ %123, %if.end650 ]
-  %i.20 = phi i64 [ %inc682, %if.end675 ], [ %i.19, %land.lhs.true656 ], [ %i.19, %if.end650 ]
-  %cmp688 = icmp ugt i64 %sub.ptr.div.i992.pre-phi, %i.20
-  br i1 %cmp688, label %land.lhs.true689, label %if.end716
-
-land.lhs.true689:                                 ; preds = %if.end683
-  %add.ptr.i993 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %129, i64 %i.20
+land.lhs.true689:                                 ; preds = %land.lhs.true656, %if.end683
+  %i.201748 = phi i64 [ %inc682, %if.end683 ], [ %i.191741, %land.lhs.true656 ]
+  %149 = phi ptr [ %.pre1302, %if.end683 ], [ %142, %land.lhs.true656 ]
+  %add.ptr.i993 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %149, i64 %i.201748
   %id691 = getelementptr inbounds nuw i8, ptr %add.ptr.i993, i64 32
-  %130 = load i32, ptr %id691, align 8
-  %cmp692 = icmp eq i32 %130, 21
-  br i1 %cmp692, label %if.then693, label %if.end716
+  %150 = load i32, ptr %id691, align 8
+  %cmp692 = icmp eq i32 %150, 21
+  br i1 %cmp692, label %if.then693, label %land.lhs.true722
 
 if.then693:                                       ; preds = %land.lhs.true689
   %index698 = getelementptr inbounds nuw i8, ptr %add.ptr.i993, i64 40
-  %131 = load i64, ptr %index698, align 8
-  %call.i2559 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %131) #20
+  %151 = load i64, ptr %index698, align 8
+  %call.i2559 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %151) #20
   %cond808 = icmp eq ptr %call.i2559, null
-  br i1 %cond808, label %if.then706, label %if.end708
+  br i1 %cond808, label %if.then706, label %if.end716
 
 if.then706:                                       ; preds = %if.then693
-  %132 = load ptr, ptr @stderr, align 8
-  %133 = tail call i64 @fwrite(ptr nonnull @.str.102, i64 71, i64 1, ptr %132) #25
-  br label %if.end708
+  %152 = load ptr, ptr @stderr, align 8
+  %153 = tail call i64 @fwrite(ptr nonnull @.str.102, i64 71, i64 1, ptr %152) #25
+  br label %if.end716
 
-if.end708:                                        ; preds = %if.then693, %if.then706
+if.end716:                                        ; preds = %if.then706, %if.then693
   %vtable713 = load ptr, ptr %this, align 8
   %vfn714 = getelementptr inbounds nuw i8, ptr %vtable713, i64 416
-  %134 = load ptr, ptr %vfn714, align 8
-  tail call void %134(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2559) #20
-  %inc715 = add nuw nsw i64 %i.20, 1
+  %154 = load ptr, ptr %vfn714, align 8
+  tail call void %154(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2559) #20
+  %inc715 = add nuw nsw i64 %i.201748, 1
   %.pre1303 = load ptr, ptr %_M_finish.i, align 8
   %.pre1304 = load ptr, ptr %persistent_values, align 8
   %.pre1459 = ptrtoint ptr %.pre1303 to i64
   %.pre1460 = ptrtoint ptr %.pre1304 to i64
   %.pre1461 = sub i64 %.pre1459, %.pre1460
   %.pre1462 = sdiv exact i64 %.pre1461, 48
-  br label %if.end716
+  %155 = icmp ugt i64 %.pre1462, %inc715
+  br i1 %155, label %land.lhs.true722, label %if.end1970
 
-if.end716:                                        ; preds = %if.end708, %land.lhs.true689, %if.end683
-  %sub.ptr.div.i999.pre-phi = phi i64 [ %.pre1462, %if.end708 ], [ %sub.ptr.div.i992.pre-phi, %land.lhs.true689 ], [ %sub.ptr.div.i992.pre-phi, %if.end683 ]
-  %135 = phi ptr [ %.pre1304, %if.end708 ], [ %129, %land.lhs.true689 ], [ %129, %if.end683 ]
-  %i.21 = phi i64 [ %inc715, %if.end708 ], [ %i.20, %land.lhs.true689 ], [ %i.20, %if.end683 ]
-  %cmp721 = icmp ugt i64 %sub.ptr.div.i999.pre-phi, %i.21
-  br i1 %cmp721, label %land.lhs.true722, label %if.end749
-
-land.lhs.true722:                                 ; preds = %if.end716
-  %add.ptr.i1000 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %135, i64 %i.21
+land.lhs.true722:                                 ; preds = %land.lhs.true689, %if.end716
+  %i.211755 = phi i64 [ %inc715, %if.end716 ], [ %i.201748, %land.lhs.true689 ]
+  %156 = phi ptr [ %.pre1304, %if.end716 ], [ %149, %land.lhs.true689 ]
+  %add.ptr.i1000 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %156, i64 %i.211755
   %id724 = getelementptr inbounds nuw i8, ptr %add.ptr.i1000, i64 32
-  %136 = load i32, ptr %id724, align 8
-  %cmp725 = icmp eq i32 %136, 22
-  br i1 %cmp725, label %if.then726, label %if.end749
+  %157 = load i32, ptr %id724, align 8
+  %cmp725 = icmp eq i32 %157, 22
+  br i1 %cmp725, label %if.then726, label %land.lhs.true755
 
 if.then726:                                       ; preds = %land.lhs.true722
   %index731 = getelementptr inbounds nuw i8, ptr %add.ptr.i1000, i64 40
-  %137 = load i64, ptr %index731, align 8
-  %call.i2547 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %137) #20
+  %158 = load i64, ptr %index731, align 8
+  %call.i2547 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %158) #20
   %cond809 = icmp eq ptr %call.i2547, null
-  br i1 %cond809, label %if.then739, label %if.end741
+  br i1 %cond809, label %if.then739, label %if.end749
 
 if.then739:                                       ; preds = %if.then726
-  %138 = load ptr, ptr @stderr, align 8
-  %139 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 67, i64 1, ptr %138) #25
-  br label %if.end741
+  %159 = load ptr, ptr @stderr, align 8
+  %160 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 67, i64 1, ptr %159) #25
+  br label %if.end749
 
-if.end741:                                        ; preds = %if.then726, %if.then739
+if.end749:                                        ; preds = %if.then739, %if.then726
   %vtable746 = load ptr, ptr %this, align 8
   %vfn747 = getelementptr inbounds nuw i8, ptr %vtable746, i64 432
-  %140 = load ptr, ptr %vfn747, align 8
-  tail call void %140(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2547) #20
-  %inc748 = add nuw nsw i64 %i.21, 1
+  %161 = load ptr, ptr %vfn747, align 8
+  tail call void %161(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2547) #20
+  %inc748 = add nuw nsw i64 %i.211755, 1
   %.pre1305 = load ptr, ptr %_M_finish.i, align 8
   %.pre1306 = load ptr, ptr %persistent_values, align 8
   %.pre1463 = ptrtoint ptr %.pre1305 to i64
   %.pre1464 = ptrtoint ptr %.pre1306 to i64
   %.pre1465 = sub i64 %.pre1463, %.pre1464
   %.pre1466 = sdiv exact i64 %.pre1465, 48
-  br label %if.end749
+  %162 = icmp ugt i64 %.pre1466, %inc748
+  br i1 %162, label %land.lhs.true755, label %if.end1970
 
-if.end749:                                        ; preds = %if.end741, %land.lhs.true722, %if.end716
-  %sub.ptr.div.i1006.pre-phi = phi i64 [ %.pre1466, %if.end741 ], [ %sub.ptr.div.i999.pre-phi, %land.lhs.true722 ], [ %sub.ptr.div.i999.pre-phi, %if.end716 ]
-  %141 = phi ptr [ %.pre1306, %if.end741 ], [ %135, %land.lhs.true722 ], [ %135, %if.end716 ]
-  %i.22 = phi i64 [ %inc748, %if.end741 ], [ %i.21, %land.lhs.true722 ], [ %i.21, %if.end716 ]
-  %cmp754 = icmp ugt i64 %sub.ptr.div.i1006.pre-phi, %i.22
-  br i1 %cmp754, label %land.lhs.true755, label %if.end782
-
-land.lhs.true755:                                 ; preds = %if.end749
-  %add.ptr.i1007 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %141, i64 %i.22
+land.lhs.true755:                                 ; preds = %land.lhs.true722, %if.end749
+  %i.221762 = phi i64 [ %inc748, %if.end749 ], [ %i.211755, %land.lhs.true722 ]
+  %163 = phi ptr [ %.pre1306, %if.end749 ], [ %156, %land.lhs.true722 ]
+  %add.ptr.i1007 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %163, i64 %i.221762
   %id757 = getelementptr inbounds nuw i8, ptr %add.ptr.i1007, i64 32
-  %142 = load i32, ptr %id757, align 8
-  %cmp758 = icmp eq i32 %142, 23
-  br i1 %cmp758, label %if.then759, label %if.end782
+  %164 = load i32, ptr %id757, align 8
+  %cmp758 = icmp eq i32 %164, 23
+  br i1 %cmp758, label %if.then759, label %land.lhs.true788
 
 if.then759:                                       ; preds = %land.lhs.true755
   %index764 = getelementptr inbounds nuw i8, ptr %add.ptr.i1007, i64 40
-  %143 = load i64, ptr %index764, align 8
-  %call.i2535 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %143) #20
+  %165 = load i64, ptr %index764, align 8
+  %call.i2535 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %165) #20
   %cond810 = icmp eq ptr %call.i2535, null
-  br i1 %cond810, label %if.then772, label %if.end774
+  br i1 %cond810, label %if.then772, label %if.end782
 
 if.then772:                                       ; preds = %if.then759
-  %144 = load ptr, ptr @stderr, align 8
-  %145 = tail call i64 @fwrite(ptr nonnull @.str.104, i64 66, i64 1, ptr %144) #25
-  br label %if.end774
+  %166 = load ptr, ptr @stderr, align 8
+  %167 = tail call i64 @fwrite(ptr nonnull @.str.104, i64 66, i64 1, ptr %166) #25
+  br label %if.end782
 
-if.end774:                                        ; preds = %if.then759, %if.then772
+if.end782:                                        ; preds = %if.then772, %if.then759
   %vtable779 = load ptr, ptr %this, align 8
   %vfn780 = getelementptr inbounds nuw i8, ptr %vtable779, i64 448
-  %146 = load ptr, ptr %vfn780, align 8
-  tail call void %146(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2535) #20
-  %inc781 = add nuw nsw i64 %i.22, 1
+  %168 = load ptr, ptr %vfn780, align 8
+  tail call void %168(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2535) #20
+  %inc781 = add nuw nsw i64 %i.221762, 1
   %.pre1307 = load ptr, ptr %_M_finish.i, align 8
   %.pre1308 = load ptr, ptr %persistent_values, align 8
   %.pre1467 = ptrtoint ptr %.pre1307 to i64
   %.pre1468 = ptrtoint ptr %.pre1308 to i64
   %.pre1469 = sub i64 %.pre1467, %.pre1468
   %.pre1470 = sdiv exact i64 %.pre1469, 48
-  br label %if.end782
+  %169 = icmp ugt i64 %.pre1470, %inc781
+  br i1 %169, label %land.lhs.true788, label %if.end1970
 
-if.end782:                                        ; preds = %if.end774, %land.lhs.true755, %if.end749
-  %sub.ptr.div.i1013.pre-phi = phi i64 [ %.pre1470, %if.end774 ], [ %sub.ptr.div.i1006.pre-phi, %land.lhs.true755 ], [ %sub.ptr.div.i1006.pre-phi, %if.end749 ]
-  %147 = phi ptr [ %.pre1308, %if.end774 ], [ %141, %land.lhs.true755 ], [ %141, %if.end749 ]
-  %i.23 = phi i64 [ %inc781, %if.end774 ], [ %i.22, %land.lhs.true755 ], [ %i.22, %if.end749 ]
-  %cmp787 = icmp ugt i64 %sub.ptr.div.i1013.pre-phi, %i.23
-  br i1 %cmp787, label %land.lhs.true788, label %if.end815
-
-land.lhs.true788:                                 ; preds = %if.end782
-  %add.ptr.i1014 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %147, i64 %i.23
+land.lhs.true788:                                 ; preds = %land.lhs.true755, %if.end782
+  %i.231769 = phi i64 [ %inc781, %if.end782 ], [ %i.221762, %land.lhs.true755 ]
+  %170 = phi ptr [ %.pre1308, %if.end782 ], [ %163, %land.lhs.true755 ]
+  %add.ptr.i1014 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %170, i64 %i.231769
   %id790 = getelementptr inbounds nuw i8, ptr %add.ptr.i1014, i64 32
-  %148 = load i32, ptr %id790, align 8
-  %cmp791 = icmp eq i32 %148, 24
-  br i1 %cmp791, label %if.then792, label %if.end815
+  %171 = load i32, ptr %id790, align 8
+  %cmp791 = icmp eq i32 %171, 24
+  br i1 %cmp791, label %if.then792, label %land.lhs.true821
 
 if.then792:                                       ; preds = %land.lhs.true788
   %index797 = getelementptr inbounds nuw i8, ptr %add.ptr.i1014, i64 40
-  %149 = load i64, ptr %index797, align 8
-  %call.i2523 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %149) #20
+  %172 = load i64, ptr %index797, align 8
+  %call.i2523 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %172) #20
   %cond811 = icmp eq ptr %call.i2523, null
-  br i1 %cond811, label %if.then805, label %if.end807
+  br i1 %cond811, label %if.then805, label %if.end815
 
 if.then805:                                       ; preds = %if.then792
-  %150 = load ptr, ptr @stderr, align 8
-  %151 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 64, i64 1, ptr %150) #25
-  br label %if.end807
+  %173 = load ptr, ptr @stderr, align 8
+  %174 = tail call i64 @fwrite(ptr nonnull @.str.105, i64 64, i64 1, ptr %173) #25
+  br label %if.end815
 
-if.end807:                                        ; preds = %if.then792, %if.then805
+if.end815:                                        ; preds = %if.then805, %if.then792
   %vtable812 = load ptr, ptr %this, align 8
   %vfn813 = getelementptr inbounds nuw i8, ptr %vtable812, i64 464
-  %152 = load ptr, ptr %vfn813, align 8
-  tail call void %152(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2523) #20
-  %inc814 = add nuw nsw i64 %i.23, 1
+  %175 = load ptr, ptr %vfn813, align 8
+  tail call void %175(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2523) #20
+  %inc814 = add nuw nsw i64 %i.231769, 1
   %.pre1309 = load ptr, ptr %_M_finish.i, align 8
   %.pre1310 = load ptr, ptr %persistent_values, align 8
   %.pre1471 = ptrtoint ptr %.pre1309 to i64
   %.pre1472 = ptrtoint ptr %.pre1310 to i64
   %.pre1473 = sub i64 %.pre1471, %.pre1472
   %.pre1474 = sdiv exact i64 %.pre1473, 48
-  br label %if.end815
+  %176 = icmp ugt i64 %.pre1474, %inc814
+  br i1 %176, label %land.lhs.true821, label %if.end1970
 
-if.end815:                                        ; preds = %if.end807, %land.lhs.true788, %if.end782
-  %sub.ptr.div.i1020.pre-phi = phi i64 [ %.pre1474, %if.end807 ], [ %sub.ptr.div.i1013.pre-phi, %land.lhs.true788 ], [ %sub.ptr.div.i1013.pre-phi, %if.end782 ]
-  %153 = phi ptr [ %.pre1310, %if.end807 ], [ %147, %land.lhs.true788 ], [ %147, %if.end782 ]
-  %i.24 = phi i64 [ %inc814, %if.end807 ], [ %i.23, %land.lhs.true788 ], [ %i.23, %if.end782 ]
-  %cmp820 = icmp ugt i64 %sub.ptr.div.i1020.pre-phi, %i.24
-  br i1 %cmp820, label %land.lhs.true821, label %if.end848
-
-land.lhs.true821:                                 ; preds = %if.end815
-  %add.ptr.i1021 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %153, i64 %i.24
+land.lhs.true821:                                 ; preds = %land.lhs.true788, %if.end815
+  %i.241776 = phi i64 [ %inc814, %if.end815 ], [ %i.231769, %land.lhs.true788 ]
+  %177 = phi ptr [ %.pre1310, %if.end815 ], [ %170, %land.lhs.true788 ]
+  %add.ptr.i1021 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %177, i64 %i.241776
   %id823 = getelementptr inbounds nuw i8, ptr %add.ptr.i1021, i64 32
-  %154 = load i32, ptr %id823, align 8
-  %cmp824 = icmp eq i32 %154, 25
-  br i1 %cmp824, label %if.then825, label %if.end848
+  %178 = load i32, ptr %id823, align 8
+  %cmp824 = icmp eq i32 %178, 25
+  br i1 %cmp824, label %if.then825, label %land.lhs.true854
 
 if.then825:                                       ; preds = %land.lhs.true821
   %index830 = getelementptr inbounds nuw i8, ptr %add.ptr.i1021, i64 40
-  %155 = load i64, ptr %index830, align 8
-  %call.i2511 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %155) #20
+  %179 = load i64, ptr %index830, align 8
+  %call.i2511 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %179) #20
   %cond812 = icmp eq ptr %call.i2511, null
-  br i1 %cond812, label %if.then838, label %if.end840
+  br i1 %cond812, label %if.then838, label %if.end848
 
 if.then838:                                       ; preds = %if.then825
-  %156 = load ptr, ptr @stderr, align 8
-  %157 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 68, i64 1, ptr %156) #25
-  br label %if.end840
+  %180 = load ptr, ptr @stderr, align 8
+  %181 = tail call i64 @fwrite(ptr nonnull @.str.106, i64 68, i64 1, ptr %180) #25
+  br label %if.end848
 
-if.end840:                                        ; preds = %if.then825, %if.then838
+if.end848:                                        ; preds = %if.then838, %if.then825
   %vtable845 = load ptr, ptr %this, align 8
   %vfn846 = getelementptr inbounds nuw i8, ptr %vtable845, i64 480
-  %158 = load ptr, ptr %vfn846, align 8
-  tail call void %158(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2511) #20
-  %inc847 = add nuw nsw i64 %i.24, 1
+  %182 = load ptr, ptr %vfn846, align 8
+  tail call void %182(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2511) #20
+  %inc847 = add nuw nsw i64 %i.241776, 1
   %.pre1311 = load ptr, ptr %_M_finish.i, align 8
   %.pre1312 = load ptr, ptr %persistent_values, align 8
   %.pre1475 = ptrtoint ptr %.pre1311 to i64
   %.pre1476 = ptrtoint ptr %.pre1312 to i64
   %.pre1477 = sub i64 %.pre1475, %.pre1476
   %.pre1478 = sdiv exact i64 %.pre1477, 48
-  br label %if.end848
+  %183 = icmp ugt i64 %.pre1478, %inc847
+  br i1 %183, label %land.lhs.true854, label %if.end1970
 
-if.end848:                                        ; preds = %if.end840, %land.lhs.true821, %if.end815
-  %sub.ptr.div.i1027.pre-phi = phi i64 [ %.pre1478, %if.end840 ], [ %sub.ptr.div.i1020.pre-phi, %land.lhs.true821 ], [ %sub.ptr.div.i1020.pre-phi, %if.end815 ]
-  %159 = phi ptr [ %.pre1312, %if.end840 ], [ %153, %land.lhs.true821 ], [ %153, %if.end815 ]
-  %i.25 = phi i64 [ %inc847, %if.end840 ], [ %i.24, %land.lhs.true821 ], [ %i.24, %if.end815 ]
-  %cmp853 = icmp ugt i64 %sub.ptr.div.i1027.pre-phi, %i.25
-  br i1 %cmp853, label %land.lhs.true854, label %if.end881
-
-land.lhs.true854:                                 ; preds = %if.end848
-  %add.ptr.i1028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %159, i64 %i.25
+land.lhs.true854:                                 ; preds = %land.lhs.true821, %if.end848
+  %i.251783 = phi i64 [ %inc847, %if.end848 ], [ %i.241776, %land.lhs.true821 ]
+  %184 = phi ptr [ %.pre1312, %if.end848 ], [ %177, %land.lhs.true821 ]
+  %add.ptr.i1028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %184, i64 %i.251783
   %id856 = getelementptr inbounds nuw i8, ptr %add.ptr.i1028, i64 32
-  %160 = load i32, ptr %id856, align 8
-  %cmp857 = icmp eq i32 %160, 26
-  br i1 %cmp857, label %if.then858, label %if.end881
+  %185 = load i32, ptr %id856, align 8
+  %cmp857 = icmp eq i32 %185, 26
+  br i1 %cmp857, label %if.then858, label %land.lhs.true887
 
 if.then858:                                       ; preds = %land.lhs.true854
   %index863 = getelementptr inbounds nuw i8, ptr %add.ptr.i1028, i64 40
-  %161 = load i64, ptr %index863, align 8
-  %call.i2499 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %161) #20
+  %186 = load i64, ptr %index863, align 8
+  %call.i2499 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %186) #20
   %cond813 = icmp eq ptr %call.i2499, null
-  br i1 %cond813, label %if.then871, label %if.end873
+  br i1 %cond813, label %if.then871, label %if.end881
 
 if.then871:                                       ; preds = %if.then858
-  %162 = load ptr, ptr @stderr, align 8
-  %163 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 68, i64 1, ptr %162) #25
-  br label %if.end873
+  %187 = load ptr, ptr @stderr, align 8
+  %188 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 68, i64 1, ptr %187) #25
+  br label %if.end881
 
-if.end873:                                        ; preds = %if.then858, %if.then871
+if.end881:                                        ; preds = %if.then871, %if.then858
   %vtable878 = load ptr, ptr %this, align 8
   %vfn879 = getelementptr inbounds nuw i8, ptr %vtable878, i64 496
-  %164 = load ptr, ptr %vfn879, align 8
-  tail call void %164(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2499) #20
-  %inc880 = add nuw nsw i64 %i.25, 1
+  %189 = load ptr, ptr %vfn879, align 8
+  tail call void %189(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2499) #20
+  %inc880 = add nuw nsw i64 %i.251783, 1
   %.pre1313 = load ptr, ptr %_M_finish.i, align 8
   %.pre1314 = load ptr, ptr %persistent_values, align 8
   %.pre1479 = ptrtoint ptr %.pre1313 to i64
   %.pre1480 = ptrtoint ptr %.pre1314 to i64
   %.pre1481 = sub i64 %.pre1479, %.pre1480
   %.pre1482 = sdiv exact i64 %.pre1481, 48
-  br label %if.end881
+  %190 = icmp ugt i64 %.pre1482, %inc880
+  br i1 %190, label %land.lhs.true887, label %if.end1970
 
-if.end881:                                        ; preds = %if.end873, %land.lhs.true854, %if.end848
-  %sub.ptr.div.i1034.pre-phi = phi i64 [ %.pre1482, %if.end873 ], [ %sub.ptr.div.i1027.pre-phi, %land.lhs.true854 ], [ %sub.ptr.div.i1027.pre-phi, %if.end848 ]
-  %165 = phi ptr [ %.pre1314, %if.end873 ], [ %159, %land.lhs.true854 ], [ %159, %if.end848 ]
-  %i.26 = phi i64 [ %inc880, %if.end873 ], [ %i.25, %land.lhs.true854 ], [ %i.25, %if.end848 ]
-  %cmp886 = icmp ugt i64 %sub.ptr.div.i1034.pre-phi, %i.26
-  br i1 %cmp886, label %land.lhs.true887, label %if.end914
-
-land.lhs.true887:                                 ; preds = %if.end881
-  %add.ptr.i1035 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %165, i64 %i.26
+land.lhs.true887:                                 ; preds = %land.lhs.true854, %if.end881
+  %i.261790 = phi i64 [ %inc880, %if.end881 ], [ %i.251783, %land.lhs.true854 ]
+  %191 = phi ptr [ %.pre1314, %if.end881 ], [ %184, %land.lhs.true854 ]
+  %add.ptr.i1035 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %191, i64 %i.261790
   %id889 = getelementptr inbounds nuw i8, ptr %add.ptr.i1035, i64 32
-  %166 = load i32, ptr %id889, align 8
-  %cmp890 = icmp eq i32 %166, 27
-  br i1 %cmp890, label %if.then891, label %if.end914
+  %192 = load i32, ptr %id889, align 8
+  %cmp890 = icmp eq i32 %192, 27
+  br i1 %cmp890, label %if.then891, label %land.lhs.true920
 
 if.then891:                                       ; preds = %land.lhs.true887
   %index896 = getelementptr inbounds nuw i8, ptr %add.ptr.i1035, i64 40
-  %167 = load i64, ptr %index896, align 8
-  %call.i2487 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %167) #20
+  %193 = load i64, ptr %index896, align 8
+  %call.i2487 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %193) #20
   %cond814 = icmp eq ptr %call.i2487, null
-  br i1 %cond814, label %if.then904, label %if.end906
+  br i1 %cond814, label %if.then904, label %if.end914
 
 if.then904:                                       ; preds = %if.then891
-  %168 = load ptr, ptr @stderr, align 8
-  %169 = tail call i64 @fwrite(ptr nonnull @.str.108, i64 72, i64 1, ptr %168) #25
-  br label %if.end906
+  %194 = load ptr, ptr @stderr, align 8
+  %195 = tail call i64 @fwrite(ptr nonnull @.str.108, i64 72, i64 1, ptr %194) #25
+  br label %if.end914
 
-if.end906:                                        ; preds = %if.then891, %if.then904
+if.end914:                                        ; preds = %if.then904, %if.then891
   %vtable911 = load ptr, ptr %this, align 8
   %vfn912 = getelementptr inbounds nuw i8, ptr %vtable911, i64 512
-  %170 = load ptr, ptr %vfn912, align 8
-  tail call void %170(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2487) #20
-  %inc913 = add nuw nsw i64 %i.26, 1
+  %196 = load ptr, ptr %vfn912, align 8
+  tail call void %196(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2487) #20
+  %inc913 = add nuw nsw i64 %i.261790, 1
   %.pre1315 = load ptr, ptr %_M_finish.i, align 8
   %.pre1316 = load ptr, ptr %persistent_values, align 8
   %.pre1483 = ptrtoint ptr %.pre1315 to i64
   %.pre1484 = ptrtoint ptr %.pre1316 to i64
   %.pre1485 = sub i64 %.pre1483, %.pre1484
   %.pre1486 = sdiv exact i64 %.pre1485, 48
-  br label %if.end914
+  %197 = icmp ugt i64 %.pre1486, %inc913
+  br i1 %197, label %land.lhs.true920, label %if.end1970
 
-if.end914:                                        ; preds = %if.end906, %land.lhs.true887, %if.end881
-  %sub.ptr.div.i1041.pre-phi = phi i64 [ %.pre1486, %if.end906 ], [ %sub.ptr.div.i1034.pre-phi, %land.lhs.true887 ], [ %sub.ptr.div.i1034.pre-phi, %if.end881 ]
-  %171 = phi ptr [ %.pre1316, %if.end906 ], [ %165, %land.lhs.true887 ], [ %165, %if.end881 ]
-  %i.27 = phi i64 [ %inc913, %if.end906 ], [ %i.26, %land.lhs.true887 ], [ %i.26, %if.end881 ]
-  %cmp919 = icmp ugt i64 %sub.ptr.div.i1041.pre-phi, %i.27
-  br i1 %cmp919, label %land.lhs.true920, label %if.end947
-
-land.lhs.true920:                                 ; preds = %if.end914
-  %add.ptr.i1042 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %171, i64 %i.27
+land.lhs.true920:                                 ; preds = %land.lhs.true887, %if.end914
+  %i.271797 = phi i64 [ %inc913, %if.end914 ], [ %i.261790, %land.lhs.true887 ]
+  %198 = phi ptr [ %.pre1316, %if.end914 ], [ %191, %land.lhs.true887 ]
+  %add.ptr.i1042 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %198, i64 %i.271797
   %id922 = getelementptr inbounds nuw i8, ptr %add.ptr.i1042, i64 32
-  %172 = load i32, ptr %id922, align 8
-  %cmp923 = icmp eq i32 %172, 28
-  br i1 %cmp923, label %if.then924, label %if.end947
+  %199 = load i32, ptr %id922, align 8
+  %cmp923 = icmp eq i32 %199, 28
+  br i1 %cmp923, label %if.then924, label %land.lhs.true953
 
 if.then924:                                       ; preds = %land.lhs.true920
   %index929 = getelementptr inbounds nuw i8, ptr %add.ptr.i1042, i64 40
-  %173 = load i64, ptr %index929, align 8
-  %call.i2475 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %173) #20
+  %200 = load i64, ptr %index929, align 8
+  %call.i2475 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %200) #20
   %cond815 = icmp eq ptr %call.i2475, null
-  br i1 %cond815, label %if.then937, label %if.end939
+  br i1 %cond815, label %if.then937, label %if.end947
 
 if.then937:                                       ; preds = %if.then924
-  %174 = load ptr, ptr @stderr, align 8
-  %175 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 75, i64 1, ptr %174) #25
-  br label %if.end939
+  %201 = load ptr, ptr @stderr, align 8
+  %202 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 75, i64 1, ptr %201) #25
+  br label %if.end947
 
-if.end939:                                        ; preds = %if.then924, %if.then937
+if.end947:                                        ; preds = %if.then937, %if.then924
   %vtable944 = load ptr, ptr %this, align 8
   %vfn945 = getelementptr inbounds nuw i8, ptr %vtable944, i64 528
-  %176 = load ptr, ptr %vfn945, align 8
-  tail call void %176(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2475) #20
-  %inc946 = add nuw nsw i64 %i.27, 1
+  %203 = load ptr, ptr %vfn945, align 8
+  tail call void %203(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2475) #20
+  %inc946 = add nuw nsw i64 %i.271797, 1
   %.pre1317 = load ptr, ptr %_M_finish.i, align 8
   %.pre1318 = load ptr, ptr %persistent_values, align 8
   %.pre1487 = ptrtoint ptr %.pre1317 to i64
   %.pre1488 = ptrtoint ptr %.pre1318 to i64
   %.pre1489 = sub i64 %.pre1487, %.pre1488
   %.pre1490 = sdiv exact i64 %.pre1489, 48
-  br label %if.end947
+  %204 = icmp ugt i64 %.pre1490, %inc946
+  br i1 %204, label %land.lhs.true953, label %if.end1970
 
-if.end947:                                        ; preds = %if.end939, %land.lhs.true920, %if.end914
-  %sub.ptr.div.i1048.pre-phi = phi i64 [ %.pre1490, %if.end939 ], [ %sub.ptr.div.i1041.pre-phi, %land.lhs.true920 ], [ %sub.ptr.div.i1041.pre-phi, %if.end914 ]
-  %177 = phi ptr [ %.pre1318, %if.end939 ], [ %171, %land.lhs.true920 ], [ %171, %if.end914 ]
-  %i.28 = phi i64 [ %inc946, %if.end939 ], [ %i.27, %land.lhs.true920 ], [ %i.27, %if.end914 ]
-  %cmp952 = icmp ugt i64 %sub.ptr.div.i1048.pre-phi, %i.28
-  br i1 %cmp952, label %land.lhs.true953, label %if.end980
-
-land.lhs.true953:                                 ; preds = %if.end947
-  %add.ptr.i1049 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %177, i64 %i.28
+land.lhs.true953:                                 ; preds = %land.lhs.true920, %if.end947
+  %i.281804 = phi i64 [ %inc946, %if.end947 ], [ %i.271797, %land.lhs.true920 ]
+  %205 = phi ptr [ %.pre1318, %if.end947 ], [ %198, %land.lhs.true920 ]
+  %add.ptr.i1049 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %205, i64 %i.281804
   %id955 = getelementptr inbounds nuw i8, ptr %add.ptr.i1049, i64 32
-  %178 = load i32, ptr %id955, align 8
-  %cmp956 = icmp eq i32 %178, 29
-  br i1 %cmp956, label %if.then957, label %if.end980
+  %206 = load i32, ptr %id955, align 8
+  %cmp956 = icmp eq i32 %206, 29
+  br i1 %cmp956, label %if.then957, label %land.lhs.true986
 
 if.then957:                                       ; preds = %land.lhs.true953
   %index962 = getelementptr inbounds nuw i8, ptr %add.ptr.i1049, i64 40
-  %179 = load i64, ptr %index962, align 8
-  %call.i2463 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %179) #20
+  %207 = load i64, ptr %index962, align 8
+  %call.i2463 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %207) #20
   %cond816 = icmp eq ptr %call.i2463, null
-  br i1 %cond816, label %if.then970, label %if.end972
+  br i1 %cond816, label %if.then970, label %if.end980
 
 if.then970:                                       ; preds = %if.then957
-  %180 = load ptr, ptr @stderr, align 8
-  %181 = tail call i64 @fwrite(ptr nonnull @.str.110, i64 58, i64 1, ptr %180) #25
-  br label %if.end972
+  %208 = load ptr, ptr @stderr, align 8
+  %209 = tail call i64 @fwrite(ptr nonnull @.str.110, i64 58, i64 1, ptr %208) #25
+  br label %if.end980
 
-if.end972:                                        ; preds = %if.then957, %if.then970
+if.end980:                                        ; preds = %if.then970, %if.then957
   %vtable977 = load ptr, ptr %this, align 8
   %vfn978 = getelementptr inbounds nuw i8, ptr %vtable977, i64 544
-  %182 = load ptr, ptr %vfn978, align 8
-  tail call void %182(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2463) #20
-  %inc979 = add nuw nsw i64 %i.28, 1
+  %210 = load ptr, ptr %vfn978, align 8
+  tail call void %210(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2463) #20
+  %inc979 = add nuw nsw i64 %i.281804, 1
   %.pre1319 = load ptr, ptr %_M_finish.i, align 8
   %.pre1320 = load ptr, ptr %persistent_values, align 8
   %.pre1491 = ptrtoint ptr %.pre1319 to i64
   %.pre1492 = ptrtoint ptr %.pre1320 to i64
   %.pre1493 = sub i64 %.pre1491, %.pre1492
   %.pre1494 = sdiv exact i64 %.pre1493, 48
-  br label %if.end980
+  %211 = icmp ugt i64 %.pre1494, %inc979
+  br i1 %211, label %land.lhs.true986, label %if.end1970
 
-if.end980:                                        ; preds = %if.end972, %land.lhs.true953, %if.end947
-  %sub.ptr.div.i1055.pre-phi = phi i64 [ %.pre1494, %if.end972 ], [ %sub.ptr.div.i1048.pre-phi, %land.lhs.true953 ], [ %sub.ptr.div.i1048.pre-phi, %if.end947 ]
-  %183 = phi ptr [ %.pre1320, %if.end972 ], [ %177, %land.lhs.true953 ], [ %177, %if.end947 ]
-  %i.29 = phi i64 [ %inc979, %if.end972 ], [ %i.28, %land.lhs.true953 ], [ %i.28, %if.end947 ]
-  %cmp985 = icmp ugt i64 %sub.ptr.div.i1055.pre-phi, %i.29
-  br i1 %cmp985, label %land.lhs.true986, label %if.end1013
-
-land.lhs.true986:                                 ; preds = %if.end980
-  %add.ptr.i1056 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %183, i64 %i.29
+land.lhs.true986:                                 ; preds = %land.lhs.true953, %if.end980
+  %i.291811 = phi i64 [ %inc979, %if.end980 ], [ %i.281804, %land.lhs.true953 ]
+  %212 = phi ptr [ %.pre1320, %if.end980 ], [ %205, %land.lhs.true953 ]
+  %add.ptr.i1056 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %212, i64 %i.291811
   %id988 = getelementptr inbounds nuw i8, ptr %add.ptr.i1056, i64 32
-  %184 = load i32, ptr %id988, align 8
-  %cmp989 = icmp eq i32 %184, 30
-  br i1 %cmp989, label %if.then990, label %if.end1013
+  %213 = load i32, ptr %id988, align 8
+  %cmp989 = icmp eq i32 %213, 30
+  br i1 %cmp989, label %if.then990, label %land.lhs.true1019
 
 if.then990:                                       ; preds = %land.lhs.true986
   %index995 = getelementptr inbounds nuw i8, ptr %add.ptr.i1056, i64 40
-  %185 = load i64, ptr %index995, align 8
-  %call.i2451 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %185) #20
+  %214 = load i64, ptr %index995, align 8
+  %call.i2451 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %214) #20
   %cond817 = icmp eq ptr %call.i2451, null
-  br i1 %cond817, label %if.then1003, label %if.end1005
+  br i1 %cond817, label %if.then1003, label %if.end1013
 
 if.then1003:                                      ; preds = %if.then990
-  %186 = load ptr, ptr @stderr, align 8
-  %187 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 62, i64 1, ptr %186) #25
-  br label %if.end1005
+  %215 = load ptr, ptr @stderr, align 8
+  %216 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 62, i64 1, ptr %215) #25
+  br label %if.end1013
 
-if.end1005:                                       ; preds = %if.then990, %if.then1003
+if.end1013:                                       ; preds = %if.then1003, %if.then990
   %vtable1010 = load ptr, ptr %this, align 8
   %vfn1011 = getelementptr inbounds nuw i8, ptr %vtable1010, i64 560
-  %188 = load ptr, ptr %vfn1011, align 8
-  tail call void %188(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2451) #20
-  %inc1012 = add nuw nsw i64 %i.29, 1
+  %217 = load ptr, ptr %vfn1011, align 8
+  tail call void %217(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2451) #20
+  %inc1012 = add nuw nsw i64 %i.291811, 1
   %.pre1321 = load ptr, ptr %_M_finish.i, align 8
   %.pre1322 = load ptr, ptr %persistent_values, align 8
   %.pre1495 = ptrtoint ptr %.pre1321 to i64
   %.pre1496 = ptrtoint ptr %.pre1322 to i64
   %.pre1497 = sub i64 %.pre1495, %.pre1496
   %.pre1498 = sdiv exact i64 %.pre1497, 48
-  br label %if.end1013
+  %218 = icmp ugt i64 %.pre1498, %inc1012
+  br i1 %218, label %land.lhs.true1019, label %if.end1970
 
-if.end1013:                                       ; preds = %if.end1005, %land.lhs.true986, %if.end980
-  %sub.ptr.div.i1062.pre-phi = phi i64 [ %.pre1498, %if.end1005 ], [ %sub.ptr.div.i1055.pre-phi, %land.lhs.true986 ], [ %sub.ptr.div.i1055.pre-phi, %if.end980 ]
-  %189 = phi ptr [ %.pre1322, %if.end1005 ], [ %183, %land.lhs.true986 ], [ %183, %if.end980 ]
-  %i.30 = phi i64 [ %inc1012, %if.end1005 ], [ %i.29, %land.lhs.true986 ], [ %i.29, %if.end980 ]
-  %cmp1018 = icmp ugt i64 %sub.ptr.div.i1062.pre-phi, %i.30
-  br i1 %cmp1018, label %land.lhs.true1019, label %if.end1046
-
-land.lhs.true1019:                                ; preds = %if.end1013
-  %add.ptr.i1063 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %189, i64 %i.30
+land.lhs.true1019:                                ; preds = %land.lhs.true986, %if.end1013
+  %i.301818 = phi i64 [ %inc1012, %if.end1013 ], [ %i.291811, %land.lhs.true986 ]
+  %219 = phi ptr [ %.pre1322, %if.end1013 ], [ %212, %land.lhs.true986 ]
+  %add.ptr.i1063 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %219, i64 %i.301818
   %id1021 = getelementptr inbounds nuw i8, ptr %add.ptr.i1063, i64 32
-  %190 = load i32, ptr %id1021, align 8
-  %cmp1022 = icmp eq i32 %190, 31
-  br i1 %cmp1022, label %if.then1023, label %if.end1046
+  %220 = load i32, ptr %id1021, align 8
+  %cmp1022 = icmp eq i32 %220, 31
+  br i1 %cmp1022, label %if.then1023, label %land.lhs.true1052
 
 if.then1023:                                      ; preds = %land.lhs.true1019
   %index1028 = getelementptr inbounds nuw i8, ptr %add.ptr.i1063, i64 40
-  %191 = load i64, ptr %index1028, align 8
-  %call.i2439 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %191) #20
+  %221 = load i64, ptr %index1028, align 8
+  %call.i2439 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %221) #20
   %cond818 = icmp eq ptr %call.i2439, null
-  br i1 %cond818, label %if.then1036, label %if.end1038
+  br i1 %cond818, label %if.then1036, label %if.end1046
 
 if.then1036:                                      ; preds = %if.then1023
-  %192 = load ptr, ptr @stderr, align 8
-  %193 = tail call i64 @fwrite(ptr nonnull @.str.112, i64 72, i64 1, ptr %192) #25
-  br label %if.end1038
+  %222 = load ptr, ptr @stderr, align 8
+  %223 = tail call i64 @fwrite(ptr nonnull @.str.112, i64 72, i64 1, ptr %222) #25
+  br label %if.end1046
 
-if.end1038:                                       ; preds = %if.then1023, %if.then1036
+if.end1046:                                       ; preds = %if.then1036, %if.then1023
   %vtable1043 = load ptr, ptr %this, align 8
   %vfn1044 = getelementptr inbounds nuw i8, ptr %vtable1043, i64 576
-  %194 = load ptr, ptr %vfn1044, align 8
-  tail call void %194(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2439) #20
-  %inc1045 = add nuw nsw i64 %i.30, 1
+  %224 = load ptr, ptr %vfn1044, align 8
+  tail call void %224(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2439) #20
+  %inc1045 = add nuw nsw i64 %i.301818, 1
   %.pre1323 = load ptr, ptr %_M_finish.i, align 8
   %.pre1324 = load ptr, ptr %persistent_values, align 8
   %.pre1499 = ptrtoint ptr %.pre1323 to i64
   %.pre1500 = ptrtoint ptr %.pre1324 to i64
   %.pre1501 = sub i64 %.pre1499, %.pre1500
   %.pre1502 = sdiv exact i64 %.pre1501, 48
-  br label %if.end1046
+  %225 = icmp ugt i64 %.pre1502, %inc1045
+  br i1 %225, label %land.lhs.true1052, label %if.end1970
 
-if.end1046:                                       ; preds = %if.end1038, %land.lhs.true1019, %if.end1013
-  %sub.ptr.div.i1069.pre-phi = phi i64 [ %.pre1502, %if.end1038 ], [ %sub.ptr.div.i1062.pre-phi, %land.lhs.true1019 ], [ %sub.ptr.div.i1062.pre-phi, %if.end1013 ]
-  %195 = phi ptr [ %.pre1324, %if.end1038 ], [ %189, %land.lhs.true1019 ], [ %189, %if.end1013 ]
-  %i.31 = phi i64 [ %inc1045, %if.end1038 ], [ %i.30, %land.lhs.true1019 ], [ %i.30, %if.end1013 ]
-  %cmp1051 = icmp ugt i64 %sub.ptr.div.i1069.pre-phi, %i.31
-  br i1 %cmp1051, label %land.lhs.true1052, label %if.end1079
-
-land.lhs.true1052:                                ; preds = %if.end1046
-  %add.ptr.i1070 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %195, i64 %i.31
+land.lhs.true1052:                                ; preds = %land.lhs.true1019, %if.end1046
+  %i.311825 = phi i64 [ %inc1045, %if.end1046 ], [ %i.301818, %land.lhs.true1019 ]
+  %226 = phi ptr [ %.pre1324, %if.end1046 ], [ %219, %land.lhs.true1019 ]
+  %add.ptr.i1070 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %226, i64 %i.311825
   %id1054 = getelementptr inbounds nuw i8, ptr %add.ptr.i1070, i64 32
-  %196 = load i32, ptr %id1054, align 8
-  %cmp1055 = icmp eq i32 %196, 32
-  br i1 %cmp1055, label %if.then1056, label %if.end1079
+  %227 = load i32, ptr %id1054, align 8
+  %cmp1055 = icmp eq i32 %227, 32
+  br i1 %cmp1055, label %if.then1056, label %land.lhs.true1085
 
 if.then1056:                                      ; preds = %land.lhs.true1052
   %index1061 = getelementptr inbounds nuw i8, ptr %add.ptr.i1070, i64 40
-  %197 = load i64, ptr %index1061, align 8
-  %call.i2427 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %197) #20
+  %228 = load i64, ptr %index1061, align 8
+  %call.i2427 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %228) #20
   %cond819 = icmp eq ptr %call.i2427, null
-  br i1 %cond819, label %if.then1069, label %if.end1071
+  br i1 %cond819, label %if.then1069, label %if.end1079
 
 if.then1069:                                      ; preds = %if.then1056
-  %198 = load ptr, ptr @stderr, align 8
-  %199 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 64, i64 1, ptr %198) #25
-  br label %if.end1071
+  %229 = load ptr, ptr @stderr, align 8
+  %230 = tail call i64 @fwrite(ptr nonnull @.str.113, i64 64, i64 1, ptr %229) #25
+  br label %if.end1079
 
-if.end1071:                                       ; preds = %if.then1056, %if.then1069
+if.end1079:                                       ; preds = %if.then1069, %if.then1056
   %vtable1076 = load ptr, ptr %this, align 8
   %vfn1077 = getelementptr inbounds nuw i8, ptr %vtable1076, i64 592
-  %200 = load ptr, ptr %vfn1077, align 8
-  tail call void %200(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2427) #20
-  %inc1078 = add nuw nsw i64 %i.31, 1
+  %231 = load ptr, ptr %vfn1077, align 8
+  tail call void %231(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2427) #20
+  %inc1078 = add nuw nsw i64 %i.311825, 1
   %.pre1325 = load ptr, ptr %_M_finish.i, align 8
   %.pre1326 = load ptr, ptr %persistent_values, align 8
   %.pre1503 = ptrtoint ptr %.pre1325 to i64
   %.pre1504 = ptrtoint ptr %.pre1326 to i64
   %.pre1505 = sub i64 %.pre1503, %.pre1504
   %.pre1506 = sdiv exact i64 %.pre1505, 48
-  br label %if.end1079
+  %232 = icmp ugt i64 %.pre1506, %inc1078
+  br i1 %232, label %land.lhs.true1085, label %if.end1970
 
-if.end1079:                                       ; preds = %if.end1071, %land.lhs.true1052, %if.end1046
-  %sub.ptr.div.i1076.pre-phi = phi i64 [ %.pre1506, %if.end1071 ], [ %sub.ptr.div.i1069.pre-phi, %land.lhs.true1052 ], [ %sub.ptr.div.i1069.pre-phi, %if.end1046 ]
-  %201 = phi ptr [ %.pre1326, %if.end1071 ], [ %195, %land.lhs.true1052 ], [ %195, %if.end1046 ]
-  %i.32 = phi i64 [ %inc1078, %if.end1071 ], [ %i.31, %land.lhs.true1052 ], [ %i.31, %if.end1046 ]
-  %cmp1084 = icmp ugt i64 %sub.ptr.div.i1076.pre-phi, %i.32
-  br i1 %cmp1084, label %land.lhs.true1085, label %if.end1112
-
-land.lhs.true1085:                                ; preds = %if.end1079
-  %add.ptr.i1077 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %201, i64 %i.32
+land.lhs.true1085:                                ; preds = %land.lhs.true1052, %if.end1079
+  %i.321832 = phi i64 [ %inc1078, %if.end1079 ], [ %i.311825, %land.lhs.true1052 ]
+  %233 = phi ptr [ %.pre1326, %if.end1079 ], [ %226, %land.lhs.true1052 ]
+  %add.ptr.i1077 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %233, i64 %i.321832
   %id1087 = getelementptr inbounds nuw i8, ptr %add.ptr.i1077, i64 32
-  %202 = load i32, ptr %id1087, align 8
-  %cmp1088 = icmp eq i32 %202, 33
-  br i1 %cmp1088, label %if.then1089, label %if.end1112
+  %234 = load i32, ptr %id1087, align 8
+  %cmp1088 = icmp eq i32 %234, 33
+  br i1 %cmp1088, label %if.then1089, label %land.lhs.true1118
 
 if.then1089:                                      ; preds = %land.lhs.true1085
   %index1094 = getelementptr inbounds nuw i8, ptr %add.ptr.i1077, i64 40
-  %203 = load i64, ptr %index1094, align 8
-  %call.i2415 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %203) #20
+  %235 = load i64, ptr %index1094, align 8
+  %call.i2415 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %235) #20
   %cond820 = icmp eq ptr %call.i2415, null
-  br i1 %cond820, label %if.then1102, label %if.end1104
+  br i1 %cond820, label %if.then1102, label %if.end1112
 
 if.then1102:                                      ; preds = %if.then1089
-  %204 = load ptr, ptr @stderr, align 8
-  %205 = tail call i64 @fwrite(ptr nonnull @.str.114, i64 63, i64 1, ptr %204) #25
-  br label %if.end1104
+  %236 = load ptr, ptr @stderr, align 8
+  %237 = tail call i64 @fwrite(ptr nonnull @.str.114, i64 63, i64 1, ptr %236) #25
+  br label %if.end1112
 
-if.end1104:                                       ; preds = %if.then1089, %if.then1102
+if.end1112:                                       ; preds = %if.then1102, %if.then1089
   %vtable1109 = load ptr, ptr %this, align 8
   %vfn1110 = getelementptr inbounds nuw i8, ptr %vtable1109, i64 608
-  %206 = load ptr, ptr %vfn1110, align 8
-  tail call void %206(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2415) #20
-  %inc1111 = add nuw nsw i64 %i.32, 1
+  %238 = load ptr, ptr %vfn1110, align 8
+  tail call void %238(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2415) #20
+  %inc1111 = add nuw nsw i64 %i.321832, 1
   %.pre1327 = load ptr, ptr %_M_finish.i, align 8
   %.pre1328 = load ptr, ptr %persistent_values, align 8
   %.pre1507 = ptrtoint ptr %.pre1327 to i64
   %.pre1508 = ptrtoint ptr %.pre1328 to i64
   %.pre1509 = sub i64 %.pre1507, %.pre1508
   %.pre1510 = sdiv exact i64 %.pre1509, 48
-  br label %if.end1112
+  %239 = icmp ugt i64 %.pre1510, %inc1111
+  br i1 %239, label %land.lhs.true1118, label %if.end1970
 
-if.end1112:                                       ; preds = %if.end1104, %land.lhs.true1085, %if.end1079
-  %sub.ptr.div.i1083.pre-phi = phi i64 [ %.pre1510, %if.end1104 ], [ %sub.ptr.div.i1076.pre-phi, %land.lhs.true1085 ], [ %sub.ptr.div.i1076.pre-phi, %if.end1079 ]
-  %207 = phi ptr [ %.pre1328, %if.end1104 ], [ %201, %land.lhs.true1085 ], [ %201, %if.end1079 ]
-  %i.33 = phi i64 [ %inc1111, %if.end1104 ], [ %i.32, %land.lhs.true1085 ], [ %i.32, %if.end1079 ]
-  %cmp1117 = icmp ugt i64 %sub.ptr.div.i1083.pre-phi, %i.33
-  br i1 %cmp1117, label %land.lhs.true1118, label %if.end1145
-
-land.lhs.true1118:                                ; preds = %if.end1112
-  %add.ptr.i1084 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %207, i64 %i.33
+land.lhs.true1118:                                ; preds = %land.lhs.true1085, %if.end1112
+  %i.331839 = phi i64 [ %inc1111, %if.end1112 ], [ %i.321832, %land.lhs.true1085 ]
+  %240 = phi ptr [ %.pre1328, %if.end1112 ], [ %233, %land.lhs.true1085 ]
+  %add.ptr.i1084 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %240, i64 %i.331839
   %id1120 = getelementptr inbounds nuw i8, ptr %add.ptr.i1084, i64 32
-  %208 = load i32, ptr %id1120, align 8
-  %cmp1121 = icmp eq i32 %208, 34
-  br i1 %cmp1121, label %if.then1122, label %if.end1145
+  %241 = load i32, ptr %id1120, align 8
+  %cmp1121 = icmp eq i32 %241, 34
+  br i1 %cmp1121, label %if.then1122, label %land.lhs.true1151
 
 if.then1122:                                      ; preds = %land.lhs.true1118
   %index1127 = getelementptr inbounds nuw i8, ptr %add.ptr.i1084, i64 40
-  %209 = load i64, ptr %index1127, align 8
-  %call.i2403 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %209) #20
+  %242 = load i64, ptr %index1127, align 8
+  %call.i2403 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %242) #20
   %cond821 = icmp eq ptr %call.i2403, null
-  br i1 %cond821, label %if.then1135, label %if.end1137
+  br i1 %cond821, label %if.then1135, label %if.end1145
 
 if.then1135:                                      ; preds = %if.then1122
-  %210 = load ptr, ptr @stderr, align 8
-  %211 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 67, i64 1, ptr %210) #25
-  br label %if.end1137
+  %243 = load ptr, ptr @stderr, align 8
+  %244 = tail call i64 @fwrite(ptr nonnull @.str.115, i64 67, i64 1, ptr %243) #25
+  br label %if.end1145
 
-if.end1137:                                       ; preds = %if.then1122, %if.then1135
+if.end1145:                                       ; preds = %if.then1135, %if.then1122
   %vtable1142 = load ptr, ptr %this, align 8
   %vfn1143 = getelementptr inbounds nuw i8, ptr %vtable1142, i64 624
-  %212 = load ptr, ptr %vfn1143, align 8
-  tail call void %212(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2403) #20
-  %inc1144 = add nuw nsw i64 %i.33, 1
+  %245 = load ptr, ptr %vfn1143, align 8
+  tail call void %245(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2403) #20
+  %inc1144 = add nuw nsw i64 %i.331839, 1
   %.pre1329 = load ptr, ptr %_M_finish.i, align 8
   %.pre1330 = load ptr, ptr %persistent_values, align 8
   %.pre1511 = ptrtoint ptr %.pre1329 to i64
   %.pre1512 = ptrtoint ptr %.pre1330 to i64
   %.pre1513 = sub i64 %.pre1511, %.pre1512
   %.pre1514 = sdiv exact i64 %.pre1513, 48
-  br label %if.end1145
+  %246 = icmp ugt i64 %.pre1514, %inc1144
+  br i1 %246, label %land.lhs.true1151, label %if.end1970
 
-if.end1145:                                       ; preds = %if.end1137, %land.lhs.true1118, %if.end1112
-  %sub.ptr.div.i1090.pre-phi = phi i64 [ %.pre1514, %if.end1137 ], [ %sub.ptr.div.i1083.pre-phi, %land.lhs.true1118 ], [ %sub.ptr.div.i1083.pre-phi, %if.end1112 ]
-  %213 = phi ptr [ %.pre1330, %if.end1137 ], [ %207, %land.lhs.true1118 ], [ %207, %if.end1112 ]
-  %i.34 = phi i64 [ %inc1144, %if.end1137 ], [ %i.33, %land.lhs.true1118 ], [ %i.33, %if.end1112 ]
-  %cmp1150 = icmp ugt i64 %sub.ptr.div.i1090.pre-phi, %i.34
-  br i1 %cmp1150, label %land.lhs.true1151, label %if.end1178
-
-land.lhs.true1151:                                ; preds = %if.end1145
-  %add.ptr.i1091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %213, i64 %i.34
+land.lhs.true1151:                                ; preds = %land.lhs.true1118, %if.end1145
+  %i.341846 = phi i64 [ %inc1144, %if.end1145 ], [ %i.331839, %land.lhs.true1118 ]
+  %247 = phi ptr [ %.pre1330, %if.end1145 ], [ %240, %land.lhs.true1118 ]
+  %add.ptr.i1091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %247, i64 %i.341846
   %id1153 = getelementptr inbounds nuw i8, ptr %add.ptr.i1091, i64 32
-  %214 = load i32, ptr %id1153, align 8
-  %cmp1154 = icmp eq i32 %214, 35
-  br i1 %cmp1154, label %if.then1155, label %if.end1178
+  %248 = load i32, ptr %id1153, align 8
+  %cmp1154 = icmp eq i32 %248, 35
+  br i1 %cmp1154, label %if.then1155, label %land.lhs.true1184
 
 if.then1155:                                      ; preds = %land.lhs.true1151
   %index1160 = getelementptr inbounds nuw i8, ptr %add.ptr.i1091, i64 40
-  %215 = load i64, ptr %index1160, align 8
-  %call.i2391 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %215) #20
+  %249 = load i64, ptr %index1160, align 8
+  %call.i2391 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %249) #20
   %cond822 = icmp eq ptr %call.i2391, null
-  br i1 %cond822, label %if.then1168, label %if.end1170
+  br i1 %cond822, label %if.then1168, label %if.end1178
 
 if.then1168:                                      ; preds = %if.then1155
-  %216 = load ptr, ptr @stderr, align 8
-  %217 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 70, i64 1, ptr %216) #25
-  br label %if.end1170
+  %250 = load ptr, ptr @stderr, align 8
+  %251 = tail call i64 @fwrite(ptr nonnull @.str.116, i64 70, i64 1, ptr %250) #25
+  br label %if.end1178
 
-if.end1170:                                       ; preds = %if.then1155, %if.then1168
+if.end1178:                                       ; preds = %if.then1168, %if.then1155
   %vtable1175 = load ptr, ptr %this, align 8
   %vfn1176 = getelementptr inbounds nuw i8, ptr %vtable1175, i64 640
-  %218 = load ptr, ptr %vfn1176, align 8
-  tail call void %218(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2391) #20
-  %inc1177 = add nuw nsw i64 %i.34, 1
+  %252 = load ptr, ptr %vfn1176, align 8
+  tail call void %252(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2391) #20
+  %inc1177 = add nuw nsw i64 %i.341846, 1
   %.pre1331 = load ptr, ptr %_M_finish.i, align 8
   %.pre1332 = load ptr, ptr %persistent_values, align 8
   %.pre1515 = ptrtoint ptr %.pre1331 to i64
   %.pre1516 = ptrtoint ptr %.pre1332 to i64
   %.pre1517 = sub i64 %.pre1515, %.pre1516
   %.pre1518 = sdiv exact i64 %.pre1517, 48
-  br label %if.end1178
+  %253 = icmp ugt i64 %.pre1518, %inc1177
+  br i1 %253, label %land.lhs.true1184, label %if.end1970
 
-if.end1178:                                       ; preds = %if.end1170, %land.lhs.true1151, %if.end1145
-  %sub.ptr.div.i1097.pre-phi = phi i64 [ %.pre1518, %if.end1170 ], [ %sub.ptr.div.i1090.pre-phi, %land.lhs.true1151 ], [ %sub.ptr.div.i1090.pre-phi, %if.end1145 ]
-  %219 = phi ptr [ %.pre1332, %if.end1170 ], [ %213, %land.lhs.true1151 ], [ %213, %if.end1145 ]
-  %i.35 = phi i64 [ %inc1177, %if.end1170 ], [ %i.34, %land.lhs.true1151 ], [ %i.34, %if.end1145 ]
-  %cmp1183 = icmp ugt i64 %sub.ptr.div.i1097.pre-phi, %i.35
-  br i1 %cmp1183, label %land.lhs.true1184, label %if.end1211
-
-land.lhs.true1184:                                ; preds = %if.end1178
-  %add.ptr.i1098 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %219, i64 %i.35
+land.lhs.true1184:                                ; preds = %land.lhs.true1151, %if.end1178
+  %i.351853 = phi i64 [ %inc1177, %if.end1178 ], [ %i.341846, %land.lhs.true1151 ]
+  %254 = phi ptr [ %.pre1332, %if.end1178 ], [ %247, %land.lhs.true1151 ]
+  %add.ptr.i1098 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %254, i64 %i.351853
   %id1186 = getelementptr inbounds nuw i8, ptr %add.ptr.i1098, i64 32
-  %220 = load i32, ptr %id1186, align 8
-  %cmp1187 = icmp eq i32 %220, 36
-  br i1 %cmp1187, label %if.then1188, label %if.end1211
+  %255 = load i32, ptr %id1186, align 8
+  %cmp1187 = icmp eq i32 %255, 36
+  br i1 %cmp1187, label %if.then1188, label %land.lhs.true1217
 
 if.then1188:                                      ; preds = %land.lhs.true1184
   %index1193 = getelementptr inbounds nuw i8, ptr %add.ptr.i1098, i64 40
-  %221 = load i64, ptr %index1193, align 8
-  %call.i3225 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %221) #20
+  %256 = load i64, ptr %index1193, align 8
+  %call.i3225 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %256) #20
   %cond823 = icmp eq ptr %call.i3225, null
-  br i1 %cond823, label %if.then1201, label %if.end1203
+  br i1 %cond823, label %if.then1201, label %if.end1211
 
 if.then1201:                                      ; preds = %if.then1188
-  %222 = load ptr, ptr @stderr, align 8
-  %223 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 47, i64 1, ptr %222) #25
-  br label %if.end1203
+  %257 = load ptr, ptr @stderr, align 8
+  %258 = tail call i64 @fwrite(ptr nonnull @.str.117, i64 47, i64 1, ptr %257) #25
+  br label %if.end1211
 
-if.end1203:                                       ; preds = %if.then1188, %if.then1201
+if.end1211:                                       ; preds = %if.then1201, %if.then1188
   %vtable1208 = load ptr, ptr %this, align 8
   %vfn1209 = getelementptr inbounds nuw i8, ptr %vtable1208, i64 656
-  %224 = load ptr, ptr %vfn1209, align 8
-  tail call void %224(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3225) #20
-  %inc1210 = add nuw nsw i64 %i.35, 1
+  %259 = load ptr, ptr %vfn1209, align 8
+  tail call void %259(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3225) #20
+  %inc1210 = add nuw nsw i64 %i.351853, 1
   %.pre1333 = load ptr, ptr %_M_finish.i, align 8
   %.pre1334 = load ptr, ptr %persistent_values, align 8
   %.pre1519 = ptrtoint ptr %.pre1333 to i64
   %.pre1520 = ptrtoint ptr %.pre1334 to i64
   %.pre1521 = sub i64 %.pre1519, %.pre1520
   %.pre1522 = sdiv exact i64 %.pre1521, 48
-  br label %if.end1211
+  %260 = icmp ugt i64 %.pre1522, %inc1210
+  br i1 %260, label %land.lhs.true1217, label %if.end1970
 
-if.end1211:                                       ; preds = %if.end1203, %land.lhs.true1184, %if.end1178
-  %sub.ptr.div.i1104.pre-phi = phi i64 [ %.pre1522, %if.end1203 ], [ %sub.ptr.div.i1097.pre-phi, %land.lhs.true1184 ], [ %sub.ptr.div.i1097.pre-phi, %if.end1178 ]
-  %225 = phi ptr [ %.pre1334, %if.end1203 ], [ %219, %land.lhs.true1184 ], [ %219, %if.end1178 ]
-  %i.36 = phi i64 [ %inc1210, %if.end1203 ], [ %i.35, %land.lhs.true1184 ], [ %i.35, %if.end1178 ]
-  %cmp1216 = icmp ugt i64 %sub.ptr.div.i1104.pre-phi, %i.36
-  br i1 %cmp1216, label %land.lhs.true1217, label %if.end1244
-
-land.lhs.true1217:                                ; preds = %if.end1211
-  %add.ptr.i1105 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %225, i64 %i.36
+land.lhs.true1217:                                ; preds = %land.lhs.true1184, %if.end1211
+  %i.361860 = phi i64 [ %inc1210, %if.end1211 ], [ %i.351853, %land.lhs.true1184 ]
+  %261 = phi ptr [ %.pre1334, %if.end1211 ], [ %254, %land.lhs.true1184 ]
+  %add.ptr.i1105 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %261, i64 %i.361860
   %id1219 = getelementptr inbounds nuw i8, ptr %add.ptr.i1105, i64 32
-  %226 = load i32, ptr %id1219, align 8
-  %cmp1220 = icmp eq i32 %226, 37
-  br i1 %cmp1220, label %if.then1221, label %if.end1244
+  %262 = load i32, ptr %id1219, align 8
+  %cmp1220 = icmp eq i32 %262, 37
+  br i1 %cmp1220, label %if.then1221, label %land.lhs.true1250
 
 if.then1221:                                      ; preds = %land.lhs.true1217
   %index1226 = getelementptr inbounds nuw i8, ptr %add.ptr.i1105, i64 40
-  %227 = load i64, ptr %index1226, align 8
-  %call.i2379 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %227) #20
+  %263 = load i64, ptr %index1226, align 8
+  %call.i2379 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %263) #20
   %cond824 = icmp eq ptr %call.i2379, null
-  br i1 %cond824, label %if.then1234, label %if.end1236
+  br i1 %cond824, label %if.then1234, label %if.end1244
 
 if.then1234:                                      ; preds = %if.then1221
-  %228 = load ptr, ptr @stderr, align 8
-  %229 = tail call i64 @fwrite(ptr nonnull @.str.118, i64 57, i64 1, ptr %228) #25
-  br label %if.end1236
+  %264 = load ptr, ptr @stderr, align 8
+  %265 = tail call i64 @fwrite(ptr nonnull @.str.118, i64 57, i64 1, ptr %264) #25
+  br label %if.end1244
 
-if.end1236:                                       ; preds = %if.then1221, %if.then1234
+if.end1244:                                       ; preds = %if.then1234, %if.then1221
   %vtable1241 = load ptr, ptr %this, align 8
   %vfn1242 = getelementptr inbounds nuw i8, ptr %vtable1241, i64 672
-  %230 = load ptr, ptr %vfn1242, align 8
-  tail call void %230(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2379) #20
-  %inc1243 = add nuw nsw i64 %i.36, 1
+  %266 = load ptr, ptr %vfn1242, align 8
+  tail call void %266(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2379) #20
+  %inc1243 = add nuw nsw i64 %i.361860, 1
   %.pre1335 = load ptr, ptr %_M_finish.i, align 8
   %.pre1336 = load ptr, ptr %persistent_values, align 8
   %.pre1523 = ptrtoint ptr %.pre1335 to i64
   %.pre1524 = ptrtoint ptr %.pre1336 to i64
   %.pre1525 = sub i64 %.pre1523, %.pre1524
   %.pre1526 = sdiv exact i64 %.pre1525, 48
-  br label %if.end1244
+  %267 = icmp ugt i64 %.pre1526, %inc1243
+  br i1 %267, label %land.lhs.true1250, label %if.end1970
 
-if.end1244:                                       ; preds = %if.end1236, %land.lhs.true1217, %if.end1211
-  %sub.ptr.div.i1111.pre-phi = phi i64 [ %.pre1526, %if.end1236 ], [ %sub.ptr.div.i1104.pre-phi, %land.lhs.true1217 ], [ %sub.ptr.div.i1104.pre-phi, %if.end1211 ]
-  %231 = phi ptr [ %.pre1336, %if.end1236 ], [ %225, %land.lhs.true1217 ], [ %225, %if.end1211 ]
-  %i.37 = phi i64 [ %inc1243, %if.end1236 ], [ %i.36, %land.lhs.true1217 ], [ %i.36, %if.end1211 ]
-  %cmp1249 = icmp ugt i64 %sub.ptr.div.i1111.pre-phi, %i.37
-  br i1 %cmp1249, label %land.lhs.true1250, label %if.end1277
-
-land.lhs.true1250:                                ; preds = %if.end1244
-  %add.ptr.i1112 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %231, i64 %i.37
+land.lhs.true1250:                                ; preds = %land.lhs.true1217, %if.end1244
+  %i.371867 = phi i64 [ %inc1243, %if.end1244 ], [ %i.361860, %land.lhs.true1217 ]
+  %268 = phi ptr [ %.pre1336, %if.end1244 ], [ %261, %land.lhs.true1217 ]
+  %add.ptr.i1112 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %268, i64 %i.371867
   %id1252 = getelementptr inbounds nuw i8, ptr %add.ptr.i1112, i64 32
-  %232 = load i32, ptr %id1252, align 8
-  %cmp1253 = icmp eq i32 %232, 38
-  br i1 %cmp1253, label %if.then1254, label %if.end1277
+  %269 = load i32, ptr %id1252, align 8
+  %cmp1253 = icmp eq i32 %269, 38
+  br i1 %cmp1253, label %if.then1254, label %land.lhs.true1283
 
 if.then1254:                                      ; preds = %land.lhs.true1250
   %index1259 = getelementptr inbounds nuw i8, ptr %add.ptr.i1112, i64 40
-  %233 = load i64, ptr %index1259, align 8
-  %call.i2367 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %233) #20
+  %270 = load i64, ptr %index1259, align 8
+  %call.i2367 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %270) #20
   %cond825 = icmp eq ptr %call.i2367, null
-  br i1 %cond825, label %if.then1267, label %if.end1269
+  br i1 %cond825, label %if.then1267, label %if.end1277
 
 if.then1267:                                      ; preds = %if.then1254
-  %234 = load ptr, ptr @stderr, align 8
-  %235 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 61, i64 1, ptr %234) #25
-  br label %if.end1269
+  %271 = load ptr, ptr @stderr, align 8
+  %272 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 61, i64 1, ptr %271) #25
+  br label %if.end1277
 
-if.end1269:                                       ; preds = %if.then1254, %if.then1267
+if.end1277:                                       ; preds = %if.then1267, %if.then1254
   %vtable1274 = load ptr, ptr %this, align 8
   %vfn1275 = getelementptr inbounds nuw i8, ptr %vtable1274, i64 688
-  %236 = load ptr, ptr %vfn1275, align 8
-  tail call void %236(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2367) #20
-  %inc1276 = add nuw nsw i64 %i.37, 1
+  %273 = load ptr, ptr %vfn1275, align 8
+  tail call void %273(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2367) #20
+  %inc1276 = add nuw nsw i64 %i.371867, 1
   %.pre1337 = load ptr, ptr %_M_finish.i, align 8
   %.pre1338 = load ptr, ptr %persistent_values, align 8
   %.pre1527 = ptrtoint ptr %.pre1337 to i64
   %.pre1528 = ptrtoint ptr %.pre1338 to i64
   %.pre1529 = sub i64 %.pre1527, %.pre1528
   %.pre1530 = sdiv exact i64 %.pre1529, 48
-  br label %if.end1277
+  %274 = icmp ugt i64 %.pre1530, %inc1276
+  br i1 %274, label %land.lhs.true1283, label %if.end1970
 
-if.end1277:                                       ; preds = %if.end1269, %land.lhs.true1250, %if.end1244
-  %sub.ptr.div.i1118.pre-phi = phi i64 [ %.pre1530, %if.end1269 ], [ %sub.ptr.div.i1111.pre-phi, %land.lhs.true1250 ], [ %sub.ptr.div.i1111.pre-phi, %if.end1244 ]
-  %237 = phi ptr [ %.pre1338, %if.end1269 ], [ %231, %land.lhs.true1250 ], [ %231, %if.end1244 ]
-  %i.38 = phi i64 [ %inc1276, %if.end1269 ], [ %i.37, %land.lhs.true1250 ], [ %i.37, %if.end1244 ]
-  %cmp1282 = icmp ugt i64 %sub.ptr.div.i1118.pre-phi, %i.38
-  br i1 %cmp1282, label %land.lhs.true1283, label %if.end1310
-
-land.lhs.true1283:                                ; preds = %if.end1277
-  %add.ptr.i1119 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %237, i64 %i.38
+land.lhs.true1283:                                ; preds = %land.lhs.true1250, %if.end1277
+  %i.381874 = phi i64 [ %inc1276, %if.end1277 ], [ %i.371867, %land.lhs.true1250 ]
+  %275 = phi ptr [ %.pre1338, %if.end1277 ], [ %268, %land.lhs.true1250 ]
+  %add.ptr.i1119 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %275, i64 %i.381874
   %id1285 = getelementptr inbounds nuw i8, ptr %add.ptr.i1119, i64 32
-  %238 = load i32, ptr %id1285, align 8
-  %cmp1286 = icmp eq i32 %238, 39
-  br i1 %cmp1286, label %if.then1287, label %if.end1310
+  %276 = load i32, ptr %id1285, align 8
+  %cmp1286 = icmp eq i32 %276, 39
+  br i1 %cmp1286, label %if.then1287, label %land.lhs.true1316
 
 if.then1287:                                      ; preds = %land.lhs.true1283
   %index1292 = getelementptr inbounds nuw i8, ptr %add.ptr.i1119, i64 40
-  %239 = load i64, ptr %index1292, align 8
-  %call.i2355 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %239) #20
+  %277 = load i64, ptr %index1292, align 8
+  %call.i2355 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %277) #20
   %cond826 = icmp eq ptr %call.i2355, null
-  br i1 %cond826, label %if.then1300, label %if.end1302
+  br i1 %cond826, label %if.then1300, label %if.end1310
 
 if.then1300:                                      ; preds = %if.then1287
-  %240 = load ptr, ptr @stderr, align 8
-  %241 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 63, i64 1, ptr %240) #25
-  br label %if.end1302
+  %278 = load ptr, ptr @stderr, align 8
+  %279 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 63, i64 1, ptr %278) #25
+  br label %if.end1310
 
-if.end1302:                                       ; preds = %if.then1287, %if.then1300
+if.end1310:                                       ; preds = %if.then1300, %if.then1287
   %vtable1307 = load ptr, ptr %this, align 8
   %vfn1308 = getelementptr inbounds nuw i8, ptr %vtable1307, i64 704
-  %242 = load ptr, ptr %vfn1308, align 8
-  tail call void %242(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2355) #20
-  %inc1309 = add nuw nsw i64 %i.38, 1
+  %280 = load ptr, ptr %vfn1308, align 8
+  tail call void %280(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2355) #20
+  %inc1309 = add nuw nsw i64 %i.381874, 1
   %.pre1339 = load ptr, ptr %_M_finish.i, align 8
   %.pre1340 = load ptr, ptr %persistent_values, align 8
   %.pre1531 = ptrtoint ptr %.pre1339 to i64
   %.pre1532 = ptrtoint ptr %.pre1340 to i64
   %.pre1533 = sub i64 %.pre1531, %.pre1532
   %.pre1534 = sdiv exact i64 %.pre1533, 48
-  br label %if.end1310
+  %281 = icmp ugt i64 %.pre1534, %inc1309
+  br i1 %281, label %land.lhs.true1316, label %if.end1970
 
-if.end1310:                                       ; preds = %if.end1302, %land.lhs.true1283, %if.end1277
-  %sub.ptr.div.i1125.pre-phi = phi i64 [ %.pre1534, %if.end1302 ], [ %sub.ptr.div.i1118.pre-phi, %land.lhs.true1283 ], [ %sub.ptr.div.i1118.pre-phi, %if.end1277 ]
-  %243 = phi ptr [ %.pre1340, %if.end1302 ], [ %237, %land.lhs.true1283 ], [ %237, %if.end1277 ]
-  %i.39 = phi i64 [ %inc1309, %if.end1302 ], [ %i.38, %land.lhs.true1283 ], [ %i.38, %if.end1277 ]
-  %cmp1315 = icmp ugt i64 %sub.ptr.div.i1125.pre-phi, %i.39
-  br i1 %cmp1315, label %land.lhs.true1316, label %if.end1343
-
-land.lhs.true1316:                                ; preds = %if.end1310
-  %add.ptr.i1126 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %243, i64 %i.39
+land.lhs.true1316:                                ; preds = %land.lhs.true1283, %if.end1310
+  %i.391881 = phi i64 [ %inc1309, %if.end1310 ], [ %i.381874, %land.lhs.true1283 ]
+  %282 = phi ptr [ %.pre1340, %if.end1310 ], [ %275, %land.lhs.true1283 ]
+  %add.ptr.i1126 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %282, i64 %i.391881
   %id1318 = getelementptr inbounds nuw i8, ptr %add.ptr.i1126, i64 32
-  %244 = load i32, ptr %id1318, align 8
-  %cmp1319 = icmp eq i32 %244, 40
-  br i1 %cmp1319, label %if.then1320, label %if.end1343
+  %283 = load i32, ptr %id1318, align 8
+  %cmp1319 = icmp eq i32 %283, 40
+  br i1 %cmp1319, label %if.then1320, label %land.lhs.true1349
 
 if.then1320:                                      ; preds = %land.lhs.true1316
   %index1325 = getelementptr inbounds nuw i8, ptr %add.ptr.i1126, i64 40
-  %245 = load i64, ptr %index1325, align 8
-  %call.i3213 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %245) #20
+  %284 = load i64, ptr %index1325, align 8
+  %call.i3213 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %284) #20
   %cond827 = icmp eq ptr %call.i3213, null
-  br i1 %cond827, label %if.then1333, label %if.end1335
+  br i1 %cond827, label %if.then1333, label %if.end1343
 
 if.then1333:                                      ; preds = %if.then1320
-  %246 = load ptr, ptr @stderr, align 8
-  %247 = tail call i64 @fwrite(ptr nonnull @.str.121, i64 49, i64 1, ptr %246) #25
-  br label %if.end1335
+  %285 = load ptr, ptr @stderr, align 8
+  %286 = tail call i64 @fwrite(ptr nonnull @.str.121, i64 49, i64 1, ptr %285) #25
+  br label %if.end1343
 
-if.end1335:                                       ; preds = %if.then1320, %if.then1333
+if.end1343:                                       ; preds = %if.then1333, %if.then1320
   %vtable1340 = load ptr, ptr %this, align 8
   %vfn1341 = getelementptr inbounds nuw i8, ptr %vtable1340, i64 720
-  %248 = load ptr, ptr %vfn1341, align 8
-  tail call void %248(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3213) #20
-  %inc1342 = add nuw nsw i64 %i.39, 1
+  %287 = load ptr, ptr %vfn1341, align 8
+  tail call void %287(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3213) #20
+  %inc1342 = add nuw nsw i64 %i.391881, 1
   %.pre1341 = load ptr, ptr %_M_finish.i, align 8
   %.pre1342 = load ptr, ptr %persistent_values, align 8
   %.pre1535 = ptrtoint ptr %.pre1341 to i64
   %.pre1536 = ptrtoint ptr %.pre1342 to i64
   %.pre1537 = sub i64 %.pre1535, %.pre1536
   %.pre1538 = sdiv exact i64 %.pre1537, 48
-  br label %if.end1343
+  %288 = icmp ugt i64 %.pre1538, %inc1342
+  br i1 %288, label %land.lhs.true1349, label %if.end1970
 
-if.end1343:                                       ; preds = %if.end1335, %land.lhs.true1316, %if.end1310
-  %sub.ptr.div.i1132.pre-phi = phi i64 [ %.pre1538, %if.end1335 ], [ %sub.ptr.div.i1125.pre-phi, %land.lhs.true1316 ], [ %sub.ptr.div.i1125.pre-phi, %if.end1310 ]
-  %249 = phi ptr [ %.pre1342, %if.end1335 ], [ %243, %land.lhs.true1316 ], [ %243, %if.end1310 ]
-  %i.40 = phi i64 [ %inc1342, %if.end1335 ], [ %i.39, %land.lhs.true1316 ], [ %i.39, %if.end1310 ]
-  %cmp1348 = icmp ugt i64 %sub.ptr.div.i1132.pre-phi, %i.40
-  br i1 %cmp1348, label %land.lhs.true1349, label %if.end1376
-
-land.lhs.true1349:                                ; preds = %if.end1343
-  %add.ptr.i1133 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %249, i64 %i.40
+land.lhs.true1349:                                ; preds = %land.lhs.true1316, %if.end1343
+  %i.401888 = phi i64 [ %inc1342, %if.end1343 ], [ %i.391881, %land.lhs.true1316 ]
+  %289 = phi ptr [ %.pre1342, %if.end1343 ], [ %282, %land.lhs.true1316 ]
+  %add.ptr.i1133 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %289, i64 %i.401888
   %id1351 = getelementptr inbounds nuw i8, ptr %add.ptr.i1133, i64 32
-  %250 = load i32, ptr %id1351, align 8
-  %cmp1352 = icmp eq i32 %250, 41
-  br i1 %cmp1352, label %if.then1353, label %if.end1376
+  %290 = load i32, ptr %id1351, align 8
+  %cmp1352 = icmp eq i32 %290, 41
+  br i1 %cmp1352, label %if.then1353, label %land.lhs.true1382
 
 if.then1353:                                      ; preds = %land.lhs.true1349
   %index1358 = getelementptr inbounds nuw i8, ptr %add.ptr.i1133, i64 40
-  %251 = load i64, ptr %index1358, align 8
-  %call.i3201 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %251) #20
+  %291 = load i64, ptr %index1358, align 8
+  %call.i3201 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %291) #20
   %cond828 = icmp eq ptr %call.i3201, null
-  br i1 %cond828, label %if.then1366, label %if.end1368
+  br i1 %cond828, label %if.then1366, label %if.end1376
 
 if.then1366:                                      ; preds = %if.then1353
-  %252 = load ptr, ptr @stderr, align 8
-  %253 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 46, i64 1, ptr %252) #25
-  br label %if.end1368
+  %292 = load ptr, ptr @stderr, align 8
+  %293 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 46, i64 1, ptr %292) #25
+  br label %if.end1376
 
-if.end1368:                                       ; preds = %if.then1353, %if.then1366
+if.end1376:                                       ; preds = %if.then1366, %if.then1353
   %vtable1373 = load ptr, ptr %this, align 8
   %vfn1374 = getelementptr inbounds nuw i8, ptr %vtable1373, i64 736
-  %254 = load ptr, ptr %vfn1374, align 8
-  tail call void %254(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3201) #20
-  %inc1375 = add nuw nsw i64 %i.40, 1
+  %294 = load ptr, ptr %vfn1374, align 8
+  tail call void %294(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3201) #20
+  %inc1375 = add nuw nsw i64 %i.401888, 1
   %.pre1343 = load ptr, ptr %_M_finish.i, align 8
   %.pre1344 = load ptr, ptr %persistent_values, align 8
   %.pre1539 = ptrtoint ptr %.pre1343 to i64
   %.pre1540 = ptrtoint ptr %.pre1344 to i64
   %.pre1541 = sub i64 %.pre1539, %.pre1540
   %.pre1542 = sdiv exact i64 %.pre1541, 48
-  br label %if.end1376
+  %295 = icmp ugt i64 %.pre1542, %inc1375
+  br i1 %295, label %land.lhs.true1382, label %if.end1970
 
-if.end1376:                                       ; preds = %if.end1368, %land.lhs.true1349, %if.end1343
-  %sub.ptr.div.i1139.pre-phi = phi i64 [ %.pre1542, %if.end1368 ], [ %sub.ptr.div.i1132.pre-phi, %land.lhs.true1349 ], [ %sub.ptr.div.i1132.pre-phi, %if.end1343 ]
-  %255 = phi ptr [ %.pre1344, %if.end1368 ], [ %249, %land.lhs.true1349 ], [ %249, %if.end1343 ]
-  %i.41 = phi i64 [ %inc1375, %if.end1368 ], [ %i.40, %land.lhs.true1349 ], [ %i.40, %if.end1343 ]
-  %cmp1381 = icmp ugt i64 %sub.ptr.div.i1139.pre-phi, %i.41
-  br i1 %cmp1381, label %land.lhs.true1382, label %if.end1409
-
-land.lhs.true1382:                                ; preds = %if.end1376
-  %add.ptr.i1140 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %255, i64 %i.41
+land.lhs.true1382:                                ; preds = %land.lhs.true1349, %if.end1376
+  %i.411895 = phi i64 [ %inc1375, %if.end1376 ], [ %i.401888, %land.lhs.true1349 ]
+  %296 = phi ptr [ %.pre1344, %if.end1376 ], [ %289, %land.lhs.true1349 ]
+  %add.ptr.i1140 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %296, i64 %i.411895
   %id1384 = getelementptr inbounds nuw i8, ptr %add.ptr.i1140, i64 32
-  %256 = load i32, ptr %id1384, align 8
-  %cmp1385 = icmp eq i32 %256, 42
-  br i1 %cmp1385, label %if.then1386, label %if.end1409
+  %297 = load i32, ptr %id1384, align 8
+  %cmp1385 = icmp eq i32 %297, 42
+  br i1 %cmp1385, label %if.then1386, label %land.lhs.true1415
 
 if.then1386:                                      ; preds = %land.lhs.true1382
   %index1391 = getelementptr inbounds nuw i8, ptr %add.ptr.i1140, i64 40
-  %257 = load i64, ptr %index1391, align 8
-  %call.i3189 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %257) #20
+  %298 = load i64, ptr %index1391, align 8
+  %call.i3189 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %298) #20
   %cond829 = icmp eq ptr %call.i3189, null
-  br i1 %cond829, label %if.then1399, label %if.end1401
+  br i1 %cond829, label %if.then1399, label %if.end1409
 
 if.then1399:                                      ; preds = %if.then1386
-  %258 = load ptr, ptr @stderr, align 8
-  %259 = tail call i64 @fwrite(ptr nonnull @.str.123, i64 72, i64 1, ptr %258) #25
-  br label %if.end1401
+  %299 = load ptr, ptr @stderr, align 8
+  %300 = tail call i64 @fwrite(ptr nonnull @.str.123, i64 72, i64 1, ptr %299) #25
+  br label %if.end1409
 
-if.end1401:                                       ; preds = %if.then1386, %if.then1399
+if.end1409:                                       ; preds = %if.then1399, %if.then1386
   %vtable1406 = load ptr, ptr %this, align 8
   %vfn1407 = getelementptr inbounds nuw i8, ptr %vtable1406, i64 752
-  %260 = load ptr, ptr %vfn1407, align 8
-  tail call void %260(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3189) #20
-  %inc1408 = add nuw nsw i64 %i.41, 1
+  %301 = load ptr, ptr %vfn1407, align 8
+  tail call void %301(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3189) #20
+  %inc1408 = add nuw nsw i64 %i.411895, 1
   %.pre1345 = load ptr, ptr %_M_finish.i, align 8
   %.pre1346 = load ptr, ptr %persistent_values, align 8
   %.pre1543 = ptrtoint ptr %.pre1345 to i64
   %.pre1544 = ptrtoint ptr %.pre1346 to i64
   %.pre1545 = sub i64 %.pre1543, %.pre1544
   %.pre1546 = sdiv exact i64 %.pre1545, 48
-  br label %if.end1409
+  %302 = icmp ugt i64 %.pre1546, %inc1408
+  br i1 %302, label %land.lhs.true1415, label %if.end1970
 
-if.end1409:                                       ; preds = %if.end1401, %land.lhs.true1382, %if.end1376
-  %sub.ptr.div.i1146.pre-phi = phi i64 [ %.pre1546, %if.end1401 ], [ %sub.ptr.div.i1139.pre-phi, %land.lhs.true1382 ], [ %sub.ptr.div.i1139.pre-phi, %if.end1376 ]
-  %261 = phi ptr [ %.pre1346, %if.end1401 ], [ %255, %land.lhs.true1382 ], [ %255, %if.end1376 ]
-  %i.42 = phi i64 [ %inc1408, %if.end1401 ], [ %i.41, %land.lhs.true1382 ], [ %i.41, %if.end1376 ]
-  %cmp1414 = icmp ugt i64 %sub.ptr.div.i1146.pre-phi, %i.42
-  br i1 %cmp1414, label %land.lhs.true1415, label %if.end1442
-
-land.lhs.true1415:                                ; preds = %if.end1409
-  %add.ptr.i1147 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %261, i64 %i.42
+land.lhs.true1415:                                ; preds = %land.lhs.true1382, %if.end1409
+  %i.421902 = phi i64 [ %inc1408, %if.end1409 ], [ %i.411895, %land.lhs.true1382 ]
+  %303 = phi ptr [ %.pre1346, %if.end1409 ], [ %296, %land.lhs.true1382 ]
+  %add.ptr.i1147 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %303, i64 %i.421902
   %id1417 = getelementptr inbounds nuw i8, ptr %add.ptr.i1147, i64 32
-  %262 = load i32, ptr %id1417, align 8
-  %cmp1418 = icmp eq i32 %262, 43
-  br i1 %cmp1418, label %if.then1419, label %if.end1442
+  %304 = load i32, ptr %id1417, align 8
+  %cmp1418 = icmp eq i32 %304, 43
+  br i1 %cmp1418, label %if.then1419, label %land.lhs.true1448
 
 if.then1419:                                      ; preds = %land.lhs.true1415
   %index1424 = getelementptr inbounds nuw i8, ptr %add.ptr.i1147, i64 40
-  %263 = load i64, ptr %index1424, align 8
-  %call.i3177 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %263) #20
+  %305 = load i64, ptr %index1424, align 8
+  %call.i3177 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %305) #20
   %cond830 = icmp eq ptr %call.i3177, null
-  br i1 %cond830, label %if.then1432, label %if.end1434
+  br i1 %cond830, label %if.then1432, label %if.end1442
 
 if.then1432:                                      ; preds = %if.then1419
-  %264 = load ptr, ptr @stderr, align 8
-  %265 = tail call i64 @fwrite(ptr nonnull @.str.124, i64 72, i64 1, ptr %264) #25
-  br label %if.end1434
+  %306 = load ptr, ptr @stderr, align 8
+  %307 = tail call i64 @fwrite(ptr nonnull @.str.124, i64 72, i64 1, ptr %306) #25
+  br label %if.end1442
 
-if.end1434:                                       ; preds = %if.then1419, %if.then1432
+if.end1442:                                       ; preds = %if.then1432, %if.then1419
   %vtable1439 = load ptr, ptr %this, align 8
   %vfn1440 = getelementptr inbounds nuw i8, ptr %vtable1439, i64 768
-  %266 = load ptr, ptr %vfn1440, align 8
-  tail call void %266(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3177) #20
-  %inc1441 = add nuw nsw i64 %i.42, 1
+  %308 = load ptr, ptr %vfn1440, align 8
+  tail call void %308(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3177) #20
+  %inc1441 = add nuw nsw i64 %i.421902, 1
   %.pre1347 = load ptr, ptr %_M_finish.i, align 8
   %.pre1348 = load ptr, ptr %persistent_values, align 8
   %.pre1547 = ptrtoint ptr %.pre1347 to i64
   %.pre1548 = ptrtoint ptr %.pre1348 to i64
   %.pre1549 = sub i64 %.pre1547, %.pre1548
   %.pre1550 = sdiv exact i64 %.pre1549, 48
-  br label %if.end1442
+  %309 = icmp ugt i64 %.pre1550, %inc1441
+  br i1 %309, label %land.lhs.true1448, label %if.end1970
 
-if.end1442:                                       ; preds = %if.end1434, %land.lhs.true1415, %if.end1409
-  %sub.ptr.div.i1153.pre-phi = phi i64 [ %.pre1550, %if.end1434 ], [ %sub.ptr.div.i1146.pre-phi, %land.lhs.true1415 ], [ %sub.ptr.div.i1146.pre-phi, %if.end1409 ]
-  %267 = phi ptr [ %.pre1348, %if.end1434 ], [ %261, %land.lhs.true1415 ], [ %261, %if.end1409 ]
-  %i.43 = phi i64 [ %inc1441, %if.end1434 ], [ %i.42, %land.lhs.true1415 ], [ %i.42, %if.end1409 ]
-  %cmp1447 = icmp ugt i64 %sub.ptr.div.i1153.pre-phi, %i.43
-  br i1 %cmp1447, label %land.lhs.true1448, label %if.end1475
-
-land.lhs.true1448:                                ; preds = %if.end1442
-  %add.ptr.i1154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %267, i64 %i.43
+land.lhs.true1448:                                ; preds = %land.lhs.true1415, %if.end1442
+  %i.431909 = phi i64 [ %inc1441, %if.end1442 ], [ %i.421902, %land.lhs.true1415 ]
+  %310 = phi ptr [ %.pre1348, %if.end1442 ], [ %303, %land.lhs.true1415 ]
+  %add.ptr.i1154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %310, i64 %i.431909
   %id1450 = getelementptr inbounds nuw i8, ptr %add.ptr.i1154, i64 32
-  %268 = load i32, ptr %id1450, align 8
-  %cmp1451 = icmp eq i32 %268, 44
-  br i1 %cmp1451, label %if.then1452, label %if.end1475
+  %311 = load i32, ptr %id1450, align 8
+  %cmp1451 = icmp eq i32 %311, 44
+  br i1 %cmp1451, label %if.then1452, label %land.lhs.true1481
 
 if.then1452:                                      ; preds = %land.lhs.true1448
   %index1457 = getelementptr inbounds nuw i8, ptr %add.ptr.i1154, i64 40
-  %269 = load i64, ptr %index1457, align 8
-  %call.i3165 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %269) #20
+  %312 = load i64, ptr %index1457, align 8
+  %call.i3165 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %312) #20
   %cond831 = icmp eq ptr %call.i3165, null
-  br i1 %cond831, label %if.then1465, label %if.end1467
+  br i1 %cond831, label %if.then1465, label %if.end1475
 
 if.then1465:                                      ; preds = %if.then1452
-  %270 = load ptr, ptr @stderr, align 8
-  %271 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 77, i64 1, ptr %270) #25
-  br label %if.end1467
+  %313 = load ptr, ptr @stderr, align 8
+  %314 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 77, i64 1, ptr %313) #25
+  br label %if.end1475
 
-if.end1467:                                       ; preds = %if.then1452, %if.then1465
+if.end1475:                                       ; preds = %if.then1465, %if.then1452
   %vtable1472 = load ptr, ptr %this, align 8
   %vfn1473 = getelementptr inbounds nuw i8, ptr %vtable1472, i64 784
-  %272 = load ptr, ptr %vfn1473, align 8
-  tail call void %272(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3165) #20
-  %inc1474 = add nuw nsw i64 %i.43, 1
+  %315 = load ptr, ptr %vfn1473, align 8
+  tail call void %315(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3165) #20
+  %inc1474 = add nuw nsw i64 %i.431909, 1
   %.pre1349 = load ptr, ptr %_M_finish.i, align 8
   %.pre1350 = load ptr, ptr %persistent_values, align 8
   %.pre1551 = ptrtoint ptr %.pre1349 to i64
   %.pre1552 = ptrtoint ptr %.pre1350 to i64
   %.pre1553 = sub i64 %.pre1551, %.pre1552
   %.pre1554 = sdiv exact i64 %.pre1553, 48
-  br label %if.end1475
+  %316 = icmp ugt i64 %.pre1554, %inc1474
+  br i1 %316, label %land.lhs.true1481, label %if.end1970
 
-if.end1475:                                       ; preds = %if.end1467, %land.lhs.true1448, %if.end1442
-  %sub.ptr.div.i1160.pre-phi = phi i64 [ %.pre1554, %if.end1467 ], [ %sub.ptr.div.i1153.pre-phi, %land.lhs.true1448 ], [ %sub.ptr.div.i1153.pre-phi, %if.end1442 ]
-  %273 = phi ptr [ %.pre1350, %if.end1467 ], [ %267, %land.lhs.true1448 ], [ %267, %if.end1442 ]
-  %i.44 = phi i64 [ %inc1474, %if.end1467 ], [ %i.43, %land.lhs.true1448 ], [ %i.43, %if.end1442 ]
-  %cmp1480 = icmp ugt i64 %sub.ptr.div.i1160.pre-phi, %i.44
-  br i1 %cmp1480, label %land.lhs.true1481, label %if.end1508
-
-land.lhs.true1481:                                ; preds = %if.end1475
-  %add.ptr.i1161 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %273, i64 %i.44
+land.lhs.true1481:                                ; preds = %land.lhs.true1448, %if.end1475
+  %i.441916 = phi i64 [ %inc1474, %if.end1475 ], [ %i.431909, %land.lhs.true1448 ]
+  %317 = phi ptr [ %.pre1350, %if.end1475 ], [ %310, %land.lhs.true1448 ]
+  %add.ptr.i1161 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %317, i64 %i.441916
   %id1483 = getelementptr inbounds nuw i8, ptr %add.ptr.i1161, i64 32
-  %274 = load i32, ptr %id1483, align 8
-  %cmp1484 = icmp eq i32 %274, 45
-  br i1 %cmp1484, label %if.then1485, label %if.end1508
+  %318 = load i32, ptr %id1483, align 8
+  %cmp1484 = icmp eq i32 %318, 45
+  br i1 %cmp1484, label %if.then1485, label %land.lhs.true1514
 
 if.then1485:                                      ; preds = %land.lhs.true1481
   %index1490 = getelementptr inbounds nuw i8, ptr %add.ptr.i1161, i64 40
-  %275 = load i64, ptr %index1490, align 8
-  %call.i3154 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %275) #20
+  %319 = load i64, ptr %index1490, align 8
+  %call.i3154 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %319) #20
   %cond832 = icmp eq ptr %call.i3154, null
-  br i1 %cond832, label %if.then1498, label %if.end1500
+  br i1 %cond832, label %if.then1498, label %if.end1508
 
 if.then1498:                                      ; preds = %if.then1485
-  %276 = load ptr, ptr @stderr, align 8
-  %277 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 77, i64 1, ptr %276) #25
-  br label %if.end1500
+  %320 = load ptr, ptr @stderr, align 8
+  %321 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 77, i64 1, ptr %320) #25
+  br label %if.end1508
 
-if.end1500:                                       ; preds = %if.then1485, %if.then1498
+if.end1508:                                       ; preds = %if.then1498, %if.then1485
   %vtable1505 = load ptr, ptr %this, align 8
   %vfn1506 = getelementptr inbounds nuw i8, ptr %vtable1505, i64 800
-  %278 = load ptr, ptr %vfn1506, align 8
-  tail call void %278(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3154) #20
-  %inc1507 = add nuw nsw i64 %i.44, 1
+  %322 = load ptr, ptr %vfn1506, align 8
+  tail call void %322(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i3154) #20
+  %inc1507 = add nuw nsw i64 %i.441916, 1
   %.pre1351 = load ptr, ptr %_M_finish.i, align 8
   %.pre1352 = load ptr, ptr %persistent_values, align 8
   %.pre1555 = ptrtoint ptr %.pre1351 to i64
   %.pre1556 = ptrtoint ptr %.pre1352 to i64
   %.pre1557 = sub i64 %.pre1555, %.pre1556
   %.pre1558 = sdiv exact i64 %.pre1557, 48
-  br label %if.end1508
+  %323 = icmp ugt i64 %.pre1558, %inc1507
+  br i1 %323, label %land.lhs.true1514, label %if.end1970
 
-if.end1508:                                       ; preds = %if.end1500, %land.lhs.true1481, %if.end1475
-  %sub.ptr.div.i1167.pre-phi = phi i64 [ %.pre1558, %if.end1500 ], [ %sub.ptr.div.i1160.pre-phi, %land.lhs.true1481 ], [ %sub.ptr.div.i1160.pre-phi, %if.end1475 ]
-  %279 = phi ptr [ %.pre1352, %if.end1500 ], [ %273, %land.lhs.true1481 ], [ %273, %if.end1475 ]
-  %i.45 = phi i64 [ %inc1507, %if.end1500 ], [ %i.44, %land.lhs.true1481 ], [ %i.44, %if.end1475 ]
-  %cmp1513 = icmp ugt i64 %sub.ptr.div.i1167.pre-phi, %i.45
-  br i1 %cmp1513, label %land.lhs.true1514, label %if.end1541
-
-land.lhs.true1514:                                ; preds = %if.end1508
-  %add.ptr.i1168 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %279, i64 %i.45
+land.lhs.true1514:                                ; preds = %land.lhs.true1481, %if.end1508
+  %i.451923 = phi i64 [ %inc1507, %if.end1508 ], [ %i.441916, %land.lhs.true1481 ]
+  %324 = phi ptr [ %.pre1352, %if.end1508 ], [ %317, %land.lhs.true1481 ]
+  %add.ptr.i1168 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %324, i64 %i.451923
   %id1516 = getelementptr inbounds nuw i8, ptr %add.ptr.i1168, i64 32
-  %280 = load i32, ptr %id1516, align 8
-  %cmp1517 = icmp eq i32 %280, 46
-  br i1 %cmp1517, label %if.then1518, label %if.end1541
+  %325 = load i32, ptr %id1516, align 8
+  %cmp1517 = icmp eq i32 %325, 46
+  br i1 %cmp1517, label %if.then1518, label %land.lhs.true1547
 
 if.then1518:                                      ; preds = %land.lhs.true1514
   %index1523 = getelementptr inbounds nuw i8, ptr %add.ptr.i1168, i64 40
-  %281 = load i64, ptr %index1523, align 8
-  %call.i2343 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %281) #20
+  %326 = load i64, ptr %index1523, align 8
+  %call.i2343 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %326) #20
   %cond833 = icmp eq ptr %call.i2343, null
-  br i1 %cond833, label %if.then1531, label %if.end1533
+  br i1 %cond833, label %if.then1531, label %if.end1541
 
 if.then1531:                                      ; preds = %if.then1518
-  %282 = load ptr, ptr @stderr, align 8
-  %283 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 55, i64 1, ptr %282) #25
-  br label %if.end1533
+  %327 = load ptr, ptr @stderr, align 8
+  %328 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 55, i64 1, ptr %327) #25
+  br label %if.end1541
 
-if.end1533:                                       ; preds = %if.then1518, %if.then1531
+if.end1541:                                       ; preds = %if.then1531, %if.then1518
   %vtable1538 = load ptr, ptr %this, align 8
   %vfn1539 = getelementptr inbounds nuw i8, ptr %vtable1538, i64 816
-  %284 = load ptr, ptr %vfn1539, align 8
-  tail call void %284(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2343) #20
-  %inc1540 = add nuw nsw i64 %i.45, 1
+  %329 = load ptr, ptr %vfn1539, align 8
+  tail call void %329(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2343) #20
+  %inc1540 = add nuw nsw i64 %i.451923, 1
   %.pre1353 = load ptr, ptr %_M_finish.i, align 8
   %.pre1354 = load ptr, ptr %persistent_values, align 8
   %.pre1559 = ptrtoint ptr %.pre1353 to i64
   %.pre1560 = ptrtoint ptr %.pre1354 to i64
   %.pre1561 = sub i64 %.pre1559, %.pre1560
   %.pre1562 = sdiv exact i64 %.pre1561, 48
-  br label %if.end1541
+  %330 = icmp ugt i64 %.pre1562, %inc1540
+  br i1 %330, label %land.lhs.true1547, label %if.end1970
 
-if.end1541:                                       ; preds = %if.end1533, %land.lhs.true1514, %if.end1508
-  %sub.ptr.div.i1174.pre-phi = phi i64 [ %.pre1562, %if.end1533 ], [ %sub.ptr.div.i1167.pre-phi, %land.lhs.true1514 ], [ %sub.ptr.div.i1167.pre-phi, %if.end1508 ]
-  %285 = phi ptr [ %.pre1354, %if.end1533 ], [ %279, %land.lhs.true1514 ], [ %279, %if.end1508 ]
-  %i.46 = phi i64 [ %inc1540, %if.end1533 ], [ %i.45, %land.lhs.true1514 ], [ %i.45, %if.end1508 ]
-  %cmp1546 = icmp ugt i64 %sub.ptr.div.i1174.pre-phi, %i.46
-  br i1 %cmp1546, label %land.lhs.true1547, label %if.end1574
-
-land.lhs.true1547:                                ; preds = %if.end1541
-  %add.ptr.i1175 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %285, i64 %i.46
+land.lhs.true1547:                                ; preds = %land.lhs.true1514, %if.end1541
+  %i.461930 = phi i64 [ %inc1540, %if.end1541 ], [ %i.451923, %land.lhs.true1514 ]
+  %331 = phi ptr [ %.pre1354, %if.end1541 ], [ %324, %land.lhs.true1514 ]
+  %add.ptr.i1175 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %331, i64 %i.461930
   %id1549 = getelementptr inbounds nuw i8, ptr %add.ptr.i1175, i64 32
-  %286 = load i32, ptr %id1549, align 8
-  %cmp1550 = icmp eq i32 %286, 47
-  br i1 %cmp1550, label %if.then1551, label %if.end1574
+  %332 = load i32, ptr %id1549, align 8
+  %cmp1550 = icmp eq i32 %332, 47
+  br i1 %cmp1550, label %if.then1551, label %land.lhs.true1580
 
 if.then1551:                                      ; preds = %land.lhs.true1547
   %index1556 = getelementptr inbounds nuw i8, ptr %add.ptr.i1175, i64 40
-  %287 = load i64, ptr %index1556, align 8
-  %call.i2331 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %287) #20
+  %333 = load i64, ptr %index1556, align 8
+  %call.i2331 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %333) #20
   %cond834 = icmp eq ptr %call.i2331, null
-  br i1 %cond834, label %if.then1564, label %if.end1566
+  br i1 %cond834, label %if.then1564, label %if.end1574
 
 if.then1564:                                      ; preds = %if.then1551
-  %288 = load ptr, ptr @stderr, align 8
-  %289 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 58, i64 1, ptr %288) #25
-  br label %if.end1566
+  %334 = load ptr, ptr @stderr, align 8
+  %335 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 58, i64 1, ptr %334) #25
+  br label %if.end1574
 
-if.end1566:                                       ; preds = %if.then1551, %if.then1564
+if.end1574:                                       ; preds = %if.then1564, %if.then1551
   %vtable1571 = load ptr, ptr %this, align 8
   %vfn1572 = getelementptr inbounds nuw i8, ptr %vtable1571, i64 832
-  %290 = load ptr, ptr %vfn1572, align 8
-  tail call void %290(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2331) #20
-  %inc1573 = add nuw nsw i64 %i.46, 1
+  %336 = load ptr, ptr %vfn1572, align 8
+  tail call void %336(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2331) #20
+  %inc1573 = add nuw nsw i64 %i.461930, 1
   %.pre1355 = load ptr, ptr %_M_finish.i, align 8
   %.pre1356 = load ptr, ptr %persistent_values, align 8
   %.pre1563 = ptrtoint ptr %.pre1355 to i64
   %.pre1564 = ptrtoint ptr %.pre1356 to i64
   %.pre1565 = sub i64 %.pre1563, %.pre1564
   %.pre1566 = sdiv exact i64 %.pre1565, 48
-  br label %if.end1574
+  %337 = icmp ugt i64 %.pre1566, %inc1573
+  br i1 %337, label %land.lhs.true1580, label %if.end1970
 
-if.end1574:                                       ; preds = %if.end1566, %land.lhs.true1547, %if.end1541
-  %sub.ptr.div.i1181.pre-phi = phi i64 [ %.pre1566, %if.end1566 ], [ %sub.ptr.div.i1174.pre-phi, %land.lhs.true1547 ], [ %sub.ptr.div.i1174.pre-phi, %if.end1541 ]
-  %291 = phi ptr [ %.pre1356, %if.end1566 ], [ %285, %land.lhs.true1547 ], [ %285, %if.end1541 ]
-  %i.47 = phi i64 [ %inc1573, %if.end1566 ], [ %i.46, %land.lhs.true1547 ], [ %i.46, %if.end1541 ]
-  %cmp1579 = icmp ugt i64 %sub.ptr.div.i1181.pre-phi, %i.47
-  br i1 %cmp1579, label %land.lhs.true1580, label %if.end1607
-
-land.lhs.true1580:                                ; preds = %if.end1574
-  %add.ptr.i1182 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %291, i64 %i.47
+land.lhs.true1580:                                ; preds = %land.lhs.true1547, %if.end1574
+  %i.471937 = phi i64 [ %inc1573, %if.end1574 ], [ %i.461930, %land.lhs.true1547 ]
+  %338 = phi ptr [ %.pre1356, %if.end1574 ], [ %331, %land.lhs.true1547 ]
+  %add.ptr.i1182 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %338, i64 %i.471937
   %id1582 = getelementptr inbounds nuw i8, ptr %add.ptr.i1182, i64 32
-  %292 = load i32, ptr %id1582, align 8
-  %cmp1583 = icmp eq i32 %292, 48
-  br i1 %cmp1583, label %if.then1584, label %if.end1607
+  %339 = load i32, ptr %id1582, align 8
+  %cmp1583 = icmp eq i32 %339, 48
+  br i1 %cmp1583, label %if.then1584, label %land.lhs.true1613
 
 if.then1584:                                      ; preds = %land.lhs.true1580
   %index1589 = getelementptr inbounds nuw i8, ptr %add.ptr.i1182, i64 40
-  %293 = load i64, ptr %index1589, align 8
-  %call.i2319 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %293) #20
+  %340 = load i64, ptr %index1589, align 8
+  %call.i2319 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %340) #20
   %cond835 = icmp eq ptr %call.i2319, null
-  br i1 %cond835, label %if.then1597, label %if.end1599
+  br i1 %cond835, label %if.then1597, label %if.end1607
 
 if.then1597:                                      ; preds = %if.then1584
-  %294 = load ptr, ptr @stderr, align 8
-  %295 = tail call i64 @fwrite(ptr nonnull @.str.129, i64 62, i64 1, ptr %294) #25
-  br label %if.end1599
+  %341 = load ptr, ptr @stderr, align 8
+  %342 = tail call i64 @fwrite(ptr nonnull @.str.129, i64 62, i64 1, ptr %341) #25
+  br label %if.end1607
 
-if.end1599:                                       ; preds = %if.then1584, %if.then1597
+if.end1607:                                       ; preds = %if.then1597, %if.then1584
   %vtable1604 = load ptr, ptr %this, align 8
   %vfn1605 = getelementptr inbounds nuw i8, ptr %vtable1604, i64 848
-  %296 = load ptr, ptr %vfn1605, align 8
-  tail call void %296(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2319) #20
-  %inc1606 = add nuw nsw i64 %i.47, 1
+  %343 = load ptr, ptr %vfn1605, align 8
+  tail call void %343(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2319) #20
+  %inc1606 = add nuw nsw i64 %i.471937, 1
   %.pre1357 = load ptr, ptr %_M_finish.i, align 8
   %.pre1358 = load ptr, ptr %persistent_values, align 8
   %.pre1567 = ptrtoint ptr %.pre1357 to i64
   %.pre1568 = ptrtoint ptr %.pre1358 to i64
   %.pre1569 = sub i64 %.pre1567, %.pre1568
   %.pre1570 = sdiv exact i64 %.pre1569, 48
-  br label %if.end1607
+  %344 = icmp ugt i64 %.pre1570, %inc1606
+  br i1 %344, label %land.lhs.true1613, label %if.end1970
 
-if.end1607:                                       ; preds = %if.end1599, %land.lhs.true1580, %if.end1574
-  %sub.ptr.div.i1188.pre-phi = phi i64 [ %.pre1570, %if.end1599 ], [ %sub.ptr.div.i1181.pre-phi, %land.lhs.true1580 ], [ %sub.ptr.div.i1181.pre-phi, %if.end1574 ]
-  %297 = phi ptr [ %.pre1358, %if.end1599 ], [ %291, %land.lhs.true1580 ], [ %291, %if.end1574 ]
-  %i.48 = phi i64 [ %inc1606, %if.end1599 ], [ %i.47, %land.lhs.true1580 ], [ %i.47, %if.end1574 ]
-  %cmp1612 = icmp ugt i64 %sub.ptr.div.i1188.pre-phi, %i.48
-  br i1 %cmp1612, label %land.lhs.true1613, label %if.end1640
-
-land.lhs.true1613:                                ; preds = %if.end1607
-  %add.ptr.i1189 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %297, i64 %i.48
+land.lhs.true1613:                                ; preds = %land.lhs.true1580, %if.end1607
+  %i.481944 = phi i64 [ %inc1606, %if.end1607 ], [ %i.471937, %land.lhs.true1580 ]
+  %345 = phi ptr [ %.pre1358, %if.end1607 ], [ %338, %land.lhs.true1580 ]
+  %add.ptr.i1189 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %345, i64 %i.481944
   %id1615 = getelementptr inbounds nuw i8, ptr %add.ptr.i1189, i64 32
-  %298 = load i32, ptr %id1615, align 8
-  %cmp1616 = icmp eq i32 %298, 49
-  br i1 %cmp1616, label %if.then1617, label %if.end1640
+  %346 = load i32, ptr %id1615, align 8
+  %cmp1616 = icmp eq i32 %346, 49
+  br i1 %cmp1616, label %if.then1617, label %land.lhs.true1646
 
 if.then1617:                                      ; preds = %land.lhs.true1613
   %index1622 = getelementptr inbounds nuw i8, ptr %add.ptr.i1189, i64 40
-  %299 = load i64, ptr %index1622, align 8
-  %call.i2307 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %299) #20
+  %347 = load i64, ptr %index1622, align 8
+  %call.i2307 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %347) #20
   %cond836 = icmp eq ptr %call.i2307, null
-  br i1 %cond836, label %if.then1630, label %if.end1632
+  br i1 %cond836, label %if.then1630, label %if.end1640
 
 if.then1630:                                      ; preds = %if.then1617
-  %300 = load ptr, ptr @stderr, align 8
-  %301 = tail call i64 @fwrite(ptr nonnull @.str.130, i64 64, i64 1, ptr %300) #25
-  br label %if.end1632
+  %348 = load ptr, ptr @stderr, align 8
+  %349 = tail call i64 @fwrite(ptr nonnull @.str.130, i64 64, i64 1, ptr %348) #25
+  br label %if.end1640
 
-if.end1632:                                       ; preds = %if.then1617, %if.then1630
+if.end1640:                                       ; preds = %if.then1630, %if.then1617
   %vtable1637 = load ptr, ptr %this, align 8
   %vfn1638 = getelementptr inbounds nuw i8, ptr %vtable1637, i64 864
-  %302 = load ptr, ptr %vfn1638, align 8
-  tail call void %302(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2307) #20
-  %inc1639 = add nuw nsw i64 %i.48, 1
+  %350 = load ptr, ptr %vfn1638, align 8
+  tail call void %350(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2307) #20
+  %inc1639 = add nuw nsw i64 %i.481944, 1
   %.pre1359 = load ptr, ptr %_M_finish.i, align 8
   %.pre1360 = load ptr, ptr %persistent_values, align 8
   %.pre1571 = ptrtoint ptr %.pre1359 to i64
   %.pre1572 = ptrtoint ptr %.pre1360 to i64
   %.pre1573 = sub i64 %.pre1571, %.pre1572
   %.pre1574 = sdiv exact i64 %.pre1573, 48
-  br label %if.end1640
+  %351 = icmp ugt i64 %.pre1574, %inc1639
+  br i1 %351, label %land.lhs.true1646, label %if.end1970
 
-if.end1640:                                       ; preds = %if.end1632, %land.lhs.true1613, %if.end1607
-  %sub.ptr.div.i1195.pre-phi = phi i64 [ %.pre1574, %if.end1632 ], [ %sub.ptr.div.i1188.pre-phi, %land.lhs.true1613 ], [ %sub.ptr.div.i1188.pre-phi, %if.end1607 ]
-  %303 = phi ptr [ %.pre1360, %if.end1632 ], [ %297, %land.lhs.true1613 ], [ %297, %if.end1607 ]
-  %i.49 = phi i64 [ %inc1639, %if.end1632 ], [ %i.48, %land.lhs.true1613 ], [ %i.48, %if.end1607 ]
-  %cmp1645 = icmp ugt i64 %sub.ptr.div.i1195.pre-phi, %i.49
-  br i1 %cmp1645, label %land.lhs.true1646, label %if.end1673
-
-land.lhs.true1646:                                ; preds = %if.end1640
-  %add.ptr.i1196 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %303, i64 %i.49
+land.lhs.true1646:                                ; preds = %land.lhs.true1613, %if.end1640
+  %i.491951 = phi i64 [ %inc1639, %if.end1640 ], [ %i.481944, %land.lhs.true1613 ]
+  %352 = phi ptr [ %.pre1360, %if.end1640 ], [ %345, %land.lhs.true1613 ]
+  %add.ptr.i1196 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %352, i64 %i.491951
   %id1648 = getelementptr inbounds nuw i8, ptr %add.ptr.i1196, i64 32
-  %304 = load i32, ptr %id1648, align 8
-  %cmp1649 = icmp eq i32 %304, 50
-  br i1 %cmp1649, label %if.then1650, label %if.end1673
+  %353 = load i32, ptr %id1648, align 8
+  %cmp1649 = icmp eq i32 %353, 50
+  br i1 %cmp1649, label %if.then1650, label %land.lhs.true1679
 
 if.then1650:                                      ; preds = %land.lhs.true1646
   %index1655 = getelementptr inbounds nuw i8, ptr %add.ptr.i1196, i64 40
-  %305 = load i64, ptr %index1655, align 8
-  %call.i2295 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %305) #20
+  %354 = load i64, ptr %index1655, align 8
+  %call.i2295 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %354) #20
   %cond837 = icmp eq ptr %call.i2295, null
-  br i1 %cond837, label %if.then1663, label %if.end1665
+  br i1 %cond837, label %if.then1663, label %if.end1673
 
 if.then1663:                                      ; preds = %if.then1650
-  %306 = load ptr, ptr @stderr, align 8
-  %307 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 60, i64 1, ptr %306) #25
-  br label %if.end1665
+  %355 = load ptr, ptr @stderr, align 8
+  %356 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 60, i64 1, ptr %355) #25
+  br label %if.end1673
 
-if.end1665:                                       ; preds = %if.then1650, %if.then1663
+if.end1673:                                       ; preds = %if.then1663, %if.then1650
   %vtable1670 = load ptr, ptr %this, align 8
   %vfn1671 = getelementptr inbounds nuw i8, ptr %vtable1670, i64 880
-  %308 = load ptr, ptr %vfn1671, align 8
-  tail call void %308(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2295) #20
-  %inc1672 = add nuw nsw i64 %i.49, 1
+  %357 = load ptr, ptr %vfn1671, align 8
+  tail call void %357(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2295) #20
+  %inc1672 = add nuw nsw i64 %i.491951, 1
   %.pre1361 = load ptr, ptr %_M_finish.i, align 8
   %.pre1362 = load ptr, ptr %persistent_values, align 8
   %.pre1575 = ptrtoint ptr %.pre1361 to i64
   %.pre1576 = ptrtoint ptr %.pre1362 to i64
   %.pre1577 = sub i64 %.pre1575, %.pre1576
   %.pre1578 = sdiv exact i64 %.pre1577, 48
-  br label %if.end1673
+  %358 = icmp ugt i64 %.pre1578, %inc1672
+  br i1 %358, label %land.lhs.true1679, label %if.end1970
 
-if.end1673:                                       ; preds = %if.end1665, %land.lhs.true1646, %if.end1640
-  %sub.ptr.div.i1202.pre-phi = phi i64 [ %.pre1578, %if.end1665 ], [ %sub.ptr.div.i1195.pre-phi, %land.lhs.true1646 ], [ %sub.ptr.div.i1195.pre-phi, %if.end1640 ]
-  %309 = phi ptr [ %.pre1362, %if.end1665 ], [ %303, %land.lhs.true1646 ], [ %303, %if.end1640 ]
-  %i.50 = phi i64 [ %inc1672, %if.end1665 ], [ %i.49, %land.lhs.true1646 ], [ %i.49, %if.end1640 ]
-  %cmp1678 = icmp ugt i64 %sub.ptr.div.i1202.pre-phi, %i.50
-  br i1 %cmp1678, label %land.lhs.true1679, label %if.end1706
-
-land.lhs.true1679:                                ; preds = %if.end1673
-  %add.ptr.i1203 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %309, i64 %i.50
+land.lhs.true1679:                                ; preds = %land.lhs.true1646, %if.end1673
+  %i.501958 = phi i64 [ %inc1672, %if.end1673 ], [ %i.491951, %land.lhs.true1646 ]
+  %359 = phi ptr [ %.pre1362, %if.end1673 ], [ %352, %land.lhs.true1646 ]
+  %add.ptr.i1203 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %359, i64 %i.501958
   %id1681 = getelementptr inbounds nuw i8, ptr %add.ptr.i1203, i64 32
-  %310 = load i32, ptr %id1681, align 8
-  %cmp1682 = icmp eq i32 %310, 51
-  br i1 %cmp1682, label %if.then1683, label %if.end1706
+  %360 = load i32, ptr %id1681, align 8
+  %cmp1682 = icmp eq i32 %360, 51
+  br i1 %cmp1682, label %if.then1683, label %land.lhs.true1712
 
 if.then1683:                                      ; preds = %land.lhs.true1679
   %index1688 = getelementptr inbounds nuw i8, ptr %add.ptr.i1203, i64 40
-  %311 = load i64, ptr %index1688, align 8
-  %call.i2283 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %311) #20
+  %361 = load i64, ptr %index1688, align 8
+  %call.i2283 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %361) #20
   %cond838 = icmp eq ptr %call.i2283, null
-  br i1 %cond838, label %if.then1696, label %if.end1698
+  br i1 %cond838, label %if.then1696, label %if.end1706
 
 if.then1696:                                      ; preds = %if.then1683
-  %312 = load ptr, ptr @stderr, align 8
-  %313 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 58, i64 1, ptr %312) #25
-  br label %if.end1698
+  %362 = load ptr, ptr @stderr, align 8
+  %363 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 58, i64 1, ptr %362) #25
+  br label %if.end1706
 
-if.end1698:                                       ; preds = %if.then1683, %if.then1696
+if.end1706:                                       ; preds = %if.then1696, %if.then1683
   %vtable1703 = load ptr, ptr %this, align 8
   %vfn1704 = getelementptr inbounds nuw i8, ptr %vtable1703, i64 896
-  %314 = load ptr, ptr %vfn1704, align 8
-  tail call void %314(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2283) #20
-  %inc1705 = add nuw nsw i64 %i.50, 1
+  %364 = load ptr, ptr %vfn1704, align 8
+  tail call void %364(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2283) #20
+  %inc1705 = add nuw nsw i64 %i.501958, 1
   %.pre1363 = load ptr, ptr %_M_finish.i, align 8
   %.pre1364 = load ptr, ptr %persistent_values, align 8
   %.pre1579 = ptrtoint ptr %.pre1363 to i64
   %.pre1580 = ptrtoint ptr %.pre1364 to i64
   %.pre1581 = sub i64 %.pre1579, %.pre1580
   %.pre1582 = sdiv exact i64 %.pre1581, 48
-  br label %if.end1706
+  %365 = icmp ugt i64 %.pre1582, %inc1705
+  br i1 %365, label %land.lhs.true1712, label %if.end1970
 
-if.end1706:                                       ; preds = %if.end1698, %land.lhs.true1679, %if.end1673
-  %sub.ptr.div.i1209.pre-phi = phi i64 [ %.pre1582, %if.end1698 ], [ %sub.ptr.div.i1202.pre-phi, %land.lhs.true1679 ], [ %sub.ptr.div.i1202.pre-phi, %if.end1673 ]
-  %315 = phi ptr [ %.pre1364, %if.end1698 ], [ %309, %land.lhs.true1679 ], [ %309, %if.end1673 ]
-  %i.51 = phi i64 [ %inc1705, %if.end1698 ], [ %i.50, %land.lhs.true1679 ], [ %i.50, %if.end1673 ]
-  %cmp1711 = icmp ugt i64 %sub.ptr.div.i1209.pre-phi, %i.51
-  br i1 %cmp1711, label %land.lhs.true1712, label %if.end1739
-
-land.lhs.true1712:                                ; preds = %if.end1706
-  %add.ptr.i1210 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %315, i64 %i.51
+land.lhs.true1712:                                ; preds = %land.lhs.true1679, %if.end1706
+  %i.511965 = phi i64 [ %inc1705, %if.end1706 ], [ %i.501958, %land.lhs.true1679 ]
+  %366 = phi ptr [ %.pre1364, %if.end1706 ], [ %359, %land.lhs.true1679 ]
+  %add.ptr.i1210 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %366, i64 %i.511965
   %id1714 = getelementptr inbounds nuw i8, ptr %add.ptr.i1210, i64 32
-  %316 = load i32, ptr %id1714, align 8
-  %cmp1715 = icmp eq i32 %316, 52
-  br i1 %cmp1715, label %if.then1716, label %if.end1739
+  %367 = load i32, ptr %id1714, align 8
+  %cmp1715 = icmp eq i32 %367, 52
+  br i1 %cmp1715, label %if.then1716, label %land.lhs.true1745
 
 if.then1716:                                      ; preds = %land.lhs.true1712
   %index1721 = getelementptr inbounds nuw i8, ptr %add.ptr.i1210, i64 40
-  %317 = load i64, ptr %index1721, align 8
-  %call.i2271 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %317) #20
+  %368 = load i64, ptr %index1721, align 8
+  %call.i2271 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %368) #20
   %cond839 = icmp eq ptr %call.i2271, null
-  br i1 %cond839, label %if.then1729, label %if.end1731
+  br i1 %cond839, label %if.then1729, label %if.end1739
 
 if.then1729:                                      ; preds = %if.then1716
-  %318 = load ptr, ptr @stderr, align 8
-  %319 = tail call i64 @fwrite(ptr nonnull @.str.133, i64 57, i64 1, ptr %318) #25
-  br label %if.end1731
+  %369 = load ptr, ptr @stderr, align 8
+  %370 = tail call i64 @fwrite(ptr nonnull @.str.133, i64 57, i64 1, ptr %369) #25
+  br label %if.end1739
 
-if.end1731:                                       ; preds = %if.then1716, %if.then1729
+if.end1739:                                       ; preds = %if.then1729, %if.then1716
   %vtable1736 = load ptr, ptr %this, align 8
   %vfn1737 = getelementptr inbounds nuw i8, ptr %vtable1736, i64 912
-  %320 = load ptr, ptr %vfn1737, align 8
-  tail call void %320(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2271) #20
-  %inc1738 = add nuw nsw i64 %i.51, 1
+  %371 = load ptr, ptr %vfn1737, align 8
+  tail call void %371(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2271) #20
+  %inc1738 = add nuw nsw i64 %i.511965, 1
   %.pre1365 = load ptr, ptr %_M_finish.i, align 8
   %.pre1366 = load ptr, ptr %persistent_values, align 8
   %.pre1583 = ptrtoint ptr %.pre1365 to i64
   %.pre1584 = ptrtoint ptr %.pre1366 to i64
   %.pre1585 = sub i64 %.pre1583, %.pre1584
   %.pre1586 = sdiv exact i64 %.pre1585, 48
-  br label %if.end1739
+  %372 = icmp ugt i64 %.pre1586, %inc1738
+  br i1 %372, label %land.lhs.true1745, label %if.end1970
 
-if.end1739:                                       ; preds = %if.end1731, %land.lhs.true1712, %if.end1706
-  %sub.ptr.div.i1216.pre-phi = phi i64 [ %.pre1586, %if.end1731 ], [ %sub.ptr.div.i1209.pre-phi, %land.lhs.true1712 ], [ %sub.ptr.div.i1209.pre-phi, %if.end1706 ]
-  %321 = phi ptr [ %.pre1366, %if.end1731 ], [ %315, %land.lhs.true1712 ], [ %315, %if.end1706 ]
-  %i.52 = phi i64 [ %inc1738, %if.end1731 ], [ %i.51, %land.lhs.true1712 ], [ %i.51, %if.end1706 ]
-  %cmp1744 = icmp ugt i64 %sub.ptr.div.i1216.pre-phi, %i.52
-  br i1 %cmp1744, label %land.lhs.true1745, label %if.end1772
-
-land.lhs.true1745:                                ; preds = %if.end1739
-  %add.ptr.i1217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %321, i64 %i.52
+land.lhs.true1745:                                ; preds = %land.lhs.true1712, %if.end1739
+  %i.521972 = phi i64 [ %inc1738, %if.end1739 ], [ %i.511965, %land.lhs.true1712 ]
+  %373 = phi ptr [ %.pre1366, %if.end1739 ], [ %366, %land.lhs.true1712 ]
+  %add.ptr.i1217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %373, i64 %i.521972
   %id1747 = getelementptr inbounds nuw i8, ptr %add.ptr.i1217, i64 32
-  %322 = load i32, ptr %id1747, align 8
-  %cmp1748 = icmp eq i32 %322, 53
-  br i1 %cmp1748, label %if.then1749, label %if.end1772
+  %374 = load i32, ptr %id1747, align 8
+  %cmp1748 = icmp eq i32 %374, 53
+  br i1 %cmp1748, label %if.then1749, label %land.lhs.true1778
 
 if.then1749:                                      ; preds = %land.lhs.true1745
   %index1754 = getelementptr inbounds nuw i8, ptr %add.ptr.i1217, i64 40
-  %323 = load i64, ptr %index1754, align 8
-  %call.i2259 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %323) #20
+  %375 = load i64, ptr %index1754, align 8
+  %call.i2259 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %375) #20
   %cond840 = icmp eq ptr %call.i2259, null
-  br i1 %cond840, label %if.then1762, label %if.end1764
+  br i1 %cond840, label %if.then1762, label %if.end1772
 
 if.then1762:                                      ; preds = %if.then1749
-  %324 = load ptr, ptr @stderr, align 8
-  %325 = tail call i64 @fwrite(ptr nonnull @.str.134, i64 59, i64 1, ptr %324) #25
-  br label %if.end1764
+  %376 = load ptr, ptr @stderr, align 8
+  %377 = tail call i64 @fwrite(ptr nonnull @.str.134, i64 59, i64 1, ptr %376) #25
+  br label %if.end1772
 
-if.end1764:                                       ; preds = %if.then1749, %if.then1762
+if.end1772:                                       ; preds = %if.then1762, %if.then1749
   %vtable1769 = load ptr, ptr %this, align 8
   %vfn1770 = getelementptr inbounds nuw i8, ptr %vtable1769, i64 928
-  %326 = load ptr, ptr %vfn1770, align 8
-  tail call void %326(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2259) #20
-  %inc1771 = add nuw nsw i64 %i.52, 1
+  %378 = load ptr, ptr %vfn1770, align 8
+  tail call void %378(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2259) #20
+  %inc1771 = add nuw nsw i64 %i.521972, 1
   %.pre1367 = load ptr, ptr %_M_finish.i, align 8
   %.pre1368 = load ptr, ptr %persistent_values, align 8
   %.pre1587 = ptrtoint ptr %.pre1367 to i64
   %.pre1588 = ptrtoint ptr %.pre1368 to i64
   %.pre1589 = sub i64 %.pre1587, %.pre1588
   %.pre1590 = sdiv exact i64 %.pre1589, 48
-  br label %if.end1772
+  %379 = icmp ugt i64 %.pre1590, %inc1771
+  br i1 %379, label %land.lhs.true1778, label %if.end1970
 
-if.end1772:                                       ; preds = %if.end1764, %land.lhs.true1745, %if.end1739
-  %sub.ptr.div.i1223.pre-phi = phi i64 [ %.pre1590, %if.end1764 ], [ %sub.ptr.div.i1216.pre-phi, %land.lhs.true1745 ], [ %sub.ptr.div.i1216.pre-phi, %if.end1739 ]
-  %327 = phi ptr [ %.pre1368, %if.end1764 ], [ %321, %land.lhs.true1745 ], [ %321, %if.end1739 ]
-  %i.53 = phi i64 [ %inc1771, %if.end1764 ], [ %i.52, %land.lhs.true1745 ], [ %i.52, %if.end1739 ]
-  %cmp1777 = icmp ugt i64 %sub.ptr.div.i1223.pre-phi, %i.53
-  br i1 %cmp1777, label %land.lhs.true1778, label %if.end1805
-
-land.lhs.true1778:                                ; preds = %if.end1772
-  %add.ptr.i1224 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %327, i64 %i.53
+land.lhs.true1778:                                ; preds = %land.lhs.true1745, %if.end1772
+  %i.531979 = phi i64 [ %inc1771, %if.end1772 ], [ %i.521972, %land.lhs.true1745 ]
+  %380 = phi ptr [ %.pre1368, %if.end1772 ], [ %373, %land.lhs.true1745 ]
+  %add.ptr.i1224 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %380, i64 %i.531979
   %id1780 = getelementptr inbounds nuw i8, ptr %add.ptr.i1224, i64 32
-  %328 = load i32, ptr %id1780, align 8
-  %cmp1781 = icmp eq i32 %328, 54
-  br i1 %cmp1781, label %if.then1782, label %if.end1805
+  %381 = load i32, ptr %id1780, align 8
+  %cmp1781 = icmp eq i32 %381, 54
+  br i1 %cmp1781, label %if.then1782, label %land.lhs.true1811
 
 if.then1782:                                      ; preds = %land.lhs.true1778
   %index1787 = getelementptr inbounds nuw i8, ptr %add.ptr.i1224, i64 40
-  %329 = load i64, ptr %index1787, align 8
-  %call.i2247 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %329) #20
+  %382 = load i64, ptr %index1787, align 8
+  %call.i2247 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %382) #20
   %cond841 = icmp eq ptr %call.i2247, null
-  br i1 %cond841, label %if.then1795, label %if.end1797
+  br i1 %cond841, label %if.then1795, label %if.end1805
 
 if.then1795:                                      ; preds = %if.then1782
-  %330 = load ptr, ptr @stderr, align 8
-  %331 = tail call i64 @fwrite(ptr nonnull @.str.135, i64 64, i64 1, ptr %330) #25
-  br label %if.end1797
+  %383 = load ptr, ptr @stderr, align 8
+  %384 = tail call i64 @fwrite(ptr nonnull @.str.135, i64 64, i64 1, ptr %383) #25
+  br label %if.end1805
 
-if.end1797:                                       ; preds = %if.then1782, %if.then1795
+if.end1805:                                       ; preds = %if.then1795, %if.then1782
   %vtable1802 = load ptr, ptr %this, align 8
   %vfn1803 = getelementptr inbounds nuw i8, ptr %vtable1802, i64 944
-  %332 = load ptr, ptr %vfn1803, align 8
-  tail call void %332(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2247) #20
-  %inc1804 = add nuw nsw i64 %i.53, 1
+  %385 = load ptr, ptr %vfn1803, align 8
+  tail call void %385(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2247) #20
+  %inc1804 = add nuw nsw i64 %i.531979, 1
   %.pre1369 = load ptr, ptr %_M_finish.i, align 8
   %.pre1370 = load ptr, ptr %persistent_values, align 8
   %.pre1591 = ptrtoint ptr %.pre1369 to i64
   %.pre1592 = ptrtoint ptr %.pre1370 to i64
   %.pre1593 = sub i64 %.pre1591, %.pre1592
   %.pre1594 = sdiv exact i64 %.pre1593, 48
-  br label %if.end1805
+  %386 = icmp ugt i64 %.pre1594, %inc1804
+  br i1 %386, label %land.lhs.true1811, label %if.end1970
 
-if.end1805:                                       ; preds = %if.end1797, %land.lhs.true1778, %if.end1772
-  %sub.ptr.div.i1230.pre-phi = phi i64 [ %.pre1594, %if.end1797 ], [ %sub.ptr.div.i1223.pre-phi, %land.lhs.true1778 ], [ %sub.ptr.div.i1223.pre-phi, %if.end1772 ]
-  %333 = phi ptr [ %.pre1370, %if.end1797 ], [ %327, %land.lhs.true1778 ], [ %327, %if.end1772 ]
-  %i.54 = phi i64 [ %inc1804, %if.end1797 ], [ %i.53, %land.lhs.true1778 ], [ %i.53, %if.end1772 ]
-  %cmp1810 = icmp ugt i64 %sub.ptr.div.i1230.pre-phi, %i.54
-  br i1 %cmp1810, label %land.lhs.true1811, label %if.end1838
-
-land.lhs.true1811:                                ; preds = %if.end1805
-  %add.ptr.i1231 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %333, i64 %i.54
+land.lhs.true1811:                                ; preds = %land.lhs.true1778, %if.end1805
+  %i.541986 = phi i64 [ %inc1804, %if.end1805 ], [ %i.531979, %land.lhs.true1778 ]
+  %387 = phi ptr [ %.pre1370, %if.end1805 ], [ %380, %land.lhs.true1778 ]
+  %add.ptr.i1231 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %387, i64 %i.541986
   %id1813 = getelementptr inbounds nuw i8, ptr %add.ptr.i1231, i64 32
-  %334 = load i32, ptr %id1813, align 8
-  %cmp1814 = icmp eq i32 %334, 55
-  br i1 %cmp1814, label %if.then1815, label %if.end1838
+  %388 = load i32, ptr %id1813, align 8
+  %cmp1814 = icmp eq i32 %388, 55
+  br i1 %cmp1814, label %if.then1815, label %land.lhs.true1844
 
 if.then1815:                                      ; preds = %land.lhs.true1811
   %index1820 = getelementptr inbounds nuw i8, ptr %add.ptr.i1231, i64 40
-  %335 = load i64, ptr %index1820, align 8
-  %call.i2235 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %335) #20
+  %389 = load i64, ptr %index1820, align 8
+  %call.i2235 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %389) #20
   %cond842 = icmp eq ptr %call.i2235, null
-  br i1 %cond842, label %if.then1828, label %if.end1830
+  br i1 %cond842, label %if.then1828, label %if.end1838
 
 if.then1828:                                      ; preds = %if.then1815
-  %336 = load ptr, ptr @stderr, align 8
-  %337 = tail call i64 @fwrite(ptr nonnull @.str.136, i64 64, i64 1, ptr %336) #25
-  br label %if.end1830
+  %390 = load ptr, ptr @stderr, align 8
+  %391 = tail call i64 @fwrite(ptr nonnull @.str.136, i64 64, i64 1, ptr %390) #25
+  br label %if.end1838
 
-if.end1830:                                       ; preds = %if.then1815, %if.then1828
+if.end1838:                                       ; preds = %if.then1828, %if.then1815
   %vtable1835 = load ptr, ptr %this, align 8
   %vfn1836 = getelementptr inbounds nuw i8, ptr %vtable1835, i64 960
-  %338 = load ptr, ptr %vfn1836, align 8
-  tail call void %338(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2235) #20
-  %inc1837 = add nuw nsw i64 %i.54, 1
+  %392 = load ptr, ptr %vfn1836, align 8
+  tail call void %392(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2235) #20
+  %inc1837 = add nuw nsw i64 %i.541986, 1
   %.pre1371 = load ptr, ptr %_M_finish.i, align 8
   %.pre1372 = load ptr, ptr %persistent_values, align 8
   %.pre1595 = ptrtoint ptr %.pre1371 to i64
   %.pre1596 = ptrtoint ptr %.pre1372 to i64
   %.pre1597 = sub i64 %.pre1595, %.pre1596
   %.pre1598 = sdiv exact i64 %.pre1597, 48
-  br label %if.end1838
+  %393 = icmp ugt i64 %.pre1598, %inc1837
+  br i1 %393, label %land.lhs.true1844, label %if.end1970
 
-if.end1838:                                       ; preds = %if.end1830, %land.lhs.true1811, %if.end1805
-  %sub.ptr.div.i1237.pre-phi = phi i64 [ %.pre1598, %if.end1830 ], [ %sub.ptr.div.i1230.pre-phi, %land.lhs.true1811 ], [ %sub.ptr.div.i1230.pre-phi, %if.end1805 ]
-  %339 = phi ptr [ %.pre1372, %if.end1830 ], [ %333, %land.lhs.true1811 ], [ %333, %if.end1805 ]
-  %i.55 = phi i64 [ %inc1837, %if.end1830 ], [ %i.54, %land.lhs.true1811 ], [ %i.54, %if.end1805 ]
-  %cmp1843 = icmp ugt i64 %sub.ptr.div.i1237.pre-phi, %i.55
-  br i1 %cmp1843, label %land.lhs.true1844, label %if.end1871
-
-land.lhs.true1844:                                ; preds = %if.end1838
-  %add.ptr.i1238 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %339, i64 %i.55
+land.lhs.true1844:                                ; preds = %land.lhs.true1811, %if.end1838
+  %i.551993 = phi i64 [ %inc1837, %if.end1838 ], [ %i.541986, %land.lhs.true1811 ]
+  %394 = phi ptr [ %.pre1372, %if.end1838 ], [ %387, %land.lhs.true1811 ]
+  %add.ptr.i1238 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %394, i64 %i.551993
   %id1846 = getelementptr inbounds nuw i8, ptr %add.ptr.i1238, i64 32
-  %340 = load i32, ptr %id1846, align 8
-  %cmp1847 = icmp eq i32 %340, 56
-  br i1 %cmp1847, label %if.then1848, label %if.end1871
+  %395 = load i32, ptr %id1846, align 8
+  %cmp1847 = icmp eq i32 %395, 56
+  br i1 %cmp1847, label %if.then1848, label %land.lhs.true1877
 
 if.then1848:                                      ; preds = %land.lhs.true1844
   %index1853 = getelementptr inbounds nuw i8, ptr %add.ptr.i1238, i64 40
-  %341 = load i64, ptr %index1853, align 8
-  %call.i2223 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %341) #20
+  %396 = load i64, ptr %index1853, align 8
+  %call.i2223 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %396) #20
   %cond843 = icmp eq ptr %call.i2223, null
-  br i1 %cond843, label %if.then1861, label %if.end1863
+  br i1 %cond843, label %if.then1861, label %if.end1871
 
 if.then1861:                                      ; preds = %if.then1848
-  %342 = load ptr, ptr @stderr, align 8
-  %343 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 59, i64 1, ptr %342) #25
-  br label %if.end1863
+  %397 = load ptr, ptr @stderr, align 8
+  %398 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 59, i64 1, ptr %397) #25
+  br label %if.end1871
 
-if.end1863:                                       ; preds = %if.then1848, %if.then1861
+if.end1871:                                       ; preds = %if.then1861, %if.then1848
   %vtable1868 = load ptr, ptr %this, align 8
   %vfn1869 = getelementptr inbounds nuw i8, ptr %vtable1868, i64 976
-  %344 = load ptr, ptr %vfn1869, align 8
-  tail call void %344(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2223) #20
-  %inc1870 = add nuw nsw i64 %i.55, 1
+  %399 = load ptr, ptr %vfn1869, align 8
+  tail call void %399(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2223) #20
+  %inc1870 = add nuw nsw i64 %i.551993, 1
   %.pre1373 = load ptr, ptr %_M_finish.i, align 8
   %.pre1374 = load ptr, ptr %persistent_values, align 8
   %.pre1599 = ptrtoint ptr %.pre1373 to i64
   %.pre1600 = ptrtoint ptr %.pre1374 to i64
   %.pre1601 = sub i64 %.pre1599, %.pre1600
   %.pre1602 = sdiv exact i64 %.pre1601, 48
-  br label %if.end1871
+  %400 = icmp ugt i64 %.pre1602, %inc1870
+  br i1 %400, label %land.lhs.true1877, label %if.end1970
 
-if.end1871:                                       ; preds = %if.end1863, %land.lhs.true1844, %if.end1838
-  %sub.ptr.div.i1244.pre-phi = phi i64 [ %.pre1602, %if.end1863 ], [ %sub.ptr.div.i1237.pre-phi, %land.lhs.true1844 ], [ %sub.ptr.div.i1237.pre-phi, %if.end1838 ]
-  %345 = phi ptr [ %.pre1374, %if.end1863 ], [ %339, %land.lhs.true1844 ], [ %339, %if.end1838 ]
-  %i.56 = phi i64 [ %inc1870, %if.end1863 ], [ %i.55, %land.lhs.true1844 ], [ %i.55, %if.end1838 ]
-  %cmp1876 = icmp ugt i64 %sub.ptr.div.i1244.pre-phi, %i.56
-  br i1 %cmp1876, label %land.lhs.true1877, label %if.end1904
-
-land.lhs.true1877:                                ; preds = %if.end1871
-  %add.ptr.i1245 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %345, i64 %i.56
+land.lhs.true1877:                                ; preds = %land.lhs.true1844, %if.end1871
+  %i.562000 = phi i64 [ %inc1870, %if.end1871 ], [ %i.551993, %land.lhs.true1844 ]
+  %401 = phi ptr [ %.pre1374, %if.end1871 ], [ %394, %land.lhs.true1844 ]
+  %add.ptr.i1245 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %401, i64 %i.562000
   %id1879 = getelementptr inbounds nuw i8, ptr %add.ptr.i1245, i64 32
-  %346 = load i32, ptr %id1879, align 8
-  %cmp1880 = icmp eq i32 %346, 57
-  br i1 %cmp1880, label %if.then1881, label %if.end1904
+  %402 = load i32, ptr %id1879, align 8
+  %cmp1880 = icmp eq i32 %402, 57
+  br i1 %cmp1880, label %if.then1881, label %land.lhs.true1910
 
 if.then1881:                                      ; preds = %land.lhs.true1877
   %index1886 = getelementptr inbounds nuw i8, ptr %add.ptr.i1245, i64 40
-  %347 = load i64, ptr %index1886, align 8
-  %call.i2211 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %347) #20
+  %403 = load i64, ptr %index1886, align 8
+  %call.i2211 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %403) #20
   %cond844 = icmp eq ptr %call.i2211, null
-  br i1 %cond844, label %if.then1894, label %if.end1896
+  br i1 %cond844, label %if.then1894, label %if.end1904
 
 if.then1894:                                      ; preds = %if.then1881
-  %348 = load ptr, ptr @stderr, align 8
-  %349 = tail call i64 @fwrite(ptr nonnull @.str.138, i64 59, i64 1, ptr %348) #25
-  br label %if.end1896
+  %404 = load ptr, ptr @stderr, align 8
+  %405 = tail call i64 @fwrite(ptr nonnull @.str.138, i64 59, i64 1, ptr %404) #25
+  br label %if.end1904
 
-if.end1896:                                       ; preds = %if.then1881, %if.then1894
+if.end1904:                                       ; preds = %if.then1894, %if.then1881
   %vtable1901 = load ptr, ptr %this, align 8
   %vfn1902 = getelementptr inbounds nuw i8, ptr %vtable1901, i64 992
-  %350 = load ptr, ptr %vfn1902, align 8
-  tail call void %350(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2211) #20
-  %inc1903 = add nuw nsw i64 %i.56, 1
+  %406 = load ptr, ptr %vfn1902, align 8
+  tail call void %406(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2211) #20
+  %inc1903 = add nuw nsw i64 %i.562000, 1
   %.pre1375 = load ptr, ptr %_M_finish.i, align 8
   %.pre1376 = load ptr, ptr %persistent_values, align 8
   %.pre1603 = ptrtoint ptr %.pre1375 to i64
   %.pre1604 = ptrtoint ptr %.pre1376 to i64
   %.pre1605 = sub i64 %.pre1603, %.pre1604
   %.pre1606 = sdiv exact i64 %.pre1605, 48
-  br label %if.end1904
+  %407 = icmp ugt i64 %.pre1606, %inc1903
+  br i1 %407, label %land.lhs.true1910, label %if.end1970
 
-if.end1904:                                       ; preds = %if.end1896, %land.lhs.true1877, %if.end1871
-  %sub.ptr.div.i1251.pre-phi = phi i64 [ %.pre1606, %if.end1896 ], [ %sub.ptr.div.i1244.pre-phi, %land.lhs.true1877 ], [ %sub.ptr.div.i1244.pre-phi, %if.end1871 ]
-  %351 = phi ptr [ %.pre1376, %if.end1896 ], [ %345, %land.lhs.true1877 ], [ %345, %if.end1871 ]
-  %i.57 = phi i64 [ %inc1903, %if.end1896 ], [ %i.56, %land.lhs.true1877 ], [ %i.56, %if.end1871 ]
-  %cmp1909 = icmp ugt i64 %sub.ptr.div.i1251.pre-phi, %i.57
-  br i1 %cmp1909, label %land.lhs.true1910, label %if.end1937
-
-land.lhs.true1910:                                ; preds = %if.end1904
-  %add.ptr.i1252 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %351, i64 %i.57
+land.lhs.true1910:                                ; preds = %land.lhs.true1877, %if.end1904
+  %i.572007 = phi i64 [ %inc1903, %if.end1904 ], [ %i.562000, %land.lhs.true1877 ]
+  %408 = phi ptr [ %.pre1376, %if.end1904 ], [ %401, %land.lhs.true1877 ]
+  %add.ptr.i1252 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %408, i64 %i.572007
   %id1912 = getelementptr inbounds nuw i8, ptr %add.ptr.i1252, i64 32
-  %352 = load i32, ptr %id1912, align 8
-  %cmp1913 = icmp eq i32 %352, 58
-  br i1 %cmp1913, label %if.then1914, label %if.end1937
+  %409 = load i32, ptr %id1912, align 8
+  %cmp1913 = icmp eq i32 %409, 58
+  br i1 %cmp1913, label %if.then1914, label %land.lhs.true1943
 
 if.then1914:                                      ; preds = %land.lhs.true1910
   %index1919 = getelementptr inbounds nuw i8, ptr %add.ptr.i1252, i64 40
-  %353 = load i64, ptr %index1919, align 8
-  %call.i2199 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %353) #20
+  %410 = load i64, ptr %index1919, align 8
+  %call.i2199 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %410) #20
   %cond845 = icmp eq ptr %call.i2199, null
-  br i1 %cond845, label %if.then1927, label %if.end1929
+  br i1 %cond845, label %if.then1927, label %if.end1937
 
 if.then1927:                                      ; preds = %if.then1914
-  %354 = load ptr, ptr @stderr, align 8
-  %355 = tail call i64 @fwrite(ptr nonnull @.str.139, i64 66, i64 1, ptr %354) #25
-  br label %if.end1929
+  %411 = load ptr, ptr @stderr, align 8
+  %412 = tail call i64 @fwrite(ptr nonnull @.str.139, i64 66, i64 1, ptr %411) #25
+  br label %if.end1937
 
-if.end1929:                                       ; preds = %if.then1914, %if.then1927
+if.end1937:                                       ; preds = %if.then1927, %if.then1914
   %vtable1934 = load ptr, ptr %this, align 8
   %vfn1935 = getelementptr inbounds nuw i8, ptr %vtable1934, i64 1008
-  %356 = load ptr, ptr %vfn1935, align 8
-  tail call void %356(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2199) #20
-  %inc1936 = add nuw nsw i64 %i.57, 1
+  %413 = load ptr, ptr %vfn1935, align 8
+  tail call void %413(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2199) #20
+  %inc1936 = add nuw nsw i64 %i.572007, 1
   %.pre1377 = load ptr, ptr %_M_finish.i, align 8
   %.pre1378 = load ptr, ptr %persistent_values, align 8
   %.pre1607 = ptrtoint ptr %.pre1377 to i64
   %.pre1608 = ptrtoint ptr %.pre1378 to i64
   %.pre1609 = sub i64 %.pre1607, %.pre1608
   %.pre1610 = sdiv exact i64 %.pre1609, 48
-  br label %if.end1937
+  %414 = icmp ugt i64 %.pre1610, %inc1936
+  br i1 %414, label %land.lhs.true1943, label %if.end1970
 
-if.end1937:                                       ; preds = %if.end1929, %land.lhs.true1910, %if.end1904
-  %sub.ptr.div.i1258.pre-phi = phi i64 [ %.pre1610, %if.end1929 ], [ %sub.ptr.div.i1251.pre-phi, %land.lhs.true1910 ], [ %sub.ptr.div.i1251.pre-phi, %if.end1904 ]
-  %357 = phi ptr [ %.pre1378, %if.end1929 ], [ %351, %land.lhs.true1910 ], [ %351, %if.end1904 ]
-  %i.58 = phi i64 [ %inc1936, %if.end1929 ], [ %i.57, %land.lhs.true1910 ], [ %i.57, %if.end1904 ]
-  %cmp1942 = icmp ugt i64 %sub.ptr.div.i1258.pre-phi, %i.58
-  br i1 %cmp1942, label %land.lhs.true1943, label %if.end1970
-
-land.lhs.true1943:                                ; preds = %if.end1937
-  %add.ptr.i1259 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %357, i64 %i.58
+land.lhs.true1943:                                ; preds = %land.lhs.true1910, %if.end1937
+  %i.582014 = phi i64 [ %inc1936, %if.end1937 ], [ %i.572007, %land.lhs.true1910 ]
+  %415 = phi ptr [ %.pre1378, %if.end1937 ], [ %408, %land.lhs.true1910 ]
+  %add.ptr.i1259 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %415, i64 %i.582014
   %id1945 = getelementptr inbounds nuw i8, ptr %add.ptr.i1259, i64 32
-  %358 = load i32, ptr %id1945, align 8
-  %cmp1946 = icmp eq i32 %358, 59
+  %416 = load i32, ptr %id1945, align 8
+  %cmp1946 = icmp eq i32 %416, 59
   br i1 %cmp1946, label %if.then1947, label %if.end1970
 
 if.then1947:                                      ; preds = %land.lhs.true1943
   %index1952 = getelementptr inbounds nuw i8, ptr %add.ptr.i1259, i64 40
-  %359 = load i64, ptr %index1952, align 8
-  %call.i2192 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %359) #20
+  %417 = load i64, ptr %index1952, align 8
+  %call.i2192 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %417) #20
   %cond846 = icmp eq ptr %call.i2192, null
   br i1 %cond846, label %if.then1960, label %if.end1962
 
 if.then1960:                                      ; preds = %if.then1947
-  %360 = load ptr, ptr @stderr, align 8
-  %361 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 68, i64 1, ptr %360) #25
+  %418 = load ptr, ptr @stderr, align 8
+  %419 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 68, i64 1, ptr %418) #25
   br label %if.end1962
 
 if.end1962:                                       ; preds = %if.then1947, %if.then1960
   %vtable1967 = load ptr, ptr %this, align 8
   %vfn1968 = getelementptr inbounds nuw i8, ptr %vtable1967, i64 1024
-  %362 = load ptr, ptr %vfn1968, align 8
-  tail call void %362(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2192) #20
+  %420 = load ptr, ptr %vfn1968, align 8
+  tail call void %420(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %call.i2192) #20
   br label %if.end1970
 
-if.end1970:                                       ; preds = %if.end1962, %land.lhs.true1943, %if.end1937
+if.end1970:                                       ; preds = %if.end24, %if.end56, %if.end89, %if.end122, %if.end155, %if.end188, %if.end221, %if.end254, %if.end287, %if.end320, %if.end353, %if.end386, %if.end419, %if.end452, %if.end485, %if.end518, %if.end551, %if.end584, %if.end617, %if.end650, %if.end683, %if.end716, %if.end749, %if.end782, %if.end815, %if.end848, %if.end881, %if.end914, %if.end947, %if.end980, %if.end1013, %if.end1046, %if.end1079, %if.end1112, %if.end1145, %if.end1178, %if.end1211, %if.end1244, %if.end1277, %if.end1310, %if.end1343, %if.end1376, %if.end1409, %if.end1442, %if.end1475, %if.end1508, %if.end1541, %if.end1574, %if.end1607, %if.end1640, %if.end1673, %if.end1706, %if.end1739, %if.end1772, %if.end1805, %if.end1838, %if.end1871, %if.end1904, %if.end1962, %land.lhs.true1943, %if.end1937
   %context = getelementptr inbounds nuw i8, ptr %info, i64 72
-  %363 = load i64, ptr %context, align 8
-  %call.i3306 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %363) #20
+  %421 = load i64, ptr %context, align 8
+  %call.i3306 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %421) #20
   %cond848 = icmp eq ptr %call.i3306, null
   br i1 %cond848, label %if.then1980, label %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
 
 if.then1980:                                      ; preds = %if.end1970
-  %364 = load ptr, ptr @stderr, align 8
-  %365 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 63, i64 1, ptr %364) #25
+  %422 = load ptr, ptr @stderr, align 8
+  %423 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 63, i64 1, ptr %422) #25
   br label %do.body1988
 
 _ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit: ; preds = %if.end1970
-  %366 = load i64, ptr %call.i3306, align 8
-  %367 = load i64, ptr %call, align 8
-  %cmp.i = icmp eq i64 %366, %367
+  %424 = load i64, ptr %call.i3306, align 8
+  %425 = load i64, ptr %call, align 8
+  %cmp.i = icmp eq i64 %424, %425
   br i1 %cmp.i, label %do.end1991, label %do.body1988
 
 do.body1988:                                      ; preds = %if.then1980, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
@@ -10343,16 +10111,16 @@ do.body1988:                                      ; preds = %if.then1980, %_ZN2v
 
 do.end1991:                                       ; preds = %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   %kind_.i = getelementptr inbounds nuw i8, ptr %this, i64 680
-  %368 = load i32, ptr %kind_.i, align 8
-  %cmp.i1261 = icmp eq i32 %368, 0
+  %426 = load i32, ptr %kind_.i, align 8
+  %cmp.i1261 = icmp eq i32 %426, 0
   br i1 %cmp.i1261, label %do.body.i, label %_ZN4node5Realm17DoneBootstrappingEv.exit
 
 do.body.i:                                        ; preds = %do.end1991
   %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %369 = load ptr, ptr %env_.i, align 8
-  %req_wrap_queue_.i.i = getelementptr inbounds nuw i8, ptr %369, i64 2192
-  %370 = load ptr, ptr %req_wrap_queue_.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %370, %req_wrap_queue_.i.i
+  %427 = load ptr, ptr %env_.i, align 8
+  %req_wrap_queue_.i.i = getelementptr inbounds nuw i8, ptr %427, i64 2192
+  %428 = load ptr, ptr %req_wrap_queue_.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %428, %req_wrap_queue_.i.i
   br i1 %cmp.i.i.i, label %do.body8.i, label %do.body6.i
 
 do.body6.i:                                       ; preds = %do.body.i
@@ -10361,9 +10129,9 @@ do.body6.i:                                       ; preds = %do.body.i
   unreachable
 
 do.body8.i:                                       ; preds = %do.body.i
-  %handle_wrap_queue_.i.i = getelementptr inbounds nuw i8, ptr %369, i64 2176
-  %371 = load ptr, ptr %handle_wrap_queue_.i.i, align 8
-  %cmp.i.i1.i = icmp eq ptr %371, %handle_wrap_queue_.i.i
+  %handle_wrap_queue_.i.i = getelementptr inbounds nuw i8, ptr %427, i64 2176
+  %429 = load ptr, ptr %handle_wrap_queue_.i.i, align 8
+  %cmp.i.i1.i = icmp eq ptr %429, %handle_wrap_queue_.i.i
   br i1 %cmp.i.i1.i, label %_ZN4node5Realm17DoneBootstrappingEv.exit, label %do.body16.i
 
 do.body16.i:                                      ; preds = %do.body8.i
@@ -10375,9 +10143,9 @@ _ZN4node5Realm17DoneBootstrappingEv.exit:         ; preds = %do.end1991, %do.bod
   %has_run_bootstrapping_code_.i = getelementptr inbounds nuw i8, ptr %this, i64 684
   store i8 1, ptr %has_run_bootstrapping_code_.i, align 4
   %base_object_count_.i = getelementptr inbounds nuw i8, ptr %this, i64 688
-  %372 = load i64, ptr %base_object_count_.i, align 8
+  %430 = load i64, ptr %base_object_count_.i, align 8
   %base_object_created_by_bootstrap_.i = getelementptr inbounds nuw i8, ptr %this, i64 696
-  store i64 %372, ptr %base_object_created_by_bootstrap_.i, align 8
+  store i64 %430, ptr %base_object_created_by_bootstrap_.i, align 8
   ret void
 }
 

@@ -2364,7 +2364,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserv
   %.sroa.08.0 = select i1 %8, i64 -1, i64 %9
   %10 = sub i64 %.sroa.08.0, %1
   %11 = icmp ugt i64 %2, %10
-  br i1 %11, label %12, label %44
+  br i1 %11, label %12, label %45
 
 12:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
@@ -2435,17 +2435,17 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %16
   store ptr %43, ptr %31, align 8, !alias.scope !353
   store i64 %.sroa.0.0.sroa.speculated.i40.i, ptr %0, align 8, !alias.scope !353
   %.pre17 = sub i64 %.sroa.0.0.sroa.speculated.i40.i, %1
-  br label %44
+  %44 = icmp ule i64 %2, %.pre17
+  br label %45
 
-44:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17hbe7702259374a838E.exit", %5
-  %.pre-phi = phi i64 [ %.pre17, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17hbe7702259374a838E.exit" ], [ %10, %5 ]
-  %45 = icmp ule i64 %2, %.pre-phi
-  tail call void @llvm.assume(i1 %45)
+45:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17hbe7702259374a838E.exit", %5
+  %.pre-phi = phi i1 [ %44, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17hbe7702259374a838E.exit" ], [ true, %5 ]
+  tail call void @llvm.assume(i1 %.pre-phi)
   br label %46
 
-46:                                               ; preds = %16, %13, %12, %39, %44
-  %.sroa.3.0 = phi i64 [ undef, %44 ], [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %42, %39 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %44 ], [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %40, %39 ]
+46:                                               ; preds = %16, %13, %12, %39, %45
+  %.sroa.3.0 = phi i64 [ undef, %45 ], [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %42, %39 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %45 ], [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %40, %39 ]
   %47 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %48 = insertvalue { i64, i64 } %47, i64 %.sroa.3.0, 1
   ret { i64, i64 } %48
@@ -2533,9 +2533,6 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %17
   unreachable
 
 43:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17hcdec99a09db38484E.exit.i", %6
-  %.pre-phi.i = phi i64 [ %2, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17hcdec99a09db38484E.exit.i" ], [ %11, %6 ]
-  %44 = icmp ule i64 %2, %.pre-phi.i
-  tail call void @llvm.assume(i1 %44)
   ret void
 }
 

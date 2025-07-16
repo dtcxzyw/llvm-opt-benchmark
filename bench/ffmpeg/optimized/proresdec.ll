@@ -392,27 +392,27 @@ decode_frame_header.exit:                         ; preds = %144, %141
   %155 = zext nneg i8 %154 to i32
   %156 = icmp ult i8 %153, 64
   %157 = icmp slt i32 %150, %155
-  %or.cond117.i88 = select i1 %156, i1 true, i1 %157
-  br i1 %or.cond117.i88, label %._crit_edge, label %.lr.ph
+  %or.cond117.i91 = select i1 %156, i1 true, i1 %157
+  br i1 %or.cond117.i91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %149
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 680
   br label %159
 
-._crit_edge:                                      ; preds = %301, %149
+._crit_edge:                                      ; preds = %298, %149
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13) #10
   br label %decode_picture_header.exit.thread
 
-159:                                              ; preds = %.lr.ph, %301
-  %160 = phi i32 [ %155, %.lr.ph ], [ %304, %301 ]
-  %161 = phi i8 [ %154, %.lr.ph ], [ %303, %301 ]
-  %.04590 = phi ptr [ %152, %.lr.ph ], [ %294, %301 ]
-  %.04689 = phi i32 [ %150, %.lr.ph ], [ %295, %301 ]
+159:                                              ; preds = %.lr.ph, %298
+  %160 = phi i32 [ %155, %.lr.ph ], [ %301, %298 ]
+  %161 = phi i8 [ %154, %.lr.ph ], [ %300, %298 ]
+  %.04593 = phi ptr [ %152, %.lr.ph ], [ %291, %298 ]
+  %.04692 = phi i32 [ %150, %.lr.ph ], [ %292, %298 ]
   %162 = load ptr, ptr %5, align 8, !tbaa !4
-  %163 = getelementptr inbounds nuw i8, ptr %.04590, i64 1
+  %163 = getelementptr inbounds nuw i8, ptr %.04593, i64 1
   %164 = load i32, ptr %163, align 1, !tbaa !39
   %165 = tail call i32 @llvm.bswap.i32(i32 %164)
-  %166 = icmp ugt i32 %165, %.04689
+  %166 = icmp ugt i32 %165, %.04692
   br i1 %166, label %167, label %168
 
 167:                                              ; preds = %159
@@ -420,7 +420,7 @@ decode_frame_header.exit:                         ; preds = %144, %141
   br label %decode_picture_header.exit.thread
 
 168:                                              ; preds = %159
-  %169 = getelementptr inbounds nuw i8, ptr %.04590, i64 7
+  %169 = getelementptr inbounds nuw i8, ptr %.04593, i64 7
   %170 = load i8, ptr %169, align 1, !tbaa !39
   %171 = zext i8 %170 to i32
   %172 = lshr i32 %171, 4
@@ -506,7 +506,7 @@ decode_frame_header.exit:                         ; preds = %144, %141
 223:                                              ; preds = %221
   %224 = shl nsw i32 %210, 1
   %225 = add nsw i32 %224, %160
-  %226 = icmp sgt i32 %225, %.04689
+  %226 = icmp sgt i32 %225, %.04692
   br i1 %226, label %227, label %228
 
 227:                                              ; preds = %223
@@ -515,7 +515,7 @@ decode_frame_header.exit:                         ; preds = %144, %141
 
 228:                                              ; preds = %223
   %229 = zext nneg i8 %161 to i64
-  %230 = getelementptr inbounds nuw i8, ptr %.04590, i64 %229
+  %230 = getelementptr inbounds nuw i8, ptr %.04593, i64 %229
   %231 = icmp sgt i32 %210, 0
   br i1 %231, label %.lr.ph.i, label %._crit_edge.thread.i
 
@@ -527,8 +527,8 @@ decode_frame_header.exit:                         ; preds = %144, %141
   %232 = zext nneg i32 %224 to i64
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 %232
   %234 = load i32, ptr %183, align 4, !tbaa !58
-  %235 = zext nneg i32 %.04689 to i64
-  %236 = getelementptr inbounds nuw i8, ptr %.04590, i64 %235
+  %235 = zext nneg i32 %.04692 to i64
+  %236 = getelementptr inbounds nuw i8, ptr %.04593, i64 %235
   %wide.trip.count.i = zext nneg i32 %210 to i64
   br label %237
 
@@ -625,11 +625,11 @@ decode_picture_header.exit.thread:                ; preds = %221, %216, %decode_
   %273 = tail call i32 %270(ptr noundef %0, ptr noundef nonnull @decode_slice_thread, ptr noundef null, ptr noundef null, i32 noundef %272) #10
   %274 = load i32, ptr %271, align 8, !tbaa !60
   %275 = icmp sgt i32 %274, 0
-  br i1 %275, label %.lr.ph.i60, label %._crit_edge.thread.i59
-
-.lr.ph.i60:                                       ; preds = %268
   %276 = getelementptr inbounds nuw i8, ptr %269, i64 256
   %277 = load ptr, ptr %276, align 8, !tbaa !61
+  br i1 %275, label %.lr.ph.i60, label %decode_picture.exit
+
+.lr.ph.i60:                                       ; preds = %268
   %wide.trip.count.i61 = zext nneg i32 %274 to i64
   br label %278
 
@@ -646,64 +646,58 @@ decode_picture_header.exit.thread:                ; preds = %221, %216, %decode_
 
 ._crit_edge.i65:                                  ; preds = %278
   %.not.i66 = icmp eq i32 %281, 0
-  br i1 %.not.i66, label %._crit_edge.thread.i59, label %282
+  br i1 %.not.i66, label %decode_picture.exit.thread, label %._crit_edge.thread.i59
 
-282:                                              ; preds = %._crit_edge.i65
-  %283 = getelementptr inbounds nuw i8, ptr %269, i64 112
-  %284 = load ptr, ptr %283, align 8, !tbaa !40
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 320
-  store i32 1, ptr %285, align 8, !tbaa !74
-  br label %._crit_edge.thread.i59
+._crit_edge.thread.i59:                           ; preds = %._crit_edge.i65
+  %282 = getelementptr inbounds nuw i8, ptr %269, i64 112
+  %283 = load ptr, ptr %282, align 8, !tbaa !40
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 320
+  store i32 1, ptr %284, align 8, !tbaa !74
+  %285 = icmp slt i32 %281, %274
+  br i1 %285, label %decode_picture.exit.thread, label %decode_picture.exit
 
-._crit_edge.thread.i59:                           ; preds = %282, %._crit_edge.i65, %268
-  %.0.lcssa23.i = phi i32 [ %281, %282 ], [ 0, %._crit_edge.i65 ], [ 0, %268 ]
-  %286 = icmp slt i32 %.0.lcssa23.i, %274
-  br i1 %286, label %decode_picture.exit.thread, label %decode_picture.exit
+decode_picture.exit:                              ; preds = %268, %._crit_edge.thread.i59
+  %286 = getelementptr inbounds nuw i8, ptr %277, i64 24
+  %287 = load i32, ptr %286, align 8, !tbaa !72
+  %288 = icmp slt i32 %287, 0
+  br i1 %288, label %289, label %decode_picture.exit.thread
 
-decode_picture.exit:                              ; preds = %._crit_edge.thread.i59
-  %287 = getelementptr inbounds nuw i8, ptr %269, i64 256
-  %288 = load ptr, ptr %287, align 8, !tbaa !61
-  %289 = getelementptr inbounds nuw i8, ptr %288, i64 24
-  %290 = load i32, ptr %289, align 8, !tbaa !72
-  %291 = icmp slt i32 %290, 0
-  br i1 %291, label %292, label %decode_picture.exit.thread
-
-292:                                              ; preds = %decode_picture.exit
+289:                                              ; preds = %decode_picture.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #10
   br label %decode_frame_header.exit.thread
 
-decode_picture.exit.thread:                       ; preds = %._crit_edge.thread.i59, %decode_picture.exit
-  %293 = zext nneg i32 %165 to i64
-  %294 = getelementptr inbounds nuw i8, ptr %.04590, i64 %293
-  %295 = sub nsw i32 %.04689, %165
-  %296 = load i32, ptr %54, align 8, !tbaa !44
-  %297 = icmp ne i32 %296, 0
-  %298 = icmp sgt i32 %295, 0
-  %or.cond = select i1 %297, i1 %298, i1 false
-  br i1 %or.cond, label %299, label %307
+decode_picture.exit.thread:                       ; preds = %._crit_edge.i65, %._crit_edge.thread.i59, %decode_picture.exit
+  %290 = zext nneg i32 %165 to i64
+  %291 = getelementptr inbounds nuw i8, ptr %.04593, i64 %290
+  %292 = sub nsw i32 %.04692, %165
+  %293 = load i32, ptr %54, align 8, !tbaa !44
+  %294 = icmp ne i32 %293, 0
+  %295 = icmp sgt i32 %292, 0
+  %or.cond = select i1 %294, i1 %295, i1 false
+  br i1 %or.cond, label %296, label %304
 
-299:                                              ; preds = %decode_picture.exit.thread
-  %300 = load i32, ptr %18, align 8, !tbaa !41
-  %.not54 = icmp eq i32 %300, 0
-  br i1 %.not54, label %307, label %301
+296:                                              ; preds = %decode_picture.exit.thread
+  %297 = load i32, ptr %18, align 8, !tbaa !41
+  %.not54 = icmp eq i32 %297, 0
+  br i1 %.not54, label %304, label %298
 
-301:                                              ; preds = %299
+298:                                              ; preds = %296
   store i32 0, ptr %18, align 8, !tbaa !41
-  %302 = load i8, ptr %294, align 1, !tbaa !39
-  %303 = lshr i8 %302, 3
-  %304 = zext nneg i8 %303 to i32
-  %305 = icmp ult i8 %302, 64
-  %306 = icmp samesign ult i32 %295, %304
-  %or.cond117.i = select i1 %305, i1 true, i1 %306
+  %299 = load i8, ptr %291, align 1, !tbaa !39
+  %300 = lshr i8 %299, 3
+  %301 = zext nneg i8 %300 to i32
+  %302 = icmp ult i8 %299, 64
+  %303 = icmp samesign ult i32 %292, %301
+  %or.cond117.i = select i1 %302, i1 true, i1 %303
   br i1 %or.cond117.i, label %._crit_edge, label %159
 
-307:                                              ; preds = %decode_picture.exit.thread, %299
+304:                                              ; preds = %decode_picture.exit.thread, %296
   store i32 1, ptr %2, align 4, !tbaa !75
-  %308 = load i32, ptr %9, align 8, !tbaa !38
+  %305 = load i32, ptr %9, align 8, !tbaa !38
   br label %decode_frame_header.exit.thread
 
-decode_frame_header.exit.thread:                  ; preds = %._crit_edge.i, %140, %124, %61, %31, %25, %decode_frame_header.exit, %307, %292, %decode_picture_header.exit.thread, %15
-  %.0 = phi i32 [ -1094995529, %15 ], [ %.0.i5769, %decode_picture_header.exit.thread ], [ %290, %292 ], [ %308, %307 ], [ %147, %decode_frame_header.exit ], [ %46, %._crit_edge.i ], [ -1094995529, %140 ], [ -1094995529, %124 ], [ -1094995529, %61 ], [ -1163346256, %31 ], [ -1094995529, %25 ]
+decode_frame_header.exit.thread:                  ; preds = %._crit_edge.i, %140, %124, %61, %31, %25, %decode_frame_header.exit, %304, %289, %decode_picture_header.exit.thread, %15
+  %.0 = phi i32 [ -1094995529, %15 ], [ %.0.i5769, %decode_picture_header.exit.thread ], [ %287, %289 ], [ %305, %304 ], [ %147, %decode_frame_header.exit ], [ %46, %._crit_edge.i ], [ -1094995529, %140 ], [ -1094995529, %124 ], [ -1094995529, %61 ], [ -1163346256, %31 ], [ -1094995529, %25 ]
   ret i32 %.0
 }
 

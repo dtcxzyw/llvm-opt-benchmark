@@ -4773,7 +4773,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %20, %26, %28
 
 .preheader:                                       ; preds = %57
   %61 = icmp sgt i32 %56, 1
-  br i1 %61, label %.lr.ph, label %85
+  br i1 %61, label %.lr.ph, label %86
 
 .lr.ph:                                           ; preds = %.preheader
   %62 = load ptr, ptr %45, align 8, !tbaa !147
@@ -4840,86 +4840,86 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %20, %26, %28
   %.166.ph = phi i32 [ 1, %82 ], [ %.570.ph, %83 ]
   %.162.ph = phi i32 [ %69, %82 ], [ %.364.ph, %83 ]
   %84 = zext nneg i32 %.166.ph to i64
-  br label %85
+  %85 = icmp slt i32 %.162.ph, %19
+  br label %86
 
-85:                                               ; preds = %.preheader, %._crit_edge121.loopexit
+86:                                               ; preds = %.preheader, %._crit_edge121.loopexit
   %.2.lcssa = phi i64 [ 0, %.preheader ], [ %.2.lcssa.ph, %._crit_edge121.loopexit ]
   %.166 = phi i64 [ 0, %.preheader ], [ %84, %._crit_edge121.loopexit ]
-  %.162 = phi i32 [ 0, %.preheader ], [ %.162.ph, %._crit_edge121.loopexit ]
-  %.not82 = icmp slt i32 %.162, %19
-  %86 = shl nuw i32 %19, 1
-  %87 = add i32 %86, -2
-  %88 = zext nneg i32 %87 to i64
-  %89 = shl i64 %.166, %88
-  %90 = select i1 %.not82, i64 0, i64 %89
-  %.8 = or i64 %90, %.2.lcssa
+  %.162 = phi i1 [ true, %.preheader ], [ %85, %._crit_edge121.loopexit ]
+  %87 = shl nuw i32 %19, 1
+  %88 = add i32 %87, -2
+  %89 = zext nneg i32 %88 to i64
+  %90 = shl i64 %.166, %89
+  %91 = select i1 %.162, i64 0, i64 %90
+  %.8 = or i64 %91, %.2.lcssa
   call void @_ZN6icu_7722UTF16CollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %5) #13
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #13
   %.pre = load i32, ptr %8, align 8, !tbaa !92
-  %91 = icmp sgt i32 %.pre, 0
-  br i1 %91, label %.lr.ph132, label %.loopexit
+  %92 = icmp sgt i32 %.pre, 0
+  br i1 %92, label %.lr.ph132, label %.loopexit
 
-.lr.ph132:                                        ; preds = %._crit_edge, %85
-  %.058148 = phi i64 [ %.8, %85 ], [ 0, %._crit_edge ]
-  %92 = phi i32 [ %.pre, %85 ], [ %9, %._crit_edge ]
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %wide.trip.count142 = zext nneg i32 %92 to i64
-  br label %94
+.lr.ph132:                                        ; preds = %._crit_edge, %86
+  %.058148 = phi i64 [ %.8, %86 ], [ 0, %._crit_edge ]
+  %93 = phi i32 [ %.pre, %86 ], [ %9, %._crit_edge ]
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %wide.trip.count142 = zext nneg i32 %93 to i64
+  br label %95
 
-94:                                               ; preds = %.lr.ph132, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread
+95:                                               ; preds = %.lr.ph132, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread
   %indvars.iv139 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next140, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread ]
   %.9129 = phi i64 [ %.058148, %.lr.ph132 ], [ %.10, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread ]
-  %95 = getelementptr inbounds nuw [31 x i64], ptr %93, i64 0, i64 %indvars.iv139
-  %96 = load i64, ptr %95, align 8, !tbaa !99
-  %97 = and i64 %96, -49153
-  %98 = trunc i64 %97 to i32
-  %99 = add i32 %98, -1174405120
-  %100 = icmp ult i32 %99, -1073741824
-  br i1 %100, label %104, label %101
+  %96 = getelementptr inbounds nuw [31 x i64], ptr %94, i64 0, i64 %indvars.iv139
+  %97 = load i64, ptr %96, align 8, !tbaa !99
+  %98 = and i64 %97, -49153
+  %99 = trunc i64 %98 to i32
+  %100 = add i32 %99, -1174405120
+  %101 = icmp ult i32 %100, -1073741824
+  br i1 %101, label %105, label %102
 
-101:                                              ; preds = %94
-  %102 = lshr i32 %98, 8
-  %103 = and i32 %102, 3
+102:                                              ; preds = %95
+  %103 = lshr i32 %99, 8
+  %104 = and i32 %103, 3
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87
 
-104:                                              ; preds = %94
-  %.not5.i84 = icmp ult i64 %96, 72057594037927936
-  br i1 %.not5.i84, label %105, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111
+105:                                              ; preds = %95
+  %.not5.i84 = icmp ult i64 %97, 72057594037927936
+  br i1 %.not5.i84, label %106, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111
 
-105:                                              ; preds = %104
-  %106 = and i64 %96, 4278190080
-  %.not6.i85 = icmp eq i64 %106, 0
-  %.not7.i86 = icmp eq i64 %97, 0
-  %107 = select i1 %.not7.i86, i32 15, i32 2
+106:                                              ; preds = %105
+  %107 = and i64 %97, 4278190080
+  %.not6.i85 = icmp eq i64 %107, 0
+  %.not7.i86 = icmp eq i64 %98, 0
+  %108 = select i1 %.not7.i86, i32 15, i32 2
   br i1 %.not6.i85, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread
 
-_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87: ; preds = %105, %101
-  %108 = phi i32 [ %103, %101 ], [ %107, %105 ]
-  switch i32 %108, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread [
+_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87: ; preds = %106, %102
+  %109 = phi i32 [ %104, %102 ], [ %108, %106 ]
+  switch i32 %109, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread [
     i32 0, label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111
-    i32 2, label %113
+    i32 2, label %114
   ]
 
-_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111: ; preds = %104, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87
-  %109 = shl i64 %.9129, 14
-  %110 = and i64 %109, 49152
-  %111 = or disjoint i64 %97, %110
-  %112 = ashr i64 %.9129, 2
+_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111: ; preds = %105, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87
+  %110 = shl i64 %.9129, 14
+  %111 = and i64 %110, 49152
+  %112 = or disjoint i64 %98, %111
+  %113 = ashr i64 %.9129, 2
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread
 
-113:                                              ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87
-  %114 = or disjoint i64 %97, 32768
+114:                                              ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87
+  %115 = or disjoint i64 %98, 32768
   br label %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread
 
-_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread: ; preds = %105, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87, %113, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111
-  %.10 = phi i64 [ %112, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111 ], [ %.9129, %113 ], [ %.9129, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87 ], [ %.9129, %105 ]
-  %.055 = phi i64 [ %111, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111 ], [ %114, %113 ], [ %97, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87 ], [ %97, %105 ]
-  store i64 %.055, ptr %95, align 8, !tbaa !99
+_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread: ; preds = %106, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87, %114, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111
+  %.10 = phi i64 [ %113, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111 ], [ %.9129, %114 ], [ %.9129, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87 ], [ %.9129, %106 ]
+  %.055 = phi i64 [ %112, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread111 ], [ %115, %114 ], [ %98, %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87 ], [ %98, %106 ]
+  store i64 %.055, ptr %96, align 8, !tbaa !99
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %.loopexit, label %94, !llvm.loop !159
+  br i1 %exitcond143.not, label %.loopexit, label %95, !llvm.loop !159
 
-.loopexit:                                        ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread, %.preheader114, %85, %.thread109, %4
+.loopexit:                                        ; preds = %_ZN6icu_7716CollationBuilder10ceStrengthEl.exit87.thread, %.preheader114, %86, %.thread109, %4
   ret void
 }
 

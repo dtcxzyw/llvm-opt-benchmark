@@ -191,7 +191,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6memtag20forAllReachableExitsERKNS_
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !15
   tail call void %20(i64 noundef %22, ptr noundef %19) #10
-  br label %120
+  br label %119
 
 23:                                               ; preds = %._crit_edge72, %7
   %24 = phi i32 [ %.pre, %._crit_edge72 ], [ %11, %7 ]
@@ -410,32 +410,32 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread56: ; pr
   br i1 %.not.i.i52, label %_ZN4llvm8for_eachIRKNS_15SmallVectorImplIPNS_13IntrinsicInstEEENS_12function_refIFvPNS_11InstructionEEEEEET0_OT_SC_.exit, label %.lr.ph.i.i50, !llvm.loop !41
 
 _ZN4llvm8for_eachIRKNS_15SmallVectorImplIPNS_13IntrinsicInstEEENS_12function_refIFvPNS_11InstructionEEEEEET0_OT_SC_.exit: ; preds = %.lr.ph.i.i50, %.lr.ph.i.i46, %106, %._crit_edge68.thread
-  %112 = phi i1 [ false, %106 ], [ true, %._crit_edge68.thread ], [ true, %.lr.ph.i.i46 ], [ false, %.lr.ph.i.i50 ]
-  %113 = load ptr, ptr %9, align 8, !tbaa !9
-  %114 = icmp eq ptr %113, %33
-  br i1 %114, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit, label %115
+  %.039.lcssa76 = phi i1 [ false, %106 ], [ true, %._crit_edge68.thread ], [ true, %.lr.ph.i.i46 ], [ false, %.lr.ph.i.i50 ]
+  %112 = load ptr, ptr %9, align 8, !tbaa !9
+  %113 = icmp eq ptr %112, %33
+  br i1 %113, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit, label %114
 
-115:                                              ; preds = %_ZN4llvm8for_eachIRKNS_15SmallVectorImplIPNS_13IntrinsicInstEEENS_12function_refIFvPNS_11InstructionEEEEEET0_OT_SC_.exit
-  call void @free(ptr noundef %113) #10
+114:                                              ; preds = %_ZN4llvm8for_eachIRKNS_15SmallVectorImplIPNS_13IntrinsicInstEEENS_12function_refIFvPNS_11InstructionEEEEEET0_OT_SC_.exit
+  call void @free(ptr noundef %112) #10
   br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit: ; preds = %_ZN4llvm8for_eachIRKNS_15SmallVectorImplIPNS_13IntrinsicInstEEENS_12function_refIFvPNS_11InstructionEEEEEET0_OT_SC_.exit, %115
+_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit: ; preds = %_ZN4llvm8for_eachIRKNS_15SmallVectorImplIPNS_13IntrinsicInstEEENS_12function_refIFvPNS_11InstructionEEEEEET0_OT_SC_.exit, %114
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #10
-  %116 = load i8, ptr %29, align 4, !tbaa !22, !range !33, !noundef !37
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %118
+  %115 = load i8, ptr %29, align 4, !tbaa !22, !range !33, !noundef !37
+  %116 = trunc nuw i8 %115 to i1
+  br i1 %116, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %117
 
-118:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit
-  %119 = load ptr, ptr %8, align 8, !tbaa !16
-  call void @free(ptr noundef %119) #10
+117:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit
+  %118 = load ptr, ptr %8, align 8, !tbaa !16
+  call void @free(ptr noundef %118) #10
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit, %118
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit, %117
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #10
-  br label %120
+  br label %119
 
-120:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, %17
-  %.0 = phi i1 [ true, %17 ], [ %112, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ]
+119:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, %17
+  %.0 = phi i1 [ true, %17 ], [ %.039.lcssa76, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ]
   ret i1 %.0
 }
 

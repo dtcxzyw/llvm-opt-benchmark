@@ -929,13 +929,13 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15btree_range_set8RangeSet8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   %11 = load i64, ptr %9, align 8, !noalias !82, !noundef !3
+  %12 = icmp ugt i64 %11, %1
   br label %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.exit
 
 _ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.exit: ; preds = %2, %8
-  %.sroa.5.0 = phi i64 [ undef, %2 ], [ %11, %8 ]
+  %.sroa.5.0 = phi i1 [ false, %2 ], [ %12, %8 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !78
-  %12 = icmp ugt i64 %.sroa.5.0, %1
-  %.sroa.0.0 = and i1 %.not.i, %12
+  %.sroa.0.0 = and i1 %.not.i, %.sroa.5.0
   ret i1 %.sroa.0.0
 }
 

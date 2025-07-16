@@ -406,27 +406,21 @@ define range(i32 0, 2) i32 @Abc_NtkAddOneHotness(ptr noundef captures(none) %0) 
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %14
 
-.loopexit.loopexit:                               ; preds = %17
+.loopexit:                                        ; preds = %17
   %.pre42 = sext i32 %.val to i64
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %14, %.loopexit.loopexit
-  %.pre-phi = phi i64 [ %.pre42, %.loopexit.loopexit ], [ %15, %14 ]
-  %.val20.pre41 = phi i32 [ %.val, %.loopexit.loopexit ], [ %.val20.pre, %14 ]
-  %.pre39 = phi ptr [ %20, %.loopexit.loopexit ], [ %.pre, %14 ]
-  %13 = icmp slt i64 %indvars.iv.next33, %.pre-phi
+  %13 = icmp slt i64 %indvars.iv.next33, %.pre42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %13, label %14, label %.loopexit23, !llvm.loop !77
 
 14:                                               ; preds = %.lr.ph28, %.loopexit
-  %.val20.pre = phi i32 [ %.val2026, %.lr.ph28 ], [ %.val20.pre41, %.loopexit ]
-  %.pre = phi ptr [ %6, %.lr.ph28 ], [ %.pre39, %.loopexit ]
+  %.val20.pre = phi i32 [ %.val2026, %.lr.ph28 ], [ %.val, %.loopexit ]
+  %.pre = phi ptr [ %6, %.lr.ph28 ], [ %20, %.loopexit ]
   %indvars.iv32 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next33, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph28 ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %15 = sext i32 %.val20.pre to i64
   %16 = icmp slt i64 %indvars.iv.next33, %15
-  br i1 %16, label %.lr.ph, label %.loopexit
+  br i1 %16, label %.lr.ph, label %.loopexit23
 
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -437,7 +431,7 @@ define range(i32 0, 2) i32 @Abc_NtkAddOneHotness(ptr noundef captures(none) %0) 
   %.val = load i32, ptr %21, align 4, !tbaa !56
   %22 = trunc nuw i64 %indvars.iv.next30 to i32
   %23 = icmp sgt i32 %.val, %22
-  br i1 %23, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !78
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !78
 
 .lr.ph:                                           ; preds = %14, %17
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %17 ], [ %indvars.iv, %14 ]
@@ -478,8 +472,8 @@ define range(i32 0, 2) i32 @Abc_NtkAddOneHotness(ptr noundef captures(none) %0) 
   store ptr null, ptr %11, align 8, !tbaa !22
   br label %.loopexit23
 
-.loopexit23:                                      ; preds = %.loopexit, %1, %49
-  %.019 = phi i32 [ 0, %49 ], [ 1, %1 ], [ 1, %.loopexit ]
+.loopexit23:                                      ; preds = %.loopexit, %14, %1, %49
+  %.019 = phi i32 [ 0, %49 ], [ 1, %1 ], [ 1, %14 ], [ 1, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i32 %.019
 }

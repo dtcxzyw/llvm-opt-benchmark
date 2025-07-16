@@ -4815,7 +4815,7 @@ define hidden void @_ZN13project_panel12ProjectPanel23collapse_selected_entry17h
   %.sroa.013.0.i = select i1 %107, i64 %108, i64 %.sroa.03.019.i
   %109 = sub i64 %.sroa.014.0.i, %.sroa.013.0.i
   %110 = icmp ult i64 %.sroa.013.0.i, %.sroa.014.0.i
-  br i1 %110, label %.lr.ph.i, label %.loopexit
+  br i1 %110, label %.lr.ph.i, label %.loopexit.loopexit
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h1f49865ae63517b5E.exit": ; preds = %.lr.ph.i
   %111 = getelementptr inbounds i64, ptr %98, i64 %101
@@ -4843,10 +4843,13 @@ define hidden void @_ZN13project_panel12ProjectPanel23collapse_selected_entry17h
   call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %121, i32 noundef %123)
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h5e05b69bf81bedb6E.llvm.13938642116626580997.exit.thread"
 
-.loopexit:                                        ; preds = %105, %95
-  %.sroa.03.0.lcssa.i = phi i64 [ 0, %95 ], [ %.sroa.013.0.i, %105 ]
-  %124 = icmp ule i64 %.sroa.03.0.lcssa.i, %99
-  call void @llvm.assume(i1 %124)
+.loopexit.loopexit:                               ; preds = %105
+  %124 = icmp ule i64 %.sroa.013.0.i, %99
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %95
+  %.sroa.03.0.lcssa.i = phi i1 [ true, %95 ], [ %124, %.loopexit.loopexit ]
+  call void @llvm.assume(i1 %.sroa.03.0.lcssa.i)
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.010.0, i64 16
   %126 = load ptr, ptr %125, align 8, !nonnull !4, !noundef !4
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.010.0, i64 24
@@ -15933,7 +15936,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit396.invoke: ; pr
   %.sroa.013.0.i = select i1 %1156, i64 %1157, i64 %.sroa.03.019.i
   %1158 = sub i64 %.sroa.014.0.i, %.sroa.013.0.i
   %1159 = icmp ult i64 %.sroa.013.0.i, %.sroa.014.0.i
-  br i1 %1159, label %1148, label %.loopexit570
+  br i1 %1159, label %1148, label %.loopexit570.loopexit
 
 1160:                                             ; preds = %1124
   %1161 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
@@ -15971,10 +15974,13 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit396.invoke: ; pr
   %.sroa.0.0.i.i404 = select i1 %1175, i1 %1177, i1 false
   br i1 %.sroa.0.0.i.i404, label %_ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit396.invoke, label %.invoke1559
 
-.loopexit570:                                     ; preds = %1154, %1145
-  %.sroa.03.0.lcssa.i = phi i64 [ 0, %1145 ], [ %.sroa.013.0.i, %1154 ]
-  %1178 = icmp ule i64 %.sroa.03.0.lcssa.i, %.sroa.617.0
-  call void @llvm.assume(i1 %1178)
+.loopexit570.loopexit:                            ; preds = %1154
+  %1178 = icmp ule i64 %.sroa.013.0.i, %.sroa.617.0
+  br label %.loopexit570
+
+.loopexit570:                                     ; preds = %.loopexit570.loopexit, %1145
+  %.sroa.03.0.lcssa.i = phi i1 [ true, %1145 ], [ %1178, %.loopexit570.loopexit ]
+  call void @llvm.assume(i1 %.sroa.03.0.lcssa.i)
   %1179 = invoke noundef zeroext i1 @_ZN8worktree9Traversal18advance_to_sibling17hc51ed15ff63576c4E(ptr noalias noundef nonnull align 8 dereferenceable(1104) %66)
           to label %1181 unwind label %.loopexit593
 

@@ -1832,7 +1832,7 @@ findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.
   %129 = trunc i32 %58 to i16
   %130 = and i16 %129, 255
   %131 = icmp eq i16 %128, %130
-  br i1 %131, label %132, label %143
+  br i1 %131, label %132, label %._crit_edge.i
 
 132:                                              ; preds = %114
   %133 = add nuw nsw i32 %116, 4
@@ -1843,26 +1843,24 @@ findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.
   %138 = call ptr @tvb_memdup(ptr noundef %136, ptr noundef %.0226, i32 noundef %120, i64 noundef %137)
   %139 = call zeroext i16 @crc16_0x755B(ptr noundef %138, i32 noundef %133, i16 noundef zeroext 0)
   %.not.i = icmp eq i16 %135, %139
-  br i1 %.not.i, label %142, label %140
+  br i1 %.not.i, label %.thread.i, label %140
 
 140:                                              ; preds = %132
   %141 = call zeroext i16 @crc16_0x5935(ptr noundef %138, i32 noundef %133, i16 noundef zeroext 0)
-  br label %142
+  %142 = icmp eq i16 %135, %141
+  %cond.fr.i = freeze i1 %142
+  br i1 %cond.fr.i, label %.thread.i, label %._crit_edge.i
 
-142:                                              ; preds = %140, %132
-  %.043.i = phi i16 [ %141, %140 ], [ %135, %132 ]
-  %.not48.i = icmp eq i16 %135, %.043.i
-  %spec.select.i = select i1 %.not48.i, i8 %115, i8 0
-  %.pre.i = zext i8 %spec.select.i to i16
-  br label %143
+.thread.i:                                        ; preds = %140, %132
+  br label %._crit_edge.i
 
-143:                                              ; preds = %142, %114
-  %.pre-phi.i = phi i16 [ %.pre.i, %142 ], [ %130, %114 ]
-  %.044.i = phi i8 [ %spec.select.i, %142 ], [ %115, %114 ]
-  %.not49.i284 = icmp eq i16 %128, %.pre-phi.i
+._crit_edge.i:                                    ; preds = %.thread.i, %140, %114
+  %.044.i = phi i8 [ %115, %114 ], [ %115, %.thread.i ], [ 0, %140 ]
+  %143 = zext i8 %.044.i to i16
+  %.not49.i284 = icmp eq i16 %128, %143
   br i1 %.not49.i284, label %findFrame1Position.exit286, label %144
 
-144:                                              ; preds = %143
+144:                                              ; preds = %._crit_edge.i
   %145 = icmp ugt i8 %.044.i, 19
   %146 = select i1 %145, i16 7, i16 6
   %narrow319 = add nuw nsw i16 %146, 1
@@ -1877,8 +1875,8 @@ findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.
 150:                                              ; preds = %144, %144
   br label %findFrame1Position.exit286
 
-findFrame1Position.exit286:                       ; preds = %143, %144, %150
-  %.045.i285 = phi i16 [ %146, %150 ], [ %119, %143 ], [ 0, %144 ]
+findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144, %150
+  %.045.i285 = phi i16 [ %146, %150 ], [ %119, %._crit_edge.i ], [ 0, %144 ]
   %151 = zext nneg i16 %.045.i285 to i32
   %152 = add nuw nsw i32 %97, %151
   %153 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %152)

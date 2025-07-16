@@ -215,7 +215,7 @@ define ptr @OSSL_IETF_ATTR_SYNTAX_get0_value(ptr noundef readonly captures(none)
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_IETF_ATTR_SYNTAX_add1_value(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %2, null
-  br i1 %4, label %27, label %5
+  br i1 %4, label %28, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -227,62 +227,62 @@ define range(i32 0, 2) i32 @OSSL_IETF_ATTR_SYNTAX_add1_value(ptr noundef capture
   %10 = tail call ptr @OPENSSL_sk_new_null() #5
   store ptr %10, ptr %6, align 8, !tbaa !3
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %26, label %.thread
+  br i1 %11, label %27, label %.thread
 
 .thread:                                          ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %12, align 8, !tbaa !13
-  br label %15
+  br label %16
 
 13:                                               ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !13
-  %.not = icmp eq i32 %1, %.pre
-  br i1 %.not, label %15, label %14
+  %14 = icmp eq i32 %1, %.pre
+  br i1 %14, label %16, label %15
 
-14:                                               ; preds = %13
+15:                                               ; preds = %13
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 158, ptr noundef nonnull @__func__.OSSL_IETF_ATTR_SYNTAX_add1_value) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524550, ptr noundef null) #5
-  br label %27
+  br label %28
 
-15:                                               ; preds = %.thread, %13
-  %16 = tail call ptr @ASN1_item_new(ptr noundef nonnull @OSSL_IETF_ATTR_SYNTAX_VALUE_it.local_it) #5
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %26, label %18
+16:                                               ; preds = %.thread, %13
+  %17 = tail call ptr @ASN1_item_new(ptr noundef nonnull @OSSL_IETF_ATTR_SYNTAX_VALUE_it.local_it) #5
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %27, label %19
 
-18:                                               ; preds = %15
-  store i32 %1, ptr %16, align 8, !tbaa !11
+19:                                               ; preds = %16
+  store i32 %1, ptr %17, align 8, !tbaa !11
   %switch = icmp ult i32 %1, 3
-  br i1 %switch, label %20, label %19
+  br i1 %switch, label %21, label %20
 
-19:                                               ; preds = %18
-  tail call void @ASN1_item_free(ptr noundef nonnull %16, ptr noundef nonnull @OSSL_IETF_ATTR_SYNTAX_VALUE_it.local_it) #5
+20:                                               ; preds = %19
+  tail call void @ASN1_item_free(ptr noundef nonnull %17, ptr noundef nonnull @OSSL_IETF_ATTR_SYNTAX_VALUE_it.local_it) #5
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 178, ptr noundef nonnull @__func__.OSSL_IETF_ATTR_SYNTAX_add1_value) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524550, ptr noundef null) #5
-  br label %27
+  br label %28
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %2, ptr %21, align 8, !tbaa !20
-  %22 = load ptr, ptr %6, align 8, !tbaa !3
-  %23 = tail call i32 @OPENSSL_sk_push(ptr noundef %22, ptr noundef nonnull %16) #5
-  %24 = icmp slt i32 %23, 1
-  br i1 %24, label %25, label %27
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %2, ptr %22, align 8, !tbaa !20
+  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %24 = tail call i32 @OPENSSL_sk_push(ptr noundef %23, ptr noundef nonnull %17) #5
+  %25 = icmp slt i32 %24, 1
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %20
-  tail call void @ASN1_item_free(ptr noundef nonnull %16, ptr noundef nonnull @OSSL_IETF_ATTR_SYNTAX_VALUE_it.local_it) #5
-  br label %27
+26:                                               ; preds = %21
+  tail call void @ASN1_item_free(ptr noundef nonnull %17, ptr noundef nonnull @OSSL_IETF_ATTR_SYNTAX_VALUE_it.local_it) #5
+  br label %28
 
-26:                                               ; preds = %15, %9
+27:                                               ; preds = %16, %9
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 190, ptr noundef nonnull @__func__.OSSL_IETF_ATTR_SYNTAX_add1_value) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524303, ptr noundef null) #5
-  br label %27
+  br label %28
 
-27:                                               ; preds = %20, %3, %26, %25, %19, %14
-  %.0 = phi i32 [ 0, %26 ], [ 0, %14 ], [ 0, %19 ], [ 0, %25 ], [ 0, %3 ], [ 1, %20 ]
+28:                                               ; preds = %21, %3, %27, %26, %20, %15
+  %.0 = phi i32 [ 0, %27 ], [ 0, %15 ], [ 0, %20 ], [ 0, %26 ], [ 0, %3 ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -329,78 +329,74 @@ define range(i32 0, 2) i32 @OSSL_IETF_ATTR_SYNTAX_print(ptr noundef %0, ptr noun
 
 .loopexit:                                        ; preds = %8, %.preheader, %3
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %24
+  %24 = load ptr, ptr %23, align 8, !tbaa !3
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %.critedge, label %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit
 
-24:                                               ; preds = %47, %.loopexit
-  %.1 = phi i32 [ 0, %.loopexit ], [ %48, %47 ]
-  %25 = load ptr, ptr %23, align 8, !tbaa !3
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit, label %27
+OSSL_IETF_ATTR_SYNTAX_get_value_num.exit:         ; preds = %.loopexit, %46
+  %26 = phi ptr [ %48, %46 ], [ %24, %.loopexit ]
+  %.138 = phi i32 [ %47, %46 ], [ 0, %.loopexit ]
+  %27 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %26) #5
+  %28 = icmp slt i32 %.138, %27
+  br i1 %28, label %29, label %.critedge
 
-27:                                               ; preds = %24
-  %28 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %25) #5
-  br label %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit
-
-OSSL_IETF_ATTR_SYNTAX_get_value_num.exit:         ; preds = %24, %27
-  %.0.i = phi i32 [ %28, %27 ], [ 0, %24 ]
-  %29 = icmp slt i32 %.1, %.0.i
-  br i1 %29, label %30, label %49
-
-30:                                               ; preds = %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit
+29:                                               ; preds = %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
-  %31 = load ptr, ptr %23, align 8, !tbaa !3
-  %32 = call ptr @OPENSSL_sk_value(ptr noundef %31, i32 noundef %.1) #5
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, label %34
+  %30 = load ptr, ptr %23, align 8, !tbaa !3
+  %31 = call ptr @OPENSSL_sk_value(ptr noundef %30, i32 noundef %.138) #5
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, label %33
 
-34:                                               ; preds = %30
-  %.pre.i = load i32, ptr %32, align 8, !tbaa !11
+33:                                               ; preds = %29
+  %.pre.i = load i32, ptr %31, align 8, !tbaa !11
   %switch.i = icmp ult i32 %.pre.i, 3
   br i1 %switch.i, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread
 
-OSSL_IETF_ATTR_SYNTAX_get0_value.exit:            ; preds = %34
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !20
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, label %38
+OSSL_IETF_ATTR_SYNTAX_get0_value.exit:            ; preds = %33
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, label %37
 
-38:                                               ; preds = %OSSL_IETF_ATTR_SYNTAX_get0_value.exit
-  %39 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %2, ptr noundef nonnull @.str.4) #5
-  %40 = icmp slt i32 %39, 1
-  br i1 %40, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, label %41
+37:                                               ; preds = %OSSL_IETF_ATTR_SYNTAX_get0_value.exit
+  %38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %2, ptr noundef nonnull @.str.4) #5
+  %39 = icmp slt i32 %38, 1
+  br i1 %39, label %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, label %40
 
-41:                                               ; preds = %38
+40:                                               ; preds = %37
   %switch = icmp eq i32 %.pre.i, 1
-  br i1 %switch, label %42, label %45
+  br i1 %switch, label %41, label %44
 
-42:                                               ; preds = %41
-  %43 = call i32 @OBJ_obj2txt(ptr noundef nonnull %4, i32 noundef 80, ptr noundef nonnull %36, i32 noundef 0) #5
-  %44 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef 80, ptr noundef nonnull %4) #5
-  br label %47
+41:                                               ; preds = %40
+  %42 = call i32 @OBJ_obj2txt(ptr noundef nonnull %4, i32 noundef 80, ptr noundef nonnull %35, i32 noundef 0) #5
+  %43 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef 80, ptr noundef nonnull %4) #5
+  br label %46
 
-45:                                               ; preds = %41
-  %46 = call i32 @ASN1_STRING_print(ptr noundef %0, ptr noundef nonnull %36) #5
-  br label %47
+44:                                               ; preds = %40
+  %45 = call i32 @ASN1_STRING_print(ptr noundef %0, ptr noundef nonnull %35) #5
+  br label %46
 
-OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread:     ; preds = %34, %30, %38, %OSSL_IETF_ATTR_SYNTAX_get0_value.exit
+OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread:     ; preds = %33, %29, %37, %OSSL_IETF_ATTR_SYNTAX_get0_value.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
   br label %.loopexit36
 
-47:                                               ; preds = %45, %42
+46:                                               ; preds = %44, %41
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
-  %48 = add nuw nsw i32 %.1, 1
-  br label %24, !llvm.loop !22
+  %47 = add nuw nsw i32 %.138, 1
+  %48 = load ptr, ptr %23, align 8, !tbaa !3
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.critedge, label %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit, !llvm.loop !22
 
-49:                                               ; preds = %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit
+.critedge:                                        ; preds = %OSSL_IETF_ATTR_SYNTAX_get_value_num.exit, %46, %.loopexit
   %50 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.5) #5
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %.loopexit36, label %52
 
-.loopexit36:                                      ; preds = %20, %15, %.lr.ph, %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, %49
+.loopexit36:                                      ; preds = %20, %15, %.lr.ph, %OSSL_IETF_ATTR_SYNTAX_get0_value.exit.thread, %.critedge
   br label %52
 
-52:                                               ; preds = %49, %.loopexit36
-  %.024 = phi i32 [ 0, %.loopexit36 ], [ 1, %49 ]
+52:                                               ; preds = %.critedge, %.loopexit36
+  %.024 = phi i32 [ 0, %.loopexit36 ], [ 1, %.critedge ]
   ret i32 %.024
 }
 

@@ -278,8 +278,8 @@ _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE9push_backEOS4_
 for.end:                                          ; preds = %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE9push_backEOS4_.exit
   %.pre10 = load ptr, ptr %runs_, align 8
   %.pre11 = load ptr, ptr %_M_finish.i, align 8
-  %tobool.not.i.i = icmp eq ptr %.pre11, %.pre10
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE5clearEv.exit, label %invoke.cont.i.i
+  %14 = icmp eq ptr %.pre11, %.pre10
+  br i1 %14, label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE5clearEv.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %for.end
   store ptr %.pre10, ptr %_M_finish.i, align 8

@@ -1006,56 +1006,52 @@ define internal i64 @path_realpath(i32 noundef %0, ptr noundef readonly captures
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %5 = icmp slt i32 %0, 0
-  br i1 %5, label %10, label %.preheader.split.split
+  br i1 %5, label %8, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %.split.us, label %6
+  br i1 %.not, label %rb_scan_args_set.exit, label %.split.us
 
-6:                                                ; preds = %.preheader.split.split
-  %7 = load i64, ptr %1, align 8, !tbaa !6
-  br label %.split.us
+.split.us:                                        ; preds = %.preheader.split.split
+  %6 = load i64, ptr %1, align 8, !tbaa !6
+  %7 = icmp eq i32 %0, 1
+  br i1 %7, label %rb_scan_args_set.exit, label %8
 
-.split.us:                                        ; preds = %.preheader.split.split, %6
-  %8 = phi i64 [ %7, %6 ], [ 4, %.preheader.split.split ]
-  %.us-phi = phi i32 [ 1, %6 ], [ 0, %.preheader.split.split ]
-  %9 = icmp eq i32 %.us-phi, %0
-  br i1 %9, label %rb_scan_args_set.exit, label %10
-
-10:                                               ; preds = %.split.us, %3
+8:                                                ; preds = %.split.us, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #9
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %.split.us
-  %11 = load i64, ptr @rb_cFile, align 8, !tbaa !6
-  %12 = load i64, ptr @id_realpath, align 8, !tbaa !6
-  %13 = load i64, ptr @id_at_path, align 8, !tbaa !6
-  %14 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %13) #7
-  %15 = icmp eq i64 %14, 0
-  %16 = and i64 %14, 7
-  %17 = icmp ne i64 %16, 0
-  %18 = or i1 %15, %17
-  br i1 %18, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i
+rb_scan_args_set.exit:                            ; preds = %.preheader.split.split, %.split.us
+  %9 = phi i64 [ %6, %.split.us ], [ 4, %.preheader.split.split ]
+  %10 = load i64, ptr @rb_cFile, align 8, !tbaa !6
+  %11 = load i64, ptr @id_realpath, align 8, !tbaa !6
+  %12 = load i64, ptr @id_at_path, align 8, !tbaa !6
+  %13 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %12) #7
+  %14 = icmp eq i64 %13, 0
+  %15 = and i64 %13, 7
+  %16 = icmp ne i64 %15, 0
+  %17 = or i1 %14, %16
+  br i1 %17, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %rb_scan_args_set.exit
-  %19 = inttoptr i64 %14 to ptr
-  %20 = load i64, ptr %19, align 8, !tbaa !10
-  %21 = and i64 %20, 31
-  %22 = icmp eq i64 %21, 5
-  br i1 %22, label %get_strpath.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
+  %18 = inttoptr i64 %13 to ptr
+  %19 = load i64, ptr %18, align 8, !tbaa !10
+  %20 = and i64 %19, 31
+  %21 = icmp eq i64 %20, 5
+  br i1 %21, label %get_strpath.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %rb_scan_args_set.exit
-  %23 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.91) #9
+  %22 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.91) #9
   unreachable
 
 get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %24 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %11, i64 noundef %12, i32 noundef 2, i64 noundef %14, i64 noundef %8) #7
-  store i64 %24, ptr %4, align 8, !tbaa !6
-  %25 = tail call i64 @rb_obj_class(i64 noundef %2) #7
-  %26 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %25) #7
+  %23 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %10, i64 noundef %11, i32 noundef 2, i64 noundef %13, i64 noundef %9) #7
+  store i64 %23, ptr %4, align 8, !tbaa !6
+  %24 = tail call i64 @rb_obj_class(i64 noundef %2) #7
+  %25 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %24) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  ret i64 %26
+  ret i64 %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1063,56 +1059,52 @@ define internal i64 @path_realdirpath(i32 noundef %0, ptr noundef readonly captu
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %5 = icmp slt i32 %0, 0
-  br i1 %5, label %10, label %.preheader.split.split
+  br i1 %5, label %8, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %.split.us, label %6
+  br i1 %.not, label %rb_scan_args_set.exit, label %.split.us
 
-6:                                                ; preds = %.preheader.split.split
-  %7 = load i64, ptr %1, align 8, !tbaa !6
-  br label %.split.us
+.split.us:                                        ; preds = %.preheader.split.split
+  %6 = load i64, ptr %1, align 8, !tbaa !6
+  %7 = icmp eq i32 %0, 1
+  br i1 %7, label %rb_scan_args_set.exit, label %8
 
-.split.us:                                        ; preds = %.preheader.split.split, %6
-  %8 = phi i64 [ %7, %6 ], [ 4, %.preheader.split.split ]
-  %.us-phi = phi i32 [ 1, %6 ], [ 0, %.preheader.split.split ]
-  %9 = icmp eq i32 %.us-phi, %0
-  br i1 %9, label %rb_scan_args_set.exit, label %10
-
-10:                                               ; preds = %.split.us, %3
+8:                                                ; preds = %.split.us, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #9
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %.split.us
-  %11 = load i64, ptr @rb_cFile, align 8, !tbaa !6
-  %12 = load i64, ptr @id_realdirpath, align 8, !tbaa !6
-  %13 = load i64, ptr @id_at_path, align 8, !tbaa !6
-  %14 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %13) #7
-  %15 = icmp eq i64 %14, 0
-  %16 = and i64 %14, 7
-  %17 = icmp ne i64 %16, 0
-  %18 = or i1 %15, %17
-  br i1 %18, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i
+rb_scan_args_set.exit:                            ; preds = %.preheader.split.split, %.split.us
+  %9 = phi i64 [ %6, %.split.us ], [ 4, %.preheader.split.split ]
+  %10 = load i64, ptr @rb_cFile, align 8, !tbaa !6
+  %11 = load i64, ptr @id_realdirpath, align 8, !tbaa !6
+  %12 = load i64, ptr @id_at_path, align 8, !tbaa !6
+  %13 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %12) #7
+  %14 = icmp eq i64 %13, 0
+  %15 = and i64 %13, 7
+  %16 = icmp ne i64 %15, 0
+  %17 = or i1 %14, %16
+  br i1 %17, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %rb_scan_args_set.exit
-  %19 = inttoptr i64 %14 to ptr
-  %20 = load i64, ptr %19, align 8, !tbaa !10
-  %21 = and i64 %20, 31
-  %22 = icmp eq i64 %21, 5
-  br i1 %22, label %get_strpath.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
+  %18 = inttoptr i64 %13 to ptr
+  %19 = load i64, ptr %18, align 8, !tbaa !10
+  %20 = and i64 %19, 31
+  %21 = icmp eq i64 %20, 5
+  br i1 %21, label %get_strpath.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %rb_scan_args_set.exit
-  %23 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %23, ptr noundef nonnull @.str.91) #9
+  %22 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.91) #9
   unreachable
 
 get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %24 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %11, i64 noundef %12, i32 noundef 2, i64 noundef %14, i64 noundef %8) #7
-  store i64 %24, ptr %4, align 8, !tbaa !6
-  %25 = tail call i64 @rb_obj_class(i64 noundef %2) #7
-  %26 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %25) #7
+  %23 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %10, i64 noundef %11, i32 noundef 2, i64 noundef %13, i64 noundef %9) #7
+  store i64 %23, ptr %4, align 8, !tbaa !6
+  %24 = tail call i64 @rb_obj_class(i64 noundef %2) #7
+  %25 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %24) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  ret i64 %26
+  ret i64 %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2495,7 +2487,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 .preheader.split.split:                           ; preds = %16
   switch i32 %0, label %18 [
-    i32 0, label %.split.us.thread
+    i32 0, label %19
     i32 1, label %rb_scan_args_set.exit
   ]
 
@@ -2503,26 +2495,26 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #9
   unreachable
 
-.split.us.thread:                                 ; preds = %.preheader.split.split
-  %19 = load i64, ptr @rb_cFile, align 8, !tbaa !6
-  %20 = load i64, ptr @id_basename, align 8, !tbaa !6
-  %21 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %19, i64 noundef %20, i32 noundef 1, i64 noundef %6) #7
-  br label %26
+19:                                               ; preds = %.preheader.split.split
+  %20 = load i64, ptr @rb_cFile, align 8, !tbaa !6
+  %21 = load i64, ptr @id_basename, align 8, !tbaa !6
+  %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef %21, i32 noundef 1, i64 noundef %6) #7
+  br label %27
 
 rb_scan_args_set.exit:                            ; preds = %.preheader.split.split
-  %22 = load i64, ptr %1, align 8, !tbaa !6
-  %23 = load i64, ptr @rb_cFile, align 8, !tbaa !6
-  %24 = load i64, ptr @id_basename, align 8, !tbaa !6
-  %25 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %23, i64 noundef %24, i32 noundef 2, i64 noundef %6, i64 noundef %22) #7
-  br label %26
+  %23 = load i64, ptr %1, align 8, !tbaa !6
+  %24 = load i64, ptr @rb_cFile, align 8, !tbaa !6
+  %25 = load i64, ptr @id_basename, align 8, !tbaa !6
+  %26 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %24, i64 noundef %25, i32 noundef 2, i64 noundef %6, i64 noundef %23) #7
+  br label %27
 
-26:                                               ; preds = %rb_scan_args_set.exit, %.split.us.thread
-  %storemerge = phi i64 [ %25, %rb_scan_args_set.exit ], [ %21, %.split.us.thread ]
+27:                                               ; preds = %rb_scan_args_set.exit, %19
+  %storemerge = phi i64 [ %26, %rb_scan_args_set.exit ], [ %22, %19 ]
   store i64 %storemerge, ptr %4, align 8, !tbaa !6
-  %27 = tail call i64 @rb_obj_class(i64 noundef %2) #7
-  %28 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %27) #7
+  %28 = tail call i64 @rb_obj_class(i64 noundef %2) #7
+  %29 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %28) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  ret i64 %28
+  ret i64 %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2619,7 +2611,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 .preheader.split.split:                           ; preds = %16
   switch i32 %0, label %18 [
-    i32 0, label %.split.us.thread
+    i32 0, label %19
     i32 1, label %rb_scan_args_set.exit
   ]
 
@@ -2627,26 +2619,26 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #9
   unreachable
 
-.split.us.thread:                                 ; preds = %.preheader.split.split
-  %19 = load i64, ptr @rb_cFile, align 8, !tbaa !6
-  %20 = load i64, ptr @id_expand_path, align 8, !tbaa !6
-  %21 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %19, i64 noundef %20, i32 noundef 1, i64 noundef %6) #7
-  br label %26
+19:                                               ; preds = %.preheader.split.split
+  %20 = load i64, ptr @rb_cFile, align 8, !tbaa !6
+  %21 = load i64, ptr @id_expand_path, align 8, !tbaa !6
+  %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef %21, i32 noundef 1, i64 noundef %6) #7
+  br label %27
 
 rb_scan_args_set.exit:                            ; preds = %.preheader.split.split
-  %22 = load i64, ptr %1, align 8, !tbaa !6
-  %23 = load i64, ptr @rb_cFile, align 8, !tbaa !6
-  %24 = load i64, ptr @id_expand_path, align 8, !tbaa !6
-  %25 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %23, i64 noundef %24, i32 noundef 2, i64 noundef %6, i64 noundef %22) #7
-  br label %26
+  %23 = load i64, ptr %1, align 8, !tbaa !6
+  %24 = load i64, ptr @rb_cFile, align 8, !tbaa !6
+  %25 = load i64, ptr @id_expand_path, align 8, !tbaa !6
+  %26 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %24, i64 noundef %25, i32 noundef 2, i64 noundef %6, i64 noundef %23) #7
+  br label %27
 
-26:                                               ; preds = %rb_scan_args_set.exit, %.split.us.thread
-  %storemerge = phi i64 [ %25, %rb_scan_args_set.exit ], [ %21, %.split.us.thread ]
+27:                                               ; preds = %rb_scan_args_set.exit, %19
+  %storemerge = phi i64 [ %26, %rb_scan_args_set.exit ], [ %22, %19 ]
   store i64 %storemerge, ptr %4, align 8, !tbaa !6
-  %27 = tail call i64 @rb_obj_class(i64 noundef %2) #7
-  %28 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %27) #7
+  %28 = tail call i64 @rb_obj_class(i64 noundef %2) #7
+  %29 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %28) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  ret i64 %28
+  ret i64 %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3809,7 +3801,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 .preheader.split.split:                           ; preds = %15
   switch i32 %0, label %17 [
-    i32 0, label %.split.us.thread
+    i32 0, label %18
     i32 1, label %rb_scan_args_set.exit
   ]
 
@@ -3817,21 +3809,21 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #9
   unreachable
 
-.split.us.thread:                                 ; preds = %.preheader.split.split
-  %18 = load i64, ptr @rb_cDir, align 8, !tbaa !6
-  %19 = load i64, ptr @id_mkdir, align 8, !tbaa !6
-  %20 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %18, i64 noundef %19, i32 noundef 1, i64 noundef %5) #7
-  br label %25
+18:                                               ; preds = %.preheader.split.split
+  %19 = load i64, ptr @rb_cDir, align 8, !tbaa !6
+  %20 = load i64, ptr @id_mkdir, align 8, !tbaa !6
+  %21 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %19, i64 noundef %20, i32 noundef 1, i64 noundef %5) #7
+  br label %26
 
 rb_scan_args_set.exit:                            ; preds = %.preheader.split.split
-  %21 = load i64, ptr %1, align 8, !tbaa !6
-  %22 = load i64, ptr @rb_cDir, align 8, !tbaa !6
-  %23 = load i64, ptr @id_mkdir, align 8, !tbaa !6
-  %24 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %22, i64 noundef %23, i32 noundef 2, i64 noundef %5, i64 noundef %21) #7
-  br label %25
+  %22 = load i64, ptr %1, align 8, !tbaa !6
+  %23 = load i64, ptr @rb_cDir, align 8, !tbaa !6
+  %24 = load i64, ptr @id_mkdir, align 8, !tbaa !6
+  %25 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %23, i64 noundef %24, i32 noundef 2, i64 noundef %5, i64 noundef %22) #7
+  br label %26
 
-25:                                               ; preds = %rb_scan_args_set.exit, %.split.us.thread
-  %.0 = phi i64 [ %20, %.split.us.thread ], [ %24, %rb_scan_args_set.exit ]
+26:                                               ; preds = %rb_scan_args_set.exit, %18
+  %.0 = phi i64 [ %21, %18 ], [ %25, %rb_scan_args_set.exit ]
   ret i64 %.0
 }
 

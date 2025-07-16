@@ -514,73 +514,73 @@ define internal i64 @etc_getpwuid(i32 noundef %0, ptr noundef readonly captures(
 
 .preheader.split.split:                           ; preds = %3
   switch i32 %0, label %5 [
-    i32 0, label %.split.us.thread
-    i32 1, label %rb_scan_args_set.exit
+    i32 0, label %rb_scan_args_set.exit
+    i32 1, label %6
   ]
 
 5:                                                ; preds = %.preheader.split.split, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #15
   unreachable
 
+6:                                                ; preds = %.preheader.split.split
+  %7 = load i64, ptr %1, align 8, !tbaa !6
+  %8 = tail call i64 @rb_num2uint(i64 noundef %7) #13
+  %9 = trunc i64 %8 to i32
+  br label %11
+
 rb_scan_args_set.exit:                            ; preds = %.preheader.split.split
-  %6 = load i64, ptr %1, align 8, !tbaa !6
-  %7 = tail call i64 @rb_num2uint(i64 noundef %6) #13
-  %8 = trunc i64 %7 to i32
-  br label %10
+  %10 = tail call i32 @getuid() #13
+  br label %11
 
-.split.us.thread:                                 ; preds = %.preheader.split.split
-  %9 = tail call i32 @getuid() #13
-  br label %10
+11:                                               ; preds = %rb_scan_args_set.exit, %6
+  %.0 = phi i32 [ %9, %6 ], [ %10, %rb_scan_args_set.exit ]
+  %12 = tail call ptr @getpwuid(i32 noundef %.0) #13
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-10:                                               ; preds = %.split.us.thread, %rb_scan_args_set.exit
-  %.0 = phi i32 [ %8, %rb_scan_args_set.exit ], [ %9, %.split.us.thread ]
-  %11 = tail call ptr @getpwuid(i32 noundef %.0) #13
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %10
-  %14 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.214, i32 noundef %.0) #15
+14:                                               ; preds = %11
+  %15 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.214, i32 noundef %.0) #15
   unreachable
 
-15:                                               ; preds = %10
-  %16 = load i64, ptr @sPasswd, align 8, !tbaa !6
-  %17 = load ptr, ptr %11, align 8, !tbaa !10
-  %18 = icmp eq ptr %17, null
-  %spec.store.select.i.i = select i1 %18, ptr @.str.216, ptr %17
-  %19 = tail call i64 @rb_locale_str_new_cstr(ptr noundef nonnull %spec.store.select.i.i) #13
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !15
-  %22 = icmp eq ptr %21, null
-  %spec.store.select.i8.i = select i1 %22, ptr @.str.216, ptr %21
-  %23 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %spec.store.select.i8.i) #13
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !16
-  %26 = zext i32 %25 to i64
-  %27 = shl nuw nsw i64 %26, 1
-  %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %30 = load i32, ptr %29, align 4, !tbaa !17
-  %31 = zext i32 %30 to i64
-  %32 = shl nuw nsw i64 %31, 1
-  %33 = or disjoint i64 %32, 1
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !18
-  %36 = icmp eq ptr %35, null
-  %spec.store.select.i9.i = select i1 %36, ptr @.str.216, ptr %35
-  %37 = tail call i64 @rb_locale_str_new_cstr(ptr noundef nonnull %spec.store.select.i9.i) #13
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !19
-  %40 = icmp eq ptr %39, null
-  %spec.store.select.i10.i = select i1 %40, ptr @.str.216, ptr %39
-  %41 = tail call i64 @rb_filesystem_str_new_cstr(ptr noundef nonnull %spec.store.select.i10.i) #13
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !20
-  %44 = icmp eq ptr %43, null
-  %spec.store.select.i11.i = select i1 %44, ptr @.str.216, ptr %43
-  %45 = tail call i64 @rb_filesystem_str_new_cstr(ptr noundef nonnull %spec.store.select.i11.i) #13
-  %46 = tail call i64 (i64, ...) @rb_struct_new(i64 noundef %16, i64 noundef %19, i64 noundef %23, i64 noundef %28, i64 noundef %33, i64 noundef %37, i64 noundef %41, i64 noundef %45, i32 noundef 0) #13
-  ret i64 %46
+16:                                               ; preds = %11
+  %17 = load i64, ptr @sPasswd, align 8, !tbaa !6
+  %18 = load ptr, ptr %12, align 8, !tbaa !10
+  %19 = icmp eq ptr %18, null
+  %spec.store.select.i.i = select i1 %19, ptr @.str.216, ptr %18
+  %20 = tail call i64 @rb_locale_str_new_cstr(ptr noundef nonnull %spec.store.select.i.i) #13
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  %23 = icmp eq ptr %22, null
+  %spec.store.select.i8.i = select i1 %23, ptr @.str.216, ptr %22
+  %24 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %spec.store.select.i8.i) #13
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %26 = load i32, ptr %25, align 8, !tbaa !16
+  %27 = zext i32 %26 to i64
+  %28 = shl nuw nsw i64 %27, 1
+  %29 = or disjoint i64 %28, 1
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %31 = load i32, ptr %30, align 4, !tbaa !17
+  %32 = zext i32 %31 to i64
+  %33 = shl nuw nsw i64 %32, 1
+  %34 = or disjoint i64 %33, 1
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %36 = load ptr, ptr %35, align 8, !tbaa !18
+  %37 = icmp eq ptr %36, null
+  %spec.store.select.i9.i = select i1 %37, ptr @.str.216, ptr %36
+  %38 = tail call i64 @rb_locale_str_new_cstr(ptr noundef nonnull %spec.store.select.i9.i) #13
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !19
+  %41 = icmp eq ptr %40, null
+  %spec.store.select.i10.i = select i1 %41, ptr @.str.216, ptr %40
+  %42 = tail call i64 @rb_filesystem_str_new_cstr(ptr noundef nonnull %spec.store.select.i10.i) #13
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %44 = load ptr, ptr %43, align 8, !tbaa !20
+  %45 = icmp eq ptr %44, null
+  %spec.store.select.i11.i = select i1 %45, ptr @.str.216, ptr %44
+  %46 = tail call i64 @rb_filesystem_str_new_cstr(ptr noundef nonnull %spec.store.select.i11.i) #13
+  %47 = tail call i64 (i64, ...) @rb_struct_new(i64 noundef %17, i64 noundef %20, i64 noundef %24, i64 noundef %29, i64 noundef %34, i64 noundef %38, i64 noundef %42, i64 noundef %46, i32 noundef 0) #13
+  ret i64 %47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -776,38 +776,38 @@ define internal i64 @etc_getgrgid(i32 noundef %0, ptr noundef readonly captures(
 
 .preheader.split.split:                           ; preds = %3
   switch i32 %0, label %5 [
-    i32 0, label %.split.us.thread
-    i32 1, label %rb_scan_args_set.exit
+    i32 0, label %rb_scan_args_set.exit
+    i32 1, label %6
   ]
 
 5:                                                ; preds = %.preheader.split.split, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #15
   unreachable
 
+6:                                                ; preds = %.preheader.split.split
+  %7 = load i64, ptr %1, align 8, !tbaa !6
+  %8 = tail call i64 @rb_num2uint(i64 noundef %7) #13
+  %9 = trunc i64 %8 to i32
+  br label %11
+
 rb_scan_args_set.exit:                            ; preds = %.preheader.split.split
-  %6 = load i64, ptr %1, align 8, !tbaa !6
-  %7 = tail call i64 @rb_num2uint(i64 noundef %6) #13
-  %8 = trunc i64 %7 to i32
-  br label %10
+  %10 = tail call i32 @getgid() #13
+  br label %11
 
-.split.us.thread:                                 ; preds = %.preheader.split.split
-  %9 = tail call i32 @getgid() #13
-  br label %10
+11:                                               ; preds = %rb_scan_args_set.exit, %6
+  %.0 = phi i32 [ %9, %6 ], [ %10, %rb_scan_args_set.exit ]
+  %12 = tail call ptr @getgrgid(i32 noundef %.0) #13
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-10:                                               ; preds = %.split.us.thread, %rb_scan_args_set.exit
-  %.0 = phi i32 [ %8, %rb_scan_args_set.exit ], [ %9, %.split.us.thread ]
-  %11 = tail call ptr @getgrgid(i32 noundef %.0) #13
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %10
-  %14 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %14, ptr noundef nonnull @.str.220, i32 noundef %.0) #15
+14:                                               ; preds = %11
+  %15 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.220, i32 noundef %.0) #15
   unreachable
 
-15:                                               ; preds = %10
-  %16 = tail call fastcc i64 @setup_group(ptr noundef %11)
-  ret i64 %16
+16:                                               ; preds = %11
+  %17 = tail call fastcc i64 @setup_group(ptr noundef %12)
+  ret i64 %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1026,7 +1026,7 @@ rb_num2int_inline.exit:                           ; preds = %6, %8
   store i32 0, ptr %11, align 4, !tbaa !21
   %12 = call i64 @confstr(i32 noundef %10, ptr noundef nonnull %3, i64 noundef 128) #13
   %13 = icmp ugt i64 %12, 128
-  br i1 %13, label %14, label %26
+  br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %rb_num2int_inline.exit
   %15 = icmp ult i64 %12, 1024
@@ -1043,44 +1043,40 @@ rb_num2int_inline.exit:                           ; preds = %6, %8
   %21 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef range(i64 1024, 0) %12, i64 noundef %20) #16
   br label %22
 
-22:                                               ; preds = %18, %16
+22:                                               ; preds = %16, %18
   %23 = phi ptr [ %17, %16 ], [ %21, %18 ]
   %24 = call ptr @rb_errno_ptr() #13
   store i32 0, ptr %24, align 4, !tbaa !21
   %25 = call i64 @confstr(i32 noundef %10, ptr noundef nonnull %23, i64 noundef %12) #13
-  br label %26
+  %26 = icmp ult i64 %12, %25
+  br i1 %26, label %27, label %.thread
 
-26:                                               ; preds = %22, %rb_num2int_inline.exit
-  %.018 = phi ptr [ %23, %22 ], [ %3, %rb_num2int_inline.exit ]
-  %.017 = phi i64 [ %12, %22 ], [ 128, %rb_num2int_inline.exit ]
-  %.0 = phi i64 [ %25, %22 ], [ %12, %rb_num2int_inline.exit ]
-  %27 = icmp ult i64 %.017, %.0
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %26
+27:                                               ; preds = %22
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.230) #17
   unreachable
 
-29:                                               ; preds = %26
-  %30 = icmp eq i64 %.0, 0
-  br i1 %30, label %31, label %36
+.thread:                                          ; preds = %rb_num2int_inline.exit, %22
+  %.025 = phi i64 [ %25, %22 ], [ %12, %rb_num2int_inline.exit ]
+  %.01824 = phi ptr [ %23, %22 ], [ %3, %rb_num2int_inline.exit ]
+  %28 = icmp eq i64 %.025, 0
+  br i1 %28, label %29, label %34
 
-31:                                               ; preds = %29
-  %32 = call ptr @rb_errno_ptr() #13
-  %33 = load i32, ptr %32, align 4, !tbaa !21
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %38, label %35
+29:                                               ; preds = %.thread
+  %30 = call ptr @rb_errno_ptr() #13
+  %31 = load i32, ptr %30, align 4, !tbaa !21
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %36, label %33
 
-35:                                               ; preds = %31
+33:                                               ; preds = %29
   call void @rb_sys_fail(ptr noundef nonnull @.str.20) #15
   unreachable
 
-36:                                               ; preds = %29
-  %37 = call i64 @rb_str_new_cstr(ptr noundef nonnull %.018) #13
-  br label %38
+34:                                               ; preds = %.thread
+  %35 = call i64 @rb_str_new_cstr(ptr noundef nonnull %.01824) #13
+  br label %36
 
-38:                                               ; preds = %31, %36
-  %.019 = phi i64 [ %37, %36 ], [ 4, %31 ]
+36:                                               ; preds = %29, %34
+  %.019 = phi i64 [ %35, %34 ], [ 4, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
   ret i64 %.019

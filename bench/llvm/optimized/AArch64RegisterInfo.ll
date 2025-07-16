@@ -8554,8 +8554,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo14shouldCoale
   %35 = and i32 %30, 31
   %36 = shl nuw i32 1, %35
   %37 = and i32 %36, %34
-  %.not61 = icmp eq i32 %37, 0
-  br i1 %.not61, label %38, label %50
+  %.not66 = icmp eq i32 %37, 0
+  br i1 %.not66, label %38, label %50
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr %2, align 8, !tbaa !41
@@ -8569,8 +8569,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo14shouldCoale
   %47 = and i32 %42, 31
   %48 = shl nuw i32 1, %47
   %49 = and i32 %48, %46
-  %.not62 = icmp eq i32 %49, 0
-  br i1 %.not62, label %.critedge, label %50
+  %.not67 = icmp eq i32 %49, 0
+  br i1 %.not67, label %.critedge, label %50
 
 50:                                               ; preds = %38, %29
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8615,18 +8615,18 @@ _ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit: ; preds = %
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !513
   %76 = getelementptr i8, ptr %75, i64 68
-  %.val.i.i.i.i.i.i.i69 = load i16, ptr %76, align 4, !tbaa !447
-  %77 = add i16 %.val.i.i.i.i.i.i.i69, -478
-  %switch.i.i.i.i.i.i.i.i70 = icmp ult i16 %77, 4
-  br i1 %switch.i.i.i.i.i.i.i.i70, label %.critedge, label %.preheader.i.i.i.i.i.i.preheader
+  %.val.i.i.i.i.i.i.i74 = load i16, ptr %76, align 4, !tbaa !447
+  %77 = add i16 %.val.i.i.i.i.i.i.i74, -478
+  %switch.i.i.i.i.i.i.i.i75 = icmp ult i16 %77, 4
+  br i1 %switch.i.i.i.i.i.i.i.i75, label %.critedge, label %.preheader.i.i.i.i.i.i.preheader
 
 .preheader.i.i.i.i.i.i.preheader:                 ; preds = %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i
   %78 = phi ptr [ %85, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %75, %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit ]
-  %.sroa.02.05.i.i.i.i.i.i71 = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %.sroa.0.0.i.i, %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit ]
+  %.sroa.02.05.i.i.i.i.i.i76 = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %.sroa.0.0.i.i, %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit ]
   br label %.preheader.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %.preheader.i.i.i.i.i.i.preheader, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i
-  %.pr3.i.i.i.i.i.i.i = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i ], [ %.sroa.02.05.i.i.i.i.i.i71, %.preheader.i.i.i.i.i.i.preheader ]
+  %.pr3.i.i.i.i.i.i.i = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i ], [ %.sroa.02.05.i.i.i.i.i.i76, %.preheader.i.i.i.i.i.i.preheader ]
   %79 = getelementptr inbounds nuw i8, ptr %.pr3.i.i.i.i.i.i.i, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !3
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %80, null
@@ -8651,7 +8651,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
   %switch.i.i.i.i.i.i.i.i = icmp ult i16 %88, 4
   br i1 %switch.i.i.i.i.i.i.i.i, label %.critedge, label %.preheader.i.i.i.i.i.i.preheader, !llvm.loop !561
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit.thread": ; preds = %81, %.preheader.i.i.i.i.i.i, %71, %68, %50
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit.thread": ; preds = %.preheader.i.i.i.i.i.i, %81, %50, %68, %71
   %89 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !3
   %91 = icmp slt i32 %90, 0
@@ -8689,18 +8689,18 @@ _ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit: ; pre
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i30, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !513
   %105 = getelementptr i8, ptr %104, i64 68
-  %.val.i.i.i.i.i.i.i3472 = load i16, ptr %105, align 4, !tbaa !447
-  %106 = add i16 %.val.i.i.i.i.i.i.i3472, -478
-  %switch.i.i.i.i.i.i.i.i3573 = icmp ult i16 %106, 4
-  br i1 %switch.i.i.i.i.i.i.i.i3573, label %.critedge, label %.preheader.i.i.i.i.i.i36.preheader
+  %.val.i.i.i.i.i.i.i3477 = load i16, ptr %105, align 4, !tbaa !447
+  %106 = add i16 %.val.i.i.i.i.i.i.i3477, -478
+  %switch.i.i.i.i.i.i.i.i3578 = icmp ult i16 %106, 4
+  br i1 %switch.i.i.i.i.i.i.i.i3578, label %.critedge, label %.preheader.i.i.i.i.i.i36.preheader
 
 .preheader.i.i.i.i.i.i36.preheader:               ; preds = %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i
   %107 = phi ptr [ %112, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %104, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit ]
-  %.sroa.02.08.i.i.i.i.i.i74 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %.sroa.0.0.i.i30, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit ]
+  %.sroa.02.08.i.i.i.i.i.i79 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %.sroa.0.0.i.i30, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit ]
   br label %.critedge2.i.i.i.i.i.i.i.i
 
 .critedge2.i.i.i.i.i.i.i.i:                       ; preds = %.critedge2.i.i.i.i.i.i.i.i.backedge, %.preheader.i.i.i.i.i.i36.preheader
-  %.pn.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.02.08.i.i.i.i.i.i74, %.preheader.i.i.i.i.i.i36.preheader ], [ %storemerge.i.i.i.i.i.i.i.i, %.critedge2.i.i.i.i.i.i.i.i.backedge ]
+  %.pn.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.02.08.i.i.i.i.i.i79, %.preheader.i.i.i.i.i.i36.preheader ], [ %storemerge.i.i.i.i.i.i.i.i, %.critedge2.i.i.i.i.i.i.i.i.backedge ]
   %storemerge.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i, align 8, !tbaa !3
   %.not.i.i.i.i.i.i.i.i37 = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i, null

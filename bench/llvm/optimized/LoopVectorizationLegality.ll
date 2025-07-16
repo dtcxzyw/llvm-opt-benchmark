@@ -2752,77 +2752,73 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXs
   %36 = load ptr, ptr %.017.ptr, align 8, !tbaa !177
   %37 = load ptr, ptr %36, align 8, !tbaa !87
   %.not.i21 = icmp eq ptr %37, null
-  br i1 %.not.i21, label %_ZN4llvm9StringRefC2EPKc.exit, label %38
+  br i1 %.not.i21, label %.critedge, label %_ZN4llvm9StringRefC2EPKc.exit
 
-38:                                               ; preds = %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.split
-  %39 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #20
-  br label %_ZN4llvm9StringRefC2EPKc.exit
-
-_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.split, %38
-  %40 = phi i64 [ %39, %38 ], [ 0, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.split ]
-  %.not.i22 = icmp eq i64 %9, %40
-  br i1 %.not.i22, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %.critedge
+_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.split
+  %38 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #20
+  %39 = icmp eq i64 %9, %38
+  br i1 %39, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC2EPKc.exit
-  %bcmp.i23 = tail call i32 @bcmp(ptr nonnull %8, ptr %37, i64 %9)
-  %41 = icmp eq i32 %bcmp.i23, 0
-  br i1 %41, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
+  %bcmp.i23 = tail call i32 @bcmp(ptr nonnull %8, ptr nonnull %37, i64 %9)
+  %40 = icmp eq i32 %bcmp.i23, 0
+  br i1 %40, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.split.us, %_ZN4llvm9StringRefC2EPKc.exit.us
   %.us-phi = phi ptr [ %33, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %33, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.split.us ], [ %36, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %42 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !84
-  switch i32 %43, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread [
-    i32 0, label %44
-    i32 1, label %50
-    i32 2, label %55
+  %41 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
+  %42 = load i32, ptr %41, align 4, !tbaa !84
+  switch i32 %42, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread [
+    i32 0, label %43
+    i32 1, label %49
+    i32 2, label %54
     i32 3, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit
     i32 4, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit
     i32 5, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit
   ]
 
-44:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+43:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %.not.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread, label %_ZN4llvm13isPowerOf2_32Ej.exit.i
 
-_ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %44
-  %45 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %21)
-  %46 = icmp samesign ult i32 %45, 2
-  %47 = load i32, ptr @_ZN4llvm16VectorizerParams14MaxVectorWidthE, align 4
-  %48 = icmp uge i32 %47, %21
-  %49 = select i1 %46, i1 %48, i1 false
-  br i1 %49, label %58, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
+_ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %43
+  %44 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %21)
+  %45 = icmp samesign ult i32 %44, 2
+  %46 = load i32, ptr @_ZN4llvm16VectorizerParams14MaxVectorWidthE, align 4
+  %47 = icmp uge i32 %46, %21
+  %48 = select i1 %45, i1 %47, i1 false
+  br i1 %48, label %57, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
 
-50:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+49:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %.not.i.i8.i = icmp eq i32 %21, 0
   br i1 %.not.i.i8.i, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread, label %_ZN4llvm13isPowerOf2_32Ej.exit9.i
 
-_ZN4llvm13isPowerOf2_32Ej.exit9.i:                ; preds = %50
-  %51 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %21)
-  %52 = icmp samesign ult i32 %51, 2
-  %53 = icmp ult i32 %21, 17
-  %54 = and i1 %53, %52
-  br i1 %54, label %58, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
+_ZN4llvm13isPowerOf2_32Ej.exit9.i:                ; preds = %49
+  %50 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %21)
+  %51 = icmp samesign ult i32 %50, 2
+  %52 = icmp ult i32 %21, 17
+  %53 = and i1 %52, %51
+  br i1 %53, label %57, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
 
-55:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %56 = icmp ult i32 %21, 2
-  br i1 %56, label %58, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
+54:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  %55 = icmp ult i32 %21, 2
+  br i1 %55, label %57, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
 
 _ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %57 = icmp ult i32 %21, 2
-  br i1 %57, label %58, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
+  %56 = icmp ult i32 %21, 2
+  br i1 %56, label %57, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
 
-58:                                               ; preds = %55, %_ZN4llvm13isPowerOf2_32Ej.exit9.i, %_ZN4llvm13isPowerOf2_32Ej.exit.i, %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit
-  %59 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
-  store i32 %21, ptr %59, align 8, !tbaa !88
+57:                                               ; preds = %54, %_ZN4llvm13isPowerOf2_32Ej.exit9.i, %_ZN4llvm13isPowerOf2_32Ej.exit.i, %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit
+  %58 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
+  store i32 %21, ptr %58, align 8, !tbaa !88
   br label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread
 
-.critedge:                                        ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
+.critedge:                                        ; preds = %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.split, %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %.017.add = add nuw nsw i64 %.017.idx37, 8
   %.not19 = icmp eq i64 %.017.add, 48
   br i1 %.not19, label %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread, label %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.split
 
-_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread: ; preds = %.critedge, %.critedge.us, %44, %50, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit, %58, %_ZN4llvm13isPowerOf2_32Ej.exit.i, %_ZN4llvm13isPowerOf2_32Ej.exit9.i, %55
+_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit.thread: ; preds = %.critedge, %.critedge.us, %43, %49, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm18LoopVectorizeHints4Hint8validateEj.exit, %57, %_ZN4llvm13isPowerOf2_32Ej.exit.i, %_ZN4llvm13isPowerOf2_32Ej.exit9.i, %54
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #20
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
@@ -3808,7 +3804,7 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds 
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EclINS2_10BasicBlock17phi_iterator_implINS2_7PHINodeENS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ES7_EELb0ELb0EEEEEEEbT_.exit.i.i.i.i.i": ; preds = %32, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i.i.i.i.i.i.i.i, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i.i.i.i.i.i.i.i, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #20
-  br i1 %or.cond.i.i.i.i.i.i.i, label %33, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_10BasicBlock17phi_iterator_implINS_7PHINodeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEEEEEZNS_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EEbOT_T0_.exit"
+  br i1 %or.cond.i.i.i.i.i.i.i, label %33, label %"_ZSt11find_if_notIN4llvm10BasicBlock17phi_iterator_implINS0_7PHINodeENS0_21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEEEEZNS0_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0ET_SD_SD_T0_.exit.loopexit.i.i"
 
 33:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EclINS2_10BasicBlock17phi_iterator_implINS2_7PHINodeENS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ES7_EELb0ELb0EEEEEEEbT_.exit.i.i.i.i.i"
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i.i.i, i64 32
@@ -3818,12 +3814,16 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds 
   %38 = icmp eq i8 %37, 84
   %spec.select.i.i.i1.i.i.i.i.i.i = select i1 %38, ptr %36, ptr null
   %.not.i.i.i.i.i = icmp eq ptr %spec.select.i.i.i1.i.i.i.i.i.i, %9
-  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_10BasicBlock17phi_iterator_implINS_7PHINodeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEEEEEZNS_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EEbOT_T0_.exit", label %20, !llvm.loop !352
+  br i1 %.not.i.i.i.i.i, label %"_ZSt11find_if_notIN4llvm10BasicBlock17phi_iterator_implINS0_7PHINodeENS0_21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEEEEZNS0_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0ET_SD_SD_T0_.exit.loopexit.i.i", label %20, !llvm.loop !352
 
-"_ZN4llvm6all_ofINS_14iterator_rangeINS_10BasicBlock17phi_iterator_implINS_7PHINodeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEEEEEZNS_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EclINS2_10BasicBlock17phi_iterator_implINS2_7PHINodeENS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ES7_EELb0ELb0EEEEEEEbT_.exit.i.i.i.i.i", %33, %1
-  %.sroa.03.0.lcssa.i.i.i.i.i = phi ptr [ %8, %1 ], [ %.sroa.03.06.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EclINS2_10BasicBlock17phi_iterator_implINS2_7PHINodeENS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ES7_EELb0ELb0EEEEEEEbT_.exit.i.i.i.i.i" ], [ %9, %33 ]
-  %39 = icmp eq ptr %9, %.sroa.03.0.lcssa.i.i.i.i.i
-  ret i1 %39
+"_ZSt11find_if_notIN4llvm10BasicBlock17phi_iterator_implINS0_7PHINodeENS0_21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEEEEZNS0_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0ET_SD_SD_T0_.exit.loopexit.i.i": ; preds = %33, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EclINS2_10BasicBlock17phi_iterator_implINS2_7PHINodeENS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ES7_EELb0ELb0EEEEEEEbT_.exit.i.i.i.i.i"
+  %.sroa.03.0.lcssa.i.i.i.ph.i.i = phi ptr [ %9, %33 ], [ %.sroa.03.06.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EclINS2_10BasicBlock17phi_iterator_implINS2_7PHINodeENS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsINS2_11InstructionELb0ELb0EvLb1ES7_EELb0ELb0EEEEEEEbT_.exit.i.i.i.i.i" ]
+  %39 = icmp eq ptr %9, %.sroa.03.0.lcssa.i.i.i.ph.i.i
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_10BasicBlock17phi_iterator_implINS_7PHINodeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEEEEEZNS_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EEbOT_T0_.exit"
+
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_10BasicBlock17phi_iterator_implINS_7PHINodeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEEEEEEZNS_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0EEbOT_T0_.exit": ; preds = %1, %"_ZSt11find_if_notIN4llvm10BasicBlock17phi_iterator_implINS0_7PHINodeENS0_21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEEEEZNS0_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0ET_SD_SD_T0_.exit.loopexit.i.i"
+  %.sroa.03.0.lcssa.i.i.i.i.i = phi i1 [ true, %1 ], [ %39, %"_ZSt11find_if_notIN4llvm10BasicBlock17phi_iterator_implINS0_7PHINodeENS0_21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEEEEZNS0_25LoopVectorizationLegality24setupOuterLoopInductionsEvE3$_0ET_SD_SD_T0_.exit.loopexit.i.i" ]
+  ret i1 %.sroa.03.0.lcssa.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

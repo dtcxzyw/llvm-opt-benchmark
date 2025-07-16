@@ -16108,15 +16108,15 @@ define noundef range(i32 0, 256) i32 @_ZN11OpenImageIO6v3_1_08TypeDesc14basetype
   %3 = and i32 %.sroa.018.0.extract.trunc, 255
   %4 = and i32 %.sroa.0.0.extract.trunc, 255
   %5 = icmp eq i32 %3, %4
-  br i1 %5, label %35, label %6
+  br i1 %5, label %36, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %3, 0
-  br i1 %7, label %35, label %8
+  br i1 %7, label %36, label %8
 
 8:                                                ; preds = %6
   %9 = icmp eq i32 %4, 0
-  br i1 %9, label %35, label %10
+  br i1 %9, label %36, label %10
 
 10:                                               ; preds = %8
   %11 = and i64 %0, 240
@@ -16134,67 +16134,69 @@ _ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit:    ; preds = %10, %12
   %.0.i.i.i = phi i64 [ %16, %12 ], [ 0, %10 ]
   %17 = and i64 %1, 240
   %.not47 = icmp eq i64 %17, 0
-  br i1 %.not47, label %18, label %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29
+  br i1 %.not47, label %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29, label %.thread54
 
-18:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit
-  %19 = and i64 %1, 15
-  %20 = getelementptr inbounds nuw [16 x i32], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113basetype_sizeE, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !21
-  %22 = sext i32 %21 to i64
-  br label %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29
+_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29:  ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit
+  %18 = and i64 %1, 15
+  %19 = getelementptr inbounds nuw [16 x i32], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113basetype_sizeE, i64 0, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !21
+  %21 = sext i32 %20 to i64
+  %22 = icmp ult i64 %.0.i.i.i, %21
+  %cond.fr = freeze i1 %22
+  %spec.select = select i1 %cond.fr, i32 %3, i32 %4
+  %spec.select58 = select i1 %cond.fr, i32 %4, i32 %3
+  br label %.thread54
 
-_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29:  ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit, %18
-  %.0.i.i.i26 = phi i64 [ %22, %18 ], [ 0, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit ]
-  %23 = icmp ult i64 %.0.i.i.i, %.0.i.i.i26
-  %spec.select = select i1 %23, i32 %3, i32 %4
-  %spec.select46 = select i1 %23, i32 %4, i32 %3
-  %24 = add nsw i32 %spec.select46, -11
-  %or.cond = icmp ult i32 %24, 2
-  br i1 %or.cond, label %35, label %25
+.thread54:                                        ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit
+  %23 = phi i32 [ %4, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit ], [ %spec.select, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29 ]
+  %24 = phi i32 [ %3, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit ], [ %spec.select58, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29 ]
+  %25 = add nsw i32 %24, -11
+  %or.cond = icmp ult i32 %25, 2
+  br i1 %or.cond, label %36, label %26
 
-25:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29
-  %trunc = trunc nuw i32 %spec.select46 to i8
+26:                                               ; preds = %.thread54
+  %trunc = trunc nuw i32 %24 to i8
   switch i8 %trunc, label %.thread [
-    i8 6, label %26
-    i8 7, label %27
+    i8 6, label %27
+    i8 7, label %28
   ]
 
-26:                                               ; preds = %25
-  %trunc48 = trunc nuw i32 %spec.select to i8
+27:                                               ; preds = %26
+  %trunc48 = trunc nuw i32 %23 to i8
   switch i8 %trunc48, label %.thread [
-    i8 4, label %35
-    i8 2, label %35
+    i8 4, label %36
+    i8 2, label %36
   ]
 
-27:                                               ; preds = %25
-  %.off = add nsw i32 %spec.select, -2
+28:                                               ; preds = %26
+  %.off = add nsw i32 %23, -2
   %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %35, label %.thread
+  br i1 %switch, label %36, label %.thread
 
-.thread:                                          ; preds = %25, %26, %27
-  %28 = icmp eq i32 %spec.select46, 4
-  %29 = icmp eq i32 %spec.select46, 10
-  %or.cond11 = or i1 %28, %29
-  %30 = icmp eq i32 %spec.select, 2
-  %or.cond13 = and i1 %30, %or.cond11
-  br i1 %or.cond13, label %35, label %31
+.thread:                                          ; preds = %26, %27, %28
+  %29 = icmp eq i32 %24, 4
+  %30 = icmp eq i32 %24, 10
+  %or.cond11 = or i1 %29, %30
+  %31 = icmp eq i32 %23, 2
+  %or.cond13 = and i1 %31, %or.cond11
+  br i1 %or.cond13, label %36, label %32
 
-31:                                               ; preds = %.thread
-  switch i8 %trunc, label %34 [
-    i8 10, label %32
-    i8 5, label %32
+32:                                               ; preds = %.thread
+  switch i8 %trunc, label %35 [
+    i8 10, label %33
+    i8 5, label %33
   ]
 
-32:                                               ; preds = %31, %31
-  %33 = and i32 %spec.select, 254
-  %or.cond17 = icmp eq i32 %33, 2
-  br i1 %or.cond17, label %35, label %34
+33:                                               ; preds = %32, %32
+  %34 = and i32 %23, 254
+  %or.cond17 = icmp eq i32 %34, 2
+  br i1 %or.cond17, label %36, label %35
 
-34:                                               ; preds = %31, %32
-  br label %35
+35:                                               ; preds = %32, %33
+  br label %36
 
-35:                                               ; preds = %27, %32, %.thread, %26, %26, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29, %8, %6, %2, %34
-  %.0 = phi i32 [ 11, %34 ], [ %3, %2 ], [ %4, %6 ], [ %3, %8 ], [ %spec.select46, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29 ], [ 6, %26 ], [ 6, %26 ], [ 7, %27 ], [ %spec.select46, %.thread ], [ %spec.select46, %32 ]
+36:                                               ; preds = %28, %33, %.thread, %27, %27, %.thread54, %8, %6, %2, %35
+  %.0 = phi i32 [ 11, %35 ], [ %3, %2 ], [ %4, %6 ], [ %3, %8 ], [ %24, %.thread54 ], [ 6, %27 ], [ 6, %27 ], [ 7, %28 ], [ %24, %.thread ], [ %24, %33 ]
   ret i32 %.0
 }
 

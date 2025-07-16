@@ -661,20 +661,20 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %2, %8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3184
   %14 = load i8, ptr %13, align 8, !tbaa !60, !range !44, !noundef !198
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %65, label %16
+  br i1 %15, label %64, label %16
 
 16:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !199
   %19 = icmp eq i32 %18, %.0.i
-  br i1 %19, label %65, label %20
+  br i1 %19, label %64, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %22, 1
   %or.cond.not = select i1 %1, i1 true, i1 %23
-  br i1 %or.cond.not, label %24, label %65
+  br i1 %or.cond.not, label %24, label %64
 
 24:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #13
@@ -701,8 +701,8 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %2, %8
   %.pre15 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !57
   br label %35
 
-35:                                               ; preds = %59, %24
-  %36 = phi ptr [ %53, %59 ], [ %.pre15, %24 ]
+35:                                               ; preds = %58, %24
+  %36 = phi ptr [ %53, %58 ], [ %.pre15, %24 ]
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit11, label %38
 
@@ -714,61 +714,57 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %2, %8
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit11:   ; preds = %35, %38
   %.0.i10 = phi i32 [ %40, %38 ], [ 0, %35 ]
   invoke void @_ZN3sat7cleaner15cleanup_watchesEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %41 unwind label %63
+          to label %41 unwind label %62
 
 41:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit11
   %42 = load ptr, ptr %0, align 8, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 3224
   invoke void @_ZN3sat7cleaner15cleanup_clausesER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %43)
-          to label %44 unwind label %63
+          to label %44 unwind label %62
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %0, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 3232
   invoke void @_ZN3sat7cleaner15cleanup_clausesER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %46)
-          to label %47 unwind label %63
+          to label %47 unwind label %62
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %0, align 8, !tbaa !12
   %49 = invoke noundef zeroext i1 @_ZN3sat6solver9propagateEb(ptr noundef nonnull align 8 dereferenceable(4264) %48, i1 noundef zeroext false)
-          to label %50 unwind label %63
+          to label %50 unwind label %62
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %0, align 8, !tbaa !12
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 3784
   %53 = load ptr, ptr %52, align 8, !tbaa !57
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13, label %55
+  br i1 %54, label %.critedge, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %53, i64 -4
-  %57 = load i32, ptr %56, align 4, !tbaa !16
-  br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13
+_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13:   ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %53, i64 -4
+  %56 = load i32, ptr %55, align 4, !tbaa !16
+  %57 = icmp ult i32 %.0.i10, %56
+  br i1 %57, label %58, label %.critedge
 
-_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13:   ; preds = %50, %55
-  %.0.i12 = phi i32 [ %57, %55 ], [ 0, %50 ]
-  %58 = icmp ult i32 %.0.i10, %.0.i12
-  br i1 %58, label %59, label %.critedge
+58:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 3184
+  %60 = load i8, ptr %59, align 8, !tbaa !60, !range !44, !noundef !198
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %.critedge, label %35, !llvm.loop !206
 
-59:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13
-  %60 = getelementptr inbounds nuw i8, ptr %51, i64 3184
-  %61 = load i8, ptr %60, align 8, !tbaa !60, !range !44, !noundef !198
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %.critedge, label %35, !llvm.loop !206
-
-.critedge:                                        ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13, %59
+.critedge:                                        ; preds = %50, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13, %58
   call void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #13
-  br label %65
+  br label %64
 
-63:                                               ; preds = %47, %44, %41, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit11
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %47, %44, %41, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit11
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3sat7cleaner6reportD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #13
-  resume { ptr, i32 } %64
+  resume { ptr, i32 } %63
 
-65:                                               ; preds = %20, %16, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %.critedge
+64:                                               ; preds = %20, %16, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %.critedge
   %.0 = phi i1 [ true, %.critedge ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ false, %16 ], [ false, %20 ]
   ret i1 %.0
 }

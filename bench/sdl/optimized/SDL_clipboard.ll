@@ -165,71 +165,71 @@ SDL_FreeClipboardMimeTypes.exit:                  ; preds = %2, %._crit_edge.i
   %15 = icmp ne ptr %0, null
   %16 = icmp ne i64 %1, 0
   %or.cond = and i1 %15, %16
-  br i1 %or.cond, label %17, label %SDL_FreeClipboardMimeTypes.exit39.thread
+  br i1 %or.cond, label %17, label %SDL_FreeClipboardMimeTypes.exit38.thread
 
 17:                                               ; preds = %SDL_FreeClipboardMimeTypes.exit
   %18 = shl i64 %1, 3
   %19 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %18) #6
   store ptr %19, ptr %4, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %SDL_FreeClipboardMimeTypes.exit39.thread, label %.preheader
+  br i1 %.not, label %SDL_FreeClipboardMimeTypes.exit38.thread, label %.preheader
 
 .preheader:                                       ; preds = %17, %.preheader
-  %.02341 = phi i64 [ %29, %.preheader ], [ 0, %17 ]
-  %.140 = phi i64 [ %spec.select, %.preheader ], [ 0, %17 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02341
+  %.02348 = phi i64 [ %29, %.preheader ], [ 0, %17 ]
+  %.147 = phi i64 [ %spec.select, %.preheader ], [ 0, %17 ]
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02348
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %21) #6
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02341
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02348
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02341
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02348
   %27 = load ptr, ptr %26, align 8
-  %.not30 = icmp ne ptr %27, null
-  %28 = zext i1 %.not30 to i64
-  %spec.select = add i64 %.140, %28
-  %29 = add nuw i64 %.02341, 1
+  %.not29 = icmp ne ptr %27, null
+  %28 = zext i1 %.not29 to i64
+  %spec.select = add i64 %.147, %28
+  %29 = add nuw i64 %.02348, 1
   %exitcond.not = icmp eq i64 %29, %1
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !5
+  br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !5
 
-.loopexit:                                        ; preds = %.preheader
-  %.not29 = icmp ult i64 %spec.select, %1
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 888
-  br i1 %.not29, label %.preheader.i32, label %SDL_FreeClipboardMimeTypes.exit39
+30:                                               ; preds = %.preheader
+  %31 = icmp ult i64 %spec.select, %1
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 888
+  br i1 %31, label %.preheader.i31, label %SDL_FreeClipboardMimeTypes.exit38
 
-.preheader.i32:                                   ; preds = %.loopexit
-  %31 = load i64, ptr %30, align 8
-  %.not9.i33 = icmp eq i64 %31, 0
-  br i1 %.not9.i33, label %._crit_edge.i38, label %.lr.ph.i34
+.preheader.i31:                                   ; preds = %30
+  %33 = load i64, ptr %32, align 8
+  %.not9.i32 = icmp eq i64 %33, 0
+  br i1 %.not9.i32, label %._crit_edge.i37, label %.lr.ph.i33
 
-._crit_edge.loopexit.i36:                         ; preds = %.lr.ph.i34
-  %.pre.i37 = load ptr, ptr %4, align 8
-  br label %._crit_edge.i38
+._crit_edge.loopexit.i35:                         ; preds = %.lr.ph.i33
+  %.pre.i36 = load ptr, ptr %4, align 8
+  br label %._crit_edge.i37
 
-._crit_edge.i38:                                  ; preds = %._crit_edge.loopexit.i36, %.preheader.i32
-  %32 = phi ptr [ %.pre.i37, %._crit_edge.loopexit.i36 ], [ %25, %.preheader.i32 ]
-  tail call void @SDL_free_REAL(ptr noundef %32) #6
+._crit_edge.i37:                                  ; preds = %._crit_edge.loopexit.i35, %.preheader.i31
+  %34 = phi ptr [ %.pre.i36, %._crit_edge.loopexit.i35 ], [ %25, %.preheader.i31 ]
+  tail call void @SDL_free_REAL(ptr noundef %34) #6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  br label %SDL_FreeClipboardMimeTypes.exit39.thread
+  br label %SDL_FreeClipboardMimeTypes.exit38.thread
 
-.lr.ph.i34:                                       ; preds = %.preheader.i32, %.lr.ph.i34
-  %.08.i35 = phi i64 [ %36, %.lr.ph.i34 ], [ 0, %.preheader.i32 ]
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.08.i35
-  %35 = load ptr, ptr %34, align 8
-  tail call void @SDL_free_REAL(ptr noundef %35) #6
-  %36 = add nuw i64 %.08.i35, 1
-  %37 = load i64, ptr %30, align 8
-  %38 = icmp ult i64 %36, %37
-  br i1 %38, label %.lr.ph.i34, label %._crit_edge.loopexit.i36, !llvm.loop !3
+.lr.ph.i33:                                       ; preds = %.preheader.i31, %.lr.ph.i33
+  %.08.i34 = phi i64 [ %38, %.lr.ph.i33 ], [ 0, %.preheader.i31 ]
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.08.i34
+  %37 = load ptr, ptr %36, align 8
+  tail call void @SDL_free_REAL(ptr noundef %37) #6
+  %38 = add nuw i64 %.08.i34, 1
+  %39 = load i64, ptr %32, align 8
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %.lr.ph.i33, label %._crit_edge.loopexit.i35, !llvm.loop !3
 
-SDL_FreeClipboardMimeTypes.exit39:                ; preds = %.loopexit
-  store i64 %1, ptr %30, align 8
-  br label %SDL_FreeClipboardMimeTypes.exit39.thread
+SDL_FreeClipboardMimeTypes.exit38:                ; preds = %30
+  store i64 %1, ptr %32, align 8
+  br label %SDL_FreeClipboardMimeTypes.exit38.thread
 
-SDL_FreeClipboardMimeTypes.exit39.thread:         ; preds = %17, %._crit_edge.i38, %SDL_FreeClipboardMimeTypes.exit, %SDL_FreeClipboardMimeTypes.exit39
-  %.126 = phi i1 [ true, %SDL_FreeClipboardMimeTypes.exit39 ], [ true, %SDL_FreeClipboardMimeTypes.exit ], [ false, %._crit_edge.i38 ], [ false, %17 ]
+SDL_FreeClipboardMimeTypes.exit38.thread:         ; preds = %17, %._crit_edge.i37, %SDL_FreeClipboardMimeTypes.exit, %SDL_FreeClipboardMimeTypes.exit38
+  %.126 = phi i1 [ true, %SDL_FreeClipboardMimeTypes.exit38 ], [ true, %SDL_FreeClipboardMimeTypes.exit ], [ false, %._crit_edge.i37 ], [ false, %17 ]
   ret i1 %.126
 }
 

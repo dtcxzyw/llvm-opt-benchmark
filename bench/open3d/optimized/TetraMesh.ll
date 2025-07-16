@@ -34265,43 +34265,47 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %.sroa.0282.0.extract.trunc = trunc i64 %.pre398 to i32
   %.sroa.2283.0.extract.shift = lshr i64 %.pre398, 32
   %.sroa.2283.0.extract.trunc = trunc nuw i64 %.sroa.2283.0.extract.shift to i32
-  br i1 %spec.select.i144, label %366, label %._crit_edge443
+  %366 = icmp eq i64 %.sroa.2283.0.extract.shift, %.sroa.2289.0.extract.shift
+  br i1 %spec.select.i144, label %368, label %._crit_edge443
 
-366:                                              ; preds = %359
-  %367 = icmp eq i64 %.sroa.2283.0.extract.shift, %.sroa.2289.0.extract.shift
-  %368 = icmp eq i32 %.sroa.0282.0.extract.trunc, %.sroa.2289.0.extract.trunc
-  %or.cond.i145 = select i1 %367, i1 true, i1 %368
-  %369 = icmp eq i32 %.sroa.2283.0.extract.trunc, %.sroa.0288.0.extract.trunc
-  %or.cond5.i146 = select i1 %or.cond.i145, i1 true, i1 %369
-  %370 = icmp eq i32 %.sroa.0282.0.extract.trunc, %.sroa.0288.0.extract.trunc
-  %spec.select.i147 = or i1 %370, %or.cond5.i146
-  br i1 %spec.select.i147, label %.preheader.preheader, label %371
+._crit_edge443:                                   ; preds = %359
+  %367 = icmp eq i32 %.sroa.2283.0.extract.trunc, %.sroa.0288.0.extract.trunc
+  br label %378
 
-371:                                              ; preds = %366
-  %372 = load i64, ptr %59, align 8
-  %.sroa.0274.0.extract.trunc = trunc i64 %372 to i32
-  %.sroa.2275.0.extract.shift = lshr i64 %372, 32
+368:                                              ; preds = %359
+  %369 = icmp eq i32 %.sroa.0282.0.extract.trunc, %.sroa.2289.0.extract.trunc
+  %or.cond.i145 = select i1 %366, i1 true, i1 %369
+  %370 = icmp eq i32 %.sroa.2283.0.extract.trunc, %.sroa.0288.0.extract.trunc
+  %or.cond5.i146 = select i1 %or.cond.i145, i1 true, i1 %370
+  %371 = icmp eq i32 %.sroa.0282.0.extract.trunc, %.sroa.0288.0.extract.trunc
+  %spec.select.i147 = or i1 %371, %or.cond5.i146
+  br i1 %spec.select.i147, label %.preheader.preheader, label %372
+
+372:                                              ; preds = %368
+  %373 = load i64, ptr %59, align 8
+  %.sroa.0274.0.extract.trunc = trunc i64 %373 to i32
+  %.sroa.2275.0.extract.shift = lshr i64 %373, 32
   %.sroa.2275.0.extract.trunc = trunc nuw i64 %.sroa.2275.0.extract.shift to i32
-  %373 = icmp eq i64 %.sroa.2275.0.extract.shift, %.sroa.2289.0.extract.shift
-  %374 = icmp eq i32 %.sroa.0274.0.extract.trunc, %.sroa.2289.0.extract.trunc
-  %or.cond.i151 = select i1 %373, i1 true, i1 %374
-  %375 = icmp eq i32 %.sroa.2275.0.extract.trunc, %.sroa.0288.0.extract.trunc
-  %or.cond5.i152 = select i1 %or.cond.i151, i1 true, i1 %375
-  %376 = icmp eq i32 %.sroa.0274.0.extract.trunc, %.sroa.0288.0.extract.trunc
-  %spec.select.i153 = or i1 %376, %or.cond5.i152
-  br i1 %spec.select.i153, label %.preheader.preheader, label %._crit_edge443
+  %374 = icmp eq i64 %.sroa.2275.0.extract.shift, %.sroa.2289.0.extract.shift
+  %375 = icmp eq i32 %.sroa.0274.0.extract.trunc, %.sroa.2289.0.extract.trunc
+  %or.cond.i151 = select i1 %374, i1 true, i1 %375
+  %376 = icmp eq i32 %.sroa.2275.0.extract.trunc, %.sroa.0288.0.extract.trunc
+  %or.cond5.i152 = select i1 %or.cond.i151, i1 true, i1 %376
+  %377 = icmp eq i32 %.sroa.0274.0.extract.trunc, %.sroa.0288.0.extract.trunc
+  %spec.select.i153 = or i1 %377, %or.cond5.i152
+  br i1 %spec.select.i153, label %.preheader.preheader, label %378
 
-._crit_edge443:                                   ; preds = %359, %371
-  %377 = icmp eq i64 %.sroa.2283.0.extract.shift, %.sroa.2289.0.extract.shift
-  %378 = icmp eq i32 %.sroa.0282.0.extract.trunc, %.sroa.2289.0.extract.trunc
-  %or.cond.i154 = select i1 %377, i1 true, i1 %378
-  %379 = icmp eq i32 %.sroa.2283.0.extract.trunc, %.sroa.0288.0.extract.trunc
-  %or.cond5.i155 = select i1 %or.cond.i154, i1 true, i1 %379
+378:                                              ; preds = %._crit_edge443, %372
+  %.sroa.2271.0.extract.trunc.pre-phi = phi i1 [ %367, %._crit_edge443 ], [ false, %372 ]
+  %.sroa.2271.0.extract.shift.pre-phi = phi i1 [ %366, %._crit_edge443 ], [ false, %372 ]
+  %379 = icmp eq i32 %.sroa.0282.0.extract.trunc, %.sroa.2289.0.extract.trunc
+  %or.cond.i154 = select i1 %.sroa.2271.0.extract.shift.pre-phi, i1 true, i1 %379
+  %or.cond5.i155 = select i1 %or.cond.i154, i1 true, i1 %.sroa.2271.0.extract.trunc.pre-phi
   %380 = icmp eq i32 %.sroa.0282.0.extract.trunc, %.sroa.0288.0.extract.trunc
   %spec.select.i156 = or i1 %380, %or.cond5.i155
   br i1 %spec.select.i156, label %381, label %497
 
-381:                                              ; preds = %._crit_edge443
+381:                                              ; preds = %378
   %382 = load i64, ptr %59, align 8
   %.sroa.0267.0.extract.trunc = trunc i64 %382 to i32
   %.sroa.2.0.extract.shift = lshr i64 %382, 32
@@ -34315,10 +34319,10 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
   %spec.select.i159 = or i1 %386, %or.cond5.i158
   br i1 %spec.select.i159, label %.preheader.preheader, label %497
 
-.preheader.preheader:                             ; preds = %381, %371, %366
-  %.sink465 = phi i32 [ 1, %366 ], [ 1, %371 ], [ 2, %381 ]
-  %.sink464 = phi i32 [ 2, %366 ], [ 3, %371 ], [ 3, %381 ]
-  %.sink = phi i32 [ 3, %366 ], [ 2, %371 ], [ 1, %381 ]
+.preheader.preheader:                             ; preds = %381, %372, %368
+  %.sink465 = phi i32 [ 1, %368 ], [ 1, %372 ], [ 2, %381 ]
+  %.sink464 = phi i32 [ 2, %368 ], [ 3, %372 ], [ 3, %381 ]
+  %.sink = phi i32 [ 3, %368 ], [ 2, %372 ], [ 1, %381 ]
   store i32 %.sink465, ptr %11, align 4
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4
   store i32 %.sink464, ptr %.sroa.5.0..sroa_idx, align 4
@@ -34500,7 +34504,7 @@ _ZN5Eigen16CommaInitializerINS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEcmERKi.exit201: ;
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #32
   br label %503
 
-497:                                              ; preds = %._crit_edge443, %381
+497:                                              ; preds = %378, %381
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #32
   %498 = trunc i64 %.074361 to i32
   store i32 %498, ptr %13, align 4, !tbaa !25

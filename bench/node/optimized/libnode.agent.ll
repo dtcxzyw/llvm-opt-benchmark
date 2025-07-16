@@ -768,8 +768,8 @@ _ZNSt3setIPN4node7tracing16AsyncTraceWriterESt4lessIS3_ESaIS3_EE6insertERKS3_.ex
   %initialize_writer_async_ = getelementptr inbounds nuw i8, ptr %this, i64 1072
   %call36 = call i32 @uv_async_send(ptr noundef nonnull %initialize_writer_async_) #14
   %27 = load ptr, ptr %_M_parent.i.i.i.i.i21, align 8
-  %cmp.not5.i.i.i44 = icmp eq ptr %27, null
-  br i1 %cmp.not5.i.i.i44, label %if.end.i31, label %while.body.i.i.i25.preheader.lr.ph
+  %cmp.not5.i.i.i41 = icmp eq ptr %27, null
+  br i1 %cmp.not5.i.i.i41, label %if.end.i31, label %while.body.i.i.i25.preheader.lr.ph
 
 while.body.i.i.i25.preheader.lr.ph:               ; preds = %_ZNSt3setIPN4node7tracing16AsyncTraceWriterESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
   %initialize_writer_condvar_ = getelementptr inbounds nuw i8, ptr %this, i64 1024

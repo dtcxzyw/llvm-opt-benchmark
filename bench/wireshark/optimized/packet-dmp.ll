@@ -2442,12 +2442,11 @@ dissect_dmp_ack.exit:                             ; preds = %507, %510, %524
   %536 = zext i16 %532 to i32
   %537 = tail call ptr @proto_tree_add_checksum(ptr noundef %15, ptr noundef %0, i32 noundef %.1, i32 noundef %534, i32 noundef %535, ptr noundef nonnull @ei_checksum_bad, ptr noundef %1, i32 noundef %536, i32 noundef 0, i32 noundef 1)
   %538 = add i32 %.1, 2
-  %539 = zext i16 %533 to i32
+  %539 = icmp eq i16 %532, %533
   br label %540
 
 540:                                              ; preds = %529, %527
-  %.093 = phi i32 [ %536, %529 ], [ 0, %527 ]
-  %.092 = phi i32 [ %539, %529 ], [ 1, %527 ]
+  %.093 = phi i1 [ %539, %529 ], [ false, %527 ]
   %.2 = phi i32 [ %538, %529 ], [ %.1, %527 ]
   %541 = load i8, ptr @use_seq_ack_analysis, align 1, !range !11, !noundef !12
   %542 = trunc nuw i8 %541 to i1
@@ -3168,16 +3167,15 @@ dmp_add_seq_ack_analysis.exit:                    ; preds = %543, %545, %551, %p
 896:                                              ; preds = %.sink.split133, %889
   %897 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 12), align 4
   %.not102 = icmp eq i32 %897, 0
-  %.not103 = icmp eq i32 %.093, %.092
-  %or.cond = select i1 %.not102, i1 true, i1 %.not103
-  br i1 %or.cond, label %900, label %898
+  %brmerge = select i1 %.not102, i1 true, i1 %.093
+  br i1 %brmerge, label %900, label %898
 
 898:                                              ; preds = %896
   %899 = load ptr, ptr %9, align 8
   call void @col_append_str(ptr noundef %899, i32 noundef 25, ptr noundef nonnull @.str.586)
   br label %900
 
-900:                                              ; preds = %898, %896
+900:                                              ; preds = %896, %898
   %901 = load i32, ptr @dmp, align 8
   %902 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 4), align 4
   %903 = icmp eq i32 %902, 13

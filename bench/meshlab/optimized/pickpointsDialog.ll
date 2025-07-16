@@ -8056,14 +8056,14 @@ declare void @_ZN9QCheckBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferencea
 define void @_ZN16PickPointsDialog11clearPointsEb(ptr noundef nonnull align 8 captures(none) dereferenceable(464) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCursor, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  br i1 %1, label %.preheader, label %21
+  br i1 %1, label %.preheader, label %22
 
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %.not11 = icmp eq ptr %6, %7
-  br i1 %.not11, label %._crit_edge, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit
+  br i1 %.not11, label %._crit_edge.thread, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit
 
 _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %.preheader, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit ], [ 0, %.preheader ]
@@ -8081,39 +8081,37 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %.prehead
   %17 = icmp ugt i64 %16, %indvars.iv.next
   br i1 %17, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit, label %._crit_edge, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit, %.preheader
-  %.lcssa8 = phi ptr [ %6, %.preheader ], [ %11, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit ]
-  %.lcssa = phi ptr [ %7, %.preheader ], [ %12, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit ]
-  %.not = icmp eq ptr %.lcssa8, %.lcssa
-  br i1 %.not, label %29, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit6
+._crit_edge:                                      ; preds = %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit
+  %18 = icmp eq ptr %11, %12
+  br i1 %18, label %._crit_edge.thread, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit6
 
 _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit6: ; preds = %._crit_edge
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %.lcssa, align 8
-  tail call void @_ZN11QTreeWidget14setCurrentItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef %20)
-  br label %29
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %12, align 8
+  tail call void @_ZN11QTreeWidget14setCurrentItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef %21)
+  br label %._crit_edge.thread
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %24 = load ptr, ptr %23, align 8
-  %.not.i.i7 = icmp eq ptr %24, %22
-  br i1 %.not.i.i7, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE5clearEv.exit, label %25
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %25 = load ptr, ptr %24, align 8
+  %.not.i.i7 = icmp eq ptr %25, %23
+  br i1 %.not.i.i7, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE5clearEv.exit, label %26
 
-25:                                               ; preds = %21
-  store ptr %22, ptr %23, align 8
+26:                                               ; preds = %22
+  store ptr %23, ptr %24, align 8
   br label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE5clearEv.exit: ; preds = %21, %25
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %27 = load ptr, ptr %26, align 8
-  tail call void @_ZN11QTreeWidget5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %27)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 0, ptr %28, align 8
-  br label %29
+_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE5clearEv.exit: ; preds = %22, %26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %28 = load ptr, ptr %27, align 8
+  tail call void @_ZN11QTreeWidget5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %28)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  store i32 0, ptr %29, align 8
+  br label %._crit_edge.thread
 
-29:                                               ; preds = %._crit_edge, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit6, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE5clearEv.exit
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit6, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE5clearEv.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %31 = load ptr, ptr %30, align 8
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %31)
@@ -8122,13 +8120,13 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE5clearEv.exit: ; preds = %21, %
   invoke void @_ZN15QGuiApplication17setOverrideCursorERK7QCursor(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZN16PickPointsDialog14togglePickModeEb.exit unwind label %32
 
-32:                                               ; preds = %29
+32:                                               ; preds = %._crit_edge.thread
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   resume { ptr, i32 } %33
 
-_ZN16PickPointsDialog14togglePickModeEb.exit:     ; preds = %29
+_ZN16PickPointsDialog14togglePickModeEb.exit:     ; preds = %._crit_edge.thread
   call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %34, align 8

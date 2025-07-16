@@ -1837,14 +1837,14 @@ _ZN3ue2L11singleStartERKNS_8NGHolderE.exit.i.i:   ; preds = %._crit_edge54.i.i.i
 
 _ZN3ue2L11singleStartERKNS_8NGHolderE.exit..critedge_crit_edge.i.i: ; preds = %_ZN3ue2L11singleStartERKNS_8NGHolderE.exit.i.i
   %.sroa.02.0.copyload.pre.i.i = load ptr, ptr %35, align 8
+  %677 = icmp eq ptr %.sroa.0428.7.i, %.sroa.02.0.copyload.pre.i.i
   br label %.critedge.i334.i
 
 .critedge.i334.i:                                 ; preds = %_ZN3ue2L11singleStartERKNS_8NGHolderE.exit..critedge_crit_edge.i.i, %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i
-  %.sroa.02.0.copyload.i.i = phi ptr [ %.sroa.02.0.copyload.pre.i.i, %_ZN3ue2L11singleStartERKNS_8NGHolderE.exit..critedge_crit_edge.i.i ], [ %.sroa.06.0.copyload.i333.i, %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i ]
+  %.sroa.02.0.copyload.i.i = phi i1 [ %677, %_ZN3ue2L11singleStartERKNS_8NGHolderE.exit..critedge_crit_edge.i.i ], [ false, %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i ]
   %.sroa.04.0.copyload.i335.i = load ptr, ptr %34, align 8
-  %677 = icmp eq ptr %.sroa.0428.7.i, %.sroa.04.0.copyload.i335.i
-  %678 = icmp eq ptr %.sroa.0428.7.i, %.sroa.02.0.copyload.i.i
-  %or.cond.i336.i = select i1 %677, i1 true, i1 %678
+  %678 = icmp eq ptr %.sroa.0428.7.i, %.sroa.04.0.copyload.i335.i
+  %or.cond.i336.i = select i1 %678, i1 true, i1 %.sroa.02.0.copyload.i.i
   br i1 %or.cond.i336.i, label %679, label %684
 
 679:                                              ; preds = %.critedge.i334.i

@@ -1653,7 +1653,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal11GraphC
   %12 = icmp ne i32 %9, %11
   %.not12 = icmp eq ptr %7, null
   %.not = or i1 %.not12, %12
-  br i1 %.not, label %47, label %13
+  br i1 %.not, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, label %13
 
 13:                                               ; preds = %3
   %14 = and i64 %2, 4294967295
@@ -1666,7 +1666,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal11GraphC
   %21 = icmp ne i32 %18, %20
   %.not813 = icmp eq ptr %16, null
   %.not8 = or i1 %.not813, %21
-  br i1 %.not8, label %47, label %22
+  br i1 %.not8, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, label %22
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -1683,13 +1683,13 @@ define dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal11GraphC
   %31 = icmp eq i32 %30, %24
   br i1 %31, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %22, %37
-  %32 = phi i32 [ %43, %37 ], [ %30, %22 ]
-  %.02413.i.i = phi i32 [ %.024.i.i, %37 ], [ %.02410.i.i, %22 ]
-  %.01912.i.i = phi i8 [ %spec.select27.i.i, %37 ], [ 0, %22 ]
-  %.02111.i.i = phi i32 [ %spec.select.i.i, %37 ], [ 0, %22 ]
+.lr.ph.i.i:                                       ; preds = %22, %38
+  %32 = phi i32 [ %44, %38 ], [ %30, %22 ]
+  %.02413.i.i = phi i32 [ %.024.i.i, %38 ], [ %.02410.i.i, %22 ]
+  %.01912.i.i = phi i8 [ %spec.select27.i.i, %38 ], [ 0, %22 ]
+  %.02111.i.i = phi i32 [ %spec.select.i.i, %38 ], [ 0, %22 ]
   %33 = icmp eq i32 %32, -1
-  br i1 %33, label %34, label %37
+  br i1 %33, label %34, label %38
 
 34:                                               ; preds = %.lr.ph.i.i
   %35 = trunc nuw i8 %.01912.i.i to i1
@@ -1697,30 +1697,26 @@ define dso_local noundef zeroext i1 @_ZNK4absl24synchronization_internal11GraphC
   %.pre.i = zext i32 %36 to i64
   %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %.val10, i64 %.pre.i
   %.pre7.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !31
+  %37 = icmp eq i32 %.pre7.i, %24
   br label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit
 
-37:                                               ; preds = %.lr.ph.i.i
-  %38 = icmp ne i32 %32, -2
-  %39 = trunc nuw i8 %.01912.i.i to i1
-  %or.cond.i.i = select i1 %38, i1 true, i1 %39
+38:                                               ; preds = %.lr.ph.i.i
+  %39 = icmp ne i32 %32, -2
+  %40 = trunc nuw i8 %.01912.i.i to i1
+  %or.cond.i.i = select i1 %39, i1 true, i1 %40
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %.02111.i.i, i32 %.02413.i.i
   %spec.select27.i.i = select i1 %or.cond.i.i, i8 %.01912.i.i, i8 1
-  %40 = add i32 %.02413.i.i, 1
-  %.024.i.i = and i32 %40, %26
-  %41 = zext i32 %.024.i.i to i64
-  %42 = getelementptr inbounds nuw i32, ptr %.val10, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !31
-  %44 = icmp eq i32 %43, %24
-  br i1 %44, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, label %.lr.ph.i.i, !llvm.loop !45
+  %41 = add i32 %.02413.i.i, 1
+  %.024.i.i = and i32 %41, %26
+  %42 = zext i32 %.024.i.i to i64
+  %43 = getelementptr inbounds nuw i32, ptr %.val10, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !31
+  %45 = icmp eq i32 %44, %24
+  br i1 %45, label %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, label %.lr.ph.i.i, !llvm.loop !45
 
-_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit: ; preds = %37, %22, %34
-  %45 = phi i32 [ %24, %22 ], [ %.pre7.i, %34 ], [ %24, %37 ]
-  %46 = icmp eq i32 %45, %24
-  br label %47
-
-47:                                               ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit, %13, %3
-  %48 = phi i1 [ false, %13 ], [ false, %3 ], [ %46, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit ]
-  ret i1 %48
+_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet8containsEi.exit: ; preds = %38, %34, %22, %13, %3
+  %46 = phi i1 [ false, %13 ], [ false, %3 ], [ true, %22 ], [ %37, %34 ], [ true, %38 ]
+  ret i1 %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

@@ -1558,10 +1558,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218: ; preds = %_Z
   %581 = getelementptr inbounds nuw i8, ptr %42, i64 16
   br label %616
 
-.preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244, %550
-  %582 = phi i32 [ %552, %550 ], [ %739, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244 ]
-  %.sroa.speculated315.lcssa = phi i32 [ %552, %550 ], [ %.sroa.speculated315, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244 ]
-  %583 = icmp sgt i32 %582, %.sroa.speculated315.lcssa
+.preheader.loopexit:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244
+  %582 = icmp sgt i32 %739, 10
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.loopexit, %550
+  %583 = phi i1 [ false, %550 ], [ %582, %.preheader.loopexit ]
+  %.sroa.speculated315.lcssa = phi i32 [ %552, %550 ], [ %.sroa.speculated315, %.preheader.loopexit ]
   br i1 %583, label %.lr.ph363, label %._crit_edge
 
 .lr.ph363:                                        ; preds = %.preheader
@@ -2022,7 +2025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244: ; preds = %_Z
   %.sroa.speculated315 = call i32 @llvm.smin.i32(i32 %739, i32 10)
   %740 = sext i32 %.sroa.speculated315 to i64
   %741 = icmp slt i64 %indvars.iv.next, %740
-  br i1 %741, label %616, label %.preheader, !llvm.loop !88
+  br i1 %741, label %616, label %.preheader.loopexit, !llvm.loop !88
 
 742:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231, %699
   %.pn150.pn.pn = phi { ptr, i32 } [ %.pn150.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit231 ], [ %.pn145.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241 ], [ %700, %699 ]

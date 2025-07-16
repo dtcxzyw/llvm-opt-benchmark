@@ -271,7 +271,7 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly captures(address_i
   %28 = add nsw i32 %6, 6
   %29 = and i32 %28, 7
   %30 = zext nneg i32 %29 to i64
-  %.not.i182 = icmp eq i32 %5, 0
+  %.not.i183 = icmp eq i32 %5, 0
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
   %32 = xor i32 %31, 31
   %33 = icmp slt i32 %7, %32
@@ -281,24 +281,24 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly captures(address_i
   %36 = xor i32 %35, 31
   %37 = icmp slt i32 %8, %36
   %38 = sub nsw i32 %8, %36
-  %spec.select25.i183 = select i1 %37, i32 0, i32 %38
+  %spec.select25.i184 = select i1 %37, i32 0, i32 %38
   %.not = icmp eq ptr %0, null
   %39 = sext i32 %2 to i64
-  %wide.trip.count224 = zext nneg i32 %19 to i64
+  %wide.trip.count229 = zext nneg i32 %19 to i64
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %11, %180
-  %indvars.iv220 = phi i64 [ 0, %11 ], [ %indvars.iv.next221, %180 ]
-  %40 = mul nuw nsw i64 %indvars.iv220, 144
-  %41 = mul nsw i64 %indvars.iv220, %39
+  %indvars.iv225 = phi i64 [ 0, %11 ], [ %indvars.iv.next226, %180 ]
+  %40 = mul nuw nsw i64 %indvars.iv225, 144
+  %41 = mul nsw i64 %indvars.iv225, %39
   %invariant.gep = getelementptr i8, ptr %0, i64 %41
-  %invariant.gep227 = getelementptr i16, ptr %1, i64 %41
+  %invariant.gep232 = getelementptr i16, ptr %1, i64 %41
   br label %42
 
 42:                                               ; preds = %.preheader, %179
-  %indvars.iv217 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next218, %179 ]
-  %43 = add nuw nsw i64 %indvars.iv217, %40
+  %indvars.iv222 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next223, %179 ]
+  %43 = add nuw nsw i64 %indvars.iv222, %40
   %44 = getelementptr inbounds nuw i16, ptr %3, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = sext i16 %45 to i32
@@ -307,12 +307,12 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly captures(address_i
   %49 = getelementptr i16, ptr %3, i64 %43
   br label %50
 
-50:                                               ; preds = %42, %constrain.exit205
-  %51 = phi i1 [ true, %42 ], [ false, %constrain.exit205 ]
-  %indvars.iv = phi i64 [ 0, %42 ], [ 1, %constrain.exit205 ]
-  %.0160212 = phi i16 [ 0, %42 ], [ %163, %constrain.exit205 ]
-  %.0161211 = phi i32 [ %46, %42 ], [ %.6, %constrain.exit205 ]
-  %.0162210 = phi i32 [ %46, %42 ], [ %119, %constrain.exit205 ]
+50:                                               ; preds = %42, %constrain.exit210
+  %51 = phi i1 [ true, %42 ], [ false, %constrain.exit210 ]
+  %indvars.iv = phi i64 [ 0, %42 ], [ 1, %constrain.exit210 ]
+  %.0160217 = phi i16 [ 0, %42 ], [ %163, %constrain.exit210 ]
+  %.0161216 = phi i32 [ %46, %42 ], [ %.6, %constrain.exit210 ]
+  %.0162215 = phi i32 [ %46, %42 ], [ %119, %constrain.exit210 ]
   %52 = getelementptr inbounds [8 x [2 x i32]], ptr @cdef_directions, i64 0, i64 %24, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
@@ -328,47 +328,49 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly captures(address_i
 
 constrain.exit.thread:                            ; preds = %50
   %63 = sext i16 %59 to i32
-  br label %constrain.exit181
+  br label %constrain.exit182
 
 64:                                               ; preds = %50
   %65 = sub nsw i32 %62, %46
   %66 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %65, i1 true)
   %67 = lshr i32 %66, %spec.select25.i
   %68 = sub nsw i32 %4, %67
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
-  %69 = tail call i32 @llvm.umin.i32(i32 %66, i32 %spec.select.i)
+  %spec.select24.i = tail call i32 @llvm.smin.i32(i32 %66, i32 %68)
+  %.inv.i = icmp slt i32 %68, 0
+  %69 = select i1 %.inv.i, i32 0, i32 %spec.select24.i
   %70 = sub nsw i32 0, %69
   %.inv.i26.i = icmp slt i32 %65, 0
   %71 = select i1 %.inv.i26.i, i32 %70, i32 %69
   %72 = mul nsw i32 %71, %61
   %73 = trunc i32 %72 to i16
-  %74 = add i16 %.0160212, %73
+  %74 = add i16 %.0160217, %73
   %75 = sext i16 %59 to i32
   %76 = sub nsw i32 %75, %46
   %77 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %76, i1 true)
   %78 = lshr i32 %77, %spec.select25.i
   %79 = sub nsw i32 %4, %78
-  %spec.select.i178 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
-  %80 = tail call i32 @llvm.umin.i32(i32 %77, i32 %spec.select.i178)
+  %spec.select24.i178 = tail call i32 @llvm.smin.i32(i32 %77, i32 %79)
+  %.inv.i179 = icmp slt i32 %79, 0
+  %80 = select i1 %.inv.i179, i32 0, i32 %spec.select24.i178
   %81 = sub nsw i32 0, %80
-  %.inv.i26.i179 = icmp slt i32 %76, 0
-  %82 = select i1 %.inv.i26.i179, i32 %81, i32 %80
-  br label %constrain.exit181
+  %.inv.i26.i180 = icmp slt i32 %76, 0
+  %82 = select i1 %.inv.i26.i180, i32 %81, i32 %80
+  br label %constrain.exit182
 
-constrain.exit181:                                ; preds = %constrain.exit.thread, %64
+constrain.exit182:                                ; preds = %constrain.exit.thread, %64
   %83 = phi i32 [ %75, %64 ], [ %63, %constrain.exit.thread ]
-  %84 = phi i16 [ %74, %64 ], [ %.0160212, %constrain.exit.thread ]
-  %.0.i180 = phi i32 [ %82, %64 ], [ 0, %constrain.exit.thread ]
-  %85 = mul nsw i32 %.0.i180, %61
+  %84 = phi i16 [ %74, %64 ], [ %.0160217, %constrain.exit.thread ]
+  %.0.i181 = phi i32 [ %82, %64 ], [ 0, %constrain.exit.thread ]
+  %85 = mul nsw i32 %.0.i181, %61
   %86 = trunc i32 %85 to i16
   %87 = add i16 %84, %86
   %.not170 = icmp eq i16 %56, 30000
-  %88 = tail call i32 @llvm.smax.i32(i32 %.0161211, i32 %62)
-  %.1 = select i1 %.not170, i32 %.0161211, i32 %88
+  %88 = tail call i32 @llvm.smax.i32(i32 %.0161216, i32 %62)
+  %.1 = select i1 %.not170, i32 %.0161216, i32 %88
   %.not171 = icmp eq i16 %59, 30000
   %89 = tail call i32 @llvm.smax.i32(i32 %.1, i32 %83)
   %.2 = select i1 %.not171, i32 %.1, i32 %89
-  %90 = tail call i32 @llvm.smin.i32(i32 %.0162210, i32 %62)
+  %90 = tail call i32 @llvm.smin.i32(i32 %.0162215, i32 %62)
   %91 = tail call i32 @llvm.smin.i32(i32 %90, i32 %83)
   %92 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @cdef_directions, i64 0, i64 %27, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
@@ -408,65 +410,69 @@ constrain.exit181:                                ; preds = %constrain.exit.thre
   %119 = tail call i32 @llvm.smin.i32(i32 %118, i32 %114)
   %120 = getelementptr inbounds nuw i32, ptr @cdef_sec_taps, i64 %indvars.iv
   %121 = load i32, ptr %120, align 4
-  br i1 %.not.i182, label %constrain.exit205, label %122
+  br i1 %.not.i183, label %constrain.exit210, label %122
 
-122:                                              ; preds = %constrain.exit181
+122:                                              ; preds = %constrain.exit182
   %123 = sub nsw i32 %108, %46
   %124 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %123, i1 true)
-  %125 = lshr i32 %124, %spec.select25.i183
+  %125 = lshr i32 %124, %spec.select25.i184
   %126 = sub nsw i32 %5, %125
-  %spec.select.i184 = tail call i32 @llvm.smax.i32(i32 %126, i32 0)
-  %127 = tail call i32 @llvm.umin.i32(i32 %124, i32 %spec.select.i184)
+  %spec.select24.i185 = tail call i32 @llvm.smin.i32(i32 %124, i32 %126)
+  %.inv.i186 = icmp slt i32 %126, 0
+  %127 = select i1 %.inv.i186, i32 0, i32 %spec.select24.i185
   %128 = sub nsw i32 0, %127
-  %.inv.i26.i185 = icmp slt i32 %123, 0
-  %129 = select i1 %.inv.i26.i185, i32 %128, i32 %127
+  %.inv.i26.i187 = icmp slt i32 %123, 0
+  %129 = select i1 %.inv.i26.i187, i32 %128, i32 %127
   %130 = mul nsw i32 %129, %121
   %131 = trunc i32 %130 to i16
   %132 = add i16 %87, %131
   %133 = sub nsw i32 %110, %46
   %134 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %133, i1 true)
-  %135 = lshr i32 %134, %spec.select25.i183
+  %135 = lshr i32 %134, %spec.select25.i184
   %136 = sub nsw i32 %5, %135
-  %spec.select.i190 = tail call i32 @llvm.smax.i32(i32 %136, i32 0)
-  %137 = tail call i32 @llvm.umin.i32(i32 %134, i32 %spec.select.i190)
+  %spec.select24.i192 = tail call i32 @llvm.smin.i32(i32 %134, i32 %136)
+  %.inv.i193 = icmp slt i32 %136, 0
+  %137 = select i1 %.inv.i193, i32 0, i32 %spec.select24.i192
   %138 = sub nsw i32 0, %137
-  %.inv.i26.i191 = icmp slt i32 %133, 0
-  %139 = select i1 %.inv.i26.i191, i32 %138, i32 %137
+  %.inv.i26.i194 = icmp slt i32 %133, 0
+  %139 = select i1 %.inv.i26.i194, i32 %138, i32 %137
   %140 = mul nsw i32 %139, %121
   %141 = trunc i32 %140 to i16
   %142 = add i16 %132, %141
   %143 = sub nsw i32 %112, %46
   %144 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %143, i1 true)
-  %145 = lshr i32 %144, %spec.select25.i183
+  %145 = lshr i32 %144, %spec.select25.i184
   %146 = sub nsw i32 %5, %145
-  %spec.select.i196 = tail call i32 @llvm.smax.i32(i32 %146, i32 0)
-  %147 = tail call i32 @llvm.umin.i32(i32 %144, i32 %spec.select.i196)
+  %spec.select24.i199 = tail call i32 @llvm.smin.i32(i32 %144, i32 %146)
+  %.inv.i200 = icmp slt i32 %146, 0
+  %147 = select i1 %.inv.i200, i32 0, i32 %spec.select24.i199
   %148 = sub nsw i32 0, %147
-  %.inv.i26.i197 = icmp slt i32 %143, 0
-  %149 = select i1 %.inv.i26.i197, i32 %148, i32 %147
+  %.inv.i26.i201 = icmp slt i32 %143, 0
+  %149 = select i1 %.inv.i26.i201, i32 %148, i32 %147
   %150 = mul nsw i32 %149, %121
   %151 = trunc i32 %150 to i16
   %152 = add i16 %142, %151
   %153 = sub nsw i32 %114, %46
   %154 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %153, i1 true)
-  %155 = lshr i32 %154, %spec.select25.i183
+  %155 = lshr i32 %154, %spec.select25.i184
   %156 = sub nsw i32 %5, %155
-  %spec.select.i202 = tail call i32 @llvm.smax.i32(i32 %156, i32 0)
-  %157 = tail call i32 @llvm.umin.i32(i32 %154, i32 %spec.select.i202)
+  %spec.select24.i206 = tail call i32 @llvm.smin.i32(i32 %154, i32 %156)
+  %.inv.i207 = icmp slt i32 %156, 0
+  %157 = select i1 %.inv.i207, i32 0, i32 %spec.select24.i206
   %158 = sub nsw i32 0, %157
-  %.inv.i26.i203 = icmp slt i32 %153, 0
-  %159 = select i1 %.inv.i26.i203, i32 %158, i32 %157
-  br label %constrain.exit205
+  %.inv.i26.i208 = icmp slt i32 %153, 0
+  %159 = select i1 %.inv.i26.i208, i32 %158, i32 %157
+  br label %constrain.exit210
 
-constrain.exit205:                                ; preds = %constrain.exit181, %122
-  %160 = phi i16 [ %152, %122 ], [ %87, %constrain.exit181 ]
-  %.0.i204 = phi i32 [ %159, %122 ], [ 0, %constrain.exit181 ]
-  %161 = mul nsw i32 %.0.i204, %121
+constrain.exit210:                                ; preds = %constrain.exit182, %122
+  %160 = phi i16 [ %152, %122 ], [ %87, %constrain.exit182 ]
+  %.0.i209 = phi i32 [ %159, %122 ], [ 0, %constrain.exit182 ]
+  %161 = mul nsw i32 %.0.i209, %121
   %162 = trunc i32 %161 to i16
   %163 = add i16 %160, %162
   br i1 %51, label %50, label %164, !llvm.loop !13
 
-164:                                              ; preds = %constrain.exit205
+164:                                              ; preds = %constrain.exit210
   %165 = sext i16 %163 to i32
   %166 = add nsw i32 %165, 8
   %167 = ashr i16 %163, 15
@@ -481,25 +487,25 @@ constrain.exit205:                                ; preds = %constrain.exit181, 
 
 175:                                              ; preds = %164
   %176 = trunc i32 %174 to i8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv217
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv222
   store i8 %176, ptr %gep, align 1
   br label %179
 
 177:                                              ; preds = %164
   %178 = trunc i32 %174 to i16
-  %gep228 = getelementptr i16, ptr %invariant.gep227, i64 %indvars.iv217
-  store i16 %178, ptr %gep228, align 2
+  %gep233 = getelementptr i16, ptr %invariant.gep232, i64 %indvars.iv222
+  store i16 %178, ptr %gep233, align 2
   br label %179
 
 179:                                              ; preds = %175, %177
-  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count
   br i1 %exitcond.not, label %180, label %42, !llvm.loop !14
 
 180:                                              ; preds = %179
-  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %exitcond225.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count224
-  br i1 %exitcond225.not, label %181, label %.preheader, !llvm.loop !15
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %exitcond230.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count229
+  br i1 %exitcond230.not, label %181, label %.preheader, !llvm.loop !15
 
 181:                                              ; preds = %180
   ret void
@@ -833,9 +839,6 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

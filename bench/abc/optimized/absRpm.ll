@@ -3275,7 +3275,7 @@ define range(i32 0, 2) i32 @Abs_GiaCheckTruth(ptr noundef readonly captures(none
   %27 = add nsw i32 %2, -3
   %28 = shl nuw i32 1, %27
   %29 = icmp sgt i32 %7, 0
-  br i1 %29, label %.preheader57.lr.ph, label %._crit_edge82
+  br i1 %29, label %.preheader57.lr.ph, label %.loopexit
 
 .preheader57.lr.ph:                               ; preds = %26
   %.not = icmp ne i32 %27, 31
@@ -3296,34 +3296,34 @@ define range(i32 0, 2) i32 @Abs_GiaCheckTruth(ptr noundef readonly captures(none
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv117
   %33 = load i8, ptr %gep, align 1, !tbaa !79
   %.not.us.us = icmp eq i8 %33, 0
-  br i1 %.not.us.us, label %42, label %._crit_edge.us.us.split.loop.exit132
+  br i1 %.not.us.us, label %42, label %._crit_edge.us.us.split.loop.exit133
 
-._crit_edge.us.us.split.loop.exit132:             ; preds = %32
+._crit_edge.us.us.split.loop.exit133:             ; preds = %32
   %34 = trunc nuw nsw i64 %indvars.iv117 to i32
   br label %._crit_edge.us.us
 
-._crit_edge.us.us:                                ; preds = %42, %._crit_edge.us.us.split.loop.exit132
-  %.046.lcssa.us.us = phi i32 [ %34, %._crit_edge.us.us.split.loop.exit132 ], [ %smax, %42 ]
+._crit_edge.us.us:                                ; preds = %42, %._crit_edge.us.us.split.loop.exit133
+  %.046.lcssa.us.us = phi i32 [ %34, %._crit_edge.us.us.split.loop.exit133 ], [ %smax, %42 ]
   %35 = icmp eq i32 %.046.lcssa.us.us, %28
   br i1 %35, label %._crit_edge82.loopexit107, label %.preheader.us.us.preheader
 
 .preheader.us.us.preheader:                       ; preds = %._crit_edge.us.us
-  %invariant.gep136 = getelementptr i8, ptr %0, i64 %indvars.iv127
+  %invariant.gep137 = getelementptr i8, ptr %0, i64 %indvars.iv127
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %41
   %indvars.iv122 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next123, %41 ]
-  %gep137 = getelementptr i8, ptr %invariant.gep136, i64 %indvars.iv122
-  %36 = load i8, ptr %gep137, align 1, !tbaa !79
+  %gep138 = getelementptr i8, ptr %invariant.gep137, i64 %indvars.iv122
+  %36 = load i8, ptr %gep138, align 1, !tbaa !79
   %.not53.us.us = icmp eq i8 %36, -1
-  br i1 %.not53.us.us, label %41, label %._crit_edge77.us.us.split.loop.exit134
+  br i1 %.not53.us.us, label %41, label %._crit_edge77.us.us.split.loop.exit135
 
-._crit_edge77.us.us.split.loop.exit134:           ; preds = %.preheader.us.us
+._crit_edge77.us.us.split.loop.exit135:           ; preds = %.preheader.us.us
   %37 = trunc nuw nsw i64 %indvars.iv122 to i32
   br label %._crit_edge77.us.us
 
-._crit_edge77.us.us:                              ; preds = %41, %._crit_edge77.us.us.split.loop.exit134
-  %.1.lcssa.us.us = phi i32 [ %37, %._crit_edge77.us.us.split.loop.exit134 ], [ %smax, %41 ]
+._crit_edge77.us.us:                              ; preds = %41, %._crit_edge77.us.us.split.loop.exit135
+  %.1.lcssa.us.us = phi i32 [ %37, %._crit_edge77.us.us.split.loop.exit135 ], [ %smax, %41 ]
   %38 = icmp eq i32 %.1.lcssa.us.us, %28
   br i1 %38, label %._crit_edge82.loopexit107, label %39
 
@@ -3345,16 +3345,12 @@ define range(i32 0, 2) i32 @Abs_GiaCheckTruth(ptr noundef readonly captures(none
 ._crit_edge82.loopexit107:                        ; preds = %._crit_edge77.us.us, %._crit_edge.us.us, %39
   %.2.lcssa.ph.in = phi i64 [ %indvars.iv.next128, %39 ], [ %indvars.iv127, %._crit_edge.us.us ], [ %indvars.iv127, %._crit_edge77.us.us ]
   %.2.lcssa.ph = trunc i64 %.2.lcssa.ph.in to i32
-  br label %._crit_edge82
-
-._crit_edge82:                                    ; preds = %._crit_edge82.loopexit107, %26
-  %.2.lcssa = phi i32 [ 0, %26 ], [ %.2.lcssa.ph, %._crit_edge82.loopexit107 ]
-  %43 = icmp eq i32 %.2.lcssa, %7
+  %43 = icmp eq i32 %7, %.2.lcssa.ph
   %44 = zext i1 %43 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %17, %.lr.ph66, %10, %.preheader59, %.preheader58, %._crit_edge82
-  %.0 = phi i32 [ %44, %._crit_edge82 ], [ 1, %.preheader58 ], [ 1, %.preheader59 ], [ 0, %.lr.ph66 ], [ 1, %10 ], [ 0, %.lr.ph ], [ 1, %17 ]
+.loopexit:                                        ; preds = %.lr.ph, %17, %.lr.ph66, %10, %26, %._crit_edge82.loopexit107, %.preheader59, %.preheader58
+  %.0 = phi i32 [ 1, %.preheader58 ], [ 1, %.preheader59 ], [ 0, %26 ], [ %44, %._crit_edge82.loopexit107 ], [ 0, %.lr.ph66 ], [ 1, %10 ], [ 0, %.lr.ph ], [ 1, %17 ]
   ret i32 %.0
 }
 
@@ -3815,7 +3811,7 @@ Abs_GiaSortNodes.exit:                            ; preds = %.lr.ph87.i, %Gia_Ob
   %211 = add nsw i32 %182, -3
   %212 = shl nuw i32 1, %211
   %213 = icmp sgt i32 %193, 0
-  br i1 %213, label %.preheader57.lr.ph.i, label %._crit_edge82.i
+  br i1 %213, label %.preheader57.lr.ph.i, label %Abs_GiaCheckTruth.exit
 
 .preheader57.lr.ph.i:                             ; preds = %210
   %.not.i129 = icmp ne i32 %211, 31
@@ -3836,30 +3832,30 @@ Abs_GiaSortNodes.exit:                            ; preds = %.lr.ph87.i, %Gia_Ob
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv117.i
   %217 = load i8, ptr %gep.i, align 1, !tbaa !79
   %.not.us.us.i = icmp eq i8 %217, 0
-  br i1 %.not.us.us.i, label %226, label %._crit_edge.us.us.split.loop.exit132.i
+  br i1 %.not.us.us.i, label %226, label %._crit_edge.us.us.split.loop.exit133.i
 
-._crit_edge.us.us.split.loop.exit132.i:           ; preds = %216
+._crit_edge.us.us.split.loop.exit133.i:           ; preds = %216
   %218 = trunc nuw nsw i64 %indvars.iv117.i to i32
   br label %._crit_edge.us.us.i
 
-._crit_edge.us.us.i:                              ; preds = %226, %._crit_edge.us.us.split.loop.exit132.i
-  %.046.lcssa.us.us.i = phi i32 [ %218, %._crit_edge.us.us.split.loop.exit132.i ], [ %smax.i, %226 ]
+._crit_edge.us.us.i:                              ; preds = %226, %._crit_edge.us.us.split.loop.exit133.i
+  %.046.lcssa.us.us.i = phi i32 [ %218, %._crit_edge.us.us.split.loop.exit133.i ], [ %smax.i, %226 ]
   %219 = icmp eq i32 %.046.lcssa.us.us.i, %212
   br i1 %219, label %._crit_edge82.loopexit107.i, label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %._crit_edge.us.us.i, %225
   %indvars.iv122.i = phi i64 [ %indvars.iv.next123.i, %225 ], [ 0, %._crit_edge.us.us.i ]
-  %gep137.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv122.i
-  %220 = load i8, ptr %gep137.i, align 1, !tbaa !79
+  %gep138.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv122.i
+  %220 = load i8, ptr %gep138.i, align 1, !tbaa !79
   %.not53.us.us.i = icmp eq i8 %220, -1
-  br i1 %.not53.us.us.i, label %225, label %._crit_edge77.us.us.split.loop.exit134.i
+  br i1 %.not53.us.us.i, label %225, label %._crit_edge77.us.us.split.loop.exit135.i
 
-._crit_edge77.us.us.split.loop.exit134.i:         ; preds = %.preheader.us.us.i
+._crit_edge77.us.us.split.loop.exit135.i:         ; preds = %.preheader.us.us.i
   %221 = trunc nuw nsw i64 %indvars.iv122.i to i32
   br label %._crit_edge77.us.us.i
 
-._crit_edge77.us.us.i:                            ; preds = %225, %._crit_edge77.us.us.split.loop.exit134.i
-  %.1.lcssa.us.us.i = phi i32 [ %221, %._crit_edge77.us.us.split.loop.exit134.i ], [ %smax.i, %225 ]
+._crit_edge77.us.us.i:                            ; preds = %225, %._crit_edge77.us.us.split.loop.exit135.i
+  %.1.lcssa.us.us.i = phi i32 [ %221, %._crit_edge77.us.us.split.loop.exit135.i ], [ %smax.i, %225 ]
   %222 = icmp eq i32 %.1.lcssa.us.us.i, %212
   br i1 %222, label %._crit_edge82.loopexit107.i, label %223
 
@@ -3881,15 +3877,11 @@ Abs_GiaSortNodes.exit:                            ; preds = %.lr.ph87.i, %Gia_Ob
 ._crit_edge82.loopexit107.i:                      ; preds = %223, %._crit_edge77.us.us.i, %._crit_edge.us.us.i
   %.2.lcssa.ph.in.i = phi i64 [ %indvars.iv.next128.i, %223 ], [ %indvars.iv127.i, %._crit_edge.us.us.i ], [ %indvars.iv127.i, %._crit_edge77.us.us.i ]
   %.2.lcssa.ph.i = trunc i64 %.2.lcssa.ph.in.i to i32
-  br label %._crit_edge82.i
-
-._crit_edge82.i:                                  ; preds = %._crit_edge82.loopexit107.i, %210
-  %.2.lcssa.i = phi i32 [ 0, %210 ], [ %.2.lcssa.ph.i, %._crit_edge82.loopexit107.i ]
-  %227 = icmp ne i32 %.2.lcssa.i, %193
+  %227 = icmp ne i32 %193, %.2.lcssa.ph.i
   br label %Abs_GiaCheckTruth.exit
 
-Abs_GiaCheckTruth.exit:                           ; preds = %.lr.ph.i126, %.lr.ph66.i, %.preheader59.i, %.preheader58.i, %._crit_edge82.i
-  %.0.i = phi i1 [ %227, %._crit_edge82.i ], [ false, %.preheader58.i ], [ false, %.preheader59.i ], [ %.not54.i.not, %.lr.ph66.i ], [ %or.cond56.i, %.lr.ph.i126 ]
+Abs_GiaCheckTruth.exit:                           ; preds = %.lr.ph.i126, %.lr.ph66.i, %.preheader59.i, %.preheader58.i, %210, %._crit_edge82.loopexit107.i
+  %.0.i = phi i1 [ false, %.preheader58.i ], [ false, %.preheader59.i ], [ true, %210 ], [ %227, %._crit_edge82.loopexit107.i ], [ %.not54.i.not, %.lr.ph66.i ], [ %or.cond56.i, %.lr.ph.i126 ]
   br i1 %.not96, label %250, label %228
 
 228:                                              ; preds = %Abs_GiaCheckTruth.exit

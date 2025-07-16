@@ -1479,8 +1479,8 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   %20 = load i16, ptr %19, align 2
   tail call void @PageIndexTupleDelete(ptr noundef nonnull %0, i16 noundef zeroext %20)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not131 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not131, label %.loopexit, label %.lr.ph122, !llvm.loop !21
+  %.not135 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not135, label %.loopexit, label %.lr.ph122, !llvm.loop !21
 
 21:                                               ; preds = %3
   %22 = icmp ult i16 %7, 24
@@ -1516,7 +1516,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   %39 = trunc i32 %38 to i16
   %.not100111123 = icmp eq i16 %39, 0
   %.not100111 = select i1 %36, i1 true, i1 %.not100111123
-  br i1 %.not100111, label %._crit_edge, label %.lr.ph
+  br i1 %.not100111, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1607,15 +1607,11 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   %.not100 = icmp ugt i16 %84, %39
   br i1 %.not100, label %._crit_edge, label %41, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %83, %35
-  %.086.lcssa = phi i32 [ 0, %35 ], [ %.187, %83 ]
-  %.084.lcssa = phi i64 [ 0, %35 ], [ %.185, %83 ]
-  %.078.lcssa = phi i32 [ 0, %35 ], [ %.179, %83 ]
-  %.0.lcssa = phi i1 [ true, %35 ], [ %.2, %83 ]
-  %.not101 = icmp eq i32 %.078.lcssa, %2
-  br i1 %.not101, label %88, label %85
+._crit_edge:                                      ; preds = %83
+  %85 = icmp eq i32 %.179, %2
+  br i1 %85, label %88, label %._crit_edge.thread
 
-85:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %35, %._crit_edge
   %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %86)
   %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
@@ -1625,31 +1621,31 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
 88:                                               ; preds = %._crit_edge
   %89 = sub nsw i32 %14, %8
   %90 = sext i32 %89 to i64
-  %91 = icmp ugt i64 %.084.lcssa, %90
+  %91 = icmp ugt i64 %.185, %90
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %88
   %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %93)
   %94 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %95 = trunc i64 %.084.lcssa to i32
+  %95 = trunc i64 %.185 to i32
   %96 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %95, i32 noundef %89) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1256, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
   unreachable
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %99 = sext i32 %.086.lcssa to i64
+  %99 = sext i32 %.187 to i64
   %100 = shl nsw i64 %99, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %98, ptr nonnull align 16 %5, i64 %100, i1 false)
   %101 = trunc i64 %100 to i16
   %102 = add i16 %101, 24
   store i16 %102, ptr %6, align 4
-  %103 = icmp sgt i32 %.086.lcssa, 0
+  %103 = icmp sgt i32 %.187, 0
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %97
-  call fastcc void @compactify_tuples(ptr noundef %4, i32 noundef %.086.lcssa, ptr noundef nonnull %0, i1 noundef zeroext %.0.lcssa)
+  call fastcc void @compactify_tuples(ptr noundef %4, i32 noundef %.187, ptr noundef nonnull %0, i1 noundef zeroext %.2)
   br label %.loopexit
 
 105:                                              ; preds = %97

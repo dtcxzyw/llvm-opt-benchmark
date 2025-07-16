@@ -702,8 +702,8 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 for.end:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %.pre = load ptr, ptr %OutBufCur.i, align 8
   %.pre11 = load ptr, ptr %OutBufStart.i.i, align 8
-  %cmp.not.i4 = icmp eq ptr %.pre, %.pre11
-  br i1 %cmp.not.i4, label %_ZN4llvh11raw_ostream5flushEv.exit, label %if.then.i5
+  %7 = icmp eq ptr %.pre, %.pre11
+  br i1 %7, label %_ZN4llvh11raw_ostream5flushEv.exit, label %if.then.i5
 
 if.then.i5:                                       ; preds = %for.end
   call void @_ZN4llvh11raw_ostream14flush_nonemptyEv(ptr noundef nonnull align 8 dereferenceable(36) %OS) #16

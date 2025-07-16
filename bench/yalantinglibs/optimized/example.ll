@@ -38617,32 +38617,28 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp15.not = icmp eq ptr %call, %0
-  br i1 %cmp15.not, label %if.end22, label %if.then16
+  br i1 %cmp15.not, label %if.then25, label %if.end22
 
-if.then16:                                        ; preds = %if.end
+if.end22:                                         ; preds = %if.end
   %sub17 = sub i64 %sub.ptr.sub8, %sub.ptr.sub
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %add.ptr, i64 %sub17, i1 false)
   %.pre = sub i64 %sub.ptr.sub14, %sub17
-  br label %if.end22
+  %3 = icmp ugt i64 %n, %.pre
+  br i1 %3, label %if.then25, label %if.end34
 
-if.end22:                                         ; preds = %if.then16, %if.end
-  %sub23.pre-phi = phi i64 [ %.pre, %if.then16 ], [ %sub, %if.end ]
-  %pnext.0 = phi i64 [ %sub17, %if.then16 ], [ %sub.ptr.sub8, %if.end ]
-  %cmp24 = icmp ugt i64 %n, %sub23.pre-phi
-  br i1 %cmp24, label %if.then25, label %if.end34
-
-if.then25:                                        ; preds = %if.end22
+if.then25:                                        ; preds = %if.end, %if.end22
+  %pnext.021 = phi i64 [ %sub17, %if.end22 ], [ %sub.ptr.sub8, %if.end ]
   %max_size_ = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %3 = load i64, ptr %max_size_, align 8
-  %cmp26.not = icmp ugt i64 %n, %3
-  %sub28 = sub nuw i64 %3, %n
-  %cmp29.not = icmp ugt i64 %pnext.0, %sub28
+  %4 = load i64, ptr %max_size_, align 8
+  %cmp26.not = icmp ugt i64 %n, %4
+  %sub28 = sub nuw i64 %4, %n
+  %cmp29.not = icmp ugt i64 %pnext.021, %sub28
   %or.cond = select i1 %cmp26.not, i1 true, i1 %cmp29.not
   br i1 %or.cond, label %if.else, label %if.then30
 
 if.then30:                                        ; preds = %if.then25
-  %add = add i64 %pnext.0, %n
+  %add = add i64 %pnext.021, %n
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add, i64 1)
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %buffer_, i64 noundef %.sroa.speculated)
   br label %if.end34
@@ -38659,19 +38655,20 @@ if.else:                                          ; preds = %if.then25
   unreachable
 
 lpad:                                             ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ex) #28
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %5
 
 if.end34:                                         ; preds = %if.then30, %if.end22
+  %pnext.020 = phi i64 [ %pnext.021, %if.then30 ], [ %sub17, %if.end22 ]
   %pend.0 = phi i64 [ %add, %if.then30 ], [ %sub.ptr.sub14, %if.end22 ]
-  %5 = load ptr, ptr %buffer_, align 8
-  %add.ptr41 = getelementptr inbounds i8, ptr %5, i64 %pnext.0
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %add.ptr41)
   %6 = load ptr, ptr %buffer_, align 8
-  %add.ptr44 = getelementptr inbounds i8, ptr %6, i64 %pnext.0
-  %add.ptr47 = getelementptr inbounds i8, ptr %6, i64 %pend.0
+  %add.ptr41 = getelementptr inbounds i8, ptr %6, i64 %pnext.020
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %add.ptr41)
+  %7 = load ptr, ptr %buffer_, align 8
+  %add.ptr44 = getelementptr inbounds i8, ptr %7, i64 %pnext.020
+  %add.ptr47 = getelementptr inbounds i8, ptr %7, i64 %pend.0
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %add.ptr44, ptr noundef nonnull %add.ptr47)
   br label %return
 

@@ -70,19 +70,14 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr noundef captures(non
   %49 = trunc nsw i64 %indvars.iv202 to i32
   br label %51
 
-.critedge2.loopexit.loopexit:                     ; preds = %.critedge6
+.critedge2.loopexit:                              ; preds = %.critedge6
   %.pre216 = sext i32 %.val126 to i64
-  br label %.critedge2.loopexit
-
-.critedge2.loopexit:                              ; preds = %.critedge2.loopexit.loopexit, %51
-  %.pre-phi = phi i64 [ %.pre216, %.critedge2.loopexit.loopexit ], [ %54, %51 ]
-  %.val125 = phi i32 [ %.val126, %.critedge2.loopexit.loopexit ], [ %.val125213, %51 ]
-  %50 = icmp slt i64 %indvars.iv.next200, %.pre-phi
+  %50 = icmp slt i64 %indvars.iv.next200, %.pre216
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   br i1 %50, label %51, label %.critedge.loopexit, !llvm.loop !26
 
 51:                                               ; preds = %.lr.ph167, %.critedge2.loopexit
-  %.val125213 = phi i32 [ %.val125165, %.lr.ph167 ], [ %.val125, %.critedge2.loopexit ]
+  %.val125213 = phi i32 [ %.val125165, %.lr.ph167 ], [ %.val126, %.critedge2.loopexit ]
   %indvars.iv199 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next200, %.critedge2.loopexit ]
   %indvars.iv194 = phi i64 [ 1, %.lr.ph167 ], [ %indvars.iv.next195, %.critedge2.loopexit ]
   %.val132 = load ptr, ptr %48, align 8, !tbaa !28
@@ -91,7 +86,7 @@ define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr noundef captures(non
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %54 = sext i32 %.val125213 to i64
   %55 = icmp slt i64 %indvars.iv.next200, %54
-  br i1 %55, label %.lr.ph164, label %.critedge2.loopexit
+  br i1 %55, label %.lr.ph164, label %.critedge.loopexit
 
 .lr.ph164:                                        ; preds = %51
   %56 = and i32 %53, 31
@@ -600,9 +595,9 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
   %.val126 = load i32, ptr %46, align 4, !tbaa !24
   %291 = trunc nuw i64 %indvars.iv.next197 to i32
   %292 = icmp sgt i32 %.val126, %291
-  br i1 %292, label %61, label %.critedge2.loopexit.loopexit, !llvm.loop !61
+  br i1 %292, label %61, label %.critedge2.loopexit, !llvm.loop !61
 
-.critedge.loopexit:                               ; preds = %.critedge2.loopexit
+.critedge.loopexit:                               ; preds = %51, %.critedge2.loopexit
   %.pre214 = load i32, ptr %10, align 4, !tbaa !15
   br label %.critedge
 

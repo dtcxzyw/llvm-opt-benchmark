@@ -3649,106 +3649,104 @@ define dso_local void @io_find_filename_pattern(ptr noundef readonly captures(no
   br i1 %37, label %8, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %34
-  %38 = icmp eq i32 %.1132, %35
-  br i1 %38, label %._crit_edge.thread, label %39
+  %38 = icmp eq i32 %.1124, %.1122
+  %39 = icmp eq i32 %.1132, %35
+  br i1 %39, label %._crit_edge.thread, label %40
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.0121.lcssa254 = phi i32 [ %.1122, %._crit_edge ], [ -1, %4 ]
-  %.0123.lcssa252 = phi i32 [ %.1124, %._crit_edge ], [ -1, %4 ]
-  %.0125.lcssa250 = phi i32 [ %.1126, %._crit_edge ], [ 0, %4 ]
-  %.0127.lcssa248 = phi i32 [ %.1128, %._crit_edge ], [ 0, %4 ]
-  %.0129.lcssa246 = phi i32 [ %.1130, %._crit_edge ], [ 0, %4 ]
-  %.0131.lcssa244 = phi i32 [ %.1132, %._crit_edge ], [ 0, %4 ]
+  %.0123.lcssa251 = phi i1 [ %38, %._crit_edge ], [ true, %4 ]
+  %.0125.lcssa249 = phi i32 [ %.1126, %._crit_edge ], [ 0, %4 ]
+  %.0127.lcssa247 = phi i32 [ %.1128, %._crit_edge ], [ 0, %4 ]
+  %.0129.lcssa245 = phi i32 [ %.1130, %._crit_edge ], [ 0, %4 ]
+  %.0131.lcssa243 = phi i32 [ %.1132, %._crit_edge ], [ 0, %4 ]
   store i32 0, ptr %1, align 4
   %.pre233 = load i32, ptr %5, align 4
-  br label %39
+  br label %40
 
-39:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0121.lcssa253 = phi i32 [ %.0121.lcssa254, %._crit_edge.thread ], [ %.1122, %._crit_edge ]
-  %.0123.lcssa251 = phi i32 [ %.0123.lcssa252, %._crit_edge.thread ], [ %.1124, %._crit_edge ]
-  %.0125.lcssa249 = phi i32 [ %.0125.lcssa250, %._crit_edge.thread ], [ %.1126, %._crit_edge ]
-  %.0127.lcssa247 = phi i32 [ %.0127.lcssa248, %._crit_edge.thread ], [ %.1128, %._crit_edge ]
-  %.0129.lcssa245 = phi i32 [ %.0129.lcssa246, %._crit_edge.thread ], [ %.1130, %._crit_edge ]
-  %.0131.lcssa243 = phi i32 [ %.0131.lcssa244, %._crit_edge.thread ], [ %.1132, %._crit_edge ]
-  %40 = phi i32 [ %.pre233, %._crit_edge.thread ], [ %35, %._crit_edge ]
-  %41 = icmp eq i32 %.0129.lcssa245, %40
-  br i1 %41, label %42, label %43
+40:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.0123.lcssa250 = phi i1 [ %.0123.lcssa251, %._crit_edge.thread ], [ %38, %._crit_edge ]
+  %.0125.lcssa248 = phi i32 [ %.0125.lcssa249, %._crit_edge.thread ], [ %.1126, %._crit_edge ]
+  %.0127.lcssa246 = phi i32 [ %.0127.lcssa247, %._crit_edge.thread ], [ %.1128, %._crit_edge ]
+  %.0129.lcssa244 = phi i32 [ %.0129.lcssa245, %._crit_edge.thread ], [ %.1130, %._crit_edge ]
+  %.0131.lcssa242 = phi i32 [ %.0131.lcssa243, %._crit_edge.thread ], [ %.1132, %._crit_edge ]
+  %41 = phi i32 [ %.pre233, %._crit_edge.thread ], [ %35, %._crit_edge ]
+  %42 = icmp eq i32 %.0129.lcssa244, %41
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   store i32 0, ptr %2, align 4
-  br label %43
+  br label %44
 
-43:                                               ; preds = %42, %39
-  %44 = icmp eq i32 %.0131.lcssa243, 1
-  br i1 %44, label %45, label %50
+44:                                               ; preds = %43, %40
+  %45 = icmp eq i32 %.0131.lcssa242, 1
+  br i1 %45, label %46, label %51
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr %5, align 4
-  %47 = add i32 %46, -1
-  %48 = icmp eq i32 %.0127.lcssa247, %47
-  br i1 %48, label %49, label %50
+46:                                               ; preds = %44
+  %47 = load i32, ptr %5, align 4
+  %48 = add i32 %47, -1
+  %49 = icmp eq i32 %.0127.lcssa246, %48
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %45
+50:                                               ; preds = %46
   store i32 1, ptr %1, align 4
-  br label %50
+  br label %51
 
-50:                                               ; preds = %49, %45, %43
-  %51 = icmp eq i32 %.0129.lcssa245, 1
-  br i1 %51, label %52, label %57
+51:                                               ; preds = %50, %46, %44
+  %52 = icmp eq i32 %.0129.lcssa244, 1
+  br i1 %52, label %53, label %58
 
-52:                                               ; preds = %50
-  %53 = load i32, ptr %5, align 4
-  %54 = add i32 %53, -1
-  %55 = icmp eq i32 %.0125.lcssa249, %54
-  br i1 %55, label %56, label %57
+53:                                               ; preds = %51
+  %54 = load i32, ptr %5, align 4
+  %55 = add i32 %54, -1
+  %56 = icmp eq i32 %.0125.lcssa248, %55
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %52
+57:                                               ; preds = %53
   store i32 1, ptr %2, align 4
-  br label %57
+  br label %58
 
-57:                                               ; preds = %56, %52, %50
-  %58 = load i32, ptr %1, align 4
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %64
+58:                                               ; preds = %57, %53, %51
+  %59 = load i32, ptr %1, align 4
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %65
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %2, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %.thread.thread
+61:                                               ; preds = %58
+  %62 = load i32, ptr %2, align 4
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %.thread.thread
 
-63:                                               ; preds = %60
+64:                                               ; preds = %61
   store i8 1, ptr %3, align 1
   %.pr = load i32, ptr %1, align 4
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63, %57
-  %65 = phi i32 [ %.pr, %63 ], [ %58, %57 ]
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %.thread
+65:                                               ; preds = %64, %58
+  %66 = phi i32 [ %.pr, %64 ], [ %59, %58 ]
+  %67 = icmp eq i32 %66, 1
+  br i1 %67, label %68, label %.thread
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %2, align 4
-  %69 = icmp eq i32 %68, 1
-  %70 = icmp eq i32 %.0123.lcssa251, %.0121.lcssa253
-  %or.cond = select i1 %69, i1 %70, i1 false
+68:                                               ; preds = %65
+  %69 = load i32, ptr %2, align 4
+  %70 = icmp eq i32 %69, 1
+  %or.cond = select i1 %70, i1 %.0123.lcssa250, i1 false
   br i1 %or.cond, label %71, label %thread-pre-split
 
-71:                                               ; preds = %67
+71:                                               ; preds = %68
   store i8 1, ptr %3, align 1
   %.pr171.pre = load i32, ptr %1, align 4
   br label %.thread
 
-.thread:                                          ; preds = %71, %64
-  %.pr171 = phi i32 [ %.pr171.pre, %71 ], [ %65, %64 ]
+.thread:                                          ; preds = %71, %65
+  %.pr171 = phi i32 [ %.pr171.pre, %71 ], [ %66, %65 ]
   %.not = icmp eq i32 %.pr171, 4
   br i1 %.not, label %73, label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %67, %.thread
+thread-pre-split:                                 ; preds = %68, %.thread
   %.pr173 = load i32, ptr %2, align 4
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %60, %thread-pre-split
-  %72 = phi i32 [ %.pr173, %thread-pre-split ], [ %61, %60 ]
+.thread.thread:                                   ; preds = %61, %thread-pre-split
+  %72 = phi i32 [ %.pr173, %thread-pre-split ], [ %62, %61 ]
   %.not152 = icmp eq i32 %72, 4
   br i1 %.not152, label %73, label %.loopexit
 
@@ -3832,29 +3830,29 @@ thread-pre-split:                                 ; preds = %67, %.thread
 ._crit_edge194.thread.thread:                     ; preds = %73
   %109 = load i32, ptr %1, align 4
   %110 = icmp eq i32 %109, 4
-  br i1 %110, label %.thread270, label %.thread272
+  br i1 %110, label %.thread267, label %.thread269
 
-.thread270:                                       ; preds = %._crit_edge194.thread.thread
+.thread267:                                       ; preds = %._crit_edge194.thread.thread
   store i32 3, ptr %1, align 4
-  br label %.thread272
+  br label %.thread269
 
 111:                                              ; preds = %._crit_edge194.thread
   store i32 3, ptr %1, align 4
-  br i1 %.1118, label %.thread272, label %116
+  br i1 %.1118, label %.thread269, label %116
 
 112:                                              ; preds = %._crit_edge194.thread, %._crit_edge194
-  br i1 %.1118, label %.thread272, label %116
+  br i1 %.1118, label %.thread269, label %116
 
-.thread272:                                       ; preds = %._crit_edge194.thread.thread, %.thread270, %111, %112
+.thread269:                                       ; preds = %._crit_edge194.thread.thread, %.thread267, %111, %112
   %113 = load i32, ptr %2, align 4
   %114 = icmp eq i32 %113, 4
   br i1 %114, label %115, label %116
 
-115:                                              ; preds = %.thread272
+115:                                              ; preds = %.thread269
   store i32 3, ptr %2, align 4
   br label %116
 
-116:                                              ; preds = %111, %115, %.thread272, %112
+116:                                              ; preds = %111, %115, %.thread269, %112
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
@@ -3981,14 +3979,14 @@ thread-pre-split:                                 ; preds = %67, %.thread
   br i1 %175, label %._crit_edge210.thread, label %176
 
 ._crit_edge210.thread:                            ; preds = %133, %._crit_edge210
-  %.0.lcssa267 = phi i8 [ %.1.lcssa, %._crit_edge210 ], [ 1, %133 ]
+  %.0.lcssa264 = phi i8 [ %.1.lcssa, %._crit_edge210 ], [ 1, %133 ]
   store i32 2, ptr %1, align 4
   br label %176
 
 176:                                              ; preds = %._crit_edge210.thread, %._crit_edge210
-  %.0.lcssa266 = phi i8 [ %.0.lcssa267, %._crit_edge210.thread ], [ %.1.lcssa, %._crit_edge210 ]
-  %.0114.lcssa264 = phi i8 [ 1, %._crit_edge210.thread ], [ 0, %._crit_edge210 ]
-  %177 = trunc nuw i8 %.0.lcssa266 to i1
+  %.0.lcssa263 = phi i8 [ %.0.lcssa264, %._crit_edge210.thread ], [ %.1.lcssa, %._crit_edge210 ]
+  %.0114.lcssa261 = phi i8 [ 1, %._crit_edge210.thread ], [ 0, %._crit_edge210 ]
+  %177 = trunc nuw i8 %.0.lcssa263 to i1
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %176
@@ -3996,7 +3994,7 @@ thread-pre-split:                                 ; preds = %67, %.thread
   br label %179
 
 179:                                              ; preds = %178, %176
-  %180 = and i8 %.0.lcssa266, %.0114.lcssa264
+  %180 = and i8 %.0.lcssa263, %.0114.lcssa261
   %or.cond.not = icmp eq i8 %180, 0
   br i1 %or.cond.not, label %.loopexit, label %181
 

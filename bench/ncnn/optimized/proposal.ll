@@ -612,11 +612,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Proposal7forwardERKSt6ve
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit93
   %.pre306 = load ptr, ptr %11, align 8, !tbaa !59
   %.pre307 = load ptr, ptr %49, align 8, !tbaa !59
-  %53 = ptrtoint ptr %92 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %55 = icmp eq ptr %.pre306, %.pre307
+  %53 = icmp eq ptr %.pre306, %.pre307
+  %54 = ptrtoint ptr %92 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %56 = icmp eq ptr %.lcssa, %93
-  %or.cond = select i1 %55, i1 true, i1 %56
+  %or.cond = select i1 %53, i1 true, i1 %56
   br i1 %or.cond, label %_ZN4ncnnL21qsort_descent_inplaceINS_4RectEEEvRSt6vectorIT_SaIS3_EERS2_IfSaIfEE.exit, label %57
 
 57:                                               ; preds = %._crit_edge
@@ -870,10 +870,10 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %143, %_ZNSt6vectorI
   br i1 %172, label %98, label %_ZN4ncnn3MatD2Ev.exit93.loopexit, !llvm.loop !76
 
 _ZN4ncnnL21qsort_descent_inplaceINS_4RectEEEvRSt6vectorIT_SaIS3_EERS2_IfSaIfEE.exit: ; preds = %._crit_edge.thread, %57, %._crit_edge
-  %173 = phi ptr [ %46, %._crit_edge.thread ], [ %54, %57 ], [ %54, %._crit_edge ]
+  %173 = phi ptr [ %46, %._crit_edge.thread ], [ %55, %57 ], [ %55, %._crit_edge ]
   %174 = phi ptr [ null, %._crit_edge.thread ], [ %.lcssa, %57 ], [ %.lcssa, %._crit_edge ]
   %175 = phi ptr [ null, %._crit_edge.thread ], [ %93, %57 ], [ %93, %._crit_edge ]
-  %176 = phi i64 [ 0, %._crit_edge.thread ], [ %53, %57 ], [ %53, %._crit_edge ]
+  %176 = phi i64 [ 0, %._crit_edge.thread ], [ %54, %57 ], [ %54, %._crit_edge ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %178 = load i32, ptr %177, align 8, !tbaa !36
   %179 = icmp sgt i32 %178, 0

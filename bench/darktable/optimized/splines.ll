@@ -277,7 +277,7 @@ define linkonce_odr noundef float @_ZNK8interpol11spline_baseIfEclEf(ptr noundef
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load float, ptr %12, align 4, !tbaa !14
-  br label %133
+  br label %136
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -285,7 +285,7 @@ define linkonce_odr noundef float @_ZNK8interpol11spline_baseIfEclEf(ptr noundef
   %17 = trunc nuw i8 %16 to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = icmp sgt i64 %8, 0
-  br i1 %17, label %20, label %53
+  br i1 %17, label %20, label %56
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -297,7 +297,7 @@ define linkonce_odr noundef float @_ZNK8interpol11spline_baseIfEclEf(ptr noundef
   %27 = fcmp reassoc nsz arcp contract afn olt float %25, %26
   %28 = fadd reassoc nsz arcp contract afn float %25, %24
   %.0108 = select nsz i1 %27, float %28, float %25
-  br i1 %19, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit
+  br i1 %19, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %20
   %29 = udiv exact i64 %8, 12
@@ -316,165 +316,167 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vecto
   %.sroa.011.1.i.i = select i1 %33, ptr %.sroa.011.012.i.i, ptr %34
   %.1.i.i = select i1 %33, i64 %30, i64 %36
   %37 = icmp sgt i64 %.1.i.i, 0
-  br i1 %37, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.loopexit, !llvm.loop !29
+  br i1 %37, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit, !llvm.loop !29
 
-_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i
+_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i
   %.pre = ptrtoint ptr %.sroa.011.1.i.i to i64
-  br label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit
+  %38 = icmp eq ptr %.sroa.011.1.i.i, %5
+  %39 = sub i64 %.pre, %7
+  %40 = sdiv exact i64 %39, 12
+  %cond.fr = freeze i1 %38
+  br i1 %cond.fr, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread, label %41
 
-_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.loopexit, %20
-  %.pre-phi = phi i64 [ %.pre, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.loopexit ], [ %7, %20 ]
-  %.sroa.011.0.lcssa.i.i = phi ptr [ %.sroa.011.1.i.i, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.loopexit ], [ %5, %20 ]
-  %38 = sub i64 %.pre-phi, %7
-  %39 = sdiv exact i64 %38, 12
-  %.not61 = icmp eq ptr %.sroa.011.0.lcssa.i.i, %5
-  %spec.select = select i1 %.not61, i64 %9, i64 %39
-  %40 = add nsw i64 %spec.select, -1
-  %41 = icmp ult i64 %spec.select, %9
-  %42 = select i1 %41, i64 %spec.select, i64 0
-  %43 = icmp ugt i64 %42, %40
-  %44 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %42
-  %45 = load float, ptr %44, align 4, !tbaa !28
-  %46 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %40
-  %47 = load float, ptr %46, align 4, !tbaa !28
-  br i1 %43, label %48, label %50
+_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread: ; preds = %20, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit
+  br label %41
 
-48:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit
-  %49 = fsub reassoc nsz arcp contract afn float %45, %47
+41:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread
+  %42 = phi i64 [ %9, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit.thread ], [ %40, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit ]
+  %43 = add nsw i64 %42, -1
+  %44 = icmp ult i64 %42, %9
+  %45 = select i1 %44, i64 %42, i64 0
+  %46 = icmp ugt i64 %45, %43
+  %47 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %45
+  %48 = load float, ptr %47, align 4, !tbaa !28
+  %49 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %43
+  %50 = load float, ptr %49, align 4, !tbaa !28
+  br i1 %46, label %51, label %53
+
+51:                                               ; preds = %41
+  %52 = fsub reassoc nsz arcp contract afn float %48, %50
   br label %.thread
 
-50:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E_ET_SF_SF_RKT0_T1_.exit
-  %51 = fadd reassoc nsz arcp contract afn float %45, %24
-  %52 = fsub reassoc nsz arcp contract afn float %51, %47
+53:                                               ; preds = %41
+  %54 = fadd reassoc nsz arcp contract afn float %48, %24
+  %55 = fsub reassoc nsz arcp contract afn float %54, %50
   br label %.thread
 
-53:                                               ; preds = %14
-  %54 = load float, ptr %18, align 8, !tbaa !31
-  %55 = fcmp reassoc nsz arcp contract afn olt float %1, %54
-  %.sroa.speculated105 = select i1 %55, float %54, float %1
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %57 = load float, ptr %56, align 4, !tbaa !31
-  %58 = fcmp reassoc nsz arcp contract afn olt float %57, %.sroa.speculated105
-  %.sroa.speculated102 = select i1 %58, float %57, float %.sroa.speculated105
-  %59 = load float, ptr %5, align 4, !tbaa !28
-  %60 = fcmp reassoc nsz arcp contract afn oge float %.sroa.speculated102, %59
-  %or.cond = and i1 %60, %19
+56:                                               ; preds = %14
+  %57 = load float, ptr %18, align 8, !tbaa !31
+  %58 = fcmp reassoc nsz arcp contract afn olt float %1, %57
+  %.sroa.speculated105 = select i1 %58, float %57, float %1
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %60 = load float, ptr %59, align 4, !tbaa !31
+  %61 = fcmp reassoc nsz arcp contract afn olt float %60, %.sroa.speculated105
+  %.sroa.speculated102 = select i1 %61, float %60, float %.sroa.speculated105
+  %62 = load float, ptr %5, align 4, !tbaa !28
+  %63 = fcmp reassoc nsz arcp contract afn oge float %.sroa.speculated102, %62
+  %or.cond = and i1 %63, %19
   br i1 %or.cond, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64: ; preds = %53
-  %61 = udiv exact i64 %8, 12
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64: ; preds = %56
+  %64 = udiv exact i64 %8, 12
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64
-  %.013.i.i66 = phi i64 [ %61, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64 ], [ %.1.i.i71, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65 ]
+  %.013.i.i66 = phi i64 [ %64, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64 ], [ %.1.i.i71, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65 ]
   %.sroa.011.012.i.i67 = phi ptr [ %5, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i64 ], [ %.sroa.011.1.i.i70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65 ]
-  %62 = lshr i64 %.013.i.i66, 1
-  %63 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.sroa.011.012.i.i67, i64 %62
-  %64 = load float, ptr %63, align 4, !tbaa !28
-  %65 = fcmp reassoc nsz arcp contract afn olt float %.sroa.speculated102, %64
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %67 = xor i64 %62, -1
-  %68 = add nsw i64 %.013.i.i66, %67
-  %.sroa.011.1.i.i70 = select i1 %65, ptr %.sroa.011.012.i.i67, ptr %66
-  %.1.i.i71 = select i1 %65, i64 %62, i64 %68
-  %69 = icmp sgt i64 %.1.i.i71, 0
-  br i1 %69, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit, !llvm.loop !32
+  %65 = lshr i64 %.013.i.i66, 1
+  %66 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %.sroa.011.012.i.i67, i64 %65
+  %67 = load float, ptr %66, align 4, !tbaa !28
+  %68 = fcmp reassoc nsz arcp contract afn olt float %.sroa.speculated102, %67
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  %70 = xor i64 %65, -1
+  %71 = add nsw i64 %.013.i.i66, %70
+  %.sroa.011.1.i.i70 = select i1 %68, ptr %.sroa.011.012.i.i67, ptr %69
+  %.1.i.i71 = select i1 %68, i64 %65, i64 %71
+  %72 = icmp sgt i64 %.1.i.i71, 0
+  br i1 %72, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit, !llvm.loop !32
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i65
   %.not = icmp eq ptr %.sroa.011.1.i.i70, %5
-  br i1 %.not, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread, label %70
+  br i1 %.not, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread, label %73
 
-70:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit
-  %71 = ptrtoint ptr %.sroa.011.1.i.i70 to i64
-  %72 = sub i64 %71, %7
-  %73 = sdiv exact i64 %72, 12
-  %74 = add nsw i64 %73, -1
-  %75 = add nsw i64 %9, -2
-  %.sroa.speculated80 = tail call i64 @llvm.umin.i64(i64 %75, i64 %74)
+73:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit
+  %74 = ptrtoint ptr %.sroa.011.1.i.i70 to i64
+  %75 = sub i64 %74, %7
+  %76 = sdiv exact i64 %75, 12
+  %77 = add nsw i64 %76, -1
+  %78 = add nsw i64 %9, -2
+  %.sroa.speculated80 = tail call i64 @llvm.umin.i64(i64 %78, i64 %77)
   br label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
 
-_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit, %70, %53
-  %.1 = phi i64 [ %.sroa.speculated80, %70 ], [ 0, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit ], [ 0, %53 ]
-  %76 = fcmp reassoc nsz arcp contract afn ugt float %.sroa.speculated102, %59
-  br i1 %76, label %77, label %87
+_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit, %73, %56
+  %.1 = phi i64 [ %.sroa.speculated80, %73 ], [ 0, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit ], [ 0, %56 ]
+  %79 = fcmp reassoc nsz arcp contract afn ugt float %.sroa.speculated102, %62
+  br i1 %79, label %80, label %90
 
-77:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
-  %78 = add nsw i64 %.1, 1
-  %79 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %78
-  %80 = load float, ptr %79, align 4, !tbaa !28
-  %81 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.1
-  %82 = load float, ptr %81, align 4, !tbaa !28
-  %83 = fsub reassoc nsz arcp contract afn float %80, %82
-  %84 = getelementptr inbounds i8, ptr %4, i64 -12
+80:                                               ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
+  %81 = add nsw i64 %.1, 1
+  %82 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %81
+  %83 = load float, ptr %82, align 4, !tbaa !28
+  %84 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.1
   %85 = load float, ptr %84, align 4, !tbaa !28
-  %86 = fcmp reassoc nsz arcp contract afn ult float %.sroa.speculated102, %85
-  br i1 %86, label %.thread, label %87
+  %86 = fsub reassoc nsz arcp contract afn float %83, %85
+  %87 = getelementptr inbounds i8, ptr %4, i64 -12
+  %88 = load float, ptr %87, align 4, !tbaa !28
+  %89 = fcmp reassoc nsz arcp contract afn ult float %.sroa.speculated102, %88
+  br i1 %89, label %.thread, label %90
 
-87:                                               ; preds = %77, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
-  %88 = phi float [ %59, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread ], [ %85, %77 ]
-  %89 = phi ptr [ %5, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread ], [ %84, %77 ]
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %91 = load float, ptr %90, align 4, !tbaa !14
-  %92 = fsub reassoc nsz arcp contract afn float %.sroa.speculated102, %88
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %94 = load float, ptr %93, align 4, !tbaa !33
-  %95 = fmul reassoc nsz arcp contract afn float %92, %94
-  %96 = fadd reassoc nsz arcp contract afn float %95, %91
-  br label %126
+90:                                               ; preds = %80, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread
+  %91 = phi float [ %62, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread ], [ %88, %80 ]
+  %92 = phi ptr [ %5, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN8interpol10base_pointIfEESt6vectorIS4_SaIS4_EEEES4_ZNKS2_11spline_baseIfEclEfEUlRS5_SD_E0_ET_SF_SF_RKT0_T1_.exit.thread ], [ %87, %80 ]
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %94 = load float, ptr %93, align 4, !tbaa !14
+  %95 = fsub reassoc nsz arcp contract afn float %.sroa.speculated102, %91
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %97 = load float, ptr %96, align 4, !tbaa !33
+  %98 = fmul reassoc nsz arcp contract afn float %95, %97
+  %99 = fadd reassoc nsz arcp contract afn float %98, %94
+  br label %129
 
-.thread:                                          ; preds = %50, %48, %77
-  %97 = phi float [ %82, %77 ], [ %47, %48 ], [ %47, %50 ]
-  %.050117 = phi i64 [ %.1, %77 ], [ %40, %48 ], [ %40, %50 ]
-  %.051116 = phi i64 [ %78, %77 ], [ %42, %48 ], [ %42, %50 ]
-  %.153115 = phi float [ %83, %77 ], [ %49, %48 ], [ %52, %50 ]
-  %.1109114 = phi float [ %.sroa.speculated102, %77 ], [ %.0108, %48 ], [ %.0108, %50 ]
-  %98 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.050117
-  %99 = fsub reassoc nsz arcp contract afn float %.1109114, %97
-  %100 = fdiv reassoc nsz arcp contract afn float %99, %.153115
-  %101 = fmul reassoc nsz arcp contract afn float %100, %100
-  %102 = fmul reassoc nsz arcp contract afn float %101, %100
-  %103 = fmul reassoc nsz arcp contract afn float %102, 2.000000e+00
-  %104 = fmul reassoc nsz arcp contract afn float %101, 3.000000e+00
-  %105 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %104
-  %106 = fadd reassoc nsz arcp contract afn float %105, %103
-  %.neg120 = fmul reassoc nsz arcp contract afn float %101, -2.000000e+00
-  %107 = fadd reassoc nsz arcp contract afn float %.neg120, %100
-  %108 = fadd reassoc nsz arcp contract afn float %107, %102
-  %109 = fsub reassoc nsz arcp contract afn float %104, %103
-  %110 = fsub reassoc nsz arcp contract afn float %102, %101
-  %111 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %112 = load float, ptr %111, align 4, !tbaa !14
-  %113 = fmul reassoc nsz arcp contract afn float %106, %112
-  %114 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %115 = load float, ptr %114, align 4, !tbaa !33
-  %116 = fmul reassoc nsz arcp contract afn float %108, %115
-  %117 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.051116
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %119 = load float, ptr %118, align 4, !tbaa !14
-  %120 = fmul reassoc nsz arcp contract afn float %109, %119
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %122 = load float, ptr %121, align 4, !tbaa !33
-  %123 = fmul reassoc nsz arcp contract afn float %110, %122
-  %reass.add = fadd reassoc nsz arcp contract afn float %116, %123
+.thread:                                          ; preds = %53, %51, %80
+  %100 = phi float [ %85, %80 ], [ %50, %51 ], [ %50, %53 ]
+  %.050117 = phi i64 [ %.1, %80 ], [ %43, %51 ], [ %43, %53 ]
+  %.051116 = phi i64 [ %81, %80 ], [ %45, %51 ], [ %45, %53 ]
+  %.153115 = phi float [ %86, %80 ], [ %52, %51 ], [ %55, %53 ]
+  %.1109114 = phi float [ %.sroa.speculated102, %80 ], [ %.0108, %51 ], [ %.0108, %53 ]
+  %101 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.050117
+  %102 = fsub reassoc nsz arcp contract afn float %.1109114, %100
+  %103 = fdiv reassoc nsz arcp contract afn float %102, %.153115
+  %104 = fmul reassoc nsz arcp contract afn float %103, %103
+  %105 = fmul reassoc nsz arcp contract afn float %104, %103
+  %106 = fmul reassoc nsz arcp contract afn float %105, 2.000000e+00
+  %107 = fmul reassoc nsz arcp contract afn float %104, 3.000000e+00
+  %108 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %107
+  %109 = fadd reassoc nsz arcp contract afn float %108, %106
+  %.neg120 = fmul reassoc nsz arcp contract afn float %104, -2.000000e+00
+  %110 = fadd reassoc nsz arcp contract afn float %.neg120, %103
+  %111 = fadd reassoc nsz arcp contract afn float %110, %105
+  %112 = fsub reassoc nsz arcp contract afn float %107, %106
+  %113 = fsub reassoc nsz arcp contract afn float %105, %104
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 4
+  %115 = load float, ptr %114, align 4, !tbaa !14
+  %116 = fmul reassoc nsz arcp contract afn float %109, %115
+  %117 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %118 = load float, ptr %117, align 4, !tbaa !33
+  %119 = fmul reassoc nsz arcp contract afn float %111, %118
+  %120 = getelementptr inbounds nuw %"struct.interpol::base_point", ptr %5, i64 %.051116
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
+  %122 = load float, ptr %121, align 4, !tbaa !14
+  %123 = fmul reassoc nsz arcp contract afn float %112, %122
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %125 = load float, ptr %124, align 4, !tbaa !33
+  %126 = fmul reassoc nsz arcp contract afn float %113, %125
+  %reass.add = fadd reassoc nsz arcp contract afn float %119, %126
   %reass.mul = fmul reassoc nsz arcp contract afn float %reass.add, %.153115
-  %124 = fadd reassoc nsz arcp contract afn float %120, %113
-  %125 = fadd reassoc nsz arcp contract afn float %124, %reass.mul
-  br label %126
+  %127 = fadd reassoc nsz arcp contract afn float %123, %116
+  %128 = fadd reassoc nsz arcp contract afn float %127, %reass.mul
+  br label %129
 
-126:                                              ; preds = %.thread, %87
-  %storemerge = phi float [ %96, %87 ], [ %125, %.thread ]
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %128 = load float, ptr %127, align 8, !tbaa !31
-  %129 = fcmp reassoc nsz arcp contract afn olt float %storemerge, %128
-  %.sroa.speculated78 = select i1 %129, float %128, float %storemerge
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %131 = load float, ptr %130, align 4, !tbaa !31
-  %132 = fcmp reassoc nsz arcp contract afn olt float %131, %.sroa.speculated78
-  %.sroa.speculated = select i1 %132, float %131, float %.sroa.speculated78
-  br label %133
+129:                                              ; preds = %.thread, %90
+  %storemerge = phi float [ %99, %90 ], [ %128, %.thread ]
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %131 = load float, ptr %130, align 8, !tbaa !31
+  %132 = fcmp reassoc nsz arcp contract afn olt float %storemerge, %131
+  %.sroa.speculated78 = select i1 %132, float %131, float %storemerge
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %134 = load float, ptr %133, align 4, !tbaa !31
+  %135 = fcmp reassoc nsz arcp contract afn olt float %134, %.sroa.speculated78
+  %.sroa.speculated = select i1 %135, float %134, float %.sroa.speculated78
+  br label %136
 
-133:                                              ; preds = %126, %11
-  %.0 = phi nsz float [ %13, %11 ], [ %.sroa.speculated, %126 ]
+136:                                              ; preds = %129, %11
+  %.0 = phi nsz float [ %13, %11 ], [ %.sroa.speculated, %129 ]
   ret float %.0
 }
 

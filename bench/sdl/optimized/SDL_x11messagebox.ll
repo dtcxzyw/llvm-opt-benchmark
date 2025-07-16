@@ -1439,20 +1439,16 @@ GetHitButtonIndex.exit99.i:                       ; preds = %641, %._crit_edge.l
   %665 = load i32, ptr %664, align 4
   %666 = add nsw i32 %665, %662
   %.not27.i109.i = icmp sgt i32 %651, %666
-  br i1 %.not27.i109.i, label %667, label %._crit_edge.loopexit.split.loop.exit.i110.i
+  br i1 %.not27.i109.i, label %667, label %GetHitButtonIndex.exit113.i
 
 667:                                              ; preds = %663, %660, %656, %.lr.ph.i103.i
   %indvars.iv.next.i111.i = add nuw nsw i64 %indvars.iv.i104.i, 1
   %exitcond.not.i112.i = icmp eq i64 %indvars.iv.next.i111.i, %wide.trip.count.i102.i
-  br i1 %exitcond.not.i112.i, label %GetHitButtonIndex.exit113.i, label %.lr.ph.i103.i, !llvm.loop !12
+  br i1 %exitcond.not.i112.i, label %GetHitButtonIndex.exit113.thread.i, label %.lr.ph.i103.i, !llvm.loop !12
 
-._crit_edge.loopexit.split.loop.exit.i110.i:      ; preds = %663
+GetHitButtonIndex.exit113.i:                      ; preds = %663
   %668 = trunc nuw nsw i64 %indvars.iv.i104.i to i32
-  br label %GetHitButtonIndex.exit113.i
-
-GetHitButtonIndex.exit113.i:                      ; preds = %667, %._crit_edge.loopexit.split.loop.exit.i110.i
-  %.2.i100.i = phi i32 [ %668, %._crit_edge.loopexit.split.loop.exit.i110.i ], [ -1, %667 ]
-  %669 = icmp eq i32 %647, %.2.i100.i
+  %669 = icmp eq i32 %647, %668
   br i1 %669, label %670, label %GetHitButtonIndex.exit113.thread.i
 
 670:                                              ; preds = %GetHitButtonIndex.exit113.i
@@ -1466,8 +1462,8 @@ GetHitButtonIndex.exit113.i:                      ; preds = %667, %._crit_edge.l
   store i32 %675, ptr %676, align 4
   br label %GetHitButtonIndex.exit113.thread.i
 
-GetHitButtonIndex.exit113.thread.i:               ; preds = %670, %GetHitButtonIndex.exit113.i, %649, %646, %643
-  %.8.i = phi i1 [ false, %646 ], [ false, %643 ], [ true, %670 ], [ false, %GetHitButtonIndex.exit113.i ], [ false, %649 ]
+GetHitButtonIndex.exit113.thread.i:               ; preds = %667, %670, %GetHitButtonIndex.exit113.i, %649, %646, %643
+  %.8.i = phi i1 [ false, %646 ], [ false, %643 ], [ true, %670 ], [ false, %GetHitButtonIndex.exit113.i ], [ false, %649 ], [ false, %667 ]
   store i32 -1, ptr %532, align 8
   br label %.thread125.i
 

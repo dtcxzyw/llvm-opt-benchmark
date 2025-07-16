@@ -1041,8 +1041,8 @@ for.inc:                                          ; preds = %invoke.cont27, %if.
 
 for.end:                                          ; preds = %for.inc
   %.pre98 = load ptr, ptr %iovecs, align 8
-  %cmp.i.i = icmp eq ptr %.pre98, %33
-  br i1 %cmp.i.i, label %if.end56, label %if.then49
+  %34 = icmp eq ptr %.pre98, %33
+  br i1 %34, label %if.end56, label %if.then49
 
 if.then49:                                        ; preds = %for.end
   %call52 = invoke fastcc noundef i64 @"_ZZNK8facebook5velox13LocalReadFile6preadvEmRKSt6vectorIN5folly5RangeIPcEESaIS6_EEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(32) %readvFunc)
@@ -1053,17 +1053,17 @@ invoke.cont51:                                    ; preds = %if.then49
   br i1 %cmp53, label %cleanup, label %if.end56
 
 if.end56:                                         ; preds = %invoke.cont3, %invoke.cont51, %for.end
-  %34 = load i64, ptr %totalBytesRead, align 8
+  %35 = load i64, ptr %totalBytesRead, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont32, %invoke.cont20, %invoke.cont51, %if.end56
-  %retval.0 = phi i64 [ %34, %if.end56 ], [ %call52, %invoke.cont51 ], [ %call21, %invoke.cont20 ], [ %call33, %invoke.cont32 ]
-  %35 = load ptr, ptr %iovecs, align 8
-  %tobool.not.i.i.i74 = icmp eq ptr %35, null
+  %retval.0 = phi i64 [ %35, %if.end56 ], [ %call52, %invoke.cont51 ], [ %call21, %invoke.cont20 ], [ %call33, %invoke.cont32 ]
+  %36 = load ptr, ptr %iovecs, align 8
+  %tobool.not.i.i.i74 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i74, label %_ZNSt6vectorI5iovecSaIS0_EED2Ev.exit76, label %if.then.i.i.i75
 
 if.then.i.i.i75:                                  ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %35) #31
+  call void @_ZdlPv(ptr noundef nonnull %36) #31
   br label %_ZNSt6vectorI5iovecSaIS0_EED2Ev.exit76
 
 _ZNSt6vectorI5iovecSaIS0_EED2Ev.exit76:           ; preds = %cleanup, %if.then.i.i.i75

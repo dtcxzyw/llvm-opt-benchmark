@@ -5830,7 +5830,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8FastISel16selectPatchpointEPKNS_8C
   store i32 0, ptr %92, align 8, !tbaa !324
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 32, ptr %93, align 4, !tbaa !325
-  br i1 %or.cond, label %94, label %130
+  br i1 %or.cond, label %94, label %132
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -5896,38 +5896,38 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
   %.pre = load i32, ptr %93, align 4, !tbaa !325
   %.pre3.i116.pre = load ptr, ptr %4, align 8, !tbaa !247
-  br label %130
+  %130 = icmp ult i32 %129, %.pre
+  %131 = zext i32 %129 to i64
+  br label %132
 
-130:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit, %90
+132:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit, %90
   %.pre3.i116 = phi ptr [ %.pre3.i116.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit ], [ %91, %90 ]
-  %131 = phi i32 [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit ], [ 32, %90 ]
-  %132 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit ], [ 0, %90 ]
-  %133 = load i32, ptr %31, align 4
-  %134 = and i32 %133, 134217727
-  %135 = zext nneg i32 %134 to i64
-  %136 = sub nsw i64 0, %135
-  %137 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %136
-  %138 = load ptr, ptr %137, align 8, !tbaa !230
+  %.not.i.i.not.i115 = phi i1 [ %130, %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit ], [ true, %90 ]
+  %133 = phi i64 [ %131, %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit ], [ 0, %90 ]
+  %134 = load i32, ptr %31, align 4
+  %135 = and i32 %134, 134217727
+  %136 = zext nneg i32 %135 to i64
+  %137 = sub nsw i64 0, %136
+  %138 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %137
+  %139 = load ptr, ptr %138, align 8, !tbaa !230
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #21
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  %141 = load i32, ptr %140, align 8, !tbaa !218
-  %142 = icmp ult i32 %141, 65
-  %143 = load ptr, ptr %139, align 8
-  %.0.in.i.i113 = select i1 %142, ptr %139, ptr %143
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
+  %142 = load i32, ptr %141, align 8, !tbaa !218
+  %143 = icmp ult i32 %142, 65
+  %144 = load ptr, ptr %140, align 8
+  %.0.in.i.i113 = select i1 %143, ptr %140, ptr %144
   %.0.i.i114 = load i64, ptr %.0.in.i.i113, align 8, !tbaa !125
   store i32 1, ptr %6, align 8, !alias.scope !574
-  %144 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %144, align 8, !tbaa !301, !alias.scope !574
-  %145 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.0.i.i114, ptr %145, align 8, !tbaa !125, !alias.scope !574
-  %146 = zext i32 %132 to i64
-  %147 = add nuw nsw i64 %146, 1
-  %.not.i.i.not.i115 = icmp ult i32 %132, %131
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr null, ptr %145, align 8, !tbaa !301, !alias.scope !574
+  %146 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %.0.i.i114, ptr %146, align 8, !tbaa !125, !alias.scope !574
+  %147 = add nuw nsw i64 %133, 1
   br i1 %.not.i.i.not.i115, label %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit120, label %148, !prof !130
 
-148:                                              ; preds = %130
-  %149 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.pre3.i116, i64 %146
+148:                                              ; preds = %132
+  %149 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.pre3.i116, i64 %133
   %150 = icmp uge ptr %6, %.pre3.i116
   %151 = icmp ult ptr %6, %149
   %spec.select.i.i.i.i.i117 = and i1 %150, %151
@@ -5947,9 +5947,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit
   %158 = getelementptr inbounds i8, ptr %157, i64 %156
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit120
 
-_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit120: ; preds = %130, %152, %153
-  %159 = phi ptr [ %.pre3.i116, %130 ], [ %157, %153 ], [ %.pre.i118, %152 ]
-  %.016.i.i.i119 = phi ptr [ %6, %130 ], [ %158, %153 ], [ %6, %152 ]
+_ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit120: ; preds = %132, %152, %153
+  %159 = phi ptr [ %.pre3.i116, %132 ], [ %157, %153 ], [ %.pre.i118, %152 ]
+  %.016.i.i.i119 = phi ptr [ %6, %132 ], [ %158, %153 ], [ %6, %152 ]
   %160 = load i32, ptr %92, align 8, !tbaa !324
   %161 = zext i32 %160 to i64
   %162 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %159, i64 %161

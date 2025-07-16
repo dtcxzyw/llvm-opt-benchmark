@@ -117175,7 +117175,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17h5eb4630aee4ad433E"(
   %47 = load ptr, ptr %0, align 8, !alias.scope !26391, !nonnull !16, !noundef !16
   %48 = atomicrmw sub ptr %47, i64 1 release, align 8, !noalias !26391
   %49 = icmp eq i64 %48, 1
-  br i1 %49, label %51, label %.thread32
+  br i1 %49, label %51, label %.thread31
 
 50:                                               ; preds = %40
   tail call void @llvm.trap()
@@ -117184,14 +117184,14 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17h5eb4630aee4ad433E"(
 51:                                               ; preds = %44
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcbcdced2debb361cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-          to label %.thread32 unwind label %52
+          to label %.thread31 unwind label %52
 
 52:                                               ; preds = %51
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h9995cba60f4fbe6dE.exit18.sink.split"
 
-.thread32:                                        ; preds = %51, %44
+.thread31:                                        ; preds = %51, %44
   store ptr %46, ptr %0, align 8
   br label %"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h9995cba60f4fbe6dE.exit16"
 
@@ -117214,7 +117214,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17h5eb4630aee4ad433E"(
   %65 = icmp slt i64 %64, 0
   br i1 %65, label %72, label %70
 
-"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h9995cba60f4fbe6dE.exit16": ; preds = %.thread32, %.thread29, %69, %.critedge, %"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h9995cba60f4fbe6dE.exit"
+"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h9995cba60f4fbe6dE.exit16": ; preds = %.thread31, %.thread29, %69, %.critedge, %"_ZN4core3ptr76drop_in_place$LT$sum_tree..SumTree$LT$gpui..elements..list..ListItem$GT$$GT$17h9995cba60f4fbe6dE.exit"
   ret void
 
 .critedge.loopexit:                               ; preds = %60

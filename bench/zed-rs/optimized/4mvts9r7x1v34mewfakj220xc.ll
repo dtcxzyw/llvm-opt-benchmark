@@ -14576,7 +14576,7 @@ default.unreachable33:                            ; preds = %7
   %58 = extractvalue { i32, i32 } %57, 0
   %59 = extractvalue { i32, i32 } %57, 1
   %.not = icmp eq i32 %.sroa.014.0, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge.thread41, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42, %78
   %.sroa.0.022 = phi i32 [ %79, %78 ], [ 0, %42 ]
@@ -14590,12 +14590,9 @@ default.unreachable33:                            ; preds = %7
   %65 = icmp ult i32 %60, %64
   br i1 %65, label %67, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %67, %42
-  %.sroa.7.0.lcssa = phi i32 [ %59, %42 ], [ %.sroa.7.020, %67 ], [ %.sroa.7.020, %.lr.ph ]
-  %.sroa.03.0.lcssa = phi i32 [ %58, %42 ], [ %.sroa.03.021, %67 ], [ %.sroa.03.021, %.lr.ph ]
-  %.sroa.0.0.lcssa = phi i32 [ 0, %42 ], [ %.sroa.0.022, %67 ], [ %.sroa.0.022, %.lr.ph ]
-  %66 = icmp eq i32 %.sroa.0.0.lcssa, %.sroa.014.0
-  br i1 %66, label %._crit_edge.thread, label %80
+._crit_edge:                                      ; preds = %.lr.ph, %67
+  %66 = icmp eq i32 %.sroa.0.022, %.sroa.014.0
+  br i1 %66, label %._crit_edge.thread41, label %80
 
 67:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -14616,25 +14613,25 @@ default.unreachable33:                            ; preds = %7
 78:                                               ; preds = %67
   %79 = add nuw i32 %.sroa.0.022, 1
   %exitcond.not = icmp eq i32 %79, %.sroa.014.0
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge.thread41, label %.lr.ph
 
 80:                                               ; preds = %._crit_edge
-  %81 = call noundef i32 @_ZN6editor11display_map12DisplayPoint3row17h669d693a000cf99cE(i32 noundef %.sroa.03.0.lcssa, i32 noundef %.sroa.7.0.lcssa)
+  %81 = call noundef i32 @_ZN6editor11display_map12DisplayPoint3row17h669d693a000cf99cE(i32 noundef %.sroa.03.021, i32 noundef %.sroa.7.020)
   %82 = call noundef i32 @_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %1, i32 noundef %81)
   br label %86
 
-._crit_edge.thread:                               ; preds = %78, %._crit_edge
-  %.sroa.03.0.lcssa40 = phi i32 [ %.sroa.03.0.lcssa, %._crit_edge ], [ %71, %78 ]
-  %.sroa.7.0.lcssa38 = phi i32 [ %.sroa.7.0.lcssa, %._crit_edge ], [ %72, %78 ]
+._crit_edge.thread41:                             ; preds = %78, %42, %._crit_edge
+  %.sroa.03.0.lcssa40 = phi i32 [ %.sroa.03.021, %._crit_edge ], [ %58, %42 ], [ %71, %78 ]
+  %.sroa.7.0.lcssa38 = phi i32 [ %.sroa.7.020, %._crit_edge ], [ %59, %42 ], [ %72, %78 ]
   %83 = call noundef i32 @_ZN6editor11display_map12DisplayPoint3row17h669d693a000cf99cE(i32 noundef %.sroa.03.0.lcssa40, i32 noundef %.sroa.7.0.lcssa38)
   %84 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef %.sroa.017.0)
   %85 = call noundef i32 @_ZN6editor11display_map15DisplaySnapshot20display_column_for_x17h98da7120ab388f05E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %1, i32 noundef %83, float noundef %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(1208) %6)
   br label %86
 
-86:                                               ; preds = %._crit_edge.thread, %80
-  %.sroa.03.0.lcssa39 = phi i32 [ %.sroa.03.0.lcssa40, %._crit_edge.thread ], [ %.sroa.03.0.lcssa, %80 ]
-  %.sroa.7.0.lcssa37 = phi i32 [ %.sroa.7.0.lcssa38, %._crit_edge.thread ], [ %.sroa.7.0.lcssa, %80 ]
-  %.sroa.012.0 = phi i32 [ %85, %._crit_edge.thread ], [ %82, %80 ]
+86:                                               ; preds = %._crit_edge.thread41, %80
+  %.sroa.03.0.lcssa39 = phi i32 [ %.sroa.03.0.lcssa40, %._crit_edge.thread41 ], [ %.sroa.03.021, %80 ]
+  %.sroa.7.0.lcssa37 = phi i32 [ %.sroa.7.0.lcssa38, %._crit_edge.thread41 ], [ %.sroa.7.020, %80 ]
+  %.sroa.012.0 = phi i32 [ %85, %._crit_edge.thread41 ], [ %82, %80 ]
   %87 = call noundef i32 @_ZN6editor11display_map12DisplayPoint3row17h669d693a000cf99cE(i32 noundef %.sroa.03.0.lcssa39, i32 noundef %.sroa.7.0.lcssa37)
   %88 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E(i32 noundef %87, i32 noundef %.sroa.012.0)
   %89 = extractvalue { i32, i32 } %88, 0

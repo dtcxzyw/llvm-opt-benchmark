@@ -648,9 +648,9 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
   %126 = add i64 %125, %122
   br label %127
 
-127:                                              ; preds = %158, %116
-  %128 = phi i64 [ %126, %116 ], [ %160, %158 ]
-  %129 = phi i64 [ %125, %116 ], [ %161, %158 ]
+127:                                              ; preds = %155, %116
+  %128 = phi i64 [ %126, %116 ], [ %158, %155 ]
+  %129 = phi i64 [ %125, %116 ], [ %157, %155 ]
   %130 = load i64, ptr getelementptr inbounds nuw (i8, ptr @crashk_res, i64 8), align 8
   %131 = icmp ugt i64 %128, %130
   br i1 %131, label %.thread20.thread, label %132
@@ -671,7 +671,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
 138:                                              ; preds = %135
   %139 = load i64, ptr %9, align 8
   %140 = icmp eq i64 %139, 0
-  br i1 %140, label %158, label %.preheader25
+  br i1 %140, label %.thread20, label %.preheader25
 
 .preheader25:                                     ; preds = %138, %152
   %141 = phi i64 [ %153, %152 ], [ 0, %138 ]
@@ -685,52 +685,46 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
   %149 = icmp ult i64 %128, %144
   %150 = icmp ugt i64 %129, %148
   %151 = select i1 %149, i1 true, i1 %150
-  br i1 %151, label %152, label %.loopexit26
+  br i1 %151, label %152, label %155
 
 152:                                              ; preds = %.preheader25
   %153 = add nuw i64 %141, 1
   %154 = icmp eq i64 %153, %139
   br i1 %154, label %.thread20, label %.preheader25, !llvm.loop !26
 
-.loopexit26:                                      ; preds = %.preheader25
-  %155 = add i64 %148, %122
-  %156 = and i64 %155, %124
-  %157 = add i64 %156, %122
-  br label %158
+155:                                              ; preds = %.preheader25
+  %156 = add i64 %148, %122
+  %157 = and i64 %156, %124
+  %158 = add i64 %157, %122
+  %159 = icmp eq i64 %141, %139
+  br i1 %159, label %.thread20, label %127
 
-158:                                              ; preds = %.loopexit26, %138
-  %159 = phi i64 [ 0, %138 ], [ %141, %.loopexit26 ]
-  %160 = phi i64 [ %128, %138 ], [ %157, %.loopexit26 ]
-  %161 = phi i64 [ %129, %138 ], [ %156, %.loopexit26 ]
-  %162 = icmp eq i64 %159, %139
-  br i1 %162, label %.thread20, label %127
+.thread20:                                        ; preds = %138, %155, %152
+  %160 = phi i64 [ %129, %152 ], [ %129, %138 ], [ %157, %155 ]
+  %161 = phi i64 [ %128, %152 ], [ %128, %138 ], [ %158, %155 ]
+  %162 = load i64, ptr @vmemmap_base, align 8
+  %163 = inttoptr i64 %162 to ptr
+  %164 = lshr i64 %160, 12
+  %165 = getelementptr %struct.page, ptr %163, i64 %164
+  %166 = add i64 %161, 1
+  store i64 %166, ptr %120, align 8
+  %167 = icmp eq ptr %165, null
+  br i1 %167, label %.thread20.thread, label %168
 
-.thread20:                                        ; preds = %158, %152
-  %163 = phi i64 [ %129, %152 ], [ %161, %158 ]
-  %164 = phi i64 [ %128, %152 ], [ %160, %158 ]
-  %165 = load i64, ptr @vmemmap_base, align 8
-  %166 = inttoptr i64 %165 to ptr
-  %167 = lshr i64 %163, 12
-  %168 = getelementptr %struct.page, ptr %166, i64 %167
-  %169 = add i64 %164, 1
-  store i64 %169, ptr %120, align 8
-  %170 = icmp eq ptr %168, null
-  br i1 %170, label %.thread20.thread, label %171
-
-171:                                              ; preds = %.thread20
-  %172 = load i64, ptr @vmemmap_base, align 8
-  %173 = ptrtoint ptr %168 to i64
-  %174 = sub i64 %173, %172
-  %175 = shl i64 %174, 6
-  %176 = load i64, ptr @page_offset_base, align 8
-  %177 = add i64 %175, %176
-  %178 = inttoptr i64 %177 to ptr
-  %179 = tail call i32 @arch_kexec_post_alloc_pages(ptr noundef %178, i32 noundef %117, i32 noundef 0) #17
+168:                                              ; preds = %.thread20
+  %169 = load i64, ptr @vmemmap_base, align 8
+  %170 = ptrtoint ptr %165 to i64
+  %171 = sub i64 %170, %169
+  %172 = shl i64 %171, 6
+  %173 = load i64, ptr @page_offset_base, align 8
+  %174 = add i64 %172, %173
+  %175 = inttoptr i64 %174 to ptr
+  %176 = tail call i32 @arch_kexec_post_alloc_pages(ptr noundef %175, i32 noundef %117, i32 noundef 0) #17
   br label %.thread20.thread
 
-.thread20.thread:                                 ; preds = %135, %127, %171, %.thread20, %.loopexit
-  %180 = phi ptr [ %87, %.loopexit ], [ null, %.thread20 ], [ %168, %171 ], [ null, %127 ], [ null, %135 ]
-  ret ptr %180
+.thread20.thread:                                 ; preds = %135, %127, %168, %.thread20, %.loopexit
+  %177 = phi ptr [ %87, %.loopexit ], [ null, %.thread20 ], [ %165, %168 ], [ null, %127 ], [ null, %135 ]
+  ret ptr %177
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

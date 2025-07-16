@@ -81802,785 +81802,777 @@ _ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit: ; preds = %6
 
 34:                                               ; preds = %26
   %35 = icmp sgt i64 %14, %11
-  br i1 %35, label %36, label %44
+  br i1 %35, label %36, label %43
 
 36:                                               ; preds = %34
   %37 = sdiv i64 %14, 2
   %38 = add nsw i64 %37, -1
   %39 = add nsw i64 %38, %11
   %40 = icmp sgt i64 %14, %39
-  br i1 %40, label %41, label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
+  br i1 %40, label %41, label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit.thread
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %3, i64 %11
-  %43 = getelementptr inbounds i8, ptr %42, i64 %38
   %.pre187 = add nsw i64 %11, %38
-  br label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
+  %42 = sub nsw i64 1, %37
+  %.not213 = icmp eq i64 %11, %42
+  br i1 %.not213, label %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134, label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit.thread
 
-44:                                               ; preds = %34
-  %45 = sdiv i64 %11, 2
-  %46 = add nsw i64 %45, -1
-  %47 = add nsw i64 %46, %14
-  %48 = icmp sgt i64 %11, %47
-  br i1 %48, label %49, label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
+43:                                               ; preds = %34
+  %44 = sdiv i64 %11, 2
+  %45 = add nsw i64 %44, -1
+  %46 = add nsw i64 %45, %14
+  %47 = icmp sgt i64 %11, %46
+  br i1 %47, label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit, label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit.thread
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %1, i64 %14
-  %51 = getelementptr inbounds i8, ptr %50, i64 %46
-  %.pre183 = add nsw i64 %14, %46
-  br label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
+_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit: ; preds = %43
+  %.pre183 = add nsw i64 %14, %45
+  %48 = sub nsw i64 1, %44
+  %.not212 = icmp eq i64 %14, %48
+  br i1 %.not212, label %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134, label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit.thread
 
-_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit: ; preds = %36, %41, %44, %49
-  %.pre-phi188 = phi i64 [ %14, %36 ], [ %.pre187, %41 ], [ %14, %44 ], [ %14, %49 ]
-  %.pre-phi184 = phi i64 [ %11, %36 ], [ %11, %41 ], [ %11, %44 ], [ %.pre183, %49 ]
-  %.0128 = phi ptr [ %4, %36 ], [ %43, %41 ], [ %4, %44 ], [ %4, %49 ]
-  %.sroa.0126.0 = phi ptr [ %2, %36 ], [ %2, %41 ], [ %2, %44 ], [ %51, %49 ]
-  %.0.i71 = phi i64 [ %38, %36 ], [ %38, %41 ], [ %46, %44 ], [ %46, %49 ]
-  %52 = icmp ne ptr %.sroa.0126.0, %1
-  %53 = icmp ne ptr %.0128, %3
-  %or.cond4 = and i1 %53, %52
-  br i1 %or.cond4, label %54, label %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134
+_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit.thread: ; preds = %43, %36, %41, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
+  %.0.i71195 = phi i64 [ %45, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit ], [ %38, %41 ], [ %45, %43 ], [ %38, %36 ]
+  %.pre-phi184194 = phi i64 [ %.pre183, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit ], [ %11, %41 ], [ %11, %43 ], [ %11, %36 ]
+  %.pre-phi188193 = phi i64 [ %14, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit ], [ %.pre187, %41 ], [ %14, %43 ], [ %14, %36 ]
+  %49 = icmp slt i64 %.pre-phi184194, 65
+  %50 = icmp slt i64 %.pre-phi188193, 65
+  %or.cond6 = and i1 %50, %49
+  br i1 %or.cond6, label %51, label %234
 
-54:                                               ; preds = %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
-  %55 = icmp slt i64 %.pre-phi184, 65
-  %56 = icmp slt i64 %.pre-phi188, 65
-  %or.cond6 = and i1 %56, %55
-  br i1 %or.cond6, label %57, label %240
+51:                                               ; preds = %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit.thread
+  %52 = trunc i64 %.0.i71195 to i32
+  %53 = add nsw i64 %.0.i71195, 1
+  %54 = icmp slt i32 %52, 63
+  %55 = and i64 %53, 4294967295
+  %notmask.i.i = shl nsw i64 -1, %55
+  %56 = xor i64 %notmask.i.i, -1
+  %.0.i.i = select i1 %54, i64 %56, i64 -1
+  %sext = shl i64 %.0.i71195, 32
+  %57 = ashr exact i64 %sext, 32
+  %.sroa.speculated.i72 = tail call i64 @llvm.smin.i64(i64 %.pre-phi188193, i64 %57)
+  %58 = icmp sgt i64 %.sroa.speculated.i72, 0
+  br i1 %58, label %.lr.ph.i, label %.preheader.i
 
-57:                                               ; preds = %54
-  %58 = trunc i64 %.0.i71 to i32
-  %59 = add nsw i64 %.0.i71, 1
-  %60 = icmp slt i32 %58, 63
-  %61 = and i64 %59, 4294967295
-  %notmask.i.i = shl nsw i64 -1, %61
-  %62 = xor i64 %notmask.i.i, -1
-  %.0.i.i = select i1 %60, i64 %62, i64 -1
-  %sext = shl i64 %.0.i71, 32
-  %63 = ashr exact i64 %sext, 32
-  %.sroa.speculated.i72 = tail call i64 @llvm.smin.i64(i64 %.pre-phi188, i64 %63)
-  %64 = icmp sgt i64 %.sroa.speculated.i72, 0
-  br i1 %64, label %.lr.ph.i, label %.preheader.i
+.lr.ph.i:                                         ; preds = %51
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %62 = load i64, ptr %61, align 8
+  %63 = load ptr, ptr %60, align 8
+  br label %70
 
-.lr.ph.i:                                         ; preds = %57
+.preheader.i:                                     ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i, %51
+  %.036.lcssa.i = phi i64 [ %.0.i.i, %51 ], [ %119, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
+  %.0.lcssa.i = phi i64 [ 0, %51 ], [ %.sroa.speculated.i72, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
+  %.sroa.8.0.lcssa.i = phi i64 [ 0, %51 ], [ %117, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
+  %.sroa.026.0.lcssa.i = phi i64 [ 0, %51 ], [ %113, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
+  %64 = icmp slt i64 %.0.lcssa.i, %.pre-phi188193
+  br i1 %64, label %.lr.ph64.i, label %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit
+
+.lr.ph64.i:                                       ; preds = %.preheader.i
   %65 = load ptr, ptr %0, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load i64, ptr %67, align 8
   %69 = load ptr, ptr %66, align 8
-  br label %76
+  br label %121
 
-.preheader.i:                                     ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i, %57
-  %.036.lcssa.i = phi i64 [ %.0.i.i, %57 ], [ %125, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
-  %.0.lcssa.i = phi i64 [ 0, %57 ], [ %.sroa.speculated.i72, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
-  %.sroa.8.0.lcssa.i = phi i64 [ 0, %57 ], [ %123, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
-  %.sroa.026.0.lcssa.i = phi i64 [ 0, %57 ], [ %119, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
-  %70 = icmp slt i64 %.0.lcssa.i, %.pre-phi188
-  br i1 %70, label %.lr.ph64.i, label %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit
+70:                                               ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i, %.lr.ph.i
+  %.sroa.026.056.i = phi i64 [ 0, %.lr.ph.i ], [ %113, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
+  %.sroa.8.055.i = phi i64 [ 0, %.lr.ph.i ], [ %117, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
+  %.054.i = phi i64 [ 0, %.lr.ph.i ], [ %120, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
+  %.03653.i = phi i64 [ %.0.i.i, %.lr.ph.i ], [ %119, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 %.054.i
+  %72 = load i8, ptr %71, align 1, !tbaa !65
+  %73 = icmp sgt i8 %72, -1
+  br i1 %73, label %74, label %78
 
-.lr.ph64.i:                                       ; preds = %.preheader.i
-  %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i64, ptr %73, align 8
-  %75 = load ptr, ptr %72, align 8
-  br label %127
-
-76:                                               ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i, %.lr.ph.i
-  %.sroa.026.056.i = phi i64 [ 0, %.lr.ph.i ], [ %119, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
-  %.sroa.8.055.i = phi i64 [ 0, %.lr.ph.i ], [ %123, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
-  %.054.i = phi i64 [ 0, %.lr.ph.i ], [ %126, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
-  %.03653.i = phi i64 [ %.0.i.i, %.lr.ph.i ], [ %125, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i ]
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %.054.i
-  %78 = load i8, ptr %77, align 1, !tbaa !65
-  %79 = icmp sgt i8 %78, -1
-  br i1 %79, label %80, label %84
-
-80:                                               ; preds = %76
-  %81 = zext nneg i8 %78 to i64
-  %82 = mul nsw i64 %68, %81
-  %83 = getelementptr i64, ptr %69, i64 %82
+74:                                               ; preds = %70
+  %75 = zext nneg i8 %72 to i64
+  %76 = mul nsw i64 %62, %75
+  %77 = getelementptr i64, ptr %63, i64 %76
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i
 
-84:                                               ; preds = %76
-  %85 = sext i8 %78 to i64
-  %86 = and i64 %85, 127
-  %87 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %65, i64 0, i64 %86
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load i64, ptr %88, align 8, !tbaa !1854
-  %.not.i.i.i.i.i = icmp eq i64 %89, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, label %90
+78:                                               ; preds = %70
+  %79 = sext i8 %72 to i64
+  %80 = and i64 %79, 127
+  %81 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %59, i64 0, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load i64, ptr %82, align 8, !tbaa !1854
+  %.not.i.i.i.i.i = icmp eq i64 %83, 0
+  br i1 %.not.i.i.i.i.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, label %84
 
-90:                                               ; preds = %84
-  %91 = load i64, ptr %87, align 8, !tbaa !1856
-  %92 = icmp eq i64 %91, %85
-  br i1 %92, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, label %.preheader.i.i.i.i.i
+84:                                               ; preds = %78
+  %85 = load i64, ptr %81, align 8, !tbaa !1856
+  %86 = icmp eq i64 %85, %79
+  br i1 %86, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, label %.preheader.i.i.i.i.i
 
-.preheader.i.i.i.i.i:                             ; preds = %90
-  %93 = mul nsw i64 %85, 5
-  %94 = add nsw i64 %85, 1
-  %95 = add nsw i64 %94, %93
-  %96 = and i64 %95, 127
-  %97 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %65, i64 0, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = load i64, ptr %98, align 8, !tbaa !1854
-  %.not1718.i.i.i.i.i = icmp eq i64 %99, 0
+.preheader.i.i.i.i.i:                             ; preds = %84
+  %87 = mul nsw i64 %79, 5
+  %88 = add nsw i64 %79, 1
+  %89 = add nsw i64 %88, %87
+  %90 = and i64 %89, 127
+  %91 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %59, i64 0, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load i64, ptr %92, align 8, !tbaa !1854
+  %.not1718.i.i.i.i.i = icmp eq i64 %93, 0
   br i1 %.not1718.i.i.i.i.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
-100:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %101 = lshr i64 %.019.i.i.i.i.i, 5
-  %102 = mul nuw nsw i64 %110, 5
-  %103 = add nuw nsw i64 %102, 1
-  %104 = add nuw nsw i64 %103, %101
-  %105 = and i64 %104, 127
-  %106 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %65, i64 0, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %108 = load i64, ptr %107, align 8, !tbaa !1854
-  %.not17.i.i.i.i.i = icmp eq i64 %108, 0
+94:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %95 = lshr i64 %.019.i.i.i.i.i, 5
+  %96 = mul nuw nsw i64 %104, 5
+  %97 = add nuw nsw i64 %96, 1
+  %98 = add nuw nsw i64 %97, %95
+  %99 = and i64 %98, 127
+  %100 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %59, i64 0, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %102 = load i64, ptr %101, align 8, !tbaa !1854
+  %.not17.i.i.i.i.i = icmp eq i64 %102, 0
   br i1 %.not17.i.i.i.i.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1857
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i, %100
-  %109 = phi ptr [ %106, %100 ], [ %97, %.preheader.i.i.i.i.i ]
-  %110 = phi i64 [ %105, %100 ], [ %96, %.preheader.i.i.i.i.i ]
-  %.019.i.i.i.i.i = phi i64 [ %101, %100 ], [ %85, %.preheader.i.i.i.i.i ]
-  %111 = load i64, ptr %109, align 8, !tbaa !1856
-  %112 = icmp eq i64 %111, %85
-  br i1 %112, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, label %100
+.lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i, %94
+  %103 = phi ptr [ %100, %94 ], [ %91, %.preheader.i.i.i.i.i ]
+  %104 = phi i64 [ %99, %94 ], [ %90, %.preheader.i.i.i.i.i ]
+  %.019.i.i.i.i.i = phi i64 [ %95, %94 ], [ %79, %.preheader.i.i.i.i.i ]
+  %105 = load i64, ptr %103, align 8, !tbaa !1856
+  %106 = icmp eq i64 %105, %79
+  br i1 %106, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, label %94
 
-_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %100, %.preheader.i.i.i.i.i, %90, %84
-  %.015.i.i.i.i.i = phi i64 [ %86, %90 ], [ %86, %84 ], [ %96, %.preheader.i.i.i.i.i ], [ %105, %100 ], [ %110, %.lr.ph.i.i.i.i.i ]
-  %113 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %65, i64 0, i64 %.015.i.i.i.i.i, i32 1
+_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %94, %.preheader.i.i.i.i.i, %84, %78
+  %.015.i.i.i.i.i = phi i64 [ %80, %84 ], [ %80, %78 ], [ %90, %.preheader.i.i.i.i.i ], [ %99, %94 ], [ %104, %.lr.ph.i.i.i.i.i ]
+  %107 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %59, i64 0, i64 %.015.i.i.i.i.i, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i
 
-_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, %80
-  %.0.in.i.i.i = phi ptr [ %83, %80 ], [ %113, %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i ]
+_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, %74
+  %.0.in.i.i.i = phi ptr [ %77, %74 ], [ %107, %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i ]
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !84
-  %114 = xor i64 %.sroa.026.056.i, -1
-  %115 = and i64 %.0.i.i.i, %114
-  %116 = and i64 %115, %.03653.i
-  %117 = sub i64 0, %116
-  %118 = and i64 %116, %117
-  %119 = or i64 %118, %.sroa.026.056.i
-  %120 = icmp ne i64 %116, 0
-  %121 = zext i1 %120 to i64
-  %122 = shl nuw i64 %121, %.054.i
-  %123 = or i64 %122, %.sroa.8.055.i
-  %124 = shl i64 %.03653.i, 1
-  %125 = or disjoint i64 %124, 1
-  %126 = add nuw nsw i64 %.054.i, 1
-  %exitcond.not.i = icmp eq i64 %126, %.sroa.speculated.i72
-  br i1 %exitcond.not.i, label %.preheader.i, label %76, !llvm.loop !1867
+  %108 = xor i64 %.sroa.026.056.i, -1
+  %109 = and i64 %.0.i.i.i, %108
+  %110 = and i64 %109, %.03653.i
+  %111 = sub i64 0, %110
+  %112 = and i64 %110, %111
+  %113 = or i64 %112, %.sroa.026.056.i
+  %114 = icmp ne i64 %110, 0
+  %115 = zext i1 %114 to i64
+  %116 = shl nuw i64 %115, %.054.i
+  %117 = or i64 %116, %.sroa.8.055.i
+  %118 = shl i64 %.03653.i, 1
+  %119 = or disjoint i64 %118, 1
+  %120 = add nuw nsw i64 %.054.i, 1
+  %exitcond.not.i = icmp eq i64 %120, %.sroa.speculated.i72
+  br i1 %exitcond.not.i, label %.preheader.i, label %70, !llvm.loop !1867
 
-127:                                              ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i, %.lr.ph64.i
-  %.sroa.026.163.i = phi i64 [ %.sroa.026.0.lcssa.i, %.lr.ph64.i ], [ %170, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
-  %.sroa.8.162.i = phi i64 [ %.sroa.8.0.lcssa.i, %.lr.ph64.i ], [ %174, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
-  %.161.i = phi i64 [ %.0.lcssa.i, %.lr.ph64.i ], [ %176, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
-  %.13760.i = phi i64 [ %.036.lcssa.i, %.lr.ph64.i ], [ %175, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
-  %128 = getelementptr inbounds nuw i8, ptr %3, i64 %.161.i
-  %129 = load i8, ptr %128, align 1, !tbaa !65
-  %130 = icmp sgt i8 %129, -1
-  br i1 %130, label %131, label %135
+121:                                              ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i, %.lr.ph64.i
+  %.sroa.026.163.i = phi i64 [ %.sroa.026.0.lcssa.i, %.lr.ph64.i ], [ %164, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
+  %.sroa.8.162.i = phi i64 [ %.sroa.8.0.lcssa.i, %.lr.ph64.i ], [ %168, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
+  %.161.i = phi i64 [ %.0.lcssa.i, %.lr.ph64.i ], [ %170, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
+  %.13760.i = phi i64 [ %.036.lcssa.i, %.lr.ph64.i ], [ %169, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 %.161.i
+  %123 = load i8, ptr %122, align 1, !tbaa !65
+  %124 = icmp sgt i8 %123, -1
+  br i1 %124, label %125, label %129
 
-131:                                              ; preds = %127
-  %132 = zext nneg i8 %129 to i64
-  %133 = mul nsw i64 %74, %132
-  %134 = getelementptr i64, ptr %75, i64 %133
+125:                                              ; preds = %121
+  %126 = zext nneg i8 %123 to i64
+  %127 = mul nsw i64 %68, %126
+  %128 = getelementptr i64, ptr %69, i64 %127
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i
 
-135:                                              ; preds = %127
-  %136 = sext i8 %129 to i64
-  %137 = and i64 %136, 127
-  %138 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %71, i64 0, i64 %137
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %140 = load i64, ptr %139, align 8, !tbaa !1854
-  %.not.i.i.i.i38.i = icmp eq i64 %140, 0
-  br i1 %.not.i.i.i.i38.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, label %141
+129:                                              ; preds = %121
+  %130 = sext i8 %123 to i64
+  %131 = and i64 %130, 127
+  %132 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %65, i64 0, i64 %131
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %134 = load i64, ptr %133, align 8, !tbaa !1854
+  %.not.i.i.i.i38.i = icmp eq i64 %134, 0
+  br i1 %.not.i.i.i.i38.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, label %135
 
-141:                                              ; preds = %135
-  %142 = load i64, ptr %138, align 8, !tbaa !1856
-  %143 = icmp eq i64 %142, %136
-  br i1 %143, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, label %.preheader.i.i.i.i39.i
+135:                                              ; preds = %129
+  %136 = load i64, ptr %132, align 8, !tbaa !1856
+  %137 = icmp eq i64 %136, %130
+  br i1 %137, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, label %.preheader.i.i.i.i39.i
 
-.preheader.i.i.i.i39.i:                           ; preds = %141
-  %144 = mul nsw i64 %136, 5
-  %145 = add nsw i64 %136, 1
-  %146 = add nsw i64 %145, %144
-  %147 = and i64 %146, 127
-  %148 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %71, i64 0, i64 %147
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load i64, ptr %149, align 8, !tbaa !1854
-  %.not1718.i.i.i.i40.i = icmp eq i64 %150, 0
+.preheader.i.i.i.i39.i:                           ; preds = %135
+  %138 = mul nsw i64 %130, 5
+  %139 = add nsw i64 %130, 1
+  %140 = add nsw i64 %139, %138
+  %141 = and i64 %140, 127
+  %142 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %65, i64 0, i64 %141
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %144 = load i64, ptr %143, align 8, !tbaa !1854
+  %.not1718.i.i.i.i40.i = icmp eq i64 %144, 0
   br i1 %.not1718.i.i.i.i40.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, label %.lr.ph.i.i.i.i41.i
 
-151:                                              ; preds = %.lr.ph.i.i.i.i41.i
-  %152 = lshr i64 %.019.i.i.i.i42.i, 5
-  %153 = mul nuw nsw i64 %161, 5
-  %154 = add nuw nsw i64 %153, 1
-  %155 = add nuw nsw i64 %154, %152
-  %156 = and i64 %155, 127
-  %157 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %71, i64 0, i64 %156
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load i64, ptr %158, align 8, !tbaa !1854
-  %.not17.i.i.i.i43.i = icmp eq i64 %159, 0
+145:                                              ; preds = %.lr.ph.i.i.i.i41.i
+  %146 = lshr i64 %.019.i.i.i.i42.i, 5
+  %147 = mul nuw nsw i64 %155, 5
+  %148 = add nuw nsw i64 %147, 1
+  %149 = add nuw nsw i64 %148, %146
+  %150 = and i64 %149, 127
+  %151 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %65, i64 0, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load i64, ptr %152, align 8, !tbaa !1854
+  %.not17.i.i.i.i43.i = icmp eq i64 %153, 0
   br i1 %.not17.i.i.i.i43.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, label %.lr.ph.i.i.i.i41.i, !llvm.loop !1857
 
-.lr.ph.i.i.i.i41.i:                               ; preds = %.preheader.i.i.i.i39.i, %151
-  %160 = phi ptr [ %157, %151 ], [ %148, %.preheader.i.i.i.i39.i ]
-  %161 = phi i64 [ %156, %151 ], [ %147, %.preheader.i.i.i.i39.i ]
-  %.019.i.i.i.i42.i = phi i64 [ %152, %151 ], [ %136, %.preheader.i.i.i.i39.i ]
-  %162 = load i64, ptr %160, align 8, !tbaa !1856
-  %163 = icmp eq i64 %162, %136
-  br i1 %163, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, label %151
+.lr.ph.i.i.i.i41.i:                               ; preds = %.preheader.i.i.i.i39.i, %145
+  %154 = phi ptr [ %151, %145 ], [ %142, %.preheader.i.i.i.i39.i ]
+  %155 = phi i64 [ %150, %145 ], [ %141, %.preheader.i.i.i.i39.i ]
+  %.019.i.i.i.i42.i = phi i64 [ %146, %145 ], [ %130, %.preheader.i.i.i.i39.i ]
+  %156 = load i64, ptr %154, align 8, !tbaa !1856
+  %157 = icmp eq i64 %156, %130
+  br i1 %157, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, label %145
 
-_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i: ; preds = %.lr.ph.i.i.i.i41.i, %151, %.preheader.i.i.i.i39.i, %141, %135
-  %.015.i.i.i.i45.i = phi i64 [ %137, %141 ], [ %137, %135 ], [ %147, %.preheader.i.i.i.i39.i ], [ %156, %151 ], [ %161, %.lr.ph.i.i.i.i41.i ]
-  %164 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %71, i64 0, i64 %.015.i.i.i.i45.i, i32 1
+_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i: ; preds = %.lr.ph.i.i.i.i41.i, %145, %.preheader.i.i.i.i39.i, %135, %129
+  %.015.i.i.i.i45.i = phi i64 [ %131, %135 ], [ %131, %129 ], [ %141, %.preheader.i.i.i.i39.i ], [ %150, %145 ], [ %155, %.lr.ph.i.i.i.i41.i ]
+  %158 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %65, i64 0, i64 %.015.i.i.i.i45.i, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i
 
-_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, %131
-  %.0.in.i.i46.i = phi ptr [ %134, %131 ], [ %164, %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i ]
+_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i, %125
+  %.0.in.i.i46.i = phi ptr [ %128, %125 ], [ %158, %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i44.i ]
   %.0.i.i47.i = load i64, ptr %.0.in.i.i46.i, align 8, !tbaa !84
-  %165 = xor i64 %.sroa.026.163.i, -1
-  %166 = and i64 %.0.i.i47.i, %165
-  %167 = and i64 %166, %.13760.i
-  %168 = sub i64 0, %167
-  %169 = and i64 %167, %168
-  %170 = or i64 %169, %.sroa.026.163.i
-  %171 = icmp ne i64 %167, 0
-  %172 = zext i1 %171 to i64
-  %173 = shl nuw i64 %172, %.161.i
-  %174 = or i64 %173, %.sroa.8.162.i
-  %175 = shl i64 %.13760.i, 1
-  %176 = add nuw nsw i64 %.161.i, 1
-  %177 = icmp slt i64 %176, %.pre-phi188
-  br i1 %177, label %127, label %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit, !llvm.loop !1868
+  %159 = xor i64 %.sroa.026.163.i, -1
+  %160 = and i64 %.0.i.i47.i, %159
+  %161 = and i64 %160, %.13760.i
+  %162 = sub i64 0, %161
+  %163 = and i64 %161, %162
+  %164 = or i64 %163, %.sroa.026.163.i
+  %165 = icmp ne i64 %161, 0
+  %166 = zext i1 %165 to i64
+  %167 = shl nuw i64 %166, %.161.i
+  %168 = or i64 %167, %.sroa.8.162.i
+  %169 = shl i64 %.13760.i, 1
+  %170 = add nuw nsw i64 %.161.i, 1
+  %171 = icmp slt i64 %170, %.pre-phi188193
+  br i1 %171, label %121, label %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit, !llvm.loop !1868
 
 _ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit: ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i, %.preheader.i
-  %.sroa.8.1.lcssa.i = phi i64 [ %.sroa.8.0.lcssa.i, %.preheader.i ], [ %174, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
-  %.sroa.026.1.lcssa.i = phi i64 [ %.sroa.026.0.lcssa.i, %.preheader.i ], [ %170, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
-  %178 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.026.1.lcssa.i)
+  %.sroa.8.1.lcssa.i = phi i64 [ %.sroa.8.0.lcssa.i, %.preheader.i ], [ %168, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
+  %.sroa.026.1.lcssa.i = phi i64 [ %.sroa.026.0.lcssa.i, %.preheader.i ], [ %164, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit48.i ]
+  %172 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.026.1.lcssa.i)
   %.not.i = icmp eq i64 %.sroa.026.1.lcssa.i, 0
   br i1 %.not.i, label %_ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit.thread, label %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit
 
 _ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit: ; preds = %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit
-  %179 = uitofp nneg i64 %178 to double
-  %180 = fdiv double %179, %18
-  %181 = fadd double %180, 0.000000e+00
-  %182 = fdiv double %179, %20
-  %183 = fadd double %182, %181
-  %184 = fadd double %183, 1.000000e+00
-  %185 = fdiv double %184, 3.000000e+00
-  %186 = fcmp ult double %185, %5
-  br i1 %186, label %_ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit.thread, label %187
+  %173 = uitofp nneg i64 %172 to double
+  %174 = fdiv double %173, %18
+  %175 = fadd double %174, 0.000000e+00
+  %176 = fdiv double %173, %20
+  %177 = fadd double %176, %175
+  %178 = fadd double %177, 1.000000e+00
+  %179 = fdiv double %178, 3.000000e+00
+  %180 = fcmp ult double %179, %5
+  br i1 %180, label %_ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit.thread, label %181
 
-187:                                              ; preds = %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit
+181:                                              ; preds = %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit
   %.not1.i = icmp eq i64 %.sroa.8.1.lcssa.i, 0
   br i1 %.not1.i, label %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134, label %.lr.ph.i74
 
-.lr.ph.i74:                                       ; preds = %187
-  %188 = load ptr, ptr %0, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %191 = load i64, ptr %190, align 8
-  %192 = load ptr, ptr %189, align 8
-  br label %193
+.lr.ph.i74:                                       ; preds = %181
+  %182 = load ptr, ptr %0, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %185 = load i64, ptr %184, align 8
+  %186 = load ptr, ptr %183, align 8
+  br label %187
 
-193:                                              ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83, %.lr.ph.i74
-  %.04.i = phi i64 [ %.sroa.026.1.lcssa.i, %.lr.ph.i74 ], [ %239, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
-  %.0123.i = phi i64 [ 0, %.lr.ph.i74 ], [ %236, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
-  %.0132.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i74 ], [ %238, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
-  %194 = sub i64 0, %.04.i
-  %195 = and i64 %.04.i, %194
-  %196 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0132.i, i1 true)
-  %197 = getelementptr inbounds nuw i8, ptr %3, i64 %196
-  %198 = load i8, ptr %197, align 1, !tbaa !65
-  %199 = icmp sgt i8 %198, -1
-  br i1 %199, label %200, label %204
+187:                                              ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83, %.lr.ph.i74
+  %.04.i = phi i64 [ %.sroa.026.1.lcssa.i, %.lr.ph.i74 ], [ %233, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
+  %.0123.i = phi i64 [ 0, %.lr.ph.i74 ], [ %230, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
+  %.0132.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i74 ], [ %232, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
+  %188 = sub i64 0, %.04.i
+  %189 = and i64 %.04.i, %188
+  %190 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0132.i, i1 true)
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 %190
+  %192 = load i8, ptr %191, align 1, !tbaa !65
+  %193 = icmp sgt i8 %192, -1
+  br i1 %193, label %194, label %198
 
-200:                                              ; preds = %193
-  %201 = zext nneg i8 %198 to i64
-  %202 = mul nsw i64 %191, %201
-  %203 = getelementptr i64, ptr %192, i64 %202
+194:                                              ; preds = %187
+  %195 = zext nneg i8 %192 to i64
+  %196 = mul nsw i64 %185, %195
+  %197 = getelementptr i64, ptr %186, i64 %196
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83
 
-204:                                              ; preds = %193
-  %205 = sext i8 %198 to i64
-  %206 = and i64 %205, 127
-  %207 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %188, i64 0, i64 %206
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  %209 = load i64, ptr %208, align 8, !tbaa !1854
-  %.not.i.i.i.i.i75 = icmp eq i64 %209, 0
-  br i1 %.not.i.i.i.i.i75, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, label %210
+198:                                              ; preds = %187
+  %199 = sext i8 %192 to i64
+  %200 = and i64 %199, 127
+  %201 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %182, i64 0, i64 %200
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  %203 = load i64, ptr %202, align 8, !tbaa !1854
+  %.not.i.i.i.i.i75 = icmp eq i64 %203, 0
+  br i1 %.not.i.i.i.i.i75, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, label %204
 
-210:                                              ; preds = %204
-  %211 = load i64, ptr %207, align 8, !tbaa !1856
-  %212 = icmp eq i64 %211, %205
-  br i1 %212, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, label %.preheader.i.i.i.i.i76
+204:                                              ; preds = %198
+  %205 = load i64, ptr %201, align 8, !tbaa !1856
+  %206 = icmp eq i64 %205, %199
+  br i1 %206, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, label %.preheader.i.i.i.i.i76
 
-.preheader.i.i.i.i.i76:                           ; preds = %210
-  %213 = mul nsw i64 %205, 5
-  %214 = add nsw i64 %205, 1
-  %215 = add nsw i64 %214, %213
-  %216 = and i64 %215, 127
-  %217 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %188, i64 0, i64 %216
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  %219 = load i64, ptr %218, align 8, !tbaa !1854
-  %.not1718.i.i.i.i.i77 = icmp eq i64 %219, 0
+.preheader.i.i.i.i.i76:                           ; preds = %204
+  %207 = mul nsw i64 %199, 5
+  %208 = add nsw i64 %199, 1
+  %209 = add nsw i64 %208, %207
+  %210 = and i64 %209, 127
+  %211 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %182, i64 0, i64 %210
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %213 = load i64, ptr %212, align 8, !tbaa !1854
+  %.not1718.i.i.i.i.i77 = icmp eq i64 %213, 0
   br i1 %.not1718.i.i.i.i.i77, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, label %.lr.ph.i.i.i.i.i78
 
-220:                                              ; preds = %.lr.ph.i.i.i.i.i78
-  %221 = lshr i64 %.019.i.i.i.i.i79, 5
-  %222 = mul nuw nsw i64 %230, 5
-  %223 = add nuw nsw i64 %222, 1
-  %224 = add nuw nsw i64 %223, %221
-  %225 = and i64 %224, 127
-  %226 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %188, i64 0, i64 %225
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %228 = load i64, ptr %227, align 8, !tbaa !1854
-  %.not17.i.i.i.i.i80 = icmp eq i64 %228, 0
+214:                                              ; preds = %.lr.ph.i.i.i.i.i78
+  %215 = lshr i64 %.019.i.i.i.i.i79, 5
+  %216 = mul nuw nsw i64 %224, 5
+  %217 = add nuw nsw i64 %216, 1
+  %218 = add nuw nsw i64 %217, %215
+  %219 = and i64 %218, 127
+  %220 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %182, i64 0, i64 %219
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
+  %222 = load i64, ptr %221, align 8, !tbaa !1854
+  %.not17.i.i.i.i.i80 = icmp eq i64 %222, 0
   br i1 %.not17.i.i.i.i.i80, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, label %.lr.ph.i.i.i.i.i78, !llvm.loop !1857
 
-.lr.ph.i.i.i.i.i78:                               ; preds = %.preheader.i.i.i.i.i76, %220
-  %229 = phi ptr [ %226, %220 ], [ %217, %.preheader.i.i.i.i.i76 ]
-  %230 = phi i64 [ %225, %220 ], [ %216, %.preheader.i.i.i.i.i76 ]
-  %.019.i.i.i.i.i79 = phi i64 [ %221, %220 ], [ %205, %.preheader.i.i.i.i.i76 ]
-  %231 = load i64, ptr %229, align 8, !tbaa !1856
-  %232 = icmp eq i64 %231, %205
-  br i1 %232, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, label %220
+.lr.ph.i.i.i.i.i78:                               ; preds = %.preheader.i.i.i.i.i76, %214
+  %223 = phi ptr [ %220, %214 ], [ %211, %.preheader.i.i.i.i.i76 ]
+  %224 = phi i64 [ %219, %214 ], [ %210, %.preheader.i.i.i.i.i76 ]
+  %.019.i.i.i.i.i79 = phi i64 [ %215, %214 ], [ %199, %.preheader.i.i.i.i.i76 ]
+  %225 = load i64, ptr %223, align 8, !tbaa !1856
+  %226 = icmp eq i64 %225, %199
+  br i1 %226, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, label %214
 
-_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81: ; preds = %.lr.ph.i.i.i.i.i78, %220, %.preheader.i.i.i.i.i76, %210, %204
-  %.015.i.i.i.i.i82 = phi i64 [ %206, %210 ], [ %206, %204 ], [ %216, %.preheader.i.i.i.i.i76 ], [ %225, %220 ], [ %230, %.lr.ph.i.i.i.i.i78 ]
-  %233 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %188, i64 0, i64 %.015.i.i.i.i.i82, i32 1
+_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81: ; preds = %.lr.ph.i.i.i.i.i78, %214, %.preheader.i.i.i.i.i76, %204, %198
+  %.015.i.i.i.i.i82 = phi i64 [ %200, %204 ], [ %200, %198 ], [ %210, %.preheader.i.i.i.i.i76 ], [ %219, %214 ], [ %224, %.lr.ph.i.i.i.i.i78 ]
+  %227 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %182, i64 0, i64 %.015.i.i.i.i.i82, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83
 
-_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, %200
-  %.0.in.i.i.i84 = phi ptr [ %203, %200 ], [ %233, %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81 ]
+_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81, %194
+  %.0.in.i.i.i84 = phi ptr [ %197, %194 ], [ %227, %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i81 ]
   %.0.i.i.i85 = load i64, ptr %.0.in.i.i.i84, align 8, !tbaa !84
-  %234 = and i64 %.0.i.i.i85, %195
-  %.not14.i = icmp eq i64 %234, 0
-  %235 = zext i1 %.not14.i to i64
-  %236 = add nuw nsw i64 %.0123.i, %235
-  %237 = add i64 %.0132.i, -1
-  %238 = and i64 %237, %.0132.i
-  %239 = xor i64 %195, %.04.i
-  %.not.i86 = icmp eq i64 %238, 0
-  br i1 %.not.i86, label %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134, label %193, !llvm.loop !1869
+  %228 = and i64 %.0.i.i.i85, %189
+  %.not14.i = icmp eq i64 %228, 0
+  %229 = zext i1 %.not14.i to i64
+  %230 = add nuw nsw i64 %.0123.i, %229
+  %231 = add i64 %.0132.i, -1
+  %232 = and i64 %231, %.0132.i
+  %233 = xor i64 %189, %.04.i
+  %.not.i86 = icmp eq i64 %232, 0
+  br i1 %.not.i86, label %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134, label %187, !llvm.loop !1869
 
-240:                                              ; preds = %54
+234:                                              ; preds = %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1870)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %241 = sdiv i64 %.pre-phi188, 64
-  %242 = and i64 %.pre-phi188, 63
-  %243 = icmp ne i64 %242, 0
-  %244 = zext i1 %243 to i64
-  %245 = add nsw i64 %241, %244
-  %246 = sdiv i64 %.pre-phi184, 64
-  %247 = and i64 %.pre-phi184, 63
-  %248 = icmp ne i64 %247, 0
-  %249 = zext i1 %248 to i64
-  %250 = add nsw i64 %246, %249
+  %235 = sdiv i64 %.pre-phi188193, 64
+  %236 = and i64 %.pre-phi188193, 63
+  %237 = icmp ne i64 %236, 0
+  %238 = zext i1 %237 to i64
+  %239 = add nsw i64 %235, %238
+  %240 = sdiv i64 %.pre-phi184194, 64
+  %241 = and i64 %.pre-phi184194, 63
+  %242 = icmp ne i64 %241, 0
+  %243 = zext i1 %242 to i64
+  %244 = add nsw i64 %240, %243
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false), !alias.scope !1870
-  %251 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.not56.i = icmp eq i64 %245, 0
-  br i1 %.not56.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i, label %252
+  %245 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.not56.i = icmp eq i64 %239, 0
+  br i1 %.not56.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i, label %246
 
-252:                                              ; preds = %240
-  %253 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %254 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %255 = icmp ugt i64 %245, 1152921504606846975
-  br i1 %255, label %.invoke, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i111
+246:                                              ; preds = %234
+  %247 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %249 = icmp ugt i64 %239, 1152921504606846975
+  br i1 %249, label %.invoke, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i111
 
-.invoke:                                          ; preds = %265, %252
+.invoke:                                          ; preds = %259, %246
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.53) #29
-          to label %.cont unwind label %281
+          to label %.cont unwind label %275
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i111: ; preds = %252
-  %256 = shl nuw nsw i64 %245, 3
-  %257 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %256) #28
-          to label %.noexc119 unwind label %281
+_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i111: ; preds = %246
+  %250 = shl nuw nsw i64 %239, 3
+  %251 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %250) #28
+          to label %.noexc119 unwind label %275
 
 .noexc119:                                        ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i111
-  store i64 0, ptr %257, align 8, !tbaa !84
-  %258 = icmp eq i64 %245, 1
-  br i1 %258, label %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i113
+  store i64 0, ptr %251, align 8, !tbaa !84
+  %252 = icmp eq i64 %239, 1
+  br i1 %252, label %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i113
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i113: ; preds = %.noexc119
-  %259 = getelementptr i8, ptr %257, i64 8
-  %260 = add nsw i64 %256, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %259, i8 0, i64 %260, i1 false), !tbaa !84
+  %253 = getelementptr i8, ptr %251, i64 8
+  %254 = add nsw i64 %250, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %253, i8 0, i64 %254, i1 false), !tbaa !84
   br label %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i
 
 ._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i: ; preds = %.noexc119, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i113
-  store ptr %257, ptr %251, align 8, !tbaa !1593
-  %261 = getelementptr inbounds nuw i64, ptr %257, i64 %245
-  store ptr %261, ptr %253, align 8, !tbaa !1596
-  store ptr %261, ptr %254, align 8, !tbaa !1595
+  store ptr %251, ptr %245, align 8, !tbaa !1593
+  %255 = getelementptr inbounds nuw i64, ptr %251, i64 %239
+  store ptr %255, ptr %247, align 8, !tbaa !1596
+  store ptr %255, ptr %248, align 8, !tbaa !1595
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
 
-_ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i, %240
-  %262 = phi ptr [ %261, %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i ], [ null, %240 ]
-  %263 = phi ptr [ %257, %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i ], [ null, %240 ]
-  %264 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.not = icmp eq i64 %250, 0
-  br i1 %.not, label %_ZNSt6vectorImSaImEE6resizeEm.exit34.i, label %265
+_ZNSt6vectorImSaImEE6resizeEm.exit.i:             ; preds = %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i, %234
+  %256 = phi ptr [ %255, %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i ], [ null, %234 ]
+  %257 = phi ptr [ %251, %._ZNSt6vectorImSaImEE6resizeEm.exit_crit_edge54.i ], [ null, %234 ]
+  %258 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.not = icmp eq i64 %244, 0
+  br i1 %.not, label %_ZNSt6vectorImSaImEE6resizeEm.exit34.i, label %259
 
-265:                                              ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i
-  %266 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %267 = icmp ugt i64 %250, 1152921504606846975
-  br i1 %267, label %.invoke, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
+259:                                              ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i
+  %260 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %261 = icmp ugt i64 %244, 1152921504606846975
+  br i1 %261, label %.invoke, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
 
-_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i:  ; preds = %265
-  %268 = shl nuw nsw i64 %250, 3
-  %269 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %268) #28
-          to label %.noexc104 unwind label %281
+_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i:  ; preds = %259
+  %262 = shl nuw nsw i64 %244, 3
+  %263 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %262) #28
+          to label %.noexc104 unwind label %275
 
 .noexc104:                                        ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
-  store i64 0, ptr %269, align 8, !tbaa !84
-  %270 = icmp eq i64 %250, 1
-  br i1 %270, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  store i64 0, ptr %263, align 8, !tbaa !84
+  %264 = icmp eq i64 %244, 1
+  br i1 %264, label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc104
-  %271 = getelementptr i8, ptr %269, i64 8
-  %272 = add nsw i64 %268, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %271, i8 0, i64 %272, i1 false), !tbaa !84
+  %265 = getelementptr i8, ptr %263, i64 8
+  %266 = add nsw i64 %262, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %265, i8 0, i64 %266, i1 false), !tbaa !84
   br label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc104
-  store ptr %269, ptr %8, align 8, !tbaa !1593
-  %273 = getelementptr inbounds nuw i64, ptr %269, i64 %250
-  store ptr %273, ptr %264, align 8, !tbaa !1596
-  store ptr %273, ptr %266, align 8, !tbaa !1595
+  store ptr %263, ptr %8, align 8, !tbaa !1593
+  %267 = getelementptr inbounds nuw i64, ptr %263, i64 %244
+  store ptr %267, ptr %258, align 8, !tbaa !1596
+  store ptr %267, ptr %260, align 8, !tbaa !1595
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit34.i
 
 _ZNSt6vectorImSaImEE6resizeEm.exit34.i:           ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i
-  %274 = phi ptr [ %273, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i ], [ null, %_ZNSt6vectorImSaImEE6resizeEm.exit.i ]
-  %275 = phi ptr [ %269, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i ], [ null, %_ZNSt6vectorImSaImEE6resizeEm.exit.i ]
-  %invariant.op.i = add nsw i64 %.0.i71, 1
-  %invariant.op47.i = add nsw i64 %.0.i71, 2
-  %276 = icmp sgt i64 %.pre-phi188, 0
-  br i1 %276, label %.lr.ph.i87, label %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit
+  %268 = phi ptr [ %267, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i ], [ null, %_ZNSt6vectorImSaImEE6resizeEm.exit.i ]
+  %269 = phi ptr [ %263, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36.i ], [ null, %_ZNSt6vectorImSaImEE6resizeEm.exit.i ]
+  %invariant.op.i = add nsw i64 %.0.i71195, 1
+  %invariant.op47.i = add nsw i64 %.0.i71195, 2
+  %270 = icmp sgt i64 %.pre-phi188193, 0
+  br i1 %270, label %.lr.ph.i87, label %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit
 
 .lr.ph.i87:                                       ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit34.i
-  %.sroa.speculated.i88 = tail call i64 @llvm.smin.i64(i64 %.pre-phi184, i64 %invariant.op.i)
-  %277 = and i64 %.sroa.speculated.i88, 63
-  %notmask.i = shl nsw i64 -1, %277
-  %278 = xor i64 %notmask.i, -1
-  %279 = sdiv i64 %.sroa.speculated.i88, 64
-  %280 = add nsw i64 %279, 1
+  %.sroa.speculated.i88 = tail call i64 @llvm.smin.i64(i64 %.pre-phi184194, i64 %invariant.op.i)
+  %271 = and i64 %.sroa.speculated.i88, 63
+  %notmask.i = shl nsw i64 -1, %271
+  %272 = xor i64 %notmask.i, -1
+  %273 = sdiv i64 %.sroa.speculated.i88, 64
+  %274 = add nsw i64 %273, 1
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  br label %283
+  br label %277
 
-281:                                              ; preds = %.invoke, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i111, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
-  %282 = landingpad { ptr, i32 }
+275:                                              ; preds = %.invoke, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i111, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
+  %276 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #27
-  resume { ptr, i32 } %282
+  resume { ptr, i32 } %276
 
-283:                                              ; preds = %300, %.lr.ph.i87
-  %.053.i = phi i64 [ 0, %.lr.ph.i87 ], [ %301, %300 ]
-  %.sroa.0.052.i = phi i64 [ %280, %.lr.ph.i87 ], [ %.sroa.0.2.i, %300 ]
-  %.sroa.17.051.i = phi i64 [ -1, %.lr.ph.i87 ], [ %.sroa.17.1.i, %300 ]
-  %.sroa.13.050.i = phi i64 [ %278, %.lr.ph.i87 ], [ %.sroa.13.1.i, %300 ]
-  %.sroa.10.049.i = phi i64 [ 0, %.lr.ph.i87 ], [ %.sroa.10.1.i, %300 ]
-  %284 = getelementptr inbounds nuw i8, ptr %3, i64 %.053.i
-  %285 = load i8, ptr %284, align 1, !tbaa !65, !noalias !1870
+277:                                              ; preds = %294, %.lr.ph.i87
+  %.053.i = phi i64 [ 0, %.lr.ph.i87 ], [ %295, %294 ]
+  %.sroa.0.052.i = phi i64 [ %274, %.lr.ph.i87 ], [ %.sroa.0.2.i, %294 ]
+  %.sroa.17.051.i = phi i64 [ -1, %.lr.ph.i87 ], [ %.sroa.17.1.i, %294 ]
+  %.sroa.13.050.i = phi i64 [ %272, %.lr.ph.i87 ], [ %.sroa.13.1.i, %294 ]
+  %.sroa.10.049.i = phi i64 [ 0, %.lr.ph.i87 ], [ %.sroa.10.1.i, %294 ]
+  %278 = getelementptr inbounds nuw i8, ptr %3, i64 %.053.i
+  %279 = load i8, ptr %278, align 1, !tbaa !65, !noalias !1870
   store i64 %.sroa.0.052.i, ptr %7, align 8, !tbaa !84, !noalias !1870
   store i64 %.sroa.10.049.i, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !84, !noalias !1870
   store i64 %.sroa.13.050.i, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !84, !noalias !1870
   store i64 %.sroa.17.051.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !tbaa !84, !noalias !1870
-  tail call fastcc void @_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_stepIcEEvRKNS_6common23BlockPatternMatchVectorET_RNS0_21FlaggedCharsMultiwordElNS0_15SearchBoundMaskE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i8 noundef signext %285, ptr %275, ptr %263, i64 noundef %.053.i, ptr noundef nonnull byval(%"struct.duckdb_jaro_winkler::detail::SearchBoundMask") align 8 %7)
+  tail call fastcc void @_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_stepIcEEvRKNS_6common23BlockPatternMatchVectorET_RNS0_21FlaggedCharsMultiwordElNS0_15SearchBoundMaskE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i8 noundef signext %279, ptr %269, ptr %257, i64 noundef %.053.i, ptr noundef nonnull byval(%"struct.duckdb_jaro_winkler::detail::SearchBoundMask") align 8 %7)
   %.reass.i = add i64 %.053.i, %invariant.op.i
-  %286 = icmp slt i64 %.reass.i, %.pre-phi184
-  br i1 %286, label %287, label %293
+  %280 = icmp slt i64 %.reass.i, %.pre-phi184194
+  br i1 %280, label %281, label %287
 
-287:                                              ; preds = %283
-  %288 = shl i64 %.sroa.13.050.i, 1
-  %289 = or disjoint i64 %288, 1
+281:                                              ; preds = %277
+  %282 = shl i64 %.sroa.13.050.i, 1
+  %283 = or disjoint i64 %282, 1
   %.reass48.i = add i64 %invariant.op47.i, %.053.i
-  %290 = icmp slt i64 %.reass48.i, %.pre-phi184
-  %291 = icmp eq i64 %288, -2
-  %or.cond.i91 = select i1 %290, i1 %291, i1 false
-  %spec.select.i = select i1 %or.cond.i91, i64 0, i64 %289
-  %292 = zext i1 %or.cond.i91 to i64
-  %spec.select46.i = add nsw i64 %.sroa.0.052.i, %292
-  br label %293
+  %284 = icmp slt i64 %.reass48.i, %.pre-phi184194
+  %285 = icmp eq i64 %282, -2
+  %or.cond.i91 = select i1 %284, i1 %285, i1 false
+  %spec.select.i = select i1 %or.cond.i91, i64 0, i64 %283
+  %286 = zext i1 %or.cond.i91 to i64
+  %spec.select46.i = add nsw i64 %.sroa.0.052.i, %286
+  br label %287
 
-293:                                              ; preds = %287, %283
-  %.sroa.13.1.i = phi i64 [ %.sroa.13.050.i, %283 ], [ %spec.select.i, %287 ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.052.i, %283 ], [ %spec.select46.i, %287 ]
-  %.not.i89 = icmp slt i64 %.053.i, %.0.i71
-  br i1 %.not.i89, label %300, label %294
+287:                                              ; preds = %281, %277
+  %.sroa.13.1.i = phi i64 [ %.sroa.13.050.i, %277 ], [ %spec.select.i, %281 ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.052.i, %277 ], [ %spec.select46.i, %281 ]
+  %.not.i89 = icmp slt i64 %.053.i, %.0.i71195
+  br i1 %.not.i89, label %294, label %288
 
-294:                                              ; preds = %293
-  %295 = shl i64 %.sroa.17.051.i, 1
-  %296 = icmp eq i64 %295, 0
-  br i1 %296, label %297, label %300
+288:                                              ; preds = %287
+  %289 = shl i64 %.sroa.17.051.i, 1
+  %290 = icmp eq i64 %289, 0
+  br i1 %290, label %291, label %294
 
-297:                                              ; preds = %294
-  %298 = add nsw i64 %.sroa.0.1.i, -1
-  %299 = add nsw i64 %.sroa.10.049.i, 1
-  br label %300
+291:                                              ; preds = %288
+  %292 = add nsw i64 %.sroa.0.1.i, -1
+  %293 = add nsw i64 %.sroa.10.049.i, 1
+  br label %294
 
-300:                                              ; preds = %297, %294, %293
-  %.sroa.10.1.i = phi i64 [ %.sroa.10.049.i, %293 ], [ %299, %297 ], [ %.sroa.10.049.i, %294 ]
-  %.sroa.17.1.i = phi i64 [ %.sroa.17.051.i, %293 ], [ -1, %297 ], [ %295, %294 ]
-  %.sroa.0.2.i = phi i64 [ %.sroa.0.1.i, %293 ], [ %298, %297 ], [ %.sroa.0.1.i, %294 ]
-  %301 = add nuw nsw i64 %.053.i, 1
-  %exitcond.not.i90 = icmp eq i64 %301, %.pre-phi188
-  br i1 %exitcond.not.i90, label %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit, label %283, !llvm.loop !1873
+294:                                              ; preds = %291, %288, %287
+  %.sroa.10.1.i = phi i64 [ %.sroa.10.049.i, %287 ], [ %293, %291 ], [ %.sroa.10.049.i, %288 ]
+  %.sroa.17.1.i = phi i64 [ %.sroa.17.051.i, %287 ], [ -1, %291 ], [ %289, %288 ]
+  %.sroa.0.2.i = phi i64 [ %.sroa.0.1.i, %287 ], [ %292, %291 ], [ %.sroa.0.1.i, %288 ]
+  %295 = add nuw nsw i64 %.053.i, 1
+  %exitcond.not.i90 = icmp eq i64 %295, %.pre-phi188193
+  br i1 %exitcond.not.i90, label %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit, label %277, !llvm.loop !1873
 
-_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit: ; preds = %300
-  %.pre = load ptr, ptr %264, align 8, !tbaa !1596
+_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit: ; preds = %294
+  %.pre = load ptr, ptr %258, align 8, !tbaa !1596
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre181 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1596
   br label %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit
 
 _ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit: ; preds = %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit, %_ZNSt6vectorImSaImEE6resizeEm.exit34.i
-  %302 = phi ptr [ %.pre181, %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit ], [ %262, %_ZNSt6vectorImSaImEE6resizeEm.exit34.i ]
-  %303 = phi ptr [ %.pre, %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit ], [ %274, %_ZNSt6vectorImSaImEE6resizeEm.exit34.i ]
+  %296 = phi ptr [ %.pre181, %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit ], [ %256, %_ZNSt6vectorImSaImEE6resizeEm.exit34.i ]
+  %297 = phi ptr [ %.pre, %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit.loopexit ], [ %268, %_ZNSt6vectorImSaImEE6resizeEm.exit34.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %304 = ptrtoint ptr %303 to i64
-  %305 = ptrtoint ptr %275 to i64
-  %306 = sub i64 %304, %305
-  %307 = ptrtoint ptr %302 to i64
-  %308 = ptrtoint ptr %263 to i64
-  %309 = sub i64 %307, %308
-  %310 = icmp ult i64 %306, %309
-  br i1 %310, label %.preheader.i94, label %.preheader20.i
+  %298 = ptrtoint ptr %297 to i64
+  %299 = ptrtoint ptr %269 to i64
+  %300 = sub i64 %298, %299
+  %301 = ptrtoint ptr %296 to i64
+  %302 = ptrtoint ptr %257 to i64
+  %303 = sub i64 %301, %302
+  %304 = icmp ult i64 %300, %303
+  br i1 %304, label %.preheader.i94, label %.preheader20.i
 
 .preheader20.i:                                   ; preds = %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit
-  %.not22.i = icmp eq ptr %263, %302
+  %.not22.i = icmp eq ptr %257, %296
   br i1 %.not22.i, label %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit, label %.lr.ph.i92
 
 .preheader.i94:                                   ; preds = %_ZN19duckdb_jaro_winkler6detailL29flag_similar_characters_blockIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EENS0_21FlaggedCharsMultiwordERKNS_6common23BlockPatternMatchVectorET_SI_T0_SJ_l.exit
-  %.not1925.i = icmp eq ptr %275, %303
+  %.not1925.i = icmp eq ptr %269, %297
   br i1 %.not1925.i, label %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %.preheader.i94, %.lr.ph28.i
-  %.027.i = phi i64 [ %313, %.lr.ph28.i ], [ 0, %.preheader.i94 ]
-  %.sroa.016.026.i = phi ptr [ %314, %.lr.ph28.i ], [ %275, %.preheader.i94 ]
-  %311 = load i64, ptr %.sroa.016.026.i, align 8, !tbaa !84
-  %312 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %311)
-  %313 = add nuw nsw i64 %312, %.027.i
-  %314 = getelementptr inbounds nuw i8, ptr %.sroa.016.026.i, i64 8
-  %.not19.i = icmp eq ptr %314, %303
+  %.027.i = phi i64 [ %307, %.lr.ph28.i ], [ 0, %.preheader.i94 ]
+  %.sroa.016.026.i = phi ptr [ %308, %.lr.ph28.i ], [ %269, %.preheader.i94 ]
+  %305 = load i64, ptr %.sroa.016.026.i, align 8, !tbaa !84
+  %306 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %305)
+  %307 = add nuw nsw i64 %306, %.027.i
+  %308 = getelementptr inbounds nuw i8, ptr %.sroa.016.026.i, i64 8
+  %.not19.i = icmp eq ptr %308, %297
   br i1 %.not19.i, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %.lr.ph28.i
 
 .lr.ph.i92:                                       ; preds = %.preheader20.i, %.lr.ph.i92
-  %.224.i = phi i64 [ %317, %.lr.ph.i92 ], [ 0, %.preheader20.i ]
-  %.sroa.012.023.i = phi ptr [ %318, %.lr.ph.i92 ], [ %263, %.preheader20.i ]
-  %315 = load i64, ptr %.sroa.012.023.i, align 8, !tbaa !84
-  %316 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %315)
-  %317 = add nuw nsw i64 %316, %.224.i
-  %318 = getelementptr inbounds nuw i8, ptr %.sroa.012.023.i, i64 8
-  %.not.i93 = icmp eq ptr %318, %302
+  %.224.i = phi i64 [ %311, %.lr.ph.i92 ], [ 0, %.preheader20.i ]
+  %.sroa.012.023.i = phi ptr [ %312, %.lr.ph.i92 ], [ %257, %.preheader20.i ]
+  %309 = load i64, ptr %.sroa.012.023.i, align 8, !tbaa !84
+  %310 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %309)
+  %311 = add nuw nsw i64 %310, %.224.i
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.012.023.i, i64 8
+  %.not.i93 = icmp eq ptr %312, %296
   br i1 %.not.i93, label %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, label %.lr.ph.i92
 
 _ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit: ; preds = %.lr.ph.i92, %.lr.ph28.i
-  %.1.i = phi i64 [ %313, %.lr.ph28.i ], [ %317, %.lr.ph.i92 ]
+  %.1.i = phi i64 [ %307, %.lr.ph28.i ], [ %311, %.lr.ph.i92 ]
   %.not.i95 = icmp eq i64 %.1.i, 0
   br i1 %.not.i95, label %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit, label %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit97
 
 _ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit97: ; preds = %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit
-  %319 = sitofp i64 %.1.i to double
-  %320 = fdiv double %319, %18
-  %321 = fadd double %320, 0.000000e+00
-  %322 = fdiv double %319, %20
-  %323 = fadd double %322, %321
-  %324 = fadd double %323, 1.000000e+00
-  %325 = fdiv double %324, 3.000000e+00
-  %326 = fcmp ult double %325, %5
-  br i1 %326, label %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit, label %.preheader2.lr.ph.i
+  %313 = sitofp i64 %.1.i to double
+  %314 = fdiv double %313, %18
+  %315 = fadd double %314, 0.000000e+00
+  %316 = fdiv double %313, %20
+  %317 = fadd double %316, %315
+  %318 = fadd double %317, 1.000000e+00
+  %319 = fdiv double %318, 3.000000e+00
+  %320 = fcmp ult double %319, %5
+  br i1 %320, label %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit, label %.preheader2.lr.ph.i
 
 .preheader2.lr.ph.i:                              ; preds = %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit97
-  %327 = load i64, ptr %275, align 8, !tbaa !84
-  %328 = load i64, ptr %263, align 8, !tbaa !84
-  %329 = load ptr, ptr %0, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %332 = load i64, ptr %331, align 8
-  %333 = load ptr, ptr %330, align 8
+  %321 = load i64, ptr %269, align 8, !tbaa !84
+  %322 = load i64, ptr %257, align 8, !tbaa !84
+  %323 = load ptr, ptr %0, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %326 = load i64, ptr %325, align 8
+  %327 = load ptr, ptr %324, align 8
   br label %.preheader2.i
 
 .loopexit.i:                                      ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i
-  %.not.i100 = icmp eq i64 %389, 0
+  %.not.i100 = icmp eq i64 %383, 0
   br i1 %.not.i100, label %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit, label %.preheader2.i, !llvm.loop !1874
 
 .preheader2.i:                                    ; preds = %.loopexit.i, %.preheader2.lr.ph.i
   %.025.i = phi ptr [ %3, %.preheader2.lr.ph.i ], [ %.1.lcssa.i, %.loopexit.i ]
-  %.02624.i = phi i64 [ 0, %.preheader2.lr.ph.i ], [ %385, %.loopexit.i ]
-  %.02823.i = phi i64 [ %327, %.preheader2.lr.ph.i ], [ %388, %.loopexit.i ]
-  %.03022.i = phi i64 [ %328, %.preheader2.lr.ph.i ], [ 0, %.loopexit.i ]
+  %.02624.i = phi i64 [ 0, %.preheader2.lr.ph.i ], [ %379, %.loopexit.i ]
+  %.02823.i = phi i64 [ %321, %.preheader2.lr.ph.i ], [ %382, %.loopexit.i ]
+  %.03022.i = phi i64 [ %322, %.preheader2.lr.ph.i ], [ 0, %.loopexit.i ]
   %.03321.i = phi i64 [ 0, %.preheader2.lr.ph.i ], [ %.235.lcssa.i, %.loopexit.i ]
   %.03620.i = phi i64 [ 0, %.preheader2.lr.ph.i ], [ %.137.lcssa.i, %.loopexit.i ]
-  %.03819.i = phi i64 [ %.1.i, %.preheader2.lr.ph.i ], [ %389, %.loopexit.i ]
+  %.03819.i = phi i64 [ %.1.i, %.preheader2.lr.ph.i ], [ %383, %.loopexit.i ]
   %.not403.i = icmp eq i64 %.03022.i, 0
   br i1 %.not403.i, label %.lr.ph.i101, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %.lr.ph.i101, %.preheader2.i
-  %.137.lcssa.i = phi i64 [ %.03620.i, %.preheader2.i ], [ %334, %.lr.ph.i101 ]
-  %.131.lcssa.i = phi i64 [ %.03022.i, %.preheader2.i ], [ %337, %.lr.ph.i101 ]
-  %.1.lcssa.i = phi ptr [ %.025.i, %.preheader2.i ], [ %335, %.lr.ph.i101 ]
+  %.137.lcssa.i = phi i64 [ %.03620.i, %.preheader2.i ], [ %328, %.lr.ph.i101 ]
+  %.131.lcssa.i = phi i64 [ %.03022.i, %.preheader2.i ], [ %331, %.lr.ph.i101 ]
+  %.1.lcssa.i = phi ptr [ %.025.i, %.preheader2.i ], [ %329, %.lr.ph.i101 ]
   br label %.preheader.i98
 
 .lr.ph.i101:                                      ; preds = %.preheader2.i, %.lr.ph.i101
-  %.15.i = phi ptr [ %335, %.lr.ph.i101 ], [ %.025.i, %.preheader2.i ]
-  %.1374.i = phi i64 [ %334, %.lr.ph.i101 ], [ %.03620.i, %.preheader2.i ]
-  %334 = add nsw i64 %.1374.i, 1
-  %335 = getelementptr inbounds nuw i8, ptr %.15.i, i64 64
-  %336 = getelementptr inbounds nuw i64, ptr %263, i64 %334
-  %337 = load i64, ptr %336, align 8, !tbaa !84
-  %.not40.i = icmp eq i64 %337, 0
+  %.15.i = phi ptr [ %329, %.lr.ph.i101 ], [ %.025.i, %.preheader2.i ]
+  %.1374.i = phi i64 [ %328, %.lr.ph.i101 ], [ %.03620.i, %.preheader2.i ]
+  %328 = add nsw i64 %.1374.i, 1
+  %329 = getelementptr inbounds nuw i8, ptr %.15.i, i64 64
+  %330 = getelementptr inbounds nuw i64, ptr %257, i64 %328
+  %331 = load i64, ptr %330, align 8, !tbaa !84
+  %.not40.i = icmp eq i64 %331, 0
   br i1 %.not40.i, label %.lr.ph.i101, label %.preheader1.i, !llvm.loop !1875
 
 .preheader.i98:                                   ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i, %.preheader1.i
-  %.12717.i = phi i64 [ %.02624.i, %.preheader1.i ], [ %385, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
-  %.12916.i = phi i64 [ %.02823.i, %.preheader1.i ], [ %388, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
-  %.23215.i = phi i64 [ %.131.lcssa.i, %.preheader1.i ], [ %387, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
+  %.12717.i = phi i64 [ %.02624.i, %.preheader1.i ], [ %379, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
+  %.12916.i = phi i64 [ %.02823.i, %.preheader1.i ], [ %382, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
+  %.23215.i = phi i64 [ %.131.lcssa.i, %.preheader1.i ], [ %381, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
   %.13414.i = phi i64 [ %.03321.i, %.preheader1.i ], [ %.235.lcssa.i, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
-  %.13913.i = phi i64 [ %.03819.i, %.preheader1.i ], [ %389, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
+  %.13913.i = phi i64 [ %.03819.i, %.preheader1.i ], [ %383, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i ]
   %.not428.i = icmp eq i64 %.12916.i, 0
   br i1 %.not428.i, label %.lr.ph10.i, label %._crit_edge.i
 
 .lr.ph10.i:                                       ; preds = %.preheader.i98, %.lr.ph10.i
-  %.2359.i = phi i64 [ %338, %.lr.ph10.i ], [ %.13414.i, %.preheader.i98 ]
-  %338 = add nsw i64 %.2359.i, 1
-  %339 = getelementptr inbounds nuw i64, ptr %275, i64 %338
-  %340 = load i64, ptr %339, align 8, !tbaa !84
-  %.not42.i = icmp eq i64 %340, 0
+  %.2359.i = phi i64 [ %332, %.lr.ph10.i ], [ %.13414.i, %.preheader.i98 ]
+  %332 = add nsw i64 %.2359.i, 1
+  %333 = getelementptr inbounds nuw i64, ptr %269, i64 %332
+  %334 = load i64, ptr %333, align 8, !tbaa !84
+  %.not42.i = icmp eq i64 %334, 0
   br i1 %.not42.i, label %.lr.ph10.i, label %._crit_edge.i, !llvm.loop !1876
 
 ._crit_edge.i:                                    ; preds = %.lr.ph10.i, %.preheader.i98
-  %.235.lcssa.i = phi i64 [ %.13414.i, %.preheader.i98 ], [ %338, %.lr.ph10.i ]
-  %.2.lcssa.i = phi i64 [ %.12916.i, %.preheader.i98 ], [ %340, %.lr.ph10.i ]
-  %341 = sub i64 0, %.2.lcssa.i
-  %342 = and i64 %.2.lcssa.i, %341
-  %343 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.23215.i, i1 true)
-  %344 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 %343
-  %345 = load i8, ptr %344, align 1, !tbaa !65
-  %346 = icmp sgt i8 %345, -1
-  br i1 %346, label %347, label %352
+  %.235.lcssa.i = phi i64 [ %.13414.i, %.preheader.i98 ], [ %332, %.lr.ph10.i ]
+  %.2.lcssa.i = phi i64 [ %.12916.i, %.preheader.i98 ], [ %334, %.lr.ph10.i ]
+  %335 = sub i64 0, %.2.lcssa.i
+  %336 = and i64 %.2.lcssa.i, %335
+  %337 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.23215.i, i1 true)
+  %338 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 %337
+  %339 = load i8, ptr %338, align 1, !tbaa !65
+  %340 = icmp sgt i8 %339, -1
+  br i1 %340, label %341, label %346
 
-347:                                              ; preds = %._crit_edge.i
-  %348 = zext nneg i8 %345 to i64
-  %349 = mul nsw i64 %332, %348
-  %350 = getelementptr i64, ptr %333, i64 %349
-  %351 = getelementptr i64, ptr %350, i64 %.235.lcssa.i
+341:                                              ; preds = %._crit_edge.i
+  %342 = zext nneg i8 %339 to i64
+  %343 = mul nsw i64 %326, %342
+  %344 = getelementptr i64, ptr %327, i64 %343
+  %345 = getelementptr i64, ptr %344, i64 %.235.lcssa.i
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i
 
-352:                                              ; preds = %._crit_edge.i
-  %353 = getelementptr inbounds nuw %"struct.duckdb_jaro_winkler::common::BitvectorHashmap", ptr %329, i64 %.235.lcssa.i
-  %354 = sext i8 %345 to i64
-  %355 = and i64 %354, 127
-  %356 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %353, i64 0, i64 %355
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  %358 = load i64, ptr %357, align 8, !tbaa !1854
-  %.not.i.i.i.i = icmp eq i64 %358, 0
-  br i1 %.not.i.i.i.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, label %359
+346:                                              ; preds = %._crit_edge.i
+  %347 = getelementptr inbounds nuw %"struct.duckdb_jaro_winkler::common::BitvectorHashmap", ptr %323, i64 %.235.lcssa.i
+  %348 = sext i8 %339 to i64
+  %349 = and i64 %348, 127
+  %350 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %347, i64 0, i64 %349
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
+  %352 = load i64, ptr %351, align 8, !tbaa !1854
+  %.not.i.i.i.i = icmp eq i64 %352, 0
+  br i1 %.not.i.i.i.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, label %353
 
-359:                                              ; preds = %352
-  %360 = load i64, ptr %356, align 8, !tbaa !1856
-  %361 = icmp eq i64 %360, %354
-  br i1 %361, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, label %.preheader.i.i.i.i
+353:                                              ; preds = %346
+  %354 = load i64, ptr %350, align 8, !tbaa !1856
+  %355 = icmp eq i64 %354, %348
+  br i1 %355, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, label %.preheader.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %359
-  %362 = mul nsw i64 %354, 5
-  %363 = add nsw i64 %354, 1
-  %364 = add nsw i64 %363, %362
-  %365 = and i64 %364, 127
-  %366 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %353, i64 0, i64 %365
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  %368 = load i64, ptr %367, align 8, !tbaa !1854
-  %.not1718.i.i.i.i = icmp eq i64 %368, 0
+.preheader.i.i.i.i:                               ; preds = %353
+  %356 = mul nsw i64 %348, 5
+  %357 = add nsw i64 %348, 1
+  %358 = add nsw i64 %357, %356
+  %359 = and i64 %358, 127
+  %360 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %347, i64 0, i64 %359
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
+  %362 = load i64, ptr %361, align 8, !tbaa !1854
+  %.not1718.i.i.i.i = icmp eq i64 %362, 0
   br i1 %.not1718.i.i.i.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, label %.lr.ph.i.i.i.i
 
-369:                                              ; preds = %.lr.ph.i.i.i.i
-  %370 = lshr i64 %.019.i.i.i.i, 5
-  %371 = mul nuw nsw i64 %379, 5
-  %372 = add nuw nsw i64 %371, 1
-  %373 = add nuw nsw i64 %372, %370
-  %374 = and i64 %373, 127
-  %375 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %353, i64 0, i64 %374
-  %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
-  %377 = load i64, ptr %376, align 8, !tbaa !1854
-  %.not17.i.i.i.i = icmp eq i64 %377, 0
+363:                                              ; preds = %.lr.ph.i.i.i.i
+  %364 = lshr i64 %.019.i.i.i.i, 5
+  %365 = mul nuw nsw i64 %373, 5
+  %366 = add nuw nsw i64 %365, 1
+  %367 = add nuw nsw i64 %366, %364
+  %368 = and i64 %367, 127
+  %369 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %347, i64 0, i64 %368
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
+  %371 = load i64, ptr %370, align 8, !tbaa !1854
+  %.not17.i.i.i.i = icmp eq i64 %371, 0
   br i1 %.not17.i.i.i.i, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !1857
 
-.lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %369
-  %378 = phi ptr [ %375, %369 ], [ %366, %.preheader.i.i.i.i ]
-  %379 = phi i64 [ %374, %369 ], [ %365, %.preheader.i.i.i.i ]
-  %.019.i.i.i.i = phi i64 [ %370, %369 ], [ %354, %.preheader.i.i.i.i ]
-  %380 = load i64, ptr %378, align 8, !tbaa !1856
-  %381 = icmp eq i64 %380, %354
-  br i1 %381, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, label %369
+.lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %363
+  %372 = phi ptr [ %369, %363 ], [ %360, %.preheader.i.i.i.i ]
+  %373 = phi i64 [ %368, %363 ], [ %359, %.preheader.i.i.i.i ]
+  %.019.i.i.i.i = phi i64 [ %364, %363 ], [ %348, %.preheader.i.i.i.i ]
+  %374 = load i64, ptr %372, align 8, !tbaa !1856
+  %375 = icmp eq i64 %374, %348
+  br i1 %375, label %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, label %363
 
-_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %369, %.preheader.i.i.i.i, %359, %352
-  %.015.i.i.i.i = phi i64 [ %355, %359 ], [ %355, %352 ], [ %365, %.preheader.i.i.i.i ], [ %379, %.lr.ph.i.i.i.i ], [ %374, %369 ]
-  %382 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %353, i64 0, i64 %.015.i.i.i.i, i32 1
+_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %363, %.preheader.i.i.i.i, %353, %346
+  %.015.i.i.i.i = phi i64 [ %349, %353 ], [ %349, %346 ], [ %359, %.preheader.i.i.i.i ], [ %373, %.lr.ph.i.i.i.i ], [ %368, %363 ]
+  %376 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %347, i64 0, i64 %.015.i.i.i.i, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i
 
-_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, %347
-  %.0.in.i.i = phi ptr [ %351, %347 ], [ %382, %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i ]
+_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, %341
+  %.0.in.i.i = phi ptr [ %345, %341 ], [ %376, %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i ]
   %.0.i.i99 = load i64, ptr %.0.in.i.i, align 8, !tbaa !84
-  %383 = and i64 %.0.i.i99, %342
-  %.not43.i = icmp eq i64 %383, 0
-  %384 = zext i1 %.not43.i to i64
-  %385 = add nsw i64 %.12717.i, %384
-  %386 = add i64 %.23215.i, -1
-  %387 = and i64 %386, %.23215.i
-  %388 = xor i64 %342, %.2.lcssa.i
-  %389 = add nsw i64 %.13913.i, -1
-  %.not41.i = icmp eq i64 %387, 0
+  %377 = and i64 %.0.i.i99, %336
+  %.not43.i = icmp eq i64 %377, 0
+  %378 = zext i1 %.not43.i to i64
+  %379 = add nsw i64 %.12717.i, %378
+  %380 = add i64 %.23215.i, -1
+  %381 = and i64 %380, %.23215.i
+  %382 = xor i64 %336, %.2.lcssa.i
+  %383 = add nsw i64 %.13913.i, -1
+  %.not41.i = icmp eq i64 %381, 0
   br i1 %.not41.i, label %.loopexit.i, label %.preheader.i98, !llvm.loop !1877
 
 _ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit: ; preds = %.loopexit.i, %.preheader20.i, %.preheader.i94, %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit, %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit97
   %.0.i96145 = phi i1 [ false, %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit97 ], [ false, %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit ], [ false, %.preheader.i94 ], [ false, %.preheader20.i ], [ true, %.loopexit.i ]
   %.1.i140 = phi i64 [ %.1.i, %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit97 ], [ 0, %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit ], [ 0, %.preheader.i94 ], [ 0, %.preheader20.i ], [ %.1.i, %.loopexit.i ]
-  %.264 = phi i64 [ 0, %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit97 ], [ 0, %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit ], [ 0, %.preheader.i94 ], [ 0, %.preheader20.i ], [ %385, %.loopexit.i ]
-  %.not.i.i.i.i102 = icmp eq ptr %263, null
-  br i1 %.not.i.i.i.i102, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %390
+  %.264 = phi i64 [ 0, %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit97 ], [ 0, %_ZN19duckdb_jaro_winkler6detailL18count_common_charsERKNS0_21FlaggedCharsMultiwordE.exit ], [ 0, %.preheader.i94 ], [ 0, %.preheader20.i ], [ %379, %.loopexit.i ]
+  %.not.i.i.i.i102 = icmp eq ptr %257, null
+  br i1 %.not.i.i.i.i102, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %384
 
-390:                                              ; preds = %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %263) #31
+384:                                              ; preds = %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %257) #31
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i
 
-_ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %390, %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit
-  %.not.i.i.i1.i = icmp eq ptr %275, null
-  br i1 %.not.i.i.i1.i, label %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit, label %391
+_ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %384, %_ZN19duckdb_jaro_winkler6detailL26count_transpositions_blockIPKcEElRKNS_6common23BlockPatternMatchVectorET_S8_RKNS0_21FlaggedCharsMultiwordEl.exit
+  %.not.i.i.i1.i = icmp eq ptr %269, null
+  br i1 %.not.i.i.i1.i, label %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit, label %385
 
-391:                                              ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %275) #31
+385:                                              ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %269) #31
   br label %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit
 
-_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i, %391
+_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit: ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i, %385
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #27
   br i1 %.0.i96145, label %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134, label %_ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit.thread
 
-_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134: ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83, %187, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
-  %.062 = phi i64 [ %.264, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit ], [ 0, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit ], [ 0, %187 ], [ %236, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
-  %.061 = phi i64 [ %.1.i140, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit ], [ 0, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit ], [ %178, %187 ], [ %178, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
-  %392 = sdiv i64 %.062, 2
-  %393 = sitofp i64 %.061 to double
-  %394 = fdiv double %393, %18
-  %395 = fadd double %394, 0.000000e+00
-  %396 = fdiv double %393, %20
-  %397 = fadd double %396, %395
-  %398 = sitofp i64 %392 to double
-  %399 = fsub double %393, %398
-  %400 = fdiv double %399, %393
-  %401 = fadd double %400, %397
-  %402 = fdiv double %401, 3.000000e+00
-  %403 = fcmp oge double %402, %5
-  %404 = select i1 %403, double %402, double 0.000000e+00
+_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134: ; preds = %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83, %41, %181, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
+  %.062 = phi i64 [ %.264, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit ], [ 0, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit ], [ 0, %181 ], [ 0, %41 ], [ %230, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
+  %.061 = phi i64 [ %.1.i140, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit ], [ 0, %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit ], [ %172, %181 ], [ 0, %41 ], [ %172, %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i83 ]
+  %386 = sdiv i64 %.062, 2
+  %387 = sitofp i64 %.061 to double
+  %388 = fdiv double %387, %18
+  %389 = fadd double %388, 0.000000e+00
+  %390 = fdiv double %387, %20
+  %391 = fadd double %390, %389
+  %392 = sitofp i64 %386 to double
+  %393 = fsub double %387, %392
+  %394 = fdiv double %393, %387
+  %395 = fadd double %394, %391
+  %396 = fdiv double %395, 3.000000e+00
+  %397 = fcmp oge double %396, %5
+  %398 = select i1 %397, double %396, double 0.000000e+00
   br label %_ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit.thread
 
 _ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit.thread: ; preds = %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit, %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit, %6, %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit, %_ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit, %29
-  %.0 = phi double [ %33, %29 ], [ 0.000000e+00, %_ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit ], [ %404, %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134 ], [ 0.000000e+00, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit ], [ 0.000000e+00, %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit ]
+  %.0 = phi double [ %33, %29 ], [ 0.000000e+00, %_ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit ], [ %398, %_ZN19duckdb_jaro_winkler6detailL25count_transpositions_wordINS_6common23BlockPatternMatchVectorEPKcEElRKT_T0_S9_RKNS0_16FlaggedCharsWordE.exit.thread134 ], [ 0.000000e+00, %_ZN19duckdb_jaro_winkler6detail21FlaggedCharsMultiwordD2Ev.exit ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit ], [ 0.000000e+00, %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit ]
   ret double %.0
 }
 

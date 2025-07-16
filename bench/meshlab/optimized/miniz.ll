@@ -21144,21 +21144,25 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
   %narrow280 = add nuw nsw i8 %42, 32
   %.in281 = select i1 %or.cond308, i8 %narrow280, i8 %42
   %.not282 = icmp eq i8 %spec.select, %.in281
-  br i1 %.not282, label %44, label %._crit_edge
+  br i1 %.not282, label %44, label %._crit_edge.loopexit
 
 44:                                               ; preds = %.lr.ph
   %45 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   %46 = getelementptr inbounds nuw i8, ptr %.02394, i64 1
   %47 = icmp ult ptr %45, %.ptr64
-  br i1 %47, label %.lr.ph, label %._crit_edge
+  br i1 %47, label %.lr.ph, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %44, %.lr.ph, %17
-  %.0.lcssa = phi ptr [ %.ptr, %17 ], [ %45, %44 ], [ %.05, %.lr.ph ]
-  %.1244 = phi i8 [ 0, %17 ], [ %spec.select, %44 ], [ %.in281, %.lr.ph ]
-  %.1 = phi i8 [ 0, %17 ], [ %spec.select, %.lr.ph ], [ %spec.select, %44 ]
-  %48 = icmp eq ptr %.0.lcssa, %.ptr64
-  %49 = icmp ult i8 %.1, %.1244
-  %.in283 = select i1 %48, i1 %36, i1 %49
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %44
+  %.in281.lcssa = phi i8 [ %.in281, %.lr.ph ], [ %spec.select, %44 ]
+  %.0.lcssa.ph = phi ptr [ %.05, %.lr.ph ], [ %45, %44 ]
+  %48 = icmp ult i8 %spec.select, %.in281.lcssa
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %17
+  %.0.lcssa = phi ptr [ %.ptr, %17 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
+  %.1 = phi i1 [ false, %17 ], [ %48, %._crit_edge.loopexit ]
+  %49 = icmp eq ptr %.0.lcssa, %.ptr64
+  %.in283 = select i1 %49, i1 %36, i1 %.1
   %50 = zext i1 %.in283 to i64
   br label %51
 
@@ -21210,21 +21214,25 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
   %narrow287 = add nuw nsw i8 %78, 32
   %.in288 = select i1 %or.cond310, i8 %narrow287, i8 %78
   %.not289 = icmp eq i8 %spec.select1, %.in288
-  br i1 %.not289, label %80, label %._crit_edge16
+  br i1 %.not289, label %80, label %._crit_edge16.loopexit
 
 80:                                               ; preds = %.lr.ph15
   %81 = getelementptr inbounds nuw i8, ptr %.024713, i64 1
   %82 = getelementptr inbounds nuw i8, ptr %.024812, i64 1
   %83 = icmp ult ptr %81, %.ptr67
-  br i1 %83, label %.lr.ph15, label %._crit_edge16
+  br i1 %83, label %.lr.ph15, label %._crit_edge16.loopexit
 
-._crit_edge16:                                    ; preds = %80, %.lr.ph15, %51
-  %.0247.lcssa = phi ptr [ %.ptr66, %51 ], [ %81, %80 ], [ %.024713, %.lr.ph15 ]
-  %.1252 = phi i8 [ 0, %51 ], [ %spec.select1, %80 ], [ %.in288, %.lr.ph15 ]
-  %.1250 = phi i8 [ 0, %51 ], [ %spec.select1, %.lr.ph15 ], [ %spec.select1, %80 ]
-  %84 = icmp eq ptr %.0247.lcssa, %.ptr67
-  %85 = icmp ult i8 %.1250, %.1252
-  %.in290 = select i1 %84, i1 %72, i1 %85
+._crit_edge16.loopexit:                           ; preds = %.lr.ph15, %80
+  %.in288.lcssa = phi i8 [ %.in288, %.lr.ph15 ], [ %spec.select1, %80 ]
+  %.0247.lcssa.ph = phi ptr [ %.024713, %.lr.ph15 ], [ %81, %80 ]
+  %84 = icmp ult i8 %spec.select1, %.in288.lcssa
+  br label %._crit_edge16
+
+._crit_edge16:                                    ; preds = %._crit_edge16.loopexit, %51
+  %.0247.lcssa = phi ptr [ %.ptr66, %51 ], [ %.0247.lcssa.ph, %._crit_edge16.loopexit ]
+  %.1250 = phi i1 [ false, %51 ], [ %84, %._crit_edge16.loopexit ]
+  %85 = icmp eq ptr %.0247.lcssa, %.ptr67
+  %.in290 = select i1 %85, i1 %72, i1 %.1250
   br i1 %.in290, label %86, label %._crit_edge28
 
 86:                                               ; preds = %._crit_edge16
@@ -21319,21 +21327,25 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
   %narrow297 = add nuw nsw i8 %123, 32
   %.in298 = select i1 %or.cond312, i8 %narrow297, i8 %123
   %.not299 = icmp eq i8 %spec.select2, %.in298
-  br i1 %.not299, label %125, label %._crit_edge34
+  br i1 %.not299, label %125, label %._crit_edge34.loopexit
 
 125:                                              ; preds = %.lr.ph33
   %126 = getelementptr inbounds nuw i8, ptr %.025331, i64 1
   %127 = getelementptr inbounds nuw i8, ptr %.025430, i64 1
   %128 = icmp ult ptr %126, %.ptr70
-  br i1 %128, label %.lr.ph33, label %._crit_edge34
+  br i1 %128, label %.lr.ph33, label %._crit_edge34.loopexit
 
-._crit_edge34:                                    ; preds = %125, %.lr.ph33, %98
-  %.0253.lcssa = phi ptr [ %.ptr69, %98 ], [ %126, %125 ], [ %.025331, %.lr.ph33 ]
-  %.1262 = phi i8 [ 0, %98 ], [ %spec.select2, %125 ], [ %.in298, %.lr.ph33 ]
-  %.1256 = phi i8 [ 0, %98 ], [ %spec.select2, %.lr.ph33 ], [ %spec.select2, %125 ]
-  %129 = icmp eq ptr %.0253.lcssa, %.ptr70
-  %130 = icmp ult i8 %.1256, %.1262
-  %.in300 = select i1 %129, i1 %117, i1 %130
+._crit_edge34.loopexit:                           ; preds = %.lr.ph33, %125
+  %.in298.lcssa = phi i8 [ %.in298, %.lr.ph33 ], [ %spec.select2, %125 ]
+  %.0253.lcssa.ph = phi ptr [ %.025331, %.lr.ph33 ], [ %126, %125 ]
+  %129 = icmp ult i8 %spec.select2, %.in298.lcssa
+  br label %._crit_edge34
+
+._crit_edge34:                                    ; preds = %._crit_edge34.loopexit, %98
+  %.0253.lcssa = phi ptr [ %.ptr69, %98 ], [ %.0253.lcssa.ph, %._crit_edge34.loopexit ]
+  %.1256 = phi i1 [ false, %98 ], [ %129, %._crit_edge34.loopexit ]
+  %130 = icmp eq ptr %.0253.lcssa, %.ptr70
+  %.in300 = select i1 %130, i1 %117, i1 %.1256
   %131 = zext i1 %.in300 to i64
   br label %132
 
@@ -21383,21 +21395,25 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
   %narrow304 = add nuw nsw i8 %157, 32
   %.in305 = select i1 %or.cond314, i8 %narrow304, i8 %157
   %.not306 = icmp eq i8 %spec.select3, %.in305
-  br i1 %.not306, label %159, label %._crit_edge46
+  br i1 %.not306, label %159, label %._crit_edge46.loopexit
 
 159:                                              ; preds = %.lr.ph45
   %160 = getelementptr inbounds nuw i8, ptr %.026343, i64 1
   %161 = getelementptr inbounds nuw i8, ptr %.026442, i64 1
   %162 = icmp ult ptr %160, %.ptr73
-  br i1 %162, label %.lr.ph45, label %._crit_edge46
+  br i1 %162, label %.lr.ph45, label %._crit_edge46.loopexit
 
-._crit_edge46:                                    ; preds = %159, %.lr.ph45, %132
-  %.0263.lcssa = phi ptr [ %.ptr72, %132 ], [ %160, %159 ], [ %.026343, %.lr.ph45 ]
-  %.1260 = phi i8 [ 0, %132 ], [ %spec.select3, %.lr.ph45 ], [ %spec.select3, %159 ]
-  %.1258 = phi i8 [ 0, %132 ], [ %spec.select3, %159 ], [ %.in305, %.lr.ph45 ]
-  %163 = icmp eq ptr %.0263.lcssa, %.ptr73
-  %164 = icmp ult i8 %.1260, %.1258
-  %.in307 = select i1 %163, i1 %151, i1 %164
+._crit_edge46.loopexit:                           ; preds = %.lr.ph45, %159
+  %.in305.lcssa = phi i8 [ %.in305, %.lr.ph45 ], [ %spec.select3, %159 ]
+  %.0263.lcssa.ph = phi ptr [ %.026343, %.lr.ph45 ], [ %160, %159 ]
+  %163 = icmp ult i8 %spec.select3, %.in305.lcssa
+  br label %._crit_edge46
+
+._crit_edge46:                                    ; preds = %._crit_edge46.loopexit, %132
+  %.0263.lcssa = phi ptr [ %.ptr72, %132 ], [ %.0263.lcssa.ph, %._crit_edge46.loopexit ]
+  %.1260 = phi i1 [ false, %132 ], [ %163, %._crit_edge46.loopexit ]
+  %164 = icmp eq ptr %.0263.lcssa, %.ptr73
+  %.in307 = select i1 %164, i1 %151, i1 %.1260
   br i1 %.in307, label %165, label %._crit_edge58
 
 165:                                              ; preds = %._crit_edge46

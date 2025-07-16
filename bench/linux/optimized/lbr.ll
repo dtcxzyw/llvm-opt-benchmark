@@ -3187,11 +3187,7 @@ define internal void @intel_pmu_arch_lbr_save(ptr noundef writeonly captures(non
 19:                                               ; preds = %16, %17
   %20 = phi i64 [ %18, %17 ], [ %14, %16 ]
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %..loopexit.loopexit_crit_edge, label %22
-
-..loopexit.loopexit_crit_edge:                    ; preds = %19
-  %.pre.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
-  br label %.loopexit
+  br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %19
   store i64 %20, ptr %7, align 8
@@ -3232,22 +3228,21 @@ define internal void @intel_pmu_arch_lbr_save(ptr noundef writeonly captures(non
   %43 = add nuw i32 %5, 1
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   %45 = icmp ult i32 %43, %44
-  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !65
+  br i1 %45, label %.preheader, label %.loopexit.thread, !llvm.loop !65
 
-.loopexit:                                        ; preds = %41, %..loopexit.loopexit_crit_edge
-  %46 = phi i32 [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %44, %41 ]
-  %47 = phi i32 [ %5, %..loopexit.loopexit_crit_edge ], [ %43, %41 ]
-  %48 = icmp ult i32 %47, %46
-  br i1 %48, label %49, label %.loopexit.thread
+.loopexit:                                        ; preds = %19
+  %.pre.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
+  %46 = icmp ult i32 %5, %.pre.pre
+  br i1 %46, label %47, label %.loopexit.thread
 
-49:                                               ; preds = %.loopexit
-  %50 = add i32 %46, -1
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr %struct.lbr_entry, ptr %2, i64 %51
-  store i64 0, ptr %52, align 8
+47:                                               ; preds = %.loopexit
+  %48 = add i32 %.pre.pre, -1
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr %struct.lbr_entry, ptr %2, i64 %49
+  store i64 0, ptr %50, align 8
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %1, %49, %.loopexit
+.loopexit.thread:                                 ; preds = %41, %1, %47, %.loopexit
   ret void
 }
 

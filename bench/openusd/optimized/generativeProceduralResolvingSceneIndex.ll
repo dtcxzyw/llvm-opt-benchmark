@@ -8059,9 +8059,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7SdfPathENS_6TfHashESt8
   %.pre712 = load ptr, ptr %18, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.pre713 = load ptr, ptr %.phi.trans.insert, align 8
-  %1284 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %1285 = icmp eq ptr %.pre712, %.pre713
-  br i1 %1285, label %._crit_edge632.thread, label %1286
+  %1284 = icmp eq ptr %.pre712, %.pre713
+  %1285 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  br i1 %1284, label %._crit_edge632.thread, label %1286
 
 1286:                                             ; preds = %._crit_edge632
   %1287 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %27) #23
@@ -8077,7 +8077,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7SdfPathENS_6TfHashESt8
 
 1289:                                             ; preds = %1286
   %1290 = load ptr, ptr %18, align 8
-  %1291 = load ptr, ptr %1284, align 8
+  %1291 = load ptr, ptr %1285, align 8
   %.not511633 = icmp eq ptr %1290, %1291
   br i1 %.not511633, label %._crit_edge637, label %.lr.ph636
 

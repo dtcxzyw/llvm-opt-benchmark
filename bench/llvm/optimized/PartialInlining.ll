@@ -3748,10 +3748,10 @@ _ZN4llvm15InstructionCostpLERKS0_.exit105.i:      ; preds = %"_ZZNK12_GLOBAL__N_
   br i1 %.not61.i, label %._crit_edge.i281, label %_ZN4llvm15InstructionCostpLERKS0_.exit105.i
 
 940:                                              ; preds = %._crit_edge.i281
+  %941 = icmp slt i64 %.0.i104.i, %495
   %.not.i106.i = icmp eq i32 %spec.select270.i, %.sroa.6242.0.lcssa399.i
-  %941 = icmp samesign ult i32 %spec.select270.i, %.sroa.6242.0.lcssa399.i
-  %942 = icmp slt i64 %.0.i104.i, %495
-  %.0.i107.i = select i1 %.not.i106.i, i1 %942, i1 %941
+  %942 = icmp samesign ult i32 %spec.select270.i, %.sroa.6242.0.lcssa399.i
+  %.0.i107.i = select i1 %.not.i106.i, i1 %941, i1 %942
   br i1 %.0.i107.i, label %943, label %1046
 
 943:                                              ; preds = %940

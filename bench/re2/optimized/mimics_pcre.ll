@@ -1423,74 +1423,72 @@ sw.epilog:                                        ; preds = %if.end14, %if.end87
   %41 = load ptr, ptr %_M_finish.i.i.i, align 8
   %42 = load ptr, ptr %_M_first3.i.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %41, %42
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
 
-if.then.i.i:                                      ; preds = %sw.epilog
+_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %sw.epilog
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %41, i64 -24
-  br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
-
-if.else.i.i:                                      ; preds = %sw.epilog
-  call void @_ZdlPv(ptr noundef %42) #16
-  %43 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i67 = getelementptr inbounds i8, ptr %43, i64 -8
-  store ptr %add.ptr.i.i.i67, ptr %_M_node5.i.i.i.i, align 8
-  %44 = load ptr, ptr %add.ptr.i.i.i67, align 8
-  store ptr %44, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %44, i64 504
-  store ptr %add.ptr.i.i.i.i68, ptr %_M_last.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 480
-  br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
-
-_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %45 = phi ptr [ %42, %if.then.i.i ], [ %44, %if.else.i.i ]
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %add.ptr8.i.i.i, %if.else.i.i ]
-  store ptr %storemerge.i.i, ptr %_M_finish.i.i.i, align 8
-  %46 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i70 = icmp eq ptr %storemerge.i.i, %46
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8
+  %43 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i70 = icmp eq ptr %incdec.ptr.i.i, %43
   br i1 %cmp.i.i.i70, label %return, label %if.end109
 
+_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread: ; preds = %sw.epilog
+  call void @_ZdlPv(ptr noundef %42) #16
+  %44 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %add.ptr.i.i.i67 = getelementptr inbounds i8, ptr %44, i64 -8
+  store ptr %add.ptr.i.i.i67, ptr %_M_node5.i.i.i.i, align 8
+  %45 = load ptr, ptr %add.ptr.i.i.i67, align 8
+  store ptr %45, ptr %_M_first3.i.i.i.i, align 8
+  %add.ptr.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %45, i64 504
+  store ptr %add.ptr.i.i.i.i68, ptr %_M_last.i.i.i, align 8
+  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 480
+  store ptr %add.ptr8.i.i.i, ptr %_M_finish.i.i.i, align 8
+  %46 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i7085 = icmp eq ptr %add.ptr8.i.i.i, %46
+  br i1 %cmp.i.i.i7085, label %return, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
+
 if.end109:                                        ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit
-  %cmp.i.i.i73 = icmp eq ptr %storemerge.i.i, %45
-  br i1 %cmp.i.i.i73, label %if.then.i.i.i75, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
+  %47 = icmp eq ptr %incdec.ptr.i.i, %42
+  br i1 %47, label %if.then.i.i.i75, label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
 
 if.then.i.i.i75:                                  ; preds = %if.end109
-  %47 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !18
-  %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %47, i64 -8
-  %48 = load ptr, ptr %add.ptr.i.i.i77, align 8
-  %add.ptr.i.i.i.i78 = getelementptr inbounds nuw i8, ptr %48, i64 504
+  %48 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !18
+  %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %48, i64 -8
+  %49 = load ptr, ptr %add.ptr.i.i.i77, align 8
+  %add.ptr.i.i.i.i78 = getelementptr inbounds nuw i8, ptr %49, i64 504
   br label %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
 
-_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79: ; preds = %if.end109, %if.then.i.i.i75
-  %49 = phi ptr [ %add.ptr.i.i.i.i78, %if.then.i.i.i75 ], [ %storemerge.i.i, %if.end109 ]
-  %child_args112 = getelementptr inbounds i8, ptr %49, i64 -8
-  %50 = load ptr, ptr %child_args112, align 8
-  %cmp113.not = icmp eq ptr %50, null
+_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79: ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread, %if.end109, %if.then.i.i.i75
+  %50 = phi ptr [ %add.ptr.i.i.i.i78, %if.then.i.i.i75 ], [ %incdec.ptr.i.i, %if.end109 ], [ %add.ptr8.i.i.i, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ]
+  %child_args112 = getelementptr inbounds i8, ptr %50, i64 -8
+  %51 = load ptr, ptr %child_args112, align 8
+  %cmp113.not = icmp eq ptr %51, null
   br i1 %cmp113.not, label %if.else121, label %if.then114
 
 if.then114:                                       ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
-  %n117 = getelementptr inbounds i8, ptr %49, i64 -16
-  %51 = load i32, ptr %n117, align 8
-  %idxprom118 = sext i32 %51 to i64
-  %arrayidx119 = getelementptr inbounds i8, ptr %50, i64 %idxprom118
+  %n117 = getelementptr inbounds i8, ptr %50, i64 -16
+  %52 = load i32, ptr %n117, align 8
+  %idxprom118 = sext i32 %52 to i64
+  %arrayidx119 = getelementptr inbounds i8, ptr %51, i64 %idxprom118
   %frombool120 = zext i1 %t.0 to i8
   store i8 %frombool120, ptr %arrayidx119, align 1
   br label %if.end125
 
 if.else121:                                       ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3topEv.exit79
-  %child_arg123 = getelementptr inbounds i8, ptr %49, i64 -10
+  %child_arg123 = getelementptr inbounds i8, ptr %50, i64 -10
   %frombool124 = zext i1 %t.0 to i8
   store i8 %frombool124, ptr %child_arg123, align 2
   br label %if.end125
 
 if.end125:                                        ; preds = %if.else121, %if.then114
-  %n126 = getelementptr inbounds i8, ptr %49, i64 -16
-  %52 = load i32, ptr %n126, align 8
-  %inc127 = add nsw i32 %52, 1
+  %n126 = getelementptr inbounds i8, ptr %50, i64 -16
+  %53 = load i32, ptr %n126, align 8
+  %inc127 = add nsw i32 %53, 1
   store i32 %inc127, ptr %n126, align 8
   br label %for.cond.backedge
 
-return:                                           ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit, %invoke.cont
-  %retval.0 = phi i1 [ %top_arg, %invoke.cont ], [ %t.0, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit ]
+return:                                           ; preds = %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread, %invoke.cont
+  %retval.0 = phi i1 [ %top_arg, %invoke.cont ], [ %t.0, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit.thread ], [ %t.0, %_ZNSt5stackIN3re29WalkStateIbEESt5dequeIS2_SaIS2_EEE3popEv.exit ]
   ret i1 %retval.0
 }
 

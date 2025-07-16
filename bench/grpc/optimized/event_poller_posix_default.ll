@@ -89,11 +89,11 @@ define void @_ZN17grpc_event_engine12experimental17MakeDefaultPollerEPNS0_9Sched
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i8 44, ptr %21, align 8, !tbaa !17, !alias.scope !25
   %22 = icmp eq ptr %14, null
-  br i1 %22, label %23, label %24
+  br i1 %22, label %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit.thread, label %24
 
-23:                                               ; preds = %12
-  store i32 2, ptr %18, align 8, !tbaa !28, !alias.scope !25
-  br label %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit
+_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit.thread: ; preds = %12
+  %23 = load ptr, ptr %0, align 8
+  br label %.critedge
 
 24:                                               ; preds = %12
   %25 = invoke { i64, ptr } @_ZNK4absl12lts_202407226ByChar4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull align 1 dereferenceable(1) %21, i64 %16, ptr nonnull %14, i64 noundef 0)
@@ -113,7 +113,7 @@ define void @_ZN17grpc_event_engine12experimental17MakeDefaultPollerEPNS0_9Sched
 31:                                               ; preds = %30, %.noexc15
   %32 = load i64, ptr %4, align 8, !tbaa !18, !alias.scope !25
   %33 = icmp ugt i64 %32, %16
-  br i1 %33, label %34, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
+  br i1 %33, label %34, label %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit
 
 34:                                               ; preds = %31
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i64 noundef %32, i64 noundef %16) #13
@@ -122,7 +122,7 @@ define void @_ZN17grpc_event_engine12experimental17MakeDefaultPollerEPNS0_9Sched
 .noexc16:                                         ; preds = %34
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %31
+_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit: ; preds = %31
   %35 = ptrtoint ptr %27 to i64
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 %32
   %37 = ptrtoint ptr %36 to i64
@@ -137,18 +137,12 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %.sroa.0.0.copyload.i.i.i1772.pre = load i64, ptr %3, align 8, !tbaa !12, !noalias !30
   %.pre = load i32, ptr %18, align 8, !tbaa !28
   %42 = icmp ne i32 %.pre, 2
-  br label %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit, !llvm.loop !33
-
-_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit: ; preds = %23, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
-  %43 = phi i1 [ %42, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i ], [ false, %23 ]
-  %.sroa.0.0.copyload.i.i.i1772 = phi i64 [ %.sroa.0.0.copyload.i.i.i1772.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i ], [ %16, %23 ]
-  %storemerge.i = phi i64 [ %41, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i ], [ %16, %23 ]
-  store i64 %storemerge.i, ptr %4, align 8, !tbaa !18, !alias.scope !25
-  %44 = icmp ne i64 %storemerge.i, %.sroa.0.0.copyload.i.i.i1772
-  %.not3.i73 = select i1 %43, i1 true, i1 %44
+  %43 = icmp ne i64 %41, %.sroa.0.0.copyload.i.i.i1772.pre
+  %44 = select i1 %42, i1 true, i1 %43
+  store i64 %41, ptr %4, align 8, !tbaa !18, !alias.scope !25
   %45 = load ptr, ptr %0, align 8
   %.not.i1874 = icmp eq ptr %45, null
-  %or.cond75 = select i1 %.not3.i73, i1 %.not.i1874, i1 false
+  %or.cond75 = select i1 %44, i1 %.not.i1874, i1 false
   br i1 %or.cond75, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit
@@ -180,10 +174,10 @@ _ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyE
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %54
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.24.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %55 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %55, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread89
+  br i1 %55, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread93
 
-_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread89: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %.sroa.22.0.copyload91 = load ptr, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !16
+_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread93: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %.sroa.22.0.copyload95 = load ptr, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !16
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i: ; preds = %54
@@ -197,12 +191,12 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
           to label %57 unwind label %104
 
 57:                                               ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit
-  %58 = load ptr, ptr %5, align 8, !tbaa !35
-  %59 = load ptr, ptr %46, align 8, !tbaa !40
+  %58 = load ptr, ptr %5, align 8, !tbaa !33
+  %59 = load ptr, ptr %46, align 8, !tbaa !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr %58, ptr %0, align 8, !tbaa !41
-  %60 = load ptr, ptr %47, align 8, !tbaa !40
-  store ptr %59, ptr %47, align 8, !tbaa !40
+  store ptr %58, ptr %0, align 8, !tbaa !39
+  %60 = load ptr, ptr %47, align 8, !tbaa !38
+  store ptr %59, ptr %47, align 8, !tbaa !38
   %.not.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit, label %61
 
@@ -214,14 +208,14 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
   br i1 %64, label %66, label %74
 
 66:                                               ; preds = %61
-  store i32 0, ptr %62, align 8, !tbaa !43
+  store i32 0, ptr %62, align 8, !tbaa !41
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  store i32 0, ptr %67, align 4, !tbaa !46
-  %68 = load ptr, ptr %60, align 8, !tbaa !47
+  store i32 0, ptr %67, align 4, !tbaa !44
+  %68 = load ptr, ptr %60, align 8, !tbaa !45
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(16) %60) #12
-  %71 = load ptr, ptr %60, align 8, !tbaa !47
+  %71 = load ptr, ptr %60, align 8, !tbaa !45
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(16) %60) #12
@@ -234,7 +228,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
 
 76:                                               ; preds = %74
   %77 = add nsw i32 %65, -1
-  store i32 %77, ptr %62, align 4, !tbaa !49
+  store i32 %77, ptr %62, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 78:                                               ; preds = %74
@@ -244,14 +238,14 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %78, %76
   %.0.i.i.i.i.i.i = phi i32 [ %65, %76 ], [ %79, %78 ]
   %80 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %80, label %81, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit, !prof !50
+  br i1 %80, label %81, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit, !prof !48
 
 81:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #12
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit: ; preds = %57, %66, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %81
-  %82 = load ptr, ptr %46, align 8, !tbaa !40
+  %82 = load ptr, ptr %46, align 8, !tbaa !38
   %.not.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread, label %83
 
@@ -263,14 +257,14 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
   br i1 %86, label %88, label %96
 
 88:                                               ; preds = %83
-  store i32 0, ptr %84, align 8, !tbaa !43
+  store i32 0, ptr %84, align 8, !tbaa !41
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 12
-  store i32 0, ptr %89, align 4, !tbaa !46
-  %90 = load ptr, ptr %82, align 8, !tbaa !47
+  store i32 0, ptr %89, align 4, !tbaa !44
+  %90 = load ptr, ptr %82, align 8, !tbaa !45
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %82) #12
-  %93 = load ptr, ptr %82, align 8, !tbaa !47
+  %93 = load ptr, ptr %82, align 8, !tbaa !45
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef nonnull align 8 dereferenceable(16) %82) #12
@@ -283,7 +277,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
 
 98:                                               ; preds = %96
   %99 = add nsw i32 %87, -1
-  store i32 %99, ptr %84, align 4, !tbaa !49
+  store i32 %99, ptr %84, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 100:                                              ; preds = %96
@@ -293,7 +287,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %100, %98
   %.0.i.i.i.i = phi i32 [ %87, %98 ], [ %101, %100 ]
   %102 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %102, label %103, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread, !prof !50
+  br i1 %102, label %103, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread, !prof !48
 
 103:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %82) #12
@@ -307,7 +301,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %100, %98
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread: ; preds = %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %88, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  %.pre78 = load ptr, ptr %0, align 8, !tbaa !51
+  %.pre78 = load ptr, ptr %0, align 8, !tbaa !49
   %106 = icmp eq ptr %.pre78, null
   br i1 %106, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.threadthread-pre-split, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
 
@@ -323,9 +317,9 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
     i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i20
   ]
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23: ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread89, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread
-  %.sroa.22.0.copyload92 = phi ptr [ %.sroa.22.0.copyload91, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread89 ], [ %.sroa.22.0.copyload, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread ]
-  %bcmp.i.i24 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.22.0.copyload92, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23: ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread93, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread
+  %.sroa.22.0.copyload96 = phi ptr [ %.sroa.22.0.copyload95, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread93 ], [ %.sroa.22.0.copyload, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread ]
+  %bcmp.i.i24 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.22.0.copyload96, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %107 = icmp eq i32 %bcmp.i.i24, 0
   br i1 %107, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit26, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39
 
@@ -340,12 +334,12 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
           to label %109 unwind label %156
 
 109:                                              ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit26
-  %110 = load ptr, ptr %6, align 8, !tbaa !53
-  %111 = load ptr, ptr %48, align 8, !tbaa !40
+  %110 = load ptr, ptr %6, align 8, !tbaa !51
+  %111 = load ptr, ptr %48, align 8, !tbaa !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr %110, ptr %0, align 8, !tbaa !41
-  %112 = load ptr, ptr %47, align 8, !tbaa !40
-  store ptr %111, ptr %47, align 8, !tbaa !40
+  store ptr %110, ptr %0, align 8, !tbaa !39
+  %112 = load ptr, ptr %47, align 8, !tbaa !38
+  store ptr %111, ptr %47, align 8, !tbaa !38
   %.not.i.i.i.i27 = icmp eq ptr %112, null
   br i1 %.not.i.i.i.i27, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit, label %113
 
@@ -357,14 +351,14 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
   br i1 %116, label %118, label %126
 
 118:                                              ; preds = %113
-  store i32 0, ptr %114, align 8, !tbaa !43
+  store i32 0, ptr %114, align 8, !tbaa !41
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  store i32 0, ptr %119, align 4, !tbaa !46
-  %120 = load ptr, ptr %112, align 8, !tbaa !47
+  store i32 0, ptr %119, align 4, !tbaa !44
+  %120 = load ptr, ptr %112, align 8, !tbaa !45
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(16) %112) #12
-  %123 = load ptr, ptr %112, align 8, !tbaa !47
+  %123 = load ptr, ptr %112, align 8, !tbaa !45
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr noundef nonnull align 8 dereferenceable(16) %112) #12
@@ -377,7 +371,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
 
 128:                                              ; preds = %126
   %129 = add nsw i32 %117, -1
-  store i32 %129, ptr %114, align 4, !tbaa !49
+  store i32 %129, ptr %114, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29
 
 130:                                              ; preds = %126
@@ -387,14 +381,14 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29: ; preds = %130, %128
   %.0.i.i.i.i.i.i30 = phi i32 [ %117, %128 ], [ %131, %130 ]
   %132 = icmp eq i32 %.0.i.i.i.i.i.i30, 1
-  br i1 %132, label %133, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit, !prof !50
+  br i1 %132, label %133, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit, !prof !48
 
 133:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #12
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit: ; preds = %109, %118, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29, %133
-  %134 = load ptr, ptr %48, align 8, !tbaa !40
+  %134 = load ptr, ptr %48, align 8, !tbaa !38
   %.not.i.i31 = icmp eq ptr %134, null
   br i1 %.not.i.i31, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %135
 
@@ -406,14 +400,14 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
   br i1 %138, label %140, label %148
 
 140:                                              ; preds = %135
-  store i32 0, ptr %136, align 8, !tbaa !43
+  store i32 0, ptr %136, align 8, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 12
-  store i32 0, ptr %141, align 4, !tbaa !46
-  %142 = load ptr, ptr %134, align 8, !tbaa !47
+  store i32 0, ptr %141, align 4, !tbaa !44
+  %142 = load ptr, ptr %134, align 8, !tbaa !45
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef nonnull align 8 dereferenceable(16) %134) #12
-  %145 = load ptr, ptr %134, align 8, !tbaa !47
+  %145 = load ptr, ptr %134, align 8, !tbaa !45
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
   call void %147(ptr noundef nonnull align 8 dereferenceable(16) %134) #12
@@ -426,7 +420,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
 
 150:                                              ; preds = %148
   %151 = add nsw i32 %139, -1
-  store i32 %151, ptr %136, align 4, !tbaa !49
+  store i32 %151, ptr %136, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33
 
 152:                                              ; preds = %148
@@ -436,7 +430,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33: ; preds = %152, %150
   %.0.i.i.i.i34 = phi i32 [ %139, %150 ], [ %153, %152 ]
   %154 = icmp eq i32 %.0.i.i.i.i34, 1
-  br i1 %154, label %155, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !50
+  br i1 %154, label %155, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !48
 
 155:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %134) #12
@@ -453,7 +447,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx1
   br label %237
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23
-  %bcmp.i.i40 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.22.0.copyload92, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+  %bcmp.i.i40 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.22.0.copyload96, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %158 = icmp eq i32 %bcmp.i.i40, 0
   br i1 %158, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
 
@@ -468,12 +462,12 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
           to label %160 unwind label %207
 
 160:                                              ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42
-  %161 = load ptr, ptr %7, align 8, !tbaa !53
-  %162 = load ptr, ptr %49, align 8, !tbaa !40
+  %161 = load ptr, ptr %7, align 8, !tbaa !51
+  %162 = load ptr, ptr %49, align 8, !tbaa !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr %161, ptr %0, align 8, !tbaa !41
-  %163 = load ptr, ptr %47, align 8, !tbaa !40
-  store ptr %162, ptr %47, align 8, !tbaa !40
+  store ptr %161, ptr %0, align 8, !tbaa !39
+  %163 = load ptr, ptr %47, align 8, !tbaa !38
+  store ptr %162, ptr %47, align 8, !tbaa !38
   %.not.i.i.i.i43 = icmp eq ptr %163, null
   br i1 %.not.i.i.i.i43, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47, label %164
 
@@ -485,14 +479,14 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
   br i1 %167, label %169, label %177
 
 169:                                              ; preds = %164
-  store i32 0, ptr %165, align 8, !tbaa !43
+  store i32 0, ptr %165, align 8, !tbaa !41
   %170 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  store i32 0, ptr %170, align 4, !tbaa !46
-  %171 = load ptr, ptr %163, align 8, !tbaa !47
+  store i32 0, ptr %170, align 4, !tbaa !44
+  %171 = load ptr, ptr %163, align 8, !tbaa !45
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(16) %163) #12
-  %174 = load ptr, ptr %163, align 8, !tbaa !47
+  %174 = load ptr, ptr %163, align 8, !tbaa !45
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %176 = load ptr, ptr %175, align 8
   call void %176(ptr noundef nonnull align 8 dereferenceable(16) %163) #12
@@ -505,7 +499,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
 
 179:                                              ; preds = %177
   %180 = add nsw i32 %168, -1
-  store i32 %180, ptr %165, align 4, !tbaa !49
+  store i32 %180, ptr %165, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45
 
 181:                                              ; preds = %177
@@ -515,14 +509,14 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45: ; preds = %181, %179
   %.0.i.i.i.i.i.i46 = phi i32 [ %168, %179 ], [ %182, %181 ]
   %183 = icmp eq i32 %.0.i.i.i.i.i.i46, 1
-  br i1 %183, label %184, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47, !prof !50
+  br i1 %183, label %184, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47, !prof !48
 
 184:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %163) #12
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47: ; preds = %160, %169, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45, %184
-  %185 = load ptr, ptr %49, align 8, !tbaa !40
+  %185 = load ptr, ptr %49, align 8, !tbaa !38
   %.not.i.i48 = icmp eq ptr %185, null
   br i1 %.not.i.i48, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, label %186
 
@@ -534,14 +528,14 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
   br i1 %189, label %191, label %199
 
 191:                                              ; preds = %186
-  store i32 0, ptr %187, align 8, !tbaa !43
+  store i32 0, ptr %187, align 8, !tbaa !41
   %192 = getelementptr inbounds nuw i8, ptr %185, i64 12
-  store i32 0, ptr %192, align 4, !tbaa !46
-  %193 = load ptr, ptr %185, align 8, !tbaa !47
+  store i32 0, ptr %192, align 4, !tbaa !44
+  %193 = load ptr, ptr %185, align 8, !tbaa !45
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8
   call void %195(ptr noundef nonnull align 8 dereferenceable(16) %185) #12
-  %196 = load ptr, ptr %185, align 8, !tbaa !47
+  %196 = load ptr, ptr %185, align 8, !tbaa !45
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %198 = load ptr, ptr %197, align 8
   call void %198(ptr noundef nonnull align 8 dereferenceable(16) %185) #12
@@ -554,7 +548,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
 
 201:                                              ; preds = %199
   %202 = add nsw i32 %190, -1
-  store i32 %202, ptr %187, align 4, !tbaa !49
+  store i32 %202, ptr %187, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50
 
 203:                                              ; preds = %199
@@ -564,7 +558,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50: ; preds = %203, %201
   %.0.i.i.i.i51 = phi i32 [ %190, %201 ], [ %204, %203 ]
   %205 = icmp eq i32 %.0.i.i.i.i51, 1
-  br i1 %205, label %206, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, !prof !50
+  br i1 %205, label %206, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, !prof !48
 
 206:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #12
@@ -581,21 +575,21 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx1
   br label %237
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread: ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i36, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread, %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
-  %209 = load i32, ptr %18, align 8, !tbaa !28, !noalias !56
+  %209 = load i32, ptr %18, align 8, !tbaa !28, !noalias !54
   %210 = icmp eq i32 %209, 1
   br i1 %210, label %211, label %212
 
 211:                                              ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
-  store i32 2, ptr %18, align 8, !tbaa !28, !noalias !56
+  store i32 2, ptr %18, align 8, !tbaa !28, !noalias !54
   %.pre80 = load i64, ptr %4, align 8
   br label %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit
 
 212:                                              ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
-  %213 = load ptr, ptr %20, align 8, !tbaa !29, !noalias !56
-  %.sroa.0.0.copyload.i.i.i53 = load i64, ptr %213, align 8, !tbaa !12, !noalias !56
+  %213 = load ptr, ptr %20, align 8, !tbaa !29, !noalias !54
+  %.sroa.0.0.copyload.i.i.i53 = load i64, ptr %213, align 8, !tbaa !12, !noalias !54
   %.sroa.2.0..sroa_idx.i.i.i54 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %.sroa.2.0.copyload.i.i.i55 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i54, align 8, !tbaa !16, !noalias !56
-  %214 = load i64, ptr %4, align 8, !tbaa !18, !noalias !56
+  %.sroa.2.0.copyload.i.i.i55 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i54, align 8, !tbaa !16, !noalias !54
+  %214 = load i64, ptr %4, align 8, !tbaa !18, !noalias !54
   %215 = invoke { i64, ptr } @_ZNK4absl12lts_202407226ByChar4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull align 1 dereferenceable(1) %21, i64 %.sroa.0.0.copyload.i.i.i53, ptr %.sroa.2.0.copyload.i.i.i55, i64 noundef %214)
           to label %.noexc56 unwind label %.loopexit
 
@@ -607,11 +601,11 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
   br i1 %219, label %220, label %221
 
 220:                                              ; preds = %.noexc56
-  store i32 1, ptr %18, align 8, !tbaa !28, !noalias !56
+  store i32 1, ptr %18, align 8, !tbaa !28, !noalias !54
   br label %221
 
 221:                                              ; preds = %220, %.noexc56
-  %222 = load i64, ptr %4, align 8, !tbaa !18, !noalias !56
+  %222 = load i64, ptr %4, align 8, !tbaa !18, !noalias !54
   %223 = icmp ugt i64 %222, %.sroa.0.0.copyload.i.i.i53
   br i1 %223, label %224, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
 
@@ -629,14 +623,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %22
   %228 = sub i64 %225, %227
   %229 = sub nuw i64 %.sroa.0.0.copyload.i.i.i53, %222
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %229, i64 %228)
-  store i64 %.sroa.speculated.i.i.i, ptr %19, align 8, !tbaa !12, !noalias !56
-  store ptr %226, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !16, !noalias !56
+  store i64 %.sroa.speculated.i.i.i, ptr %19, align 8, !tbaa !12, !noalias !54
+  store ptr %226, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !16, !noalias !54
   %230 = add i64 %222, %216
   %231 = add i64 %230, %.sroa.speculated.i.i.i
-  store i64 %231, ptr %4, align 8, !tbaa !18, !noalias !56
+  store i64 %231, ptr %4, align 8, !tbaa !18, !noalias !54
   %.pre79 = load i32, ptr %18, align 8, !tbaa !28
   %232 = icmp ne i32 %.pre79, 2
-  br label %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit, !llvm.loop !33
+  br label %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit, !llvm.loop !57
 
 _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %211
   %233 = phi i64 [ %231, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ], [ %.pre80, %211 ]
@@ -664,8 +658,8 @@ _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCha
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
   br label %277
 
-.critedge:                                        ; preds = %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit
-  %238 = phi ptr [ %45, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit ], [ %236, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit ]
+.critedge:                                        ; preds = %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit.thread, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit
+  %238 = phi ptr [ %45, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit ], [ %23, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit.thread ], [ %236, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
   %239 = icmp eq ptr %238, null
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
@@ -673,8 +667,8 @@ _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCha
   store ptr %spec.select.i.i, ptr %8, align 8, !tbaa !62
   %241 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %243 = load ptr, ptr %242, align 8, !tbaa !40
-  store ptr %243, ptr %241, align 8, !tbaa !40
+  %243 = load ptr, ptr %242, align 8, !tbaa !38
+  store ptr %243, ptr %241, align 8, !tbaa !38
   %.not.i.i.i58 = icmp eq ptr %243, null
   br i1 %.not.i.i.i58, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEventPollerEvEERKS_IT_E.exit, label %244
 
@@ -685,9 +679,9 @@ _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCha
   br i1 %.not.i.i.i.i59, label %250, label %247
 
 247:                                              ; preds = %244
-  %248 = load i32, ptr %245, align 4, !tbaa !49
+  %248 = load i32, ptr %245, align 4, !tbaa !47
   %249 = add nsw i32 %248, 1
-  store i32 %249, ptr %245, align 4, !tbaa !49
+  store i32 %249, ptr %245, align 4, !tbaa !47
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEventPollerEvEERKS_IT_E.exit
 
 250:                                              ; preds = %244
@@ -699,7 +693,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEve
           to label %252 unwind label %275
 
 252:                                              ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEventPollerEvEERKS_IT_E.exit
-  %253 = load ptr, ptr %241, align 8, !tbaa !40
+  %253 = load ptr, ptr %241, align 8, !tbaa !38
   %.not.i.i60 = icmp eq ptr %253, null
   br i1 %.not.i.i60, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %254
 
@@ -711,14 +705,14 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEve
   br i1 %257, label %259, label %267
 
 259:                                              ; preds = %254
-  store i32 0, ptr %255, align 8, !tbaa !43
+  store i32 0, ptr %255, align 8, !tbaa !41
   %260 = getelementptr inbounds nuw i8, ptr %253, i64 12
-  store i32 0, ptr %260, align 4, !tbaa !46
-  %261 = load ptr, ptr %253, align 8, !tbaa !47
+  store i32 0, ptr %260, align 4, !tbaa !44
+  %261 = load ptr, ptr %253, align 8, !tbaa !45
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %263 = load ptr, ptr %262, align 8
   call void %263(ptr noundef nonnull align 8 dereferenceable(16) %253) #12
-  %264 = load ptr, ptr %253, align 8, !tbaa !47
+  %264 = load ptr, ptr %253, align 8, !tbaa !45
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %266 = load ptr, ptr %265, align 8
   call void %266(ptr noundef nonnull align 8 dereferenceable(16) %253) #12
@@ -731,7 +725,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEve
 
 269:                                              ; preds = %267
   %270 = add nsw i32 %258, -1
-  store i32 %270, ptr %255, align 4, !tbaa !49
+  store i32 %270, ptr %255, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62
 
 271:                                              ; preds = %267
@@ -741,7 +735,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEve
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62: ; preds = %271, %269
   %.0.i.i.i.i63 = phi i32 [ %258, %269 ], [ %272, %271 ]
   %273 = icmp eq i32 %.0.i.i.i.i63, 1
-  br i1 %273, label %274, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !50
+  br i1 %273, label %274, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !48
 
 274:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %253) #12
@@ -799,7 +793,7 @@ define internal void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_125Poller
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -811,14 +805,14 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !43
+  store i32 0, ptr %5, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !46
-  %11 = load ptr, ptr %3, align 8, !tbaa !47
+  store i32 0, ptr %10, align 4, !tbaa !44
+  %11 = load ptr, ptr %3, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  %14 = load ptr, ptr %3, align 8, !tbaa !47
+  %14 = load ptr, ptr %3, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
@@ -831,7 +825,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !49
+  store i32 %20, ptr %5, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -841,7 +835,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !50
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !48
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
@@ -855,7 +849,7 @@ declare noundef nonnull align 8 dereferenceable(280) ptr @_ZN9grpc_core10ConfigV
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !47
+  %2 = load ptr, ptr %0, align 8, !tbaa !45
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
@@ -865,9 +859,9 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !49
+  %8 = load i32, ptr %5, align 4, !tbaa !47
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !49
+  store i32 %9, ptr %5, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -880,7 +874,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
-  %14 = load ptr, ptr %0, align 8, !tbaa !47
+  %14 = load ptr, ptr %0, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
@@ -907,7 +901,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -919,14 +913,14 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !43
+  store i32 0, ptr %5, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !46
-  %11 = load ptr, ptr %3, align 8, !tbaa !47
+  store i32 0, ptr %10, align 4, !tbaa !44
+  %11 = load ptr, ptr %3, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  %14 = load ptr, ptr %3, align 8, !tbaa !47
+  %14 = load ptr, ptr %3, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
@@ -939,7 +933,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !49
+  store i32 %20, ptr %5, align 4, !tbaa !47
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -949,7 +943,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !50
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !48
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
@@ -1023,35 +1017,35 @@ attributes #13 = { noreturn }
 !30 = !{!31}
 !31 = distinct !{!31, !32, !"_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE3endEv: argument 0:pre.rot"}
 !32 = distinct !{!32, !"_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE3endEv"}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!36, !37, i64 0}
-!36 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental12Epoll1PollerELN9__gnu_cxx12_Lock_policyE2EE", !37, i64 0, !38, i64 8}
-!37 = !{!"p1 _ZTSN17grpc_event_engine12experimental12Epoll1PollerE", !7, i64 0}
-!38 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !39, i64 0}
-!39 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0}
-!40 = !{!38, !39, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTSN17grpc_event_engine12experimental16PosixEventPollerE", !7, i64 0}
-!43 = !{!44, !45, i64 8}
-!44 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !45, i64 8, !45, i64 12}
-!45 = !{!"int", !8, i64 0}
-!46 = !{!44, !45, i64 12}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"vtable pointer", !9, i64 0}
-!49 = !{!45, !45, i64 0}
-!50 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!51 = !{!52, !42, i64 0}
-!52 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerELN9__gnu_cxx12_Lock_policyE2EE", !42, i64 0, !38, i64 8}
-!53 = !{!54, !55, i64 0}
-!54 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EE", !55, i64 0, !38, i64 8}
-!55 = !{!"p1 _ZTSN17grpc_event_engine12experimental10PollPollerE", !7, i64 0}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi: argument 0"}
-!58 = distinct !{!58, !"_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi"}
+!33 = !{!34, !35, i64 0}
+!34 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental12Epoll1PollerELN9__gnu_cxx12_Lock_policyE2EE", !35, i64 0, !36, i64 8}
+!35 = !{!"p1 _ZTSN17grpc_event_engine12experimental12Epoll1PollerE", !7, i64 0}
+!36 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !37, i64 0}
+!37 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !7, i64 0}
+!38 = !{!36, !37, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSN17grpc_event_engine12experimental16PosixEventPollerE", !7, i64 0}
+!41 = !{!42, !43, i64 8}
+!42 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !43, i64 8, !43, i64 12}
+!43 = !{!"int", !8, i64 0}
+!44 = !{!42, !43, i64 12}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"vtable pointer", !9, i64 0}
+!47 = !{!43, !43, i64 0}
+!48 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!49 = !{!50, !40, i64 0}
+!50 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerELN9__gnu_cxx12_Lock_policyE2EE", !40, i64 0, !36, i64 8}
+!51 = !{!52, !53, i64 0}
+!52 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EE", !53, i64 0, !36, i64 8}
+!53 = !{!"p1 _ZTSN17grpc_event_engine12experimental10PollPollerE", !7, i64 0}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi: argument 0"}
+!56 = distinct !{!56, !"_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi"}
+!57 = distinct !{!57, !58}
+!58 = !{!"llvm.loop.mustprogress"}
 !59 = !{!60}
 !60 = distinct !{!60, !32, !"_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE3endEv: argument 0:h.rot"}
-!61 = distinct !{!61, !34}
+!61 = distinct !{!61, !58}
 !62 = !{!63, !64, i64 0}
-!63 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EE", !64, i64 0, !38, i64 8}
+!63 = !{!"_ZTSSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EE", !64, i64 0, !36, i64 8}
 !64 = !{!"p1 _ZTSN17grpc_event_engine12experimental8ForkableE", !7, i64 0}

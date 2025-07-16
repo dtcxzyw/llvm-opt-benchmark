@@ -45797,48 +45797,42 @@ _ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i64, ptr %48, align 8, !alias.scope !14349, !noundef !4
   %50 = icmp ugt i64 %47, %49
-  br i1 %50, label %51, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
+  br i1 %50, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h904d16d1c2443a52E.exit
 
-51:                                               ; preds = %_ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64a6266E.exit
-  %52 = add i64 %46, 71
-  %53 = and i64 %52, -64
-  %54 = shl i64 %49, 1
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 range(i64 0, -63) %53, i64 %54)
+_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit: ; preds = %_ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64a6266E.exit
+  %51 = add i64 %46, 71
+  %52 = and i64 %51, -64
+  %53 = shl i64 %49, 1
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 range(i64 0, -63) %52, i64 %53)
   tail call void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer10reallocate17h308b1f391593e536E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.sroa.speculated.i)
   %.pre = load i64, ptr %45, align 8, !alias.scope !14352
   %.pre1 = load i64, ptr %48, align 8, !alias.scope !14352
   %.pre2 = add i64 %.pre, 8
-  br label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
+  %54 = icmp ugt i64 %.pre2, %.pre1
+  br i1 %54, label %55, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h904d16d1c2443a52E.exit
 
-_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit: ; preds = %_ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64a6266E.exit, %51
-  %.pre-phi = phi i64 [ %47, %_ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64a6266E.exit ], [ %.pre2, %51 ]
-  %55 = phi i64 [ %49, %_ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64a6266E.exit ], [ %.pre1, %51 ]
-  %56 = phi i64 [ %46, %_ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64a6266E.exit ], [ %.pre, %51 ]
-  %57 = icmp ugt i64 %.pre-phi, %55
-  br i1 %57, label %58, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h904d16d1c2443a52E.exit
-
-58:                                               ; preds = %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
-  %59 = add i64 %56, 71
-  %60 = and i64 %59, -64
-  %61 = shl i64 %55, 1
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 range(i64 0, -63) %60, i64 %61)
+55:                                               ; preds = %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
+  %56 = add i64 %.pre, 71
+  %57 = and i64 %56, -64
+  %58 = shl i64 %.pre1, 1
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 range(i64 0, -63) %57, i64 %58)
   tail call void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer10reallocate17h308b1f391593e536E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.sroa.speculated.i.i)
   %.pre.i = load i64, ptr %45, align 8, !alias.scope !14357
   br label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h904d16d1c2443a52E.exit
 
-_ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h904d16d1c2443a52E.exit: ; preds = %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit, %58
-  %62 = phi i64 [ %56, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit ], [ %.pre.i, %58 ]
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %64 = load ptr, ptr %63, align 8, !alias.scope !14357, !nonnull !4, !noundef !4
-  %65 = getelementptr inbounds i8, ptr %64, i64 %62
-  store i64 %1, ptr %65, align 1
-  %66 = load i64, ptr %45, align 8, !alias.scope !14357, !noundef !4
-  %67 = add i64 %66, 8
-  store i64 %67, ptr %45, align 8, !alias.scope !14357
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %69 = load i64, ptr %68, align 8, !noundef !4
-  %70 = add i64 %69, 1
-  store i64 %70, ptr %68, align 8
+_ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h904d16d1c2443a52E.exit: ; preds = %_ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64a6266E.exit, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit, %55
+  %59 = phi i64 [ %.pre, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit ], [ %.pre.i, %55 ], [ %46, %_ZN12arrow_buffer7builder4null17NullBufferBuilder15append_non_null17h72e05cc8d64a6266E.exit ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8, !alias.scope !14357, !nonnull !4, !noundef !4
+  %62 = getelementptr inbounds i8, ptr %61, i64 %59
+  store i64 %1, ptr %62, align 1
+  %63 = load i64, ptr %45, align 8, !alias.scope !14357, !noundef !4
+  %64 = add i64 %63, 8
+  store i64 %64, ptr %45, align 8, !alias.scope !14357
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %66 = load i64, ptr %65, align 8, !noundef !4
+  %67 = add i64 %66, 1
+  store i64 %67, ptr %65, align 8
   ret void
 }
 

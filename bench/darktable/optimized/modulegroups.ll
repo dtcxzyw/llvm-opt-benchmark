@@ -1361,62 +1361,62 @@ switch.lookup:                                    ; preds = %11
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 496
   %56 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.168, ptr noundef nonnull %55) #16
-  br i1 %16, label %57, label %60
+  br i1 %16, label %57, label %61
 
 57:                                               ; preds = %54
   %58 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.169, ptr noundef nonnull %55) #16
   %59 = call i32 @dt_conf_get_int(ptr noundef %58) #16
   call void @g_free(ptr noundef %58) #16
-  br label %60
+  %60 = icmp eq i32 %.06181, %59
+  br label %61
 
-60:                                               ; preds = %54, %57
-  %.1 = phi i32 [ %59, %57 ], [ -1, %54 ]
-  br i1 %9, label %.thread, label %63
+61:                                               ; preds = %54, %57
+  %.1 = phi i1 [ %60, %57 ], [ false, %54 ]
+  br i1 %9, label %.thread, label %64
 
-.thread:                                          ; preds = %60
-  %61 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %56) #17
-  %62 = icmp ne ptr %61, null
-  br label %67
+.thread:                                          ; preds = %61
+  %62 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %56) #17
+  %63 = icmp ne ptr %62, null
+  br label %68
 
-63:                                               ; preds = %60
-  %64 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull %55) #16
-  %65 = call i32 @dt_conf_get_bool(ptr noundef %64) #16
-  call void @g_free(ptr noundef %64) #16
-  %66 = icmp ne i32 %65, 0
-  br label %67
+64:                                               ; preds = %61
+  %65 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull %55) #16
+  %66 = call i32 @dt_conf_get_bool(ptr noundef %65) #16
+  call void @g_free(ptr noundef %65) #16
+  %67 = icmp ne i32 %66, 0
+  br label %68
 
-67:                                               ; preds = %63, %.thread
-  %.058 = phi i1 [ %62, %.thread ], [ %66, %63 ]
-  br i1 %or.cond3, label %68, label %71
+68:                                               ; preds = %64, %.thread
+  %.058 = phi i1 [ %63, %.thread ], [ %67, %64 ]
+  br i1 %or.cond3, label %69, label %72
 
-68:                                               ; preds = %67
-  %69 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %56) #17
-  %70 = icmp ne ptr %69, null
-  br label %76
+69:                                               ; preds = %68
+  %70 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %56) #17
+  %71 = icmp ne ptr %70, null
+  br label %77
 
-71:                                               ; preds = %67
-  br i1 %12, label %72, label %76
+72:                                               ; preds = %68
+  br i1 %12, label %73, label %77
 
-72:                                               ; preds = %71
-  %73 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull %55) #16
-  %74 = call i32 @dt_conf_get_bool(ptr noundef %73) #16
-  call void @g_free(ptr noundef %73) #16
-  %75 = icmp ne i32 %74, 0
-  br label %76
+73:                                               ; preds = %72
+  %74 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull %55) #16
+  %75 = call i32 @dt_conf_get_bool(ptr noundef %74) #16
+  call void @g_free(ptr noundef %74) #16
+  %76 = icmp ne i32 %75, 0
+  br label %77
 
-76:                                               ; preds = %71, %72, %68
-  %.0 = phi i1 [ %70, %68 ], [ %75, %72 ], [ false, %71 ]
+77:                                               ; preds = %72, %73, %69
+  %.0 = phi i1 [ %71, %69 ], [ %76, %73 ], [ false, %72 ]
   %or.cond5 = select i1 %12, i1 %.0, i1 false
-  %77 = icmp eq i32 %.06181, %.1
-  %78 = select i1 %or.cond5, i1 true, i1 %77
+  %78 = select i1 %or.cond5, i1 true, i1 %.1
   %or.cond72 = select i1 %78, i1 %.058, i1 false
   br i1 %or.cond72, label %79, label %80
 
-79:                                               ; preds = %76
+79:                                               ; preds = %77
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %55) #16
   br label %80
 
-80:                                               ; preds = %76, %79
+80:                                               ; preds = %77, %79
   call void @g_free(ptr noundef %56) #16
   br label %81
 

@@ -3424,17 +3424,17 @@ define range(i32 -1, 1) i32 @H5O__flush_msgs(ptr noundef %0, ptr noundef readonl
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %25
-  %.not = icmp eq i64 %26, %29
-  br i1 %.not, label %._crit_edge.thread, label %31
+  %31 = icmp eq i64 %26, %29
+  br i1 %31, label %._crit_edge.thread, label %32
 
-31:                                               ; preds = %._crit_edge
-  %32 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
-  %33 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !10
-  %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__flush_msgs, i32 noundef 2015, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.46) #7
+32:                                               ; preds = %._crit_edge
+  %33 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
+  %34 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !10
+  %35 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__flush_msgs, i32 noundef 2015, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.46) #7
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %9, %21, %31, %._crit_edge, %2
-  %.0 = phi i32 [ -1, %21 ], [ -1, %31 ], [ 0, %._crit_edge ], [ 0, %2 ], [ 0, %9 ]
+._crit_edge.thread:                               ; preds = %9, %21, %32, %._crit_edge, %2
+  %.0 = phi i32 [ -1, %21 ], [ -1, %32 ], [ 0, %._crit_edge ], [ 0, %2 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -3516,13 +3516,13 @@ define range(i32 -1, 1) i32 @H5O_msg_get_flags(ptr noundef %0, i32 noundef %1, p
   br i1 %41, label %.lr.ph, label %.._crit_edge_crit_edge, !llvm.loop !91
 
 .._crit_edge_crit_edge:                           ; preds = %.lr.ph46
+  %42 = icmp eq i64 %31, %40
   br label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge, %.lr.ph.preheader
-  %.021.lcssa = phi ptr [ %39, %.._crit_edge_crit_edge ], [ %33, %.lr.ph.preheader ], [ %39, %.lr.ph ]
-  %.lcssa28 = phi i64 [ %40, %.._crit_edge_crit_edge ], [ 0, %.lr.ph.preheader ], [ %40, %.lr.ph ]
-  %42 = icmp eq i64 %31, %.lcssa28
-  br i1 %42, label %._crit_edge.thread, label %46
+  %.021.lcssa.ph = phi ptr [ %39, %.._crit_edge_crit_edge ], [ %33, %.lr.ph.preheader ], [ %39, %.lr.ph ]
+  %.lcssa28.ph = phi i1 [ %42, %.._crit_edge_crit_edge ], [ false, %.lr.ph.preheader ], [ false, %.lr.ph ]
+  br i1 %.lcssa28.ph, label %._crit_edge.thread, label %46
 
 ._crit_edge.thread:                               ; preds = %29, %._crit_edge
   %43 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -3531,7 +3531,7 @@ define range(i32 -1, 1) i32 @H5O_msg_get_flags(ptr noundef %0, i32 noundef %1, p
   br label %49
 
 46:                                               ; preds = %._crit_edge
-  %47 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 9
+  %47 = getelementptr inbounds nuw i8, ptr %.021.lcssa.ph, i64 9
   %48 = load i8, ptr %47, align 1, !tbaa !47
   store i8 %48, ptr %2, align 1, !tbaa !62
   br label %49

@@ -1750,13 +1750,13 @@ define internal fastcc void @_ZL28cmDependsJava_yy_init_bufferP15yy_buffer_state
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread21, label %19
+  br i1 %.not15.i, label %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, label %19
 
-_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread21: ; preds = %6
+_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread20: ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !53
-  br label %.thread
+  br label %.critedge
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1798,7 +1798,7 @@ _Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %38, align 4, !tbaa !53
   %.not = icmp eq ptr %.pre, null
-  br i1 %.not, label %.thread, label %39
+  br i1 %.not, label %.critedge, label %39
 
 39:                                               ; preds = %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread, %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit
   %40 = phi ptr [ %17, %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread ], [ %.pre, %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit ]
@@ -1806,31 +1806,31 @@ _Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3
   %42 = load i64, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !23
-  %.not17 = icmp eq ptr %0, %44
-  br i1 %.not17, label %47, label %.thread
+  %45 = icmp eq ptr %0, %44
+  br i1 %45, label %48, label %.critedge
 
-.thread:                                          ; preds = %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread21, %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit, %39
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 1, ptr %45, align 4, !tbaa !59
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %46, align 8, !tbaa !60
-  br label %47
+.critedge:                                        ; preds = %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit.thread20, %_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv.exit, %39
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 1, ptr %46, align 4, !tbaa !59
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %47, align 8, !tbaa !60
+  br label %48
 
-47:                                               ; preds = %.thread, %39
+48:                                               ; preds = %.critedge, %39
   %.not18 = icmp eq ptr %1, null
-  br i1 %.not18, label %53, label %48
+  br i1 %.not18, label %54, label %49
 
-48:                                               ; preds = %47
-  %49 = tail call i32 @fileno(ptr noundef nonnull %1) #35
-  %50 = tail call i32 @isatty(i32 noundef %49) #35
-  %51 = icmp sgt i32 %50, 0
-  %52 = zext i1 %51 to i32
-  br label %53
+49:                                               ; preds = %48
+  %50 = tail call i32 @fileno(ptr noundef nonnull %1) #35
+  %51 = tail call i32 @isatty(i32 noundef %50) #35
+  %52 = icmp sgt i32 %51, 0
+  %53 = zext i1 %52 to i32
+  br label %54
 
-53:                                               ; preds = %47, %48
-  %54 = phi i32 [ %52, %48 ], [ 0, %47 ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %54, ptr %55, align 4, !tbaa !61
+54:                                               ; preds = %48, %49
+  %55 = phi i32 [ %53, %49 ], [ 0, %48 ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %55, ptr %56, align 4, !tbaa !61
   store i32 %5, ptr %4, align 4, !tbaa !57
   ret void
 }
@@ -1964,7 +1964,7 @@ define dso_local void @_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv(pt
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %.not14 = icmp eq ptr %5, null
-  br i1 %.not14, label %.thread, label %6
+  br i1 %.not14, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1972,25 +1972,25 @@ define dso_local void @_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv(pt
   %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = icmp eq ptr %0, %10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %6
   store ptr null, ptr %9, align 8, !tbaa !23
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %12, %6
+.critedge:                                        ; preds = %3, %12, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !29
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %18, label %15
 
-15:                                               ; preds = %.thread
+15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   tail call void @free(ptr noundef %17) #35
   br label %18
 
-18:                                               ; preds = %15, %.thread
+18:                                               ; preds = %15, %.critedge
   tail call void @free(ptr noundef nonnull %0) #35
   br label %19
 
@@ -2007,7 +2007,7 @@ define dso_local void @_Z20cmDependsJava_yyfreePvS_(ptr noundef captures(none) %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2028,7 +2028,7 @@ define dso_local void @_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv(ptr
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !21
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %.thread, label %15
+  br i1 %.not15, label %.critedge, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2036,7 +2036,7 @@ define dso_local void @_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv(ptr
   %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -2055,9 +2055,9 @@ define dso_local void @_Z29cmDependsJava_yy_flush_bufferP15yy_buffer_statePv(ptr
   %31 = load i8, ptr %26, align 1, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %31, ptr %32, align 8, !tbaa !36
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %15, %21, %2
+.critedge:                                        ; preds = %15, %21, %3, %2
   ret void
 }
 
@@ -2191,22 +2191,22 @@ define dso_local void @_Z32cmDependsJava_yypop_buffer_statePv(ptr noundef captur
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.critedge26, label %.thread.i
+  br i1 %9, label %.critedge26, label %.critedge.i
 
-.thread.i:                                        ; preds = %4
+.critedge.i:                                      ; preds = %4
   store ptr null, ptr %7, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !29
   %.not15.i = icmp eq i32 %11, 0
   br i1 %.not15.i, label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit, label %12
 
-12:                                               ; preds = %.thread.i
+12:                                               ; preds = %.critedge.i
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   tail call void @free(ptr noundef %14) #35
   br label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit
 
-_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %12
+_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.critedge.i, %12
   tail call void @free(ptr noundef nonnull %8) #35
   %15 = load ptr, ptr %2, align 8, !tbaa !21
   %16 = load i64, ptr %5, align 8, !tbaa !22
@@ -2625,9 +2625,9 @@ define dso_local noundef i32 @_Z27cmDependsJava_yylex_destroyPv(ptr noundef capt
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %4, i64 %.pre
   %.pre30 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
   %5 = icmp eq ptr %.pre30, null
-  br i1 %5, label %.critedge, label %.thread.i
+  br i1 %5, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph.preheader
+.critedge.i:                                      ; preds = %.lr.ph.preheader
   %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.pre
   store ptr null, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %.pre30, i64 32
@@ -2635,13 +2635,13 @@ define dso_local noundef i32 @_Z27cmDependsJava_yylex_destroyPv(ptr noundef capt
   %.not15.i = icmp eq i32 %8, 0
   br i1 %.not15.i, label %_Z32cmDependsJava_yypop_buffer_statePv.exit, label %9
 
-9:                                                ; preds = %.thread.i
+9:                                                ; preds = %.critedge.i
   %10 = getelementptr inbounds nuw i8, ptr %.pre30, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   tail call void @free(ptr noundef %11) #35
   br label %_Z32cmDependsJava_yypop_buffer_statePv.exit
 
-_Z32cmDependsJava_yypop_buffer_statePv.exit:      ; preds = %.thread.i, %9
+_Z32cmDependsJava_yypop_buffer_statePv.exit:      ; preds = %.critedge.i, %9
   tail call void @free(ptr noundef nonnull %.pre30) #35
   %12 = load ptr, ptr %3, align 8, !tbaa !21
   %13 = load i64, ptr %2, align 8, !tbaa !22

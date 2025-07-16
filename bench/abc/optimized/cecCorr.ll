@@ -3038,10 +3038,10 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %30, %3
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 2)
   br label %.outer
 
-.outer:                                           ; preds = %Cec_ManLoadCounterExamplesTry.exit.thread, %Vec_PtrCleanSimInfo.exit
-  %.val43105 = phi ptr [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.thread ], [ %14, %Vec_PtrCleanSimInfo.exit ]
-  %.pre.i101 = phi ptr [ %.pre.i102, %Cec_ManLoadCounterExamplesTry.exit.thread ], [ %14, %Vec_PtrCleanSimInfo.exit ]
-  %.033.ph = phi i32 [ %48, %Cec_ManLoadCounterExamplesTry.exit.thread ], [ %2, %Vec_PtrCleanSimInfo.exit ]
+.outer:                                           ; preds = %.outer.backedge, %Vec_PtrCleanSimInfo.exit
+  %.val43105 = phi ptr [ %14, %Vec_PtrCleanSimInfo.exit ], [ %.val43, %.outer.backedge ]
+  %.pre.i101 = phi ptr [ %14, %Vec_PtrCleanSimInfo.exit ], [ %.pre.i101.be, %.outer.backedge ]
+  %.033.ph = phi i32 [ %2, %Vec_PtrCleanSimInfo.exit ], [ %48, %.outer.backedge ]
   %.val37 = load i32, ptr %33, align 4, !tbaa !31
   %37 = sext i32 %.033.ph to i64
   %38 = sext i32 %.val37 to i64
@@ -3051,7 +3051,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %30, %3
   %indvars.iv92.in = phi i32 [ %.033.ph, %.outer ], [ %indvars.iv92, %41 ]
   %indvars.iv = phi i64 [ %37, %.outer ], [ %indvars.iv.next, %41 ]
   %40 = icmp slt i64 %indvars.iv, %38
-  br i1 %40, label %41, label %.loopexit.loopexit
+  br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %39
   %indvars.iv92 = add i32 %indvars.iv92.in, 2
@@ -3070,13 +3070,13 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %30, %3
 
 .preheader:                                       ; preds = %Vec_IntPush.exit
   %48 = trunc nsw i64 %indvars.iv.next96 to i32
-  br i1 %35, label %.lr.ph, label %Cec_ManLoadCounterExamplesTry.exit.thread
+  br i1 %35, label %.lr.ph, label %.outer.backedge
 
 .lr.ph:                                           ; preds = %.preheader
   %.val = load i32, ptr %13, align 4, !tbaa !31
   %49 = icmp sgt i32 %.val, 0
   %wide.trip.count.i48 = zext nneg i32 %.val to i64
-  br i1 %49, label %.lr.ph.i47.us, label %Cec_ManLoadCounterExamplesTry.exit.thread
+  br i1 %49, label %.lr.ph.i47.us, label %.outer.backedge
 
 .lr.ph.i47.us:                                    ; preds = %.lr.ph, %Cec_ManLoadCounterExamplesTry.exit.us
   %.13569.us = phi i32 [ %73, %Cec_ManLoadCounterExamplesTry.exit.us ], [ 1, %.lr.ph ]
@@ -3115,7 +3115,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %30, %3
 Cec_ManLoadCounterExamplesTry.exit.us:            ; preds = %64
   %73 = add nuw nsw i32 %.13569.us, 1
   %exitcond100.not = icmp eq i32 %73, %smax
-  br i1 %exitcond100.not, label %Cec_ManLoadCounterExamplesTry.exit.thread, label %.lr.ph.i47.us, !llvm.loop !75
+  br i1 %exitcond100.not, label %.outer.backedge, label %.lr.ph.i47.us, !llvm.loop !75
 
 74:                                               ; preds = %64, %54
   %indvars.iv.next.i50.us = add nuw nsw i64 %indvars.iv.i49.us, 1
@@ -3172,15 +3172,15 @@ Cec_ManLoadCounterExamplesTry.exit.us:            ; preds = %64
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %93, %95, %85, %87
-  %.sink121 = phi ptr [ %86, %85 ], [ %88, %87 ], [ %94, %93 ], [ %96, %95 ]
+  %.sink124 = phi ptr [ %86, %85 ], [ %88, %87 ], [ %94, %93 ], [ %96, %95 ]
   %.sink = phi i32 [ 16, %85 ], [ 16, %87 ], [ %90, %93 ], [ %90, %95 ]
-  store ptr %.sink121, ptr %15, align 8, !tbaa !29
+  store ptr %.sink124, ptr %15, align 8, !tbaa !29
   store i32 %.sink, ptr %12, align 8, !tbaa !28
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %75
-  %.val43 = phi ptr [ %.val43106, %75 ], [ %.sink121, %Vec_IntPush.exit.sink.split ]
-  %.pre.i104 = phi ptr [ %76, %75 ], [ %.sink121, %Vec_IntPush.exit.sink.split ]
+  %.val43 = phi ptr [ %.val43106, %75 ], [ %.sink124, %Vec_IntPush.exit.sink.split ]
+  %.pre.i104 = phi ptr [ %76, %75 ], [ %.sink124, %Vec_IntPush.exit.sink.split ]
   %97 = add nsw i32 %79, 1
   store i32 %97, ptr %13, align 4, !tbaa !31
   %98 = sext i32 %79 to i64
@@ -3221,39 +3221,40 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 122:                                              ; preds = %120, %101
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count.i48
-  br i1 %exitcond47.not.i, label %Cec_ManLoadCounterExamplesTry.exit.thread, label %101, !llvm.loop !71
+  br i1 %exitcond47.not.i, label %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit, label %101, !llvm.loop !71
 
-Cec_ManLoadCounterExamplesTry.exit.thread:        ; preds = %Cec_ManLoadCounterExamplesTry.exit.us, %122, %.preheader, %.lr.ph
-  %.pre.i102 = phi ptr [ %.pre.i104, %.preheader ], [ %.val43, %.lr.ph ], [ %.val43, %122 ], [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.us ]
-  %.13563 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.13569.us, %122 ], [ %smax, %Cec_ManLoadCounterExamplesTry.exit.us ]
-  %123 = icmp eq i32 %.13563, %36
-  br i1 %123, label %.loopexit, label %.outer, !llvm.loop !74
+Cec_ManLoadCounterExamplesTry.exit.thread.loopexit: ; preds = %122
+  %123 = icmp eq i32 %.13569.us, %36
+  br i1 %123, label %.loopexit.thread, label %.outer.backedge
 
-.loopexit.loopexit:                               ; preds = %39
+.outer.backedge:                                  ; preds = %Cec_ManLoadCounterExamplesTry.exit.us, %.lr.ph, %.preheader, %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit
+  %.pre.i101.be = phi ptr [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit ], [ %.pre.i104, %.preheader ], [ %.val43, %.lr.ph ], [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.us ]
+  br label %.outer, !llvm.loop !74
+
+.loopexit:                                        ; preds = %39
   %124 = trunc nsw i64 %indvars.iv to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %Cec_ManLoadCounterExamplesTry.exit.thread, %.loopexit.loopexit
-  %125 = phi ptr [ %.val43105, %.loopexit.loopexit ], [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.thread ]
-  %.1 = phi i32 [ %124, %.loopexit.loopexit ], [ %48, %Cec_ManLoadCounterExamplesTry.exit.thread ]
   %.not.i53 = icmp eq ptr %22, null
-  br i1 %.not.i53, label %Vec_PtrFree.exit, label %126
+  br i1 %.not.i53, label %Vec_PtrFree.exit, label %.loopexit.thread
 
-126:                                              ; preds = %.loopexit
+.loopexit.thread:                                 ; preds = %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit, %.loopexit
+  %.1110 = phi i32 [ %124, %.loopexit ], [ %48, %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit ]
+  %125 = phi ptr [ %.val43105, %.loopexit ], [ %.val43, %Cec_ManLoadCounterExamplesTry.exit.thread.loopexit ]
   tail call void @free(ptr noundef nonnull %22) #23
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.loopexit, %126
-  %.not.i54 = icmp eq ptr %125, null
+Vec_PtrFree.exit:                                 ; preds = %.loopexit, %.loopexit.thread
+  %.1111 = phi i32 [ %124, %.loopexit ], [ %.1110, %.loopexit.thread ]
+  %126 = phi ptr [ %.val43105, %.loopexit ], [ %125, %.loopexit.thread ]
+  %.not.i54 = icmp eq ptr %126, null
   br i1 %.not.i54, label %Vec_IntFree.exit, label %127
 
 127:                                              ; preds = %Vec_PtrFree.exit
-  tail call void @free(ptr noundef nonnull %125) #23
+  tail call void @free(ptr noundef nonnull %126) #23
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %127
   tail call void @free(ptr noundef nonnull %12) #23
-  ret i32 %.1
+  ret i32 %.1111
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

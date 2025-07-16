@@ -2166,14 +2166,14 @@ define internal noundef i64 @rb_inflate_initialize(i32 noundef %0, ptr noundef r
   %.not15 = icmp eq i32 %0, 0
   br i1 %.not15, label %rb_scan_args_set.exit.thread, label %.split.us
 
-.split.us:                                        ; preds = %.preheader.split.split
-  %5 = load i64, ptr %1, align 8, !tbaa !6
-  %6 = icmp eq i32 %0, 1
-  br i1 %6, label %rb_scan_args_set.exit, label %8
-
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @zstream_data_type) #18
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @zstream_data_type) #18
   br label %14
+
+.split.us:                                        ; preds = %.preheader.split.split
+  %6 = load i64, ptr %1, align 8, !tbaa !6
+  %7 = icmp eq i32 %0, 1
+  br i1 %7, label %rb_scan_args_set.exit, label %8
 
 8:                                                ; preds = %.split.us, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #19
@@ -2181,16 +2181,16 @@ rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.sp
 
 rb_scan_args_set.exit:                            ; preds = %.split.us
   %9 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @zstream_data_type) #18
-  %10 = icmp eq i64 %5, 4
+  %10 = icmp eq i64 %6, 4
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %rb_scan_args_set.exit
-  %12 = tail call i64 @rb_fix2int(i64 noundef %5) #18
+  %12 = tail call i64 @rb_fix2int(i64 noundef %6) #18
   %13 = trunc i64 %12 to i32
   br label %14
 
 14:                                               ; preds = %rb_scan_args_set.exit.thread, %rb_scan_args_set.exit, %11
-  %15 = phi ptr [ %9, %11 ], [ %9, %rb_scan_args_set.exit ], [ %7, %rb_scan_args_set.exit.thread ]
+  %15 = phi ptr [ %9, %11 ], [ %9, %rb_scan_args_set.exit ], [ %5, %rb_scan_args_set.exit.thread ]
   %16 = phi i32 [ %13, %11 ], [ 15, %rb_scan_args_set.exit ], [ 15, %rb_scan_args_set.exit.thread ]
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = tail call i32 @inflateInit2_(ptr noundef nonnull %17, i32 noundef %16, ptr noundef nonnull @.str.20, i32 noundef 112) #18
@@ -4660,24 +4660,24 @@ define internal i64 @rb_gzreader_readpartial(i32 noundef %0, ptr noundef readonl
 .preheader:                                       ; preds = %9
   %11 = load i64, ptr %1, align 8, !tbaa !6
   %.not16 = icmp eq i32 %0, 1
-  br i1 %.not16, label %15, label %12
+  br i1 %.not16, label %16, label %12
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !6
-  br label %15
+  %15 = icmp eq i32 %0, 2
+  br label %16
 
-15:                                               ; preds = %.preheader, %12
-  %16 = phi i64 [ %14, %12 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %12 ], [ 1, %.preheader ]
-  %17 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %17, label %rb_scan_args_set.exit, label %18
+16:                                               ; preds = %.preheader, %12
+  %17 = phi i64 [ %14, %12 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i1 [ %15, %12 ], [ true, %.preheader ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %18
 
-18:                                               ; preds = %15, %9
+18:                                               ; preds = %16, %9
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #19
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %15
+rb_scan_args_set.exit:                            ; preds = %16
   %19 = and i64 %11, 1
   %.not.i7 = icmp eq i64 %19, 0
   br i1 %.not.i7, label %22, label %20
@@ -4704,25 +4704,25 @@ rb_num2int_inline.exit:                           ; preds = %20, %22
   unreachable
 
 28:                                               ; preds = %rb_num2int_inline.exit
-  %29 = icmp eq i64 %16, 4
+  %29 = icmp eq i64 %17, 4
   br i1 %29, label %Check_Type.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp eq i64 %16, 0
-  %32 = and i64 %16, 7
+  %31 = icmp eq i64 %17, 0
+  %32 = and i64 %17, 7
   %33 = icmp ne i64 %32, 0
   %34 = or i1 %31, %33
   br i1 %34, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !157
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %30
-  %35 = inttoptr i64 %16 to ptr
+  %35 = inttoptr i64 %17 to ptr
   %36 = load i64, ptr %35, align 8, !tbaa !16
   %37 = and i64 %36, 31
   %38 = icmp eq i64 %37, 5
   br i1 %38, label %Check_Type.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !158
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %30
-  tail call void @rb_unexpected_type(i64 noundef %16, i32 noundef 5) #21
+  tail call void @rb_unexpected_type(i64 noundef %17, i32 noundef 5) #21
   unreachable
 
 Check_Type.exit:                                  ; preds = %28
@@ -4748,7 +4748,7 @@ Check_Type.exit.thread:                           ; preds = %rbimpl_RB_TYPE_P_fa
   br label %gzfile_readpartial.exit
 
 46:                                               ; preds = %Check_Type.exit.thread
-  %47 = tail call i64 @rb_str_resize(i64 noundef %16, i64 noundef 0) #18
+  %47 = tail call i64 @rb_str_resize(i64 noundef %17, i64 noundef 0) #18
   br label %gzfile_readpartial.exit
 
 48:                                               ; preds = %.critedge29.i, %.lr.ph.i
@@ -4764,7 +4764,7 @@ Check_Type.exit.thread:                           ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %55, label %.critedge29.i, label %.critedge.thread.i
 
 .critedge29.i:                                    ; preds = %51, %48
-  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %4, i64 noundef %16)
+  tail call fastcc void @gzfile_read_more(ptr noundef nonnull %4, i64 noundef %17)
   %56 = load i64, ptr %4, align 8, !tbaa !113
   %57 = and i64 %56, 4
   %.not.i10 = icmp eq i64 %57, 0
@@ -4790,14 +4790,14 @@ Check_Type.exit.thread:                           ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %.not27.i, label %67, label %68
 
 67:                                               ; preds = %.critedge31.i
-  tail call fastcc void @gzfile_check_footer(ptr noundef nonnull %4, i64 noundef %16)
+  tail call fastcc void @gzfile_check_footer(ptr noundef nonnull %4, i64 noundef %17)
   br label %68
 
 68:                                               ; preds = %67, %.critedge31.i
   br i1 %29, label %71, label %69
 
 69:                                               ; preds = %68
-  %70 = tail call i64 @rb_str_resize(i64 noundef %16, i64 noundef 0) #18
+  %70 = tail call i64 @rb_str_resize(i64 noundef %17, i64 noundef 0) #18
   br label %71
 
 71:                                               ; preds = %69, %68
@@ -4806,7 +4806,7 @@ Check_Type.exit.thread:                           ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 .critedge.thread.i:                               ; preds = %51, %61
-  %73 = tail call fastcc i64 @zstream_shift_buffer(ptr noundef nonnull %4, i64 noundef range(i64 0, -9223372036854775808) %24, i64 noundef %16)
+  %73 = tail call fastcc i64 @zstream_shift_buffer(ptr noundef nonnull %4, i64 noundef range(i64 0, -9223372036854775808) %24, i64 noundef %17)
   %74 = inttoptr i64 %73 to ptr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !21
@@ -4847,7 +4847,7 @@ gzfile_calc_crc.exit.i:                           ; preds = %RSTRING_PTR.exit.i.
   br label %gzfile_readpartial.exit
 
 gzfile_readpartial.exit:                          ; preds = %44, %46, %gzfile_calc_crc.exit.i
-  %.0.i9 = phi i64 [ %45, %44 ], [ %16, %46 ], [ %73, %gzfile_calc_crc.exit.i ]
+  %.0.i9 = phi i64 [ %45, %44 ], [ %17, %46 ], [ %73, %gzfile_calc_crc.exit.i ]
   ret i64 %.0.i9
 }
 
@@ -9602,67 +9602,67 @@ define internal fastcc i64 @gzfile_read(ptr noundef %0, i64 noundef %1, i64 noun
 
 7:                                                ; preds = %3
   %8 = icmp eq i64 %1, 0
-  br i1 %8, label %.thread24, label %.preheader.i
+  br i1 %8, label %.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7
   %9 = load i64, ptr %0, align 8, !tbaa !113
   %10 = and i64 %9, 4
-  %.not28.i = icmp eq i64 %10, 0
-  br i1 %.not28.i, label %.lr.ph.i, label %.critedge.i
+  %.not31.i = icmp eq i64 %10, 0
+  br i1 %.not31.i, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
-12:                                               ; preds = %19, %.lr.ph.i
+12:                                               ; preds = %.critedge25.i, %.lr.ph.i
   %13 = load i64, ptr %11, align 8, !tbaa !132
   %14 = icmp eq i64 %13, 4
-  br i1 %14, label %19, label %.thread
+  br i1 %14, label %.critedge25.i, label %15
 
-.thread:                                          ; preds = %12
-  %15 = inttoptr i64 %13 to ptr
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !21
-  %18 = icmp slt i64 %17, %1
-  br i1 %18, label %19, label %gzfile_fill.exit
+15:                                               ; preds = %12
+  %16 = inttoptr i64 %13 to ptr
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i64, ptr %17, align 8, !tbaa !21
+  %19 = icmp slt i64 %18, %1
+  br i1 %19, label %.critedge25.i, label %gzfile_fill.exit
 
-19:                                               ; preds = %12, %.thread
+.critedge25.i:                                    ; preds = %15, %12
   tail call fastcc void @gzfile_read_more(ptr noundef nonnull %0, i64 noundef %2)
   %20 = load i64, ptr %0, align 8, !tbaa !113
   %21 = and i64 %20, 4
   %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %12, label %.critedge.i, !llvm.loop !299
 
-.critedge.i:                                      ; preds = %19, %.preheader.i
-  %.lcssa.i = phi i64 [ %9, %.preheader.i ], [ %20, %19 ]
+.critedge.i:                                      ; preds = %.critedge25.i, %.preheader.i
+  %.lcssa.i = phi i64 [ %9, %.preheader.i ], [ %20, %.critedge25.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !132
   %24 = icmp eq i64 %23, 4
-  br i1 %24, label %.critedge25.i, label %25
+  br i1 %24, label %.critedge27.i, label %25
 
 25:                                               ; preds = %.critedge.i
   %26 = inttoptr i64 %23 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !21
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.critedge25.i, label %gzfile_fill.exit
+  br i1 %29, label %.critedge27.i, label %gzfile_fill.exit
 
-.critedge25.i:                                    ; preds = %25, %.critedge.i
+.critedge27.i:                                    ; preds = %25, %.critedge.i
   %30 = and i64 %.lcssa.i, 512
   %.not23.i = icmp eq i64 %30, 0
   br i1 %.not23.i, label %31, label %gzfile_fill.exit.thread
 
-31:                                               ; preds = %.critedge25.i
+31:                                               ; preds = %.critedge27.i
   tail call fastcc void @gzfile_check_footer(ptr noundef nonnull %0, i64 noundef %2)
   br label %gzfile_fill.exit.thread
 
-gzfile_fill.exit:                                 ; preds = %.thread, %25
-  %32 = phi i64 [ %28, %25 ], [ %17, %.thread ]
+gzfile_fill.exit:                                 ; preds = %15, %25
+  %32 = phi i64 [ %28, %25 ], [ %18, %15 ]
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %1, i64 %32)
   %33 = icmp slt i64 %32, 0
   br i1 %33, label %gzfile_fill.exit.thread, label %37
 
-gzfile_fill.exit.thread:                          ; preds = %.critedge25.i, %31, %gzfile_fill.exit
+gzfile_fill.exit.thread:                          ; preds = %.critedge27.i, %31, %gzfile_fill.exit
   %34 = icmp eq i64 %2, 4
   br i1 %34, label %66, label %35
 
@@ -9672,17 +9672,17 @@ gzfile_fill.exit.thread:                          ; preds = %.critedge25.i, %31,
 
 37:                                               ; preds = %gzfile_fill.exit
   %38 = icmp eq i64 %32, 0
-  br i1 %38, label %.thread24, label %44
+  br i1 %38, label %.thread, label %44
 
-.thread24:                                        ; preds = %7, %37
+.thread:                                          ; preds = %7, %37
   %39 = icmp eq i64 %2, 4
   br i1 %39, label %40, label %42
 
-40:                                               ; preds = %.thread24
+40:                                               ; preds = %.thread
   %41 = tail call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #18
   br label %66
 
-42:                                               ; preds = %.thread24
+42:                                               ; preds = %.thread
   %43 = tail call i64 @rb_str_resize(i64 noundef %2, i64 noundef 0) #18
   br label %66
 
@@ -10058,8 +10058,8 @@ get_gzfile.exit:                                  ; preds = %3
 .preheader:                                       ; preds = %15
   %17 = load i64, ptr %1, align 8, !tbaa !6
   store i64 %17, ptr %4, align 8, !tbaa !6
-  %.not212 = icmp eq i32 %0, 1
-  br i1 %.not212, label %rb_scan_args_set.exit.thread, label %18
+  %.not210 = icmp eq i32 %0, 1
+  br i1 %.not210, label %rb_scan_args_set.exit.thread, label %18
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10077,9 +10077,9 @@ rb_scan_args_set.exit:                            ; preds = %18
 
 24:                                               ; preds = %rb_scan_args_set.exit
   %25 = icmp eq i64 %17, 4
-  br i1 %25, label %.thread169, label %thread-pre-split.thread225
+  br i1 %25, label %.thread169, label %thread-pre-split.thread222
 
-thread-pre-split.thread225:                       ; preds = %24
+thread-pre-split.thread222:                       ; preds = %24
   %26 = call i64 @rb_string_value(ptr noundef nonnull %4) #18
   br label %.thread169
 
@@ -10090,9 +10090,9 @@ rb_scan_args_set.exit.thread:                     ; preds = %.preheader, %rb_sca
 28:                                               ; preds = %rb_scan_args_set.exit.thread
   %29 = tail call i64 @rb_check_string_type(i64 noundef %17) #18
   %30 = icmp eq i64 %29, 4
-  br i1 %30, label %thread-pre-split, label %.thread227
+  br i1 %30, label %thread-pre-split, label %.thread224
 
-.thread227:                                       ; preds = %28
+.thread224:                                       ; preds = %28
   store i64 %29, ptr %4, align 8, !tbaa !6
   br label %134
 
@@ -10101,10 +10101,10 @@ thread-pre-split:                                 ; preds = %28
   %32 = load i64, ptr @rb_rs, align 8, !tbaa !6
   store i64 %32, ptr %4, align 8, !tbaa !6
   %33 = icmp eq i64 %31, 4
-  br i1 %33, label %.thread231, label %.thread169
+  br i1 %33, label %.thread228, label %.thread169
 
-.thread169:                                       ; preds = %thread-pre-split.thread225, %24, %thread-pre-split
-  %34 = phi i64 [ %31, %thread-pre-split ], [ %20, %24 ], [ %20, %thread-pre-split.thread225 ]
+.thread169:                                       ; preds = %thread-pre-split.thread222, %24, %thread-pre-split
+  %34 = phi i64 [ %31, %thread-pre-split ], [ %20, %24 ], [ %20, %thread-pre-split.thread222 ]
   %35 = and i64 %34, 1
   %.not.i143 = icmp eq i64 %35, 0
   br i1 %.not.i143, label %38, label %36
@@ -10131,7 +10131,7 @@ rb_num2long_inline.exit:                          ; preds = %36, %38
   %44 = icmp eq i64 %.pr174.pr.pr, 4
   br i1 %44, label %48, label %134
 
-.thread231:                                       ; preds = %thread-pre-split
+.thread228:                                       ; preds = %thread-pre-split
   %45 = icmp eq i64 %32, 4
   br i1 %45, label %.thread179, label %134
 
@@ -10145,7 +10145,7 @@ rb_num2long_inline.exit:                          ; preds = %36, %38
   %49 = icmp slt i64 %.0.i144, 0
   br i1 %49, label %.thread179, label %.preheader.i
 
-.thread179:                                       ; preds = %.thread231, %rb_scan_args_set.exit.thread, %.thread175, %48
+.thread179:                                       ; preds = %.thread228, %rb_scan_args_set.exit.thread, %.thread175, %48
   %50 = call fastcc i64 @gzfile_read_all(ptr noundef nonnull %6, i64 noundef 4)
   %51 = inttoptr i64 %50 to ptr
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -10156,59 +10156,59 @@ rb_num2long_inline.exit:                          ; preds = %36, %38
 .preheader.i:                                     ; preds = %48
   %55 = load i64, ptr %6, align 8, !tbaa !113
   %56 = and i64 %55, 4
-  %.not28.i = icmp eq i64 %56, 0
-  br i1 %.not28.i, label %.lr.ph.i, label %.critedge.i
+  %.not31.i = icmp eq i64 %56, 0
+  br i1 %.not31.i, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %58
 
-58:                                               ; preds = %66, %.lr.ph.i
-  %59 = phi i64 [ %67, %66 ], [ %55, %.lr.ph.i ]
+58:                                               ; preds = %.critedge25.i, %.lr.ph.i
+  %59 = phi i64 [ %67, %.critedge25.i ], [ %55, %.lr.ph.i ]
   %60 = load i64, ptr %57, align 8, !tbaa !132
   %61 = icmp eq i64 %60, 4
-  br i1 %61, label %66, label %.thread181
+  br i1 %61, label %.critedge25.i, label %62
 
-.thread181:                                       ; preds = %58
-  %62 = inttoptr i64 %60 to ptr
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load i64, ptr %63, align 8, !tbaa !21
-  %65 = icmp slt i64 %64, %.0.i144
-  br i1 %65, label %66, label %gzfile_fill.exit
+62:                                               ; preds = %58
+  %63 = inttoptr i64 %60 to ptr
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load i64, ptr %64, align 8, !tbaa !21
+  %66 = icmp slt i64 %65, %.0.i144
+  br i1 %66, label %.critedge25.i, label %gzfile_fill.exit
 
-66:                                               ; preds = %58, %.thread181
+.critedge25.i:                                    ; preds = %62, %58
   call fastcc void @gzfile_read_more(ptr noundef nonnull %6, i64 noundef 4)
   %67 = load i64, ptr %6, align 8, !tbaa !113
   %68 = and i64 %67, 4
   %.not.i147 = icmp eq i64 %68, 0
   br i1 %.not.i147, label %58, label %.critedge.i, !llvm.loop !299
 
-.critedge.i:                                      ; preds = %66, %.preheader.i
-  %.lcssa.i = phi i64 [ %55, %.preheader.i ], [ %67, %66 ]
+.critedge.i:                                      ; preds = %.critedge25.i, %.preheader.i
+  %.lcssa.i = phi i64 [ %55, %.preheader.i ], [ %67, %.critedge25.i ]
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !132
   %71 = icmp eq i64 %70, 4
-  br i1 %71, label %.critedge25.i, label %72
+  br i1 %71, label %.critedge27.i, label %72
 
 72:                                               ; preds = %.critedge.i
   %73 = inttoptr i64 %70 to ptr
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !21
   %76 = icmp eq i64 %75, 0
-  br i1 %76, label %.critedge25.i, label %gzfile_fill.exit
+  br i1 %76, label %.critedge27.i, label %gzfile_fill.exit
 
-.critedge25.i:                                    ; preds = %72, %.critedge.i
+.critedge27.i:                                    ; preds = %72, %.critedge.i
   %77 = and i64 %.lcssa.i, 512
   %.not23.i = icmp eq i64 %77, 0
   br i1 %.not23.i, label %78, label %gzfile_newstr.exit168
 
-78:                                               ; preds = %.critedge25.i
+78:                                               ; preds = %.critedge27.i
   call fastcc void @gzfile_check_footer(ptr noundef nonnull %6, i64 noundef 4)
   br label %gzfile_newstr.exit168
 
-gzfile_fill.exit:                                 ; preds = %.thread181, %72
-  %79 = phi i64 [ %.lcssa.i, %72 ], [ %59, %.thread181 ]
-  %80 = phi i64 [ %75, %72 ], [ %64, %.thread181 ]
+gzfile_fill.exit:                                 ; preds = %62, %72
+  %79 = phi i64 [ %.lcssa.i, %72 ], [ %59, %62 ]
+  %80 = phi i64 [ %75, %72 ], [ %65, %62 ]
   %spec.select.i145 = call i64 @llvm.smin.i64(i64 %.0.i144, i64 %80)
   %81 = icmp slt i64 %spec.select.i145, 1
   br i1 %81, label %gzfile_newstr.exit168, label %82
@@ -10223,8 +10223,8 @@ gzfile_fill.exit:                                 ; preds = %.thread181, %72
   %85 = and i64 %79, 4
   %.not134 = icmp ne i64 %85, 0
   %86 = icmp eq i64 %80, 0
-  %or.cond243 = and i1 %.not134, %86
-  br i1 %or.cond243, label %.critedge, label %87
+  %or.cond240 = and i1 %.not134, %86
+  br i1 %or.cond240, label %.critedge, label %87
 
 87:                                               ; preds = %84
   %88 = call fastcc i64 @gzreader_charboundary(ptr noundef nonnull %6, i64 noundef %spec.select.i145)
@@ -10318,9 +10318,9 @@ gzfile_newstr.exit:                               ; preds = %124, %120, %112, %.
   store i32 %133, ptr %131, align 4, !tbaa !124
   br label %gzfile_newstr.exit168
 
-134:                                              ; preds = %.thread231, %.thread227, %.thread175, %43
-  %.0113178 = phi i64 [ -1, %.thread175 ], [ %.0.i144, %43 ], [ -1, %.thread227 ], [ -1, %.thread231 ]
-  %135 = phi i64 [ %46, %.thread175 ], [ %.pr174.pr.pr, %43 ], [ %29, %.thread227 ], [ %32, %.thread231 ]
+134:                                              ; preds = %.thread228, %.thread224, %.thread175, %43
+  %.0113178 = phi i64 [ -1, %.thread175 ], [ %.0.i144, %43 ], [ -1, %.thread224 ], [ -1, %.thread228 ]
+  %135 = phi i64 [ %46, %.thread175 ], [ %.pr174.pr.pr, %43 ], [ %29, %.thread224 ], [ %32, %.thread228 ]
   %136 = inttoptr i64 %135 to ptr
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load i64, ptr %137, align 8, !tbaa !21
@@ -10343,8 +10343,8 @@ RSTRING_PTR.exit:                                 ; preds = %134
   br label %RSTRING_PTR.exit.thread
 
 RSTRING_PTR.exit.thread:                          ; preds = %139, %143, %RSTRING_PTR.exit
-  %.0109186 = phi ptr [ @.str.194, %RSTRING_PTR.exit ], [ %142, %139 ], [ %.sroa.2.0.copyload.i, %143 ]
-  %.0120185 = phi i64 [ 2, %RSTRING_PTR.exit ], [ %138, %139 ], [ %138, %143 ]
+  %.0109185 = phi ptr [ @.str.194, %RSTRING_PTR.exit ], [ %142, %139 ], [ %.sroa.2.0.copyload.i, %143 ]
+  %.0120184 = phi i64 [ 2, %RSTRING_PTR.exit ], [ %138, %139 ], [ %138, %143 ]
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %145
 
@@ -10361,7 +10361,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %139, %143, %RSTRING
 
 152:                                              ; preds = %145, %148
   %153 = phi i64 [ %151, %148 ], [ 0, %145 ]
-  %154 = icmp slt i64 %153, %.0120185
+  %154 = icmp slt i64 %153, %.0120184
   br i1 %154, label %155, label %170
 
 155:                                              ; preds = %152
@@ -10388,7 +10388,7 @@ RSTRING_PTR.exit.thread:                          ; preds = %139, %143, %RSTRING
   br label %.critedge136
 
 .critedge136:                                     ; preds = %158, %164, %159
-  %168 = call fastcc i64 @gzfile_read(ptr noundef nonnull %6, i64 noundef %.0120185, i64 noundef 4)
+  %168 = call fastcc i64 @gzfile_read(ptr noundef nonnull %6, i64 noundef %.0120184, i64 noundef 4)
   br label %gzfile_newstr.exit168
 
 169:                                              ; preds = %155
@@ -10409,14 +10409,14 @@ RSTRING_PTR.exit.thread:                          ; preds = %139, %143, %RSTRING
 
 RSTRING_PTR.exit154:                              ; preds = %170, %175
   %.sroa.2.0.i153 = phi ptr [ %.sroa.2.0.copyload.i152, %175 ], [ %174, %170 ]
-  %176 = sub i64 0, %.0120185
+  %176 = sub i64 0, %.0120184
   %177 = icmp slt i64 %.0113178, 1
-  %178 = icmp eq i64 %.0120185, 1
+  %178 = icmp eq i64 %.0120184, 1
   br label %179
 
 179:                                              ; preds = %237, %RSTRING_PTR.exit154
   %180 = phi i64 [ %146, %RSTRING_PTR.exit154 ], [ %202, %237 ]
-  %.1117 = phi i64 [ %.0120185, %RSTRING_PTR.exit154 ], [ %.3119, %237 ]
+  %.1117 = phi i64 [ %.0120184, %RSTRING_PTR.exit154 ], [ %.3119, %237 ]
   %.0110 = phi ptr [ %.sroa.2.0.i153, %RSTRING_PTR.exit154 ], [ %.3, %237 ]
   %181 = icmp eq i64 %180, 4
   br i1 %181, label %186, label %182
@@ -10478,13 +10478,13 @@ RSTRING_PTR.exit158:                              ; preds = %192, %198
 
 RSTRING_PTR.exit.i161:                            ; preds = %209, %203
   %.sroa.2.0.i.i162 = phi ptr [ %.sroa.2.0.copyload.i.i160, %209 ], [ %208, %203 ]
-  %.not.i163 = icmp eq ptr %.sroa.2.0.i.i162, %.0109186
+  %.not.i163 = icmp eq ptr %.sroa.2.0.i.i162, %.0109185
   br i1 %.not.i163, label %rscheck.exit, label %210
 
 210:                                              ; preds = %RSTRING_PTR.exit.i161
   %211 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %212 = load i64, ptr %211, align 8, !tbaa !21
-  %.not3.i = icmp eq i64 %212, %.0120185
+  %.not3.i = icmp eq i64 %212, %.0120184
   br i1 %.not3.i, label %rscheck.exit, label %213
 
 213:                                              ; preds = %210
@@ -10506,7 +10506,7 @@ rscheck.exit:                                     ; preds = %210, %RSTRING_PTR.e
   %221 = phi i64 [ %219, %216 ], [ 0, %rscheck.exit ]
   %222 = call i64 @llvm.smin.i64(i64 %221, i64 %.0113178)
   %.0105 = select i1 %177, i64 %221, i64 %222
-  %223 = load i8, ptr %.0109186, align 1, !tbaa !149
+  %223 = load i8, ptr %.0109185, align 1, !tbaa !149
   %224 = sext i8 %223 to i32
   %reass.sub = sub i64 %.0105, %.1117
   %225 = add i64 %reass.sub, 1
@@ -10527,7 +10527,7 @@ rscheck.exit:                                     ; preds = %210, %RSTRING_PTR.e
   br i1 %178, label %238, label %233
 
 233:                                              ; preds = %228
-  %bcmp = call i32 @bcmp(ptr nonnull %226, ptr nonnull %.0109186, i64 %.0120185)
+  %bcmp = call i32 @bcmp(ptr nonnull %226, ptr nonnull %.0109185, i64 %.0120184)
   %234 = icmp eq i32 %bcmp, 0
   br i1 %234, label %238, label %235
 
@@ -10634,8 +10634,8 @@ rscheck.exit:                                     ; preds = %210, %RSTRING_PTR.e
   %287 = call i64 @rb_str_conv_enc_opts(i64 noundef %260, ptr noundef nonnull %268, ptr noundef %282, i32 noundef %284, i64 noundef %286) #18
   br label %gzfile_newstr.exit168
 
-gzfile_newstr.exit168:                            ; preds = %.critedge25.i, %78, %281, %277, %269, %41, %256, %.critedge, %gzfile_fill.exit, %.thread179, %.critedge136, %gzfile_newstr.exit
-  %.1 = phi i64 [ %.0108, %gzfile_newstr.exit ], [ %168, %.critedge136 ], [ %42, %41 ], [ 4, %.thread179 ], [ 4, %gzfile_fill.exit ], [ 4, %.critedge ], [ 4, %256 ], [ %278, %277 ], [ %287, %281 ], [ %260, %269 ], [ 4, %78 ], [ 4, %.critedge25.i ]
+gzfile_newstr.exit168:                            ; preds = %.critedge27.i, %78, %281, %277, %269, %41, %256, %.critedge, %gzfile_fill.exit, %.thread179, %.critedge136, %gzfile_newstr.exit
+  %.1 = phi i64 [ %.0108, %gzfile_newstr.exit ], [ %168, %.critedge136 ], [ %42, %41 ], [ 4, %.thread179 ], [ 4, %gzfile_fill.exit ], [ 4, %.critedge ], [ 4, %256 ], [ %278, %277 ], [ %287, %281 ], [ %260, %269 ], [ 4, %78 ], [ 4, %.critedge27.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   ret i64 %.1
 }
@@ -10708,52 +10708,52 @@ RSTRING_PTR.exit:                                 ; preds = %2, %9
 .preheader.i:                                     ; preds = %37
   %39 = load i64, ptr %0, align 8, !tbaa !113
   %40 = and i64 %39, 4
-  %.not28.i = icmp eq i64 %40, 0
-  br i1 %.not28.i, label %.lr.ph.i, label %.critedge.i
+  %.not31.i = icmp eq i64 %40, 0
+  br i1 %.not31.i, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %47
+.lr.ph.i:                                         ; preds = %.preheader.i, %.critedge25.i
   %41 = load i64, ptr %3, align 8, !tbaa !132
   %42 = icmp eq i64 %41, 4
-  br i1 %42, label %47, label %.thread
+  br i1 %42, label %.critedge25.i, label %43
 
-.thread:                                          ; preds = %.lr.ph.i
-  %43 = inttoptr i64 %41 to ptr
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !21
-  %46 = icmp slt i64 %45, %33
-  br i1 %46, label %47, label %gzfile_fill.exit
+43:                                               ; preds = %.lr.ph.i
+  %44 = inttoptr i64 %41 to ptr
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = load i64, ptr %45, align 8, !tbaa !21
+  %47 = icmp slt i64 %46, %33
+  br i1 %47, label %.critedge25.i, label %gzfile_fill.exit
 
-47:                                               ; preds = %.lr.ph.i, %.thread
+.critedge25.i:                                    ; preds = %43, %.lr.ph.i
   tail call fastcc void @gzfile_read_more(ptr noundef nonnull %0, i64 noundef 4)
   %48 = load i64, ptr %0, align 8, !tbaa !113
   %49 = and i64 %48, 4
   %.not.i = icmp eq i64 %49, 0
   br i1 %.not.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !299
 
-.critedge.i:                                      ; preds = %47, %.preheader.i
-  %.lcssa.i = phi i64 [ %39, %.preheader.i ], [ %48, %47 ]
+.critedge.i:                                      ; preds = %.critedge25.i, %.preheader.i
+  %.lcssa.i = phi i64 [ %39, %.preheader.i ], [ %48, %.critedge25.i ]
   %50 = load i64, ptr %3, align 8, !tbaa !132
   %51 = icmp eq i64 %50, 4
-  br i1 %51, label %.critedge25.i, label %52
+  br i1 %51, label %.critedge27.i, label %52
 
 52:                                               ; preds = %.critedge.i
   %53 = inttoptr i64 %50 to ptr
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i64, ptr %54, align 8, !tbaa !21
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.critedge25.i, label %gzfile_fill.exit
+  br i1 %56, label %.critedge27.i, label %gzfile_fill.exit
 
-.critedge25.i:                                    ; preds = %52, %.critedge.i
+.critedge27.i:                                    ; preds = %52, %.critedge.i
   %57 = and i64 %.lcssa.i, 512
   %.not23.i = icmp eq i64 %57, 0
   br i1 %.not23.i, label %58, label %gzfile_fill.exit.thread
 
-58:                                               ; preds = %.critedge25.i
+58:                                               ; preds = %.critedge27.i
   tail call fastcc void @gzfile_check_footer(ptr noundef nonnull %0, i64 noundef 4)
   br label %gzfile_fill.exit.thread
 
-gzfile_fill.exit:                                 ; preds = %.thread, %52
-  %59 = phi i64 [ %55, %52 ], [ %45, %.thread ]
+gzfile_fill.exit:                                 ; preds = %43, %52
+  %59 = phi i64 [ %55, %52 ], [ %46, %43 ]
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %33, i64 %59)
   %60 = icmp sgt i64 %59, 0
   %spec.select = select i1 %60, i64 %spec.select.i, i64 %1
@@ -10768,8 +10768,8 @@ gzfile_fill.exit:                                 ; preds = %.thread, %52
   %65 = add nsw i64 %24, %64
   br label %gzfile_fill.exit.thread
 
-gzfile_fill.exit.thread:                          ; preds = %gzfile_fill.exit, %63, %.critedge25.i, %58, %37, %14, %61
-  %.1 = phi i64 [ %1, %61 ], [ %1, %14 ], [ %1, %37 ], [ %1, %58 ], [ %1, %.critedge25.i ], [ %65, %63 ], [ %spec.select, %gzfile_fill.exit ]
+gzfile_fill.exit.thread:                          ; preds = %gzfile_fill.exit, %63, %.critedge27.i, %58, %37, %14, %61
+  %.1 = phi i64 [ %1, %61 ], [ %1, %14 ], [ %1, %37 ], [ %1, %58 ], [ %1, %.critedge27.i ], [ %65, %63 ], [ %spec.select, %gzfile_fill.exit ]
   ret i64 %.1
 }
 

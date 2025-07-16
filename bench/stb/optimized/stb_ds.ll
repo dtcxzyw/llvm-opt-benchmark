@@ -15,7 +15,7 @@ define ptr @stbds_arrgrowf(ptr noundef captures(address_is_null, ret: address, p
 5:                                                ; preds = %4
   %spec.select34 = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
   %.not33.not = icmp eq i64 %spec.select34, 0
-  br i1 %.not33.not, label %24, label %.thread44
+  br i1 %.not33.not, label %24, label %.critedge
 
 .thread36:                                        ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -30,15 +30,15 @@ define ptr @stbds_arrgrowf(ptr noundef captures(address_is_null, ret: address, p
 .thread40:                                        ; preds = %.thread36
   %11 = shl i64 %10, 1
   %12 = icmp ult i64 %spec.select, %11
-  br i1 %12, label %13, label %.thread44
+  br i1 %12, label %13, label %.critedge
 
-.thread44:                                        ; preds = %5, %.thread40
-  %spec.select35394346 = phi i64 [ %spec.select, %.thread40 ], [ %spec.select34, %5 ]
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %spec.select35394346, i64 4)
+.critedge:                                        ; preds = %5, %.thread40
+  %spec.select353943 = phi i64 [ %spec.select, %.thread40 ], [ %spec.select34, %5 ]
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %spec.select353943, i64 4)
   br label %13
 
-13:                                               ; preds = %.thread40, %.thread44
-  %.1 = phi i64 [ %spec.store.select, %.thread44 ], [ %11, %.thread40 ]
+13:                                               ; preds = %.thread40, %.critedge
+  %.1 = phi i64 [ %spec.store.select, %.critedge ], [ %11, %.thread40 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 -32
   %15 = select i1 %.not, ptr null, ptr %14
   %16 = mul i64 %.1, %1
@@ -1069,7 +1069,7 @@ define ptr @stbds_hmput_default(ptr noundef captures(address, ret: address, prov
   %9 = getelementptr inbounds i8, ptr %0, i64 %.pre15
   %10 = select i1 %3, ptr null, ptr %9
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %.thread44.i, label %.thread36.i
+  br i1 %.not.i, label %.critedge.i, label %.thread36.i
 
 .thread36.i:                                      ; preds = %._crit_edge14
   %11 = getelementptr inbounds i8, ptr %9, i64 -32
@@ -1083,15 +1083,15 @@ define ptr @stbds_hmput_default(ptr noundef captures(address, ret: address, prov
 .thread40.i:                                      ; preds = %.thread36.i
   %15 = shl i64 %14, 1
   %16 = icmp ult i64 %spec.select.i, %15
-  br i1 %16, label %17, label %.thread44.i
+  br i1 %16, label %17, label %.critedge.i
 
-.thread44.i:                                      ; preds = %._crit_edge14, %.thread40.i
-  %spec.select35394346.i = phi i64 [ %spec.select.i, %.thread40.i ], [ 1, %._crit_edge14 ]
-  %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %spec.select35394346.i, i64 4)
+.critedge.i:                                      ; preds = %._crit_edge14, %.thread40.i
+  %spec.select353943.i = phi i64 [ %spec.select.i, %.thread40.i ], [ 1, %._crit_edge14 ]
+  %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %spec.select353943.i, i64 4)
   br label %17
 
-17:                                               ; preds = %.thread44.i, %.thread40.i
-  %.1.i = phi i64 [ %spec.store.select.i, %.thread44.i ], [ %15, %.thread40.i ]
+17:                                               ; preds = %.critedge.i, %.thread40.i
+  %.1.i = phi i64 [ %spec.store.select.i, %.critedge.i ], [ %15, %.thread40.i ]
   %18 = getelementptr inbounds i8, ptr %10, i64 -32
   %19 = select i1 %.not.i, ptr null, ptr %18
   %20 = mul i64 %.1.i, %1

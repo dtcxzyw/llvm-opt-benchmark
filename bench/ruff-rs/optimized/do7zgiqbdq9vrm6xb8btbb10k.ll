@@ -2750,26 +2750,26 @@ define hidden void @_ZN6winnow5token8literal_17h779c3378683e170dE(ptr dead_on_un
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !304, !noundef !3
   %.not.not.i = icmp eq i64 %7, 0
-  br i1 %.not.not.i, label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit.thread", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit"
+  br i1 %.not.not.i, label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit", label %8
 
-"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit": ; preds = %3
-  %8 = load i8, ptr %5, align 1, !noundef !3
-  %9 = icmp eq i8 %2, %8
-  br i1 %9, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit.thread"
+8:                                                ; preds = %3
+  %9 = load i8, ptr %5, align 1, !noundef !3
+  %10 = icmp eq i8 %2, %9
+  br i1 %10, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit"
 
-"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit": ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit"
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %11 = add i64 %7, -1
-  store ptr %10, ptr %4, align 8, !alias.scope !307
-  store i64 %11, ptr %6, align 8, !alias.scope !307
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %13, align 8
+"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit": ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = add i64 %7, -1
+  store ptr %11, ptr %4, align 8, !alias.scope !307
+  store i64 %12, ptr %6, align 8, !alias.scope !307
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %5, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %14, align 8
   store i64 3, ptr %0, align 8
-  br label %14
+  br label %15
 
-"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit.thread": ; preds = %3, %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit"
+"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit": ; preds = %3, %8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %0, align 8
@@ -2777,9 +2777,9 @@ define hidden void @_ZN6winnow5token8literal_17h779c3378683e170dE(ptr dead_on_un
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit.thread", %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
+15:                                               ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit", %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
   ret void
 }
 
@@ -2790,26 +2790,26 @@ define hidden void @_ZN6winnow5token8literal_17h7e7653b7e1c374edE(ptr dead_on_un
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !312, !noundef !3
   %.not.not.i = icmp eq i64 %7, 0
-  br i1 %.not.not.i, label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit.thread", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit"
+  br i1 %.not.not.i, label %15, label %8
 
-"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit": ; preds = %3
-  %8 = load i8, ptr %5, align 1, !noundef !3
-  %9 = icmp eq i8 %2, %8
-  br i1 %9, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit.thread"
+8:                                                ; preds = %3
+  %9 = load i8, ptr %5, align 1, !noundef !3
+  %10 = icmp eq i8 %2, %9
+  br i1 %10, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit", label %15
 
-"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit": ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit"
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %11 = add i64 %7, -1
-  store ptr %10, ptr %4, align 8, !alias.scope !315
-  store i64 %11, ptr %6, align 8, !alias.scope !315
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %13, align 8
+"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit": ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = add i64 %7, -1
+  store ptr %11, ptr %4, align 8, !alias.scope !315
+  store i64 %12, ptr %6, align 8, !alias.scope !315
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %5, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %14, align 8
   store i64 3, ptr %0, align 8
-  br label %14
+  br label %16
 
-"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit.thread": ; preds = %3, %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit"
+15:                                               ; preds = %8, %3
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %0, align 8
@@ -2817,9 +2817,9 @@ define hidden void @_ZN6winnow5token8literal_17h7e7653b7e1c374edE(ptr dead_on_un
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %14
+  br label %16
 
-14:                                               ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h5529a30d10000f4cE.exit.thread", %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
+16:                                               ; preds = %15, %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17h7cdedb126b5eade0E.exit"
   ret void
 }
 

@@ -3537,23 +3537,23 @@ get_parallel_divisor.exit.._crit_edge_crit_edge:  ; preds = %get_parallel_diviso
   %.lcssa = phi ptr [ %124, %.lr.ph119.preheader.i ], [ %125, %.lr.ph119.i ]
   %.not.i.i = icmp eq ptr %.lcssa, null
   %spec.select = select i1 %.not.i.i, i32 %.lcssa120, i32 %116
+  %135 = icmp slt i32 %spec.select, %.lcssa120
   br label %.lr.ph128.i
 
 .split.loopexit.i:                                ; preds = %.lr.ph132
-  %135 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %136 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %.lr.ph128.i
 
 .lr.ph128.i:                                      ; preds = %.split110.i, %.lr.ph.i, %.split.loopexit.i
-  %136 = phi i32 [ %121, %.lr.ph.i ], [ %132, %.split.loopexit.i ], [ %.lcssa120, %.split110.i ]
-  %.058102.ph.i = phi i32 [ 0, %.lr.ph.i ], [ %135, %.split.loopexit.i ], [ %116, %.split110.i ]
+  %137 = phi i1 [ false, %.lr.ph.i ], [ false, %.split.loopexit.i ], [ %135, %.split110.i ]
+  %.058102.ph.i = phi i32 [ 0, %.lr.ph.i ], [ %136, %.split.loopexit.i ], [ %116, %.split110.i ]
   %.ph171.i = phi i32 [ %121, %.lr.ph.i ], [ %132, %.split.loopexit.i ], [ %spec.select, %.split110.i ]
   %.ph.i = add i32 %116, -1
-  %137 = icmp sgt i32 %116, 0
-  %138 = icmp slt i32 %.ph171.i, %136
-  br i1 %137, label %.lr.ph128.split.us.split.i, label %.lr.ph128.split.split.i
+  %138 = icmp sgt i32 %116, 0
+  br i1 %138, label %.lr.ph128.split.us.split.i, label %.lr.ph128.split.split.i
 
 .lr.ph128.split.us.split.i:                       ; preds = %.lr.ph128.i
-  br i1 %138, label %.lr.ph142.preheader.i, label %.lr.ph145.preheader.i
+  br i1 %137, label %.lr.ph142.preheader.i, label %.lr.ph145.preheader.i
 
 .lr.ph142.preheader.i:                            ; preds = %.lr.ph128.split.us.split.i
   %139 = sext i32 %.ph171.i to i64
@@ -3604,7 +3604,7 @@ get_parallel_divisor.exit.._crit_edge_crit_edge:  ; preds = %get_parallel_diviso
   br i1 %160, label %.lr.ph142.i, label %.thread91.i
 
 .lr.ph128.split.split.i:                          ; preds = %.lr.ph128.i
-  br i1 %138, label %.lr.ph138.preheader.i, label %._crit_edge.i
+  br i1 %137, label %.lr.ph138.preheader.i, label %._crit_edge.i
 
 .lr.ph138.preheader.i:                            ; preds = %.lr.ph128.split.split.i
   %161 = sext i32 %.ph171.i to i64
@@ -3636,7 +3636,7 @@ get_parallel_divisor.exit.._crit_edge_crit_edge:  ; preds = %get_parallel_diviso
   br i1 %175, label %.lr.ph138.i, label %.thread91.i
 
 .thread91.i:                                      ; preds = %163, %.lr.ph138.i, %._crit_edge.us.i, %.lr.ph142.i
-  br i1 %137, label %.lr.ph145.preheader.i, label %._crit_edge.i
+  br i1 %138, label %.lr.ph145.preheader.i, label %._crit_edge.i
 
 .lr.ph145.preheader.i:                            ; preds = %.thread91.i, %.lr.ph128.split.us.split.i
   %wide.trip.count169.i = zext nneg i32 %116 to i64

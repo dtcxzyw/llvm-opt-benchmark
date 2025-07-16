@@ -4283,7 +4283,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
-  br label %89
+  br label %90
 
 31:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #24
@@ -4352,7 +4352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
 55:                                               ; preds = %40, %36, %31
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %89
 
 57:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
   %58 = landingpad { ptr, i32 }
@@ -4382,7 +4382,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
-  br label %88
+  br label %89
 
 68:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, %38
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -4392,70 +4392,70 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %.not8.i = icmp eq ptr %70, %72
   br i1 %.not8.i, label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %86
+._crit_edge.i:                                    ; preds = %87
   %.pre.i = load ptr, ptr %69, align 8, !tbaa !59
   %.pre10.i = load ptr, ptr %71, align 8, !tbaa !55
-  %.not.i.i.i = icmp eq ptr %.pre10.i, %.pre.i
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i, label %73
+  %73 = icmp eq ptr %.pre10.i, %.pre.i
+  br i1 %73, label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i, label %74
 
-73:                                               ; preds = %._crit_edge.i
+74:                                               ; preds = %._crit_edge.i
   store ptr %.pre.i, ptr %71, align 8, !tbaa !55
   br label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i
 
-_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i: ; preds = %73, %._crit_edge.i, %68
-  %74 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre.i, %73 ], [ %70, %68 ]
-  %.not.i.i.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i, label %_ZN9GraphAcycD2Ev.exit, label %75
+_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i: ; preds = %74, %._crit_edge.i, %68
+  %75 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre.i, %74 ], [ %70, %68 ]
+  %.not.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i, label %_ZN9GraphAcycD2Ev.exit, label %76
 
-75:                                               ; preds = %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %77 = load ptr, ptr %76, align 8, !tbaa !56
-  %78 = ptrtoint ptr %77 to i64
-  %79 = ptrtoint ptr %74 to i64
-  %80 = sub i64 %78, %79
-  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #22
+76:                                               ; preds = %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %78 = load ptr, ptr %77, align 8, !tbaa !56
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %75 to i64
+  %81 = sub i64 %79, %80
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #22
   br label %_ZN9GraphAcycD2Ev.exit
 
-.lr.ph.i:                                         ; preds = %68, %86
-  %.sroa.05.09.i = phi ptr [ %87, %86 ], [ %70, %68 ]
-  %81 = load ptr, ptr %.sroa.05.09.i, align 8, !tbaa !57
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %86, label %83
+.lr.ph.i:                                         ; preds = %68, %87
+  %.sroa.05.09.i = phi ptr [ %88, %87 ], [ %70, %68 ]
+  %82 = load ptr, ptr %.sroa.05.09.i, align 8, !tbaa !57
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %87, label %84
 
-83:                                               ; preds = %.lr.ph.i
-  %84 = load ptr, ptr %81, align 8, !tbaa !51
-  %.not8.i.i.i = icmp eq ptr %84, %81
+84:                                               ; preds = %.lr.ph.i
+  %85 = load ptr, ptr %82, align 8, !tbaa !51
+  %.not8.i.i.i = icmp eq ptr %85, %82
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %83, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %85, %.lr.ph.i.i.i ], [ %84, %83 ]
-  %85 = load ptr, ptr %.09.i.i.i, align 8, !tbaa !51
+.lr.ph.i.i.i:                                     ; preds = %84, %.lr.ph.i.i.i
+  %.09.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i ], [ %85, %84 ]
+  %86 = load ptr, ptr %.09.i.i.i, align 8, !tbaa !51
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i, i64 noundef 24) #22
-  %.not.i.i4.i = icmp eq ptr %85, %81
+  %.not.i.i4.i = icmp eq ptr %86, %82
   br i1 %.not.i.i4.i, label %_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !60
 
-_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i, %83
-  call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef 24) #22
-  br label %86
+_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i, %84
+  call void @_ZdlPvm(ptr noundef nonnull %82, i64 noundef 24) #22
+  br label %87
 
-86:                                               ; preds = %_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit.i, %.lr.ph.i
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 8
-  %.not.i = icmp eq ptr %87, %72
+87:                                               ; preds = %_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit.i, %.lr.ph.i
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 8
+  %.not.i = icmp eq ptr %88, %72
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-_ZN9GraphAcycD2Ev.exit:                           ; preds = %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i, %75
+_ZN9GraphAcycD2Ev.exit:                           ; preds = %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit.i, %76
   call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #24
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #24
   ret void
 
-88:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %55
+89:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %55
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ], [ %56, %55 ]
   call void @_ZN9GraphAcycD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #24
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #24
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %88 ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ]
+90:                                               ; preds = %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %89 ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4468,60 +4468,60 @@ define linkonce_odr dso_local void @_ZN9GraphAcycD2Ev(ptr noundef nonnull align 
   %.not8 = icmp eq ptr %3, %5
   br i1 %.not8, label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %20
+._crit_edge:                                      ; preds = %21
   %.pre = load ptr, ptr %2, align 8, !tbaa !59
   %.pre10 = load ptr, ptr %4, align 8, !tbaa !55
-  %.not.i.i = icmp eq ptr %.pre10, %.pre
-  br i1 %.not.i.i, label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit, label %6
+  %6 = icmp eq ptr %.pre10, %.pre
+  br i1 %6, label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit, label %7
 
-6:                                                ; preds = %._crit_edge
+7:                                                ; preds = %._crit_edge
   store ptr %.pre, ptr %4, align 8, !tbaa !55
   br label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit
 
-_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit: ; preds = %1, %._crit_edge, %6
-  %7 = phi ptr [ %.pre, %._crit_edge ], [ %.pre, %6 ], [ %3, %1 ]
-  %.not.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EED2Ev.exit, label %8
+_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit: ; preds = %1, %._crit_edge, %7
+  %8 = phi ptr [ %.pre, %._crit_edge ], [ %.pre, %7 ], [ %3, %1 ]
+  %.not.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EED2Ev.exit, label %9
 
-8:                                                ; preds = %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !56
-  %11 = ptrtoint ptr %10 to i64
-  %12 = ptrtoint ptr %7 to i64
-  %13 = sub i64 %11, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #22
+9:                                                ; preds = %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %12 = ptrtoint ptr %11 to i64
+  %13 = ptrtoint ptr %8 to i64
+  %14 = sub i64 %12, %13
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #22
   br label %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EED2Ev.exit
 
-_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit, %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #24
+_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIPNSt7__cxx114listIP11V3GraphEdgeSaIS3_EEESaIS6_EE5clearEv.exit, %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN7V3GraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #24
   ret void
 
-.lr.ph:                                           ; preds = %1, %20
-  %.sroa.05.09 = phi ptr [ %21, %20 ], [ %3, %1 ]
-  %15 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %20, label %17
+.lr.ph:                                           ; preds = %1, %21
+  %.sroa.05.09 = phi ptr [ %22, %21 ], [ %3, %1 ]
+  %16 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !57
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %21, label %18
 
-17:                                               ; preds = %.lr.ph
-  %18 = load ptr, ptr %15, align 8, !tbaa !51
-  %.not8.i.i = icmp eq ptr %18, %15
+18:                                               ; preds = %.lr.ph
+  %19 = load ptr, ptr %16, align 8, !tbaa !51
+  %.not8.i.i = icmp eq ptr %19, %16
   br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
-  %.09.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %18, %17 ]
-  %19 = load ptr, ptr %.09.i.i, align 8, !tbaa !51
+.lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
+  %.09.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %19, %18 ]
+  %20 = load ptr, ptr %.09.i.i, align 8, !tbaa !51
   tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 24) #22
-  %.not.i.i4 = icmp eq ptr %19, %15
+  %.not.i.i4 = icmp eq ptr %20, %16
   br i1 %.not.i.i4, label %_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !60
 
-_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 24) #22
-  br label %20
+_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i, %18
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 24) #22
+  br label %21
 
-20:                                               ; preds = %_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit, %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
-  %.not = icmp eq ptr %21, %5
+21:                                               ; preds = %_ZNSt7__cxx1110_List_baseIP11V3GraphEdgeSaIS2_EED2Ev.exit, %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
+  %.not = icmp eq ptr %22, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

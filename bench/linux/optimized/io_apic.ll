@@ -2287,7 +2287,7 @@ define internal fastcc range(i32 -1, 256) i32 @find_isa_irq_pin(i32 noundef rang
 define internal fastcc i32 @find_isa_irq_apic(i32 noundef range(i32 0, 9) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #8 section ".init.text" align 16 {
   %3 = load i32, ptr @mp_irq_entries, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.preheader, label %30
+  br i1 %4, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2, %23
   %5 = phi i64 [ %24, %23 ], [ 0, %2 ]
@@ -2317,58 +2317,54 @@ define internal fastcc i32 @find_isa_irq_apic(i32 noundef range(i32 0, 9) %0, i3
 
 ._crit_edge:                                      ; preds = %18
   %.pre.pre = load i32, ptr @mp_irq_entries, align 4
-  br label %split
+  br label %.loopexit7
 
 23:                                               ; preds = %18, %13, %.preheader
   %24 = add nuw nsw i64 %5, 1
   %25 = load i32, ptr @mp_irq_entries, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %24, %26
-  br i1 %27, label %.preheader, label %split, !llvm.loop !48
+  br i1 %27, label %.preheader, label %.loopexit7, !llvm.loop !48
 
-split:                                            ; preds = %23, %._crit_edge
+.loopexit7:                                       ; preds = %23, %._crit_edge
   %.pre = phi i32 [ %.pre.pre, %._crit_edge ], [ %25, %23 ]
   %28 = phi i64 [ %5, %._crit_edge ], [ %24, %23 ]
   %29 = trunc i64 %28 to i32
-  br label %30
+  %30 = icmp sgt i32 %.pre, %29
+  %sext = shl i64 %28, 32
+  %31 = ashr exact i64 %sext, 32
+  br i1 %30, label %32, label %.loopexit
 
-30:                                               ; preds = %split, %2
-  %31 = phi i32 [ %3, %2 ], [ %.pre, %split ]
-  %32 = phi i32 [ 0, %2 ], [ %29, %split ]
-  %33 = icmp slt i32 %32, %31
-  br i1 %33, label %34, label %.loopexit
+32:                                               ; preds = %.loopexit7
+  %33 = load i32, ptr @nr_ioapics, align 4
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %35, label %.loopexit
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr @nr_ioapics, align 4
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %.loopexit
+35:                                               ; preds = %32
+  %36 = getelementptr [1024 x %struct.mpc_intsrc], ptr @mp_irqs, i64 0, i64 %31, i32 5
+  %37 = load i8, ptr %36, align 2
+  %38 = zext nneg i32 %33 to i64
+  br label %39
 
-37:                                               ; preds = %34
-  %38 = sext i32 %32 to i64
-  %39 = getelementptr [1024 x %struct.mpc_intsrc], ptr @mp_irqs, i64 0, i64 %38, i32 5
-  %40 = load i8, ptr %39, align 2
-  %41 = zext nneg i32 %35 to i64
-  br label %42
+39:                                               ; preds = %44, %35
+  %40 = phi i64 [ 0, %35 ], [ %45, %44 ]
+  %41 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %40, i32 2, i32 1
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, %37
+  br i1 %43, label %47, label %44
 
-42:                                               ; preds = %47, %37
-  %43 = phi i64 [ 0, %37 ], [ %48, %47 ]
-  %44 = getelementptr [128 x %struct.ioapic], ptr @ioapics, i64 0, i64 %43, i32 2, i32 1
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, %40
-  br i1 %46, label %50, label %47
+44:                                               ; preds = %39
+  %45 = add nuw nsw i64 %40, 1
+  %46 = icmp eq i64 %45, %38
+  br i1 %46, label %.loopexit, label %39, !llvm.loop !49
 
-47:                                               ; preds = %42
-  %48 = add nuw nsw i64 %43, 1
-  %49 = icmp eq i64 %48, %41
-  br i1 %49, label %.loopexit, label %42, !llvm.loop !49
-
-50:                                               ; preds = %42
-  %51 = trunc i64 %43 to i32
+47:                                               ; preds = %39
+  %48 = trunc i64 %40 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %47, %50, %34, %30
-  %52 = phi i32 [ -1, %30 ], [ -1, %34 ], [ %51, %50 ], [ -1, %47 ]
-  ret i32 %52
+.loopexit:                                        ; preds = %44, %2, %47, %32, %.loopexit7
+  %49 = phi i32 [ -1, %.loopexit7 ], [ -1, %32 ], [ %48, %47 ], [ -1, %2 ], [ -1, %44 ]
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

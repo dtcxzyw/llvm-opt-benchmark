@@ -911,13 +911,13 @@ _ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14Chec
   br i1 %.not.i.i.i.i, label %64, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
 
 64:                                               ; preds = %57
-  %.not151.i.i = icmp ugt i64 %60, %.sroa.speculated.i.i.i
-  br i1 %.not151.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread117.i.i
+  %.not150.i.i = icmp ugt i64 %60, %.sroa.speculated.i.i.i
+  br i1 %.not150.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread117.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.i.i:            ; preds = %64
   %bcmp.i.i.i.i = call i32 @bcmp(ptr %62, ptr %61, i64 %63)
-  %.not152.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not152.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread117.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
+  %.not151.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %.not151.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread117.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.i.i:     ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %57
   store ptr %62, ptr %8, align 8, !tbaa !9
@@ -984,8 +984,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %83, %81
 
 94:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
   %95 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i52.i.i, ptr noundef %.sroa.014.0.copyload.i.i, i64 noundef %.sroa.215.0.copyload.i.i) #18
-  %.phi.trans.insert159.i.i = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %.pre160.i.i = load ptr, ptr %.phi.trans.insert159.i.i, align 8, !tbaa !117
+  %.phi.trans.insert158.i.i = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %.pre159.i.i = load ptr, ptr %.phi.trans.insert158.i.i, align 8, !tbaa !117
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i
 
 96:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
@@ -1000,7 +1000,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %83, %81
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i:  ; preds = %97, %96, %94
-  %100 = phi ptr [ %.pre160.i.i, %94 ], [ %99, %97 ], [ %86, %96 ]
+  %100 = phi ptr [ %.pre159.i.i, %94 ], [ %99, %97 ], [ %86, %96 ]
   %.0.i.i.i = phi ptr [ %95, %94 ], [ %.0.i.i52.i.i, %97 ], [ %.0.i.i52.i.i, %96 ]
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %102 = load ptr, ptr %101, align 8, !tbaa !116
@@ -1026,8 +1026,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55.i.i:           ; preds = %109, %107
   %113 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %114 = load i32, ptr %113, align 8, !tbaa !95
   %115 = and i32 %114, -2
-  %.not153.i.i = icmp eq i32 %115, 22
-  br i1 %.not153.i.i, label %116, label %242
+  %.not152.i.i = icmp eq i32 %115, 22
+  br i1 %.not152.i.i, label %116, label %242
 
 116:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit55.i.i
   %117 = load ptr, ptr %48, align 8, !tbaa !7
@@ -1134,7 +1134,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58.i.i:           ; preds = %166, %164, %_ZNK5cl
   %170 = load i32, ptr %169, align 4
   %171 = and i32 %170, 256
   %.not.i59.i.i = icmp eq i32 %171, 0
-  br i1 %.not.i59.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i, label %172
+  br i1 %.not.i59.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread121.i.i, label %172
 
 172:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit58.i.i
   %173 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %120) #18
@@ -1145,7 +1145,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58.i.i:           ; preds = %166, %164, %_ZNK5cl
   %.idx.i.i.i.i = shl nuw nsw i64 %177, 3
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 %.idx.i.i.i.i
   %.not.i.i60.i.i = icmp eq i32 %176, 0
-  br i1 %.not.i.i60.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not.i.i60.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread121.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %172, %183
   %.sroa.07.1.i.i.i.i.i.i = phi ptr [ %184, %183 ], [ %174, %172 ]
@@ -1158,11 +1158,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58.i.i:           ; preds = %166, %164, %_ZNK5cl
 183:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %184 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %184, %178
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !127
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread121.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !127
 
 _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not154.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %178
-  br i1 %.not154.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i, label %185
+  %.not153.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %178
+  br i1 %.not153.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread121.i.i, label %185
 
 185:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.i.i
   %186 = load ptr, ptr %73, align 8, !tbaa !116
@@ -1184,7 +1184,7 @@ _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   store ptr %196, ptr %75, align 8, !tbaa !117
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit63.i.i
 
-_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i: ; preds = %183, %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.i.i, %172, %_ZN4llvm11raw_ostreamlsEPKc.exit58.i.i
+_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread121.i.i: ; preds = %183, %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.i.i, %172, %_ZN4llvm11raw_ostreamlsEPKc.exit58.i.i
   %197 = load ptr, ptr %73, align 8, !tbaa !116
   %198 = load ptr, ptr %75, align 8, !tbaa !117
   %199 = ptrtoint ptr %197 to i64
@@ -1193,11 +1193,11 @@ _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i: ; preds = %183, %_
   %202 = icmp ult i64 %201, 21
   br i1 %202, label %203, label %205
 
-203:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i
+203:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread121.i.i
   %204 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull @.str.10, i64 noundef 21) #18
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit63.i.i
 
-205:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i
+205:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread121.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %198, ptr noundef nonnull align 1 dereferenceable(21) @.str.10, i64 21, i1 false)
   %206 = load ptr, ptr %75, align 8, !tbaa !117
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 21
@@ -1291,31 +1291,31 @@ select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
 
 _ZN12_GLOBAL__N_116MacOSXAPIChecker19getParentIvarRegionEPKN5clang4ento9MemRegionE.exit.i.i: ; preds = %.lr.ph.i.i.i
   %.not49.i.i = icmp eq ptr %.0816.i.i.i, %46
-  %.pre162.i.i = load ptr, ptr %75, align 8, !tbaa !117
+  %.pre161.i.i = load ptr, ptr %75, align 8, !tbaa !117
   br i1 %.not49.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit76.i.i, label %252
 
 252:                                              ; preds = %_ZN12_GLOBAL__N_116MacOSXAPIChecker19getParentIvarRegionEPKN5clang4ento9MemRegionE.exit.i.i
   %253 = load ptr, ptr %73, align 8, !tbaa !116
   %254 = ptrtoint ptr %253 to i64
-  %255 = ptrtoint ptr %.pre162.i.i to i64
+  %255 = ptrtoint ptr %.pre161.i.i to i64
   %256 = sub i64 %254, %255
   %257 = icmp ult i64 %256, 14
   br i1 %257, label %258, label %260
 
 258:                                              ; preds = %252
   %259 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull @.str.8, i64 noundef 14) #18
-  %.pre161.i.i = load ptr, ptr %75, align 8, !tbaa !117
+  %.pre160.i.i = load ptr, ptr %75, align 8, !tbaa !117
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit76.i.i
 
 260:                                              ; preds = %252
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.pre162.i.i, ptr noundef nonnull align 1 dereferenceable(14) @.str.8, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %.pre161.i.i, ptr noundef nonnull align 1 dereferenceable(14) @.str.8, i64 14, i1 false)
   %261 = load ptr, ptr %75, align 8, !tbaa !117
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 14
   store ptr %262, ptr %75, align 8, !tbaa !117
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit76.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit76.i.i:           ; preds = %260, %258, %_ZN12_GLOBAL__N_116MacOSXAPIChecker19getParentIvarRegionEPKN5clang4ento9MemRegionE.exit.i.i
-  %263 = phi ptr [ %262, %260 ], [ %.pre161.i.i, %258 ], [ %.pre162.i.i, %_ZN12_GLOBAL__N_116MacOSXAPIChecker19getParentIvarRegionEPKN5clang4ento9MemRegionE.exit.i.i ]
+  %263 = phi ptr [ %262, %260 ], [ %.pre160.i.i, %258 ], [ %.pre161.i.i, %_ZN12_GLOBAL__N_116MacOSXAPIChecker19getParentIvarRegionEPKN5clang4ento9MemRegionE.exit.i.i ]
   %264 = load ptr, ptr %73, align 8, !tbaa !116
   %265 = ptrtoint ptr %264 to i64
   %266 = ptrtoint ptr %263 to i64
@@ -1435,7 +1435,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit89.i.i: ; preds = %300, %299, %297, %
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit95.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit95.i.i:           ; preds = %325, %323
-  br i1 %.not153.i.i, label %327, label %_ZN4llvm11raw_ostreamlsEPKc.exit98.i.i
+  br i1 %.not152.i.i, label %327, label %_ZN4llvm11raw_ostreamlsEPKc.exit98.i.i
 
 327:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit95.i.i
   %328 = load ptr, ptr %73, align 8, !tbaa !116

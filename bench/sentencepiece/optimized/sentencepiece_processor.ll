@@ -3170,9 +3170,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_Z
 .critedge64:                                      ; preds = %185
   %.pre179 = load ptr, ptr %5, align 8, !tbaa !178
   %.pre180 = load ptr, ptr %92, align 8, !tbaa !178
-  %194 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %195 = icmp eq ptr %.pre179, %.pre180
-  br i1 %195, label %.critedge64.thread, label %196
+  %194 = icmp eq ptr %.pre179, %.pre180
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br i1 %194, label %.critedge64.thread, label %196
 
 196:                                              ; preds = %.critedge64
   %197 = invoke noundef i32 @_ZN13sentencepiece7logging14GetMinLogLevelEv()
@@ -3213,7 +3213,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit114: ; preds = %_ZSt
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit116 unwind label %231
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit116: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit114
-  %209 = load ptr, ptr %194, align 8, !tbaa !174
+  %209 = load ptr, ptr %195, align 8, !tbaa !174
   %210 = load ptr, ptr %5, align 8, !tbaa !179
   %211 = ptrtoint ptr %209 to i64
   %212 = ptrtoint ptr %210 to i64
@@ -3248,7 +3248,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
 
 .critedge67:                                      ; preds = %198, %.critedge66
   %227 = load ptr, ptr %5, align 8, !tbaa !178
-  %228 = load ptr, ptr %194, align 8, !tbaa !178
+  %228 = load ptr, ptr %195, align 8, !tbaa !178
   %.not169174 = icmp eq ptr %227, %228
   br i1 %.not169174, label %._crit_edge, label %.lr.ph176
 

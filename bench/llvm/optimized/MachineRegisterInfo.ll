@@ -4068,63 +4068,63 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isReservedR
   %12 = zext i32 %1 to i64
   %13 = getelementptr inbounds nuw [2 x i16], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !390
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %.val = load ptr, ptr %17, align 8
-  %.not.not.not22 = icmp eq i16 %14, 0
-  br i1 %.not.not.not22, label %.critedge, label %.lr.ph
+  %.not = icmp eq i16 %14, 0
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %18 = getelementptr inbounds nuw [2 x i16], ptr %11, i64 %12, i64 1
-  %19 = load i16, ptr %18, align 2, !tbaa !390
-  %20 = load ptr, ptr %15, align 8, !tbaa !422, !noalias !423
-  %.not5.i.i.i.i.i = icmp eq ptr %20, null
-  br label %21
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %16 = load ptr, ptr %15, align 8, !tbaa !422, !noalias !423
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !426, !noalias !423
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %.val = load ptr, ptr %19, align 8
+  %.not5.i.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not5.i.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i.i.preheader.preheader
 
-21:                                               ; preds = %.lr.ph, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit"
-  %.sroa.810.024 = phi i16 [ %19, %.lr.ph ], [ 0, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit" ]
-  %.sroa.08.023 = phi i16 [ %14, %.lr.ph ], [ %.sroa.810.024, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit" ]
-  br i1 %.not5.i.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i.i.preheader
+.lr.ph.i.i.i.i.i.preheader.preheader:             ; preds = %.lr.ph
+  %20 = getelementptr inbounds nuw [2 x i16], ptr %11, i64 %12, i64 1
+  %21 = load i16, ptr %20, align 2, !tbaa !390
+  br label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %21
-  %22 = load ptr, ptr %16, align 8, !tbaa !426, !noalias !423
-  %23 = zext i16 %.sroa.08.023 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %22, i64 %23, i32 2
-  %25 = load i32, ptr %24, align 4, !tbaa !427, !noalias !423
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %20, i64 %26
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.loopexit": ; preds = %.lr.ph.i.i.i.i.i
+  %.not19 = icmp eq i16 %.sroa.810.017, 0
+  br i1 %.not19, label %.critedge, label %.lr.ph.i.i.i.i.i.preheader, !llvm.loop !427
+
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %.lr.ph.i.i.i.i.i.preheader.preheader, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.loopexit"
+  %.sroa.810.017 = phi i16 [ 0, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.loopexit" ], [ %21, %.lr.ph.i.i.i.i.i.preheader.preheader ]
+  %.sroa.08.016 = phi i16 [ %.sroa.810.017, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.loopexit" ], [ %14, %.lr.ph.i.i.i.i.i.preheader.preheader ]
+  %22 = zext i16 %.sroa.08.016 to i64
+  %23 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %18, i64 %22, i32 2
+  %24 = load i32, ptr %23, align 4, !tbaa !428, !noalias !423
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw i16, ptr %16, i64 %25
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i
-  %28 = phi ptr [ %39, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i.preheader ]
-  %29 = phi i16 [ %41, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i ], [ %.sroa.08.023, %.lr.ph.i.i.i.i.i.preheader ]
-  %30 = zext i16 %29 to i32
-  %31 = and i32 %30, 63
-  %32 = zext nneg i32 %31 to i64
-  %33 = shl nuw i64 1, %32
-  %34 = lshr i32 %30, 6
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %.val, i64 %35
-  %37 = load i64, ptr %36, align 8, !tbaa !55, !noalias !429
-  %38 = and i64 %33, %37
-  %.not.i.i.i.i.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit", label %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i
+  %27 = phi ptr [ %38, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i.i.preheader ]
+  %28 = phi i16 [ %40, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i ], [ %.sroa.08.016, %.lr.ph.i.i.i.i.i.preheader ]
+  %29 = zext i16 %28 to i32
+  %30 = and i32 %29, 63
+  %31 = zext nneg i32 %30 to i64
+  %32 = shl nuw i64 1, %31
+  %33 = lshr i32 %29, 6
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw i64, ptr %.val, i64 %34
+  %36 = load i64, ptr %35, align 8, !tbaa !55, !noalias !430
+  %37 = and i64 %32, %36
+  %.not.i.i.i.i.i.i = icmp eq i64 %37, 0
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.loopexit", label %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i
 
 _ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %28, i64 2
-  %40 = load i16, ptr %28, align 2, !tbaa !390, !noalias !429
-  %41 = add i16 %40, %29
-  %.not.i.i.i.i.i.i.i = icmp eq i16 %40, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i.i, !llvm.loop !436
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 2
+  %39 = load i16, ptr %27, align 2, !tbaa !390, !noalias !430
+  %40 = add i16 %39, %28
+  %.not.i.i.i.i.i.i.i = icmp eq i16 %39, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i.i, !llvm.loop !437
 
-"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i
-  %.not.not.not = icmp eq i16 %.sroa.810.024, 0
-  br i1 %.not.not.not, label %.critedge, label %21, !llvm.loop !437
-
-.critedge:                                        ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit", %21, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i, %2
-  %.not19 = phi i1 [ false, %2 ], [ true, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i ], [ %.not5.i.i.i.i.i, %21 ], [ %.not5.i.i.i.i.i, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit" ]
-  ret i1 %.not19
+.critedge:                                        ; preds = %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.loopexit", %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i, %.lr.ph, %2
+  %41 = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ true, %_ZN4llvm18MCSuperRegIteratorppEv.exit.i.i.i.i.i ], [ false, %"_ZN4llvm6all_ofINS_14iterator_rangeINS_18MCSuperRegIteratorEEEZNKS_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEbOT_T0_.exit.loopexit" ]
+  ret i1 %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5372,16 +5372,16 @@ attributes #27 = { noreturn nounwind }
 !424 = distinct !{!424, !425, !"_ZNK4llvm14MCRegisterInfo19superregs_inclusiveENS_10MCRegisterE: argument 0"}
 !425 = distinct !{!425, !"_ZNK4llvm14MCRegisterInfo19superregs_inclusiveENS_10MCRegisterE"}
 !426 = !{!254, !255, i64 8}
-!427 = !{!428, !19, i64 8}
-!428 = !{!"_ZTSN4llvm14MCRegisterDescE", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !8, i64 20, !24, i64 22, !24, i64 23}
-!429 = !{!430, !432, !434}
-!430 = distinct !{!430, !431, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_St18input_iterator_tag: argument 0"}
-!431 = distinct !{!431, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_St18input_iterator_tag"}
-!432 = distinct !{!432, !433, !"_ZSt13__find_if_notIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops10_Iter_predIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_: argument 0"}
-!433 = distinct !{!433, !"_ZSt13__find_if_notIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops10_Iter_predIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_"}
-!434 = distinct !{!434, !435, !"_ZSt11find_if_notIN4llvm18MCSuperRegIteratorEZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0ET_S4_S4_T0_: argument 0"}
-!435 = distinct !{!435, !"_ZSt11find_if_notIN4llvm18MCSuperRegIteratorEZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0ET_S4_S4_T0_"}
-!436 = distinct !{!436, !276}
+!427 = distinct !{!427, !276}
+!428 = !{!429, !19, i64 8}
+!429 = !{!"_ZTSN4llvm14MCRegisterDescE", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !8, i64 20, !24, i64 22, !24, i64 23}
+!430 = !{!431, !433, !435}
+!431 = distinct !{!431, !432, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_St18input_iterator_tag: argument 0"}
+!432 = distinct !{!432, !"_ZSt9__find_ifIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops12_Iter_negateIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_St18input_iterator_tag"}
+!433 = distinct !{!433, !434, !"_ZSt13__find_if_notIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops10_Iter_predIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_: argument 0"}
+!434 = distinct !{!434, !"_ZSt13__find_if_notIN4llvm18MCSuperRegIteratorEN9__gnu_cxx5__ops10_Iter_predIZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0EEET_S8_S8_T0_"}
+!435 = distinct !{!435, !436, !"_ZSt11find_if_notIN4llvm18MCSuperRegIteratorEZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0ET_S4_S4_T0_: argument 0"}
+!436 = distinct !{!436, !"_ZSt11find_if_notIN4llvm18MCSuperRegIteratorEZNKS0_19MachineRegisterInfo17isReservedRegUnitEjE3$_0ET_S4_S4_T0_"}
 !437 = distinct !{!437, !276}
 !438 = !{!84, !85, i64 0}
 !439 = !{!440, !440, i64 0}

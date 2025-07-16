@@ -414,7 +414,7 @@ define dso_local zeroext i1 @sbitmap_any_bit_set(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %25, label %4
+  br i1 %.not, label %.split.loop.exit4, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -425,7 +425,7 @@ define dso_local zeroext i1 @sbitmap_any_bit_set(ptr noundef readonly captures(n
   %10 = xor i64 %9, -1
   %11 = and i64 %7, %10
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %.preheader.preheader, label %25
+  br i1 %12, label %.preheader.preheader, label %.split.loop.exit4
 
 .preheader.preheader:                             ; preds = %4
   %13 = zext i32 %3 to i64
@@ -449,16 +449,12 @@ define dso_local zeroext i1 @sbitmap_any_bit_set(ptr noundef readonly captures(n
 
 .split.loop.exit:                                 ; preds = %15
   %23 = trunc nuw i64 %indvars.iv.next to i32
+  %24 = icmp ugt i32 %3, %23
   br label %.split.loop.exit4
 
-.split.loop.exit4:                                ; preds = %.preheader, %.split.loop.exit
-  %.lcssa = phi i32 [ %23, %.split.loop.exit ], [ %3, %.preheader ]
-  %24 = icmp ult i32 %.lcssa, %3
-  br label %25
-
-25:                                               ; preds = %.split.loop.exit4, %4, %1
-  %26 = phi i1 [ false, %1 ], [ true, %4 ], [ %24, %.split.loop.exit4 ]
-  ret i1 %26
+.split.loop.exit4:                                ; preds = %.preheader, %.split.loop.exit, %4, %1
+  %25 = phi i1 [ false, %1 ], [ true, %4 ], [ %24, %.split.loop.exit ], [ false, %.preheader ]
+  ret i1 %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

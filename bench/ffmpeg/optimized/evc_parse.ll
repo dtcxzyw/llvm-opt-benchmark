@@ -817,84 +817,83 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %83 = srem i32 %82, %57
   store i32 %83, ptr %80, align 4, !tbaa !60
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %89
+  br i1 %84, label %.thread, label %88
 
-85:                                               ; preds = %79
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !59
-  %88 = add nsw i32 %87, %57
-  store i32 %88, ptr %86, align 4, !tbaa !59
-  br label %99
+.thread:                                          ; preds = %79
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %86 = load i32, ptr %85, align 4, !tbaa !59
+  %87 = add nsw i32 %86, %57
+  store i32 %87, ptr %85, align 4, !tbaa !59
+  br label %.lr.ph.preheader
 
-89:                                               ; preds = %79
+88:                                               ; preds = %79
   %.not.i88 = icmp ult i32 %83, 65536
-  %90 = lshr i32 %83, 16
-  %spec.select.i89 = select i1 %.not.i88, i32 %83, i32 %90
+  %89 = lshr i32 %83, 16
+  %spec.select.i89 = select i1 %.not.i88, i32 %83, i32 %89
   %spec.select12.i90 = select i1 %.not.i88, i32 0, i32 16
   %.not11.i91 = icmp samesign ult i32 %spec.select.i89, 256
-  %91 = lshr i32 %spec.select.i89, 8
-  %92 = or disjoint i32 %spec.select12.i90, 8
-  %.110.i92 = select i1 %.not11.i91, i32 %spec.select.i89, i32 %91
-  %.1.i93 = select i1 %.not11.i91, i32 %spec.select12.i90, i32 %92
-  %93 = zext nneg i32 %.110.i92 to i64
-  %94 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !13
-  %96 = zext i8 %95 to i32
-  %97 = or disjoint i32 %.1.i93, 1
-  %98 = add nuw nsw i32 %97, %96
-  br label %99
+  %90 = lshr i32 %spec.select.i89, 8
+  %91 = or disjoint i32 %spec.select12.i90, 8
+  %.110.i92 = select i1 %.not11.i91, i32 %spec.select.i89, i32 %90
+  %.1.i93 = select i1 %.not11.i91, i32 %spec.select12.i90, i32 %91
+  %92 = zext nneg i32 %.110.i92 to i64
+  %93 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %92
+  %94 = load i8, ptr %93, align 1, !tbaa !13
+  %95 = zext i8 %94 to i32
+  %96 = or disjoint i32 %.1.i93, 1
+  %97 = add nuw nsw i32 %96, %95
+  %98 = icmp eq i32 %4, %97
+  br i1 %98, label %._crit_edge, label %.lr.ph.preheader
 
-99:                                               ; preds = %89, %85
-  %.070 = phi i32 [ 0, %85 ], [ %98, %89 ]
-  %.not85100 = icmp eq i32 %4, %.070
-  br i1 %.not85100, label %._crit_edge, label %.lr.ph
+.lr.ph.preheader:                                 ; preds = %.thread, %88
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %99, %114
-  %100 = phi i32 [ %102, %114 ], [ %83, %99 ]
-  %101 = add nsw i32 %100, 1
-  %102 = srem i32 %101, %57
-  store i32 %102, ptr %80, align 4, !tbaa !60
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %114, label %104
+.lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.preheader
+  %99 = phi i32 [ %83, %.lr.ph.preheader ], [ %.be, %.lr.ph.backedge ]
+  %100 = add nsw i32 %99, 1
+  %101 = srem i32 %100, %57
+  store i32 %101, ptr %80, align 4, !tbaa !60
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %.lr.ph.backedge, label %103
 
-104:                                              ; preds = %.lr.ph
-  %.not.i94 = icmp ult i32 %102, 65536
-  %105 = lshr i32 %102, 16
-  %spec.select.i95 = select i1 %.not.i94, i32 %102, i32 %105
+.lr.ph.backedge:                                  ; preds = %.lr.ph, %103
+  %.be = phi i32 [ %101, %103 ], [ 0, %.lr.ph ]
+  br label %.lr.ph, !llvm.loop !62
+
+103:                                              ; preds = %.lr.ph
+  %.not.i94 = icmp ult i32 %101, 65536
+  %104 = lshr i32 %101, 16
+  %spec.select.i95 = select i1 %.not.i94, i32 %101, i32 %104
   %spec.select12.i96 = select i1 %.not.i94, i32 0, i32 16
   %.not11.i97 = icmp samesign ult i32 %spec.select.i95, 256
-  %106 = lshr i32 %spec.select.i95, 8
-  %107 = or disjoint i32 %spec.select12.i96, 8
-  %.110.i98 = select i1 %.not11.i97, i32 %spec.select.i95, i32 %106
-  %.1.i99 = select i1 %.not11.i97, i32 %spec.select12.i96, i32 %107
-  %108 = zext nneg i32 %.110.i98 to i64
-  %109 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !13
-  %111 = zext i8 %110 to i32
-  %112 = or disjoint i32 %.1.i99, 1
-  %113 = add nuw nsw i32 %112, %111
-  br label %114
+  %105 = lshr i32 %spec.select.i95, 8
+  %106 = or disjoint i32 %spec.select12.i96, 8
+  %.110.i98 = select i1 %.not11.i97, i32 %spec.select.i95, i32 %105
+  %.1.i99 = select i1 %.not11.i97, i32 %spec.select12.i96, i32 %106
+  %107 = zext nneg i32 %.110.i98 to i64
+  %108 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %107
+  %109 = load i8, ptr %108, align 1, !tbaa !13
+  %110 = zext i8 %109 to i32
+  %111 = or disjoint i32 %.1.i99, 1
+  %112 = add nuw nsw i32 %111, %110
+  %113 = icmp eq i32 %4, %112
+  br i1 %113, label %._crit_edge, label %.lr.ph.backedge
 
-114:                                              ; preds = %.lr.ph, %104
-  %.2 = phi i32 [ %113, %104 ], [ 0, %.lr.ph ]
-  %.not85 = icmp eq i32 %4, %.2
-  br i1 %.not85, label %._crit_edge, label %.lr.ph, !llvm.loop !62
-
-._crit_edge:                                      ; preds = %114, %99
-  %115 = phi i32 [ %83, %99 ], [ %102, %114 ]
-  %116 = sitofp i32 %57 to double
-  %117 = sitofp i32 %115 to double
-  %118 = tail call nsz double @llvm.fmuladd.f64(double %117, double 2.000000e+00, double 1.000000e+00)
-  %119 = shl nuw i32 1, %4
-  %120 = sitofp i32 %119 to double
-  %121 = fdiv nsz double %118, %120
-  %122 = fadd nsz double %121, -2.000000e+00
-  %123 = fmul nsz double %122, %116
-  %124 = fptosi double %123 to i32
-  %125 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %126 = load i32, ptr %125, align 4, !tbaa !59
-  %127 = add nsw i32 %126, %124
-  store i32 %127, ptr %2, align 4, !tbaa !57
+._crit_edge:                                      ; preds = %103, %88
+  %114 = phi i32 [ %83, %88 ], [ %101, %103 ]
+  %115 = sitofp i32 %57 to double
+  %116 = sitofp i32 %114 to double
+  %117 = tail call nsz double @llvm.fmuladd.f64(double %116, double 2.000000e+00, double 1.000000e+00)
+  %118 = shl nuw i32 1, %4
+  %119 = sitofp i32 %118 to double
+  %120 = fdiv nsz double %117, %119
+  %121 = fadd nsz double %120, -2.000000e+00
+  %122 = fmul nsz double %121, %115
+  %123 = fptosi double %122 to i32
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %125 = load i32, ptr %124, align 4, !tbaa !59
+  %126 = add nsw i32 %125, %123
+  store i32 %126, ptr %2, align 4, !tbaa !57
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %52, %74, %._crit_edge, %70, %11, %5

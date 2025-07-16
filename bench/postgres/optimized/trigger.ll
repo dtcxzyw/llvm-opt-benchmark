@@ -9794,7 +9794,7 @@ define internal fastcc void @afterTriggerAddEvent(ptr noundef captures(none) %0,
   %58 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = icmp ult ptr %56, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge
+  br i1 %60, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -9860,56 +9860,56 @@ define internal fastcc void @afterTriggerAddEvent(ptr noundef captures(none) %0,
   %102 = icmp ult ptr %101, %100
   br i1 %102, label %66, label %._crit_edge, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %._crit_edge81, %95, %55
-  %103 = phi ptr [ %59, %55 ], [ %.pre83.pre, %95 ], [ %100, %._crit_edge81 ]
-  %.072.lcssa = phi ptr [ %56, %55 ], [ %.07278, %95 ], [ %101, %._crit_edge81 ]
-  %.not = icmp ult ptr %.072.lcssa, %103
-  br i1 %.not, label %116, label %104
+._crit_edge:                                      ; preds = %._crit_edge81, %95
+  %.pre83 = phi ptr [ %100, %._crit_edge81 ], [ %.pre83.pre, %95 ]
+  %.072.lcssa.ph = phi ptr [ %101, %._crit_edge81 ], [ %.07278, %95 ]
+  %103 = icmp ult ptr %.072.lcssa.ph, %.pre83
+  br i1 %103, label %115, label %._crit_edge.thread
 
-104:                                              ; preds = %._crit_edge
-  %105 = load ptr, ptr %57, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 -40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %106, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %afterTriggerCopyBitmap.exit, label %110
+._crit_edge.thread:                               ; preds = %55, %._crit_edge
+  %104 = load ptr, ptr %57, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 -40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %afterTriggerCopyBitmap.exit, label %109
 
-110:                                              ; preds = %104
-  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
-  %112 = load ptr, ptr @CurrentMemoryContext, align 8
+109:                                              ; preds = %._crit_edge.thread
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
+  %111 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %110, ptr @CurrentMemoryContext, align 8
+  %112 = tail call ptr @bms_copy(ptr noundef nonnull %107) #16
   store ptr %111, ptr @CurrentMemoryContext, align 8
-  %113 = tail call ptr @bms_copy(ptr noundef nonnull %108) #16
-  store ptr %112, ptr @CurrentMemoryContext, align 8
   br label %afterTriggerCopyBitmap.exit
 
-afterTriggerCopyBitmap.exit:                      ; preds = %104, %110
-  %.0.i = phi ptr [ %113, %110 ], [ null, %104 ]
-  %114 = getelementptr inbounds i8, ptr %105, i64 -8
-  store ptr %.0.i, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %105, i64 -24
-  store i32 0, ptr %115, align 8
-  store ptr %106, ptr %57, align 8
-  br label %116
+afterTriggerCopyBitmap.exit:                      ; preds = %._crit_edge.thread, %109
+  %.0.i = phi ptr [ %112, %109 ], [ null, %._crit_edge.thread ]
+  %113 = getelementptr inbounds i8, ptr %104, i64 -8
+  store ptr %.0.i, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %104, i64 -24
+  store i32 0, ptr %114, align 8
+  store ptr %105, ptr %57, align 8
+  br label %115
 
-116:                                              ; preds = %afterTriggerCopyBitmap.exit, %._crit_edge
-  %.173 = phi ptr [ %106, %afterTriggerCopyBitmap.exit ], [ %.072.lcssa, %._crit_edge ]
-  %117 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %118 = load ptr, ptr %117, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %118, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %10, i1 false)
-  %119 = load i32, ptr %118, align 4
-  %120 = and i32 %119, -134217728
-  %121 = ptrtoint ptr %.173 to i64
-  %122 = ptrtoint ptr %118 to i64
-  %123 = sub i64 %121, %122
-  %124 = trunc i64 %123 to i32
-  %125 = or i32 %120, %124
-  store i32 %125, ptr %118, align 4
-  %126 = load ptr, ptr %117, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %10
-  store ptr %127, ptr %117, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %127, ptr %128, align 8
+115:                                              ; preds = %afterTriggerCopyBitmap.exit, %._crit_edge
+  %.173 = phi ptr [ %105, %afterTriggerCopyBitmap.exit ], [ %.072.lcssa.ph, %._crit_edge ]
+  %116 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %117 = load ptr, ptr %116, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %117, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %10, i1 false)
+  %118 = load i32, ptr %117, align 4
+  %119 = and i32 %118, -134217728
+  %120 = ptrtoint ptr %.173 to i64
+  %121 = ptrtoint ptr %117 to i64
+  %122 = sub i64 %120, %121
+  %123 = trunc i64 %122 to i32
+  %124 = or i32 %119, %123
+  store i32 %124, ptr %117, align 4
+  %125 = load ptr, ptr %116, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %10
+  store ptr %126, ptr %116, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %126, ptr %127, align 8
   ret void
 }
 

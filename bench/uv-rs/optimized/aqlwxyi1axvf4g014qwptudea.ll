@@ -1126,16 +1126,15 @@ define hidden { i64, i64 } @"_ZN100_$LT$winnow..stream..stateful..Stateful$LT$I$
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !18, !nonnull !8, !align !9, !noundef !8
   %8 = load i8, ptr %7, align 1, !noalias !21, !noundef !8
+  %9 = icmp eq i8 %1, %8
+  %10 = select i1 %9, i64 0, i64 2
   br label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
 
 "_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit": ; preds = %2, %5
-  %.sroa.5.0.i = phi i8 [ %8, %5 ], [ undef, %2 ]
-  %9 = icmp eq i8 %1, %.sroa.5.0.i
-  %..i = select i1 %9, i64 0, i64 2
-  %.sroa.0.0.i = select i1 %.not.not.i, i64 1, i64 %..i
-  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %11 = insertvalue { i64, i64 } %10, i64 1, 1
-  ret { i64, i64 } %11
+  %.sroa.0.0.i = phi i64 [ %10, %5 ], [ 1, %2 ]
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %12 = insertvalue { i64, i64 } %11, i64 1, 1
+  ret { i64, i64 } %12
 }
 
 ; Function Attrs: alwaysinline nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -1187,16 +1186,15 @@ define hidden { i64, i64 } @"_ZN101_$LT$winnow..stream..locating..LocatingSlice$
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !alias.scope !37, !nonnull !8, !align !9, !noundef !8
   %8 = load i8, ptr %7, align 1, !noalias !40, !noundef !8
+  %9 = icmp eq i8 %1, %8
+  %10 = select i1 %9, i64 0, i64 2
   br label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
 
 "_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit": ; preds = %2, %5
-  %.sroa.5.0.i = phi i8 [ %8, %5 ], [ undef, %2 ]
-  %9 = icmp eq i8 %1, %.sroa.5.0.i
-  %..i = select i1 %9, i64 0, i64 2
-  %.sroa.0.0.i = select i1 %.not.not.i, i64 1, i64 %..i
-  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %11 = insertvalue { i64, i64 } %10, i64 1, 1
-  ret { i64, i64 } %11
+  %.sroa.0.0.i = phi i64 [ %10, %5 ], [ 1, %2 ]
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %12 = insertvalue { i64, i64 } %11, i64 1, 1
+  ret { i64, i64 } %12
 }
 
 ; Function Attrs: alwaysinline nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -31620,26 +31618,26 @@ define hidden void @_ZN6winnow5token8literal_17h3e8a73f9825b3a14E(ptr dead_on_un
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !7208, !noundef !8
   %.not.not.i = icmp eq i64 %7, 0
-  br i1 %.not.not.i, label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit.thread", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
+  br i1 %.not.not.i, label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit", label %8
 
-"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit": ; preds = %3
-  %8 = load i8, ptr %5, align 1, !noalias !7211, !noundef !8
-  %9 = icmp eq i8 %2, %8
-  br i1 %9, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit.thread"
+8:                                                ; preds = %3
+  %9 = load i8, ptr %5, align 1, !noalias !7211, !noundef !8
+  %10 = icmp eq i8 %2, %9
+  br i1 %10, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
 
-"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit": ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %11 = add i64 %7, -1
-  store ptr %10, ptr %4, align 8, !alias.scope !7214
-  store i64 %11, ptr %6, align 8, !alias.scope !7214
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %13, align 8
+"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit": ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = add i64 %7, -1
+  store ptr %11, ptr %4, align 8, !alias.scope !7214
+  store i64 %12, ptr %6, align 8, !alias.scope !7214
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %5, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %14, align 8
   store i64 3, ptr %0, align 8
-  br label %14
+  br label %15
 
-"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit.thread": ; preds = %3, %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
+"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit": ; preds = %3, %8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %0, align 8
@@ -31647,9 +31645,9 @@ define hidden void @_ZN6winnow5token8literal_17h3e8a73f9825b3a14E(ptr dead_on_un
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit.thread", %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit"
+15:                                               ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit", %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit"
   ret void
 }
 
@@ -31661,26 +31659,26 @@ define hidden void @_ZN6winnow5token8literal_17h6b9ed6c9180357d5E(ptr dead_on_un
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !7219, !noundef !8
   %.not.not.i = icmp eq i64 %7, 0
-  br i1 %.not.not.i, label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit.thread", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
+  br i1 %.not.not.i, label %15, label %8
 
-"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit": ; preds = %3
-  %8 = load i8, ptr %5, align 1, !noalias !7222, !noundef !8
-  %9 = icmp eq i8 %2, %8
-  br i1 %9, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit", label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit.thread"
+8:                                                ; preds = %3
+  %9 = load i8, ptr %5, align 1, !noalias !7222, !noundef !8
+  %10 = icmp eq i8 %2, %9
+  br i1 %10, label %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit", label %15
 
-"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit": ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %11 = add i64 %7, -1
-  store ptr %10, ptr %4, align 8, !alias.scope !7225
-  store i64 %11, ptr %6, align 8, !alias.scope !7225
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %13, align 8
+"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit": ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = add i64 %7, -1
+  store ptr %11, ptr %4, align 8, !alias.scope !7225
+  store i64 %12, ptr %6, align 8, !alias.scope !7225
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %5, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %14, align 8
   store i64 3, ptr %0, align 8
-  br label %14
+  br label %16
 
-"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit.thread": ; preds = %3, %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
+15:                                               ; preds = %8, %3
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %0, align 8
@@ -31688,9 +31686,9 @@ define hidden void @_ZN6winnow5token8literal_17h6b9ed6c9180357d5E(ptr dead_on_un
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %14
+  br label %16
 
-14:                                               ; preds = %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit.thread", %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit"
+16:                                               ; preds = %15, %"_ZN91_$LT$winnow..stream..locating..LocatingSlice$LT$I$GT$$u20$as$u20$winnow..stream..Stream$GT$10next_slice17hbb93b3241d7baab3E.llvm.3264304222902269976.exit"
   ret void
 }
 
@@ -31814,21 +31812,20 @@ define hidden { i64, i64 } @"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..strea
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !8
   %.not.not = icmp eq i64 %4, 0
-  br i1 %.not.not, label %8, label %5
+  br i1 %.not.not, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !nonnull !8, !align !9, !noundef !8
   %7 = load i8, ptr %6, align 1, !noundef !8
-  br label %8
+  %8 = icmp eq i8 %1, %7
+  %9 = select i1 %8, i64 0, i64 2
+  br label %10
 
-8:                                                ; preds = %2, %5
-  %.sroa.5.0 = phi i8 [ %7, %5 ], [ undef, %2 ]
-  %9 = icmp eq i8 %1, %.sroa.5.0
-  %. = select i1 %9, i64 0, i64 2
-  %.sroa.0.0 = select i1 %.not.not, i64 1, i64 %.
-  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %11 = insertvalue { i64, i64 } %10, i64 1, 1
-  ret { i64, i64 } %11
+10:                                               ; preds = %2, %5
+  %.sroa.0.0 = phi i64 [ %9, %5 ], [ 1, %2 ]
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %12 = insertvalue { i64, i64 } %11, i64 1, 1
+  ret { i64, i64 } %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -33816,16 +33813,15 @@ define hidden { i64, i64 } @"_ZN83_$LT$$RF$winnow..stream..bstr..BStr$u20$as$u20
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !nonnull !8, !align !9, !noundef !8
   %7 = load i8, ptr %6, align 1, !noalias !7381, !noundef !8
+  %8 = icmp eq i8 %1, %7
+  %9 = select i1 %8, i64 0, i64 2
   br label %"_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit"
 
 "_ZN70_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$winnow..stream..Compare$LT$u8$GT$$GT$7compare17h4612028d6b3160ccE.llvm.3264304222902269976.exit": ; preds = %2, %5
-  %.sroa.5.0.i = phi i8 [ %7, %5 ], [ undef, %2 ]
-  %8 = icmp eq i8 %1, %.sroa.5.0.i
-  %..i = select i1 %8, i64 0, i64 2
-  %.sroa.0.0.i = select i1 %.not.not.i, i64 1, i64 %..i
-  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %10 = insertvalue { i64, i64 } %9, i64 1, 1
-  ret { i64, i64 } %10
+  %.sroa.0.0.i = phi i64 [ %9, %5 ], [ 1, %2 ]
+  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %11 = insertvalue { i64, i64 } %10, i64 1, 1
+  ret { i64, i64 } %11
 }
 
 ; Function Attrs: alwaysinline nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable

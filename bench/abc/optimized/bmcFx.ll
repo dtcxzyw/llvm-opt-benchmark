@@ -495,19 +495,14 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %24
 
-.critedge6.loopexit.loopexit:                     ; preds = %Div_FindDiv.exit.thread
+.critedge6.loopexit:                              ; preds = %Div_FindDiv.exit.thread
   %.pre149 = sext i32 %.val64145 to i64
-  br label %.critedge6.loopexit
-
-.critedge6.loopexit:                              ; preds = %.critedge6.loopexit.loopexit, %.critedge2
-  %.pre-phi150 = phi i64 [ %.pre149, %.critedge6.loopexit.loopexit ], [ %39, %.critedge2 ]
-  %.val64 = phi i32 [ %.val64145, %.critedge6.loopexit.loopexit ], [ %.val64147, %.critedge2 ]
-  %23 = icmp slt i64 %indvars.iv.next134, %.pre-phi150
+  %23 = icmp slt i64 %indvars.iv.next134, %.pre149
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   br i1 %23, label %24, label %.critedge.loopexit, !llvm.loop !34
 
 24:                                               ; preds = %.lr.ph119, %.critedge6.loopexit
-  %.val64143 = phi i32 [ %.val64117, %.lr.ph119 ], [ %.val64, %.critedge6.loopexit ]
+  %.val64143 = phi i32 [ %.val64117, %.lr.ph119 ], [ %.val64145, %.critedge6.loopexit ]
   %indvars.iv133 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next134, %.critedge6.loopexit ]
   %indvars.iv128 = phi i64 [ 1, %.lr.ph119 ], [ %indvars.iv.next129, %.critedge6.loopexit ]
   %.val66 = load ptr, ptr %20, align 8, !tbaa !27
@@ -522,19 +517,14 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   %28 = getelementptr i8, ptr %25, i64 8
   br label %30
 
-.critedge4.loopexit.loopexit:                     ; preds = %.lr.ph
+.critedge4.loopexit:                              ; preds = %.lr.ph
   %.pre148 = sext i32 %.val to i64
-  br label %.critedge4.loopexit
-
-.critedge4.loopexit:                              ; preds = %.critedge4.loopexit.loopexit, %30
-  %.pre-phi = phi i64 [ %.pre148, %.critedge4.loopexit.loopexit ], [ %33, %30 ]
-  %.val60 = phi i32 [ %.val, %.critedge4.loopexit.loopexit ], [ %.val60138, %30 ]
-  %29 = icmp slt i64 %indvars.iv.next126, %.pre-phi
+  %29 = icmp slt i64 %indvars.iv.next126, %.pre148
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %29, label %30, label %.critedge2.loopexit, !llvm.loop !35
 
 30:                                               ; preds = %.lr.ph113, %.critedge4.loopexit
-  %.val60138 = phi i32 [ %.val60111, %.lr.ph113 ], [ %.val60, %.critedge4.loopexit ]
+  %.val60138 = phi i32 [ %.val60111, %.lr.ph113 ], [ %.val, %.critedge4.loopexit ]
   %indvars.iv125 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next126, %.critedge4.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph113 ], [ %indvars.iv.next, %.critedge4.loopexit ]
   %.val62 = load ptr, ptr %28, align 8, !tbaa !3
@@ -544,7 +534,7 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %33 = sext i32 %.val60138 to i64
   %34 = icmp slt i64 %indvars.iv.next126, %33
-  br i1 %34, label %.lr.ph, label %.critedge4.loopexit
+  br i1 %34, label %.lr.ph, label %.critedge2.loopexit
 
 .lr.ph:                                           ; preds = %30, %.lr.ph
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph ], [ %indvars.iv, %30 ]
@@ -557,9 +547,9 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   %.val = load i32, ptr %26, align 4, !tbaa !10
   %37 = trunc nuw i64 %indvars.iv.next123 to i32
   %38 = icmp sgt i32 %.val, %37
-  br i1 %38, label %.lr.ph, label %.critedge4.loopexit.loopexit, !llvm.loop !36
+  br i1 %38, label %.lr.ph, label %.critedge4.loopexit, !llvm.loop !36
 
-.critedge2.loopexit:                              ; preds = %.critedge4.loopexit
+.critedge2.loopexit:                              ; preds = %30, %.critedge4.loopexit
   %.val63114.pre = load i32, ptr %18, align 4, !tbaa !24
   br label %.critedge2
 
@@ -568,7 +558,7 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %39 = sext i32 %.val64147 to i64
   %40 = icmp slt i64 %indvars.iv.next134, %39
-  br i1 %40, label %.lr.ph116, label %.critedge6.loopexit
+  br i1 %40, label %.lr.ph116, label %.critedge.loopexit
 
 .lr.ph116:                                        ; preds = %.critedge2
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -894,9 +884,9 @@ Div_FindDiv.exit.thread:                          ; preds = %75, %70, %85, %93, 
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %164 = trunc nuw i64 %indvars.iv.next131 to i32
   %165 = icmp sgt i32 %.val63, %164
-  br i1 %165, label %42, label %.critedge6.loopexit.loopexit, !llvm.loop !37
+  br i1 %165, label %42, label %.critedge6.loopexit, !llvm.loop !37
 
-.critedge.loopexit:                               ; preds = %.critedge6.loopexit
+.critedge.loopexit:                               ; preds = %.critedge2, %.critedge6.loopexit
   %.pre = load i32, ptr %17, align 4, !tbaa !33
   br label %.critedge
 

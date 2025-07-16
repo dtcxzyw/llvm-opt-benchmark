@@ -6156,8 +6156,8 @@ _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2
 
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2_EEEEvv.exit: ; preds = %208
   %.pre = load ptr, ptr %71, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #24
   %210 = icmp eq ptr %.pre, %209
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #24
   %211 = zext i1 %210 to i8
   store i8 %211, ptr %14, align 8, !tbaa !65
   %212 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -6864,8 +6864,8 @@ _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiE
 
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEES8_EEvRT0_.exit: ; preds = %456
   %.pre517 = load ptr, ptr %320, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #24
   %458 = icmp eq ptr %.pre517, %457
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #24
   %459 = zext i1 %458 to i8
   store i8 %459, ptr %31, align 8, !tbaa !65
   %460 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -7568,8 +7568,8 @@ _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectEPKv.exit.thread: ; preds = %681
 
 _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectEPKv.exit: ; preds = %699
   %.pre518 = load ptr, ptr %568, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #24
   %701 = icmp eq ptr %.pre518, %700
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #24
   %702 = zext i1 %701 to i8
   store i8 %702, ptr %48, align 8, !tbaa !65
   %703 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -9775,8 +9775,8 @@ _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit127.thread: ; preds = %_ZN4entt4sinkI
 _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit127:   ; preds = %.noexc126
   %.pre191 = load ptr, ptr %2, align 8, !tbaa !75
   %.pre192 = load ptr, ptr %31, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #24
   %251 = icmp eq ptr %.pre191, %.pre192
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #24
   %252 = zext i1 %251 to i8
   store i8 %252, ptr %19, align 8, !tbaa !65
   %253 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -10976,8 +10976,8 @@ _ZNK4entt4sighIFvvESaIvEE7publishEv.exit139.thread: ; preds = %_ZN4entt4sinkINS_
 _ZNK4entt4sighIFvvESaIvEE7publishEv.exit139:      ; preds = %.noexc138
   %.pre238 = load ptr, ptr %2, align 8, !tbaa !137
   %.pre239 = load ptr, ptr %36, align 8, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #24
   %256 = icmp eq ptr %.pre238, %.pre239
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #24
   %257 = zext i1 %256 to i8
   store i8 %257, ptr %19, align 8, !tbaa !65
   %258 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -14438,8 +14438,8 @@ _ZN7testing15AssertionResultD2Ev.exit.thread.i.i: ; preds = %_ZNKSt14default_del
 "_ZNK4entt4sighIFbiESaIvEE7collectIZN19SigH_Collector_Test8TestBodyEvE3$_1EEvT_i.exit": ; preds = %"_ZZN19SigH_Collector_Test8TestBodyEvENK3$_1clEb.exit.i"
   %.pre = load ptr, ptr %11, align 8, !tbaa !173
   %.pre97 = load ptr, ptr %30, align 8, !tbaa !173
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #24
   %98 = icmp ne ptr %.pre, %.pre97
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #24
   %99 = zext i1 %98 to i8
   store i8 %99, ptr %16, align 8, !tbaa !65
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -15244,8 +15244,8 @@ define hidden void @_ZN23SigH_CollectorVoid_Test8TestBodyEv(ptr nonnull readnone
 "_ZNK4entt4sighIFviESaIvEE7collectIZN23SigH_CollectorVoid_Test8TestBodyEvE3$_0EEvT_i.exit": ; preds = %.noexc
   %.pre = load ptr, ptr %3, align 8, !tbaa !209
   %.pre86 = load ptr, ptr %22, align 8, !tbaa !209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #24
   %38 = icmp ne ptr %.pre, %.pre86
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #24
   %39 = zext i1 %38 to i8
   store i8 %39, ptr %8, align 8, !tbaa !65
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -16159,8 +16159,8 @@ _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit.thread: ; preds = %30
 _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit:      ; preds = %.noexc
   %.pre = load ptr, ptr %2, align 8, !tbaa !75
   %.pre198 = load ptr, ptr %31, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
   %45 = icmp ne ptr %.pre, %.pre198
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
   %46 = zext i1 %45 to i8
   store i8 %46, ptr %6, align 8, !tbaa !65
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -16716,8 +16716,8 @@ _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit130.thread: ; preds = %_ZN4entt10conn
 _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit130:   ; preds = %.noexc129
   %.pre199 = load ptr, ptr %2, align 8, !tbaa !75
   %.pre200 = load ptr, ptr %31, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #24
   %226 = icmp eq ptr %.pre199, %.pre200
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #24
   %227 = zext i1 %226 to i8
   store i8 %227, ptr %18, align 8, !tbaa !65
   %228 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -17313,8 +17313,8 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit.thread:  ; preds = %26
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit:         ; preds = %.noexc
   %.pre = load ptr, ptr %3, align 8, !tbaa !209
   %.pre238 = load ptr, ptr %27, align 8, !tbaa !209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
   %41 = icmp ne ptr %.pre, %.pre238
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
   %42 = zext i1 %41 to i8
   store i8 %42, ptr %6, align 8, !tbaa !65
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -17852,8 +17852,8 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit167.thread: ; preds = %_ZN4entt17scoped_
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit167:      ; preds = %.noexc166
   %.pre239 = load ptr, ptr %3, align 8, !tbaa !209
   %.pre240 = load ptr, ptr %27, align 8, !tbaa !209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #24
   %221 = icmp eq ptr %.pre239, %.pre240
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #24
   %222 = zext i1 %221 to i8
   store i8 %222, ptr %18, align 8, !tbaa !65
   %223 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -20352,8 +20352,8 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit.thread:  ; preds = %44
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit:         ; preds = %.noexc
   %.pre = load ptr, ptr %3, align 8, !tbaa !209
   %.pre542 = load ptr, ptr %43, align 8, !tbaa !209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
   %58 = icmp ne ptr %.pre, %.pre542
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
   %59 = zext i1 %58 to i8
   store i8 %59, ptr %6, align 8, !tbaa !65
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -21060,8 +21060,8 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit342.thread: ; preds = %273
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit342:      ; preds = %.noexc341
   %.pre543 = load ptr, ptr %3, align 8, !tbaa !209
   %.pre544 = load ptr, ptr %43, align 8, !tbaa !209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #24
   %287 = icmp ne ptr %.pre543, %.pre544
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #24
   %288 = zext i1 %287 to i8
   store i8 %288, ptr %23, align 8, !tbaa !65
   %289 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -21601,8 +21601,8 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit419.thread: ; preds = %_ZN4entt17scoped_
 _ZNK4entt4sighIFviESaIvEE7publishEi.exit419:      ; preds = %.noexc418
   %.pre545 = load ptr, ptr %3, align 8, !tbaa !209
   %.pre546 = load ptr, ptr %43, align 8, !tbaa !209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #24
   %463 = icmp eq ptr %.pre545, %.pre546
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #24
   %464 = zext i1 %463 to i8
   store i8 %464, ptr %35, align 8, !tbaa !65
   %465 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -26435,15 +26435,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !209
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre513 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !209
+  %106 = icmp eq ptr %.pre, %.pre513
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = icmp eq ptr %.pre, %.pre513
-  %108 = zext i1 %107 to i8
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %108 = zext i1 %106 to i8
   store i8 %108, ptr %6, align 8, !tbaa !65
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %109, align 8, !tbaa !74
-  br i1 %107, label %159, label %110
+  br i1 %106, label %159, label %110
 
 110:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
@@ -26597,7 +26597,7 @@ _ZN7testing7MessageD2Ev.exit230:                  ; preds = %_ZNKSt14default_del
 
 159:                                              ; preds = %.thread, %105
   %160 = phi ptr [ %94, %.thread ], [ %109, %105 ]
-  %161 = phi ptr [ %93, %.thread ], [ %106, %105 ]
+  %161 = phi ptr [ %93, %.thread ], [ %107, %105 ]
   store ptr null, ptr %160, align 8, !tbaa !76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #24

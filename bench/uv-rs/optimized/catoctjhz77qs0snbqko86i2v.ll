@@ -3512,7 +3512,7 @@ define hidden void @_ZN5serde2de12Deserializer21__deserialize_content17hd0c17655
 
 "_ZN79_$LT$toml_edit..de..key..KeyDeserializer$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h54fa1e95882634b1E.llvm.12416941196424164413.exit": ; preds = %.noexc.i
   %19 = load ptr, ptr %11, align 8, !noalias !1156, !nonnull !8, !noundef !8
-  %20 = icmp uge i64 %10, %7
+  %20 = icmp ule i64 %7, %10
   tail call void @llvm.assume(i1 %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1156
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %5, i64 %7, i1 false), !noalias !1165
@@ -5196,7 +5196,7 @@ define hidden void @"_ZN79_$LT$toml_edit..de..key..KeyDeserializer$u20$as$u20$se
 
 17:                                               ; preds = %.noexc
   %18 = load ptr, ptr %11, align 8, !noalias !1630, !nonnull !8, !noundef !8
-  %19 = icmp uge i64 %10, %7
+  %19 = icmp ule i64 %7, %10
   tail call void @llvm.assume(i1 %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1630
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %5, i64 %7, i1 false), !noalias !1637

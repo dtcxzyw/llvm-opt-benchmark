@@ -4232,10 +4232,10 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
 ._crit_edge:                                      ; preds = %156
   %.pre = load i8, ptr %1, align 1, !tbaa !39
   %.pre123 = zext i8 %.pre to i32
-  %162 = ptrtoint ptr %158 to i64
-  %163 = icmp ne i32 %.1, %.pre123
+  %162 = icmp ne i32 %.1, %.pre123
+  %163 = ptrtoint ptr %158 to i64
   %164 = icmp ne i32 %2, 0
-  %or.cond3 = and i1 %164, %163
+  %or.cond3 = and i1 %164, %162
   br i1 %or.cond3, label %165, label %._crit_edge._crit_edge
 
 165:                                              ; preds = %._crit_edge
@@ -4282,7 +4282,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %192, ptr %193, align 4, !tbaa !71
   %194 = ptrtoint ptr %1 to i64
-  %195 = sub i64 %194, %162
+  %195 = sub i64 %194, %163
   %196 = trunc i64 %195 to i32
   store i32 %196, ptr %174, align 4, !tbaa !62
   %197 = load i32, ptr %184, align 4, !tbaa !62
@@ -4421,7 +4421,7 @@ Refresh.exit:                                     ; preds = %276
   br label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %203, %Refresh.exit
-  %.pre-phi125 = phi i64 [ %229, %203 ], [ %255, %Refresh.exit ], [ %162, %._crit_edge ]
+  %.pre-phi125 = phi i64 [ %229, %203 ], [ %255, %Refresh.exit ], [ %163, %._crit_edge ]
   %296 = ptrtoint ptr %1 to i64
   %297 = sub i64 %296, %.pre-phi125
   %298 = trunc i64 %297 to i32

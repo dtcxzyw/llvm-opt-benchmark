@@ -14831,7 +14831,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg12SortedVectorINS_11PackageSpecESt4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !265
   %5 = icmp eq ptr %2, %4
-  br i1 %5, label %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit, label %.preheader.i.i.i
+  br i1 %5, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %1, %6
   %.sroa.03.0.i.i.i = phi ptr [ %.sroa.04.1.i.i.i, %6 ], [ %2, %1 ]
@@ -14843,60 +14843,55 @@ define linkonce_odr dso_local void @_ZN5vcpkg12SortedVectorINS_11PackageSpecESt4
   %7 = tail call noundef zeroext i1 @_ZNK5vcpkg11PackageSpecltERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.04.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0.i.i.i)
   br i1 %7, label %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit, label %.preheader.i.i.i, !llvm.loop !266
 
-_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit: ; preds = %6, %1
-  %.sroa.04.0.i.i.i = phi ptr [ %2, %1 ], [ %.sroa.04.1.i.i.i, %6 ]
-  %8 = icmp eq ptr %.sroa.04.0.i.i.i, %4
-  br i1 %8, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %9
+_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit: ; preds = %6
+  %8 = load ptr, ptr %0, align 8, !tbaa !265
+  %9 = load ptr, ptr %3, align 8, !tbaa !265
+  %.not.i.i = icmp eq ptr %8, %9
+  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %10
 
-9:                                                ; preds = %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit
-  %10 = load ptr, ptr %0, align 8, !tbaa !265
-  %11 = load ptr, ptr %3, align 8, !tbaa !265
-  %.not.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %12
+10:                                               ; preds = %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %8 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 40
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 true)
+  %16 = shl nuw nsw i64 %15, 1
+  %17 = xor i64 %16, 126
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_T1_(ptr %8, ptr %9, i64 noundef %17)
+  %18 = icmp sgt i64 %13, 640
+  br i1 %18, label %19, label %22
 
-12:                                               ; preds = %9
-  %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %10 to i64
-  %15 = sub i64 %13, %14
-  %16 = sdiv exact i64 %15, 40
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
-  %18 = shl nuw nsw i64 %17, 1
-  %19 = xor i64 %18, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_T1_(ptr %10, ptr %11, i64 noundef %19)
-  %20 = icmp sgt i64 %15, 640
-  br i1 %20, label %21, label %24
-
-21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw i8, ptr %10, i64 640
-  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_(ptr %10, ptr nonnull %22)
-  %.not6.i.i.i.i = icmp eq ptr %22, %11
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 640
+  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_(ptr %8, ptr nonnull %20)
+  %.not6.i.i.i.i = icmp eq ptr %20, %9
   br i1 %.not6.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %21, %.lr.ph.i.i.i.i
-  %.sroa.0.07.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i ], [ %22, %21 ]
+.lr.ph.i.i.i.i:                                   ; preds = %19, %.lr.ph.i.i.i.i
+  %.sroa.0.07.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i ], [ %20, %19 ]
   tail call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterISt4lessIvEEEEvT_T0_(ptr nonnull %.sroa.0.07.i.i.i.i)
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 40
-  %.not.i.i.i.i = icmp eq ptr %23, %11
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 40
+  %.not.i.i.i.i = icmp eq ptr %21, %9
   br i1 %.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !267
 
-24:                                               ; preds = %12
-  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_(ptr %10, ptr %11)
+22:                                               ; preds = %10
+  tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_(ptr %8, ptr %9)
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit: ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i.i, %24, %21, %9, %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit
-  %25 = load ptr, ptr %0, align 8, !tbaa !265
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit: ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i.i, %1, %22, %19, %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit
+  %23 = load ptr, ptr %0, align 8, !tbaa !265
+  %24 = load ptr, ptr %3, align 8, !tbaa !265
+  %25 = tail call ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12SortedVectorIS3_St4lessIvEE9uniqueifyEvEUlRKS3_SG_E_EEET_SJ_SJ_T0_(ptr %23, ptr %24)
   %26 = load ptr, ptr %3, align 8, !tbaa !265
-  %27 = tail call ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12SortedVectorIS3_St4lessIvEE9uniqueifyEvEUlRKS3_SG_E_EEET_SJ_SJ_T0_(ptr %25, ptr %26)
-  %28 = load ptr, ptr %3, align 8, !tbaa !265
-  %29 = load ptr, ptr %0, align 8, !tbaa !265
-  %30 = ptrtoint ptr %27 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = getelementptr inbounds i8, ptr %29, i64 %32
-  %34 = ptrtoint ptr %28 to i64
-  %35 = sub i64 %34, %31
-  %36 = getelementptr inbounds i8, ptr %29, i64 %35
-  %37 = tail call ptr @_ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS1_S3_EES7_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr %33, ptr %36)
+  %27 = load ptr, ptr %0, align 8, !tbaa !265
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = getelementptr inbounds i8, ptr %27, i64 %30
+  %32 = ptrtoint ptr %26 to i64
+  %33 = sub i64 %32, %29
+  %34 = getelementptr inbounds i8, ptr %27, i64 %33
+  %35 = tail call ptr @_ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS1_S3_EES7_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr %31, ptr %34)
   ret void
 }
 

@@ -511,15 +511,16 @@ define dso_local i64 @_ZN5clang4Sema31BuildPossibleImplicitMemberExprERKNS_12CXX
   %.idx.i = shl nuw nsw i64 %39, 3
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   %.not121.i = icmp eq i32 %38, 0
-  br i1 %.not121.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  br i1 %.not121.i, label %.thread142.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit.i
   %.pre128.i = load i32, ptr %32, align 4, !tbaa !698
   %.pre129.i = load i32, ptr %33, align 8, !tbaa !699
   %41 = icmp eq i32 %.pre128.i, %.pre129.i
-  %brmerge.i = or i1 %.043.i, %41
-  %.mux.i = select i1 %41, i32 0, i32 7
-  br i1 %brmerge.i, label %._crit_edge.thread.i, label %84
+  %cond.fr.i = freeze i1 %41
+  %brmerge.i = or i1 %.043.i, %cond.fr.i
+  %..i = select i1 %cond.fr.i, i32 0, i32 7
+  br i1 %brmerge.i, label %.thread142.i, label %84
 
 .lr.ph.i:                                         ; preds = %29, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit.i
   %.051124.i = phi i1 [ %.152.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit.i ], [ false, %29 ]
@@ -660,7 +661,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit.i: ; preds 
 
 101:                                              ; preds = %100
   %..not60.i = select i1 %.154.i, i32 2, i32 %.not60.i
-  br label %._crit_edge.thread.i
+  br label %.thread142.i
 
 102:                                              ; preds = %100
   %103 = load i16, ptr %13, align 8
@@ -696,7 +697,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit.i: ; preds 
   %122 = add nsw i16 %104, -57
   %123 = icmp ult i16 %122, 3
   %124 = getelementptr inbounds i8, ptr %11, i64 -64
-  br i1 %123, label %125, label %._crit_edge.thread.i
+  br i1 %123, label %125, label %.thread142.i
 
 125:                                              ; preds = %121, %.thread.i
   %.246116.i = phi ptr [ %120, %.thread.i ], [ %124, %121 ]
@@ -843,24 +844,24 @@ _ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPt
 
 191:                                              ; preds = %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.i
   %192 = select i1 %.154.i, i32 3, i32 %.not63.i
-  br label %._crit_edge.thread.i
+  br label %.thread142.i
 
 193:                                              ; preds = %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.i, %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.thread.i
   %194 = select i1 %.154.i, i32 1, i32 4
-  br label %._crit_edge.thread.i
+  br label %.thread142.i
 
-._crit_edge.thread.i:                             ; preds = %193, %191, %121, %101, %._crit_edge.i, %29
-  %.1.i = phi i32 [ %.mux.i, %._crit_edge.i ], [ %..not60.i, %101 ], [ %192, %191 ], [ %194, %193 ], [ %.not60.i, %121 ], [ 0, %29 ]
+.thread142.i:                                     ; preds = %193, %191, %121, %101, %._crit_edge.i, %29
+  %.1.i = phi i32 [ %..not60.i, %101 ], [ %192, %191 ], [ %194, %193 ], [ %.not60.i, %121 ], [ 0, %29 ], [ %..i, %._crit_edge.i ]
   %195 = load i8, ptr %34, align 4, !tbaa !700, !range !704, !noundef !708
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, label %197
 
-197:                                              ; preds = %._crit_edge.thread.i
+197:                                              ; preds = %.thread142.i
   %198 = load ptr, ptr %9, align 8, !tbaa !696
   call void @free(ptr noundef %198) #18
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %197, %._crit_edge.thread.i
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %197, %.thread142.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #18
   br label %_ZL28ClassifyImplicitMemberAccessRN5clang4SemaERKNS_12LookupResultE.exit
 

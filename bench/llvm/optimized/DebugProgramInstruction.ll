@@ -2841,7 +2841,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17DbgVariableRecord14isKillLocatio
 6:                                                ; preds = %1
   %7 = add i8 %4, -5
   %switch.i.i.i.i.i.i.i.i = icmp ult i8 %7, 31
-  br i1 %switch.i.i.i.i.i.i.i.i, label %54, label %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread.thread
+  br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit", label %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread.thread
 
 _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -2853,7 +2853,7 @@ _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit: ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = tail call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %13) #18
-  br i1 %14, label %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread, label %54
+  br i1 %14, label %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit"
 
 _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread: ; preds = %11
   %.pre = load ptr, ptr %2, align 8, !tbaa !46, !noalias !144
@@ -2922,7 +2922,7 @@ _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %18, %24
   %44 = load i8, ptr %43, align 8, !tbaa !33, !noalias !147
   %45 = and i8 %44, -2
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %45, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit", label %46
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt7find_ifIN4llvm17DbgVariableRecord20location_op_iteratorEZNKS1_14isKillLocationEvE3$_0ET_S4_S4_T0_.exit.loopexit.i.i.i", label %46
 
 46:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17DbgVariableRecord14isKillLocationEvE3$_0EclINS3_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i"
   %47 = icmp ne i64 %35, 0
@@ -2935,17 +2935,16 @@ _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %18, %24
   %52 = or disjoint i64 %51, 4
   %storemerge.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 %52, i64 %49
   %.not.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i, %.sroa.7.0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !154
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt7find_ifIN4llvm17DbgVariableRecord20location_op_iteratorEZNKS1_14isKillLocationEvE3$_0ET_S4_S4_T0_.exit.loopexit.i.i.i", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !154
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17DbgVariableRecord14isKillLocationEvE3$_0EclINS3_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i", %46, %.critedge.i, %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
-  %.sroa.7.08 = phi i64 [ %.sroa.0.0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ], [ 0, %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread ], [ 0, %.critedge.i ], [ %.sroa.7.0, %46 ], [ %.sroa.7.0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17DbgVariableRecord14isKillLocationEvE3$_0EclINS3_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i" ]
-  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i = phi i64 [ %.sroa.0.0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ], [ 0, %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread ], [ 0, %.critedge.i ], [ %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17DbgVariableRecord14isKillLocationEvE3$_0EclINS3_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i" ], [ %.sroa.7.0, %46 ]
-  %53 = icmp ne i64 %.sroa.7.08, %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i
-  br label %54
+"_ZSt7find_ifIN4llvm17DbgVariableRecord20location_op_iteratorEZNKS1_14isKillLocationEvE3$_0ET_S4_S4_T0_.exit.loopexit.i.i.i": ; preds = %46, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17DbgVariableRecord14isKillLocationEvE3$_0EclINS3_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i"
+  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.ph.i.i.i = phi i64 [ %.sroa.7.0, %46 ], [ %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm17DbgVariableRecord14isKillLocationEvE3$_0EclINS3_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i" ]
+  %53 = icmp ne i64 %.sroa.7.0, %.sroa.01.0.copyload.i.i.lcssa.i.i.i.ph.i.i.i
+  br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit"
 
-54:                                               ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit", %11, %6
-  %55 = phi i1 [ true, %11 ], [ true, %6 ], [ %53, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit" ]
-  ret i1 %55
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEZNKS2_14isKillLocationEvE3$_0EEbOT_T0_.exit": ; preds = %.critedge.i, %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread, %"_ZSt7find_ifIN4llvm17DbgVariableRecord20location_op_iteratorEZNKS1_14isKillLocationEvE3$_0ET_S4_S4_T0_.exit.loopexit.i.i.i", %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit, %11, %6
+  %54 = phi i1 [ true, %11 ], [ true, %6 ], [ false, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ], [ %53, %"_ZSt7find_ifIN4llvm17DbgVariableRecord20location_op_iteratorEZNKS1_14isKillLocationEvE3$_0ET_S4_S4_T0_.exit.loopexit.i.i.i" ], [ false, %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread ], [ false, %.critedge.i ]
+  ret i1 %54
 }
 
 declare noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3

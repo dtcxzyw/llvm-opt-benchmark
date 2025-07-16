@@ -1524,7 +1524,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SaveToFile(ptr noundef captures(none) %
   %5 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.5)
   store ptr %5, ptr %3, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %32, label %.preheader
+  br i1 %.not, label %28, label %.preheader
 
 .preheader:                                       ; preds = %2
   %6 = load i32, ptr %0, align 8
@@ -1536,66 +1536,53 @@ cmsIT8SetTable.exit.lr.ph:                        ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %cmsIT8SetTable.exit
 
-cmsIT8SetTable.exit:                              ; preds = %cmsIT8SetTable.exit.lr.ph, %23
-  %9 = phi i32 [ %6, %cmsIT8SetTable.exit.lr.ph ], [ %25, %23 ]
-  %10 = phi i32 [ 0, %cmsIT8SetTable.exit.lr.ph ], [ %24, %23 ]
-  store i32 %10, ptr %7, align 4
-  %exitcond = icmp eq i32 %10, -2147483648
-  br i1 %exitcond, label %29, label %11
+cmsIT8SetTable.exit:                              ; preds = %cmsIT8SetTable.exit.lr.ph, %19
+  %9 = phi i32 [ 0, %cmsIT8SetTable.exit.lr.ph ], [ %20, %19 ]
+  store i32 %9, ptr %7, align 4
+  %exitcond = icmp eq i32 %9, -2147483648
+  br i1 %exitcond, label %25, label %GetTable.exit
 
-11:                                               ; preds = %cmsIT8SetTable.exit
-  %.not.i15 = icmp ult i32 %10, %9
-  br i1 %.not.i15, label %13, label %12
+GetTable.exit:                                    ; preds = %cmsIT8SetTable.exit
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr inbounds nuw %struct._Table, ptr %8, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1056
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %25, label %15
 
-12:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %10)
-  br label %GetTable.exit
-
-13:                                               ; preds = %11
-  %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw %struct._Table, ptr %8, i64 %14
-  br label %GetTable.exit
-
-GetTable.exit:                                    ; preds = %12, %13
-  %.0.i16 = phi ptr [ %8, %12 ], [ %15, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 1056
+15:                                               ; preds = %GetTable.exit
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 1048
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %29, label %19
+  br i1 %18, label %25, label %19
 
-19:                                               ; preds = %GetTable.exit
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 1048
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %29, label %23
-
-23:                                               ; preds = %19
+19:                                               ; preds = %15
   call fastcc void @WriteHeader(ptr noundef nonnull %0, ptr noundef %3)
   call fastcc void @WriteDataFormat(ptr noundef %3, ptr noundef nonnull %0)
   call fastcc void @WriteData(ptr noundef %3, ptr noundef nonnull %0)
-  %24 = add nuw i32 %10, 1
-  %25 = load i32, ptr %0, align 8
-  %26 = icmp ult i32 %24, %25
-  br i1 %26, label %cmsIT8SetTable.exit, label %._crit_edge.loopexit, !llvm.loop !20
+  %20 = add nuw i32 %9, 1
+  %21 = load i32, ptr %0, align 8
+  %22 = icmp ult i32 %20, %21
+  br i1 %22, label %cmsIT8SetTable.exit, label %._crit_edge.loopexit, !llvm.loop !20
 
-._crit_edge.loopexit:                             ; preds = %23
+._crit_edge.loopexit:                             ; preds = %19
   %.pre = load ptr, ptr %3, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %27 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %.preheader ]
-  %28 = tail call i32 @fclose(ptr noundef %27)
-  %.not14 = icmp eq i32 %28, 0
+  %23 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %.preheader ]
+  %24 = tail call i32 @fclose(ptr noundef %23)
+  %.not14 = icmp eq i32 %24, 0
   %. = zext i1 %.not14 to i32
-  br label %32
+  br label %28
 
-29:                                               ; preds = %19, %GetTable.exit, %cmsIT8SetTable.exit
-  %30 = load ptr, ptr %3, align 8
-  %31 = tail call i32 @fclose(ptr noundef %30)
-  br label %32
+25:                                               ; preds = %15, %GetTable.exit, %cmsIT8SetTable.exit
+  %26 = load ptr, ptr %3, align 8
+  %27 = tail call i32 @fclose(ptr noundef %26)
+  br label %28
 
-32:                                               ; preds = %._crit_edge, %2, %29
-  %.0 = phi i32 [ 0, %29 ], [ 0, %2 ], [ %., %._crit_edge ]
+28:                                               ; preds = %._crit_edge, %2, %25
+  %.0 = phi i32 [ 0, %25 ], [ 0, %2 ], [ %., %._crit_edge ]
   ret i32 %.0
 }
 
@@ -5569,272 +5556,269 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetData(ptr noundef captures(none) %0, 
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8
   %.not.i = icmp ult i32 %6, %7
-  br i1 %.not.i, label %10, label %8
+  br i1 %.not.i, label %GetTable.exit.thread, label %GetTable.exit
 
-8:                                                ; preds = %4
+GetTable.exit.thread:                             ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = zext i32 %6 to i64
+  %10 = getelementptr inbounds nuw %struct._Table, ptr %8, i64 %9
+  br label %15
+
+GetTable.exit:                                    ; preds = %4
   tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %6)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i32, ptr %5, align 4
   %.pre58 = load i32, ptr %0, align 8
-  br label %GetTable.exit
+  %12 = icmp ult i32 %.pre, %.pre58
+  br i1 %12, label %15, label %13
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds nuw %struct._Table, ptr %11, i64 %12
-  br label %GetTable.exit
+13:                                               ; preds = %GetTable.exit
+  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %.pre)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %GetTable.exit.i
 
-GetTable.exit:                                    ; preds = %8, %10
-  %14 = phi i32 [ %.pre58, %8 ], [ %7, %10 ]
-  %15 = phi i32 [ %.pre, %8 ], [ %6, %10 ]
-  %.0.i = phi ptr [ %9, %8 ], [ %13, %10 ]
-  %.not.i.i = icmp ult i32 %15, %14
-  br i1 %.not.i.i, label %18, label %16
-
-16:                                               ; preds = %GetTable.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %15)
+15:                                               ; preds = %GetTable.exit.thread, %GetTable.exit
+  %.0.i62 = phi ptr [ %10, %GetTable.exit.thread ], [ %11, %GetTable.exit ]
+  %16 = phi i32 [ %6, %GetTable.exit.thread ], [ %.pre, %GetTable.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds nuw %struct._Table, ptr %17, i64 %18
   br label %GetTable.exit.i
 
-18:                                               ; preds = %GetTable.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = zext i32 %15 to i64
-  %21 = getelementptr inbounds nuw %struct._Table, ptr %19, i64 %20
-  br label %GetTable.exit.i
-
-GetTable.exit.i:                                  ; preds = %18, %16
-  %.0.i.i = phi ptr [ %17, %16 ], [ %21, %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1024
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph.i, label %LocateSample.exit.thread
+GetTable.exit.i:                                  ; preds = %15, %13
+  %.0.i61 = phi ptr [ %11, %13 ], [ %.0.i62, %15 ]
+  %.0.i.i = phi ptr [ %14, %13 ], [ %19, %15 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1024
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph.i, label %LocateSample.exit.thread
 
 .lr.ph.i:                                         ; preds = %GetTable.exit.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %26
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %24
 
-26:                                               ; preds = %GetDataFormat.exit.thread.i, %.lr.ph.i
+24:                                               ; preds = %GetDataFormat.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %GetDataFormat.exit.thread.i ]
-  %27 = load i32, ptr %5, align 4
-  %28 = load i32, ptr %0, align 8
-  %.not.i.i.i = icmp ult i32 %27, %28
-  br i1 %.not.i.i.i, label %30, label %29
+  %25 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %0, align 8
+  %.not.i.i.i = icmp ult i32 %25, %26
+  br i1 %.not.i.i.i, label %28, label %27
 
-29:                                               ; preds = %26
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %27)
+27:                                               ; preds = %24
+  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %25)
   br label %GetTable.exit.i.i
 
-30:                                               ; preds = %26
-  %31 = zext i32 %27 to i64
-  %32 = getelementptr inbounds nuw %struct._Table, ptr %25, i64 %31
+28:                                               ; preds = %24
+  %29 = zext i32 %25 to i64
+  %30 = getelementptr inbounds nuw %struct._Table, ptr %23, i64 %29
   br label %GetTable.exit.i.i
 
-GetTable.exit.i.i:                                ; preds = %30, %29
-  %.0.i.i.i = phi ptr [ %25, %29 ], [ %32, %30 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1048
-  %34 = load ptr, ptr %33, align 8
-  %.not.i12.i = icmp eq ptr %34, null
+GetTable.exit.i.i:                                ; preds = %28, %27
+  %.0.i.i.i = phi ptr [ %23, %27 ], [ %30, %28 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1048
+  %32 = load ptr, ptr %31, align 8
+  %.not.i12.i = icmp eq ptr %32, null
   br i1 %.not.i12.i, label %GetDataFormat.exit.thread.i, label %GetDataFormat.exit.i
 
 GetDataFormat.exit.i:                             ; preds = %GetTable.exit.i.i
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
-  %36 = load ptr, ptr %35, align 8
-  %.not.i29 = icmp eq ptr %36, null
-  br i1 %.not.i29, label %GetDataFormat.exit.thread.i, label %37
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
+  %34 = load ptr, ptr %33, align 8
+  %.not.i29 = icmp eq ptr %34, null
+  br i1 %.not.i29, label %GetDataFormat.exit.thread.i, label %35
 
-37:                                               ; preds = %GetDataFormat.exit.i
-  %38 = tail call i32 @cmsstrcasecmp(ptr noundef nonnull %36, ptr noundef %2) #19
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %LocateSample.exit, label %GetDataFormat.exit.thread.i
+35:                                               ; preds = %GetDataFormat.exit.i
+  %36 = tail call i32 @cmsstrcasecmp(ptr noundef nonnull %34, ptr noundef %2) #19
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %LocateSample.exit, label %GetDataFormat.exit.thread.i
 
-GetDataFormat.exit.thread.i:                      ; preds = %37, %GetDataFormat.exit.i, %GetTable.exit.i.i
+GetDataFormat.exit.thread.i:                      ; preds = %35, %GetDataFormat.exit.i, %GetTable.exit.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %40 = load i32, ptr %22, align 8
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next.i, %41
-  br i1 %42, label %26, label %LocateSample.exit.thread, !llvm.loop !53
+  %38 = load i32, ptr %20, align 8
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next.i, %39
+  br i1 %40, label %24, label %LocateSample.exit.thread, !llvm.loop !53
 
-LocateSample.exit:                                ; preds = %37
-  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1028
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %52
+LocateSample.exit:                                ; preds = %35
+  %41 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 1028
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %50
 
-47:                                               ; preds = %LocateSample.exit
-  %48 = tail call fastcc i32 @AllocateDataFormat(ptr noundef nonnull %0)
-  %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %LocateSample.exit.thread, label %49
+45:                                               ; preds = %LocateSample.exit
+  %46 = tail call fastcc i32 @AllocateDataFormat(ptr noundef nonnull %0)
+  %.not = icmp eq i32 %46, 0
+  br i1 %.not, label %LocateSample.exit.thread, label %47
+
+47:                                               ; preds = %45
+  %48 = tail call fastcc i32 @AllocateDataSet(ptr noundef nonnull %0)
+  %.not27 = icmp eq i32 %48, 0
+  br i1 %.not27, label %LocateSample.exit.thread, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call fastcc i32 @AllocateDataSet(ptr noundef nonnull %0)
-  %.not27 = icmp eq i32 %50, 0
-  br i1 %.not27, label %LocateSample.exit.thread, label %51
-
-51:                                               ; preds = %49
   tail call fastcc void @CookPointers(ptr noundef nonnull %0)
-  br label %52
+  br label %50
 
-52:                                               ; preds = %51, %LocateSample.exit
-  %53 = tail call i32 @cmsstrcasecmp(ptr noundef %2, ptr noundef nonnull @.str.8) #19
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %119
+50:                                               ; preds = %49, %LocateSample.exit
+  %51 = tail call i32 @cmsstrcasecmp(ptr noundef %2, ptr noundef nonnull @.str.8) #19
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %117
 
-55:                                               ; preds = %52
-  %56 = load i32, ptr %5, align 4
-  %57 = load i32, ptr %0, align 8
-  %.not.i.i30 = icmp ult i32 %56, %57
-  br i1 %.not.i.i30, label %59, label %58
+53:                                               ; preds = %50
+  %54 = load i32, ptr %5, align 4
+  %55 = load i32, ptr %0, align 8
+  %.not.i.i30 = icmp ult i32 %54, %55
+  br i1 %.not.i.i30, label %57, label %56
 
-58:                                               ; preds = %55
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %56)
+56:                                               ; preds = %53
+  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %54)
   br label %GetTable.exit.i31
 
-59:                                               ; preds = %55
-  %60 = zext i32 %56 to i64
-  %61 = getelementptr inbounds nuw %struct._Table, ptr %25, i64 %60
+57:                                               ; preds = %53
+  %58 = zext i32 %54 to i64
+  %59 = getelementptr inbounds nuw %struct._Table, ptr %23, i64 %58
   br label %GetTable.exit.i31
 
-GetTable.exit.i31:                                ; preds = %59, %58
-  %.0.i.i32 = phi ptr [ %25, %58 ], [ %61, %59 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i32, i64 1028
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph.i34, label %LocateEmptyPatch.exit.thread44
+GetTable.exit.i31:                                ; preds = %57, %56
+  %.0.i.i32 = phi ptr [ %23, %56 ], [ %59, %57 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i32, i64 1028
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %.lr.ph.i34, label %LocateEmptyPatch.exit.thread44
 
 .lr.ph.i34:                                       ; preds = %GetTable.exit.i31
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i32, i64 1032
-  %66 = load i32, ptr %5, align 4
-  %67 = load i32, ptr %0, align 8
-  %68 = icmp ult i32 %66, %67
-  br i1 %68, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i32, i64 1032
+  %64 = load i32, ptr %5, align 4
+  %65 = load i32, ptr %0, align 8
+  %66 = icmp ult i32 %64, %65
+  br i1 %66, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i34
-  %69 = load i32, ptr %65, align 8
-  %.fr22.i = freeze i32 %69
-  %70 = zext i32 %66 to i64
-  %71 = getelementptr inbounds nuw %struct._Table, ptr %25, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1024
-  %73 = load i32, ptr %72, align 8
-  %.fr.i = freeze i32 %73
-  %74 = icmp sgt i32 %.fr22.i, -1
+  %67 = load i32, ptr %63, align 8
+  %.fr22.i = freeze i32 %67
+  %68 = zext i32 %64 to i64
+  %69 = getelementptr inbounds nuw %struct._Table, ptr %23, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1024
+  %71 = load i32, ptr %70, align 8
+  %.fr.i = freeze i32 %71
+  %72 = icmp sgt i32 %.fr22.i, -1
   %.not.i10.us.i = icmp slt i32 %.fr22.i, %.fr.i
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 1056
-  %76 = and i1 %74, %.not.i10.us.i
-  br i1 %76, label %GetTable.exit.i.us.preheader.i, label %LocateEmptyPatch.exit.thread
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 1056
+  %74 = and i1 %72, %.not.i10.us.i
+  br i1 %74, label %GetTable.exit.i.us.preheader.i, label %LocateEmptyPatch.exit.thread
 
 GetTable.exit.i.us.preheader.i:                   ; preds = %.lr.ph.split.us.i
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 1028
-  %78 = load i32, ptr %77, align 4
-  %79 = sext i32 %.fr.i to i64
-  %80 = zext nneg i32 %.fr22.i to i64
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 1028
+  %76 = load i32, ptr %75, align 4
+  %77 = sext i32 %.fr.i to i64
+  %78 = zext nneg i32 %.fr22.i to i64
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
-  %81 = zext nneg i32 %63 to i64
+  %79 = zext nneg i32 %61 to i64
   br label %GetTable.exit.i.us.i
 
-GetTable.exit.i.us.i:                             ; preds = %89, %GetTable.exit.i.us.preheader.i
-  %indvars.iv.i38 = phi i64 [ 0, %GetTable.exit.i.us.preheader.i ], [ %indvars.iv.next.i39, %89 ]
+GetTable.exit.i.us.i:                             ; preds = %87, %GetTable.exit.i.us.preheader.i
+  %indvars.iv.i38 = phi i64 [ 0, %GetTable.exit.i.us.preheader.i ], [ %indvars.iv.next.i39, %87 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i38, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %LocateEmptyPatch.exit.thread, label %82
+  br i1 %exitcond.not.i, label %LocateEmptyPatch.exit.thread, label %80
 
-82:                                               ; preds = %GetTable.exit.i.us.i
-  %83 = load ptr, ptr %75, align 8
-  %.not19.i.us.i = icmp eq ptr %83, null
+80:                                               ; preds = %GetTable.exit.i.us.i
+  %81 = load ptr, ptr %73, align 8
+  %.not19.i.us.i = icmp eq ptr %81, null
   br i1 %.not19.i.us.i, label %LocateEmptyPatch.exit, label %GetData.exit.us.i
 
-GetData.exit.us.i:                                ; preds = %82
-  %84 = mul nsw i64 %indvars.iv.i38, %79
-  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %84
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %80
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %LocateEmptyPatch.exit, label %89
+GetData.exit.us.i:                                ; preds = %80
+  %82 = mul nsw i64 %indvars.iv.i38, %77
+  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %78
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %LocateEmptyPatch.exit, label %87
 
-89:                                               ; preds = %GetData.exit.us.i
+87:                                               ; preds = %GetData.exit.us.i
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i39, %81
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i39, %79
   br i1 %exitcond.not, label %LocateEmptyPatch.exit.thread44, label %GetTable.exit.i.us.i, !llvm.loop !55
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i34, %112
-  %.0913.i = phi i32 [ %113, %112 ], [ 0, %.lr.ph.i34 ]
-  %90 = load i32, ptr %65, align 8
-  %91 = load i32, ptr %5, align 4
-  %92 = load i32, ptr %0, align 8
-  %.not.i.i.i35 = icmp ult i32 %91, %92
-  br i1 %.not.i.i.i35, label %94, label %93
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i34, %110
+  %.0913.i = phi i32 [ %111, %110 ], [ 0, %.lr.ph.i34 ]
+  %88 = load i32, ptr %63, align 8
+  %89 = load i32, ptr %5, align 4
+  %90 = load i32, ptr %0, align 8
+  %.not.i.i.i35 = icmp ult i32 %89, %90
+  br i1 %.not.i.i.i35, label %92, label %91
 
-93:                                               ; preds = %.lr.ph.split.i
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %91)
+91:                                               ; preds = %.lr.ph.split.i
+  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %89)
   br label %GetTable.exit.i.i36
 
-94:                                               ; preds = %.lr.ph.split.i
-  %95 = zext i32 %91 to i64
-  %96 = getelementptr inbounds nuw %struct._Table, ptr %25, i64 %95
+92:                                               ; preds = %.lr.ph.split.i
+  %93 = zext i32 %89 to i64
+  %94 = getelementptr inbounds nuw %struct._Table, ptr %23, i64 %93
   br label %GetTable.exit.i.i36
 
-GetTable.exit.i.i36:                              ; preds = %94, %93
-  %.0.i.i.i37 = phi ptr [ %25, %93 ], [ %96, %94 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 1024
-  %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 1028
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp slt i32 %.0913.i, %100
-  %102 = icmp sgt i32 %90, -1
-  %or.cond.not23.i.i = and i1 %102, %101
-  %.not.i10.i = icmp slt i32 %90, %98
+GetTable.exit.i.i36:                              ; preds = %92, %91
+  %.0.i.i.i37 = phi ptr [ %23, %91 ], [ %94, %92 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 1024
+  %96 = load i32, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 1028
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp slt i32 %.0913.i, %98
+  %100 = icmp sgt i32 %88, -1
+  %or.cond.not23.i.i = and i1 %100, %99
+  %.not.i10.i = icmp slt i32 %88, %96
   %or.cond20.i.i = select i1 %or.cond.not23.i.i, i1 %.not.i10.i, i1 false
-  br i1 %or.cond20.i.i, label %103, label %LocateEmptyPatch.exit.thread
+  br i1 %or.cond20.i.i, label %101, label %LocateEmptyPatch.exit.thread
 
-103:                                              ; preds = %GetTable.exit.i.i36
-  %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 1056
-  %105 = load ptr, ptr %104, align 8
-  %.not19.i.i = icmp eq ptr %105, null
+101:                                              ; preds = %GetTable.exit.i.i36
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 1056
+  %103 = load ptr, ptr %102, align 8
+  %.not19.i.i = icmp eq ptr %103, null
   br i1 %.not19.i.i, label %LocateEmptyPatch.exit.thread, label %GetData.exit.i
 
-GetData.exit.i:                                   ; preds = %103
-  %106 = mul nsw i32 %98, %.0913.i
-  %107 = add nuw nsw i32 %106, %90
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %108
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %LocateEmptyPatch.exit.thread, label %112
+GetData.exit.i:                                   ; preds = %101
+  %104 = mul nsw i32 %96, %.0913.i
+  %105 = add nuw nsw i32 %104, %88
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr inbounds nuw ptr, ptr %103, i64 %106
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %LocateEmptyPatch.exit.thread, label %110
 
-112:                                              ; preds = %GetData.exit.i
-  %113 = add nuw nsw i32 %.0913.i, 1
-  %114 = load i32, ptr %62, align 4
-  %115 = icmp slt i32 %113, %114
-  br i1 %115, label %.lr.ph.split.i, label %LocateEmptyPatch.exit.thread44, !llvm.loop !56
+110:                                              ; preds = %GetData.exit.i
+  %111 = add nuw nsw i32 %.0913.i, 1
+  %112 = load i32, ptr %60, align 4
+  %113 = icmp slt i32 %111, %112
+  br i1 %113, label %.lr.ph.split.i, label %LocateEmptyPatch.exit.thread44, !llvm.loop !56
 
-LocateEmptyPatch.exit:                            ; preds = %GetData.exit.us.i, %82
+LocateEmptyPatch.exit:                            ; preds = %GetData.exit.us.i, %80
   %.0.i33 = trunc i64 %indvars.iv.i38 to i32
-  %116 = icmp slt i32 %.0.i33, 0
-  br i1 %116, label %LocateEmptyPatch.exit.thread44, label %LocateEmptyPatch.exit.thread
+  %114 = icmp slt i32 %.0.i33, 0
+  br i1 %114, label %LocateEmptyPatch.exit.thread44, label %LocateEmptyPatch.exit.thread
 
-LocateEmptyPatch.exit.thread44:                   ; preds = %112, %89, %GetTable.exit.i31, %LocateEmptyPatch.exit
+LocateEmptyPatch.exit.thread44:                   ; preds = %110, %87, %GetTable.exit.i31, %LocateEmptyPatch.exit
   tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %1)
   br label %LocateSample.exit.thread
 
-LocateEmptyPatch.exit.thread:                     ; preds = %GetData.exit.i, %GetTable.exit.i.i36, %103, %GetTable.exit.i.us.i, %.lr.ph.split.us.i, %LocateEmptyPatch.exit
-  %.0.i3342 = phi i32 [ %.0.i33, %LocateEmptyPatch.exit ], [ 0, %.lr.ph.split.us.i ], [ %smax.i, %GetTable.exit.i.us.i ], [ %.0913.i, %103 ], [ %.0913.i, %GetTable.exit.i.i36 ], [ %.0913.i, %GetData.exit.i ]
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1032
-  %118 = load i32, ptr %117, align 8
-  br label %122
+LocateEmptyPatch.exit.thread:                     ; preds = %GetData.exit.i, %GetTable.exit.i.i36, %101, %GetTable.exit.i.us.i, %.lr.ph.split.us.i, %LocateEmptyPatch.exit
+  %.0.i3342 = phi i32 [ %.0.i33, %LocateEmptyPatch.exit ], [ 0, %.lr.ph.split.us.i ], [ %smax.i, %GetTable.exit.i.us.i ], [ %.0913.i, %101 ], [ %.0913.i, %GetTable.exit.i.i36 ], [ %.0913.i, %GetData.exit.i ]
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 1032
+  %116 = load i32, ptr %115, align 8
+  br label %120
 
-119:                                              ; preds = %52
-  %120 = tail call fastcc i32 @LocatePatch(ptr noundef nonnull %0, ptr noundef %1)
-  %121 = icmp slt i32 %120, 0
-  br i1 %121, label %LocateSample.exit.thread, label %122
+117:                                              ; preds = %50
+  %118 = tail call fastcc i32 @LocatePatch(ptr noundef nonnull %0, ptr noundef %1)
+  %119 = icmp slt i32 %118, 0
+  br i1 %119, label %LocateSample.exit.thread, label %120
 
-122:                                              ; preds = %119, %LocateEmptyPatch.exit.thread
-  %.023 = phi i32 [ %118, %LocateEmptyPatch.exit.thread ], [ %43, %119 ]
-  %.022 = phi i32 [ %.0.i3342, %LocateEmptyPatch.exit.thread ], [ %120, %119 ]
-  %123 = tail call fastcc i32 @SetData(ptr noundef nonnull %0, i32 noundef %.022, i32 noundef %.023, ptr noundef %3)
+120:                                              ; preds = %117, %LocateEmptyPatch.exit.thread
+  %.023 = phi i32 [ %116, %LocateEmptyPatch.exit.thread ], [ %41, %117 ]
+  %.022 = phi i32 [ %.0.i3342, %LocateEmptyPatch.exit.thread ], [ %118, %117 ]
+  %121 = tail call fastcc i32 @SetData(ptr noundef nonnull %0, i32 noundef %.022, i32 noundef %.023, ptr noundef %3)
   br label %LocateSample.exit.thread
 
-LocateSample.exit.thread:                         ; preds = %GetDataFormat.exit.thread.i, %GetTable.exit.i, %119, %49, %47, %122, %LocateEmptyPatch.exit.thread44
-  %.0 = phi i32 [ 0, %LocateEmptyPatch.exit.thread44 ], [ %123, %122 ], [ 0, %47 ], [ 0, %49 ], [ 0, %119 ], [ 0, %GetTable.exit.i ], [ 0, %GetDataFormat.exit.thread.i ]
+LocateSample.exit.thread:                         ; preds = %GetDataFormat.exit.thread.i, %GetTable.exit.i, %117, %47, %45, %120, %LocateEmptyPatch.exit.thread44
+  %.0 = phi i32 [ 0, %LocateEmptyPatch.exit.thread44 ], [ %121, %120 ], [ 0, %45 ], [ 0, %47 ], [ 0, %117 ], [ 0, %GetTable.exit.i ], [ 0, %GetDataFormat.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -6239,43 +6223,41 @@ define hidden ptr @cmsIT8GetPatchName(ptr noundef captures(none) %0, i32 noundef
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
   %.not.i = icmp ult i32 %5, %6
-  br i1 %.not.i, label %9, label %7
+  br i1 %.not.i, label %GetTable.exit.thread, label %GetTable.exit
 
-7:                                                ; preds = %3
+GetTable.exit.thread:                             ; preds = %3
+  %7 = zext i32 %5 to i64
+  %.idx = mul nuw nsw i64 %7, 1064
+  %8 = getelementptr i8, ptr %0, i64 1048
+  %9 = getelementptr i8, ptr %8, i64 %.idx
+  %10 = load i32, ptr %9, align 8
+  br label %16
+
+GetTable.exit:                                    ; preds = %3
   tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %5)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i32, ptr %4, align 4
   %.pre19 = load i32, ptr %0, align 8
-  br label %GetTable.exit
+  %11 = icmp ult i32 %.pre, %.pre19
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %13 = load i32, ptr %12, align 8
+  br i1 %11, label %16, label %14
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw %struct._Table, ptr %10, i64 %11
-  br label %GetTable.exit
-
-GetTable.exit:                                    ; preds = %7, %9
-  %13 = phi i32 [ %.pre19, %7 ], [ %6, %9 ]
-  %14 = phi i32 [ %.pre, %7 ], [ %5, %9 ]
-  %.0.i = phi ptr [ %8, %7 ], [ %12, %9 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1032
-  %16 = load i32, ptr %15, align 8
-  %.not.i.i = icmp ult i32 %14, %13
-  br i1 %.not.i.i, label %19, label %17
-
-17:                                               ; preds = %GetTable.exit
-  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %14)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+14:                                               ; preds = %GetTable.exit
+  tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.81, i32 noundef %.pre)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %GetTable.exit.i
 
-19:                                               ; preds = %GetTable.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = zext i32 %14 to i64
-  %22 = getelementptr inbounds nuw %struct._Table, ptr %20, i64 %21
+16:                                               ; preds = %GetTable.exit.thread, %GetTable.exit
+  %17 = phi i32 [ %10, %GetTable.exit.thread ], [ %13, %GetTable.exit ]
+  %18 = phi i32 [ %5, %GetTable.exit.thread ], [ %.pre, %GetTable.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = zext i32 %18 to i64
+  %21 = getelementptr inbounds nuw %struct._Table, ptr %19, i64 %20
   br label %GetTable.exit.i
 
-GetTable.exit.i:                                  ; preds = %19, %17
-  %.0.i.i = phi ptr [ %18, %17 ], [ %22, %19 ]
+GetTable.exit.i:                                  ; preds = %16, %14
+  %22 = phi i32 [ %13, %14 ], [ %17, %16 ]
+  %.0.i.i = phi ptr [ %15, %14 ], [ %21, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1024
   %24 = load i32, ptr %23, align 8
   %25 = icmp slt i32 %1, 0
@@ -6285,9 +6267,9 @@ GetTable.exit.i:                                  ; preds = %19, %17
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1028
   %28 = load i32, ptr %27, align 4
   %29 = icmp slt i32 %1, %28
-  %30 = icmp sgt i32 %16, -1
+  %30 = icmp sgt i32 %22, -1
   %or.cond.not23.i = and i1 %30, %29
-  %.not.i15 = icmp slt i32 %16, %24
+  %.not.i15 = icmp slt i32 %22, %24
   %or.cond20.i = select i1 %or.cond.not23.i, i1 %.not.i15, i1 false
   br i1 %or.cond20.i, label %31, label %GetData.exit.thread
 
@@ -6299,7 +6281,7 @@ GetTable.exit.i:                                  ; preds = %19, %17
 
 GetData.exit:                                     ; preds = %31
   %34 = mul nsw i32 %24, %1
-  %35 = add nuw nsw i32 %34, %16
+  %35 = add nuw nsw i32 %34, %22
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8

@@ -3354,84 +3354,84 @@ define internal noundef zeroext i1 @frame_add_comment(ptr readnone captures(none
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %39, %.._crit_edge.loopexit_crit_edge
-  %43 = phi i32 [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %41, %39 ]
-  %.043.lcssa = phi ptr [ %.04355, %.._crit_edge.loopexit_crit_edge ], [ %37, %39 ]
-  %.0.lcssa = phi i32 [ %.057, %.._crit_edge.loopexit_crit_edge ], [ %40, %39 ]
-  %44 = icmp eq i32 %.0.lcssa, %43
-  br i1 %44, label %47, label %54
+  %.pre = phi i32 [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %41, %39 ]
+  %.043.lcssa.ph = phi ptr [ %.04355, %.._crit_edge.loopexit_crit_edge ], [ %37, %39 ]
+  %.0.lcssa.ph = phi i32 [ %.057, %.._crit_edge.loopexit_crit_edge ], [ %40, %39 ]
+  %43 = icmp eq i32 %.0.lcssa.ph, %.pre
+  br i1 %43, label %46, label %53
 
 .thread:                                          ; preds = %.lr.ph
-  %45 = load i32, ptr @max_comment_lines, align 4
-  %46 = icmp eq i32 %.057, %45
-  br i1 %46, label %.thread51, label %54
+  %44 = load i32, ptr @max_comment_lines, align 4
+  %45 = icmp eq i32 %.057, %44
+  br i1 %45, label %.thread51, label %53
 
-47:                                               ; preds = %._crit_edge
-  %.not47 = icmp eq ptr %.043.lcssa, null
+46:                                               ; preds = %._crit_edge
+  %.not47 = icmp eq ptr %.043.lcssa.ph, null
   br i1 %.not47, label %.thread51, label %.thread69
 
-.thread69:                                        ; preds = %18, %47
-  %.043.lcssa6872 = phi ptr [ %.043.lcssa, %47 ], [ %9, %18 ]
+.thread69:                                        ; preds = %18, %46
+  %.043.lcssa6872 = phi ptr [ %.043.lcssa.ph, %46 ], [ %9, %18 ]
   store i8 10, ptr %.043.lcssa6872, align 1
   %.pre64 = load i32, ptr @max_comment_lines, align 4
   br label %.thread51
 
-.thread51:                                        ; preds = %.thread, %.thread69, %47
-  %48 = phi i32 [ %.057, %.thread ], [ %.pre64, %.thread69 ], [ %43, %47 ]
-  %49 = load i32, ptr @hf_comments_text, align 4
-  %50 = load ptr, ptr %22, align 8
-  %51 = icmp eq i32 %48, 1
-  %52 = select i1 %51, ptr @.str.568, ptr @.str.569
-  %53 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %26, i32 noundef %49, ptr noundef %50, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.568, ptr noundef nonnull @.str.603, i32 noundef %48, ptr noundef nonnull %52)
-  br label %54
+.thread51:                                        ; preds = %.thread, %.thread69, %46
+  %47 = phi i32 [ %.057, %.thread ], [ %.pre64, %.thread69 ], [ %.pre, %46 ]
+  %48 = load i32, ptr @hf_comments_text, align 4
+  %49 = load ptr, ptr %22, align 8
+  %50 = icmp eq i32 %47, 1
+  %51 = select i1 %50, ptr @.str.568, ptr @.str.569
+  %52 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %26, i32 noundef %48, ptr noundef %49, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.568, ptr noundef nonnull @.str.603, i32 noundef %47, ptr noundef nonnull %51)
+  br label %53
 
-54:                                               ; preds = %.thread, %.thread51, %._crit_edge
-  %55 = load i32, ptr @hf_comments_text, align 4
-  %56 = load ptr, ptr %22, align 8
-  %57 = load ptr, ptr %3, align 8
-  %58 = tail call ptr @proto_tree_add_string(ptr noundef %26, i32 noundef %55, ptr noundef %56, i32 noundef 0, i32 noundef 0, ptr noundef %57)
-  %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %59
+53:                                               ; preds = %.thread, %.thread51, %._crit_edge
+  %54 = load i32, ptr @hf_comments_text, align 4
+  %55 = load ptr, ptr %22, align 8
+  %56 = load ptr, ptr %3, align 8
+  %57 = tail call ptr @proto_tree_add_string(ptr noundef %26, i32 noundef %54, ptr noundef %55, i32 noundef 0, i32 noundef 0, ptr noundef %56)
+  %.not.i = icmp eq ptr %57, null
+  br i1 %.not.i, label %proto_item_set_hidden.exit, label %58
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %.not5.i = icmp eq ptr %61, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %62
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %.not5.i = icmp eq ptr %60, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %61
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 28
-  %64 = load i32, ptr %63, align 4
-  %65 = or i32 %64, 1
-  store i32 %65, ptr %63, align 4
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 28
+  %63 = load i32, ptr %62, align 4
+  %64 = or i32 %63, 1
+  store i32 %64, ptr %62, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %62, %59, %54, %11
-  %.044 = phi ptr [ %17, %11 ], [ %26, %54 ], [ %26, %59 ], [ %26, %62 ]
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %3, align 8
-  %69 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %67, ptr noundef %.044, ptr noundef nonnull @ei_comments_text, ptr noundef nonnull @.str.601, ptr noundef %68)
-  %.not.i48 = icmp eq ptr %69, null
-  br i1 %.not.i48, label %proto_item_set_hidden.exit50, label %70
+proto_item_set_hidden.exit:                       ; preds = %61, %58, %53, %11
+  %.044 = phi ptr [ %17, %11 ], [ %26, %53 ], [ %26, %58 ], [ %26, %61 ]
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %3, align 8
+  %68 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %66, ptr noundef %.044, ptr noundef nonnull @ei_comments_text, ptr noundef nonnull @.str.601, ptr noundef %67)
+  %.not.i48 = icmp eq ptr %68, null
+  br i1 %.not.i48, label %proto_item_set_hidden.exit50, label %69
 
-70:                                               ; preds = %proto_item_set_hidden.exit
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %.not5.i49 = icmp eq ptr %72, null
-  br i1 %.not5.i49, label %proto_item_set_hidden.exit50, label %73
+69:                                               ; preds = %proto_item_set_hidden.exit
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %.not5.i49 = icmp eq ptr %71, null
+  br i1 %.not5.i49, label %proto_item_set_hidden.exit50, label %72
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 28
-  %75 = load i32, ptr %74, align 4
-  %76 = or i32 %75, 1
-  store i32 %76, ptr %74, align 4
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 28
+  %74 = load i32, ptr %73, align 4
+  %75 = or i32 %74, 1
+  store i32 %75, ptr %73, align 4
   br label %proto_item_set_hidden.exit50
 
-proto_item_set_hidden.exit50:                     ; preds = %73, %70, %proto_item_set_hidden.exit, %5
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %78 = load i32, ptr %77, align 8
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %77, align 8
+proto_item_set_hidden.exit50:                     ; preds = %72, %69, %proto_item_set_hidden.exit, %5
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %77 = load i32, ptr %76, align 8
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %76, align 8
   ret i1 true
 }
 

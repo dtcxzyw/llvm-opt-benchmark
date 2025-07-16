@@ -1575,7 +1575,7 @@ e100_exec_cmd.exit:                               ; preds = %229
   %262 = select i1 %260, i1 %261, i1 false
   br i1 %262, label %263, label %.thread
 
-263:                                              ; preds = %257, %259
+263:                                              ; preds = %259, %257
   %264 = phi i8 [ 5, %257 ], [ -5, %259 ]
   %265 = add i8 %264, %246
   store i8 %265, ptr %245, align 8

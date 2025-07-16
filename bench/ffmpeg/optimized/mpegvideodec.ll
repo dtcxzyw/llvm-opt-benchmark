@@ -187,36 +187,36 @@ define internal range(i32 0, 52) i32 @mpegvideo_probe(ptr noundef readonly captu
   %78 = icmp ne i32 %.176, 0
   %79 = icmp ne i32 %.170, 0
   %80 = icmp ne i32 %.167, 0
-  %81 = icmp ne i32 %.173, 0
+  %81 = icmp sle i32 %.179, %.165
+  %82 = mul nsw i32 %.179, 10
+  %83 = icmp ne i32 %.173, 0
   %.not = icmp eq i32 %.182, 0
-  br i1 %.not, label %._crit_edge.thread, label %82
+  br i1 %.not, label %._crit_edge.thread, label %84
 
-82:                                               ; preds = %._crit_edge
-  %83 = mul nsw i32 %.182, 9
-  %84 = mul nsw i32 %.185, 10
-  %.not91 = icmp sgt i32 %83, %84
-  br i1 %.not91, label %._crit_edge.thread, label %85
+84:                                               ; preds = %._crit_edge
+  %85 = mul nsw i32 %.182, 9
+  %86 = mul nsw i32 %.185, 10
+  %.not91 = icmp sgt i32 %85, %86
+  br i1 %.not91, label %._crit_edge.thread, label %87
 
-85:                                               ; preds = %82
-  %86 = mul nsw i32 %.185, 9
-  %87 = mul nsw i32 %.179, 10
-  %88 = icmp sgt i32 %86, %87
-  %or.cond5.not144.not180 = select i1 %88, i1 true, i1 %78
+87:                                               ; preds = %84
+  %88 = mul nsw i32 %.185, 9
+  %89 = icmp sgt i32 %88, %82
+  %or.cond5.not144.not180 = select i1 %89, i1 true, i1 %78
   %or.cond7.not141.not177 = select i1 %or.cond5.not144.not180, i1 true, i1 %79
   %or.cond9.not139.not175 = select i1 %or.cond7.not141.not177, i1 true, i1 %80
-  %89 = icmp sle i32 %.179, %.165
-  %or.cond103.not173 = select i1 %or.cond9.not139.not175, i1 true, i1 %89
-  %brmerge = select i1 %or.cond103.not173, i1 true, i1 %81
+  %or.cond103.not173 = select i1 %or.cond9.not139.not175, i1 true, i1 %81
+  %brmerge = select i1 %or.cond103.not173, i1 true, i1 %83
   %.mux = select i1 %or.cond103.not173, i32 0, i32 12
   br i1 %brmerge, label %._crit_edge.thread, label %90
 
-90:                                               ; preds = %85
+90:                                               ; preds = %87
   %91 = icmp sgt i32 %.185, 1
   %92 = select i1 %91, i32 51, i32 25
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %85, %1, %._crit_edge, %82, %90
-  %.062 = phi i32 [ %92, %90 ], [ %.mux, %85 ], [ 0, %82 ], [ 0, %._crit_edge ], [ 0, %1 ]
+._crit_edge.thread:                               ; preds = %87, %1, %._crit_edge, %84, %90
+  %.062 = phi i32 [ %92, %90 ], [ %.mux, %87 ], [ 0, %84 ], [ 0, %._crit_edge ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
   ret i32 %.062
 }

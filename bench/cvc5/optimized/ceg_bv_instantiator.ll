@@ -12146,9 +12146,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit412:                 ; preds = %.loopexit812, %.loo
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.pre1122 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !547
   %.pre1124.pre = load ptr, ptr %17, align 8, !tbaa !568
-  %614 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %615 = icmp eq ptr %.pre, %.pre1122
-  br i1 %615, label %638, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit464
+  %614 = icmp eq ptr %.pre, %.pre1122
+  %615 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  br i1 %614, label %638, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit464
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit464: ; preds = %613
   %616 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -12167,7 +12167,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit504: ; preds = %_ZN4cvc58internal
   %625 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %626 = load ptr, ptr %625, align 8, !tbaa !547
   %627 = load ptr, ptr %16, align 8, !tbaa !547
-  %628 = load ptr, ptr %614, align 8, !tbaa !547
+  %628 = load ptr, ptr %615, align 8, !tbaa !547
   %629 = load ptr, ptr %2, align 8, !tbaa !547
   %630 = ptrtoint ptr %626 to i64
   %631 = ptrtoint ptr %629 to i64
@@ -12191,7 +12191,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit504._crit_edge: ; preds = %_ZN4cv
   br label %687
 
 638:                                              ; preds = %.thread1151, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit504._crit_edge, %613
-  %639 = phi ptr [ %614, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit504._crit_edge ], [ %614, %613 ], [ %39, %.thread1151 ]
+  %639 = phi ptr [ %615, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit504._crit_edge ], [ %615, %613 ], [ %39, %.thread1151 ]
   %640 = phi ptr [ %.pre1123, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit504._crit_edge ], [ %.pre1124.pre, %613 ], [ null, %.thread1151 ]
   %641 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %642 = load ptr, ptr %641, align 8, !tbaa !520

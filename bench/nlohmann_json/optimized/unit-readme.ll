@@ -24366,7 +24366,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail28json_
   store ptr null, ptr %20, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %4, ptr %21, align 8, !tbaa !548
-  br label %39
+  br label %40
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -24378,80 +24378,80 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail28json_
   %.pre = load ptr, ptr %9, align 8, !tbaa !549
   %.pre8 = load ptr, ptr %23, align 8, !tbaa !550
   %.sroa.2.0.copyload.i11.i.pre = load i32, ptr %10, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i8 %6, ptr %26, align 8, !tbaa !516
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 9, ptr %27, align 8, !tbaa !27
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr null, ptr %28, align 8, !tbaa !30
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %4, ptr %29, align 8, !tbaa !548
-  %.not.i = icmp eq ptr %.pre, %.pre8
-  br i1 %.not.i, label %39, label %30
+  %26 = icmp eq ptr %.pre, %.pre8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i8 %6, ptr %27, align 8, !tbaa !516
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 9, ptr %28, align 8, !tbaa !27
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr null, ptr %29, align 8, !tbaa !30
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr %4, ptr %30, align 8, !tbaa !548
+  br i1 %26, label %40, label %31
 
-30:                                               ; preds = %22
-  %31 = add i32 %.sroa.2.0.copyload.i11.i.pre, 1
-  store i32 %31, ptr %10, align 8, !tbaa !551
-  %32 = icmp eq i32 %.sroa.2.0.copyload.i11.i.pre, 63
-  br i1 %32, label %33, label %_ZNSt13_Bit_iteratorppEi.exit.i
+31:                                               ; preds = %22
+  %32 = add i32 %.sroa.2.0.copyload.i11.i.pre, 1
+  store i32 %32, ptr %10, align 8, !tbaa !551
+  %33 = icmp eq i32 %.sroa.2.0.copyload.i11.i.pre, 63
+  br i1 %33, label %34, label %_ZNSt13_Bit_iteratorppEi.exit.i
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   store i32 0, ptr %10, align 8, !tbaa !551
-  %34 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  store ptr %34, ptr %9, align 8, !tbaa !549
+  %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  store ptr %35, ptr %9, align 8, !tbaa !549
   br label %_ZNSt13_Bit_iteratorppEi.exit.i
 
-_ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %33, %30
-  %35 = zext nneg i32 %.sroa.2.0.copyload.i11.i.pre to i64
-  %36 = shl nuw i64 1, %35
-  %37 = load i64, ptr %.pre, align 8, !tbaa !120
-  %38 = or i64 %37, %36
-  store i64 %38, ptr %.pre, align 8, !tbaa !120
+_ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %34, %31
+  %36 = zext nneg i32 %.sroa.2.0.copyload.i11.i.pre to i64
+  %37 = shl nuw i64 1, %36
+  %38 = load i64, ptr %.pre, align 8, !tbaa !120
+  %39 = or i64 %38, %37
+  store i64 %39, ptr %.pre, align 8, !tbaa !120
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
-39:                                               ; preds = %.thread, %22
-  %40 = phi ptr [ %19, %.thread ], [ %27, %22 ]
-  %41 = phi ptr [ null, %.thread ], [ %.pre, %22 ]
+40:                                               ; preds = %.thread, %22
+  %41 = phi ptr [ %19, %.thread ], [ %28, %22 ]
+  %42 = phi ptr [ null, %.thread ], [ %.pre, %22 ]
   %.sroa.2.0.copyload.i11.i12 = phi i32 [ 0, %.thread ], [ %.sroa.2.0.copyload.i11.i.pre, %22 ]
-  invoke void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %41, i32 %.sroa.2.0.copyload.i11.i12, i1 noundef zeroext true)
-          to label %_ZNSt6vectorIbSaIbEE9push_backEb.exit unwind label %42
+  invoke void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %42, i32 %.sroa.2.0.copyload.i11.i12, i1 noundef zeroext true)
+          to label %_ZNSt6vectorIbSaIbEE9push_backEb.exit unwind label %43
 
-_ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i, %39
+_ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i, %40
   ret void
 
-42:                                               ; preds = %39
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %40
+  %44 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #29
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %45 = load ptr, ptr %44, align 8, !tbaa !52
-  %.not.i7 = icmp eq ptr %45, null
-  br i1 %.not.i7, label %_ZNSt14_Function_baseD2Ev.exit, label %46
+  tail call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %46 = load ptr, ptr %45, align 8, !tbaa !52
+  %.not.i7 = icmp eq ptr %46, null
+  br i1 %.not.i7, label %_ZNSt14_Function_baseD2Ev.exit, label %47
 
-46:                                               ; preds = %42
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %48
+47:                                               ; preds = %43
+  %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %49
 
-48:                                               ; preds = %46
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #30
+  %51 = extractvalue { ptr, i32 } %50, 0
+  tail call void @__clang_call_terminate(ptr %51) #30
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %42, %46
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %43, %47
   tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #29
   tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #29
-  %51 = load ptr, ptr %7, align 8, !tbaa !523
-  %.not.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EED2Ev.exit, label %52
+  %52 = load ptr, ptr %7, align 8, !tbaa !523
+  %.not.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EED2Ev.exit, label %53
 
-52:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %51) #32
+53:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %52) #32
   br label %_ZNSt6vectorIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EED2Ev.exit
 
-_ZNSt6vectorIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EED2Ev.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit, %52
-  resume { ptr, i32 } %43
+_ZNSt6vectorIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EED2Ev.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit, %53
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress uwtable

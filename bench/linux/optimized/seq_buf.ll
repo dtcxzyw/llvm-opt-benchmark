@@ -506,8 +506,8 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_buf_putmem_hex(ptr noundef ca
   %62 = load i64, ptr %12, align 8
   %63 = add i64 %62, %54
   %.pre4 = load i64, ptr %5, align 8
-  store i64 %63, ptr %12, align 8
   %64 = icmp ugt i64 %63, %.pre4
+  store i64 %63, ptr %12, align 8
   br i1 %64, label %.loopexit, label %65
 
 65:                                               ; preds = %59

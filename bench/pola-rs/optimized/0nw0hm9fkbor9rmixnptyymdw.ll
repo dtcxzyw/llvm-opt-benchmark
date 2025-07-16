@@ -23514,9 +23514,6 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %17
   unreachable
 
 43:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h41b65ac1a12bc657E.exit.i", %6
-  %.pre-phi.i = phi i64 [ %2, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h41b65ac1a12bc657E.exit.i" ], [ %11, %6 ]
-  %44 = icmp ule i64 %2, %.pre-phi.i
-  tail call void @llvm.assume(i1 %44)
   ret void
 }
 
@@ -23643,12 +23640,12 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserv
 
 12:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1479)
-  br i1 %8, label %43, label %13
+  br i1 %8, label %41, label %13
 
 13:                                               ; preds = %12
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %43, label %16, !prof !39
+  br i1 %15, label %41, label %16, !prof !39
 
 16:                                               ; preds = %13
   %17 = add nuw i64 %2, %1
@@ -23662,7 +23659,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserv
   %25 = sub nuw i64 -9223372036854775808, %3
   %26 = icmp ugt i64 %23, %25
   %27 = select i1 %24, i1 true, i1 %26
-  br i1 %27, label %43, label %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i
+  br i1 %27, label %41, label %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i: ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1479
@@ -23695,7 +23692,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i: ; preds = %16
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !1479
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1479
-  br label %43
+  br label %41
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h41b65ac1a12bc657E.exit": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h7e1de1f13009dfdcE.exit.i"
   %40 = load ptr, ptr %35, align 8, !noalias !1479, !nonnull !4, !noundef !4
@@ -23704,18 +23701,12 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i: ; preds = %16
   store i64 %17, ptr %0, align 8, !alias.scope !1479
   br label %41
 
-41:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h41b65ac1a12bc657E.exit", %5
-  %.pre-phi = phi i64 [ %2, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h41b65ac1a12bc657E.exit" ], [ %10, %5 ]
-  %42 = icmp ule i64 %2, %.pre-phi
-  tail call void @llvm.assume(i1 %42)
-  br label %43
-
-43:                                               ; preds = %16, %13, %12, %36, %41
-  %.sroa.3.0 = phi i64 [ undef, %41 ], [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %39, %36 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %41 ], [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %37, %36 ]
-  %44 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %45 = insertvalue { i64, i64 } %44, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %45
+41:                                               ; preds = %5, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h41b65ac1a12bc657E.exit", %16, %13, %12, %36
+  %.sroa.3.0 = phi i64 [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %39, %36 ], [ undef, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h41b65ac1a12bc657E.exit" ], [ undef, %5 ]
+  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %37, %36 ], [ -9223372036854775807, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h41b65ac1a12bc657E.exit" ], [ -9223372036854775807, %5 ]
+  %42 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %43 = insertvalue { i64, i64 } %42, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %43
 }
 
 ; Function Attrs: cold nonlazybind uwtable

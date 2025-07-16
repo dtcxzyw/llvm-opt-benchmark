@@ -383,9 +383,9 @@ tailrecurse.i.i.i.i.i:                            ; preds = %108, %113
   br i1 %116, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_6clEv.exit.thread", label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit.i
-  %.01523.i = load ptr, ptr %74, align 8, !tbaa !217
-  %.not.not24.i = icmp eq ptr %.01523.i, null
-  br i1 %.not.not24.i, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit", label %.lr.ph.i65
+  %.01521.i = load ptr, ptr %74, align 8, !tbaa !217
+  %.not.not22.i = icmp eq ptr %.01521.i, null
+  br i1 %.not.not22.i, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit", label %.lr.ph.i65
 
 .lr.ph.i65:                                       ; preds = %.preheader.i
   %117 = getelementptr inbounds nuw i8, ptr %104, i64 439
@@ -394,10 +394,10 @@ tailrecurse.i.i.i.i.i:                            ; preds = %108, %113
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.us.i", %.lr.ph.i65
-  %.01526.us.i = phi ptr [ %.015.us.i, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.us.i" ], [ %.01523.i, %.lr.ph.i65 ]
-  %.01625.us.i = phi i32 [ %136, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.us.i" ], [ 0, %.lr.ph.i65 ]
-  %120 = icmp eq i32 %.01625.us.i, 0
-  %121 = getelementptr i8, ptr %.01526.us.i, i64 16
+  %.01524.us.i = phi ptr [ %.015.us.i, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.us.i" ], [ %.01521.i, %.lr.ph.i65 ]
+  %.01623.us.i = phi i32 [ %136, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.us.i" ], [ 0, %.lr.ph.i65 ]
+  %120 = icmp eq i32 %.01623.us.i, 0
+  %121 = getelementptr i8, ptr %.01524.us.i, i64 16
   %122 = load i16, ptr %121, align 8, !tbaa !232
   br i1 %120, label %123, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.us.i
 
@@ -424,7 +424,7 @@ tailrecurse.i.i.i.i.i:                            ; preds = %108, %113
   br i1 %130, label %switch.hole_check, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.us.i
 
 _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.us.i: ; preds = %switch.hole_check, %129
-  %131 = getelementptr inbounds nuw i8, ptr %.01526.us.i, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %.01524.us.i, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !273
   %.not.i67 = icmp eq ptr %128, %132
   br i1 %.not.i67, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_6clEv.exit.thread", label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.us.i
@@ -458,8 +458,8 @@ switch.hole_check:                                ; preds = %129
 
 "_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.us.i": ; preds = %switch.hole_check, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.i.us.i, %switch.lookup
   %.0.i.us.i = phi i32 [ %switch.load, %switch.lookup ], [ %spec.select, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.i.us.i ], [ 0, %switch.hole_check ]
-  %136 = add nsw i32 %.0.i.us.i, %.01625.us.i
-  %137 = getelementptr inbounds nuw i8, ptr %.01526.us.i, i64 216
+  %136 = add nsw i32 %.0.i.us.i, %.01623.us.i
+  %137 = getelementptr inbounds nuw i8, ptr %.01524.us.i, i64 216
   %.015.us.i = load ptr, ptr %137, align 8, !tbaa !217
   %.not.not.us.i = icmp eq ptr %.015.us.i, null
   br i1 %.not.not.us.i, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit", label %.lr.ph.split.us.i, !llvm.loop !274
@@ -739,9 +739,9 @@ tailrecurse.i.i.i.i.i84:                          ; preds = %252, %257
   br i1 %260, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit87", label %.preheader.i71
 
 .preheader.i71:                                   ; preds = %.loopexit.i70
-  %.01523.i72 = load ptr, ptr %247, align 8, !tbaa !217
-  %.not.not24.i73 = icmp eq ptr %.01523.i72, null
-  br i1 %.not.not24.i73, label %.critedge5, label %.lr.ph.i74
+  %.01521.i72 = load ptr, ptr %247, align 8, !tbaa !217
+  %.not.not22.i73 = icmp eq ptr %.01521.i72, null
+  br i1 %.not.not22.i73, label %.critedge5, label %.lr.ph.i74
 
 .lr.ph.i74:                                       ; preds = %.preheader.i71
   %261 = getelementptr inbounds nuw i8, ptr %248, i64 439
@@ -750,10 +750,10 @@ tailrecurse.i.i.i.i.i84:                          ; preds = %252, %257
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i76", %.lr.ph.i74
-  %.01526.i = phi ptr [ %.015.i, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i76" ], [ %.01523.i72, %.lr.ph.i74 ]
-  %.01625.i = phi i32 [ %281, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i76" ], [ 0, %.lr.ph.i74 ]
-  %264 = icmp eq i32 %.01625.i, 0
-  %265 = getelementptr i8, ptr %.01526.i, i64 16
+  %.01524.i = phi ptr [ %.015.i, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i76" ], [ %.01521.i72, %.lr.ph.i74 ]
+  %.01623.i = phi i32 [ %281, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i76" ], [ 0, %.lr.ph.i74 ]
+  %264 = icmp eq i32 %.01623.i, 0
+  %265 = getelementptr i8, ptr %.01524.i, i64 16
   %266 = load i16, ptr %265, align 8, !tbaa !232
   br i1 %264, label %267, label %.lr.ph.split._crit_edge.i
 
@@ -793,7 +793,7 @@ tailrecurse.i.i.i.i.i84:                          ; preds = %252, %257
   ]
 
 _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i: ; preds = %273
-  %274 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %.01524.i, i64 8
   %275 = load ptr, ptr %274, align 8, !tbaa !273
   %276 = icmp ne ptr %272, %275
   %277 = icmp ne i16 %266, 86
@@ -834,8 +834,8 @@ switch.lookup236:                                 ; preds = %.lr.ph.split._crit_
 
 "_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i76": ; preds = %switch.lookup236, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.thread.i.i75, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.i.i80
   %.0.i.i77 = phi i32 [ -1, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.thread.i.i75 ], [ 0, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.i.i80 ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ %switch.load241, %switch.lookup236 ]
-  %281 = add nsw i32 %.0.i.i77, %.01625.i
-  %282 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 216
+  %281 = add nsw i32 %.0.i.i77, %.01623.i
+  %282 = getelementptr inbounds nuw i8, ptr %.01524.i, i64 216
   %.015.i = load ptr, ptr %282, align 8, !tbaa !217
   %.not.not.i = icmp eq ptr %.015.i, null
   br i1 %.not.not.i, label %.critedge5, label %.lr.ph.split.i, !llvm.loop !274
@@ -1102,9 +1102,9 @@ tailrecurse.i.i.i.i.i128:                         ; preds = %389, %394
   br i1 %397, label %.critedge5, label %.preheader.i105
 
 .preheader.i105:                                  ; preds = %.loopexit.i104
-  %.01523.i106 = load ptr, ptr %384, align 8, !tbaa !217
-  %.not.not24.i107 = icmp eq ptr %.01523.i106, null
-  br i1 %.not.not24.i107, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit131", label %.lr.ph.i108
+  %.01521.i106 = load ptr, ptr %384, align 8, !tbaa !217
+  %.not.not22.i107 = icmp eq ptr %.01521.i106, null
+  br i1 %.not.not22.i107, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit131", label %.lr.ph.i108
 
 .lr.ph.i108:                                      ; preds = %.preheader.i105
   %398 = getelementptr inbounds nuw i8, ptr %385, i64 439
@@ -1113,10 +1113,10 @@ tailrecurse.i.i.i.i.i128:                         ; preds = %389, %394
   br label %.lr.ph.split.i109
 
 .lr.ph.split.i109:                                ; preds = %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i114", %.lr.ph.i108
-  %.01526.i110 = phi ptr [ %.015.i116, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i114" ], [ %.01523.i106, %.lr.ph.i108 ]
-  %.01625.i111 = phi i32 [ %418, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i114" ], [ 0, %.lr.ph.i108 ]
-  %401 = icmp eq i32 %.01625.i111, 0
-  %402 = getelementptr i8, ptr %.01526.i110, i64 16
+  %.01524.i110 = phi ptr [ %.015.i116, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i114" ], [ %.01521.i106, %.lr.ph.i108 ]
+  %.01623.i111 = phi i32 [ %418, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i114" ], [ 0, %.lr.ph.i108 ]
+  %401 = icmp eq i32 %.01623.i111, 0
+  %402 = getelementptr i8, ptr %.01524.i110, i64 16
   %403 = load i16, ptr %402, align 8, !tbaa !232
   br i1 %401, label %404, label %.lr.ph.split._crit_edge.i112
 
@@ -1156,7 +1156,7 @@ tailrecurse.i.i.i.i.i128:                         ; preds = %389, %394
   ]
 
 _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i125: ; preds = %410
-  %411 = getelementptr inbounds nuw i8, ptr %.01526.i110, i64 8
+  %411 = getelementptr inbounds nuw i8, ptr %.01524.i110, i64 8
   %412 = load ptr, ptr %411, align 8, !tbaa !273
   %413 = icmp ne ptr %409, %412
   %414 = icmp ne i16 %403, 86
@@ -1197,8 +1197,8 @@ switch.lookup245:                                 ; preds = %.lr.ph.split._crit_
 
 "_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i114": ; preds = %switch.lookup245, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i122, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i122, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i122, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.thread.i.i113, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.i.i120
   %.0.i.i115 = phi i32 [ -1, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.thread.i.i113 ], [ 0, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.i.i120 ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i122 ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i122 ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i122 ], [ %switch.load250, %switch.lookup245 ]
-  %418 = add nsw i32 %.0.i.i115, %.01625.i111
-  %419 = getelementptr inbounds nuw i8, ptr %.01526.i110, i64 216
+  %418 = add nsw i32 %.0.i.i115, %.01623.i111
+  %419 = getelementptr inbounds nuw i8, ptr %.01524.i110, i64 216
   %.015.i116 = load ptr, ptr %419, align 8, !tbaa !217
   %.not.not.i117 = icmp eq ptr %.015.i116, null
   br i1 %.not.not.i117, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit131", label %.lr.ph.split.i109, !llvm.loop !274
@@ -1398,9 +1398,9 @@ tailrecurse.i.i.i.i.i:                            ; preds = %20, %25
   br i1 %28, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit.thread", label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit.i
-  %.01523.i = load ptr, ptr %15, align 8, !tbaa !217
-  %.not.not24.i = icmp eq ptr %.01523.i, null
-  br i1 %.not.not24.i, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit", label %.lr.ph.i
+  %.01521.i = load ptr, ptr %15, align 8, !tbaa !217
+  %.not.not22.i = icmp eq ptr %.01521.i, null
+  br i1 %.not.not22.i, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 439
@@ -1410,10 +1410,10 @@ tailrecurse.i.i.i.i.i:                            ; preds = %20, %25
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i", %.lr.ph.i
-  %.01526.i = phi ptr [ %.015.i, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i" ], [ %.01523.i, %.lr.ph.i ]
-  %.01625.i = phi i32 [ %50, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i" ], [ 0, %.lr.ph.i ]
-  %33 = icmp eq i32 %.01625.i, 0
-  %34 = getelementptr i8, ptr %.01526.i, i64 16
+  %.01524.i = phi ptr [ %.015.i, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i" ], [ %.01521.i, %.lr.ph.i ]
+  %.01623.i = phi i32 [ %50, %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i" ], [ 0, %.lr.ph.i ]
+  %33 = icmp eq i32 %.01623.i, 0
+  %34 = getelementptr i8, ptr %.01524.i, i64 16
   %35 = load i16, ptr %34, align 8, !tbaa !232
   br i1 %33, label %36, label %.lr.ph.split._crit_edge.i
 
@@ -1453,7 +1453,7 @@ tailrecurse.i.i.i.i.i:                            ; preds = %20, %25
   ]
 
 _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i: ; preds = %42
-  %43 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.01524.i, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !273
   %45 = icmp ne ptr %41, %44
   %46 = icmp ne i16 %35, 86
@@ -1494,8 +1494,8 @@ switch.lookup:                                    ; preds = %.lr.ph.split._crit_
 
 "_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i": ; preds = %switch.lookup, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.thread.i.i, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.i.i
   %.0.i.i = phi i32 [ -1, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.thread.i.i ], [ 0, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit3.i.i ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ %switch.load, %switch.lookup ]
-  %50 = add nsw i32 %.0.i.i, %.01625.i
-  %51 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 216
+  %50 = add nsw i32 %.0.i.i, %.01623.i
+  %51 = getelementptr inbounds nuw i8, ptr %.01524.i, i64 216
   %.015.i = load ptr, ptr %51, align 8, !tbaa !217
   %.not.not.i = icmp eq ptr %.015.i, null
   br i1 %.not.not.i, label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit", label %.lr.ph.split.i, !llvm.loop !274

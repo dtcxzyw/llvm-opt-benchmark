@@ -362,7 +362,7 @@ define internal fastcc void @psset_alloc_container_remove(ptr noundef %0, ptr no
   store i8 0, ptr %3, align 2, !tbaa !22
   %4 = getelementptr i8, ptr %1, i64 104
   %.val = load i64, ptr %4, align 8, !tbaa !25
-  switch i64 %.val, label %34 [
+  switch i64 %.val, label %32 [
     i64 0, label %5
     i64 512, label %hpdata_empty_list_remove.exit
   ]
@@ -371,96 +371,92 @@ define internal fastcc void @psset_alloc_container_remove(ptr noundef %0, ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4272
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = icmp eq ptr %7, %1
-  br i1 %8, label %9, label %12
+  br i1 %8, label %9, label %.thread.i
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   store ptr %11, ptr %6, align 8, !tbaa !34
-  br label %12
+  %12 = icmp eq ptr %11, %1
+  br i1 %12, label %31, label %.thread.i
 
-12:                                               ; preds = %9, %5
-  %13 = phi ptr [ %11, %9 ], [ %7, %5 ]
-  %.not.i = icmp eq ptr %13, %1
-  br i1 %.not.i, label %33, label %14
-
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
+.thread.i:                                        ; preds = %9, %5
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !37
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !37
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %20 = load ptr, ptr %19, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store ptr %18, ptr %21, align 8, !tbaa !37
-  %22 = load ptr, ptr %19, align 8, !tbaa !37
-  %23 = load ptr, ptr %15, align 8, !tbaa !37
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr %22, ptr %24, align 8, !tbaa !37
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !37
-  store ptr %26, ptr %19, align 8, !tbaa !37
-  %27 = load ptr, ptr %15, align 8, !tbaa !37
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = load ptr, ptr %28, align 8, !tbaa !37
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store ptr %16, ptr %19, align 8, !tbaa !37
+  %20 = load ptr, ptr %17, align 8, !tbaa !37
+  %21 = load ptr, ptr %13, align 8, !tbaa !37
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  store ptr %20, ptr %22, align 8, !tbaa !37
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  store ptr %24, ptr %17, align 8, !tbaa !37
+  %25 = load ptr, ptr %13, align 8, !tbaa !37
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store ptr %25, ptr %28, align 8, !tbaa !37
+  %29 = load ptr, ptr %17, align 8, !tbaa !37
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store ptr %27, ptr %30, align 8, !tbaa !37
-  %31 = load ptr, ptr %19, align 8, !tbaa !37
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store ptr %1, ptr %32, align 8, !tbaa !37
+  store ptr %1, ptr %30, align 8, !tbaa !37
   br label %hpdata_empty_list_remove.exit
 
-33:                                               ; preds = %12
+31:                                               ; preds = %9
   store ptr null, ptr %6, align 8, !tbaa !34
   br label %hpdata_empty_list_remove.exit
 
-34:                                               ; preds = %2
-  %35 = getelementptr i8, ptr %1, i64 96
-  %.val.i = load i64, ptr %35, align 8, !tbaa !32
-  %36 = shl i64 %.val.i, 12
-  %37 = tail call i64 @je_sz_psz_quantize_floor(i64 noundef %36) #9
-  %38 = icmp ugt i64 %37, 8070450532247928832
-  br i1 %38, label %psset_hpdata_heap_index.exit.i, label %39, !prof !33
+32:                                               ; preds = %2
+  %33 = getelementptr i8, ptr %1, i64 96
+  %.val.i = load i64, ptr %33, align 8, !tbaa !32
+  %34 = shl i64 %.val.i, 12
+  %35 = tail call i64 @je_sz_psz_quantize_floor(i64 noundef %34) #9
+  %36 = icmp ugt i64 %35, 8070450532247928832
+  br i1 %36, label %psset_hpdata_heap_index.exit.i, label %37, !prof !33
 
-39:                                               ; preds = %34
-  %40 = icmp ne i64 %37, 0
-  tail call void @llvm.assume(i1 %40)
-  %41 = add nsw i64 %37, -1
-  %42 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %41, i1 false)
-  %43 = trunc nuw nsw i64 %42 to i32
-  %44 = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %43)
-  %45 = icmp samesign ult i64 %37, 16385
-  %46 = add nuw nsw i32 %44, 11
-  %47 = zext nneg i32 %46 to i64
-  %48 = select i1 %45, i64 12, i64 %47
-  %49 = lshr i64 %41, %48
-  %50 = trunc i64 %49 to i32
-  %51 = and i32 %50, 3
-  %52 = shl nuw nsw i32 %44, 2
-  %53 = or disjoint i32 %51, %52
-  %54 = zext nneg i32 %53 to i64
+37:                                               ; preds = %32
+  %38 = icmp ne i64 %35, 0
+  tail call void @llvm.assume(i1 %38)
+  %39 = add nsw i64 %35, -1
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 false)
+  %41 = trunc nuw nsw i64 %40 to i32
+  %42 = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %41)
+  %43 = icmp samesign ult i64 %35, 16385
+  %44 = add nuw nsw i32 %42, 11
+  %45 = zext nneg i32 %44 to i64
+  %46 = select i1 %43, i64 12, i64 %45
+  %47 = lshr i64 %39, %46
+  %48 = trunc i64 %47 to i32
+  %49 = and i32 %48, 3
+  %50 = shl nuw nsw i32 %42, 2
+  %51 = or disjoint i32 %49, %50
+  %52 = zext nneg i32 %51 to i64
   br label %psset_hpdata_heap_index.exit.i
 
-psset_hpdata_heap_index.exit.i:                   ; preds = %39, %34
-  %.0.i.i.i = phi i64 [ %54, %39 ], [ 199, %34 ]
-  %55 = getelementptr inbounds nuw [64 x %struct.hpdata_age_heap_t], ptr %0, i64 0, i64 %.0.i.i.i
-  tail call void @je_hpdata_age_heap_remove(ptr noundef %55, ptr noundef nonnull %1) #9
-  %56 = tail call zeroext i1 @je_hpdata_age_heap_empty(ptr noundef %55) #9
-  br i1 %56, label %57, label %hpdata_empty_list_remove.exit
+psset_hpdata_heap_index.exit.i:                   ; preds = %37, %32
+  %.0.i.i.i = phi i64 [ %52, %37 ], [ 199, %32 ]
+  %53 = getelementptr inbounds nuw [64 x %struct.hpdata_age_heap_t], ptr %0, i64 0, i64 %.0.i.i.i
+  tail call void @je_hpdata_age_heap_remove(ptr noundef %53, ptr noundef nonnull %1) #9
+  %54 = tail call zeroext i1 @je_hpdata_age_heap_empty(ptr noundef %53) #9
+  br i1 %54, label %55, label %hpdata_empty_list_remove.exit
 
-57:                                               ; preds = %psset_hpdata_heap_index.exit.i
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %59 = lshr i64 %.0.i.i.i, 6
-  %60 = and i64 %.0.i.i.i, 63
-  %61 = shl nuw i64 1, %60
-  %62 = xor i64 %61, -1
-  %63 = getelementptr inbounds nuw i64, ptr %58, i64 %59
-  %64 = load i64, ptr %63, align 8, !tbaa !38
-  %65 = and i64 %64, %62
-  store i64 %65, ptr %63, align 8, !tbaa !38
+55:                                               ; preds = %psset_hpdata_heap_index.exit.i
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %57 = lshr i64 %.0.i.i.i, 6
+  %58 = and i64 %.0.i.i.i, 63
+  %59 = shl nuw i64 1, %58
+  %60 = xor i64 %59, -1
+  %61 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %62 = load i64, ptr %61, align 8, !tbaa !38
+  %63 = and i64 %62, %60
+  store i64 %63, ptr %61, align 8, !tbaa !38
   br label %hpdata_empty_list_remove.exit
 
-hpdata_empty_list_remove.exit:                    ; preds = %2, %57, %psset_hpdata_heap_index.exit.i, %33, %14
+hpdata_empty_list_remove.exit:                    ; preds = %2, %55, %psset_hpdata_heap_index.exit.i, %31, %.thread.i
   ret void
 }
 
@@ -528,24 +524,21 @@ psset_purge_list_ind.exit:                        ; preds = %8, %sz_psz2ind.exit
   %38 = getelementptr inbounds nuw [128 x %struct.hpdata_purge_list_t], ptr %37, i64 0, i64 %.0.i
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = icmp eq ptr %39, %1
-  br i1 %40, label %41, label %44
+  br i1 %40, label %41, label %hpdata_purge_list_remove.exit
 
 41:                                               ; preds = %psset_purge_list_ind.exit
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %43 = load ptr, ptr %42, align 8, !tbaa !40
   store ptr %43, ptr %38, align 8, !tbaa !34
-  br label %44
+  %44 = icmp eq ptr %43, %1
+  br i1 %44, label %hpdata_purge_list_remove.exit.thread, label %hpdata_purge_list_remove.exit
 
-44:                                               ; preds = %41, %psset_purge_list_ind.exit
-  %.val8.pr = phi ptr [ %43, %41 ], [ %39, %psset_purge_list_ind.exit ]
-  %.not.i = icmp eq ptr %.val8.pr, %1
-  br i1 %.not.i, label %hpdata_purge_list_remove.exit.thread, label %hpdata_purge_list_remove.exit
-
-hpdata_purge_list_remove.exit.thread:             ; preds = %44
+hpdata_purge_list_remove.exit.thread:             ; preds = %41
   store ptr null, ptr %38, align 8, !tbaa !34
   br label %58
 
-hpdata_purge_list_remove.exit:                    ; preds = %44
+hpdata_purge_list_remove.exit:                    ; preds = %psset_purge_list_ind.exit, %41
+  %.val8.pr = phi ptr [ %39, %psset_purge_list_ind.exit ], [ %43, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load ptr, ptr %45, align 8, !tbaa !40
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
@@ -754,44 +747,40 @@ hpdata_hugify_list_append.exit:                   ; preds = %71, %77
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 5320
   %90 = load ptr, ptr %89, align 8, !tbaa !34
   %91 = icmp eq ptr %90, %1
-  br i1 %91, label %92, label %95
+  br i1 %91, label %92, label %.thread.i23
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 80
   %94 = load ptr, ptr %93, align 8, !tbaa !45
   store ptr %94, ptr %89, align 8, !tbaa !34
-  br label %95
+  %95 = icmp eq ptr %94, %1
+  br i1 %95, label %108, label %.thread.i23
 
-95:                                               ; preds = %92, %88
-  %96 = phi ptr [ %94, %92 ], [ %90, %88 ]
-  %.not.i = icmp eq ptr %96, %1
-  br i1 %.not.i, label %110, label %97
-
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %99 = load ptr, ptr %98, align 8, !tbaa !45
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 88
+.thread.i23:                                      ; preds = %92, %88
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %97 = load ptr, ptr %96, align 8, !tbaa !45
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 88
+  %99 = load ptr, ptr %98, align 8, !tbaa !46
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %101 = load ptr, ptr %100, align 8, !tbaa !46
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %103 = load ptr, ptr %102, align 8, !tbaa !46
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 80
-  store ptr %101, ptr %104, align 8, !tbaa !45
-  %105 = load ptr, ptr %98, align 8, !tbaa !45
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 88
-  store ptr %103, ptr %106, align 8, !tbaa !46
-  store ptr %101, ptr %102, align 8, !tbaa !46
-  %107 = load ptr, ptr %106, align 8, !tbaa !46
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 80
-  store ptr %105, ptr %108, align 8, !tbaa !45
-  %109 = getelementptr inbounds nuw i8, ptr %101, i64 80
-  store ptr %1, ptr %109, align 8, !tbaa !45
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
+  store ptr %99, ptr %102, align 8, !tbaa !45
+  %103 = load ptr, ptr %96, align 8, !tbaa !45
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 88
+  store ptr %101, ptr %104, align 8, !tbaa !46
+  store ptr %99, ptr %100, align 8, !tbaa !46
+  %105 = load ptr, ptr %104, align 8, !tbaa !46
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
+  store ptr %103, ptr %106, align 8, !tbaa !45
+  %107 = getelementptr inbounds nuw i8, ptr %99, i64 80
+  store ptr %1, ptr %107, align 8, !tbaa !45
   br label %hpdata_hugify_list_remove.exit
 
-110:                                              ; preds = %95
+108:                                              ; preds = %92
   store ptr null, ptr %89, align 8, !tbaa !34
   br label %hpdata_hugify_list_remove.exit
 
-hpdata_hugify_list_remove.exit:                   ; preds = %70, %110, %97, %87, %hpdata_hugify_list_append.exit
+hpdata_hugify_list_remove.exit:                   ; preds = %70, %108, %.thread.i23, %87, %hpdata_hugify_list_append.exit
   ret void
 }
 
@@ -1372,44 +1361,40 @@ define hidden void @je_psset_remove(ptr noundef %0, ptr noundef initializes((36,
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 5320
   %12 = load ptr, ptr %11, align 8, !tbaa !34
   %13 = icmp eq ptr %12, %1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %14, label %.thread.i
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   store ptr %16, ptr %11, align 8, !tbaa !34
-  br label %17
+  %17 = icmp eq ptr %16, %1
+  br i1 %17, label %30, label %.thread.i
 
-17:                                               ; preds = %14, %10
-  %18 = phi ptr [ %16, %14 ], [ %12, %10 ]
-  %.not.i = icmp eq ptr %18, %1
-  br i1 %.not.i, label %32, label %19
-
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %21 = load ptr, ptr %20, align 8, !tbaa !45
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
+.thread.i:                                        ; preds = %14, %10
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %19 = load ptr, ptr %18, align 8, !tbaa !45
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 88
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %23 = load ptr, ptr %22, align 8, !tbaa !46
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %25 = load ptr, ptr %24, align 8, !tbaa !46
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  store ptr %23, ptr %26, align 8, !tbaa !45
-  %27 = load ptr, ptr %20, align 8, !tbaa !45
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
-  store ptr %25, ptr %28, align 8, !tbaa !46
-  store ptr %23, ptr %24, align 8, !tbaa !46
-  %29 = load ptr, ptr %28, align 8, !tbaa !46
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  store ptr %27, ptr %30, align 8, !tbaa !45
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  store ptr %1, ptr %31, align 8, !tbaa !45
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  store ptr %21, ptr %24, align 8, !tbaa !45
+  %25 = load ptr, ptr %18, align 8, !tbaa !45
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
+  store ptr %23, ptr %26, align 8, !tbaa !46
+  store ptr %21, ptr %22, align 8, !tbaa !46
+  %27 = load ptr, ptr %26, align 8, !tbaa !46
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  store ptr %25, ptr %28, align 8, !tbaa !45
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  store ptr %1, ptr %29, align 8, !tbaa !45
   br label %hpdata_hugify_list_remove.exit
 
-32:                                               ; preds = %17
+30:                                               ; preds = %14
   store ptr null, ptr %11, align 8, !tbaa !34
   br label %hpdata_hugify_list_remove.exit
 
-hpdata_hugify_list_remove.exit:                   ; preds = %32, %19, %7
+hpdata_hugify_list_remove.exit:                   ; preds = %30, %.thread.i, %7
   ret void
 }
 

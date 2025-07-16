@@ -338,8 +338,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i: ; preds = %5
 
 67:                                               ; preds = %48
   %68 = load i32, ptr %21, align 4, !tbaa !50
-  %switch.i = icmp ult i32 %68, 5
-  br i1 %switch.i, label %86, label %69
+  %switch.i.i = icmp ult i32 %68, 5
+  br i1 %switch.i.i, label %86, label %69
 
 69:                                               ; preds = %67
   %70 = call ptr @__cxa_allocate_exception(i64 16) #25

@@ -921,7 +921,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %8, label %223
+  br i1 %7, label %8, label %224
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1244,36 +1244,36 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %220 = add i64 %219, 10
   %221 = lshr i64 %220, 3
   %222 = tail call i64 @llvm.umin.i64(i64 %221, i64 %217)
-  br label %225
+  %223 = icmp samesign ule i64 %221, %217
+  br label %226
 
-223:                                              ; preds = %4
-  %224 = add i64 %2, 5
-  br label %225
+224:                                              ; preds = %4
+  %225 = add i64 %2, 5
+  br label %226
 
-225:                                              ; preds = %223, %208
-  %226 = phi i32 [ 0, %223 ], [ %209, %208 ]
-  %227 = phi i64 [ %224, %223 ], [ %221, %208 ]
-  %228 = phi i64 [ %224, %223 ], [ %222, %208 ]
-  %229 = add i64 %2, 4
-  %230 = icmp ule i64 %229, %228
-  %231 = icmp ne ptr %1, null
-  %232 = and i1 %231, %230
-  br i1 %232, label %233, label %234
+226:                                              ; preds = %224, %208
+  %227 = phi i32 [ 0, %224 ], [ %209, %208 ]
+  %228 = phi i1 [ true, %224 ], [ %223, %208 ]
+  %229 = phi i64 [ %225, %224 ], [ %222, %208 ]
+  %230 = add i64 %2, 4
+  %231 = icmp ule i64 %230, %229
+  %232 = icmp ne ptr %1, null
+  %233 = and i1 %232, %231
+  br i1 %233, label %234, label %235
 
-233:                                              ; preds = %225
+234:                                              ; preds = %226
   tail call void @zlib_tr_stored_block(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3)
   br label %475
 
-234:                                              ; preds = %225
-  %235 = icmp eq i64 %227, %228
+235:                                              ; preds = %226
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 5924
   %237 = load i32, ptr %236, align 4
   %238 = icmp sgt i32 %237, 13
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %240 = load i16, ptr %239, align 8
-  br i1 %235, label %241, label %279
+  br i1 %228, label %241, label %279
 
-241:                                              ; preds = %234
+241:                                              ; preds = %235
   %242 = add i32 %3, 2
   %243 = shl i32 %242, %237
   %244 = trunc i32 %243 to i16
@@ -1328,7 +1328,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   store i64 %278, ptr %276, align 8
   br label %475
 
-279:                                              ; preds = %234
+279:                                              ; preds = %235
   %280 = add i32 %3, 4
   %281 = shl i32 %280, %237
   %282 = trunc i32 %281 to i16
@@ -1377,7 +1377,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %313 = load i32, ptr %312, align 8
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %315 = load i32, ptr %314, align 8
-  %316 = add i32 %226, 1
+  %316 = add i32 %227, 1
   %317 = icmp sgt i32 %311, 11
   br i1 %317, label %318, label %345
 
@@ -1475,7 +1475,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br i1 %385, label %386, label %413
 
 386:                                              ; preds = %382
-  %387 = add i32 %226, -3
+  %387 = add i32 %227, -3
   %388 = shl i32 %387, %384
   %389 = trunc i32 %388 to i16
   %390 = or i16 %383, %389
@@ -1509,7 +1509,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br label %419
 
 413:                                              ; preds = %382
-  %414 = add i32 %226, 65533
+  %414 = add i32 %227, 65533
   %415 = shl i32 %414, %384
   %416 = trunc i32 %415 to i16
   %417 = or i16 %383, %416
@@ -1521,7 +1521,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %.pr = phi i32 [ %412, %386 ], [ %418, %413 ]
   store i16 %.sink35, ptr %239, align 8
   store i32 %.pr, ptr %236, align 4
-  %420 = icmp ult i32 %226, 2147483647
+  %420 = icmp ult i32 %227, 2147483647
   br i1 %420, label %421, label %.loopexit
 
 421:                                              ; preds = %419
@@ -1603,7 +1603,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   store i64 %474, ptr %472, align 8
   br label %475
 
-475:                                              ; preds = %.loopexit, %271, %233
+475:                                              ; preds = %.loopexit, %271, %234
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 188
   br label %479
 

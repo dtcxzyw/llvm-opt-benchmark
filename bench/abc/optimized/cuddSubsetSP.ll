@@ -822,7 +822,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
 
 101:                                              ; preds = %96
   %102 = add nuw nsw i32 %.0, 1
-  br label %127
+  br label %128
 
 103:                                              ; preds = %83
   %104 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %85, ptr noundef nonnull %8) #9
@@ -873,18 +873,18 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   %.in236.v = select i1 %.not235, i64 12, i64 8
   %.in236 = getelementptr inbounds nuw i8, ptr %111, i64 %.in236.v
   %126 = load i32, ptr %.in236, align 4, !tbaa !31
-  br label %127
+  %127 = icmp ule i32 %.0183, %126
+  br label %128
 
-127:                                              ; preds = %124, %101
+128:                                              ; preds = %124, %101
   %.0198 = phi ptr [ null, %101 ], [ %85, %124 ]
   %.0194 = phi ptr [ %41, %101 ], [ null, %124 ]
   %.0185 = phi i32 [ 0, %101 ], [ %125, %124 ]
-  %.0182 = phi i32 [ -1, %101 ], [ %126, %124 ]
+  %.0182 = phi i1 [ true, %101 ], [ %127, %124 ]
   %.1179 = phi i32 [ %102, %101 ], [ %.0, %124 ]
-  %128 = icmp ule i32 %.0183, %.0182
   %129 = icmp ult i32 %.0184, %.0185
   %130 = icmp eq i32 %.0184, %.0185
-  %or.cond = select i1 %130, i1 %128, i1 false
+  %or.cond = select i1 %130, i1 %.0182, i1 false
   %or.cond252 = select i1 %129, i1 true, i1 %or.cond
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -892,11 +892,11 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 616
   br label %135
 
-135:                                              ; preds = %199, %127
-  %.1195 = phi ptr [ %.0194, %127 ], [ %.1195..0201, %199 ]
-  %.1192 = phi ptr [ %.0191, %127 ], [ %.0201..1192, %199 ]
-  %.2180 = phi i32 [ %.1179, %127 ], [ %207, %199 ]
-  %.1 = phi i32 [ %.0, %127 ], [ %.2, %199 ]
+135:                                              ; preds = %199, %128
+  %.1195 = phi ptr [ %.0194, %128 ], [ %.1195..0201, %199 ]
+  %.1192 = phi ptr [ %.0191, %128 ], [ %.0201..1192, %199 ]
+  %.2180 = phi i32 [ %.1179, %128 ], [ %207, %199 ]
+  %.1 = phi i32 [ %.0, %128 ], [ %.2, %199 ]
   switch i32 %.2180, label %138 [
     i32 2, label %208
     i32 0, label %136

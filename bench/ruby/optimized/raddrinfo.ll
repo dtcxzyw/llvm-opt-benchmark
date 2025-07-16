@@ -3569,163 +3569,159 @@ inspect_sockaddr.exit:                            ; preds = %get_addrinfo.exit
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %20 = load i32, ptr %19, align 4, !tbaa !118
   %21 = icmp ugt i32 %20, 1
-  br i1 %21, label %22, label %ai_get_afamily.exit
+  br i1 %21, label %ai_get_afamily.exit, label %.critedge
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %24 = load i16, ptr %23, align 2, !tbaa !91
-  %25 = zext i16 %24 to i32
-  br label %ai_get_afamily.exit
+ai_get_afamily.exit:                              ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %23 = load i16, ptr %22, align 2, !tbaa !91
+  %24 = zext i16 %23 to i32
+  %25 = icmp eq i32 %17, %24
+  br i1 %25, label %33, label %.critedge
 
-ai_get_afamily.exit:                              ; preds = %18, %22
-  %.0.i.i = phi i32 [ %25, %22 ], [ 0, %18 ]
-  %.not60 = icmp eq i32 %.0.i.i, %17
-  br i1 %.not60, label %34, label %26
+.critedge:                                        ; preds = %18, %ai_get_afamily.exit
+  %26 = tail call i64 @rsock_intern_protocol_family(i32 noundef %17) #21
+  %.not61 = icmp eq i64 %26, 0
+  br i1 %.not61, label %30, label %27
 
-26:                                               ; preds = %ai_get_afamily.exit
-  %27 = tail call i64 @rsock_intern_protocol_family(i32 noundef %17) #21
-  %.not61 = icmp eq i64 %27, 0
-  br i1 %.not61, label %31, label %28
+27:                                               ; preds = %.critedge
+  %28 = tail call ptr @rb_id2name(i64 noundef %26) #21
+  %29 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.111, ptr noundef %28) #21
+  br label %33
 
-28:                                               ; preds = %26
-  %29 = tail call ptr @rb_id2name(i64 noundef %27) #21
-  %30 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.111, ptr noundef %29) #21
-  br label %34
+30:                                               ; preds = %.critedge
+  %31 = load i32, ptr %16, align 8, !tbaa !119
+  %32 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.112, i32 noundef %31) #21
+  br label %33
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %16, align 8, !tbaa !119
-  %33 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.112, i32 noundef %32) #21
-  br label %34
-
-34:                                               ; preds = %28, %31, %ai_get_afamily.exit
+33:                                               ; preds = %27, %30, %ai_get_afamily.exit
   %.pr = load i32, ptr %16, align 8, !tbaa !119
   switch i32 %.pr, label %.thread [
-    i32 10, label %35
-    i32 2, label %35
+    i32 10, label %34
+    i32 2, label %34
   ]
 
-35:                                               ; preds = %34, %34
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %37 = load i32, ptr %36, align 4, !tbaa !120
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %44
+34:                                               ; preds = %33, %33
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %36 = load i32, ptr %35, align 4, !tbaa !120
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %38, label %43
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %41 = load i32, ptr %40, align 8, !tbaa !121
-  switch i32 %41, label %44 [
-    i32 0, label %42
-    i32 6, label %42
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %40 = load i32, ptr %39, align 8, !tbaa !121
+  switch i32 %40, label %43 [
+    i32 0, label %41
+    i32 6, label %41
   ]
 
-42:                                               ; preds = %39, %39
-  %43 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.113, i64 noundef 4) #21
-  br label %74
+41:                                               ; preds = %38, %38
+  %42 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.113, i64 noundef 4) #21
+  br label %73
 
-44:                                               ; preds = %39, %35
+43:                                               ; preds = %38, %34
   switch i32 %.pr, label %.thread [
-    i32 10, label %45
-    i32 2, label %45
+    i32 10, label %44
+    i32 2, label %44
   ]
 
-45:                                               ; preds = %44, %44
-  %46 = icmp eq i32 %37, 2
-  br i1 %46, label %47, label %.thread
+44:                                               ; preds = %43, %43
+  %45 = icmp eq i32 %36, 2
+  br i1 %45, label %46, label %.thread
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %49 = load i32, ptr %48, align 8, !tbaa !121
-  switch i32 %49, label %.thread [
-    i32 0, label %50
-    i32 17, label %50
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %48 = load i32, ptr %47, align 8, !tbaa !121
+  switch i32 %48, label %.thread [
+    i32 0, label %49
+    i32 17, label %49
   ]
 
-50:                                               ; preds = %47, %47
-  %51 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.114, i64 noundef 4) #21
-  br label %74
+49:                                               ; preds = %46, %46
+  %50 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.114, i64 noundef 4) #21
+  br label %73
 
-.thread:                                          ; preds = %inspect_sockaddr.exit, %34, %47, %44, %45
-  %52 = phi i32 [ %.pr, %34 ], [ %.pr, %47 ], [ %.pr, %44 ], [ %.pr, %45 ], [ 0, %inspect_sockaddr.exit ]
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %54 = load i32, ptr %53, align 4, !tbaa !120
-  %.not62 = icmp eq i32 %54, 0
-  br i1 %.not62, label %63, label %55
+.thread:                                          ; preds = %inspect_sockaddr.exit, %33, %46, %43, %44
+  %51 = phi i32 [ %.pr, %33 ], [ %.pr, %46 ], [ %.pr, %43 ], [ %.pr, %44 ], [ 0, %inspect_sockaddr.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %53 = load i32, ptr %52, align 4, !tbaa !120
+  %.not62 = icmp eq i32 %53, 0
+  br i1 %.not62, label %62, label %54
 
-55:                                               ; preds = %.thread
-  %56 = tail call i64 @rsock_intern_socktype(i32 noundef %54) #21
-  %.not63 = icmp eq i64 %56, 0
-  br i1 %.not63, label %60, label %57
+54:                                               ; preds = %.thread
+  %55 = tail call i64 @rsock_intern_socktype(i32 noundef %53) #21
+  %.not63 = icmp eq i64 %55, 0
+  br i1 %.not63, label %59, label %56
 
-57:                                               ; preds = %55
-  %58 = tail call ptr @rb_id2name(i64 noundef %56) #21
-  %59 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.111, ptr noundef %58) #21
-  br label %63
+56:                                               ; preds = %54
+  %57 = tail call ptr @rb_id2name(i64 noundef %55) #21
+  %58 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.111, ptr noundef %57) #21
+  br label %62
 
-60:                                               ; preds = %55
-  %61 = load i32, ptr %53, align 4, !tbaa !120
-  %62 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.115, i32 noundef %61) #21
-  br label %63
+59:                                               ; preds = %54
+  %60 = load i32, ptr %52, align 4, !tbaa !120
+  %61 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.115, i32 noundef %60) #21
+  br label %62
 
-63:                                               ; preds = %57, %60, %.thread
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %65 = load i32, ptr %64, align 8, !tbaa !121
-  %.not64 = icmp eq i32 %65, 0
-  br i1 %.not64, label %74, label %66
+62:                                               ; preds = %56, %59, %.thread
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %64 = load i32, ptr %63, align 8, !tbaa !121
+  %.not64 = icmp eq i32 %64, 0
+  br i1 %.not64, label %73, label %65
 
-66:                                               ; preds = %63
-  switch i32 %52, label %71 [
-    i32 10, label %67
-    i32 2, label %67
+65:                                               ; preds = %62
+  switch i32 %51, label %70 [
+    i32 10, label %66
+    i32 2, label %66
   ]
 
-67:                                               ; preds = %66, %66
-  %68 = tail call i64 @rsock_intern_ipproto(i32 noundef %65) #21
-  %.not65 = icmp eq i64 %68, 0
+66:                                               ; preds = %65, %65
+  %67 = tail call i64 @rsock_intern_ipproto(i32 noundef %64) #21
+  %.not65 = icmp eq i64 %67, 0
   br i1 %.not65, label %._crit_edge, label %.thread67
 
-._crit_edge:                                      ; preds = %67
-  %.pre = load i32, ptr %64, align 8, !tbaa !121
-  br label %71
+._crit_edge:                                      ; preds = %66
+  %.pre = load i32, ptr %63, align 8, !tbaa !121
+  br label %70
 
-.thread67:                                        ; preds = %67
-  %69 = tail call ptr @rb_id2name(i64 noundef %68) #21
-  %70 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.111, ptr noundef %69) #21
-  br label %74
+.thread67:                                        ; preds = %66
+  %68 = tail call ptr @rb_id2name(i64 noundef %67) #21
+  %69 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.111, ptr noundef %68) #21
+  br label %73
 
-71:                                               ; preds = %._crit_edge, %66
-  %72 = phi i32 [ %.pre, %._crit_edge ], [ %65, %66 ]
-  %73 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.116, i32 noundef %72) #21
-  br label %74
+70:                                               ; preds = %._crit_edge, %65
+  %71 = phi i32 [ %.pre, %._crit_edge ], [ %64, %65 ]
+  %72 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.116, i32 noundef %71) #21
+  br label %73
 
-74:                                               ; preds = %.thread67, %50, %71, %63, %42
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !111
-  %77 = icmp eq i64 %76, 4
-  br i1 %77, label %81, label %78
+73:                                               ; preds = %.thread67, %49, %70, %62, %41
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %75 = load i64, ptr %74, align 8, !tbaa !111
+  %76 = icmp eq i64 %75, 4
+  br i1 %76, label %80, label %77
 
-78:                                               ; preds = %74
+77:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
-  store i64 %76, ptr %2, align 8, !tbaa !35
-  %79 = call ptr @rb_string_value_cstr(ptr noundef nonnull %2) #21
-  %80 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.111, ptr noundef %79) #21
+  store i64 %75, ptr %2, align 8, !tbaa !35
+  %78 = call ptr @rb_string_value_cstr(ptr noundef nonnull %2) #21
+  %79 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.111, ptr noundef %78) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
-  br label %81
+  br label %80
 
-81:                                               ; preds = %78, %74
-  %82 = load i64, ptr %4, align 8, !tbaa !109
-  %83 = icmp eq i64 %82, 4
-  br i1 %83, label %87, label %84
+80:                                               ; preds = %77, %73
+  %81 = load i64, ptr %4, align 8, !tbaa !109
+  %82 = icmp eq i64 %81, 4
+  br i1 %82, label %86, label %83
 
-84:                                               ; preds = %81
+83:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
-  store i64 %82, ptr %3, align 8, !tbaa !35
-  %85 = call ptr @rb_string_value_cstr(ptr noundef nonnull %3) #21
-  %86 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.117, ptr noundef %85) #21
+  store i64 %81, ptr %3, align 8, !tbaa !35
+  %84 = call ptr @rb_string_value_cstr(ptr noundef nonnull %3) #21
+  %85 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %8, ptr noundef nonnull @.str.117, ptr noundef %84) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  br label %87
+  br label %86
 
-87:                                               ; preds = %84, %81
-  %88 = call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.118, i64 noundef 1) #21
+86:                                               ; preds = %83, %80
+  %87 = call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull @.str.118, i64 noundef 1) #21
   ret i64 %8
 }
 

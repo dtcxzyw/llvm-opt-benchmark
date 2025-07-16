@@ -7454,7 +7454,7 @@ _ZN4cvc58internal6StringD2Ev.exit400:             ; preds = %777, %779
   %785 = zext i32 %534 to i64
   %786 = sub nsw i64 %545, %546
   %787 = icmp ult i64 %786, %785
-  br i1 %787, label %788, label %813
+  br i1 %787, label %788, label %.lr.ph
 
 788:                                              ; preds = %784
   %789 = trunc i64 %545 to i32
@@ -7486,16 +7486,12 @@ _ZN4cvc58internal6StringD2Ev.exit400:             ; preds = %777, %779
   %811 = trunc i64 %810 to i32
   %812 = sub i32 %811, %1
   %.pre = ashr exact i64 %809, 2
-  br label %813
+  %813 = icmp eq i64 %.pre, %546
+  br i1 %813, label %.critedge287, label %.lr.ph
 
-813:                                              ; preds = %804, %784
-  %.pre-phi608 = phi i64 [ %.pre, %804 ], [ %545, %784 ]
-  %.0139 = phi i32 [ %812, %804 ], [ %534, %784 ]
-  %.not553.not = icmp eq i64 %.pre-phi608, %546
-  br i1 %.not553.not, label %.critedge287, label %.lr.ph
-
-.lr.ph:                                           ; preds = %813
-  %814 = add i32 %.0139, -1
+.lr.ph:                                           ; preds = %784, %804
+  %.0139616 = phi i32 [ %812, %804 ], [ %534, %784 ]
+  %814 = add i32 %.0139616, -1
   %815 = getelementptr inbounds nuw i8, ptr %33, i64 16
   br label %816
 
@@ -7829,8 +7825,8 @@ _ZN4cvc58internal6StringD2Ev.exit424:             ; preds = %943, %945
   %958 = xor i1 %957, true
   br label %.critedge287
 
-.critedge287:                                     ; preds = %_ZN4cvc58internal6StringD2Ev.exit420, %_ZN4cvc58internal6StringD2Ev.exit396, %_ZN4cvc58internal6StringD2Ev.exit355, %.lr.ph564, %367, %.lr.ph570, %334, %.lr.ph590, %301, %813, %_ZN4cvc58internal7IntegerD2Ev.exit380, %409, %.preheader528, %.preheader525, %.preheader, %_ZN4cvc58internal6StringD2Ev.exit422, %_ZN4cvc58internal6StringD2Ev.exit357, %549, %548, %294, %.thread509, %_ZN4cvc58internal6StringD2Ev.exit398, %3, %.critedge283, %788, %482, %471, %400, %950, %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_6StringEEERKT_v.exit362, %_ZN4cvc58internal6StringD2Ev.exit
-  %.1 = phi i1 [ %.0133, %_ZN4cvc58internal6StringD2Ev.exit ], [ %518, %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_6StringEEERKT_v.exit362 ], [ %958, %950 ], [ true, %400 ], [ %481, %471 ], [ false, %482 ], [ false, %.critedge283 ], [ true, %_ZN4cvc58internal6StringD2Ev.exit398 ], [ false, %788 ], [ false, %3 ], [ %.4, %.thread509 ], [ %.4, %294 ], [ %563, %549 ], [ true, %548 ], [ true, %_ZN4cvc58internal6StringD2Ev.exit357 ], [ true, %_ZN4cvc58internal6StringD2Ev.exit422 ], [ true, %.preheader ], [ false, %.preheader525 ], [ true, %.preheader528 ], [ false, %409 ], [ false, %_ZN4cvc58internal7IntegerD2Ev.exit380 ], [ false, %813 ], [ %333, %301 ], [ %333, %.lr.ph590 ], [ %366, %334 ], [ %366, %.lr.ph570 ], [ %399, %367 ], [ %399, %.lr.ph564 ], [ false, %_ZN4cvc58internal6StringD2Ev.exit355 ], [ false, %_ZN4cvc58internal6StringD2Ev.exit396 ], [ false, %_ZN4cvc58internal6StringD2Ev.exit420 ]
+.critedge287:                                     ; preds = %_ZN4cvc58internal6StringD2Ev.exit420, %_ZN4cvc58internal6StringD2Ev.exit396, %_ZN4cvc58internal6StringD2Ev.exit355, %.lr.ph564, %367, %.lr.ph570, %334, %.lr.ph590, %301, %804, %_ZN4cvc58internal7IntegerD2Ev.exit380, %409, %.preheader528, %.preheader525, %.preheader, %_ZN4cvc58internal6StringD2Ev.exit422, %_ZN4cvc58internal6StringD2Ev.exit357, %549, %548, %294, %.thread509, %_ZN4cvc58internal6StringD2Ev.exit398, %3, %.critedge283, %788, %482, %471, %400, %950, %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_6StringEEERKT_v.exit362, %_ZN4cvc58internal6StringD2Ev.exit
+  %.1 = phi i1 [ %.0133, %_ZN4cvc58internal6StringD2Ev.exit ], [ %518, %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_6StringEEERKT_v.exit362 ], [ %958, %950 ], [ true, %400 ], [ %481, %471 ], [ false, %482 ], [ false, %.critedge283 ], [ true, %_ZN4cvc58internal6StringD2Ev.exit398 ], [ false, %788 ], [ false, %3 ], [ %.4, %.thread509 ], [ %.4, %294 ], [ %563, %549 ], [ true, %548 ], [ true, %_ZN4cvc58internal6StringD2Ev.exit357 ], [ true, %_ZN4cvc58internal6StringD2Ev.exit422 ], [ true, %.preheader ], [ false, %.preheader525 ], [ true, %.preheader528 ], [ false, %409 ], [ false, %_ZN4cvc58internal7IntegerD2Ev.exit380 ], [ false, %804 ], [ %333, %301 ], [ %333, %.lr.ph590 ], [ %366, %334 ], [ %366, %.lr.ph570 ], [ %399, %367 ], [ %399, %.lr.ph564 ], [ false, %_ZN4cvc58internal6StringD2Ev.exit355 ], [ false, %_ZN4cvc58internal6StringD2Ev.exit396 ], [ false, %_ZN4cvc58internal6StringD2Ev.exit420 ]
   ret i1 %.1
 
 _ZNSt6vectorIiSaIiEED2Ev.exit347:                 ; preds = %297, %298, %_ZN4cvc58internal7IntegerD2Ev.exit370, %_ZN4cvc58internal6StringD2Ev.exit424, %_ZN4cvc58internal6StringD2Ev.exit400, %_ZN4cvc58internal7IntegerD2Ev.exit381, %_ZN4cvc58internal6StringD2Ev.exit359, %_ZN4cvc58internal6StringD2Ev.exit331

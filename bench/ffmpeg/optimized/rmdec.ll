@@ -3087,7 +3087,6 @@ define internal fastcc void @rm_read_index(ptr noundef %0) unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %.lr.ph75, %75
-  %.073 = phi ptr [ undef, %.lr.ph75 ], [ %.194, %75 ]
   %8 = tail call i32 @avio_rb32(ptr noundef %3) #12
   %9 = icmp ult i32 %8, 20
   br i1 %9, label %.critedge, label %10
@@ -3113,7 +3112,7 @@ define internal fastcc void @rm_read_index(ptr noundef %0) unnamed_addr #0 {
 20:                                               ; preds = %18, %13
   %21 = load i32, ptr %6, align 4, !tbaa !112
   %.not83 = icmp eq i32 %21, 0
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  br i1 %.not83, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
   %22 = load ptr, ptr %5, align 8, !tbaa !107
@@ -3127,25 +3126,19 @@ define internal fastcc void @rm_read_index(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !72
   %28 = icmp eq i32 %27, %15
-  br i1 %28, label %._crit_edge.loopexit, label %29
+  br i1 %28, label %._crit_edge, label %29
 
 29:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %23, !llvm.loop !123
 
-._crit_edge.loopexit:                             ; preds = %23
+._crit_edge:                                      ; preds = %23
   %30 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %20
-  %.056.lcssa = phi i32 [ 0, %20 ], [ %30, %._crit_edge.loopexit ]
-  %.1 = phi ptr [ %.073, %20 ], [ %25, %._crit_edge.loopexit ]
-  %31 = icmp eq i32 %.056.lcssa, %21
+  %31 = icmp eq i32 %21, %30
   br i1 %31, label %._crit_edge.thread, label %33
 
-._crit_edge.thread:                               ; preds = %29, %._crit_edge
-  %.195 = phi ptr [ %.1, %._crit_edge ], [ %.073, %29 ]
+._crit_edge.thread:                               ; preds = %29, %20, %._crit_edge
   %32 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef 0, i32 noundef 1) #12
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.32, i32 noundef %15, i64 noundef %32) #12
   br label %.loopexit
@@ -3180,7 +3173,7 @@ define internal fastcc void @rm_read_index(ptr noundef %0) unnamed_addr #0 {
   %46 = zext i32 %45 to i64
   %47 = tail call i64 @avio_skip(ptr noundef %3, i64 noundef 4) #12
   %48 = zext i32 %44 to i64
-  %49 = tail call i32 @av_add_index_entry(ptr noundef %.1, i64 noundef %46, i64 noundef %48, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
+  %49 = tail call i32 @av_add_index_entry(ptr noundef %25, i64 noundef %46, i64 noundef %48, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
   %50 = add nuw i32 %.15770.us, 1
   %exitcond91.not = icmp eq i32 %50, %14
   br i1 %exitcond91.not, label %.loopexit, label %.lr.ph71.split.us, !llvm.loop !124
@@ -3207,13 +3200,12 @@ define internal fastcc void @rm_read_index(ptr noundef %0) unnamed_addr #0 {
   %62 = tail call i64 @avio_rb64(ptr noundef %3) #12
   %63 = tail call i64 @avio_skip(ptr noundef %3, i64 noundef 4) #12
   %64 = zext i32 %61 to i64
-  %65 = tail call i32 @av_add_index_entry(ptr noundef %.1, i64 noundef %62, i64 noundef %64, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
+  %65 = tail call i32 @av_add_index_entry(ptr noundef %25, i64 noundef %62, i64 noundef %64, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
   %66 = add nuw i32 %.15770, 1
   %exitcond90.not = icmp eq i32 %66, %14
   br i1 %exitcond90.not, label %.loopexit, label %.lr.ph71.split, !llvm.loop !124
 
 .loopexit:                                        ; preds = %59, %42, %.preheader, %51, %._crit_edge.thread
-  %.194 = phi ptr [ %.1, %.preheader ], [ %.1, %51 ], [ %.195, %._crit_edge.thread ], [ %.1, %42 ], [ %.1, %59 ]
   %.not61 = icmp eq i32 %16, 0
   br i1 %.not61, label %.critedge, label %67
 

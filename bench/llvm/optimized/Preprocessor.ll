@@ -4578,7 +4578,7 @@ _ZNK5clang12Preprocessor9macro_endEb.exit:        ; preds = %4, %10, %14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.idx.i = shl nuw nsw i64 %3, 4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
-  %.not12.i.i.i.i.i = icmp eq i64 %3, 0
+  %.not10.i.i.i.i.i = icmp eq i64 %3, 0
   br label %28
 
 ._crit_edge:                                      ; preds = %_ZN4llvm16DenseMapIteratorIPKN5clang14IdentifierInfoENS1_12Preprocessor10MacroStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EELb1EEppEv.exit, %_ZNK5clang12Preprocessor9macro_endEb.exit
@@ -4640,27 +4640,27 @@ _ZNK5clang14MacroDirective7DefInfo12getMacroInfoEv.exit16: ; preds = %_ZNK5clang
   br i1 %45, label %46, label %_ZNK5clang12Preprocessor10MacroState18findDirectiveAtLocENS_14SourceLocationERNS_13SourceManagerE.exit.thread
 
 46:                                               ; preds = %_ZNK5clang14MacroDirective7DefInfo12getMacroInfoEv.exit16
-  br i1 %.not12.i.i.i.i.i, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit, label %.lr.ph.i.i.i.i.preheader.i
+  br i1 %.not10.i.i.i.i.i, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %46
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !592
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
-  %.014.i.i.i.i.i = phi ptr [ %61, %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.preheader.i ]
-  %.0813.i.i.i.i.i = phi ptr [ %60, %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread.i.i.i.i.i ], [ %2, %.lr.ph.i.i.i.i.preheader.i ]
-  %49 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i, i64 16
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread9.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
+  %.012.i.i.i.i.i = phi ptr [ %61, %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread9.i.i.i.i.i ], [ %48, %.lr.ph.i.i.i.i.preheader.i ]
+  %.0811.i.i.i.i.i = phi ptr [ %60, %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread9.i.i.i.i.i ], [ %2, %.lr.ph.i.i.i.i.preheader.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 16
   %50 = load i16, ptr %49, align 8, !tbaa !573
-  %51 = load i16, ptr %.0813.i.i.i.i.i, align 8, !tbaa !643
+  %51 = load i16, ptr %.0811.i.i.i.i.i, align 8, !tbaa !643
   %52 = icmp eq i16 %50, %51
   br i1 %52, label %53, label %_ZNK5clang12Preprocessor10MacroState18findDirectiveAtLocENS_14SourceLocationERNS_13SourceManagerE.exit.thread
 
 53:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %.0813.i.i.i.i.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !645
   %.not.i.i.i.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread.i.i.i.i.i, label %56
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread9.i.i.i.i.i, label %56
 
 56:                                               ; preds = %53
   switch i16 %50, label %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.i.i.i.i.i [
@@ -4681,18 +4681,18 @@ _ZNK5clang14MacroDirective7DefInfo12getMacroInfoEv.exit16: ; preds = %_ZNK5clang
   ]
 
 _ZNK5clang10TokenValueeqERKNS_5TokenE.exit.i.i.i.i.i: ; preds = %56
-  %57 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !646
   %59 = icmp eq ptr %55, %58
-  br i1 %59, label %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread.i.i.i.i.i, label %_ZNK5clang12Preprocessor10MacroState18findDirectiveAtLocENS_14SourceLocationERNS_13SourceManagerE.exit.thread
+  br i1 %59, label %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread9.i.i.i.i.i, label %_ZNK5clang12Preprocessor10MacroState18findDirectiveAtLocENS_14SourceLocationERNS_13SourceManagerE.exit.thread
 
-_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread.i.i.i.i.i: ; preds = %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.i.i.i.i.i, %53
-  %60 = getelementptr inbounds nuw i8, ptr %.0813.i.i.i.i.i, i64 16
-  %61 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i, i64 24
+_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread9.i.i.i.i.i: ; preds = %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.i.i.i.i.i, %53
+  %60 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %60, %27
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !647
 
-_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit: ; preds = %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread.i.i.i.i.i, %46
+_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit: ; preds = %_ZNK5clang10TokenValueeqERKNS_5TokenE.exit.thread9.i.i.i.i.i, %46
   %62 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 8
   %.sroa.0.0.copyload.i.i = load i32, ptr %62, align 8, !tbaa !407
   %63 = icmp eq i32 %.sroa.032.045, 0

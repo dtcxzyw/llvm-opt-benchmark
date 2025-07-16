@@ -2323,12 +2323,12 @@ define void @Llb_NonlinAddPair(ptr noundef readonly captures(none) %0, ptr readn
   %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %.pre24 = load i32, ptr %.phi.trans.insert23, align 4, !tbaa !47
   %.pre25 = load i32, ptr %.pre, align 8, !tbaa !72
-  %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
-  %20 = icmp eq i32 %.pre24, %.pre25
-  br i1 %20, label %23, label %.Vec_IntGrow.exit10_crit_edge.i
+  %19 = icmp eq i32 %.pre24, %.pre25
+  %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
+  br i1 %19, label %23, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %.thread, %18
-  %21 = phi ptr [ %17, %.thread ], [ %19, %18 ]
+  %21 = phi ptr [ %17, %.thread ], [ %20, %18 ]
   %22 = phi ptr [ %12, %.thread ], [ %.pre, %18 ]
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !21
@@ -2382,7 +2382,7 @@ Vec_IntGrow.exit.i:                               ; preds = %30, %28
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %43
-  %45 = phi ptr [ %21, %.Vec_IntGrow.exit10_crit_edge.i ], [ %19, %43 ], [ %19, %Vec_IntGrow.exit.i ]
+  %45 = phi ptr [ %21, %.Vec_IntGrow.exit10_crit_edge.i ], [ %20, %43 ], [ %20, %Vec_IntGrow.exit.i ]
   %46 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %44, %43 ], [ %32, %Vec_IntGrow.exit.i ]
   %47 = load i32, ptr %45, align 4, !tbaa !47
   %48 = add nsw i32 %47, 1

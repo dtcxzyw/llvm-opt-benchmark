@@ -88,17 +88,17 @@ define hidden { i8, i8 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenComp
   %.promoted33 = load i64, ptr %3, align 8
   %.promoted34 = load i64, ptr %4, align 8
   %8 = trunc nuw i64 %.promoted to i1
-  br label %9
+  %9 = icmp eq i64 %.promoted33, %.promoted32
+  br label %10
 
-9:                                                ; preds = %38, %1
-  %10 = phi i64 [ 0, %38 ], [ %.promoted34, %1 ]
-  %11 = phi i64 [ 8, %38 ], [ %.promoted33, %1 ]
+10:                                               ; preds = %38, %1
+  %11 = phi i64 [ 0, %38 ], [ %.promoted34, %1 ]
+  %.not.i.i.not.i = phi i1 [ false, %38 ], [ %9, %1 ]
   %12 = phi i64 [ 0, %38 ], [ %.promoted32, %1 ]
   %trunc.i = phi i1 [ true, %38 ], [ %8, %1 ]
   br i1 %trunc.i, label %13, label %19
 
-13:                                               ; preds = %9
-  %.not.i.i.not.i = icmp eq i64 %11, %12
+13:                                               ; preds = %10
   br i1 %.not.i.i.not.i, label %14, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit
 
 14:                                               ; preds = %13
@@ -114,13 +114,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit: ; pr
   %18 = load i8, ptr %17, align 1, !alias.scope !7, !noundef !12
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit16
 
-19:                                               ; preds = %9, %14
-  %20 = icmp eq i64 %10, 2
+19:                                               ; preds = %10, %14
+  %20 = icmp eq i64 %11, 2
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %19
   store i64 0, ptr %4, align 8, !alias.scope !13, !noalias !20
-  %switch.not.not.i.i = icmp eq i64 %10, 0
+  %switch.not.not.i.i = icmp eq i64 %11, 0
   br i1 %switch.not.not.i.i, label %24, label %38
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit16: ; preds = %37, %_ZN4core3ops8function6FnOnce9call_once17hbf5451e648867480E.exit.thread.i15, %24, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit
@@ -163,7 +163,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbf5451e648867480E.exit.thread.i15: ; pr
   store i64 0, ptr %2, align 8
   store i64 8, ptr %3, align 8
   store i64 %7, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx8.sroa_idx, align 8
-  br label %9
+  br label %10
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -184,41 +184,41 @@ define hidden { i8, i8 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenComp
 .split.preheader:                                 ; preds = %1
   %.promoted34 = load ptr, ptr %7, align 8
   %8 = trunc nuw i64 %.promoted to i1
+  %9 = icmp eq i64 %.promoted33, %.promoted32
   br label %.split
 
 .split.us:                                        ; preds = %1
   %trunc.i.us = trunc nuw i64 %.promoted to i1
-  br i1 %trunc.i.us, label %9, label %.split37.us
+  br i1 %trunc.i.us, label %10, label %.split37.us
 
-9:                                                ; preds = %.split.us
+10:                                               ; preds = %.split.us
   %.not.i.i.not.i.us = icmp eq i64 %.promoted33, %.promoted32
-  br i1 %.not.i.i.not.i.us, label %10, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit
+  br i1 %.not.i.i.not.i.us, label %11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit
 
-10:                                               ; preds = %9
+11:                                               ; preds = %10
   store i64 0, ptr %0, align 8, !alias.scope !32
   br label %.split37.us
 
-.split37.us:                                      ; preds = %10, %.split.us
+.split37.us:                                      ; preds = %11, %.split.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   br label %.split37
 
 .split:                                           ; preds = %.split.preheader, %37
-  %11 = phi ptr [ %38, %37 ], [ %.promoted34, %.split.preheader ]
-  %12 = phi i64 [ 8, %37 ], [ %.promoted33, %.split.preheader ]
+  %12 = phi ptr [ %38, %37 ], [ %.promoted34, %.split.preheader ]
+  %.not.i.i.not.i = phi i1 [ false, %37 ], [ %9, %.split.preheader ]
   %13 = phi i64 [ 0, %37 ], [ %.promoted32, %.split.preheader ]
   %trunc.i = phi i1 [ true, %37 ], [ %8, %.split.preheader ]
   br i1 %trunc.i, label %14, label %20
 
 14:                                               ; preds = %.split
-  %.not.i.i.not.i = icmp eq i64 %12, %13
   br i1 %.not.i.i.not.i, label %15, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit
 
 15:                                               ; preds = %14
   store i64 0, ptr %0, align 8, !alias.scope !32
   br label %20
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit: ; preds = %14, %9
-  %.us-phi35 = phi i64 [ %.promoted32, %9 ], [ %13, %14 ]
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit: ; preds = %14, %10
+  %.us-phi35 = phi i64 [ %.promoted32, %10 ], [ %13, %14 ]
   %16 = add nuw nsw i64 %.us-phi35, 1
   store i64 %16, ptr %2, align 8, !alias.scope !38
   %17 = icmp ult i64 %.us-phi35, 8
@@ -231,7 +231,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit: ; pr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %21 = icmp eq ptr %.fr38, %11
+  %21 = icmp eq ptr %.fr38, %12
   br i1 %21, label %.split37, label %37
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit16: ; preds = %36, %_ZN4core3ops8function6FnOnce9call_once17hbf5451e648867480E.exit.thread.i15, %.split37, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit
@@ -270,7 +270,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbf5451e648867480E.exit.thread.i15: ; pr
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit16
 
 37:                                               ; preds = %20
-  %38 = getelementptr inbounds i8, ptr %11, i64 -8
+  %38 = getelementptr inbounds i8, ptr %12, i64 -8
   store ptr %38, ptr %7, align 8, !alias.scope !57, !noalias !64
   %39 = load i64, ptr %38, align 8, !noalias !67, !noundef !12
   %40 = tail call i64 @llvm.bswap.i64(i64 %39)
@@ -2332,17 +2332,17 @@ define hidden { i8, i8 } @"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatM
   %.promoted33.i = load i64, ptr %3, align 8, !alias.scope !1040
   %.promoted34.i = load i64, ptr %4, align 8, !alias.scope !1040
   %8 = trunc nuw i64 %.promoted.i to i1
-  br label %9
+  %9 = icmp eq i64 %.promoted33.i, %.promoted32.i
+  br label %10
 
-9:                                                ; preds = %34, %1
-  %10 = phi i64 [ 0, %34 ], [ %.promoted34.i, %1 ]
-  %11 = phi i64 [ 8, %34 ], [ %.promoted33.i, %1 ]
+10:                                               ; preds = %34, %1
+  %11 = phi i64 [ 0, %34 ], [ %.promoted34.i, %1 ]
+  %.not.i.i.not.i.i = phi i1 [ false, %34 ], [ %9, %1 ]
   %12 = phi i64 [ 0, %34 ], [ %.promoted32.i, %1 ]
   %trunc.i.i = phi i1 [ true, %34 ], [ %8, %1 ]
   br i1 %trunc.i.i, label %13, label %18
 
-13:                                               ; preds = %9
-  %.not.i.i.not.i.i = icmp eq i64 %11, %12
+13:                                               ; preds = %10
   br i1 %.not.i.i.not.i.i, label %14, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i
 
 14:                                               ; preds = %13
@@ -2357,13 +2357,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i: ; 
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx8.sroa_idx.i, i64 %12
   br label %35
 
-18:                                               ; preds = %14, %9
-  %19 = icmp eq i64 %10, 2
+18:                                               ; preds = %14, %10
+  %19 = icmp eq i64 %11, 2
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %18
   store i64 0, ptr %4, align 8, !alias.scope !1051, !noalias !1058
-  %switch.not.not.i.i.i = icmp eq i64 %10, 0
+  %switch.not.not.i.i.i = icmp eq i64 %11, 0
   br i1 %switch.not.not.i.i.i, label %21, label %34
 
 21:                                               ; preds = %20, %18
@@ -2398,7 +2398,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbf5451e648867480E.exit.thread.i15.i: ; 
   store i64 0, ptr %2, align 8, !alias.scope !1040
   store i64 8, ptr %3, align 8, !alias.scope !1040
   store i64 %7, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx8.sroa_idx.i, align 8, !alias.scope !1040
-  br label %9
+  br label %10
 
 35:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i, %_ZN4core3ops8function6FnOnce9call_once17hbf5451e648867480E.exit.thread.i15.i
   %.sroa.3.0.i12.pn.i.ph.in = phi ptr [ %32, %_ZN4core3ops8function6FnOnce9call_once17hbf5451e648867480E.exit.thread.i15.i ], [ %17, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i ]
@@ -2436,41 +2436,41 @@ define hidden { i8, i8 } @"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatM
 .split.preheader.i:                               ; preds = %1
   %.promoted34.i = load ptr, ptr %7, align 8, !alias.scope !1069
   %8 = trunc nuw i64 %.promoted.i to i1
+  %9 = icmp eq i64 %.promoted33.i, %.promoted32.i
   br label %.split.i
 
 .split.us.i:                                      ; preds = %1
   %trunc.i.us.i = trunc nuw i64 %.promoted.i to i1
-  br i1 %trunc.i.us.i, label %9, label %.split37.us.i
+  br i1 %trunc.i.us.i, label %10, label %.split37.us.i
 
-9:                                                ; preds = %.split.us.i
+10:                                               ; preds = %.split.us.i
   %.not.i.i.not.i.us.i = icmp eq i64 %.promoted33.i, %.promoted32.i
-  br i1 %.not.i.i.not.i.us.i, label %10, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i
+  br i1 %.not.i.i.not.i.us.i, label %11, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i
 
-10:                                               ; preds = %9
+11:                                               ; preds = %10
   store i64 0, ptr %0, align 8, !alias.scope !1072
   br label %.split37.us.i
 
-.split37.us.i:                                    ; preds = %10, %.split.us.i
+.split37.us.i:                                    ; preds = %11, %.split.us.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1075)
   br label %.split37.i
 
 .split.i:                                         ; preds = %33, %.split.preheader.i
-  %11 = phi ptr [ %34, %33 ], [ %.promoted34.i, %.split.preheader.i ]
-  %12 = phi i64 [ 8, %33 ], [ %.promoted33.i, %.split.preheader.i ]
+  %12 = phi ptr [ %34, %33 ], [ %.promoted34.i, %.split.preheader.i ]
+  %.not.i.i.not.i.i = phi i1 [ false, %33 ], [ %9, %.split.preheader.i ]
   %13 = phi i64 [ 0, %33 ], [ %.promoted32.i, %.split.preheader.i ]
   %trunc.i.i = phi i1 [ true, %33 ], [ %8, %.split.preheader.i ]
   br i1 %trunc.i.i, label %14, label %19
 
 14:                                               ; preds = %.split.i
-  %.not.i.i.not.i.i = icmp eq i64 %12, %13
   br i1 %.not.i.i.not.i.i, label %15, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i
 
 15:                                               ; preds = %14
   store i64 0, ptr %0, align 8, !alias.scope !1072
   br label %19
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i: ; preds = %14, %9
-  %.us-phi35.i = phi i64 [ %.promoted32.i, %9 ], [ %13, %14 ]
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i: ; preds = %14, %10
+  %.us-phi35.i = phi i64 [ %.promoted32.i, %10 ], [ %13, %14 ]
   %16 = add nuw nsw i64 %.us-phi35.i, 1
   store i64 %16, ptr %2, align 8, !alias.scope !1078
   %17 = icmp ult i64 %.us-phi35.i, 8
@@ -2482,7 +2482,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h66b23c22adeab89dE.exit.i: ; 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1075)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1083)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
-  %20 = icmp eq ptr %.fr38.i, %11
+  %20 = icmp eq ptr %.fr38.i, %12
   br i1 %20, label %.split37.i, label %33
 
 .split37.i:                                       ; preds = %19, %.split37.us.i
@@ -2513,7 +2513,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbf5451e648867480E.exit.thread.i15.i: ; 
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h910ed96031d477caE.llvm.4129427866461079095.exit"
 
 33:                                               ; preds = %19
-  %34 = getelementptr inbounds i8, ptr %11, i64 -8
+  %34 = getelementptr inbounds i8, ptr %12, i64 -8
   store ptr %34, ptr %7, align 8, !alias.scope !1097, !noalias !1104
   %35 = load i64, ptr %34, align 8, !noalias !1107, !noundef !12
   %36 = tail call i64 @llvm.bswap.i64(i64 %35)

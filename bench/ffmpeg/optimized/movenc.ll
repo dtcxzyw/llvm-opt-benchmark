@@ -18963,9 +18963,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 %47, ptr %48, align 8, !tbaa !70
   %.not247 = icmp eq i64 %38, -9223372036854775808
-  %spec.select347 = select i1 %.not247, i64 %spec.select, i64 %38
+  %spec.select350 = select i1 %.not247, i64 %spec.select, i64 %38
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 192
-  store i64 %spec.select347, ptr %49, align 8, !tbaa !148
+  store i64 %spec.select350, ptr %49, align 8, !tbaa !148
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br label %50
 
@@ -19038,7 +19038,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   %91 = load i32, ptr %20, align 4, !tbaa !102
   %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph293, label %is_cover_image.exit.thread
+  br i1 %92, label %.lr.ph293, label %is_cover_image.exit.thread.thread
 
 .lr.ph293:                                        ; preds = %87
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -19058,31 +19058,27 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 96
   %101 = load ptr, ptr %100, align 8, !tbaa !99
   %.not.i = icmp eq ptr %101, null
-  br i1 %.not.i, label %is_cover_image.exit.thread.loopexit, label %is_cover_image.exit
+  br i1 %.not.i, label %is_cover_image.exit.thread, label %is_cover_image.exit
 
 is_cover_image.exit:                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %103 = load i32, ptr %102, align 8, !tbaa !175
   %.not258 = icmp eq i32 %103, 1024
-  br i1 %.not258, label %104, label %is_cover_image.exit.thread.loopexit
+  br i1 %.not258, label %104, label %is_cover_image.exit.thread
 
 104:                                              ; preds = %95, %is_cover_image.exit
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next325, %wide.trip.count
   br i1 %exitcond.not, label %is_cover_image.exit.thread.thread, label %95, !llvm.loop !494
 
-is_cover_image.exit.thread.loopexit:              ; preds = %99, %is_cover_image.exit
+is_cover_image.exit.thread:                       ; preds = %is_cover_image.exit, %99
   %105 = trunc nuw nsw i64 %indvars.iv324 to i32
-  br label %is_cover_image.exit.thread
-
-is_cover_image.exit.thread:                       ; preds = %is_cover_image.exit.thread.loopexit, %87
-  %.2183.lcssa = phi i32 [ 0, %87 ], [ %105, %is_cover_image.exit.thread.loopexit ]
-  %106 = icmp sge i32 %.2183.lcssa, %91
+  %106 = icmp sle i32 %91, %105
   %107 = icmp ne i32 %1, 0
   %or.cond = or i1 %107, %106
   br i1 %or.cond, label %is_cover_image.exit.thread.thread, label %175
 
-is_cover_image.exit.thread.thread:                ; preds = %104, %is_cover_image.exit.thread
+is_cover_image.exit.thread.thread:                ; preds = %104, %87, %is_cover_image.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   %108 = load ptr, ptr %8, align 8, !tbaa !4
   %109 = call i32 @ffio_open_null_buf(ptr noundef nonnull %4) #16
@@ -19295,11 +19291,11 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 204:                                              ; preds = %198
   %205 = load i32, ptr %177, align 8, !tbaa !78
   %.not237 = icmp eq i32 %205, 0
-  %spec.select348 = select i1 %.not237, i64 %.1189274, i64 0
+  %spec.select351 = select i1 %.not237, i64 %.1189274, i64 0
   br label %206
 
 206:                                              ; preds = %204, %198
-  %.1189274.sink = phi i64 [ 0, %198 ], [ %spec.select348, %204 ]
+  %.1189274.sink = phi i64 [ 0, %198 ], [ %spec.select351, %204 ]
   %207 = getelementptr inbounds nuw i8, ptr %201, i64 304
   store i64 %.1189274.sink, ptr %207, align 8, !tbaa !240
   %208 = getelementptr inbounds nuw i8, ptr %201, i64 104

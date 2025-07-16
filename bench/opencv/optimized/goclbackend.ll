@@ -2168,55 +2168,56 @@ _ZN2cv5gimpl6RcDescD2Ev.exit136:                  ; preds = %.body115, %500
   %529 = sub i64 %527, %528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i140 = icmp eq ptr %525, %526
-  br i1 %.not.i.i.i.i.i140, label %.noexc142, label %530
+  br i1 %.not.i.i.i.i.i140, label %.noexc142.thread, label %531
 
-530:                                              ; preds = %521
-  %531 = icmp ugt i64 %529, 9223372036854775804
-  br i1 %531, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, !prof !24
+.noexc142.thread:                                 ; preds = %521
+  %530 = getelementptr inbounds nuw i8, ptr null, i64 %529
+  store i64 0, ptr %110, align 8
+  store ptr %530, ptr %112, align 8, !tbaa !141
+  br label %537
 
-.noexc.i.i.i:                                     ; preds = %530
+531:                                              ; preds = %521
+  %532 = icmp ugt i64 %529, 9223372036854775804
+  br i1 %532, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i, !prof !24
+
+.noexc.i.i.i:                                     ; preds = %531
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #31
           to label %.noexc141 unwind label %.loopexit.split-lp176
 
 .noexc141:                                        ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %530
-  %532 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %529) #28
-          to label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc142_crit_edge unwind label %.loopexit175
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %531
+  %533 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %529) #28
+          to label %.noexc142 unwind label %.loopexit175
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc142_crit_edge: ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i
-  %.pre = load ptr, ptr %523, align 8, !tbaa !141
-  %.pre249 = load ptr, ptr %524, align 8, !tbaa !141
+.noexc142:                                        ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i
+  %.pre = load ptr, ptr %523, align 8, !tbaa !142
+  %.pre249 = load ptr, ptr %524, align 8, !tbaa !142
+  %534 = icmp eq ptr %.pre249, %.pre
+  store ptr %533, ptr %110, align 8, !tbaa !140
+  store ptr %533, ptr %111, align 8, !tbaa !137
+  %535 = getelementptr inbounds nuw i8, ptr %533, i64 %529
+  store ptr %535, ptr %112, align 8, !tbaa !141
+  br i1 %534, label %537, label %536
+
+536:                                              ; preds = %.noexc142
   %.pre252 = ptrtoint ptr %.pre249 to i64
   %.pre253 = ptrtoint ptr %.pre to i64
   %.pre255 = sub i64 %.pre252, %.pre253
-  br label %.noexc142
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %533, ptr align 4 %.pre, i64 %.pre255, i1 false)
+  br label %537
 
-.noexc142:                                        ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc142_crit_edge, %521
-  %.pre-phi256 = phi i64 [ %.pre255, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc142_crit_edge ], [ 0, %521 ]
-  %533 = phi ptr [ %.pre249, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc142_crit_edge ], [ %525, %521 ]
-  %534 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc142_crit_edge ], [ %526, %521 ]
-  %535 = phi ptr [ %532, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i..noexc142_crit_edge ], [ null, %521 ]
-  store ptr %535, ptr %110, align 8, !tbaa !140
-  store ptr %535, ptr %111, align 8, !tbaa !137
-  %536 = getelementptr inbounds nuw i8, ptr %535, i64 %529
-  store ptr %536, ptr %112, align 8, !tbaa !142
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %533, %534
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %538, label %537
-
-537:                                              ; preds = %.noexc142
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %535, ptr align 4 %534, i64 %.pre-phi256, i1 false)
-  br label %538
-
-538:                                              ; preds = %537, %.noexc142
-  %539 = getelementptr inbounds i8, ptr %535, i64 %.pre-phi256
+537:                                              ; preds = %.noexc142.thread, %536, %.noexc142
+  %538 = phi ptr [ null, %.noexc142.thread ], [ %533, %536 ], [ %533, %.noexc142 ]
+  %.pre-phi256261 = phi i64 [ 0, %.noexc142.thread ], [ %.pre255, %536 ], [ 0, %.noexc142 ]
+  %539 = getelementptr inbounds i8, ptr %538, i64 %.pre-phi256261
   store ptr %539, ptr %111, align 8, !tbaa !137
   %540 = getelementptr inbounds nuw i8, ptr %400, i64 12
   %541 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiN2cv3MatEESaIS5_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 4 dereferenceable(4) %540)
           to label %_ZNSt13unordered_mapIiN2cv3MatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit unwind label %545
 
-_ZNSt13unordered_mapIiN2cv3MatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit: ; preds = %538
+_ZNSt13unordered_mapIiN2cv3MatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit: ; preds = %537
   invoke void @_ZN2cv5gimpl9createMatERKNS_8GMatDescERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(96) %541)
           to label %542 unwind label %545
 
@@ -2243,7 +2244,7 @@ _ZN2cv8GMatDescD2Ev.exit:                         ; preds = %542, %544
           cleanup
   br label %.body138
 
-545:                                              ; preds = %538, %_ZNSt13unordered_mapIiN2cv3MatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit
+545:                                              ; preds = %537, %_ZNSt13unordered_mapIiN2cv3MatESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEixERS7_.exit
   %546 = landingpad { ptr, i32 }
           cleanup
   %547 = load ptr, ptr %110, align 8, !tbaa !140
@@ -14753,8 +14754,8 @@ attributes #31 = { noreturn }
 !138 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !139, i64 0, !139, i64 8, !139, i64 16}
 !139 = !{!"p1 int", !18, i64 0}
 !140 = !{!138, !139, i64 0}
-!141 = !{!139, !139, i64 0}
-!142 = !{!138, !139, i64 16}
+!141 = !{!138, !139, i64 16}
+!142 = !{!139, !139, i64 0}
 !143 = !{!72, !45, i64 16}
 !144 = !{!117, !75, i64 0}
 !145 = distinct !{!145, !93}

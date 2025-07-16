@@ -2272,38 +2272,38 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   br i1 %315, label %.lr.ph.i101, label %.preheader.i93
 
 .loopexit.i:                                      ; preds = %486, %.lr.ph.i101
-  %.1268.lcssa.i = phi i32 [ %.0267392.i, %.lr.ph.i101 ], [ %494, %486 ]
-  %.1265.lcssa.i = phi i32 [ %.0264393.i, %.lr.ph.i101 ], [ %.2266.i, %486 ]
-  %.1.lcssa.i = phi ptr [ %.0394.i, %.lr.ph.i101 ], [ %.2.i, %486 ]
+  %.1268.lcssa.i = phi i32 [ %.0267393.i, %.lr.ph.i101 ], [ %494, %486 ]
+  %.1265.lcssa.i = phi i32 [ %.0264394.i, %.lr.ph.i101 ], [ %.2266.i, %486 ]
+  %.1.lcssa.i = phi ptr [ %.0395.i, %.lr.ph.i101 ], [ %.2.i, %486 ]
   %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef readonly %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  br i1 %316, label %.lr.ph.i101, label %.preheader382.i, !llvm.loop !19
+  br i1 %316, label %.lr.ph.i101, label %.preheader383.i, !llvm.loop !19
 
-.preheader382.i:                                  ; preds = %.loopexit.i
+.preheader383.i:                                  ; preds = %.loopexit.i
   %317 = icmp sgt i32 %.084.lcssa197, 0
-  br i1 %317, label %.preheader381.lr.ph.i, label %.preheader.i93
+  br i1 %317, label %.preheader382.lr.ph.i, label %.preheader.i93
 
-.preheader381.lr.ph.i:                            ; preds = %.preheader382.i
+.preheader382.lr.ph.i:                            ; preds = %.preheader383.i
   %318 = icmp sgt i32 %.1268.lcssa.i, 0
   %319 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %wide.trip.count.i = zext nneg i32 %.1268.lcssa.i to i64
-  br i1 %318, label %.preheader381.i.us, label %.preheader.i93
+  br i1 %318, label %.preheader382.i.us, label %.preheader.i93
 
-.preheader381.i.us:                               ; preds = %.preheader381.lr.ph.i, %._crit_edge451.i.us
-  %.0276453.i.us = phi i32 [ %442, %._crit_edge451.i.us ], [ 0, %.preheader381.lr.ph.i ]
-  br label %.lr.ph401.i.us
+.preheader382.i.us:                               ; preds = %.preheader382.lr.ph.i, %._crit_edge452.i.us
+  %.0276454.i.us = phi i32 [ %442, %._crit_edge452.i.us ], [ 0, %.preheader382.lr.ph.i ]
+  br label %.lr.ph402.i.us
 
-.lr.ph401.i.us:                                   ; preds = %.preheader381.i.us, %341
-  %indvars.iv.i95.us = phi i64 [ %indvars.iv.next.i96.us, %341 ], [ 0, %.preheader381.i.us ]
-  %.0258400.i.us = phi i32 [ %.1259.i.us, %341 ], [ 0, %.preheader381.i.us ]
-  %.0260399.i.us = phi i32 [ %.1261.i.us, %341 ], [ 2147483647, %.preheader381.i.us ]
-  %.0262398.i.us = phi i32 [ %.1263.i.us, %341 ], [ -1, %.preheader381.i.us ]
+.lr.ph402.i.us:                                   ; preds = %.preheader382.i.us, %341
+  %indvars.iv.i95.us = phi i64 [ %indvars.iv.next.i96.us, %341 ], [ 0, %.preheader382.i.us ]
+  %.0258401.i.us = phi i32 [ %.1259.i.us, %341 ], [ 0, %.preheader382.i.us ]
+  %.0260400.i.us = phi i32 [ %.1261.i.us, %341 ], [ 2147483647, %.preheader382.i.us ]
+  %.0262399.i.us = phi i32 [ %.1263.i.us, %341 ], [ -1, %.preheader382.i.us ]
   %320 = getelementptr inbounds nuw %struct.CoverPos, ptr %.1.lcssa.i, i64 %indvars.iv.i95.us
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load i8, ptr %321, align 4, !range !4, !noundef !5
   %323 = trunc nuw i8 %322 to i1
   br i1 %323, label %341, label %324
 
-324:                                              ; preds = %.lr.ph401.i.us
+324:                                              ; preds = %.lr.ph402.i.us
   %325 = getelementptr inbounds nuw i8, ptr %320, i64 17
   %326 = load i8, ptr %325, align 1, !range !4, !noundef !5
   %327 = trunc nuw i8 %326 to i1
@@ -2312,40 +2312,40 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 328:                                              ; preds = %324
   %329 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %330 = load i32, ptr %329, align 4
-  %331 = icmp slt i32 %.0258400.i.us, %330
-  br i1 %331, label %._crit_edge480.i.us, label %332
+  %331 = icmp slt i32 %.0258401.i.us, %330
+  br i1 %331, label %._crit_edge481.i.us, label %332
 
 332:                                              ; preds = %328
-  %333 = icmp eq i32 %.0258400.i.us, %330
+  %333 = icmp eq i32 %.0258401.i.us, %330
   br i1 %333, label %334, label %341
 
 334:                                              ; preds = %332
   %335 = getelementptr inbounds nuw i8, ptr %320, i64 12
   %336 = load i32, ptr %335, align 4
-  %337 = icmp sgt i32 %.0260399.i.us, %336
+  %337 = icmp sgt i32 %.0260400.i.us, %336
   br i1 %337, label %338, label %341
 
-._crit_edge480.i.us:                              ; preds = %328
+._crit_edge481.i.us:                              ; preds = %328
   %.phi.trans.insert.i.us = getelementptr inbounds nuw i8, ptr %320, i64 12
   %.pre.i.us = load i32, ptr %.phi.trans.insert.i.us, align 4
   br label %338
 
-338:                                              ; preds = %._crit_edge480.i.us, %334
-  %339 = phi i32 [ %.pre.i.us, %._crit_edge480.i.us ], [ %336, %334 ]
+338:                                              ; preds = %._crit_edge481.i.us, %334
+  %339 = phi i32 [ %.pre.i.us, %._crit_edge481.i.us ], [ %336, %334 ]
   %340 = trunc nuw nsw i64 %indvars.iv.i95.us to i32
   br label %341
 
-341:                                              ; preds = %338, %334, %332, %324, %.lr.ph401.i.us
-  %.1263.i.us = phi i32 [ %.0262398.i.us, %.lr.ph401.i.us ], [ %.0262398.i.us, %324 ], [ %340, %338 ], [ %.0262398.i.us, %334 ], [ %.0262398.i.us, %332 ]
-  %.1261.i.us = phi i32 [ %.0260399.i.us, %.lr.ph401.i.us ], [ %.0260399.i.us, %324 ], [ %339, %338 ], [ %.0260399.i.us, %334 ], [ %.0260399.i.us, %332 ]
-  %.1259.i.us = phi i32 [ %.0258400.i.us, %.lr.ph401.i.us ], [ %.0258400.i.us, %324 ], [ %330, %338 ], [ %.0258400.i.us, %334 ], [ %.0258400.i.us, %332 ]
+341:                                              ; preds = %338, %334, %332, %324, %.lr.ph402.i.us
+  %.1263.i.us = phi i32 [ %.0262399.i.us, %.lr.ph402.i.us ], [ %.0262399.i.us, %324 ], [ %340, %338 ], [ %.0262399.i.us, %334 ], [ %.0262399.i.us, %332 ]
+  %.1261.i.us = phi i32 [ %.0260400.i.us, %.lr.ph402.i.us ], [ %.0260400.i.us, %324 ], [ %339, %338 ], [ %.0260400.i.us, %334 ], [ %.0260400.i.us, %332 ]
+  %.1259.i.us = phi i32 [ %.0258401.i.us, %.lr.ph402.i.us ], [ %.0258401.i.us, %324 ], [ %330, %338 ], [ %.0258401.i.us, %334 ], [ %.0258401.i.us, %332 ]
   %indvars.iv.next.i96.us = add nuw nsw i64 %indvars.iv.i95.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i96.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %._crit_edge.i97.us, label %.lr.ph401.i.us, !llvm.loop !20
+  br i1 %exitcond.not.i.us, label %._crit_edge.i97.us, label %.lr.ph402.i.us, !llvm.loop !20
 
 ._crit_edge.i97.us:                               ; preds = %341
   %342 = icmp sgt i32 %.1263.i.us, -1
-  br i1 %342, label %343, label %._crit_edge454.i
+  br i1 %342, label %343, label %._crit_edge455.i
 
 343:                                              ; preds = %._crit_edge.i97.us
   %344 = zext nneg i32 %.1263.i.us to i64
@@ -2363,15 +2363,15 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 353:                                              ; preds = %343
   %354 = sub i32 %.077.lcssa203, %351
   %355 = sdiv i32 %354, 2
-  %.1272403.i.us = add i32 %347, -1
-  %356 = icmp sgt i32 %.1272403.i.us, -1
+  %.1272404.i.us = add i32 %347, -1
+  %356 = icmp sgt i32 %.1272404.i.us, -1
   %357 = icmp sgt i32 %354, 1
-  %or.cond404.i.us = and i1 %356, %357
-  br i1 %or.cond404.i.us, label %.lr.ph410.i.us, label %.critedge2.i.us
+  %or.cond405.i.us = and i1 %356, %357
+  br i1 %or.cond405.i.us, label %.lr.ph411.i.us, label %.critedge2.i.us
 
-.lr.ph410.i.us:                                   ; preds = %353
+.lr.ph411.i.us:                                   ; preds = %353
   %358 = load ptr, ptr %11, align 8
-  %359 = zext nneg i32 %.1272403.i.us to i64
+  %359 = zext nneg i32 %.1272404.i.us to i64
   %360 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %358, i64 %359
   %361 = load i32, ptr %360, align 8
   %362 = and i32 %361, 2
@@ -2386,14 +2386,14 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.not.i98.us = icmp eq i32 %366, 0
   br i1 %.not.i98.us, label %.lr.ph148.us, label %.critedge.i.us, !llvm.loop !21
 
-.lr.ph148.us:                                     ; preds = %.lr.ph410.i.us, %363
-  %indvars.iv185 = phi i64 [ %indvars.iv.next186, %363 ], [ %359, %.lr.ph410.i.us ]
-  %367 = phi i32 [ %365, %363 ], [ %361, %.lr.ph410.i.us ]
-  %.1356405.i147.us = phi i32 [ %.2357.i99.us, %363 ], [ %351, %.lr.ph410.i.us ]
-  %.0274406.i146.us = phi i32 [ %.1275.i.us, %363 ], [ 0, %.lr.ph410.i.us ]
+.lr.ph148.us:                                     ; preds = %.lr.ph411.i.us, %363
+  %indvars.iv185 = phi i64 [ %indvars.iv.next186, %363 ], [ %359, %.lr.ph411.i.us ]
+  %367 = phi i32 [ %365, %363 ], [ %361, %.lr.ph411.i.us ]
+  %.1356406.i147.us = phi i32 [ %.2357.i99.us, %363 ], [ %351, %.lr.ph411.i.us ]
+  %.0274407.i146.us = phi i32 [ %.1275.i.us, %363 ], [ 0, %.lr.ph411.i.us ]
   %368 = lshr i32 %367, 8
-  %trunc379.i.us = trunc i32 %368 to i8
-  switch i8 %trunc379.i.us, label %369 [
+  %trunc380.i.us = trunc i32 %368 to i8
+  switch i8 %trunc380.i.us, label %369 [
     i8 12, label %372
     i8 13, label %372
     i8 5, label %372
@@ -2403,13 +2403,13 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   ]
 
 369:                                              ; preds = %.lr.ph148.us
-  %370 = add i32 %.1356405.i147.us, 1
-  %371 = add nsw i32 %.0274406.i146.us, 1
+  %370 = add i32 %.1356406.i147.us, 1
+  %371 = add nsw i32 %.0274407.i146.us, 1
   br label %372
 
 372:                                              ; preds = %369, %.lr.ph148.us, %.lr.ph148.us, %.lr.ph148.us, %.lr.ph148.us, %.lr.ph148.us, %.lr.ph148.us
-  %.2357.i99.us = phi i32 [ %370, %369 ], [ %.1356405.i147.us, %.lr.ph148.us ], [ %.1356405.i147.us, %.lr.ph148.us ], [ %.1356405.i147.us, %.lr.ph148.us ], [ %.1356405.i147.us, %.lr.ph148.us ], [ %.1356405.i147.us, %.lr.ph148.us ], [ %.1356405.i147.us, %.lr.ph148.us ]
-  %.1275.i.us = phi i32 [ %371, %369 ], [ %.0274406.i146.us, %.lr.ph148.us ], [ %.0274406.i146.us, %.lr.ph148.us ], [ %.0274406.i146.us, %.lr.ph148.us ], [ %.0274406.i146.us, %.lr.ph148.us ], [ %.0274406.i146.us, %.lr.ph148.us ], [ %.0274406.i146.us, %.lr.ph148.us ]
+  %.2357.i99.us = phi i32 [ %370, %369 ], [ %.1356406.i147.us, %.lr.ph148.us ], [ %.1356406.i147.us, %.lr.ph148.us ], [ %.1356406.i147.us, %.lr.ph148.us ], [ %.1356406.i147.us, %.lr.ph148.us ], [ %.1356406.i147.us, %.lr.ph148.us ], [ %.1356406.i147.us, %.lr.ph148.us ]
+  %.1275.i.us = phi i32 [ %371, %369 ], [ %.0274407.i146.us, %.lr.ph148.us ], [ %.0274407.i146.us, %.lr.ph148.us ], [ %.0274407.i146.us, %.lr.ph148.us ], [ %.0274407.i146.us, %.lr.ph148.us ], [ %.0274407.i146.us, %.lr.ph148.us ], [ %.0274407.i146.us, %.lr.ph148.us ]
   %373 = icmp sgt i64 %indvars.iv185, 0
   %374 = icmp slt i32 %.1275.i.us, %355
   %or.cond.i100.us = select i1 %373, i1 %374, i1 false
@@ -2418,21 +2418,21 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 .critedge.i.us:                                   ; preds = %363, %..critedge.i_crit_edge.us
   %375 = trunc nuw nsw i64 %indvars.iv185 to i32
   %376 = icmp sgt i32 %347, %375
-  br i1 %376, label %.lr.ph418.i.us, label %.critedge2.i.us
+  br i1 %376, label %.lr.ph419.i.us, label %.critedge2.i.us
 
-.lr.ph418.i.us:                                   ; preds = %.critedge.i.us
+.lr.ph419.i.us:                                   ; preds = %.critedge.i.us
   %sext = shl i64 %indvars.iv185, 32
   %377 = ashr exact i64 %sext, 32
   br label %378
 
-378:                                              ; preds = %391, %.lr.ph418.i.us
-  %indvars.iv464.i.us = phi i64 [ %377, %.lr.ph418.i.us ], [ %indvars.iv.next465.i.us, %391 ]
-  %.3358416.i.us = phi i32 [ %.2357.i99.us, %.lr.ph418.i.us ], [ %.4359.i.us, %391 ]
-  %379 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %358, i64 %indvars.iv464.i.us
+378:                                              ; preds = %391, %.lr.ph419.i.us
+  %indvars.iv465.i.us = phi i64 [ %377, %.lr.ph419.i.us ], [ %indvars.iv.next466.i.us, %391 ]
+  %.3358417.i.us = phi i32 [ %.2357.i99.us, %.lr.ph419.i.us ], [ %.4359.i.us, %391 ]
+  %379 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %358, i64 %indvars.iv465.i.us
   %380 = load i32, ptr %379, align 8
   %381 = lshr i32 %380, 8
-  %trunc374.i.us = trunc i32 %381 to i8
-  switch i8 %trunc374.i.us, label %382 [
+  %trunc375.i.us = trunc i32 %381 to i8
+  switch i8 %trunc375.i.us, label %382 [
     i8 12, label %384
     i8 13, label %384
     i8 5, label %384
@@ -2451,7 +2451,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 382:                                              ; preds = %378
   %383 = lshr i32 %380, 16
   %.not292.i.us = icmp sgt i32 %383, %.079.lcssa201
-  br i1 %.not292.i.us, label %.critedge2.loopexit.split.loop.exit490.i.us, label %384
+  br i1 %.not292.i.us, label %.critedge2.loopexit.split.loop.exit491.i.us, label %384
 
 384:                                              ; preds = %382, %378, %378, %378, %378, %378, %378, %378, %378, %378, %378, %378, %378, %378
   %385 = getelementptr inbounds nuw i8, ptr %379, i64 16
@@ -2459,15 +2459,15 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.not293.i.us = icmp eq ptr %386, null
   %387 = and i32 %380, 8
   %.not294.i.us = icmp ne i32 %387, 0
-  %or.cond369.i.us = or i1 %.not294.i.us, %.not293.i.us
-  br i1 %or.cond369.i.us, label %.critedge308.i.us, label %.critedge2.loopexit.split.loop.exit.i.us
+  %or.cond370.i.us = or i1 %.not294.i.us, %.not293.i.us
+  br i1 %or.cond370.i.us, label %.critedge308.i.us, label %.critedge2.loopexit.split.loop.exit.i.us
 
 .critedge2.loopexit.split.loop.exit.i.us:         ; preds = %384
-  %388 = trunc nsw i64 %indvars.iv464.i.us to i32
+  %388 = trunc nsw i64 %indvars.iv465.i.us to i32
   br label %.critedge2.i.us
 
 .critedge308.i.us:                                ; preds = %384
-  switch i8 %trunc374.i.us, label %389 [
+  switch i8 %trunc375.i.us, label %389 [
     i8 12, label %391
     i8 13, label %391
     i8 5, label %391
@@ -2477,40 +2477,40 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   ]
 
 389:                                              ; preds = %.critedge308.i.us
-  %390 = add i32 %.3358416.i.us, -1
+  %390 = add i32 %.3358417.i.us, -1
   br label %391
 
 391:                                              ; preds = %389, %.critedge308.i.us, %.critedge308.i.us, %.critedge308.i.us, %.critedge308.i.us, %.critedge308.i.us, %.critedge308.i.us
-  %.4359.i.us = phi i32 [ %390, %389 ], [ %.3358416.i.us, %.critedge308.i.us ], [ %.3358416.i.us, %.critedge308.i.us ], [ %.3358416.i.us, %.critedge308.i.us ], [ %.3358416.i.us, %.critedge308.i.us ], [ %.3358416.i.us, %.critedge308.i.us ], [ %.3358416.i.us, %.critedge308.i.us ]
-  %indvars.iv.next465.i.us = add nsw i64 %indvars.iv464.i.us, 1
-  %lftr.wideiv.i.us = trunc i64 %indvars.iv.next465.i.us to i32
-  %exitcond467.not.i.us = icmp eq i32 %347, %lftr.wideiv.i.us
-  br i1 %exitcond467.not.i.us, label %.critedge2.i.us, label %378, !llvm.loop !22
+  %.4359.i.us = phi i32 [ %390, %389 ], [ %.3358417.i.us, %.critedge308.i.us ], [ %.3358417.i.us, %.critedge308.i.us ], [ %.3358417.i.us, %.critedge308.i.us ], [ %.3358417.i.us, %.critedge308.i.us ], [ %.3358417.i.us, %.critedge308.i.us ], [ %.3358417.i.us, %.critedge308.i.us ]
+  %indvars.iv.next466.i.us = add nsw i64 %indvars.iv465.i.us, 1
+  %lftr.wideiv.i.us = trunc i64 %indvars.iv.next466.i.us to i32
+  %exitcond468.not.i.us = icmp eq i32 %347, %lftr.wideiv.i.us
+  br i1 %exitcond468.not.i.us, label %.critedge2.i.us, label %378, !llvm.loop !22
 
-.critedge2.loopexit.split.loop.exit490.i.us:      ; preds = %382
-  %392 = trunc nsw i64 %indvars.iv464.i.us to i32
+.critedge2.loopexit.split.loop.exit491.i.us:      ; preds = %382
+  %392 = trunc nsw i64 %indvars.iv465.i.us to i32
   br label %.critedge2.i.us
 
-.critedge2.i.us:                                  ; preds = %391, %.lr.ph410.i.us, %.critedge2.loopexit.split.loop.exit490.i.us, %.critedge2.loopexit.split.loop.exit.i.us, %.critedge.i.us, %353
-  %.3358.lcssa.i.us = phi i32 [ %.2357.i99.us, %.critedge.i.us ], [ %351, %353 ], [ %.3358416.i.us, %.critedge2.loopexit.split.loop.exit.i.us ], [ %.3358416.i.us, %.critedge2.loopexit.split.loop.exit490.i.us ], [ %351, %.lr.ph410.i.us ], [ %.4359.i.us, %391 ]
-  %.2273.lcssa.i.us = phi i32 [ %375, %.critedge.i.us ], [ %347, %353 ], [ %388, %.critedge2.loopexit.split.loop.exit.i.us ], [ %392, %.critedge2.loopexit.split.loop.exit490.i.us ], [ %347, %.lr.ph410.i.us ], [ %347, %391 ]
+.critedge2.i.us:                                  ; preds = %391, %.lr.ph411.i.us, %.critedge2.loopexit.split.loop.exit491.i.us, %.critedge2.loopexit.split.loop.exit.i.us, %.critedge.i.us, %353
+  %.3358.lcssa.i.us = phi i32 [ %.2357.i99.us, %.critedge.i.us ], [ %351, %353 ], [ %.3358417.i.us, %.critedge2.loopexit.split.loop.exit.i.us ], [ %.3358417.i.us, %.critedge2.loopexit.split.loop.exit491.i.us ], [ %351, %.lr.ph411.i.us ], [ %.4359.i.us, %391 ]
+  %.2273.lcssa.i.us = phi i32 [ %375, %.critedge.i.us ], [ %347, %353 ], [ %388, %.critedge2.loopexit.split.loop.exit.i.us ], [ %392, %.critedge2.loopexit.split.loop.exit491.i.us ], [ %347, %.lr.ph411.i.us ], [ %347, %391 ]
   %393 = load i32, ptr %319, align 4
-  %.3427.i.us = add i32 %349, 1
-  %394 = icmp slt i32 %.3427.i.us, %393
+  %.3428.i.us = add i32 %349, 1
+  %394 = icmp slt i32 %.3428.i.us, %393
   %395 = icmp slt i32 %.3358.lcssa.i.us, %.077.lcssa203
-  %or.cond371428.i.us = select i1 %394, i1 %395, i1 false
-  br i1 %or.cond371428.i.us, label %.lr.ph432.i.us, label %.critedge6.i.us
+  %or.cond372429.i.us = select i1 %394, i1 %395, i1 false
+  br i1 %or.cond372429.i.us, label %.lr.ph433.i.us, label %.critedge6.i.us
 
-.lr.ph432.i.us:                                   ; preds = %.critedge2.i.us
+.lr.ph433.i.us:                                   ; preds = %.critedge2.i.us
   %396 = load ptr, ptr %11, align 8
-  %397 = sext i32 %.3427.i.us to i64
+  %397 = sext i32 %.3428.i.us to i64
   %398 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %396, i64 %397
   %399 = load i32, ptr %398, align 8
   %400 = and i32 %399, 2
   %.not295.i154.us = icmp eq i32 %400, 0
   br i1 %.not295.i154.us, label %.lr.ph157.us.preheader, label %.critedge6.i.us
 
-.lr.ph157.us.preheader:                           ; preds = %.lr.ph432.i.us
+.lr.ph157.us.preheader:                           ; preds = %.lr.ph433.i.us
   %401 = sext i32 %393 to i64
   br label %.lr.ph157.us
 
@@ -2524,10 +2524,10 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 .lr.ph157.us:                                     ; preds = %.lr.ph157.us.preheader, %402
   %indvars.iv188 = phi i64 [ %397, %.lr.ph157.us.preheader ], [ %indvars.iv.next189, %402 ]
   %406 = phi i32 [ %399, %.lr.ph157.us.preheader ], [ %404, %402 ]
-  %.5360429.i156.us = phi i32 [ %.3358.lcssa.i.us, %.lr.ph157.us.preheader ], [ %.6361.i.us, %402 ]
+  %.5360430.i156.us = phi i32 [ %.3358.lcssa.i.us, %.lr.ph157.us.preheader ], [ %.6361.i.us, %402 ]
   %407 = lshr i32 %406, 8
-  %trunc378.i.us = trunc i32 %407 to i8
-  switch i8 %trunc378.i.us, label %408 [
+  %trunc379.i.us = trunc i32 %407 to i8
+  switch i8 %trunc379.i.us, label %408 [
     i8 12, label %410
     i8 13, label %410
     i8 5, label %410
@@ -2537,36 +2537,36 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   ]
 
 408:                                              ; preds = %.lr.ph157.us
-  %409 = add nsw i32 %.5360429.i156.us, 1
+  %409 = add nsw i32 %.5360430.i156.us, 1
   br label %410
 
 410:                                              ; preds = %408, %.lr.ph157.us, %.lr.ph157.us, %.lr.ph157.us, %.lr.ph157.us, %.lr.ph157.us, %.lr.ph157.us
-  %.6361.i.us = phi i32 [ %409, %408 ], [ %.5360429.i156.us, %.lr.ph157.us ], [ %.5360429.i156.us, %.lr.ph157.us ], [ %.5360429.i156.us, %.lr.ph157.us ], [ %.5360429.i156.us, %.lr.ph157.us ], [ %.5360429.i156.us, %.lr.ph157.us ], [ %.5360429.i156.us, %.lr.ph157.us ]
+  %.6361.i.us = phi i32 [ %409, %408 ], [ %.5360430.i156.us, %.lr.ph157.us ], [ %.5360430.i156.us, %.lr.ph157.us ], [ %.5360430.i156.us, %.lr.ph157.us ], [ %.5360430.i156.us, %.lr.ph157.us ], [ %.5360430.i156.us, %.lr.ph157.us ], [ %.5360430.i156.us, %.lr.ph157.us ]
   %indvars.iv.next189 = add nsw i64 %indvars.iv188, 1
   %411 = icmp slt i64 %indvars.iv.next189, %401
   %412 = icmp slt i32 %.6361.i.us, %.077.lcssa203
-  %or.cond371.i.us = select i1 %411, i1 %412, i1 false
-  br i1 %or.cond371.i.us, label %402, label %..critedge4.i_crit_edge.us, !llvm.loop !23
+  %or.cond372.i.us = select i1 %411, i1 %412, i1 false
+  br i1 %or.cond372.i.us, label %402, label %..critedge4.i_crit_edge.us, !llvm.loop !23
 
 .critedge4.i.us:                                  ; preds = %402, %..critedge4.i_crit_edge.us
   %413 = trunc nsw i64 %indvars.iv188 to i32
   %414 = icmp slt i32 %349, %413
-  br i1 %414, label %.lr.ph440.i.us, label %.critedge6.i.us
+  br i1 %414, label %.lr.ph441.i.us, label %.critedge6.i.us
 
-.lr.ph440.i.us:                                   ; preds = %.critedge4.i.us
+.lr.ph441.i.us:                                   ; preds = %.critedge4.i.us
   %sext290 = shl i64 %indvars.iv188, 32
   %415 = ashr exact i64 %sext290, 32
   %416 = sext i32 %349 to i64
   br label %417
 
-417:                                              ; preds = %430, %.lr.ph440.i.us
-  %indvars.iv468.i.us = phi i64 [ %415, %.lr.ph440.i.us ], [ %indvars.iv.next469.i.us, %430 ]
-  %.7438.i.us = phi i32 [ %.6361.i.us, %.lr.ph440.i.us ], [ %.8.i.us, %430 ]
-  %418 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %396, i64 %indvars.iv468.i.us
+417:                                              ; preds = %430, %.lr.ph441.i.us
+  %indvars.iv469.i.us = phi i64 [ %415, %.lr.ph441.i.us ], [ %indvars.iv.next470.i.us, %430 ]
+  %.7439.i.us = phi i32 [ %.6361.i.us, %.lr.ph441.i.us ], [ %.8.i.us, %430 ]
+  %418 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %396, i64 %indvars.iv469.i.us
   %419 = load i32, ptr %418, align 8
   %420 = lshr i32 %419, 8
-  %trunc376.i.us = trunc i32 %420 to i8
-  switch i8 %trunc376.i.us, label %421 [
+  %trunc377.i.us = trunc i32 %420 to i8
+  switch i8 %trunc377.i.us, label %421 [
     i8 12, label %423
     i8 13, label %423
     i8 5, label %423
@@ -2585,7 +2585,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 421:                                              ; preds = %417
   %422 = lshr i32 %419, 16
   %.not296.i.us = icmp sgt i32 %422, %.079.lcssa201
-  br i1 %.not296.i.us, label %.critedge6.loopexit.split.loop.exit494.i.us, label %423
+  br i1 %.not296.i.us, label %.critedge6.loopexit.split.loop.exit495.i.us, label %423
 
 423:                                              ; preds = %421, %417, %417, %417, %417, %417, %417, %417, %417, %417, %417, %417, %417, %417
   %424 = getelementptr inbounds nuw i8, ptr %418, i64 16
@@ -2593,15 +2593,15 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.not297.i.us = icmp eq ptr %425, null
   %426 = and i32 %419, 8
   %.not298.i.us = icmp ne i32 %426, 0
-  %or.cond373.i.us = or i1 %.not298.i.us, %.not297.i.us
-  br i1 %or.cond373.i.us, label %.critedge310.i.us, label %.critedge6.loopexit.split.loop.exit.i.us
+  %or.cond374.i.us = or i1 %.not298.i.us, %.not297.i.us
+  br i1 %or.cond374.i.us, label %.critedge310.i.us, label %.critedge6.loopexit.split.loop.exit.i.us
 
 .critedge6.loopexit.split.loop.exit.i.us:         ; preds = %423
-  %427 = trunc nsw i64 %indvars.iv468.i.us to i32
+  %427 = trunc nsw i64 %indvars.iv469.i.us to i32
   br label %.critedge6.i.us
 
 .critedge310.i.us:                                ; preds = %423
-  switch i8 %trunc376.i.us, label %428 [
+  switch i8 %trunc377.i.us, label %428 [
     i8 12, label %430
     i8 13, label %430
     i8 5, label %430
@@ -2611,36 +2611,36 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   ]
 
 428:                                              ; preds = %.critedge310.i.us
-  %429 = add i32 %.7438.i.us, -1
+  %429 = add i32 %.7439.i.us, -1
   br label %430
 
 430:                                              ; preds = %428, %.critedge310.i.us, %.critedge310.i.us, %.critedge310.i.us, %.critedge310.i.us, %.critedge310.i.us, %.critedge310.i.us
-  %.8.i.us = phi i32 [ %429, %428 ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ], [ %.7438.i.us, %.critedge310.i.us ]
-  %indvars.iv.next469.i.us = add nsw i64 %indvars.iv468.i.us, -1
-  %431 = icmp sgt i64 %indvars.iv.next469.i.us, %416
+  %.8.i.us = phi i32 [ %429, %428 ], [ %.7439.i.us, %.critedge310.i.us ], [ %.7439.i.us, %.critedge310.i.us ], [ %.7439.i.us, %.critedge310.i.us ], [ %.7439.i.us, %.critedge310.i.us ], [ %.7439.i.us, %.critedge310.i.us ], [ %.7439.i.us, %.critedge310.i.us ]
+  %indvars.iv.next470.i.us = add nsw i64 %indvars.iv469.i.us, -1
+  %431 = icmp sgt i64 %indvars.iv.next470.i.us, %416
   br i1 %431, label %417, label %.critedge6.i.us, !llvm.loop !24
 
-.critedge6.loopexit.split.loop.exit494.i.us:      ; preds = %421
-  %432 = trunc nsw i64 %indvars.iv468.i.us to i32
+.critedge6.loopexit.split.loop.exit495.i.us:      ; preds = %421
+  %432 = trunc nsw i64 %indvars.iv469.i.us to i32
   br label %.critedge6.i.us
 
-.critedge6.i.us:                                  ; preds = %430, %.lr.ph432.i.us, %.critedge6.loopexit.split.loop.exit494.i.us, %.critedge6.loopexit.split.loop.exit.i.us, %.critedge4.i.us, %.critedge2.i.us, %343
-  %.0355.i.us = phi i32 [ %351, %343 ], [ %.6361.i.us, %.critedge4.i.us ], [ %.3358.lcssa.i.us, %.critedge2.i.us ], [ %.7438.i.us, %.critedge6.loopexit.split.loop.exit.i.us ], [ %.7438.i.us, %.critedge6.loopexit.split.loop.exit494.i.us ], [ %.3358.lcssa.i.us, %.lr.ph432.i.us ], [ %.8.i.us, %430 ]
-  %.0353.i.us = phi i32 [ %347, %343 ], [ %.2273.lcssa.i.us, %.critedge4.i.us ], [ %.2273.lcssa.i.us, %.critedge2.i.us ], [ %.2273.lcssa.i.us, %.critedge6.loopexit.split.loop.exit.i.us ], [ %.2273.lcssa.i.us, %.critedge6.loopexit.split.loop.exit494.i.us ], [ %.2273.lcssa.i.us, %.lr.ph432.i.us ], [ %.2273.lcssa.i.us, %430 ]
-  %.0350.i.us = phi i32 [ %349, %343 ], [ %413, %.critedge4.i.us ], [ %349, %.critedge2.i.us ], [ %427, %.critedge6.loopexit.split.loop.exit.i.us ], [ %432, %.critedge6.loopexit.split.loop.exit494.i.us ], [ %349, %.lr.ph432.i.us ], [ %349, %430 ]
+.critedge6.i.us:                                  ; preds = %430, %.lr.ph433.i.us, %.critedge6.loopexit.split.loop.exit495.i.us, %.critedge6.loopexit.split.loop.exit.i.us, %.critedge4.i.us, %.critedge2.i.us, %343
+  %.0355.i.us = phi i32 [ %351, %343 ], [ %.6361.i.us, %.critedge4.i.us ], [ %.3358.lcssa.i.us, %.critedge2.i.us ], [ %.7439.i.us, %.critedge6.loopexit.split.loop.exit.i.us ], [ %.7439.i.us, %.critedge6.loopexit.split.loop.exit495.i.us ], [ %.3358.lcssa.i.us, %.lr.ph433.i.us ], [ %.8.i.us, %430 ]
+  %.0353.i.us = phi i32 [ %347, %343 ], [ %.2273.lcssa.i.us, %.critedge4.i.us ], [ %.2273.lcssa.i.us, %.critedge2.i.us ], [ %.2273.lcssa.i.us, %.critedge6.loopexit.split.loop.exit.i.us ], [ %.2273.lcssa.i.us, %.critedge6.loopexit.split.loop.exit495.i.us ], [ %.2273.lcssa.i.us, %.lr.ph433.i.us ], [ %.2273.lcssa.i.us, %430 ]
+  %.0350.i.us = phi i32 [ %349, %343 ], [ %413, %.critedge4.i.us ], [ %349, %.critedge2.i.us ], [ %427, %.critedge6.loopexit.split.loop.exit.i.us ], [ %432, %.critedge6.loopexit.split.loop.exit495.i.us ], [ %349, %.lr.ph433.i.us ], [ %349, %430 ]
   store i32 %.0353.i.us, ptr %345, align 4
   store i32 %.0350.i.us, ptr %348, align 4
   store i32 %.0355.i.us, ptr %350, align 4
   call fastcc void @mark_fragment(ptr noundef readonly %11, i1 noundef zeroext %.082.lcssa199, i32 noundef %.0353.i.us, i32 noundef %.0350.i.us)
-  br label %.lr.ph450.i.us
+  br label %.lr.ph451.i.us
 
-.lr.ph450.i.us:                                   ; preds = %441, %.critedge6.i.us
-  %indvars.iv471.i.us = phi i64 [ %indvars.iv.next472.i.us, %441 ], [ 0, %.critedge6.i.us ]
-  %.not299.i.us = icmp eq i64 %indvars.iv471.i.us, %344
+.lr.ph451.i.us:                                   ; preds = %441, %.critedge6.i.us
+  %indvars.iv472.i.us = phi i64 [ %indvars.iv.next473.i.us, %441 ], [ 0, %.critedge6.i.us ]
+  %.not299.i.us = icmp eq i64 %indvars.iv472.i.us, %344
   br i1 %.not299.i.us, label %441, label %433
 
-433:                                              ; preds = %.lr.ph450.i.us
-  %434 = getelementptr inbounds nuw %struct.CoverPos, ptr %.1.lcssa.i, i64 %indvars.iv471.i.us
+433:                                              ; preds = %.lr.ph451.i.us
+  %434 = getelementptr inbounds nuw %struct.CoverPos, ptr %.1.lcssa.i, i64 %indvars.iv472.i.us
   %435 = load i32, ptr %434, align 4
   %.not300.i.us = icmp slt i32 %435, %.0353.i.us
   %.not301.i.us = icmp sgt i32 %435, %.0350.i.us
@@ -2652,23 +2652,23 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %438 = load i32, ptr %437, align 4
   %.not302.i.us = icmp sge i32 %438, %.0353.i.us
   %.not303.i.us = icmp sgt i32 %438, %.0350.i.us
-  %or.cond380.i.us = select i1 %.not303.i.us, i1 %.not300.i.us, i1 %.not302.i.us
-  br i1 %or.cond380.i.us, label %439, label %441
+  %or.cond381.i.us = select i1 %.not303.i.us, i1 %.not300.i.us, i1 %.not302.i.us
+  br i1 %or.cond381.i.us, label %439, label %441
 
 439:                                              ; preds = %436, %433
   %440 = getelementptr inbounds nuw i8, ptr %434, i64 17
   store i8 1, ptr %440, align 1
   br label %441
 
-441:                                              ; preds = %439, %436, %.lr.ph450.i.us
-  %indvars.iv.next472.i.us = add nuw nsw i64 %indvars.iv471.i.us, 1
-  %exitcond475.not.i.us = icmp eq i64 %indvars.iv.next472.i.us, %wide.trip.count.i
-  br i1 %exitcond475.not.i.us, label %._crit_edge451.i.us, label %.lr.ph450.i.us, !llvm.loop !25
+441:                                              ; preds = %439, %436, %.lr.ph451.i.us
+  %indvars.iv.next473.i.us = add nuw nsw i64 %indvars.iv472.i.us, 1
+  %exitcond476.not.i.us = icmp eq i64 %indvars.iv.next473.i.us, %wide.trip.count.i
+  br i1 %exitcond476.not.i.us, label %._crit_edge452.i.us, label %.lr.ph451.i.us, !llvm.loop !25
 
-._crit_edge451.i.us:                              ; preds = %441
-  %442 = add nuw nsw i32 %.0276453.i.us, 1
-  %exitcond476.not.i.us = icmp eq i32 %442, %.084.lcssa197
-  br i1 %exitcond476.not.i.us, label %._crit_edge454.i, label %.preheader381.i.us, !llvm.loop !26
+._crit_edge452.i.us:                              ; preds = %441
+  %442 = add nuw nsw i32 %.0276454.i.us, 1
+  %exitcond477.not.i.us = icmp eq i32 %442, %.084.lcssa197
+  br i1 %exitcond477.not.i.us, label %._crit_edge455.i, label %.preheader382.i.us, !llvm.loop !26
 
 ..critedge.i_crit_edge.us:                        ; preds = %372
   br label %.critedge.i.us, !llvm.loop !21
@@ -2677,25 +2677,25 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   br label %.critedge4.i.us, !llvm.loop !23
 
 .lr.ph.i101:                                      ; preds = %313, %.loopexit.i
-  %.0394.i = phi ptr [ %.1.lcssa.i, %.loopexit.i ], [ %314, %313 ]
-  %.0264393.i = phi i32 [ %.1265.lcssa.i, %.loopexit.i ], [ 32, %313 ]
-  %.0267392.i = phi i32 [ %.1268.lcssa.i, %.loopexit.i ], [ 0, %313 ]
+  %.0395.i = phi ptr [ %.1.lcssa.i, %.loopexit.i ], [ %314, %313 ]
+  %.0264394.i = phi i32 [ %.1265.lcssa.i, %.loopexit.i ], [ 32, %313 ]
+  %.0267393.i = phi i32 [ %.1268.lcssa.i, %.loopexit.i ], [ 0, %313 ]
   %443 = load i32, ptr %3, align 4
-  %storemerge383.i = load i32, ptr %4, align 4
-  %.not305384.i = icmp sgt i32 %443, %storemerge383.i
-  br i1 %.not305384.i, label %.loopexit.i, label %.lr.ph.i.preheader.i
+  %storemerge384.i = load i32, ptr %4, align 4
+  %.not305385.i = icmp sgt i32 %443, %storemerge384.i
+  br i1 %.not305385.i, label %.loopexit.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i101, %486
-  %storemerge389.i = phi i32 [ %storemerge.i, %486 ], [ %storemerge383.i, %.lr.ph.i101 ]
-  %.1388.i = phi ptr [ %.2.i, %486 ], [ %.0394.i, %.lr.ph.i101 ]
-  %.1265387.i = phi i32 [ %.2266.i, %486 ], [ %.0264393.i, %.lr.ph.i101 ]
-  %.1268386.i = phi i32 [ %494, %486 ], [ %.0267392.i, %.lr.ph.i101 ]
-  %storemerge304385.i = phi i32 [ %495, %486 ], [ %443, %.lr.ph.i101 ]
+  %storemerge390.i = phi i32 [ %storemerge.i, %486 ], [ %storemerge384.i, %.lr.ph.i101 ]
+  %.1389.i = phi ptr [ %.2.i, %486 ], [ %.0395.i, %.lr.ph.i101 ]
+  %.1265388.i = phi i32 [ %.2266.i, %486 ], [ %.0264394.i, %.lr.ph.i101 ]
+  %.1268387.i = phi i32 [ %494, %486 ], [ %.0267393.i, %.lr.ph.i101 ]
+  %storemerge304386.i = phi i32 [ %495, %486 ], [ %443, %.lr.ph.i101 ]
   %444 = load ptr, ptr %11, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.i.preheader.i
-  %.075.i.i = phi i32 [ %storemerge304385.i, %.lr.ph.i.preheader.i ], [ %.075.i.i.be, %.lr.ph.i.i.backedge ]
+  %.075.i.i = phi i32 [ %storemerge304386.i, %.lr.ph.i.preheader.i ], [ %.075.i.i.be, %.lr.ph.i.i.backedge ]
   %445 = sext i32 %.075.i.i to i64
   %446 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %444, i64 %445
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 16
@@ -2708,13 +2708,13 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %451 = and i32 %450, 8
   %.not66.i.i = icmp eq i32 %451, 0
   %452 = add i32 %.075.i.i, 1
-  %.not.i.i = icmp sgt i32 %452, %storemerge389.i
-  %or.cond365.i = or i1 %.not.i.i, %.not66.i.i
-  br i1 %or.cond365.i, label %._crit_edge.i.i, label %.lr.ph.i.i.backedge
+  %.not.i.i = icmp sgt i32 %452, %storemerge390.i
+  %or.cond366.i = or i1 %.not.i.i, %.not66.i.i
+  br i1 %or.cond366.i, label %._crit_edge.i.i, label %.lr.ph.i.i.backedge
 
 453:                                              ; preds = %.lr.ph.i.i
   %.old.i = add i32 %.075.i.i, 1
-  %.not.i.old.i = icmp sgt i32 %.old.i, %storemerge389.i
+  %.not.i.old.i = icmp sgt i32 %.old.i, %storemerge390.i
   br i1 %.not.i.old.i, label %._crit_edge.i.i, label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %453, %449
@@ -2722,8 +2722,8 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   br label %.lr.ph.i.i, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %453, %449
-  %.not6777.i.i = icmp sgt i32 %.075.i.i, %storemerge389.i
-  br i1 %.not6777.i.i, label %.critedge.i.i, label %.lr.ph80.i.i
+  %.not6777.i.i = icmp sgt i32 %.075.i.i, %storemerge390.i
+  br i1 %.not6777.i.i, label %get_next_fragment.exit.i, label %.lr.ph80.i.i
 
 .lr.ph80.i.i:                                     ; preds = %._crit_edge.i.i, %462
   %.0362.i = phi i32 [ %.2364.i, %462 ], [ 0, %._crit_edge.i.i ]
@@ -2758,27 +2758,27 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.not71.i.i = icmp ne ptr %464, null
   %465 = and i32 %458, 8
   %.not72.i.i = icmp eq i32 %465, 0
-  %or.cond367.i = and i1 %.not72.i.i, %.not71.i.i
-  %466 = zext i1 %or.cond367.i to i32
+  %or.cond368.i = and i1 %.not72.i.i, %.not71.i.i
+  %466 = zext i1 %or.cond368.i to i32
   %.2364.i = add i32 %.0362.i, %466
   %467 = add i32 %.178.i.i, 1
-  %.not67.i.i = icmp sgt i32 %467, %storemerge389.i
+  %.not67.i.i = icmp sgt i32 %467, %storemerge390.i
   br i1 %.not67.i.i, label %.critedge.i.i, label %.lr.ph80.i.i, !llvm.loop !28
 
-.critedge.i.i:                                    ; preds = %462, %.lr.ph80.i.i, %._crit_edge.i.i
-  %.1363.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.2364.i, %462 ], [ %.0362.i, %.lr.ph80.i.i ]
-  %.12.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.15.i, %462 ], [ %.11.i102, %.lr.ph80.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.075.i.i, %._crit_edge.i.i ], [ %467, %462 ], [ %.178.i.i, %.lr.ph80.i.i ]
-  %468 = icmp sgt i32 %storemerge389.i, %.1.lcssa.i.i
+.critedge.i.i:                                    ; preds = %462, %.lr.ph80.i.i
+  %.1363.i = phi i32 [ %.2364.i, %462 ], [ %.0362.i, %.lr.ph80.i.i ]
+  %.12.i = phi i32 [ %.15.i, %462 ], [ %.11.i102, %.lr.ph80.i.i ]
+  %.1.lcssa.ph.i.i = phi i32 [ %467, %462 ], [ %.178.i.i, %.lr.ph80.i.i ]
+  %468 = icmp sgt i32 %storemerge390.i, %.1.lcssa.ph.i.i
   br i1 %468, label %469, label %get_next_fragment.exit.i
 
 469:                                              ; preds = %.critedge.i.i
-  %.not6885.i.i = icmp slt i32 %.1.lcssa.i.i, %.075.i.i
+  %.not6885.i.i = icmp slt i32 %.1.lcssa.ph.i.i, %.075.i.i
   br i1 %.not6885.i.i, label %get_next_fragment.exit.i, label %.lr.ph88.i.i
 
 .lr.ph88.i.i:                                     ; preds = %469, %479
   %.13.i = phi i32 [ %.14.i, %479 ], [ %.12.i, %469 ]
-  %.286.i.i = phi i32 [ %480, %479 ], [ %.1.lcssa.i.i, %469 ]
+  %.286.i.i = phi i32 [ %480, %479 ], [ %.1.lcssa.ph.i.i, %469 ]
   %470 = sext i32 %.286.i.i to i64
   %471 = getelementptr inbounds %struct.HeadlineWordEntry, ptr %444, i64 %470
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
@@ -2812,23 +2812,24 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.not68.i.i = icmp slt i32 %480, %.075.i.i
   br i1 %.not68.i.i, label %get_next_fragment.exit.i, label %.lr.ph88.i.i, !llvm.loop !29
 
-get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i, %469, %.critedge.i.i
-  %.16.i = phi i32 [ %.12.i, %469 ], [ %.12.i, %.critedge.i.i ], [ %.13.i, %.lr.ph88.i.i ], [ %.14.i, %479 ]
-  %.2352.i = phi i32 [ %.1.lcssa.i.i, %469 ], [ %storemerge389.i, %.critedge.i.i ], [ %.286.i.i, %.lr.ph88.i.i ], [ %.286.i.i, %479 ]
-  %.not306.i = icmp slt i32 %.1268386.i, %.1265387.i
+get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i, %469, %.critedge.i.i, %._crit_edge.i.i
+  %.3365.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.1363.i, %469 ], [ %.1363.i, %.critedge.i.i ], [ %.1363.i, %.lr.ph88.i.i ], [ %.1363.i, %479 ]
+  %.16.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.12.i, %469 ], [ %.12.i, %.critedge.i.i ], [ %.14.i, %479 ], [ %.13.i, %.lr.ph88.i.i ]
+  %.2352.i = phi i32 [ %storemerge390.i, %._crit_edge.i.i ], [ %.1.lcssa.ph.i.i, %469 ], [ %storemerge390.i, %.critedge.i.i ], [ %.286.i.i, %.lr.ph88.i.i ], [ %.286.i.i, %479 ]
+  %.not306.i = icmp slt i32 %.1268387.i, %.1265388.i
   br i1 %.not306.i, label %486, label %481
 
 481:                                              ; preds = %get_next_fragment.exit.i
-  %482 = shl i32 %.1265387.i, 1
+  %482 = shl i32 %.1265388.i, 1
   %483 = sext i32 %482 to i64
   %484 = mul nsw i64 %483, 20
-  %485 = call ptr @repalloc(ptr noundef %.1388.i, i64 noundef %484) #16
+  %485 = call ptr @repalloc(ptr noundef %.1389.i, i64 noundef %484) #16
   br label %486
 
 486:                                              ; preds = %481, %get_next_fragment.exit.i
-  %.2266.i = phi i32 [ %482, %481 ], [ %.1265387.i, %get_next_fragment.exit.i ]
-  %.2.i = phi ptr [ %485, %481 ], [ %.1388.i, %get_next_fragment.exit.i ]
-  %487 = sext i32 %.1268386.i to i64
+  %.2266.i = phi i32 [ %482, %481 ], [ %.1265388.i, %get_next_fragment.exit.i ]
+  %.2.i = phi ptr [ %485, %481 ], [ %.1389.i, %get_next_fragment.exit.i ]
+  %487 = sext i32 %.1268387.i to i64
   %488 = getelementptr inbounds %struct.CoverPos, ptr %.2.i, i64 %487
   store i32 %.075.i.i, ptr %488, align 4
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 4
@@ -2836,40 +2837,40 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
   %490 = getelementptr inbounds nuw i8, ptr %488, i64 12
   store i32 %.16.i, ptr %490, align 4
   %491 = getelementptr inbounds nuw i8, ptr %488, i64 8
-  store i32 %.1363.i, ptr %491, align 4
+  store i32 %.3365.i, ptr %491, align 4
   %492 = getelementptr inbounds nuw i8, ptr %488, i64 16
   store i8 0, ptr %492, align 4
   %493 = getelementptr inbounds nuw i8, ptr %488, i64 17
   store i8 0, ptr %493, align 1
-  %494 = add i32 %.1268386.i, 1
+  %494 = add i32 %.1268387.i, 1
   %495 = add i32 %.2352.i, 1
   %storemerge.i = load i32, ptr %4, align 4
   %.not305.i = icmp sgt i32 %495, %storemerge.i
   br i1 %.not305.i, label %.loopexit.i, label %.lr.ph.i.preheader.i, !llvm.loop !30
 
-._crit_edge454.i:                                 ; preds = %._crit_edge.i97.us, %._crit_edge451.i.us
-  %.us-phi.ph = phi i32 [ %.0276453.i.us, %._crit_edge.i97.us ], [ %.084.lcssa197, %._crit_edge451.i.us ]
+._crit_edge455.i:                                 ; preds = %._crit_edge.i97.us, %._crit_edge452.i.us
+  %.us-phi.ph = phi i32 [ %.0276454.i.us, %._crit_edge.i97.us ], [ %.084.lcssa197, %._crit_edge452.i.us ]
   %496 = icmp slt i32 %.us-phi.ph, 1
   br i1 %496, label %.preheader.i93, label %mark_hl_fragments.exit
 
-.preheader.i93:                                   ; preds = %313, %.preheader381.lr.ph.i, %._crit_edge454.i, %.preheader382.i
-  %.0.lcssa.i92249 = phi ptr [ %.1.lcssa.i, %._crit_edge454.i ], [ %.1.lcssa.i, %.preheader382.i ], [ %.1.lcssa.i, %.preheader381.lr.ph.i ], [ %314, %313 ]
+.preheader.i93:                                   ; preds = %313, %.preheader382.lr.ph.i, %._crit_edge455.i, %.preheader383.i
+  %.0.lcssa.i92249 = phi ptr [ %.1.lcssa.i, %._crit_edge455.i ], [ %.1.lcssa.i, %.preheader383.i ], [ %.1.lcssa.i, %.preheader382.lr.ph.i ], [ %314, %313 ]
   %497 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %498 = load i32, ptr %497, align 4
   %499 = icmp sgt i32 %498, 0
   %500 = icmp sgt i32 %.076.lcssa205, 0
   %501 = and i1 %500, %499
-  br i1 %501, label %.lr.ph460.i, label %._crit_edge461.i
+  br i1 %501, label %.lr.ph461.i, label %._crit_edge462.i
 
-.lr.ph460.i:                                      ; preds = %.preheader.i93
+.lr.ph461.i:                                      ; preds = %.preheader.i93
   %502 = load ptr, ptr %11, align 8
   %503 = zext nneg i32 %498 to i64
   br label %504
 
-504:                                              ; preds = %510, %.lr.ph460.i
-  %indvars.iv477.i = phi i64 [ 0, %.lr.ph460.i ], [ %indvars.iv.next478.i, %510 ]
-  %.9458.i = phi i32 [ 0, %.lr.ph460.i ], [ %.10.i, %510 ]
-  %505 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %502, i64 %indvars.iv477.i
+504:                                              ; preds = %510, %.lr.ph461.i
+  %indvars.iv478.i = phi i64 [ 0, %.lr.ph461.i ], [ %indvars.iv.next479.i, %510 ]
+  %.9459.i = phi i32 [ 0, %.lr.ph461.i ], [ %.10.i, %510 ]
+  %505 = getelementptr inbounds nuw %struct.HeadlineWordEntry, ptr %502, i64 %indvars.iv478.i
   %506 = load i32, ptr %505, align 8
   %507 = lshr i32 %506, 8
   %trunc.i94 = trunc i32 %507 to i8
@@ -2883,28 +2884,28 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
   ]
 
 508:                                              ; preds = %504
-  %509 = add nsw i32 %.9458.i, 1
+  %509 = add nsw i32 %.9459.i, 1
   br label %510
 
 510:                                              ; preds = %508, %504, %504, %504, %504, %504, %504
-  %.10.i = phi i32 [ %509, %508 ], [ %.9458.i, %504 ], [ %.9458.i, %504 ], [ %.9458.i, %504 ], [ %.9458.i, %504 ], [ %.9458.i, %504 ], [ %.9458.i, %504 ]
-  %indvars.iv.next478.i = add nuw nsw i64 %indvars.iv477.i, 1
-  %511 = icmp samesign ult i64 %indvars.iv.next478.i, %503
+  %.10.i = phi i32 [ %509, %508 ], [ %.9459.i, %504 ], [ %.9459.i, %504 ], [ %.9459.i, %504 ], [ %.9459.i, %504 ], [ %.9459.i, %504 ], [ %.9459.i, %504 ]
+  %indvars.iv.next479.i = add nuw nsw i64 %indvars.iv478.i, 1
+  %511 = icmp samesign ult i64 %indvars.iv.next479.i, %503
   %512 = icmp slt i32 %.10.i, %.076.lcssa205
   %513 = select i1 %511, i1 %512, i1 false
-  br i1 %513, label %504, label %._crit_edge461.loopexit.i, !llvm.loop !31
+  br i1 %513, label %504, label %._crit_edge462.loopexit.i, !llvm.loop !31
 
-._crit_edge461.loopexit.i:                        ; preds = %510
-  %514 = trunc nuw nsw i64 %indvars.iv477.i to i32
-  br label %._crit_edge461.i
+._crit_edge462.loopexit.i:                        ; preds = %510
+  %514 = trunc nuw nsw i64 %indvars.iv478.i to i32
+  br label %._crit_edge462.i
 
-._crit_edge461.i:                                 ; preds = %._crit_edge461.loopexit.i, %.preheader.i93
-  %.1351.lcssa.i = phi i32 [ -1, %.preheader.i93 ], [ %514, %._crit_edge461.loopexit.i ]
+._crit_edge462.i:                                 ; preds = %._crit_edge462.loopexit.i, %.preheader.i93
+  %.1351.lcssa.i = phi i32 [ -1, %.preheader.i93 ], [ %514, %._crit_edge462.loopexit.i ]
   call fastcc void @mark_fragment(ptr noundef nonnull readonly %11, i1 noundef zeroext %.082.lcssa199, i32 noundef 0, i32 noundef %.1351.lcssa.i)
   br label %mark_hl_fragments.exit
 
-mark_hl_fragments.exit:                           ; preds = %._crit_edge454.i, %._crit_edge461.i
-  %.0.lcssa.i92248 = phi ptr [ %.1.lcssa.i, %._crit_edge454.i ], [ %.0.lcssa.i92249, %._crit_edge461.i ]
+mark_hl_fragments.exit:                           ; preds = %._crit_edge455.i, %._crit_edge462.i
+  %.0.lcssa.i92248 = phi ptr [ %.1.lcssa.i, %._crit_edge455.i ], [ %.0.lcssa.i92249, %._crit_edge462.i ]
   call void @pfree(ptr noundef %.0.lcssa.i92248) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16

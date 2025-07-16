@@ -504,7 +504,7 @@ define void @_ZN3zmq7epoll_t4loopEv(ptr noundef nonnull align 8 dereferenceable(
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %.backedge
   %.not36 = icmp eq i32 %7, 0
-  br i1 %.not36, label %68, label %.backedge.backedge
+  br i1 %.not36, label %69, label %.backedge.backedge
 
 10:                                               ; preds = %.backedge
   %11 = load i32, ptr %3, align 8, !tbaa !6
@@ -543,7 +543,7 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %.bac
   %.not3538 = icmp eq ptr %25, %26
   br i1 %.not3538, label %.backedge.backedge, label %.lr.ph41
 
-.backedge.backedge:                               ; preds = %._crit_edge, %19, %16, %._crit_edge42, %62, %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit
+.backedge.backedge:                               ; preds = %._crit_edge, %19, %16, %._crit_edge42, %63, %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit
   br label %.backedge, !llvm.loop !62
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
@@ -615,33 +615,33 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %.bac
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
-._crit_edge42:                                    ; preds = %66
+._crit_edge42:                                    ; preds = %67
   %.pre45 = load ptr, ptr %4, align 8, !tbaa !45
   %.pre46 = load ptr, ptr %5, align 8, !tbaa !59
-  %.not.i.i = icmp eq ptr %.pre46, %.pre45
-  br i1 %.not.i.i, label %.backedge.backedge, label %62
+  %62 = icmp eq ptr %.pre46, %.pre45
+  br i1 %62, label %.backedge.backedge, label %63
 
-62:                                               ; preds = %._crit_edge42
+63:                                               ; preds = %._crit_edge42
   store ptr %.pre45, ptr %5, align 8, !tbaa !59
   br label %.backedge.backedge
 
-.lr.ph41:                                         ; preds = %._crit_edge, %66
-  %.sroa.031.039 = phi ptr [ %67, %66 ], [ %25, %._crit_edge ]
-  %63 = load ptr, ptr %.sroa.031.039, align 8, !tbaa !48
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %66, label %65
+.lr.ph41:                                         ; preds = %._crit_edge, %67
+  %.sroa.031.039 = phi ptr [ %68, %67 ], [ %25, %._crit_edge ]
+  %64 = load ptr, ptr %.sroa.031.039, align 8, !tbaa !48
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %67, label %66
 
-65:                                               ; preds = %.lr.ph41
-  call void @_ZdlPv(ptr noundef nonnull %63) #23
-  br label %66
+66:                                               ; preds = %.lr.ph41
+  call void @_ZdlPv(ptr noundef nonnull %64) #23
+  br label %67
 
-66:                                               ; preds = %65, %.lr.ph41
+67:                                               ; preds = %66, %.lr.ph41
   store ptr null, ptr %.sroa.031.039, align 8, !tbaa !48
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 8
-  %.not35 = icmp eq ptr %67, %26
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 8
+  %.not35 = icmp eq ptr %68, %26
   br i1 %.not35, label %._crit_edge42, label %.lr.ph41, !llvm.loop !65
 
-68:                                               ; preds = %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit
+69:                                               ; preds = %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit
   call void @llvm.lifetime.end.p0(i64 3072, ptr nonnull %2) #20
   ret void
 }

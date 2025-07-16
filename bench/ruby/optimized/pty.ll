@@ -245,26 +245,26 @@ define internal i64 @pty_check(i32 noundef %0, ptr noundef readonly captures(non
 .preheader:                                       ; preds = %3
   %6 = load i64, ptr %1, align 8, !tbaa !6
   %.not13 = icmp eq i32 %0, 1
-  br i1 %.not13, label %12, label %7
+  br i1 %.not13, label %13, label %7
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !6
   %10 = and i64 %9, -5
   %11 = icmp eq i64 %10, 0
-  br label %12
+  %12 = icmp eq i32 %0, 2
+  br label %13
 
-12:                                               ; preds = %.preheader, %7
+13:                                               ; preds = %.preheader, %7
   %.not = phi i1 [ %11, %7 ], [ true, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %7 ], [ 1, %.preheader ]
-  %13 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %13, label %rb_scan_args_set.exit, label %14
+  %.185.i.lcssa = phi i1 [ %12, %7 ], [ true, %.preheader ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %14
 
-14:                                               ; preds = %12, %3
+14:                                               ; preds = %13, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #11
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %12
+rb_scan_args_set.exit:                            ; preds = %13
   %15 = and i64 %6, 1
   %.not.i7 = icmp eq i64 %15, 0
   br i1 %.not.i7, label %18, label %16

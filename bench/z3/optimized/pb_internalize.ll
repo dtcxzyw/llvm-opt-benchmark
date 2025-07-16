@@ -2207,111 +2207,110 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2pb6solver16convert_to_wlitsEP3appRK7svectorIN3sat7literalEjERS3_ISt4pairIjS5_EjE(ptr noundef nonnull align 8 dereferenceable(1049) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.rational, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %9
+  %6 = load ptr, ptr %2, align 8, !tbaa !99
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.critedge, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.lr.ph
 
-9:                                                ; preds = %_ZN8rationalD2Ev.exit, %4
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN8rationalD2Ev.exit ], [ 0, %4 ]
-  %10 = load ptr, ptr %2, align 8, !tbaa !99
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, label %12
-
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 -4
-  %14 = load i32, ptr %13, align 4, !tbaa !103
-  %15 = zext i32 %14 to i64
+_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.lr.ph: ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
 
-_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %9, %12
-  %.0.i = phi i64 [ %15, %12 ], [ 0, %9 ]
-  %16 = icmp samesign ult i64 %indvars.iv, %.0.i
-  br i1 %16, label %18, label %17
+_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.lr.ph, %_ZN8rationalD2Ev.exit
+  %indvars.iv = phi i64 [ 0, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit ]
+  %11 = phi ptr [ %6, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.lr.ph ], [ %48, %_ZN8rationalD2Ev.exit ]
+  %12 = getelementptr inbounds i8, ptr %11, i64 -4
+  %13 = load i32, ptr %12, align 4, !tbaa !103
+  %14 = zext i32 %13 to i64
+  %15 = icmp samesign ult i64 %indvars.iv, %14
+  br i1 %15, label %16, label %.critedge
 
-17:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
+.critedge:                                        ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %_ZN8rationalD2Ev.exit, %4
   ret void
 
-18:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
+16:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
-  %19 = load ptr, ptr %7, align 8, !tbaa !6, !noalias !161
-  %20 = trunc nuw i64 %indvars.iv to i32
-  call void @_ZNK7pb_util9get_coeffEP9func_declj(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %5, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %19, i32 noundef %20)
+  %17 = load ptr, ptr %9, align 8, !tbaa !6, !noalias !161
+  %18 = trunc nuw i64 %indvars.iv to i32
+  call void @_ZNK7pb_util9get_coeffEP9func_declj(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %5, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %17, i32 noundef %18)
   invoke void @_ZN2pb6solver14check_unsignedERK8rational(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %21 unwind label %50
+          to label %19 unwind label %50
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !97
-  %23 = invoke noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %22, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %24 unwind label %52
+19:                                               ; preds = %16
+  %20 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !97
+  %21 = invoke noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %20, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %22 unwind label %52
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %2, align 8, !tbaa !99
-  %26 = getelementptr inbounds nuw %"class.sat::literal", ptr %25, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4, !tbaa !103
-  %.sroa.2.0.insert.ext.i = zext i32 %27 to i64
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %2, align 8, !tbaa !99
+  %24 = getelementptr inbounds nuw %"class.sat::literal", ptr %23, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 4, !tbaa !103
+  %.sroa.2.0.insert.ext.i = zext i32 %25 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = and i64 %23, 4294967295
+  %.sroa.0.0.insert.ext.i = and i64 %21, 4294967295
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %28 = load ptr, ptr %3, align 8, !tbaa !109
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %36, label %30
+  %26 = load ptr, ptr %3, align 8, !tbaa !109
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %34, label %28
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %28, i64 -4
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %26, i64 -4
+  %30 = load i32, ptr %29, align 4, !tbaa !103
+  %31 = getelementptr inbounds i8, ptr %26, i64 -8
   %32 = load i32, ptr %31, align 4, !tbaa !103
-  %33 = getelementptr inbounds i8, ptr %28, i64 -8
-  %34 = load i32, ptr %33, align 4, !tbaa !103
-  %35 = icmp eq i32 %32, %34
-  br i1 %35, label %36, label %37
+  %33 = icmp eq i32 %30, %32
+  br i1 %33, label %34, label %35
 
-36:                                               ; preds = %30, %24
+34:                                               ; preds = %28, %22
   invoke void @_ZN6vectorISt4pairIjN3sat7literalEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc unwind label %52
 
-.noexc:                                           ; preds = %36
+.noexc:                                           ; preds = %34
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !109
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !103
-  br label %37
+  br label %35
 
-37:                                               ; preds = %.noexc, %30
-  %38 = phi i32 [ %.pre2.i, %.noexc ], [ %32, %30 ]
-  %39 = phi ptr [ %.pre.i, %.noexc ], [ %28, %30 ]
-  %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %40
-  store i64 %.sroa.0.0.insert.insert.i, ptr %41, align 4
-  %42 = load ptr, ptr %3, align 8, !tbaa !109
-  %43 = getelementptr inbounds i8, ptr %42, i64 -4
-  %44 = load i32, ptr %43, align 4, !tbaa !103
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %43, align 4, !tbaa !103
-  %46 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !97
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.noexc.i unwind label %47
+35:                                               ; preds = %.noexc, %28
+  %36 = phi i32 [ %.pre2.i, %.noexc ], [ %30, %28 ]
+  %37 = phi ptr [ %.pre.i, %.noexc ], [ %26, %28 ]
+  %38 = zext i32 %36 to i64
+  %39 = getelementptr inbounds nuw %"struct.std::pair", ptr %37, i64 %38
+  store i64 %.sroa.0.0.insert.insert.i, ptr %39, align 4
+  %40 = load ptr, ptr %3, align 8, !tbaa !109
+  %41 = getelementptr inbounds i8, ptr %40, i64 -4
+  %42 = load i32, ptr %41, align 4, !tbaa !103
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %41, align 4, !tbaa !103
+  %44 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !97
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %.noexc.i unwind label %45
 
-.noexc.i:                                         ; preds = %37
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %_ZN8rationalD2Ev.exit unwind label %47
+.noexc.i:                                         ; preds = %35
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(16) %10)
+          to label %_ZN8rationalD2Ev.exit unwind label %45
 
-47:                                               ; preds = %.noexc.i, %37
-  %48 = landingpad { ptr, i32 }
+45:                                               ; preds = %.noexc.i, %35
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #19
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #19
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %9, !llvm.loop !164
+  %48 = load ptr, ptr %2, align 8, !tbaa !99
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.critedge, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, !llvm.loop !164
 
-50:                                               ; preds = %18
+50:                                               ; preds = %16
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %54
 
-52:                                               ; preds = %36, %21
+52:                                               ; preds = %34, %19
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %54

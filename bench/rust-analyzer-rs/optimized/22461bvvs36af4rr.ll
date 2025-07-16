@@ -360,10 +360,10 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   unreachable
 
 74:                                               ; preds = %68
-  %..i = select i1 %54, i64 32, i64 36
-  %75 = icmp eq i64 %.val.i.i85.i, 0
-  %76 = icmp ne i64 %.val80.i, %..i
-  %or.cond2.i = and i1 %76, %75
+  %75 = icmp ne i64 %.val80.i, 36
+  %.069.i = or i1 %75, %54
+  %76 = icmp eq i64 %.val.i.i85.i, 0
+  %or.cond2.i = and i1 %.069.i, %76
   br i1 %or.cond2.i, label %.noexc, label %"_ZN3fst3raw12Fst$LT$D$GT$3new17h1722140ffd8cdc6cE.exit"
 
 .noexc:                                           ; preds = %74, %38, %51

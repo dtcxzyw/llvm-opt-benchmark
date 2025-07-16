@@ -265,60 +265,78 @@ _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %3, %13
   %32 = load i32, ptr %31, align 8, !tbaa !38
   %33 = load i32, ptr %0, align 8, !tbaa !4
   %.not14 = icmp slt i32 %32, %33
-  %or.cond = select i1 %30, i1 %.not14, i1 false
+  %cond.fr = freeze i1 %.not14
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !47
-  %36 = zext i1 %or.cond to i64
-  %spec.select = lshr i64 %35, %36
-  %37 = add i64 %27, %spec.select
-  %.not15 = icmp slt i32 %32, %33
-  %38 = add i64 %37, 4
-  %spec.select17 = select i1 %.not15, i64 %37, i64 %38
-  %39 = add i64 %spec.select17, 4
-  %40 = icmp ugt i64 %23, 127
-  br i1 %40, label %.lr.ph.i, label %_ZN7rocksdb12VarintLengthEm.exit
+  br i1 %30, label %36, label %41
 
-.lr.ph.i:                                         ; preds = %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit, %.lr.ph.i
-  %.06.i = phi i32 [ %42, %.lr.ph.i ], [ 1, %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit ]
-  %.045.i = phi i64 [ %41, %.lr.ph.i ], [ %23, %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit ]
-  %41 = lshr i64 %.045.i, 7
-  %42 = add nuw nsw i32 %.06.i, 1
-  %43 = icmp ugt i64 %.045.i, 16383
-  br i1 %43, label %.lr.ph.i, label %_ZN7rocksdb12VarintLengthEm.exit.loopexit, !llvm.loop !49
+36:                                               ; preds = %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit
+  br i1 %cond.fr, label %.thread, label %.thread33
+
+.thread33:                                        ; preds = %36
+  %37 = add i64 %27, %35
+  %38 = add i64 %37, 4
+  br label %44
+
+.thread:                                          ; preds = %36
+  %39 = lshr i64 %35, 1
+  %40 = add i64 %27, %39
+  br label %44
+
+41:                                               ; preds = %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit
+  %42 = add i64 %27, %35
+  %43 = add i64 %42, 4
+  %spec.select = select i1 %cond.fr, i64 %42, i64 %43
+  br label %44
+
+44:                                               ; preds = %41, %.thread, %.thread33
+  %.not1531 = phi i1 [ false, %.thread33 ], [ true, %.thread ], [ %cond.fr, %41 ]
+  %45 = phi i64 [ %38, %.thread33 ], [ %40, %.thread ], [ %spec.select, %41 ]
+  %46 = add i64 %45, 4
+  %47 = icmp ugt i64 %23, 127
+  br i1 %47, label %.lr.ph.i, label %_ZN7rocksdb12VarintLengthEm.exit
+
+.lr.ph.i:                                         ; preds = %44, %.lr.ph.i
+  %.06.i = phi i32 [ %49, %.lr.ph.i ], [ 1, %44 ]
+  %.045.i = phi i64 [ %48, %.lr.ph.i ], [ %23, %44 ]
+  %48 = lshr i64 %.045.i, 7
+  %49 = add nuw nsw i32 %.06.i, 1
+  %50 = icmp ugt i64 %.045.i, 16383
+  br i1 %50, label %.lr.ph.i, label %_ZN7rocksdb12VarintLengthEm.exit.loopexit, !llvm.loop !49
 
 _ZN7rocksdb12VarintLengthEm.exit.loopexit:        ; preds = %.lr.ph.i
-  %44 = zext nneg i32 %42 to i64
+  %51 = zext nneg i32 %49 to i64
   br label %_ZN7rocksdb12VarintLengthEm.exit
 
-_ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %_ZN7rocksdb12VarintLengthEm.exit.loopexit, %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit
-  %.0.lcssa.i = phi i64 [ 1, %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit ], [ %44, %_ZN7rocksdb12VarintLengthEm.exit.loopexit ]
-  %45 = add i64 %39, %.0.lcssa.i
-  %brmerge.not = select i1 %30, i1 %.not15, i1 false
-  br i1 %brmerge.not, label %53, label %46
+_ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %_ZN7rocksdb12VarintLengthEm.exit.loopexit, %44
+  %.0.lcssa.i = phi i64 [ 1, %44 ], [ %51, %_ZN7rocksdb12VarintLengthEm.exit.loopexit ]
+  %52 = add i64 %46, %.0.lcssa.i
+  %brmerge.not = and i1 %.not1531, %30
+  br i1 %brmerge.not, label %60, label %53
 
-46:                                               ; preds = %_ZN7rocksdb12VarintLengthEm.exit
-  %47 = icmp ugt i64 %35, 127
-  br i1 %47, label %.lr.ph.i19, label %_ZN7rocksdb12VarintLengthEm.exit22
+53:                                               ; preds = %_ZN7rocksdb12VarintLengthEm.exit
+  %54 = icmp ugt i64 %35, 127
+  br i1 %54, label %.lr.ph.i19, label %_ZN7rocksdb12VarintLengthEm.exit22
 
-.lr.ph.i19:                                       ; preds = %46, %.lr.ph.i19
-  %.06.i20 = phi i32 [ %49, %.lr.ph.i19 ], [ 1, %46 ]
-  %.045.i21 = phi i64 [ %48, %.lr.ph.i19 ], [ %35, %46 ]
-  %48 = lshr i64 %.045.i21, 7
-  %49 = add nuw nsw i32 %.06.i20, 1
-  %50 = icmp ugt i64 %.045.i21, 16383
-  br i1 %50, label %.lr.ph.i19, label %_ZN7rocksdb12VarintLengthEm.exit22.loopexit, !llvm.loop !49
+.lr.ph.i19:                                       ; preds = %53, %.lr.ph.i19
+  %.06.i20 = phi i32 [ %56, %.lr.ph.i19 ], [ 1, %53 ]
+  %.045.i21 = phi i64 [ %55, %.lr.ph.i19 ], [ %35, %53 ]
+  %55 = lshr i64 %.045.i21, 7
+  %56 = add nuw nsw i32 %.06.i20, 1
+  %57 = icmp ugt i64 %.045.i21, 16383
+  br i1 %57, label %.lr.ph.i19, label %_ZN7rocksdb12VarintLengthEm.exit22.loopexit, !llvm.loop !49
 
 _ZN7rocksdb12VarintLengthEm.exit22.loopexit:      ; preds = %.lr.ph.i19
-  %51 = zext nneg i32 %49 to i64
+  %58 = zext nneg i32 %56 to i64
   br label %_ZN7rocksdb12VarintLengthEm.exit22
 
-_ZN7rocksdb12VarintLengthEm.exit22:               ; preds = %_ZN7rocksdb12VarintLengthEm.exit22.loopexit, %46
-  %.0.lcssa.i18 = phi i64 [ 1, %46 ], [ %51, %_ZN7rocksdb12VarintLengthEm.exit22.loopexit ]
-  %52 = add i64 %45, %.0.lcssa.i18
-  br label %53
+_ZN7rocksdb12VarintLengthEm.exit22:               ; preds = %_ZN7rocksdb12VarintLengthEm.exit22.loopexit, %53
+  %.0.lcssa.i18 = phi i64 [ 1, %53 ], [ %58, %_ZN7rocksdb12VarintLengthEm.exit22.loopexit ]
+  %59 = add i64 %52, %.0.lcssa.i18
+  br label %60
 
-53:                                               ; preds = %_ZN7rocksdb12VarintLengthEm.exit, %_ZN7rocksdb12VarintLengthEm.exit22
-  %.2 = phi i64 [ %52, %_ZN7rocksdb12VarintLengthEm.exit22 ], [ %45, %_ZN7rocksdb12VarintLengthEm.exit ]
+60:                                               ; preds = %_ZN7rocksdb12VarintLengthEm.exit, %_ZN7rocksdb12VarintLengthEm.exit22
+  %.2 = phi i64 [ %59, %_ZN7rocksdb12VarintLengthEm.exit22 ], [ %52, %_ZN7rocksdb12VarintLengthEm.exit ]
   ret i64 %.2
 }
 

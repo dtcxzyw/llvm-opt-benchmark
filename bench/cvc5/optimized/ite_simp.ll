@@ -2696,9 +2696,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit349: ; preds = %_ZN4cvc58internal1
   %.pre733 = load ptr, ptr %64, align 8, !tbaa !9
   %.pre734 = ptrtoint ptr %.pre732 to i64
   %.pre735 = ptrtoint ptr %.pre733 to i64
+  %.not = icmp eq ptr %.pre732, %.pre733
   %452 = sub i64 %.pre734, %.pre735
   %453 = ashr exact i64 %452, 3
-  %.not = icmp eq ptr %.pre732, %.pre733
   br i1 %.not, label %.loopexit, label %.lr.ph726
 
 .lr.ph726:                                        ; preds = %._crit_edge721, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit480

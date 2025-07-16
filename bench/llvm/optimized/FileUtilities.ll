@@ -1831,7 +1831,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %30
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   store ptr null, ptr %0, align 8, !tbaa !65
-  br label %174
+  br label %176
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread102:      ; preds = %30, %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #16
@@ -1892,7 +1892,7 @@ _ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i: ; preds = %45, %37
 _ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit: ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i, %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #16
-  br label %174
+  br label %176
 
 .critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread102
   br i1 %4, label %55, label %.critedge42
@@ -1950,7 +1950,7 @@ _ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i49: ; preds = %69, %61
 _ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit50: ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i49, %75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #16
-  br label %174
+  br label %176
 
 .critedge42:                                      ; preds = %55, %.critedge
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #16
@@ -2009,7 +2009,7 @@ _ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i51: ; preds = %92, %84
 _ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit52: ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i51, %98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #16
-  br label %173
+  br label %175
 
 .critedge44:                                      ; preds = %.critedge42
   %102 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -2022,186 +2022,186 @@ _ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit52: ; preds = %_ZN4llvm
   %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.217.0.copyload = load i64, ptr %.sroa.217.0..sroa_idx, align 8, !tbaa !101
   %.not.i53 = icmp eq i64 %3, %.sroa.217.0.copyload
-  br i1 %.not.i53, label %106, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105
+  br i1 %.not.i53, label %108, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread123
 
-106:                                              ; preds = %105
-  %107 = icmp eq i64 %3, 0
-  br i1 %107, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit56
+_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread123: ; preds = %105
+  %106 = getelementptr inbounds nuw i8, ptr %17, i64 44
+  %107 = load i32, ptr %106, align 4, !tbaa !58
+  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit56:              ; preds = %106
+108:                                              ; preds = %105
+  %109 = icmp eq i64 %3, 0
+  br i1 %109, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit56
+
+_ZN4llvmeqENS_9StringRefES0_.exit56:              ; preds = %108
   %bcmp.i55 = call i32 @bcmp(ptr %2, ptr %.sroa.016.0.copyload, i64 %3)
-  %108 = icmp eq i32 %bcmp.i55, 0
-  %109 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %110 = load i32, ptr %109, align 8
-  %111 = icmp eq i32 %110, 0
-  %or.cond = select i1 %108, i1 %111, i1 false
-  br i1 %or.cond, label %112, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread
+  %110 = icmp eq i32 %bcmp.i55, 0
+  %111 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %112 = load i32, ptr %111, align 8
+  %113 = icmp eq i32 %112, 0
+  %or.cond = select i1 %110, i1 %113, i1 false
+  br i1 %or.cond, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit56.thread:       ; preds = %106
+_ZN4llvmeqENS_9StringRefES0_.exit56.thread:       ; preds = %108
   %.old = getelementptr inbounds nuw i8, ptr %22, i64 24
   %.old110 = load i32, ptr %.old, align 8, !tbaa !102
   %.old111 = icmp eq i32 %.old110, 0
-  br i1 %.old111, label %112, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread
-
-112:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread
-  %113 = load i32, ptr %18, align 4, !tbaa !10
-  %114 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %115 = load i32, ptr %114, align 8, !tbaa !102
-  %116 = getelementptr inbounds nuw i8, ptr %17, i64 28
-  %117 = load i32, ptr %116, align 4, !tbaa !103
-  %118 = call { i32, ptr } @_ZN4llvm3sys2fs19changeFileOwnershipEijj(i32 noundef %113, i32 noundef %115, i32 noundef %117) #16
-  %.sroa.010.0.copyload.pre = load ptr, ptr %1, align 8, !tbaa !35
-  %.sroa.211.0.copyload.pre = load i64, ptr %.sroa.217.0..sroa_idx, align 8, !tbaa !101
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105
+  br i1 %.old111, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105, label %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56.thread, %_ZN4llvmeqENS_9StringRefES0_.exit56
-  %119 = getelementptr inbounds nuw i8, ptr %17, i64 44
-  %120 = load i32, ptr %119, align 4, !tbaa !58
-  br label %123
+  %114 = getelementptr inbounds nuw i8, ptr %17, i64 44
+  %115 = load i32, ptr %114, align 4, !tbaa !58
+  br label %125
 
-_ZN4llvmeqENS_9StringRefES0_.exit56.thread105:    ; preds = %105, %112
-  %.sroa.211.0.copyload = phi i64 [ %.sroa.217.0.copyload, %105 ], [ %.sroa.211.0.copyload.pre, %112 ]
-  %.sroa.010.0.copyload = phi ptr [ %.sroa.016.0.copyload, %105 ], [ %.sroa.010.0.copyload.pre, %112 ]
-  %121 = getelementptr inbounds nuw i8, ptr %17, i64 44
-  %122 = load i32, ptr %121, align 4, !tbaa !58
-  %.not.i.i = icmp eq i64 %3, %.sroa.211.0.copyload
-  br i1 %.not.i.i, label %123, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+_ZN4llvmeqENS_9StringRefES0_.exit56.thread105:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56.thread, %_ZN4llvmeqENS_9StringRefES0_.exit56
+  %116 = load i32, ptr %18, align 4, !tbaa !10
+  %117 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %118 = load i32, ptr %117, align 8, !tbaa !102
+  %119 = getelementptr inbounds nuw i8, ptr %17, i64 28
+  %120 = load i32, ptr %119, align 4, !tbaa !103
+  %121 = call { i32, ptr } @_ZN4llvm3sys2fs19changeFileOwnershipEijj(i32 noundef %116, i32 noundef %118, i32 noundef %120) #16
+  %.sroa.010.0.copyload.pre = load ptr, ptr %1, align 8, !tbaa !35
+  %.sroa.211.0.copyload.pre = load i64, ptr %.sroa.217.0..sroa_idx, align 8, !tbaa !101
+  %122 = icmp eq i64 %3, %.sroa.211.0.copyload.pre
+  %123 = getelementptr inbounds nuw i8, ptr %17, i64 44
+  %124 = load i32, ptr %123, align 4, !tbaa !58
+  br i1 %122, label %125, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-123:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105
-  %124 = phi i32 [ %120, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread ], [ %122, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105 ]
-  %.sroa.010.0.copyload123 = phi ptr [ %.sroa.016.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread ], [ %.sroa.010.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105 ]
-  %125 = icmp eq i64 %3, 0
-  br i1 %125, label %_ZN4llvmneENS_9StringRefES0_.exit.thread108, label %_ZN4llvmneENS_9StringRefES0_.exit
+125:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105
+  %126 = phi i32 [ %115, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread ], [ %124, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105 ]
+  %.sroa.010.0.copyload122 = phi ptr [ %.sroa.016.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread ], [ %.sroa.010.0.copyload.pre, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105 ]
+  %127 = icmp eq i64 %3, 0
+  br i1 %127, label %_ZN4llvmneENS_9StringRefES0_.exit.thread108, label %_ZN4llvmneENS_9StringRefES0_.exit
 
-_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %123
-  %bcmp.i.i = call i32 @bcmp(ptr %2, ptr %.sroa.010.0.copyload123, i64 %3)
+_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %125
+  %bcmp.i.i = call i32 @bcmp(ptr %2, ptr %.sroa.010.0.copyload122, i64 %3)
   %.not115 = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not115, label %_ZN4llvmneENS_9StringRefES0_.exit.thread108, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105, %_ZN4llvmneENS_9StringRefES0_.exit
-  %126 = phi i32 [ %122, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105 ], [ %124, %_ZN4llvmneENS_9StringRefES0_.exit ]
-  %127 = call noundef i32 @_ZN4llvm3sys2fs8getUmaskEv() #16
-  %128 = xor i32 %127, -1
-  %129 = and i32 %126, -3073
-  %130 = and i32 %129, %128
+_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread123, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105, %_ZN4llvmneENS_9StringRefES0_.exit
+  %128 = phi i32 [ %124, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105 ], [ %126, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %107, %_ZN4llvmeqENS_9StringRefES0_.exit56.thread105.thread123 ]
+  %129 = call noundef i32 @_ZN4llvm3sys2fs8getUmaskEv() #16
+  %130 = xor i32 %129, -1
+  %131 = and i32 %128, -3073
+  %132 = and i32 %131, %130
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread108
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread108:      ; preds = %123, %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvmneENS_9StringRefES0_.exit
-  %.040 = phi i32 [ %130, %_ZN4llvmneENS_9StringRefES0_.exit.thread ], [ %124, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %124, %123 ]
-  %131 = load i32, ptr %18, align 4, !tbaa !10
-  %132 = call { i32, ptr } @_ZN4llvm3sys2fs14setPermissionsEiNS1_5permsE(i32 noundef %131, i32 noundef %.040) #16
-  %133 = extractvalue { i32, ptr } %132, 0
-  %.not116 = icmp eq i32 %133, 0
-  br i1 %.not116, label %.critedge46, label %134
+_ZN4llvmneENS_9StringRefES0_.exit.thread108:      ; preds = %125, %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvmneENS_9StringRefES0_.exit
+  %.040 = phi i32 [ %132, %_ZN4llvmneENS_9StringRefES0_.exit.thread ], [ %126, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %126, %125 ]
+  %133 = load i32, ptr %18, align 4, !tbaa !10
+  %134 = call { i32, ptr } @_ZN4llvm3sys2fs14setPermissionsEiNS1_5permsE(i32 noundef %133, i32 noundef %.040) #16
+  %135 = extractvalue { i32, ptr } %134, 0
+  %.not116 = icmp eq i32 %135, 0
+  br i1 %.not116, label %.critedge46, label %136
 
-134:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread108
-  %135 = extractvalue { i32, ptr } %132, 1
+136:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread108
+  %137 = extractvalue { i32, ptr } %134, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #16
-  %136 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i8 5, ptr %136, align 8, !tbaa !3
-  %137 = getelementptr inbounds nuw i8, ptr %24, i64 33
-  store i8 1, ptr %137, align 1, !tbaa !8
+  %138 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i8 5, ptr %138, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw i8, ptr %24, i64 33
+  store i8 1, ptr %139, align 1, !tbaa !8
   store ptr %2, ptr %24, align 8, !tbaa !9
-  %138 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %3, ptr %138, align 8, !tbaa !9
+  %140 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 %3, ptr %140, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %10, i32 %133, ptr %135) #16, !noalias !104
+  call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %10, i32 %135, ptr %137) #16, !noalias !104
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !104
-  %139 = load ptr, ptr %10, align 8, !tbaa !65, !noalias !107
-  store ptr %139, ptr %9, align 8, !tbaa !65, !noalias !107
+  %141 = load ptr, ptr %10, align 8, !tbaa !65, !noalias !107
+  store ptr %141, ptr %9, align 8, !tbaa !65, !noalias !107
   store ptr null, ptr %10, align 8, !tbaa !65, !noalias !107
   call void @_ZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %24, i64 undef, i8 0, ptr noundef nonnull %9)
-  %140 = load ptr, ptr %9, align 8, !tbaa !65, !noalias !107
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57, label %142
+  %142 = load ptr, ptr %9, align 8, !tbaa !65, !noalias !107
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57, label %144
 
-142:                                              ; preds = %134
-  %143 = load ptr, ptr %140, align 8, !tbaa !15
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(8) %140) #16
+144:                                              ; preds = %136
+  %145 = load ptr, ptr %142, align 8, !tbaa !15
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8
+  call void %147(ptr noundef nonnull align 8 dereferenceable(8) %142) #16
   br label %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57
 
-_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57: ; preds = %142, %134
+_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57: ; preds = %144, %136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !104
-  %146 = load ptr, ptr %10, align 8, !tbaa !65, !noalias !104
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit58, label %148
+  %148 = load ptr, ptr %10, align 8, !tbaa !65, !noalias !104
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit58, label %150
 
-148:                                              ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57
-  %149 = load ptr, ptr %146, align 8, !tbaa !15
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(8) %146) #16
+150:                                              ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57
+  %151 = load ptr, ptr %148, align 8, !tbaa !15
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8
+  call void %153(ptr noundef nonnull align 8 dereferenceable(8) %148) #16
   br label %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit58
 
-_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit58: ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57, %148
+_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit58: ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i57, %150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #16
-  br label %173
+  br label %175
 
 .critedge46:                                      ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread108, %.critedge44
-  %152 = load i32, ptr %18, align 4, !tbaa !10
-  %153 = call { i32, ptr } @_ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi(i32 noundef %152) #16
-  %154 = extractvalue { i32, ptr } %153, 0
-  %.not117 = icmp eq i32 %154, 0
-  br i1 %.not117, label %_ZN4llvm5ErrorD2Ev.exit61, label %155
+  %154 = load i32, ptr %18, align 4, !tbaa !10
+  %155 = call { i32, ptr } @_ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi(i32 noundef %154) #16
+  %156 = extractvalue { i32, ptr } %155, 0
+  %.not117 = icmp eq i32 %156, 0
+  br i1 %.not117, label %_ZN4llvm5ErrorD2Ev.exit61, label %157
 
-155:                                              ; preds = %.critedge46
-  %156 = extractvalue { i32, ptr } %153, 1
+157:                                              ; preds = %.critedge46
+  %158 = extractvalue { i32, ptr } %155, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #16
-  %157 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i8 5, ptr %157, align 8, !tbaa !3
-  %158 = getelementptr inbounds nuw i8, ptr %25, i64 33
-  store i8 1, ptr %158, align 1, !tbaa !8
+  %159 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i8 5, ptr %159, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw i8, ptr %25, i64 33
+  store i8 1, ptr %160, align 1, !tbaa !8
   store ptr %2, ptr %25, align 8, !tbaa !9
-  %159 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 %3, ptr %159, align 8, !tbaa !9
+  %161 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 %3, ptr %161, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, i32 %154, ptr %156) #16, !noalias !110
+  call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, i32 %156, ptr %158) #16, !noalias !110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !110
-  %160 = load ptr, ptr %8, align 8, !tbaa !65, !noalias !113
-  store ptr %160, ptr %7, align 8, !tbaa !65, !noalias !113
+  %162 = load ptr, ptr %8, align 8, !tbaa !65, !noalias !113
+  store ptr %162, ptr %7, align 8, !tbaa !65, !noalias !113
   store ptr null, ptr %8, align 8, !tbaa !65, !noalias !113
   call void @_ZN4llvm9FileError5buildERKNS_5TwineESt8optionalImENS_5ErrorE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %25, i64 undef, i8 0, ptr noundef nonnull %7)
-  %161 = load ptr, ptr %7, align 8, !tbaa !65, !noalias !113
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59, label %163
+  %163 = load ptr, ptr %7, align 8, !tbaa !65, !noalias !113
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59, label %165
 
-163:                                              ; preds = %155
-  %164 = load ptr, ptr %161, align 8, !tbaa !15
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = load ptr, ptr %165, align 8
-  call void %166(ptr noundef nonnull align 8 dereferenceable(8) %161) #16
+165:                                              ; preds = %157
+  %166 = load ptr, ptr %163, align 8, !tbaa !15
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %168 = load ptr, ptr %167, align 8
+  call void %168(ptr noundef nonnull align 8 dereferenceable(8) %163) #16
   br label %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59
 
-_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59: ; preds = %163, %155
+_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59: ; preds = %165, %157
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !110
-  %167 = load ptr, ptr %8, align 8, !tbaa !65, !noalias !110
-  %168 = icmp eq ptr %167, null
-  br i1 %168, label %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit60, label %169
+  %169 = load ptr, ptr %8, align 8, !tbaa !65, !noalias !110
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit60, label %171
 
-169:                                              ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59
-  %170 = load ptr, ptr %167, align 8, !tbaa !15
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %172 = load ptr, ptr %171, align 8
-  call void %172(ptr noundef nonnull align 8 dereferenceable(8) %167) #16
+171:                                              ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59
+  %172 = load ptr, ptr %169, align 8, !tbaa !15
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8
+  call void %174(ptr noundef nonnull align 8 dereferenceable(8) %169) #16
   br label %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit60
 
-_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit60: ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59, %169
+_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit60: ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineENS_5ErrorE.exit.i59, %171
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #16
-  br label %173
+  br label %175
 
 _ZN4llvm5ErrorD2Ev.exit61:                        ; preds = %.critedge46
   store ptr null, ptr %0, align 8, !tbaa !65
-  br label %173
+  br label %175
 
-173:                                              ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit60, %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit58, %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit52, %_ZN4llvm5ErrorD2Ev.exit61
+175:                                              ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit60, %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit58, %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit52, %_ZN4llvm5ErrorD2Ev.exit61
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %22) #16
-  br label %174
+  br label %176
 
-174:                                              ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit50, %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit, %173, %_ZN4llvm5ErrorD2Ev.exit
+176:                                              ; preds = %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit50, %_ZN4llvm15createFileErrorERKNS_5TwineESt10error_code.exit, %175, %_ZN4llvm5ErrorD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17) #16
   ret void

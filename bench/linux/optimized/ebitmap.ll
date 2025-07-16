@@ -190,9 +190,9 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr noundef captures
   %18 = add i32 %17, %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = icmp ult i32 %18, %.pre
-  br i1 %20, label %21, label %.loopexit
+  %19 = icmp ult i32 %18, %.pre
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %19, label %21, label %.loopexit
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -292,13 +292,13 @@ define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr noundef captures
   br label %87
 
 85:                                               ; preds = %.preheader
-  %86 = load i32, ptr %19, align 8
+  %86 = load i32, ptr %20, align 8
   br label %87
 
 87:                                               ; preds = %85, %80, %68
   %88 = phi ptr [ %25, %68 ], [ null, %85 ], [ %73, %80 ]
   %89 = phi i32 [ %71, %68 ], [ %86, %85 ], [ %84, %80 ]
-  %90 = load i32, ptr %19, align 8
+  %90 = load i32, ptr %20, align 8
   %91 = icmp ult i32 %89, %90
   br i1 %91, label %23, label %.loopexit, !llvm.loop !17
 
@@ -1159,9 +1159,9 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   %18 = add i32 %17, %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = icmp ult i32 %18, %.pre
-  br i1 %20, label %.preheader32, label %67
+  %19 = icmp ult i32 %18, %.pre
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %19, label %.preheader32, label %67
 
 .preheader32:                                     ; preds = %14, %60
   %21 = phi i32 [ %31, %60 ], [ 0, %14 ]
@@ -1213,13 +1213,13 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   br label %60
 
 58:                                               ; preds = %.preheader31
-  %59 = load i32, ptr %19, align 8
+  %59 = load i32, ptr %20, align 8
   br label %60
 
 60:                                               ; preds = %58, %53, %41
   %61 = phi ptr [ %24, %41 ], [ null, %58 ], [ %46, %53 ]
   %62 = phi i32 [ %44, %41 ], [ %59, %58 ], [ %57, %53 ]
-  %63 = load i32, ptr %19, align 8
+  %63 = load i32, ptr %20, align 8
   %64 = icmp ult i32 %62, %63
   br i1 %64, label %.preheader32, label %65, !llvm.loop !33
 
@@ -1228,7 +1228,7 @@ define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr noundef readonly captu
   br label %67
 
 67:                                               ; preds = %.thread, %65, %14
-  %68 = phi ptr [ %19, %65 ], [ %19, %14 ], [ %13, %.thread ]
+  %68 = phi ptr [ %20, %65 ], [ %20, %14 ], [ %13, %.thread ]
   %69 = phi i32 [ %66, %65 ], [ 0, %14 ], [ 0, %.thread ]
   %70 = phi i32 [ %31, %65 ], [ 0, %14 ], [ 0, %.thread ]
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8

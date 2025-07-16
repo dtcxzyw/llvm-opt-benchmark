@@ -1270,391 +1270,373 @@ define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLPar
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %.not.i.i.i.i = icmp eq ptr %8, %9
-  br i1 %.not.i.i.i.i, label %16, label %13
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, label %13
 
 13:                                               ; preds = %5
   %14 = icmp ugt i64 %12, 9223372036854775800
-  br i1 %14, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i, !prof !3
+  br i1 %14, label %.noexc.i.i, label %15, !prof !3
 
 .noexc.i.i:                                       ; preds = %13
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #31
   unreachable
 
-_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %13
-  %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #32
+15:                                               ; preds = %13
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #32
   %.pre = load ptr, ptr %6, align 8
   %.pre104 = load ptr, ptr %7, align 8
+  %17 = icmp eq ptr %.pre104, %.pre
+  br i1 %17, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %15
   %.pre105 = ptrtoint ptr %.pre104 to i64
   %.pre106 = ptrtoint ptr %.pre to i64
   %.pre108 = sub i64 %.pre105, %.pre106
-  br label %16
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %.pre, i64 %.pre108, i1 false)
+  %18 = getelementptr inbounds i8, ptr %16, i64 %.pre108
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  br label %27
 
-16:                                               ; preds = %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i, %5
-  %.pre-phi109 = phi i64 [ %.pre108, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ 0, %5 ]
-  %17 = phi ptr [ %.pre104, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ %8, %5 ]
-  %18 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ %9, %5 ]
-  %19 = phi ptr [ %15, %_ZNSt16allocator_traitsISaIPN10ODDLParser7DDLNodeEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %5 ]
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, %18
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %16
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %19, ptr align 8 %18, i64 %.pre-phi109, i1 false)
-  %20 = getelementptr inbounds i8, ptr %19, i64 %.pre-phi109
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  br label %30
-
-._crit_edge:                                      ; preds = %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit, %16
-  %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit, label %29
-
-29:                                               ; preds = %._crit_edge
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %12) #30
+._crit_edge:                                      ; preds = %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit, %15
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %12) #30
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit
 
-30:                                               ; preds = %.lr.ph, %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit
-  %.sroa.038.0101 = phi ptr [ %19, %.lr.ph ], [ %166, %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit ]
-  %31 = load ptr, ptr %.sroa.038.0101, align 8
-  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ODDLParser7DDLNode7getTypeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %31)
-          to label %33 unwind label %.loopexit
+27:                                               ; preds = %.lr.ph, %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit
+  %.sroa.038.0101 = phi ptr [ %16, %.lr.ph ], [ %162, %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit ]
+  %28 = load ptr, ptr %.sroa.038.0101, align 8
+  %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10ODDLParser7DDLNode7getTypeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(136) %28)
+          to label %30 unwind label %.loopexit
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %32, align 8
-  %35 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #35
-  %36 = tail call i32 @strncmp(ptr noundef nonnull @.str, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %29, align 8
+  %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #35
+  %33 = tail call i32 @strncmp(ptr noundef nonnull @.str, ptr noundef nonnull readonly %31, i64 noundef %32) #35
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %89, label %35
+
+35:                                               ; preds = %30
+  %36 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8NameTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %93, label %38
+  br i1 %37, label %91, label %38
 
-38:                                               ; preds = %33
-  %39 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8NameTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+38:                                               ; preds = %35
+  %39 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13ObjectRefTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %95, label %41
+  br i1 %40, label %93, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13ObjectRefTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %42 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15MaterialRefTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %97, label %44
+  br i1 %43, label %95, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15MaterialRefTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %45 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13MetricKeyTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %99, label %47
+  br i1 %46, label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13MetricKeyTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %48 = tail call i32 @strncmp(ptr noundef nonnull @.str.1, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit, label %50
+  br i1 %49, label %97, label %50
 
 50:                                               ; preds = %47
-  %51 = tail call i32 @strncmp(ptr noundef nonnull @.str.1, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %51 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL14CameraNodeTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %101, label %53
+  br i1 %52, label %107, label %53
 
 53:                                               ; preds = %50
-  %54 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL14CameraNodeTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %54 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13LightNodeTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %111, label %56
+  br i1 %55, label %109, label %56
 
 56:                                               ; preds = %53
-  %57 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13LightNodeTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %57 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL18GeometryObjectTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %113, label %59
+  br i1 %58, label %111, label %59
 
 59:                                               ; preds = %56
-  %60 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL18GeometryObjectTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %60 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL16CameraObjectTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %115, label %62
+  br i1 %61, label %114, label %62
 
 62:                                               ; preds = %59
-  %63 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL16CameraObjectTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %63 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15LightObjectTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %118, label %65
+  br i1 %64, label %116, label %65
 
 65:                                               ; preds = %62
-  %66 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15LightObjectTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %66 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13TransformTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %120, label %68
+  br i1 %67, label %118, label %68
 
 68:                                               ; preds = %65
-  %69 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL13TransformTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %69 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8MeshTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %122, label %71
+  br i1 %70, label %120, label %71
 
 71:                                               ; preds = %68
-  %72 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL8MeshTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %72 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15VertexArrayTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %124, label %74
+  br i1 %73, label %122, label %74
 
 74:                                               ; preds = %71
-  %75 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL15VertexArrayTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %75 = tail call i32 @strncmp(ptr noundef nonnull @.str.3, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %126, label %77
+  br i1 %76, label %124, label %77
 
 77:                                               ; preds = %74
-  %78 = tail call i32 @strncmp(ptr noundef nonnull @.str.3, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %78 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL12MaterialTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %128, label %80
+  br i1 %79, label %126, label %80
 
 80:                                               ; preds = %77
-  %81 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL12MaterialTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %81 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ColorTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %130, label %83
+  br i1 %82, label %157, label %83
 
 83:                                               ; preds = %80
-  %84 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ColorTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %84 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ParamTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %161, label %86
+  br i1 %85, label %_ZN7GrammarL14matchTokenTypeEPKc.exit, label %86
 
 86:                                               ; preds = %83
-  %87 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL9ParamTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
+  %87 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL11TextureTypeE, ptr noundef nonnull readonly %31, i64 noundef %32) #35
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %_ZN7GrammarL14matchTokenTypeEPKc.exit, label %89
+  br i1 %88, label %160, label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit
 
-89:                                               ; preds = %86
-  %90 = tail call i32 @strncmp(ptr noundef nonnull @_ZN7GrammarL11TextureTypeE, ptr noundef nonnull readonly %34, i64 noundef %35) #35
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %164, label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit
-
-.loopexit:                                        ; preds = %.invoke, %30, %93, %95, %97, %99, %111, %113, %120, %122, %124, %126, %128, %161, %_ZN7GrammarL14matchTokenTypeEPKc.exit, %164, %101, %104, %.noexc25, %130, %_ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+.loopexit:                                        ; preds = %.invoke, %27, %89, %91, %93, %95, %107, %109, %116, %118, %120, %122, %124, %157, %_ZN7GrammarL14matchTokenTypeEPKc.exit, %160, %97, %100, %.noexc25, %126, %_ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.body
-
-.loopexit.split-lp:                               ; preds = %145
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %159, %105
-  %eh.lpad-body = phi { ptr, i32 } [ %106, %105 ], [ %160, %159 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i23 = icmp eq ptr %19, null
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit24, label %92
-
-92:                                               ; preds = %.body
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %12) #30
   br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit24
 
-_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit24: ; preds = %.body, %92
+.loopexit.split-lp:                               ; preds = %141
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit24
+
+_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit24: ; preds = %.loopexit, %.loopexit.split-lp, %155, %101
+  %eh.lpad-body = phi { ptr, i32 } [ %102, %101 ], [ %156, %155 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %12) #30
   resume { ptr, i32 } %eh.lpad-body
 
-93:                                               ; preds = %33
+89:                                               ; preds = %30
+  %90 = load ptr, ptr %.sroa.038.0101, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleMetricNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %90, ptr poison)
+          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
+
+91:                                               ; preds = %35
+  %92 = load ptr, ptr %.sroa.038.0101, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleNameNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %92, ptr poison)
+          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
+
+93:                                               ; preds = %38
   %94 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleMetricNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %94, ptr poison)
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleObjectRefNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %94, ptr poison)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-95:                                               ; preds = %38
+95:                                               ; preds = %41
   %96 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleNameNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %96, ptr poison)
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter21handleMaterialRefNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %96, ptr poison)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-97:                                               ; preds = %41
+97:                                               ; preds = %47
   %98 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleObjectRefNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %98, ptr poison)
-          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
-
-99:                                               ; preds = %44
-  %100 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter21handleMaterialRefNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %100, ptr poison)
-          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
-
-101:                                              ; preds = %50
-  %102 = load ptr, ptr %.sroa.038.0101, align 8
-  %103 = invoke noalias noundef nonnull dereferenceable(1144) ptr @_Znwm(i64 noundef 1144) #32
+  %99 = invoke noalias noundef nonnull dereferenceable(1144) ptr @_Znwm(i64 noundef 1144) #32
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %101
-  invoke void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %103)
-          to label %104 unwind label %105
+.noexc:                                           ; preds = %97
+  invoke void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %99)
+          to label %100 unwind label %101
 
-104:                                              ; preds = %.noexc
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter8pushNodeEP6aiNodeP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull %103, ptr noundef %2)
+100:                                              ; preds = %.noexc
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter8pushNodeEP6aiNodeP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull %99, ptr noundef %2)
           to label %.noexc25 unwind label %.loopexit
 
-.noexc25:                                         ; preds = %104
-  store i32 5, ptr %25, align 8
-  store ptr %103, ptr %26, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %102, ptr noundef %2)
+.noexc25:                                         ; preds = %100
+  store i32 5, ptr %23, align 8
+  store ptr %99, ptr %24, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %98, ptr noundef %2)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter18handleGeometryNodeEPN10ODDLParser7DDLNodeEP7aiScene.exit unwind label %.loopexit
 
-105:                                              ; preds = %.noexc
-  %106 = landingpad { ptr, i32 }
+101:                                              ; preds = %.noexc
+  %102 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef 1144) #30
-  br label %.body
+  tail call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef 1144) #30
+  br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit24
 
 _ZN6Assimp7OpenGEX15OpenGEXImporter18handleGeometryNodeEPN10ODDLParser7DDLNodeEP7aiScene.exit: ; preds = %.noexc25
-  %107 = load ptr, ptr %27, align 8
-  %108 = load ptr, ptr %28, align 8
-  %109 = icmp eq ptr %107, %108
-  br i1 %109, label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit, label %_ZNK6Assimp7OpenGEX15OpenGEXImporter3topEv.exit.i
+  %103 = load ptr, ptr %25, align 8
+  %104 = load ptr, ptr %26, align 8
+  %105 = icmp eq ptr %103, %104
+  br i1 %105, label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit, label %_ZNK6Assimp7OpenGEX15OpenGEXImporter3topEv.exit.i
 
 _ZNK6Assimp7OpenGEX15OpenGEXImporter3topEv.exit.i: ; preds = %_ZN6Assimp7OpenGEX15OpenGEXImporter18handleGeometryNodeEPN10ODDLParser7DDLNodeEP7aiScene.exit
-  %110 = getelementptr inbounds i8, ptr %108, i64 -8
-  store ptr %110, ptr %28, align 8
+  %106 = getelementptr inbounds i8, ptr %104, i64 -8
+  store ptr %106, ptr %26, align 8
   br label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit
 
-111:                                              ; preds = %53
+107:                                              ; preds = %50
+  %108 = load ptr, ptr %.sroa.038.0101, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleCameraNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %108, ptr noundef %2)
+          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
+
+109:                                              ; preds = %53
+  %110 = load ptr, ptr %.sroa.038.0101, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleLightNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %110, ptr noundef %2)
+          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
+
+111:                                              ; preds = %56
   %112 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter16handleCameraNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %112, ptr noundef %2)
-          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
-
-113:                                              ; preds = %56
-  %114 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleLightNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %114, ptr noundef %2)
-          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
-
-115:                                              ; preds = %59
-  %116 = load ptr, ptr %.sroa.038.0101, align 8
   br label %.invoke
 
-.invoke:                                          ; preds = %.noexc30, %118, %115
-  %117 = phi ptr [ %116, %115 ], [ %119, %118 ], [ %131, %.noexc30 ]
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %117, ptr noundef %2)
+.invoke:                                          ; preds = %.noexc30, %114, %111
+  %113 = phi ptr [ %112, %111 ], [ %115, %114 ], [ %127, %.noexc30 ]
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter11handleNodesEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %113, ptr noundef %2)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-118:                                              ; preds = %62
+114:                                              ; preds = %59
+  %115 = load ptr, ptr %.sroa.038.0101, align 8
+  br label %.invoke
+
+116:                                              ; preds = %62
+  %117 = load ptr, ptr %.sroa.038.0101, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter17handleLightObjectEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %117, ptr noundef %2)
+          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
+
+118:                                              ; preds = %65
   %119 = load ptr, ptr %.sroa.038.0101, align 8
-  br label %.invoke
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleTransformNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %119, ptr poison)
+          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-120:                                              ; preds = %65
+120:                                              ; preds = %68
   %121 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter17handleLightObjectEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %121, ptr noundef %2)
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleMeshNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %121, ptr noundef %2)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-122:                                              ; preds = %68
+122:                                              ; preds = %71
   %123 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter19handleTransformNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %123, ptr poison)
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter21handleVertexArrayNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %123, ptr poison)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-124:                                              ; preds = %71
+124:                                              ; preds = %74
   %125 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleMeshNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %125, ptr noundef %2)
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter20handleIndexArrayNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %125, ptr poison)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-126:                                              ; preds = %74
+126:                                              ; preds = %77
   %127 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter21handleVertexArrayNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %127, ptr poison)
-          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
-
-128:                                              ; preds = %77
-  %129 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter20handleIndexArrayNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %129, ptr poison)
-          to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
-
-130:                                              ; preds = %80
-  %131 = load ptr, ptr %.sroa.038.0101, align 8
-  %132 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
+  %128 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %.noexc29 unwind label %.loopexit
 
-.noexc29:                                         ; preds = %130
-  invoke void @_ZN10aiMaterialC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %132)
-          to label %133 unwind label %159
+.noexc29:                                         ; preds = %126
+  invoke void @_ZN10aiMaterialC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %128)
+          to label %129 unwind label %155
 
-133:                                              ; preds = %.noexc29
-  store ptr %132, ptr %21, align 8
-  %134 = load ptr, ptr %23, align 8
-  %135 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %134, %135
-  br i1 %.not.i, label %139, label %136
+129:                                              ; preds = %.noexc29
+  store ptr %128, ptr %19, align 8
+  %130 = load ptr, ptr %21, align 8
+  %131 = load ptr, ptr %22, align 8
+  %.not.i = icmp eq ptr %130, %131
+  br i1 %.not.i, label %135, label %132
 
-136:                                              ; preds = %133
-  store ptr %132, ptr %134, align 8
-  %137 = load ptr, ptr %23, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store ptr %138, ptr %23, align 8
+132:                                              ; preds = %129
+  store ptr %128, ptr %130, align 8
+  %133 = load ptr, ptr %21, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  store ptr %134, ptr %21, align 8
   br label %.noexc30
 
-139:                                              ; preds = %133
-  %140 = load ptr, ptr %22, align 8
-  %141 = ptrtoint ptr %134 to i64
-  %142 = ptrtoint ptr %140 to i64
-  %143 = sub i64 %141, %142
-  %144 = icmp eq i64 %143, 9223372036854775800
-  br i1 %144, label %145, label %_ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+135:                                              ; preds = %129
+  %136 = load ptr, ptr %20, align 8
+  %137 = ptrtoint ptr %130 to i64
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = icmp eq i64 %139, 9223372036854775800
+  br i1 %140, label %141, label %_ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-145:                                              ; preds = %139
+141:                                              ; preds = %135
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.41) #31
           to label %.noexc36 unwind label %.loopexit.split-lp
 
-.noexc36:                                         ; preds = %145
+.noexc36:                                         ; preds = %141
   unreachable
 
-_ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %139
-  %146 = ashr exact i64 %143, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %146, i64 1)
-  %147 = add nsw i64 %.sroa.speculated.i.i.i, %146
-  %148 = icmp ult i64 %147, %146
-  %149 = tail call i64 @llvm.umin.i64(i64 %147, i64 1152921504606846975)
-  %150 = select i1 %148, i64 1152921504606846975, i64 %149
-  %.not.i.i.i35 = icmp ne i64 %150, 0
+_ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %135
+  %142 = ashr exact i64 %139, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %142, i64 1)
+  %143 = add nsw i64 %.sroa.speculated.i.i.i, %142
+  %144 = icmp ult i64 %143, %142
+  %145 = tail call i64 @llvm.umin.i64(i64 %143, i64 1152921504606846975)
+  %146 = select i1 %144, i64 1152921504606846975, i64 %145
+  %.not.i.i.i35 = icmp ne i64 %146, 0
   tail call void @llvm.assume(i1 %.not.i.i.i35)
-  %151 = shl nuw nsw i64 %150, 3
-  %152 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %151) #32
+  %147 = shl nuw nsw i64 %146, 3
+  %148 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %147) #32
           to label %.noexc37 unwind label %.loopexit
 
 .noexc37:                                         ; preds = %_ZNKSt6vectorIP10aiMaterialSaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %153 = getelementptr inbounds i8, ptr %152, i64 %143
-  store ptr %132, ptr %153, align 8
-  %154 = icmp sgt i64 %143, 0
-  br i1 %154, label %155, label %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %149 = getelementptr inbounds i8, ptr %148, i64 %139
+  store ptr %128, ptr %149, align 8
+  %150 = icmp sgt i64 %139, 0
+  br i1 %150, label %151, label %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-155:                                              ; preds = %.noexc37
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %152, ptr align 8 %140, i64 %143, i1 false)
+151:                                              ; preds = %.noexc37
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %148, ptr align 8 %136, i64 %139, i1 false)
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %155, %.noexc37
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %.not.i17.i.i = icmp eq ptr %140, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %157
+_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %151, %.noexc37
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %.not.i17.i.i = icmp eq ptr %136, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %153
 
-157:                                              ; preds = %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %140, i64 noundef %143) #30
+153:                                              ; preds = %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef %139) #30
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %157, %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %152, ptr %22, align 8
-  store ptr %156, ptr %23, align 8
-  %158 = getelementptr inbounds nuw ptr, ptr %152, i64 %150
-  store ptr %158, ptr %24, align 8
+_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %153, %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  store ptr %148, ptr %20, align 8
+  store ptr %152, ptr %21, align 8
+  %154 = getelementptr inbounds nuw ptr, ptr %148, i64 %146
+  store ptr %154, ptr %22, align 8
   br label %.noexc30
 
-.noexc30:                                         ; preds = %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %136
-  store i32 15, ptr %25, align 8
+.noexc30:                                         ; preds = %_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %132
+  store i32 15, ptr %23, align 8
   br label %.invoke
 
-159:                                              ; preds = %.noexc29
-  %160 = landingpad { ptr, i32 }
+155:                                              ; preds = %.noexc29
+  %156 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %132, i64 noundef 16) #30
-  br label %.body
+  tail call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef 16) #30
+  br label %_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit24
 
-161:                                              ; preds = %83
-  %162 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleColorNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %162, ptr poison)
+157:                                              ; preds = %80
+  %158 = load ptr, ptr %.sroa.038.0101, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleColorNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %158, ptr poison)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-_ZN7GrammarL14matchTokenTypeEPKc.exit:            ; preds = %86
-  %163 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleParamNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %163, ptr poison)
+_ZN7GrammarL14matchTokenTypeEPKc.exit:            ; preds = %83
+  %159 = load ptr, ptr %.sroa.038.0101, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter15handleParamNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %159, ptr poison)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-164:                                              ; preds = %89
-  %165 = load ptr, ptr %.sroa.038.0101, align 8
-  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter17handleTextureNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %165, ptr poison)
+160:                                              ; preds = %86
+  %161 = load ptr, ptr %.sroa.038.0101, align 8
+  invoke void @_ZN6Assimp7OpenGEX15OpenGEXImporter17handleTextureNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef %161, ptr poison)
           to label %_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit unwind label %.loopexit
 
-_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit: ; preds = %.invoke, %89, %47, %_ZNK6Assimp7OpenGEX15OpenGEXImporter3topEv.exit.i, %_ZN6Assimp7OpenGEX15OpenGEXImporter18handleGeometryNodeEPN10ODDLParser7DDLNodeEP7aiScene.exit, %164, %_ZN7GrammarL14matchTokenTypeEPKc.exit, %161, %128, %126, %124, %122, %120, %113, %111, %99, %97, %95, %93
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.038.0101, i64 8
-  %.not = icmp eq ptr %166, %20
-  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !11
+_ZN6Assimp7OpenGEX15OpenGEXImporter7popNodeEv.exit: ; preds = %.invoke, %86, %44, %_ZNK6Assimp7OpenGEX15OpenGEXImporter3topEv.exit.i, %_ZN6Assimp7OpenGEX15OpenGEXImporter18handleGeometryNodeEPN10ODDLParser7DDLNodeEP7aiScene.exit, %160, %_ZN7GrammarL14matchTokenTypeEPKc.exit, %157, %124, %122, %120, %118, %116, %109, %107, %95, %93, %91, %89
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.038.0101, i64 8
+  %.not = icmp eq ptr %162, %18
+  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !11
 
-_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit: ; preds = %29, %._crit_edge, %3
+_ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EED2Ev.exit: ; preds = %5, %._crit_edge, %3
   ret void
 }
 

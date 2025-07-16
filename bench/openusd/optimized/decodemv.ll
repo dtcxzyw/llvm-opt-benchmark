@@ -7796,9 +7796,9 @@ define internal fastcc i32 @read_segment_id(ptr noundef readonly captures(none) 
   %22 = icmp sge i32 %.val.i, %5
   %23 = icmp sge i32 %.val49.i, %7
   %or.cond.i.i = select i1 %22, i1 %23, i1 false
-  br i1 %or.cond.i.i, label %.preheader.us.i.i, label %._crit_edge.i
+  br i1 %or.cond.i.i, label %.preheader.lr.ph.split.us.i.i, label %._crit_edge.i
 
-.preheader.us.i.i:                                ; preds = %21
+.preheader.lr.ph.split.us.i.i:                    ; preds = %21
   %24 = add nsw i32 %7, -1
   %25 = add nsw i32 %5, -1
   %26 = mul nsw i32 %.val49.i, %25
@@ -7807,17 +7807,17 @@ define internal fastcc i32 @read_segment_id(ptr noundef readonly captures(none) 
   %29 = getelementptr inbounds i8, ptr %11, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = tail call i8 @llvm.umin.i8(i8 %30, i8 8)
-  %.1..us5.i.i = zext nneg i8 %31 to i32
+  %.1..us.i.i = zext nneg i8 %31 to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %.preheader.us.i.i, %21, %18
-  %.044.ph.i = phi i32 [ %.1..us5.i.i, %.preheader.us.i.i ], [ 8, %21 ], [ -1, %18 ]
+._crit_edge.i:                                    ; preds = %.preheader.lr.ph.split.us.i.i, %21, %18
+  %.044.ph.i = phi i32 [ %.1..us.i.i, %.preheader.lr.ph.split.us.i.i ], [ 8, %21 ], [ -1, %18 ]
   %32 = icmp sge i32 %.val.i, %5
   %33 = icmp sgt i32 %.val49.i, %7
   %or.cond.i54.i = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond.i54.i, label %.preheader.us.i56.i, label %get_segment_id.exit.i
+  br i1 %or.cond.i54.i, label %.preheader.lr.ph.split.us.i56.i, label %get_segment_id.exit.i
 
-.preheader.us.i56.i:                              ; preds = %._crit_edge.i
+.preheader.lr.ph.split.us.i56.i:                  ; preds = %._crit_edge.i
   %34 = add nsw i32 %5, -1
   %35 = mul nsw i32 %.val49.i, %34
   %36 = add nsw i32 %35, %7
@@ -7825,15 +7825,15 @@ define internal fastcc i32 @read_segment_id(ptr noundef readonly captures(none) 
   %38 = getelementptr inbounds i8, ptr %11, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = tail call i8 @llvm.umin.i8(i8 %39, i8 8)
-  %.1..us5.i57.i = zext nneg i8 %40 to i32
+  %.1..us.i57.i = zext nneg i8 %40 to i32
   br i1 %17, label %41, label %get_segment_id.exit63.i
 
 get_segment_id.exit.i:                            ; preds = %._crit_edge.i
   br i1 %17, label %41, label %get_segment_id.exit63.i
 
-41:                                               ; preds = %.preheader.us.i56.i, %.get_segment_id.exit.i_crit_edge, %get_segment_id.exit.i
-  %.046.i26 = phi i32 [ -1, %.get_segment_id.exit.i_crit_edge ], [ 8, %get_segment_id.exit.i ], [ %.1..us5.i57.i, %.preheader.us.i56.i ]
-  %.04465.i24 = phi i32 [ -1, %.get_segment_id.exit.i_crit_edge ], [ %.044.ph.i, %get_segment_id.exit.i ], [ %.044.ph.i, %.preheader.us.i56.i ]
+41:                                               ; preds = %.preheader.lr.ph.split.us.i56.i, %.get_segment_id.exit.i_crit_edge, %get_segment_id.exit.i
+  %.046.i26 = phi i32 [ -1, %.get_segment_id.exit.i_crit_edge ], [ 8, %get_segment_id.exit.i ], [ %.1..us.i57.i, %.preheader.lr.ph.split.us.i56.i ]
+  %.04465.i24 = phi i32 [ -1, %.get_segment_id.exit.i_crit_edge ], [ %.044.ph.i, %get_segment_id.exit.i ], [ %.044.ph.i, %.preheader.lr.ph.split.us.i56.i ]
   %42 = getelementptr i8, ptr %0, i64 1076
   %.val52.i = load i32, ptr %42, align 4
   %43 = getelementptr i8, ptr %0, i64 1080
@@ -7841,9 +7841,9 @@ get_segment_id.exit.i:                            ; preds = %._crit_edge.i
   %44 = icmp sgt i32 %.val52.i, %5
   %45 = icmp sge i32 %.val53.i, %7
   %or.cond.i59.i = select i1 %44, i1 %45, i1 false
-  br i1 %or.cond.i59.i, label %.preheader.us.i61.i, label %get_segment_id.exit63.i
+  br i1 %or.cond.i59.i, label %.preheader.lr.ph.split.us.i61.i, label %get_segment_id.exit63.i
 
-.preheader.us.i61.i:                              ; preds = %41
+.preheader.lr.ph.split.us.i61.i:                  ; preds = %41
   %46 = add nsw i32 %7, -1
   %47 = mul nsw i32 %.val53.i, %5
   %48 = add nsw i32 %46, %47
@@ -7852,13 +7852,13 @@ get_segment_id.exit.i:                            ; preds = %._crit_edge.i
   %51 = load i8, ptr %50, align 1
   %.fr48 = freeze i8 %51
   %52 = tail call i8 @llvm.umin.i8(i8 %.fr48, i8 8)
-  %.1..us5.i62.i = zext nneg i8 %52 to i32
+  %.1..us.i62.i = zext nneg i8 %52 to i32
   br label %get_segment_id.exit63.i
 
-get_segment_id.exit63.i:                          ; preds = %.preheader.us.i56.i, %.preheader.us.i61.i, %41, %get_segment_id.exit.i
-  %.046.i25 = phi i32 [ 8, %get_segment_id.exit.i ], [ %.046.i26, %41 ], [ %.046.i26, %.preheader.us.i61.i ], [ %.1..us5.i57.i, %.preheader.us.i56.i ]
-  %.04465.i23 = phi i32 [ %.044.ph.i, %get_segment_id.exit.i ], [ %.04465.i24, %41 ], [ %.04465.i24, %.preheader.us.i61.i ], [ %.044.ph.i, %.preheader.us.i56.i ]
-  %.045.i = phi i32 [ -1, %get_segment_id.exit.i ], [ 8, %41 ], [ %.1..us5.i62.i, %.preheader.us.i61.i ], [ -1, %.preheader.us.i56.i ]
+get_segment_id.exit63.i:                          ; preds = %.preheader.lr.ph.split.us.i56.i, %.preheader.lr.ph.split.us.i61.i, %41, %get_segment_id.exit.i
+  %.046.i25 = phi i32 [ 8, %get_segment_id.exit.i ], [ %.046.i26, %41 ], [ %.046.i26, %.preheader.lr.ph.split.us.i61.i ], [ %.1..us.i57.i, %.preheader.lr.ph.split.us.i56.i ]
+  %.04465.i23 = phi i32 [ %.044.ph.i, %get_segment_id.exit.i ], [ %.04465.i24, %41 ], [ %.04465.i24, %.preheader.lr.ph.split.us.i61.i ], [ %.044.ph.i, %.preheader.lr.ph.split.us.i56.i ]
+  %.045.i = phi i32 [ -1, %get_segment_id.exit.i ], [ 8, %41 ], [ %.1..us.i62.i, %.preheader.lr.ph.split.us.i61.i ], [ -1, %.preheader.lr.ph.split.us.i56.i ]
   %53 = icmp slt i32 %.04465.i23, 0
   br i1 %53, label %59, label %54
 

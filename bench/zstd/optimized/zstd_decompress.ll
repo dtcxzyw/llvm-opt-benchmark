@@ -3883,192 +3883,192 @@ ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.e
   %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !122
   %35 = shl i64 %.pre, 2
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 30128
-  %.sroa.024.0.copyload = load ptr, ptr %36, align 8
+  %36 = icmp ugt i64 %.pre42, %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 30128
+  %.sroa.024.0.copyload = load ptr, ptr %37, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30136
   %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30144
   %.sroa.526.0.copyload = load ptr, ptr %.sroa.526.0..sroa_idx, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.not.i22 = icmp ugt i64 %.pre42, %35
-  br i1 %.not.i22, label %ZSTD_DDictHashSet_expand.exit.thread.i, label %39
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  br i1 %36, label %ZSTD_DDictHashSet_expand.exit.thread.i, label %40
 
-39:                                               ; preds = %34
-  %40 = shl i64 %.pre42, 4
+40:                                               ; preds = %34
+  %41 = shl i64 %.pre42, 4
   %.not.i.i.i = icmp eq ptr %.sroa.024.0.copyload, null
-  br i1 %.not.i.i.i, label %43, label %41
+  br i1 %.not.i.i.i, label %44, label %42
 
-41:                                               ; preds = %39
-  %42 = tail call ptr %.sroa.024.0.copyload(ptr noundef %.sroa.526.0.copyload, i64 noundef %40) #17
-  tail call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %40, i1 false)
-  %.pre.i.i = load i64, ptr %38, align 8, !tbaa !122
+42:                                               ; preds = %40
+  %43 = tail call ptr %.sroa.024.0.copyload(ptr noundef %.sroa.526.0.copyload, i64 noundef %41) #17
+  tail call void @llvm.memset.p0.i64(ptr align 1 %43, i8 0, i64 %41, i1 false)
+  %.pre.i.i = load i64, ptr %39, align 8, !tbaa !122
   br label %ZSTD_customCalloc.exit.i.i
 
-43:                                               ; preds = %39
-  %44 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %40) #21
+44:                                               ; preds = %40
+  %45 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %41) #21
   br label %ZSTD_customCalloc.exit.i.i
 
-ZSTD_customCalloc.exit.i.i:                       ; preds = %43, %41
-  %45 = phi i64 [ %.pre.i.i, %41 ], [ %.pre42, %43 ]
-  %.0.i.i.i = phi ptr [ %42, %41 ], [ %44, %43 ]
-  %46 = load ptr, ptr %19, align 8, !tbaa !44
+ZSTD_customCalloc.exit.i.i:                       ; preds = %44, %42
+  %46 = phi i64 [ %.pre.i.i, %42 ], [ %.pre42, %44 ]
+  %.0.i.i.i = phi ptr [ %43, %42 ], [ %45, %44 ]
+  %47 = load ptr, ptr %19, align 8, !tbaa !44
   %.not.i.i23 = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i23, label %ZSTD_DDictHashSet_addDDict.exit.thread, label %47
+  br i1 %.not.i.i23, label %ZSTD_DDictHashSet_addDDict.exit.thread, label %48
 
-47:                                               ; preds = %ZSTD_customCalloc.exit.i.i
-  %48 = shl i64 %.pre42, 1
+48:                                               ; preds = %ZSTD_customCalloc.exit.i.i
+  %49 = shl i64 %.pre42, 1
   store ptr %.0.i.i.i, ptr %19, align 8, !tbaa !44
-  store i64 %48, ptr %38, align 8, !tbaa !122
-  store i64 0, ptr %37, align 8, !tbaa !128
-  %.not40.i.i = icmp eq i64 %45, 0
+  store i64 %49, ptr %39, align 8, !tbaa !122
+  store i64 0, ptr %38, align 8, !tbaa !128
+  %.not40.i.i = icmp eq i64 %46, 0
   br i1 %.not40.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %47, %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
-  %.02339.i.i = phi i64 [ %76, %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i ], [ 0, %47 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %.02339.i.i
-  %50 = load ptr, ptr %49, align 8, !tbaa !123
-  %.not26.i.i = icmp eq ptr %50, null
-  br i1 %.not26.i.i, label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i, label %51
+.lr.ph.i.i:                                       ; preds = %48, %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
+  %.02339.i.i = phi i64 [ %77, %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i ], [ 0, %48 ]
+  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02339.i.i
+  %51 = load ptr, ptr %50, align 8, !tbaa !123
+  %.not26.i.i = icmp eq ptr %51, null
+  br i1 %.not26.i.i, label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i, label %52
 
-51:                                               ; preds = %.lr.ph.i.i
-  %52 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %50) #17
-  %.val.i.i.i = load i64, ptr %38, align 8, !tbaa !122
+52:                                               ; preds = %.lr.ph.i.i
+  %53 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %51) #17
+  %.val.i.i.i = load i64, ptr %39, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %52, ptr %4, align 4, !tbaa !47
-  %53 = call i64 @ZSTD_XXH64(ptr noundef nonnull captures(none) %4, i64 noundef 4, i64 noundef 0) #20
-  %54 = add i64 %.val.i.i.i, -1
+  store i32 %53, ptr %4, align 4, !tbaa !47
+  %54 = call i64 @ZSTD_XXH64(ptr noundef nonnull captures(none) %4, i64 noundef 4, i64 noundef 0) #20
+  %55 = add i64 %.val.i.i.i, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %55 = load i64, ptr %37, align 8, !tbaa !128
-  %56 = icmp eq i64 %55, %.val.i.i.i
-  br i1 %56, label %ZSTD_DDictHashSet_addDDict.exit.thread, label %.preheader.i.i.i
+  %56 = load i64, ptr %38, align 8, !tbaa !128
+  %57 = icmp eq i64 %56, %.val.i.i.i
+  br i1 %57, label %ZSTD_DDictHashSet_addDDict.exit.thread, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %51
-  %57 = and i64 %53, %54
-  %58 = load ptr, ptr %19, align 8, !tbaa !44
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %57
-  %60 = load ptr, ptr %59, align 8, !tbaa !123
-  %.not26.i.i.i = icmp eq ptr %60, null
+.preheader.i.i.i:                                 ; preds = %52
+  %58 = and i64 %54, %55
+  %59 = load ptr, ptr %19, align 8, !tbaa !44
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %58
+  %61 = load ptr, ptr %60, align 8, !tbaa !123
+  %.not26.i.i.i = icmp eq ptr %61, null
   br i1 %.not26.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %67
-  %61 = phi ptr [ %72, %67 ], [ %60, %.preheader.i.i.i ]
-  %.02127.i.i.i = phi i64 [ %69, %67 ], [ %57, %.preheader.i.i.i ]
-  %62 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %61) #17
-  %63 = icmp eq i32 %62, %52
-  br i1 %63, label %64, label %67
+.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %68
+  %62 = phi ptr [ %73, %68 ], [ %61, %.preheader.i.i.i ]
+  %.02127.i.i.i = phi i64 [ %70, %68 ], [ %58, %.preheader.i.i.i ]
+  %63 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %62) #17
+  %64 = icmp eq i32 %63, %53
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %.lr.ph.i.i.i
-  %65 = load ptr, ptr %19, align 8, !tbaa !44
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %.02127.i.i.i
-  store ptr %50, ptr %66, align 8, !tbaa !123
+65:                                               ; preds = %.lr.ph.i.i.i
+  %66 = load ptr, ptr %19, align 8, !tbaa !44
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.02127.i.i.i
+  store ptr %51, ptr %67, align 8, !tbaa !123
   br label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
 
-67:                                               ; preds = %.lr.ph.i.i.i
-  %68 = and i64 %.02127.i.i.i, %54
-  %69 = add i64 %68, 1
-  %70 = load ptr, ptr %19, align 8, !tbaa !44
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %69
-  %72 = load ptr, ptr %71, align 8, !tbaa !123
-  %.not.i31.i.i = icmp eq ptr %72, null
+68:                                               ; preds = %.lr.ph.i.i.i
+  %69 = and i64 %.02127.i.i.i, %55
+  %70 = add i64 %69, 1
+  %71 = load ptr, ptr %19, align 8, !tbaa !44
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %73 = load ptr, ptr %72, align 8, !tbaa !123
+  %.not.i31.i.i = icmp eq ptr %73, null
   br i1 %.not.i31.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !129
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %67
-  %.pre.i.i.i = load i64, ptr %37, align 8, !tbaa !128
+._crit_edge.loopexit.i.i.i:                       ; preds = %68
+  %.pre.i.i.i = load i64, ptr %38, align 8, !tbaa !128
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.preheader.i.i.i
-  %73 = phi i64 [ %55, %.preheader.i.i.i ], [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ]
-  %.021.lcssa.i.i.i = phi i64 [ %57, %.preheader.i.i.i ], [ %69, %._crit_edge.loopexit.i.i.i ]
-  %.lcssa25.i.i.i = phi ptr [ %58, %.preheader.i.i.i ], [ %70, %._crit_edge.loopexit.i.i.i ]
-  %74 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i.i, i64 %.021.lcssa.i.i.i
-  store ptr %50, ptr %74, align 8, !tbaa !123
-  %75 = add i64 %73, 1
-  store i64 %75, ptr %37, align 8, !tbaa !128
+  %74 = phi i64 [ %56, %.preheader.i.i.i ], [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ]
+  %.021.lcssa.i.i.i = phi i64 [ %58, %.preheader.i.i.i ], [ %70, %._crit_edge.loopexit.i.i.i ]
+  %.lcssa25.i.i.i = phi ptr [ %59, %.preheader.i.i.i ], [ %71, %._crit_edge.loopexit.i.i.i ]
+  %75 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i.i, i64 %.021.lcssa.i.i.i
+  store ptr %51, ptr %75, align 8, !tbaa !123
+  %76 = add i64 %74, 1
+  store i64 %76, ptr %38, align 8, !tbaa !128
   br label %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i
 
-ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i:   ; preds = %._crit_edge.i.i.i, %64, %.lr.ph.i.i
-  %76 = add nuw i64 %.02339.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %76, %45
+ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i:   ; preds = %._crit_edge.i.i.i, %65, %.lr.ph.i.i
+  %77 = add nuw i64 %.02339.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %77, %46
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !130
 
-._crit_edge.i.i:                                  ; preds = %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i, %47
-  %.not.i33.i.i = icmp eq ptr %46, null
-  br i1 %.not.i33.i.i, label %ZSTD_DDictHashSet_expand.exit.thread.i, label %77
+._crit_edge.i.i:                                  ; preds = %ZSTD_DDictHashSet_emplaceDDict.exit.thread.i.i, %48
+  %.not.i33.i.i = icmp eq ptr %47, null
+  br i1 %.not.i33.i.i, label %ZSTD_DDictHashSet_expand.exit.thread.i, label %78
 
-77:                                               ; preds = %._crit_edge.i.i
+78:                                               ; preds = %._crit_edge.i.i
   %.not4.i.i.i = icmp eq ptr %.sroa.425.0.copyload, null
-  br i1 %.not4.i.i.i, label %79, label %78
+  br i1 %.not4.i.i.i, label %80, label %79
 
-78:                                               ; preds = %77
-  tail call void %.sroa.425.0.copyload(ptr noundef %.sroa.526.0.copyload, ptr noundef nonnull %46) #17
+79:                                               ; preds = %78
+  tail call void %.sroa.425.0.copyload(ptr noundef %.sroa.526.0.copyload, ptr noundef nonnull %47) #17
   br label %ZSTD_DDictHashSet_expand.exit.thread.i
 
-79:                                               ; preds = %77
-  tail call void @free(ptr noundef nonnull %46) #17
+80:                                               ; preds = %78
+  tail call void @free(ptr noundef nonnull %47) #17
   br label %ZSTD_DDictHashSet_expand.exit.thread.i
 
-ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %79, %78, %._crit_edge.i.i, %34
-  %80 = phi ptr [ %33, %.thread ], [ %38, %79 ], [ %38, %78 ], [ %38, %._crit_edge.i.i ], [ %38, %34 ]
-  %81 = phi ptr [ %32, %.thread ], [ %37, %79 ], [ %37, %78 ], [ %37, %._crit_edge.i.i ], [ %37, %34 ]
-  %82 = phi ptr [ %.0.i202227.i, %.thread ], [ %19, %79 ], [ %19, %78 ], [ %19, %._crit_edge.i.i ], [ %19, %34 ]
-  %83 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %1) #17
-  %.val.i17.i = load i64, ptr %80, align 8, !tbaa !122
+ZSTD_DDictHashSet_expand.exit.thread.i:           ; preds = %.thread, %80, %79, %._crit_edge.i.i, %34
+  %81 = phi ptr [ %33, %.thread ], [ %39, %80 ], [ %39, %79 ], [ %39, %._crit_edge.i.i ], [ %39, %34 ]
+  %82 = phi ptr [ %32, %.thread ], [ %38, %80 ], [ %38, %79 ], [ %38, %._crit_edge.i.i ], [ %38, %34 ]
+  %83 = phi ptr [ %.0.i202227.i, %.thread ], [ %19, %80 ], [ %19, %79 ], [ %19, %._crit_edge.i.i ], [ %19, %34 ]
+  %84 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %1) #17
+  %.val.i17.i = load i64, ptr %81, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  store i32 %83, ptr %3, align 4, !tbaa !47
-  %84 = call i64 @ZSTD_XXH64(ptr noundef nonnull captures(none) %3, i64 noundef 4, i64 noundef 0) #20
-  %85 = add i64 %.val.i17.i, -1
+  store i32 %84, ptr %3, align 4, !tbaa !47
+  %85 = call i64 @ZSTD_XXH64(ptr noundef nonnull captures(none) %3, i64 noundef 4, i64 noundef 0) #20
+  %86 = add i64 %.val.i17.i, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %86 = load i64, ptr %81, align 8, !tbaa !128
-  %.not26.i = icmp eq i64 %86, %.val.i17.i
+  %87 = load i64, ptr %82, align 8, !tbaa !128
+  %.not26.i = icmp eq i64 %87, %.val.i17.i
   br i1 %.not26.i, label %ZSTD_DDictHashSet_addDDict.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %ZSTD_DDictHashSet_expand.exit.thread.i
-  %87 = and i64 %84, %85
-  %88 = load ptr, ptr %82, align 8, !tbaa !44
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %87
-  %90 = load ptr, ptr %89, align 8, !tbaa !123
-  %.not26.i18.i = icmp eq ptr %90, null
+  %88 = and i64 %85, %86
+  %89 = load ptr, ptr %83, align 8, !tbaa !44
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
+  %91 = load ptr, ptr %90, align 8, !tbaa !123
+  %.not26.i18.i = icmp eq ptr %91, null
   br i1 %.not26.i18.i, label %._crit_edge.i22.i, label %.lr.ph.i19.i
 
-.lr.ph.i19.i:                                     ; preds = %.preheader.i.i, %97
-  %91 = phi ptr [ %102, %97 ], [ %90, %.preheader.i.i ]
-  %.02127.i.i = phi i64 [ %99, %97 ], [ %87, %.preheader.i.i ]
-  %92 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %91) #17
-  %93 = icmp eq i32 %92, %83
-  br i1 %93, label %94, label %97
+.lr.ph.i19.i:                                     ; preds = %.preheader.i.i, %98
+  %92 = phi ptr [ %103, %98 ], [ %91, %.preheader.i.i ]
+  %.02127.i.i = phi i64 [ %100, %98 ], [ %88, %.preheader.i.i ]
+  %93 = tail call i32 @ZSTD_getDictID_fromDDict(ptr noundef nonnull %92) #17
+  %94 = icmp eq i32 %93, %84
+  br i1 %94, label %95, label %98
 
-94:                                               ; preds = %.lr.ph.i19.i
-  %95 = load ptr, ptr %82, align 8, !tbaa !44
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %.02127.i.i
-  store ptr %1, ptr %96, align 8, !tbaa !123
+95:                                               ; preds = %.lr.ph.i19.i
+  %96 = load ptr, ptr %83, align 8, !tbaa !44
+  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %.02127.i.i
+  store ptr %1, ptr %97, align 8, !tbaa !123
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
-97:                                               ; preds = %.lr.ph.i19.i
-  %98 = and i64 %.02127.i.i, %85
-  %99 = add i64 %98, 1
-  %100 = load ptr, ptr %82, align 8, !tbaa !44
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %99
-  %102 = load ptr, ptr %101, align 8, !tbaa !123
-  %.not.i20.i = icmp eq ptr %102, null
+98:                                               ; preds = %.lr.ph.i19.i
+  %99 = and i64 %.02127.i.i, %86
+  %100 = add i64 %99, 1
+  %101 = load ptr, ptr %83, align 8, !tbaa !44
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %100
+  %103 = load ptr, ptr %102, align 8, !tbaa !123
+  %.not.i20.i = icmp eq ptr %103, null
   br i1 %.not.i20.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i19.i, !llvm.loop !129
 
-._crit_edge.loopexit.i.i:                         ; preds = %97
-  %.pre.i21.i = load i64, ptr %81, align 8, !tbaa !128
+._crit_edge.loopexit.i.i:                         ; preds = %98
+  %.pre.i21.i = load i64, ptr %82, align 8, !tbaa !128
   br label %._crit_edge.i22.i
 
 ._crit_edge.i22.i:                                ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
-  %103 = phi i64 [ %86, %.preheader.i.i ], [ %.pre.i21.i, %._crit_edge.loopexit.i.i ]
-  %.021.lcssa.i.i = phi i64 [ %87, %.preheader.i.i ], [ %99, %._crit_edge.loopexit.i.i ]
-  %.lcssa25.i.i = phi ptr [ %88, %.preheader.i.i ], [ %100, %._crit_edge.loopexit.i.i ]
-  %104 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i, i64 %.021.lcssa.i.i
-  store ptr %1, ptr %104, align 8, !tbaa !123
-  %105 = add i64 %103, 1
-  store i64 %105, ptr %81, align 8, !tbaa !128
+  %104 = phi i64 [ %87, %.preheader.i.i ], [ %.pre.i21.i, %._crit_edge.loopexit.i.i ]
+  %.021.lcssa.i.i = phi i64 [ %88, %.preheader.i.i ], [ %100, %._crit_edge.loopexit.i.i ]
+  %.lcssa25.i.i = phi ptr [ %89, %.preheader.i.i ], [ %101, %._crit_edge.loopexit.i.i ]
+  %105 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i, i64 %.021.lcssa.i.i
+  store ptr %1, ptr %105, align 8, !tbaa !123
+  %106 = add i64 %104, 1
+  store i64 %106, ptr %82, align 8, !tbaa !128
   br label %ZSTD_DDictHashSet_addDDict.exit.thread
 
-ZSTD_DDictHashSet_addDDict.exit.thread:           ; preds = %51, %._crit_edge.i22.i, %94, %ZSTD_DDictHashSet_expand.exit.thread.i, %ZSTD_customCalloc.exit.i.i, %7, %12, %ZSTD_createDDictHashSet.exit.thread, %2
-  %.017 = phi i64 [ -60, %2 ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %12 ], [ 0, %7 ], [ -1, %ZSTD_DDictHashSet_expand.exit.thread.i ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %94 ], [ 0, %._crit_edge.i22.i ], [ -1, %51 ]
+ZSTD_DDictHashSet_addDDict.exit.thread:           ; preds = %52, %._crit_edge.i22.i, %95, %ZSTD_DDictHashSet_expand.exit.thread.i, %ZSTD_customCalloc.exit.i.i, %7, %12, %ZSTD_createDDictHashSet.exit.thread, %2
+  %.017 = phi i64 [ -60, %2 ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %12 ], [ 0, %7 ], [ -1, %ZSTD_DDictHashSet_expand.exit.thread.i ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %95 ], [ 0, %._crit_edge.i22.i ], [ -1, %52 ]
   ret i64 %.017
 }
 

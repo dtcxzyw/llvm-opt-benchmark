@@ -1089,7 +1089,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr no
 
 .preheader.i:                                     ; preds = %2
   %.not.i = icmp eq i32 %1, %3
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi i32 [ %8, %.lr.ph.i ], [ %1, %.preheader.i ]
@@ -1099,15 +1099,14 @@ define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr no
   %9 = icmp ne i32 %8, %3
   %10 = icmp ne i32 %8, 0
   %11 = and i1 %9, %10
-  br i1 %11, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %11, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.0.lcssa.i = phi i32 [ %1, %.preheader.i ], [ %8, %.lr.ph.i ]
-  %12 = icmp eq i32 %.0.lcssa.i, %3
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %12 = icmp eq i32 %8, %3
   br label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit
 
-_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %2, %._crit_edge.i
-  %.09.i = phi i1 [ %12, %._crit_edge.i ], [ false, %2 ]
+_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %2, %.preheader.i, %._crit_edge.loopexit.i
+  %.09.i = phi i1 [ false, %2 ], [ true, %.preheader.i ], [ %12, %._crit_edge.loopexit.i ]
   ret i1 %.09.i
 }
 
@@ -1116,7 +1115,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
   %3 = icmp eq i32 %0, 0
   %4 = icmp eq i32 %1, 0
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %12, label %.preheader
+  br i1 %or.cond, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %2
   %.not = icmp eq i32 %1, %0
@@ -1130,15 +1129,14 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
   %8 = icmp ne i32 %7, %0
   %9 = icmp ne i32 %7, 0
   %10 = and i1 %8, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %10, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ %0, %.preheader ], [ %7, %.lr.ph ]
-  %11 = icmp eq i32 %.0.lcssa, %0
-  br label %12
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %11 = icmp eq i32 %7, %0
+  br label %._crit_edge
 
-12:                                               ; preds = %2, %._crit_edge
-  %.09 = phi i1 [ %11, %._crit_edge ], [ false, %2 ]
+._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %2
+  %.09 = phi i1 [ false, %2 ], [ true, %.preheader ], [ %11, %._crit_edge.loopexit ]
   ret i1 %.09
 }
 
@@ -1164,24 +1162,24 @@ define dso_local noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_Pj(ptr 
   %11 = icmp ne i32 %9, %4
   %12 = icmp ne i32 %9, 0
   %13 = and i1 %11, %12
-  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !14
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.014.lcssa.i = phi i32 [ %1, %.preheader.i ], [ %9, %.lr.ph.i ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %10, %.lr.ph.i ]
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %14 = icmp eq i32 %9, %4
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
+  %.014.lcssa.i = phi i1 [ true, %.preheader.i ], [ %14, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %10, %._crit_edge.loopexit.i ]
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %15, label %14
+  br i1 %.not.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_Pj.exit, label %15
 
-14:                                               ; preds = %._crit_edge.i
+15:                                               ; preds = %._crit_edge.i
   store i32 %.0.lcssa.i, ptr %2, align 4, !tbaa !15
-  br label %15
-
-15:                                               ; preds = %14, %._crit_edge.i
-  %16 = icmp eq i32 %.014.lcssa.i, %4
   br label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_Pj.exit
 
-_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_Pj.exit: ; preds = %3, %15
-  %.013.i = phi i1 [ %16, %15 ], [ false, %3 ]
+_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_Pj.exit: ; preds = %3, %._crit_edge.i, %15
+  %.013.i = phi i1 [ false, %3 ], [ %.014.lcssa.i, %15 ], [ %.014.lcssa.i, %._crit_edge.i ]
   ret i1 %.013.i
 }
 
@@ -1190,7 +1188,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
   %4 = icmp eq i32 %0, 0
   %5 = icmp eq i32 %1, 0
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %16, label %.preheader
+  br i1 %or.cond, label %15, label %.preheader
 
 .preheader:                                       ; preds = %3
   %.not21 = icmp eq i32 %1, %0
@@ -1206,24 +1204,24 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeK
   %10 = icmp ne i32 %8, %0
   %11 = icmp ne i32 %8, 0
   %12 = and i1 %10, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %12, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.014.lcssa = phi i32 [ %0, %.preheader ], [ %8, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %9, %.lr.ph ]
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %13 = icmp eq i32 %8, %0
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.014.lcssa = phi i1 [ true, %.preheader ], [ %13, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %9, %._crit_edge.loopexit ]
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %14, label %13
+  br i1 %.not, label %15, label %14
 
-13:                                               ; preds = %._crit_edge
+14:                                               ; preds = %._crit_edge
   store i32 %.0.lcssa, ptr %2, align 4, !tbaa !15
-  br label %14
+  br label %15
 
-14:                                               ; preds = %13, %._crit_edge
-  %15 = icmp eq i32 %.014.lcssa, %0
-  br label %16
-
-16:                                               ; preds = %3, %14
-  %.013 = phi i1 [ %15, %14 ], [ false, %3 ]
+15:                                               ; preds = %._crit_edge, %14, %3
+  %.013 = phi i1 [ false, %3 ], [ %.014.lcssa, %14 ], [ %.014.lcssa, %._crit_edge ]
   ret i1 %.013
 }
 
@@ -1279,7 +1277,7 @@ define dso_local i32 @_ZN5clang11ASTNodeKind18getMostDerivedTypeES0_S0_(i32 %0, 
   %3 = icmp eq i32 %0, 0
   %4 = icmp eq i32 %1, 0
   %or.cond.i.i = or i1 %3, %4
-  br i1 %or.cond.i.i, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread, label %.preheader.i.i
+  br i1 %or.cond.i.i, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9.thread19, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %2
   %.not.i.i = icmp eq i32 %1, %0
@@ -1307,18 +1305,18 @@ _ZNK5clang11ASTNodeKind8isBaseOfES0_.exit:        ; preds = %.lr.ph.i.i
   %15 = icmp ne i32 %14, %1
   %16 = icmp ne i32 %14, 0
   %17 = and i1 %15, %16
-  br i1 %17, label %.lr.ph.i.i5, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10, !llvm.loop !12
+  br i1 %17, label %.lr.ph.i.i5, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9, !llvm.loop !12
 
-_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10:      ; preds = %.lr.ph.i.i5
+_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9:       ; preds = %.lr.ph.i.i5
   %18 = icmp eq i32 %14, %1
-  br i1 %18, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread
+  br i1 %18, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9.thread19
 
-_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread: ; preds = %2, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10
+_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9.thread19: ; preds = %2, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9
   br label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread
 
-_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread: ; preds = %.preheader.i.i, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread
-  %.sroa.015.0 = phi i32 [ 0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread ], [ %1, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit ], [ %0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10 ], [ %1, %.preheader.i.i ]
-  ret i32 %.sroa.015.0
+_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread: ; preds = %.preheader.i.i, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9.thread19
+  %.sroa.014.0 = phi i32 [ 0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9.thread19 ], [ %1, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit ], [ %0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit9 ], [ %0, %.preheader.i.i ]
+  ret i32 %.sroa.014.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1330,37 +1328,36 @@ define dso_local i32 @_ZN5clang11ASTNodeKind28getMostDerivedCommonAncestorES0_S0
   %3 = icmp eq i32 %.fr9, 0
   %4 = icmp eq i32 %0, 0
   %brmerge = select i1 %3, i1 true, i1 %4
-  br i1 %brmerge, label %.split7.us, label %.preheader.i
+  br i1 %brmerge, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %.split
-  %.016 = phi i32 [ %14, %.split ], [ %0, %2 ]
-  %.not.i = icmp eq i32 %.fr9, %.016
-  br i1 %.not.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, label %.lr.ph.i
+  %.017 = phi i32 [ %14, %.split ], [ %0, %2 ]
+  %.not.i = icmp eq i32 %.fr9, %.017
+  br i1 %.not.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi i32 [ %7, %.lr.ph.i ], [ %.fr9, %.preheader.i ]
   %5 = zext i32 %.011.i to i64
   %6 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !8
-  %8 = icmp ne i32 %7, %.016
+  %8 = icmp ne i32 %7, %.017
   %9 = icmp ne i32 %7, 0
   %10 = and i1 %8, %9
   br i1 %10, label %.lr.ph.i, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, !llvm.loop !12
 
-_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %.lr.ph.i, %.preheader.i
-  %.0.lcssa.i = phi i32 [ %.fr9, %.preheader.i ], [ %7, %.lr.ph.i ]
-  %11 = icmp eq i32 %.0.lcssa.i, %.016
-  br i1 %11, label %.split7.us, label %.split
+_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit: ; preds = %.lr.ph.i
+  %11 = icmp eq i32 %7, %.017
+  br i1 %11, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.split
 
 .split:                                           ; preds = %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit
-  %12 = zext i32 %.016 to i64
+  %12 = zext i32 %.017 to i64
   %13 = getelementptr inbounds nuw [1047 x %"struct.clang::ASTNodeKind::KindInfo"], ptr @_ZN5clang11ASTNodeKind11AllKindInfoE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 16, !tbaa !8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.split7.us, label %.preheader.i, !llvm.loop !19
+  br i1 %15, label %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread, label %.preheader.i, !llvm.loop !19
 
-.split7.us:                                       ; preds = %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, %.split, %2
-  %.us-phi = phi i32 [ 0, %2 ], [ 0, %.split ], [ %.016, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit ]
+_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit.thread: ; preds = %.preheader.i, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit, %.split, %2
+  %.us-phi = phi i32 [ 0, %2 ], [ 0, %.split ], [ %.017, %_ZN5clang11ASTNodeKind8isBaseOfENS0_10NodeKindIdES1_.exit ], [ %.fr9, %.preheader.i ]
   ret i32 %.us-phi
 }
 

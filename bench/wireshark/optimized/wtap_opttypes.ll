@@ -4727,7 +4727,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %.not230 = icmp eq i32 %18, 0
-  br i1 %.not230, label %._crit_edge, label %.lr.ph
+  br i1 %.not230, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %19 = load ptr, ptr %16, align 8
@@ -4751,25 +4751,20 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, %1
-  br i1 %31, label %._crit_edge.loopexit, label %32
+  br i1 %31, label %._crit_edge, label %32
 
 32:                                               ; preds = %20, %24, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %20, !llvm.loop !19
 
-._crit_edge.loopexit:                             ; preds = %28
+._crit_edge:                                      ; preds = %28
   %33 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0216.lcssa = phi i32 [ 0, %.preheader ], [ %33, %._crit_edge.loopexit ]
-  %.1 = phi ptr [ undef, %.preheader ], [ %21, %._crit_edge.loopexit ]
-  %34 = icmp eq i32 %.0216.lcssa, %18
+  %34 = icmp eq i32 %18, %33
   br i1 %34, label %._crit_edge.thread, label %35
 
 35:                                               ; preds = %._crit_edge
-  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = icmp ult i64 %3, %37
   br i1 %38, label %._crit_edge.thread, label %39
@@ -4784,14 +4779,14 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   ]
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %.1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %2, align 4
   br label %._crit_edge.thread
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %.1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %2, align 8
@@ -5092,7 +5087,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   br label %._crit_edge.thread
 
 265:                                              ; preds = %39
-  %266 = getelementptr inbounds nuw i8, ptr %.1, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %267 = load ptr, ptr %266, align 8
   %268 = load i32, ptr %267, align 8
   store i32 %268, ptr %2, align 8
@@ -5164,20 +5159,20 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   br label %._crit_edge.thread
 
 313:                                              ; preds = %39
-  %314 = getelementptr inbounds nuw i8, ptr %.1, i64 32
+  %314 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %315 = load ptr, ptr %314, align 8
   %316 = load i64, ptr %315, align 8
   store i64 %316, ptr %2, align 8
   br label %._crit_edge.thread
 
 317:                                              ; preds = %39
-  %318 = getelementptr inbounds nuw i8, ptr %.1, i64 32
+  %318 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %319 = load ptr, ptr %318, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %2, ptr noundef align 1 %319, i64 noundef %3, i1 noundef false) #19
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %32, %40, %178, %292, %313, %317, %39, %35, %._crit_edge, %12, %6, %4
-  %.0 = phi i32 [ -6, %4 ], [ -1, %6 ], [ -3, %12 ], [ -2, %._crit_edge ], [ -3, %35 ], [ -2, %39 ], [ 0, %317 ], [ 0, %313 ], [ 0, %292 ], [ 0, %178 ], [ 0, %40 ], [ -2, %32 ]
+._crit_edge.thread:                               ; preds = %32, %.preheader, %40, %178, %292, %313, %317, %39, %35, %._crit_edge, %12, %6, %4
+  %.0 = phi i32 [ -6, %4 ], [ -1, %6 ], [ -3, %12 ], [ -2, %._crit_edge ], [ -3, %35 ], [ -2, %39 ], [ 0, %317 ], [ 0, %313 ], [ 0, %292 ], [ 0, %178 ], [ 0, %40 ], [ -2, %.preheader ], [ -2, %32 ]
   ret i32 %.0
 }
 

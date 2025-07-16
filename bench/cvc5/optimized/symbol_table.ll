@@ -2093,11 +2093,11 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58
   br i1 %.not394, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge.thread, label %.lr.ph
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge: ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %258 = load i8, ptr %257, align 8, !tbaa !90, !range !91, !noundef !92
-  %259 = trunc nuw i8 %258 to i1
-  %260 = icmp eq ptr %278, %277
-  %or.cond = or i1 %260, %259
+  %257 = icmp eq ptr %278, %277
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %259 = load i8, ptr %258, align 8, !tbaa !90, !range !91, !noundef !92
+  %260 = trunc nuw i8 %259 to i1
+  %or.cond = or i1 %257, %260
   br i1 %or.cond, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge.thread, label %357
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i230
@@ -2187,10 +2187,10 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58
   br label %432
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge.thread: ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit.preheader, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge
-  %.031.lcssa408 = phi ptr [ %274, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge ], [ %253, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit.preheader ]
-  %284 = getelementptr inbounds nuw i8, ptr %.031.lcssa408, i64 64
+  %.031.lcssa407 = phi ptr [ %274, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge ], [ %253, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit.preheader ]
+  %284 = getelementptr inbounds nuw i8, ptr %.031.lcssa407, i64 64
   %285 = load ptr, ptr %284, align 8, !tbaa !46
-  %286 = getelementptr inbounds nuw i8, ptr %.031.lcssa408, i64 56
+  %286 = getelementptr inbounds nuw i8, ptr %.031.lcssa407, i64 56
   %.not10.i.i.i = icmp eq ptr %285, null
   br i1 %.not10.i.i.i, label %_ZNSt3mapIN4cvc54SortENS0_4TermESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.thread, label %.lr.ph.i.i.i
 
@@ -2249,9 +2249,9 @@ _ZN4cvc54TermC2ERKS0_.exit.thread:                ; preds = %293
   %305 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %306 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !56
   %.not.i.i.i.i.i178 = icmp eq i8 %306, 0
-  br i1 %.not.i.i.i.i.i178, label %_ZN4cvc54TermC2ERKS0_.exit, label %_ZN4cvc54TermC2ERKS0_.exit.thread409
+  br i1 %.not.i.i.i.i.i178, label %_ZN4cvc54TermC2ERKS0_.exit, label %_ZN4cvc54TermC2ERKS0_.exit.thread408
 
-_ZN4cvc54TermC2ERKS0_.exit.thread409:             ; preds = %304
+_ZN4cvc54TermC2ERKS0_.exit.thread408:             ; preds = %304
   %307 = load i32, ptr %305, align 4, !tbaa !57
   %308 = add nsw i32 %307, 1
   store i32 %308, ptr %305, align 4, !tbaa !57
@@ -2275,9 +2275,9 @@ _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %304
   %.not.i.i.i.i179 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i179, label %_ZN4cvc54TermC2ERKS0_.exit181, label %314
 
-314:                                              ; preds = %_ZN4cvc54TermC2ERKS0_.exit.thread409, %_ZN4cvc54TermC2ERKS0_.exit
-  %.pr412 = phi ptr [ %301, %_ZN4cvc54TermC2ERKS0_.exit.thread409 ], [ %.pr.pre, %_ZN4cvc54TermC2ERKS0_.exit ]
-  %315 = getelementptr inbounds nuw i8, ptr %.pr412, i64 8
+314:                                              ; preds = %_ZN4cvc54TermC2ERKS0_.exit.thread408, %_ZN4cvc54TermC2ERKS0_.exit
+  %.pr411 = phi ptr [ %301, %_ZN4cvc54TermC2ERKS0_.exit.thread408 ], [ %.pr.pre, %_ZN4cvc54TermC2ERKS0_.exit ]
+  %315 = getelementptr inbounds nuw i8, ptr %.pr411, i64 8
   %316 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !56
   %.not.i.i.i.i.i180 = icmp eq i8 %316, 0
   br i1 %.not.i.i.i.i.i180, label %320, label %317
@@ -2456,7 +2456,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit199.thread: ; preds = %_ZNK4cvc58
   br label %432
 
 _ZNSt3mapIN4cvc54SortENS0_4TermESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.thread: ; preds = %360, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge.thread, %_ZNSt8_Rb_treeIN4cvc54SortESt4pairIKS1_NS0_4TermEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNSt3mapIN4cvc54SortENS0_4TermESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit, %.critedge70
-  %.031.lcssa407 = phi ptr [ %.031.lcssa408, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge.thread ], [ %.031.lcssa408, %_ZNSt8_Rb_treeIN4cvc54SortESt4pairIKS1_NS0_4TermEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %.031.lcssa408, %_ZNSt3mapIN4cvc54SortENS0_4TermESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit ], [ %.031.lcssa408, %.critedge70 ], [ %274, %360 ]
+  %.031.lcssa406 = phi ptr [ %.031.lcssa407, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_.exit._crit_edge.thread ], [ %.031.lcssa407, %_ZNSt8_Rb_treeIN4cvc54SortESt4pairIKS1_NS0_4TermEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %.031.lcssa407, %_ZNSt3mapIN4cvc54SortENS0_4TermESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit ], [ %.031.lcssa407, %.critedge70 ], [ %274, %360 ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %367 = load ptr, ptr %366, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #25
@@ -2466,10 +2466,10 @@ _ZNSt3mapIN4cvc54SortENS0_4TermESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit
 
 369:                                              ; preds = %_ZNSt3mapIN4cvc54SortENS0_4TermESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.thread
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25
-  %370 = getelementptr inbounds nuw i8, ptr %.031.lcssa407, i64 48
-  %371 = getelementptr inbounds nuw i8, ptr %.031.lcssa407, i64 64
+  %370 = getelementptr inbounds nuw i8, ptr %.031.lcssa406, i64 48
+  %371 = getelementptr inbounds nuw i8, ptr %.031.lcssa406, i64 64
   %372 = load ptr, ptr %371, align 8, !tbaa !46
-  %373 = getelementptr inbounds nuw i8, ptr %.031.lcssa407, i64 56
+  %373 = getelementptr inbounds nuw i8, ptr %.031.lcssa406, i64 56
   %.not10.i.i.i.i229 = icmp eq ptr %372, null
   br i1 %.not10.i.i.i.i229, label %.critedge.i239, label %.lr.ph.i.i.i.i230
 

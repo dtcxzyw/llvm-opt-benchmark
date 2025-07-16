@@ -6906,7 +6906,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.8..8..8..sroa_idx120 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.8..8..8..sroa_idx124 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %66
 
 66:                                               ; preds = %.backedge, %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
@@ -6954,7 +6954,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
   %.fca.1.extract30 = extractvalue { i64, i64 } %89, 1
   %.sroa.232.0.extract.trunc = trunc i64 %.fca.1.extract30 to i40
   store i64 %.fca.0.extract29, ptr %6, align 8
-  store i40 %.sroa.232.0.extract.trunc, ptr %.8..8..8..sroa_idx120, align 8
+  store i40 %.sroa.232.0.extract.trunc, ptr %.8..8..8..sroa_idx124, align 8
   br label %175
 
 90:                                               ; preds = %80
@@ -7168,13 +7168,16 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.
   %176 = load ptr, ptr %43, align 8, !tbaa !173
   %177 = load ptr, ptr %52, align 8, !tbaa !182
   %.not.i.i = icmp eq ptr %176, %177
-  br i1 %.not.i.i, label %180, label %178
+  br i1 %.not.i.i, label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread, label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
 
-178:                                              ; preds = %175
-  %179 = getelementptr inbounds i8, ptr %176, i64 -72
-  br label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
+_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %175
+  %178 = getelementptr inbounds i8, ptr %176, i64 -72
+  store ptr %178, ptr %43, align 8, !tbaa !173
+  %179 = load ptr, ptr %65, align 8, !tbaa !174
+  %180 = icmp eq ptr %178, %179
+  br i1 %180, label %.loopexit.loopexit, label %188
 
-180:                                              ; preds = %175
+_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread: ; preds = %175
   call void @_ZdlPv(ptr noundef %177) #23
   %181 = load ptr, ptr %53, align 8, !tbaa !68
   %182 = getelementptr inbounds i8, ptr %181, i64 -8
@@ -7184,58 +7187,53 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 504
   store ptr %184, ptr %45, align 8, !tbaa !171
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 432
-  br label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
+  store ptr %185, ptr %43, align 8, !tbaa !173
+  %186 = load ptr, ptr %65, align 8, !tbaa !174
+  %187 = icmp eq ptr %185, %186
+  br i1 %187, label %.loopexit.loopexit, label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102
 
-_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %178, %180
-  %186 = phi ptr [ %177, %178 ], [ %183, %180 ]
-  %storemerge.i.i = phi ptr [ %179, %178 ], [ %185, %180 ]
-  store ptr %storemerge.i.i, ptr %43, align 8, !tbaa !173
-  %187 = load ptr, ptr %65, align 8, !tbaa !174
-  %188 = icmp eq ptr %storemerge.i.i, %187
-  br i1 %188, label %.loopexit.loopexit, label %189
+188:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
+  %189 = icmp eq ptr %178, %177
+  br i1 %189, label %190, label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102
 
-189:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
-  %190 = icmp eq ptr %storemerge.i.i, %186
-  br i1 %190, label %191, label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102
-
-191:                                              ; preds = %189
-  %192 = load ptr, ptr %53, align 8, !tbaa !169, !noalias !195
-  %193 = getelementptr inbounds i8, ptr %192, i64 -8
-  %194 = load ptr, ptr %193, align 8, !tbaa !69
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 504
+190:                                              ; preds = %188
+  %191 = load ptr, ptr %53, align 8, !tbaa !169, !noalias !195
+  %192 = getelementptr inbounds i8, ptr %191, i64 -8
+  %193 = load ptr, ptr %192, align 8, !tbaa !69
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 504
   br label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102
 
-_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102: ; preds = %189, %191
-  %196 = phi ptr [ %195, %191 ], [ %storemerge.i.i, %189 ]
-  %197 = getelementptr inbounds i8, ptr %196, i64 -8
-  %198 = load ptr, ptr %197, align 8, !tbaa !181
-  %.not96 = icmp eq ptr %198, null
-  br i1 %.not96, label %204, label %199
+_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102: ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread, %188, %190
+  %195 = phi ptr [ %194, %190 ], [ %178, %188 ], [ %185, %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread ]
+  %196 = getelementptr inbounds i8, ptr %195, i64 -8
+  %197 = load ptr, ptr %196, align 8, !tbaa !181
+  %.not96 = icmp eq ptr %197, null
+  br i1 %.not96, label %203, label %198
 
-199:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102
-  %200 = getelementptr inbounds i8, ptr %196, i64 -64
-  %201 = load i32, ptr %200, align 8, !tbaa !187
-  %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds %"struct.duckdb_re2::Frag", ptr %198, i64 %202
-  br label %206
+198:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102
+  %199 = getelementptr inbounds i8, ptr %195, i64 -64
+  %200 = load i32, ptr %199, align 8, !tbaa !187
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds %"struct.duckdb_re2::Frag", ptr %197, i64 %201
+  br label %205
 
-204:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102
-  %205 = getelementptr inbounds i8, ptr %196, i64 -28
-  br label %206
+203:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit102
+  %204 = getelementptr inbounds i8, ptr %195, i64 -28
+  br label %205
 
-206:                                              ; preds = %204, %199
-  %.sink = phi ptr [ %205, %204 ], [ %203, %199 ]
+205:                                              ; preds = %203, %198
+  %.sink = phi ptr [ %204, %203 ], [ %202, %198 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %.sink, ptr noundef nonnull align 8 dereferenceable(13) %6, i64 13, i1 false)
-  %207 = getelementptr inbounds i8, ptr %196, i64 -64
-  %208 = load i32, ptr %207, align 8, !tbaa !187
-  %209 = add nsw i32 %208, 1
-  store i32 %209, ptr %207, align 8, !tbaa !187
+  %206 = getelementptr inbounds i8, ptr %195, i64 -64
+  %207 = load i32, ptr %206, align 8, !tbaa !187
+  %208 = add nsw i32 %207, 1
+  store i32 %208, ptr %206, align 8, !tbaa !187
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit101, %138, %206
+.backedge:                                        ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit101, %138, %205
   br label %66, !llvm.loop !194
 
-.loopexit.loopexit:                               ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
+.loopexit.loopexit:                               ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread, %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
   %.0..0..0..fca.0.load.pre = load i64, ptr %6, align 8
   %.8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..fca.1.load.pre = load i64, ptr %.8..8..8..fca.1.gep.sroa_idx, align 8

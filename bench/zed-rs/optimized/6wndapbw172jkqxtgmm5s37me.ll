@@ -14887,12 +14887,15 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17ha6e8363192833b
   %.sroa.013.0.i303 = select i1 %203, i64 %204, i64 %.sroa.03.019.i299
   %205 = sub i64 %.sroa.014.0.i302, %.sroa.013.0.i303
   %206 = icmp ult i64 %.sroa.013.0.i303, %.sroa.014.0.i302
-  br i1 %206, label %.lr.ph.i296, label %.loopexit489
+  br i1 %206, label %.lr.ph.i296, label %.loopexit489.loopexit
 
-.loopexit489:                                     ; preds = %201, %195
-  %.sroa.03.0.lcssa.i305 = phi i64 [ 0, %195 ], [ %.sroa.013.0.i303, %201 ]
-  %207 = icmp ule i64 %.sroa.03.0.lcssa.i305, %91
-  call void @llvm.assume(i1 %207)
+.loopexit489.loopexit:                            ; preds = %201
+  %207 = icmp ule i64 %.sroa.013.0.i303, %91
+  br label %.loopexit489
+
+.loopexit489:                                     ; preds = %.loopexit489.loopexit, %195
+  %.sroa.03.0.lcssa.i305 = phi i1 [ true, %195 ], [ %207, %.loopexit489.loopexit ]
+  call void @llvm.assume(i1 %.sroa.03.0.lcssa.i305)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i296, %.loopexit489

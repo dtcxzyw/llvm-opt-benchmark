@@ -3104,15 +3104,15 @@ define internal fastcc zeroext i1 @timekeeping_advance(i32 noundef range(i32 0, 
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %40
 
-40:                                               ; preds = %144, %33
-  %41 = phi i64 [ %31, %33 ], [ %145, %144 ]
-  %42 = phi i64 [ %20, %33 ], [ %147, %144 ]
-  %43 = phi i32 [ %37, %33 ], [ %150, %144 ]
-  %44 = phi i32 [ 0, %33 ], [ %146, %144 ]
+40:                                               ; preds = %146, %33
+  %41 = phi i64 [ %31, %33 ], [ %147, %146 ]
+  %42 = phi i64 [ %20, %33 ], [ %149, %146 ]
+  %43 = phi i32 [ %37, %33 ], [ %150, %146 ]
+  %44 = phi i32 [ 0, %33 ], [ %148, %146 ]
   %45 = zext i32 %43 to i64
   %46 = shl i64 %41, %45
   %47 = icmp ugt i64 %46, %42
-  br i1 %47, label %144, label %48
+  br i1 %47, label %146, label %48
 
 48:                                               ; preds = %40
   %49 = sub nuw i64 %42, %46
@@ -3267,22 +3267,22 @@ tk_set_wall_to_mono.exit:                         ; preds = %73, %94
   store i64 %143, ptr getelementptr inbounds nuw (i8, ptr @shadow_timekeeper, i64 256), align 8
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @shadow_timekeeper, i64 216), align 8
   %.pre35 = shl i64 %.pre, %45
-  br label %144
+  %144 = icmp ult i64 %49, %.pre35
+  %145 = sext i1 %144 to i32
+  br label %146
 
-144:                                              ; preds = %131, %40
-  %.pre-phi = phi i64 [ %.pre35, %131 ], [ %46, %40 ]
-  %145 = phi i64 [ %.pre, %131 ], [ %41, %40 ]
-  %146 = phi i32 [ %113, %131 ], [ %44, %40 ]
-  %147 = phi i64 [ %49, %131 ], [ %42, %40 ]
-  %148 = icmp ult i64 %147, %.pre-phi
-  %149 = sext i1 %148 to i32
-  %150 = add i32 %43, %149
-  %151 = icmp ult i64 %147, %145
+146:                                              ; preds = %131, %40
+  %.pre-phi = phi i32 [ %145, %131 ], [ -1, %40 ]
+  %147 = phi i64 [ %.pre, %131 ], [ %41, %40 ]
+  %148 = phi i32 [ %113, %131 ], [ %44, %40 ]
+  %149 = phi i64 [ %49, %131 ], [ %42, %40 ]
+  %150 = add i32 %43, %.pre-phi
+  %151 = icmp ult i64 %149, %147
   br i1 %151, label %.loopexit21, label %40, !llvm.loop !95
 
-.loopexit21:                                      ; preds = %144, %25
-  %152 = phi i32 [ 0, %25 ], [ %146, %144 ]
-  %153 = phi i64 [ %20, %25 ], [ %147, %144 ]
+.loopexit21:                                      ; preds = %146, %25
+  %152 = phi i32 [ 0, %25 ], [ %148, %146 ]
+  %153 = phi i64 [ %20, %25 ], [ %149, %146 ]
   %154 = load i64, ptr getelementptr inbounds nuw (i8, ptr @shadow_timekeeper, i64 248), align 8
   %155 = call i64 @ntp_tick_length() #10
   %156 = icmp eq i64 %154, %155

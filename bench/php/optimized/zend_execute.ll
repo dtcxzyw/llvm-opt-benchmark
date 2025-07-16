@@ -8277,25 +8277,25 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %55, %53, %31, %25
   store i32 0, ptr %60, align 4, !tbaa !55
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
   %.not16 = icmp eq ptr %61, null
-  br i1 %.not16, label %64, label %62
+  br i1 %.not16, label %65, label %62
 
 62:                                               ; preds = %zend_vm_stack_push_call_frame.exit
   %63 = tail call ptr @zend_rebuild_symbol_table() #31
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sink38, i64 24
   %.pre28 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  br label %64
+  %64 = icmp eq ptr %.pre28, %0
+  br label %65
 
-64:                                               ; preds = %zend_vm_stack_push_call_frame.exit, %62
-  %65 = phi ptr [ %.pre28, %62 ], [ %0, %zend_vm_stack_push_call_frame.exit ]
-  %66 = phi ptr [ %.pre, %62 ], [ null, %zend_vm_stack_push_call_frame.exit ]
+65:                                               ; preds = %zend_vm_stack_push_call_frame.exit, %62
+  %66 = phi i1 [ %64, %62 ], [ true, %zend_vm_stack_push_call_frame.exit ]
+  %67 = phi ptr [ %.pre, %62 ], [ null, %zend_vm_stack_push_call_frame.exit ]
   %.sink = phi ptr [ %63, %62 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), %zend_vm_stack_push_call_frame.exit ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sink38, i64 56
-  store ptr %.sink, ptr %67, align 8, !tbaa !204
-  %68 = getelementptr inbounds nuw i8, ptr %.sink38, i64 48
-  store ptr %66, ptr %68, align 8, !tbaa !57
-  %69 = icmp eq ptr %65, %0
-  tail call void @llvm.assume(i1 %69)
+  %68 = getelementptr inbounds nuw i8, ptr %.sink38, i64 56
+  store ptr %.sink, ptr %68, align 8, !tbaa !204
+  %69 = getelementptr inbounds nuw i8, ptr %.sink38, i64 48
+  store ptr %67, ptr %69, align 8, !tbaa !57
+  tail call void @llvm.assume(i1 %66)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %71 = load ptr, ptr %70, align 8, !tbaa !181
   store ptr %71, ptr %.sink38, align 8, !tbaa !58
@@ -8308,11 +8308,11 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %55, %53, %31, %25
   %.not.i = icmp eq i32 %75, 0
   br i1 %.not.i, label %77, label %76
 
-76:                                               ; preds = %64
+76:                                               ; preds = %65
   tail call void @zend_attach_symbol_table(ptr noundef nonnull %.sink38) #31
   br label %77
 
-77:                                               ; preds = %76, %64
+77:                                               ; preds = %76, %65
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !180
   %.not56.i = icmp eq ptr %79, null
@@ -77386,23 +77386,23 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %119, %122
 132:                                              ; preds = %zend_vm_stack_push_call_frame.exit
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %134 = load ptr, ptr %133, align 8, !tbaa !204
-  br label %137
+  br label %138
 
 135:                                              ; preds = %zend_vm_stack_push_call_frame.exit
   %136 = tail call ptr @zend_rebuild_symbol_table() #31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sink101, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  br label %137
+  %137 = icmp eq ptr %.pre, %9
+  br label %138
 
-137:                                              ; preds = %135, %132
-  %138 = phi ptr [ %.pre, %135 ], [ %9, %132 ]
+138:                                              ; preds = %135, %132
+  %139 = phi i1 [ %137, %135 ], [ true, %132 ]
   %.sink = phi ptr [ %136, %135 ], [ %134, %132 ]
-  %139 = getelementptr inbounds nuw i8, ptr %.sink101, i64 56
-  store ptr %.sink, ptr %139, align 8, !tbaa !204
-  %140 = getelementptr inbounds nuw i8, ptr %.sink101, i64 48
-  store ptr %0, ptr %140, align 8, !tbaa !57
-  %141 = icmp eq ptr %138, %9
-  tail call void @llvm.assume(i1 %141)
+  %140 = getelementptr inbounds nuw i8, ptr %.sink101, i64 56
+  store ptr %.sink, ptr %140, align 8, !tbaa !204
+  %141 = getelementptr inbounds nuw i8, ptr %.sink101, i64 48
+  store ptr %0, ptr %141, align 8, !tbaa !57
+  tail call void @llvm.assume(i1 %139)
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %143 = load ptr, ptr %142, align 8, !tbaa !181
   store ptr %143, ptr %.sink101, align 8, !tbaa !58
@@ -77415,11 +77415,11 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %119, %122
   %.not.i86 = icmp eq i32 %147, 0
   br i1 %.not.i86, label %149, label %148
 
-148:                                              ; preds = %137
+148:                                              ; preds = %138
   tail call void @zend_attach_symbol_table(ptr noundef nonnull %.sink101) #31
   br label %149
 
-149:                                              ; preds = %148, %137
+149:                                              ; preds = %148, %138
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %151 = load ptr, ptr %150, align 8, !tbaa !180
   %.not56.i = icmp eq ptr %151, null
@@ -77844,24 +77844,24 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %149, %152
 162:                                              ; preds = %zend_vm_stack_push_call_frame.exit
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %164 = load ptr, ptr %163, align 8, !tbaa !204
-  br label %167
+  br label %168
 
 165:                                              ; preds = %zend_vm_stack_push_call_frame.exit
   %166 = tail call ptr @zend_rebuild_symbol_table() #31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sink137, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  br label %167
+  %167 = icmp eq ptr %.pre, %24
+  br label %168
 
-167:                                              ; preds = %165, %162
-  %168 = phi ptr [ %.pre, %165 ], [ %24, %162 ]
+168:                                              ; preds = %165, %162
+  %169 = phi i1 [ %167, %165 ], [ true, %162 ]
   %.sink = phi ptr [ %166, %165 ], [ %164, %162 ]
-  %169 = getelementptr inbounds nuw i8, ptr %.sink137, i64 56
-  store ptr %.sink, ptr %169, align 8, !tbaa !204
-  %170 = getelementptr inbounds nuw i8, ptr %.sink137, i64 48
-  store ptr %0, ptr %170, align 8, !tbaa !57
-  %171 = getelementptr inbounds nuw i8, ptr %.sink137, i64 24
-  %172 = icmp eq ptr %168, %24
-  tail call void @llvm.assume(i1 %172)
+  %170 = getelementptr inbounds nuw i8, ptr %.sink137, i64 56
+  store ptr %.sink, ptr %170, align 8, !tbaa !204
+  %171 = getelementptr inbounds nuw i8, ptr %.sink137, i64 48
+  store ptr %0, ptr %171, align 8, !tbaa !57
+  %172 = getelementptr inbounds nuw i8, ptr %.sink137, i64 24
+  tail call void @llvm.assume(i1 %169)
   %173 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %174 = load ptr, ptr %173, align 8, !tbaa !181
   store ptr %174, ptr %.sink137, align 8, !tbaa !58
@@ -77874,11 +77874,11 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %149, %152
   %.not.i115 = icmp eq i32 %178, 0
   br i1 %.not.i115, label %180, label %179
 
-179:                                              ; preds = %167
+179:                                              ; preds = %168
   tail call void @zend_attach_symbol_table(ptr noundef nonnull %.sink137) #31
   br label %180
 
-180:                                              ; preds = %179, %167
+180:                                              ; preds = %179, %168
   %181 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %182 = load ptr, ptr %181, align 8, !tbaa !180
   %.not56.i = icmp eq ptr %182, null
@@ -77919,7 +77919,7 @@ i_init_code_execute_data.exit:                    ; preds = %194, %198
   %203 = getelementptr inbounds nuw i8, ptr %.sink137, i64 64
   store ptr %202, ptr %203, align 8, !tbaa !153
   store ptr %.sink137, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  %204 = load ptr, ptr %171, align 8, !tbaa !54
+  %204 = load ptr, ptr %172, align 8, !tbaa !54
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 56
   %206 = load ptr, ptr %205, align 8, !tbaa !55
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 4
@@ -78394,23 +78394,23 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %131, %134
 144:                                              ; preds = %zend_vm_stack_push_call_frame.exit
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %146 = load ptr, ptr %145, align 8, !tbaa !204
-  br label %149
+  br label %150
 
 147:                                              ; preds = %zend_vm_stack_push_call_frame.exit
   %148 = tail call ptr @zend_rebuild_symbol_table() #31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sink118, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  br label %149
+  %149 = icmp eq ptr %.pre, %9
+  br label %150
 
-149:                                              ; preds = %147, %144
-  %150 = phi ptr [ %.pre, %147 ], [ %9, %144 ]
+150:                                              ; preds = %147, %144
+  %151 = phi i1 [ %149, %147 ], [ true, %144 ]
   %.sink = phi ptr [ %148, %147 ], [ %146, %144 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sink118, i64 56
-  store ptr %.sink, ptr %151, align 8, !tbaa !204
-  %152 = getelementptr inbounds nuw i8, ptr %.sink118, i64 48
-  store ptr %0, ptr %152, align 8, !tbaa !57
-  %153 = icmp eq ptr %150, %9
-  tail call void @llvm.assume(i1 %153)
+  %152 = getelementptr inbounds nuw i8, ptr %.sink118, i64 56
+  store ptr %.sink, ptr %152, align 8, !tbaa !204
+  %153 = getelementptr inbounds nuw i8, ptr %.sink118, i64 48
+  store ptr %0, ptr %153, align 8, !tbaa !57
+  tail call void @llvm.assume(i1 %151)
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %155 = load ptr, ptr %154, align 8, !tbaa !181
   store ptr %155, ptr %.sink118, align 8, !tbaa !58
@@ -78423,11 +78423,11 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %131, %134
   %.not.i104 = icmp eq i32 %159, 0
   br i1 %.not.i104, label %161, label %160
 
-160:                                              ; preds = %149
+160:                                              ; preds = %150
   tail call void @zend_attach_symbol_table(ptr noundef nonnull %.sink118) #31
   br label %161
 
-161:                                              ; preds = %160, %149
+161:                                              ; preds = %160, %150
   %162 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %163 = load ptr, ptr %162, align 8, !tbaa !180
   %.not56.i = icmp eq ptr %163, null
@@ -78869,23 +78869,23 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %123, %126
 136:                                              ; preds = %zend_vm_stack_push_call_frame.exit
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %138 = load ptr, ptr %137, align 8, !tbaa !204
-  br label %141
+  br label %142
 
 139:                                              ; preds = %zend_vm_stack_push_call_frame.exit
   %140 = tail call ptr @zend_rebuild_symbol_table() #31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sink101, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  br label %141
+  %141 = icmp eq ptr %.pre, %13
+  br label %142
 
-141:                                              ; preds = %139, %136
-  %142 = phi ptr [ %.pre, %139 ], [ %13, %136 ]
+142:                                              ; preds = %139, %136
+  %143 = phi i1 [ %141, %139 ], [ true, %136 ]
   %.sink = phi ptr [ %140, %139 ], [ %138, %136 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.sink101, i64 56
-  store ptr %.sink, ptr %143, align 8, !tbaa !204
-  %144 = getelementptr inbounds nuw i8, ptr %.sink101, i64 48
-  store ptr %0, ptr %144, align 8, !tbaa !57
-  %145 = icmp eq ptr %142, %13
-  tail call void @llvm.assume(i1 %145)
+  %144 = getelementptr inbounds nuw i8, ptr %.sink101, i64 56
+  store ptr %.sink, ptr %144, align 8, !tbaa !204
+  %145 = getelementptr inbounds nuw i8, ptr %.sink101, i64 48
+  store ptr %0, ptr %145, align 8, !tbaa !57
+  tail call void @llvm.assume(i1 %143)
   %146 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %147 = load ptr, ptr %146, align 8, !tbaa !181
   store ptr %147, ptr %.sink101, align 8, !tbaa !58
@@ -78898,11 +78898,11 @@ zend_vm_stack_push_call_frame.exit:               ; preds = %123, %126
   %.not.i86 = icmp eq i32 %151, 0
   br i1 %.not.i86, label %153, label %152
 
-152:                                              ; preds = %141
+152:                                              ; preds = %142
   tail call void @zend_attach_symbol_table(ptr noundef nonnull %.sink101) #31
   br label %153
 
-153:                                              ; preds = %152, %141
+153:                                              ; preds = %152, %142
   %154 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %155 = load ptr, ptr %154, align 8, !tbaa !180
   %.not56.i = icmp eq ptr %155, null
@@ -129642,16 +129642,16 @@ zend_array_release.exit:                          ; preds = %101, %96, %92, %89
 118:                                              ; preds = %109, %114
   %119 = phi ptr [ %117, %114 ], [ %111, %109 ]
   %.not142 = icmp eq ptr %119, null
-  br i1 %.not142, label %120, label %121, !prof !60
+  br i1 %.not142, label %120, label %122, !prof !60
 
 120:                                              ; preds = %118
   tail call fastcc void @init_func_run_time_cache(ptr noundef nonnull %106)
   %.pre157 = load ptr, ptr %3, align 8, !tbaa !54
-  br label %121
+  %121 = icmp eq ptr %.pre157, %106
+  br label %122
 
-121:                                              ; preds = %120, %118
-  %122 = phi ptr [ %.pre157, %120 ], [ %106, %118 ]
-  %123 = icmp eq ptr %122, %106
+122:                                              ; preds = %120, %118
+  %123 = phi i1 [ %121, %120 ], [ true, %118 ]
   tail call void @llvm.assume(i1 %123)
   %124 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %125 = load ptr, ptr %124, align 8, !tbaa !181
@@ -129665,11 +129665,11 @@ zend_array_release.exit:                          ; preds = %101, %96, %92, %89
   %130 = icmp ugt i32 %129, %128
   br i1 %130, label %131, label %132, !prof !60
 
-131:                                              ; preds = %121
+131:                                              ; preds = %122
   tail call fastcc void @zend_copy_extra_args(ptr noundef nonnull %0)
   br label %140
 
-132:                                              ; preds = %121
+132:                                              ; preds = %122
   %133 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %134 = load i32, ptr %133, align 4, !tbaa !184
   %135 = and i32 %134, 256
@@ -130127,16 +130127,16 @@ zend_array_release.exit:                          ; preds = %101, %96, %92, %89
 118:                                              ; preds = %109, %114
   %119 = phi ptr [ %117, %114 ], [ %111, %109 ]
   %.not148 = icmp eq ptr %119, null
-  br i1 %.not148, label %120, label %121, !prof !60
+  br i1 %.not148, label %120, label %122, !prof !60
 
 120:                                              ; preds = %118
   tail call fastcc void @init_func_run_time_cache(ptr noundef nonnull %106)
   %.pre192 = load ptr, ptr %3, align 8, !tbaa !54
-  br label %121
+  %121 = icmp eq ptr %.pre192, %106
+  br label %122
 
-121:                                              ; preds = %120, %118
-  %122 = phi ptr [ %.pre192, %120 ], [ %106, %118 ]
-  %123 = icmp eq ptr %122, %106
+122:                                              ; preds = %120, %118
+  %123 = phi i1 [ %121, %120 ], [ true, %118 ]
   tail call void @llvm.assume(i1 %123)
   %124 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %125 = load ptr, ptr %124, align 8, !tbaa !181
@@ -130150,11 +130150,11 @@ zend_array_release.exit:                          ; preds = %101, %96, %92, %89
   %130 = icmp ugt i32 %129, %128
   br i1 %130, label %131, label %132, !prof !60
 
-131:                                              ; preds = %121
+131:                                              ; preds = %122
   tail call fastcc void @zend_copy_extra_args(ptr noundef nonnull %0)
   br label %140
 
-132:                                              ; preds = %121
+132:                                              ; preds = %122
   %133 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %134 = load i32, ptr %133, align 4, !tbaa !184
   %135 = and i32 %134, 256

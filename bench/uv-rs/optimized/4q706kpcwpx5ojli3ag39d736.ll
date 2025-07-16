@@ -2512,7 +2512,7 @@ define hidden void @"_ZN161_$LT$$LT$uv_pypi_types..dependency_groups..Dependency
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h299053dcaa3f1f6fE.llvm.9846812117724834734.exit": ; preds = %3
   %11 = load ptr, ptr %8, align 8, !noalias !437, !nonnull !3, !noundef !3
-  %12 = icmp uge i64 %7, %2
+  %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !437
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !444
@@ -5345,7 +5345,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd347a67fbda
 
 _ZN4core3ops8function6FnOnce9call_once17h8e3351226644ea4aE.exit: ; preds = %9
   %16 = load ptr, ptr %13, align 8, !noalias !1037, !nonnull !3, !noundef !3
-  %17 = icmp uge i64 %12, %2
+  %17 = icmp ule i64 %2, %12
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1037
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1046
@@ -5412,7 +5412,7 @@ define hidden void @"_ZN50_$LT$url..Url$u20$as$u20$serde..ser..Serialize$GT$9ser
 
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hb2d4b4bf84525b7bE.llvm.9846812117724834734.exit": ; preds = %2
   %14 = load ptr, ptr %11, align 8, !noalias !1052, !nonnull !3, !noundef !3
-  %15 = icmp uge i64 %10, %7
+  %15 = icmp ule i64 %7, %10
   tail call void @llvm.assume(i1 %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1052
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %5, i64 %7, i1 false), !noalias !1060
@@ -5468,7 +5468,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hac767637a5d5e246E.llvm.9846812117724834734.exit": ; preds = %3
   %11 = load ptr, ptr %8, align 8, !noalias !1062, !nonnull !3, !noundef !3
-  %12 = icmp uge i64 %7, %2
+  %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1062
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %1, i64 %2, i1 false)
@@ -7019,22 +7019,22 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !range !81, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %trunc, label %17, label %10
+  br i1 %trunc, label %16, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %12 = icmp eq i64 %2, 0
-  %13 = icmp uge i64 %8, %0
-  %14 = or i1 %12, %13
-  tail call void @llvm.assume(i1 %14)
+  %13 = icmp ule i64 %0, %8
+  %.sroa.03.0 = or i1 %12, %13
+  tail call void @llvm.assume(i1 %.sroa.03.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %15 = insertvalue { i64, ptr } poison, i64 %8, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %11, 1
-  ret { i64, ptr } %16
+  %14 = insertvalue { i64, ptr } poison, i64 %8, 0
+  %15 = insertvalue { i64, ptr } %14, ptr %11, 1
+  ret { i64, ptr } %15
 
-17:                                               ; preds = %4
-  %18 = load i64, ptr %9, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #32
+16:                                               ; preds = %4
+  %17 = load i64, ptr %9, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #32
   unreachable
 }
 
@@ -7796,7 +7796,7 @@ define hidden void @"_ZN67_$LT$uv_small_str..SmallString$u20$as$u20$serde..ser..
 "_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hb2d4b4bf84525b7bE.llvm.9846812117724834734.exit": ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load ptr, ptr %10, align 8, !noalias !1171, !nonnull !3, !noundef !3
-  %15 = icmp uge i64 %9, %6
+  %15 = icmp ule i64 %6, %9
   tail call void @llvm.assume(i1 %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1171
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %13, i64 %6, i1 false), !noalias !1179
@@ -7912,7 +7912,7 @@ define hidden void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$ser
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h299053dcaa3f1f6fE.llvm.9846812117724834734.exit": ; preds = %3
   %11 = load ptr, ptr %8, align 8, !noalias !1205, !nonnull !3, !noundef !3
-  %12 = icmp uge i64 %7, %2
+  %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1205
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1212
@@ -8224,7 +8224,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h1dbdc977e6d7
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1226, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1226
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1232
@@ -8325,7 +8325,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h1dbdc977e6d7
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1250, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1250
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1256
@@ -8416,7 +8416,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h2ad665a1b69c
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1264, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1264
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1270
@@ -8519,7 +8519,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h2ad665a1b69c
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1288, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1288
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1294
@@ -8610,7 +8610,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h345dbc874215
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1302, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1302
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1308
@@ -8713,7 +8713,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h345dbc874215
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1326, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1326
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1332
@@ -8804,7 +8804,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h3c55731f13ac
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1340, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1340
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1346
@@ -8907,7 +8907,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h3c55731f13ac
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1364, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1364
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1370
@@ -8998,7 +8998,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h4a7a8637bd67
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1378, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1378
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1384
@@ -9101,7 +9101,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h4a7a8637bd67
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1402, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1402
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1408
@@ -9192,7 +9192,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h4e6445e3ef23
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1416, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1416
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1422
@@ -9293,7 +9293,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h4e6445e3ef23
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1440, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1440
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1446
@@ -9384,7 +9384,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h5c7865e98fad
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1454, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1454
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1460
@@ -9487,7 +9487,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h5c7865e98fad
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1478, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1478
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1484
@@ -9578,7 +9578,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h6b1aa19f6cd4
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1492, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1492
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1498
@@ -9681,7 +9681,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h6b1aa19f6cd4
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1516, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1516
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1522
@@ -9772,7 +9772,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h75dede714ecf
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1530, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1530
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1536
@@ -9875,7 +9875,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h75dede714ecf
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1554, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1554
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1560
@@ -9966,7 +9966,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h7a463262c3c6
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1568, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1568
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1574
@@ -10069,7 +10069,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h7a463262c3c6
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1592, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1592
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1598
@@ -10160,7 +10160,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h7fa7dd1f85f2
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1606, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1606
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1612
@@ -10263,7 +10263,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h7fa7dd1f85f2
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1630, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1630
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1636
@@ -10354,7 +10354,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h85c3f10447ec
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1644, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1644
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1650
@@ -10455,7 +10455,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h85c3f10447ec
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1668, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1668
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1674
@@ -10546,7 +10546,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17ha1a9b937430f
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1682, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1682
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1688
@@ -10649,7 +10649,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17ha1a9b937430f
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1706, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1706
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1712
@@ -10740,7 +10740,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hb1f3a9eff892
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1720, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1720
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1726
@@ -10843,7 +10843,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hb1f3a9eff892
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1744, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1744
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1750
@@ -10934,7 +10934,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hc7155e6a0e8d
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1758, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1758
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1764
@@ -11035,7 +11035,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hc7155e6a0e8d
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1782, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1782
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1788
@@ -11126,7 +11126,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hdfeb8431fc5a
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1796, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1796
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1802
@@ -11229,7 +11229,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hdfeb8431fc5a
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1820, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1820
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1826
@@ -11320,7 +11320,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17he70c69b8a0c8
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1834, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1834
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1840
@@ -11421,7 +11421,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17he70c69b8a0c8
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1858, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1858
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1864
@@ -11512,7 +11512,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hf7cd6d90c4b1
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1872, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1872
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1878
@@ -11615,7 +11615,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hf7cd6d90c4b1
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1896, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1896
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1902
@@ -11706,7 +11706,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hfa5f2a1fb804
 
 26:                                               ; preds = %.noexc
   %27 = load ptr, ptr %23, align 8, !noalias !1910, !nonnull !3, !noundef !3
-  %28 = icmp uge i64 %22, %2
+  %28 = icmp ule i64 %2, %22
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1910
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1916
@@ -11809,7 +11809,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hfa5f2a1fb804
 
 .noexc11:                                         ; preds = %.noexc8
   %53 = load ptr, ptr %51, align 8, !noalias !1934, !nonnull !3, !noundef !3
-  %54 = icmp uge i64 %50, %2
+  %54 = icmp ule i64 %2, %50
   call void @llvm.assume(i1 %54)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1934
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1940
@@ -13852,7 +13852,7 @@ define internal fastcc void @_ZN9uv_pep5086marker5parse16parse_extra_expr17h16f9
 
 41:                                               ; preds = %.noexc
   %42 = load ptr, ptr %38, align 8, !noalias !2132, !nonnull !3, !noundef !3
-  %43 = icmp uge i64 %37, %34
+  %43 = icmp ule i64 %34, %37
   call void @llvm.assume(i1 %43)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !2132
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %33, i64 %34, i1 false), !noalias !2138

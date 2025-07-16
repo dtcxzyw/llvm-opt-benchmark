@@ -641,153 +641,157 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %12
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !57
-  %30 = load i32, ptr %29, align 4, !tbaa !98
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %32 = load ptr, ptr %31, align 8, !tbaa !99
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %31 = load ptr, ptr %30, align 8, !tbaa !98
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i
 
-_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i:     ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %32, i64 -4
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %27
+  %33 = load i32, ptr %29, align 4, !tbaa !99
+  %34 = getelementptr inbounds i8, ptr %31, i64 -4
   %35 = load i32, ptr %34, align 4, !tbaa !100
-  %.not.i.i.i = icmp ult i32 %30, %35
-  br i1 %.not.i.i.i, label %_ZNK11shared_occs9is_sharedEP4expr.exit, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread
+  %.fr.i.i.i = freeze i32 %35
+  %36 = icmp ult i32 %33, %.fr.i.i.i
+  br i1 %36, label %_ZNK11shared_occs9is_sharedEP4expr.exit, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread
 
-_ZNK11shared_occs9is_sharedEP4expr.exit:          ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i
-  %36 = zext i32 %30 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %36
-  %.then.val.i.i = load ptr, ptr %37, align 8, !tbaa !57
-  %.not = icmp eq ptr %.then.val.i.i, null
-  br i1 %.not, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread, label %38
+_ZNK11shared_occs9is_sharedEP4expr.exit:          ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i
+  %37 = zext i32 %33 to i64
+  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %37
+  %.pre.i.then.val.i = load ptr, ptr %38, align 8, !tbaa !57
+  %.not = icmp eq ptr %.pre.i.then.val.i, null
+  br i1 %.not, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread, label %39
 
-38:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %40 = load ptr, ptr %7, align 8, !tbaa !59
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 864
-  %42 = load ptr, ptr %41, align 8, !tbaa !101
-  tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %39, ptr noundef nonnull %29, ptr noundef %42, ptr noundef null, ptr noundef %5)
+39:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %41 = load ptr, ptr %7, align 8, !tbaa !59
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 864
+  %43 = load ptr, ptr %42, align 8, !tbaa !101
+  tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %40, ptr noundef nonnull %29, ptr noundef %43, ptr noundef null, ptr noundef %5)
   br label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread
 
-_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread: ; preds = %27, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i, %12, %2, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %23, %38, %_ZNK11shared_occs9is_sharedEP4expr.exit
-  %43 = load i32, ptr %6, align 4, !tbaa !98
+_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i, %27, %12, %2, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %23, %39, %_ZNK11shared_occs9is_sharedEP4expr.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %45 = load ptr, ptr %44, align 8, !tbaa !99
+  %45 = load ptr, ptr %44, align 8, !tbaa !98
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i13
+  br i1 %46, label %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i13
 
-_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i13:   ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread
-  %47 = getelementptr inbounds i8, ptr %45, i64 -4
-  %48 = load i32, ptr %47, align 4, !tbaa !100
-  %.not.i.i.i14 = icmp ult i32 %43, %48
-  br i1 %.not.i.i.i14, label %_ZNK11shared_occs9is_sharedEP4expr.exit17, label %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i13:     ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread
+  %47 = load i32, ptr %6, align 4, !tbaa !99
+  %48 = getelementptr inbounds i8, ptr %45, i64 -4
+  %49 = load i32, ptr %48, align 4, !tbaa !100
+  %.fr.i.i.i14 = freeze i32 %49
+  %50 = icmp ult i32 %47, %.fr.i.i.i14
+  br i1 %50, label %_ZNK11shared_occs9is_sharedEP4expr.exit17, label %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread
 
-_ZNK11shared_occs9is_sharedEP4expr.exit17:        ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i13
-  %49 = zext i32 %43 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %49
-  %.then.val.i.i16 = load ptr, ptr %50, align 8, !tbaa !57
-  %.not52 = icmp eq ptr %.then.val.i.i16, null
-  br i1 %.not52, label %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread, label %51
+_ZNK11shared_occs9is_sharedEP4expr.exit17:        ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i13
+  %51 = zext i32 %47 to i64
+  %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %51
+  %.pre.i.then.val.i16 = load ptr, ptr %52, align 8, !tbaa !57
+  %.not52 = icmp eq ptr %.pre.i.then.val.i16, null
+  br i1 %.not52, label %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread, label %53
 
-51:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit17
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %53 = load ptr, ptr %7, align 8, !tbaa !59
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 856
-  %55 = load ptr, ptr %54, align 8, !tbaa !158
-  tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %52, ptr noundef nonnull %6, ptr noundef %55, ptr noundef null, ptr noundef %5)
+53:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit17
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %55 = load ptr, ptr %7, align 8, !tbaa !59
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 856
+  %57 = load ptr, ptr %56, align 8, !tbaa !158
+  tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %54, ptr noundef nonnull %6, ptr noundef %57, ptr noundef null, ptr noundef %5)
   br label %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread
 
-_ZNK11shared_occs9is_sharedEP4expr.exit17.thread: ; preds = %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i13, %51, %_ZNK11shared_occs9is_sharedEP4expr.exit17
-  %56 = load i32, ptr %8, align 4
-  %57 = and i32 %56, 65535
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
+_ZNK11shared_occs9is_sharedEP4expr.exit17.thread: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i13, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit.thread, %53, %_ZNK11shared_occs9is_sharedEP4expr.exit17
+  %58 = load i32, ptr %8, align 4
+  %59 = and i32 %58, 65535
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
-59:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !83
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !88
-  %.not.i.i.i.i.i19 = icmp eq ptr %63, null
+61:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !83
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !88
+  %.not.i.i.i.i.i19 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i.i19, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i
 
-_ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %59
-  %64 = load i32, ptr %63, align 8, !tbaa !93
-  %65 = icmp eq i32 %64, 0
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp eq i32 %67, 2
-  %69 = select i1 %65, i1 %68, i1 false
-  br i1 %69, label %70, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
+_ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %61
+  %66 = load i32, ptr %65, align 8, !tbaa !93
+  %67 = icmp eq i32 %66, 0
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp eq i32 %69, 2
+  %71 = select i1 %67, i1 %70, i1 false
+  br i1 %71, label %72, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
-70:                                               ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %72 = load i32, ptr %71, align 8, !tbaa !97
-  %73 = icmp eq i32 %72, 2
-  br i1 %73, label %74, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
+72:                                               ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %74 = load i32, ptr %73, align 8, !tbaa !97
+  %75 = icmp eq i32 %74, 2
+  br i1 %75, label %76, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %76 = load ptr, ptr %75, align 8, !tbaa !57
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 40
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %78 = load ptr, ptr %77, align 8, !tbaa !57
-  %79 = load ptr, ptr %7, align 8, !tbaa !59
-  %80 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %79, ptr noundef %76)
-  br i1 %80, label %81, label %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %80 = load ptr, ptr %79, align 8, !tbaa !57
+  %81 = load ptr, ptr %7, align 8, !tbaa !59
+  %82 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %81, ptr noundef %78)
+  br i1 %82, label %83, label %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread
 
-81:                                               ; preds = %74
-  %82 = load i32, ptr %78, align 4, !tbaa !98
-  %83 = load ptr, ptr %44, align 8, !tbaa !99
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i20
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %44, align 8, !tbaa !98
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i20
 
-_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i20:   ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %83, i64 -4
-  %86 = load i32, ptr %85, align 4, !tbaa !100
-  %.not.i.i.i21 = icmp ult i32 %82, %86
-  br i1 %.not.i.i.i21, label %_ZNK11shared_occs9is_sharedEP4expr.exit24, label %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i20:     ; preds = %83
+  %86 = load i32, ptr %80, align 4, !tbaa !99
+  %87 = getelementptr inbounds i8, ptr %84, i64 -4
+  %88 = load i32, ptr %87, align 4, !tbaa !100
+  %.fr.i.i.i21 = freeze i32 %88
+  %89 = icmp ult i32 %86, %.fr.i.i.i21
+  br i1 %89, label %_ZNK11shared_occs9is_sharedEP4expr.exit24, label %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread
 
-_ZNK11shared_occs9is_sharedEP4expr.exit24:        ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i20
-  %87 = zext i32 %82 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %83, i64 %87
-  %.then.val.i.i23 = load ptr, ptr %88, align 8, !tbaa !57
-  %.not53 = icmp eq ptr %.then.val.i.i23, null
-  br i1 %.not53, label %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread, label %89
+_ZNK11shared_occs9is_sharedEP4expr.exit24:        ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i20
+  %90 = zext i32 %86 to i64
+  %91 = getelementptr inbounds nuw ptr, ptr %84, i64 %90
+  %.pre.i.then.val.i23 = load ptr, ptr %91, align 8, !tbaa !57
+  %.not53 = icmp eq ptr %.pre.i.then.val.i23, null
+  br i1 %.not53, label %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread, label %92
 
-89:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit24
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %90, ptr noundef nonnull %78, ptr noundef %76, ptr noundef null, ptr noundef %5)
+92:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit24
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %93, ptr noundef nonnull %80, ptr noundef %78, ptr noundef null, ptr noundef %5)
   br label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
-_ZNK11shared_occs9is_sharedEP4expr.exit24.thread: ; preds = %81, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i20, %_ZNK11shared_occs9is_sharedEP4expr.exit24, %74
-  %91 = load ptr, ptr %7, align 8, !tbaa !59
-  %92 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %91, ptr noundef %78)
-  br i1 %92, label %93, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
+_ZNK11shared_occs9is_sharedEP4expr.exit24.thread: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i20, %83, %_ZNK11shared_occs9is_sharedEP4expr.exit24, %76
+  %94 = load ptr, ptr %7, align 8, !tbaa !59
+  %95 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %94, ptr noundef %80)
+  br i1 %95, label %96, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
-93:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread
-  %94 = load i32, ptr %76, align 4, !tbaa !98
-  %95 = load ptr, ptr %44, align 8, !tbaa !99
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i25
+96:                                               ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread
+  %97 = load ptr, ptr %44, align 8, !tbaa !98
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i25
 
-_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i25:   ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 -4
-  %98 = load i32, ptr %97, align 4, !tbaa !100
-  %.not.i.i.i26 = icmp ult i32 %94, %98
-  br i1 %.not.i.i.i26, label %_ZNK11shared_occs9is_sharedEP4expr.exit29, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i25:     ; preds = %96
+  %99 = load i32, ptr %78, align 4, !tbaa !99
+  %100 = getelementptr inbounds i8, ptr %97, i64 -4
+  %101 = load i32, ptr %100, align 4, !tbaa !100
+  %.fr.i.i.i26 = freeze i32 %101
+  %102 = icmp ult i32 %99, %.fr.i.i.i26
+  br i1 %102, label %_ZNK11shared_occs9is_sharedEP4expr.exit29, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
-_ZNK11shared_occs9is_sharedEP4expr.exit29:        ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i25
-  %99 = zext i32 %94 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %95, i64 %99
-  %.then.val.i.i28 = load ptr, ptr %100, align 8, !tbaa !57
-  %.not54 = icmp eq ptr %.then.val.i.i28, null
-  br i1 %.not54, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, label %101
+_ZNK11shared_occs9is_sharedEP4expr.exit29:        ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i25
+  %103 = zext i32 %99 to i64
+  %104 = getelementptr inbounds nuw ptr, ptr %97, i64 %103
+  %.pre.i.then.val.i28 = load ptr, ptr %104, align 8, !tbaa !57
+  %.not54 = icmp eq ptr %.pre.i.then.val.i28, null
+  br i1 %.not54, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, label %105
 
-101:                                              ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit29
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %102, ptr noundef nonnull %76, ptr noundef %78, ptr noundef null, ptr noundef %5)
+105:                                              ; preds = %_ZNK11shared_occs9is_sharedEP4expr.exit29
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %106, ptr noundef nonnull %78, ptr noundef %80, ptr noundef null, ptr noundef %5)
   br label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
-_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %93, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i25, %59, %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %70, %89, %101, %_ZNK11shared_occs9is_sharedEP4expr.exit29, %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread
+_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i25, %96, %61, %_ZNK11shared_occs9is_sharedEP4expr.exit17.thread, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %72, %92, %105, %_ZNK11shared_occs9is_sharedEP4expr.exit29, %_ZNK11shared_occs9is_sharedEP4expr.exit24.thread
   ret void
 }
 
@@ -1936,8 +1940,8 @@ attributes #23 = { builtin allocsize(0) }
 !95 = !{!"_ZTS6vectorI9parameterLb1EjE", !96, i64 0}
 !96 = !{!"p1 _ZTS9parameter", !5, i64 0}
 !97 = !{!84, !19, i64 24}
-!98 = !{!75, !19, i64 0}
-!99 = !{!31, !32, i64 0}
+!98 = !{!31, !32, i64 0}
+!99 = !{!75, !19, i64 0}
 !100 = !{!19, !19, i64 0}
 !101 = !{!102, !56, i64 864}
 !102 = !{!"_ZTS11ast_manager", !103, i64 0, !113, i64 40, !114, i64 560, !126, i64 616, !65, i64 648, !130, i64 672, !134, i64 704, !137, i64 712, !26, i64 716, !138, i64 720, !141, i64 784, !144, i64 808, !144, i64 824, !147, i64 840, !147, i64 848, !56, i64 856, !56, i64 864, !56, i64 872, !19, i64 880, !26, i64 884, !148, i64 888, !153, i64 912, !26, i64 920, !26, i64 921, !4, i64 928, !90, i64 936, !154, i64 944, !157, i64 968}

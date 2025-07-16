@@ -783,51 +783,51 @@ switch.lookup:                                    ; preds = %2
   %switch.gep55 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.udbg_enumByName.4, i64 0, i64 %4
   br label %switch.lookup54
 
-switch.lookup54:                                  ; preds = %6, %switch.lookup
-  %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %switch.lookup ]
+switch.lookup54:                                  ; preds = %7, %switch.lookup
+  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %switch.lookup ]
   %switch.load56 = load i64, ptr %switch.gep55, align 8
-  %.not33 = icmp slt i64 %indvars.iv, %switch.load56
-  br i1 %.not33, label %6, label %.preheader.preheader
+  %5 = icmp slt i64 %indvars.iv, %switch.load56
+  br i1 %5, label %7, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %switch.lookup54
-  %5 = zext nneg i32 %0 to i64
-  %switch.gep58 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.udbg_enumByName.4, i64 0, i64 %5
+  %6 = zext nneg i32 %0 to i64
+  %switch.gep58 = getelementptr inbounds nuw [6 x i64], ptr @switch.table.udbg_enumByName.4, i64 0, i64 %6
   br label %.preheader
 
-6:                                                ; preds = %switch.lookup54
-  %7 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = load i32, ptr %7, align 8, !tbaa !17
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %9, i64 %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %12) #29
-  %.not32 = icmp eq i32 %13, 0
+7:                                                ; preds = %switch.lookup54
+  %8 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
+  %11 = load i32, ptr %8, align 8, !tbaa !17
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds i8, ptr %10, i64 %12
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %13) #29
+  %.not32 = icmp eq i32 %14, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %.not32, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split, label %switch.lookup54, !llvm.loop !19
 
-.preheader:                                       ; preds = %.preheader.preheader, %14
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %14 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %16
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %16 ], [ 0, %.preheader.preheader ]
   %switch.load59 = load i64, ptr %switch.gep58, align 8
-  %.not35 = icmp slt i64 %indvars.iv47, %switch.load59
-  br i1 %.not35, label %14, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread
+  %15 = icmp slt i64 %indvars.iv47, %switch.load59
+  br i1 %15, label %16, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread
 
-14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv47, i32 1
-  %16 = load ptr, ptr %15, align 8, !tbaa !15
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %16) #29
-  %.not34 = icmp eq i32 %17, 0
+16:                                               ; preds = %.preheader
+  %17 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %indvars.iv47, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !15
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %18) #29
+  %.not34 = icmp eq i32 %19, 0
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   br i1 %.not34, label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split, label %.preheader, !llvm.loop !21
 
-_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split: ; preds = %6, %14
-  %18 = phi i64 [ %indvars.iv47, %14 ], [ %indvars.iv, %6 ]
-  %19 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %18, i32 2
-  %20 = load i32, ptr %19, align 8, !tbaa !18
+_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split: ; preds = %7, %16
+  %20 = phi i64 [ %indvars.iv47, %16 ], [ %indvars.iv, %7 ]
+  %21 = getelementptr inbounds nuw %struct.Field, ptr %switch.load, i64 %20, i32 2
+  %22 = load i32, ptr %21, align 8, !tbaa !18
   br label %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread
 
 _ZL16_udbg_enumFields14UDebugEnumType.exit.thread: ; preds = %.preheader, %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split, %2
-  %.027 = phi i32 [ -1, %2 ], [ %20, %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split ], [ -1, %.preheader ]
+  %.027 = phi i32 [ -1, %2 ], [ %22, %_ZL16_udbg_enumFields14UDebugEnumType.exit.thread.sink.split ], [ -1, %.preheader ]
   ret i32 %.027
 }
 

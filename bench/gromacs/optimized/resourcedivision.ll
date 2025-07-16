@@ -569,8 +569,8 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i:  ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i
   %195 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i, i64 32
   %196 = load i32, ptr %195, align 4, !tbaa !207
-  %197 = icmp sgt i32 %196, 3
-  br i1 %197, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
+  %197 = icmp slt i32 %196, 4
+  br i1 %197, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i: ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i, %187, %183
   %198 = call noundef zeroext i1 @_ZN3gmx15cpuIsX86NehalemERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %171)
@@ -673,8 +673,8 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i: ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i63.i
   %236 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i58.i, i64 32
   %237 = load i32, ptr %236, align 4, !tbaa !207
-  %238 = icmp sgt i32 %237, 3
-  br i1 %238, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
+  %238 = icmp slt i32 %237, 4
+  br i1 %238, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i: ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i63.i, %228, %224
   %239 = call noundef zeroext i1 @_ZN3gmx15cpuIsX86NehalemERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %171)
@@ -1162,49 +1162,49 @@ define internal fastcc noundef zeroext i1 @_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16H
 ._crit_edge48:                                    ; preds = %._crit_edge
   %9 = icmp ne i64 %.131.lcssa, %.133.lcssa
   %10 = icmp ult i64 %.131.lcssa, 2
-  %or.cond.not = or i1 %9, %10
-  br i1 %or.cond.not, label %._crit_edge48.thread, label %25
+  %11 = or i1 %9, %10
+  br i1 %11, label %._crit_edge48.thread, label %26
 
 .lr.ph47:                                         ; preds = %4, %._crit_edge
   %.045 = phi i64 [ %.131.lcssa, %._crit_edge ], [ 999999999, %4 ]
   %.03244 = phi i64 [ %.133.lcssa, %._crit_edge ], [ 0, %4 ]
-  %.sroa.022.043 = phi ptr [ %15, %._crit_edge ], [ %6, %4 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !274
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !274
-  %.not3637 = icmp eq ptr %12, %14
+  %.sroa.022.043 = phi ptr [ %16, %._crit_edge ], [ %6, %4 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !274
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !274
+  %.not3637 = icmp eq ptr %13, %15
   br i1 %.not3637, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph47
   %.133.lcssa = phi i64 [ %.03244, %.lr.ph47 ], [ %.sroa.speculated, %.lr.ph ]
   %.131.lcssa = phi i64 [ %.045, %.lr.ph47 ], [ %.sroa.speculated15, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 32
-  %.not = icmp eq ptr %15, %8
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 32
+  %.not = icmp eq ptr %16, %8
   br i1 %.not, label %._crit_edge48, label %.lr.ph47
 
 .lr.ph:                                           ; preds = %.lr.ph47, %.lr.ph
   %.13140 = phi i64 [ %.sroa.speculated15, %.lr.ph ], [ %.045, %.lr.ph47 ]
   %.13339 = phi i64 [ %.sroa.speculated, %.lr.ph ], [ %.03244, %.lr.ph47 ]
-  %.sroa.018.038 = phi ptr [ %24, %.lr.ph ], [ %12, %.lr.ph47 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.018.038, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.018.038, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !276
-  %19 = load ptr, ptr %16, align 8, !tbaa !279
-  %20 = ptrtoint ptr %18 to i64
+  %.sroa.018.038 = phi ptr [ %25, %.lr.ph ], [ %13, %.lr.ph47 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.018.038, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.018.038, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !276
+  %20 = load ptr, ptr %17, align 8, !tbaa !279
   %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %23 = ashr exact i64 %22, 3
-  %.sroa.speculated15 = tail call i64 @llvm.umin.i64(i64 %23, i64 %.13140)
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.13339, i64 %23)
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.018.038, i64 32
-  %.not36 = icmp eq ptr %24, %14
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = ashr exact i64 %23, 3
+  %.sroa.speculated15 = tail call i64 @llvm.umin.i64(i64 %24, i64 %.13140)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.13339, i64 %24)
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.018.038, i64 32
+  %.not36 = icmp eq ptr %25, %15
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 ._crit_edge48.thread:                             ; preds = %4, %._crit_edge48, %1
-  br label %25
+  br label %26
 
-25:                                               ; preds = %._crit_edge48, %._crit_edge48.thread
+26:                                               ; preds = %._crit_edge48, %._crit_edge48.thread
   %.1 = phi i1 [ false, %._crit_edge48.thread ], [ true, %._crit_edge48 ]
   ret i1 %.1
 }
@@ -1247,8 +1247,8 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 32
   %18 = load i32, ptr %17, align 4, !tbaa !207
-  %19 = icmp sgt i32 %18, 3
-  br i1 %19, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit
+  %19 = icmp slt i32 %18, 4
+  br i1 %19, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i: ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i, %9, %5
   %20 = tail call noundef zeroext i1 @_ZN3gmx15cpuIsX86NehalemERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %1)
@@ -1883,128 +1883,128 @@ define void @_Z39checkAndUpdateRequestedNumOpenmpThreadsP12gmx_hw_opt_tRK13gmx_h
 ._crit_edge48.i:                                  ; preds = %._crit_edge.i
   %46 = icmp ne i64 %.131.lcssa.i, %.133.lcssa.i
   %47 = icmp ult i64 %.131.lcssa.i, 2
-  %or.cond.not.i = or i1 %46, %47
-  br i1 %or.cond.not.i, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
+  %48 = or i1 %46, %47
+  br i1 %48, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
 
 .lr.ph47.i:                                       ; preds = %41, %._crit_edge.i
   %.045.i = phi i64 [ %.131.lcssa.i, %._crit_edge.i ], [ 999999999, %41 ]
   %.03244.i = phi i64 [ %.133.lcssa.i, %._crit_edge.i ], [ 0, %41 ]
-  %.sroa.022.043.i = phi ptr [ %52, %._crit_edge.i ], [ %43, %41 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.022.043.i, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !274
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.022.043.i, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !274
-  %.not3637.i = icmp eq ptr %49, %51
+  %.sroa.022.043.i = phi ptr [ %53, %._crit_edge.i ], [ %43, %41 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.022.043.i, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !274
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.022.043.i, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !274
+  %.not3637.i = icmp eq ptr %50, %52
   br i1 %.not3637.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph47.i
   %.133.lcssa.i = phi i64 [ %.03244.i, %.lr.ph47.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %.131.lcssa.i = phi i64 [ %.045.i, %.lr.ph47.i ], [ %.sroa.speculated15.i, %.lr.ph.i ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.022.043.i, i64 32
-  %.not.i = icmp eq ptr %52, %45
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.043.i, i64 32
+  %.not.i = icmp eq ptr %53, %45
   br i1 %.not.i, label %._crit_edge48.i, label %.lr.ph47.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph47.i, %.lr.ph.i
   %.13140.i = phi i64 [ %.sroa.speculated15.i, %.lr.ph.i ], [ %.045.i, %.lr.ph47.i ]
   %.13339.i = phi i64 [ %.sroa.speculated.i, %.lr.ph.i ], [ %.03244.i, %.lr.ph47.i ]
-  %.sroa.018.038.i = phi ptr [ %61, %.lr.ph.i ], [ %49, %.lr.ph47.i ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.018.038.i, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.018.038.i, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !276
-  %56 = load ptr, ptr %53, align 8, !tbaa !279
-  %57 = ptrtoint ptr %55 to i64
+  %.sroa.018.038.i = phi ptr [ %62, %.lr.ph.i ], [ %50, %.lr.ph47.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.018.038.i, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.018.038.i, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !276
+  %57 = load ptr, ptr %54, align 8, !tbaa !279
   %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %57, %58
-  %60 = ashr exact i64 %59, 3
-  %.sroa.speculated15.i = tail call i64 @llvm.umin.i64(i64 %60, i64 %.13140.i)
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.13339.i, i64 %60)
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.018.038.i, i64 32
-  %.not36.i = icmp eq ptr %61, %51
+  %59 = ptrtoint ptr %57 to i64
+  %60 = sub i64 %58, %59
+  %61 = ashr exact i64 %60, 3
+  %.sroa.speculated15.i = tail call i64 @llvm.umin.i64(i64 %61, i64 %.13140.i)
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.13339.i, i64 %61)
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.018.038.i, i64 32
+  %.not36.i = icmp eq ptr %62, %52
   br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
 
 _ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit: ; preds = %._crit_edge48.i
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !280
-  %64 = icmp eq i32 %63, 1
-  %65 = icmp eq i32 %5, 2
-  %66 = and i1 %65, %64
-  %or.cond3 = select i1 %36, i1 %66, i1 false
-  br i1 %or.cond3, label %67, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %64 = load i32, ptr %63, align 8, !tbaa !280
+  %65 = icmp eq i32 %64, 1
+  %66 = icmp eq i32 %5, 2
+  %67 = and i1 %66, %65
+  %or.cond3 = select i1 %36, i1 %67, i1 false
+  br i1 %or.cond3, label %68, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
 
-67:                                               ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
+68:                                               ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
   %.not64 = icmp eq ptr %3, null
-  br i1 %.not64, label %70, label %68
+  br i1 %.not64, label %71, label %69
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr %3, align 8, !tbaa !304
-  br label %70
+69:                                               ; preds = %68
+  %70 = load i32, ptr %3, align 8, !tbaa !304
+  br label %71
 
-70:                                               ; preds = %67, %68
-  %71 = phi i32 [ %69, %68 ], [ 1, %67 ]
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %73 = load i32, ptr %72, align 8, !tbaa !213
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %75 = load i32, ptr %74, align 4, !tbaa !306
-  %76 = sdiv i32 %75, %71
-  %77 = mul i32 %76, 1000
-  %78 = mul i32 %77, %76
-  %79 = icmp slt i32 %73, %78
-  br i1 %79, label %.lr.ph, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
+71:                                               ; preds = %68, %69
+  %72 = phi i32 [ %70, %69 ], [ 1, %68 ]
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %74 = load i32, ptr %73, align 8, !tbaa !213
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %76 = load i32, ptr %75, align 4, !tbaa !306
+  %77 = sdiv i32 %76, %72
+  %78 = mul i32 %77, 1000
+  %79 = mul i32 %78, %77
+  %80 = icmp slt i32 %74, %79
+  br i1 %80, label %.lr.ph, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %80 = getelementptr inbounds nuw i8, ptr %38, i64 224
-  %81 = load i32, ptr %80, align 8, !tbaa !147
-  %.sroa.speculated51 = tail call i32 @llvm.smin.i32(i32 %81, i32 %92)
-  %82 = sdiv i32 %.sroa.speculated51, %4
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %82, i32 1)
+  %81 = getelementptr inbounds nuw i8, ptr %38, i64 224
+  %82 = load i32, ptr %81, align 8, !tbaa !147
+  %.sroa.speculated51 = tail call i32 @llvm.smin.i32(i32 %82, i32 %93)
+  %83 = sdiv i32 %.sroa.speculated51, %4
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %83, i32 1)
   store i32 %.sroa.speculated, ptr %35, align 8, !tbaa !266
   br label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
 
-.lr.ph:                                           ; preds = %70, %.lr.ph
-  %.068 = phi i32 [ %92, %.lr.ph ], [ 0, %70 ]
-  %.sroa.054.067 = phi ptr [ %93, %.lr.ph ], [ %43, %70 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !326
-  %86 = load ptr, ptr %83, align 8, !tbaa !328
-  %87 = ptrtoint ptr %85 to i64
+.lr.ph:                                           ; preds = %71, %.lr.ph
+  %.068 = phi i32 [ %93, %.lr.ph ], [ 0, %71 ]
+  %.sroa.054.067 = phi ptr [ %94, %.lr.ph ], [ %43, %71 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !326
+  %87 = load ptr, ptr %84, align 8, !tbaa !328
   %88 = ptrtoint ptr %86 to i64
-  %89 = sub i64 %87, %88
-  %90 = lshr exact i64 %89, 5
-  %91 = trunc i64 %90 to i32
-  %92 = add i32 %.068, %91
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 32
-  %.not65 = icmp eq ptr %93, %45
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = lshr exact i64 %90, 5
+  %92 = trunc i64 %91 to i32
+  %93 = add i32 %.068, %92
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 32
+  %.not65 = icmp eq ptr %94, %45
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
-_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread: ; preds = %._crit_edge48.i, %41, %._crit_edge69, %70, %._crit_edge, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
-  %94 = phi i32 [ %34, %._crit_edge48.i ], [ %34, %41 ], [ %34, %._crit_edge69 ], [ %34, %70 ], [ %.sroa.speculated, %._crit_edge ], [ %34, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit ]
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %96 = load i32, ptr %95, align 4, !tbaa !302
-  %97 = icmp slt i32 %96, 1
-  %98 = icmp sgt i32 %94, 0
-  %or.cond70 = select i1 %97, i1 %98, i1 false
-  br i1 %or.cond70, label %99, label %100
+_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread: ; preds = %._crit_edge48.i, %41, %._crit_edge69, %71, %._crit_edge, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
+  %95 = phi i32 [ %34, %._crit_edge48.i ], [ %34, %41 ], [ %34, %._crit_edge69 ], [ %34, %71 ], [ %.sroa.speculated, %._crit_edge ], [ %34, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit ]
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %97 = load i32, ptr %96, align 4, !tbaa !302
+  %98 = icmp slt i32 %97, 1
+  %99 = icmp sgt i32 %95, 0
+  %or.cond70 = select i1 %98, i1 %99, i1 false
+  br i1 %or.cond70, label %100, label %101
 
-99:                                               ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
-  store i32 %94, ptr %95, align 4, !tbaa !302
-  br label %100
+100:                                              ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
+  store i32 %95, ptr %96, align 4, !tbaa !302
+  br label %101
 
-100:                                              ; preds = %99, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
-  %101 = phi i32 [ %94, %99 ], [ %96, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread ]
-  %102 = load ptr, ptr @debug, align 8, !tbaa !267
-  %.not = icmp eq ptr %102, null
-  br i1 %.not, label %109, label %103
+101:                                              ; preds = %100, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
+  %102 = phi i32 [ %95, %100 ], [ %97, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread ]
+  %103 = load ptr, ptr @debug, align 8, !tbaa !267
+  %.not = icmp eq ptr %103, null
+  br i1 %.not, label %110, label %104
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !130
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %107 = load ptr, ptr %106, align 8, !tbaa !130
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %102, ptr noundef nonnull @.str.46, i32 noundef %27, i32 noundef %23, i32 noundef %94, i32 noundef %101, ptr noundef %105, ptr noundef %107) #19
-  br label %109
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %106 = load ptr, ptr %105, align 8, !tbaa !130
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %108 = load ptr, ptr %107, align 8, !tbaa !130
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %103, ptr noundef nonnull @.str.46, i32 noundef %27, i32 noundef %23, i32 noundef %95, i32 noundef %102, ptr noundef %106, ptr noundef %108) #19
+  br label %110
 
-109:                                              ; preds = %103, %100
+110:                                              ; preds = %104, %101
   ret void
 }
 

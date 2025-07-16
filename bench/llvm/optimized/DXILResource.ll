@@ -1589,12 +1589,11 @@ _ZL5isROVN4llvm4dxil12ResourceKindEPNS_13TargetExtTypeE.exit.i: ; preds = %42, %
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !28
   %.fr.i = freeze i32 %53
-  %.not.i = icmp ne i32 %.fr.i, 0
-  %extract.t = zext i1 %.not.i to i8
+  %.not.i.not = icmp eq i32 %.fr.i, 0
   br label %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit
 
 _ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit:   ; preds = %42, %42, %42, %42, %_ZL5isROVN4llvm4dxil12ResourceKindEPNS_13TargetExtTypeE.exit.i
-  %.off16 = phi i8 [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ %extract.t, %_ZL5isROVN4llvm4dxil12ResourceKindEPNS_13TargetExtTypeE.exit.i ]
+  %.off16 = phi i1 [ true, %42 ], [ true, %42 ], [ true, %42 ], [ true, %42 ], [ %.not.i.not, %_ZL5isROVN4llvm4dxil12ResourceKindEPNS_13TargetExtTypeE.exit.i ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load i8, ptr %54, align 8, !tbaa !12, !range !81, !noundef !82
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 9
@@ -1628,281 +1627,278 @@ _ZL5isROVN4llvm4dxil12ResourceKindEPNS_13TargetExtTypeE.exit.i27: ; preds = %_ZN
   %64 = load i32, ptr %63, align 4, !tbaa !28
   %.fr.i28 = freeze i32 %64
   %.not.i29 = icmp ne i32 %.fr.i28, 0
-  %extract.t87 = zext i1 %.not.i29 to i8
+  %65 = and i1 %.off16, %.not.i29
   br label %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit31
 
 _ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit31: ; preds = %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit, %_ZL5isROVN4llvm4dxil12ResourceKindEPNS_13TargetExtTypeE.exit.i27
-  %.off1686 = phi i8 [ 0, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit ], [ 0, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit ], [ 0, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit ], [ 0, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit ], [ %extract.t87, %_ZL5isROVN4llvm4dxil12ResourceKindEPNS_13TargetExtTypeE.exit.i27 ]
-  %65 = icmp samesign ult i8 %44, %55
-  br i1 %65, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %66
+  %.off1686 = phi i1 [ false, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit ], [ false, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit ], [ false, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit ], [ false, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit ], [ %65, %_ZL5isROVN4llvm4dxil12ResourceKindEPNS_13TargetExtTypeE.exit.i27 ]
+  %66 = icmp samesign ult i8 %44, %55
+  br i1 %66, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %67
 
-66:                                               ; preds = %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit31
-  %67 = icmp samesign ult i8 %55, %44
-  br i1 %67, label %.critedge, label %68
+67:                                               ; preds = %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit31
+  %68 = icmp samesign ult i8 %55, %44
+  br i1 %68, label %.critedge, label %69
 
-68:                                               ; preds = %66
-  %69 = icmp samesign ult i8 %46, %57
-  br i1 %69, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %70
-
-70:                                               ; preds = %68
+69:                                               ; preds = %67
+  %70 = icmp samesign ult i8 %46, %57
   %71 = icmp samesign uge i8 %57, %46
-  %72 = icmp samesign ult i8 %.off16, %.off1686
-  %or.cond = select i1 %71, i1 %72, i1 false
-  br i1 %or.cond, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %.critedge
+  %or.cond = and i1 %71, %.off1686
+  %or.cond88 = select i1 %70, i1 true, i1 %or.cond
+  br i1 %or.cond88, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread71, %70, %66, %16, %18, %28, %30, %40
-  %73 = load i32, ptr %5, align 4, !tbaa !32
-  %74 = icmp eq i32 %73, 12
-  %75 = load i32, ptr %7, align 4
-  %76 = icmp eq i32 %75, 12
-  %or.cond83 = select i1 %74, i1 %76, i1 false
-  br i1 %or.cond83, label %77, label %.critedge2
+.critedge:                                        ; preds = %69, %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread71, %67, %16, %18, %28, %30, %40
+  %72 = load i32, ptr %5, align 4, !tbaa !32
+  %73 = icmp eq i32 %72, 12
+  %74 = load i32, ptr %7, align 4
+  %75 = icmp eq i32 %74, 12
+  %or.cond83 = select i1 %73, i1 %75, i1 false
+  br i1 %or.cond83, label %76, label %.critedge2
 
-77:                                               ; preds = %.critedge
-  %78 = call i64 @_ZNK4llvm4dxil16ResourceTypeInfo9getStructERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(496) %3)
-  %.sroa.061.0.extract.trunc = trunc i64 %78 to i32
-  %79 = call i64 @_ZNK4llvm4dxil16ResourceTypeInfo9getStructERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(496) %3)
-  %.sroa.059.0.extract.trunc = trunc i64 %79 to i32
-  %80 = icmp ult i32 %.sroa.061.0.extract.trunc, %.sroa.059.0.extract.trunc
-  br i1 %80, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %81
+76:                                               ; preds = %.critedge
+  %77 = call i64 @_ZNK4llvm4dxil16ResourceTypeInfo9getStructERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(496) %3)
+  %.sroa.061.0.extract.trunc = trunc i64 %77 to i32
+  %78 = call i64 @_ZNK4llvm4dxil16ResourceTypeInfo9getStructERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(496) %3)
+  %.sroa.059.0.extract.trunc = trunc i64 %78 to i32
+  %79 = icmp ult i32 %.sroa.061.0.extract.trunc, %.sroa.059.0.extract.trunc
+  br i1 %79, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %80
 
-81:                                               ; preds = %77
-  %.sroa.560.0.extract.shift = lshr i64 %79, 32
-  %.sroa.562.0.extract.shift = lshr i64 %78, 32
-  %82 = icmp uge i32 %.sroa.059.0.extract.trunc, %.sroa.061.0.extract.trunc
-  %83 = icmp samesign ult i64 %.sroa.562.0.extract.shift, %.sroa.560.0.extract.shift
-  %or.cond84 = select i1 %82, i1 %83, i1 false
+80:                                               ; preds = %76
+  %.sroa.560.0.extract.shift = lshr i64 %78, 32
+  %.sroa.562.0.extract.shift = lshr i64 %77, 32
+  %81 = icmp uge i32 %.sroa.059.0.extract.trunc, %.sroa.061.0.extract.trunc
+  %82 = icmp samesign ult i64 %.sroa.562.0.extract.shift, %.sroa.560.0.extract.shift
+  %or.cond84 = select i1 %81, i1 %82, i1 false
   br i1 %or.cond84, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %..critedge2_crit_edge
 
-..critedge2_crit_edge:                            ; preds = %81
+..critedge2_crit_edge:                            ; preds = %80
   %.pre = load i32, ptr %5, align 4, !tbaa !32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %.critedge
-  %84 = phi i32 [ %.pre, %..critedge2_crit_edge ], [ %73, %.critedge ]
-  %85 = add i32 %84, -17
-  %spec.select.i32 = icmp ult i32 %85, 2
-  br i1 %spec.select.i32, label %86, label %99
+  %83 = phi i32 [ %.pre, %..critedge2_crit_edge ], [ %72, %.critedge ]
+  %84 = add i32 %83, -17
+  %spec.select.i32 = icmp ult i32 %84, 2
+  br i1 %spec.select.i32, label %85, label %98
 
-86:                                               ; preds = %.critedge2
-  %87 = load i32, ptr %7, align 4, !tbaa !32
-  %88 = add i32 %87, -17
-  %spec.select.i33 = icmp ult i32 %88, 2
-  br i1 %spec.select.i33, label %89, label %.critedge4
+85:                                               ; preds = %.critedge2
+  %86 = load i32, ptr %7, align 4, !tbaa !32
+  %87 = add i32 %86, -17
+  %spec.select.i33 = icmp ult i32 %87, 2
+  br i1 %spec.select.i33, label %88, label %.critedge4
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %0, align 8, !tbaa !3
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
-  %92 = load ptr, ptr %91, align 8, !tbaa !19
-  %93 = load i32, ptr %92, align 4, !tbaa !28
-  %94 = load ptr, ptr %1, align 8, !tbaa !3
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %96 = load ptr, ptr %95, align 8, !tbaa !19
-  %97 = load i32, ptr %96, align 4, !tbaa !28
-  %98 = icmp ult i32 %93, %97
-  br i1 %98, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %.critedge4
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %0, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %91 = load ptr, ptr %90, align 8, !tbaa !19
+  %92 = load i32, ptr %91, align 4, !tbaa !28
+  %93 = load ptr, ptr %1, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
+  %95 = load ptr, ptr %94, align 8, !tbaa !19
+  %96 = load i32, ptr %95, align 4, !tbaa !28
+  %97 = icmp ult i32 %92, %96
+  br i1 %97, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %.critedge4
 
-99:                                               ; preds = %.critedge2
-  %.off.i = add i32 %84, -1
+98:                                               ; preds = %.critedge2
+  %.off.i = add i32 %83, -1
   %switch.i = icmp ult i32 %.off.i, 10
-  br i1 %switch.i, label %100, label %.critedge4
+  br i1 %switch.i, label %99, label %.critedge4
 
-100:                                              ; preds = %99
-  %101 = load i32, ptr %7, align 4, !tbaa !32
-  %.off.i34 = add i32 %101, -1
+99:                                               ; preds = %98
+  %100 = load i32, ptr %7, align 4, !tbaa !32
+  %.off.i34 = add i32 %100, -1
   %switch.i35 = icmp ult i32 %.off.i34, 10
-  br i1 %switch.i35, label %102, label %.critedge4
+  br i1 %switch.i35, label %101, label %.critedge4
 
-102:                                              ; preds = %100
-  %103 = load ptr, ptr %0, align 8, !tbaa !3
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
-  %105 = load ptr, ptr %104, align 8, !tbaa !19
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %.sroa.4.0.in.in.i.i = load i32, ptr %106, align 4, !tbaa !28
+101:                                              ; preds = %99
+  %102 = load ptr, ptr %0, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
+  %104 = load ptr, ptr %103, align 8, !tbaa !19
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %.sroa.4.0.in.in.i.i = load i32, ptr %105, align 4, !tbaa !28
   %.sroa.4.0.in.i.not.i = icmp eq i32 %.sroa.4.0.in.in.i.i, 0
-  %.sroa.0.0.in.in.i.i = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %.sroa.0.0.in.in.i.i = getelementptr inbounds nuw i8, ptr %102, i64 16
   %.sroa.0.0.in.i.i = load ptr, ptr %.sroa.0.0.in.in.i.i, align 8, !tbaa !29
   %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !tbaa !30
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
-  %108 = load i32, ptr %107, align 8
-  %109 = and i32 %108, 255
-  %110 = add nsw i32 %109, -17
-  %spec.select.i.i.i.i = icmp ult i32 %110, 2
-  br i1 %spec.select.i.i.i.i, label %111, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
+  %107 = load i32, ptr %106, align 8
+  %108 = and i32 %107, 255
+  %109 = add nsw i32 %108, -17
+  %spec.select.i.i.i.i = icmp ult i32 %109, 2
+  br i1 %spec.select.i.i.i.i, label %110, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
 
-111:                                              ; preds = %102
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !29
-  %114 = load ptr, ptr %113, align 8, !tbaa !30
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %114, i64 8
+110:                                              ; preds = %101
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 16
+  %112 = load ptr, ptr %111, align 8, !tbaa !29
+  %113 = load ptr, ptr %112, align 8, !tbaa !30
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %113, i64 8
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
 
-_ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %111, %102
-  %115 = phi i32 [ %.pre.i.i, %111 ], [ %108, %102 ]
-  %trunc.i.i = trunc i32 %115 to i8
-  switch i8 %trunc.i.i, label %124 [
-    i8 12, label %116
+_ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %110, %101
+  %114 = phi i32 [ %.pre.i.i, %110 ], [ %107, %101 ]
+  %trunc.i.i = trunc i32 %114 to i8
+  switch i8 %trunc.i.i, label %123 [
+    i8 12, label %115
     i8 2, label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
     i8 3, label %.fold.split.i.i
   ]
 
-116:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %117 = lshr i32 %115, 8
-  switch i32 %117, label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i [
-    i32 16, label %118
-    i32 32, label %120
-    i32 64, label %122
+115:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
+  %116 = lshr i32 %114, 8
+  switch i32 %116, label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i [
+    i32 16, label %117
+    i32 32, label %119
+    i32 64, label %121
   ]
 
-118:                                              ; preds = %116
-  %119 = select i1 %.sroa.4.0.in.i.not.i, i32 3, i32 2
+117:                                              ; preds = %115
+  %118 = select i1 %.sroa.4.0.in.i.not.i, i32 3, i32 2
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
-120:                                              ; preds = %116
-  %121 = select i1 %.sroa.4.0.in.i.not.i, i32 5, i32 4
+119:                                              ; preds = %115
+  %120 = select i1 %.sroa.4.0.in.i.not.i, i32 5, i32 4
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
-122:                                              ; preds = %116
-  %123 = select i1 %.sroa.4.0.in.i.not.i, i32 7, i32 6
+121:                                              ; preds = %115
+  %122 = select i1 %.sroa.4.0.in.i.not.i, i32 7, i32 6
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
-124:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %125 = and i32 %115, 255
-  %126 = icmp eq i32 %125, 0
-  %..i.i = select i1 %126, i32 8, i32 0
+123:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
+  %124 = and i32 %114, 255
+  %125 = icmp eq i32 %124, 0
+  %..i.i = select i1 %125, i32 8, i32 0
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
 .fold.split.i.i:                                  ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
 
-_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %124, %122, %120, %118, %116, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.0.i.i = phi i32 [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ 0, %116 ], [ %..i.i, %124 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
-  %.not.i36 = icmp eq i32 %109, 17
-  br i1 %.not.i36, label %127, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
+_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i:      ; preds = %.fold.split.i.i, %123, %121, %119, %117, %115, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
+  %.0.i.i = phi i32 [ %118, %117 ], [ %120, %119 ], [ %122, %121 ], [ 0, %115 ], [ %..i.i, %123 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 10, %.fold.split.i.i ]
+  %.not.i36 = icmp eq i32 %108, 17
+  br i1 %.not.i36, label %126, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
 
-127:                                              ; preds = %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 32
-  %129 = load i32, ptr %128, align 8, !tbaa !83
+126:                                              ; preds = %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 32
+  %128 = load i32, ptr %127, align 8, !tbaa !83
   br label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
 
-_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit: ; preds = %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i, %127
-  %.0.i = phi i32 [ %129, %127 ], [ 1, %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i ]
-  %130 = load ptr, ptr %1, align 8, !tbaa !3
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %132 = load ptr, ptr %131, align 8, !tbaa !19
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %.sroa.4.0.in.in.i.i37 = load i32, ptr %133, align 4, !tbaa !28
+_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit: ; preds = %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i, %126
+  %.0.i = phi i32 [ %128, %126 ], [ 1, %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i ]
+  %129 = load ptr, ptr %1, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
+  %131 = load ptr, ptr %130, align 8, !tbaa !19
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %.sroa.4.0.in.in.i.i37 = load i32, ptr %132, align 4, !tbaa !28
   %.sroa.4.0.in.i.not.i38 = icmp eq i32 %.sroa.4.0.in.in.i.i37, 0
-  %.sroa.0.0.in.in.i.i39 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %.sroa.0.0.in.in.i.i39 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %.sroa.0.0.in.i.i40 = load ptr, ptr %.sroa.0.0.in.in.i.i39, align 8, !tbaa !29
   %.sroa.0.0.i.i41 = load ptr, ptr %.sroa.0.0.in.i.i40, align 8, !tbaa !30
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i41, i64 8
-  %135 = load i32, ptr %134, align 8
-  %136 = and i32 %135, 255
-  %137 = add nsw i32 %136, -17
-  %spec.select.i.i.i.i42 = icmp ult i32 %137, 2
-  br i1 %spec.select.i.i.i.i42, label %138, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i41, i64 8
+  %134 = load i32, ptr %133, align 8
+  %135 = and i32 %134, 255
+  %136 = add nsw i32 %135, -17
+  %spec.select.i.i.i.i42 = icmp ult i32 %136, 2
+  br i1 %spec.select.i.i.i.i42, label %137, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
 
-138:                                              ; preds = %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i41, i64 16
-  %140 = load ptr, ptr %139, align 8, !tbaa !29
-  %141 = load ptr, ptr %140, align 8, !tbaa !30
-  %.phi.trans.insert.i.i52 = getelementptr inbounds nuw i8, ptr %141, i64 8
+137:                                              ; preds = %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i41, i64 16
+  %139 = load ptr, ptr %138, align 8, !tbaa !29
+  %140 = load ptr, ptr %139, align 8, !tbaa !30
+  %.phi.trans.insert.i.i52 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.pre.i.i53 = load i32, ptr %.phi.trans.insert.i.i52, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
 
-_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43:       ; preds = %138, %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
-  %142 = phi i32 [ %.pre.i.i53, %138 ], [ %135, %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit ]
-  %trunc.i.i44 = trunc i32 %142 to i8
-  switch i8 %trunc.i.i44, label %151 [
-    i8 12, label %143
+_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43:       ; preds = %137, %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit
+  %141 = phi i32 [ %.pre.i.i53, %137 ], [ %134, %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit ]
+  %trunc.i.i44 = trunc i32 %141 to i8
+  switch i8 %trunc.i.i44, label %150 [
+    i8 12, label %142
     i8 2, label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
     i8 3, label %.fold.split.i.i45
   ]
 
-143:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
-  %144 = lshr i32 %142, 8
-  switch i32 %144, label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46 [
-    i32 16, label %145
-    i32 32, label %147
-    i32 64, label %149
+142:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
+  %143 = lshr i32 %141, 8
+  switch i32 %143, label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46 [
+    i32 16, label %144
+    i32 32, label %146
+    i32 64, label %148
   ]
 
-145:                                              ; preds = %143
-  %146 = select i1 %.sroa.4.0.in.i.not.i38, i32 3, i32 2
+144:                                              ; preds = %142
+  %145 = select i1 %.sroa.4.0.in.i.not.i38, i32 3, i32 2
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
 
-147:                                              ; preds = %143
-  %148 = select i1 %.sroa.4.0.in.i.not.i38, i32 5, i32 4
+146:                                              ; preds = %142
+  %147 = select i1 %.sroa.4.0.in.i.not.i38, i32 5, i32 4
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
 
-149:                                              ; preds = %143
-  %150 = select i1 %.sroa.4.0.in.i.not.i38, i32 7, i32 6
+148:                                              ; preds = %142
+  %149 = select i1 %.sroa.4.0.in.i.not.i38, i32 7, i32 6
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
 
-151:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
-  %152 = and i32 %142, 255
-  %153 = icmp eq i32 %152, 0
-  %..i.i51 = select i1 %153, i32 8, i32 0
+150:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
+  %151 = and i32 %141, 255
+  %152 = icmp eq i32 %151, 0
+  %..i.i51 = select i1 %152, i32 8, i32 0
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
 
 .fold.split.i.i45:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
   br label %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
 
-_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46:    ; preds = %.fold.split.i.i45, %151, %149, %147, %145, %143, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
-  %.0.i.i47 = phi i32 [ %146, %145 ], [ %148, %147 ], [ %150, %149 ], [ 0, %143 ], [ %..i.i51, %151 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43 ], [ 10, %.fold.split.i.i45 ]
-  %.not.i48 = icmp eq i32 %136, 17
-  br i1 %.not.i48, label %154, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54
+_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46:    ; preds = %.fold.split.i.i45, %150, %148, %146, %144, %142, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43
+  %.0.i.i47 = phi i32 [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ 0, %142 ], [ %..i.i51, %150 ], [ 9, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i43 ], [ 10, %.fold.split.i.i45 ]
+  %.not.i48 = icmp eq i32 %135, 17
+  br i1 %.not.i48, label %153, label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54
 
-154:                                              ; preds = %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i41, i64 32
-  %156 = load i32, ptr %155, align 8, !tbaa !83
+153:                                              ; preds = %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i41, i64 32
+  %155 = load i32, ptr %154, align 8, !tbaa !83
   br label %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54
 
-_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54: ; preds = %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46, %154
-  %.0.i49 = phi i32 [ %156, %154 ], [ 1, %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46 ]
-  %157 = icmp samesign ult i32 %.0.i.i, %.0.i.i47
-  br i1 %157, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %158
+_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54: ; preds = %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46, %153
+  %.0.i49 = phi i32 [ %155, %153 ], [ 1, %_ZL17toDXILElementTypePN4llvm4TypeEb.exit.i46 ]
+  %156 = icmp samesign ult i32 %.0.i.i, %.0.i.i47
+  br i1 %156, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %157
 
-158:                                              ; preds = %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54
-  %159 = icmp samesign uge i32 %.0.i.i47, %.0.i.i
-  %160 = icmp ult i32 %.0.i, %.0.i49
-  %or.cond85 = select i1 %159, i1 %160, i1 false
+157:                                              ; preds = %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54
+  %158 = icmp samesign uge i32 %.0.i.i47, %.0.i.i
+  %159 = icmp ult i32 %.0.i, %.0.i49
+  %or.cond85 = select i1 %158, i1 %159, i1 false
   br i1 %or.cond85, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %.critedge4
 
-.critedge4:                                       ; preds = %158, %86, %89, %100, %99
-  switch i32 %84, label %175 [
-    i32 8, label %161
-    i32 3, label %161
+.critedge4:                                       ; preds = %157, %85, %88, %99, %98
+  switch i32 %83, label %174 [
+    i32 8, label %160
+    i32 3, label %160
   ]
 
-161:                                              ; preds = %.critedge4, %.critedge4
-  %162 = load i32, ptr %7, align 4, !tbaa !32
-  switch i32 %162, label %175 [
-    i32 8, label %163
-    i32 3, label %163
+160:                                              ; preds = %.critedge4, %.critedge4
+  %161 = load i32, ptr %7, align 4, !tbaa !32
+  switch i32 %161, label %174 [
+    i32 8, label %162
+    i32 3, label %162
   ]
 
-163:                                              ; preds = %161, %161
-  %164 = load ptr, ptr %0, align 8, !tbaa !3
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 40
-  %166 = load ptr, ptr %165, align 8, !tbaa !19
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
-  %168 = load i32, ptr %167, align 4, !tbaa !28
-  %169 = load ptr, ptr %1, align 8, !tbaa !3
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 40
-  %171 = load ptr, ptr %170, align 8, !tbaa !19
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
-  %173 = load i32, ptr %172, align 4, !tbaa !28
-  %174 = icmp ult i32 %168, %173
-  br i1 %174, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %175
+162:                                              ; preds = %160, %160
+  %163 = load ptr, ptr %0, align 8, !tbaa !3
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 40
+  %165 = load ptr, ptr %164, align 8, !tbaa !19
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
+  %167 = load i32, ptr %166, align 4, !tbaa !28
+  %168 = load ptr, ptr %1, align 8, !tbaa !3
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 40
+  %170 = load ptr, ptr %169, align 8, !tbaa !19
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  %172 = load i32, ptr %171, align 4, !tbaa !28
+  %173 = icmp ult i32 %167, %172
+  br i1 %173, label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread, label %174
 
-175:                                              ; preds = %161, %.critedge4, %163
+174:                                              ; preds = %160, %.critedge4, %162
   br label %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread
 
-_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread: ; preds = %158, %81, %70, %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54, %77, %68, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit31, %2, %163, %89, %30, %18, %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit, %175
-  %.0 = phi i1 [ false, %175 ], [ true, %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit ], [ true, %18 ], [ true, %30 ], [ true, %89 ], [ true, %163 ], [ true, %2 ], [ true, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit31 ], [ true, %68 ], [ true, %77 ], [ true, %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54 ], [ true, %70 ], [ true, %81 ], [ true, %158 ]
+_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.thread: ; preds = %157, %80, %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54, %76, %69, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit31, %2, %162, %88, %30, %18, %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit, %174
+  %.0 = phi i1 [ false, %174 ], [ true, %_ZStltIJRKN4llvm4dxil13ResourceClassERKNS1_12ResourceKindEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit ], [ true, %18 ], [ true, %30 ], [ true, %88 ], [ true, %162 ], [ true, %2 ], [ true, %_ZNK4llvm4dxil16ResourceTypeInfo6getUAVEv.exit31 ], [ true, %69 ], [ true, %76 ], [ true, %_ZNK4llvm4dxil16ResourceTypeInfo8getTypedEv.exit54 ], [ true, %80 ], [ true, %157 ]
   call void @_ZN4llvm10DataLayoutD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %3) #21
   call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %3) #21
   ret i1 %.0

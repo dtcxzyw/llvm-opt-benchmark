@@ -503,7 +503,7 @@ define range(i32 0, 2) i32 @dtls_get_message(ptr noundef %0, ptr noundef writeon
   %30 = getelementptr i8, ptr %0, i64 2504
   br label %31
 
-31:                                               ; preds = %328, %2
+31:                                               ; preds = %326, %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
@@ -689,7 +689,7 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %105
 136:                                              ; preds = %129, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   store i64 %108, ptr %27, align 8, !tbaa !79
-  br label %330
+  br label %328
 
 .loopexit.i:                                      ; preds = %85, %98, %.loopexit79.i.i, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
@@ -719,7 +719,7 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %105
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 845, ptr noundef nonnull @__func__.dtls_get_reassembled_message) #9
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 10, i32 noundef 103, ptr noundef null) #9
-  br label %327
+  br label %325
 
 150:                                              ; preds = %147
   %151 = load i64, ptr %9, align 8, !tbaa !98
@@ -735,7 +735,7 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %105
   store i32 257, ptr %158, align 8, !tbaa !123
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store i64 %152, ptr %159, align 8, !tbaa !124
-  br label %330
+  br label %328
 
 160:                                              ; preds = %144
   %161 = load i64, ptr %9, align 8, !tbaa !98
@@ -746,7 +746,7 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %105
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 859, ptr noundef nonnull @__func__.dtls_get_reassembled_message) #9
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 10, i32 noundef 244, ptr noundef null) #9
-  br label %327
+  br label %325
 
 163:                                              ; preds = %160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
@@ -803,7 +803,7 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %105
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 875, ptr noundef nonnull @__func__.dtls_get_reassembled_message) #9
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 47, i32 noundef 271, ptr noundef null) #9
-  br label %327
+  br label %325
 
 206:                                              ; preds = %163
   %207 = load ptr, ptr %10, align 8, !tbaa !74
@@ -975,7 +975,7 @@ dtls1_process_out_of_seq_message.exit.i:          ; preds = %275, %.critedge.i.i
   %.052.i.i = phi i32 [ %246, %245 ], [ -3, %270 ], [ -3, %.thread.i.i ], [ 0, %275 ], [ 0, %.critedge.i.i ], [ 0, %247 ], [ 0, %216 ], [ 0, %257 ], [ 0, %249 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br label %328
+  br label %326
 
 280:                                              ; preds = %214, %206
   %.1.i = phi i32 [ %.0.i, %206 ], [ 1, %214 ]
@@ -986,7 +986,7 @@ dtls1_process_out_of_seq_message.exit.i:          ; preds = %275, %.critedge.i.i
 
 282:                                              ; preds = %280
   %283 = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %0, ptr noundef %8)
-  br label %328
+  br label %326
 
 284:                                              ; preds = %280
   %285 = load i32, ptr %15, align 8, !tbaa !112
@@ -1033,16 +1033,16 @@ dtls1_process_out_of_seq_message.exit.i:          ; preds = %275, %.critedge.i.i
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 926, ptr noundef nonnull @__func__.dtls_get_reassembled_message) #9
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 10, i32 noundef 244, ptr noundef null) #9
-  br label %327
+  br label %325
 
 304:                                              ; preds = %290, %286, %284
   %305 = call fastcc i32 @dtls1_preprocess_fragment(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %.not89.i = icmp eq i32 %305, 0
-  br i1 %.not89.i, label %327, label %306
+  br i1 %.not89.i, label %325, label %306
 
 306:                                              ; preds = %304
   %.not90.i = icmp eq i64 %200, 0
-  br i1 %.not90.i, label %317, label %307
+  br i1 %.not90.i, label %.thread.i, label %307
 
 307:                                              ; preds = %306
   %308 = getelementptr inbounds nuw i8, ptr %35, i64 12
@@ -1052,146 +1052,138 @@ dtls1_process_out_of_seq_message.exit.i:          ; preds = %275, %.critedge.i.i
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 %190
   %313 = call i32 %311(ptr noundef nonnull %0, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %312, i64 noundef %200, i32 noundef 0, ptr noundef nonnull %9) #9
   %314 = icmp slt i32 %313, 1
-  br i1 %314, label %315, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %307
-  %.pre.i = load i64, ptr %9, align 8, !tbaa !98
-  br label %318
+  br i1 %314, label %315, label %317
 
 315:                                              ; preds = %307
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 3, ptr %316, align 8, !tbaa !86
   br label %.thread
 
-317:                                              ; preds = %306
-  store i64 0, ptr %9, align 8, !tbaa !98
-  br label %318
+317:                                              ; preds = %307
+  %.pre.i = load i64, ptr %9, align 8, !tbaa !98
+  %318 = icmp eq i64 %.pre.i, %200
+  br i1 %318, label %.thread.i, label %319
 
-318:                                              ; preds = %317, %._crit_edge.i
-  %319 = phi i64 [ %.pre.i, %._crit_edge.i ], [ 0, %317 ]
-  %.not91.i = icmp eq i64 %319, %200
-  br i1 %.not91.i, label %321, label %320
-
-320:                                              ; preds = %318
+319:                                              ; preds = %317
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 960, ptr noundef nonnull @__func__.dtls_get_reassembled_message) #9
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 47, i32 noundef 271, ptr noundef null) #9
-  br label %327
+  br label %325
 
-321:                                              ; preds = %318
+.thread.i:                                        ; preds = %317, %306
   %.not92.i = icmp eq i32 %.1.i, 0
-  br i1 %.not92.i, label %326, label %322
+  br i1 %.not92.i, label %324, label %320
 
-322:                                              ; preds = %321
-  %323 = load ptr, ptr %10, align 8, !tbaa !74
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 272
-  store i16 0, ptr %324, align 8, !tbaa !111
-  %325 = getelementptr inbounds nuw i8, ptr %323, i64 270
-  store i16 0, ptr %325, align 2, !tbaa !117
-  br label %326
+320:                                              ; preds = %.thread.i
+  %321 = load ptr, ptr %10, align 8, !tbaa !74
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 272
+  store i16 0, ptr %322, align 8, !tbaa !111
+  %323 = getelementptr inbounds nuw i8, ptr %321, i64 270
+  store i16 0, ptr %323, align 2, !tbaa !117
+  br label %324
 
-326:                                              ; preds = %322, %321
+324:                                              ; preds = %320, %.thread.i
   store i64 %200, ptr %27, align 8, !tbaa !79
-  br label %330
+  br label %328
 
-327:                                              ; preds = %320, %304, %303, %205, %162, %149
+325:                                              ; preds = %319, %304, %303, %205, %162, %149
   store i64 0, ptr %27, align 8, !tbaa !79
   br label %.thread
 
-.thread:                                          ; preds = %dtls1_retrieve_buffered_fragment.exit.i, %315, %327, %142
+.thread:                                          ; preds = %dtls1_retrieve_buffered_fragment.exit.i, %315, %325, %142
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
   br label %.loopexit
 
-328:                                              ; preds = %dtls1_process_out_of_seq_message.exit.i, %282
+326:                                              ; preds = %dtls1_process_out_of_seq_message.exit.i, %282
   %.046.ph = phi i32 [ %.052.i.i, %dtls1_process_out_of_seq_message.exit.i ], [ %283, %282 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
-  %329 = add nsw i32 %.046.ph, 3
-  %or.cond = icmp samesign ult i32 %329, 2
+  %327 = add nsw i32 %.046.ph, 3
+  %or.cond = icmp samesign ult i32 %327, 2
   br i1 %or.cond, label %31, label %.loopexit
 
-330:                                              ; preds = %326, %150, %136
+328:                                              ; preds = %324, %150, %136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %332 = load i32, ptr %331, align 8, !tbaa !123
-  store i32 %332, ptr %1, align 4, !tbaa !132
-  %333 = load ptr, ptr %14, align 8, !tbaa !91
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
-  %335 = load ptr, ptr %334, align 8, !tbaa !92
-  %336 = icmp eq i32 %332, 257
-  br i1 %336, label %337, label %343
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %330 = load i32, ptr %329, align 8, !tbaa !123
+  store i32 %330, ptr %1, align 4, !tbaa !132
+  %331 = load ptr, ptr %14, align 8, !tbaa !91
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
+  %333 = load ptr, ptr %332, align 8, !tbaa !92
+  %334 = icmp eq i32 %330, 257
+  br i1 %334, label %335, label %341
 
-337:                                              ; preds = %330
-  %338 = load ptr, ptr %24, align 8, !tbaa !101
-  %.not45 = icmp eq ptr %338, null
-  br i1 %.not45, label %.loopexit, label %339
+335:                                              ; preds = %328
+  %336 = load ptr, ptr %24, align 8, !tbaa !101
+  %.not45 = icmp eq ptr %336, null
+  br i1 %.not45, label %.loopexit, label %337
 
-339:                                              ; preds = %337
-  %340 = load i32, ptr %25, align 8, !tbaa !100
-  %341 = load ptr, ptr %13, align 8, !tbaa !17
-  %342 = load ptr, ptr %26, align 8, !tbaa !102
-  call void %338(i32 noundef 0, i32 noundef %340, i32 noundef 20, ptr noundef %335, i64 noundef 1, ptr noundef %341, ptr noundef %342) #9
+337:                                              ; preds = %335
+  %338 = load i32, ptr %25, align 8, !tbaa !100
+  %339 = load ptr, ptr %13, align 8, !tbaa !17
+  %340 = load ptr, ptr %26, align 8, !tbaa !102
+  call void %336(i32 noundef 0, i32 noundef %338, i32 noundef 20, ptr noundef %333, i64 noundef 1, ptr noundef %339, ptr noundef %340) #9
   br label %.loopexit
 
-343:                                              ; preds = %330
-  %344 = getelementptr inbounds nuw i8, ptr %11, i64 384
-  %345 = load i64, ptr %344, align 8, !tbaa !96
-  %346 = load i8, ptr %12, align 8, !tbaa !94
-  %347 = getelementptr inbounds nuw i8, ptr %335, i64 1
-  store i8 %346, ptr %335, align 1, !tbaa !95
-  %348 = lshr i64 %345, 16
+341:                                              ; preds = %328
+  %342 = getelementptr inbounds nuw i8, ptr %11, i64 384
+  %343 = load i64, ptr %342, align 8, !tbaa !96
+  %344 = load i8, ptr %12, align 8, !tbaa !94
+  %345 = getelementptr inbounds nuw i8, ptr %333, i64 1
+  store i8 %344, ptr %333, align 1, !tbaa !95
+  %346 = lshr i64 %343, 16
+  %347 = trunc i64 %346 to i8
+  store i8 %347, ptr %345, align 1, !tbaa !95
+  %348 = lshr i64 %343, 8
   %349 = trunc i64 %348 to i8
-  store i8 %349, ptr %347, align 1, !tbaa !95
-  %350 = lshr i64 %345, 8
-  %351 = trunc i64 %350 to i8
-  %352 = getelementptr inbounds nuw i8, ptr %335, i64 2
+  %350 = getelementptr inbounds nuw i8, ptr %333, i64 2
+  store i8 %349, ptr %350, align 1, !tbaa !95
+  %351 = trunc i64 %343 to i8
+  %352 = getelementptr inbounds nuw i8, ptr %333, i64 3
   store i8 %351, ptr %352, align 1, !tbaa !95
-  %353 = trunc i64 %345 to i8
-  %354 = getelementptr inbounds nuw i8, ptr %335, i64 3
-  store i8 %353, ptr %354, align 1, !tbaa !95
-  %355 = getelementptr inbounds nuw i8, ptr %335, i64 4
-  %356 = getelementptr inbounds nuw i8, ptr %11, i64 392
-  %357 = load i16, ptr %356, align 8, !tbaa !97
-  %358 = lshr i16 %357, 8
-  %359 = trunc nuw i16 %358 to i8
-  store i8 %359, ptr %355, align 1, !tbaa !95
-  %360 = load i16, ptr %356, align 8, !tbaa !97
-  %361 = trunc i16 %360 to i8
-  %362 = getelementptr inbounds nuw i8, ptr %335, i64 5
-  store i8 %361, ptr %362, align 1, !tbaa !95
-  %363 = getelementptr inbounds nuw i8, ptr %335, i64 6
+  %353 = getelementptr inbounds nuw i8, ptr %333, i64 4
+  %354 = getelementptr inbounds nuw i8, ptr %11, i64 392
+  %355 = load i16, ptr %354, align 8, !tbaa !97
+  %356 = lshr i16 %355, 8
+  %357 = trunc nuw i16 %356 to i8
+  store i8 %357, ptr %353, align 1, !tbaa !95
+  %358 = load i16, ptr %354, align 8, !tbaa !97
+  %359 = trunc i16 %358 to i8
+  %360 = getelementptr inbounds nuw i8, ptr %333, i64 5
+  store i8 %359, ptr %360, align 1, !tbaa !95
+  %361 = getelementptr inbounds nuw i8, ptr %333, i64 6
+  store i8 0, ptr %361, align 1, !tbaa !95
+  %362 = getelementptr inbounds nuw i8, ptr %333, i64 7
+  store i8 0, ptr %362, align 1, !tbaa !95
+  %363 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i8 0, ptr %363, align 1, !tbaa !95
-  %364 = getelementptr inbounds nuw i8, ptr %335, i64 7
-  store i8 0, ptr %364, align 1, !tbaa !95
-  %365 = getelementptr inbounds nuw i8, ptr %335, i64 8
-  store i8 0, ptr %365, align 1, !tbaa !95
-  %366 = getelementptr inbounds nuw i8, ptr %335, i64 9
-  store i8 %349, ptr %366, align 1, !tbaa !95
-  %367 = getelementptr inbounds nuw i8, ptr %335, i64 10
-  store i8 %351, ptr %367, align 1, !tbaa !95
-  %368 = getelementptr inbounds nuw i8, ptr %335, i64 11
-  store i8 %353, ptr %368, align 1, !tbaa !95
+  %364 = getelementptr inbounds nuw i8, ptr %333, i64 9
+  store i8 %347, ptr %364, align 1, !tbaa !95
+  %365 = getelementptr inbounds nuw i8, ptr %333, i64 10
+  store i8 %349, ptr %365, align 1, !tbaa !95
+  %366 = getelementptr inbounds nuw i8, ptr %333, i64 11
+  store i8 %351, ptr %366, align 1, !tbaa !95
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %369 = load ptr, ptr %10, align 8, !tbaa !74
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 272
-  %371 = load i16, ptr %370, align 8, !tbaa !111
-  %372 = add i16 %371, 1
-  store i16 %372, ptr %370, align 8, !tbaa !111
-  %373 = load ptr, ptr %14, align 8, !tbaa !91
-  %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
-  %375 = load ptr, ptr %374, align 8, !tbaa !92
-  %376 = getelementptr inbounds nuw i8, ptr %375, i64 12
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr %376, ptr %377, align 8, !tbaa !122
+  %367 = load ptr, ptr %10, align 8, !tbaa !74
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 272
+  %369 = load i16, ptr %368, align 8, !tbaa !111
+  %370 = add i16 %369, 1
+  store i16 %370, ptr %368, align 8, !tbaa !111
+  %371 = load ptr, ptr %14, align 8, !tbaa !91
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
+  %373 = load ptr, ptr %372, align 8, !tbaa !92
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 12
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store ptr %374, ptr %375, align 8, !tbaa !122
   br label %.loopexit
 
-.loopexit:                                        ; preds = %328, %.thread, %337, %339, %343
-  %.0 = phi i32 [ 1, %343 ], [ 1, %339 ], [ 1, %337 ], [ 0, %.thread ], [ 0, %328 ]
+.loopexit:                                        ; preds = %326, %.thread, %335, %337, %341
+  %.0 = phi i32 [ 1, %341 ], [ 1, %337 ], [ 1, %335 ], [ 0, %.thread ], [ 0, %326 ]
   ret i32 %.0
 }
 

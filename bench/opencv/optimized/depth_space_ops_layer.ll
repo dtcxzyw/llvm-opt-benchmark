@@ -567,9 +567,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
   %.0.i.i.i.i.i.i = phi i32 [ %33, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
-  %35 = icmp slt i32 %.0.i.i.i.i.i.i, 0
+  %35 = icmp sgt i32 %.0.i.i.i.i.i.i, -1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  br i1 %35, label %38, label %._crit_edge.i.i38
+  br i1 %35, label %._crit_edge.i.i38, label %38
 
 36:                                               ; preds = %2
   %37 = landingpad { ptr, i32 }
@@ -779,10 +779,10 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKimEv
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i
-  %.sink.i.i25.i.idx112 = phi i64 [ %101, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
+  %.sink.i.i25.i.idx111 = phi i64 [ %101, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %105 = phi ptr [ %.pre26.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ %99, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %106 = sub nsw i64 24, %101
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.sink.i.i25.i.idx112
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.sink.i.i25.i.idx111
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %105, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %106, i1 false)
   %107 = getelementptr inbounds i8, ptr %105, i64 %106
   store ptr %107, ptr %98, align 8, !tbaa !69
@@ -919,10 +919,10 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93:           ; preds = %_ZSt7advanceIPKimEv
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93.thread
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93.thread:    ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i89, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93
-  %.sink.i.i25.i94.idx119 = phi i64 [ %148, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93 ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i89 ]
+  %.sink.i.i25.i94.idx118 = phi i64 [ %148, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93 ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i89 ]
   %152 = phi ptr [ %.pre26.i92, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i93 ], [ %146, %_ZSt7advanceIPKimEvRT_T0_.exit.i89 ]
   %153 = sub nsw i64 24, %148
-  %.sink.i.i25.i94.ptr = getelementptr inbounds nuw i8, ptr @constinit.9, i64 %.sink.i.i25.i94.idx119
+  %.sink.i.i25.i94.ptr = getelementptr inbounds nuw i8, ptr @constinit.9, i64 %.sink.i.i25.i94.idx118
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %152, ptr nonnull align 4 %.sink.i.i25.i94.ptr, i64 %153, i1 false)
   %154 = getelementptr inbounds i8, ptr %152, i64 %153
   store ptr %154, ptr %145, align 8, !tbaa !69
@@ -1102,14 +1102,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
-  %27 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %27, ptr %5, ptr %.19.i.i.i
+  %27 = icmp sgt i32 %.0.i.i.i.i.i, -1
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202412239DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE5countERSD_.exit
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v202412239DictValueESt4lessIS5_ESaISt4pairIKS5_S9_EEE5countERSD_.exit: ; preds = %2, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv3dnn14dnn4_v202412239DictValueEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %.sroa.0.0.i.i = phi ptr [ %5, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv3dnn14dnn4_v202412239DictValueEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %5, %2 ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
-  %28 = icmp ne ptr %.sroa.0.0.i.i, %5
-  ret i1 %28
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv3dnn14dnn4_v202412239DictValueEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ false, %2 ], [ %27, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  ret i1 %.sroa.0.0.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3561,9 +3559,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i
   %.0.i.i.i.i.i.i = phi i32 [ %29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i ]
-  %31 = icmp slt i32 %.0.i.i.i.i.i.i, 0
+  %31 = icmp sgt i32 %.0.i.i.i.i.i.i, -1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  br i1 %31, label %34, label %._crit_edge.i.i23
+  br i1 %31, label %._crit_edge.i.i23, label %34
 
 32:                                               ; preds = %2
   %33 = landingpad { ptr, i32 }
@@ -3713,10 +3711,10 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKimEv
   br label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread
 
 _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i
-  %.sink.i.i25.i.idx44 = phi i64 [ %78, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
+  %.sink.i.i25.i.idx43 = phi i64 [ %78, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ 0, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %82 = phi ptr [ %.pre26.i, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i ], [ %76, %_ZSt7advanceIPKimEvRT_T0_.exit.i ]
   %83 = sub nsw i64 24, %78
-  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @constinit.37, i64 %.sink.i.i25.i.idx44
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr @constinit.37, i64 %.sink.i.i25.i.idx43
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %82, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %83, i1 false)
   %84 = getelementptr inbounds i8, ptr %82, i64 %83
   store ptr %84, ptr %75, align 8, !tbaa !69

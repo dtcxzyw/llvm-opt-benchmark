@@ -12639,60 +12639,57 @@ define linkonce_odr hidden void @_ZN23simple_check_sat_result18set_reason_unknow
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN23check_sat_tactic_result10get_labelsER7svectorI6symboljE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  br label %4
+  %4 = load ptr, ptr %3, align 8, !tbaa !249
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
 
-4:                                                ; preds = %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i, %2
+_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i:          ; preds = %2, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i
+  %6 = phi ptr [ %22, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i ], [ %4, %2 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i ], [ 0, %2 ]
-  %5 = load ptr, ptr %3, align 8, !tbaa !249
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i, label %7
+  %7 = getelementptr inbounds i8, ptr %6, i64 -4
+  %8 = load i32, ptr %7, align 4, !tbaa !21
+  %9 = zext i32 %8 to i64
+  %10 = icmp samesign ult i64 %indvars.iv.i, %9
+  br i1 %10, label %11, label %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 -4
-  %9 = load i32, ptr %8, align 4, !tbaa !21
-  %10 = zext i32 %9 to i64
-  br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
+11:                                               ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
+  %12 = getelementptr inbounds nuw %class.symbol, ptr %6, i64 %indvars.iv.i
+  %13 = load ptr, ptr %1, align 8, !tbaa !249
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %21, label %15
 
-_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i:          ; preds = %7, %4
-  %.0.i.i = phi i64 [ %10, %7 ], [ 0, %4 ]
-  %11 = icmp samesign ult i64 %indvars.iv.i, %.0.i.i
-  br i1 %11, label %12, label %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 -4
+  %17 = load i32, ptr %16, align 4, !tbaa !21
+  %18 = getelementptr inbounds i8, ptr %13, i64 -8
+  %19 = load i32, ptr %18, align 4, !tbaa !21
+  %20 = icmp eq i32 %17, %19
+  br i1 %20, label %21, label %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i
 
-12:                                               ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
-  %13 = getelementptr inbounds nuw %class.symbol, ptr %5, i64 %indvars.iv.i
-  %14 = load ptr, ptr %1, align 8, !tbaa !249
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %22, label %16
-
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 -4
-  %18 = load i32, ptr %17, align 4, !tbaa !21
-  %19 = getelementptr inbounds i8, ptr %14, i64 -8
-  %20 = load i32, ptr %19, align 4, !tbaa !21
-  %21 = icmp eq i32 %18, %20
-  br i1 %21, label %22, label %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i
-
-22:                                               ; preds = %16, %12
+21:                                               ; preds = %15, %11
   tail call void @_ZN6vectorI6symbolLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %.pre.i.i = load ptr, ptr %1, align 8, !tbaa !249
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !21
+  %.pre.i = load ptr, ptr %3, align 8, !tbaa !249
   br label %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i
 
-_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i:  ; preds = %22, %16
-  %23 = phi i32 [ %.pre2.i.i, %22 ], [ %18, %16 ]
-  %24 = phi ptr [ %.pre.i.i, %22 ], [ %14, %16 ]
+_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i:  ; preds = %21, %15
+  %22 = phi ptr [ %.pre.i, %21 ], [ %6, %15 ]
+  %23 = phi i32 [ %.pre2.i.i, %21 ], [ %17, %15 ]
+  %24 = phi ptr [ %.pre.i.i, %21 ], [ %13, %15 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = zext i32 %23 to i64
   %27 = getelementptr inbounds nuw %class.symbol, ptr %24, i64 %26
-  %28 = load i64, ptr %13, align 8, !tbaa !3
+  %28 = load i64, ptr %12, align 8, !tbaa !3
   store i64 %28, ptr %27, align 8, !tbaa !3
   %29 = add i32 %23, 1
   store i32 %29, ptr %25, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %4, !llvm.loop !338
+  %30 = icmp eq ptr %22, null
+  br i1 %30, label %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i, !llvm.loop !338
 
-_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit:       ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
+_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit:       ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i, %2
   ret void
 }
 
@@ -12706,60 +12703,57 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(976) ptr @_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN23check_sat_tactic_result10add_labelsER7svectorI6symboljE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  br label %4
+  %4 = load ptr, ptr %1, align 8, !tbaa !249
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
 
-4:                                                ; preds = %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i, %2
+_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i:          ; preds = %2, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i
+  %6 = phi ptr [ %22, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i ], [ %4, %2 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i ], [ 0, %2 ]
-  %5 = load ptr, ptr %1, align 8, !tbaa !249
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i, label %7
+  %7 = getelementptr inbounds i8, ptr %6, i64 -4
+  %8 = load i32, ptr %7, align 4, !tbaa !21
+  %9 = zext i32 %8 to i64
+  %10 = icmp samesign ult i64 %indvars.iv.i, %9
+  br i1 %10, label %11, label %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 -4
-  %9 = load i32, ptr %8, align 4, !tbaa !21
-  %10 = zext i32 %9 to i64
-  br label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
+11:                                               ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
+  %12 = getelementptr inbounds nuw %class.symbol, ptr %6, i64 %indvars.iv.i
+  %13 = load ptr, ptr %3, align 8, !tbaa !249
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %21, label %15
 
-_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i:          ; preds = %7, %4
-  %.0.i.i = phi i64 [ %10, %7 ], [ 0, %4 ]
-  %11 = icmp samesign ult i64 %indvars.iv.i, %.0.i.i
-  br i1 %11, label %12, label %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %13, i64 -4
+  %17 = load i32, ptr %16, align 4, !tbaa !21
+  %18 = getelementptr inbounds i8, ptr %13, i64 -8
+  %19 = load i32, ptr %18, align 4, !tbaa !21
+  %20 = icmp eq i32 %17, %19
+  br i1 %20, label %21, label %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i
 
-12:                                               ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
-  %13 = getelementptr inbounds nuw %class.symbol, ptr %5, i64 %indvars.iv.i
-  %14 = load ptr, ptr %3, align 8, !tbaa !249
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %22, label %16
-
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 -4
-  %18 = load i32, ptr %17, align 4, !tbaa !21
-  %19 = getelementptr inbounds i8, ptr %14, i64 -8
-  %20 = load i32, ptr %19, align 4, !tbaa !21
-  %21 = icmp eq i32 %18, %20
-  br i1 %21, label %22, label %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i
-
-22:                                               ; preds = %16, %12
+21:                                               ; preds = %15, %11
   tail call void @_ZN6vectorI6symbolLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.pre.i.i = load ptr, ptr %3, align 8, !tbaa !249
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !21
+  %.pre.i = load ptr, ptr %1, align 8, !tbaa !249
   br label %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i
 
-_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i:  ; preds = %22, %16
-  %23 = phi i32 [ %.pre2.i.i, %22 ], [ %18, %16 ]
-  %24 = phi ptr [ %.pre.i.i, %22 ], [ %14, %16 ]
+_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i:  ; preds = %21, %15
+  %22 = phi ptr [ %.pre.i, %21 ], [ %6, %15 ]
+  %23 = phi i32 [ %.pre2.i.i, %21 ], [ %17, %15 ]
+  %24 = phi ptr [ %.pre.i.i, %21 ], [ %13, %15 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = zext i32 %23 to i64
   %27 = getelementptr inbounds nuw %class.symbol, ptr %24, i64 %26
-  %28 = load i64, ptr %13, align 8, !tbaa !3
+  %28 = load i64, ptr %12, align 8, !tbaa !3
   store i64 %28, ptr %27, align 8, !tbaa !3
   %29 = add i32 %23, 1
   store i32 %29, ptr %25, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %4, !llvm.loop !338
+  %30 = icmp eq ptr %22, null
+  br i1 %30, label %_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit, label %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i, !llvm.loop !338
 
-_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit:       ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i
+_ZN6vectorI6symbolLb0EjE6appendERKS1_.exit:       ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i, %_ZN6vectorI6symbolLb0EjE9push_backERKS0_.exit.i, %2
   ret void
 }
 

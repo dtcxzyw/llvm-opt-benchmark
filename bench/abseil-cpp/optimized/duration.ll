@@ -2352,21 +2352,21 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75: ;
   br i1 %9, label %.critedge, label %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread
 
 _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread: ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75
-  %.061212 = phi i32 [ %.061, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ 1, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
-  %.sroa.9.0209 = phi ptr [ %7, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ %1, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
-  %.sroa.0180.0206 = phi i64 [ %8, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ %0, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
-  switch i64 %.sroa.0180.0206, label %.lr.ph.i.preheader.lr.ph [
+  %.061211 = phi i32 [ %.061, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ 1, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
+  %.sroa.9.0208 = phi ptr [ %7, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ %1, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
+  %.sroa.0180.0205 = phi i64 [ %8, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ %0, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
+  switch i64 %.sroa.0180.0205, label %.lr.ph.i.preheader.lr.ph [
     i64 1, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
     i64 3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread
-  %lhsc284 = load i8, ptr %.sroa.9.0209, align 1
-  %10 = icmp eq i8 %lhsc284, 48
+  %lhsc285 = load i8, ptr %.sroa.9.0208, align 1
+  %10 = icmp eq i8 %lhsc285, 48
   br i1 %10, label %.critedge.sink.split, label %.lr.ph.i.preheader.lr.ph
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76: ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread
-  %bcmp.i77 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.9.0209, ptr noundef nonnull dereferenceable(3) @.str.2, i64 3)
+  %bcmp.i77 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.9.0208, ptr noundef nonnull dereferenceable(3) @.str.2, i64 3)
   %11 = icmp eq i32 %bcmp.i77, 0
   br i1 %11, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit79, label %.lr.ph.i.preheader.lr.ph
 
@@ -2375,7 +2375,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   store i64 9223372036854775807, ptr %6, align 8
   %.sroa.22.0..sroa_idx.i80 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %.sroa.22.0..sroa_idx.i80, align 8
-  %12 = sext i32 %.061212 to i64
+  %12 = sext i32 %.061211 to i64
   %13 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %6, i64 noundef %12)
   %.sroa.03.0.copyload.i = load i64, ptr %6, align 8
   %.sroa.24.0.copyload.i = load i32, ptr %.sroa.22.0..sroa_idx.i80, align 8, !tbaa !4
@@ -2383,24 +2383,24 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %.critedge.sink.split
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.9.0209, i64 %.sroa.0180.0206
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.9.0208, i64 %.sroa.0180.0205
   %15 = ptrtoint ptr %14 to i64
-  %16 = sext i32 %.061212 to i64
+  %16 = sext i32 %.061211 to i64
   %.sroa.22.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.22.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.lr.ph, %_ZN4absl8DurationpLES0_.exit102
-  %.sroa.21.0272 = phi i32 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %.sroa.21.1, %_ZN4absl8DurationpLES0_.exit102 ]
-  %.sroa.0112.sroa.0.0271 = phi i32 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %.sroa.0112.sroa.0.1, %_ZN4absl8DurationpLES0_.exit102 ]
-  %.sroa.0112.sroa.16.0270 = phi i32 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %.sroa.0112.sroa.16.1, %_ZN4absl8DurationpLES0_.exit102 ]
-  %.0194269 = phi ptr [ %.sroa.9.0209, %.lr.ph.i.preheader.lr.ph ], [ %64, %_ZN4absl8DurationpLES0_.exit102 ]
+  %.sroa.21.0273 = phi i32 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %.sroa.21.1, %_ZN4absl8DurationpLES0_.exit102 ]
+  %.sroa.0112.sroa.0.0272 = phi i32 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %.sroa.0112.sroa.0.1, %_ZN4absl8DurationpLES0_.exit102 ]
+  %.sroa.0112.sroa.16.0271 = phi i32 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %.sroa.0112.sroa.16.1, %_ZN4absl8DurationpLES0_.exit102 ]
+  %.0193270 = phi ptr [ %.sroa.9.0208, %.lr.ph.i.preheader.lr.ph ], [ %64, %_ZN4absl8DurationpLES0_.exit102 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %27
-  %.1195 = phi ptr [ %29, %27 ], [ %.0194269, %.lr.ph.i.preheader ]
+  %.1194 = phi ptr [ %29, %27 ], [ %.0193270, %.lr.ph.i.preheader ]
   %.0191 = phi i64 [ %28, %27 ], [ 0, %.lr.ph.i.preheader ]
-  %17 = load i8, ptr %.1195, align 1, !tbaa !22
+  %17 = load i8, ptr %.1194, align 1, !tbaa !22
   %18 = add i8 %17, -58
   %or.cond.i = icmp ult i8 %18, -10
   br i1 %or.cond.i, label %30, label %19
@@ -2419,25 +2419,25 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 27:                                               ; preds = %21
   %28 = add nsw i64 %22, %24
-  %29 = getelementptr inbounds nuw i8, ptr %.1195, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.1194, i64 1
   %.not.i = icmp eq ptr %29, %14
-  br i1 %.not.i, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, label %.lr.ph.i, !llvm.loop !32
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = icmp ne ptr %.1195, %.0194269
+  %31 = icmp ne ptr %.1194, %.0193270
   %.not51.i = icmp eq i8 %17, 46
   br i1 %.not51.i, label %.preheader.i, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit
 
 .preheader.i:                                     ; preds = %30
-  %storemerge64.i = getelementptr inbounds nuw i8, ptr %.1195, i64 1
+  %storemerge64.i = getelementptr inbounds nuw i8, ptr %.1194, i64 1
   %.not5265.i = icmp eq ptr %storemerge64.i, %14
   br i1 %.not5265.i, label %._crit_edge.i.thread, label %.lr.ph67.i
 
 .lr.ph67.i:                                       ; preds = %.preheader.i, %42
-  %.3197 = phi ptr [ %storemerge.i, %42 ], [ %storemerge64.i, %.preheader.i ]
+  %.2195 = phi ptr [ %storemerge.i, %42 ], [ %storemerge64.i, %.preheader.i ]
   %.0187 = phi i64 [ %.1188, %42 ], [ 0, %.preheader.i ]
   %.0186 = phi i64 [ %.1, %42 ], [ 1, %.preheader.i ]
-  %32 = load i8, ptr %.3197, align 1, !tbaa !22
+  %32 = load i8, ptr %.2195, align 1, !tbaa !22
   %33 = add i8 %32, -58
   %or.cond3.i = icmp ult i8 %33, -10
   br i1 %or.cond3.i, label %._crit_edge.i, label %34
@@ -2457,38 +2457,38 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 42:                                               ; preds = %36, %34
   %.1188 = phi i64 [ %40, %36 ], [ %.0187, %34 ]
   %.1 = phi i64 [ %41, %36 ], [ %.0186, %34 ]
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %.3197, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %.2195, i64 1
   %.not52.i = icmp eq ptr %storemerge.i, %14
   br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph67.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %42, %.lr.ph67.i
-  %.4 = phi ptr [ %.3197, %.lr.ph67.i ], [ %storemerge.i, %42 ]
+  %.3196 = phi ptr [ %.2195, %.lr.ph67.i ], [ %storemerge.i, %42 ]
   %.2189 = phi i64 [ %.0187, %.lr.ph67.i ], [ %.1188, %42 ]
   %.2 = phi i64 [ %.0186, %.lr.ph67.i ], [ %.1, %42 ]
   %43 = icmp ne i64 %.2, 1
   %or.cond = select i1 %31, i1 true, i1 %43
-  br i1 %or.cond, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226, label %.critedge
+  br i1 %or.cond, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, label %.critedge
 
 ._crit_edge.i.thread:                             ; preds = %.preheader.i
-  br i1 %31, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226, label %.critedge
+  br i1 %31, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, label %.critedge
 
 _ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit: ; preds = %30
-  br i1 %31, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226, label %.critedge
+  br i1 %31, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, label %.critedge
 
-_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226: ; preds = %27, %._crit_edge.i.thread, %._crit_edge.i, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit
-  %.3235 = phi i64 [ 1, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.2, %._crit_edge.i ], [ 1, %._crit_edge.i.thread ], [ 1, %27 ]
-  %.3190234 = phi i64 [ 0, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.2189, %._crit_edge.i ], [ 0, %._crit_edge.i.thread ], [ 0, %27 ]
-  %.2193233 = phi i64 [ %.0191, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.0191, %._crit_edge.i ], [ %.0191, %._crit_edge.i.thread ], [ %28, %27 ]
-  %.5232 = phi ptr [ %.1195, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.4, %._crit_edge.i ], [ %storemerge64.i, %._crit_edge.i.thread ], [ %29, %27 ]
-  %44 = ptrtoint ptr %.5232 to i64
+_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread: ; preds = %27, %._crit_edge.i.thread, %._crit_edge.i, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit
+  %.3228 = phi i64 [ 1, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.2, %._crit_edge.i ], [ 1, %._crit_edge.i.thread ], [ 1, %27 ]
+  %.3190227 = phi i64 [ 0, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.2189, %._crit_edge.i ], [ 0, %._crit_edge.i.thread ], [ 0, %27 ]
+  %.1192226 = phi i64 [ %.0191, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.0191, %._crit_edge.i ], [ %.0191, %._crit_edge.i.thread ], [ %28, %27 ]
+  %.4225 = phi ptr [ %.1194, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.3196, %._crit_edge.i ], [ %storemerge64.i, %._crit_edge.i.thread ], [ %29, %27 ]
+  %44 = ptrtoint ptr %.4225 to i64
   %45 = sub i64 %15, %44
   switch i64 %45, label %46 [
     i64 0, label %.critedge
     i64 1, label %thread-pre-split.i
   ]
 
-46:                                               ; preds = %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226
-  %47 = load i8, ptr %.5232, align 1, !tbaa !22
+46:                                               ; preds = %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread
+  %47 = load i8, ptr %.4225, align 1, !tbaa !22
   switch i8 %47, label %60 [
     i8 110, label %48
     i8 117, label %52
@@ -2496,25 +2496,25 @@ _ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226: ; 
   ]
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %.5232, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.4225, i64 1
   %50 = load i8, ptr %49, align 1, !tbaa !22
   %51 = icmp eq i8 %50, 115
   br i1 %51, label %63, label %.critedge
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds nuw i8, ptr %.5232, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.4225, i64 1
   %54 = load i8, ptr %53, align 1, !tbaa !22
   %55 = icmp eq i8 %54, 115
   br i1 %55, label %63, label %.critedge
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds nuw i8, ptr %.5232, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.4225, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !22
   %59 = icmp eq i8 %58, 115
   br i1 %59, label %63, label %.thread51.i
 
-thread-pre-split.i:                               ; preds = %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226
-  %.pr.i = load i8, ptr %.5232, align 1, !tbaa !22
+thread-pre-split.i:                               ; preds = %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread
+  %.pr.i = load i8, ptr %.4225, align 1, !tbaa !22
   br label %60
 
 60:                                               ; preds = %thread-pre-split.i, %46
@@ -2535,12 +2535,12 @@ thread-pre-split.i:                               ; preds = %_ZN4absl12_GLOBAL__
   %.sink = phi i64 [ 1, %.thread51.i ], [ 1, %62 ], [ 2, %48 ], [ 2, %52 ], [ 2, %56 ], [ 1, %60 ]
   %.sroa.13.0.ph = phi i32 [ 0, %.thread51.i ], [ 0, %62 ], [ 4, %48 ], [ 4000, %52 ], [ 4000000, %56 ], [ 0, %60 ]
   %.sroa.0.1.ph = phi i64 [ 60, %.thread51.i ], [ 3600, %62 ], [ 0, %48 ], [ 0, %52 ], [ 0, %56 ], [ 1, %60 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.5232, i64 %.sink
-  %.not66 = icmp eq i64 %.2193233, 0
+  %64 = getelementptr inbounds nuw i8, ptr %.4225, i64 %.sink
+  %.not66 = icmp eq i64 %.1192226, 0
   br i1 %.not66, label %_ZN4absl8DurationpLES0_.exit, label %65
 
 65:                                               ; preds = %63
-  %66 = mul nsw i64 %.2193233, %16
+  %66 = mul nsw i64 %.1192226, %16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   store i64 %.sroa.0.1.ph, ptr %5, align 8
   store i32 %.sroa.13.0.ph, ptr %.sroa.22.0..sroa_idx.i81, align 8
@@ -2548,7 +2548,7 @@ thread-pre-split.i:                               ; preds = %_ZN4absl12_GLOBAL__
   %.sroa.03.0.copyload.i82 = load i64, ptr %5, align 8
   %.sroa.24.0.copyload.i83 = load i32, ptr %.sroa.22.0..sroa_idx.i81, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %68 = icmp eq i32 %.sroa.21.0272, -1
+  %68 = icmp eq i32 %.sroa.21.0273, -1
   br i1 %68, label %_ZN4absl8DurationpLES0_.exit, label %69
 
 69:                                               ; preds = %65
@@ -2556,19 +2556,19 @@ thread-pre-split.i:                               ; preds = %_ZN4absl12_GLOBAL__
   br i1 %70, label %.sink.split.i, label %71
 
 71:                                               ; preds = %69
-  %.sroa.0112.sroa.16.0.insert.ext = zext i32 %.sroa.0112.sroa.16.0270 to i64
+  %.sroa.0112.sroa.16.0.insert.ext = zext i32 %.sroa.0112.sroa.16.0271 to i64
   %.sroa.0112.sroa.16.0.insert.shift = shl nuw i64 %.sroa.0112.sroa.16.0.insert.ext, 32
-  %.sroa.0112.sroa.0.0.insert.ext = zext i32 %.sroa.0112.sroa.0.0271 to i64
+  %.sroa.0112.sroa.0.0.insert.ext = zext i32 %.sroa.0112.sroa.0.0272 to i64
   %.sroa.0112.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0112.sroa.16.0.insert.shift, %.sroa.0112.sroa.0.0.insert.ext
   %72 = add i64 %.sroa.03.0.copyload.i82, %.sroa.0112.sroa.0.0.insert.insert
-  %73 = zext i32 %.sroa.21.0272 to i64
+  %73 = zext i32 %.sroa.21.0273 to i64
   %74 = zext i32 %.sroa.24.0.copyload.i83 to i64
   %75 = sub nsw i64 4000000000, %74
   %.not.i86 = icmp sle i64 %75, %73
-  %76 = add i32 %.sroa.21.0272, 294967296
+  %76 = add i32 %.sroa.21.0273, 294967296
   %77 = zext i1 %.not.i86 to i64
   %.sroa.0112.sroa.16.3.in.in = add i64 %72, %77
-  %78 = select i1 %.not.i86, i32 %76, i32 %.sroa.21.0272
+  %78 = select i1 %.not.i86, i32 %76, i32 %.sroa.21.0273
   %.sroa.0112.sroa.0.3 = trunc i64 %.sroa.0112.sroa.16.3.in.in to i32
   %.sroa.0112.sroa.16.3.in = lshr i64 %.sroa.0112.sroa.16.3.in.in, 32
   %.sroa.0112.sroa.16.3 = trunc nuw i64 %.sroa.0112.sroa.16.3.in to i32
@@ -2599,14 +2599,14 @@ _ZN4abslngENS_8DurationE.exit.i:                  ; preds = %83, %81
   br label %_ZN4absl8DurationpLES0_.exit
 
 _ZN4absl8DurationpLES0_.exit:                     ; preds = %.sink.split.i, %83, %81, %65, %63
-  %.sroa.0112.sroa.16.2 = phi i32 [ %.sroa.0112.sroa.16.0270, %63 ], [ %.sroa.0112.sroa.16.0270, %65 ], [ %.sroa.0112.sroa.16.0.extract.trunc, %.sink.split.i ], [ %.sroa.0112.sroa.16.3, %81 ], [ %.sroa.0112.sroa.16.3, %83 ]
-  %.sroa.0112.sroa.0.2 = phi i32 [ %.sroa.0112.sroa.0.0271, %63 ], [ %.sroa.0112.sroa.0.0271, %65 ], [ %.sroa.0112.sroa.0.0.extract.trunc, %.sink.split.i ], [ %.sroa.0112.sroa.0.3, %81 ], [ %.sroa.0112.sroa.0.3, %83 ]
-  %.sroa.21.2 = phi i32 [ %.sroa.21.0272, %63 ], [ -1, %65 ], [ %.sroa.5.0.sink.i, %.sink.split.i ], [ %79, %81 ], [ %79, %83 ]
-  %.not67 = icmp eq i64 %.3190234, 0
+  %.sroa.0112.sroa.16.2 = phi i32 [ %.sroa.0112.sroa.16.0271, %63 ], [ %.sroa.0112.sroa.16.0271, %65 ], [ %.sroa.0112.sroa.16.0.extract.trunc, %.sink.split.i ], [ %.sroa.0112.sroa.16.3, %81 ], [ %.sroa.0112.sroa.16.3, %83 ]
+  %.sroa.0112.sroa.0.2 = phi i32 [ %.sroa.0112.sroa.0.0272, %63 ], [ %.sroa.0112.sroa.0.0272, %65 ], [ %.sroa.0112.sroa.0.0.extract.trunc, %.sink.split.i ], [ %.sroa.0112.sroa.0.3, %81 ], [ %.sroa.0112.sroa.0.3, %83 ]
+  %.sroa.21.2 = phi i32 [ %.sroa.21.0273, %63 ], [ -1, %65 ], [ %.sroa.5.0.sink.i, %.sink.split.i ], [ %79, %81 ], [ %79, %83 ]
+  %.not67 = icmp eq i64 %.3190227, 0
   br i1 %.not67, label %_ZN4absl8DurationpLES0_.exit102, label %85
 
 85:                                               ; preds = %_ZN4absl8DurationpLES0_.exit
-  %86 = mul nsw i64 %.3190234, %16
+  %86 = mul nsw i64 %.3190227, %16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   store i64 %.sroa.0.1.ph, ptr %4, align 8
   store i32 %.sroa.13.0.ph, ptr %.sroa.22.0..sroa_idx.i87, align 8
@@ -2615,12 +2615,12 @@ _ZN4absl8DurationpLES0_.exit:                     ; preds = %.sink.split.i, %83,
   %.sroa.24.0.copyload.i89 = load i32, ptr %.sroa.22.0..sroa_idx.i87, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %88 = icmp eq i32 %.sroa.24.0.copyload.i89, -1
-  %89 = icmp eq i64 %.3235, 0
+  %89 = icmp eq i64 %.3228, 0
   %or.cond.i.i = or i1 %89, %88
   br i1 %or.cond.i.i, label %90, label %91
 
 90:                                               ; preds = %85
-  %.not.unshifted.i.i = xor i64 %.sroa.03.0.copyload.i88, %.3235
+  %.not.unshifted.i.i = xor i64 %.sroa.03.0.copyload.i88, %.3228
   %.not.i.i = icmp sgt i64 %.not.unshifted.i.i, -1
   %spec.select.i.i = select i1 %.not.i.i, { i64, i32 } { i64 9223372036854775807, i32 -1 }, { i64, i32 } { i64 -9223372036854775808, i32 -1 }
   br label %_ZN4absldvIlEENS_8DurationES1_T_.exit
@@ -2635,16 +2635,16 @@ _ZN4absl8DurationpLES0_.exit:                     ; preds = %.sink.split.i, %83,
   %94 = mul nuw nsw i128 %.sroa.03.0.insert.ext.i.i.i.i.i.i, 4000000000
   %.sroa.01.0.insert.ext.i.i25.i.i.i.i = zext i32 %.017.i.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i27.i.i.i.i = add nuw nsw i128 %94, %.sroa.01.0.insert.ext.i.i25.i.i.i.i
-  %.lobit.i24.i.i.i = lshr i64 %.3235, 63
-  %.lobit11.i.i.i.i = ashr i64 %.3235, 63
-  %spec.select10.i.i.i.i = xor i64 %.lobit11.i.i.i.i, %.3235
+  %.lobit.i24.i.i.i = lshr i64 %.3228, 63
+  %.lobit11.i.i.i.i = ashr i64 %.3228, 63
+  %spec.select10.i.i.i.i = xor i64 %.lobit11.i.i.i.i, %.3228
   %.sroa.03.0.insert.insert.i.i.i.i.i.i = add i64 %spec.select10.i.i.i.i, %.lobit.i24.i.i.i
   %.sroa.01.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.03.0.insert.insert.i.i.i.i.i.i to i128
   %95 = udiv i128 %.sroa.03.0.insert.insert.i.i27.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i128 %95 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %95, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw nsw i128 %.sroa.2.0.extract.shift.i.i.i.i.i to i64
-  %.unshifted.i.i.i = xor i64 %.sroa.03.0.copyload.i88, %.3235
+  %.unshifted.i.i.i = xor i64 %.sroa.03.0.copyload.i88, %.3228
   %96 = icmp sgt i64 %.unshifted.i.i.i, -1
   %97 = icmp eq i64 %.sroa.2.0.extract.trunc.i.i.i.i.i, 0
   br i1 %97, label %98, label %100
@@ -2771,8 +2771,8 @@ _ZN4absl8DurationpLES0_.exit102:                  ; preds = %.sink.split.i99, %1
   store i32 %.sroa.21.1.lcssa.sink, ptr %.sroa.21.0..sroa_idx, align 4, !tbaa !4
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge.i, %._crit_edge.i.thread, %60, %52, %48, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit, %21, %19, %.critedge.sink.split, %3, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75
-  %.0 = phi i1 [ false, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ false, %3 ], [ true, %.critedge.sink.split ], [ false, %19 ], [ false, %21 ], [ false, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ false, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread226 ], [ false, %48 ], [ false, %52 ], [ false, %60 ], [ false, %._crit_edge.i.thread ], [ false, %._crit_edge.i ]
+.critedge:                                        ; preds = %._crit_edge.i, %._crit_edge.i.thread, %60, %52, %48, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit, %19, %21, %.critedge.sink.split, %3, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75
+  %.0 = phi i1 [ false, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ false, %3 ], [ true, %.critedge.sink.split ], [ false, %21 ], [ false, %19 ], [ false, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ false, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread ], [ false, %48 ], [ false, %52 ], [ false, %60 ], [ false, %._crit_edge.i.thread ], [ false, %._crit_edge.i ]
   ret i1 %.0
 }
 

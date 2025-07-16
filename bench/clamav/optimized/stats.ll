@@ -477,7 +477,7 @@ define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(no
 
 .preheader:                                       ; preds = %37
   %.not88 = icmp eq i64 %38, 0
-  br i1 %.not88, label %._crit_edge, label %.lr.ph
+  br i1 %.not88, label %.critedge55, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %41 = load ptr, ptr %7, align 8, !tbaa !56
@@ -506,34 +506,33 @@ define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(no
   %exitcond.not = icmp eq i64 %54, %38
   br i1 %exitcond.not, label %.critedge55, label %44
 
-._crit_edge:                                      ; preds = %52, %.preheader
-  %.036.lcssa = phi i64 [ 0, %.preheader ], [ %.03663, %52 ]
-  %.not59 = icmp eq i64 %.036.lcssa, %38
-  br i1 %.not59, label %.critedge55, label %.loopexit
+._crit_edge:                                      ; preds = %52
+  %55 = icmp eq i64 %.03663, %38
+  br i1 %55, label %.critedge55, label %.loopexit
 
-.critedge55:                                      ; preds = %53, %34, %._crit_edge
-  %55 = load ptr, ptr %.03771, align 8, !tbaa !49
-  %56 = load ptr, ptr %55, align 8, !tbaa !50
-  %.not5266 = icmp eq ptr %56, null
+.critedge55:                                      ; preds = %53, %.preheader, %34, %._crit_edge
+  %56 = load ptr, ptr %.03771, align 8, !tbaa !49
+  %57 = load ptr, ptr %56, align 8, !tbaa !50
+  %.not5266 = icmp eq ptr %57, null
   br i1 %.not5266, label %.loopexit, label %.lr.ph68
 
-57:                                               ; preds = %.lr.ph68
-  %58 = add i64 %.167, 1
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
-  %60 = load ptr, ptr %59, align 8, !tbaa !50
-  %.not52 = icmp eq ptr %60, null
+58:                                               ; preds = %.lr.ph68
+  %59 = add i64 %.167, 1
+  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !50
+  %.not52 = icmp eq ptr %61, null
   br i1 %.not52, label %.loopexit, label %.lr.ph68
 
-.lr.ph68:                                         ; preds = %.critedge55, %57
-  %61 = phi ptr [ %60, %57 ], [ %56, %.critedge55 ]
-  %.167 = phi i64 [ %58, %57 ], [ 0, %.critedge55 ]
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %1) #17
-  %.not53 = icmp eq i32 %62, 0
-  br i1 %.not53, label %.critedge, label %57
+.lr.ph68:                                         ; preds = %.critedge55, %58
+  %62 = phi ptr [ %61, %58 ], [ %57, %.critedge55 ]
+  %.167 = phi i64 [ %59, %58 ], [ 0, %.critedge55 ]
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %1) #17
+  %.not53 = icmp eq i32 %63, 0
+  br i1 %.not53, label %.critedge, label %58
 
-.loopexit:                                        ; preds = %57, %.critedge55, %.lr.ph74.split.split, %32, %37, %._crit_edge
-  %63 = getelementptr inbounds nuw i8, ptr %.03771, i64 48
-  %.037 = load ptr, ptr %63, align 8, !tbaa !58
+.loopexit:                                        ; preds = %58, %.critedge55, %.lr.ph74.split.split, %32, %37, %._crit_edge
+  %64 = getelementptr inbounds nuw i8, ptr %.03771, i64 48
+  %.037 = load ptr, ptr %64, align 8, !tbaa !58
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %.critedge, label %.lr.ph74.split.split
 

@@ -423,8 +423,8 @@ _ZNSt5dequeIN12_GLOBAL__N_19Hierarchy8NodeTypeESaIS2_EE12emplace_backIJEEERS2_Dp
   %124 = load ptr, ptr %14, align 8, !tbaa !27
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !24, !noalias !34
-  store ptr %125, ptr %14, align 8, !tbaa !27
   %126 = icmp eq ptr %125, %.pre.i
+  store ptr %125, ptr %14, align 8, !tbaa !27
   br i1 %126, label %_ZNSt5dequeIN12_GLOBAL__N_19Hierarchy8NodeTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i._crit_edge, label %_ZNSt5dequeIN12_GLOBAL__N_19Hierarchy8NodeTypeESaIS2_EE4backEv.exit.i
 
 _ZNSt5dequeIN12_GLOBAL__N_19Hierarchy8NodeTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i._crit_edge: ; preds = %_ZNSt5dequeIN12_GLOBAL__N_19Hierarchy8NodeTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i

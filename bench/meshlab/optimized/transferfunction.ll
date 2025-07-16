@@ -146,23 +146,23 @@ define void @_ZN9TfChannelD2Ev(ptr noundef nonnull align 8 captures(none) derefe
 
 ._crit_edge:                                      ; preds = %10
   %.pre10 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %11, %.pre10
-  br i1 %.not.i.i, label %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit, label %13
+  %13 = icmp eq ptr %11, %.pre10
+  br i1 %13, label %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit, label %14
 
-13:                                               ; preds = %._crit_edge
+14:                                               ; preds = %._crit_edge
   store ptr %.pre10, ptr %4, align 8
   br label %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit:       ; preds = %1, %._crit_edge, %13
-  %14 = phi ptr [ %.pre10, %._crit_edge ], [ %.pre10, %13 ], [ %3, %1 ]
-  %.not.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit, label %15
+_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit:       ; preds = %1, %._crit_edge, %14
+  %15 = phi ptr [ %.pre10, %._crit_edge ], [ %.pre10, %14 ], [ %3, %1 ]
+  %.not.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit, label %16
 
-15:                                               ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #25
+16:                                               ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #25
   br label %_ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit
 
-_ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit:           ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit, %15
+_ZNSt6vectorIP6TF_KEYSaIS1_EED2Ev.exit:           ; preds = %_ZNSt6vectorIP6TF_KEYSaIS1_EE5clearEv.exit, %16
   ret void
 }
 

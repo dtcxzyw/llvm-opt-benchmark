@@ -4751,81 +4751,82 @@ define hidden void @_ZN3smt5setup8setup_bvEv(ptr noundef nonnull readonly align 
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8672
   %11 = load ptr, ptr %10, align 8, !tbaa !649
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %_ZNK3smt7context10get_theoryEi.exit.thread, label %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i
+  br i1 %12, label %_ZNK3smt7context10get_theoryEi.exit.thread, label %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.i
 
-_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i: ; preds = %9
+_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %11, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !546
-  %.not.i.i.i = icmp ult i32 %6, %14
-  br i1 %.not.i.i.i, label %_ZNK3smt7context10get_theoryEi.exit, label %_ZNK3smt7context10get_theoryEi.exit.thread
+  %.fr.i.i.i = freeze i32 %14
+  %15 = icmp ult i32 %6, %.fr.i.i.i
+  br i1 %15, label %_ZNK3smt7context10get_theoryEi.exit, label %_ZNK3smt7context10get_theoryEi.exit.thread
 
-_ZNK3smt7context10get_theoryEi.exit:              ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i
-  %15 = zext i32 %6 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %15
-  %.then.val.i.i = load ptr, ptr %16, align 8, !tbaa !650
-  %.not = icmp eq ptr %.then.val.i.i, null
-  br i1 %.not, label %_ZNK3smt7context10get_theoryEi.exit.thread, label %44
+_ZNK3smt7context10get_theoryEi.exit:              ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.i
+  %16 = zext i32 %6 to i64
+  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %16
+  %.pre.i.then.val.i = load ptr, ptr %17, align 8, !tbaa !650
+  %.not = icmp eq ptr %.pre.i.then.val.i, null
+  br i1 %.not, label %_ZNK3smt7context10get_theoryEi.exit.thread, label %45
 
-_ZNK3smt7context10get_theoryEi.exit.thread:       ; preds = %9, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i, %1, %_ZNK3smt7context10get_theoryEi.exit
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !510
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 440
-  %20 = load i32, ptr %19, align 8, !tbaa !652
-  %cond = icmp eq i32 %20, 2
-  br i1 %cond, label %21, label %35
+_ZNK3smt7context10get_theoryEi.exit.thread:       ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE4sizeEv.exit.i.i.i, %9, %1, %_ZNK3smt7context10get_theoryEi.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !510
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 440
+  %21 = load i32, ptr %20, align 8, !tbaa !652
+  %cond = icmp eq i32 %21, 2
+  br i1 %cond, label %22, label %36
 
-21:                                               ; preds = %_ZNK3smt7context10get_theoryEi.exit.thread
-  %22 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 312)
-  %23 = load ptr, ptr %0, align 8, !tbaa !509
-  call void @_ZN3smt15theory_intblastC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(312) %22, ptr noundef nonnull align 8 dereferenceable(10544) %23)
-  call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %22)
-  %24 = load ptr, ptr %17, align 8, !tbaa !510
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 252
-  %26 = load i32, ptr %25, align 4, !tbaa !590
-  %27 = icmp eq i32 %26, 2
-  %28 = load ptr, ptr %0, align 8, !tbaa !509
-  br i1 %27, label %29, label %32
+22:                                               ; preds = %_ZNK3smt7context10get_theoryEi.exit.thread
+  %23 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 312)
+  %24 = load ptr, ptr %0, align 8, !tbaa !509
+  call void @_ZN3smt15theory_intblastC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(312) %23, ptr noundef nonnull align 8 dereferenceable(10544) %24)
+  call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %23)
+  %25 = load ptr, ptr %18, align 8, !tbaa !510
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 252
+  %27 = load i32, ptr %26, align 4, !tbaa !590
+  %28 = icmp eq i32 %27, 2
+  %29 = load ptr, ptr %0, align 8, !tbaa !509
+  br i1 %28, label %30, label %33
 
-29:                                               ; preds = %21
-  %30 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1640)
-  %31 = load ptr, ptr %0, align 8, !tbaa !509
-  call void @_ZN3smt12theory_arithINS_6mi_extEEC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1640) %30, ptr noundef nonnull align 8 dereferenceable(10544) %31)
+30:                                               ; preds = %22
+  %31 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1640)
+  %32 = load ptr, ptr %0, align 8, !tbaa !509
+  call void @_ZN3smt12theory_arithINS_6mi_extEEC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1640) %31, ptr noundef nonnull align 8 dereferenceable(10544) %32)
   br label %_ZN3smt5setup15setup_lra_arithEv.exit
 
-32:                                               ; preds = %21
-  %33 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-  %34 = load ptr, ptr %0, align 8, !tbaa !509
-  call void @_ZN3smt10theory_lraC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(10544) %34)
+33:                                               ; preds = %22
+  %34 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
+  %35 = load ptr, ptr %0, align 8, !tbaa !509
+  call void @_ZN3smt10theory_lraC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull align 8 dereferenceable(10544) %35)
   br label %_ZN3smt5setup15setup_lra_arithEv.exit
 
-_ZN3smt5setup15setup_lra_arithEv.exit:            ; preds = %29, %32
-  %.sink.i = phi ptr [ %33, %32 ], [ %30, %29 ]
-  call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %28, ptr noundef nonnull %.sink.i)
-  br label %44
+_ZN3smt5setup15setup_lra_arithEv.exit:            ; preds = %30, %33
+  %.sink.i = phi ptr [ %34, %33 ], [ %31, %30 ]
+  call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %29, ptr noundef nonnull %.sink.i)
+  br label %45
 
-35:                                               ; preds = %_ZNK3smt7context10get_theoryEi.exit.thread
-  %36 = getelementptr inbounds nuw i8, ptr %18, i64 424
-  %37 = load i32, ptr %36, align 8, !tbaa !653
-  switch i32 %37, label %44 [
-    i32 0, label %38
-    i32 1, label %41
+36:                                               ; preds = %_ZNK3smt7context10get_theoryEi.exit.thread
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 424
+  %38 = load i32, ptr %37, align 8, !tbaa !653
+  switch i32 %38, label %45 [
+    i32 0, label %39
+    i32 1, label %42
   ]
 
-38:                                               ; preds = %35
-  %39 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
-  %40 = load ptr, ptr %0, align 8, !tbaa !509
-  call void @_ZN3smt12theory_dummyC1ERNS_7contextEiPKc(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(10544) %40, i32 noundef %6, ptr noundef nonnull @.str.56)
-  call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %39)
-  br label %44
+39:                                               ; preds = %36
+  %40 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
+  %41 = load ptr, ptr %0, align 8, !tbaa !509
+  call void @_ZN3smt12theory_dummyC1ERNS_7contextEiPKc(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(10544) %41, i32 noundef %6, ptr noundef nonnull @.str.56)
+  call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %40)
+  br label %45
 
-41:                                               ; preds = %35
-  %42 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1048)
-  %43 = load ptr, ptr %0, align 8, !tbaa !509
-  call void @_ZN3smt9theory_bvC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1048) %42, ptr noundef nonnull align 8 dereferenceable(10544) %43)
-  call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %42)
-  br label %44
+42:                                               ; preds = %36
+  %43 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1048)
+  %44 = load ptr, ptr %0, align 8, !tbaa !509
+  call void @_ZN3smt9theory_bvC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(1048) %43, ptr noundef nonnull align 8 dereferenceable(10544) %44)
+  call void @_ZN3smt7context15register_pluginEPNS_6theoryE(ptr noundef nonnull align 8 dereferenceable(10544) %7, ptr noundef nonnull %43)
+  br label %45
 
-44:                                               ; preds = %35, %38, %41, %_ZNK3smt7context10get_theoryEi.exit, %_ZN3smt5setup15setup_lra_arithEv.exit
+45:                                               ; preds = %36, %39, %42, %_ZNK3smt7context10get_theoryEi.exit, %_ZN3smt5setup15setup_lra_arithEv.exit
   ret void
 }
 

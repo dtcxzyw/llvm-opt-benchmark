@@ -636,41 +636,40 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object10ObjectFile12hasDebugInfoE
   %.not2.i5.i.i.i.i.i.i = select i1 %16, i1 true, i1 %.not.i.i.i.i4.i.i.i.i.i.i
   br i1 %.not2.i5.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNKS2_10ObjectFile12hasDebugInfoEvE3$_0EEbOT_T0_.exit"
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %1, %22
-  %lhsv.i.i.i.i6.i.i.i.i.i.i = phi i64 [ %lhsv.i.i.i.i.i.i.i.i.i.i, %22 ], [ %7, %1 ]
-  %17 = phi ptr [ %27, %22 ], [ %8, %1 ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %1, %24
+  %lhsv.i.i.i.i6.i.i.i.i.i.i = phi i64 [ %lhsv.i.i.i.i.i.i.i.i.i.i, %24 ], [ %7, %1 ]
+  %17 = phi ptr [ %29, %24 ], [ %8, %1 ]
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 264
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 %lhsv.i.i.i.i6.i.i.i.i.i.i) #17
-  br i1 %21, label %.lr.ph..critedge.loopexit_crit_edge.i.i.i.i.i.i, label %22
+  br i1 %21, label %.lr.ph..critedge.loopexit_crit_edge.i.i.i.i.i.i, label %24
 
 .lr.ph..critedge.loopexit_crit_edge.i.i.i.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i.i
   %.sroa.01.0.copyload.pre.pre.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !66
   %.sroa.22.0.copyload.pre.pre.i.i.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !67
+  %22 = icmp ne ptr %14, %.sroa.22.0.copyload.pre.pre.i.i.i.i.i.i
+  %23 = icmp ne i64 %13, %.sroa.01.0.copyload.pre.pre.i.i.i.i.i.i
+  %.not8.i.i = select i1 %22, i1 true, i1 %23
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNKS2_10ObjectFile12hasDebugInfoEvE3$_0EEbOT_T0_.exit"
 
-22:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %23 = load ptr, ptr %15, align 8, !tbaa !40
-  %24 = load ptr, ptr %23, align 8, !tbaa !28
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
-  %27 = load ptr, ptr %15, align 8, !tbaa !40
-  %28 = icmp ne ptr %27, %14
+24:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %25 = load ptr, ptr %15, align 8, !tbaa !40
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
+  %28 = load ptr, ptr %27, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(16) %2) #17
+  %29 = load ptr, ptr %15, align 8, !tbaa !40
+  %30 = icmp ne ptr %29, %14
   %lhsv.i.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %lhsv.i.i.i.i.i.i.i.i.i.i, %13
-  %.not2.i.i.i.i.i.i.i = select i1 %28, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
+  %.not2.i.i.i.i.i.i.i = select i1 %30, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
   br i1 %.not2.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNKS2_10ObjectFile12hasDebugInfoEvE3$_0EEbOT_T0_.exit", !llvm.loop !68
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNKS2_10ObjectFile12hasDebugInfoEvE3$_0EEbOT_T0_.exit": ; preds = %22, %1, %.lr.ph..critedge.loopexit_crit_edge.i.i.i.i.i.i
-  %.sroa.22.0.copyload.i.i.i.i.i.i = phi ptr [ %8, %1 ], [ %.sroa.22.0.copyload.pre.pre.i.i.i.i.i.i, %.lr.ph..critedge.loopexit_crit_edge.i.i.i.i.i.i ], [ %14, %22 ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i = phi i64 [ %7, %1 ], [ %.sroa.01.0.copyload.pre.pre.i.i.i.i.i.i, %.lr.ph..critedge.loopexit_crit_edge.i.i.i.i.i.i ], [ %13, %22 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNKS2_10ObjectFile12hasDebugInfoEvE3$_0EEbOT_T0_.exit": ; preds = %24, %1, %.lr.ph..critedge.loopexit_crit_edge.i.i.i.i.i.i
+  %.sroa.22.0.copyload.i.i.i.i.i.i = phi i1 [ false, %1 ], [ %.not8.i.i, %.lr.ph..critedge.loopexit_crit_edge.i.i.i.i.i.i ], [ false, %24 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %29 = icmp ne ptr %14, %.sroa.22.0.copyload.i.i.i.i.i.i
-  %.not.i.i.i.i.i.i = icmp ne i64 %13, %.sroa.01.0.copyload.i.i.i.i.i.i
-  %.not7.i.i = select i1 %29, i1 true, i1 %.not.i.i.i.i.i.i
-  ret i1 %.not7.i.i
+  ret i1 %.sroa.22.0.copyload.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

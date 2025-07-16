@@ -63256,10 +63256,10 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit140.t
   unreachable
 
 888:                                              ; preds = %882
-  %..i.i.i = select i1 %868, i64 32, i64 36
-  %889 = icmp eq i64 %.val.i.i85.i.i.i, 0
-  %890 = icmp ne i64 %.sroa.637.0.copyload.i, %..i.i.i
-  %or.cond2.i.i.i = and i1 %890, %889
+  %889 = icmp ne i64 %.sroa.637.0.copyload.i, 36
+  %.069.i.i.i = or i1 %889, %868
+  %890 = icmp eq i64 %.val.i.i85.i.i.i, 0
+  %or.cond2.i.i.i = and i1 %.069.i.i.i, %890
   br i1 %or.cond2.i.i.i, label %891, label %902
 
 891:                                              ; preds = %888, %865, %858

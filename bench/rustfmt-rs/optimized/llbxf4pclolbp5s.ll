@@ -4866,12 +4866,15 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN13fluent_bund
   %.022.i.i = select i1 %21, i64 %22, i64 %.01925.i.i
   %23 = sub i64 %.021.i.i, %.022.i.i
   %24 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %24, label %.lr.ph.i.i, label %.loopexit
+  br i1 %24, label %.lr.ph.i.i, label %.loopexit.loopexit
 
-.loopexit:                                        ; preds = %19, %3
-  %.019.lcssa.i.i = phi i64 [ 0, %3 ], [ %.022.i.i, %19 ]
-  %25 = icmp ule i64 %.019.lcssa.i.i, %7
-  tail call void @llvm.assume(i1 %25)
+.loopexit.loopexit:                               ; preds = %19
+  %25 = icmp ule i64 %.022.i.i, %7
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %3
+  %.019.lcssa.i.i = phi i1 [ true, %3 ], [ %25, %.loopexit.loopexit ]
+  tail call void @llvm.assume(i1 %.019.lcssa.i.i)
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h36a183da958ee33fE.llvm.13158159170862922693.exit"
 
 26:                                               ; preds = %.lr.ph.i.i

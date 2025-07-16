@@ -4808,41 +4808,38 @@ define hidden void @_ZN16wasmtime_runtime8libcalls9elem_drop17h156a2138c80388baE
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i": ; preds = %7
   store i64 %10, ptr %11, align 16, !alias.scope !523
-  br label %.thread.i.i
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit.i.i"
 
 14:                                               ; preds = %7
   %15 = sub nuw nsw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %15, i64 noundef 0)
-  br label %.thread.i.i
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit.i.i"
 
-.thread.i.i:                                      ; preds = %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i"
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit.i.i": ; preds = %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i"
   store i64 %8, ptr %5, align 8, !alias.scope !517
-  br label %17
+  br label %16
 
-16:                                               ; preds = %2
+16:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit.i.i", %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !526)
-  br label %17
+  %17 = lshr i64 %4, 6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %19 = load i64, ptr %18, align 16, !alias.scope !529, !noundef !4
+  %20 = icmp ult i64 %17, %19
+  br i1 %20, label %_ZN16wasmtime_runtime8instance8Instance9elem_drop17hf2c6d58b4b285575E.exit, label %21, !prof !17
 
-17:                                               ; preds = %16, %.thread.i.i
-  %18 = lshr i64 %4, 6
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load i64, ptr %19, align 16, !alias.scope !529, !noundef !4
-  %21 = icmp ult i64 %18, %20
-  br i1 %21, label %_ZN16wasmtime_runtime8instance8Instance9elem_drop17hf2c6d58b4b285575E.exit, label %22, !prof !17
-
-22:                                               ; preds = %17
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %18, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.2.llvm.9151662839961121684) #22, !noalias !526
+21:                                               ; preds = %16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.2.llvm.9151662839961121684) #22, !noalias !526
   unreachable
 
-_ZN16wasmtime_runtime8instance8Instance9elem_drop17hf2c6d58b4b285575E.exit: ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8, !alias.scope !529, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw [0 x i64], ptr %24, i64 0, i64 %18
-  %26 = load i64, ptr %25, align 8, !noalias !526, !noundef !4
-  %27 = and i64 %4, 63
-  %28 = shl nuw i64 1, %27
-  %29 = or i64 %26, %28
-  store i64 %29, ptr %25, align 8
+_ZN16wasmtime_runtime8instance8Instance9elem_drop17hf2c6d58b4b285575E.exit: ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %23 = load ptr, ptr %22, align 8, !alias.scope !529, !nonnull !4, !noundef !4
+  %24 = getelementptr inbounds nuw [0 x i64], ptr %23, i64 0, i64 %17
+  %25 = load i64, ptr %24, align 8, !noalias !526, !noundef !4
+  %26 = and i64 %4, 63
+  %27 = shl nuw i64 1, %26
+  %28 = or i64 %25, %27
+  store i64 %28, ptr %24, align 8
   ret void
 }
 
@@ -4926,41 +4923,38 @@ define hidden void @_ZN16wasmtime_runtime8libcalls9data_drop17hc77737ce89663641E
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i": ; preds = %7
   store i64 %10, ptr %11, align 16, !alias.scope !537
-  br label %.thread.i.i
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit.i.i"
 
 14:                                               ; preds = %7
   %15 = sub nuw nsw i64 %10, %12
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %15, i64 noundef 0)
-  br label %.thread.i.i
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit.i.i"
 
-.thread.i.i:                                      ; preds = %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i"
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit.i.i": ; preds = %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i.i.i"
   store i64 %8, ptr %5, align 8, !alias.scope !531
-  br label %17
+  br label %16
 
-16:                                               ; preds = %2
+16:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit.i.i", %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
-  br label %17
+  %17 = lshr i64 %4, 6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %19 = load i64, ptr %18, align 16, !alias.scope !543, !noundef !4
+  %20 = icmp ult i64 %17, %19
+  br i1 %20, label %_ZN16wasmtime_runtime8instance8Instance9data_drop17h91dfe6f143252801E.exit, label %21, !prof !17
 
-17:                                               ; preds = %16, %.thread.i.i
-  %18 = lshr i64 %4, 6
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %20 = load i64, ptr %19, align 16, !alias.scope !543, !noundef !4
-  %21 = icmp ult i64 %18, %20
-  br i1 %21, label %_ZN16wasmtime_runtime8instance8Instance9data_drop17h91dfe6f143252801E.exit, label %22, !prof !17
-
-22:                                               ; preds = %17
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %18, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.2.llvm.9151662839961121684) #22, !noalias !540
+21:                                               ; preds = %16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.2.llvm.9151662839961121684) #22, !noalias !540
   unreachable
 
-_ZN16wasmtime_runtime8instance8Instance9data_drop17h91dfe6f143252801E.exit: ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = load ptr, ptr %23, align 8, !alias.scope !543, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw [0 x i64], ptr %24, i64 0, i64 %18
-  %26 = load i64, ptr %25, align 8, !noalias !540, !noundef !4
-  %27 = and i64 %4, 63
-  %28 = shl nuw i64 1, %27
-  %29 = or i64 %26, %28
-  store i64 %29, ptr %25, align 8
+_ZN16wasmtime_runtime8instance8Instance9data_drop17h91dfe6f143252801E.exit: ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %23 = load ptr, ptr %22, align 8, !alias.scope !543, !nonnull !4, !noundef !4
+  %24 = getelementptr inbounds nuw [0 x i64], ptr %23, i64 0, i64 %17
+  %25 = load i64, ptr %24, align 8, !noalias !540, !noundef !4
+  %26 = and i64 %4, 63
+  %27 = shl nuw i64 1, %26
+  %28 = or i64 %25, %27
+  store i64 %28, ptr %24, align 8
   ret void
 }
 

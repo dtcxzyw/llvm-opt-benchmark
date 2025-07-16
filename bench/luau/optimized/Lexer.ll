@@ -2678,22 +2678,22 @@ _ZNK4Luau5Lexer6peekchEv.exit38:                  ; preds = %2
     i8 0, label %_ZNK4Luau5Lexer6peekchEv.exit38.thread
     i8 45, label %24
     i8 91, label %_ZNK4Luau5Lexer6peekchEv.exit5.i
-    i8 123, label %132
-    i8 125, label %151
-    i8 61, label %175
-    i8 60, label %192
-    i8 62, label %209
-    i8 126, label %226
-    i8 34, label %243
-    i8 39, label %243
-    i8 96, label %244
-    i8 46, label %246
-    i8 43, label %283
-    i8 47, label %300
-    i8 42, label %333
-    i8 37, label %350
-    i8 94, label %367
-    i8 58, label %384
+    i8 123, label %129
+    i8 125, label %148
+    i8 61, label %172
+    i8 60, label %189
+    i8 62, label %206
+    i8 126, label %223
+    i8 34, label %240
+    i8 39, label %240
+    i8 96, label %241
+    i8 46, label %243
+    i8 43, label %280
+    i8 47, label %297
+    i8 42, label %330
+    i8 37, label %347
+    i8 94, label %364
+    i8 58, label %381
     i8 40, label %_ZNK4Luau5Lexer6peekchEv.exit22
     i8 41, label %_ZNK4Luau5Lexer6peekchEv.exit22
     i8 93, label %_ZNK4Luau5Lexer6peekchEv.exit22
@@ -2703,7 +2703,7 @@ _ZNK4Luau5Lexer6peekchEv.exit38:                  ; preds = %2
     i8 63, label %_ZNK4Luau5Lexer6peekchEv.exit22
     i8 38, label %_ZNK4Luau5Lexer6peekchEv.exit22
     i8 124, label %_ZNK4Luau5Lexer6peekchEv.exit22
-    i8 64, label %407
+    i8 64, label %404
   ]
 
 _ZNK4Luau5Lexer6peekchEv.exit38.thread:           ; preds = %2, %_ZNK4Luau5Lexer6peekchEv.exit38
@@ -2720,7 +2720,7 @@ _ZNK4Luau5Lexer6peekchEv.exit38.thread:           ; preds = %2, %_ZNK4Luau5Lexer
   store i32 0, ptr %22, align 4, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %23, align 8, !tbaa !15
-  br label %444
+  br label %441
 
 24:                                               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
   %25 = add i32 %8, 1
@@ -2754,7 +2754,7 @@ _ZNK4Luau5Lexer6peekchEj.exit:                    ; preds = %24
   store i32 0, ptr %36, align 4, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %37, align 8, !tbaa !15
-  br label %444
+  br label %441
 
 38:                                               ; preds = %_ZNK4Luau5Lexer6peekchEj.exit
   %39 = add i32 %8, 2
@@ -2773,11 +2773,11 @@ _ZNK4Luau5Lexer6peekchEj.exit:                    ; preds = %24
   store i32 0, ptr %44, align 4, !tbaa !14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %45, align 8, !tbaa !15
-  br label %444
+  br label %441
 
 46:                                               ; preds = %_ZNK4Luau5Lexer6peekchEj.exit
   tail call void @_ZN4Luau5Lexer15readCommentBodyEv(ptr dead_on_unwind writable sret(%"struct.Luau::Lexeme") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1)
-  br label %444
+  br label %441
 
 _ZNK4Luau5Lexer6peekchEj.exit40.thread:           ; preds = %_ZNK4Luau5Lexer6peekchEj.exit, %24
   store i32 %25, ptr %7, align 8, !tbaa !60
@@ -2795,7 +2795,7 @@ _ZNK4Luau5Lexer6peekchEj.exit40.thread:           ; preds = %_ZNK4Luau5Lexer6pee
   store i32 0, ptr %51, align 4, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %52, align 8, !tbaa !15
-  br label %444
+  br label %441
 
 _ZNK4Luau5Lexer6peekchEv.exit5.i:                 ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
   %53 = add i32 %8, 1
@@ -2829,7 +2829,7 @@ _ZN4Luau5Lexer17skipLongSeparatorEv.exit:         ; preds = %_ZNK4Luau5Lexer6pee
   %68 = sext i1 %67 to i32
   %69 = xor i32 %.08.i.ph, %68
   %70 = icmp sgt i32 %69, -1
-  br i1 %70, label %71, label %121
+  br i1 %70, label %71, label %118
 
 71:                                               ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
@@ -2839,16 +2839,16 @@ _ZN4Luau5Lexer17skipLongSeparatorEv.exit:         ; preds = %_ZNK4Luau5Lexer6pee
   %74 = icmp ugt i64 %14, %73
   br i1 %74, label %_ZNK4Luau5Lexer6peekchEv.exit9.i, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i
 
-_ZNK4Luau5Lexer6peekchEv.exit9.i:                 ; preds = %71, %111
-  %75 = phi i32 [ %112, %111 ], [ %6, %71 ]
-  %76 = phi i64 [ %114, %111 ], [ %73, %71 ]
-  %77 = phi i32 [ %113, %111 ], [ %72, %71 ]
+_ZNK4Luau5Lexer6peekchEv.exit9.i:                 ; preds = %71, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
+  %75 = phi i32 [ %109, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %6, %71 ]
+  %76 = phi i64 [ %111, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %73, %71 ]
+  %77 = phi i32 [ %110, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %72, %71 ]
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 %76
   %79 = load i8, ptr %78, align 1, !tbaa !15, !noalias !76
   switch i8 %79, label %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i [
     i8 0, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit
     i8 93, label %_ZNK4Luau5Lexer6peekchEv.exit5.i.i
-    i8 10, label %107
+    i8 10, label %105
   ]
 
 _ZNK4Luau5Lexer6peekchEv.exit5.i.i:               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i
@@ -2856,7 +2856,7 @@ _ZNK4Luau5Lexer6peekchEv.exit5.i.i:               ; preds = %_ZNK4Luau5Lexer6pee
   store i32 %80, ptr %7, align 8, !tbaa !60, !noalias !76
   %81 = zext i32 %80 to i64
   %82 = icmp ugt i64 %14, %81
-  br i1 %82, label %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
+  br i1 %82, label %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
 
 _ZNK4Luau5Lexer6peekchEv.exit4.i.i:               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit5.i.i, %88
   %83 = phi i64 [ %91, %88 ], [ %81, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ]
@@ -2865,7 +2865,7 @@ _ZNK4Luau5Lexer6peekchEv.exit4.i.i:               ; preds = %_ZNK4Luau5Lexer6pee
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 %83
   %86 = load i8, ptr %85, align 1, !tbaa !15, !noalias !76
   %87 = icmp eq i8 %86, 61
-  br i1 %87, label %88, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i
+  br i1 %87, label %88, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
 
 88:                                               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit4.i.i
   %89 = add i32 %84, 1
@@ -2873,947 +2873,942 @@ _ZNK4Luau5Lexer6peekchEv.exit4.i.i:               ; preds = %_ZNK4Luau5Lexer6pee
   %90 = add nuw nsw i32 %.09.i.i, 1
   %91 = zext i32 %89 to i64
   %92 = icmp ugt i64 %14, %91
-  br i1 %92, label %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i, !llvm.loop !75
+  br i1 %92, label %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i, !llvm.loop !75
 
-_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i: ; preds = %88, %_ZNK4Luau5Lexer6peekchEv.exit4.i.i
+_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i:       ; preds = %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, %88
   %.ph.i = phi i32 [ %89, %88 ], [ %84, %_ZNK4Luau5Lexer6peekchEv.exit4.i.i ]
   %.08.i.ph.i = phi i32 [ %90, %88 ], [ %.09.i.i, %_ZNK4Luau5Lexer6peekchEv.exit4.i.i ]
   %.ph22.i = phi i8 [ 0, %88 ], [ %86, %_ZNK4Luau5Lexer6peekchEv.exit4.i.i ]
   %93 = icmp ne i8 %.ph22.i, 93
   %94 = sext i1 %93 to i32
   %95 = xor i32 %.08.i.ph.i, %94
-  br label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
+  %96 = icmp eq i32 %95, %69
+  br i1 %96, label %97, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
 
-_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i:       ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i
-  %96 = phi i32 [ %80, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ], [ %.ph.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i ]
-  %97 = phi i32 [ -1, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ], [ %95, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i ]
-  %98 = icmp eq i32 %97, %69
-  br i1 %98, label %99, label %111
-
-99:                                               ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
-  %100 = add i32 %96, 1
-  store i32 %100, ptr %7, align 8, !tbaa !60, !noalias !76
-  %101 = load i32, ptr %9, align 8, !tbaa !67, !noalias !76
-  %102 = sub i32 %100, %101
-  %.sroa.417.0.insert.ext.i = zext i32 %102 to i64
+97:                                               ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
+  %98 = add i32 %.ph.i, 1
+  store i32 %98, ptr %7, align 8, !tbaa !60, !noalias !76
+  %99 = load i32, ptr %9, align 8, !tbaa !67, !noalias !76
+  %100 = sub i32 %98, %99
+  %.sroa.417.0.insert.ext.i = zext i32 %100 to i64
   %.sroa.417.0.insert.shift.i = shl nuw i64 %.sroa.417.0.insert.ext.i, 32
   %.sroa.016.0.insert.ext.i = zext i32 %75 to i64
   %.sroa.016.0.insert.insert.i = or disjoint i64 %.sroa.417.0.insert.shift.i, %.sroa.016.0.insert.ext.i
-  %103 = getelementptr inbounds nuw i8, ptr %16, i64 %73
-  %104 = add i32 %72, %69
-  %105 = xor i32 %104, -1
-  %106 = add i32 %96, %105
+  %101 = getelementptr inbounds nuw i8, ptr %16, i64 %73
+  %102 = add i32 %72, %69
+  %103 = xor i32 %102, -1
+  %104 = add i32 %.ph.i, %103
   br label %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit
 
 ._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i:   ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i
   %.pre23.i = add i32 %77, 1
   br label %_ZN4Luau5Lexer10consumeAnyEv.exit.i
 
-107:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i
-  %108 = add i32 %75, 1
-  store i32 %108, ptr %5, align 4, !tbaa !66, !noalias !76
-  %109 = add i32 %77, 1
-  store i32 %109, ptr %9, align 8, !tbaa !67, !noalias !76
+105:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i
+  %106 = add i32 %75, 1
+  store i32 %106, ptr %5, align 4, !tbaa !66, !noalias !76
+  %107 = add i32 %77, 1
+  store i32 %107, ptr %9, align 8, !tbaa !67, !noalias !76
   br label %_ZN4Luau5Lexer10consumeAnyEv.exit.i
 
-_ZN4Luau5Lexer10consumeAnyEv.exit.i:              ; preds = %107, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre23.i, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %109, %107 ]
-  %110 = phi i32 [ %75, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %108, %107 ]
+_ZN4Luau5Lexer10consumeAnyEv.exit.i:              ; preds = %105, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre23.i, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %107, %105 ]
+  %108 = phi i32 [ %75, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %106, %105 ]
   store i32 %.pre-phi.i, ptr %7, align 8, !tbaa !60, !noalias !76
-  br label %111
+  br label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
 
-111:                                              ; preds = %_ZN4Luau5Lexer10consumeAnyEv.exit.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
-  %112 = phi i32 [ %75, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %110, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ]
-  %113 = phi i32 [ %96, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %.pre-phi.i, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ]
-  %114 = zext i32 %113 to i64
-  %115 = icmp ugt i64 %14, %114
-  br i1 %115, label %_ZNK4Luau5Lexer6peekchEv.exit9.i, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit, !llvm.loop !79
+_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit5.i.i, %_ZN4Luau5Lexer10consumeAnyEv.exit.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
+  %109 = phi i32 [ %75, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %108, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ], [ %75, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ]
+  %110 = phi i32 [ %.ph.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %.pre-phi.i, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ], [ %80, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ]
+  %111 = zext i32 %110 to i64
+  %112 = icmp ugt i64 %14, %111
+  br i1 %112, label %_ZNK4Luau5Lexer6peekchEv.exit9.i, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit, !llvm.loop !79
 
-_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i, %111
-  %.ph = phi i32 [ %112, %111 ], [ %75, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
-  %.lcssa.i.ph = phi i32 [ %113, %111 ], [ %77, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
+_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
+  %.ph = phi i32 [ %109, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %75, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
+  %.lcssa.i.ph = phi i32 [ %110, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %77, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
   %.pre175 = zext i32 %.ph to i64
   br label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i
 
 _ZNK4Luau5Lexer6peekchEv.exit9.thread.i:          ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit, %71
   %.sroa.014.0.insert.ext.i.pre-phi = phi i64 [ %.pre175, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit ], [ %.sroa.0155.0.insert.ext, %71 ]
   %.lcssa.i = phi i32 [ %.lcssa.i.ph, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit ], [ %72, %71 ]
-  %116 = load i32, ptr %9, align 8, !tbaa !67, !noalias !76
-  %117 = sub i32 %.lcssa.i, %116
-  %.sroa.415.0.insert.ext.i = zext i32 %117 to i64
+  %113 = load i32, ptr %9, align 8, !tbaa !67, !noalias !76
+  %114 = sub i32 %.lcssa.i, %113
+  %.sroa.415.0.insert.ext.i = zext i32 %114 to i64
   %.sroa.415.0.insert.shift.i = shl nuw i64 %.sroa.415.0.insert.ext.i, 32
   %.sroa.014.0.insert.insert.i = or disjoint i64 %.sroa.415.0.insert.shift.i, %.sroa.014.0.insert.ext.i.pre-phi
   br label %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit
 
-_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit: ; preds = %99, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i
-  %.sink33.i = phi i32 [ 285, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ 278, %99 ]
-  %.sroa.014.0.insert.insert.sink.i = phi i64 [ %.sroa.014.0.insert.insert.i, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %.sroa.016.0.insert.insert.i, %99 ]
-  %.sink29.i = phi i32 [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %106, %99 ]
-  %.sink.i = phi ptr [ null, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %103, %99 ]
+_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit: ; preds = %97, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i
+  %.sink33.i = phi i32 [ 285, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ 278, %97 ]
+  %.sroa.014.0.insert.insert.sink.i = phi i64 [ %.sroa.014.0.insert.insert.i, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %.sroa.016.0.insert.insert.i, %97 ]
+  %.sink29.i = phi i32 [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %104, %97 ]
+  %.sink.i = phi ptr [ null, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %101, %97 ]
   store i32 %.sink33.i, ptr %0, align 8, !tbaa !8, !alias.scope !76
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %118, align 4, !alias.scope !76
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %115, align 4, !alias.scope !76
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.014.0.insert.insert.sink.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !76
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink29.i, ptr %119, align 4, !tbaa !14, !alias.scope !76
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink.i, ptr %120, align 8, !tbaa !15, !alias.scope !76
-  br label %444
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink29.i, ptr %116, align 4, !tbaa !14, !alias.scope !76
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sink.i, ptr %117, align 8, !tbaa !15, !alias.scope !76
+  br label %441
 
-121:                                              ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit
-  %122 = icmp eq i32 %69, -1
-  br i1 %122, label %.thread, label %127
+118:                                              ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit
+  %119 = icmp eq i32 %69, -1
+  br i1 %119, label %.thread, label %124
 
-.thread:                                          ; preds = %_ZNK4Luau5Lexer6peekchEv.exit5.i, %121
-  %123 = add i32 %11, 1
+.thread:                                          ; preds = %_ZNK4Luau5Lexer6peekchEv.exit5.i, %118
+  %120 = add i32 %11, 1
   store i32 91, ptr %0, align 8, !tbaa !8
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %124, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %121, align 4
   %.sroa.4141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4141.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %123, ptr %.sroa.5142.0..sroa_idx, align 8, !tbaa !4
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %125, align 4, !tbaa !14
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %126, align 8, !tbaa !15
-  br label %444
+  store i32 %120, ptr %.sroa.5142.0..sroa_idx, align 8, !tbaa !4
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %122, align 4, !tbaa !14
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %123, align 8, !tbaa !15
+  br label %441
 
-127:                                              ; preds = %121
-  %128 = sub i32 %66, %10
-  %.sroa.4158.0.insert.ext = zext i32 %128 to i64
+124:                                              ; preds = %118
+  %125 = sub i32 %66, %10
+  %.sroa.4158.0.insert.ext = zext i32 %125 to i64
   %.sroa.4158.0.insert.shift = shl nuw i64 %.sroa.4158.0.insert.ext, 32
   %.sroa.0157.0.insert.insert = or disjoint i64 %.sroa.4158.0.insert.shift, %.sroa.0155.0.insert.ext
   store i32 285, ptr %0, align 8, !tbaa !8
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %129, align 4
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %126, align 4
   %.sroa.4139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.0157.0.insert.insert, ptr %.sroa.4139.0..sroa_idx, align 4
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %130, align 4, !tbaa !14
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %131, align 8, !tbaa !15
-  br label %444
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %127, align 4, !tbaa !14
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %128, align 8, !tbaa !15
+  br label %441
 
-132:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %133 = add i32 %8, 1
-  store i32 %133, ptr %7, align 8, !tbaa !60
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %135 = load ptr, ptr %134, align 8, !tbaa !80
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %137 = load ptr, ptr %136, align 8, !tbaa !80
-  %138 = icmp eq ptr %135, %137
-  br i1 %138, label %143, label %139
+129:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %130 = add i32 %8, 1
+  store i32 %130, ptr %7, align 8, !tbaa !60
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %132 = load ptr, ptr %131, align 8, !tbaa !80
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %134 = load ptr, ptr %133, align 8, !tbaa !80
+  %135 = icmp eq ptr %132, %134
+  br i1 %135, label %140, label %136
 
-139:                                              ; preds = %132
+136:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
   store i32 1, ptr %4, align 4, !tbaa !81
-  call void @_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %134, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  call void @_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
   %.pre = load i64, ptr %3, align 8
-  %140 = trunc i64 %.pre to i32
-  %141 = lshr i64 %.pre, 32
-  %142 = trunc nuw i64 %141 to i32
-  br label %143
+  %137 = trunc i64 %.pre to i32
+  %138 = lshr i64 %.pre, 32
+  %139 = trunc nuw i64 %138 to i32
+  br label %140
 
-143:                                              ; preds = %139, %132
-  %144 = phi i32 [ %142, %139 ], [ %11, %132 ]
-  %145 = phi i32 [ %140, %139 ], [ %6, %132 ]
-  %146 = phi i64 [ %.pre, %139 ], [ %.sroa.0155.0.insert.insert, %132 ]
-  %147 = add i32 %144, 1
+140:                                              ; preds = %136, %129
+  %141 = phi i32 [ %139, %136 ], [ %11, %129 ]
+  %142 = phi i32 [ %137, %136 ], [ %6, %129 ]
+  %143 = phi i64 [ %.pre, %136 ], [ %.sroa.0155.0.insert.insert, %129 ]
+  %144 = add i32 %141, 1
   store i32 123, ptr %0, align 8, !tbaa !8
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %146, ptr %148, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %143, ptr %145, align 4
   %.sroa.4135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %145, ptr %.sroa.4135.0..sroa_idx, align 4, !tbaa !4
+  store i32 %142, ptr %.sroa.4135.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %147, ptr %.sroa.5136.0..sroa_idx, align 8, !tbaa !4
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %149, align 4, !tbaa !14
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %150, align 8, !tbaa !15
-  br label %444
+  store i32 %144, ptr %.sroa.5136.0..sroa_idx, align 8, !tbaa !4
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %146, align 4, !tbaa !14
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %147, align 8, !tbaa !15
+  br label %441
 
-151:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %152 = add i32 %8, 1
-  store i32 %152, ptr %7, align 8, !tbaa !60
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %154 = load ptr, ptr %153, align 8, !tbaa !80
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %156 = load ptr, ptr %155, align 8, !tbaa !80
-  %157 = icmp eq ptr %154, %156
-  br i1 %157, label %158, label %163
+148:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %149 = add i32 %8, 1
+  store i32 %149, ptr %7, align 8, !tbaa !60
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %151 = load ptr, ptr %150, align 8, !tbaa !80
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %153 = load ptr, ptr %152, align 8, !tbaa !80
+  %154 = icmp eq ptr %151, %153
+  br i1 %154, label %155, label %160
 
-158:                                              ; preds = %151
-  %159 = add i32 %11, 1
+155:                                              ; preds = %148
+  %156 = add i32 %11, 1
   store i32 125, ptr %0, align 8, !tbaa !8
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %160, align 4
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %157, align 4
   %.sroa.4132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4132.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %159, ptr %.sroa.5133.0..sroa_idx, align 8, !tbaa !4
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %161, align 4, !tbaa !14
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %162, align 8, !tbaa !15
-  br label %444
+  store i32 %156, ptr %.sroa.5133.0..sroa_idx, align 8, !tbaa !4
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %158, align 4, !tbaa !14
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %159, align 8, !tbaa !15
+  br label %441
 
-163:                                              ; preds = %151
-  %164 = getelementptr inbounds i8, ptr %156, i64 -4
-  %165 = load i32, ptr %164, align 4, !tbaa !81
-  store ptr %164, ptr %155, align 8, !tbaa !83
-  %.not = icmp eq i32 %165, 0
-  br i1 %.not, label %171, label %166
+160:                                              ; preds = %148
+  %161 = getelementptr inbounds i8, ptr %153, i64 -4
+  %162 = load i32, ptr %161, align 4, !tbaa !81
+  store ptr %161, ptr %152, align 8, !tbaa !83
+  %.not = icmp eq i32 %162, 0
+  br i1 %.not, label %168, label %163
 
-166:                                              ; preds = %163
-  %167 = add i32 %11, 1
+163:                                              ; preds = %160
+  %164 = add i32 %11, 1
   store i32 125, ptr %0, align 8, !tbaa !8
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %168, align 4
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %165, align 4
   %.sroa.4129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4129.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %167, ptr %.sroa.5130.0..sroa_idx, align 8, !tbaa !4
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %169, align 4, !tbaa !14
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %170, align 8, !tbaa !15
-  br label %444
+  store i32 %164, ptr %.sroa.5130.0..sroa_idx, align 8, !tbaa !4
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %166, align 4, !tbaa !14
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %167, align 8, !tbaa !15
+  br label %441
 
-171:                                              ; preds = %163
-  %172 = load i8, ptr @_ZN5FFlag25LexerFixInterpStringStartE, align 8, !tbaa !61, !range !64, !noundef !65
-  %173 = trunc nuw i8 %172 to i1
-  %174 = sub i32 %152, %10
-  %.sroa.4160.0.insert.ext = zext i32 %174 to i64
+168:                                              ; preds = %160
+  %169 = load i8, ptr @_ZN5FFlag25LexerFixInterpStringStartE, align 8, !tbaa !61, !range !64, !noundef !65
+  %170 = trunc nuw i8 %169 to i1
+  %171 = sub i32 %149, %10
+  %.sroa.4160.0.insert.ext = zext i32 %171 to i64
   %.sroa.4160.0.insert.shift = shl nuw i64 %.sroa.4160.0.insert.ext, 32
   %.sroa.0159.0.insert.insert = or disjoint i64 %.sroa.4160.0.insert.shift, %.sroa.0155.0.insert.ext
-  %.sroa.011.0 = select i1 %173, i64 %.sroa.0155.0.insert.insert, i64 %.sroa.0159.0.insert.insert
+  %.sroa.011.0 = select i1 %170, i64 %.sroa.0155.0.insert.insert, i64 %.sroa.0159.0.insert.insert
   tail call void @_ZN4Luau5Lexer29readInterpolatedStringSectionENS_8PositionENS_6Lexeme4TypeES3_(ptr dead_on_unwind writable sret(%"struct.Luau::Lexeme") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %.sroa.011.0, i32 noundef 267, i32 noundef 268)
-  br label %444
+  br label %441
 
-175:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %176 = add i32 %8, 1
-  store i32 %176, ptr %7, align 8, !tbaa !60
-  %177 = zext i32 %176 to i64
-  %178 = icmp ugt i64 %14, %177
-  br i1 %178, label %_ZNK4Luau5Lexer6peekchEv.exit37, label %_ZNK4Luau5Lexer6peekchEv.exit37.thread
+172:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %173 = add i32 %8, 1
+  store i32 %173, ptr %7, align 8, !tbaa !60
+  %174 = zext i32 %173 to i64
+  %175 = icmp ugt i64 %14, %174
+  br i1 %175, label %_ZNK4Luau5Lexer6peekchEv.exit37, label %_ZNK4Luau5Lexer6peekchEv.exit37.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit37:                  ; preds = %175
-  %179 = getelementptr inbounds nuw i8, ptr %16, i64 %177
-  %180 = load i8, ptr %179, align 1, !tbaa !15
-  %181 = icmp eq i8 %180, 61
-  br i1 %181, label %182, label %_ZNK4Luau5Lexer6peekchEv.exit37.thread
+_ZNK4Luau5Lexer6peekchEv.exit37:                  ; preds = %172
+  %176 = getelementptr inbounds nuw i8, ptr %16, i64 %174
+  %177 = load i8, ptr %176, align 1, !tbaa !15
+  %178 = icmp eq i8 %177, 61
+  br i1 %178, label %179, label %_ZNK4Luau5Lexer6peekchEv.exit37.thread
 
-182:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit37
-  %183 = add i32 %8, 2
-  store i32 %183, ptr %7, align 8, !tbaa !60
-  %184 = add i32 %11, 2
+179:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit37
+  %180 = add i32 %8, 2
+  store i32 %180, ptr %7, align 8, !tbaa !60
+  %181 = add i32 %11, 2
   store i32 257, ptr %0, align 8, !tbaa !8
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %185, align 4
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %182, align 4
   %.sroa.4126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4126.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %184, ptr %.sroa.5127.0..sroa_idx, align 8, !tbaa !4
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %186, align 4, !tbaa !14
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %187, align 8, !tbaa !15
-  br label %444
+  store i32 %181, ptr %.sroa.5127.0..sroa_idx, align 8, !tbaa !4
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %183, align 4, !tbaa !14
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %184, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit37.thread:           ; preds = %175, %_ZNK4Luau5Lexer6peekchEv.exit37
-  %188 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit37.thread:           ; preds = %172, %_ZNK4Luau5Lexer6peekchEv.exit37
+  %185 = add i32 %11, 1
   store i32 61, ptr %0, align 8, !tbaa !8
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %189, align 4
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %186, align 4
   %.sroa.4123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4123.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %188, ptr %.sroa.5124.0..sroa_idx, align 8, !tbaa !4
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %190, align 4, !tbaa !14
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %191, align 8, !tbaa !15
-  br label %444
+  store i32 %185, ptr %.sroa.5124.0..sroa_idx, align 8, !tbaa !4
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %187, align 4, !tbaa !14
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %188, align 8, !tbaa !15
+  br label %441
 
-192:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %193 = add i32 %8, 1
-  store i32 %193, ptr %7, align 8, !tbaa !60
-  %194 = zext i32 %193 to i64
-  %195 = icmp ugt i64 %14, %194
-  br i1 %195, label %_ZNK4Luau5Lexer6peekchEv.exit36, label %_ZNK4Luau5Lexer6peekchEv.exit36.thread
+189:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %190 = add i32 %8, 1
+  store i32 %190, ptr %7, align 8, !tbaa !60
+  %191 = zext i32 %190 to i64
+  %192 = icmp ugt i64 %14, %191
+  br i1 %192, label %_ZNK4Luau5Lexer6peekchEv.exit36, label %_ZNK4Luau5Lexer6peekchEv.exit36.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit36:                  ; preds = %192
-  %196 = getelementptr inbounds nuw i8, ptr %16, i64 %194
-  %197 = load i8, ptr %196, align 1, !tbaa !15
-  %198 = icmp eq i8 %197, 61
-  br i1 %198, label %199, label %_ZNK4Luau5Lexer6peekchEv.exit36.thread
+_ZNK4Luau5Lexer6peekchEv.exit36:                  ; preds = %189
+  %193 = getelementptr inbounds nuw i8, ptr %16, i64 %191
+  %194 = load i8, ptr %193, align 1, !tbaa !15
+  %195 = icmp eq i8 %194, 61
+  br i1 %195, label %196, label %_ZNK4Luau5Lexer6peekchEv.exit36.thread
 
-199:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit36
-  %200 = add i32 %8, 2
-  store i32 %200, ptr %7, align 8, !tbaa !60
-  %201 = add i32 %11, 2
+196:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit36
+  %197 = add i32 %8, 2
+  store i32 %197, ptr %7, align 8, !tbaa !60
+  %198 = add i32 %11, 2
   store i32 258, ptr %0, align 8, !tbaa !8
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %202, align 4
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %199, align 4
   %.sroa.4120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4120.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %201, ptr %.sroa.5121.0..sroa_idx, align 8, !tbaa !4
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %203, align 4, !tbaa !14
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %204, align 8, !tbaa !15
-  br label %444
+  store i32 %198, ptr %.sroa.5121.0..sroa_idx, align 8, !tbaa !4
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %200, align 4, !tbaa !14
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %201, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit36.thread:           ; preds = %192, %_ZNK4Luau5Lexer6peekchEv.exit36
-  %205 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit36.thread:           ; preds = %189, %_ZNK4Luau5Lexer6peekchEv.exit36
+  %202 = add i32 %11, 1
   store i32 60, ptr %0, align 8, !tbaa !8
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %206, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %203, align 4
   %.sroa.4117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4117.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %205, ptr %.sroa.5118.0..sroa_idx, align 8, !tbaa !4
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %207, align 4, !tbaa !14
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %208, align 8, !tbaa !15
-  br label %444
+  store i32 %202, ptr %.sroa.5118.0..sroa_idx, align 8, !tbaa !4
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %204, align 4, !tbaa !14
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %205, align 8, !tbaa !15
+  br label %441
 
-209:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %210 = add i32 %8, 1
-  store i32 %210, ptr %7, align 8, !tbaa !60
-  %211 = zext i32 %210 to i64
-  %212 = icmp ugt i64 %14, %211
-  br i1 %212, label %_ZNK4Luau5Lexer6peekchEv.exit35, label %_ZNK4Luau5Lexer6peekchEv.exit35.thread
+206:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %207 = add i32 %8, 1
+  store i32 %207, ptr %7, align 8, !tbaa !60
+  %208 = zext i32 %207 to i64
+  %209 = icmp ugt i64 %14, %208
+  br i1 %209, label %_ZNK4Luau5Lexer6peekchEv.exit35, label %_ZNK4Luau5Lexer6peekchEv.exit35.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit35:                  ; preds = %209
-  %213 = getelementptr inbounds nuw i8, ptr %16, i64 %211
-  %214 = load i8, ptr %213, align 1, !tbaa !15
-  %215 = icmp eq i8 %214, 61
-  br i1 %215, label %216, label %_ZNK4Luau5Lexer6peekchEv.exit35.thread
+_ZNK4Luau5Lexer6peekchEv.exit35:                  ; preds = %206
+  %210 = getelementptr inbounds nuw i8, ptr %16, i64 %208
+  %211 = load i8, ptr %210, align 1, !tbaa !15
+  %212 = icmp eq i8 %211, 61
+  br i1 %212, label %213, label %_ZNK4Luau5Lexer6peekchEv.exit35.thread
 
-216:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit35
-  %217 = add i32 %8, 2
-  store i32 %217, ptr %7, align 8, !tbaa !60
-  %218 = add i32 %11, 2
+213:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit35
+  %214 = add i32 %8, 2
+  store i32 %214, ptr %7, align 8, !tbaa !60
+  %215 = add i32 %11, 2
   store i32 259, ptr %0, align 8, !tbaa !8
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %219, align 4
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %216, align 4
   %.sroa.4114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4114.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %218, ptr %.sroa.5115.0..sroa_idx, align 8, !tbaa !4
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %220, align 4, !tbaa !14
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %221, align 8, !tbaa !15
-  br label %444
+  store i32 %215, ptr %.sroa.5115.0..sroa_idx, align 8, !tbaa !4
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %217, align 4, !tbaa !14
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %218, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit35.thread:           ; preds = %209, %_ZNK4Luau5Lexer6peekchEv.exit35
-  %222 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit35.thread:           ; preds = %206, %_ZNK4Luau5Lexer6peekchEv.exit35
+  %219 = add i32 %11, 1
   store i32 62, ptr %0, align 8, !tbaa !8
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %223, align 4
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %220, align 4
   %.sroa.4111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4111.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %222, ptr %.sroa.5112.0..sroa_idx, align 8, !tbaa !4
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %224, align 4, !tbaa !14
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %225, align 8, !tbaa !15
-  br label %444
+  store i32 %219, ptr %.sroa.5112.0..sroa_idx, align 8, !tbaa !4
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %221, align 4, !tbaa !14
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %222, align 8, !tbaa !15
+  br label %441
 
-226:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %227 = add i32 %8, 1
-  store i32 %227, ptr %7, align 8, !tbaa !60
-  %228 = zext i32 %227 to i64
-  %229 = icmp ugt i64 %14, %228
-  br i1 %229, label %_ZNK4Luau5Lexer6peekchEv.exit34, label %_ZNK4Luau5Lexer6peekchEv.exit34.thread
+223:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %224 = add i32 %8, 1
+  store i32 %224, ptr %7, align 8, !tbaa !60
+  %225 = zext i32 %224 to i64
+  %226 = icmp ugt i64 %14, %225
+  br i1 %226, label %_ZNK4Luau5Lexer6peekchEv.exit34, label %_ZNK4Luau5Lexer6peekchEv.exit34.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit34:                  ; preds = %226
-  %230 = getelementptr inbounds nuw i8, ptr %16, i64 %228
-  %231 = load i8, ptr %230, align 1, !tbaa !15
-  %232 = icmp eq i8 %231, 61
-  br i1 %232, label %233, label %_ZNK4Luau5Lexer6peekchEv.exit34.thread
+_ZNK4Luau5Lexer6peekchEv.exit34:                  ; preds = %223
+  %227 = getelementptr inbounds nuw i8, ptr %16, i64 %225
+  %228 = load i8, ptr %227, align 1, !tbaa !15
+  %229 = icmp eq i8 %228, 61
+  br i1 %229, label %230, label %_ZNK4Luau5Lexer6peekchEv.exit34.thread
 
-233:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit34
-  %234 = add i32 %8, 2
-  store i32 %234, ptr %7, align 8, !tbaa !60
-  %235 = add i32 %11, 2
+230:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit34
+  %231 = add i32 %8, 2
+  store i32 %231, ptr %7, align 8, !tbaa !60
+  %232 = add i32 %11, 2
   store i32 260, ptr %0, align 8, !tbaa !8
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %236, align 4
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %233, align 4
   %.sroa.4108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4108.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %235, ptr %.sroa.5109.0..sroa_idx, align 8, !tbaa !4
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %237, align 4, !tbaa !14
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %238, align 8, !tbaa !15
-  br label %444
+  store i32 %232, ptr %.sroa.5109.0..sroa_idx, align 8, !tbaa !4
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %234, align 4, !tbaa !14
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %235, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit34.thread:           ; preds = %226, %_ZNK4Luau5Lexer6peekchEv.exit34
-  %239 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit34.thread:           ; preds = %223, %_ZNK4Luau5Lexer6peekchEv.exit34
+  %236 = add i32 %11, 1
   store i32 126, ptr %0, align 8, !tbaa !8
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %240, align 4
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %237, align 4
   %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4105.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %239, ptr %.sroa.5106.0..sroa_idx, align 8, !tbaa !4
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %241, align 4, !tbaa !14
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %242, align 8, !tbaa !15
-  br label %444
+  store i32 %236, ptr %.sroa.5106.0..sroa_idx, align 8, !tbaa !4
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %238, align 4, !tbaa !14
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %239, align 8, !tbaa !15
+  br label %441
 
-243:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38
+240:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38
   tail call void @_ZN4Luau5Lexer16readQuotedStringEv(ptr dead_on_unwind writable sret(%"struct.Luau::Lexeme") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1)
-  br label %444
+  br label %441
 
-244:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %245 = add i32 %8, 1
-  store i32 %245, ptr %7, align 8, !tbaa !60, !noalias !84
+241:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %242 = add i32 %8, 1
+  store i32 %242, ptr %7, align 8, !tbaa !60, !noalias !84
   tail call void @_ZN4Luau5Lexer29readInterpolatedStringSectionENS_8PositionENS_6Lexeme4TypeES3_(ptr dead_on_unwind writable sret(%"struct.Luau::Lexeme") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %.sroa.0155.0.insert.insert, i32 noundef 266, i32 noundef 269)
-  br label %444
+  br label %441
 
-246:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %247 = add i32 %8, 1
-  store i32 %247, ptr %7, align 8, !tbaa !60
-  %248 = zext i32 %247 to i64
-  %249 = icmp ugt i64 %14, %248
-  br i1 %249, label %_ZNK4Luau5Lexer6peekchEv.exit33, label %_ZNK4Luau5Lexer6peekchEv.exit30.thread
+243:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %244 = add i32 %8, 1
+  store i32 %244, ptr %7, align 8, !tbaa !60
+  %245 = zext i32 %244 to i64
+  %246 = icmp ugt i64 %14, %245
+  br i1 %246, label %_ZNK4Luau5Lexer6peekchEv.exit33, label %_ZNK4Luau5Lexer6peekchEv.exit30.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit33:                  ; preds = %246
-  %250 = getelementptr inbounds nuw i8, ptr %16, i64 %248
-  %251 = load i8, ptr %250, align 1, !tbaa !15
-  %252 = icmp eq i8 %251, 46
-  br i1 %252, label %253, label %_ZNK4Luau5Lexer6peekchEv.exit30
+_ZNK4Luau5Lexer6peekchEv.exit33:                  ; preds = %243
+  %247 = getelementptr inbounds nuw i8, ptr %16, i64 %245
+  %248 = load i8, ptr %247, align 1, !tbaa !15
+  %249 = icmp eq i8 %248, 46
+  br i1 %249, label %250, label %_ZNK4Luau5Lexer6peekchEv.exit30
 
-253:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit33
-  %254 = add i32 %8, 2
-  store i32 %254, ptr %7, align 8, !tbaa !60
-  %255 = zext i32 %254 to i64
-  %256 = icmp ugt i64 %14, %255
-  br i1 %256, label %_ZNK4Luau5Lexer6peekchEv.exit32, label %_ZNK4Luau5Lexer6peekchEv.exit31.thread
+250:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit33
+  %251 = add i32 %8, 2
+  store i32 %251, ptr %7, align 8, !tbaa !60
+  %252 = zext i32 %251 to i64
+  %253 = icmp ugt i64 %14, %252
+  br i1 %253, label %_ZNK4Luau5Lexer6peekchEv.exit32, label %_ZNK4Luau5Lexer6peekchEv.exit31.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit32:                  ; preds = %253
-  %257 = getelementptr inbounds nuw i8, ptr %16, i64 %255
-  %258 = load i8, ptr %257, align 1, !tbaa !15
-  switch i8 %258, label %_ZNK4Luau5Lexer6peekchEv.exit31.thread [
-    i8 46, label %259
-    i8 61, label %265
+_ZNK4Luau5Lexer6peekchEv.exit32:                  ; preds = %250
+  %254 = getelementptr inbounds nuw i8, ptr %16, i64 %252
+  %255 = load i8, ptr %254, align 1, !tbaa !15
+  switch i8 %255, label %_ZNK4Luau5Lexer6peekchEv.exit31.thread [
+    i8 46, label %256
+    i8 61, label %262
   ]
 
-259:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit32
-  %260 = add i32 %8, 3
-  store i32 %260, ptr %7, align 8, !tbaa !60
-  %261 = add i32 %11, 3
+256:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit32
+  %257 = add i32 %8, 3
+  store i32 %257, ptr %7, align 8, !tbaa !60
+  %258 = add i32 %11, 3
   store i32 262, ptr %0, align 8, !tbaa !8
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %262, align 4
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %259, align 4
   %.sroa.4102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4102.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %261, ptr %.sroa.5103.0..sroa_idx, align 8, !tbaa !4
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %263, align 4, !tbaa !14
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %264, align 8, !tbaa !15
-  br label %444
+  store i32 %258, ptr %.sroa.5103.0..sroa_idx, align 8, !tbaa !4
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %260, align 4, !tbaa !14
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %261, align 8, !tbaa !15
+  br label %441
 
-265:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit32
-  %266 = add i32 %8, 3
-  store i32 %266, ptr %7, align 8, !tbaa !60
-  %267 = add i32 %11, 3
+262:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit32
+  %263 = add i32 %8, 3
+  store i32 %263, ptr %7, align 8, !tbaa !60
+  %264 = add i32 %11, 3
   store i32 277, ptr %0, align 8, !tbaa !8
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %268, align 4
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %265, align 4
   %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.499.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %267, ptr %.sroa.5100.0..sroa_idx, align 8, !tbaa !4
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %269, align 4, !tbaa !14
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %270, align 8, !tbaa !15
-  br label %444
+  store i32 %264, ptr %.sroa.5100.0..sroa_idx, align 8, !tbaa !4
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %266, align 4, !tbaa !14
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %267, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit31.thread:           ; preds = %_ZNK4Luau5Lexer6peekchEv.exit32, %253
-  %271 = add i32 %11, 2
+_ZNK4Luau5Lexer6peekchEv.exit31.thread:           ; preds = %_ZNK4Luau5Lexer6peekchEv.exit32, %250
+  %268 = add i32 %11, 2
   store i32 261, ptr %0, align 8, !tbaa !8
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %272, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %269, align 4
   %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.496.0..sroa_idx, align 4, !tbaa !4
   %.sroa.597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %271, ptr %.sroa.597.0..sroa_idx, align 8, !tbaa !4
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %273, align 4, !tbaa !14
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %274, align 8, !tbaa !15
-  br label %444
+  store i32 %268, ptr %.sroa.597.0..sroa_idx, align 8, !tbaa !4
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %270, align 4, !tbaa !14
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %271, align 8, !tbaa !15
+  br label %441
 
 _ZNK4Luau5Lexer6peekchEv.exit30:                  ; preds = %_ZNK4Luau5Lexer6peekchEv.exit33
-  %275 = sext i8 %251 to i32
-  %276 = add nsw i32 %275, -48
-  %277 = icmp ult i32 %276, 10
-  br i1 %277, label %278, label %_ZNK4Luau5Lexer6peekchEv.exit30.thread
+  %272 = sext i8 %248 to i32
+  %273 = add nsw i32 %272, -48
+  %274 = icmp ult i32 %273, 10
+  br i1 %274, label %275, label %_ZNK4Luau5Lexer6peekchEv.exit30.thread
 
-278:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit30
+275:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit30
   call void @_ZN4Luau5Lexer10readNumberERKNS_8PositionEj(ptr dead_on_unwind writable sret(%"struct.Luau::Lexeme") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %8)
-  br label %444
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit30.thread:           ; preds = %246, %_ZNK4Luau5Lexer6peekchEv.exit30
-  %279 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit30.thread:           ; preds = %243, %_ZNK4Luau5Lexer6peekchEv.exit30
+  %276 = add i32 %11, 1
   store i32 46, ptr %0, align 8, !tbaa !8
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %280, align 4
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %277, align 4
   %.sroa.493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.493.0..sroa_idx, align 4, !tbaa !4
   %.sroa.594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %279, ptr %.sroa.594.0..sroa_idx, align 8, !tbaa !4
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %281, align 4, !tbaa !14
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %282, align 8, !tbaa !15
-  br label %444
+  store i32 %276, ptr %.sroa.594.0..sroa_idx, align 8, !tbaa !4
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %278, align 4, !tbaa !14
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %279, align 8, !tbaa !15
+  br label %441
 
-283:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %284 = add i32 %8, 1
-  store i32 %284, ptr %7, align 8, !tbaa !60
-  %285 = zext i32 %284 to i64
-  %286 = icmp ugt i64 %14, %285
-  br i1 %286, label %_ZNK4Luau5Lexer6peekchEv.exit29, label %_ZNK4Luau5Lexer6peekchEv.exit29.thread
+280:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %281 = add i32 %8, 1
+  store i32 %281, ptr %7, align 8, !tbaa !60
+  %282 = zext i32 %281 to i64
+  %283 = icmp ugt i64 %14, %282
+  br i1 %283, label %_ZNK4Luau5Lexer6peekchEv.exit29, label %_ZNK4Luau5Lexer6peekchEv.exit29.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit29:                  ; preds = %283
-  %287 = getelementptr inbounds nuw i8, ptr %16, i64 %285
-  %288 = load i8, ptr %287, align 1, !tbaa !15
-  %289 = icmp eq i8 %288, 61
-  br i1 %289, label %290, label %_ZNK4Luau5Lexer6peekchEv.exit29.thread
+_ZNK4Luau5Lexer6peekchEv.exit29:                  ; preds = %280
+  %284 = getelementptr inbounds nuw i8, ptr %16, i64 %282
+  %285 = load i8, ptr %284, align 1, !tbaa !15
+  %286 = icmp eq i8 %285, 61
+  br i1 %286, label %287, label %_ZNK4Luau5Lexer6peekchEv.exit29.thread
 
-290:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit29
-  %291 = add i32 %8, 2
-  store i32 %291, ptr %7, align 8, !tbaa !60
-  %292 = add i32 %11, 2
+287:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit29
+  %288 = add i32 %8, 2
+  store i32 %288, ptr %7, align 8, !tbaa !60
+  %289 = add i32 %11, 2
   store i32 270, ptr %0, align 8, !tbaa !8
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %293, align 4
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %290, align 4
   %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.490.0..sroa_idx, align 4, !tbaa !4
   %.sroa.591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %292, ptr %.sroa.591.0..sroa_idx, align 8, !tbaa !4
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %294, align 4, !tbaa !14
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %295, align 8, !tbaa !15
-  br label %444
+  store i32 %289, ptr %.sroa.591.0..sroa_idx, align 8, !tbaa !4
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %291, align 4, !tbaa !14
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %292, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit29.thread:           ; preds = %283, %_ZNK4Luau5Lexer6peekchEv.exit29
-  %296 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit29.thread:           ; preds = %280, %_ZNK4Luau5Lexer6peekchEv.exit29
+  %293 = add i32 %11, 1
   store i32 43, ptr %0, align 8, !tbaa !8
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %297, align 4
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %294, align 4
   %.sroa.487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.487.0..sroa_idx, align 4, !tbaa !4
   %.sroa.588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %296, ptr %.sroa.588.0..sroa_idx, align 8, !tbaa !4
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %298, align 4, !tbaa !14
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %299, align 8, !tbaa !15
-  br label %444
+  store i32 %293, ptr %.sroa.588.0..sroa_idx, align 8, !tbaa !4
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %295, align 4, !tbaa !14
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %296, align 8, !tbaa !15
+  br label %441
 
-300:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %301 = add i32 %8, 1
-  store i32 %301, ptr %7, align 8, !tbaa !60
-  %302 = zext i32 %301 to i64
-  %303 = icmp ugt i64 %14, %302
-  br i1 %303, label %_ZNK4Luau5Lexer6peekchEv.exit28, label %_ZNK4Luau5Lexer6peekchEv.exit28.thread
+297:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %298 = add i32 %8, 1
+  store i32 %298, ptr %7, align 8, !tbaa !60
+  %299 = zext i32 %298 to i64
+  %300 = icmp ugt i64 %14, %299
+  br i1 %300, label %_ZNK4Luau5Lexer6peekchEv.exit28, label %_ZNK4Luau5Lexer6peekchEv.exit28.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit28:                  ; preds = %300
-  %304 = getelementptr inbounds nuw i8, ptr %16, i64 %302
-  %305 = load i8, ptr %304, align 1, !tbaa !15
-  switch i8 %305, label %_ZNK4Luau5Lexer6peekchEv.exit28.thread [
-    i8 61, label %306
-    i8 47, label %312
+_ZNK4Luau5Lexer6peekchEv.exit28:                  ; preds = %297
+  %301 = getelementptr inbounds nuw i8, ptr %16, i64 %299
+  %302 = load i8, ptr %301, align 1, !tbaa !15
+  switch i8 %302, label %_ZNK4Luau5Lexer6peekchEv.exit28.thread [
+    i8 61, label %303
+    i8 47, label %309
   ]
 
-306:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit28
-  %307 = add i32 %8, 2
-  store i32 %307, ptr %7, align 8, !tbaa !60
-  %308 = add i32 %11, 2
+303:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit28
+  %304 = add i32 %8, 2
+  store i32 %304, ptr %7, align 8, !tbaa !60
+  %305 = add i32 %11, 2
   store i32 273, ptr %0, align 8, !tbaa !8
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %309, align 4
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %306, align 4
   %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.484.0..sroa_idx, align 4, !tbaa !4
   %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %308, ptr %.sroa.585.0..sroa_idx, align 8, !tbaa !4
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %310, align 4, !tbaa !14
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %311, align 8, !tbaa !15
-  br label %444
+  store i32 %305, ptr %.sroa.585.0..sroa_idx, align 8, !tbaa !4
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %307, align 4, !tbaa !14
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %308, align 8, !tbaa !15
+  br label %441
 
-312:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit28
-  %313 = add i32 %8, 2
-  store i32 %313, ptr %7, align 8, !tbaa !60
-  %314 = zext i32 %313 to i64
-  %315 = icmp ugt i64 %14, %314
-  br i1 %315, label %_ZNK4Luau5Lexer6peekchEv.exit27, label %_ZNK4Luau5Lexer6peekchEv.exit27.thread
+309:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit28
+  %310 = add i32 %8, 2
+  store i32 %310, ptr %7, align 8, !tbaa !60
+  %311 = zext i32 %310 to i64
+  %312 = icmp ugt i64 %14, %311
+  br i1 %312, label %_ZNK4Luau5Lexer6peekchEv.exit27, label %_ZNK4Luau5Lexer6peekchEv.exit27.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit27:                  ; preds = %312
-  %316 = getelementptr inbounds nuw i8, ptr %16, i64 %314
-  %317 = load i8, ptr %316, align 1, !tbaa !15
-  %318 = icmp eq i8 %317, 61
-  br i1 %318, label %319, label %_ZNK4Luau5Lexer6peekchEv.exit27.thread
+_ZNK4Luau5Lexer6peekchEv.exit27:                  ; preds = %309
+  %313 = getelementptr inbounds nuw i8, ptr %16, i64 %311
+  %314 = load i8, ptr %313, align 1, !tbaa !15
+  %315 = icmp eq i8 %314, 61
+  br i1 %315, label %316, label %_ZNK4Luau5Lexer6peekchEv.exit27.thread
 
-319:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit27
-  %320 = add i32 %8, 3
-  store i32 %320, ptr %7, align 8, !tbaa !60
-  %321 = add i32 %11, 3
+316:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit27
+  %317 = add i32 %8, 3
+  store i32 %317, ptr %7, align 8, !tbaa !60
+  %318 = add i32 %11, 3
   store i32 274, ptr %0, align 8, !tbaa !8
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %322, align 4
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %319, align 4
   %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.481.0..sroa_idx, align 4, !tbaa !4
   %.sroa.582.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %321, ptr %.sroa.582.0..sroa_idx, align 8, !tbaa !4
-  %323 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %323, align 4, !tbaa !14
-  %324 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %324, align 8, !tbaa !15
-  br label %444
+  store i32 %318, ptr %.sroa.582.0..sroa_idx, align 8, !tbaa !4
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %320, align 4, !tbaa !14
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %321, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit27.thread:           ; preds = %312, %_ZNK4Luau5Lexer6peekchEv.exit27
-  %325 = add i32 %11, 2
+_ZNK4Luau5Lexer6peekchEv.exit27.thread:           ; preds = %309, %_ZNK4Luau5Lexer6peekchEv.exit27
+  %322 = add i32 %11, 2
   store i32 265, ptr %0, align 8, !tbaa !8
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %326, align 4
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %323, align 4
   %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.478.0..sroa_idx, align 4, !tbaa !4
   %.sroa.579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %325, ptr %.sroa.579.0..sroa_idx, align 8, !tbaa !4
-  %327 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %327, align 4, !tbaa !14
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %328, align 8, !tbaa !15
-  br label %444
+  store i32 %322, ptr %.sroa.579.0..sroa_idx, align 8, !tbaa !4
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %324, align 4, !tbaa !14
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %325, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit28.thread:           ; preds = %300, %_ZNK4Luau5Lexer6peekchEv.exit28
-  %329 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit28.thread:           ; preds = %297, %_ZNK4Luau5Lexer6peekchEv.exit28
+  %326 = add i32 %11, 1
   store i32 47, ptr %0, align 8, !tbaa !8
-  %330 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %330, align 4
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %327, align 4
   %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.475.0..sroa_idx, align 4, !tbaa !4
   %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %329, ptr %.sroa.576.0..sroa_idx, align 8, !tbaa !4
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %331, align 4, !tbaa !14
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %332, align 8, !tbaa !15
-  br label %444
+  store i32 %326, ptr %.sroa.576.0..sroa_idx, align 8, !tbaa !4
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %328, align 4, !tbaa !14
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %329, align 8, !tbaa !15
+  br label %441
 
-333:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %334 = add i32 %8, 1
-  store i32 %334, ptr %7, align 8, !tbaa !60
-  %335 = zext i32 %334 to i64
-  %336 = icmp ugt i64 %14, %335
-  br i1 %336, label %_ZNK4Luau5Lexer6peekchEv.exit26, label %_ZNK4Luau5Lexer6peekchEv.exit26.thread
+330:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %331 = add i32 %8, 1
+  store i32 %331, ptr %7, align 8, !tbaa !60
+  %332 = zext i32 %331 to i64
+  %333 = icmp ugt i64 %14, %332
+  br i1 %333, label %_ZNK4Luau5Lexer6peekchEv.exit26, label %_ZNK4Luau5Lexer6peekchEv.exit26.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit26:                  ; preds = %333
-  %337 = getelementptr inbounds nuw i8, ptr %16, i64 %335
-  %338 = load i8, ptr %337, align 1, !tbaa !15
-  %339 = icmp eq i8 %338, 61
-  br i1 %339, label %340, label %_ZNK4Luau5Lexer6peekchEv.exit26.thread
+_ZNK4Luau5Lexer6peekchEv.exit26:                  ; preds = %330
+  %334 = getelementptr inbounds nuw i8, ptr %16, i64 %332
+  %335 = load i8, ptr %334, align 1, !tbaa !15
+  %336 = icmp eq i8 %335, 61
+  br i1 %336, label %337, label %_ZNK4Luau5Lexer6peekchEv.exit26.thread
 
-340:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit26
-  %341 = add i32 %8, 2
-  store i32 %341, ptr %7, align 8, !tbaa !60
-  %342 = add i32 %11, 2
+337:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit26
+  %338 = add i32 %8, 2
+  store i32 %338, ptr %7, align 8, !tbaa !60
+  %339 = add i32 %11, 2
   store i32 272, ptr %0, align 8, !tbaa !8
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %343, align 4
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %340, align 4
   %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.472.0..sroa_idx, align 4, !tbaa !4
   %.sroa.573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %342, ptr %.sroa.573.0..sroa_idx, align 8, !tbaa !4
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %344, align 4, !tbaa !14
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %345, align 8, !tbaa !15
-  br label %444
+  store i32 %339, ptr %.sroa.573.0..sroa_idx, align 8, !tbaa !4
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %341, align 4, !tbaa !14
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %342, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit26.thread:           ; preds = %333, %_ZNK4Luau5Lexer6peekchEv.exit26
-  %346 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit26.thread:           ; preds = %330, %_ZNK4Luau5Lexer6peekchEv.exit26
+  %343 = add i32 %11, 1
   store i32 42, ptr %0, align 8, !tbaa !8
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %347, align 4
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %344, align 4
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.469.0..sroa_idx, align 4, !tbaa !4
   %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %346, ptr %.sroa.570.0..sroa_idx, align 8, !tbaa !4
-  %348 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %348, align 4, !tbaa !14
-  %349 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %349, align 8, !tbaa !15
-  br label %444
+  store i32 %343, ptr %.sroa.570.0..sroa_idx, align 8, !tbaa !4
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %345, align 4, !tbaa !14
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %346, align 8, !tbaa !15
+  br label %441
 
-350:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %351 = add i32 %8, 1
-  store i32 %351, ptr %7, align 8, !tbaa !60
-  %352 = zext i32 %351 to i64
-  %353 = icmp ugt i64 %14, %352
-  br i1 %353, label %_ZNK4Luau5Lexer6peekchEv.exit25, label %_ZNK4Luau5Lexer6peekchEv.exit25.thread
+347:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %348 = add i32 %8, 1
+  store i32 %348, ptr %7, align 8, !tbaa !60
+  %349 = zext i32 %348 to i64
+  %350 = icmp ugt i64 %14, %349
+  br i1 %350, label %_ZNK4Luau5Lexer6peekchEv.exit25, label %_ZNK4Luau5Lexer6peekchEv.exit25.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit25:                  ; preds = %350
-  %354 = getelementptr inbounds nuw i8, ptr %16, i64 %352
-  %355 = load i8, ptr %354, align 1, !tbaa !15
-  %356 = icmp eq i8 %355, 61
-  br i1 %356, label %357, label %_ZNK4Luau5Lexer6peekchEv.exit25.thread
+_ZNK4Luau5Lexer6peekchEv.exit25:                  ; preds = %347
+  %351 = getelementptr inbounds nuw i8, ptr %16, i64 %349
+  %352 = load i8, ptr %351, align 1, !tbaa !15
+  %353 = icmp eq i8 %352, 61
+  br i1 %353, label %354, label %_ZNK4Luau5Lexer6peekchEv.exit25.thread
 
-357:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit25
-  %358 = add i32 %8, 2
-  store i32 %358, ptr %7, align 8, !tbaa !60
-  %359 = add i32 %11, 2
+354:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit25
+  %355 = add i32 %8, 2
+  store i32 %355, ptr %7, align 8, !tbaa !60
+  %356 = add i32 %11, 2
   store i32 275, ptr %0, align 8, !tbaa !8
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %360, align 4
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %357, align 4
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.466.0..sroa_idx, align 4, !tbaa !4
   %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %359, ptr %.sroa.567.0..sroa_idx, align 8, !tbaa !4
-  %361 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %361, align 4, !tbaa !14
-  %362 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %362, align 8, !tbaa !15
-  br label %444
+  store i32 %356, ptr %.sroa.567.0..sroa_idx, align 8, !tbaa !4
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %358, align 4, !tbaa !14
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %359, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit25.thread:           ; preds = %350, %_ZNK4Luau5Lexer6peekchEv.exit25
-  %363 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit25.thread:           ; preds = %347, %_ZNK4Luau5Lexer6peekchEv.exit25
+  %360 = add i32 %11, 1
   store i32 37, ptr %0, align 8, !tbaa !8
-  %364 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %364, align 4
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %361, align 4
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.463.0..sroa_idx, align 4, !tbaa !4
   %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %363, ptr %.sroa.564.0..sroa_idx, align 8, !tbaa !4
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %365, align 4, !tbaa !14
-  %366 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %366, align 8, !tbaa !15
-  br label %444
+  store i32 %360, ptr %.sroa.564.0..sroa_idx, align 8, !tbaa !4
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %362, align 4, !tbaa !14
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %363, align 8, !tbaa !15
+  br label %441
 
-367:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %368 = add i32 %8, 1
-  store i32 %368, ptr %7, align 8, !tbaa !60
-  %369 = zext i32 %368 to i64
-  %370 = icmp ugt i64 %14, %369
-  br i1 %370, label %_ZNK4Luau5Lexer6peekchEv.exit24, label %_ZNK4Luau5Lexer6peekchEv.exit24.thread
+364:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %365 = add i32 %8, 1
+  store i32 %365, ptr %7, align 8, !tbaa !60
+  %366 = zext i32 %365 to i64
+  %367 = icmp ugt i64 %14, %366
+  br i1 %367, label %_ZNK4Luau5Lexer6peekchEv.exit24, label %_ZNK4Luau5Lexer6peekchEv.exit24.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit24:                  ; preds = %367
-  %371 = getelementptr inbounds nuw i8, ptr %16, i64 %369
-  %372 = load i8, ptr %371, align 1, !tbaa !15
-  %373 = icmp eq i8 %372, 61
-  br i1 %373, label %374, label %_ZNK4Luau5Lexer6peekchEv.exit24.thread
+_ZNK4Luau5Lexer6peekchEv.exit24:                  ; preds = %364
+  %368 = getelementptr inbounds nuw i8, ptr %16, i64 %366
+  %369 = load i8, ptr %368, align 1, !tbaa !15
+  %370 = icmp eq i8 %369, 61
+  br i1 %370, label %371, label %_ZNK4Luau5Lexer6peekchEv.exit24.thread
 
-374:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit24
-  %375 = add i32 %8, 2
-  store i32 %375, ptr %7, align 8, !tbaa !60
-  %376 = add i32 %11, 2
+371:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit24
+  %372 = add i32 %8, 2
+  store i32 %372, ptr %7, align 8, !tbaa !60
+  %373 = add i32 %11, 2
   store i32 276, ptr %0, align 8, !tbaa !8
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %377, align 4
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %374, align 4
   %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.460.0..sroa_idx, align 4, !tbaa !4
   %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %376, ptr %.sroa.561.0..sroa_idx, align 8, !tbaa !4
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %378, align 4, !tbaa !14
-  %379 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %379, align 8, !tbaa !15
-  br label %444
+  store i32 %373, ptr %.sroa.561.0..sroa_idx, align 8, !tbaa !4
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %375, align 4, !tbaa !14
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %376, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit24.thread:           ; preds = %367, %_ZNK4Luau5Lexer6peekchEv.exit24
-  %380 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit24.thread:           ; preds = %364, %_ZNK4Luau5Lexer6peekchEv.exit24
+  %377 = add i32 %11, 1
   store i32 94, ptr %0, align 8, !tbaa !8
-  %381 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %381, align 4
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %378, align 4
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.457.0..sroa_idx, align 4, !tbaa !4
   %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %380, ptr %.sroa.558.0..sroa_idx, align 8, !tbaa !4
-  %382 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %382, align 4, !tbaa !14
-  %383 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %383, align 8, !tbaa !15
-  br label %444
+  store i32 %377, ptr %.sroa.558.0..sroa_idx, align 8, !tbaa !4
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %379, align 4, !tbaa !14
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %380, align 8, !tbaa !15
+  br label %441
 
-384:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %385 = add i32 %8, 1
-  store i32 %385, ptr %7, align 8, !tbaa !60
-  %386 = zext i32 %385 to i64
-  %387 = icmp ugt i64 %14, %386
-  br i1 %387, label %_ZNK4Luau5Lexer6peekchEv.exit23, label %_ZNK4Luau5Lexer6peekchEv.exit23.thread
+381:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %382 = add i32 %8, 1
+  store i32 %382, ptr %7, align 8, !tbaa !60
+  %383 = zext i32 %382 to i64
+  %384 = icmp ugt i64 %14, %383
+  br i1 %384, label %_ZNK4Luau5Lexer6peekchEv.exit23, label %_ZNK4Luau5Lexer6peekchEv.exit23.thread
 
-_ZNK4Luau5Lexer6peekchEv.exit23:                  ; preds = %384
-  %388 = getelementptr inbounds nuw i8, ptr %16, i64 %386
-  %389 = load i8, ptr %388, align 1, !tbaa !15
-  %390 = icmp eq i8 %389, 58
-  br i1 %390, label %391, label %_ZNK4Luau5Lexer6peekchEv.exit23.thread
+_ZNK4Luau5Lexer6peekchEv.exit23:                  ; preds = %381
+  %385 = getelementptr inbounds nuw i8, ptr %16, i64 %383
+  %386 = load i8, ptr %385, align 1, !tbaa !15
+  %387 = icmp eq i8 %386, 58
+  br i1 %387, label %388, label %_ZNK4Luau5Lexer6peekchEv.exit23.thread
 
-391:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit23
-  %392 = add i32 %8, 2
-  store i32 %392, ptr %7, align 8, !tbaa !60
-  %393 = add i32 %11, 2
+388:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit23
+  %389 = add i32 %8, 2
+  store i32 %389, ptr %7, align 8, !tbaa !60
+  %390 = add i32 %11, 2
   store i32 264, ptr %0, align 8, !tbaa !8
-  %394 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %394, align 4
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %391, align 4
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.454.0..sroa_idx, align 4, !tbaa !4
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %393, ptr %.sroa.555.0..sroa_idx, align 8, !tbaa !4
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %395, align 4, !tbaa !14
-  %396 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %396, align 8, !tbaa !15
-  br label %444
+  store i32 %390, ptr %.sroa.555.0..sroa_idx, align 8, !tbaa !4
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %392, align 4, !tbaa !14
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %393, align 8, !tbaa !15
+  br label %441
 
-_ZNK4Luau5Lexer6peekchEv.exit23.thread:           ; preds = %384, %_ZNK4Luau5Lexer6peekchEv.exit23
-  %397 = add i32 %11, 1
+_ZNK4Luau5Lexer6peekchEv.exit23.thread:           ; preds = %381, %_ZNK4Luau5Lexer6peekchEv.exit23
+  %394 = add i32 %11, 1
   store i32 58, ptr %0, align 8, !tbaa !8
-  %398 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %398, align 4
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %395, align 4
   %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.451.0..sroa_idx, align 4, !tbaa !4
   %.sroa.552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %397, ptr %.sroa.552.0..sroa_idx, align 8, !tbaa !4
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %399, align 4, !tbaa !14
-  %400 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %400, align 8, !tbaa !15
-  br label %444
+  store i32 %394, ptr %.sroa.552.0..sroa_idx, align 8, !tbaa !4
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %396, align 4, !tbaa !14
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %397, align 8, !tbaa !15
+  br label %441
 
 _ZNK4Luau5Lexer6peekchEv.exit22:                  ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38, %_ZNK4Luau5Lexer6peekchEv.exit38
-  %401 = add i32 %8, 1
-  store i32 %401, ptr %7, align 8, !tbaa !60
-  %402 = add i32 %11, 1
-  %403 = zext nneg i8 %18 to i32
-  store i32 %403, ptr %0, align 8, !tbaa !8
-  %404 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %404, align 4
+  %398 = add i32 %8, 1
+  store i32 %398, ptr %7, align 8, !tbaa !60
+  %399 = add i32 %11, 1
+  %400 = zext nneg i8 %18 to i32
+  store i32 %400, ptr %0, align 8, !tbaa !8
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %401, align 4
   %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.448.0..sroa_idx, align 4, !tbaa !4
   %.sroa.549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %402, ptr %.sroa.549.0..sroa_idx, align 8, !tbaa !4
-  %405 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %405, align 4, !tbaa !14
-  %406 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %406, align 8, !tbaa !15
-  br label %444
+  store i32 %399, ptr %.sroa.549.0..sroa_idx, align 8, !tbaa !4
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %402, align 4, !tbaa !14
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %403, align 8, !tbaa !15
+  br label %441
 
-407:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %408 = tail call { ptr, i32 } @_ZN4Luau5Lexer8readNameEv(ptr noundef nonnull align 8 dereferenceable(120) %1)
-  %.fca.0.extract2 = extractvalue { ptr, i32 } %408, 0
-  %409 = load i32, ptr %5, align 4, !tbaa !66
-  %410 = load i32, ptr %7, align 8, !tbaa !60
-  %411 = load i32, ptr %9, align 8, !tbaa !67
-  %412 = sub i32 %410, %411
-  %.sroa.4162.0.insert.ext = zext i32 %412 to i64
+404:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
+  %405 = tail call { ptr, i32 } @_ZN4Luau5Lexer8readNameEv(ptr noundef nonnull align 8 dereferenceable(120) %1)
+  %.fca.0.extract2 = extractvalue { ptr, i32 } %405, 0
+  %406 = load i32, ptr %5, align 4, !tbaa !66
+  %407 = load i32, ptr %7, align 8, !tbaa !60
+  %408 = load i32, ptr %9, align 8, !tbaa !67
+  %409 = sub i32 %407, %408
+  %.sroa.4162.0.insert.ext = zext i32 %409 to i64
   %.sroa.4162.0.insert.shift = shl nuw i64 %.sroa.4162.0.insert.ext, 32
-  %.sroa.0161.0.insert.ext = zext i32 %409 to i64
+  %.sroa.0161.0.insert.ext = zext i32 %406 to i64
   %.sroa.0161.0.insert.insert = or disjoint i64 %.sroa.4162.0.insert.shift, %.sroa.0161.0.insert.ext
   store i32 284, ptr %0, align 8, !tbaa !8
-  %413 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %413, align 4
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %410, align 4
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.0161.0.insert.insert, ptr %.sroa.446.0..sroa_idx, align 4
-  %414 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %414, align 4, !tbaa !14
-  %415 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.fca.0.extract2, ptr %415, align 8, !tbaa !15
-  br label %444
+  %411 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %411, align 4, !tbaa !14
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.fca.0.extract2, ptr %412, align 8, !tbaa !15
+  br label %441
 
 _ZNK4Luau5Lexer6peekchEv.exit21:                  ; preds = %_ZNK4Luau5Lexer6peekchEv.exit38
-  %416 = sext i8 %18 to i32
-  %417 = add nsw i32 %416, -48
-  %418 = icmp ult i32 %417, 10
-  br i1 %418, label %419, label %_ZNK4Luau5Lexer6peekchEv.exit20
+  %413 = sext i8 %18 to i32
+  %414 = add nsw i32 %413, -48
+  %415 = icmp ult i32 %414, 10
+  br i1 %415, label %416, label %_ZNK4Luau5Lexer6peekchEv.exit20
 
-419:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit21
+416:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit21
   call void @_ZN4Luau5Lexer10readNumberERKNS_8PositionEj(ptr dead_on_unwind writable sret(%"struct.Luau::Lexeme") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %8)
-  br label %444
+  br label %441
 
 _ZNK4Luau5Lexer6peekchEv.exit20:                  ; preds = %_ZNK4Luau5Lexer6peekchEv.exit21
-  %420 = or i8 %18, 32
-  %421 = sext i8 %420 to i32
-  %422 = add nsw i32 %421, -97
-  %423 = icmp ult i32 %422, 26
-  %424 = icmp eq i8 %18, 95
-  %or.cond = or i1 %423, %424
-  br i1 %or.cond, label %425, label %_ZNK4Luau5Lexer6peekchEv.exit18
+  %417 = or i8 %18, 32
+  %418 = sext i8 %417 to i32
+  %419 = add nsw i32 %418, -97
+  %420 = icmp ult i32 %419, 26
+  %421 = icmp eq i8 %18, 95
+  %or.cond = or i1 %420, %421
+  br i1 %or.cond, label %422, label %_ZNK4Luau5Lexer6peekchEv.exit18
 
-425:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit20
-  %426 = tail call { ptr, i32 } @_ZN4Luau5Lexer8readNameEv(ptr noundef nonnull align 8 dereferenceable(120) %1)
-  %.fca.0.extract = extractvalue { ptr, i32 } %426, 0
-  %.fca.1.extract = extractvalue { ptr, i32 } %426, 1
-  %427 = load i32, ptr %5, align 4, !tbaa !66
-  %428 = load i32, ptr %7, align 8, !tbaa !60
-  %429 = load i32, ptr %9, align 8, !tbaa !67
-  %430 = sub i32 %428, %429
-  %.sroa.4164.0.insert.ext = zext i32 %430 to i64
+422:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit20
+  %423 = tail call { ptr, i32 } @_ZN4Luau5Lexer8readNameEv(ptr noundef nonnull align 8 dereferenceable(120) %1)
+  %.fca.0.extract = extractvalue { ptr, i32 } %423, 0
+  %.fca.1.extract = extractvalue { ptr, i32 } %423, 1
+  %424 = load i32, ptr %5, align 4, !tbaa !66
+  %425 = load i32, ptr %7, align 8, !tbaa !60
+  %426 = load i32, ptr %9, align 8, !tbaa !67
+  %427 = sub i32 %425, %426
+  %.sroa.4164.0.insert.ext = zext i32 %427 to i64
   %.sroa.4164.0.insert.shift = shl nuw i64 %.sroa.4164.0.insert.ext, 32
-  %.sroa.0163.0.insert.ext = zext i32 %427 to i64
+  %.sroa.0163.0.insert.ext = zext i32 %424 to i64
   %.sroa.0163.0.insert.insert = or disjoint i64 %.sroa.4164.0.insert.shift, %.sroa.0163.0.insert.ext
-  %431 = load i64, ptr %3, align 8
+  %428 = load i64, ptr %3, align 8
   store i32 %.fca.1.extract, ptr %0, align 8, !tbaa !8
-  %432 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %431, ptr %432, align 4
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %428, ptr %429, align 4
   %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.0163.0.insert.insert, ptr %.sroa.443.0..sroa_idx, align 4
-  %433 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %433, align 4, !tbaa !14
-  %434 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.fca.0.extract, ptr %434, align 8, !tbaa !15
-  br label %444
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %430, align 4, !tbaa !14
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.fca.0.extract, ptr %431, align 8, !tbaa !15
+  br label %441
 
 _ZNK4Luau5Lexer6peekchEv.exit18:                  ; preds = %_ZNK4Luau5Lexer6peekchEv.exit20
   %.not17 = icmp sgt i8 %18, -1
-  br i1 %.not17, label %_ZNK4Luau5Lexer6peekchEv.exit, label %435
+  br i1 %.not17, label %_ZNK4Luau5Lexer6peekchEv.exit, label %432
 
-435:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit18
+432:                                              ; preds = %_ZNK4Luau5Lexer6peekchEv.exit18
   tail call void @_ZN4Luau5Lexer13readUtf8ErrorEv(ptr dead_on_unwind writable sret(%"struct.Luau::Lexeme") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1)
-  br label %444
+  br label %441
 
 _ZNK4Luau5Lexer6peekchEv.exit:                    ; preds = %_ZNK4Luau5Lexer6peekchEv.exit18
-  %436 = add i32 %8, 1
-  store i32 %436, ptr %7, align 8, !tbaa !60
-  %437 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %438 = load i32, ptr %437, align 4, !tbaa !74
-  %439 = add i32 %438, 1
-  %440 = zext nneg i8 %18 to i32
-  store i32 %440, ptr %0, align 8, !tbaa !8
-  %441 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0155.0.insert.insert, ptr %441, align 4
+  %433 = add i32 %8, 1
+  store i32 %433, ptr %7, align 8, !tbaa !60
+  %434 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %435 = load i32, ptr %434, align 4, !tbaa !74
+  %436 = add i32 %435, 1
+  %437 = zext nneg i8 %18 to i32
+  store i32 %437, ptr %0, align 8, !tbaa !8
+  %438 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.0155.0.insert.insert, ptr %438, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %6, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %439, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
-  %442 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %442, align 4, !tbaa !14
-  %443 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %443, align 8, !tbaa !15
-  br label %444
+  store i32 %436, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %439, align 4, !tbaa !14
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %440, align 8, !tbaa !15
+  br label %441
 
-444:                                              ; preds = %306, %319, %_ZNK4Luau5Lexer6peekchEv.exit27.thread, %_ZNK4Luau5Lexer6peekchEv.exit28.thread, %166, %171, %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit, %.thread, %127, %_ZNK4Luau5Lexer6peekchEv.exit, %435, %425, %419, %407, %_ZNK4Luau5Lexer6peekchEv.exit22, %_ZNK4Luau5Lexer6peekchEv.exit23.thread, %391, %_ZNK4Luau5Lexer6peekchEv.exit24.thread, %374, %_ZNK4Luau5Lexer6peekchEv.exit25.thread, %357, %_ZNK4Luau5Lexer6peekchEv.exit26.thread, %340, %_ZNK4Luau5Lexer6peekchEv.exit29.thread, %290, %_ZNK4Luau5Lexer6peekchEv.exit30.thread, %278, %_ZNK4Luau5Lexer6peekchEv.exit31.thread, %265, %259, %244, %243, %_ZNK4Luau5Lexer6peekchEv.exit34.thread, %233, %_ZNK4Luau5Lexer6peekchEv.exit35.thread, %216, %_ZNK4Luau5Lexer6peekchEv.exit36.thread, %199, %_ZNK4Luau5Lexer6peekchEv.exit37.thread, %182, %158, %143, %_ZNK4Luau5Lexer6peekchEj.exit40.thread, %46, %38, %30, %_ZNK4Luau5Lexer6peekchEv.exit38.thread
+441:                                              ; preds = %303, %316, %_ZNK4Luau5Lexer6peekchEv.exit27.thread, %_ZNK4Luau5Lexer6peekchEv.exit28.thread, %163, %168, %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit, %.thread, %124, %_ZNK4Luau5Lexer6peekchEv.exit, %432, %422, %416, %404, %_ZNK4Luau5Lexer6peekchEv.exit22, %_ZNK4Luau5Lexer6peekchEv.exit23.thread, %388, %_ZNK4Luau5Lexer6peekchEv.exit24.thread, %371, %_ZNK4Luau5Lexer6peekchEv.exit25.thread, %354, %_ZNK4Luau5Lexer6peekchEv.exit26.thread, %337, %_ZNK4Luau5Lexer6peekchEv.exit29.thread, %287, %_ZNK4Luau5Lexer6peekchEv.exit30.thread, %275, %_ZNK4Luau5Lexer6peekchEv.exit31.thread, %262, %256, %241, %240, %_ZNK4Luau5Lexer6peekchEv.exit34.thread, %230, %_ZNK4Luau5Lexer6peekchEv.exit35.thread, %213, %_ZNK4Luau5Lexer6peekchEv.exit36.thread, %196, %_ZNK4Luau5Lexer6peekchEv.exit37.thread, %179, %155, %140, %_ZNK4Luau5Lexer6peekchEj.exit40.thread, %46, %38, %30, %_ZNK4Luau5Lexer6peekchEv.exit38.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   ret void
 }
@@ -4071,17 +4066,17 @@ _ZN4Luau5Lexer17skipLongSeparatorEv.exit..critedge8_crit_edge: ; preds = %_ZNK4L
   %39 = icmp ugt i64 %12, %38
   br i1 %39, label %_ZNK4Luau5Lexer6peekchEv.exit9.i, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i
 
-_ZNK4Luau5Lexer6peekchEv.exit9.i:                 ; preds = %36, %77
-  %40 = phi i32 [ %78, %77 ], [ %8, %36 ]
-  %41 = phi i32 [ %79, %77 ], [ %4, %36 ]
-  %42 = phi i64 [ %81, %77 ], [ %38, %36 ]
-  %43 = phi i32 [ %80, %77 ], [ %37, %36 ]
+_ZNK4Luau5Lexer6peekchEv.exit9.i:                 ; preds = %36, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
+  %40 = phi i32 [ %75, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %8, %36 ]
+  %41 = phi i32 [ %76, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %4, %36 ]
+  %42 = phi i64 [ %78, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %38, %36 ]
+  %43 = phi i32 [ %77, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %37, %36 ]
   %44 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %42
   %45 = load i8, ptr %44, align 1, !tbaa !15, !noalias !91
   switch i8 %45, label %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i [
     i8 0, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit
     i8 93, label %_ZNK4Luau5Lexer6peekchEv.exit5.i.i
-    i8 10, label %72
+    i8 10, label %70
   ]
 
 _ZNK4Luau5Lexer6peekchEv.exit5.i.i:               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i
@@ -4089,7 +4084,7 @@ _ZNK4Luau5Lexer6peekchEv.exit5.i.i:               ; preds = %_ZNK4Luau5Lexer6pee
   store i32 %46, ptr %5, align 8, !tbaa !60, !noalias !91
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %12, %47
-  br i1 %48, label %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
+  br i1 %48, label %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
 
 _ZNK4Luau5Lexer6peekchEv.exit4.i.i:               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit5.i.i, %54
   %49 = phi i64 [ %57, %54 ], [ %47, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ]
@@ -4098,7 +4093,7 @@ _ZNK4Luau5Lexer6peekchEv.exit4.i.i:               ; preds = %_ZNK4Luau5Lexer6pee
   %51 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %49
   %52 = load i8, ptr %51, align 1, !tbaa !15, !noalias !91
   %53 = icmp eq i8 %52, 61
-  br i1 %53, label %54, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i
+  br i1 %53, label %54, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
 
 54:                                               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit4.i.i
   %55 = add i32 %50, 1
@@ -4106,76 +4101,71 @@ _ZNK4Luau5Lexer6peekchEv.exit4.i.i:               ; preds = %_ZNK4Luau5Lexer6pee
   %56 = add nuw nsw i32 %.09.i.i, 1
   %57 = zext i32 %55 to i64
   %58 = icmp ugt i64 %12, %57
-  br i1 %58, label %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i, !llvm.loop !75
+  br i1 %58, label %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i, !llvm.loop !75
 
-_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i: ; preds = %54, %_ZNK4Luau5Lexer6peekchEv.exit4.i.i
+_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i:       ; preds = %_ZNK4Luau5Lexer6peekchEv.exit4.i.i, %54
   %.ph.i = phi i32 [ %55, %54 ], [ %50, %_ZNK4Luau5Lexer6peekchEv.exit4.i.i ]
   %.08.i.ph.i = phi i32 [ %56, %54 ], [ %.09.i.i, %_ZNK4Luau5Lexer6peekchEv.exit4.i.i ]
   %.ph22.i = phi i8 [ 0, %54 ], [ %52, %_ZNK4Luau5Lexer6peekchEv.exit4.i.i ]
   %59 = icmp ne i8 %.ph22.i, 93
   %60 = sext i1 %59 to i32
   %61 = xor i32 %.08.i.ph.i, %60
-  br label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
+  %62 = icmp eq i32 %61, %33
+  br i1 %62, label %63, label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
 
-_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i:       ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i
-  %62 = phi i32 [ %46, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ], [ %.ph.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i ]
-  %63 = phi i32 [ -1, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ], [ %61, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.loopexit.i ]
-  %64 = icmp eq i32 %63, %33
-  br i1 %64, label %65, label %77
-
-65:                                               ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
-  %66 = add i32 %62, 1
-  store i32 %66, ptr %5, align 8, !tbaa !60, !noalias !91
-  %67 = sub i32 %66, %40
-  %.sroa.417.0.insert.ext.i = zext i32 %67 to i64
+63:                                               ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
+  %64 = add i32 %.ph.i, 1
+  store i32 %64, ptr %5, align 8, !tbaa !60, !noalias !91
+  %65 = sub i32 %64, %40
+  %.sroa.417.0.insert.ext.i = zext i32 %65 to i64
   %.sroa.417.0.insert.shift.i = shl nuw i64 %.sroa.417.0.insert.ext.i, 32
   %.sroa.016.0.insert.ext.i = zext i32 %41 to i64
   %.sroa.016.0.insert.insert.i = or disjoint i64 %.sroa.417.0.insert.shift.i, %.sroa.016.0.insert.ext.i
-  %68 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %38
-  %69 = add i32 %37, %33
-  %70 = xor i32 %69, -1
-  %71 = add i32 %62, %70
+  %66 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %38
+  %67 = add i32 %37, %33
+  %68 = xor i32 %67, -1
+  %69 = add i32 %.ph.i, %68
   br label %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit
 
 ._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i:   ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i
   %.pre23.i = add i32 %43, 1
   br label %_ZN4Luau5Lexer10consumeAnyEv.exit.i
 
-72:                                               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i
-  %73 = add i32 %41, 1
-  store i32 %73, ptr %3, align 4, !tbaa !66, !noalias !91
-  %74 = add i32 %43, 1
-  store i32 %74, ptr %7, align 8, !tbaa !67, !noalias !91
+70:                                               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i
+  %71 = add i32 %41, 1
+  store i32 %71, ptr %3, align 4, !tbaa !66, !noalias !91
+  %72 = add i32 %43, 1
+  store i32 %72, ptr %7, align 8, !tbaa !67, !noalias !91
   br label %_ZN4Luau5Lexer10consumeAnyEv.exit.i
 
-_ZN4Luau5Lexer10consumeAnyEv.exit.i:              ; preds = %72, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i
-  %75 = phi i32 [ %40, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %74, %72 ]
-  %.pre-phi.i = phi i32 [ %.pre23.i, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %74, %72 ]
-  %76 = phi i32 [ %41, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %73, %72 ]
+_ZN4Luau5Lexer10consumeAnyEv.exit.i:              ; preds = %70, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i
+  %73 = phi i32 [ %40, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %72, %70 ]
+  %.pre-phi.i = phi i32 [ %.pre23.i, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %72, %70 ]
+  %74 = phi i32 [ %41, %._ZN4Luau5Lexer10consumeAnyEv.exit_crit_edge.i ], [ %71, %70 ]
   store i32 %.pre-phi.i, ptr %5, align 8, !tbaa !60, !noalias !91
-  br label %77
+  br label %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
 
-77:                                               ; preds = %_ZN4Luau5Lexer10consumeAnyEv.exit.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
-  %78 = phi i32 [ %40, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %75, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ]
-  %79 = phi i32 [ %41, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %76, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ]
-  %80 = phi i32 [ %62, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %.pre-phi.i, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ]
-  %81 = zext i32 %80 to i64
-  %82 = icmp ugt i64 %12, %81
-  br i1 %82, label %_ZNK4Luau5Lexer6peekchEv.exit9.i, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit, !llvm.loop !79
+_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit5.i.i, %_ZN4Luau5Lexer10consumeAnyEv.exit.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i
+  %75 = phi i32 [ %40, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %73, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ], [ %40, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ]
+  %76 = phi i32 [ %41, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %74, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ], [ %41, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ]
+  %77 = phi i32 [ %.ph.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i ], [ %.pre-phi.i, %_ZN4Luau5Lexer10consumeAnyEv.exit.i ], [ %46, %_ZNK4Luau5Lexer6peekchEv.exit5.i.i ]
+  %78 = zext i32 %77 to i64
+  %79 = icmp ugt i64 %12, %78
+  br i1 %79, label %_ZNK4Luau5Lexer6peekchEv.exit9.i, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit, !llvm.loop !79
 
-_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i, %77
-  %83 = phi i32 [ %78, %77 ], [ %40, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
-  %.ph = phi i32 [ %79, %77 ], [ %41, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
-  %.lcssa.i.ph = phi i32 [ %80, %77 ], [ %43, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
+_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.i, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread
+  %80 = phi i32 [ %75, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %40, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
+  %.ph = phi i32 [ %76, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %41, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
+  %.lcssa.i.ph = phi i32 [ %77, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit.i.thread ], [ %43, %_ZNK4Luau5Lexer6peekchEv.exit9.i ]
   %.pre = zext i32 %.ph to i64
   br label %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i
 
 _ZNK4Luau5Lexer6peekchEv.exit9.thread.i:          ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit, %36
   %.sroa.014.0.insert.ext.i.pre-phi = phi i64 [ %.pre, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit ], [ %.sroa.015.0.insert.ext, %36 ]
-  %84 = phi i32 [ %83, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit ], [ %8, %36 ]
+  %81 = phi i32 [ %80, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit ], [ %8, %36 ]
   %.lcssa.i = phi i32 [ %.lcssa.i.ph, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i.loopexit ], [ %37, %36 ]
-  %85 = sub i32 %.lcssa.i, %84
-  %.sroa.415.0.insert.ext.i = zext i32 %85 to i64
+  %82 = sub i32 %.lcssa.i, %81
+  %.sroa.415.0.insert.ext.i = zext i32 %82 to i64
   %.sroa.415.0.insert.shift.i = shl nuw i64 %.sroa.415.0.insert.ext.i, 32
   %.sroa.014.0.insert.insert.i = or disjoint i64 %.sroa.415.0.insert.shift.i, %.sroa.014.0.insert.ext.i.pre-phi
   br label %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit
@@ -4183,55 +4173,55 @@ _ZNK4Luau5Lexer6peekchEv.exit9.thread.i:          ; preds = %_ZNK4Luau5Lexer6pee
 .critedge8:                                       ; preds = %_ZN4Luau5Lexer17skipLongSeparatorEv.exit..critedge8_crit_edge, %2, %_ZNK4Luau5Lexer6peekchEv.exit11
   %.pre-phi = phi i64 [ %.pre32, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit..critedge8_crit_edge ], [ %10, %2 ], [ %10, %_ZNK4Luau5Lexer6peekchEv.exit11 ]
   %.promoted = phi i32 [ %35, %_ZN4Luau5Lexer17skipLongSeparatorEv.exit..critedge8_crit_edge ], [ %9, %2 ], [ %9, %_ZNK4Luau5Lexer6peekchEv.exit11 ]
-  %86 = icmp ugt i64 %12, %.pre-phi
-  br i1 %86, label %_ZNK4Luau5Lexer6peekchEv.exit10, label %.critedge
+  %83 = icmp ugt i64 %12, %.pre-phi
+  br i1 %83, label %_ZNK4Luau5Lexer6peekchEv.exit10, label %.critedge
 
-_ZNK4Luau5Lexer6peekchEv.exit10:                  ; preds = %.critedge8, %91
-  %87 = phi i64 [ %93, %91 ], [ %.pre-phi, %.critedge8 ]
-  %88 = phi i32 [ %92, %91 ], [ %.promoted, %.critedge8 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %87
-  %90 = load i8, ptr %89, align 1, !tbaa !15
-  switch i8 %90, label %91 [
+_ZNK4Luau5Lexer6peekchEv.exit10:                  ; preds = %.critedge8, %88
+  %84 = phi i64 [ %90, %88 ], [ %.pre-phi, %.critedge8 ]
+  %85 = phi i32 [ %89, %88 ], [ %.promoted, %.critedge8 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %84
+  %87 = load i8, ptr %86, align 1, !tbaa !15
+  switch i8 %87, label %88 [
     i8 13, label %.critedge
     i8 10, label %.critedge
     i8 0, label %.critedge
   ]
 
-91:                                               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit10
-  %92 = add i32 %88, 1
-  store i32 %92, ptr %5, align 8, !tbaa !60
-  %93 = zext i32 %92 to i64
-  %94 = icmp ugt i64 %12, %93
-  br i1 %94, label %_ZNK4Luau5Lexer6peekchEv.exit10, label %.critedge, !llvm.loop !94
+88:                                               ; preds = %_ZNK4Luau5Lexer6peekchEv.exit10
+  %89 = add i32 %85, 1
+  store i32 %89, ptr %5, align 8, !tbaa !60
+  %90 = zext i32 %89 to i64
+  %91 = icmp ugt i64 %12, %90
+  br i1 %91, label %_ZNK4Luau5Lexer6peekchEv.exit10, label %.critedge, !llvm.loop !94
 
-.critedge:                                        ; preds = %91, %_ZNK4Luau5Lexer6peekchEv.exit10, %_ZNK4Luau5Lexer6peekchEv.exit10, %_ZNK4Luau5Lexer6peekchEv.exit10, %.critedge8
-  %.lcssa = phi i32 [ %.promoted, %.critedge8 ], [ %92, %91 ], [ %88, %_ZNK4Luau5Lexer6peekchEv.exit10 ], [ %88, %_ZNK4Luau5Lexer6peekchEv.exit10 ], [ %88, %_ZNK4Luau5Lexer6peekchEv.exit10 ]
-  %95 = sub i32 %.lcssa, %8
-  %.sroa.418.0.insert.ext = zext i32 %95 to i64
+.critedge:                                        ; preds = %88, %_ZNK4Luau5Lexer6peekchEv.exit10, %_ZNK4Luau5Lexer6peekchEv.exit10, %_ZNK4Luau5Lexer6peekchEv.exit10, %.critedge8
+  %.lcssa = phi i32 [ %.promoted, %.critedge8 ], [ %89, %88 ], [ %85, %_ZNK4Luau5Lexer6peekchEv.exit10 ], [ %85, %_ZNK4Luau5Lexer6peekchEv.exit10 ], [ %85, %_ZNK4Luau5Lexer6peekchEv.exit10 ]
+  %92 = sub i32 %.lcssa, %8
+  %.sroa.418.0.insert.ext = zext i32 %92 to i64
   %.sroa.418.0.insert.shift = shl nuw i64 %.sroa.418.0.insert.ext, 32
   %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.418.0.insert.shift, %.sroa.015.0.insert.ext
-  %96 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %10
-  %97 = sub i32 %.lcssa, %9
+  %93 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %10
+  %94 = sub i32 %.lcssa, %9
   br label %_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit
 
-_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i, %65, %.critedge
-  %.sink33.i.sink = phi i32 [ 282, %.critedge ], [ 286, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ 283, %65 ]
-  %.sroa.014.0.insert.insert.sink.i.sink = phi i64 [ %.sroa.017.0.insert.insert, %.critedge ], [ %.sroa.014.0.insert.insert.i, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %.sroa.016.0.insert.insert.i, %65 ]
-  %.sink29.i.sink = phi i32 [ %97, %.critedge ], [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %71, %65 ]
-  %.sink.i.sink = phi ptr [ %96, %.critedge ], [ null, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %68, %65 ]
-  %98 = sub i32 %6, %8
-  %.sroa.416.0.insert.ext = zext i32 %98 to i64
+_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme4TypeES5_.exit: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i, %63, %.critedge
+  %.sink33.i.sink = phi i32 [ 282, %.critedge ], [ 286, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ 283, %63 ]
+  %.sroa.014.0.insert.insert.sink.i.sink = phi i64 [ %.sroa.017.0.insert.insert, %.critedge ], [ %.sroa.014.0.insert.insert.i, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %.sroa.016.0.insert.insert.i, %63 ]
+  %.sink29.i.sink = phi i32 [ %94, %.critedge ], [ 0, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %69, %63 ]
+  %.sink.i.sink = phi ptr [ %93, %.critedge ], [ null, %_ZNK4Luau5Lexer6peekchEv.exit9.thread.i ], [ %66, %63 ]
+  %95 = sub i32 %6, %8
+  %.sroa.416.0.insert.ext = zext i32 %95 to i64
   %.sroa.416.0.insert.shift = shl nuw i64 %.sroa.416.0.insert.ext, 32
   %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.416.0.insert.shift, %.sroa.015.0.insert.ext
   store i32 %.sink33.i.sink, ptr %0, align 8, !tbaa !8
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.015.0.insert.insert, ptr %99, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.015.0.insert.insert, ptr %96, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %.sroa.014.0.insert.insert.sink.i.sink, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink29.i.sink, ptr %100, align 4, !tbaa !14
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink.i.sink, ptr %101, align 8, !tbaa !15
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink29.i.sink, ptr %97, align 4, !tbaa !14
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sink.i.sink, ptr %98, align 8, !tbaa !15
   ret void
 }
 

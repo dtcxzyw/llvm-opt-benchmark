@@ -2189,10 +2189,10 @@ unicode_find_name.exit:                           ; preds = %15
   %.1.add = add nuw nsw i64 %.1.idx, 1
   %56 = load i8, ptr %.1.ptr, align 1, !tbaa !13
   %57 = zext i8 %56 to i32
-  %58 = add i32 %.0100270, 1
-  %59 = add i32 %58, %.098
-  %60 = icmp eq i32 %24, %57
-  br i1 %60, label %61, label %84
+  %58 = icmp eq i32 %24, %57
+  %59 = add i32 %.0100270, 1
+  %60 = add i32 %59, %.098
+  br i1 %58, label %61, label %84
 
 61:                                               ; preds = %55
   %62 = load i32, ptr %.094, align 8, !tbaa !26
@@ -2237,11 +2237,11 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   store i32 %81, ptr %.094, align 8, !tbaa !26
   %82 = sext i32 %80 to i64
   %83 = getelementptr inbounds i32, ptr %76, i64 %82
-  store i32 %59, ptr %83, align 4, !tbaa !7
+  store i32 %60, ptr %83, align 4, !tbaa !7
   br label %84
 
 84:                                               ; preds = %cr_add_interval.exit.thread, %.thread, %55
-  %85 = phi i32 [ %54, %.thread ], [ %59, %55 ], [ %59, %cr_add_interval.exit.thread ]
+  %85 = phi i32 [ %54, %.thread ], [ %60, %55 ], [ %60, %cr_add_interval.exit.thread ]
   %.2.idx239 = phi i64 [ %.1.idx, %.thread ], [ %.1.add, %55 ], [ %.1.add, %cr_add_interval.exit.thread ]
   %86 = icmp slt i64 %.2.idx239, 2720
   br i1 %86, label %30, label %87, !llvm.loop !47

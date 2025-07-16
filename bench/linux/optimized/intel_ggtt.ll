@@ -1396,9 +1396,9 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
 239:                                              ; preds = %224
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 776
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %18, i64 776
-  %241 = icmp ugt i64 %.pre, %226
-  br i1 %241, label %242, label %249
+  %240 = icmp ugt i64 %.pre, %226
+  %241 = getelementptr inbounds nuw i8, ptr %18, i64 776
+  br i1 %240, label %242, label %249
 
 242:                                              ; preds = %239
   %243 = icmp eq ptr %19, null
@@ -1410,13 +1410,13 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
 
 246:                                              ; preds = %244, %242
   %247 = phi ptr [ %245, %244 ], [ null, %242 ]
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %247, ptr noundef nonnull @.str.9, ptr noundef nonnull %240, i64 noundef %226) #11
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %247, ptr noundef nonnull @.str.9, ptr noundef nonnull %241, i64 noundef %226) #11
   %248 = load i64, ptr %225, align 8
-  store i64 %248, ptr %240, align 8
+  store i64 %248, ptr %241, align 8
   br label %249
 
 249:                                              ; preds = %.thread9, %246, %239
-  %250 = phi ptr [ %240, %246 ], [ %240, %239 ], [ %238, %.thread9 ]
+  %250 = phi ptr [ %241, %246 ], [ %241, %239 ], [ %238, %.thread9 ]
   %251 = phi i64 [ %248, %246 ], [ %226, %239 ], [ 4294967296, %.thread9 ]
   %252 = icmp eq ptr %19, null
   br i1 %252, label %.thread, label %256

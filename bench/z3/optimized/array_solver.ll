@@ -1380,40 +1380,39 @@ define hidden noundef ptr @_ZN5array6solver5cloneERN3euf6solverE(ptr noundef non
   %5 = load i32, ptr %4, align 4, !tbaa !172
   tail call void @_ZN5array6solverC2ERN3euf6solverEi(ptr noundef nonnull align 8 dereferenceable(536) %3, ptr noundef nonnull align 8 dereferenceable(8456) %1, i32 noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %8
+  %7 = load ptr, ptr %6, align 8, !tbaa !135
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %.critedge, label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit.lr.ph
 
-8:                                                ; preds = %17, %2
-  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %2 ]
-  %9 = load ptr, ptr %6, align 8, !tbaa !135
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit, label %11
-
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 -4
-  %13 = load i32, ptr %12, align 4, !tbaa !140
-  %14 = zext i32 %13 to i64
+_ZNK3euf13th_euf_solver12get_num_varsEv.exit.lr.ph: ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
 
-_ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %8, %11
-  %.0.i.i = phi i64 [ %14, %11 ], [ 0, %8 ]
-  %15 = icmp samesign ult i64 %indvars.iv, %.0.i.i
-  br i1 %15, label %17, label %16
+_ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %_ZNK3euf13th_euf_solver12get_num_varsEv.exit.lr.ph ], [ %indvars.iv.next, %15 ]
+  %10 = phi ptr [ %7, %_ZNK3euf13th_euf_solver12get_num_varsEv.exit.lr.ph ], [ %24, %15 ]
+  %11 = getelementptr inbounds i8, ptr %10, i64 -4
+  %12 = load i32, ptr %11, align 4, !tbaa !140
+  %13 = zext i32 %12 to i64
+  %14 = icmp samesign ult i64 %indvars.iv, %13
+  br i1 %14, label %15, label %.critedge
 
-16:                                               ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
+.critedge:                                        ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit, %15, %2
   ret ptr %3
 
-17:                                               ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
-  %18 = load ptr, ptr %7, align 8, !tbaa !173
-  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !174
-  %21 = tail call noundef ptr @_ZN3euf6solver4copyERS0_PNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(8456) %18, ptr noundef nonnull align 8 dereferenceable(8456) %1, ptr noundef %20)
-  %22 = load ptr, ptr %3, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 528
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(536) %3, ptr noundef %21)
+15:                                               ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
+  %16 = load ptr, ptr %9, align 8, !tbaa !173
+  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8, !tbaa !174
+  %19 = tail call noundef ptr @_ZN3euf6solver4copyERS0_PNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(8456) %16, ptr noundef nonnull align 8 dereferenceable(8456) %1, ptr noundef %18)
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 528
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(536) %3, ptr noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %8, !llvm.loop !176
+  %24 = load ptr, ptr %6, align 8, !tbaa !135
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %.critedge, label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit, !llvm.loop !176
 }
 
 declare noundef ptr @_ZN3euf6solver4copyERS0_PNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(8456), ptr noundef nonnull align 8 dereferenceable(8456), ptr noundef) local_unnamed_addr #0

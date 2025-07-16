@@ -295,7 +295,7 @@ define noundef i64 @_ZN24LibRaw_buffer_datastream4tellEv(ptr noundef nonnull rea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %4 = icmp slt i32 %2, 1
-  br i1 %4, label %49, label %5
+  br i1 %4, label %50, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -304,7 +304,7 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !61
   %.not = icmp ult i64 %8, %10
-  br i1 %.not, label %.lr.ph, label %49
+  br i1 %.not, label %.lr.ph, label %50
 
 .lr.ph:                                           ; preds = %5
   %11 = load ptr, ptr %6, align 8, !tbaa !57
@@ -362,33 +362,33 @@ define noundef ptr @_ZN24LibRaw_buffer_datastream4getsEPci(ptr noundef nonnull a
   %.lcssa.ph = phi i64 [ %32, %..critedge.loopexit_crit_edge ], [ %18, %.lr.ph ], [ %18, %21 ], [ %26, %24 ]
   %.pre45 = ptrtoint ptr %.pre to i64
   %.pre46 = sub i64 %.lcssa.ph, %.pre45
-  %37 = sub i64 %.pre54.pre-phi, %14
-  %38 = icmp ult i64 %.pre46, %.pre40
-  %spec.select.idx = zext i1 %38 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %.024.lcssa.ph, i64 %spec.select.idx
-  %39 = icmp slt i64 %37, %16
-  br i1 %39, label %40, label %42
+  %37 = icmp ult i64 %.pre46, %.pre40
+  %38 = zext i1 %37 to i64
+  %39 = sub i64 %.pre54.pre-phi, %14
+  %40 = icmp slt i64 %39, %16
+  %spec.select = getelementptr inbounds nuw i8, ptr %.024.lcssa.ph, i64 %38
+  br i1 %40, label %41, label %43
 
-40:                                               ; preds = %.critedge
-  %41 = getelementptr inbounds nuw i8, ptr %.023.lcssa.ph, i64 1
-  store i8 0, ptr %41, align 1, !tbaa !64
-  br label %44
+41:                                               ; preds = %.critedge
+  %42 = getelementptr inbounds nuw i8, ptr %.023.lcssa.ph, i64 1
+  store i8 0, ptr %42, align 1, !tbaa !64
+  br label %45
 
-42:                                               ; preds = %.critedge
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %16
-  store i8 0, ptr %43, align 1, !tbaa !64
-  br label %44
+43:                                               ; preds = %.critedge
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %16
+  store i8 0, ptr %44, align 1, !tbaa !64
+  br label %45
 
-44:                                               ; preds = %42, %40
-  %45 = load ptr, ptr %6, align 8, !tbaa !57
-  %46 = ptrtoint ptr %spec.select to i64
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  store i64 %48, ptr %7, align 8, !tbaa !60
-  br label %49
+45:                                               ; preds = %43, %41
+  %46 = load ptr, ptr %6, align 8, !tbaa !57
+  %47 = ptrtoint ptr %spec.select to i64
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  store i64 %49, ptr %7, align 8, !tbaa !60
+  br label %50
 
-49:                                               ; preds = %44, %5, %3
-  %.0 = phi ptr [ null, %3 ], [ %1, %44 ], [ null, %5 ]
+50:                                               ; preds = %45, %5, %3
+  %.0 = phi ptr [ null, %3 ], [ %1, %45 ], [ null, %5 ]
   ret ptr %.0
 }
 

@@ -3096,7 +3096,7 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_18RuntimeFunctionX6410UNWIND_REGE(
 
 3:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp ugt i32 %0, 11
-  br i1 %.not.i.i.i.i.i.i.i, label %4, label %8
+  br i1 %.not.i.i.i.i.i.i.i, label %4, label %7
 
 4:                                                ; preds = %3
   %.not.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 13
@@ -3104,16 +3104,15 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_18RuntimeFunctionX6410UNWIND_REGE(
 
 5:                                                ; preds = %4
   %.not.i.i.i.i.i.i.i.i.i.not = icmp eq i32 %0, 14
-  br i1 %.not.i.i.i.i.i.i.i.i.i.not, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.not, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
-_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i: ; preds = %5
+_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13: ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  br label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+  br label %18
 
-8:                                                ; preds = %3
+7:                                                ; preds = %3
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 9
-  %9 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 168, i64 136
+  %8 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 168, i64 136
   br label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 _ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread26.i.i: ; preds = %1
@@ -3121,56 +3120,50 @@ _ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE1
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 72, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 88, i64 24
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %2, i64 %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %10 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !242
-  %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %10, %0
+  %9 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !242
+  %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %9, %0
   %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 32, i64 0
   %.add17.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add16.i.i
   %.ptr23.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.add17.i.i
-  %11 = load i32, ptr %.ptr23.i.i, align 8, !tbaa !242
-  %.not.i.i.i9.i.i.i.i.i.i = icmp ult i32 %11, %0
+  %10 = load i32, ptr %.ptr23.i.i, align 8, !tbaa !242
+  %.not.i.i.i9.i.i.i.i.i.i = icmp ult i32 %10, %0
   %.idx.i.i.i10.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i, i64 16, i64 0
   %.add18.i.i = or disjoint i64 %.add17.i.i, %.idx.i.i.i10.i.i.i.i.i.i
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  br label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 264
+  br label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
-_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %8, %5, %4
-  %.sink11.i.i.i.i.i.i.i = phi i64 [ %9, %8 ], [ 248, %5 ], [ 200, %4 ]
+_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %7, %5, %4
+  %.sink11.i.i.i.i.i.i.i = phi i64 [ %8, %7 ], [ 248, %5 ], [ 200, %4 ]
   %.ptr19.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.sink11.i.i.i.i.i.i.i
-  %13 = load i32, ptr %.ptr19.i.i, align 8, !tbaa !242
-  %.not.i6.i.i.i.i.i.i.i.i = icmp ult i32 %13, %0
+  %12 = load i32, ptr %.ptr19.i.i, align 8, !tbaa !242
+  %.not.i6.i.i.i.i.i.i.i.i = icmp ult i32 %12, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.add15.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i, %.sink11.i.i.i.i.i.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 264
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %.not.i.i = icmp eq i64 %.add15.i.i, 264
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i
+  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
-_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread26.i.i
-  %15 = phi ptr [ %12, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread26.i.i ], [ %14, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
+_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread26.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+  %14 = phi ptr [ %11, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread26.i.i ], [ %13, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
   %.0.i.i.i.i.idx29.i.i = phi i64 [ %.add18.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread26.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
   %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx29.i.i
   %.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i, align 4, !tbaa !242
-  br label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+  %15 = icmp ult i32 %0, %.pre.i.i
+  %16 = select i1 %15, ptr %14, ptr %.0.i.i.i.i.ptr.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 264
+  %.not = icmp eq ptr %16, %17
+  br i1 %.not, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %18
 
-_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i
-  %16 = phi i32 [ 14, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i ], [ %.pre.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i ]
-  %17 = phi ptr [ %7, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i ], [ %15, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i ]
-  %.0.i.i.i.i14.i.i = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i ], [ %.0.i.i.i.i.ptr.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i ]
-  %.not25.i.i = icmp ult i32 %0, %16
-  %spec.select.i.i = select i1 %.not25.i.i, ptr %17, ptr %.0.i.i.i.i14.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  %.not = icmp eq ptr %spec.select.i.i, %18
-  br i1 %.not, label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %19
-
-19:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
-  %spec.select.i.i.sroa.sel.v.sroa.sel.v = select i1 %.not25.i.i, ptr %17, ptr %.0.i.i.i.i14.i.i
-  %spec.select.i.i.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i.i.sroa.sel.v.sroa.sel.v, i64 8
-  %20 = load ptr, ptr %spec.select.i.i.sroa.sel.v.sroa.sel, align 8, !tbaa !244
+18:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+  %.not25.i.i16 = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread13 ], [ %16, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ]
+  %spec.select.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr %.not25.i.i16, i64 8
+  %19 = load ptr, ptr %spec.select.i.i.sroa.sel, align 8, !tbaa !244
   br label %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit, %19
-  %21 = phi ptr [ %20, %19 ], [ @.str.45, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ @.str.45, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
+_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit, %18
+  %20 = phi ptr [ %19, %18 ], [ @.str.45, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ @.str.45, %_ZNK6frozen3mapIN4LIEF2PE18RuntimeFunctionX6410UNWIND_REGEPKcLm16ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %2) #22
-  ret ptr %21
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

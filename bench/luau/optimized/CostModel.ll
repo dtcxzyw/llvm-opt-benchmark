@@ -2738,67 +2738,63 @@ _ZN4Luau7Compile11CostVisitor6assignEPNS_7AstExprE.exit: ; preds = %43, %45, %19
   %52 = icmp ult i64 %51, %50
   br i1 %52, label %19, label %.preheader, !llvm.loop !95
 
-53:                                               ; preds = %.preheader, %85
-  %54 = phi i64 [ %.pre32, %85 ], [ %14, %.preheader ]
-  %.0 = phi i64 [ %93, %85 ], [ 0, %.preheader ]
+53:                                               ; preds = %.preheader, %82
+  %54 = phi i64 [ %.pre32, %82 ], [ %14, %.preheader ]
+  %.0 = phi i64 [ %90, %82 ], [ 0, %.preheader ]
   %55 = icmp ult i64 %.0, %54
-  br i1 %55, label %60, label %56
+  br i1 %55, label %.critedge, label %56
 
 56:                                               ; preds = %53
   %57 = load i64, ptr %15, align 8, !tbaa !96
   %58 = icmp ult i64 %.0, %57
-  br i1 %58, label %.critedge, label %59
+  br i1 %58, label %.critedge.thread, label %59
 
 59:                                               ; preds = %56
   ret i1 false
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %3, align 8, !tbaa !94
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %.0
-  %63 = load ptr, ptr %62, align 8, !tbaa !69
-  %64 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %63)
-  %65 = extractvalue { i64, i64 } %64, 0
-  %66 = and i64 %65, -9187201950435737472
-  %67 = and i64 %65, 9187201950435737471
-  %68 = lshr exact i64 %66, 7
-  %69 = sub i64 %66, %68
-  %70 = or i64 %69, %67
+.critedge:                                        ; preds = %53
+  %60 = load ptr, ptr %3, align 8, !tbaa !94
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %.0
+  %62 = load ptr, ptr %61, align 8, !tbaa !69
+  %63 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %62)
+  %64 = extractvalue { i64, i64 } %63, 0
+  %65 = and i64 %64, -9187201950435737472
+  %66 = and i64 %64, 9187201950435737471
+  %67 = lshr exact i64 %65, 7
+  %68 = sub i64 %65, %67
+  %69 = or i64 %68, %66
   %.pre33 = load i64, ptr %15, align 8, !tbaa !96
-  br label %.critedge
+  %70 = icmp ult i64 %.0, %.pre33
+  br i1 %70, label %.critedge.thread, label %82
 
-.critedge:                                        ; preds = %56, %60
-  %71 = phi i64 [ %.pre33, %60 ], [ %57, %56 ]
-  %.sroa.022.0 = phi i64 [ %70, %60 ], [ 0, %56 ]
-  %72 = icmp ult i64 %.0, %71
-  br i1 %72, label %73, label %85
+.critedge.thread:                                 ; preds = %56, %.critedge
+  %.sroa.022.035 = phi i64 [ %69, %.critedge ], [ 0, %56 ]
+  %71 = load ptr, ptr %16, align 8, !tbaa !97
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.0
+  %73 = load ptr, ptr %72, align 8, !tbaa !69
+  %74 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %73)
+  %75 = extractvalue { i64, i64 } %74, 0
+  %76 = add i64 %75, %.sroa.022.035
+  %77 = and i64 %76, -9187201950435737472
+  %78 = and i64 %76, 9187201950435737471
+  %79 = lshr exact i64 %77, 7
+  %80 = sub i64 %77, %79
+  %81 = or i64 %80, %78
+  br label %82
 
-73:                                               ; preds = %.critedge
-  %74 = load ptr, ptr %16, align 8, !tbaa !97
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %.0
-  %76 = load ptr, ptr %75, align 8, !tbaa !69
-  %77 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %76)
-  %78 = extractvalue { i64, i64 } %77, 0
-  %79 = add i64 %78, %.sroa.022.0
-  %80 = and i64 %79, -9187201950435737472
-  %81 = and i64 %79, 9187201950435737471
-  %82 = lshr exact i64 %80, 7
-  %83 = sub i64 %80, %82
-  %84 = or i64 %83, %81
-  br label %85
-
-85:                                               ; preds = %73, %.critedge
-  %.sroa.022.1 = phi i64 [ %84, %73 ], [ %.sroa.022.0, %.critedge ]
+82:                                               ; preds = %.critedge.thread, %.critedge
+  %.sroa.022.1 = phi i64 [ %81, %.critedge.thread ], [ %69, %.critedge ]
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.sroa.022.1, i64 1)
-  %86 = load i64, ptr %17, align 8, !tbaa !39
-  %87 = add i64 %spec.select, %86
-  %88 = and i64 %87, -9187201950435737472
-  %89 = and i64 %87, 9187201950435737471
-  %90 = lshr exact i64 %88, 7
-  %91 = sub i64 %88, %90
-  %92 = or i64 %91, %89
-  store i64 %92, ptr %17, align 8, !tbaa !39
+  %83 = load i64, ptr %17, align 8, !tbaa !39
+  %84 = add i64 %spec.select, %83
+  %85 = and i64 %84, -9187201950435737472
+  %86 = and i64 %84, 9187201950435737471
+  %87 = lshr exact i64 %85, 7
+  %88 = sub i64 %85, %87
+  %89 = or i64 %88, %86
+  store i64 %89, ptr %17, align 8, !tbaa !39
   store i64 0, ptr %18, align 8, !tbaa !40
-  %93 = add nuw i64 %.0, 1
+  %90 = add nuw i64 %.0, 1
   %.pre32 = load i64, ptr %4, align 8, !tbaa !92
   br label %53, !llvm.loop !98
 }

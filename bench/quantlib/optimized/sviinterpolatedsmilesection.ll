@@ -12478,10 +12478,11 @@ _ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6
 _ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit.loopexit: ; preds = %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE5valueEd.exit.i.i
   %.pre464 = load i64, ptr %xBegin_.i, align 8, !tbaa !3
   %38 = inttoptr i64 %.pre464 to ptr
+  %39 = icmp eq ptr %incdec.ptr.i.i.i44, %38
   br label %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit
 
 _ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit: ; preds = %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit.loopexit, %if.then44
-  %39 = phi ptr [ %24, %if.then44 ], [ %incdec.ptr.i.i.i44, %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit.loopexit ]
+  %cmp.i.not7.i = phi i1 [ true, %if.then44 ], [ %39, %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit.loopexit ]
   %40 = phi ptr [ %25, %if.then44 ], [ %38, %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit.loopexit ]
   %totalError.0.lcssa.i.i = phi double [ 0.000000e+00, %if.then44 ], [ %36, %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit.loopexit ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %24 to i64
@@ -12497,7 +12498,6 @@ _ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6
   %call4.i = tail call noundef double @sqrt(double noundef %div.i) #28, !tbaa !194
   %error_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store double %call4.i, ptr %error_, align 8, !tbaa !198
-  %cmp.i.not7.i = icmp eq ptr %39, %40
   br i1 %cmp.i.not7.i, label %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE21interpolationMaxErrorEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNK8QuantLib6detail21XABRInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS0_8SviSpecsEE18interpolationErrorEv.exit
@@ -13514,10 +13514,11 @@ for.body217:                                      ; preds = %for.body217.lr.ph, 
 invoke.cont229.loopexit:                          ; preds = %call2.i.i.i244.noexc
   %.pre463 = load i64, ptr %xBegin_.i153, align 8, !tbaa !3
   %208 = inttoptr i64 %.pre463 to ptr
+  %209 = icmp eq ptr %incdec.ptr.i.i.i247, %208
   br label %invoke.cont229
 
 invoke.cont229:                                   ; preds = %invoke.cont229.loopexit, %for.cond.cleanup216
-  %209 = phi ptr [ %188, %for.cond.cleanup216 ], [ %incdec.ptr.i.i.i247, %invoke.cont229.loopexit ]
+  %cmp.i.not7.i289 = phi i1 [ true, %for.cond.cleanup216 ], [ %209, %invoke.cont229.loopexit ]
   %210 = phi ptr [ %189, %for.cond.cleanup216 ], [ %208, %invoke.cont229.loopexit ]
   %totalError.0.lcssa.i.i251 = phi double [ 0.000000e+00, %for.cond.cleanup216 ], [ %200, %invoke.cont229.loopexit ]
   %sub.ptr.lhs.cast.i.i252 = ptrtoint ptr %188 to i64
@@ -13533,7 +13534,6 @@ invoke.cont229:                                   ; preds = %invoke.cont229.loop
   %call4.i263 = call noundef double @sqrt(double noundef %div.i262) #28, !tbaa !194
   %error_232 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store double %call4.i263, ptr %error_232, align 8, !tbaa !198
-  %cmp.i.not7.i289 = icmp eq ptr %209, %210
   br i1 %cmp.i.not7.i289, label %invoke.cont233, label %for.body.lr.ph.i290
 
 for.body.lr.ph.i290:                              ; preds = %invoke.cont229

@@ -11643,16 +11643,16 @@ rb_scan_args_n_opt.exit:
   %.0.i.ph36 = phi i32 [ %13, %.preheader ], [ %0, %4 ]
   %.087.i.ph35 = phi i64 [ %12, %.preheader ], [ 4, %4 ]
   %14 = load i64, ptr %1, align 8, !tbaa !7
+  %15 = icmp eq i32 %.0.i.ph36, 1
   br label %.preheader.thread
 
 .preheader.thread:                                ; preds = %10, %.preheader, %.preheader.thread31
   %.not1429 = phi i1 [ false, %.preheader.thread31 ], [ true, %.preheader ], [ true, %10 ]
   %.087.i1927 = phi i64 [ %.087.i.ph35, %.preheader.thread31 ], [ %12, %.preheader ], [ 4, %10 ]
   %.0.i2025 = phi i32 [ %.0.i.ph36, %.preheader.thread31 ], [ 0, %.preheader ], [ 0, %10 ]
-  %15 = phi i64 [ %14, %.preheader.thread31 ], [ 4, %.preheader ], [ 4, %10 ]
-  %.185.i.lcssa = phi i32 [ 1, %.preheader.thread31 ], [ 0, %.preheader ], [ 0, %10 ]
-  %16 = icmp eq i32 %.185.i.lcssa, %.0.i2025
-  br i1 %16, label %rb_scan_args_set.exit, label %17
+  %16 = phi i64 [ %14, %.preheader.thread31 ], [ 4, %.preheader ], [ 4, %10 ]
+  %.185.i.lcssa = phi i1 [ %15, %.preheader.thread31 ], [ true, %.preheader ], [ true, %10 ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %17
 
 17:                                               ; preds = %.preheader.thread, %10
   %.0.i21 = phi i32 [ %.0.i2025, %.preheader.thread ], [ %0, %10 ]
@@ -11663,12 +11663,12 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.thread
   br i1 %.not1429, label %33, label %18
 
 18:                                               ; preds = %rb_scan_args_set.exit
-  %19 = and i64 %15, 1
+  %19 = and i64 %16, 1
   %.not.i9 = icmp eq i64 %19, 0
   br i1 %.not.i9, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = ashr i64 %15, 1
+  %21 = ashr i64 %16, 1
   %22 = add nsw i64 %21, 2147483648
   %.not.i.i.i = icmp ult i64 %22, 4294967296
   br i1 %.not.i.i.i, label %rb_num2int_inline.exit, label %23
@@ -11678,7 +11678,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.thread
   unreachable
 
 24:                                               ; preds = %18
-  %25 = tail call i64 @rb_num2long(i64 noundef %15)
+  %25 = tail call i64 @rb_num2long(i64 noundef %16)
   %26 = add i64 %25, 2147483648
   %.not.i.i4.i = icmp ult i64 %26, 4294967296
   br i1 %.not.i.i4.i, label %rb_num2int_inline.exit, label %27
@@ -13765,16 +13765,16 @@ rb_scan_args_n_opt.exit:
   %.0.i.ph102 = phi i32 [ %15, %.preheader ], [ %0, %6 ]
   %.087.i.ph101 = phi i64 [ %14, %.preheader ], [ 4, %6 ]
   %16 = load i64, ptr %1, align 8, !tbaa !7
+  %17 = icmp eq i32 %.0.i.ph102, 1
   br label %.preheader.thread
 
 .preheader.thread:                                ; preds = %12, %.preheader, %.preheader.thread97
   %.not7995 = phi i1 [ false, %.preheader.thread97 ], [ true, %.preheader ], [ true, %12 ]
   %.087.i8593 = phi i64 [ %.087.i.ph101, %.preheader.thread97 ], [ %14, %.preheader ], [ 4, %12 ]
   %.0.i8691 = phi i32 [ %.0.i.ph102, %.preheader.thread97 ], [ 0, %.preheader ], [ 0, %12 ]
-  %17 = phi i64 [ %16, %.preheader.thread97 ], [ 4, %.preheader ], [ 4, %12 ]
-  %.185.i.lcssa = phi i32 [ 1, %.preheader.thread97 ], [ 0, %.preheader ], [ 0, %12 ]
-  %18 = icmp eq i32 %.185.i.lcssa, %.0.i8691
-  br i1 %18, label %rb_scan_args_set.exit, label %19
+  %18 = phi i64 [ %16, %.preheader.thread97 ], [ 4, %.preheader ], [ 4, %12 ]
+  %.185.i.lcssa = phi i1 [ %17, %.preheader.thread97 ], [ true, %.preheader ], [ true, %12 ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %19
 
 19:                                               ; preds = %.preheader.thread, %12
   %.0.i87 = phi i32 [ %.0.i8691, %.preheader.thread ], [ %0, %12 ]
@@ -13785,12 +13785,12 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.thread
   br i1 %.not7995, label %31, label %20
 
 20:                                               ; preds = %rb_scan_args_set.exit
-  %21 = and i64 %17, 1
+  %21 = and i64 %18, 1
   %.not.i45 = icmp eq i64 %21, 0
   br i1 %.not.i45, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = ashr i64 %17, 1
+  %23 = ashr i64 %18, 1
   %24 = add nsw i64 %23, 2147483648
   %.not.i.i.i = icmp ult i64 %24, 4294967296
   br i1 %.not.i.i.i, label %rb_num2int_inline.exit, label %25
@@ -13800,7 +13800,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.thread
   unreachable
 
 26:                                               ; preds = %20
-  %27 = tail call i64 @rb_num2long(i64 noundef %17)
+  %27 = tail call i64 @rb_num2long(i64 noundef %18)
   %28 = add i64 %27, 2147483648
   %.not.i.i4.i = icmp ult i64 %28, 4294967296
   br i1 %.not.i.i4.i, label %rb_num2int_inline.exit, label %29

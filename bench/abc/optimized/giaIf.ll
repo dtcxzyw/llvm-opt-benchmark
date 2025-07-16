@@ -14455,10 +14455,10 @@ define void @Gia_ManMappingVerify(ptr noundef %0) local_unnamed_addr #4 {
 4:                                                ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !27
-  %5 = getelementptr i8, ptr %0, i64 32
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = icmp sgt i32 %.pre, 0
-  br i1 %7, label %.lr.ph, label %.critedge
+  %5 = icmp sgt i32 %.pre, 0
+  %6 = getelementptr i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr i8, ptr %0, i64 264
@@ -14466,7 +14466,7 @@ define void @Gia_ManMappingVerify(ptr noundef %0) local_unnamed_addr #4 {
 
 9:                                                ; preds = %.lr.ph, %Gia_ObjIsAndNotBuf.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsAndNotBuf.exit.thread ]
-  %.val48 = load ptr, ptr %5, align 8, !tbaa !55
+  %.val48 = load ptr, ptr %6, align 8, !tbaa !55
   %10 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val48, i64 %indvars.iv
   %.not39 = icmp eq ptr %.val48, null
   br i1 %.not39, label %.critedge, label %11
@@ -14528,13 +14528,13 @@ Gia_ObjIsAndNotBuf.exit:                          ; preds = %19
 
 Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %19, %36, %11, %Gia_ObjIsAndNotBuf.exit, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = load i32, ptr %6, align 8, !tbaa !27
+  %38 = load i32, ptr %7, align 8, !tbaa !27
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
   br i1 %40, label %9, label %.critedge, !llvm.loop !280
 
 .critedge:                                        ; preds = %9, %Gia_ObjIsAndNotBuf.exit.thread, %.thread, %4
-  %41 = phi ptr [ %3, %.thread ], [ %5, %4 ], [ %5, %Gia_ObjIsAndNotBuf.exit.thread ], [ %5, %9 ]
+  %41 = phi ptr [ %3, %.thread ], [ %6, %4 ], [ %6, %Gia_ObjIsAndNotBuf.exit.thread ], [ %6, %9 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load ptr, ptr %42, align 8, !tbaa !53
   %44 = getelementptr i8, ptr %43, i64 4

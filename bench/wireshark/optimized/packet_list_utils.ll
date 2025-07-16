@@ -124,13 +124,16 @@ define hidden zeroext i1 @right_justify_column(i32 noundef %0, ptr noundef reado
   %.1 = phi i32 [ %40, %39 ], [ %.062, %29 ], [ %.062, %23 ], [ %.062, %21 ], [ %.062, %35 ], [ %.062, %38 ]
   %42 = add nuw i32 %.04861, 1
   %exitcond.not = icmp eq i32 %42, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %41, %10
-  %.0.lcssa = phi i32 [ 0, %10 ], [ %.1, %41 ]
+._crit_edge.loopexit:                             ; preds = %41
+  %43 = icmp eq i32 %.1, %13
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
+  %.0.lcssa = phi i1 [ true, %10 ], [ %43, %._crit_edge.loopexit ]
   %.not57 = icmp ne i32 %13, 0
-  %43 = icmp eq i32 %.0.lcssa, %13
-  %or.cond = select i1 %.not57, i1 %43, i1 false
+  %or.cond = select i1 %.not57, i1 %.0.lcssa, i1 false
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %9, %3, %2

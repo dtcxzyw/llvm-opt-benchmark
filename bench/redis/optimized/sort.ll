@@ -388,20 +388,18 @@ define dso_local i32 @sortCompare(ptr noundef readonly captures(none) %0, ptr no
   %.not29 = icmp eq ptr %20, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !15
-  br i1 %.not29, label %._crit_edge, label %21
+  br i1 %.not29, label %._crit_edge, label %23
 
-21:                                               ; preds = %18
-  %.not30 = icmp eq ptr %.pre, null
-  br i1 %.not30, label %._crit_edge, label %24
-
-._crit_edge:                                      ; preds = %18, %21
-  %22 = phi ptr [ null, %21 ], [ %.pre, %18 ]
-  %. = phi i32 [ 1, %21 ], [ -1, %18 ]
-  %23 = icmp eq ptr %20, %22
-  %spec.select = select i1 %23, i32 0, i32 %.
+._crit_edge:                                      ; preds = %18
+  %21 = icmp ne ptr %20, %.pre
+  %22 = sext i1 %21 to i32
   br label %42
 
-24:                                               ; preds = %21
+23:                                               ; preds = %18
+  %.not30 = icmp eq ptr %.pre, null
+  br i1 %.not30, label %42, label %24
+
+24:                                               ; preds = %23
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7692), align 4, !tbaa !53
   %.not31 = icmp eq i32 %25, 0
   br i1 %.not31, label %28, label %26
@@ -433,8 +431,8 @@ define dso_local i32 @sortCompare(ptr noundef readonly captures(none) %0, ptr no
   %41 = tail call i32 @collateStringObjects(ptr noundef %36, ptr noundef %37) #12
   br label %42
 
-42:                                               ; preds = %._crit_edge, %10, %4, %26, %28, %40, %38, %12
-  %.0 = phi i32 [ %27, %26 ], [ %33, %28 ], [ %39, %38 ], [ %41, %40 ], [ %15, %12 ], [ 1, %4 ], [ -1, %10 ], [ %spec.select, %._crit_edge ]
+42:                                               ; preds = %23, %._crit_edge, %10, %4, %26, %28, %40, %38, %12
+  %.0 = phi i32 [ %27, %26 ], [ %33, %28 ], [ %39, %38 ], [ %41, %40 ], [ %15, %12 ], [ 1, %4 ], [ -1, %10 ], [ 1, %23 ], [ %22, %._crit_edge ]
   %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7680), align 8, !tbaa !54
   %.not32 = icmp eq i32 %43, 0
   %44 = sub nsw i32 0, %.0

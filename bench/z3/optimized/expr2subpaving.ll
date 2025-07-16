@@ -313,25 +313,26 @@ define hidden noundef zeroext i1 @_ZNK14expr2subpaving6is_varEP4expr(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %_ZNK14expr2subpaving3imp6is_varEP4expr.exit, label %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i
+  br i1 %8, label %_ZNK14expr2subpaving3imp6is_varEP4expr.exit, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
 
-_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i:            ; preds = %2
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i:            ; preds = %2
   %9 = load i32, ptr %1, align 4, !tbaa !67
   %10 = getelementptr inbounds i8, ptr %7, i64 -4
   %11 = load i32, ptr %10, align 4, !tbaa !69
-  %.not.i.i.i = icmp ult i32 %9, %11
-  br i1 %.not.i.i.i, label %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i, label %_ZNK14expr2subpaving3imp6is_varEP4expr.exit
+  %.fr.i.i.i = freeze i32 %11
+  %12 = icmp ult i32 %9, %.fr.i.i.i
+  br i1 %12, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i, label %_ZNK14expr2subpaving3imp6is_varEP4expr.exit
 
-_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i:       ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i
-  %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %12
-  %.then.val.i.i = load i32, ptr %13, align 4, !tbaa !69
-  %14 = icmp ne i32 %.then.val.i.i, -1
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
+  %13 = zext i32 %9 to i64
+  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %13
+  %.pre.i.then.val.i = load i32, ptr %14, align 4, !tbaa !69
+  %15 = icmp ne i32 %.pre.i.then.val.i, -1
   br label %_ZNK14expr2subpaving3imp6is_varEP4expr.exit
 
-_ZNK14expr2subpaving3imp6is_varEP4expr.exit:      ; preds = %2, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i
-  %15 = phi i1 [ %14, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i ], [ false, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i ], [ false, %2 ]
-  ret i1 %15
+_ZNK14expr2subpaving3imp6is_varEP4expr.exit:      ; preds = %2, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i
+  %16 = phi i1 [ false, %2 ], [ %15, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress uwtable

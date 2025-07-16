@@ -1354,36 +1354,36 @@ define internal fastcc i64 @vm_get_ev_const(ptr noundef readonly captures(none) 
   %.058.val72 = load i64, ptr %.058109, align 8, !tbaa !23
   %15 = and i64 %.058.val72, 131072
   %.not61.not = icmp eq i64 %15, 0
-  br i1 %.not61.not, label %.lr.ph128, label %16
+  br i1 %.not61.not, label %.lr.ph132, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %.058109, i64 24
   %.058.val = load ptr, ptr %17, align 8, !tbaa !18
   %.not60 = icmp eq ptr %.058.val, null
-  br i1 %.not60, label %.critedge3.thread156, label %14, !llvm.loop !107
+  br i1 %.not60, label %.critedge3.thread162, label %14, !llvm.loop !107
 
-.lr.ph128:                                        ; preds = %14
+.lr.ph132:                                        ; preds = %14
   %.not67 = icmp eq i32 %4, 0
   %18 = getelementptr i8, ptr %.058109, i64 24
-  %.057.val70.us139 = load ptr, ptr %18, align 8, !tbaa !18
-  %.not63.us140 = icmp eq ptr %.057.val70.us139, null
-  br i1 %.not67, label %.lr.ph128.split.us.split, label %.lr.ph128.split.split
+  %.057.val70.us145 = load ptr, ptr %18, align 8, !tbaa !18
+  %.not63.us146 = icmp eq ptr %.057.val70.us145, null
+  br i1 %.not67, label %.lr.ph132.split.us.split, label %.lr.ph132.split.split
 
-.lr.ph128.split.us.split:                         ; preds = %.lr.ph128
-  br i1 %.not63.us140, label %.critedge3.thread, label %.lr.ph143
+.lr.ph132.split.us.split:                         ; preds = %.lr.ph132
+  br i1 %.not63.us146, label %.critedge3.thread, label %.lr.ph149
 
-.lr.ph143:                                        ; preds = %.lr.ph128.split.us.split, %.thread.us
-  %.057.val70.us142 = phi ptr [ %.057.val70.us, %.thread.us ], [ %.057.val70.us139, %.lr.ph128.split.us.split ]
-  %.057127.us141 = phi ptr [ %.057.val70.us142, %.thread.us ], [ %.058109, %.lr.ph128.split.us.split ]
-  %.057.val71.us = load i64, ptr %.057127.us141, align 8, !tbaa !23
+.lr.ph149:                                        ; preds = %.lr.ph132.split.us.split, %.thread.us
+  %.057.val70.us148 = phi ptr [ %.057.val70.us, %.thread.us ], [ %.057.val70.us145, %.lr.ph132.split.us.split ]
+  %.057131.us147 = phi ptr [ %.057.val70.us148, %.thread.us ], [ %.058109, %.lr.ph132.split.us.split ]
+  %.057.val71.us = load i64, ptr %.057131.us147, align 8, !tbaa !23
   %19 = and i64 %.057.val71.us, 131072
   %.not64.us = icmp eq i64 %19, 0
   br i1 %.not64.us, label %20, label %.thread.us
 
-20:                                               ; preds = %.lr.ph143
+20:                                               ; preds = %.lr.ph149
   %21 = and i64 %.057.val71.us, 524288
   %.not.i.us = icmp eq i64 %21, 0
-  %22 = getelementptr inbounds nuw i8, ptr %.057127.us141, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.057131.us147, i64 16
   br i1 %.not.i.us, label %40, label %23
 
 23:                                               ; preds = %20
@@ -1433,32 +1433,35 @@ define internal fastcc i64 @vm_get_ev_const(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   %43 = call ptr @rb_const_lookup(i64 noundef %.0.i.us, i64 noundef %2) #21
   %.not65111.us = icmp eq ptr %43, null
-  br i1 %.not65111.us, label %.thread97.us, label %.lr.ph.us
+  br i1 %.not65111.us, label %.thread97.us, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %42
+  %44 = icmp eq i64 %.0.i.us, 0
+  br label %.lr.ph.us
 
 .thread97.us:                                     ; preds = %53, %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   br label %.thread.us
 
-.thread.us:                                       ; preds = %.thread97.us, %40, %.lr.ph143
-  %44 = getelementptr i8, ptr %.057.val70.us142, i64 24
-  %.057.val70.us = load ptr, ptr %44, align 8, !tbaa !18
+.thread.us:                                       ; preds = %.thread97.us, %40, %.lr.ph149
+  %45 = getelementptr i8, ptr %.057.val70.us148, i64 24
+  %.057.val70.us = load ptr, ptr %45, align 8, !tbaa !18
   %.not63.us = icmp eq ptr %.057.val70.us, null
-  br i1 %.not63.us, label %.critedge3.thread, label %.lr.ph143
+  br i1 %.not63.us, label %.critedge3.thread, label %.lr.ph149
 
-.lr.ph.us:                                        ; preds = %42, %53
-  %45 = phi ptr [ %55, %53 ], [ %43, %42 ]
-  %.054112.us.us = phi i64 [ %.0.i.us, %53 ], [ 0, %42 ]
-  call void @rb_const_warn_if_deprecated(ptr noundef nonnull %45, i64 noundef %.0.i.us, i64 noundef %2) #21
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !108
-  %48 = icmp eq i64 %47, 36
-  br i1 %48, label %49, label %.split.us
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %53
+  %46 = phi ptr [ %55, %53 ], [ %43, %.lr.ph.us.preheader ]
+  %.054112.us.us = phi i1 [ true, %53 ], [ %44, %.lr.ph.us.preheader ]
+  call void @rb_const_warn_if_deprecated(ptr noundef nonnull %46, i64 noundef %.0.i.us, i64 noundef %2) #21
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i64, ptr %47, align 8, !tbaa !108
+  %49 = icmp eq i64 %48, 36
+  br i1 %49, label %50, label %.split.us
 
-49:                                               ; preds = %.lr.ph.us
-  %50 = icmp eq i64 %.054112.us.us, %.0.i.us
-  br i1 %50, label %.split115.us, label %51
+50:                                               ; preds = %.lr.ph.us
+  br i1 %.054112.us.us, label %.split115.us, label %51
 
-51:                                               ; preds = %49
+51:                                               ; preds = %50
   %52 = call i32 @rb_autoloading_value(i64 noundef %.0.i.us, i64 noundef %2, ptr noundef nonnull %6, ptr noundef null) #21
   %.not68.us.us = icmp eq i32 %52, 0
   br i1 %.not68.us.us, label %53, label %.split117.us
@@ -1469,21 +1472,21 @@ define internal fastcc i64 @vm_get_ev_const(ptr noundef readonly captures(none) 
   %.not65.us.us = icmp eq ptr %55, null
   br i1 %.not65.us.us, label %.thread97.us, label %.lr.ph.us
 
-.lr.ph128.split.split:                            ; preds = %.lr.ph128
-  br i1 %.not63.us140, label %.critedge3.thread, label %.lr.ph138
+.lr.ph132.split.split:                            ; preds = %.lr.ph132
+  br i1 %.not63.us146, label %.critedge3.thread, label %.lr.ph144
 
-.lr.ph138:                                        ; preds = %.lr.ph128.split.split, %.thread
-  %.057.val70137 = phi ptr [ %.057.val70, %.thread ], [ %.057.val70.us139, %.lr.ph128.split.split ]
-  %.057127136 = phi ptr [ %.057.val70137, %.thread ], [ %.058109, %.lr.ph128.split.split ]
-  %.057.val71 = load i64, ptr %.057127136, align 8, !tbaa !23
+.lr.ph144:                                        ; preds = %.lr.ph132.split.split, %.thread
+  %.057.val70143 = phi ptr [ %.057.val70, %.thread ], [ %.057.val70.us145, %.lr.ph132.split.split ]
+  %.057131142 = phi ptr [ %.057.val70143, %.thread ], [ %.058109, %.lr.ph132.split.split ]
+  %.057.val71 = load i64, ptr %.057131142, align 8, !tbaa !23
   %56 = and i64 %.057.val71, 131072
   %.not64 = icmp eq i64 %56, 0
   br i1 %.not64, label %57, label %.thread
 
-57:                                               ; preds = %.lr.ph138
+57:                                               ; preds = %.lr.ph144
   %58 = and i64 %.057.val71, 524288
   %.not.i = icmp eq i64 %58, 0
-  %59 = getelementptr inbounds nuw i8, ptr %.057127136, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.057131142, i64 16
   br i1 %.not.i, label %77, label %60
 
 60:                                               ; preds = %57
@@ -1533,20 +1536,20 @@ define internal fastcc i64 @vm_get_ev_const(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
   %80 = tail call ptr @rb_const_lookup(i64 noundef %.0.i, i64 noundef %2) #21
   %.not65111 = icmp eq ptr %80, null
-  br i1 %.not65111, label %.thread97, label %.lr.ph.split
+  br i1 %.not65111, label %.thread97, label %.lr.ph
 
-.thread97:                                        ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
-  br label %.thread
-
-.lr.ph.split:                                     ; preds = %79
+.lr.ph:                                           ; preds = %79
   tail call void @rb_const_warn_if_deprecated(ptr noundef nonnull %80, i64 noundef %.0.i, i64 noundef %2) #21
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !108
   %83 = icmp eq i64 %82, 36
   br i1 %83, label %84, label %.split.us
 
-84:                                               ; preds = %.lr.ph.split
+.thread97:                                        ; preds = %79
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
+  br label %.thread
+
+84:                                               ; preds = %.lr.ph
   %85 = icmp eq i64 %.0.i, 0
   br i1 %85, label %.split115.us, label %.thread94
 
@@ -1554,9 +1557,9 @@ define internal fastcc i64 @vm_get_ev_const(ptr noundef readonly captures(none) 
   %86 = load i64, ptr %6, align 8, !tbaa !7
   br label %.thread94
 
-.split.us:                                        ; preds = %.lr.ph.us, %.lr.ph.split
-  %.us-phi = phi i64 [ %.0.i, %.lr.ph.split ], [ %.0.i.us, %.lr.ph.us ]
-  %.us-phi113 = phi i64 [ %82, %.lr.ph.split ], [ %47, %.lr.ph.us ]
+.split.us:                                        ; preds = %.lr.ph.us, %.lr.ph
+  %.us-phi = phi i64 [ %.0.i, %.lr.ph ], [ %.0.i.us, %.lr.ph.us ]
+  %.us-phi113 = phi i64 [ %82, %.lr.ph ], [ %48, %.lr.ph.us ]
   br i1 %.not67, label %87, label %.thread94
 
 87:                                               ; preds = %.split.us
@@ -1584,17 +1587,17 @@ rb_ractor_main_p.exit:                            ; preds = %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   br label %164
 
-.split115.us:                                     ; preds = %49, %84
+.split115.us:                                     ; preds = %50, %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   br label %.critedge3.thread
 
-.thread:                                          ; preds = %.lr.ph138, %.thread97, %77
-  %96 = getelementptr i8, ptr %.057.val70137, i64 24
+.thread:                                          ; preds = %.lr.ph144, %.thread97, %77
+  %96 = getelementptr i8, ptr %.057.val70143, i64 24
   %.057.val70 = load ptr, ptr %96, align 8, !tbaa !18
   %.not63 = icmp eq ptr %.057.val70, null
-  br i1 %.not63, label %.critedge3.thread, label %.lr.ph138
+  br i1 %.not63, label %.critedge3.thread, label %.lr.ph144
 
-.critedge3.thread:                                ; preds = %.thread, %.thread.us, %.split115.us, %.lr.ph128.split.us.split, %.lr.ph128.split.split
+.critedge3.thread:                                ; preds = %.thread, %.thread.us, %.split115.us, %.lr.ph132.split.us.split, %.lr.ph132.split.split
   %.val.i75 = load i64, ptr %.058109, align 8, !tbaa !23
   %97 = and i64 %.val.i75, 524288
   %.not.i76 = icmp eq i64 %97, 0
@@ -1607,7 +1610,7 @@ rb_ractor_main_p.exit:                            ; preds = %87
   %101 = and i64 %.0.i78101, 7
   %102 = icmp ne i64 %101, 0
   %103 = or i1 %100, %102
-  br i1 %103, label %104, label %CREF_CLASS.exit81.thread158
+  br i1 %103, label %104, label %CREF_CLASS.exit81.thread164
 
 104:                                              ; preds = %99
   switch i64 %.0.i78101, label %107 [
@@ -1637,20 +1640,20 @@ CREF_CLASS.exit81:                                ; preds = %104, %105, %106, %1
   %.0.in.i77 = phi ptr [ @rb_cNilClass, %105 ], [ @rb_cTrueClass, %106 ], [ @rb_cFalseClass, %104 ], [ @rb_cInteger, %107 ], [ %spec.select.i.i80, %109 ]
   %.0.i78 = load i64, ptr %.0.in.i77, align 8, !tbaa !7
   %112 = icmp eq i64 %.0.i78, 4
-  br i1 %112, label %.critedge3.thread156, label %119
+  br i1 %112, label %.critedge3.thread162, label %119
 
-CREF_CLASS.exit81.thread158:                      ; preds = %99
+CREF_CLASS.exit81.thread164:                      ; preds = %99
   %113 = inttoptr i64 %.0.i78101 to ptr
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %.0.i78160 = load i64, ptr %114, align 8, !tbaa !7
-  %115 = icmp eq i64 %.0.i78160, 4
-  br i1 %115, label %.critedge3.thread156, label %.thread161
+  %.0.i78166 = load i64, ptr %114, align 8, !tbaa !7
+  %115 = icmp eq i64 %.0.i78166, 4
+  br i1 %115, label %.critedge3.thread162, label %.thread167
 
 CREF_CLASS.exit81.thread:                         ; preds = %.critedge3.thread
   %116 = icmp eq i64 %.0.i78101, 4
-  br i1 %116, label %.critedge3.thread156, label %CREF_CLASS.exit88
+  br i1 %116, label %.critedge3.thread162, label %CREF_CLASS.exit88
 
-.thread161:                                       ; preds = %CREF_CLASS.exit81.thread158
+.thread167:                                       ; preds = %CREF_CLASS.exit81.thread164
   %117 = inttoptr i64 %.0.i78101 to ptr
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   br label %CREF_CLASS.exit88
@@ -1679,7 +1682,7 @@ CREF_CLASS.exit81.thread:                         ; preds = %.critedge3.thread
   %spec.select.i.i87 = select i1 %126, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %CREF_CLASS.exit88
 
-.critedge3.thread156:                             ; preds = %16, %CREF_CLASS.exit81.thread158, %CREF_CLASS.exit81.thread, %CREF_CLASS.exit81
+.critedge3.thread162:                             ; preds = %16, %CREF_CLASS.exit81.thread164, %CREF_CLASS.exit81.thread, %CREF_CLASS.exit81
   %127 = load ptr, ptr %9, align 8, !tbaa !66
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %129 = load i64, ptr %128, align 8, !tbaa !94
@@ -1689,12 +1692,12 @@ CREF_CLASS.exit81.thread:                         ; preds = %.critedge3.thread
   %133 = or i1 %130, %132
   br i1 %133, label %137, label %134
 
-134:                                              ; preds = %.critedge3.thread156
+134:                                              ; preds = %.critedge3.thread162
   %135 = inttoptr i64 %129 to ptr
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   br label %CREF_CLASS.exit88
 
-137:                                              ; preds = %.critedge3.thread156
+137:                                              ; preds = %.critedge3.thread162
   switch i64 %129, label %140 [
     i64 0, label %CREF_CLASS.exit88
     i64 4, label %138
@@ -1718,8 +1721,8 @@ CREF_CLASS.exit81.thread:                         ; preds = %.critedge3.thread
   %spec.select.i = select i1 %144, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %CREF_CLASS.exit88
 
-CREF_CLASS.exit88:                                ; preds = %142, %140, %139, %138, %137, %134, %124, %122, %121, %120, %119, %.thread161, %CREF_CLASS.exit81.thread
-  %.156.in = phi ptr [ @rb_cNilClass, %120 ], [ @rb_cTrueClass, %121 ], [ %118, %.thread161 ], [ @rb_cFalseClass, %119 ], [ @rb_cInteger, %122 ], [ %spec.select.i.i87, %124 ], [ %98, %CREF_CLASS.exit81.thread ], [ @rb_cNilClass, %138 ], [ @rb_cTrueClass, %139 ], [ %136, %134 ], [ @rb_cFalseClass, %137 ], [ @rb_cInteger, %140 ], [ %spec.select.i, %142 ]
+CREF_CLASS.exit88:                                ; preds = %142, %140, %139, %138, %137, %134, %124, %122, %121, %120, %119, %.thread167, %CREF_CLASS.exit81.thread
+  %.156.in = phi ptr [ @rb_cNilClass, %120 ], [ @rb_cTrueClass, %121 ], [ %118, %.thread167 ], [ @rb_cFalseClass, %119 ], [ @rb_cInteger, %122 ], [ %spec.select.i.i87, %124 ], [ %98, %CREF_CLASS.exit81.thread ], [ @rb_cNilClass, %138 ], [ @rb_cTrueClass, %139 ], [ %136, %134 ], [ @rb_cFalseClass, %137 ], [ @rb_cInteger, %140 ], [ %spec.select.i, %142 ]
   %.156 = load i64, ptr %.156.in, align 8, !tbaa !7
   %.not69 = icmp eq i32 %4, 0
   br i1 %.not69, label %148, label %145
@@ -23276,24 +23279,24 @@ define internal range(i64 37, 36) i64 @obj_respond_to(i32 noundef %0, ptr nounde
   %14 = load i64, ptr %1, align 8, !tbaa !7
   store i64 %14, ptr %10, align 8, !tbaa !7
   %.not24 = icmp eq i32 %0, 1
-  br i1 %.not24, label %18, label %15
+  br i1 %.not24, label %19, label %15
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !7
-  br label %18
+  %18 = icmp eq i32 %0, 2
+  br label %19
 
-18:                                               ; preds = %.preheader, %15
-  %19 = phi i64 [ %17, %15 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %15 ], [ 1, %.preheader ]
-  %20 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %20, label %rb_scan_args_set.exit, label %21
+19:                                               ; preds = %.preheader, %15
+  %20 = phi i64 [ %17, %15 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i1 [ %18, %15 ], [ true, %.preheader ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %21
 
-21:                                               ; preds = %18, %3
+21:                                               ; preds = %19, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #56
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %18
+rb_scan_args_set.exit:                            ; preds = %19
   %22 = call i64 @rb_check_id(ptr noundef nonnull %10) #21
   %.not = icmp eq i64 %22, 0
   br i1 %.not, label %23, label %71
@@ -23371,7 +23374,7 @@ basic_obj_respond_to_missing.exit.thread:         ; preds = %callable_method_ent
 basic_obj_respond_to_missing.exit:                ; preds = %callable_method_entry.exit.i
   store i64 %40, ptr %9, align 16, !tbaa !7
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %19, ptr %51, align 8, !tbaa !7
+  store i64 %20, ptr %51, align 8, !tbaa !7
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %53 = load i64, ptr %52, align 8, !tbaa !385
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
@@ -23427,7 +23430,7 @@ basic_obj_respond_to_missing.exit:                ; preds = %callable_method_ent
   br label %76
 
 71:                                               ; preds = %rb_scan_args_set.exit
-  %72 = and i64 %19, -5
+  %72 = and i64 %20, -5
   %.not18 = icmp eq i64 %72, 0
   %73 = zext i1 %.not18 to i32
   %74 = call fastcc i32 @basic_obj_respond_to(ptr noundef %12, i64 noundef %2, i64 noundef %22, i32 noundef %73)
@@ -29988,25 +29991,25 @@ define internal noundef i64 @rb_f_throw(i32 noundef %0, ptr noundef readonly cap
 .preheader:                                       ; preds = %3
   %5 = load i64, ptr %1, align 8, !tbaa !7
   %.not = icmp eq i32 %0, 1
-  br i1 %.not, label %9, label %6
+  br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !7
-  br label %9
+  %9 = icmp eq i32 %0, 2
+  br label %10
 
-9:                                                ; preds = %.preheader, %6
-  %10 = phi i64 [ %8, %6 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %6 ], [ 1, %.preheader ]
-  %11 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %11, label %rb_scan_args_set.exit, label %12
+10:                                               ; preds = %.preheader, %6
+  %11 = phi i64 [ %8, %6 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i1 [ %9, %6 ], [ true, %.preheader ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %12
 
-12:                                               ; preds = %9, %3
+12:                                               ; preds = %10, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #56
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %9
-  tail call void @rb_throw_obj(i64 noundef %5, i64 noundef %10) #56
+rb_scan_args_set.exit:                            ; preds = %10
+  tail call void @rb_throw_obj(i64 noundef %5, i64 noundef %11) #56
   unreachable
 }
 
@@ -56257,26 +56260,26 @@ define internal fastcc range(i32 0, 4) i32 @check_definition_visibility(i64 noun
   %8 = load i64, ptr %2, align 8, !tbaa !7
   store i64 %8, ptr %6, align 8, !tbaa !7
   %.not39 = icmp eq i32 %1, 1
-  br i1 %.not39, label %14, label %9
+  br i1 %.not39, label %15, label %9
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %12 = and i64 %11, -5
   %13 = icmp ne i64 %12, 0
-  br label %14
+  %14 = icmp eq i32 %1, 2
+  br label %15
 
-14:                                               ; preds = %.preheader, %9
+15:                                               ; preds = %.preheader, %9
   %brmerge = phi i1 [ %13, %9 ], [ true, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %9 ], [ 1, %.preheader ]
-  %15 = icmp eq i32 %.185.i.lcssa, %1
-  br i1 %15, label %rb_scan_args_set.exit, label %16
+  %.185.i.lcssa = phi i1 [ %14, %9 ], [ true, %.preheader ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %16
 
-16:                                               ; preds = %14, %3
+16:                                               ; preds = %15, %3
   tail call void @rb_error_arity(i32 noundef %1, i32 noundef 1, i32 noundef 2) #56
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %14
+rb_scan_args_set.exit:                            ; preds = %15
   %17 = call i64 @rb_check_id(ptr noundef nonnull %6) #21
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %rb_method_entry_without_refinements.exit.thread, label %18

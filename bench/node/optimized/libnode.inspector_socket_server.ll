@@ -2701,11 +2701,11 @@ _ZSt8_DestroyISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDelete
 _ZSt8_DestroyIPSt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEES8_EvT_SA_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEEEvPT_.exit.i.i.i.i.i
   store ptr %1, ptr %_M_finish.i.i, align 8
   %.pre = load ptr, ptr %server_sockets_, align 8
+  %4 = icmp eq ptr %.pre, %1
   br label %_ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE5clearEv.exit
 
 _ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE5clearEv.exit: ; preds = %do.end9, %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEES8_EvT_SA_RSaIT0_E.exit.i.i
-  %4 = phi ptr [ %1, %do.end9 ], [ %.pre, %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEES8_EvT_SA_RSaIT0_E.exit.i.i ]
-  %cmp.i.i.i = icmp eq ptr %4, %1
+  %cmp.i.i.i = phi i1 [ true, %do.end9 ], [ %4, %_ZSt8_DestroyIPSt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEES8_EvT_SA_RSaIT0_E.exit.i.i ]
   %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %5 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp.i.i1.i = icmp eq i64 %5, 0

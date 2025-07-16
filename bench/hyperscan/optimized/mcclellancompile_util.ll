@@ -1358,52 +1358,52 @@ _ZNKSt8_Rb_treeItSt4pairIKtjESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_bou
 _ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit: ; preds = %_ZNKSt8_Rb_treeItSt4pairIKtjESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %14 = load i16, ptr %13, align 2
-  %15 = icmp ult i16 %1, %14
-  br i1 %15, label %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, label %16
+  %.not22 = icmp ult i16 %1, %14
+  br i1 %.not22, label %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, label %15
 
-16:                                               ; preds = %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit
-  %17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapItjSt4lessItESaISt4pairIKtjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 2 dereferenceable(2) %5)
-  %18 = load i32, ptr %17, align 4
-  %.not = icmp ult i32 %18, %3
+15:                                               ; preds = %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit
+  %16 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapItjSt4lessItESaISt4pairIKtjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 2 dereferenceable(2) %5)
+  %17 = load i32, ptr %16, align 4
+  %.not = icmp ult i32 %17, %3
   br i1 %.not, label %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, label %.loopexit
 
-_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread: ; preds = %4, %_ZNKSt8_Rb_treeItSt4pairIKtjESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %16, %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit
-  %19 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapItjSt4lessItESaISt4pairIKtjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 2 dereferenceable(2) %5)
-  store i32 %3, ptr %19, align 4
-  %20 = load i16, ptr %5, align 2
-  %21 = icmp eq i16 %20, 0
-  br i1 %21, label %.loopexit, label %22
+_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread: ; preds = %4, %_ZNKSt8_Rb_treeItSt4pairIKtjESt10_Select1stIS2_ESt4lessItESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %15, %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit
+  %18 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapItjSt4lessItESaISt4pairIKtjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 2 dereferenceable(2) %5)
+  store i32 %3, ptr %18, align 4
+  %19 = load i16, ptr %5, align 2
+  %20 = icmp eq i16 %19, 0
+  br i1 %20, label %.loopexit, label %21
 
-22:                                               ; preds = %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread
-  %23 = icmp eq i32 %3, 0
-  br i1 %23, label %.loopexit, label %24
+21:                                               ; preds = %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread
+  %22 = icmp eq i32 %3, 0
+  br i1 %22, label %.loopexit, label %23
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = zext i16 %20 to i64
-  %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %27, i64 %26
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %.not2324.not = icmp eq ptr %29, %31
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = zext i16 %19 to i64
+  %26 = load ptr, ptr %24, align 8
+  %27 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %26, i64 %25
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %.not2324.not = icmp eq ptr %28, %30
   br i1 %.not2324.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %24
-  %32 = add i32 %3, -1
-  br label %33
+.lr.ph:                                           ; preds = %23
+  %31 = add i32 %3, -1
+  br label %32
 
-33:                                               ; preds = %33, %.lr.ph
-  %.sroa.018.025 = phi ptr [ %29, %.lr.ph ], [ %36, %33 ]
-  %34 = load i16, ptr %.sroa.018.025, align 2
-  %35 = call fastcc noundef zeroext i1 @_ZN3ue2L13can_die_earlyERKNS_7raw_dfaEtRSt3mapItjSt4lessItESaISt4pairIKtjEEEj(ptr noundef nonnull align 8 dereferenceable(560) %0, i16 noundef zeroext %34, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %32)
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 2
-  %.not23.not = icmp eq ptr %36, %31
-  %or.cond = select i1 %35, i1 true, i1 %.not23.not
-  br i1 %or.cond, label %.loopexit, label %33
+32:                                               ; preds = %32, %.lr.ph
+  %.sroa.018.025 = phi ptr [ %28, %.lr.ph ], [ %35, %32 ]
+  %33 = load i16, ptr %.sroa.018.025, align 2
+  %34 = call fastcc noundef zeroext i1 @_ZN3ue2L13can_die_earlyERKNS_7raw_dfaEtRSt3mapItjSt4lessItESaISt4pairIKtjEEEj(ptr noundef nonnull align 8 dereferenceable(560) %0, i16 noundef zeroext %33, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %31)
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 2
+  %.not23.not = icmp eq ptr %35, %30
+  %or.cond = select i1 %34, i1 true, i1 %.not23.not
+  br i1 %or.cond, label %.loopexit, label %32
 
-.loopexit:                                        ; preds = %33, %24, %22, %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, %16
-  %.0 = phi i1 [ false, %16 ], [ true, %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread ], [ false, %22 ], [ false, %24 ], [ %35, %33 ]
+.loopexit:                                        ; preds = %32, %23, %21, %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, %15
+  %.0 = phi i1 [ false, %15 ], [ true, %_ZN3ue28containsISt3mapItjSt4lessItESaISt4pairIKtjEEEEEbRKT_RKNS9_8key_typeE.exit.thread ], [ false, %21 ], [ false, %23 ], [ %34, %32 ]
   ret i1 %.0
 }
 

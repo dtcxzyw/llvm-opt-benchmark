@@ -330,9 +330,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_114SMEPeepholeOpt20runOnMach
 
 ._crit_edge22.i:                                  ; preds = %139
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !333
-  %33 = icmp ne i32 %.234.i, 0
-  %34 = icmp eq i32 %.234.i, %.238.i
-  %35 = select i1 %33, i1 %34, i1 false
+  %33 = icmp eq i32 %.234.i, %.238.i
+  %34 = icmp ne i32 %.234.i, 0
+  %35 = select i1 %34, i1 %33, i1 false
   %36 = icmp eq ptr %.pre.i, %15
   br i1 %36, label %_ZNK12_GLOBAL__N_114SMEPeepholeOpt22optimizeStartStopPairsERN4llvm17MachineBasicBlockERb.exit, label %37
 
@@ -573,9 +573,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
 
 _ZNK12_GLOBAL__N_114SMEPeepholeOpt22optimizeStartStopPairsERN4llvm17MachineBasicBlockERb.exit: ; preds = %18, %._crit_edge22.i, %37
   %.018.shrunk = phi i1 [ %35, %._crit_edge22.i ], [ %35, %37 ], [ false, %18 ]
-  %.0.lcssa28.i = phi i1 [ %.2.i, %._crit_edge22.i ], [ %.2.i, %37 ], [ false, %18 ]
+  %.0.lcssa27.i = phi i1 [ %.2.i, %._crit_edge22.i ], [ %.2.i, %37 ], [ false, %18 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #12
-  %140 = or i1 %.01322, %.0.lcssa28.i
+  %140 = or i1 %.01322, %.0.lcssa27.i
   %141 = or i1 %.01421, %.018.shrunk
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 8
   %.sroa.015.0 = load ptr, ptr %142, align 8, !tbaa !285
@@ -723,7 +723,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i: ; pr
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_16MCSubRegIteratorEEEZL10isSVERegOpRKNS_18TargetRegisterInfoERKNS_19MachineRegisterInfoERKNS_14MachineOperandEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofINS_14iterator_rangeINS_16MCSubRegIteratorEEEZL10isSVERegOpRKNS_18TargetRegisterInfoERKNS_19MachineRegisterInfoERKNS_14MachineOperandEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.i.i.i.i.i.i", %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i, %7, %62, %55, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %55 ], [ %64, %62 ], [ false, %7 ], [ false, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.thread.i.i.i.i.i.i" ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.i.i.i.i.i.i" ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i ]
+  %.0 = phi i1 [ false, %1 ], [ true, %55 ], [ %64, %62 ], [ false, %7 ], [ true, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i.i.i.i.i.i.i ], [ true, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.i.i.i.i.i.i" ], [ false, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL10isSVERegOpRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoERKNS2_14MachineOperandEE3$_0EclINS2_16MCSubRegIteratorEEEbT_.exit.thread.i.i.i.i.i.i" ]
   ret i1 %.0
 }
 

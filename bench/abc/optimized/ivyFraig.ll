@@ -5106,37 +5106,37 @@ Ivy_NodeCompareSims.exit72.us:                    ; preds = %55
 
 78:                                               ; preds = %75
   store ptr %.047106.us, ptr %7, align 8, !tbaa !181
+  %79 = icmp eq ptr %.047106.us, %.tr89134174
   br label %Ivy_FraigInsertClass.exit
 
 Ivy_FraigInsertClass.exit:                        ; preds = %75, %78
-  %79 = phi ptr [ %76, %75 ], [ %.047106.us, %78 ]
-  %80 = load i32, ptr %8, align 8, !tbaa !184
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %8, align 8, !tbaa !184
+  %80 = phi i1 [ false, %75 ], [ %79, %78 ]
+  %81 = load i32, ptr %8, align 8, !tbaa !184
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %8, align 8, !tbaa !184
   %.val = load ptr, ptr %12, align 8, !tbaa !94
-  %82 = icmp eq ptr %.val, null
-  br i1 %82, label %83, label %98
+  %83 = icmp eq ptr %.val, null
+  br i1 %83, label %84, label %98
 
-83:                                               ; preds = %Ivy_FraigInsertClass.exit
-  %84 = load ptr, ptr %6, align 8, !tbaa !180
-  %85 = icmp eq ptr %84, %.tr89134174
-  br i1 %85, label %86, label %87
+84:                                               ; preds = %Ivy_FraigInsertClass.exit
+  %85 = load ptr, ptr %6, align 8, !tbaa !180
+  %86 = icmp eq ptr %85, %.tr89134174
+  br i1 %86, label %87, label %88
 
-86:                                               ; preds = %83
+87:                                               ; preds = %84
   store ptr %.047106.us, ptr %6, align 8, !tbaa !180
-  br label %87
+  br label %88
 
-87:                                               ; preds = %86, %83
-  %88 = icmp eq ptr %79, %.tr89134174
+88:                                               ; preds = %87, %84
   %89 = getelementptr i8, ptr %.tr89134174, i64 64
   %.val22.i = load ptr, ptr %89, align 8, !tbaa !183
-  br i1 %88, label %90, label %._crit_edge.i
+  br i1 %80, label %90, label %._crit_edge.i
 
-90:                                               ; preds = %87
+90:                                               ; preds = %88
   store ptr %.val22.i, ptr %7, align 8, !tbaa !181
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %90, %87
+._crit_edge.i:                                    ; preds = %90, %88
   %.not.i75 = icmp eq ptr %.val22.i, null
   br i1 %.not.i75, label %Ivy_FraigRemoveClass.exit, label %91
 

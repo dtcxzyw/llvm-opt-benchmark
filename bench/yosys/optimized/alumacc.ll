@@ -27534,7 +27534,7 @@ define internal fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWor
 
 _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %71
+  br label %70
 
 6:                                                ; preds = %2
   %7 = ptrtoint ptr %.0.val to i64
@@ -27597,7 +27597,7 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_op
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %37, %39, %6
-  %55 = phi ptr [ %.val6, %6 ], [ %.val.i, %37 ], [ %.val13.i, %39 ]
+  %55 = phi i1 [ false, %6 ], [ true, %37 ], [ false, %39 ]
   %.0 = phi i32 [ %28, %6 ], [ 0, %37 ], [ %54, %39 ]
   %56 = phi ptr [ %.val, %6 ], [ %.val.i, %37 ], [ %.val.i, %39 ]
   %57 = zext i32 %.0 to i64
@@ -27625,87 +27625,86 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_op
   br i1 %68, label %61, label %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread, !llvm.loop !282
 
 _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread: ; preds = %65, %._crit_edge.i
-  %69 = icmp eq ptr %56, %55
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br i1 %69, label %71, label %101
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br i1 %55, label %70, label %100
 
-71:                                               ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
-  %72 = phi ptr [ %5, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread ], [ %70, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread ]
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !277
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !278
-  %.not.i.i = icmp eq ptr %74, %76
-  br i1 %.not.i.i, label %80, label %77
+70:                                               ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
+  %71 = phi ptr [ %5, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread ], [ %69, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread ]
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %73 = load ptr, ptr %72, align 8, !tbaa !277
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %75 = load ptr, ptr %74, align 8, !tbaa !278
+  %.not.i.i = icmp eq ptr %73, %75
+  br i1 %.not.i.i, label %79, label %76
 
-77:                                               ; preds = %71
-  store ptr %.0.val, ptr %74, align 8, !tbaa !498
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i32 -1, ptr %78, align 8, !tbaa !279
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr %79, ptr %73, align 8, !tbaa !277
+76:                                               ; preds = %70
+  store ptr %.0.val, ptr %73, align 8, !tbaa !498
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i32 -1, ptr %77, align 8, !tbaa !279
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store ptr %78, ptr %72, align 8, !tbaa !277
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i
 
-80:                                               ; preds = %71
-  %.val28.i.i.i = load ptr, ptr %72, align 8, !tbaa !275
-  %81 = ptrtoint ptr %74 to i64
-  %82 = ptrtoint ptr %.val28.i.i.i to i64
-  %83 = sub i64 %81, %82
-  %84 = icmp eq i64 %83, 9223372036854775792
-  br i1 %84, label %85, label %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+79:                                               ; preds = %70
+  %.val28.i.i.i = load ptr, ptr %71, align 8, !tbaa !275
+  %80 = ptrtoint ptr %73 to i64
+  %81 = ptrtoint ptr %.val28.i.i.i to i64
+  %82 = sub i64 %80, %81
+  %83 = icmp eq i64 %82, 9223372036854775792
+  br i1 %83, label %84, label %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
 
-85:                                               ; preds = %80
+84:                                               ; preds = %79
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #26
   unreachable
 
-_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %80
-  %86 = ashr exact i64 %83, 4
-  %87 = icmp eq ptr %74, %.val28.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %87, i64 1, i64 %86
-  %88 = add nsw i64 %.sroa.speculated.i.i.i.i, %86
-  %89 = icmp ult i64 %88, %86
-  %90 = tail call i64 @llvm.umin.i64(i64 %88, i64 576460752303423487)
-  %91 = select i1 %89, i64 576460752303423487, i64 %90
-  %.not.i.i.i.i = icmp ne i64 %91, 0
+_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %79
+  %85 = ashr exact i64 %82, 4
+  %86 = icmp eq ptr %73, %.val28.i.i.i
+  %.sroa.speculated.i.i.i.i = select i1 %86, i64 1, i64 %85
+  %87 = add nsw i64 %.sroa.speculated.i.i.i.i, %85
+  %88 = icmp ult i64 %87, %85
+  %89 = tail call i64 @llvm.umin.i64(i64 %87, i64 576460752303423487)
+  %90 = select i1 %88, i64 576460752303423487, i64 %89
+  %.not.i.i.i.i = icmp ne i64 %90, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %92 = shl nuw nsw i64 %91, 4
-  %93 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #27
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %83
-  store ptr %.0.val, ptr %94, align 8, !tbaa !498
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i32 -1, ptr %95, align 8, !tbaa !279
-  br i1 %87, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  %91 = shl nuw nsw i64 %90, 4
+  %92 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %91) #27
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %82
+  store ptr %.0.val, ptr %93, align 8, !tbaa !498
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  store i32 -1, ptr %94, align 8, !tbaa !279
+  br i1 %86, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i.i.i ], [ %93, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.092.i.i.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i ], [ %.val28.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.03.i.i.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i ], [ %92, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.092.i.i.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i ], [ %.val28.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !499, !alias.scope !500
-  %96 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %96, %74
+  %95 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %95, %73
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !504
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %93, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %97, %.lr.ph.i.i.i.i.i.i ]
-  %98 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %92, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %96, %.lr.ph.i.i.i.i.i.i ]
+  %97 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i40.i.i.i = icmp eq ptr %.val28.i.i.i, null
-  br i1 %.not.i40.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %99
+  br i1 %.not.i40.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %98
 
-99:                                               ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val28.i.i.i, i64 noundef %83) #25
+98:                                               ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val28.i.i.i, i64 noundef %82) #25
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %99, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i
-  store ptr %93, ptr %72, align 8, !tbaa !275
-  store ptr %98, ptr %73, align 8, !tbaa !277
-  %100 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<(anonymous namespace)::AlumaccWorker::maccnode_t *>::entry_t", ptr %93, i64 %91
-  store ptr %100, ptr %75, align 8, !tbaa !278
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %98, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i
+  store ptr %92, ptr %71, align 8, !tbaa !275
+  store ptr %97, ptr %72, align 8, !tbaa !277
+  %99 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<(anonymous namespace)::AlumaccWorker::maccnode_t *>::entry_t", ptr %92, i64 %90
+  store ptr %99, ptr %74, align 8, !tbaa !278
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %77
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %76
   tail call fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
-  %.val9.pre.i = load ptr, ptr %72, align 8, !tbaa !275
-  %.val10.pre.i = load ptr, ptr %73, align 8, !tbaa !277
+  %.val9.pre.i = load ptr, ptr %71, align 8, !tbaa !275
+  %.val10.pre.i = load ptr, ptr %72, align 8, !tbaa !277
   %.pre36.i = ptrtoint ptr %.val10.pre.i to i64
   %.pre37.i = ptrtoint ptr %.val9.pre.i to i64
   %.pre39.i = sub i64 %.pre36.i, %.pre37.i
@@ -27714,106 +27713,106 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS
   %.pre45.i = add i32 %.pre43.i, -1
   br label %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit
 
-101:                                              ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
-  %102 = zext i32 %.0 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %56, i64 %102
-  %.val16.i11 = load i32, ptr %103, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !277
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %107 = load ptr, ptr %106, align 8, !tbaa !278
-  %.not.i17.i = icmp eq ptr %105, %107
-  br i1 %.not.i17.i, label %111, label %108
+100:                                              ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
+  %101 = zext i32 %.0 to i64
+  %102 = getelementptr inbounds nuw i32, ptr %56, i64 %101
+  %.val16.i11 = load i32, ptr %102, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %104 = load ptr, ptr %103, align 8, !tbaa !277
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %106 = load ptr, ptr %105, align 8, !tbaa !278
+  %.not.i17.i = icmp eq ptr %104, %106
+  br i1 %.not.i17.i, label %110, label %107
 
-108:                                              ; preds = %101
-  store ptr %.0.val, ptr %105, align 8, !tbaa !498
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 %.val16.i11, ptr %109, align 8, !tbaa !279
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store ptr %110, ptr %104, align 8, !tbaa !277
-  %.val11.pre.i = load ptr, ptr %70, align 8, !tbaa !275
+107:                                              ; preds = %100
+  store ptr %.0.val, ptr %104, align 8, !tbaa !498
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  store i32 %.val16.i11, ptr %108, align 8, !tbaa !279
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store ptr %109, ptr %103, align 8, !tbaa !277
+  %.val11.pre.i = load ptr, ptr %69, align 8, !tbaa !275
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i
 
-111:                                              ; preds = %101
-  %.val.i.i.i = load ptr, ptr %70, align 8, !tbaa !275
-  %112 = ptrtoint ptr %105 to i64
-  %113 = ptrtoint ptr %.val.i.i.i to i64
-  %114 = sub i64 %112, %113
-  %115 = icmp eq i64 %114, 9223372036854775792
-  br i1 %115, label %116, label %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i
+110:                                              ; preds = %100
+  %.val.i.i.i = load ptr, ptr %69, align 8, !tbaa !275
+  %111 = ptrtoint ptr %104 to i64
+  %112 = ptrtoint ptr %.val.i.i.i to i64
+  %113 = sub i64 %111, %112
+  %114 = icmp eq i64 %113, 9223372036854775792
+  br i1 %114, label %115, label %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i
 
-116:                                              ; preds = %111
+115:                                              ; preds = %110
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #26
   unreachable
 
-_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i: ; preds = %111
-  %117 = ashr exact i64 %114, 4
-  %118 = icmp eq ptr %105, %.val.i.i.i
-  %.sroa.speculated.i.i.i19.i = select i1 %118, i64 1, i64 %117
-  %119 = add nsw i64 %.sroa.speculated.i.i.i19.i, %117
-  %120 = icmp ult i64 %119, %117
-  %121 = tail call i64 @llvm.umin.i64(i64 %119, i64 576460752303423487)
-  %122 = select i1 %120, i64 576460752303423487, i64 %121
-  %.not.i.i.i20.i = icmp ne i64 %122, 0
+_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i: ; preds = %110
+  %116 = ashr exact i64 %113, 4
+  %117 = icmp eq ptr %104, %.val.i.i.i
+  %.sroa.speculated.i.i.i19.i = select i1 %117, i64 1, i64 %116
+  %118 = add nsw i64 %.sroa.speculated.i.i.i19.i, %116
+  %119 = icmp ult i64 %118, %116
+  %120 = tail call i64 @llvm.umin.i64(i64 %118, i64 576460752303423487)
+  %121 = select i1 %119, i64 576460752303423487, i64 %120
+  %.not.i.i.i20.i = icmp ne i64 %121, 0
   tail call void @llvm.assume(i1 %.not.i.i.i20.i)
-  %123 = shl nuw nsw i64 %122, 4
-  %124 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %123) #27
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %114
-  store ptr %.0.val, ptr %125, align 8, !tbaa !498
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store i32 %.val16.i11, ptr %126, align 8, !tbaa !279
-  br i1 %118, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i, label %.lr.ph.i.i.i.i.i21.i
+  %122 = shl nuw nsw i64 %121, 4
+  %123 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %122) #27
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %113
+  store ptr %.0.val, ptr %124, align 8, !tbaa !498
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store i32 %.val16.i11, ptr %125, align 8, !tbaa !279
+  br i1 %117, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i, label %.lr.ph.i.i.i.i.i21.i
 
 .lr.ph.i.i.i.i.i21.i:                             ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i, %.lr.ph.i.i.i.i.i21.i
-  %.03.i.i.i.i.i22.i = phi ptr [ %128, %.lr.ph.i.i.i.i.i21.i ], [ %124, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ]
-  %.092.i.i.i.i.i23.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i21.i ], [ %.val.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ]
+  %.03.i.i.i.i.i22.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i21.i ], [ %123, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ]
+  %.092.i.i.i.i.i23.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i21.i ], [ %.val.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i22.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i23.i, i64 16, i1 false), !tbaa.struct !499, !alias.scope !505
-  %127 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i23.i, i64 16
-  %128 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i22.i, i64 16
-  %.not.i.i.i.i.i24.i = icmp eq ptr %127, %105
+  %126 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i23.i, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i22.i, i64 16
+  %.not.i.i.i.i.i24.i = icmp eq ptr %126, %104
   br i1 %.not.i.i.i.i.i24.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i, label %.lr.ph.i.i.i.i.i21.i, !llvm.loop !504
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i: ; preds = %.lr.ph.i.i.i.i.i21.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i
-  %.0.lcssa.i.i.i.i.i26.i = phi ptr [ %124, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ], [ %128, %.lr.ph.i.i.i.i.i21.i ]
-  %129 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i26.i, i64 16
+  %.0.lcssa.i.i.i.i.i26.i = phi ptr [ %123, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ], [ %127, %.lr.ph.i.i.i.i.i21.i ]
+  %128 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i26.i, i64 16
   %.not.i40.i.i27.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i40.i.i27.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %130
+  br i1 %.not.i40.i.i27.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %129
 
-130:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i, i64 noundef %114) #25
+129:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i, i64 noundef %113) #25
   %.pre.pre.i = load ptr, ptr %1, align 8, !tbaa !82
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %130, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i
-  %.pre.i12 = phi ptr [ %.pre.pre.i, %130 ], [ %56, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i ]
-  store ptr %124, ptr %70, align 8, !tbaa !275
-  store ptr %129, ptr %104, align 8, !tbaa !277
-  %131 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<(anonymous namespace)::AlumaccWorker::maccnode_t *>::entry_t", ptr %124, i64 %122
-  store ptr %131, ptr %106, align 8, !tbaa !278
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %129, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i
+  %.pre.i12 = phi ptr [ %.pre.pre.i, %129 ], [ %56, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i ]
+  store ptr %123, ptr %69, align 8, !tbaa !275
+  store ptr %128, ptr %103, align 8, !tbaa !277
+  %130 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<(anonymous namespace)::AlumaccWorker::maccnode_t *>::entry_t", ptr %123, i64 %121
+  store ptr %130, ptr %105, align 8, !tbaa !278
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %108
-  %132 = phi ptr [ %56, %108 ], [ %.pre.i12, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
-  %.val12.i = phi ptr [ %110, %108 ], [ %129, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
-  %.val11.i = phi ptr [ %.val11.pre.i, %108 ], [ %124, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
-  %133 = ptrtoint ptr %.val12.i to i64
-  %134 = ptrtoint ptr %.val11.i to i64
-  %135 = sub i64 %133, %134
-  %136 = lshr exact i64 %135, 4
-  %137 = trunc i64 %136 to i32
-  %138 = add i32 %137, -1
-  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %102
-  store i32 %138, ptr %139, align 4, !tbaa !79
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %107
+  %131 = phi ptr [ %56, %107 ], [ %.pre.i12, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
+  %.val12.i = phi ptr [ %109, %107 ], [ %128, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
+  %.val11.i = phi ptr [ %.val11.pre.i, %107 ], [ %123, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
+  %132 = ptrtoint ptr %.val12.i to i64
+  %133 = ptrtoint ptr %.val11.i to i64
+  %134 = sub i64 %132, %133
+  %135 = lshr exact i64 %134, 4
+  %136 = trunc i64 %135 to i32
+  %137 = add i32 %136, -1
+  %138 = getelementptr inbounds nuw i32, ptr %131, i64 %101
+  store i32 %137, ptr %138, align 4, !tbaa !79
   br label %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit
 
 _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit: ; preds = %61, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i
-  %.pre-phi46.i.sink = phi i32 [ %138, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i ], [ %.pre45.i, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i ], [ %.023.i, %61 ]
+  %.pre-phi46.i.sink = phi i32 [ %137, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i ], [ %.pre45.i, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i ], [ %.023.i, %61 ]
   %.sink = phi i8 [ 1, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i ], [ 1, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i ], [ 0, %61 ]
   store ptr %1, ptr %0, align 8, !tbaa !509
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.pre-phi46.i.sink, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !79
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %140, align 8, !tbaa !511
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %139, align 8, !tbaa !511
   ret void
 }
 
@@ -30456,7 +30455,7 @@ define internal fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWor
 
 _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %71
+  br label %70
 
 6:                                                ; preds = %2
   %7 = ptrtoint ptr %.0.val to i64
@@ -30519,7 +30518,7 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsI
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %37, %39, %6
-  %55 = phi ptr [ %.val6, %6 ], [ %.val16.i, %37 ], [ %.val17.i, %39 ]
+  %55 = phi i1 [ false, %6 ], [ true, %37 ], [ false, %39 ]
   %.0 = phi i32 [ %28, %6 ], [ 0, %37 ], [ %54, %39 ]
   %56 = phi ptr [ %.val, %6 ], [ %.val16.i, %37 ], [ %.val16.i, %39 ]
   %57 = zext i32 %.0 to i64
@@ -30547,87 +30546,86 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsI
   br i1 %68, label %61, label %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread, !llvm.loop !542
 
 _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread: ; preds = %65, %._crit_edge.i
-  %69 = icmp eq ptr %56, %55
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br i1 %69, label %71, label %101
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br i1 %55, label %70, label %100
 
-71:                                               ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
-  %72 = phi ptr [ %5, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread ], [ %70, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread ]
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !383
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !539
-  %.not.i.i = icmp eq ptr %74, %76
-  br i1 %.not.i.i, label %80, label %77
+70:                                               ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
+  %71 = phi ptr [ %5, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread ], [ %69, %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread ]
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %73 = load ptr, ptr %72, align 8, !tbaa !383
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %75 = load ptr, ptr %74, align 8, !tbaa !539
+  %.not.i.i = icmp eq ptr %73, %75
+  br i1 %.not.i.i, label %79, label %76
 
-77:                                               ; preds = %71
-  store ptr %.0.val, ptr %74, align 8, !tbaa !543
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i32 -1, ptr %78, align 8, !tbaa !540
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr %79, ptr %73, align 8, !tbaa !383
+76:                                               ; preds = %70
+  store ptr %.0.val, ptr %73, align 8, !tbaa !543
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i32 -1, ptr %77, align 8, !tbaa !540
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store ptr %78, ptr %72, align 8, !tbaa !383
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i
 
-80:                                               ; preds = %71
-  %.val29.i.i.i = load ptr, ptr %72, align 8, !tbaa !380
-  %81 = ptrtoint ptr %74 to i64
-  %82 = ptrtoint ptr %.val29.i.i.i to i64
-  %83 = sub i64 %81, %82
-  %84 = icmp eq i64 %83, 9223372036854775792
-  br i1 %84, label %85, label %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+79:                                               ; preds = %70
+  %.val29.i.i.i = load ptr, ptr %71, align 8, !tbaa !380
+  %80 = ptrtoint ptr %73 to i64
+  %81 = ptrtoint ptr %.val29.i.i.i to i64
+  %82 = sub i64 %80, %81
+  %83 = icmp eq i64 %82, 9223372036854775792
+  br i1 %83, label %84, label %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
 
-85:                                               ; preds = %80
+84:                                               ; preds = %79
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #26
   unreachable
 
-_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %80
-  %86 = ashr exact i64 %83, 4
-  %87 = icmp eq ptr %74, %.val29.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %87, i64 1, i64 %86
-  %88 = add nsw i64 %.sroa.speculated.i.i.i.i, %86
-  %89 = icmp ult i64 %88, %86
-  %90 = tail call i64 @llvm.umin.i64(i64 %88, i64 576460752303423487)
-  %91 = select i1 %89, i64 576460752303423487, i64 %90
-  %.not.i.i.i.i = icmp ne i64 %91, 0
+_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %79
+  %85 = ashr exact i64 %82, 4
+  %86 = icmp eq ptr %73, %.val29.i.i.i
+  %.sroa.speculated.i.i.i.i = select i1 %86, i64 1, i64 %85
+  %87 = add nsw i64 %.sroa.speculated.i.i.i.i, %85
+  %88 = icmp ult i64 %87, %85
+  %89 = tail call i64 @llvm.umin.i64(i64 %87, i64 576460752303423487)
+  %90 = select i1 %88, i64 576460752303423487, i64 %89
+  %.not.i.i.i.i = icmp ne i64 %90, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %92 = shl nuw nsw i64 %91, 4
-  %93 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #27
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %83
-  store ptr %.0.val, ptr %94, align 8, !tbaa !543
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i32 -1, ptr %95, align 8, !tbaa !540
-  br i1 %87, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  %91 = shl nuw nsw i64 %90, 4
+  %92 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %91) #27
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %82
+  store ptr %.0.val, ptr %93, align 8, !tbaa !543
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  store i32 -1, ptr %94, align 8, !tbaa !540
+  br i1 %86, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i.i.i.i ], [ %93, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.092.i.i.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i ], [ %.val29.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.03.i.i.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i ], [ %92, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.092.i.i.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i ], [ %.val29.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !544, !alias.scope !545
-  %96 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %96, %74
+  %95 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %95, %73
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !549
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %93, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %97, %.lr.ph.i.i.i.i.i.i ]
-  %98 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %92, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %96, %.lr.ph.i.i.i.i.i.i ]
+  %97 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i40.i.i.i = icmp eq ptr %.val29.i.i.i, null
-  br i1 %.not.i40.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %99
+  br i1 %.not.i40.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %98
 
-99:                                               ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val29.i.i.i, i64 noundef %83) #25
+98:                                               ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val29.i.i.i, i64 noundef %82) #25
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %99, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i
-  store ptr %93, ptr %72, align 8, !tbaa !380
-  store ptr %98, ptr %73, align 8, !tbaa !383
-  %100 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<(anonymous namespace)::AlumaccWorker::alunode_t *>::entry_t", ptr %93, i64 %91
-  store ptr %100, ptr %75, align 8, !tbaa !539
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %98, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i.i
+  store ptr %92, ptr %71, align 8, !tbaa !380
+  store ptr %97, ptr %72, align 8, !tbaa !383
+  %99 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<(anonymous namespace)::AlumaccWorker::alunode_t *>::entry_t", ptr %92, i64 %90
+  store ptr %99, ptr %74, align 8, !tbaa !539
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %77
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_iEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %76
   tail call fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %1)
-  %.val.pre.i = load ptr, ptr %72, align 8, !tbaa !380
-  %.val7.pre.i = load ptr, ptr %73, align 8, !tbaa !383
+  %.val.pre.i = load ptr, ptr %71, align 8, !tbaa !380
+  %.val7.pre.i = load ptr, ptr %72, align 8, !tbaa !383
   %.pre36.i = ptrtoint ptr %.val7.pre.i to i64
   %.pre37.i = ptrtoint ptr %.val.pre.i to i64
   %.pre39.i = sub i64 %.pre36.i, %.pre37.i
@@ -30636,106 +30634,106 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_
   %.pre45.i = add i32 %.pre43.i, -1
   br label %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit
 
-101:                                              ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
-  %102 = zext i32 %.0 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %56, i64 %102
-  %.val16.i11 = load i32, ptr %103, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !383
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %107 = load ptr, ptr %106, align 8, !tbaa !539
-  %.not.i17.i = icmp eq ptr %105, %107
-  br i1 %.not.i17.i, label %111, label %108
+100:                                              ; preds = %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
+  %101 = zext i32 %.0 to i64
+  %102 = getelementptr inbounds nuw i32, ptr %56, i64 %101
+  %.val16.i11 = load i32, ptr %102, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %104 = load ptr, ptr %103, align 8, !tbaa !383
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %106 = load ptr, ptr %105, align 8, !tbaa !539
+  %.not.i17.i = icmp eq ptr %104, %106
+  br i1 %.not.i17.i, label %110, label %107
 
-108:                                              ; preds = %101
-  store ptr %.0.val, ptr %105, align 8, !tbaa !543
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 %.val16.i11, ptr %109, align 8, !tbaa !540
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store ptr %110, ptr %104, align 8, !tbaa !383
-  %.val8.pre.i = load ptr, ptr %70, align 8, !tbaa !380
+107:                                              ; preds = %100
+  store ptr %.0.val, ptr %104, align 8, !tbaa !543
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  store i32 %.val16.i11, ptr %108, align 8, !tbaa !540
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store ptr %109, ptr %103, align 8, !tbaa !383
+  %.val8.pre.i = load ptr, ptr %69, align 8, !tbaa !380
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i
 
-111:                                              ; preds = %101
-  %.val27.i.i.i = load ptr, ptr %70, align 8, !tbaa !380
-  %112 = ptrtoint ptr %105 to i64
-  %113 = ptrtoint ptr %.val27.i.i.i to i64
-  %114 = sub i64 %112, %113
-  %115 = icmp eq i64 %114, 9223372036854775792
-  br i1 %115, label %116, label %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i
+110:                                              ; preds = %100
+  %.val27.i.i.i = load ptr, ptr %69, align 8, !tbaa !380
+  %111 = ptrtoint ptr %104 to i64
+  %112 = ptrtoint ptr %.val27.i.i.i to i64
+  %113 = sub i64 %111, %112
+  %114 = icmp eq i64 %113, 9223372036854775792
+  br i1 %114, label %115, label %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i
 
-116:                                              ; preds = %111
+115:                                              ; preds = %110
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #26
   unreachable
 
-_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i: ; preds = %111
-  %117 = ashr exact i64 %114, 4
-  %118 = icmp eq ptr %105, %.val27.i.i.i
-  %.sroa.speculated.i.i.i19.i = select i1 %118, i64 1, i64 %117
-  %119 = add nsw i64 %.sroa.speculated.i.i.i19.i, %117
-  %120 = icmp ult i64 %119, %117
-  %121 = tail call i64 @llvm.umin.i64(i64 %119, i64 576460752303423487)
-  %122 = select i1 %120, i64 576460752303423487, i64 %121
-  %.not.i.i.i20.i = icmp ne i64 %122, 0
+_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i: ; preds = %110
+  %116 = ashr exact i64 %113, 4
+  %117 = icmp eq ptr %104, %.val27.i.i.i
+  %.sroa.speculated.i.i.i19.i = select i1 %117, i64 1, i64 %116
+  %118 = add nsw i64 %.sroa.speculated.i.i.i19.i, %116
+  %119 = icmp ult i64 %118, %116
+  %120 = tail call i64 @llvm.umin.i64(i64 %118, i64 576460752303423487)
+  %121 = select i1 %119, i64 576460752303423487, i64 %120
+  %.not.i.i.i20.i = icmp ne i64 %121, 0
   tail call void @llvm.assume(i1 %.not.i.i.i20.i)
-  %123 = shl nuw nsw i64 %122, 4
-  %124 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %123) #27
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %114
-  store ptr %.0.val, ptr %125, align 8, !tbaa !543
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store i32 %.val16.i11, ptr %126, align 8, !tbaa !540
-  br i1 %118, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i, label %.lr.ph.i.i.i.i.i21.i
+  %122 = shl nuw nsw i64 %121, 4
+  %123 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %122) #27
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %113
+  store ptr %.0.val, ptr %124, align 8, !tbaa !543
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store i32 %.val16.i11, ptr %125, align 8, !tbaa !540
+  br i1 %117, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i, label %.lr.ph.i.i.i.i.i21.i
 
 .lr.ph.i.i.i.i.i21.i:                             ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i, %.lr.ph.i.i.i.i.i21.i
-  %.03.i.i.i.i.i22.i = phi ptr [ %128, %.lr.ph.i.i.i.i.i21.i ], [ %124, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ]
-  %.092.i.i.i.i.i23.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i21.i ], [ %.val27.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ]
+  %.03.i.i.i.i.i22.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i21.i ], [ %123, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ]
+  %.092.i.i.i.i.i23.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i21.i ], [ %.val27.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i.i22.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i.i23.i, i64 16, i1 false), !tbaa.struct !544, !alias.scope !550
-  %127 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i23.i, i64 16
-  %128 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i22.i, i64 16
-  %.not.i.i.i.i.i24.i = icmp eq ptr %127, %105
+  %126 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i23.i, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i22.i, i64 16
+  %.not.i.i.i.i.i24.i = icmp eq ptr %126, %104
   br i1 %.not.i.i.i.i.i24.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i, label %.lr.ph.i.i.i.i.i21.i, !llvm.loop !549
 
 _ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i: ; preds = %.lr.ph.i.i.i.i.i21.i, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i
-  %.0.lcssa.i.i.i.i.i26.i = phi ptr [ %124, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ], [ %128, %.lr.ph.i.i.i.i.i21.i ]
-  %129 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i26.i, i64 16
+  %.0.lcssa.i.i.i.i.i26.i = phi ptr [ %123, %_ZNKSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i18.i ], [ %127, %.lr.ph.i.i.i.i.i21.i ]
+  %128 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i26.i, i64 16
   %.not.i40.i.i27.i = icmp eq ptr %.val27.i.i.i, null
-  br i1 %.not.i40.i.i27.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %130
+  br i1 %.not.i40.i.i27.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %129
 
-130:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val27.i.i.i, i64 noundef %114) #25
+129:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val27.i.i.i, i64 noundef %113) #25
   %.pre.pre.i = load ptr, ptr %1, align 8, !tbaa !82
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %130, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i
-  %.pre.i12 = phi ptr [ %.pre.pre.i, %130 ], [ %56, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i ]
-  store ptr %124, ptr %70, align 8, !tbaa !380
-  store ptr %129, ptr %104, align 8, !tbaa !383
-  %131 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<(anonymous namespace)::AlumaccWorker::alunode_t *>::entry_t", ptr %124, i64 %122
-  store ptr %131, ptr %106, align 8, !tbaa !539
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %129, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i
+  %.pre.i12 = phi ptr [ %.pre.pre.i, %129 ], [ %56, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit39.i.i25.i ]
+  store ptr %123, ptr %69, align 8, !tbaa !380
+  store ptr %128, ptr %103, align 8, !tbaa !383
+  %130 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<(anonymous namespace)::AlumaccWorker::alunode_t *>::entry_t", ptr %123, i64 %121
+  store ptr %130, ptr %105, align 8, !tbaa !539
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %108
-  %132 = phi ptr [ %56, %108 ], [ %.pre.i12, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
-  %.val9.i = phi ptr [ %110, %108 ], [ %129, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
-  %.val8.i = phi ptr [ %.val8.pre.i, %108 ], [ %124, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
-  %133 = ptrtoint ptr %.val9.i to i64
-  %134 = ptrtoint ptr %.val8.i to i64
-  %135 = sub i64 %133, %134
-  %136 = lshr exact i64 %135, 4
-  %137 = trunc i64 %136 to i32
-  %138 = add i32 %137, -1
-  %139 = getelementptr inbounds nuw i32, ptr %132, i64 %102
-  store i32 %138, ptr %139, align 4, !tbaa !79
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %107
+  %131 = phi ptr [ %56, %107 ], [ %.pre.i12, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
+  %.val9.i = phi ptr [ %109, %107 ], [ %128, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
+  %.val8.i = phi ptr [ %.val8.pre.i, %107 ], [ %123, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJRKS6_RiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
+  %132 = ptrtoint ptr %.val9.i to i64
+  %133 = ptrtoint ptr %.val8.i to i64
+  %134 = sub i64 %132, %133
+  %135 = lshr exact i64 %134, 4
+  %136 = trunc i64 %135 to i32
+  %137 = add i32 %136, -1
+  %138 = getelementptr inbounds nuw i32, ptr %131, i64 %101
+  store i32 %137, ptr %138, align 4, !tbaa !79
   br label %_ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit
 
 _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit: ; preds = %61, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i
-  %.pre-phi46.i.sink = phi i32 [ %138, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i ], [ %.pre45.i, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i ], [ %.023.i, %61 ]
+  %.pre-phi46.i.sink = phi i32 [ %137, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i ], [ %.pre45.i, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i ], [ %.023.i, %61 ]
   %.sink = phi i8 [ 1, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_RiEEERSA_DpOT_.exit.i ], [ 1, %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJRKS6_iEEERSA_DpOT_.exit.i ], [ 0, %61 ]
   store ptr %1, ptr %0, align 8, !tbaa !554
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.pre-phi46.i.sink, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !79
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %140, align 8, !tbaa !556
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %139, align 8, !tbaa !556
   ret void
 }
 

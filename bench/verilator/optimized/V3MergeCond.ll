@@ -6991,8 +6991,8 @@ _ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE12emplace_backIJEEERS1_DpOT_
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 120
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !103, !noalias !268
-  store ptr %122, ptr %9, align 8, !tbaa !106
   %123 = icmp eq ptr %122, %.pre
+  store ptr %122, ptr %9, align 8, !tbaa !106
   br i1 %123, label %124, label %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE4backEv.exit
 
 124:                                              ; preds = %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.thread, %_ZNSt5dequeIN12_GLOBAL__N_114StmtPropertiesESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
@@ -7568,55 +7568,48 @@ _ZNK20AstUserAllocatorBaseI11AstNodeStmtN12_GLOBAL__N_114StmtPropertiesELi3EEclE
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %26, align 8, !tbaa !162
-  %27 = add i16 %.sroa.0.0.copyload.i.i.i, -348
-  %spec.select.i.i = icmp ult i16 %27, 70
-  br i1 %spec.select.i.i, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.preheader, label %.critedge.preheader
-
-_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.preheader: ; preds = %25
+  %27 = add i16 %.sroa.0.0.copyload.i.i.i, -418
+  %spec.select.i.i = icmp ult i16 %27, -70
   %28 = icmp eq ptr %24, %21
-  br i1 %28, label %.thread, label %.lr.ph
+  %or.cond123 = or i1 %spec.select.i.i, %28
+  br i1 %or.cond123, label %.critedge.preheader, label %.lr.ph
 
 _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit: ; preds = %36
   %29 = add nsw i32 %.052111, -1
   %.not64 = icmp eq i32 %29, 0
   %30 = icmp eq ptr %32, %21
   %or.cond = or i1 %30, %.not64
-  br i1 %or.cond, label %.thread.loopexit, label %.lr.ph, !llvm.loop !273
+  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !273
 
-.lr.ph:                                           ; preds = %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.preheader, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit
-  %.052111 = phi i32 [ %29, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit ], [ 500, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.preheader ]
-  %.053110 = phi ptr [ %32, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit ], [ %24, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.preheader ]
+.lr.ph:                                           ; preds = %25, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit
+  %.052111 = phi i32 [ %29, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit ], [ 500, %25 ]
+  %.053110 = phi ptr [ %32, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit ], [ %24, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %.053110, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !122
   %.not.i76 = icmp eq ptr %32, null
-  br i1 %.not.i76, label %.thread.loopexit, label %33
+  br i1 %.not.i76, label %.thread, label %33
 
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %.sroa.0.0.copyload.i.i.i77 = load i16, ptr %34, align 8, !tbaa !162
   %35 = add i16 %.sroa.0.0.copyload.i.i.i77, -348
   %spec.select.i.i78 = icmp ult i16 %35, 70
-  br i1 %spec.select.i.i78, label %36, label %.thread.loopexit
+  br i1 %spec.select.i.i78, label %36, label %.thread
 
 36:                                               ; preds = %33
   %37 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimizeVisitor12areSwappableEPK11AstNodeStmtS3_(ptr noundef %.053110, ptr noundef nonnull %1)
-  br i1 %37, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, label %.thread.loopexit
+  br i1 %37, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, label %.thread
 
-.thread.loopexit:                                 ; preds = %.lr.ph, %33, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, %36
+.thread:                                          ; preds = %36, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, %33, %.lr.ph
   %.053.lcssa.ph = phi ptr [ %.053110, %36 ], [ %32, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit ], [ %.053110, %33 ], [ %.053110, %.lr.ph ]
   %.pre = load ptr, ptr %23, align 8, !tbaa !122
-  br label %.thread
-
-.thread:                                          ; preds = %.thread.loopexit, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.preheader
-  %38 = phi ptr [ %21, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.preheader ], [ %.pre, %.thread.loopexit ]
-  %.053.lcssa = phi ptr [ %24, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit.preheader ], [ %.053.lcssa.ph, %.thread.loopexit ]
-  %.not66 = icmp eq ptr %38, %.053.lcssa
-  br i1 %.not66, label %.critedge.preheader, label %39
+  %38 = icmp eq ptr %.pre, %.053.lcssa.ph
+  br i1 %38, label %.critedge.preheader, label %39
 
 39:                                               ; preds = %.thread
   %40 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef null)
-  tail call void @_ZN7AstNode11addNextHereEPS_(ptr noundef nonnull align 8 dereferenceable(152) %.053.lcssa, ptr noundef nonnull %1)
-  %41 = icmp eq ptr %.053.lcssa, %21
+  tail call void @_ZN7AstNode11addNextHereEPS_(ptr noundef nonnull align 8 dereferenceable(152) %.053.lcssa.ph, ptr noundef nonnull %1)
+  %41 = icmp eq ptr %.053.lcssa.ph, %21
   br i1 %41, label %_ZN7AstNode12user4SetOnceEv.exit, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %25, %22, %.thread, %39

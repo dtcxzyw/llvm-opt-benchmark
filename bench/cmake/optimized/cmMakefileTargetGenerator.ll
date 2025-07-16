@@ -5063,9 +5063,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
 ._crit_edge1158:                                  ; preds = %784
   %.pre1220 = load ptr, ptr %43, align 8, !tbaa !249
   %.pre1222 = load ptr, ptr %454, align 8, !tbaa !249
-  %455 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %456 = icmp eq ptr %.pre1220, %.pre1222
-  br i1 %456, label %787, label %840
+  %455 = icmp eq ptr %.pre1220, %.pre1222
+  %456 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  br i1 %455, label %787, label %840
 
 457:                                              ; preds = %._crit_edge.i.i297
   %458 = landingpad { ptr, i32 }
@@ -6011,7 +6011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit362: ; preds = %_Z
   br label %1986
 
 787:                                              ; preds = %._crit_edge1158.thread, %._crit_edge1158
-  %788 = phi ptr [ %438, %._crit_edge1158.thread ], [ %455, %._crit_edge1158 ]
+  %788 = phi ptr [ %438, %._crit_edge1158.thread ], [ %456, %._crit_edge1158 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #25
   %789 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %790 = load ptr, ptr %789, align 8, !tbaa !112
@@ -6156,7 +6156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403: ; preds = %_Z
   br label %1986
 
 840:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406, %._crit_edge1158
-  %841 = phi ptr [ %788, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406 ], [ %455, %._crit_edge1158 ]
+  %841 = phi ptr [ %788, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406 ], [ %456, %._crit_edge1158 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #25
   %842 = load ptr, ptr %85, align 8, !tbaa !79

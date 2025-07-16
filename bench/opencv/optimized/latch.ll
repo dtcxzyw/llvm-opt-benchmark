@@ -780,7 +780,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %indvars.iv.next131.i = add nsw i64 %indvars.iv130.i, 1
   %lftr.wideiv133.i = trunc i64 %indvars.iv.next131.i to i32
   %exitcond134.not.i = icmp eq i32 %29, %lftr.wideiv133.i
-  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, label %.lr.ph.i, !llvm.loop !58
 
 134:                                              ; preds = %134, %.lr.ph.i
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %143, %134 ]
@@ -810,12 +810,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %exitcond.not.i = icmp eq i32 %29, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %134, !llvm.loop !60
 
-_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %._crit_edge.i, %104
-  %.240 = phi i32 [ 0, %104 ], [ %143, %._crit_edge.i ]
-  %.2 = phi i32 [ 0, %104 ], [ %150, %._crit_edge.i ]
-  %151 = icmp slt i32 %.240, %.2
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit: ; preds = %._crit_edge.i
+  %151 = icmp slt i32 %143, %150
   %152 = zext i1 %151 to i32
-  %153 = shl nuw i32 %152, %.043
+  br label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
+
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, %104
+  %.240 = phi i32 [ 0, %104 ], [ %152, %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit ]
+  %153 = shl nuw i32 %.240, %.043
   %154 = trunc i32 %153 to i8
   %155 = add i8 %56, %154
   store i8 %155, ptr %36, align 1, !tbaa !38
@@ -1035,7 +1037,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %indvars.iv.next131.i = add nsw i64 %indvars.iv130.i, 1
   %lftr.wideiv133.i = trunc i64 %indvars.iv.next131.i to i32
   %exitcond134.not.i = icmp eq i32 %29, %lftr.wideiv133.i
-  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, label %.lr.ph.i, !llvm.loop !58
 
 140:                                              ; preds = %140, %.lr.ph.i
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %149, %140 ]
@@ -1065,12 +1067,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %exitcond.not.i = icmp eq i32 %29, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %140, !llvm.loop !60
 
-_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %._crit_edge.i, %110
-  %.240 = phi i32 [ 0, %110 ], [ %149, %._crit_edge.i ]
-  %.2 = phi i32 [ 0, %110 ], [ %156, %._crit_edge.i ]
-  %157 = icmp slt i32 %.240, %.2
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit: ; preds = %._crit_edge.i
+  %157 = icmp slt i32 %149, %156
   %158 = zext i1 %157 to i32
-  %159 = shl nuw i32 %158, %.03043
+  br label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
+
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, %110
+  %.240 = phi i32 [ 0, %110 ], [ %158, %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit ]
+  %159 = shl nuw i32 %.240, %.03043
   %160 = trunc i32 %159 to i8
   %161 = add i8 %62, %160
   store i8 %161, ptr %58, align 1, !tbaa !38
@@ -1291,7 +1295,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %indvars.iv.next131.i = add nsw i64 %indvars.iv130.i, 1
   %lftr.wideiv133.i = trunc i64 %indvars.iv.next131.i to i32
   %exitcond134.not.i = icmp eq i32 %29, %lftr.wideiv133.i
-  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, label %.lr.ph.i, !llvm.loop !58
 
 139:                                              ; preds = %139, %.lr.ph.i
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
@@ -1321,12 +1325,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %exitcond.not.i = icmp eq i32 %29, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %139, !llvm.loop !60
 
-_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %._crit_edge.i, %109
-  %.240 = phi i32 [ 0, %109 ], [ %148, %._crit_edge.i ]
-  %.2 = phi i32 [ 0, %109 ], [ %155, %._crit_edge.i ]
-  %156 = icmp slt i32 %.240, %.2
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit: ; preds = %._crit_edge.i
+  %156 = icmp slt i32 %148, %155
   %157 = zext i1 %156 to i32
-  %158 = shl nuw i32 %157, %.03043
+  br label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
+
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, %109
+  %.240 = phi i32 [ 0, %109 ], [ %157, %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit ]
+  %158 = shl nuw i32 %.240, %.03043
   %159 = trunc i32 %158 to i8
   %160 = add i8 %61, %159
   store i8 %160, ptr %57, align 1, !tbaa !38
@@ -1547,7 +1553,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %indvars.iv.next131.i = add nsw i64 %indvars.iv130.i, 1
   %lftr.wideiv133.i = trunc i64 %indvars.iv.next131.i to i32
   %exitcond134.not.i = icmp eq i32 %29, %lftr.wideiv133.i
-  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, label %.lr.ph.i, !llvm.loop !58
 
 139:                                              ; preds = %139, %.lr.ph.i
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
@@ -1577,12 +1583,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %exitcond.not.i = icmp eq i32 %29, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %139, !llvm.loop !60
 
-_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %._crit_edge.i, %109
-  %.240 = phi i32 [ 0, %109 ], [ %148, %._crit_edge.i ]
-  %.2 = phi i32 [ 0, %109 ], [ %155, %._crit_edge.i ]
-  %156 = icmp slt i32 %.240, %.2
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit: ; preds = %._crit_edge.i
+  %156 = icmp slt i32 %148, %155
   %157 = zext i1 %156 to i32
-  %158 = shl nuw i32 %157, %.03043
+  br label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
+
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, %109
+  %.240 = phi i32 [ 0, %109 ], [ %157, %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit ]
+  %158 = shl nuw i32 %.240, %.03043
   %159 = trunc i32 %158 to i8
   %160 = add i8 %61, %159
   store i8 %160, ptr %57, align 1, !tbaa !38
@@ -1803,7 +1811,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %indvars.iv.next131.i = add nsw i64 %indvars.iv130.i, 1
   %lftr.wideiv133.i = trunc i64 %indvars.iv.next131.i to i32
   %exitcond134.not.i = icmp eq i32 %29, %lftr.wideiv133.i
-  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, label %.lr.ph.i, !llvm.loop !58
 
 139:                                              ; preds = %139, %.lr.ph.i
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
@@ -1833,12 +1841,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %exitcond.not.i = icmp eq i32 %29, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %139, !llvm.loop !60
 
-_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %._crit_edge.i, %109
-  %.240 = phi i32 [ 0, %109 ], [ %148, %._crit_edge.i ]
-  %.2 = phi i32 [ 0, %109 ], [ %155, %._crit_edge.i ]
-  %156 = icmp slt i32 %.240, %.2
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit: ; preds = %._crit_edge.i
+  %156 = icmp slt i32 %148, %155
   %157 = zext i1 %156 to i32
-  %158 = shl nuw i32 %157, %.03043
+  br label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
+
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, %109
+  %.240 = phi i32 [ 0, %109 ], [ %157, %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit ]
+  %158 = shl nuw i32 %.240, %.03043
   %159 = trunc i32 %158 to i8
   %160 = add i8 %61, %159
   store i8 %160, ptr %57, align 1, !tbaa !38
@@ -2059,7 +2069,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %indvars.iv.next131.i = add nsw i64 %indvars.iv130.i, 1
   %lftr.wideiv133.i = trunc i64 %indvars.iv.next131.i to i32
   %exitcond134.not.i = icmp eq i32 %29, %lftr.wideiv133.i
-  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, label %.lr.ph.i, !llvm.loop !58
 
 139:                                              ; preds = %139, %.lr.ph.i
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
@@ -2089,12 +2099,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %exitcond.not.i = icmp eq i32 %29, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %139, !llvm.loop !60
 
-_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %._crit_edge.i, %109
-  %.240 = phi i32 [ 0, %109 ], [ %148, %._crit_edge.i ]
-  %.2 = phi i32 [ 0, %109 ], [ %155, %._crit_edge.i ]
-  %156 = icmp slt i32 %.240, %.2
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit: ; preds = %._crit_edge.i
+  %156 = icmp slt i32 %148, %155
   %157 = zext i1 %156 to i32
-  %158 = shl nuw i32 %157, %.03043
+  br label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
+
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, %109
+  %.240 = phi i32 [ 0, %109 ], [ %157, %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit ]
+  %158 = shl nuw i32 %.240, %.03043
   %159 = trunc i32 %158 to i8
   %160 = add i8 %61, %159
   store i8 %160, ptr %57, align 1, !tbaa !38
@@ -2315,7 +2327,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %indvars.iv.next131.i = add nsw i64 %indvars.iv130.i, 1
   %lftr.wideiv133.i = trunc i64 %indvars.iv.next131.i to i32
   %exitcond134.not.i = icmp eq i32 %29, %lftr.wideiv133.i
-  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond134.not.i, label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, label %.lr.ph.i, !llvm.loop !58
 
 139:                                              ; preds = %139, %.lr.ph.i
   %.139 = phi i32 [ %.038, %.lr.ph.i ], [ %148, %139 ]
@@ -2345,12 +2357,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   %exitcond.not.i = icmp eq i32 %29, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %139, !llvm.loop !60
 
-_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %._crit_edge.i, %109
-  %.240 = phi i32 [ 0, %109 ], [ %148, %._crit_edge.i ]
-  %.2 = phi i32 [ 0, %109 ], [ %155, %._crit_edge.i ]
-  %156 = icmp slt i32 %.240, %.2
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit: ; preds = %._crit_edge.i
+  %156 = icmp slt i32 %148, %155
   %157 = zext i1 %156 to i32
-  %158 = shl nuw i32 %157, %.03043
+  br label %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit
+
+_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit: ; preds = %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit, %109
+  %.240 = phi i32 [ 0, %109 ], [ %157, %_ZN2cv11xfeatures2d12CalcuateSumsEiRKSt6vectorIiSaIiEEbRKNS_3MatERKNS_8KeyPointERiSC_ffi.exit.loopexit ]
+  %158 = shl nuw i32 %.240, %.03043
   %159 = trunc i32 %158 to i8
   %160 = add i8 %61, %159
   store i8 %160, ptr %57, align 1, !tbaa !38

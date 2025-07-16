@@ -1601,28 +1601,28 @@ define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr noundef readonly cap
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not = icmp eq i64 %1, %7
-  br i1 %.not, label %.lr.ph29, label %.loopexit
+  %9 = icmp eq i64 %1, %7
+  br i1 %9, label %.lr.ph29, label %.loopexit
 
-.lr.ph29:                                         ; preds = %._crit_edge, %13
-  %.028 = phi ptr [ %14, %13 ], [ %0, %._crit_edge ]
-  %.127 = phi i64 [ %15, %13 ], [ 0, %._crit_edge ]
-  %9 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.127
-  %10 = load ptr, ptr %9, align 8, !tbaa !23
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !21
-  %bcmp = tail call i32 @bcmp(ptr %.028, ptr %10, i64 %12)
+.lr.ph29:                                         ; preds = %._crit_edge, %14
+  %.028 = phi ptr [ %15, %14 ], [ %0, %._crit_edge ]
+  %.127 = phi i64 [ %16, %14 ], [ 0, %._crit_edge ]
+  %10 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.127
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !21
+  %bcmp = tail call i32 @bcmp(ptr %.028, ptr %11, i64 %13)
   %.not24 = icmp eq i32 %bcmp, 0
-  br i1 %.not24, label %13, label %.loopexit
+  br i1 %.not24, label %14, label %.loopexit
 
-13:                                               ; preds = %.lr.ph29
-  %14 = getelementptr inbounds nuw i8, ptr %.028, i64 %12
-  %15 = add nuw i64 %.127, 1
-  %exitcond35.not = icmp eq i64 %15, %3
+14:                                               ; preds = %.lr.ph29
+  %15 = getelementptr inbounds nuw i8, ptr %.028, i64 %13
+  %16 = add nuw i64 %.127, 1
+  %exitcond35.not = icmp eq i64 %16, %3
   br i1 %exitcond35.not, label %.loopexit, label %.lr.ph29, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.lr.ph29, %13, %4, %._crit_edge
-  %.022 = phi i32 [ 0, %._crit_edge ], [ 0, %4 ], [ 0, %.lr.ph29 ], [ 1, %13 ]
+.loopexit:                                        ; preds = %.lr.ph29, %14, %4, %._crit_edge
+  %.022 = phi i32 [ 0, %._crit_edge ], [ 0, %4 ], [ 0, %.lr.ph29 ], [ 1, %14 ]
   ret i32 %.022
 }
 

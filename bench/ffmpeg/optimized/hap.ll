@@ -8,39 +8,37 @@ define range(i32 -1094995529, 1) i32 @ff_hap_set_chunk_count(ptr noundef %0, i32
   %4 = icmp eq i32 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !4
-  br i1 %4, label %7, label %._crit_edge
-
-7:                                                ; preds = %3
   %.not = icmp eq i32 %6, %1
-  br i1 %.not, label %._crit_edge, label %8
+  br i1 %4, label %8, label %._crit_edge
 
-8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = sext i32 %1 to i64
-  %11 = tail call i32 @av_reallocp_array(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 32) #4
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %16
+._crit_edge:                                      ; preds = %3
+  %7 = select i1 %.not, i32 0, i32 -1094995529
+  br label %19
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = tail call i32 @av_reallocp_array(ptr noundef nonnull %14, i64 noundef %10, i64 noundef 4) #4
-  br label %16
+8:                                                ; preds = %3
+  br i1 %.not, label %19, label %9
 
-16:                                               ; preds = %13, %8
-  %.0 = phi i32 [ %15, %13 ], [ %11, %8 ]
-  %17 = icmp slt i32 %.0, 0
-  %. = select i1 %17, i32 0, i32 %1
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = sext i32 %1 to i64
+  %12 = tail call i32 @av_reallocp_array(ptr noundef nonnull %10, i64 noundef %11, i64 noundef 32) #4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = tail call i32 @av_reallocp_array(ptr noundef nonnull %15, i64 noundef %11, i64 noundef 4) #4
+  br label %17
+
+17:                                               ; preds = %14, %9
+  %.0 = phi i32 [ %16, %14 ], [ %12, %9 ]
+  %18 = icmp slt i32 %.0, 0
+  %. = select i1 %18, i32 0, i32 %1
   store i32 %., ptr %5, align 4, !tbaa !4
   br label %19
 
-._crit_edge:                                      ; preds = %3, %7
-  %18 = phi i32 [ %1, %7 ], [ %6, %3 ]
-  %.not17 = icmp eq i32 %18, %1
-  %spec.select = select i1 %.not17, i32 0, i32 -1094995529
-  br label %19
-
-19:                                               ; preds = %._crit_edge, %16
-  %.014 = phi i32 [ 0, %16 ], [ %spec.select, %._crit_edge ]
+19:                                               ; preds = %8, %._crit_edge, %17
+  %.014 = phi i32 [ 0, %17 ], [ %7, %._crit_edge ], [ 0, %8 ]
   ret i32 %.014
 }
 

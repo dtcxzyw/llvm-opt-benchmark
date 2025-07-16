@@ -7619,7 +7619,7 @@ define void @_ZN5folly10Subprocess17closeInheritedFdsERKN5boost9container8flat_m
   %3 = alloca ptr, align 8
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.46, i32 noundef 0)
   %.not = icmp eq i32 %4, -1
-  br i1 %.not, label %55, label %5
+  br i1 %.not, label %52, label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %2) #46
@@ -7632,24 +7632,24 @@ define void @_ZN5folly10Subprocess17closeInheritedFdsERKN5boost9container8flat_m
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.preheader
 
-.loopexit32:                                      ; preds = %48
+.loopexit33:                                      ; preds = %45
   %10 = call i64 (i64, ...) @syscall(i64 noundef 217, i32 noundef %4, ptr noundef nonnull %2, i64 noundef 32768) #46
   %11 = trunc i64 %10 to i32
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.preheader, label %._crit_edge, !llvm.loop !271
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit32
-  %13 = phi i32 [ %7, %.preheader.lr.ph ], [ %11, %.loopexit32 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit33
+  %13 = phi i32 [ %7, %.preheader.lr.ph ], [ %11, %.loopexit33 ]
   br label %14
 
-14:                                               ; preds = %.preheader, %48
-  %.043 = phi i32 [ 0, %.preheader ], [ %52, %48 ]
-  %15 = zext nneg i32 %.043 to i64
+14:                                               ; preds = %.preheader, %45
+  %.044 = phi i32 [ 0, %.preheader ], [ %49, %45 ]
+  %15 = zext nneg i32 %.044 to i64
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 18
   %18 = load i8, ptr %17, align 2, !tbaa !272
   %.not17 = icmp eq i8 %18, 10
-  br i1 %.not17, label %19, label %48
+  br i1 %.not17, label %19, label %45
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #46
@@ -7668,7 +7668,7 @@ define void @_ZN5folly10Subprocess17closeInheritedFdsERKN5boost9container8flat_m
   %or.cond20 = select i1 %or.cond, i1 true, i1 %28
   %.not18 = icmp eq i32 %4, %23
   %or.cond21 = select i1 %or.cond20, i1 true, i1 %.not18
-  br i1 %or.cond21, label %47, label %29
+  br i1 %or.cond21, label %44, label %29
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %0, align 8, !tbaa !50, !noalias !274
@@ -7695,158 +7695,152 @@ _ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0
   %40 = phi ptr [ %30, %29 ], [ %39, %.lr.ph.i.i.i.i ]
   %41 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %30, i64 %31
   %.not.i.i = icmp eq ptr %40, %41
-  br i1 %.not.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit, label %42
+  br i1 %.not.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit
 
-42:                                               ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE11lower_boundERKi.exit.i.i
-  %43 = load i32, ptr %40, align 4, !tbaa !7, !noalias !293
-  %44 = icmp sgt i32 %43, %23
-  %spec.select.i = select i1 %44, ptr %41, ptr %40
-  br label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit
+_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit: ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE11lower_boundERKi.exit.i.i
+  %42 = load i32, ptr %40, align 4, !tbaa !7, !noalias !293
+  %.not31 = icmp sgt i32 %42, %23
+  br i1 %.not31, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread, label %44
 
-_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit: ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE11lower_boundERKi.exit.i.i, %42
-  %.sroa.02.0.i = phi ptr [ %40, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE11lower_boundERKi.exit.i.i ], [ %spec.select.i, %42 ]
-  %.not30 = icmp eq ptr %.sroa.02.0.i, %41
-  br i1 %.not30, label %45, label %47
+_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread: ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE11lower_boundERKi.exit.i.i, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit
+  %43 = call i32 @close(i32 noundef %23)
+  br label %44
 
-45:                                               ; preds = %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit
-  %46 = call i32 @close(i32 noundef %23)
-  br label %47
-
-47:                                               ; preds = %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit, %45, %19
+44:                                               ; preds = %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countERKi.exit.thread, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #46
-  br label %48
+  br label %45
 
-48:                                               ; preds = %47, %14
-  %49 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %50 = load i16, ptr %49, align 8, !tbaa !294
-  %51 = zext i16 %50 to i32
-  %52 = add nuw nsw i32 %.043, %51
-  %53 = icmp slt i32 %52, %13
-  br i1 %53, label %14, label %.loopexit32, !llvm.loop !295
+45:                                               ; preds = %44, %14
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %47 = load i16, ptr %46, align 8, !tbaa !294
+  %48 = zext i16 %47 to i32
+  %49 = add nuw nsw i32 %.044, %48
+  %50 = icmp slt i32 %49, %13
+  br i1 %50, label %14, label %.loopexit33, !llvm.loop !295
 
-._crit_edge:                                      ; preds = %.loopexit32, %5
-  %54 = call i32 @close(i32 noundef %4)
+._crit_edge:                                      ; preds = %.loopexit33, %5
+  %51 = call i32 @close(i32 noundef %4)
   call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %2) #46
   br label %.loopexit
 
-55:                                               ; preds = %1
-  %56 = tail call i64 @sysconf(i32 noundef 4) #46
-  %57 = icmp sgt i64 %56, 3
-  br i1 %57, label %.lr.ph, label %.loopexit
+52:                                               ; preds = %1
+  %53 = tail call i64 @sysconf(i32 noundef 4) #46
+  %54 = icmp sgt i64 %53, 3
+  br i1 %54, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %59
+.lr.ph:                                           ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %56
 
-59:                                               ; preds = %.lr.ph, %104
-  %storemerge45.in = phi i64 [ %56, %.lr.ph ], [ %storemerge45, %104 ]
-  %storemerge45 = add nsw i64 %storemerge45.in, -1
-  %60 = trunc i64 %storemerge45 to i32
-  %61 = load i64, ptr %58, align 8, !tbaa !61, !noalias !296
-  %.not44.i.i.i.i = icmp eq i64 %61, 0
+56:                                               ; preds = %.lr.ph, %101
+  %storemerge46.in = phi i64 [ %53, %.lr.ph ], [ %storemerge46, %101 ]
+  %storemerge46 = add nsw i64 %storemerge46.in, -1
+  %57 = trunc i64 %storemerge46 to i32
+  %58 = load i64, ptr %55, align 8, !tbaa !61, !noalias !296
+  %.not44.i.i.i.i = icmp eq i64 %58, 0
   br i1 %.not44.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %.lr.ph.i.i.i.i22.preheader
 
-.lr.ph.i.i.i.i22.preheader:                       ; preds = %59
-  %62 = load ptr, ptr %0, align 8, !tbaa !50, !noalias !305
+.lr.ph.i.i.i.i22.preheader:                       ; preds = %56
+  %59 = load ptr, ptr %0, align 8, !tbaa !50, !noalias !305
   br label %.lr.ph.i.i.i.i22
 
-.lr.ph.i.i.i.i22:                                 ; preds = %.lr.ph.i.i.i.i22.preheader, %100
-  %.sroa.02.0.i.i.i = phi ptr [ %.sroa.02.1.i.i.i, %100 ], [ %62, %.lr.ph.i.i.i.i22.preheader ]
-  %63 = phi ptr [ %101, %100 ], [ %62, %.lr.ph.i.i.i.i22.preheader ]
-  %.01445.i.i.i.i = phi i64 [ %.2.i.i.i.i, %100 ], [ %61, %.lr.ph.i.i.i.i22.preheader ]
-  %64 = lshr i64 %.01445.i.i.i.i, 1
-  %.idx37.i.i.i.i = shl nuw nsw i64 %64, 3
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx37.i.i.i.i
-  %66 = load i32, ptr %65, align 4, !tbaa !7, !noalias !310
-  %67 = icmp slt i32 %66, %60
-  br i1 %67, label %68, label %71
+.lr.ph.i.i.i.i22:                                 ; preds = %.lr.ph.i.i.i.i22.preheader, %97
+  %.sroa.02.0.i.i.i = phi ptr [ %.sroa.02.1.i.i.i, %97 ], [ %59, %.lr.ph.i.i.i.i22.preheader ]
+  %60 = phi ptr [ %98, %97 ], [ %59, %.lr.ph.i.i.i.i22.preheader ]
+  %.01445.i.i.i.i = phi i64 [ %.2.i.i.i.i, %97 ], [ %58, %.lr.ph.i.i.i.i22.preheader ]
+  %61 = lshr i64 %.01445.i.i.i.i, 1
+  %.idx37.i.i.i.i = shl nuw nsw i64 %61, 3
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx37.i.i.i.i
+  %63 = load i32, ptr %62, align 4, !tbaa !7, !noalias !310
+  %64 = icmp slt i32 %63, %57
+  br i1 %64, label %65, label %68
+
+65:                                               ; preds = %.lr.ph.i.i.i.i22
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %.neg.i.i.i.i24 = xor i64 %61, -1
+  %67 = add i64 %.01445.i.i.i.i, %.neg.i.i.i.i24
+  br label %97
 
 68:                                               ; preds = %.lr.ph.i.i.i.i22
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %.neg.i.i.i.i24 = xor i64 %64, -1
-  %70 = add i64 %.01445.i.i.i.i, %.neg.i.i.i.i24
-  br label %100
+  %69 = icmp sgt i32 %63, %57
+  br i1 %69, label %97, label %70
 
-71:                                               ; preds = %.lr.ph.i.i.i.i22
-  %72 = icmp sgt i32 %66, %60
-  br i1 %72, label %100, label %73
-
-73:                                               ; preds = %71
+70:                                               ; preds = %68
   %.idx.i.i.i.i = shl nsw i64 %.01445.i.i.i.i, 3
-  %74 = getelementptr inbounds i8, ptr %63, i64 %.idx.i.i.i.i
-  %.not12.i.i.i.i.i = icmp eq ptr %65, %.sroa.02.0.i.i.i
+  %71 = getelementptr inbounds i8, ptr %60, i64 %.idx.i.i.i.i
+  %.not12.i.i.i.i.i = icmp eq ptr %62, %.sroa.02.0.i.i.i
   br i1 %.not12.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %73
-  %75 = ptrtoint ptr %.sroa.02.0.i.i.i to i64
-  %76 = ptrtoint ptr %65 to i64
-  %77 = sub i64 %76, %75
-  %78 = ashr exact i64 %77, 3
-  br label %79
+.lr.ph.i.i.i.i.i:                                 ; preds = %70
+  %72 = ptrtoint ptr %.sroa.02.0.i.i.i to i64
+  %73 = ptrtoint ptr %62 to i64
+  %74 = sub i64 %73, %72
+  %75 = ashr exact i64 %74, 3
+  br label %76
 
-79:                                               ; preds = %79, %.lr.ph.i.i.i.i.i
-  %80 = phi ptr [ %.sroa.02.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %87, %79 ]
-  %.013.i.i.i.i.i = phi i64 [ %78, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %79 ]
-  %81 = lshr i64 %.013.i.i.i.i.i, 1
-  %82 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %80, i64 %81
-  %83 = load i32, ptr %82, align 4, !tbaa !7, !noalias !313
-  %84 = icmp slt i32 %83, %60
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %.neg.i.i.i.i.i = xor i64 %81, -1
-  %86 = add i64 %.013.i.i.i.i.i, %.neg.i.i.i.i.i
-  %87 = select i1 %84, ptr %85, ptr %80
-  %.1.i.i.i.i.i = select i1 %84, i64 %86, i64 %81
+76:                                               ; preds = %76, %.lr.ph.i.i.i.i.i
+  %77 = phi ptr [ %.sroa.02.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %84, %76 ]
+  %.013.i.i.i.i.i = phi i64 [ %75, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %76 ]
+  %78 = lshr i64 %.013.i.i.i.i.i, 1
+  %79 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %77, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7, !noalias !313
+  %81 = icmp slt i32 %80, %57
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %.neg.i.i.i.i.i = xor i64 %78, -1
+  %83 = add i64 %.013.i.i.i.i.i, %.neg.i.i.i.i.i
+  %84 = select i1 %81, ptr %82, ptr %77
+  %.1.i.i.i.i.i = select i1 %81, i64 %83, i64 %78
   %.not.i.i.i.i.i = icmp eq i64 %.1.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %79, !llvm.loop !96
+  br i1 %.not.i.i.i.i.i, label %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i, label %76, !llvm.loop !96
 
-_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i: ; preds = %79, %73
-  %88 = phi ptr [ %.sroa.02.0.i.i.i, %73 ], [ %87, %79 ]
-  %89 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %.not12.i15.i.i.i.i = icmp eq ptr %74, %89
+_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i: ; preds = %76, %70
+  %85 = phi ptr [ %.sroa.02.0.i.i.i, %70 ], [ %84, %76 ]
+  %86 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %.not12.i15.i.i.i.i = icmp eq ptr %71, %86
   br i1 %.not12.i15.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, label %.lr.ph.i16.i.i.i.i
 
 .lr.ph.i16.i.i.i.i:                               ; preds = %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i
   %.neg38.i.i.i.i = add i64 %.idx.i.i.i.i, -8
   %gepdiff.i.i.i.i = sub i64 %.neg38.i.i.i.i, %.idx37.i.i.i.i
-  %90 = ashr exact i64 %gepdiff.i.i.i.i, 3
-  br label %91
+  %87 = ashr exact i64 %gepdiff.i.i.i.i, 3
+  br label %88
 
-91:                                               ; preds = %91, %.lr.ph.i16.i.i.i.i
-  %92 = phi ptr [ %89, %.lr.ph.i16.i.i.i.i ], [ %99, %91 ]
-  %.013.i17.i.i.i.i = phi i64 [ %90, %.lr.ph.i16.i.i.i.i ], [ %.1.i19.i.i.i.i, %91 ]
-  %93 = lshr i64 %.013.i17.i.i.i.i, 1
-  %94 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %92, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !7, !noalias !316
-  %96 = icmp sgt i32 %95, %60
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %.neg.i18.i.i.i.i = xor i64 %93, -1
-  %98 = add i64 %.013.i17.i.i.i.i, %.neg.i18.i.i.i.i
-  %99 = select i1 %96, ptr %92, ptr %97
-  %.1.i19.i.i.i.i = select i1 %96, i64 %93, i64 %98
+88:                                               ; preds = %88, %.lr.ph.i16.i.i.i.i
+  %89 = phi ptr [ %86, %.lr.ph.i16.i.i.i.i ], [ %96, %88 ]
+  %.013.i17.i.i.i.i = phi i64 [ %87, %.lr.ph.i16.i.i.i.i ], [ %.1.i19.i.i.i.i, %88 ]
+  %90 = lshr i64 %.013.i17.i.i.i.i, 1
+  %91 = getelementptr inbounds nuw %"struct.boost::container::dtl::pair", ptr %89, i64 %90
+  %92 = load i32, ptr %91, align 4, !tbaa !7, !noalias !316
+  %93 = icmp sgt i32 %92, %57
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %.neg.i18.i.i.i.i = xor i64 %90, -1
+  %95 = add i64 %.013.i17.i.i.i.i, %.neg.i18.i.i.i.i
+  %96 = select i1 %93, ptr %89, ptr %94
+  %.1.i19.i.i.i.i = select i1 %93, i64 %90, i64 %95
   %.not.i20.i.i.i.i = icmp eq i64 %.1.i19.i.i.i.i, 0
-  br i1 %.not.i20.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, label %91, !llvm.loop !319
+  br i1 %.not.i20.i.i.i.i, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, label %88, !llvm.loop !319
 
-100:                                              ; preds = %71, %68
-  %.sroa.02.1.i.i.i = phi ptr [ %69, %68 ], [ %.sroa.02.0.i.i.i, %71 ]
-  %101 = phi ptr [ %69, %68 ], [ %63, %71 ]
-  %.2.i.i.i.i = phi i64 [ %70, %68 ], [ %64, %71 ]
+97:                                               ; preds = %68, %65
+  %.sroa.02.1.i.i.i = phi ptr [ %66, %65 ], [ %.sroa.02.0.i.i.i, %68 ]
+  %98 = phi ptr [ %66, %65 ], [ %60, %68 ]
+  %.2.i.i.i.i = phi i64 [ %67, %65 ], [ %61, %68 ]
   %.not.i.i.i.i23 = icmp eq i64 %.2.i.i.i.i, 0
   br i1 %.not.i.i.i.i23, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %.lr.ph.i.i.i.i22, !llvm.loop !320
 
-_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit: ; preds = %91, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i
-  %.sink.i.i.i.i = phi ptr [ %74, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i ], [ %99, %91 ]
-  %102 = icmp eq ptr %.sink.i.i.i.i, %88
-  br i1 %102, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %104
+_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit: ; preds = %88, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i
+  %.sink.i.i.i.i = phi ptr [ %71, %_ZNK5boost9container3dtl9flat_treeINS1_4pairIiiEENS1_9select1stIiEESt4lessIiENS0_13new_allocatorIS4_EEE16priv_lower_boundINS0_12vec_iteratorIPS4_Lb1EEEiEET_SG_SG_RKT0_.exit.i.i.i.i ], [ %96, %88 ]
+  %99 = icmp eq ptr %.sink.i.i.i.i, %85
+  br i1 %99, label %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread, label %101
 
-_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread: ; preds = %100, %59, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit
-  %103 = tail call i32 @close(i32 noundef %60)
-  br label %104
+_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread: ; preds = %97, %56, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit
+  %100 = tail call i32 @close(i32 noundef %57)
+  br label %101
 
-104:                                              ; preds = %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread
-  %105 = icmp sgt i64 %storemerge45.in, 4
-  br i1 %105, label %59, label %.loopexit, !llvm.loop !321
+101:                                              ; preds = %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit, %_ZNK5boost9container8flat_mapIiiSt4lessIiEvE5countIlEEmRKT_.exit.thread
+  %102 = icmp sgt i64 %storemerge46.in, 4
+  br i1 %102, label %56, label %.loopexit, !llvm.loop !321
 
-.loopexit:                                        ; preds = %104, %55, %._crit_edge
+.loopexit:                                        ; preds = %101, %52, %._crit_edge
   ret void
 }
 

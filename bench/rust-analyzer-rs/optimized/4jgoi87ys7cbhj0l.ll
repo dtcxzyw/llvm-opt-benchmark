@@ -731,14 +731,14 @@ _ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit: ; preds = %8
   %14 = add i64 %9, %6
   store i64 %14, ptr %2, align 8, !alias.scope !77, !noalias !80
   %15 = icmp ugt i64 %6, %13
-  %spec.select = select i1 %15, ptr null, ptr %11
+  %16 = select i1 %15, ptr null, ptr %11
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit, %4
-  %.sroa.0.1 = phi ptr [ null, %4 ], [ %spec.select, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit ], [ null, %8 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
-  ret { ptr, i64 } %17
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %16, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit ], [ null, %8 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -862,14 +862,14 @@ _ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit: ; preds = %8
   %14 = add i64 %9, %6
   store i64 %14, ptr %2, align 8, !alias.scope !97, !noalias !100
   %15 = icmp ugt i64 %6, %13
-  %spec.select = select i1 %15, ptr null, ptr %11
+  %16 = select i1 %15, ptr null, ptr %11
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit, %4
-  %.sroa.0.1 = phi ptr [ null, %4 ], [ %spec.select, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit ], [ null, %8 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
-  ret { ptr, i64 } %17
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %16, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit ], [ null, %8 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: nonlazybind uwtable

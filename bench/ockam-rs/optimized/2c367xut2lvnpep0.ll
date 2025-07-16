@@ -1259,91 +1259,91 @@ define internal fastcc noundef zeroext i1 @_ZN6cipher11stream_core16StreamCipher
   %15 = and i64 %14, 15
   %16 = icmp ne i64 %15, 0
   %17 = icmp samesign uge i64 %15, %12
-  %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %47, label %19
+  %.022 = select i1 %16, i1 %17, i1 false
+  br i1 %.022, label %46, label %18
 
-19:                                               ; preds = %2
-  %20 = icmp ugt i64 %14, 16
-  br i1 %20, label %21, label %thread-pre-split
+18:                                               ; preds = %2
+  %19 = icmp ugt i64 %14, 16
+  br i1 %19, label %20, label %thread-pre-split
 
-21:                                               ; preds = %19
-  %22 = load ptr, ptr %1, align 8, !noundef !9
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !noundef !9
-  %25 = lshr i64 %14, 4
-  %26 = and i64 %14, -16
-  store ptr %22, ptr %7, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %24, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %25, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 %26
-  %30 = getelementptr inbounds i8, ptr %24, i64 %26
-  store ptr %29, ptr %1, align 8
-  store ptr %30, ptr %23, align 8
+20:                                               ; preds = %18
+  %21 = load ptr, ptr %1, align 8, !noundef !9
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = load ptr, ptr %22, align 8, !noundef !9
+  %24 = lshr i64 %14, 4
+  %25 = and i64 %14, -16
+  store ptr %21, ptr %7, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %23, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 %24, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %21, i64 %25
+  %29 = getelementptr inbounds i8, ptr %23, i64 %25
+  store ptr %28, ptr %1, align 8
+  store ptr %29, ptr %22, align 8
   store i64 %15, ptr %13, align 8
   call fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_keystream_blocks_inout17he9f2c44fc9287ac0E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %19, %21
-  %31 = phi i64 [ %15, %21 ], [ %14, %19 ]
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %47, label %33
+thread-pre-split:                                 ; preds = %18, %20
+  %30 = phi i64 [ %15, %20 ], [ %14, %18 ]
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %46, label %32
 
-33:                                               ; preds = %thread-pre-split
+32:                                               ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !259
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %34, align 8, !noalias !259
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %33, align 8, !noalias !259
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !259
-  store ptr %34, ptr %5, align 8, !noalias !259
+  store ptr %33, ptr %5, align 8, !noalias !259
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !262
   store ptr %3, ptr %4, align 8, !noalias !262
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %5, ptr %35, align 8, !noalias !262
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %36, align 8, !noalias !262
-  invoke void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h953d48f118dc37dfE.llvm.1290069140160153612"(ptr noundef nonnull %6, ptr noundef nonnull %34, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-          to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit28" unwind label %37, !noalias !259
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %5, ptr %34, align 8, !noalias !262
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %35, align 8, !noalias !262
+  invoke void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h953d48f118dc37dfE.llvm.1290069140160153612"(ptr noundef nonnull %6, ptr noundef nonnull %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+          to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit28" unwind label %36, !noalias !259
 
-37:                                               ; preds = %33
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %32
+  %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr311drop_in_place$LT$generic_array..ArrayBuilder$LT$u8$C$typenum..uint..UInt$LT$typenum..uint..UInt$LT$typenum..uint..UInt$LT$typenum..uint..UInt$LT$typenum..uint..UInt$LT$typenum..uint..UTerm$C$typenum..bit..B1$GT$$C$typenum..bit..B0$GT$$C$typenum..bit..B0$GT$$C$typenum..bit..B0$GT$$C$typenum..bit..B0$GT$$GT$$GT$17h5f05222842606480E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #37
-          to label %41 unwind label %39, !noalias !259
+          to label %40 unwind label %38, !noalias !259
 
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %36
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #38, !noalias !259
   unreachable
 
-41:                                               ; preds = %37
-  resume { ptr, i32 } %38
+40:                                               ; preds = %36
+  resume { ptr, i32 } %37
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit28": ; preds = %33
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit28": ; preds = %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !262
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !259
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !259
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  %42 = load ptr, ptr %1, align 8, !noundef !9
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %42, i64 %31, i1 false), !alias.scope !271, !noalias !275
+  %41 = load ptr, ptr %1, align 8, !noundef !9
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %41, i64 %30, i1 false), !alias.scope !271, !noalias !275
   store ptr %9, ptr %8, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %9, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 1, ptr %44, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %9, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 1, ptr %43, align 8
   call fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_keystream_blocks_inout17he9f2c44fc9287ac0E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8)
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %46 = load ptr, ptr %45, align 8, !noundef !9
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %9, i64 %31, i1 false), !alias.scope !277, !noalias !281
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = load ptr, ptr %44, align 8, !noundef !9
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull readonly align 1 %9, i64 %30, i1 false), !alias.scope !277, !noalias !281
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %47
+  br label %46
 
-47:                                               ; preds = %thread-pre-split, %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit28"
-  ret i1 %18
+46:                                               ; preds = %thread-pre-split, %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit28"
+  ret i1 %.022
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

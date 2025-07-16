@@ -1969,62 +1969,62 @@ define void @Abc_NtkDress2Transfer(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond.not, label %.critedge2, label %18, !llvm.loop !93
 
 .critedge2:                                       ; preds = %34
-  %35 = icmp eq ptr %.143, null
-  %36 = icmp eq ptr %.151, null
-  %or.cond = select i1 %35, i1 true, i1 %36
-  br i1 %or.cond, label %.critedge2.thread, label %37
+  %35 = icmp eq i32 %.147, %.145
+  %36 = icmp eq ptr %.143, null
+  %37 = icmp eq ptr %.151, null
+  %or.cond = select i1 %36, i1 true, i1 %37
+  br i1 %or.cond, label %.critedge2.thread, label %38
 
-37:                                               ; preds = %.critedge2
-  %38 = load ptr, ptr %10, align 8, !tbaa !94
-  %39 = getelementptr inbounds nuw i8, ptr %.143, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !95
-  %41 = tail call ptr @Nm_ManFindNameById(ptr noundef %38, i32 noundef %40) #21
-  %.not53 = icmp eq ptr %41, null
-  br i1 %.not53, label %42, label %.critedge2.thread
+38:                                               ; preds = %.critedge2
+  %39 = load ptr, ptr %10, align 8, !tbaa !94
+  %40 = getelementptr inbounds nuw i8, ptr %.143, i64 16
+  %41 = load i32, ptr %40, align 8, !tbaa !95
+  %42 = tail call ptr @Nm_ManFindNameById(ptr noundef %39, i32 noundef %41) #21
+  %.not53 = icmp eq ptr %42, null
+  br i1 %.not53, label %43, label %.critedge2.thread
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %11, align 8, !tbaa !94
-  %44 = getelementptr inbounds nuw i8, ptr %.151, i64 16
-  %45 = load i32, ptr %44, align 8, !tbaa !95
-  %46 = tail call ptr @Nm_ManFindNameById(ptr noundef %43, i32 noundef %45) #21
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %.critedge2.thread, label %48
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %11, align 8, !tbaa !94
+  %45 = getelementptr inbounds nuw i8, ptr %.151, i64 16
+  %46 = load i32, ptr %45, align 8, !tbaa !95
+  %47 = tail call ptr @Nm_ManFindNameById(ptr noundef %44, i32 noundef %46) #21
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %.critedge2.thread, label %49
 
-48:                                               ; preds = %42
-  %.not54 = icmp eq i32 %.147, %.145
-  br i1 %.not54, label %52, label %49
+49:                                               ; preds = %43
+  br i1 %35, label %53, label %50
 
-49:                                               ; preds = %48
-  %50 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %.143, ptr noundef nonnull %46, ptr noundef nonnull @.str.13) #21
-  %51 = add nsw i32 %.04071, 1
+50:                                               ; preds = %49
+  %51 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %.143, ptr noundef nonnull %47, ptr noundef nonnull @.str.13) #21
+  %52 = add nsw i32 %.04071, 1
   br label %.critedge2.thread
 
-52:                                               ; preds = %48
-  %53 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %.143, ptr noundef nonnull %46, ptr noundef null) #21
-  %54 = add nsw i32 %.072, 1
+53:                                               ; preds = %49
+  %54 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %.143, ptr noundef nonnull %47, ptr noundef null) #21
+  %55 = add nsw i32 %.072, 1
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %12, %49, %52, %42, %37, %.critedge2
-  %.141 = phi i32 [ %.04071, %.critedge2 ], [ %.04071, %37 ], [ %.04071, %42 ], [ %51, %49 ], [ %.04071, %52 ], [ %.04071, %12 ]
-  %.1 = phi i32 [ %.072, %.critedge2 ], [ %.072, %37 ], [ %.072, %42 ], [ %.072, %49 ], [ %54, %52 ], [ %.072, %12 ]
+.critedge2.thread:                                ; preds = %12, %50, %53, %43, %38, %.critedge2
+  %.141 = phi i32 [ %.04071, %.critedge2 ], [ %.04071, %38 ], [ %.04071, %43 ], [ %52, %50 ], [ %.04071, %53 ], [ %.04071, %12 ]
+  %.1 = phi i32 [ %.072, %.critedge2 ], [ %.072, %38 ], [ %.072, %43 ], [ %.072, %50 ], [ %55, %53 ], [ %.072, %12 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %.val = load i32, ptr %5, align 4, !tbaa !21
-  %55 = sext i32 %.val to i64
-  %56 = icmp slt i64 %indvars.iv.next78, %55
-  br i1 %56, label %12, label %.critedge, !llvm.loop !98
+  %56 = sext i32 %.val to i64
+  %57 = icmp slt i64 %indvars.iv.next78, %56
+  br i1 %57, label %12, label %.critedge, !llvm.loop !98
 
 .critedge:                                        ; preds = %.critedge2.thread, %4
   %.040.lcssa = phi i32 [ 0, %4 ], [ %.141, %.critedge2.thread ]
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %.critedge2.thread ]
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %60, label %57
+  br i1 %.not, label %61, label %58
 
-57:                                               ; preds = %.critedge
-  %58 = add nsw i32 %.0.lcssa, %.040.lcssa
-  %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %58, i32 noundef %.0.lcssa, i32 noundef %.040.lcssa)
-  br label %60
+58:                                               ; preds = %.critedge
+  %59 = add nsw i32 %.0.lcssa, %.040.lcssa
+  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %59, i32 noundef %.0.lcssa, i32 noundef %.040.lcssa)
+  br label %61
 
-60:                                               ; preds = %57, %.critedge
+61:                                               ; preds = %58, %.critedge
   ret void
 }
 

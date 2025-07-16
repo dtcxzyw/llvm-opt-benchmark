@@ -7638,11 +7638,11 @@ if.end277:                                        ; preds = %if.end272, %if.end2
 if.then286:                                       ; preds = %for.cond.cleanup214
   %inc = add i8 %359, 1
   store i8 %inc, ptr %m_current_frame281, align 2, !tbaa !31
+  %389 = icmp ne i8 %inc, %360
   br label %if.end288
 
 if.end288:                                        ; preds = %if.then286, %for.cond.cleanup214
-  %389 = phi i8 [ %inc, %if.then286 ], [ %359, %for.cond.cleanup214 ]
-  %cmp293 = icmp ne i8 %389, %360
+  %cmp293 = phi i1 [ %389, %if.then286 ], [ true, %for.cond.cleanup214 ]
   %m_force_update_shadow_map295 = getelementptr inbounds nuw i8, ptr %this, i64 140
   %390 = load i8, ptr %m_force_update_shadow_map295, align 4, !range !72
   %tobool296.not = icmp eq i8 %390, 0

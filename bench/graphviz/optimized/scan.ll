@@ -2496,14 +2496,14 @@ define nonnull ptr @aag_create_buffer(ptr noundef %0, i32 noundef %1) local_unna
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 0, ptr %20, align 8, !tbaa !32
   %.not10.i.i = icmp eq ptr %.pr.pre.i, null
-  br i1 %.not10.i.i, label %.thread.i, label %21
+  br i1 %.not10.i.i, label %.critedge.i, label %21
 
 21:                                               ; preds = %12
   %22 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw ptr, ptr %.pr.pre.i, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = icmp eq ptr %3, %24
-  br i1 %25, label %.thread, label %.thread.i
+  br i1 %25, label %.thread, label %.critedge.i
 
 .thread:                                          ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
@@ -2522,7 +2522,7 @@ define nonnull ptr @aag_create_buffer(ptr noundef %0, i32 noundef %1) local_unna
   store i32 1, ptr %32, align 4, !tbaa !37
   br label %aag_init_buffer.exit
 
-.thread.i:                                        ; preds = %21, %12
+.critedge.i:                                      ; preds = %21, %12
   store ptr %0, ptr %3, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 1, ptr %33, align 4, !tbaa !37
@@ -2532,7 +2532,7 @@ define nonnull ptr @aag_create_buffer(ptr noundef %0, i32 noundef %1) local_unna
   store i32 0, ptr %35, align 8, !tbaa !52
   br label %aag_init_buffer.exit
 
-aag_init_buffer.exit:                             ; preds = %.thread, %.thread.i
+aag_init_buffer.exit:                             ; preds = %.thread, %.critedge.i
   %.not11.i = icmp ne ptr %0, null
   %36 = load i32, ptr @gv_isatty_suppression, align 4
   %37 = icmp sgt i32 %36, 0
@@ -2671,13 +2671,13 @@ define void @aagrestart(ptr noundef %0) local_unnamed_addr #0 {
   store i64 0, ptr %8, align 8
   store i64 1, ptr @yy_buffer_stack_max, align 8, !tbaa !12
   store i64 0, ptr @yy_buffer_stack_top, align 8, !tbaa !12
-  br label %.thread7
+  br label %.thread6
 
 11:                                               ; preds = %3
   %12 = load i64, ptr @yy_buffer_stack_max, align 8, !tbaa !12
   %13 = add i64 %12, -1
   %.not10.i = icmp ult i64 %4, %13
-  br i1 %.not10.i, label %.thread7, label %14
+  br i1 %.not10.i, label %.thread6, label %14
 
 14:                                               ; preds = %11
   %15 = add i64 %12, 8
@@ -2695,23 +2695,23 @@ define void @aagrestart(ptr noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   store i64 %15, ptr @yy_buffer_stack_max, align 8, !tbaa !12
-  br label %.thread7
+  br label %.thread6
 
-.thread7:                                         ; preds = %19, %11, %10
+.thread6:                                         ; preds = %19, %11, %10
   %21 = load ptr, ptr @aagin, align 8, !tbaa !7
   %22 = tail call ptr @aag_create_buffer(ptr noundef %21, i32 noundef 16384)
   %23 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
   %24 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   store ptr %22, ptr %25, align 8, !tbaa !14
-  %.not38 = icmp eq ptr %23, null
+  %.not37 = icmp eq ptr %23, null
   br label %26
 
-26:                                               ; preds = %3, %.thread7
-  %27 = phi ptr [ %22, %.thread7 ], [ %6, %3 ]
-  %28 = phi i64 [ %24, %.thread7 ], [ %4, %3 ]
-  %.not39 = phi i1 [ %.not38, %.thread7 ], [ false, %3 ]
-  %29 = phi ptr [ %23, %.thread7 ], [ %2, %3 ]
+26:                                               ; preds = %3, %.thread6
+  %27 = phi ptr [ %22, %.thread6 ], [ %6, %3 ]
+  %28 = phi i64 [ %24, %.thread6 ], [ %4, %3 ]
+  %.not38 = phi i1 [ %.not37, %.thread6 ], [ false, %3 ]
+  %29 = phi ptr [ %23, %.thread6 ], [ %2, %3 ]
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
   %31 = tail call ptr @__errno_location() #33
   %32 = load i32, ptr %31, align 4, !tbaa !3
@@ -2730,21 +2730,21 @@ define void @aagrestart(ptr noundef %0) local_unnamed_addr #0 {
   store i32 1, ptr %40, align 8, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store i32 0, ptr %41, align 8, !tbaa !32
-  br i1 %.not39, label %aag_flush_buffer.exit.thread.i, label %43
+  br i1 %.not38, label %aag_flush_buffer.exit.thread.i, label %43
 
 aag_flush_buffer.exit.thread.i:                   ; preds = %26
   store ptr %0, ptr %27, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 52
   store i32 1, ptr %42, align 4, !tbaa !37
   %.pre.pre = load ptr, ptr %30, align 8, !tbaa !14
-  br label %.thread.i
+  br label %.critedge.i
 
 43:                                               ; preds = %26
   %44 = load ptr, ptr %30, align 8, !tbaa !14
   %45 = icmp eq ptr %27, %44
-  br i1 %45, label %aag_flush_buffer.exit.thread14.i.thread, label %aag_flush_buffer.exit.thread14.i
+  br i1 %45, label %aag_flush_buffer.exit.thread13.i.thread, label %aag_flush_buffer.exit.thread13.i
 
-aag_flush_buffer.exit.thread14.i.thread:          ; preds = %43
+aag_flush_buffer.exit.thread13.i.thread:          ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4, !tbaa !16
   store i32 %47, ptr @yy_n_chars, align 4, !tbaa !3
@@ -2761,26 +2761,26 @@ aag_flush_buffer.exit.thread14.i.thread:          ; preds = %43
   store i32 1, ptr %52, align 4, !tbaa !37
   br label %aag_init_buffer.exit
 
-aag_flush_buffer.exit.thread14.i:                 ; preds = %43
+aag_flush_buffer.exit.thread13.i:                 ; preds = %43
   store ptr %0, ptr %27, align 8, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %27, i64 52
   store i32 1, ptr %53, align 4, !tbaa !37
-  br label %.thread.i
+  br label %.critedge.i
 
-.thread.i:                                        ; preds = %aag_flush_buffer.exit.thread14.i, %aag_flush_buffer.exit.thread.i
-  %.pre = phi ptr [ %44, %aag_flush_buffer.exit.thread14.i ], [ %.pre.pre, %aag_flush_buffer.exit.thread.i ]
+.critedge.i:                                      ; preds = %aag_flush_buffer.exit.thread13.i, %aag_flush_buffer.exit.thread.i
+  %.pre = phi ptr [ %44, %aag_flush_buffer.exit.thread13.i ], [ %.pre.pre, %aag_flush_buffer.exit.thread.i ]
   %54 = getelementptr inbounds nuw i8, ptr %27, i64 44
   store i32 1, ptr %54, align 4, !tbaa !51
   %55 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store i32 0, ptr %55, align 8, !tbaa !52
   br label %aag_init_buffer.exit
 
-aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.thread14.i.thread, %.thread.i
-  %56 = phi ptr [ %.pre, %.thread.i ], [ %44, %aag_flush_buffer.exit.thread14.i.thread ]
-  %.not11.i5 = icmp ne ptr %0, null
+aag_init_buffer.exit:                             ; preds = %aag_flush_buffer.exit.thread13.i.thread, %.critedge.i
+  %56 = phi ptr [ %.pre, %.critedge.i ], [ %44, %aag_flush_buffer.exit.thread13.i.thread ]
+  %.not11.i4 = icmp ne ptr %0, null
   %57 = load i32, ptr @gv_isatty_suppression, align 4
   %58 = icmp sgt i32 %57, 0
-  %narrow.i = select i1 %.not11.i5, i1 %58, i1 false
+  %narrow.i = select i1 %.not11.i4, i1 %58, i1 false
   %59 = zext i1 %narrow.i to i32
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 36
   store i32 %59, ptr %60, align 4, !tbaa !53
@@ -2912,32 +2912,32 @@ define void @aag_delete_buffer(ptr noundef captures(address) %0) local_unnamed_a
 2:                                                ; preds = %1
   %3 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %.thread, label %4
+  br i1 %.not6, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = icmp eq ptr %0, %7
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %4
   store ptr null, ptr %6, align 8, !tbaa !14
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %9, %4
+.critedge:                                        ; preds = %2, %9, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !40
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %15, label %12
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %.critedge
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   tail call void @free(ptr noundef %14) #30
   br label %15
 
-15:                                               ; preds = %12, %.thread
+15:                                               ; preds = %12, %.critedge
   tail call void @free(ptr noundef nonnull %0) #30
   br label %16
 
@@ -2954,7 +2954,7 @@ define void @aagfree(ptr noundef captures(none) %0) local_unnamed_addr #10 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @aag_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %2
+  br i1 %.not, label %.critedge, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2974,14 +2974,14 @@ define void @aag_flush_buffer(ptr noundef captures(address) %0) local_unnamed_ad
   store i32 0, ptr %11, align 8, !tbaa !32
   %12 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %.thread, label %13
+  br i1 %.not10, label %.critedge, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = icmp eq ptr %0, %16
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 28
@@ -2995,9 +2995,9 @@ define void @aag_flush_buffer(ptr noundef captures(address) %0) local_unnamed_ad
   store ptr %23, ptr @aagin, align 8, !tbaa !7
   %24 = load i8, ptr %22, align 1, !tbaa !22
   store i8 %24, ptr @yy_hold_char, align 1, !tbaa !22
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %1, %18, %13
+.critedge:                                        ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -3106,22 +3106,22 @@ define void @aagpop_buffer_state() local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.thread, label %.thread.i
+  br i1 %.not4, label %.thread, label %.critedge.i
 
-.thread.i:                                        ; preds = %2
+.critedge.i:                                      ; preds = %2
   store ptr null, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !40
   %.not7.i = icmp eq i32 %7, 0
   br i1 %.not7.i, label %aag_delete_buffer.exit, label %8
 
-8:                                                ; preds = %.thread.i
+8:                                                ; preds = %.critedge.i
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !33
   tail call void @free(ptr noundef %10) #30
   br label %aag_delete_buffer.exit
 
-aag_delete_buffer.exit:                           ; preds = %.thread.i, %8
+aag_delete_buffer.exit:                           ; preds = %.critedge.i, %8
   tail call void @free(ptr noundef nonnull %5) #30
   store ptr null, ptr %4, align 8, !tbaa !14
   %.not5 = icmp eq i64 %3, 0
@@ -3345,36 +3345,36 @@ define void @aagset_debug(i32 noundef %0) local_unnamed_addr #13 {
 ; Function Attrs: nounwind uwtable
 define noundef i32 @aaglex_destroy() local_unnamed_addr #0 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
-  %.not7 = icmp eq ptr %.pr, null
-  br i1 %.not7, label %.critedge, label %.lr.ph.preheader
+  %.not6 = icmp eq ptr %.pr, null
+  br i1 %.not6, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
-  %1 = icmp eq ptr %.pre10, null
-  br i1 %1, label %.critedge, label %.thread.i
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
+  %1 = icmp eq ptr %.pre9, null
+  br i1 %1, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph.preheader
+.critedge.i:                                      ; preds = %.lr.ph.preheader
   %2 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %2, align 8, !tbaa !14
-  %3 = getelementptr inbounds nuw i8, ptr %.pre10, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.pre9, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !40
   %.not7.i = icmp eq i32 %4, 0
   br i1 %.not7.i, label %aagpop_buffer_state.exit, label %5
 
-5:                                                ; preds = %.thread.i
-  %6 = getelementptr inbounds nuw i8, ptr %.pre10, i64 8
+5:                                                ; preds = %.critedge.i
+  %6 = getelementptr inbounds nuw i8, ptr %.pre9, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   tail call void @free(ptr noundef %7) #30
-  %.pre11 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
-  %.pre12 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
+  %.pre10 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
+  %.pre11 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   br label %aagpop_buffer_state.exit
 
-aagpop_buffer_state.exit:                         ; preds = %.thread.i, %5
-  %8 = phi i64 [ %.pre, %.thread.i ], [ %.pre12, %5 ]
-  %9 = phi ptr [ %.pr, %.thread.i ], [ %.pre11, %5 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #30
+aagpop_buffer_state.exit:                         ; preds = %.critedge.i, %5
+  %8 = phi i64 [ %.pre, %.critedge.i ], [ %.pre11, %5 ]
+  %9 = phi ptr [ %.pr, %.critedge.i ], [ %.pre10, %5 ]
+  tail call void @free(ptr noundef nonnull %.pre9) #30
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
   store ptr null, ptr %10, align 8, !tbaa !14
   br label %.critedge

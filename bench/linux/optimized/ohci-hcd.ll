@@ -4404,7 +4404,7 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 2080, i64 noundef 512) #16
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %120, label %5
+  br i1 %4, label %119, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4420,15 +4420,15 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 904
   br label %17
 
-17:                                               ; preds = %111, %5
-  %18 = phi i64 [ 0, %5 ], [ %115, %111 ]
-  %19 = phi ptr [ %13, %5 ], [ %114, %111 ]
-  %20 = phi i32 [ 0, %5 ], [ %113, %111 ]
-  %21 = phi i32 [ %11, %5 ], [ %112, %111 ]
+17:                                               ; preds = %110, %5
+  %18 = phi i64 [ 0, %5 ], [ %114, %110 ]
+  %19 = phi ptr [ %13, %5 ], [ %113, %110 ]
+  %20 = phi i32 [ 0, %5 ], [ %112, %110 ]
+  %21 = phi i32 [ %11, %5 ], [ %111, %110 ]
   %22 = getelementptr [32 x ptr], ptr %15, i64 0, i64 %18
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %111, label %25
+  br i1 %24, label %110, label %25
 
 25:                                               ; preds = %17
   %26 = zext i32 %21 to i64
@@ -4441,11 +4441,11 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
   %33 = getelementptr i8, ptr %19, i64 %32
   br label %34
 
-34:                                               ; preds = %98, %25
-  %35 = phi ptr [ %23, %25 ], [ %101, %98 ]
-  %36 = phi i32 [ %31, %25 ], [ %90, %98 ]
-  %37 = phi i32 [ %20, %25 ], [ %99, %98 ]
-  %38 = phi ptr [ %33, %25 ], [ %92, %98 ]
+34:                                               ; preds = %97, %25
+  %35 = phi ptr [ %23, %25 ], [ %100, %97 ]
+  %36 = phi i32 [ %31, %25 ], [ %89, %97 ]
+  %37 = phi i32 [ %20, %25 ], [ %98, %97 ]
+  %38 = phi ptr [ %33, %25 ], [ %91, %97 ]
   %39 = zext i32 %36 to i64
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 84
   %41 = load i16, ptr %40, align 4
@@ -4455,7 +4455,7 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
   %45 = zext i32 %43 to i64
   %46 = getelementptr i8, ptr %38, i64 %45
   %47 = icmp eq i32 %37, 0
-  br i1 %47, label %.loopexit, label %.preheader.preheader
+  br i1 %47, label %.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %34
   %48 = zext i32 %37 to i64
@@ -4466,109 +4466,105 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
   %49 = getelementptr ptr, ptr %3, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %35
-  br i1 %51, label %.loopexit.loopexit, label %52
+  br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = icmp eq i64 %indvars.iv.next, %48
   br i1 %53, label %.thread, label %.preheader, !llvm.loop !50
 
-.loopexit.loopexit:                               ; preds = %.preheader
+.loopexit:                                        ; preds = %.preheader
   %54 = trunc nuw i64 %indvars.iv to i32
-  br label %.loopexit
+  %55 = icmp eq i32 %37, %54
+  br i1 %55, label %.thread, label %.thread6
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %34
-  %55 = phi i32 [ 0, %34 ], [ %54, %.loopexit.loopexit ]
-  %56 = icmp eq i32 %55, %37
-  br i1 %56, label %.thread, label %.thread6
+.thread:                                          ; preds = %52, %34, %.loopexit
+  %56 = load i32, ptr %35, align 16
+  %57 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  br label %58
 
-.thread:                                          ; preds = %52, %.loopexit
-  %57 = load i32, ptr %35, align 16
-  %58 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  br label %59
+58:                                               ; preds = %58, %.thread
+  %59 = phi ptr [ %57, %.thread ], [ %61, %58 ]
+  %60 = phi i32 [ 0, %.thread ], [ %63, %58 ]
+  %61 = load ptr, ptr %59, align 8
+  %62 = icmp eq ptr %61, %57
+  %63 = add i32 %60, 1
+  br i1 %62, label %64, label %58, !llvm.loop !51
 
-59:                                               ; preds = %59, %.thread
-  %60 = phi ptr [ %58, %.thread ], [ %62, %59 ]
-  %61 = phi i32 [ 0, %.thread ], [ %64, %59 ]
-  %62 = load ptr, ptr %60, align 8
-  %63 = icmp eq ptr %62, %58
-  %64 = add i32 %61, 1
-  br i1 %63, label %65, label %59, !llvm.loop !51
+64:                                               ; preds = %58
+  %65 = zext i32 %44 to i64
+  %66 = and i32 %56, 8192
+  %67 = icmp eq i32 %66, 0
+  %68 = select i1 %67, i32 102, i32 108
+  %69 = and i32 %56, 127
+  %70 = lshr i32 %56, 7
+  %71 = and i32 %70, 15
+  %72 = and i32 %56, 4096
+  %73 = icmp eq i32 %72, 0
+  %74 = select i1 %73, ptr @.str.84, ptr @.str.83
+  %75 = and i32 %56, 32768
+  %76 = icmp eq i32 %75, 0
+  %77 = select i1 %76, ptr @.str.96, ptr @.str.95
+  %78 = lshr i32 %56, 16
+  %79 = and i32 %78, 1023
+  %80 = and i32 %56, 16384
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, ptr @.str.10, ptr @.str.97
+  %83 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %84 = load i32, ptr %83, align 8
+  %85 = and i32 %84, 1
+  %86 = icmp eq i32 %85, 0
+  %87 = select i1 %86, ptr @.str.10, ptr @.str.86
+  %88 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %65, ptr noundef nonnull @.str.94, i32 noundef %68, i32 noundef %69, i32 noundef %71, ptr noundef nonnull %74, ptr noundef nonnull %77, i32 noundef %60, i32 noundef %79, i32 noundef %56, ptr noundef nonnull %82, ptr noundef nonnull %87) #14
+  %89 = sub i32 %44, %88
+  %90 = zext i32 %88 to i64
+  %91 = getelementptr i8, ptr %46, i64 %90
+  %92 = icmp ult i32 %37, 64
+  br i1 %92, label %93, label %97
 
-65:                                               ; preds = %59
-  %66 = zext i32 %44 to i64
-  %67 = and i32 %57, 8192
-  %68 = icmp eq i32 %67, 0
-  %69 = select i1 %68, i32 102, i32 108
-  %70 = and i32 %57, 127
-  %71 = lshr i32 %57, 7
-  %72 = and i32 %71, 15
-  %73 = and i32 %57, 4096
-  %74 = icmp eq i32 %73, 0
-  %75 = select i1 %74, ptr @.str.84, ptr @.str.83
-  %76 = and i32 %57, 32768
-  %77 = icmp eq i32 %76, 0
-  %78 = select i1 %77, ptr @.str.96, ptr @.str.95
-  %79 = lshr i32 %57, 16
-  %80 = and i32 %79, 1023
-  %81 = and i32 %57, 16384
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, ptr @.str.10, ptr @.str.97
-  %84 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, 1
-  %87 = icmp eq i32 %86, 0
-  %88 = select i1 %87, ptr @.str.10, ptr @.str.86
-  %89 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %66, ptr noundef nonnull @.str.94, i32 noundef %69, i32 noundef %70, i32 noundef %72, ptr noundef nonnull %75, ptr noundef nonnull %78, i32 noundef %61, i32 noundef %80, i32 noundef %57, ptr noundef nonnull %83, ptr noundef nonnull %88) #14
-  %90 = sub i32 %44, %89
-  %91 = zext i32 %89 to i64
-  %92 = getelementptr i8, ptr %46, i64 %91
-  %93 = icmp ult i32 %37, 64
-  br i1 %93, label %94, label %98
+93:                                               ; preds = %64
+  %94 = add nuw nsw i32 %37, 1
+  %95 = zext nneg i32 %37 to i64
+  %96 = getelementptr ptr, ptr %3, i64 %95
+  store ptr %35, ptr %96, align 8
+  br label %97
 
-94:                                               ; preds = %65
-  %95 = add nuw nsw i32 %37, 1
-  %96 = zext nneg i32 %37 to i64
-  %97 = getelementptr ptr, ptr %3, i64 %96
-  store ptr %35, ptr %97, align 8
-  br label %98
+97:                                               ; preds = %64, %93
+  %98 = phi i32 [ %94, %93 ], [ %37, %64 ]
+  %99 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %100 = load ptr, ptr %99, align 16
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %.thread6, label %34, !llvm.loop !52
 
-98:                                               ; preds = %65, %94
-  %99 = phi i32 [ %95, %94 ], [ %37, %65 ]
-  %100 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %101 = load ptr, ptr %100, align 16
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %.thread6, label %34, !llvm.loop !52
+.thread6:                                         ; preds = %.loopexit, %97
+  %102 = phi ptr [ %91, %97 ], [ %46, %.loopexit ]
+  %103 = phi i32 [ %98, %97 ], [ %37, %.loopexit ]
+  %104 = phi i32 [ %89, %97 ], [ %44, %.loopexit ]
+  %105 = zext i32 %104 to i64
+  %106 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %102, i64 noundef %105, ptr noundef nonnull @.str.90) #14
+  %107 = sub i32 %104, %106
+  %108 = zext i32 %106 to i64
+  %109 = getelementptr i8, ptr %102, i64 %108
+  br label %110
 
-.thread6:                                         ; preds = %.loopexit, %98
-  %103 = phi ptr [ %92, %98 ], [ %46, %.loopexit ]
-  %104 = phi i32 [ %99, %98 ], [ %37, %.loopexit ]
-  %105 = phi i32 [ %90, %98 ], [ %44, %.loopexit ]
-  %106 = zext i32 %105 to i64
-  %107 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %103, i64 noundef %106, ptr noundef nonnull @.str.90) #14
-  %108 = sub i32 %105, %107
-  %109 = zext i32 %107 to i64
-  %110 = getelementptr i8, ptr %103, i64 %109
-  br label %111
+110:                                              ; preds = %.thread6, %17
+  %111 = phi i32 [ %107, %.thread6 ], [ %21, %17 ]
+  %112 = phi i32 [ %103, %.thread6 ], [ %20, %17 ]
+  %113 = phi ptr [ %109, %.thread6 ], [ %19, %17 ]
+  %114 = add nuw nsw i64 %18, 1
+  %115 = icmp eq i64 %114, 32
+  br i1 %115, label %116, label %17, !llvm.loop !53
 
-111:                                              ; preds = %.thread6, %17
-  %112 = phi i32 [ %108, %.thread6 ], [ %21, %17 ]
-  %113 = phi i32 [ %104, %.thread6 ], [ %20, %17 ]
-  %114 = phi ptr [ %110, %.thread6 ], [ %19, %17 ]
-  %115 = add nuw nsw i64 %18, 1
-  %116 = icmp eq i64 %115, 32
-  br i1 %116, label %117, label %17, !llvm.loop !53
-
-117:                                              ; preds = %111
+116:                                              ; preds = %110
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %14) #14
   tail call void @kfree(ptr noundef nonnull %3) #14
-  %118 = zext i32 %112 to i64
-  %119 = sub nsw i64 4096, %118
-  br label %120
+  %117 = zext i32 %111 to i64
+  %118 = sub nsw i64 4096, %117
+  br label %119
 
-120:                                              ; preds = %117, %1
-  %121 = phi i64 [ %119, %117 ], [ 0, %1 ]
-  ret i64 %121
+119:                                              ; preds = %116, %1
+  %120 = phi i64 [ %118, %116 ], [ 0, %1 ]
+  ret i64 %120
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

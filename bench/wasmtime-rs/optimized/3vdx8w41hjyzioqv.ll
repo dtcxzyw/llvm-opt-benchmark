@@ -26080,12 +26080,15 @@ _ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875
   %.022.i.i = select i1 %56, i64 %57, i64 %.01926.i.i
   %58 = sub i64 %.021.i.i, %.022.i.i
   %59 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %59, label %.lr.ph.i.i, label %.loopexit
+  br i1 %59, label %.lr.ph.i.i, label %.loopexit.loopexit
 
-.loopexit:                                        ; preds = %54, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit
-  %.019.lcssa.i.i = phi i64 [ 0, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ], [ %.022.i.i, %54 ]
-  %60 = icmp ule i64 %.019.lcssa.i.i, %48
-  tail call void @llvm.assume(i1 %60)
+.loopexit.loopexit:                               ; preds = %54
+  %60 = icmp ule i64 %.022.i.i, %48
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit
+  %.019.lcssa.i.i = phi i1 [ true, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ], [ %60, %.loopexit.loopexit ]
+  tail call void @llvm.assume(i1 %.019.lcssa.i.i)
   br label %63
 
 61:                                               ; preds = %.lr.ph.i.i

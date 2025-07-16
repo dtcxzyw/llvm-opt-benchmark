@@ -17818,7 +17818,11 @@ versionIsSupported.exit:                          ; preds = %14, %21
   %26 = add nsw i32 %25, -1
   %27 = zext i32 %26 to i64
   %.not2431 = icmp eq i64 %indvars.iv, %27
-  br i1 %.not2431, label %._crit_edge, label %.lr.ph
+  br i1 %.not2431, label %._crit_edge.thread, label %.lr.ph
+
+._crit_edge.thread:                               ; preds = %versionIsSupported.exit
+  store i32 %26, ptr %1, align 4, !tbaa !22
+  br label %.outer._crit_edge
 
 .loopexit:                                        ; preds = %7, %.preheader.i, %16
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -17848,20 +17852,15 @@ versionIsSupported.exit:                          ; preds = %14, %21
   %37 = add nsw i32 %36, -1
   %38 = trunc nsw i64 %indvars.iv.next43 to i32
   %.not24 = icmp eq i32 %37, %38
-  br i1 %.not24, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !401
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !401
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %.pre = zext i32 %37 to i64
-  br label %._crit_edge
+  %39 = icmp eq i64 %indvars.iv, %.pre
+  store i32 %37, ptr %1, align 4, !tbaa !22
+  br i1 %39, label %.outer._crit_edge, label %7, !llvm.loop !399
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %versionIsSupported.exit
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %27, %versionIsSupported.exit ]
-  %.lcssa = phi i32 [ %37, %._crit_edge.loopexit ], [ %26, %versionIsSupported.exit ]
-  store i32 %.lcssa, ptr %1, align 4, !tbaa !22
-  %.not = icmp eq i64 %indvars.iv, %.pre-phi
-  br i1 %.not, label %.outer._crit_edge, label %7, !llvm.loop !399
-
-.outer._crit_edge:                                ; preds = %.outer, %._crit_edge, %3
+.outer._crit_edge:                                ; preds = %.outer, %._crit_edge, %._crit_edge.thread, %3
   ret void
 }
 

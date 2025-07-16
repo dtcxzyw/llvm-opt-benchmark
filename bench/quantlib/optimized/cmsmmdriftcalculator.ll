@@ -2647,12 +2647,12 @@ for.cond112.preheader:                            ; preds = %for.cond112.prehead
 
 for.cond.cleanup109.loopexit124:                  ; preds = %for.cond.cleanup114
   %.pre131 = load i64, ptr %alive_105, align 8, !tbaa !29
+  %54 = icmp ult i64 %.pre131, %56
   br label %for.cond.cleanup109
 
 for.cond.cleanup109:                              ; preds = %for.cond112.preheader.lr.ph, %for.cond.cleanup109.loopexit124, %for.cond.cleanup
-  %54 = phi i64 [ %56, %for.cond.cleanup109.loopexit124 ], [ %5, %for.cond.cleanup ], [ %5, %for.cond112.preheader.lr.ph ]
+  %cmp144122 = phi i1 [ %54, %for.cond.cleanup109.loopexit124 ], [ false, %for.cond.cleanup ], [ true, %for.cond112.preheader.lr.ph ]
   %55 = phi i64 [ %.pre131, %for.cond.cleanup109.loopexit124 ], [ %4, %for.cond.cleanup ], [ %4, %for.cond112.preheader.lr.ph ]
-  %cmp144122 = icmp ult i64 %55, %54
   br i1 %cmp144122, label %for.body146.lr.ph, label %for.cond.cleanup145
 
 for.body146.lr.ph:                                ; preds = %for.cond.cleanup109

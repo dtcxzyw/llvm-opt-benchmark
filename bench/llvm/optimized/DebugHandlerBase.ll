@@ -352,16 +352,16 @@ _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEE5resetEv.exit: ; preds = %26
   %54 = phi ptr [ %103, %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ], [ %52, %51 ]
   %.017.ph = phi i64 [ %.3, %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ], [ 0, %51 ]
   %.pre = load ptr, ptr %53, align 8, !tbaa !93
-  br label %55
+  %55 = icmp eq ptr %54, %.pre
+  br label %56
 
-55:                                               ; preds = %.outer, %68
-  %56 = phi ptr [ %54, %.outer ], [ %65, %68 ]
-  %57 = phi ptr [ %.pre, %.outer ], [ %67, %68 ]
-  %.not36 = icmp eq ptr %56, %57
+56:                                               ; preds = %.outer, %68
+  %57 = phi ptr [ %54, %.outer ], [ %65, %68 ]
+  %.not36 = phi i1 [ %55, %.outer ], [ false, %68 ]
   br i1 %.not36, label %105, label %58
 
-58:                                               ; preds = %55
-  %59 = load i64, ptr %56, align 8, !tbaa !91
+58:                                               ; preds = %56
+  %59 = load i64, ptr %57, align 8, !tbaa !91
   switch i64 %59, label %.loopexit [
     i64 16, label %60
     i64 35, label %76
@@ -370,11 +370,11 @@ _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEE5resetEv.exit: ; preds = %26
   ]
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !91
   %63 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %56, i64 %64
+  %65 = getelementptr inbounds nuw i64, ptr %57, i64 %64
   %66 = ptrtoint ptr %65 to i64
   store i64 %66, ptr %4, align 8, !tbaa !92
   %67 = load ptr, ptr %53, align 8, !tbaa !93
@@ -383,7 +383,7 @@ _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEE5resetEv.exit: ; preds = %26
 
 68:                                               ; preds = %60
   %69 = load i64, ptr %65, align 8, !tbaa !91
-  switch i64 %69, label %55 [
+  switch i64 %69, label %56 [
     i64 28, label %70
     i64 34, label %73
   ], !llvm.loop !94
@@ -401,15 +401,15 @@ _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEE5resetEv.exit: ; preds = %26
   br label %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
 
 76:                                               ; preds = %58
-  %77 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !91
   %79 = add i64 %78, %.017.ph
   br label %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
 
 80:                                               ; preds = %58
-  %81 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !91
-  %83 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !91
   %85 = load i8, ptr %9, align 8, !tbaa !54, !range !50, !noundef !51
   %86 = trunc nuw i8 %85 to i1
@@ -447,7 +447,7 @@ _ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit: ; preds = %88, %91
   br label %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
 
 _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit: ; preds = %60, %73, %70, %87, %80, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit, %76
-  %100 = phi ptr [ %56, %76 ], [ %.pre60, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %56, %80 ], [ %56, %87 ], [ %65, %73 ], [ %65, %70 ], [ %65, %60 ]
+  %100 = phi ptr [ %57, %76 ], [ %.pre60, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %57, %80 ], [ %57, %87 ], [ %65, %73 ], [ %65, %70 ], [ %65, %60 ]
   %.3 = phi i64 [ %79, %76 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %.017.ph, %80 ], [ %.017.ph, %87 ], [ %75, %73 ], [ %72, %70 ], [ %.017.ph, %60 ]
   %101 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
   %102 = zext i32 %101 to i64
@@ -456,7 +456,7 @@ _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vI
   store i64 %104, ptr %4, align 8, !tbaa !92
   br label %.outer, !llvm.loop !94
 
-105:                                              ; preds = %55
+105:                                              ; preds = %56
   %106 = load i16, ptr %10, align 4, !tbaa !56
   %107 = icmp eq i16 %106, 14
   br i1 %107, label %_ZNK4llvm12MachineInstr16isDebugOffsetImmEv.exit.i, label %_ZNK4llvm12MachineInstr20isIndirectDebugValueEv.exit.thread

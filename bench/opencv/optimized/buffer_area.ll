@@ -61,77 +61,77 @@ define void @_ZN2cv5utils10BufferAreaD2Ev(ptr noundef nonnull align 8 captures(n
 
 ._crit_edge.i:                                    ; preds = %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i
   %.pre10.i = load ptr, ptr %0, align 8, !tbaa !17
-  %.not.i.i.i = icmp eq ptr %13, %.pre10.i
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i, label %5
+  %5 = icmp eq ptr %14, %.pre10.i
+  br i1 %5, label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i, label %6
 
-5:                                                ; preds = %._crit_edge.i
+6:                                                ; preds = %._crit_edge.i
   store ptr %.pre10.i, ptr %3, align 8, !tbaa !18
   br label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i
 
-_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i: ; preds = %5, %._crit_edge.i, %1
-  %6 = phi ptr [ %.pre10.i, %5 ], [ %.pre10.i, %._crit_edge.i ], [ %2, %1 ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !19
-  %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %_ZN2cv5utils10BufferArea7releaseEv.exit, label %15
+_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i: ; preds = %6, %._crit_edge.i, %1
+  %7 = phi ptr [ %.pre10.i, %6 ], [ %.pre10.i, %._crit_edge.i ], [ %2, %1 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %_ZN2cv5utils10BufferArea7releaseEv.exit, label %16
 
 .lr.ph.i:                                         ; preds = %1, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i
-  %9 = phi ptr [ %13, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i ], [ %4, %1 ]
-  %.sroa.02.08.i = phi ptr [ %14, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i ], [ %2, %1 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.02.08.i, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
-  %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i, label %12
+  %10 = phi ptr [ %14, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i ], [ %4, %1 ]
+  %.sroa.02.08.i = phi ptr [ %15, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i ], [ %2, %1 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.02.08.i, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i, label %13
 
-12:                                               ; preds = %.lr.ph.i
-  invoke void @_ZN2cv8fastFreeEPv(ptr noundef nonnull %11)
+13:                                               ; preds = %.lr.ph.i
+  invoke void @_ZN2cv8fastFreeEPv(ptr noundef nonnull %12)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %12
+.noexc:                                           ; preds = %13
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !16
   br label %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i
 
 _ZNK2cv5utils10BufferArea5Block7cleanupEv.exit.i: ; preds = %.noexc, %.lr.ph.i
-  %13 = phi ptr [ %9, %.lr.ph.i ], [ %.pre.i, %.noexc ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.02.08.i, i64 32
-  %.not5.i = icmp eq ptr %14, %13
+  %14 = phi ptr [ %10, %.lr.ph.i ], [ %.pre.i, %.noexc ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.02.08.i, i64 32
+  %.not5.i = icmp eq ptr %15, %14
   br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
 
-15:                                               ; preds = %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i
-  invoke void @_ZN2cv8fastFreeEPv(ptr noundef nonnull %8)
+16:                                               ; preds = %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i
+  invoke void @_ZN2cv8fastFreeEPv(ptr noundef nonnull %9)
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %15
-  store ptr null, ptr %7, align 8, !tbaa !19
+.noexc1:                                          ; preds = %16
+  store ptr null, ptr %8, align 8, !tbaa !19
   %.pre = load ptr, ptr %0, align 8, !tbaa !17
   br label %_ZN2cv5utils10BufferArea7releaseEv.exit
 
 _ZN2cv5utils10BufferArea7releaseEv.exit:          ; preds = %.noexc1, %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i
-  %16 = phi ptr [ %.pre, %.noexc1 ], [ %6, %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i ]
-  %.not.i.i.i2 = icmp eq ptr %16, null
-  br i1 %.not.i.i.i2, label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EED2Ev.exit, label %17
+  %17 = phi ptr [ %.pre, %.noexc1 ], [ %7, %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit.i ]
+  %.not.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EED2Ev.exit, label %18
 
-17:                                               ; preds = %_ZN2cv5utils10BufferArea7releaseEv.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #15
+18:                                               ; preds = %_ZN2cv5utils10BufferArea7releaseEv.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #15
   br label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EED2Ev.exit: ; preds = %_ZN2cv5utils10BufferArea7releaseEv.exit, %17
+_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EED2Ev.exit: ; preds = %_ZN2cv5utils10BufferArea7releaseEv.exit, %18
   ret void
 
-.loopexit:                                        ; preds = %12
+.loopexit:                                        ; preds = %13
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %18
+  br label %19
 
-.loopexit.split-lp:                               ; preds = %15
+.loopexit.split-lp:                               ; preds = %16
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.loopexit.split-lp, %.loopexit
+19:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %19 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %19) #16
+  %20 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %20) #16
   unreachable
 }
 
@@ -145,44 +145,44 @@ define void @_ZN2cv5utils10BufferArea7releaseEv(ptr noundef nonnull align 8 capt
 
 ._crit_edge:                                      ; preds = %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit
   %.pre10 = load ptr, ptr %0, align 8, !tbaa !17
-  %.not.i.i = icmp eq ptr %12, %.pre10
-  br i1 %.not.i.i, label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit, label %5
+  %5 = icmp eq ptr %13, %.pre10
+  br i1 %5, label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit, label %6
 
-5:                                                ; preds = %._crit_edge
+6:                                                ; preds = %._crit_edge
   store ptr %.pre10, ptr %3, align 8, !tbaa !18
   br label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit
 
-_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit: ; preds = %1, %._crit_edge, %5
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !19
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %15, label %14
+_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit: ; preds = %1, %._crit_edge, %6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %16, label %15
 
 .lr.ph:                                           ; preds = %1, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit
-  %8 = phi ptr [ %12, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit ], [ %4, %1 ]
-  %.sroa.02.08 = phi ptr [ %13, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit ], [ %2, %1 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.02.08, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !20
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit, label %11
+  %9 = phi ptr [ %13, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit ], [ %4, %1 ]
+  %.sroa.02.08 = phi ptr [ %14, %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit ], [ %2, %1 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.02.08, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit, label %12
 
-11:                                               ; preds = %.lr.ph
-  tail call void @_ZN2cv8fastFreeEPv(ptr noundef nonnull %10)
+12:                                               ; preds = %.lr.ph
+  tail call void @_ZN2cv8fastFreeEPv(ptr noundef nonnull %11)
   %.pre = load ptr, ptr %3, align 8, !tbaa !16
   br label %_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit
 
-_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit:   ; preds = %.lr.ph, %11
-  %12 = phi ptr [ %8, %.lr.ph ], [ %.pre, %11 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.02.08, i64 32
-  %.not5 = icmp eq ptr %13, %12
+_ZNK2cv5utils10BufferArea5Block7cleanupEv.exit:   ; preds = %.lr.ph, %12
+  %13 = phi ptr [ %9, %.lr.ph ], [ %.pre, %12 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.02.08, i64 32
+  %.not5 = icmp eq ptr %14, %13
   br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
-14:                                               ; preds = %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit
-  tail call void @_ZN2cv8fastFreeEPv(ptr noundef nonnull %7)
-  store ptr null, ptr %6, align 8, !tbaa !19
-  br label %15
+15:                                               ; preds = %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit
+  tail call void @_ZN2cv8fastFreeEPv(ptr noundef nonnull %8)
+  store ptr null, ptr %7, align 8, !tbaa !19
+  br label %16
 
-15:                                               ; preds = %14, %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit
+16:                                               ; preds = %15, %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE5clearEv.exit
   ret void
 }
 

@@ -1297,7 +1297,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread228:
 
 .preheader:                                       ; preds = %._crit_edge291, %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit, %.preheader249
   %.sroa.0204.0.lcssa338 = phi ptr [ %.sroa.0204.1, %.preheader249 ], [ null, %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit ], [ %.sroa.0204.1, %._crit_edge291 ]
-  %.sroa.8.0.lcssa337 = phi ptr [ %.sroa.8.1, %.preheader249 ], [ null, %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit ], [ %.sroa.8.1, %._crit_edge291 ]
+  %.sroa.8.0.lcssa337 = phi i1 [ false, %.preheader249 ], [ false, %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit ], [ true, %._crit_edge291 ]
   %.sroa.13.0.lcssa336 = phi i64 [ %90, %.preheader249 ], [ 0, %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_15MachineFunctionENS_23df_iterator_default_setIPNS_17MachineBasicBlockELj8EEEEEED2Ev.exit ], [ %90, %._crit_edge291 ]
   %.sroa.0181.0306 = load ptr, ptr %34, align 8, !tbaa !53
   %.not241307 = icmp eq ptr %.sroa.0181.0306, %81
@@ -1803,10 +1803,9 @@ _ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EED2Ev.exit: ; preds = %482, %483
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit162
 
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit162:        ; preds = %_ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EED2Ev.exit, %488
-  %490 = icmp ne ptr %.sroa.0204.0.lcssa338, %.sroa.8.0.lcssa337
-  %491 = select i1 %490, i1 true, i1 %.0.lcssa
+  %490 = select i1 %.sroa.8.0.lcssa337, i1 true, i1 %.0.lcssa
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #15
-  ret i1 %491
+  ret i1 %490
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

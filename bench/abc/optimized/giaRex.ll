@@ -131,15 +131,15 @@ define void @Gia_ManAutomSimulate(ptr noundef %0, ptr noundef readonly captures(
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %47
   %52 = and i64 %indvars.iv.i, 4294967295
+  %53 = icmp eq i64 %indvars.iv, %52
+  %54 = select i1 %53, i64 1073741824, i64 0
   br label %Vec_IntFind.exit
 
 Vec_IntFind.exit:                                 ; preds = %51, %41, %._crit_edge.loopexit.split.loop.exit12.i
-  %.07.i = phi i64 [ 4294967295, %41 ], [ %52, %._crit_edge.loopexit.split.loop.exit12.i ], [ 4294967295, %51 ]
-  %53 = icmp eq i64 %.07.i, %indvars.iv
-  %54 = load i64, ptr %40, align 4
-  %55 = select i1 %53, i64 1073741824, i64 0
-  %56 = and i64 %54, -1073741825
-  %57 = or disjoint i64 %56, %55
+  %.07.i = phi i64 [ 0, %41 ], [ %54, %._crit_edge.loopexit.split.loop.exit12.i ], [ 0, %51 ]
+  %55 = load i64, ptr %40, align 4
+  %56 = and i64 %55, -1073741825
+  %57 = or disjoint i64 %56, %.07.i
   store i64 %57, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val85 = load i32, ptr %9, align 8, !tbaa !3
@@ -2305,7 +2305,7 @@ define void @Gia_ManAutomWalkOne(ptr noundef readonly captures(none) %0, i32 nou
   %17 = getelementptr i8, ptr %.val6791, i64 4
   %.val67.val92 = load i32, ptr %17, align 4, !tbaa !31
   %18 = icmp sgt i32 %.val67.val92, %.val6690
-  br i1 %18, label %.lr.ph, label %.preheader
+  br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %15, %52
   %.val67118 = phi ptr [ %.val67, %52 ], [ %.val6791, %15 ]
@@ -2406,16 +2406,13 @@ Vec_WrdFind.exit.thread:                          ; preds = %30, %22, %Vec_WrdFi
   %57 = icmp eq i32 %.2, 1000000000
   br i1 %57, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %15, %._crit_edge
-  %.val64103135 = phi i32 [ %.val66, %._crit_edge ], [ %.val6690, %15 ]
-  %.val65104134 = phi ptr [ %.val67, %._crit_edge ], [ %.val6791, %15 ]
-  %.val65.val105133 = phi i32 [ %.val67.val, %._crit_edge ], [ %.val67.val92, %15 ]
-  %58 = icmp sgt i32 %.val65.val105133, %.val64103135
+.preheader:                                       ; preds = %._crit_edge
+  %58 = icmp sgt i32 %.val67.val, %.val66
   br i1 %58, label %.lr.ph107, label %.loopexit
 
 .lr.ph107:                                        ; preds = %.preheader, %64
-  %.val65125 = phi ptr [ %.val65, %64 ], [ %.val65104134, %.preheader ]
-  %.val64123 = phi i32 [ %.val64, %64 ], [ %.val64103135, %.preheader ]
+  %.val65125 = phi ptr [ %.val65, %64 ], [ %.val67, %.preheader ]
+  %.val64123 = phi i32 [ %.val64, %64 ], [ %.val66, %.preheader ]
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %64 ], [ 0, %.preheader ]
   %59 = lshr exact i64 -9223372036854775808, %indvars.iv112
   %60 = and i64 %59, %16
@@ -2611,7 +2608,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   %exitcond.not = icmp eq i32 %143, %1
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !77
 
-.loopexit:                                        ; preds = %142, %64, %6, %.preheader
+.loopexit:                                        ; preds = %15, %142, %64, %6, %.preheader
   %putchar60 = tail call i32 @putchar(i32 10)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #24
   ret void

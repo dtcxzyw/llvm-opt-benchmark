@@ -40428,35 +40428,31 @@ define linkonce_odr hidden void @_ZN11ProfileCall15input_values_doEP12ValueVisit
 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %10
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.critedge, label %_ZNK11ProfileCall16nb_profiled_argsEv.exit
 
-10:                                               ; preds = %18, %8
-  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %8 ]
-  %11 = load ptr, ptr %9, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %_ZNK11ProfileCall16nb_profiled_argsEv.exit, label %13
+_ZNK11ProfileCall16nb_profiled_argsEv.exit:       ; preds = %8, %16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %8 ]
+  %12 = phi ptr [ %22, %16 ], [ %10, %8 ]
+  %13 = load i32, ptr %12, align 4
+  %14 = sext i32 %13 to i64
+  %15 = icmp slt i64 %indvars.iv, %14
+  br i1 %15, label %16, label %.critedge
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %11, align 4
-  %15 = sext i32 %14 to i64
-  br label %_ZNK11ProfileCall16nb_profiled_argsEv.exit
-
-_ZNK11ProfileCall16nb_profiled_argsEv.exit:       ; preds = %10, %13
-  %16 = phi i64 [ %15, %13 ], [ 0, %10 ]
-  %17 = icmp slt i64 %indvars.iv, %16
-  br i1 %17, label %18, label %24
-
-18:                                               ; preds = %_ZNK11ProfileCall16nb_profiled_argsEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %1, align 8
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %21) #19
+16:                                               ; preds = %_ZNK11ProfileCall16nb_profiled_argsEv.exit
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %20 = load ptr, ptr %1, align 8
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %19) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %10, !llvm.loop !71
+  %22 = load ptr, ptr %9, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %.critedge, label %_ZNK11ProfileCall16nb_profiled_argsEv.exit, !llvm.loop !71
 
-24:                                               ; preds = %_ZNK11ProfileCall16nb_profiled_argsEv.exit
+.critedge:                                        ; preds = %_ZNK11ProfileCall16nb_profiled_argsEv.exit, %16, %8
   ret void
 }
 

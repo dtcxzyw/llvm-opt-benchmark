@@ -1033,7 +1033,7 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
 
 10:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i", %4
   %.044.i.i.i.i = phi i64 [ 32, %4 ], [ %31, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i" ]
-  %.02943.i.i.i.i.idx = phi i64 [ 0, %4 ], [ %.02943.i.i.i.i.add40, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i" ]
+  %.02943.i.i.i.i.idx = phi i64 [ 0, %4 ], [ %.02943.i.i.i.i.add38, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i" ]
   %.02943.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.02943.i.i.i.i.idx
   %.029.val.i.i.i.i = load ptr, ptr %.02943.i.i.i.i.ptr, align 16
   %11 = getelementptr i8, ptr %.02943.i.i.i.i.ptr, i64 8
@@ -1047,17 +1047,17 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
 
 13:                                               ; preds = %10
   %14 = icmp ult i64 %.029.val30.i.i.i.i, 2
-  br i1 %14, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i"
+  br i1 %14, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i": ; preds = %13
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.0.val.pn.i.i.i.i.i.i.i, ptr readonly %0, i64 %1)
   %15 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %15, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.thread2.i.i.i.i"
+  br i1 %15, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.thread2.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.thread2.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i", %10
-  %.02943.i.i.i.i.add39 = add nuw nsw i64 %.02943.i.i.i.i.idx, 40
-  %.ptr42 = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.02943.i.i.i.i.add39
-  %.val32.i.i.i.i = load ptr, ptr %.ptr42, align 8
+  %.02943.i.i.i.i.add37 = add nuw nsw i64 %.02943.i.i.i.i.idx, 40
+  %.ptr40 = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.02943.i.i.i.i.add37
+  %.val32.i.i.i.i = load ptr, ptr %.ptr40, align 8
   %16 = getelementptr i8, ptr %.02943.i.i.i.i.ptr, i64 48
   %.val33.i.i.i.i = load i64, ptr %16, align 16
   %17 = icmp ne i64 %.val33.i.i.i.i, 0
@@ -1077,9 +1077,9 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
   br i1 %20, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.thread5.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.thread5.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.thread2.i.i.i.i"
-  %.02943.i.i.i.i.add38 = add nuw nsw i64 %.02943.i.i.i.i.idx, 80
-  %.ptr41 = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.02943.i.i.i.i.add38
-  %.val35.i.i.i.i = load ptr, ptr %.ptr41, align 16
+  %.02943.i.i.i.i.add36 = add nuw nsw i64 %.02943.i.i.i.i.idx, 80
+  %.ptr39 = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.02943.i.i.i.i.add36
+  %.val35.i.i.i.i = load ptr, ptr %.ptr39, align 16
   %21 = getelementptr i8, ptr %.02943.i.i.i.i.ptr, i64 88
   %.val36.i.i.i.i = load i64, ptr %21, align 8
   %22 = icmp ne i64 %.val36.i.i.i.i, 0
@@ -1091,12 +1091,12 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
 
 23:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.thread5.i.i.i.i"
   %24 = icmp ult i64 %.val36.i.i.i.i, 2
-  br i1 %24, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i"
+  br i1 %24, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i": ; preds = %23
   %bcmp.i.i.i66.i.i.i.i = tail call i32 @bcmp(ptr readonly %.0.val.pn.i.i.i62.i.i.i.i, ptr readonly %0, i64 %1)
   %25 = icmp eq i32 %bcmp.i.i.i66.i.i.i.i, 0
-  br i1 %25, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i"
+  br i1 %25, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.thread5.i.i.i.i"
   %.02943.i.i.i.i.add = add nuw nsw i64 %.02943.i.i.i.i.idx, 120
@@ -1113,15 +1113,15 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
 
 28:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i"
   %29 = icmp ult i64 %.val39.i.i.i.i, 2
-  br i1 %29, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i"
+  br i1 %29, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i": ; preds = %28
   %bcmp.i.i.i73.i.i.i.i = tail call i32 @bcmp(ptr readonly %.0.val.pn.i.i.i69.i.i.i.i, ptr readonly %0, i64 %1)
   %30 = icmp eq i32 %bcmp.i.i.i73.i.i.i.i, 0
-  br i1 %30, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i"
+  br i1 %30, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.thread11.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.thread8.i.i.i.i"
-  %.02943.i.i.i.i.add40 = add nuw nsw i64 %.02943.i.i.i.i.idx, 160
+  %.02943.i.i.i.i.add38 = add nuw nsw i64 %.02943.i.i.i.i.idx, 160
   %31 = add nsw i64 %.044.i.i.i.i, -1
   %32 = icmp samesign ugt i64 %.044.i.i.i.i, 1
   br i1 %32, label %10, label %33, !llvm.loop !39
@@ -1133,37 +1133,37 @@ define dso_local void @_ZN4llvm3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9S
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit95.i.i.i.i": ; preds = %33
   %bcmp.i.i.i94.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(18) getelementptr inbounds nuw (i8, ptr @.str.358, i64 1), ptr noundef nonnull readonly dereferenceable(18) %0, i64 18)
   %34 = icmp eq i32 %bcmp.i.i.i94.i.i.i.i, 0
-  br i1 %34, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread35", label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread"
+  br i1 %34, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33", label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread"
 
-"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47": ; preds = %13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i", %23, %28
-  %.028.i.i.i.i.idx.ph = phi i64 [ %.02943.i.i.i.i.add, %28 ], [ %.02943.i.i.i.i.add38, %23 ], [ %.02943.i.i.i.i.add, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i" ], [ %.02943.i.i.i.i.add38, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i" ], [ %.02943.i.i.i.i.idx, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i" ], [ %.02943.i.i.i.i.idx, %13 ]
-  %.028.i.i.i.i.ptr49 = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.028.i.i.i.i.idx.ph
-  br label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread35"
+"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45": ; preds = %13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i", %23, %28
+  %.028.i.i.i.i.idx.ph = phi i64 [ %.02943.i.i.i.i.add, %28 ], [ %.02943.i.i.i.i.add36, %23 ], [ %.02943.i.i.i.i.add, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit74.i.i.i.i" ], [ %.02943.i.i.i.i.add36, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit67.i.i.i.i" ], [ %.02943.i.i.i.i.idx, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit.i.i.i.i" ], [ %.02943.i.i.i.i.idx, %13 ]
+  %.028.i.i.i.i.ptr47 = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.028.i.i.i.i.idx.ph
+  br label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33"
 
 "_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit": ; preds = %18, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit60.i.i.i.i"
-  %.028.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.02943.i.i.i.i.add39
-  %35 = icmp eq i64 %.02943.i.i.i.i.add39, 5160
-  br i1 %35, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread", label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread35"
+  %.028.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZL12FeatureInfos, i64 %.02943.i.i.i.i.add37
+  %35 = icmp eq i64 %.02943.i.i.i.i.add37, 5160
+  br i1 %35, label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread", label %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33"
 
-"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread35": ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit95.i.i.i.i", %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit"
-  %.028.i.i.i.i37 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12FeatureInfos, i64 5120), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit95.i.i.i.i" ], [ %.028.i.i.i.i.ptr49, %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread47" ]
+"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33": ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit95.i.i.i.i", %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit"
+  %.028.i.i.i.i35 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12FeatureInfos, i64 5120), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm3X8621updateImpliedFeaturesENS2_9StringRefEbRNS2_9StringMapIbNS2_15MallocAllocatorEEEE3$_0EclIPKN12_GLOBAL__N_111FeatureInfoEEEbT_.exit95.i.i.i.i" ], [ %.028.i.i.i.i.ptr47, %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread45" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br i1 %2, label %36, label %67
 
-36:                                               ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread35"
-  %37 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i37, i64 16
+36:                                               ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33"
+  %37 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i35, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !20
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %38, 0
-  %39 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i37, i64 24
+  %.not.i.i.i.i.i.i.i.i = icmp ne i64 %38, 0
+  %39 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i35, i64 24
   %40 = load i64, ptr %39, align 8
-  %.not30.i.i.i.i.i.i.i.i = icmp eq i64 %40, 0
-  %or.cond.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 %.not30.i.i.i.i.i.i.i.i, i1 false
-  %41 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i37, i64 32
+  %.not30.i.i.i.i.i.i.i.i = icmp ne i64 %40, 0
+  %or.cond.i.i.not15.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 true, i1 %.not30.i.i.i.i.i.i.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i35, i64 32
   %42 = load i64, ptr %41, align 8
-  %.not31.i.i.i.i.i.i.i.i = icmp eq i64 %42, 0
-  %or.cond18.i = select i1 %or.cond.i, i1 %.not31.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond18.i, label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader, label %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i
+  %.not31.i.i.i.i.i.i.i.i = icmp ne i64 %42, 0
+  %or.cond.i = select i1 %or.cond.i.i.not15.i, i1 true, i1 %.not31.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i, label %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i, label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader
 
 _ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i:     ; preds = %36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
@@ -1227,8 +1227,8 @@ _ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i:         ; preds = %60, %50
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
   br label %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit.preheader
 
-67:                                               ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread35"
-  %68 = ptrtoint ptr %.028.i.i.i.i37 to i64
+67:                                               ; preds = %"_ZN4llvm7find_ifIRA129_KN12_GLOBAL__N_111FeatureInfoEZNS_3X8621updateImpliedFeaturesENS_9StringRefEbRNS_9StringMapIbNS_15MallocAllocatorEEEE3$_0EEDaOT_T0_.exit.thread33"
+  %68 = ptrtoint ptr %.028.i.i.i.i35 to i64
   %69 = sub i64 %68, ptrtoint (ptr @_ZL12FeatureInfos to i64)
   %70 = sdiv exact i64 %69, 40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
@@ -1249,12 +1249,12 @@ _ZN4llvm6BitsetILj129EEoRERKS1_.exit12.i:         ; preds = %60, %50
   br label %82
 
 81:                                               ; preds = %101
-  %bcmp.i.i.i.i.i.i.i25 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24)
-  %.not9.i.i.i.i.i.i.not.i26 = icmp eq i32 %bcmp.i.i.i.i.i.i.i25, 0
-  br i1 %.not9.i.i.i.i.i.i.not.i26, label %_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit, label %80, !llvm.loop !43
+  %bcmp.i.i.i.i.i.i.i24 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24)
+  %.not9.i.i.i.i.i.i.not.i25 = icmp eq i32 %bcmp.i.i.i.i.i.i.i24, 0
+  br i1 %.not9.i.i.i.i.i.i.not.i25, label %_ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit, label %80, !llvm.loop !43
 
 82:                                               ; preds = %101, %80
-  %indvars.iv.i18 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i23, %101 ]
+  %indvars.iv.i18 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i22, %101 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
   %83 = getelementptr inbounds nuw [129 x %"struct.(anonymous namespace)::FeatureInfo"], ptr @_ZL12FeatureInfos, i64 0, i64 %indvars.iv.i18, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
@@ -1278,20 +1278,20 @@ _ZNK4llvm6BitsetILj129EEanERKS1_.exit.i:          ; preds = %84
   %.not.i.i.i.i.i.i.i.i19 = icmp eq i64 %90, 0
   %91 = load i64, ptr %78, align 8
   %.not30.i.i.i.i.i.i.i.i20 = icmp eq i64 %91, 0
-  %or.cond.i21 = select i1 %.not.i.i.i.i.i.i.i.i19, i1 %.not30.i.i.i.i.i.i.i.i20, i1 false
-  br i1 %or.cond.i21, label %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i, label %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i22
+  %or.cond.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i19, i1 %.not30.i.i.i.i.i.i.i.i20, i1 false
+  br i1 %or.cond.i.i.i, label %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i, label %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i21
 
-_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i22:   ; preds = %_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i
+_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i21:   ; preds = %_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
   br label %93
 
 _ZNK4llvm6BitsetILj129EE3anyEv.exit.i:            ; preds = %_ZNK4llvm6BitsetILj129EEanERKS1_.exit.i
   %92 = load i64, ptr %79, align 8, !tbaa !20
-  %.not31.i.i.i.i.i.i.i.i27 = icmp eq i64 %92, 0
+  %.not31.i.i.i.i.i.i.i.not.i = icmp eq i64 %92, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  br i1 %.not31.i.i.i.i.i.i.i.i27, label %101, label %93
+  br i1 %.not31.i.i.i.i.i.i.i.not.i, label %101, label %93
 
-93:                                               ; preds = %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i22
+93:                                               ; preds = %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.thread.i21
   %94 = and i64 %indvars.iv.i18, 63
   %95 = shl nuw i64 1, %94
   %96 = lshr i64 %indvars.iv.i18, 6
@@ -1303,9 +1303,9 @@ _ZNK4llvm6BitsetILj129EE3anyEv.exit.i:            ; preds = %_ZNK4llvm6BitsetILj
   br label %101
 
 101:                                              ; preds = %93, %_ZNK4llvm6BitsetILj129EE3anyEv.exit.i
-  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i18, 1
-  %.not.i24 = icmp eq i64 %indvars.iv.next.i23, 129
-  br i1 %.not.i24, label %81, label %82, !llvm.loop !47
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i18, 1
+  %.not.i23 = icmp eq i64 %indvars.iv.next.i22, 129
+  br i1 %.not.i23, label %81, label %82, !llvm.loop !47
 
 _ZL26getImpliedDisabledFeaturesRN4llvm6BitsetILj129EEEj.exit: ; preds = %81
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
@@ -1327,8 +1327,8 @@ _ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit: ; preds = %_ZL2
   %107 = getelementptr inbounds nuw [3 x i64], ptr %8, i64 0, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !20
   %109 = and i64 %108, %104
-  %.not44 = icmp eq i64 %109, 0
-  br i1 %.not44, label %.critedge, label %110
+  %.not42 = icmp eq i64 %109, 0
+  br i1 %.not42, label %.critedge, label %110
 
 110:                                              ; preds = %_ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit
   %111 = getelementptr inbounds nuw [129 x %"struct.(anonymous namespace)::FeatureInfo"], ptr @_ZL12FeatureInfos, i64 0, i64 %indvars.iv

@@ -1716,25 +1716,25 @@ define internal noundef i64 @ossl_ec_point_initialize(i32 noundef %0, ptr nounde
 .preheader:                                       ; preds = %8
   %10 = load i64, ptr %1, align 8, !tbaa !6
   %.not38 = icmp eq i32 %0, 1
-  br i1 %.not38, label %14, label %11
+  br i1 %.not38, label %15, label %11
 
 11:                                               ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !6
-  br label %14
+  %14 = icmp eq i32 %0, 2
+  br label %15
 
-14:                                               ; preds = %.preheader, %11
+15:                                               ; preds = %.preheader, %11
   %.sink = phi i64 [ %13, %11 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %11 ], [ 1, %.preheader ]
+  %.185.i.lcssa = phi i1 [ %14, %11 ], [ true, %.preheader ]
   store i64 %.sink, ptr %4, align 8, !tbaa !6
-  %15 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %15, label %rb_scan_args_set.exit, label %16
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %16
 
-16:                                               ; preds = %14, %8
+16:                                               ; preds = %15, %8
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #10
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %14
+rb_scan_args_set.exit:                            ; preds = %15
   %17 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
   %18 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %17) #8
   %.not26 = icmp eq i64 %18, 0

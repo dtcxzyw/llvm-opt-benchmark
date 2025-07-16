@@ -5553,8 +5553,8 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8, !tbaa !425
   %16 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #19
-  %.not125 = icmp eq ptr %15, %16
-  br i1 %.not125, label %_ZN4llvm11raw_ostreamlsEPKc.exit51, label %17
+  %.not124 = icmp eq ptr %15, %16
+  br i1 %.not124, label %_ZN4llvm11raw_ostreamlsEPKc.exit51, label %17
 
 17:                                               ; preds = %11
   %.val = load ptr, ptr %12, align 8, !tbaa !682
@@ -5735,8 +5735,8 @@ _ZNKSt8_Rb_treeIPKN5clang11DeclContextESt4pairIKS3_NS0_17ExternalASTMerger8DCOri
 _ZNKSt3mapIPKN5clang11DeclContextENS0_17ExternalASTMerger8DCOriginESt4lessIS3_ESaISt4pairIKS3_S5_EEE5countERS9_.exit: ; preds = %_ZNKSt8_Rb_treeIPKN5clang11DeclContextESt4pairIKS3_NS0_17ExternalASTMerger8DCOriginEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i
   %116 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %117 = load ptr, ptr %116, align 8, !tbaa !57
-  %.not126 = icmp ult ptr %106, %117
-  br i1 %.not126, label %.critedge, label %.lr.ph.i.i.i.i
+  %.not125 = icmp ult ptr %106, %117
+  br i1 %.not125, label %.critedge, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt3mapIPKN5clang11DeclContextENS0_17ExternalASTMerger8DCOriginESt4lessIS3_ESaISt4pairIKS3_S5_EEE5countERS9_.exit
   %118 = load ptr, ptr %12, align 8, !tbaa !682
@@ -5793,7 +5793,7 @@ _ZNKSt3mapIPKN5clang11DeclContextENS0_17ExternalASTMerger8DCOriginESt4lessIS3_ES
   br i1 %.not.i, label %_ZN5clang17ExternalASTMerger20HasImporterForOriginERNS_10ASTContextE.exit, label %134
 
 _ZN5clang17ExternalASTMerger20HasImporterForOriginERNS_10ASTContextE.exit: ; preds = %.lr.ph.i
-  br i1 %.not125, label %_ZN4llvm11raw_ostreamlsEPKc.exit87, label %139
+  br i1 %.not124, label %_ZN4llvm11raw_ostreamlsEPKc.exit87, label %139
 
 139:                                              ; preds = %_ZN5clang17ExternalASTMerger20HasImporterForOriginERNS_10ASTContextE.exit
   %140 = getelementptr i8, ptr %118, i64 88
@@ -6037,7 +6037,7 @@ _ZN5clang17ExternalASTMerger17ForceRecordOriginEPKNS_11DeclContextENS0_8DCOrigin
   br label %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit.thread
 
 .critedge:                                        ; preds = %134, %_ZNKSt3mapIPKN5clang11DeclContextENS0_17ExternalASTMerger8DCOriginESt4lessIS3_ESaISt4pairIKS3_S5_EEE2atERS9_.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit51, %_ZNKSt8_Rb_treeIPKN5clang11DeclContextESt4pairIKS3_NS0_17ExternalASTMerger8DCOriginEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIPKN5clang11DeclContextENS0_17ExternalASTMerger8DCOriginESt4lessIS3_ESaISt4pairIKS3_S5_EEE5countERS9_.exit
-  br i1 %.not125, label %_ZN4llvm11raw_ostreamlsEPKc.exit111, label %251
+  br i1 %.not124, label %_ZN4llvm11raw_ostreamlsEPKc.exit111, label %251
 
 251:                                              ; preds = %.critedge
   %.val28 = load ptr, ptr %12, align 8, !tbaa !682
@@ -6150,8 +6150,8 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit.thread: ; preds =
   %314 = and i32 %313, 127
   %315 = add nsw i32 %314, -61
   %316 = icmp ult i32 %315, -5
-  %.not24127 = icmp eq ptr %311, null
-  %.not24 = or i1 %.not24127, %316
+  %.not24126 = icmp eq ptr %311, null
+  %.not24 = or i1 %.not24126, %316
   br i1 %.not24, label %326, label %317
 
 317:                                              ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit.thread
@@ -6169,7 +6169,7 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit.thread: ; preds =
 
 326:                                              ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit.thread
   %327 = icmp ne i32 %314, 22
-  %.not25 = or i1 %.not24127, %327
+  %.not25 = or i1 %.not24126, %327
   br i1 %.not25, label %336, label %328
 
 328:                                              ; preds = %326
@@ -6179,8 +6179,8 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit.thread: ; preds =
   %332 = or i16 %331, 256
   store i16 %332, ptr %330, align 8
   %333 = load ptr, ptr %329, align 8
-  %.not.i114.not = icmp eq ptr %333, null
-  br i1 %.not.i114.not, label %_ZNK5clang11DeclContext28setHasExternalVisibleStorageEb.exit, label %334
+  %.not.i113.not = icmp eq ptr %333, null
+  br i1 %.not.i113.not, label %_ZNK5clang11DeclContext28setHasExternalVisibleStorageEb.exit, label %334
 
 334:                                              ; preds = %328
   %335 = or i16 %331, 768
@@ -6190,7 +6190,7 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit.thread: ; preds =
 336:                                              ; preds = %326
   %337 = add nsw i32 %314, -22
   %338 = icmp ult i32 %337, -5
-  %.not26 = or i1 %.not24127, %338
+  %.not26 = or i1 %.not24126, %338
   br i1 %.not26, label %_ZNK5clang11DeclContext28setHasExternalVisibleStorageEb.exit, label %339
 
 339:                                              ; preds = %336

@@ -727,30 +727,30 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr noundef captures(no
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21
-  %.not = icmp eq i64 %.146, %22
-  br i1 %.not, label %._crit_edge.thread, label %25
+  %25 = icmp eq i64 %.146, %22
+  br i1 %25, label %._crit_edge.thread, label %26
 
-25:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   %.not50 = icmp eq i64 %.146, 0
-  br i1 %.not50, label %32, label %26
+  br i1 %.not50, label %33, label %27
 
-26:                                               ; preds = %25
-  %27 = getelementptr i8, ptr %2, i64 %.146
-  %28 = getelementptr i8, ptr %27, i64 -1
-  %29 = load i8, ptr %28, align 1, !tbaa !12
-  %30 = icmp eq i8 %29, 32
-  %31 = sext i1 %30 to i64
-  %spec.select52 = add i64 %.146, %31
-  br label %32
+27:                                               ; preds = %26
+  %28 = getelementptr i8, ptr %2, i64 %.146
+  %29 = getelementptr i8, ptr %28, i64 -1
+  %30 = load i8, ptr %29, align 1, !tbaa !12
+  %31 = icmp eq i8 %30, 32
+  %32 = sext i1 %31 to i64
+  %spec.select52 = add i64 %.146, %32
+  br label %33
 
-32:                                               ; preds = %26, %25
-  %.247 = phi i64 [ 0, %25 ], [ %spec.select52, %26 ]
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %.247
-  store i8 0, ptr %33, align 1, !tbaa !12
+33:                                               ; preds = %27, %26
+  %.247 = phi i64 [ 0, %26 ], [ %spec.select52, %27 ]
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.247
+  store i8 0, ptr %34, align 1, !tbaa !12
   store i64 %.247, ptr %3, align 8, !tbaa !11
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %8, %._crit_edge, %32, %1
+._crit_edge.thread:                               ; preds = %8, %._crit_edge, %33, %1
   ret void
 }
 

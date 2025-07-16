@@ -301,15 +301,15 @@ define dso_local range(i32 0, 2) i32 @oidset_contains(ptr noundef readonly captu
   %31 = shl nuw i32 3, %18
   %32 = and i32 %31, %16
   %.not33.i = icmp eq i32 %32, 0
-  %spec.select.i = select i1 %.not33.i, i32 %.027.i, i32 %5
+  %33 = icmp ne i32 %.027.i, %5
+  %34 = and i1 %33, %.not33.i
+  %35 = zext i1 %34 to i32
   br label %kh_get_oid_set.exit
 
 kh_get_oid_set.exit:                              ; preds = %.critedge2.i, %2, %.critedge.i
-  %.1.i = phi i32 [ 0, %2 ], [ %spec.select.i, %.critedge.i ], [ %5, %.critedge2.i ]
+  %.1.i = phi i32 [ 0, %2 ], [ %35, %.critedge.i ], [ 0, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
-  %33 = icmp ne i32 %.1.i, %5
-  %34 = zext i1 %33 to i32
-  ret i32 %34
+  ret i32 %.1.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

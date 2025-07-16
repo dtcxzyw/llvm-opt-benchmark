@@ -644,8 +644,8 @@ _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i: ; preds = %44, %_
   %.pre.i.i = load ptr, ptr %8, align 8, !tbaa !42
   %61 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 56
   %62 = load ptr, ptr %61, align 8, !tbaa !57
-  %.not29.i = icmp eq ptr %.sroa.011.0.i, %62
-  br i1 %.not29.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, label %63
+  %.not27.i = icmp eq ptr %.sroa.011.0.i, %62
+  br i1 %.not27.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 16

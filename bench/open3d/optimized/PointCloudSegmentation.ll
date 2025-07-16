@@ -2004,12 +2004,13 @@ _ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge: ; preds
   %.pre44 = load ptr, ptr %45, align 8, !tbaa !28
   %.pre47 = ptrtoint ptr %.pre44 to i64
   %.pre48 = ptrtoint ptr %.pre to i64
+  %54 = icmp eq ptr %.pre44, %.pre
   br label %.noexc23
 
 .noexc23:                                         ; preds = %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge, %42
   %.pre-phi49 = phi i64 [ %.pre48, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ %49, %42 ]
   %.pre-phi = phi i64 [ %.pre47, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ %48, %42 ]
-  %54 = phi ptr [ %.pre44, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ %46, %42 ]
+  %.not.i.i = phi i1 [ %54, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ true, %42 ]
   %55 = phi ptr [ %.pre, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ %47, %42 ]
   %56 = phi ptr [ %53, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ null, %42 ]
   store ptr %56, ptr %17, align 8, !tbaa !14
@@ -2059,8 +2060,7 @@ _ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge: ; preds
   br label %.preheader
 
 80:                                               ; preds = %65
-  %.not143.i = icmp eq ptr %54, %55
-  br i1 %.not143.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  br i1 %.not.i.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %80
   %81 = ashr exact i64 %58, 3
@@ -2236,7 +2236,6 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEEE6isZeroERKd.exit: ; pred
   br i1 %170, label %207, label %172
 
 172:                                              ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEEE6isZeroERKd.exit
-  %.not.i.i = icmp eq ptr %54, %55
   br i1 %.not.i.i, label %173, label %_ZSt8_DestroyIPmmEvT_S1_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPmmEvT_S1_RSaIT0_E.exit.i.i:        ; preds = %172

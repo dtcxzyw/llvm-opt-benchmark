@@ -3305,12 +3305,12 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal7Program30IsParameterBlockS
   br label %.lr.ph.i.i.i.preheader
 
 ._crit_edge.split:                                ; preds = %_ZNKSt3setIPdSt4lessIS0_ESaIS0_EE5countERKS0_.exit
-  %25 = icmp slt i32 %39, 2
+  %25 = icmp slt i32 %38, 2
   br i1 %25, label %._crit_edge.split.thread, label %._crit_edge31
 
 .lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph.i.i.i.preheader.preheader, %_ZNKSt3setIPdSt4lessIS0_ESaIS0_EE5countERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.i.i.preheader.preheader ], [ %indvars.iv.next, %_ZNKSt3setIPdSt4lessIS0_ESaIS0_EE5countERKS0_.exit ]
-  %.01724 = phi i32 [ 0, %.lr.ph.i.i.i.preheader.preheader ], [ %39, %_ZNKSt3setIPdSt4lessIS0_ESaIS0_EE5countERKS0_.exit ]
+  %.01724 = phi i32 [ 0, %.lr.ph.i.i.i.preheader.preheader ], [ %38, %_ZNKSt3setIPdSt4lessIS0_ESaIS0_EE5countERKS0_.exit ]
   %26 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = load ptr, ptr %27, align 8, !tbaa !51
@@ -3336,15 +3336,13 @@ _ZNKSt8_Rb_treeIPdS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPKSt1
 33:                                               ; preds = %_ZNKSt8_Rb_treeIPdS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS0_EPKSt18_Rb_tree_node_baseRKS0_.exit.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !113
-  %36 = icmp ult ptr %28, %35
-  %spec.select.i.i = select i1 %36, ptr %9, ptr %.19.i.i.i
+  %36 = icmp uge ptr %28, %35
+  %37 = zext i1 %36 to i32
   br label %_ZNKSt3setIPdSt4lessIS0_ESaIS0_EE5countERKS0_.exit
 
 _ZNKSt3setIPdSt4lessIS0_ESaIS0_EE5countERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeIPdS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS0_EPKSt18_Rb_tree_node_baseRKS0_.exit.i.i, %33
-  %.sroa.0.0.i.i = phi ptr [ %9, %_ZNKSt8_Rb_treeIPdS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS0_EPKSt18_Rb_tree_node_baseRKS0_.exit.i.i ], [ %spec.select.i.i, %33 ]
-  %37 = icmp ne ptr %.sroa.0.0.i.i, %9
-  %38 = zext i1 %37 to i32
-  %39 = add i32 %.01724, %38
+  %.sroa.0.0.i.i = phi i32 [ 0, %_ZNKSt8_Rb_treeIPdS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS0_EPKSt18_Rb_tree_node_baseRKS0_.exit.i.i ], [ %37, %33 ]
+  %38 = add i32 %.sroa.0.0.i.i, %.01724
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph.i.i.i.preheader, !llvm.loop !186

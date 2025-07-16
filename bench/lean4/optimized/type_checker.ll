@@ -20743,10 +20743,10 @@ _ZN4lean4exprC2ERKS0_.exit34:                     ; preds = %42, %40, %34, %43
   br i1 %74, label %.lr.ph, label %_ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39, !llvm.loop !359
 
 _ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39: ; preds = %70, %.noexc37._ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39.loopexit_crit_edge
-  %75 = phi i64 [ %.pre.pre, %.noexc37._ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39.loopexit_crit_edge ], [ %73, %70 ]
-  %.lcssa = phi i64 [ %53, %.noexc37._ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39.loopexit_crit_edge ], [ %72, %70 ]
-  %.not = icmp eq i64 %75, %.lcssa
-  br i1 %.not, label %_ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39.thread, label %_ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit
+  %.pre = phi i64 [ %.pre.pre, %.noexc37._ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39.loopexit_crit_edge ], [ %73, %70 ]
+  %.lcssa.ph = phi i64 [ %53, %.noexc37._ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39.loopexit_crit_edge ], [ %72, %70 ]
+  %75 = icmp eq i64 %.pre, %.lcssa.ph
+  br i1 %75, label %_ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39.thread, label %_ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit
 
 _ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit: ; preds = %.noexc35, %_ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39, %49
   br label %_ZN4lean12type_checker9is_def_eqERKNS_4exprES3_.exit39.thread

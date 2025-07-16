@@ -230,7 +230,7 @@ define hidden noundef zeroext i1 @_ZNK4Node16is_cloop_ind_varEv(ptr noundef nonn
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 15
   %5 = icmp eq i32 %4, 12
-  br i1 %5, label %6, label %71
+  br i1 %5, label %6, label %_ZNK19BaseCountedLoopNode3phiEv.exit
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -240,7 +240,7 @@ define hidden noundef zeroext i1 @_ZNK4Node16is_cloop_ind_varEv(ptr noundef nonn
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1023
   %13 = icmp eq i32 %12, 864
-  br i1 %13, label %14, label %71
+  br i1 %13, label %14, label %_ZNK19BaseCountedLoopNode3phiEv.exit
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -319,17 +319,13 @@ _ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i:     ; preds = %48
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 15
   %68 = icmp eq i32 %67, 12
-  %spec.select.i.i = select i1 %68, ptr %64, ptr null
+  %69 = icmp eq ptr %64, %0
+  %70 = and i1 %69, %68
   br label %_ZNK19BaseCountedLoopNode3phiEv.exit
 
-_ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %14, %20, %28, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i, %48, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i, %56, %60
-  %69 = phi ptr [ null, %56 ], [ null, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i ], [ null, %48 ], [ null, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i ], [ null, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i ], [ %spec.select.i.i, %60 ], [ null, %14 ], [ null, %20 ], [ null, %28 ]
-  %70 = icmp eq ptr %69, %0
-  br label %71
-
-71:                                               ; preds = %_ZNK19BaseCountedLoopNode3phiEv.exit, %6, %1
-  %72 = phi i1 [ false, %6 ], [ false, %1 ], [ %70, %_ZNK19BaseCountedLoopNode3phiEv.exit ]
-  ret i1 %72
+_ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %60, %56, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i, %48, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, %28, %20, %14, %6, %1
+  %71 = phi i1 [ false, %6 ], [ false, %1 ], [ false, %56 ], [ false, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i ], [ false, %48 ], [ false, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i ], [ false, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i ], [ %70, %60 ], [ false, %14 ], [ false, %20 ], [ false, %28 ]
+  ret i1 %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

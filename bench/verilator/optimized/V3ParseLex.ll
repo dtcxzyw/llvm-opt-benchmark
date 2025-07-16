@@ -24821,26 +24821,26 @@ _ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state.exit: ; preds = %3, %6, %18
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %50 = load ptr, ptr %49, align 8, !tbaa !38
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %.thread, label %51
+  br i1 %.not, label %.critedge, label %51
 
 51:                                               ; preds = %_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %53 = load i64, ptr %52, align 8, !tbaa !39
   %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !40
-  %.not10 = icmp eq ptr %1, %55
-  br i1 %.not10, label %58, label %.thread
+  %56 = icmp eq ptr %1, %55
+  br i1 %56, label %59, label %.critedge
 
-.thread:                                          ; preds = %_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state.exit, %51
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store i32 1, ptr %56, align 4, !tbaa !224
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 0, ptr %57, align 8, !tbaa !225
-  br label %58
+.critedge:                                        ; preds = %_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state.exit, %51
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  store i32 1, ptr %57, align 4, !tbaa !224
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i32 0, ptr %58, align 8, !tbaa !225
+  br label %59
 
-58:                                               ; preds = %.thread, %51
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %59, align 4, !tbaa !226
+59:                                               ; preds = %.critedge, %51
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i32 0, ptr %60, align 4, !tbaa !226
   store i32 %5, ptr %4, align 4, !tbaa !189
   ret void
 }
@@ -25057,7 +25057,7 @@ define dso_local void @_ZN11V3LexerBase16yy_delete_bufferEP15yy_buffer_state(ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load ptr, ptr %4, align 8, !tbaa !38
   %.not7 = icmp eq ptr %5, null
-  br i1 %.not7, label %.thread, label %6
+  br i1 %.not7, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -25065,25 +25065,25 @@ define dso_local void @_ZN11V3LexerBase16yy_delete_bufferEP15yy_buffer_state(ptr
   %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = icmp eq ptr %1, %10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %6
   store ptr null, ptr %9, align 8, !tbaa !40
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %12, %6
+.critedge:                                        ; preds = %3, %12, %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !214
   %.not8 = icmp eq i32 %14, 0
   br i1 %.not8, label %18, label %15
 
-15:                                               ; preds = %.thread
+15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !178
   tail call void @free(ptr noundef %17) #36
   br label %18
 
-18:                                               ; preds = %15, %.thread
+18:                                               ; preds = %15, %.critedge
   tail call void @free(ptr noundef nonnull %1) #36
   br label %19
 
@@ -25097,7 +25097,7 @@ declare ptr @__errno_location() local_unnamed_addr #17
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -25118,7 +25118,7 @@ define dso_local void @_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state(ptr 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %14 = load ptr, ptr %13, align 8, !tbaa !38
   %.not11 = icmp eq ptr %14, null
-  br i1 %.not11, label %.thread, label %15
+  br i1 %.not11, label %.critedge, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -25126,7 +25126,7 @@ define dso_local void @_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state(ptr 
   %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !40
   %20 = icmp eq ptr %1, %19
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -25150,9 +25150,9 @@ define dso_local void @_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state(ptr 
   %37 = load i8, ptr %36, align 1, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i8 %37, ptr %38, align 8, !tbaa !51
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %2, %21, %15
+.critedge:                                        ; preds = %3, %2, %21, %15
   ret void
 }
 

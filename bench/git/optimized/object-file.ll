@@ -2840,18 +2840,14 @@ define dso_local i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %1, p
 19:                                               ; preds = %17
   %20 = add nuw nsw i64 %.0811.i, 1
   %exitcond.not.i = icmp eq i64 %20, 3
-  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %17, !llvm.loop !118
+  br i1 %exitcond.not.i, label %.critedge, label %17, !llvm.loop !118
 
 .split.loop.exit9.i:                              ; preds = %17
   %21 = trunc nuw nsw i64 %.0811.i to i32
-  br label %hash_algo_by_ptr.exit
+  %22 = icmp eq i32 %13, %21
+  br i1 %22, label %122, label %.critedge
 
-hash_algo_by_ptr.exit:                            ; preds = %19, %.split.loop.exit9.i
-  %.2.i = phi i32 [ %21, %.split.loop.exit9.i ], [ 0, %19 ]
-  %.not12 = icmp eq i32 %.2.i, %13
-  br i1 %.not12, label %122, label %22
-
-22:                                               ; preds = %hash_algo_by_ptr.exit
+.critedge:                                        ; preds = %19, %.split.loop.exit9.i
   %23 = sext i32 %13 to i64
   %24 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %23
   %25 = and i32 %3, 32
@@ -2869,7 +2865,7 @@ hash_algo_by_ptr.exit:                            ; preds = %19, %.split.loop.ex
   %.not.i13 = icmp eq i32 %29, 0
   br i1 %.not.i13, label %38, label %30
 
-30:                                               ; preds = %22
+30:                                               ; preds = %.critedge
   %.not74.i = icmp eq i32 %25, 0
   br i1 %.not74.i, label %oid_object_info_convert.exit, label %31
 
@@ -2883,7 +2879,7 @@ hash_algo_by_ptr.exit:                            ; preds = %19, %.split.loop.ex
   call void (ptr, ...) @die(ptr noundef %32, ptr noundef %33, ptr noundef %37) #26
   unreachable
 
-38:                                               ; preds = %22
+38:                                               ; preds = %.critedge
   %.not58.i = icmp eq ptr %2, null
   br i1 %.not58.i, label %.thread17, label %39
 
@@ -3087,7 +3083,7 @@ oid_object_info_convert.exit:                     ; preds = %.thread17, %103, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #27
   br label %obj_read_unlock.exit
 
-122:                                              ; preds = %hash_algo_by_ptr.exit, %4
+122:                                              ; preds = %.split.loop.exit9.i, %4
   %123 = load i32, ptr @obj_read_use_lock, align 4, !tbaa !44
   %.not.i15 = icmp eq i32 %123, 0
   br i1 %.not.i15, label %obj_read_lock.exit, label %124

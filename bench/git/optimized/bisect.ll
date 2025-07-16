@@ -3443,8 +3443,8 @@ define internal fastcc ptr @join_oid_array_hex() unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %5
 
-5:                                                ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+5:                                                ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %6 = load ptr, ptr @good_revs, align 8, !tbaa !113
   %7 = getelementptr inbounds nuw %struct.object_id, ptr %6, i64 %indvars.iv
   %8 = call ptr @oid_to_hex(ptr noundef %7) #22
@@ -3453,7 +3453,7 @@ define internal fastcc ptr @join_oid_array_hex() unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @good_revs, i64 8), align 8, !tbaa !51
   %11 = icmp ugt i64 %10, %indvars.iv.next
-  br i1 %11, label %12, label %21
+  br i1 %11, label %12, label %._crit_edge
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %1, align 8, !tbaa !127
@@ -3464,37 +3464,33 @@ strbuf_avail.exit.i:                              ; preds = %12
   %14 = load i64, ptr %3, align 8, !tbaa !44
   %.neg.i = add i64 %14, 1
   %.not.i = icmp eq i64 %13, %.neg.i
-  br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
+  br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %15
 
 strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %12
   call void @strbuf_grow(ptr noundef nonnull %1, i64 noundef 1) #22
   %.pre.i = load i64, ptr %3, align 8, !tbaa !44
   %.pre7.i = add i64 %.pre.i, 1
-  br label %strbuf_addch.exit
+  br label %15
 
-strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %strbuf_avail.exit.thread.i
+15:                                               ; preds = %strbuf_avail.exit.thread.i, %strbuf_avail.exit.i
   %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %15 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %14, %strbuf_avail.exit.i ]
-  %16 = load ptr, ptr %4, align 8, !tbaa !47
+  %16 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %14, %strbuf_avail.exit.i ]
+  %17 = load ptr, ptr %4, align 8, !tbaa !47
   store i64 %.pre-phi.i, ptr %3, align 8, !tbaa !44
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
-  store i8 32, ptr %17, align 1, !tbaa !48
-  %18 = load ptr, ptr %4, align 8, !tbaa !47
-  %19 = load i64, ptr %3, align 8, !tbaa !44
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
-  store i8 0, ptr %20, align 1, !tbaa !48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %16
+  store i8 32, ptr %18, align 1, !tbaa !48
+  %19 = load ptr, ptr %4, align 8, !tbaa !47
+  %20 = load i64, ptr %3, align 8, !tbaa !44
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  store i8 0, ptr %21, align 1, !tbaa !48
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @good_revs, i64 8), align 8, !tbaa !51
-  br label %21
+  %22 = icmp ugt i64 %.pre, %indvars.iv.next
+  br i1 %22, label %5, label %._crit_edge, !llvm.loop !128
 
-21:                                               ; preds = %5, %strbuf_addch.exit
-  %22 = phi i64 [ %10, %5 ], [ %.pre, %strbuf_addch.exit ]
-  %23 = icmp ugt i64 %22, %indvars.iv.next
-  br i1 %23, label %5, label %._crit_edge, !llvm.loop !128
-
-._crit_edge:                                      ; preds = %21, %0
-  %24 = call ptr @strbuf_detach(ptr noundef nonnull %1, ptr noundef null) #22
+._crit_edge:                                      ; preds = %5, %15, %0
+  %23 = call ptr @strbuf_detach(ptr noundef nonnull %1, ptr noundef null) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #22
-  ret ptr %24
+  ret ptr %23
 }
 
 declare i32 @refs_read_ref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3

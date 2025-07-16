@@ -182,61 +182,60 @@ define internal void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20
   %8 = load i64, ptr %2, align 8, !alias.scope !19, !noundef !7
   %9 = sub i64 %8, %7
   %10 = icmp ugt i64 %5, %9
-  br i1 %10, label %11, label %15
+  br i1 %10, label %12, label %.thread
 
-11:                                               ; preds = %3
-  %12 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdf86ab8c8f3492c5E.llvm.6171212519519096039"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %7, i64 noundef %5)
-  %13 = extractvalue { i64, i64 } %12, 0
-  %14 = icmp eq i64 %13, -9223372036854775807
-  br i1 %14, label %._crit_edge.i, label %24
+.thread:                                          ; preds = %3
+  %11 = load ptr, ptr %1, align 8, !nonnull !7, !align !12, !noundef !7
+  br label %26
 
-._crit_edge.i:                                    ; preds = %11
+12:                                               ; preds = %3
+  %13 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdf86ab8c8f3492c5E.llvm.6171212519519096039"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %7, i64 noundef %5)
+  %14 = extractvalue { i64, i64 } %13, 0
+  %15 = icmp eq i64 %14, -9223372036854775807
+  br i1 %15, label %16, label %24
+
+16:                                               ; preds = %12
   %.pre.i = load i64, ptr %2, align 8, !alias.scope !19
   %.pre9.i = sub i64 %.pre.i, %7
+  %17 = icmp ule i64 %5, %.pre9.i
   %.pre = load i64, ptr %6, align 8, !alias.scope !22, !noalias !29
   %.pre19 = sub i64 %.pre.i, %.pre
-  br label %15
-
-15:                                               ; preds = %3, %._crit_edge.i
-  %.pre-phi = phi i64 [ %9, %3 ], [ %.pre19, %._crit_edge.i ]
-  %16 = phi i64 [ %7, %3 ], [ %.pre, %._crit_edge.i ]
-  %.pre-phi.i = phi i64 [ %9, %3 ], [ %.pre9.i, %._crit_edge.i ]
-  %17 = icmp ule i64 %5, %.pre-phi.i
+  %18 = icmp ugt i64 %5, %.pre19
   tail call void @llvm.assume(i1 %17)
-  %18 = load ptr, ptr %1, align 8, !nonnull !7, !align !12, !noundef !7
-  %19 = icmp ugt i64 %5, %.pre-phi
-  br i1 %19, label %20, label %26
+  %19 = load ptr, ptr %1, align 8, !nonnull !7, !align !12, !noundef !7
+  br i1 %18, label %20, label %26
 
-20:                                               ; preds = %15
-  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdf86ab8c8f3492c5E.llvm.6171212519519096039"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %16, i64 noundef %5), !noalias !29
+20:                                               ; preds = %16
+  %21 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdf86ab8c8f3492c5E.llvm.6171212519519096039"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.pre, i64 noundef %5), !noalias !29
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.6171212519519096039(i64 noundef %22, i64 %23), !noalias !29
   %.pre.i.i = load i64, ptr %6, align 8, !alias.scope !31, !noalias !29
   br label %26
 
-24:                                               ; preds = %11
+24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 163208757251 to ptr), ptr %25, align 8
-  br label %35
+  br label %36
 
-26:                                               ; preds = %20, %15
-  %27 = phi i64 [ %16, %15 ], [ %.pre.i.i, %20 ]
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load ptr, ptr %28, align 8, !alias.scope !31, !noalias !29, !nonnull !7, !noundef !7
-  %30 = getelementptr inbounds i8, ptr %29, i64 %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %18, i64 %5, i1 false)
-  %31 = load i64, ptr %6, align 8, !alias.scope !31, !noalias !29, !noundef !7
-  %32 = add i64 %31, %5
-  store i64 %32, ptr %6, align 8, !alias.scope !31, !noalias !29
-  %33 = getelementptr inbounds i8, ptr %18, i64 %5
-  store ptr %33, ptr %1, align 8
+26:                                               ; preds = %.thread, %20, %16
+  %27 = phi ptr [ %19, %16 ], [ %19, %20 ], [ %11, %.thread ]
+  %28 = phi i64 [ %.pre, %16 ], [ %.pre.i.i, %20 ], [ %7, %.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load ptr, ptr %29, align 8, !alias.scope !31, !noalias !29, !nonnull !7, !noundef !7
+  %31 = getelementptr inbounds i8, ptr %30, i64 %28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull readonly align 1 %27, i64 %5, i1 false)
+  %32 = load i64, ptr %6, align 8, !alias.scope !31, !noalias !29, !noundef !7
+  %33 = add i64 %32, %5
+  store i64 %33, ptr %6, align 8, !alias.scope !31, !noalias !29
+  %34 = getelementptr inbounds i8, ptr %27, i64 %5
+  store ptr %34, ptr %1, align 8
   store i64 0, ptr %4, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %5, ptr %34, align 8
-  br label %35
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %5, ptr %35, align 8
+  br label %36
 
-35:                                               ; preds = %26, %24
+36:                                               ; preds = %26, %24
   %storemerge = phi i64 [ 1, %24 ], [ 0, %26 ]
   store i64 %storemerge, ptr %0, align 8
   ret void

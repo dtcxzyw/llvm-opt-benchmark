@@ -1176,8 +1176,8 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager8containsERK3tbvRK7svectorIjj
 .split:                                           ; preds = %5
   %9 = getelementptr inbounds i8, ptr %6, i64 -4
   %10 = load i32, ptr %9, align 4, !tbaa !17
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.split20.us, label %.lr.ph.preheader
+  %.not27 = icmp eq i32 %10, 0
+  br i1 %.not27, label %.split20.us, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.split
   %wide.trip.count = zext i32 %10 to i64
@@ -1185,55 +1185,55 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager8containsERK3tbvRK7svectorIjj
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %select.unfold ]
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4, !tbaa !17
-  %14 = shl i32 %13, 1
-  %15 = lshr i32 %14, 5
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw [1 x i32], ptr %1, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !17
-  %19 = and i32 %14, 30
-  %20 = shl nuw nsw i32 1, %19
-  %21 = and i32 %20, %18
-  %.not.i.i = icmp eq i32 %21, 0
-  %22 = select i1 %.not.i.i, i32 0, i32 2
-  %23 = shl nuw i32 2, %19
-  %24 = and i32 %23, %18
-  %25 = icmp ne i32 %24, 0
-  %26 = zext i1 %25 to i32
-  %27 = or disjoint i32 %22, %26
-  %28 = icmp eq i32 %27, 3
-  br i1 %28, label %select.unfold, label %29
+  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %12 = load i32, ptr %11, align 4, !tbaa !17
+  %13 = shl i32 %12, 1
+  %14 = lshr i32 %13, 5
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw [1 x i32], ptr %1, i64 0, i64 %15
+  %17 = load i32, ptr %16, align 4, !tbaa !17
+  %18 = and i32 %13, 30
+  %19 = shl nuw nsw i32 1, %18
+  %20 = and i32 %19, %17
+  %.not.i.i = icmp eq i32 %20, 0
+  %21 = select i1 %.not.i.i, i32 0, i32 2
+  %22 = shl nuw i32 2, %18
+  %23 = and i32 %22, %17
+  %24 = icmp ne i32 %23, 0
+  %25 = zext i1 %24 to i32
+  %26 = or disjoint i32 %21, %25
+  %27 = icmp eq i32 %26, 3
+  br i1 %27, label %select.unfold, label %28
 
-29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
-  %31 = load i32, ptr %30, align 4, !tbaa !17
-  %32 = shl i32 %31, 1
-  %33 = lshr i32 %32, 5
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw [1 x i32], ptr %3, i64 0, i64 %34
-  %36 = load i32, ptr %35, align 4, !tbaa !17
-  %37 = and i32 %32, 30
-  %38 = shl nuw nsw i32 1, %37
-  %39 = and i32 %38, %36
-  %.not.i.i17 = icmp eq i32 %39, 0
-  %40 = select i1 %.not.i.i17, i32 0, i32 2
-  %41 = shl nuw i32 2, %37
-  %42 = and i32 %41, %36
-  %43 = icmp ne i32 %42, 0
-  %44 = zext i1 %43 to i32
-  %45 = or disjoint i32 %40, %44
-  %.not = icmp eq i32 %27, %45
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 4, !tbaa !17
+  %31 = shl i32 %30, 1
+  %32 = lshr i32 %31, 5
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds nuw [1 x i32], ptr %3, i64 0, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !17
+  %36 = and i32 %31, 30
+  %37 = shl nuw nsw i32 1, %36
+  %38 = and i32 %37, %35
+  %.not.i.i17 = icmp eq i32 %38, 0
+  %39 = select i1 %.not.i.i17, i32 0, i32 2
+  %40 = shl nuw i32 2, %36
+  %41 = and i32 %40, %35
+  %42 = icmp ne i32 %41, 0
+  %43 = zext i1 %42 to i32
+  %44 = or disjoint i32 %39, %43
+  %.not = icmp eq i32 %26, %44
   br i1 %.not, label %select.unfold, label %.split20.us
 
-select.unfold:                                    ; preds = %29, %.lr.ph
+select.unfold:                                    ; preds = %28, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.split20.us, label %.lr.ph, !llvm.loop !48
 
-.split20.us:                                      ; preds = %29, %select.unfold, %.split, %5
-  %.us-phi = phi i1 [ true, %5 ], [ true, %.split ], [ false, %29 ], [ true, %select.unfold ]
-  ret i1 %.us-phi
+.split20.us:                                      ; preds = %28, %select.unfold, %.split, %5
+  %switch = phi i1 [ true, %5 ], [ true, %.split ], [ false, %28 ], [ true, %select.unfold ]
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress uwtable

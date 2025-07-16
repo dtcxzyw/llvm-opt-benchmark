@@ -315,26 +315,22 @@ thread-pre-split.i:                               ; preds = %6
   %spec.store.select.i = add nuw nsw i32 %19, 10000
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8, !tbaa !35
   %21 = icmp ugt i32 %spec.store.select.i, %20
-  br i1 %21, label %gc_grow_root_buffer.exit.i, label %29
+  br i1 %21, label %22, label %.sink.split.i
 
-gc_grow_root_buffer.exit.i:                       ; preds = %18
-  %22 = icmp samesign ult i32 %20, 131072
-  %23 = shl nuw nsw i32 %20, 1
-  %24 = add nuw nsw i32 %20, 131072
-  %.0.in.i.i = select i1 %22, i32 %23, i32 %24
-  %25 = tail call i32 @llvm.umin.i32(i32 %.0.in.i.i, i32 1073741824)
-  %spec.store.select.i.i = zext nneg i32 %25 to i64
-  %26 = load ptr, ptr @gc_globals, align 8, !tbaa !16
-  %27 = shl nuw nsw i64 %spec.store.select.i.i, 3
-  %28 = tail call ptr @__zend_realloc(ptr noundef %26, i64 noundef %27) #21
-  store ptr %28, ptr @gc_globals, align 8, !tbaa !16
-  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8, !tbaa !35
-  br label %29
-
-29:                                               ; preds = %gc_grow_root_buffer.exit.i, %18
-  %30 = phi i32 [ %25, %gc_grow_root_buffer.exit.i ], [ %20, %18 ]
-  %.not9.i = icmp ugt i32 %spec.store.select.i, %30
-  br i1 %.not9.i, label %gc_adjust_threshold.exit, label %.sink.split.i
+22:                                               ; preds = %18
+  %23 = icmp samesign ult i32 %20, 131072
+  %24 = shl nuw nsw i32 %20, 1
+  %25 = add nuw nsw i32 %20, 131072
+  %.0.in.i.i = select i1 %23, i32 %24, i32 %25
+  %26 = tail call i32 @llvm.umin.i32(i32 %.0.in.i.i, i32 1073741824)
+  %spec.store.select.i.i = zext nneg i32 %26 to i64
+  %27 = load ptr, ptr @gc_globals, align 8, !tbaa !16
+  %28 = shl nuw nsw i64 %spec.store.select.i.i, 3
+  %29 = tail call ptr @__zend_realloc(ptr noundef %27, i64 noundef %28) #21
+  store ptr %29, ptr @gc_globals, align 8, !tbaa !16
+  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 24), align 8, !tbaa !35
+  %30 = icmp samesign ugt i32 %spec.store.select.i, %26
+  br i1 %30, label %gc_adjust_threshold.exit, label %.sink.split.i
 
 31:                                               ; preds = %12
   %32 = icmp ugt i32 %14, 10001
@@ -345,12 +341,12 @@ gc_grow_root_buffer.exit.i:                       ; preds = %18
   %spec.store.select1.i = tail call i32 @llvm.umax.i32(i32 %34, i32 10001)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %33, %29
-  %spec.store.select1.sink.i = phi i32 [ %spec.store.select1.i, %33 ], [ %spec.store.select.i, %29 ]
+.sink.split.i:                                    ; preds = %33, %22, %18
+  %spec.store.select1.sink.i = phi i32 [ %spec.store.select1.i, %33 ], [ %spec.store.select.i, %18 ], [ %spec.store.select.i, %22 ]
   store i32 %spec.store.select1.sink.i, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 20), align 4, !tbaa !36
   br label %gc_adjust_threshold.exit
 
-gc_adjust_threshold.exit:                         ; preds = %15, %29, %31, %.sink.split.i
+gc_adjust_threshold.exit:                         ; preds = %15, %22, %31, %.sink.split.i
   %35 = load i32, ptr %0, align 4, !tbaa !40
   %36 = icmp ne i32 %35, 0
   tail call void @llvm.assume(i1 %36)

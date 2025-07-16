@@ -9552,98 +9552,98 @@ define void @_ZN8mini_lsm5block8iterator13BlockIterator11seek_to_key17h271ba5c0b
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %20
+  br label %21
 
-._crit_edge:                                      ; preds = %40
+._crit_edge:                                      ; preds = %41
   %.pre19 = load ptr, ptr %4, align 8, !alias.scope !1603
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre19, i64 56
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8, !noalias !1603
+  %12 = icmp ult i64 %.1, %.pre20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1603)
-  %.not.i = icmp ult i64 %.1, %.pre20
-  br i1 %.not.i, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc34249dfbdb1c446E.llvm.10393531995006364539.exit.i", label %._crit_edge.thread
+  br i1 %12, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc34249dfbdb1c446E.llvm.10393531995006364539.exit.i", label %._crit_edge.thread
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc34249dfbdb1c446E.llvm.10393531995006364539.exit.i": ; preds = %._crit_edge
-  %12 = getelementptr inbounds nuw i8, ptr %.pre19, i64 48
-  %13 = load ptr, ptr %12, align 8, !alias.scope !1606, !noalias !1609, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds [0 x i16], ptr %13, i64 0, i64 %.1
-  %15 = load i16, ptr %14, align 2, !noalias !1603, !noundef !4
-  %16 = zext i16 %15 to i64
-  tail call void @_ZN8mini_lsm5block8iterator13BlockIterator14seek_to_offset17h894a32a359f819abE.llvm.10393531995006364539(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %16)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.1, ptr %17, align 8, !alias.scope !1603
+  %13 = getelementptr inbounds nuw i8, ptr %.pre19, i64 48
+  %14 = load ptr, ptr %13, align 8, !alias.scope !1606, !noalias !1609, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds [0 x i16], ptr %14, i64 0, i64 %.1
+  %16 = load i16, ptr %15, align 2, !noalias !1603, !noundef !4
+  %17 = zext i16 %16 to i64
+  tail call void @_ZN8mini_lsm5block8iterator13BlockIterator14seek_to_offset17h894a32a359f819abE.llvm.10393531995006364539(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %17)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %.1, ptr %18, align 8, !alias.scope !1603
   br label %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %18, align 8, !alias.scope !1611
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !alias.scope !1603
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %19, align 8, !alias.scope !1611
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !alias.scope !1603
   br label %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit
 
-20:                                               ; preds = %.lr.ph, %40
-  %.017 = phi i64 [ 0, %.lr.ph ], [ %.1, %40 ]
-  %.0816 = phi i64 [ %7, %.lr.ph ], [ %.19, %40 ]
-  %21 = sub nuw i64 %.0816, %.017
-  %22 = lshr i64 %21, 1
-  %23 = add i64 %22, %.017
+21:                                               ; preds = %.lr.ph, %41
+  %.017 = phi i64 [ 0, %.lr.ph ], [ %.1, %41 ]
+  %.0816 = phi i64 [ %7, %.lr.ph ], [ %.19, %41 ]
+  %22 = sub nuw i64 %.0816, %.017
+  %23 = lshr i64 %22, 1
+  %24 = add i64 %23, %.017
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1614)
-  %24 = load ptr, ptr %4, align 8, !alias.scope !1614, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %26 = load i64, ptr %25, align 8, !noalias !1614, !noundef !4
-  %.not.i10 = icmp ult i64 %23, %26
+  %25 = load ptr, ptr %4, align 8, !alias.scope !1614, !nonnull !4, !noundef !4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %27 = load i64, ptr %26, align 8, !noalias !1614, !noundef !4
+  %.not.i10 = icmp ult i64 %24, %27
   br i1 %.not.i10, label %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12, label %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12.thread
 
-_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12.thread: ; preds = %20
+_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12.thread: ; preds = %21
   store i64 0, ptr %8, align 8, !alias.scope !1617
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !alias.scope !1614
   br label %.loopexit
 
-_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12: ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %28 = load ptr, ptr %27, align 8, !alias.scope !1620, !noalias !1623, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds [0 x i16], ptr %28, i64 0, i64 %23
-  %30 = load i16, ptr %29, align 2, !noalias !1614, !noundef !4
-  %31 = zext i16 %30 to i64
-  tail call void @_ZN8mini_lsm5block8iterator13BlockIterator14seek_to_offset17h894a32a359f819abE.llvm.10393531995006364539(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %31)
-  store i64 %23, ptr %10, align 8, !alias.scope !1614
+_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12: ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %29 = load ptr, ptr %28, align 8, !alias.scope !1620, !noalias !1623, !nonnull !4, !noundef !4
+  %30 = getelementptr inbounds [0 x i16], ptr %29, i64 0, i64 %24
+  %31 = load i16, ptr %30, align 2, !noalias !1614, !noundef !4
+  %32 = zext i16 %31 to i64
+  tail call void @_ZN8mini_lsm5block8iterator13BlockIterator14seek_to_offset17h894a32a359f819abE.llvm.10393531995006364539(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %32)
+  store i64 %24, ptr %10, align 8, !alias.scope !1614
   %.pre = load i64, ptr %8, align 8, !alias.scope !1625
   %.not = icmp eq i64 %.pre, 0
-  br i1 %.not, label %.loopexit, label %32
+  br i1 %.not, label %.loopexit, label %33
 
-_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit: ; preds = %32, %._crit_edge.thread, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc34249dfbdb1c446E.llvm.10393531995006364539.exit.i"
+_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit: ; preds = %33, %._crit_edge.thread, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc34249dfbdb1c446E.llvm.10393531995006364539.exit.i"
   ret void
 
 .loopexit:                                        ; preds = %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12, %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12.thread
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.793bbfb63c8dcecf5e3f5a1d1c94ad0f.84, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.793bbfb63c8dcecf5e3f5a1d1c94ad0f.85) #38
   unreachable
 
-32:                                               ; preds = %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12
-  %33 = load ptr, ptr %11, align 8, !alias.scope !1628, !nonnull !4, !noundef !4
-  %34 = sub i64 %.pre, %2
+33:                                               ; preds = %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit12
+  %34 = load ptr, ptr %11, align 8, !alias.scope !1628, !nonnull !4, !noundef !4
+  %35 = sub i64 %.pre, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %.pre, i64 %2)
-  %35 = tail call i32 @memcmp(ptr nonnull readonly align 1 %33, ptr nonnull readonly align 1 %1, i64 %..i), !alias.scope !1633
-  %36 = sext i32 %35 to i64
-  %37 = icmp eq i32 %35, 0
-  %spec.store.select.i = select i1 %37, i64 %34, i64 %36
+  %36 = tail call i32 @memcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %1, i64 %..i), !alias.scope !1633
+  %37 = sext i32 %36 to i64
+  %38 = icmp eq i32 %36, 0
+  %spec.store.select.i = select i1 %38, i64 %35, i64 %37
   %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i, i64 0)
   switch i8 %.0.i, label %default.unreachable [
-    i8 -1, label %38
+    i8 -1, label %39
     i8 0, label %_ZN8mini_lsm5block8iterator13BlockIterator7seek_to17hdb30665c9b5fd09cE.llvm.10393531995006364539.exit
-    i8 1, label %40
+    i8 1, label %41
   ]
 
-default.unreachable:                              ; preds = %32
+default.unreachable:                              ; preds = %33
   unreachable
 
-38:                                               ; preds = %32
-  %39 = add nuw i64 %23, 1
-  br label %40
+39:                                               ; preds = %33
+  %40 = add nuw i64 %24, 1
+  br label %41
 
-40:                                               ; preds = %32, %38
-  %.19 = phi i64 [ %.0816, %38 ], [ %23, %32 ]
-  %.1 = phi i64 [ %39, %38 ], [ %.017, %32 ]
-  %41 = icmp ult i64 %.1, %.19
-  br i1 %41, label %20, label %._crit_edge
+41:                                               ; preds = %33, %39
+  %.19 = phi i64 [ %.0816, %39 ], [ %24, %33 ]
+  %.1 = phi i64 [ %40, %39 ], [ %.017, %33 ]
+  %42 = icmp ult i64 %.1, %.19
+  br i1 %42, label %21, label %._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable

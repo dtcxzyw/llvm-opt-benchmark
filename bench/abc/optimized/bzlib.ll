@@ -3810,7 +3810,7 @@ define range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr nounde
 30:                                               ; preds = %22
   %31 = load ptr, ptr %28, align 8, !tbaa !14
   %.not.i = icmp eq ptr %31, %8
-  br i1 %.not.i, label %.preheader.i, label %.thread62
+  br i1 %.not.i, label %.preheader.i, label %BZ2_bzCompressEnd.exit
 
 .preheader.i:                                     ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -3820,10 +3820,10 @@ define range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr nounde
 
 .preheader.split.us77.i:                          ; preds = %.backedge.us78.i, %.preheader.i
   %34 = phi i32 [ 4, %.backedge.us78.i ], [ %.promoted.i, %.preheader.i ]
-  switch i32 %34, label %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge.loopexit [
-    i32 1, label %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge
+  switch i32 %34, label %.thread62.loopexit [
+    i32 1, label %.thread62
     i32 2, label %.backedge.us78.i
-    i32 3, label %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge
+    i32 3, label %.thread62
     i32 4, label %.split65.us.i
   ]
 
@@ -3837,7 +3837,7 @@ define range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr nounde
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !45
   %.not40.i = icmp eq i32 %35, %37
-  br i1 %.not40.i, label %38, label %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge
+  br i1 %.not40.i, label %38, label %.thread62
 
 38:                                               ; preds = %.split65.us.i
   %39 = call fastcc zeroext i8 @handle_compress(ptr nonnull %28)
@@ -3957,72 +3957,66 @@ isempty_RL.exit52.i:                              ; preds = %46, %42
 isempty_RL.exit.thread.loopexit.i:                ; preds = %38
   %.pr.pre = load ptr, ptr %27, align 8, !tbaa !32
   %98 = icmp eq ptr %.pr.pre, null
-  br i1 %98, label %BZ2_bzCompressEnd.exit, label %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge
+  br i1 %98, label %BZ2_bzCompressEnd.exit, label %.thread62
 
-isempty_RL.exit.thread.loopexit.i..thread62_crit_edge.loopexit: ; preds = %.preheader.split.us77.i
-  br label %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge
-
-isempty_RL.exit.thread.loopexit.i..thread62_crit_edge: ; preds = %.preheader.split.us77.i, %.preheader.split.us77.i, %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge.loopexit, %.split65.us.i, %isempty_RL.exit.thread.loopexit.i
-  %.0.i.ph.ph69 = phi i32 [ -1, %isempty_RL.exit.thread.loopexit.i ], [ -1, %.split65.us.i ], [ 0, %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge.loopexit ], [ -1, %.preheader.split.us77.i ], [ -1, %.preheader.split.us77.i ]
-  %.pr68 = phi ptr [ %.pr.pre, %isempty_RL.exit.thread.loopexit.i ], [ %28, %.split65.us.i ], [ %28, %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge.loopexit ], [ %28, %.preheader.split.us77.i ], [ %28, %.preheader.split.us77.i ]
-  %.pre = load ptr, ptr %.pr68, align 8, !tbaa !14
+.thread62.loopexit:                               ; preds = %.preheader.split.us77.i
   br label %.thread62
 
-.thread62:                                        ; preds = %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge, %30
-  %99 = phi ptr [ %.pre, %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge ], [ %31, %30 ]
-  %.0.i.ph64 = phi i32 [ %.0.i.ph.ph69, %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge ], [ -2, %30 ]
-  %100 = phi ptr [ %.pr68, %isempty_RL.exit.thread.loopexit.i..thread62_crit_edge ], [ %28, %30 ]
-  %.not.i49 = icmp eq ptr %99, %8
-  br i1 %.not.i49, label %101, label %BZ2_bzCompressEnd.exit
+.thread62:                                        ; preds = %.preheader.split.us77.i, %.preheader.split.us77.i, %.thread62.loopexit, %.split65.us.i, %isempty_RL.exit.thread.loopexit.i
+  %.0.i.ph.ph69 = phi i32 [ -1, %isempty_RL.exit.thread.loopexit.i ], [ -1, %.split65.us.i ], [ 0, %.thread62.loopexit ], [ -1, %.preheader.split.us77.i ], [ -1, %.preheader.split.us77.i ]
+  %.pr68 = phi ptr [ %.pr.pre, %isempty_RL.exit.thread.loopexit.i ], [ %28, %.split65.us.i ], [ %28, %.thread62.loopexit ], [ %28, %.preheader.split.us77.i ], [ %28, %.preheader.split.us77.i ]
+  %.pre = load ptr, ptr %.pr68, align 8, !tbaa !14
+  %99 = icmp eq ptr %.pre, %8
+  br i1 %99, label %100, label %BZ2_bzCompressEnd.exit
 
-101:                                              ; preds = %.thread62
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %103 = load ptr, ptr %102, align 8, !tbaa !18
-  %.not26.i51 = icmp eq ptr %103, null
-  br i1 %.not26.i51, label %107, label %104
+100:                                              ; preds = %.thread62
+  %101 = getelementptr inbounds nuw i8, ptr %.pr68, i64 24
+  %102 = load ptr, ptr %101, align 8, !tbaa !18
+  %.not26.i51 = icmp eq ptr %102, null
+  br i1 %.not26.i51, label %106, label %103
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %19, align 8, !tbaa !12
-  %106 = load ptr, ptr %20, align 8, !tbaa !13
-  call void %105(ptr noundef %106, ptr noundef nonnull %103) #23
-  br label %107
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %19, align 8, !tbaa !12
+  %105 = load ptr, ptr %20, align 8, !tbaa !13
+  call void %104(ptr noundef %105, ptr noundef nonnull %102) #23
+  br label %106
 
-107:                                              ; preds = %104, %101
-  %108 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !19
-  %.not27.i52 = icmp eq ptr %109, null
-  br i1 %.not27.i52, label %113, label %110
+106:                                              ; preds = %103, %100
+  %107 = getelementptr inbounds nuw i8, ptr %.pr68, i64 32
+  %108 = load ptr, ptr %107, align 8, !tbaa !19
+  %.not27.i52 = icmp eq ptr %108, null
+  br i1 %.not27.i52, label %112, label %109
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %19, align 8, !tbaa !12
-  %112 = load ptr, ptr %20, align 8, !tbaa !13
-  call void %111(ptr noundef %112, ptr noundef nonnull %109) #23
-  br label %113
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %19, align 8, !tbaa !12
+  %111 = load ptr, ptr %20, align 8, !tbaa !13
+  call void %110(ptr noundef %111, ptr noundef nonnull %108) #23
+  br label %112
 
-113:                                              ; preds = %110, %107
-  %114 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %115 = load ptr, ptr %114, align 8, !tbaa !20
-  %.not28.i53 = icmp eq ptr %115, null
+112:                                              ; preds = %109, %106
+  %113 = getelementptr inbounds nuw i8, ptr %.pr68, i64 40
+  %114 = load ptr, ptr %113, align 8, !tbaa !20
+  %.not28.i53 = icmp eq ptr %114, null
   br i1 %.not28.i53, label %BZ2_bzCompressEnd.exit.sink.split, label %BZ2_bzCompressEnd.exit.sink.split.sink.split
 
-BZ2_bzCompressEnd.exit.sink.split.sink.split:     ; preds = %113, %95, %75
-  %.sink72 = phi ptr [ %77, %75 ], [ %97, %95 ], [ %115, %113 ]
-  %.0.ph.ph = phi i32 [ 0, %75 ], [ -8, %95 ], [ %.0.i.ph64, %113 ]
-  %116 = load ptr, ptr %19, align 8, !tbaa !12
-  %117 = load ptr, ptr %20, align 8, !tbaa !13
-  call void %116(ptr noundef %117, ptr noundef nonnull %.sink72) #23
+BZ2_bzCompressEnd.exit.sink.split.sink.split:     ; preds = %112, %95, %75
+  %.sink74 = phi ptr [ %77, %75 ], [ %97, %95 ], [ %114, %112 ]
+  %.0.ph.ph = phi i32 [ 0, %75 ], [ -8, %95 ], [ %.0.i.ph.ph69, %112 ]
+  %115 = load ptr, ptr %19, align 8, !tbaa !12
+  %116 = load ptr, ptr %20, align 8, !tbaa !13
+  call void %115(ptr noundef %116, ptr noundef nonnull %.sink74) #23
   br label %BZ2_bzCompressEnd.exit.sink.split
 
-BZ2_bzCompressEnd.exit.sink.split:                ; preds = %BZ2_bzCompressEnd.exit.sink.split.sink.split, %113, %95, %75
-  %.0.ph = phi i32 [ 0, %75 ], [ -8, %95 ], [ %.0.i.ph64, %113 ], [ %.0.ph.ph, %BZ2_bzCompressEnd.exit.sink.split.sink.split ]
-  %118 = load ptr, ptr %19, align 8, !tbaa !12
-  %119 = load ptr, ptr %20, align 8, !tbaa !13
-  %120 = load ptr, ptr %27, align 8, !tbaa !32
-  call void %118(ptr noundef %119, ptr noundef %120) #23
+BZ2_bzCompressEnd.exit.sink.split:                ; preds = %BZ2_bzCompressEnd.exit.sink.split.sink.split, %112, %95, %75
+  %.0.ph = phi i32 [ 0, %75 ], [ -8, %95 ], [ %.0.i.ph.ph69, %112 ], [ %.0.ph.ph, %BZ2_bzCompressEnd.exit.sink.split.sink.split ]
+  %117 = load ptr, ptr %19, align 8, !tbaa !12
+  %118 = load ptr, ptr %20, align 8, !tbaa !13
+  %119 = load ptr, ptr %27, align 8, !tbaa !32
+  call void %117(ptr noundef %118, ptr noundef %119) #23
   br label %BZ2_bzCompressEnd.exit
 
-BZ2_bzCompressEnd.exit:                           ; preds = %BZ2_bzCompressEnd.exit.sink.split, %22, %.thread62, %isempty_RL.exit.thread.loopexit.i, %81, %78, %61, %55, %16, %7
-  %.0 = phi i32 [ -2, %7 ], [ %21, %16 ], [ 0, %55 ], [ 0, %61 ], [ -8, %78 ], [ -8, %81 ], [ -1, %isempty_RL.exit.thread.loopexit.i ], [ %.0.i.ph64, %.thread62 ], [ -2, %22 ], [ %.0.ph, %BZ2_bzCompressEnd.exit.sink.split ]
+BZ2_bzCompressEnd.exit:                           ; preds = %BZ2_bzCompressEnd.exit.sink.split, %30, %22, %.thread62, %isempty_RL.exit.thread.loopexit.i, %81, %78, %61, %55, %16, %7
+  %.0 = phi i32 [ -2, %7 ], [ %21, %16 ], [ 0, %55 ], [ 0, %61 ], [ -8, %78 ], [ -8, %81 ], [ -1, %isempty_RL.exit.thread.loopexit.i ], [ %.0.i.ph.ph69, %.thread62 ], [ -2, %22 ], [ -2, %30 ], [ %.0.ph, %BZ2_bzCompressEnd.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #23
   ret i32 %.0
 }

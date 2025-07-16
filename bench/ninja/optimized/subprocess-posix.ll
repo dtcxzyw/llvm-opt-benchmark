@@ -737,7 +737,7 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
 ._crit_edge.i:                                    ; preds = %16
   %.pre19.i = load ptr, ptr %0, align 8, !tbaa !39
   %.not913.i = icmp eq ptr %.pre19.i, %17
-  br i1 %.not913.i, label %._crit_edge17.i, label %.lr.ph16.i
+  br i1 %.not913.i, label %_ZN13SubprocessSet5ClearEv.exit, label %.lr.ph16.i
 
 .lr.ph.i:                                         ; preds = %1, %16
   %5 = phi ptr [ %17, %16 ], [ %4, %1 ]
@@ -763,18 +763,13 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   %.not.i = icmp eq ptr %18, %17
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
 
-._crit_edge17.loopexit.i:                         ; preds = %25
+._crit_edge17.i:                                  ; preds = %25
   %.pre21.i = load ptr, ptr %0, align 8, !tbaa !28
-  br label %._crit_edge17.i
-
-._crit_edge17.i:                                  ; preds = %._crit_edge17.loopexit.i, %._crit_edge.i
-  %19 = phi ptr [ %.pre19.i, %._crit_edge.i ], [ %.pre21.i, %._crit_edge17.loopexit.i ]
-  %.lcssa.i = phi ptr [ %17, %._crit_edge.i ], [ %26, %._crit_edge17.loopexit.i ]
-  %.not.i.i.i = icmp eq ptr %.lcssa.i, %19
-  br i1 %.not.i.i.i, label %_ZN13SubprocessSet5ClearEv.exit, label %20
+  %19 = icmp eq ptr %26, %.pre21.i
+  br i1 %19, label %_ZN13SubprocessSet5ClearEv.exit, label %20
 
 20:                                               ; preds = %._crit_edge17.i
-  store ptr %19, ptr %3, align 8, !tbaa !46
+  store ptr %.pre21.i, ptr %3, align 8, !tbaa !46
   br label %_ZN13SubprocessSet5ClearEv.exit
 
 .lr.ph16.i:                                       ; preds = %._crit_edge.i, %25
@@ -794,9 +789,9 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   %26 = phi ptr [ %21, %.lr.ph16.i ], [ %.pre20.i, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 8
   %.not9.i = icmp eq ptr %27, %26
-  br i1 %.not9.i, label %._crit_edge17.loopexit.i, label %.lr.ph16.i, !llvm.loop !47
+  br i1 %.not9.i, label %._crit_edge17.i, label %.lr.ph16.i, !llvm.loop !47
 
-_ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge17.i, %20
+_ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge.i, %._crit_edge17.i, %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %29 = tail call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %28, ptr noundef null) #22
   %30 = icmp slt i32 %29, 0
@@ -834,8 +829,8 @@ _ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge17.i
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !32
-  %.not.i.i.i1 = icmp eq ptr %49, null
-  br i1 %.not.i.i.i1, label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit, label %50
+  %.not.i.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i.i, label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -868,8 +863,8 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: 
 
 _ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit: ; preds = %47, %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
   %64 = load ptr, ptr %0, align 8, !tbaa !28
-  %.not.i.i.i2 = icmp eq ptr %64, null
-  br i1 %.not.i.i.i2, label %_ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit, label %65
+  %.not.i.i.i1 = icmp eq ptr %64, null
+  br i1 %.not.i.i.i1, label %_ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit, label %65
 
 65:                                               ; preds = %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -902,7 +897,7 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
 ._crit_edge:                                      ; preds = %16
   %.pre19 = load ptr, ptr %0, align 8, !tbaa !39
   %.not913 = icmp eq ptr %.pre19, %17
-  br i1 %.not913, label %._crit_edge17, label %.lr.ph16
+  br i1 %.not913, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %.lr.ph16
 
 .lr.ph:                                           ; preds = %1, %16
   %5 = phi ptr [ %17, %16 ], [ %4, %1 ]
@@ -928,21 +923,16 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
   %.not = icmp eq ptr %18, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
-._crit_edge17.loopexit:                           ; preds = %25
+._crit_edge17:                                    ; preds = %25
   %.pre21 = load ptr, ptr %0, align 8, !tbaa !28
-  br label %._crit_edge17
-
-._crit_edge17:                                    ; preds = %._crit_edge17.loopexit, %._crit_edge
-  %19 = phi ptr [ %.pre19, %._crit_edge ], [ %.pre21, %._crit_edge17.loopexit ]
-  %.lcssa = phi ptr [ %17, %._crit_edge ], [ %26, %._crit_edge17.loopexit ]
-  %.not.i.i = icmp eq ptr %.lcssa, %19
-  br i1 %.not.i.i, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %20
+  %19 = icmp eq ptr %26, %.pre21
+  br i1 %19, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %20
 
 20:                                               ; preds = %._crit_edge17
-  store ptr %19, ptr %3, align 8, !tbaa !46
+  store ptr %.pre21, ptr %3, align 8, !tbaa !46
   br label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge17, %20
+_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %._crit_edge17, %20
   ret void
 
 .lr.ph16:                                         ; preds = %._crit_edge, %25
@@ -962,7 +952,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge17, 
   %26 = phi ptr [ %21, %.lr.ph16 ], [ %.pre20, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.014, i64 8
   %.not9 = icmp eq ptr %27, %26
-  br i1 %.not9, label %._crit_edge17.loopexit, label %.lr.ph16, !llvm.loop !47
+  br i1 %.not9, label %._crit_edge17, label %.lr.ph16, !llvm.loop !47
 }
 
 ; Function Attrs: mustprogress uwtable

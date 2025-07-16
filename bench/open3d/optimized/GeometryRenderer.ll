@@ -2122,8 +2122,8 @@ _ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread: ; preds = %6
   br label %94
 
 94:                                               ; preds = %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit, %63, %50, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread, %65
-  %.sink45 = phi i64 [ 32, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread ], [ 352, %65 ], [ 1152, %50 ], [ 688, %63 ], [ 128, %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit ]
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink45
+  %.sink44 = phi i64 [ 32, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread ], [ 352, %65 ], [ 1152, %50 ], [ 688, %63 ], [ 128, %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink44
   %96 = tail call noundef zeroext i1 @_ZN6open3d13visualization4glsl13ShaderWrapper6RenderERKNS_8geometry8GeometryERKNS0_12RenderOptionERKNS0_11ViewControlE(ptr noundef nonnull align 8 dereferenceable(72) %95, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(497) %1, ptr noundef nonnull align 16 dereferenceable(728) %2)
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 449
   %98 = load i8, ptr %97, align 1, !tbaa !65, !range !31, !noundef !32
@@ -4917,15 +4917,13 @@ _ZZNK6open3d8geometry12TriangleMesh11HasTexturesEvENKUlbRKNS0_5ImageEE_clEbS4_.e
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN6open3d8geometry5ImageESt6vectorIS4_SaIS4_EEEEbZNKS3_12TriangleMesh11HasTexturesEvEUlbRS5_E_ET0_T_SF_SE_T1_.exit.loopexit: ; preds = %_ZZNK6open3d8geometry12TriangleMesh11HasTexturesEvENKUlbRKNS0_5ImageEE_clEbS4_.exit.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !61
   %.pre2 = load ptr, ptr %4, align 8, !tbaa !61
+  %14 = icmp ne ptr %.pre, %.pre2
+  %15 = and i1 %12, %14
   br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN6open3d8geometry5ImageESt6vectorIS4_SaIS4_EEEEbZNKS3_12TriangleMesh11HasTexturesEvEUlbRS5_E_ET0_T_SF_SE_T1_.exit
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN6open3d8geometry5ImageESt6vectorIS4_SaIS4_EEEEbZNKS3_12TriangleMesh11HasTexturesEvEUlbRS5_E_ET0_T_SF_SE_T1_.exit: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN6open3d8geometry5ImageESt6vectorIS4_SaIS4_EEEEbZNKS3_12TriangleMesh11HasTexturesEvEUlbRS5_E_ET0_T_SF_SE_T1_.exit.loopexit, %1
-  %14 = phi ptr [ %3, %1 ], [ %.pre2, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN6open3d8geometry5ImageESt6vectorIS4_SaIS4_EEEEbZNKS3_12TriangleMesh11HasTexturesEvEUlbRS5_E_ET0_T_SF_SE_T1_.exit.loopexit ]
-  %15 = phi ptr [ %3, %1 ], [ %.pre, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN6open3d8geometry5ImageESt6vectorIS4_SaIS4_EEEEbZNKS3_12TriangleMesh11HasTexturesEvEUlbRS5_E_ET0_T_SF_SE_T1_.exit.loopexit ]
-  %.0.in.lcssa.i = phi i1 [ true, %1 ], [ %12, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN6open3d8geometry5ImageESt6vectorIS4_SaIS4_EEEEbZNKS3_12TriangleMesh11HasTexturesEvEUlbRS5_E_ET0_T_SF_SE_T1_.exit.loopexit ]
-  %16 = icmp ne ptr %15, %14
-  %17 = and i1 %.0.in.lcssa.i, %16
-  ret i1 %17
+  %16 = phi i1 [ false, %1 ], [ %15, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKN6open3d8geometry5ImageESt6vectorIS4_SaIS4_EEEEbZNKS3_12TriangleMesh11HasTexturesEvEUlbRS5_E_ET0_T_SF_SE_T1_.exit.loopexit ]
+  ret i1 %16
 }
 
 declare noundef zeroext i1 @_ZNK6open3d8geometry5Image7IsEmptyEv(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #8

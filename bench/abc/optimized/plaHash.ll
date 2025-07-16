@@ -1135,22 +1135,20 @@ Tab_ManHashCollect.exit:                          ; preds = %Vec_IntPushTwo.exit
   %153 = icmp sgt i32 %.val66171.pre, 1
   br i1 %153, label %.lr.ph173, label %._crit_edge
 
-.loopexit:                                        ; preds = %Vec_IntEqual.exit.thread, %.lr.ph173
-  %.pre-phi200 = phi i64 [ %156, %.lr.ph173 ], [ %332, %Vec_IntEqual.exit.thread ]
-  %.val66 = phi i32 [ %.val66198, %.lr.ph173 ], [ %.val65, %Vec_IntEqual.exit.thread ]
-  %154 = icmp slt i64 %indvars.iv.next187, %.pre-phi200
+.loopexit:                                        ; preds = %Vec_IntEqual.exit.thread
+  %154 = icmp slt i64 %indvars.iv.next187, %332
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   br i1 %154, label %.lr.ph173, label %._crit_edge, !llvm.loop !54
 
 .lr.ph173:                                        ; preds = %Tab_ManHashCollect.exit, %.loopexit
-  %.val66198 = phi i32 [ %.val66, %.loopexit ], [ %.val66171.pre, %Tab_ManHashCollect.exit ]
+  %.val66198 = phi i32 [ %.val65, %.loopexit ], [ %.val66171.pre, %Tab_ManHashCollect.exit ]
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.loopexit ], [ 0, %Tab_ManHashCollect.exit ]
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.loopexit ], [ 1, %Tab_ManHashCollect.exit ]
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %155 = sdiv i32 %.val66198, 2
   %156 = sext i32 %155 to i64
   %157 = icmp slt i64 %indvars.iv.next187, %156
-  br i1 %157, label %.lr.ph, label %.loopexit
+  br i1 %157, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph173
   %.idx = shl nuw nsw i64 %indvars.iv186, 3
@@ -1474,9 +1472,9 @@ Vec_IntPush.exit9.sink.split.i:                   ; preds = %Vec_IntPush.exit.i1
   %291 = shl nuw nsw i32 %287, 1
   %292 = zext nneg i32 %291 to i64
   %293 = shl nuw nsw i64 %292, 2
-  %.sink206 = select i1 %290, i64 64, i64 %293
+  %.sink209 = select i1 %290, i64 64, i64 %293
   %.sink.i = select i1 %290, i32 16, i32 %291
-  %294 = tail call ptr @realloc(ptr noundef nonnull %283, i64 noundef %.sink206) #16
+  %294 = tail call ptr @realloc(ptr noundef nonnull %283, i64 noundef %.sink209) #16
   store ptr %294, ptr %13, align 8, !tbaa !11
   store i32 %.sink.i, ptr %10, align 8, !tbaa !10
   %.pre195 = load i32, ptr %11, align 4, !tbaa !3
@@ -1500,11 +1498,11 @@ Vec_IntPush.exit.i126.sink.split:                 ; preds = %Vec_IntPushTwo.exit
   %304 = shl nuw nsw i32 %300, 1
   %305 = zext nneg i32 %304 to i64
   %306 = shl nuw nsw i64 %305, 2
-  %.sink209 = select i1 %303, i64 64, i64 %306
-  %.sink207 = select i1 %303, i32 16, i32 %304
-  %307 = tail call ptr @realloc(ptr noundef nonnull %296, i64 noundef %.sink209) #16
+  %.sink212 = select i1 %303, i64 64, i64 %306
+  %.sink210 = select i1 %303, i32 16, i32 %304
+  %307 = tail call ptr @realloc(ptr noundef nonnull %296, i64 noundef %.sink212) #16
   store ptr %307, ptr %13, align 8, !tbaa !11
-  store i32 %.sink207, ptr %10, align 8, !tbaa !10
+  store i32 %.sink210, ptr %10, align 8, !tbaa !10
   br label %Vec_IntPush.exit.i126
 
 Vec_IntPush.exit.i126:                            ; preds = %Vec_IntPush.exit.i126.sink.split, %Vec_IntPushTwo.exit
@@ -1524,9 +1522,9 @@ Vec_IntPush.exit9.sink.split.i127:                ; preds = %Vec_IntPush.exit.i1
   %316 = shl nuw nsw i32 %312, 1
   %317 = zext nneg i32 %316 to i64
   %318 = shl nuw nsw i64 %317, 2
-  %.sink210 = select i1 %315, i64 64, i64 %318
+  %.sink213 = select i1 %315, i64 64, i64 %318
   %.sink.i128 = select i1 %315, i32 16, i32 %316
-  %319 = tail call ptr @realloc(ptr noundef nonnull %308, i64 noundef %.sink210) #16
+  %319 = tail call ptr @realloc(ptr noundef nonnull %308, i64 noundef %.sink213) #16
   store ptr %319, ptr %13, align 8, !tbaa !11
   store i32 %.sink.i128, ptr %10, align 8, !tbaa !10
   %.pre196 = load i32, ptr %11, align 4, !tbaa !3
@@ -1559,7 +1557,7 @@ Vec_IntEqual.exit.thread:                         ; preds = %254, %Vec_IntCopySk
   %333 = icmp slt i64 %indvars.iv.next184, %332
   br i1 %333, label %158, label %.loopexit, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %.loopexit, %100, %Tab_ManHashCollect.exit
+._crit_edge:                                      ; preds = %.loopexit, %.lr.ph173, %100, %Tab_ManHashCollect.exit
   %334 = add nuw nsw i32 %.0175, 1
   %335 = load i32, ptr %48, align 8, !tbaa !19
   %.not.not = icmp slt i32 %.0175, %335

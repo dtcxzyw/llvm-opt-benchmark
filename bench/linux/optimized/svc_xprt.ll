@@ -2720,7 +2720,7 @@ define dso_local ptr @svc_find_xprt(ptr noundef %0, ptr noundef readonly capture
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %8 = or i1 %6, %7
-  br i1 %8, label %106, label %9
+  br i1 %8, label %98, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2738,12 +2738,12 @@ define dso_local ptr @svc_find_xprt(ptr noundef %0, ptr noundef readonly capture
 .split.us:                                        ; preds = %14
   br i1 %15, label %.split.us.split.us, label %.split.us.split
 
-.split.us.split.us:                               ; preds = %.split.us, %27
-  %17 = phi ptr [ %28, %27 ], [ %12, %.split.us ]
+.split.us.split.us:                               ; preds = %.split.us, %.critedge.us.us
+  %17 = phi ptr [ %27, %.critedge.us.us ], [ %12, %.split.us ]
   %18 = getelementptr i8, ptr %17, i64 464
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %2
-  br i1 %20, label %21, label %27
+  br i1 %20, label %21, label %.critedge.us.us
 
 21:                                               ; preds = %.split.us.split.us
   %22 = getelementptr i8, ptr %17, i64 -24
@@ -2751,155 +2751,147 @@ define dso_local ptr @svc_find_xprt(ptr noundef %0, ptr noundef readonly capture
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @strcmp(ptr noundef %24, ptr noundef %1) #18
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.split12.us.loopexit, label %27
+  br i1 %26, label %.split12.us.loopexit, label %.critedge.us.us
 
-27:                                               ; preds = %21, %.split.us.split.us
-  %28 = load ptr, ptr %17, align 8
-  %29 = icmp eq ptr %28, %11
-  br i1 %29, label %.loopexit, label %.split.us.split.us, !llvm.loop !114
+.critedge.us.us:                                  ; preds = %21, %.split.us.split.us
+  %27 = load ptr, ptr %17, align 8
+  %28 = icmp eq ptr %27, %11
+  br i1 %28, label %.loopexit, label %.split.us.split.us, !llvm.loop !114
 
-.split.us.split:                                  ; preds = %.split.us, %44
-  %30 = phi ptr [ %45, %44 ], [ %12, %.split.us ]
-  %31 = getelementptr i8, ptr %30, i64 -24
-  %32 = getelementptr i8, ptr %30, i64 464
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %2
-  br i1 %34, label %35, label %44
+.split.us.split:                                  ; preds = %.split.us, %.critedge.us
+  %29 = phi ptr [ %43, %.critedge.us ], [ %12, %.split.us ]
+  %30 = getelementptr i8, ptr %29, i64 -24
+  %31 = getelementptr i8, ptr %29, i64 464
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %2
+  br i1 %33, label %34, label %.critedge.us
 
-35:                                               ; preds = %.split.us.split
-  %36 = load ptr, ptr %31, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call i32 @strcmp(ptr noundef %37, ptr noundef %1) #18
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %44
+34:                                               ; preds = %.split.us.split
+  %35 = load ptr, ptr %30, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call i32 @strcmp(ptr noundef %36, ptr noundef %1) #18
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %.critedge.us
 
-40:                                               ; preds = %35
-  %41 = getelementptr i8, ptr %30, i64 112
-  %42 = load i16, ptr %41, align 8
-  %43 = icmp eq i16 %42, %3
-  br i1 %43, label %.split12.us, label %44
+39:                                               ; preds = %34
+  %40 = getelementptr i8, ptr %29, i64 112
+  %41 = load i16, ptr %40, align 8
+  %42 = icmp eq i16 %41, %3
+  br i1 %42, label %.split12.us, label %.critedge.us
 
-44:                                               ; preds = %40, %35, %.split.us.split
-  %45 = load ptr, ptr %30, align 8
-  %46 = icmp eq ptr %45, %11
-  br i1 %46, label %.loopexit, label %.split.us.split, !llvm.loop !114
+.critedge.us:                                     ; preds = %39, %34, %.split.us.split
+  %43 = load ptr, ptr %29, align 8
+  %44 = icmp eq ptr %43, %11
+  br i1 %44, label %.loopexit, label %.split.us.split, !llvm.loop !114
 
 .split:                                           ; preds = %14
   br i1 %15, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %67
-  %47 = phi ptr [ %68, %67 ], [ %12, %.split ]
-  %48 = getelementptr i8, ptr %47, i64 -24
-  %49 = getelementptr i8, ptr %47, i64 464
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, %2
-  br i1 %51, label %52, label %67
+.split.split.us:                                  ; preds = %.split, %.critedge.us18
+  %45 = phi ptr [ %63, %.critedge.us18 ], [ %12, %.split ]
+  %46 = getelementptr i8, ptr %45, i64 -24
+  %47 = getelementptr i8, ptr %45, i64 464
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, %2
+  br i1 %49, label %50, label %.critedge.us18
 
-52:                                               ; preds = %.split.split.us
-  %53 = load ptr, ptr %48, align 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 @strcmp(ptr noundef %54, ptr noundef %1) #18
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %67
+50:                                               ; preds = %.split.split.us
+  %51 = load ptr, ptr %46, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call i32 @strcmp(ptr noundef %52, ptr noundef %1) #18
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %.critedge.us18
 
-57:                                               ; preds = %52
-  %58 = getelementptr i8, ptr %47, i64 112
-  %59 = load i16, ptr %58, align 2
-  switch i16 %59, label %64 [
-    i16 2, label %60
-    i16 10, label %60
+55:                                               ; preds = %50
+  %56 = getelementptr i8, ptr %45, i64 112
+  %57 = load i16, ptr %56, align 2
+  switch i16 %57, label %.critedge.us18 [
+    i16 2, label %58
+    i16 10, label %58
   ]
 
-60:                                               ; preds = %57, %57
-  %61 = getelementptr i8, ptr %47, i64 114
-  %62 = load i16, ptr %61, align 2
-  %63 = tail call i16 @llvm.bswap.i16(i16 %62)
-  br label %64
+58:                                               ; preds = %55, %55
+  %59 = getelementptr i8, ptr %45, i64 114
+  %60 = load i16, ptr %59, align 2
+  %61 = tail call i16 @llvm.bswap.i16(i16 %60)
+  %62 = icmp eq i16 %61, %4
+  br i1 %62, label %.split12.us, label %.critedge.us18
 
-64:                                               ; preds = %60, %57
-  %65 = phi i16 [ 0, %57 ], [ %63, %60 ]
-  %66 = icmp eq i16 %65, %4
-  br i1 %66, label %.split12.us, label %67
+.critedge.us18:                                   ; preds = %58, %55, %50, %.split.split.us
+  %63 = load ptr, ptr %45, align 8
+  %64 = icmp eq ptr %63, %11
+  br i1 %64, label %.loopexit, label %.split.split.us, !llvm.loop !114
 
-67:                                               ; preds = %64, %52, %.split.split.us
-  %68 = load ptr, ptr %47, align 8
-  %69 = icmp eq ptr %68, %11
-  br i1 %69, label %.loopexit, label %.split.split.us, !llvm.loop !114
+.split.split:                                     ; preds = %.split, %.critedge
+  %65 = phi ptr [ %93, %.critedge ], [ %12, %.split ]
+  %66 = getelementptr i8, ptr %65, i64 -24
+  %67 = getelementptr i8, ptr %65, i64 464
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, %2
+  br i1 %69, label %70, label %.critedge
 
-.split.split:                                     ; preds = %.split, %100
-  %70 = phi ptr [ %101, %100 ], [ %12, %.split ]
-  %71 = getelementptr i8, ptr %70, i64 -24
-  %72 = getelementptr i8, ptr %70, i64 464
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, %2
-  br i1 %74, label %75, label %100
+70:                                               ; preds = %.split.split
+  %71 = load ptr, ptr %66, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call i32 @strcmp(ptr noundef %72, ptr noundef %1) #18
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %.critedge
 
-75:                                               ; preds = %.split.split
-  %76 = load ptr, ptr %71, align 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call i32 @strcmp(ptr noundef %77, ptr noundef %1) #18
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %100
+75:                                               ; preds = %70
+  %76 = getelementptr i8, ptr %65, i64 112
+  %77 = load i16, ptr %76, align 8
+  %78 = icmp eq i16 %77, %3
+  br i1 %78, label %79, label %.critedge
 
-80:                                               ; preds = %75
-  %81 = getelementptr i8, ptr %70, i64 112
-  %82 = load i16, ptr %81, align 8
-  %83 = icmp eq i16 %82, %3
-  br i1 %83, label %84, label %100
-
-84:                                               ; preds = %80
-  switch i16 %3, label %89 [
-    i16 2, label %85
-    i16 10, label %85
+79:                                               ; preds = %75
+  switch i16 %3, label %.critedge [
+    i16 2, label %80
+    i16 10, label %80
   ]
 
-85:                                               ; preds = %84, %84
-  %86 = getelementptr i8, ptr %70, i64 114
-  %87 = load i16, ptr %86, align 2
-  %88 = tail call i16 @llvm.bswap.i16(i16 %87)
-  br label %89
-
-89:                                               ; preds = %85, %84
-  %90 = phi i16 [ 0, %84 ], [ %88, %85 ]
-  %91 = icmp eq i16 %90, %4
-  br i1 %91, label %.split12.us, label %100
+80:                                               ; preds = %79, %79
+  %81 = getelementptr i8, ptr %65, i64 114
+  %82 = load i16, ptr %81, align 2
+  %83 = tail call i16 @llvm.bswap.i16(i16 %82)
+  %84 = icmp eq i16 %83, %4
+  br i1 %84, label %.split12.us, label %.critedge
 
 .split12.us.loopexit:                             ; preds = %21
-  %92 = getelementptr i8, ptr %17, i64 -24
+  %85 = getelementptr i8, ptr %17, i64 -24
   br label %.split12.us
 
-.split12.us:                                      ; preds = %89, %64, %40, %.split12.us.loopexit
-  %.us-phi = phi ptr [ %17, %.split12.us.loopexit ], [ %30, %40 ], [ %47, %64 ], [ %70, %89 ]
-  %.us-phi13 = phi ptr [ %92, %.split12.us.loopexit ], [ %31, %40 ], [ %48, %64 ], [ %71, %89 ]
-  %93 = getelementptr i8, ptr %.us-phi, i64 -8
-  %94 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93, i32 1, ptr elementtype(i32) %93) #18, !srcloc !35
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %103, label %96, !prof !36
+.split12.us:                                      ; preds = %80, %58, %39, %.split12.us.loopexit
+  %.us-phi = phi ptr [ %17, %.split12.us.loopexit ], [ %29, %39 ], [ %45, %58 ], [ %65, %80 ]
+  %.us-phi13 = phi ptr [ %85, %.split12.us.loopexit ], [ %30, %39 ], [ %46, %58 ], [ %66, %80 ]
+  %86 = getelementptr i8, ptr %.us-phi, i64 -8
+  %87 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %86, i32 1, ptr elementtype(i32) %86) #18, !srcloc !35
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %95, label %89, !prof !36
 
-96:                                               ; preds = %.split12.us
-  %97 = add i32 %94, 1
-  %98 = or i32 %97, %94
-  %99 = icmp sgt i32 %98, -1
-  br i1 %99, label %.loopexit, label %103, !prof !20
+89:                                               ; preds = %.split12.us
+  %90 = add i32 %87, 1
+  %91 = or i32 %90, %87
+  %92 = icmp sgt i32 %91, -1
+  br i1 %92, label %.loopexit, label %95, !prof !20
 
-100:                                              ; preds = %89, %80, %75, %.split.split
-  %101 = load ptr, ptr %70, align 8
-  %102 = icmp eq ptr %101, %11
-  br i1 %102, label %.loopexit, label %.split.split, !llvm.loop !114
+.critedge:                                        ; preds = %79, %80, %75, %70, %.split.split
+  %93 = load ptr, ptr %65, align 8
+  %94 = icmp eq ptr %93, %11
+  br i1 %94, label %.loopexit, label %.split.split, !llvm.loop !114
 
-103:                                              ; preds = %96, %.split12.us
-  %104 = phi i32 [ 2, %.split12.us ], [ 1, %96 ]
-  tail call void @refcount_warn_saturate(ptr noundef %93, i32 noundef %104) #18
+95:                                               ; preds = %89, %.split12.us
+  %96 = phi i32 [ 2, %.split12.us ], [ 1, %89 ]
+  tail call void @refcount_warn_saturate(ptr noundef %86, i32 noundef %96) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %100, %67, %44, %27, %103, %96, %9
-  %105 = phi ptr [ %.us-phi13, %96 ], [ null, %9 ], [ %.us-phi13, %103 ], [ null, %27 ], [ null, %44 ], [ null, %67 ], [ null, %100 ]
+.loopexit:                                        ; preds = %.critedge, %.critedge.us18, %.critedge.us, %.critedge.us.us, %95, %89, %9
+  %97 = phi ptr [ %.us-phi13, %89 ], [ null, %9 ], [ %.us-phi13, %95 ], [ null, %.critedge.us.us ], [ null, %.critedge.us ], [ null, %.critedge.us18 ], [ null, %.critedge ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %10) #18
-  br label %106
+  br label %98
 
-106:                                              ; preds = %.loopexit, %5
-  %107 = phi ptr [ %105, %.loopexit ], [ null, %5 ]
-  ret ptr %107
+98:                                               ; preds = %.loopexit, %5
+  %99 = phi ptr [ %97, %.loopexit ], [ null, %5 ]
+  ret ptr %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

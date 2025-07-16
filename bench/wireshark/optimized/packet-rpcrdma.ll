@@ -1298,7 +1298,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %23, label %4
+  br i1 %.not, label %24, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %1, i64 16
@@ -1334,32 +1334,31 @@ define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly 
   br i1 %.not31.i, label %is_reassembly_done.exit, label %.lr.ph.i, !llvm.loop !12
 
 is_reassembly_done.exit:                          ; preds = %15
-  %.fr.i = freeze i32 %17
-  %21 = icmp ne i32 %.fr.i, 0
+  %21 = icmp ne i32 %17, 0
   %22 = icmp uge i32 %19, %18
-  %spec.select.i = select i1 %21, i1 true, i1 %22
-  br i1 %spec.select.i, label %23, label %set_fragment_head.exit
+  %23 = select i1 %21, i1 true, i1 %22
+  br i1 %23, label %24, label %set_fragment_head.exit
 
-23:                                               ; preds = %is_reassembly_done.exit, %3
-  %24 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %0, ptr noundef null)
-  %.not.i8 = icmp eq ptr %24, null
-  br i1 %.not.i8, label %set_fragment_head.exit, label %25
+24:                                               ; preds = %is_reassembly_done.exit, %3
+  %25 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %0, ptr noundef null)
+  %.not.i8 = icmp eq ptr %25, null
+  br i1 %.not.i8, label %set_fragment_head.exit, label %26
 
-25:                                               ; preds = %23
-  %26 = tail call ptr @wmem_file_scope()
-  %27 = load i32, ptr @proto_rpcordma, align 4
-  %28 = tail call ptr @p_get_proto_data(ptr noundef %26, ptr noundef %2, i32 noundef %27, i32 noundef 1)
-  %.not5.i = icmp eq ptr %24, %28
-  br i1 %.not5.i, label %set_fragment_head.exit, label %29
+26:                                               ; preds = %24
+  %27 = tail call ptr @wmem_file_scope()
+  %28 = load i32, ptr @proto_rpcordma, align 4
+  %29 = tail call ptr @p_get_proto_data(ptr noundef %27, ptr noundef %2, i32 noundef %28, i32 noundef 1)
+  %.not5.i = icmp eq ptr %25, %29
+  br i1 %.not5.i, label %set_fragment_head.exit, label %30
 
-29:                                               ; preds = %25
-  %30 = tail call ptr @wmem_file_scope()
-  %31 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %30, ptr noundef %2, i32 noundef %31, i32 noundef 1, ptr noundef nonnull %24)
+30:                                               ; preds = %26
+  %31 = tail call ptr @wmem_file_scope()
+  %32 = load i32, ptr @proto_rpcordma, align 4
+  tail call void @p_add_proto_data(ptr noundef %31, ptr noundef %2, i32 noundef %32, i32 noundef 1, ptr noundef nonnull %25)
   br label %set_fragment_head.exit
 
-set_fragment_head.exit:                           ; preds = %.lr.ph.i, %7, %4, %29, %25, %23, %is_reassembly_done.exit
-  %.0 = phi ptr [ null, %is_reassembly_done.exit ], [ null, %23 ], [ %24, %25 ], [ %24, %29 ], [ null, %4 ], [ null, %7 ], [ null, %.lr.ph.i ]
+set_fragment_head.exit:                           ; preds = %.lr.ph.i, %7, %4, %30, %26, %24, %is_reassembly_done.exit
+  %.0 = phi ptr [ null, %is_reassembly_done.exit ], [ null, %24 ], [ %25, %26 ], [ %25, %30 ], [ null, %4 ], [ null, %7 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -2574,7 +2573,7 @@ find_segment_info.exit:                           ; preds = %41
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = load i8, ptr %58, align 1, !range !6, !noundef !7
   %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %78
+  br i1 %60, label %61, label %79
 
 61:                                               ; preds = %find_segment_info.exit
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2610,31 +2609,30 @@ find_segment_info.exit:                           ; preds = %41
   %.1 = phi i32 [ 0, %61 ], [ 0, %67 ], [ %72, %.lr.ph ]
   %77 = icmp ne i32 %.169, %.1
   %or.cond84.not = select i1 %13, i1 true, i1 %77
-  br label %78
+  %78 = icmp eq i32 %.169, %.1
+  br label %79
 
-78:                                               ; preds = %.loopexit, %find_segment_info.exit
+79:                                               ; preds = %.loopexit, %find_segment_info.exit
   %.071 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond84.not, %.loopexit ]
-  %.068 = phi i32 [ 0, %find_segment_info.exit ], [ %.169, %.loopexit ]
-  %.066 = phi i32 [ 0, %find_segment_info.exit ], [ %.1, %.loopexit ]
-  %79 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %80 = load i32, ptr %79, align 8
-  %81 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %80, i32 noundef %52, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %82 = icmp ne ptr %81, null
-  %or.cond = or i1 %.071, %82
-  br i1 %or.cond, label %83, label %89
+  %.068 = phi i1 [ true, %find_segment_info.exit ], [ %78, %.loopexit ]
+  %80 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %81 = load i32, ptr %80, align 8
+  %82 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %81, i32 noundef %52, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %83 = icmp ne ptr %82, null
+  %or.cond = or i1 %.071, %83
+  br i1 %or.cond, label %84, label %89
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr @gp_rdmap_info, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  %86 = load i8, ptr %85, align 1, !range !6, !noundef !7
-  %87 = trunc nuw i8 %86 to i1
-  %or.cond3.not = and i1 %13, %87
-  %88 = icmp eq i32 %.068, %.066
-  %or.cond85 = select i1 %or.cond3.not, i1 %88, i1 false
+84:                                               ; preds = %79
+  %85 = load ptr, ptr @gp_rdmap_info, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
+  %87 = load i8, ptr %86, align 1, !range !6, !noundef !7
+  %88 = trunc nuw i8 %87 to i1
+  %or.cond3.not = and i1 %13, %88
+  %or.cond85 = select i1 %or.cond3.not, i1 %.068, i1 false
   br i1 %or.cond85, label %89, label %find_segment_info.exit.thread
 
-89:                                               ; preds = %83, %78
-  %90 = load i32, ptr %79, align 8
+89:                                               ; preds = %84, %79
+  %90 = load i32, ptr %80, align 8
   %91 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %92 = sub i32 0, %91
   %93 = and i32 %92, 3
@@ -2656,7 +2654,7 @@ add_iwarp_padding.exit:                           ; preds = %94, %89
   br i1 %or.cond, label %find_segment_info.exit.thread, label %102
 
 102:                                              ; preds = %add_iwarp_padding.exit
-  %103 = load i32, ptr %79, align 8
+  %103 = load i32, ptr %80, align 8
   %104 = tail call fastcc ptr @end_reassembly(i32 noundef %103, ptr noundef %1, ptr noundef %2)
   br label %find_segment_info.exit.thread.sink.split
 
@@ -2664,8 +2662,8 @@ find_segment_info.exit.thread.sink.split:         ; preds = %4, %102
   %105 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   br label %find_segment_info.exit.thread
 
-find_segment_info.exit.thread:                    ; preds = %find_segment_info.exit.thread.sink.split, %83, %41, %38, %35, %add_iwarp_padding.exit, %14
-  %.065 = phi ptr [ null, %14 ], [ %81, %add_iwarp_padding.exit ], [ null, %35 ], [ null, %38 ], [ null, %41 ], [ %81, %83 ], [ %105, %find_segment_info.exit.thread.sink.split ]
+find_segment_info.exit.thread:                    ; preds = %find_segment_info.exit.thread.sink.split, %84, %41, %38, %35, %add_iwarp_padding.exit, %14
+  %.065 = phi ptr [ null, %14 ], [ %82, %add_iwarp_padding.exit ], [ null, %35 ], [ null, %38 ], [ null, %41 ], [ %82, %84 ], [ %105, %find_segment_info.exit.thread.sink.split ]
   ret ptr %.065
 }
 

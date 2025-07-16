@@ -2842,10 +2842,10 @@ define dso_local void @_ZNK5State9RootNodesEPNSt7__cxx1112basic_stringIcSt11char
 
 ._crit_edge31:                                    ; preds = %._crit_edge
   %.pre40 = load ptr, ptr %4, align 8, !tbaa !37
-  %10 = icmp ne ptr %.pre40, %21
-  %11 = icmp eq ptr %.lcssa22, %23
-  %or.cond = select i1 %10, i1 %11, i1 false
-  br i1 %or.cond, label %65, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
+  %10 = icmp eq ptr %.pre40, %21
+  %11 = icmp ne ptr %.lcssa22, %23
+  %brmerge = select i1 %10, i1 true, i1 %11
+  br i1 %brmerge, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %65
 
 12:                                               ; preds = %.lr.ph30, %._crit_edge
   %13 = phi ptr [ %7, %.lr.ph30 ], [ %21, %._crit_edge ]
@@ -2990,7 +2990,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4Node
           cleanup
   br label %71
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %3, %65, %._crit_edge31
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %._crit_edge31, %3, %65
   ret void
 
 71:                                               ; preds = %.loopexit, %.loopexit.split-lp, %69

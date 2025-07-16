@@ -36057,49 +36057,49 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_setIjNS_8identityESt8equa
 _ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit: ; preds = %.lr.ph.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !20
-  %.not = icmp eq ptr %21, %.pre
-  br i1 %.not, label %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread, label %.thread
+  %23 = icmp eq ptr %21, %.pre
+  br i1 %23, label %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread, label %.thread
 
 _ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread: ; preds = %22, %2, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNSt6vectorISt4pairImjEN4test18throwing_allocatorIS1_EEE12emplace_backIJRmRKjEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %26 = load ptr, ptr %23, align 8, !tbaa !267
-  %27 = load ptr, ptr %15, align 8, !tbaa !269
-  %28 = ptrtoint ptr %26 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNSt6vectorISt4pairImjEN4test18throwing_allocatorIS1_EEE12emplace_backIJRmRKjEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  %27 = load ptr, ptr %24, align 8, !tbaa !267
+  %28 = load ptr, ptr %15, align 8, !tbaa !269
   %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = ashr exact i64 %30, 4
-  %32 = add nsw i64 %31, -1
-  %33 = load ptr, ptr %5, align 8, !tbaa !316
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %14
-  store i64 %32, ptr %34, align 8, !tbaa !88
-  %35 = load ptr, ptr %6, align 8, !tbaa !476
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %33 to i64
-  %38 = sub i64 %36, %37
-  %39 = ashr exact i64 %38, 3
-  %40 = uitofp i64 %39 to float
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %42 = load float, ptr %41, align 8, !tbaa !475
-  %43 = fmul float %42, %40
-  %44 = fptoui float %43 to i64
-  %45 = icmp ugt i64 %31, %44
-  br i1 %45, label %46, label %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  %32 = ashr exact i64 %31, 4
+  %33 = add nsw i64 %32, -1
+  %34 = load ptr, ptr %5, align 8, !tbaa !316
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %14
+  store i64 %33, ptr %35, align 8, !tbaa !88
+  %36 = load ptr, ptr %6, align 8, !tbaa !476
+  %37 = ptrtoint ptr %36 to i64
+  %38 = ptrtoint ptr %34 to i64
+  %39 = sub i64 %37, %38
+  %40 = ashr exact i64 %39, 3
+  %41 = uitofp i64 %40 to float
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %43 = load float, ptr %42, align 8, !tbaa !475
+  %44 = fmul float %43, %41
+  %45 = fptoui float %44 to i64
+  %46 = icmp ugt i64 %32, %45
+  br i1 %46, label %47, label %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit
 
-46:                                               ; preds = %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread
-  %47 = ashr exact i64 %38, 2
-  tail call void @_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(100) %0, i64 noundef %47)
-  %.pre19 = load ptr, ptr %23, align 8, !tbaa !20
+47:                                               ; preds = %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread
+  %48 = ashr exact i64 %39, 2
+  tail call void @_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(100) %0, i64 noundef %48)
+  %.pre19 = load ptr, ptr %24, align 8, !tbaa !20
   br label %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit
 
-_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit: ; preds = %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread, %46
-  %48 = phi ptr [ %26, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre19, %46 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 -16
+_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit: ; preds = %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread, %47
+  %49 = phi ptr [ %27, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit.thread ], [ %.pre19, %47 ]
+  %50 = getelementptr inbounds i8, ptr %49, i64 -16
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit
-  %.sroa.011.1 = phi ptr [ %49, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit ], [ %21, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit ]
+  %.sroa.011.1 = phi ptr [ %50, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit ], [ %21, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit ]
   %.sroa.3.1 = phi i8 [ 1, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE18rehash_if_requiredEv.exit ], [ 0, %_ZN4entt9dense_setIjNS_8identityESt8equal_toIvEN4test18throwing_allocatorIjEEE16constrained_findIjEEDaRKT_m.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.011.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.1, 1

@@ -626,7 +626,7 @@ define void @_ZN6icu_7717GregorianCalendar19handleComputeFieldsEiR10UErrorCode(p
   %19 = sext i16 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %21 = load i32, ptr %20, align 4, !tbaa !30
-  br label %46
+  br label %47
 
 22:                                               ; preds = %7
   %23 = add nsw i32 %1, -1721424
@@ -659,10 +659,11 @@ define void @_ZN6icu_7717GregorianCalendar19handleComputeFieldsEiR10UErrorCode(p
   %44 = add i32 %reass.sub, 1
   %45 = add nsw i32 %30, 1
   %.pre = load i32, ptr %8, align 8
-  br label %46
+  %46 = icmp slt i32 %1, %.pre
+  br label %47
 
-46:                                               ; preds = %22, %10
-  %47 = phi i32 [ %9, %10 ], [ %.pre, %22 ]
+47:                                               ; preds = %22, %10
+  %.not43 = phi i1 [ false, %10 ], [ %46, %22 ]
   %.038 = phi i32 [ %19, %10 ], [ %45, %22 ]
   %.037 = phi i32 [ %16, %10 ], [ %44, %22 ]
   %.035 = phi i32 [ %13, %10 ], [ %38, %22 ]
@@ -670,11 +671,10 @@ define void @_ZN6icu_7717GregorianCalendar19handleComputeFieldsEiR10UErrorCode(p
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %49 = load i32, ptr %48, align 8, !tbaa !22
   %50 = icmp ne i32 %.034, %49
-  %.not43 = icmp slt i32 %1, %47
   %or.cond = select i1 %50, i1 true, i1 %.not43
   br i1 %or.cond, label %.split40, label %51
 
-51:                                               ; preds = %46
+51:                                               ; preds = %47
   %52 = sext i32 %.034 to i64
   %53 = add nsw i64 %52, -1
   %54 = call noundef i64 @_ZN6icu_779ClockMath16floorDivideInt64Ell(i64 noundef %53, i64 noundef 400)
@@ -685,8 +685,8 @@ define void @_ZN6icu_7717GregorianCalendar19handleComputeFieldsEiR10UErrorCode(p
   %59 = add i32 %58, %57
   br label %.split40
 
-.split40:                                         ; preds = %51, %46
-  %.139 = phi i32 [ %59, %51 ], [ %.038, %46 ]
+.split40:                                         ; preds = %51, %47
+  %.139 = phi i32 [ %59, %51 ], [ %.038, %47 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.035, ptr %61, align 8, !tbaa !32

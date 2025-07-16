@@ -57,7 +57,6 @@ $_ZN4llvm15SmallVectorImplIN5clang22ComparisonCategoryInfo9ValueInfoEEaSEOS4_ = 
 @.str.6 = private unnamed_addr constant [8 x i8] c"greater\00", align 1
 @.str.7 = private unnamed_addr constant [10 x i8] c"unordered\00", align 1
 @.str.8 = private unnamed_addr constant [4 x i8] c"std\00", align 1
-@.str.9 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE = private unnamed_addr constant [5 x i64] [i64 5, i64 10, i64 4, i64 7, i64 9], align 8
 @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.8 = private unnamed_addr constant [5 x ptr] [ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7], align 8
 @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE = private unnamed_addr constant [3 x i64] [i64 16, i64 13, i64 15], align 8
@@ -1050,35 +1049,30 @@ switch.lookup:                                    ; preds = %.preheader, %_ZN4ll
   %46 = zext nneg i32 %.mask to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.mask63 = and i32 %.02650, 255
-  %47 = zext nneg i32 %.mask63 to i64
-  %switch.gep61 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %47
-  %switch.load62 = load ptr, ptr %switch.gep61, align 8
+  %.mask65 = and i32 %.02650, 255
+  %47 = zext nneg i32 %.mask65 to i64
+  %switch.gep63 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %47
+  %switch.load64 = load ptr, ptr %switch.gep63, align 8
   %48 = load i64, ptr %44, align 8, !tbaa !461
   %49 = and i64 %48, 7
   %50 = icmp ne i64 %49, 0
   %51 = and i64 %48, -8
   %.not2.i = icmp eq i64 %51, 0
   %.not.i = or i1 %50, %.not2.i
-  br i1 %.not.i, label %_ZNK5clang9NamedDecl7getNameEv.exit, label %52
+  br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZNK5clang9NamedDecl7getNameEv.exit
 
-52:                                               ; preds = %switch.lookup
-  %53 = inttoptr i64 %51 to ptr
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !430
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load i64, ptr %55, align 8, !tbaa !463
-  %58 = and i64 %57, 4294967295
-  br label %_ZNK5clang9NamedDecl7getNameEv.exit
-
-_ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %switch.lookup, %52
-  %.sroa.3.0.i = phi i64 [ %58, %52 ], [ 0, %switch.lookup ]
-  %.sroa.0.0.i29 = phi ptr [ %56, %52 ], [ @.str.9, %switch.lookup ]
-  %.not.i32 = icmp eq i64 %switch.load, %.sroa.3.0.i
-  br i1 %.not.i32, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+_ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %switch.lookup
+  %52 = inttoptr i64 %51 to ptr
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !430
+  %55 = load i64, ptr %54, align 8, !tbaa !463
+  %56 = and i64 %55, 4294967295
+  %57 = icmp eq i64 %switch.load, %56
+  br i1 %57, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %switch.load62, ptr noundef nonnull dereferenceable(1) %.sroa.0.0.i29, i64 %switch.load)
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %switch.load64, ptr noundef nonnull dereferenceable(1) %58, i64 %switch.load)
   %59 = icmp eq i32 %bcmp.i, 0
   br i1 %59, label %60, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
@@ -1095,7 +1089,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK5clang9NamedDec
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   br label %.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %switch.lookup, %_ZNK5clang9NamedDecl7getNameEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   %64 = add nuw nsw i32 %.02650, 1
   %exitcond = icmp eq i32 %64, 3

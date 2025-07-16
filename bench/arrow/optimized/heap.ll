@@ -646,48 +646,42 @@ declare void @_mi_heap_set_default_direct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = icmp ne ptr %0, null
-  %4 = icmp ne ptr %0, @_mi_heap_empty
-  %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %29
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %0, @_mi_heap_empty
+  %or.cond.not8 = or i1 %3, %4
+  %5 = icmp eq ptr %1, null
+  %or.cond6 = or i1 %or.cond.not8, %5
+  br i1 %or.cond6, label %mi_heap_of_block.exit, label %6
 
-5:                                                ; preds = %2
-  %6 = icmp eq ptr %1, null
-  br i1 %6, label %mi_heap_of_block.exit, label %7
+6:                                                ; preds = %2
+  %7 = ptrtoint ptr %1 to i64
+  %8 = and i64 %7, -67108864
+  %9 = inttoptr i64 %8 to ptr
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2856), align 8, !tbaa !42
+  %11 = xor i64 %10, %8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 320
+  %13 = load i64, ptr %12, align 64, !tbaa !51
+  %.not.i = icmp eq i64 %11, %13
+  br i1 %.not.i, label %14, label %mi_heap_of_block.exit, !prof !47
 
-7:                                                ; preds = %5
-  %8 = ptrtoint ptr %1 to i64
-  %9 = and i64 %8, -67108864
-  %10 = inttoptr i64 %9 to ptr
-  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2856), align 8, !tbaa !42
-  %12 = xor i64 %11, %9
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 320
-  %14 = load i64, ptr %13, align 64, !tbaa !51
-  %.not.i = icmp eq i64 %12, %14
-  br i1 %.not.i, label %15, label %mi_heap_of_block.exit, !prof !47
-
-15:                                               ; preds = %7
-  %16 = lshr i64 %8, 16
-  %17 = and i64 %16, 1023
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 368
-  %19 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %18, i64 0, i64 %17
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !55
-  %22 = zext i32 %21 to i64
-  %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %26 = load atomic i64, ptr %25 monotonic, align 8
-  %27 = inttoptr i64 %26 to ptr
+14:                                               ; preds = %6
+  %15 = lshr i64 %7, 16
+  %16 = and i64 %15, 1023
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 368
+  %18 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %17, i64 0, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = load i32, ptr %19, align 4, !tbaa !55
+  %21 = zext i32 %20 to i64
+  %22 = sub nsw i64 0, %21
+  %23 = getelementptr inbounds i8, ptr %18, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  %25 = load atomic i64, ptr %24 monotonic, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = icmp eq ptr %0, %26
   br label %mi_heap_of_block.exit
 
-mi_heap_of_block.exit:                            ; preds = %5, %7, %15
-  %.0.i = phi ptr [ null, %5 ], [ %27, %15 ], [ null, %7 ]
-  %28 = icmp eq ptr %0, %.0.i
-  br label %29
-
-29:                                               ; preds = %2, %mi_heap_of_block.exit
-  %.0 = phi i1 [ %28, %mi_heap_of_block.exit ], [ false, %2 ]
+mi_heap_of_block.exit:                            ; preds = %14, %6, %2
+  %.0 = phi i1 [ false, %2 ], [ %27, %14 ], [ false, %6 ]
   ret i1 %.0
 }
 

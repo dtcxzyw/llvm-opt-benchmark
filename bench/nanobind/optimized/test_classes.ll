@@ -14914,43 +14914,43 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   %.not4.i = icmp eq ptr %9, %10
   br i1 %.not4.i, label %"_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EENK4$_48clEv.exit", label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %13
+._crit_edge.i:                                    ; preds = %14
   %.pre.i = load ptr, ptr @_ZL17struct_destructed, align 8, !tbaa !8, !noalias !557
   %.pre6.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL17struct_destructed, i64 8), align 8, !tbaa !200, !noalias !557
-  %.not.i.i.i = icmp eq ptr %.pre6.i, %.pre.i
-  br i1 %.not.i.i.i, label %"_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EENK4$_48clEv.exit", label %11
+  %11 = icmp eq ptr %.pre6.i, %.pre.i
+  br i1 %11, label %"_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EENK4$_48clEv.exit", label %12
 
-11:                                               ; preds = %._crit_edge.i
+12:                                               ; preds = %._crit_edge.i
   store ptr %.pre.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL17struct_destructed, i64 8), align 8, !tbaa !200, !noalias !557
   br label %"_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EENK4$_48clEv.exit"
 
-.lr.ph.i:                                         ; preds = %5, %13
-  %.sroa.01.05.i = phi ptr [ %14, %13 ], [ %9, %5 ]
+.lr.ph.i:                                         ; preds = %5, %14
+  %.sroa.01.05.i = phi ptr [ %15, %14 ], [ %9, %5 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #38, !noalias !557
-  %12 = load i32, ptr %.sroa.01.05.i, align 4, !tbaa !32
-  store i32 %12, ptr %6, align 4, !tbaa !32, !noalias !557
+  %13 = load i32, ptr %.sroa.01.05.i, align 4, !tbaa !32
+  store i32 %13, ptr %6, align 4, !tbaa !32, !noalias !557
   invoke void @_ZN8nanobind4list6appendIRiEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %6) #39
-          to label %13 unwind label %15
+          to label %14 unwind label %16
 
-13:                                               ; preds = %.lr.ph.i
+14:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #38, !noalias !557
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 4
-  %.not.i = icmp eq ptr %14, %10
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 4
+  %.not.i = icmp eq ptr %15, %10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-15:                                               ; preds = %.lr.ph.i
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %.lr.ph.i
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #38, !noalias !557
-  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #36
-  resume { ptr, i32 } %16
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #36
+  resume { ptr, i32 } %17
 
-"_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EENK4$_48clEv.exit": ; preds = %5, %._crit_edge.i, %11
-  %18 = load ptr, ptr %7, align 8, !tbaa !20
+"_ZZL30nanobind_init_test_classes_extRN8nanobind7module_EENK4$_48clEv.exit": ; preds = %5, %._crit_edge.i, %12
+  %19 = load ptr, ptr %7, align 8, !tbaa !20
   store ptr null, ptr %7, align 8, !tbaa !20
-  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #36
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #38
-  ret ptr %18
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress optsize uwtable

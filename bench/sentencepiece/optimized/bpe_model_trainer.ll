@@ -5735,61 +5735,61 @@ define linkonce_odr void @_ZN13sentencepiece4port17STLDeleteElementsINS_3bpe7Tra
   %.not8 = icmp eq ptr %2, %4
   br i1 %.not8, label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE5clearEv.exit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %23
+._crit_edge:                                      ; preds = %24
   %.pre = load ptr, ptr %0, align 8, !tbaa !64
   %.pre10 = load ptr, ptr %3, align 8, !tbaa !47
-  %.not.i.i = icmp eq ptr %.pre10, %.pre
-  br i1 %.not.i.i, label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE5clearEv.exit, label %5
+  %5 = icmp eq ptr %.pre10, %.pre
+  br i1 %5, label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE5clearEv.exit, label %6
 
-5:                                                ; preds = %._crit_edge
+6:                                                ; preds = %._crit_edge
   store ptr %.pre, ptr %3, align 8, !tbaa !47
   br label %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE5clearEv.exit
 
-_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE5clearEv.exit: ; preds = %1, %._crit_edge, %5
+_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE5clearEv.exit: ; preds = %1, %._crit_edge, %6
   ret void
 
-.lr.ph:                                           ; preds = %1, %23
-  %.sroa.05.09 = phi ptr [ %24, %23 ], [ %2, %1 ]
-  %6 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !46
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %23, label %8
+.lr.ph:                                           ; preds = %1, %24
+  %.sroa.05.09 = phi ptr [ %25, %24 ], [ %2, %1 ]
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !46
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %24, label %9
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11)
-          to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit.i unwind label %12
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12)
+          to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit.i unwind label %13
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %9
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #28
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #28
   unreachable
 
-_ZNSt3setImSt4lessImESaImEED2Ev.exit.i:           ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !67
-  %.not.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i, label %_ZN13sentencepiece3bpe7Trainer6SymbolD2Ev.exit, label %17
+_ZNSt3setImSt4lessImESaImEED2Ev.exit.i:           ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
+  %.not.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i, label %_ZN13sentencepiece3bpe7Trainer6SymbolD2Ev.exit, label %18
 
-17:                                               ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit.i
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !66
-  %20 = ptrtoint ptr %19 to i64
-  %21 = ptrtoint ptr %16 to i64
-  %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #27
+18:                                               ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit.i
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %20 = load ptr, ptr %19, align 8, !tbaa !66
+  %21 = ptrtoint ptr %20 to i64
+  %22 = ptrtoint ptr %17 to i64
+  %23 = sub i64 %21, %22
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %23) #27
   br label %_ZN13sentencepiece3bpe7Trainer6SymbolD2Ev.exit
 
-_ZN13sentencepiece3bpe7Trainer6SymbolD2Ev.exit:   ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit.i, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 112) #27
-  br label %23
+_ZN13sentencepiece3bpe7Trainer6SymbolD2Ev.exit:   ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit.i, %18
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 112) #27
+  br label %24
 
-23:                                               ; preds = %_ZN13sentencepiece3bpe7Trainer6SymbolD2Ev.exit, %.lr.ph
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
-  %.not = icmp eq ptr %24, %4
+24:                                               ; preds = %_ZN13sentencepiece3bpe7Trainer6SymbolD2Ev.exit, %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
+  %.not = icmp eq ptr %25, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

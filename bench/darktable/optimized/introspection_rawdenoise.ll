@@ -794,10 +794,12 @@ FCxtrans.exit305.i:                               ; preds = %FCxtrans.exit301.i
   %349 = load i8, ptr %348, align 1, !tbaa !73, !noalias !70
   %350 = zext i8 %349 to i32
   %351 = icmp eq i32 %.0261352.i, %350
-  %or.cond = select i1 %222, i1 %351, i1 false
-  br i1 %or.cond, label %352, label %FCxtrans.exit313.i
+  br i1 %222, label %FCxtrans.exit309.i, label %FCxtrans.exit313.i
 
-352:                                              ; preds = %347
+FCxtrans.exit309.i:                               ; preds = %347
+  br i1 %351, label %352, label %FCxtrans.exit317.i
+
+352:                                              ; preds = %FCxtrans.exit309.i
   %353 = getelementptr inbounds float, ptr %248, i64 %175
   %354 = load float, ptr %353, align 4, !tbaa !17, !alias.scope !62, !noalias !74
   %355 = fcmp reassoc nsz arcp contract afn olt float %354, 0.000000e+00
@@ -812,10 +814,9 @@ FCxtrans.exit305.i:                               ; preds = %FCxtrans.exit301.i
   br label %.critedge.i
 
 FCxtrans.exit313.i:                               ; preds = %347
-  %.not278.i = icmp eq i32 %.0261352.i, %350
-  br i1 %.not278.i, label %.critedge.i, label %FCxtrans.exit317.i
+  br i1 %351, label %.critedge.i, label %FCxtrans.exit317.i
 
-FCxtrans.exit317.i:                               ; preds = %FCxtrans.exit313.i
+FCxtrans.exit317.i:                               ; preds = %FCxtrans.exit309.i, %FCxtrans.exit313.i
   %361 = getelementptr inbounds [6 x i8], ptr %145, i64 %289, i64 %239
   %362 = load i8, ptr %361, align 1, !tbaa !73, !noalias !70
   %363 = zext i8 %362 to i32

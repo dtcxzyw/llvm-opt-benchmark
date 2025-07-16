@@ -1750,7 +1750,7 @@ define internal fastcc i32 @do_mlock(i64 noundef %0, i64 noundef %1, i64 noundef
 
 12:                                               ; preds = %3
   %13 = tail call zeroext i1 @capable(i32 noundef 14) #10
-  br i1 %13, label %._crit_edge, label %105
+  br i1 %13, label %._crit_edge, label %101
 
 ._crit_edge:                                      ; preds = %12
   %.pre = load ptr, ptr %7, align 8
@@ -1788,7 +1788,7 @@ define internal fastcc i32 @do_mlock(i64 noundef %0, i64 noundef %1, i64 noundef
 
 32:                                               ; preds = %30, %27
   %33 = icmp eq i32 %29, 0
-  br i1 %33, label %34, label %105
+  br i1 %33, label %34, label %101
 
 34:                                               ; preds = %32
   %35 = lshr i64 %18, 12
@@ -1797,11 +1797,11 @@ define internal fastcc i32 @do_mlock(i64 noundef %0, i64 noundef %1, i64 noundef
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %35
   %40 = icmp ugt i64 %39, %23
-  br i1 %40, label %41, label %80
+  br i1 %40, label %41, label %.critedge8
 
 41:                                               ; preds = %34
   %42 = tail call zeroext i1 @capable(i32 noundef 14) #10
-  br i1 %42, label %80, label %43
+  br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %24, align 8
@@ -1861,57 +1861,53 @@ define internal fastcc i32 @do_mlock(i64 noundef %0, i64 noundef %1, i64 noundef
   %78 = lshr i64 %77, 12
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
   %79 = sub i64 %39, %78
-  br label %80
+  %80 = icmp ugt i64 %79, %23
+  br i1 %80, label %.critedge, label %.critedge8
 
-80:                                               ; preds = %.loopexit, %41, %34
-  %81 = phi i64 [ %39, %41 ], [ %79, %.loopexit ], [ %39, %34 ]
-  %82 = icmp ugt i64 %81, %23
-  br i1 %82, label %83, label %85
+.critedge:                                        ; preds = %41, %.loopexit
+  %81 = call zeroext i1 @capable(i32 noundef 14) #10
+  br i1 %81, label %.critedge8, label %83
 
-83:                                               ; preds = %80
-  %84 = call zeroext i1 @capable(i32 noundef 14) #10
-  br i1 %84, label %85, label %87
+.critedge8:                                       ; preds = %34, %.critedge, %.loopexit
+  %82 = call fastcc i32 @apply_vma_lock_flags(i64 noundef %20, i64 noundef %19, i64 noundef %2)
+  br label %83
 
-85:                                               ; preds = %83, %80
-  %86 = call fastcc i32 @apply_vma_lock_flags(i64 noundef %20, i64 noundef %19, i64 noundef %2)
+83:                                               ; preds = %.critedge8, %.critedge
+  %84 = phi i32 [ %82, %.critedge8 ], [ -12, %.critedge ]
+  %85 = load ptr, ptr %24, align 8
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #10
+          to label %87 [label %86], !srcloc !48
+
+86:                                               ; preds = %83
+  call void @__mmap_lock_do_trace_released(ptr noundef %85, i1 noundef zeroext true) #10
   br label %87
 
-87:                                               ; preds = %85, %83
-  %88 = phi i32 [ %86, %85 ], [ -12, %83 ]
-  %89 = load ptr, ptr %24, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #10
-          to label %91 [label %90], !srcloc !48
-
-90:                                               ; preds = %87
-  call void @__mmap_lock_do_trace_released(ptr noundef %89, i1 noundef zeroext true) #10
-  br label %91
-
-91:                                               ; preds = %90, %87
+87:                                               ; preds = %86, %83
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !49
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 232
-  %93 = load i32, ptr %92, align 8
-  %94 = add i32 %93, 1
-  store volatile i32 %94, ptr %92, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 176
-  call void @up_write(ptr noundef nonnull %95) #10
-  %96 = icmp eq i32 %88, 0
-  br i1 %96, label %97, label %105
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 232
+  %89 = load i32, ptr %88, align 8
+  %90 = add i32 %89, 1
+  store volatile i32 %90, ptr %88, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 176
+  call void @up_write(ptr noundef nonnull %91) #10
+  %92 = icmp eq i32 %84, 0
+  br i1 %92, label %93, label %101
 
-97:                                               ; preds = %91
-  %98 = call i32 @__mm_populate(i64 noundef %20, i64 noundef %19, i32 noundef 0) #10
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %105, label %100
+93:                                               ; preds = %87
+  %94 = call i32 @__mm_populate(i64 noundef %20, i64 noundef %19, i32 noundef 0) #10
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %101, label %96
 
-100:                                              ; preds = %97
-  %101 = icmp eq i32 %98, -14
-  %102 = icmp eq i32 %98, -12
-  %103 = select i1 %102, i32 -11, i32 %98
-  %104 = select i1 %101, i32 -12, i32 %103
-  br label %105
+96:                                               ; preds = %93
+  %97 = icmp eq i32 %94, -14
+  %98 = icmp eq i32 %94, -12
+  %99 = select i1 %98, i32 -11, i32 %94
+  %100 = select i1 %97, i32 -12, i32 %99
+  br label %101
 
-105:                                              ; preds = %100, %97, %91, %32, %12
-  %106 = phi i32 [ %104, %100 ], [ -1, %12 ], [ -4, %32 ], [ %88, %91 ], [ 0, %97 ]
-  ret i32 %106
+101:                                              ; preds = %96, %93, %87, %32, %12
+  %102 = phi i32 [ %100, %96 ], [ -1, %12 ], [ -4, %32 ], [ %84, %87 ], [ 0, %93 ]
+  ret i32 %102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

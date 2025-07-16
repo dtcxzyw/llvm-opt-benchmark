@@ -2944,8 +2944,8 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
   %33 = and i32 %11, 4
   %34 = icmp eq i32 %33, 0
   %35 = icmp eq ptr %10, null
-  %or.cond.not243 = or i1 %35, %34
-  br i1 %or.cond.not243, label %41, label %36
+  %or.cond.not244 = or i1 %35, %34
+  br i1 %or.cond.not244, label %41, label %36
 
 36:                                               ; preds = %31
   %37 = load i32, ptr %10, align 4, !tbaa !12
@@ -3044,8 +3044,8 @@ HUF_validateCTable.exit:                          ; preds = %.lr.ph.i
 
 HUF_validateCTable.exit.thread:                   ; preds = %70, %HUF_validateCTable.exit, %67
   %.not176 = icmp eq i32 %68, 0
-  %or.cond240 = or i1 %or.cond.not243, %.not176
-  br i1 %or.cond240, label %.thread212, label %84
+  %or.cond241 = or i1 %or.cond.not244, %.not176
+  br i1 %or.cond241, label %.thread212, label %84
 
 HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.exit
   store i32 0, ptr %10, align 4, !tbaa !12
@@ -3083,11 +3083,7 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
 103:                                              ; preds = %102
   %104 = load i32, ptr %10, align 4, !tbaa !12
   %.not179 = icmp eq i32 %104, 0
-  br i1 %.not179, label %..thread220_crit_edge, label %105
-
-..thread220_crit_edge:                            ; preds = %103
-  %.pre = add nuw i64 %100, 12
-  br label %.thread220
+  br i1 %.not179, label %.thread220, label %105
 
 105:                                              ; preds = %103
   %106 = load i32, ptr %13, align 4, !tbaa !12
@@ -3142,27 +3138,27 @@ HUF_estimateCompressedSize.exit206:               ; preds = %.lr.ph.i199
   %129 = add nuw i64 %100, 12
   %.not181 = icmp ult i64 %129, %3
   %or.cond186 = and i1 %.not181, %.not180
-  br i1 %or.cond186, label %.thread220, label %HUF_estimateCompressedSize.exit206.thread
+  br i1 %or.cond186, label %.thread220.thread, label %HUF_estimateCompressedSize.exit206.thread
 
 HUF_estimateCompressedSize.exit206.thread:        ; preds = %105, %HUF_estimateCompressedSize.exit206
   %130 = call fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9)
   br label %.thread
 
-.thread220:                                       ; preds = %..thread220_crit_edge, %HUF_estimateCompressedSize.exit206
-  %.pre-phi = phi i64 [ %.pre, %..thread220_crit_edge ], [ %129, %HUF_estimateCompressedSize.exit206 ]
-  %.not182 = icmp ult i64 %.pre-phi, %3
-  br i1 %.not182, label %132, label %.thread
+.thread220:                                       ; preds = %103
+  %.pre = add nuw i64 %100, 12
+  %131 = icmp ult i64 %.pre, %3
+  br i1 %131, label %.thread220.thread, label %.thread
 
 .thread223:                                       ; preds = %102
-  %131 = add nuw i64 %100, 12
-  %.not182224 = icmp ult i64 %131, %3
+  %132 = add nuw i64 %100, 12
+  %.not182224 = icmp ult i64 %132, %3
   br i1 %.not182224, label %.thread225, label %.thread
 
-132:                                              ; preds = %.thread220
+.thread220.thread:                                ; preds = %HUF_estimateCompressedSize.exit206, %.thread220
   store i32 0, ptr %10, align 4, !tbaa !12
   br label %.thread225
 
-.thread225:                                       ; preds = %.thread223, %132
+.thread225:                                       ; preds = %.thread223, %.thread220.thread
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 %100
   %.not183 = icmp eq ptr %9, null
   br i1 %.not183, label %135, label %134

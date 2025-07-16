@@ -6779,14 +6779,15 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %19, %_ZNSt10unique_
   %.sroa.2.0.copyload.i.i.pre = load i64, ptr %.sroa.461.0..sroa_idx, align 8, !tbaa !24, !noalias !516
   %.pre = load ptr, ptr %8, align 8, !tbaa !493
   %.pre93 = load i64, ptr %33, align 8
+  %83 = icmp ne i64 %.pre93, %.sroa.2.0.copyload.i.i.pre
   br label %_ZNK4llvm15DWARFExpression5beginEv.exit
 
 _ZNK4llvm15DWARFExpression5beginEv.exit:          ; preds = %66, %79
-  %83 = phi i64 [ 0, %66 ], [ %.pre93, %79 ]
-  %84 = phi ptr [ %7, %66 ], [ %.pre, %79 ]
+  %84 = phi i1 [ false, %66 ], [ %83, %79 ]
+  %85 = phi ptr [ %7, %66 ], [ %.pre, %79 ]
   %.sroa.2.0.copyload.i.i = phi i64 [ 0, %66 ], [ %.sroa.2.0.copyload.i.i.pre, %79 ]
-  %85 = phi i8 [ 1, %66 ], [ %82, %79 ]
-  store i8 %85, ptr %39, align 8, !tbaa !519, !alias.scope !509
+  %86 = phi i8 [ 1, %66 ], [ %82, %79 ]
+  store i8 %86, ptr %39, align 8, !tbaa !519, !alias.scope !509
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %9) #21
   call void @llvm.experimental.noalias.scope.decl(metadata !516)
   store ptr %7, ptr %9, align 8, !tbaa !493, !alias.scope !516
@@ -6802,14 +6803,13 @@ _ZNK4llvm15DWARFExpression5beginEv.exit:          ; preds = %66, %79
   store i32 0, ptr %62, align 8, !tbaa !363, !alias.scope !516
   store i32 6, ptr %63, align 4, !tbaa !515, !alias.scope !516
   store i8 1, ptr %55, align 8, !tbaa !519, !alias.scope !516
-  %86 = icmp ne ptr %84, %7
-  %87 = icmp ne i64 %83, %.sroa.2.0.copyload.i.i
-  %.not3.i88 = select i1 %86, i1 true, i1 %87
+  %87 = icmp ne ptr %85, %7
+  %.not3.i88 = select i1 %87, i1 true, i1 %84
   br i1 %.not3.i88, label %.lr.ph, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i40
 
 .lr.ph:                                           ; preds = %_ZNK4llvm15DWARFExpression5beginEv.exit, %_ZN4llvm15DWARFExpression8iteratorppEv.exit
-  %88 = phi ptr [ %115, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ], [ %84, %_ZNK4llvm15DWARFExpression5beginEv.exit ]
-  %89 = phi i8 [ %116, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ], [ %85, %_ZNK4llvm15DWARFExpression5beginEv.exit ]
+  %88 = phi ptr [ %115, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ], [ %85, %_ZNK4llvm15DWARFExpression5beginEv.exit ]
+  %89 = phi i8 [ %116, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ], [ %86, %_ZNK4llvm15DWARFExpression5beginEv.exit ]
   %90 = load i8, ptr %48, align 8, !tbaa !520
   switch i8 %90, label %102 [
     i8 3, label %91
@@ -10696,14 +10696,15 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %19, %_ZNSt10unique_
   %.sroa.2.0.copyload.i.i.pre = load i64, ptr %.sroa.461.0..sroa_idx, align 8, !tbaa !24, !noalias !695
   %.pre = load ptr, ptr %8, align 8, !tbaa !493
   %.pre93 = load i64, ptr %33, align 8
+  %83 = icmp ne i64 %.pre93, %.sroa.2.0.copyload.i.i.pre
   br label %_ZNK4llvm15DWARFExpression5beginEv.exit
 
 _ZNK4llvm15DWARFExpression5beginEv.exit:          ; preds = %66, %79
-  %83 = phi i64 [ 0, %66 ], [ %.pre93, %79 ]
-  %84 = phi ptr [ %7, %66 ], [ %.pre, %79 ]
+  %84 = phi i1 [ false, %66 ], [ %83, %79 ]
+  %85 = phi ptr [ %7, %66 ], [ %.pre, %79 ]
   %.sroa.2.0.copyload.i.i = phi i64 [ 0, %66 ], [ %.sroa.2.0.copyload.i.i.pre, %79 ]
-  %85 = phi i8 [ 1, %66 ], [ %82, %79 ]
-  store i8 %85, ptr %39, align 8, !tbaa !519, !alias.scope !692
+  %86 = phi i8 [ 1, %66 ], [ %82, %79 ]
+  store i8 %86, ptr %39, align 8, !tbaa !519, !alias.scope !692
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %9) #21
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
   store ptr %7, ptr %9, align 8, !tbaa !493, !alias.scope !695
@@ -10719,14 +10720,13 @@ _ZNK4llvm15DWARFExpression5beginEv.exit:          ; preds = %66, %79
   store i32 0, ptr %62, align 8, !tbaa !363, !alias.scope !695
   store i32 6, ptr %63, align 4, !tbaa !515, !alias.scope !695
   store i8 1, ptr %55, align 8, !tbaa !519, !alias.scope !695
-  %86 = icmp ne ptr %84, %7
-  %87 = icmp ne i64 %83, %.sroa.2.0.copyload.i.i
-  %.not3.i88 = select i1 %86, i1 true, i1 %87
+  %87 = icmp ne ptr %85, %7
+  %.not3.i88 = select i1 %87, i1 true, i1 %84
   br i1 %.not3.i88, label %.lr.ph, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i40
 
 .lr.ph:                                           ; preds = %_ZNK4llvm15DWARFExpression5beginEv.exit, %_ZN4llvm15DWARFExpression8iteratorppEv.exit
-  %88 = phi ptr [ %115, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ], [ %84, %_ZNK4llvm15DWARFExpression5beginEv.exit ]
-  %89 = phi i8 [ %116, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ], [ %85, %_ZNK4llvm15DWARFExpression5beginEv.exit ]
+  %88 = phi ptr [ %115, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ], [ %85, %_ZNK4llvm15DWARFExpression5beginEv.exit ]
+  %89 = phi i8 [ %116, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ], [ %86, %_ZNK4llvm15DWARFExpression5beginEv.exit ]
   %90 = load i8, ptr %48, align 8, !tbaa !520
   switch i8 %90, label %102 [
     i8 3, label %91

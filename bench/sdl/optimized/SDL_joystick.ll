@@ -7307,12 +7307,12 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   %.not5574 = icmp eq ptr %.073, null
   br i1 %.not5574, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %SendSteamHandleUpdateEvents.exit, %104
-  %.075 = phi ptr [ %.0, %104 ], [ %.073, %SendSteamHandleUpdateEvents.exit ]
+.lr.ph:                                           ; preds = %SendSteamHandleUpdateEvents.exit, %106
+  %.075 = phi ptr [ %.0, %106 ], [ %.073, %SendSteamHandleUpdateEvents.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %.075, i64 224
   %53 = load i8, ptr %52, align 8, !range !26, !noundef !27
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %104
+  br i1 %54, label %55, label %106
 
 55:                                               ; preds = %.lr.ph
   %56 = getelementptr inbounds nuw i8, ptr %.075, i64 320
@@ -7342,74 +7342,74 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   %70 = call zeroext i1 @SDL_RumbleJoystick_REAL(ptr noundef nonnull %.075, i16 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 0)
   %71 = getelementptr inbounds nuw i8, ptr %.075, i64 176
   store i64 0, ptr %71, align 8
-  br label %85
+  br label %86
 
 72:                                               ; preds = %64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.075, i64 176
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %73 = add i64 %.pre, -1
-  %or.cond66.not = icmp ult i64 %73, %66
-  br i1 %or.cond66.not, label %74, label %85
+  %74 = icmp ult i64 %73, %66
+  br i1 %74, label %75, label %86
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %.075, i64 176
-  %76 = load ptr, ptr %56, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 96
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %.075, i64 160
-  %80 = load i16, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %.075, i64 162
-  %82 = load i16, ptr %81, align 2
-  %83 = call zeroext i1 %78(ptr noundef nonnull %.075, i16 noundef zeroext %80, i16 noundef zeroext %82) #13
-  %84 = add i64 %66, 2000
-  %spec.store.select = call i64 @llvm.umax.i64(i64 %84, i64 1)
-  store i64 %spec.store.select, ptr %75, align 8
-  br label %85
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %.075, i64 176
+  %77 = load ptr, ptr %56, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 96
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %.075, i64 160
+  %81 = load i16, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %.075, i64 162
+  %83 = load i16, ptr %82, align 2
+  %84 = call zeroext i1 %79(ptr noundef nonnull %.075, i16 noundef zeroext %81, i16 noundef zeroext %83) #13
+  %85 = add i64 %66, 2000
+  %spec.store.select = call i64 @llvm.umax.i64(i64 %85, i64 1)
+  store i64 %spec.store.select, ptr %76, align 8
+  br label %86
 
-85:                                               ; preds = %.thread, %74, %72
-  %86 = getelementptr inbounds nuw i8, ptr %.075, i64 192
-  %87 = load i64, ptr %86, align 8
-  %88 = add i64 %87, -1
-  %or.cond67.not = icmp ult i64 %88, %66
-  br i1 %or.cond67.not, label %.thread89, label %91
+86:                                               ; preds = %.thread, %75, %72
+  %87 = getelementptr inbounds nuw i8, ptr %.075, i64 192
+  %88 = load i64, ptr %87, align 8
+  %89 = add i64 %88, -1
+  %or.cond67.not = icmp ult i64 %89, %66
+  br i1 %or.cond67.not, label %.thread89, label %92
 
-.thread89:                                        ; preds = %85
-  %89 = call zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef nonnull %.075, i16 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 0)
-  %90 = getelementptr inbounds nuw i8, ptr %.075, i64 200
-  store i64 0, ptr %90, align 8
-  br label %104
+.thread89:                                        ; preds = %86
+  %90 = call zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef nonnull %.075, i16 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 0)
+  %91 = getelementptr inbounds nuw i8, ptr %.075, i64 200
+  store i64 0, ptr %91, align 8
+  br label %106
 
-91:                                               ; preds = %85
+92:                                               ; preds = %86
   %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %.075, i64 200
   %.pre87 = load i64, ptr %.phi.trans.insert86, align 8
-  %92 = add i64 %.pre87, -1
-  %or.cond68.not = icmp ult i64 %92, %66
-  br i1 %or.cond68.not, label %93, label %104
+  %93 = add i64 %.pre87, -1
+  %94 = icmp ult i64 %93, %66
+  br i1 %94, label %95, label %106
 
-93:                                               ; preds = %91
-  %94 = getelementptr inbounds nuw i8, ptr %.075, i64 200
-  %95 = load ptr, ptr %56, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 104
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.075, i64 184
-  %99 = load i16, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.075, i64 186
-  %101 = load i16, ptr %100, align 2
-  %102 = call zeroext i1 %97(ptr noundef nonnull %.075, i16 noundef zeroext %99, i16 noundef zeroext %101) #13
-  %103 = add i64 %66, 2000
-  %spec.store.select69 = call i64 @llvm.umax.i64(i64 %103, i64 1)
-  store i64 %spec.store.select69, ptr %94, align 8
-  br label %104
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %.075, i64 200
+  %97 = load ptr, ptr %56, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 104
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %.075, i64 184
+  %101 = load i16, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %.075, i64 186
+  %103 = load i16, ptr %102, align 2
+  %104 = call zeroext i1 %99(ptr noundef nonnull %.075, i16 noundef zeroext %101, i16 noundef zeroext %103) #13
+  %105 = add i64 %66, 2000
+  %spec.store.select69 = call i64 @llvm.umax.i64(i64 %105, i64 1)
+  store i64 %spec.store.select69, ptr %96, align 8
+  br label %106
 
-104:                                              ; preds = %.thread89, %93, %91, %.lr.ph
-  %105 = getelementptr inbounds nuw i8, ptr %.075, i64 344
-  %.0 = load ptr, ptr %105, align 8
+106:                                              ; preds = %.thread89, %95, %92, %.lr.ph
+  %107 = getelementptr inbounds nuw i8, ptr %.075, i64 344
+  %.0 = load ptr, ptr %107, align 8
   %.not55 = icmp eq ptr %.0, null
   br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %104, %SendSteamHandleUpdateEvents.exit
-  %106 = call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 1544) #13
-  br i1 %106, label %.preheader, label %.loopexit.preheader
+._crit_edge:                                      ; preds = %106, %SendSteamHandleUpdateEvents.exit
+  %108 = call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef 1544) #13
+  br i1 %108, label %.preheader, label %.loopexit.preheader
 
 .preheader:                                       ; preds = %._crit_edge
   %.176 = load ptr, ptr @SDL_joysticks, align 8
@@ -7417,78 +7417,78 @@ SendSteamHandleUpdateEvents.exit:                 ; preds = %50, %11, %4
   br i1 %.not5677, label %.loopexit.preheader, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %.preheader
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %109
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %111
 
-109:                                              ; preds = %.lr.ph79, %115
-  %.178 = phi ptr [ %.176, %.lr.ph79 ], [ %.1, %115 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.178, i64 312
-  %111 = load i64, ptr %110, align 8
-  %.not57 = icmp eq i64 %111, 0
-  br i1 %.not57, label %115, label %112
+111:                                              ; preds = %.lr.ph79, %117
+  %.178 = phi ptr [ %.176, %.lr.ph79 ], [ %.1, %117 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.178, i64 312
+  %113 = load i64, ptr %112, align 8
+  %.not57 = icmp eq i64 %113, 0
+  br i1 %.not57, label %117, label %114
 
-112:                                              ; preds = %109
+114:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #13
   store i32 1544, ptr %2, align 8
-  store i64 %111, ptr %107, align 8
-  %113 = load i32, ptr %.178, align 8
-  store i32 %113, ptr %108, align 8
-  %114 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %2) #13
-  store i64 0, ptr %110, align 8
+  store i64 %113, ptr %109, align 8
+  %115 = load i32, ptr %.178, align 8
+  store i32 %115, ptr %110, align 8
+  %116 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %2) #13
+  store i64 0, ptr %112, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #13
-  br label %115
+  br label %117
 
-115:                                              ; preds = %109, %112
-  %116 = getelementptr inbounds nuw i8, ptr %.178, i64 344
-  %.1 = load ptr, ptr %116, align 8
+117:                                              ; preds = %111, %114
+  %118 = getelementptr inbounds nuw i8, ptr %.178, i64 344
+  %.1 = load ptr, ptr %118, align 8
   %.not56 = icmp eq ptr %.1, null
-  br i1 %.not56, label %.loopexit.preheader, label %109, !llvm.loop !41
+  br i1 %.not56, label %.loopexit.preheader, label %111, !llvm.loop !41
 
-.loopexit.preheader:                              ; preds = %115, %.preheader, %._crit_edge
+.loopexit.preheader:                              ; preds = %117, %.preheader, %._crit_edge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.loopexit.preheader ]
-  %117 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %119 = getelementptr inbounds nuw [3 x ptr], ptr @SDL_joystick_drivers, i64 0, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8
-  call void %120() #13
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %122 = load ptr, ptr %121, align 8
+  call void %122() #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %121, label %.loopexit, !llvm.loop !42
+  br i1 %exitcond.not, label %123, label %.loopexit, !llvm.loop !42
 
-121:                                              ; preds = %.loopexit
-  %122 = load i32, ptr @SDL_joysticks_locked, align 4
-  %123 = add nsw i32 %122, -1
-  store i32 %123, ptr @SDL_joysticks_locked, align 4
+123:                                              ; preds = %.loopexit
+  %124 = load i32, ptr @SDL_joysticks_locked, align 4
+  %125 = add nsw i32 %124, -1
+  store i32 %125, ptr @SDL_joysticks_locked, align 4
   %.b4.i = load i1, ptr @SDL_joysticks_initialized, align 1
-  %124 = icmp ne i32 %123, 0
-  %or.cond.i = select i1 %.b4.i, i1 true, i1 %124
-  br i1 %or.cond.i, label %.critedge.i70, label %125
+  %126 = icmp ne i32 %125, 0
+  %or.cond.i = select i1 %.b4.i, i1 true, i1 %126
+  br i1 %or.cond.i, label %.critedge.i70, label %127
 
-125:                                              ; preds = %121
-  %126 = call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_joystick_lock_pending) #13
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %.critedge.i70
+127:                                              ; preds = %123
+  %128 = call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_joystick_lock_pending) #13
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %.critedge.i70
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr @SDL_joystick_lock, align 8
-  call void @SDL_LockMutex_REAL(ptr noundef %129) #13
-  %130 = load ptr, ptr @SDL_joystick_lock, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %130) #13
-  store ptr null, ptr @SDL_joystick_lock, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %129) #13
-  call void @SDL_DestroyMutex_REAL(ptr noundef %129) #13
-  br label %SDL_UnlockJoysticks_REAL.exit
-
-.critedge.i70:                                    ; preds = %125, %121
+130:                                              ; preds = %127
   %131 = load ptr, ptr @SDL_joystick_lock, align 8
+  call void @SDL_LockMutex_REAL(ptr noundef %131) #13
+  %132 = load ptr, ptr @SDL_joystick_lock, align 8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %132) #13
+  store ptr null, ptr @SDL_joystick_lock, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %131) #13
+  call void @SDL_DestroyMutex_REAL(ptr noundef %131) #13
   br label %SDL_UnlockJoysticks_REAL.exit
 
-SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i70, %128, %0
+.critedge.i70:                                    ; preds = %127, %123
+  %133 = load ptr, ptr @SDL_joystick_lock, align 8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %133) #13
+  br label %SDL_UnlockJoysticks_REAL.exit
+
+SDL_UnlockJoysticks_REAL.exit:                    ; preds = %.critedge.i70, %130, %0
   ret void
 }
 

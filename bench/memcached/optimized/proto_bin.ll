@@ -2133,13 +2133,13 @@ define internal fastcc void @process_bin_delete(ptr noundef %0) unnamed_addr #0 
   %31 = load i16, ptr %30, align 2, !tbaa !31
   %32 = and i16 %31, 2
   %.not35 = icmp eq i16 %32, 0
-  br i1 %.not35, label %.thread, label %33
+  br i1 %.not35, label %.critedge, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %35 = load i64, ptr %34, align 8, !tbaa !28
   %36 = icmp eq i64 %27, %35
-  br i1 %36, label %37, label %.thread
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %33, %25
   %38 = load ptr, ptr %22, align 8, !tbaa !27
@@ -2181,19 +2181,19 @@ define internal fastcc void @process_bin_delete(ptr noundef %0) unnamed_addr #0 
   call fastcc void @add_bin_header(ptr noundef nonnull %0, i16 noundef zeroext 0, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 0)
   br label %write_bin_response.exit
 
-.thread:                                          ; preds = %29, %33
+.critedge:                                        ; preds = %29, %33
   %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
   %64 = icmp sgt i32 %63, 1
   br i1 %64, label %65, label %write_bin_error.exit
 
-65:                                               ; preds = %.thread
+65:                                               ; preds = %.critedge
   %66 = load ptr, ptr @stderr, align 8, !tbaa !58
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !37
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.17, i32 noundef %68, ptr noundef nonnull @.str.10) #12
   br label %write_bin_error.exit
 
-write_bin_error.exit:                             ; preds = %65, %.thread
+write_bin_error.exit:                             ; preds = %65, %.critedge
   call fastcc void @add_bin_header(ptr noundef nonnull %0, i16 noundef zeroext 2, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 20)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %71 = load ptr, ptr %70, align 8, !tbaa !60

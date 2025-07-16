@@ -94,196 +94,203 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
   br label %.outer
 
 .outer:                                           ; preds = %create_rel_filename_map.exit, %5
-  %.064.ph = phi i32 [ %91, %create_rel_filename_map.exit ], [ 0, %5 ]
+  %.064.ph = phi i32 [ %92, %create_rel_filename_map.exit ], [ 0, %5 ]
   %.062.ph = phi i1 [ %.062, %create_rel_filename_map.exit ], [ true, %5 ]
-  %.060.ph = phi i32 [ %93, %create_rel_filename_map.exit ], [ 0, %5 ]
-  %.0.ph = phi i32 [ %92, %create_rel_filename_map.exit ], [ 0, %5 ]
-  br label %.outer79
+  %.060.ph = phi i32 [ %94, %create_rel_filename_map.exit ], [ 0, %5 ]
+  %.0.ph = phi i32 [ %93, %create_rel_filename_map.exit ], [ 0, %5 ]
+  br label %.outer83
 
-.outer79:                                         ; preds = %.outer79.backedge, %.outer
-  %.062.ph80 = phi i1 [ %.062.ph, %.outer ], [ %.062.ph80.be, %.outer79.backedge ]
-  %.060.ph81 = phi i32 [ %.060.ph, %.outer ], [ %.060.ph81.be, %.outer79.backedge ]
-  %.0.ph82 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph82.be, %.outer79.backedge ]
-  %15 = sext i32 %.060.ph81 to i64
+.outer83:                                         ; preds = %.outer83.backedge, %.outer
+  %.062.ph84 = phi i1 [ %.062.ph, %.outer ], [ %.062.ph84.be, %.outer83.backedge ]
+  %.060.ph85 = phi i32 [ %.060.ph, %.outer ], [ %.060.ph85.be, %.outer83.backedge ]
+  %.0.ph86 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph86.be, %.outer83.backedge ]
+  %15 = sext i32 %.060.ph85 to i64
   br label %16
 
-16:                                               ; preds = %.backedge, %.outer79
-  %.062 = phi i1 [ %.062.ph80, %.outer79 ], [ false, %.backedge ]
-  %.0 = phi i32 [ %.0.ph82, %.outer79 ], [ %.0.be, %.backedge ]
+16:                                               ; preds = %.backedge, %.outer83
+  %.062 = phi i1 [ %.062.ph84, %.outer83 ], [ false, %.backedge ]
+  %.0 = phi i32 [ %.0.ph86, %.outer83 ], [ %.0.be, %.backedge ]
   %17 = load i32, ptr %7, align 8
   %18 = icmp slt i32 %.0, %17
-  br i1 %18, label %22, label %19
+  br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %12, align 8
-  %21 = icmp slt i32 %.060.ph81, %20
-  br i1 %21, label %.critedge, label %94
+  %21 = icmp slt i32 %.060.ph85, %20
+  br i1 %21, label %.thread79, label %95
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %6, align 8
-  %24 = sext i32 %.0 to i64
-  %25 = getelementptr inbounds %struct.RelInfo, ptr %23, i64 %24
+.critedge:                                        ; preds = %16
+  %22 = load ptr, ptr %6, align 8
+  %23 = sext i32 %.0 to i64
+  %24 = getelementptr inbounds %struct.RelInfo, ptr %22, i64 %23
   %.pre = load i32, ptr %12, align 8
-  br label %.critedge
+  %25 = icmp slt i32 %.060.ph85, %.pre
+  br i1 %25, label %26, label %.thread
 
-.critedge:                                        ; preds = %19, %22
-  %26 = phi i32 [ %.pre, %22 ], [ %20, %19 ]
-  %27 = phi ptr [ %25, %22 ], [ null, %19 ]
-  %28 = icmp slt i32 %.060.ph81, %26
-  br i1 %28, label %29, label %.thread
+26:                                               ; preds = %.critedge
+  %27 = load ptr, ptr %13, align 8
+  %28 = getelementptr inbounds %struct.RelInfo, ptr %27, i64 %15
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %.thread, label %31
 
-29:                                               ; preds = %.critedge
-  %30 = load ptr, ptr %13, align 8
-  %31 = getelementptr inbounds %struct.RelInfo, ptr %30, i64 %15
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %.thread, label %32
+.thread79:                                        ; preds = %19
+  %29 = load ptr, ptr %13, align 8
+  %.not80 = icmp eq ptr %29, null
+  br i1 %.not80, label %.thread, label %.thread81.split.loop.exit
 
-.thread:                                          ; preds = %.critedge, %29
-  tail call fastcc void @report_unmatched_relation(ptr noundef %27, ptr noundef %0, i1 noundef zeroext false)
+.thread:                                          ; preds = %.thread79, %.critedge, %26
+  %30 = phi ptr [ %24, %.critedge ], [ %24, %26 ], [ null, %.thread79 ]
+  tail call fastcc void @report_unmatched_relation(ptr noundef %30, ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %.backedge
 
-32:                                               ; preds = %29
-  %.not70 = icmp eq ptr %27, null
-  br i1 %.not70, label %33, label %37
+31:                                               ; preds = %26
+  %.not70 = icmp eq ptr %22, null
+  br i1 %.not70, label %.thread81, label %38
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %31, align 8
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(9) @.str) #8
-  %.not71 = icmp eq i32 %35, 0
-  br i1 %.not71, label %.outer79.backedge, label %36
+.thread81.split.loop.exit:                        ; preds = %.thread79
+  %32 = sext i32 %.060.ph85 to i64
+  %33 = getelementptr inbounds %struct.RelInfo, ptr %29, i64 %32
+  br label %.thread81
 
-36:                                               ; preds = %33
-  tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %31, ptr noundef nonnull %1, i1 noundef zeroext true)
-  br label %.outer79.backedge
+.thread81:                                        ; preds = %31, %.thread81.split.loop.exit
+  %34 = phi ptr [ %33, %.thread81.split.loop.exit ], [ %28, %31 ]
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(9) @.str) #8
+  %.not71 = icmp eq i32 %36, 0
+  br i1 %.not71, label %.outer83.backedge, label %37
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp ult i32 %39, %41
-  br i1 %42, label %43, label %44
+37:                                               ; preds = %.thread81
+  tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %34, ptr noundef nonnull %1, i1 noundef zeroext true)
+  br label %.outer83.backedge
 
-43:                                               ; preds = %37
-  tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %27, ptr noundef %0, i1 noundef zeroext false)
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp ult i32 %40, %42
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %38
+  tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %24, ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %.backedge
 
-.backedge:                                        ; preds = %43, %.thread
+.backedge:                                        ; preds = %44, %.thread
   %.0.be = add i32 %.0, 1
   br label %16, !llvm.loop !4
 
-44:                                               ; preds = %37
-  %45 = icmp ugt i32 %39, %41
-  br i1 %45, label %46, label %50
+45:                                               ; preds = %38
+  %46 = icmp ugt i32 %40, %42
+  br i1 %46, label %47, label %51
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %31, align 8
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(9) @.str) #8
-  %.not74 = icmp eq i32 %48, 0
-  br i1 %.not74, label %.outer79.backedge, label %49
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %28, align 8
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(9) @.str) #8
+  %.not74 = icmp eq i32 %49, 0
+  br i1 %.not74, label %.outer83.backedge, label %50
 
-49:                                               ; preds = %46
-  tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %31, ptr noundef nonnull %1, i1 noundef zeroext true)
-  br label %.outer79.backedge
+50:                                               ; preds = %47
+  tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %28, ptr noundef nonnull %1, i1 noundef zeroext true)
+  br label %.outer83.backedge
 
-.outer79.backedge:                                ; preds = %46, %49, %33, %36, %._crit_edge
-  %.062.ph80.be = phi i1 [ false, %._crit_edge ], [ false, %36 ], [ %.062, %33 ], [ false, %49 ], [ %.062, %46 ]
-  %.0.ph82.be = phi i32 [ %61, %._crit_edge ], [ %.0, %36 ], [ %.0, %33 ], [ %.0, %49 ], [ %.0, %46 ]
-  %.060.ph81.be = add nsw i32 %.060.ph81, 1
-  br label %.outer79, !llvm.loop !4
+.outer83.backedge:                                ; preds = %47, %50, %.thread81, %37, %._crit_edge
+  %.062.ph84.be = phi i1 [ false, %._crit_edge ], [ false, %37 ], [ %.062, %.thread81 ], [ false, %50 ], [ %.062, %47 ]
+  %.0.ph86.be = phi i32 [ %62, %._crit_edge ], [ %.0, %37 ], [ %.0, %.thread81 ], [ %.0, %50 ], [ %.0, %47 ]
+  %.060.ph85.be = add nsw i32 %.060.ph85, 1
+  br label %.outer83, !llvm.loop !4
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %27, align 8
-  %52 = load ptr, ptr %31, align 8
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %52) #8
-  %.not72 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %57 = load ptr, ptr %56, align 8
-  br i1 %.not72, label %58, label %._crit_edge
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %24, align 8
+  %53 = load ptr, ptr %28, align 8
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %53) #8
+  %.not72 = icmp eq i32 %54, 0
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %58 = load ptr, ptr %57, align 8
+  br i1 %.not72, label %59, label %._crit_edge
 
-58:                                               ; preds = %50
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %57) #8
-  %.not73 = icmp eq i32 %59, 0
-  br i1 %.not73, label %62, label %._crit_edge
+59:                                               ; preds = %51
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %58) #8
+  %.not73 = icmp eq i32 %60, 0
+  br i1 %.not73, label %63, label %._crit_edge
 
-._crit_edge:                                      ; preds = %50, %58
-  %60 = load ptr, ptr %14, align 8
-  tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %39, ptr noundef %60, ptr noundef nonnull %51, ptr noundef %55, ptr noundef nonnull %52, ptr noundef %57) #7
-  %61 = add i32 %.0, 1
-  br label %.outer79.backedge
+._crit_edge:                                      ; preds = %51, %59
+  %61 = load ptr, ptr %14, align 8
+  tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %40, ptr noundef %61, ptr noundef nonnull %52, ptr noundef %56, ptr noundef nonnull %53, ptr noundef %58) #7
+  %62 = add nsw i32 %.0, 1
+  br label %.outer83.backedge
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %64 = sext i32 %.064.ph to i64
-  %65 = getelementptr inbounds %struct.FileNameMap, ptr %11, i64 %64
-  %66 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %67 = load ptr, ptr %66, align 8
-  %char0.i = load i8, ptr %67, align 1
-  %68 = icmp eq i8 %char0.i, 0
-  br i1 %68, label %69, label %70
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %65 = sext i32 %.064.ph to i64
+  %66 = getelementptr inbounds %struct.FileNameMap, ptr %11, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %68 = load ptr, ptr %67, align 8
+  %char0.i = load i8, ptr %68, align 1
+  %69 = icmp eq i8 %char0.i, 0
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %62
-  store ptr %3, ptr %65, align 8
-  br label %72
+70:                                               ; preds = %63
+  store ptr %3, ptr %66, align 8
+  br label %73
 
-70:                                               ; preds = %62
-  store ptr %67, ptr %65, align 8
-  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 256), align 8
-  br label %72
+71:                                               ; preds = %63
+  store ptr %68, ptr %66, align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 256), align 8
+  br label %73
 
-72:                                               ; preds = %70, %69
-  %.sink.i = phi ptr [ @.str.7, %69 ], [ %71, %70 ]
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %.sink.i, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %75 = load ptr, ptr %74, align 8
-  %char022.i = load i8, ptr %75, align 1
-  %76 = icmp eq i8 %char022.i, 0
-  %77 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  br i1 %76, label %78, label %79
+73:                                               ; preds = %71, %70
+  %.sink.i = phi ptr [ @.str.7, %70 ], [ %72, %71 ]
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store ptr %.sink.i, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %76 = load ptr, ptr %75, align 8
+  %char022.i = load i8, ptr %76, align 1
+  %77 = icmp eq i8 %char022.i, 0
+  %78 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  br i1 %77, label %79, label %80
 
-78:                                               ; preds = %72
-  store ptr %4, ptr %77, align 8
+79:                                               ; preds = %73
+  store ptr %4, ptr %78, align 8
   br label %create_rel_filename_map.exit
 
-79:                                               ; preds = %72
-  store ptr %75, ptr %77, align 8
-  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 256), align 8
+80:                                               ; preds = %73
+  store ptr %76, ptr %78, align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 256), align 8
   br label %create_rel_filename_map.exit
 
-create_rel_filename_map.exit:                     ; preds = %78, %79
-  %.sink1.i = phi ptr [ @.str.7, %78 ], [ %80, %79 ]
-  %81 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr %.sink1.i, ptr %81, align 8
-  %82 = load i32, ptr %0, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %27, i64 20
-  %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %65, i64 36
-  store i32 %85, ptr %86, align 4
-  %87 = load ptr, ptr %27, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  store ptr %87, ptr %88, align 8
-  %89 = load ptr, ptr %63, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  store ptr %89, ptr %90, align 8
-  %91 = add i32 %.064.ph, 1
-  %92 = add i32 %.0, 1
-  %93 = add nsw i32 %.060.ph81, 1
+create_rel_filename_map.exit:                     ; preds = %79, %80
+  %.sink1.i = phi ptr [ @.str.7, %79 ], [ %81, %80 ]
+  %82 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  store ptr %.sink1.i, ptr %82, align 8
+  %83 = load i32, ptr %0, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  store i32 %83, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %86 = load i32, ptr %85, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %66, i64 36
+  store i32 %86, ptr %87, align 4
+  %88 = load ptr, ptr %24, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  store ptr %88, ptr %89, align 8
+  %90 = load ptr, ptr %64, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  store ptr %90, ptr %91, align 8
+  %92 = add i32 %.064.ph, 1
+  %93 = add nsw i32 %.0, 1
+  %94 = add nsw i32 %.060.ph85, 1
   br label %.outer
 
-94:                                               ; preds = %19
-  br i1 %.062, label %97, label %95
+95:                                               ; preds = %19
+  br i1 %.062, label %98, label %96
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %14, align 8
-  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.2, ptr noundef %96) #9
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %14, align 8
+  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.2, ptr noundef %97) #9
   unreachable
 
-97:                                               ; preds = %94
+98:                                               ; preds = %95
   store i32 %.064.ph, ptr %2, align 4
   ret ptr %11
 }
@@ -320,13 +327,13 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %18
 
-18:                                               ; preds = %.lr.ph, %32
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
+18:                                               ; preds = %.lr.ph, %33
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %19 = getelementptr inbounds nuw %struct.RelInfo, ptr %17, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %12
-  br i1 %22, label %23, label %32
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %18
   %24 = trunc nuw nsw i64 %indvars.iv to i32
@@ -338,22 +345,21 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %26, i64 noundef %27, ptr noundef nonnull @.str.9, ptr noundef %28, ptr noundef %30) #7
   %.pre = load i32, ptr %13, align 8
+  %32 = icmp sgt i32 %.pre, %24
   br label %.loopexit53
 
-32:                                               ; preds = %18
+33:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit53.thread, label %18, !llvm.loop !6
 
 .loopexit53:                                      ; preds = %.preheader52, %23
-  %33 = phi i32 [ %.pre, %23 ], [ %14, %.preheader52 ]
-  %.03861 = phi i32 [ %24, %23 ], [ 0, %.preheader52 ]
+  %.03861 = phi i1 [ %32, %23 ], [ false, %.preheader52 ]
   %.2 = phi ptr [ %19, %23 ], [ %0, %.preheader52 ]
-  %.not40 = icmp slt i32 %.03861, %33
-  br i1 %.not40, label %40, label %.loopexit53.thread
+  br i1 %.03861, label %40, label %.loopexit53.thread
 
-.loopexit53.thread:                               ; preds = %32, %.loopexit53
-  %.284 = phi ptr [ %.2, %.loopexit53 ], [ %0, %32 ]
+.loopexit53.thread:                               ; preds = %33, %.loopexit53
+  %.284 = phi ptr [ %.2, %.loopexit53 ], [ %0, %33 ]
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 %34
   %36 = sub i64 1000, %34
@@ -367,13 +373,13 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   %42 = load i32, ptr %41, align 4
   %.not41 = icmp eq i32 %42, 0
-  br i1 %.not41, label %69, label %.preheader
+  br i1 %.not41, label %68, label %.preheader
 
 .preheader:                                       ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   %44 = load i32, ptr %43, align 8
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph65, label %.loopexit
+  br i1 %45, label %.lr.ph65, label %.loopexit.thread
 
 .lr.ph65:                                         ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1040
@@ -387,44 +393,39 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, %42
-  br i1 %52, label %53, label %62
+  br i1 %52, label %.loopexit, label %62
 
-53:                                               ; preds = %48
-  %54 = trunc nuw nsw i64 %indvars.iv75 to i32
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %55
-  %57 = sub i64 1000, %55
-  %58 = load ptr, ptr %49, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %56, i64 noundef %57, ptr noundef nonnull @.str.11, ptr noundef %58, ptr noundef %60) #7
+.loopexit:                                        ; preds = %48
+  %53 = trunc nuw nsw i64 %indvars.iv75 to i32
+  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 %54
+  %56 = sub i64 1000, %54
+  %57 = load ptr, ptr %49, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %55, i64 noundef %56, ptr noundef nonnull @.str.11, ptr noundef %57, ptr noundef %59) #7
   %.pre80 = load i32, ptr %43, align 8
-  br label %.loopexit
+  %61 = icmp sgt i32 %.pre80, %53
+  br i1 %61, label %68, label %.loopexit.thread
 
 62:                                               ; preds = %48
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %.loopexit.thread, label %48, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.preheader, %53
-  %63 = phi i32 [ %.pre80, %53 ], [ %44, %.preheader ]
-  %.13956 = phi i32 [ %54, %53 ], [ 0, %.preheader ]
-  %.not42 = icmp slt i32 %.13956, %63
-  br i1 %.not42, label %69, label %.loopexit.thread
+.loopexit.thread:                                 ; preds = %62, %.preheader, %.loopexit
+  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %63
+  %65 = sub i64 1000, %63
+  %66 = load i32, ptr %41, align 4
+  %67 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %64, i64 noundef %65, ptr noundef nonnull @.str.12, i32 noundef %66) #7
+  br label %68
 
-.loopexit.thread:                                 ; preds = %62, %.loopexit
-  %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
-  %66 = sub i64 1000, %64
-  %67 = load i32, ptr %41, align 4
-  %68 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %65, i64 noundef %66, ptr noundef nonnull @.str.12, i32 noundef %67) #7
-  br label %69
-
-69:                                               ; preds = %.loopexit, %.loopexit.thread, %40
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %71 = load ptr, ptr %70, align 8
+68:                                               ; preds = %.loopexit, %.loopexit.thread, %40
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %70 = load ptr, ptr %69, align 8
   %.str.13..str.14 = select i1 %2, ptr @.str.13, ptr @.str.14
-  call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull %.str.13..str.14, i32 noundef %6, ptr noundef %71, ptr noundef nonnull %4) #7
+  call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull %.str.13..str.14, i32 noundef %6, ptr noundef %70, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #7
   ret void
 }

@@ -9542,26 +9542,16 @@ if.end:                                           ; preds = %if.else.i.i, %if.th
 
 while.body.lr.ph:                                 ; preds = %if.end
   %st_mode = getelementptr inbounds nuw i8, ptr %req, i64 120
-  br label %while.body
+  br label %_ZN4node2fs18FSContinuationData7PopPathB5cxx11Ev.exit
 
-while.body:                                       ; preds = %while.body.lr.ph, %cleanup51
-  %10 = phi ptr [ %8, %while.body.lr.ph ], [ %34, %cleanup51 ]
-  %11 = phi ptr [ %9, %while.body.lr.ph ], [ %35, %cleanup51 ]
-  %12 = phi ptr [ %7, %while.body.lr.ph ], [ %33, %cleanup51 ]
-  %cmp.i.i.i = icmp eq ptr %11, %10
-  br i1 %cmp.i.i.i, label %do.body5.i, label %_ZN4node2fs18FSContinuationData7PopPathB5cxx11Ev.exit
-
-do.body5.i:                                       ; preds = %while.body
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fs18FSContinuationData7PopPathB5cxx11EvE4args) #30, !noalias !62
-  call void @abort() #32, !noalias !62
-  unreachable
-
-_ZN4node2fs18FSContinuationData7PopPathB5cxx11Ev.exit: ; preds = %while.body
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
+_ZN4node2fs18FSContinuationData7PopPathB5cxx11Ev.exit: ; preds = %cleanup51, %while.body.lr.ph
+  %10 = phi ptr [ %8, %while.body.lr.ph ], [ %33, %cleanup51 ]
+  %11 = phi ptr [ %7, %while.body.lr.ph ], [ %32, %cleanup51 ]
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 40
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %next_path, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #30
-  %13 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !62
-  %incdec.ptr.i.i25 = getelementptr inbounds i8, ptr %13, i64 -32
+  %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !62
+  %incdec.ptr.i.i25 = getelementptr inbounds i8, ptr %12, i64 -32
   store ptr %incdec.ptr.i.i25, ptr %_M_finish.i.i.i, align 8, !noalias !62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i25) #30
   %call9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %next_path) #30
@@ -9580,8 +9570,8 @@ while.cond11:                                     ; preds = %cleanup, %_ZN4node2
   ]
 
 sw.bb:                                            ; preds = %while.cond11
-  %14 = load ptr, ptr %continuation_data_.i, align 8
-  %first_path_.i = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %13 = load ptr, ptr %continuation_data_.i, align 8
+  %first_path_.i = getelementptr inbounds nuw i8, ptr %13, i64 56
   %call.i27 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %first_path_.i) #30
   br i1 %call.i27, label %if.then.i, label %_ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -9590,12 +9580,12 @@ if.then.i:                                        ; preds = %sw.bb
   br label %_ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %sw.bb, %if.then.i
-  %15 = load ptr, ptr %continuation_data_.i, align 8
-  %paths_.i29 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %_M_finish.i30 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %16 = load ptr, ptr %_M_finish.i30, align 8
-  %17 = load ptr, ptr %paths_.i29, align 8
-  %cmp17 = icmp eq ptr %16, %17
+  %14 = load ptr, ptr %continuation_data_.i, align 8
+  %paths_.i29 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %_M_finish.i30 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %15 = load ptr, ptr %_M_finish.i30, align 8
+  %16 = load ptr, ptr %paths_.i29, align 8
+  %cmp17 = icmp eq ptr %15, %16
   br i1 %cmp17, label %cleanup51.thread, label %cleanup51
 
 sw.bb21:                                          ; preds = %while.cond11
@@ -9619,54 +9609,54 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   br i1 %.not, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %sw.bb21, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %18 = load ptr, ptr %continuation_data_.i, align 8
-  %_M_finish.i.i37 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %19 = load ptr, ptr %_M_finish.i.i37, align 8
-  %_M_end_of_storage.i.i38 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %20 = load ptr, ptr %_M_end_of_storage.i.i38, align 8
-  %cmp.not.i.i39 = icmp eq ptr %19, %20
+  %17 = load ptr, ptr %continuation_data_.i, align 8
+  %_M_finish.i.i37 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %18 = load ptr, ptr %_M_finish.i.i37, align 8
+  %_M_end_of_storage.i.i38 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load ptr, ptr %_M_end_of_storage.i.i38, align 8
+  %cmp.not.i.i39 = icmp eq ptr %18, %19
   br i1 %cmp.not.i.i39, label %if.else.i.i42, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %if.then24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %next_path) #30
-  %21 = load ptr, ptr %_M_finish.i.i37, align 8
-  %incdec.ptr.i.i41 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %next_path) #30
+  %20 = load ptr, ptr %_M_finish.i.i37, align 8
+  %incdec.ptr.i.i41 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %incdec.ptr.i.i41, ptr %_M_finish.i.i37, align 8
   br label %_ZN4node2fs18FSContinuationData8PushPathEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.else.i.i42:                                    ; preds = %if.then24
-  %paths_.i43 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %paths_.i43, ptr %19, ptr noundef nonnull align 8 dereferenceable(32) %next_path)
+  %paths_.i43 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %paths_.i43, ptr %18, ptr noundef nonnull align 8 dereferenceable(32) %next_path)
   br label %_ZN4node2fs18FSContinuationData8PushPathEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN4node2fs18FSContinuationData8PushPathEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then.i.i40, %if.else.i.i42
-  %22 = load ptr, ptr %continuation_data_.i, align 8
-  %_M_finish.i.i45 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %23 = load ptr, ptr %_M_finish.i.i45, align 8
-  %_M_end_of_storage.i.i46 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %24 = load ptr, ptr %_M_end_of_storage.i.i46, align 8
-  %cmp.not.i.i47 = icmp eq ptr %23, %24
+  %21 = load ptr, ptr %continuation_data_.i, align 8
+  %_M_finish.i.i45 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %22 = load ptr, ptr %_M_finish.i.i45, align 8
+  %_M_end_of_storage.i.i46 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %23 = load ptr, ptr %_M_end_of_storage.i.i46, align 8
+  %cmp.not.i.i47 = icmp eq ptr %22, %23
   br i1 %cmp.not.i.i47, label %if.else.i.i50, label %if.then.i.i48
 
 if.then.i.i48:                                    ; preds = %_ZN4node2fs18FSContinuationData8PushPathEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %dirname) #30
-  %25 = load ptr, ptr %_M_finish.i.i45, align 8
-  %incdec.ptr.i.i49 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %dirname) #30
+  %24 = load ptr, ptr %_M_finish.i.i45, align 8
+  %incdec.ptr.i.i49 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %incdec.ptr.i.i49, ptr %_M_finish.i.i45, align 8
   br label %cleanup.thread
 
 if.else.i.i50:                                    ; preds = %_ZN4node2fs18FSContinuationData8PushPathEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %paths_.i51 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %paths_.i51, ptr %23, ptr noundef nonnull align 8 dereferenceable(32) %dirname)
+  %paths_.i51 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %paths_.i51, ptr %22, ptr noundef nonnull align 8 dereferenceable(32) %dirname)
   br label %cleanup.thread
 
 if.else:                                          ; preds = %land.rhs.i.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %26 = load ptr, ptr %continuation_data_.i, align 8
-  %paths_.i54 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %_M_finish.i55 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %27 = load ptr, ptr %_M_finish.i55, align 8
-  %28 = load ptr, ptr %paths_.i54, align 8
-  %cmp30 = icmp eq ptr %27, %28
+  %25 = load ptr, ptr %continuation_data_.i, align 8
+  %paths_.i54 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %_M_finish.i55 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %26 = load ptr, ptr %_M_finish.i55, align 8
+  %27 = load ptr, ptr %paths_.i54, align 8
+  %cmp30 = icmp eq ptr %26, %27
   br i1 %cmp30, label %cleanup, label %cleanup.thread, !llvm.loop !65
 
 cleanup.thread:                                   ; preds = %if.else, %if.then.i.i48, %if.else.i.i50
@@ -9685,8 +9675,8 @@ sw.default:                                       ; preds = %while.cond11
   br i1 %cmp36, label %land.lhs.true, label %if.end47
 
 land.lhs.true:                                    ; preds = %sw.default
-  %29 = load i64, ptr %st_mode, align 8
-  %and = and i64 %29, 61440
+  %28 = load i64, ptr %st_mode, align 8
+  %and = and i64 %28, 61440
   %cmp37 = icmp eq i64 %and, 16384
   br i1 %cmp37, label %cleanup51, label %if.then38
 
@@ -9696,12 +9686,12 @@ if.then38:                                        ; preds = %land.lhs.true
   br i1 %cmp39, label %land.lhs.true40, label %if.end46
 
 land.lhs.true40:                                  ; preds = %if.then38
-  %30 = load ptr, ptr %continuation_data_.i, align 8
-  %paths_.i61 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %_M_finish.i62 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %31 = load ptr, ptr %_M_finish.i62, align 8
-  %32 = load ptr, ptr %paths_.i61, align 8
-  %cmp44.not = icmp eq ptr %31, %32
+  %29 = load ptr, ptr %continuation_data_.i, align 8
+  %paths_.i61 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %_M_finish.i62 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %30 = load ptr, ptr %_M_finish.i62, align 8
+  %31 = load ptr, ptr %paths_.i61, align 8
+  %cmp44.not = icmp eq ptr %30, %31
   br i1 %cmp44.not, label %if.end46, label %cleanup51.thread
 
 if.end46:                                         ; preds = %land.lhs.true40, %if.then38
@@ -9719,13 +9709,13 @@ cleanup51.thread:                                 ; preds = %_ZN4node2fs18FSCont
 cleanup51:                                        ; preds = %land.lhs.true, %if.end47, %_ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %cleanup.thread
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %next_path) #30
-  %33 = load ptr, ptr %continuation_data_.i, align 8
-  %paths_.i22 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %_M_finish.i = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %34 = load ptr, ptr %_M_finish.i, align 8
-  %35 = load ptr, ptr %paths_.i22, align 8
-  %cmp7.not = icmp eq ptr %34, %35
-  br i1 %cmp7.not, label %return, label %while.body
+  %32 = load ptr, ptr %continuation_data_.i, align 8
+  %paths_.i22 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %33 = load ptr, ptr %_M_finish.i, align 8
+  %34 = load ptr, ptr %paths_.i22, align 8
+  %cmp7.not = icmp eq ptr %33, %34
+  br i1 %cmp7.not, label %return, label %_ZN4node2fs18FSContinuationData7PopPathB5cxx11Ev.exit
 
 return:                                           ; preds = %cleanup51, %if.end, %cleanup51.thread
   %retval.2 = phi i32 [ %retval.1.ph, %cleanup51.thread ], [ 0, %if.end ], [ 0, %cleanup51 ]

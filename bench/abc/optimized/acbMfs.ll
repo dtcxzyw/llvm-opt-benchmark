@@ -7798,13 +7798,13 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
 
 ._crit_edge142.us.loopexit.split.loop.exit:       ; preds = %23
   %28 = trunc nuw nsw i64 %indvars.iv192 to i32
+  %29 = icmp sle i32 %.196145.us, %28
   br label %._crit_edge142.us
 
 ._crit_edge142.us:                                ; preds = %27, %._crit_edge142.us.loopexit.split.loop.exit, %.preheader.us
-  %.098.lcssa.us = phi i32 [ 0, %.preheader.us ], [ %28, %._crit_edge142.us.loopexit.split.loop.exit ], [ %.196145.us, %27 ]
-  %29 = icmp sge i32 %.098.lcssa.us, %.196145.us
+  %.098.lcssa.us = phi i1 [ true, %.preheader.us ], [ %29, %._crit_edge142.us.loopexit.split.loop.exit ], [ true, %27 ]
   %30 = icmp slt i32 %.196145.us, 64
-  %or.cond.us = and i1 %30, %29
+  %or.cond.us = and i1 %30, %.098.lcssa.us
   br i1 %or.cond.us, label %31, label %39
 
 31:                                               ; preds = %._crit_edge142.us

@@ -32,7 +32,7 @@ $_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_
 define noundef range(i32 0, 3) i32 @_ZN3gmx22identifyAvx512FmaUnitsEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.gmx::CpuInfo", align 8
   %.b45 = load i1, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
-  br i1 %.b45, label %58, label %2
+  br i1 %.b45, label %57, label %2
 
 2:                                                ; preds = %0
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #10
@@ -45,19 +45,19 @@ define noundef range(i32 0, 3) i32 @_ZN3gmx22identifyAvx512FmaUnitsEv() local_un
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %.b6 = load i1, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
-  br i1 %.b6, label %56, label %5
+  br i1 %.b6, label %55, label %5
 
 5:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #10
   invoke void @_ZN3gmx7CpuInfo6detectEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::CpuInfo") align 8 %1)
-          to label %6 unwind label %52
+          to label %6 unwind label %51
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.not10.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not10.i.i.i.i, label %17, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %6, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %8, %6 ]
@@ -74,115 +74,113 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %13 = icmp eq ptr %.19.i.i.i.i, %9
-  br i1 %13, label %17, label %14
+  br i1 %13, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit, label %14
 
 14:                                               ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %12, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %15 = load i32, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !13
-  %16 = icmp sgt i32 %15, 5
-  %spec.select.i.i.i = select i1 %16, ptr %9, ptr %.19.i.i.i.i
-  br label %17
+  %16 = icmp slt i32 %15, 6
+  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit
 
-17:                                               ; preds = %14, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i, %6
-  %.sroa.0.0.i.i.i = phi ptr [ %9, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i ], [ %9, %6 ], [ %spec.select.i.i.i, %14 ]
-  %.not = icmp eq ptr %.sroa.0.0.i.i.i, %9
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %19 = load ptr, ptr %18, align 8, !tbaa !18
-  %.not.i.i.i.i10 = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i10, label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i, label %20
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit:      ; preds = %14, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i, %6
+  %.sroa.0.0.i.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i ], [ false, %6 ], [ %16, %14 ]
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %.not.i.i.i.i10 = icmp eq ptr %18, null
+  br i1 %.not.i.i.i.i10, label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i, label %19
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %22 = load ptr, ptr %21, align 8, !tbaa !21
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %19 to i64
-  %25 = sub i64 %23, %24
-  call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #12
+19:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %22 = ptrtoint ptr %21 to i64
+  %23 = ptrtoint ptr %18 to i64
+  %24 = sub i64 %22, %23
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #12
   %.pre = load ptr, ptr %7, align 8, !tbaa !4
   br label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i
 
-_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i: ; preds = %20, %17
-  %26 = phi ptr [ %.pre, %20 ], [ %8, %17 ]
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  invoke void @_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %26)
-          to label %_ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EED2Ev.exit.i unwind label %28
+_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i: ; preds = %19, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit
+  %25 = phi ptr [ %.pre, %19 ], [ %8, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  invoke void @_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef %25)
+          to label %_ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EED2Ev.exit.i unwind label %27
 
-28:                                               ; preds = %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 
 _ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !22
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = icmp eq ptr %32, %33
-  br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !22
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = icmp eq ptr %31, %32
+  br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EED2Ev.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !26
-  %37 = icmp ult i64 %36, 16
-  call void @llvm.assume(i1 %37)
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = load i64, ptr %34, align 8, !tbaa !26
+  %36 = icmp ult i64 %35, 16
+  call void @llvm.assume(i1 %36)
   br label %_ZN3gmx7CpuInfoD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EED2Ev.exit.i
-  %38 = load i64, ptr %33, align 8, !tbaa !27
-  %39 = add i64 %38, 1
-  call void @_ZdlPvm(ptr noundef %32, i64 noundef %39) #12
+  %37 = load i64, ptr %32, align 8, !tbaa !27
+  %38 = add i64 %37, 1
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %38) #12
   br label %_ZN3gmx7CpuInfoD2Ev.exit
 
 _ZN3gmx7CpuInfoD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #10
-  br i1 %.not, label %55, label %40
+  br i1 %.sroa.0.0.i.i.i, label %39, label %54
 
-40:                                               ; preds = %_ZN3gmx7CpuInfoD2Ev.exit
-  %41 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{dirflag},~{fpsr},~{flags}"(i64 100000) #10, !srcloc !28
-  br label %42
+39:                                               ; preds = %_ZN3gmx7CpuInfoD2Ev.exit
+  %40 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{dirflag},~{fpsr},~{flags}"(i64 100000) #10, !srcloc !28
+  br label %41
 
-42:                                               ; preds = %42, %40
-  %.018.i = phi i32 [ 0, %40 ], [ %45, %42 ]
-  %.01417.i = phi i64 [ 1000000000, %40 ], [ %.sroa.speculated5.i, %42 ]
-  %.01516.i = phi i64 [ %41, %40 ], [ %.sroa.speculated.i, %42 ]
-  %43 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09vpxord %zmm12, %zmm12, %zmm12\0A\09vmovaps %zmm12, %zmm13\0A\09vmovaps %zmm12, %zmm14\0A\09vmovaps %zmm12, %zmm15\0A\09vmovaps %zmm12, %zmm16\0A\09vmovaps %zmm12, %zmm17\0A\09vmovaps %zmm12, %zmm18\0A\09vmovaps %zmm12, %zmm19\0A\09vmovaps %zmm12, %zmm20\0A\09vmovaps %zmm12, %zmm21\0A\09vmovaps %zmm12, %zmm22\0A\09vmovaps %zmm12, %zmm23\0A\09vmovaps %zmm12, %zmm30\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09vpermd %zmm30, %zmm30, %zmm12\0A\09vpermd %zmm30, %zmm30, %zmm13\0A\09vpermd %zmm30, %zmm30, %zmm14\0A\09vpermd %zmm30, %zmm30, %zmm15\0A\09vpermd %zmm30, %zmm30, %zmm16\0A\09vpermd %zmm30, %zmm30, %zmm17\0A\09vpermd %zmm30, %zmm30, %zmm18\0A\09vpermd %zmm30, %zmm30, %zmm19\0A\09vpermd %zmm30, %zmm30, %zmm20\0A\09vpermd %zmm30, %zmm30, %zmm21\0A\09vpermd %zmm30, %zmm30, %zmm22\0A\09vpermd %zmm30, %zmm30, %zmm23\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{zmm12},~{zmm13},~{zmm14},~{zmm15},~{zmm16},~{zmm17},~{zmm18},~{zmm19},~{zmm20},~{zmm21},~{zmm22},~{zmm23},~{zmm30},~{dirflag},~{fpsr},~{flags}"(i64 1000) #10, !srcloc !29
-  %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %43, i64 %.01417.i)
-  %44 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{dirflag},~{fpsr},~{flags}"(i64 1000) #10, !srcloc !28
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %44, i64 %.01516.i)
-  %45 = add nuw nsw i32 %.018.i, 1
-  %exitcond.not.i = icmp eq i32 %45, 3
-  br i1 %exitcond.not.i, label %46, label %42, !llvm.loop !30
+41:                                               ; preds = %41, %39
+  %.018.i = phi i32 [ 0, %39 ], [ %44, %41 ]
+  %.01417.i = phi i64 [ 1000000000, %39 ], [ %.sroa.speculated5.i, %41 ]
+  %.01516.i = phi i64 [ %40, %39 ], [ %.sroa.speculated.i, %41 ]
+  %42 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09vpxord %zmm12, %zmm12, %zmm12\0A\09vmovaps %zmm12, %zmm13\0A\09vmovaps %zmm12, %zmm14\0A\09vmovaps %zmm12, %zmm15\0A\09vmovaps %zmm12, %zmm16\0A\09vmovaps %zmm12, %zmm17\0A\09vmovaps %zmm12, %zmm18\0A\09vmovaps %zmm12, %zmm19\0A\09vmovaps %zmm12, %zmm20\0A\09vmovaps %zmm12, %zmm21\0A\09vmovaps %zmm12, %zmm22\0A\09vmovaps %zmm12, %zmm23\0A\09vmovaps %zmm12, %zmm30\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09vpermd %zmm30, %zmm30, %zmm12\0A\09vpermd %zmm30, %zmm30, %zmm13\0A\09vpermd %zmm30, %zmm30, %zmm14\0A\09vpermd %zmm30, %zmm30, %zmm15\0A\09vpermd %zmm30, %zmm30, %zmm16\0A\09vpermd %zmm30, %zmm30, %zmm17\0A\09vpermd %zmm30, %zmm30, %zmm18\0A\09vpermd %zmm30, %zmm30, %zmm19\0A\09vpermd %zmm30, %zmm30, %zmm20\0A\09vpermd %zmm30, %zmm30, %zmm21\0A\09vpermd %zmm30, %zmm30, %zmm22\0A\09vpermd %zmm30, %zmm30, %zmm23\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{zmm12},~{zmm13},~{zmm14},~{zmm15},~{zmm16},~{zmm17},~{zmm18},~{zmm19},~{zmm20},~{zmm21},~{zmm22},~{zmm23},~{zmm30},~{dirflag},~{fpsr},~{flags}"(i64 1000) #10, !srcloc !29
+  %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %42, i64 %.01417.i)
+  %43 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{dirflag},~{fpsr},~{flags}"(i64 1000) #10, !srcloc !28
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %43, i64 %.01516.i)
+  %44 = add nuw nsw i32 %.018.i, 1
+  %exitcond.not.i = icmp eq i32 %44, 3
+  br i1 %exitcond.not.i, label %45, label %41, !llvm.loop !30
 
-46:                                               ; preds = %42
-  %47 = uitofp nneg i64 %.sroa.speculated5.i to double
-  %48 = uitofp i64 %.sroa.speculated.i to double
-  %49 = fmul double %48, 1.500000e+00
-  %50 = fcmp olt double %49, %47
-  %51 = select i1 %50, i32 2, i32 1
-  br label %55
+45:                                               ; preds = %41
+  %46 = uitofp nneg i64 %.sroa.speculated5.i to double
+  %47 = uitofp i64 %.sroa.speculated.i to double
+  %48 = fmul double %47, 1.500000e+00
+  %49 = fcmp olt double %48, %46
+  %50 = select i1 %49, i32 2, i32 1
+  br label %54
 
-52:                                               ; preds = %5
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %5
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #10
-  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #10
-  resume { ptr, i32 } %53
+  %53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #10
+  resume { ptr, i32 } %52
 
-55:                                               ; preds = %_ZN3gmx7CpuInfoD2Ev.exit, %46
-  %storemerge = phi i32 [ %51, %46 ], [ 0, %_ZN3gmx7CpuInfoD2Ev.exit ]
+54:                                               ; preds = %_ZN3gmx7CpuInfoD2Ev.exit, %45
+  %storemerge = phi i32 [ %50, %45 ], [ 0, %_ZN3gmx7CpuInfoD2Ev.exit ]
   store i32 %storemerge, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE6result, align 4, !tbaa !31
   store i1 true, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
-  br label %56
+  br label %55
 
-56:                                               ; preds = %55, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %57 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #10
-  br label %58
+55:                                               ; preds = %54, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %56 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3gmx12_GLOBAL__N_19initMutexE) #10
+  br label %57
 
-58:                                               ; preds = %56, %0
-  %59 = load i32, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE6result, align 4, !tbaa !31
-  ret i32 %59
+57:                                               ; preds = %55, %0
+  %58 = load i32, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE6result, align 4, !tbaa !31
+  ret i32 %58
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

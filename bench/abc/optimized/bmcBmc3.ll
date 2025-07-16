@@ -1042,11 +1042,11 @@ define noalias noundef ptr @Saig_ManBmcTerSimPo(ptr noundef readonly captures(no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
-8:                                                ; preds = %Saig_ManBmcTerSimCount01Po.exit, %1
-  %9 = phi i32 [ 100, %1 ], [ %37, %Saig_ManBmcTerSimCount01Po.exit ]
-  %10 = phi i32 [ 0, %1 ], [ %39, %Saig_ManBmcTerSimCount01Po.exit ]
-  %.015 = phi i32 [ 0, %1 ], [ %61, %Saig_ManBmcTerSimCount01Po.exit ]
-  %.0 = phi ptr [ null, %1 ], [ %15, %Saig_ManBmcTerSimCount01Po.exit ]
+8:                                                ; preds = %.backedge, %1
+  %9 = phi i32 [ 100, %1 ], [ %37, %.backedge ]
+  %10 = phi i32 [ 0, %1 ], [ %39, %.backedge ]
+  %.015 = phi i32 [ 0, %1 ], [ %.015.be, %.backedge ]
+  %.0 = phi ptr [ null, %1 ], [ %15, %.backedge ]
   %11 = urem i32 %.015, 100
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
@@ -1119,7 +1119,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %15, ptr %41, align 8, !tbaa !25
   %.val.i = load i32, ptr %6, align 8, !tbaa !22
   %42 = icmp sgt i32 %.val.i, 0
-  br i1 %42, label %.lr.ph.i, label %Saig_ManBmcTerSimCount01Po.exit
+  br i1 %42, label %.lr.ph.i, label %.backedge
 
 .lr.ph.i:                                         ; preds = %Vec_PtrPush.exit
   %43 = load ptr, ptr %7, align 8, !tbaa !21
@@ -1148,15 +1148,17 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %59 = add nuw nsw i32 %.012.i, %58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Saig_ManBmcTerSimCount01Po.exit, label %45, !llvm.loop !54
+  br i1 %exitcond.not.i, label %Saig_ManBmcTerSimCount01Po.exit.loopexit, label %45, !llvm.loop !54
 
-Saig_ManBmcTerSimCount01Po.exit:                  ; preds = %45, %Vec_PtrPush.exit
-  %.0.lcssa.i = phi i32 [ 0, %Vec_PtrPush.exit ], [ %59, %45 ]
-  %60 = icmp slt i32 %.0.lcssa.i, %.val.i
-  %61 = add nuw nsw i32 %.015, 1
-  br i1 %60, label %62, label %8
+Saig_ManBmcTerSimCount01Po.exit.loopexit:         ; preds = %45
+  %60 = icmp slt i32 %59, %.val.i
+  br i1 %60, label %61, label %.backedge
 
-62:                                               ; preds = %Saig_ManBmcTerSimCount01Po.exit
+.backedge:                                        ; preds = %Vec_PtrPush.exit, %Saig_ManBmcTerSimCount01Po.exit.loopexit
+  %.015.be = add nuw nsw i32 %.015, 1
+  br label %8
+
+61:                                               ; preds = %Saig_ManBmcTerSimCount01Po.exit.loopexit
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %.015)
   tail call void @Saig_ManBmcCountNonternary(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %.015)
   ret ptr %2

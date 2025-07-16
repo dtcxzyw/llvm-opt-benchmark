@@ -659,7 +659,7 @@ define void @_ZN6open3d4core22MemoryManagerStatisticD2Ev(ptr noundef nonnull ali
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4, !tbaa !24, !range !31, !noundef !32
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %.thread
+  br i1 %4, label %5, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread
 
 5:                                                ; preds = %1
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
@@ -678,7 +678,7 @@ define void @_ZN6open3d4core22MemoryManagerStatisticD2Ev(ptr noundef nonnull ali
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not5.i.i.i.i.i.i = icmp eq ptr %11, %12
-  br i1 %.not5.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not5.i.i.i.i.i.i, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %15
   %.sroa.02.06.i.i.i.i.i.i = phi ptr [ %16, %15 ], [ %11, %9 ]
@@ -687,37 +687,36 @@ define void @_ZN6open3d4core22MemoryManagerStatisticD2Ev(ptr noundef nonnull ali
   %14 = getelementptr i8, ptr %.sroa.02.06.i.i.i.i.i.i, i64 48
   %.val1.i.i.i.i.i.i.i = load i64, ptr %14, align 8, !tbaa !43
   %.not4.i.i.i.i.i.i = icmp eq i64 %.val.i.i.i.i.i.i.i, %.val1.i.i.i.i.i.i.i
-  br i1 %.not4.i.i.i.i.i.i, label %15, label %.loopexit
+  br i1 %.not4.i.i.i.i.i.i, label %15, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02.06.i.i.i.i.i.i) #35
   %.not.i.i.i.i.i.i = icmp eq ptr %16, %12
-  br i1 %.not.i.i.i.i.i.i, label %.thread, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !44
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %9
-  %.sroa.02.0.lcssa.i.i.i.i.i.i = phi ptr [ %11, %9 ], [ %.sroa.02.06.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not = icmp eq ptr %12, %.sroa.02.0.lcssa.i.i.i.i.i.i
-  br i1 %.not, label %.thread, label %17
+_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i
+  %.not = icmp eq ptr %12, %.sroa.02.06.i.i.i.i.i.i
+  br i1 %.not, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread, label %17
 
-17:                                               ; preds = %.loopexit
+17:                                               ; preds = %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit
   tail call void @exit(i32 noundef 1) #36
   unreachable
 
-.thread:                                          ; preds = %15, %.loopexit, %1
+_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread: ; preds = %15, %9, %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   invoke void @_ZNSt8_Rb_treeIN6open3d4core6DeviceESt4pairIKS2_NS1_22MemoryManagerStatistic16MemoryStatisticsEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef %20)
           to label %_ZNSt3mapIN6open3d4core6DeviceENS1_22MemoryManagerStatistic16MemoryStatisticsESt4lessIS2_ESaISt4pairIKS2_S4_EEED2Ev.exit unwind label %21
 
-21:                                               ; preds = %.thread
+21:                                               ; preds = %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   tail call void @__clang_call_terminate(ptr %23) #34
   unreachable
 
-_ZNSt3mapIN6open3d4core6DeviceENS1_22MemoryManagerStatistic16MemoryStatisticsESt4lessIS2_ESaISt4pairIKS2_S4_EEED2Ev.exit: ; preds = %.thread
+_ZNSt3mapIN6open3d4core6DeviceENS1_22MemoryManagerStatistic16MemoryStatisticsESt4lessIS2_ESaISt4pairIKS2_S4_EEED2Ev.exit: ; preds = %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread
   ret void
 
 24:                                               ; preds = %8, %7, %5
@@ -751,7 +750,7 @@ define void @_ZNK6open3d4core22MemoryManagerStatistic5PrintEv(ptr noundef nonnul
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not5.i.i.i.i.i.i = icmp eq ptr %13, %14
-  br i1 %.not5.i.i.i.i.i.i, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not5.i.i.i.i.i.i, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %11, %17
   %.sroa.02.06.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %13, %11 ]
@@ -767,9 +766,8 @@ define void @_ZNK6open3d4core22MemoryManagerStatistic5PrintEv(ptr noundef nonnul
   %.not.i.i.i.i.i.i = icmp eq ptr %18, %14
   br i1 %.not.i.i.i.i.i.i, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !44
 
-_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %11
-  %.sroa.02.0.lcssa.i.i.i.i.i.i = phi ptr [ %13, %11 ], [ %.sroa.02.06.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not = icmp eq ptr %14, %.sroa.02.0.lcssa.i.i.i.i.i.i
+_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i
+  %.not = icmp eq ptr %14, %.sroa.02.06.i.i.i.i.i.i
   br i1 %.not, label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread, label %19
 
 19:                                               ; preds = %1, %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit
@@ -780,10 +778,10 @@ _ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit: ; preds = %.lr.ph.i.i.
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.not4765 = icmp eq ptr %22, %23
-  br i1 %.not4765, label %._crit_edge69, label %.lr.ph68
+  %.not4967 = icmp eq ptr %22, %23
+  br i1 %.not4967, label %._crit_edge71, label %.lr.ph70
 
-.lr.ph68:                                         ; preds = %19
+.lr.ph70:                                         ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -797,35 +795,35 @@ _ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit: ; preds = %.lr.ph.i.i.
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %35
 
-._crit_edge69:                                    ; preds = %134, %19
+._crit_edge71:                                    ; preds = %134, %19
   call void @_ZN6open3d7utility6Logger8LogInfo_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core22MemoryManagerStatistic5PrintEv, ptr noundef nonnull @.str.2)
   call void @_ZN6open3d7utility17SetVerbosityLevelENS0_14VerbosityLevelE(i32 noundef %20)
   br label %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread
 
-35:                                               ; preds = %.lr.ph68, %134
-  %.sroa.043.066 = phi ptr [ %22, %.lr.ph68 ], [ %135, %134 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.043.066, i64 32
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.043.066, i64 40
+35:                                               ; preds = %.lr.ph70, %134
+  %.sroa.043.068 = phi ptr [ %22, %.lr.ph70 ], [ %135, %134 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.043.068, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.043.068, i64 40
   %38 = load i32, ptr %0, align 8, !tbaa !5
   %39 = icmp eq i32 %38, 1
   %.pre = load i64, ptr %37, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.043.066, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.043.068, i64 48
   %41 = load i64, ptr %40, align 8, !tbaa !43
   %42 = icmp eq i64 %.pre, %41
   %or.cond = select i1 %39, i1 %42, i1 false
-  br i1 %or.cond, label %134, label %._crit_edge71
+  br i1 %or.cond, label %134, label %._crit_edge73
 
-._crit_edge71:                                    ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.043.066, i64 48
+._crit_edge73:                                    ; preds = %35
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.043.068, i64 48
   %44 = icmp eq i64 %.pre, %41
   br i1 %44, label %118, label %45
 
-45:                                               ; preds = %._crit_edge71
+45:                                               ; preds = %._crit_edge73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
   %46 = sub nsw i64 %.pre, %41
   store i64 %46, ptr %6, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.043.066, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.043.068, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !47
   %.not5.i = icmp eq ptr %48, null
   br i1 %.not5.i, label %"_ZSt10accumulateINSt8__detail20_Node_const_iteratorISt4pairIKPvmELb0ELb0EEEiZNK6open3d4core22MemoryManagerStatistic5PrintEvE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i
@@ -872,9 +870,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #33
-  %.sroa.039.062 = load ptr, ptr %47, align 8, !tbaa !48
-  %.not4863 = icmp eq ptr %.sroa.039.062, null
-  br i1 %.not4863, label %._crit_edge, label %.lr.ph
+  %.sroa.039.064 = load ptr, ptr %47, align 8, !tbaa !48
+  %.not5065 = icmp eq ptr %.sroa.039.064, null
+  br i1 %.not5065, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN6open3d7utility6Logger11LogWarning_IJPKvRKmEEEvPKciS8_S8_DpOT_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
@@ -907,8 +905,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
   br label %common.resume
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN6open3d7utility6Logger11LogWarning_IJPKvRKmEEEvPKciS8_S8_DpOT_.exit
-  %.sroa.039.064 = phi ptr [ %.sroa.039.0, %_ZN6open3d7utility6Logger11LogWarning_IJPKvRKmEEEvPKciS8_S8_DpOT_.exit ], [ %.sroa.039.062, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.039.064, i64 8
+  %.sroa.039.066 = phi ptr [ %.sroa.039.0, %_ZN6open3d7utility6Logger11LogWarning_IJPKvRKmEEEvPKciS8_S8_DpOT_.exit ], [ %.sroa.039.064, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.039.066, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !56
   %70 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
   %71 = call noundef i32 @_ZNK6open3d7utility6Logger17GetVerbosityLevelEv(ptr noundef nonnull align 8 dereferenceable(8) %70)
@@ -916,7 +914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
   br i1 %72, label %73, label %_ZN6open3d7utility6Logger11LogWarning_IJPKvRKmEEEvPKciS8_S8_DpOT_.exit
 
 73:                                               ; preds = %.lr.ph
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.039.064, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.039.066, i64 16
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #33
@@ -1082,11 +1080,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i: ; preds = %_Z
   br label %common.resume
 
 _ZN6open3d7utility6Logger11LogWarning_IJPKvRKmEEEvPKciS8_S8_DpOT_.exit: ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.sroa.039.0 = load ptr, ptr %.sroa.039.064, align 8, !tbaa !48
-  %.not48 = icmp eq ptr %.sroa.039.0, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.sroa.039.0 = load ptr, ptr %.sroa.039.066, align 8, !tbaa !48
+  %.not50 = icmp eq ptr %.sroa.039.0, null
+  br i1 %.not50, label %._crit_edge, label %.lr.ph
 
-118:                                              ; preds = %._crit_edge71
+118:                                              ; preds = %._crit_edge73
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #33
   call void @_ZNK6open3d4core6Device8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 4 dereferenceable(8) %36)
   invoke void @_ZN6open3d7utility6Logger8LogInfo_IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKlSA_EEEvPKciSC_SC_DpOT_(ptr noundef nonnull @.str, i32 noundef 102, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core22MemoryManagerStatistic5PrintEv, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %43)
@@ -1137,11 +1135,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   br label %common.resume
 
 134:                                              ; preds = %35, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
-  %135 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.043.066) #35
-  %.not47 = icmp eq ptr %135, %23
-  br i1 %.not47, label %._crit_edge69, label %35
+  %135 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.043.068) #35
+  %.not49 = icmp eq ptr %135, %23
+  br i1 %.not49, label %._crit_edge71, label %35
 
-_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread: ; preds = %17, %1, %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit, %._crit_edge69
+_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit.thread: ; preds = %17, %11, %1, %_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv.exit, %._crit_edge71
   ret void
 }
 
@@ -1160,17 +1158,21 @@ define noundef zeroext i1 @_ZNK6open3d4core22MemoryManagerStatistic8HasLeaksEv(p
   %6 = getelementptr i8, ptr %.sroa.02.06.i.i.i.i.i, i64 48
   %.val1.i.i.i.i.i.i = load i64, ptr %6, align 8, !tbaa !43
   %.not4.i.i.i.i.i = icmp eq i64 %.val.i.i.i.i.i.i, %.val1.i.i.i.i.i.i
-  br i1 %.not4.i.i.i.i.i, label %7, label %"_ZSt6any_ofISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0EbT_SB_T0_.exit"
+  br i1 %.not4.i.i.i.i.i, label %7, label %"_ZSt7find_ifISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0ET_SB_SB_T0_.exit.loopexit.i.i"
 
 7:                                                ; preds = %.lr.ph.i.i.i.i.i
   %8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02.06.i.i.i.i.i) #35
   %.not.i.i.i.i.i = icmp eq ptr %8, %4
-  br i1 %.not.i.i.i.i.i, label %"_ZSt6any_ofISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0EbT_SB_T0_.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i.i.i, label %"_ZSt7find_ifISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0ET_SB_SB_T0_.exit.loopexit.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !44
 
-"_ZSt6any_ofISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0EbT_SB_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %7, %1
-  %.sroa.02.0.lcssa.i.i.i.i.i = phi ptr [ %3, %1 ], [ %.sroa.02.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %4, %7 ]
-  %9 = icmp ne ptr %4, %.sroa.02.0.lcssa.i.i.i.i.i
-  ret i1 %9
+"_ZSt7find_ifISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0ET_SB_SB_T0_.exit.loopexit.i.i": ; preds = %7, %.lr.ph.i.i.i.i.i
+  %.sroa.02.0.lcssa.i.i.i.ph.i.i = phi ptr [ %4, %7 ], [ %.sroa.02.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %9 = icmp ne ptr %4, %.sroa.02.0.lcssa.i.i.i.ph.i.i
+  br label %"_ZSt6any_ofISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0EbT_SB_T0_.exit"
+
+"_ZSt6any_ofISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0EbT_SB_T0_.exit": ; preds = %1, %"_ZSt7find_ifISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0ET_SB_SB_T0_.exit.loopexit.i.i"
+  %.sroa.02.0.lcssa.i.i.i.i.i = phi i1 [ false, %1 ], [ %9, %"_ZSt7find_ifISt23_Rb_tree_const_iteratorISt4pairIKN6open3d4core6DeviceENS3_22MemoryManagerStatistic16MemoryStatisticsEEEZNKS6_8HasLeaksEvE3$_0ET_SB_SB_T0_.exit.loopexit.i.i" ]
+  ret i1 %.sroa.02.0.lcssa.i.i.i.i.i
 }
 
 ; Function Attrs: nofree noreturn nounwind

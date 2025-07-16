@@ -3324,16 +3324,16 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209: ; preds = %_ZNK
   %.phi.trans.insert = zext i16 %190 to i64
   %.phi.trans.insert543 = getelementptr inbounds nuw i8, ptr %51, i64 %.phi.trans.insert
   %.pre544 = load i16, ptr %.phi.trans.insert543, align 2, !tbaa !7
+  %191 = icmp ult i16 %190, %52
   br label %_ZNK10reflection5Field6offsetEv.exit.i206
 
 _ZNK10reflection5Field6offsetEv.exit.i206:        ; preds = %187, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209, %_ZNK10reflection6Object9is_structEv.exit205.thread
-  %191 = phi i16 [ %.pre544, %187 ], [ %52, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209 ], [ %52, %_ZNK10reflection6Object9is_structEv.exit205.thread ]
-  %192 = phi i16 [ %190, %187 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209 ], [ 0, %_ZNK10reflection6Object9is_structEv.exit205.thread ]
-  %193 = icmp ult i16 %192, %52
+  %192 = phi i16 [ %.pre544, %187 ], [ %52, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209 ], [ %52, %_ZNK10reflection6Object9is_structEv.exit205.thread ]
+  %193 = phi i1 [ %191, %187 ], [ true, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209 ], [ true, %_ZNK10reflection6Object9is_structEv.exit205.thread ]
   tail call void @llvm.assume(i1 %193)
-  %.not.i.i3.i208 = icmp ne i16 %191, 0
+  %.not.i.i3.i208 = icmp ne i16 %192, 0
   tail call void @llvm.assume(i1 %.not.i.i3.i208)
-  %194 = zext i16 %191 to i64
+  %194 = zext i16 %192 to i64
   %195 = getelementptr inbounds nuw i8, ptr %3, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !9
   %197 = zext i32 %196 to i64

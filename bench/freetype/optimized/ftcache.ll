@@ -1312,7 +1312,7 @@ define i32 @FTC_SBitCache_Lookup(ptr noundef %0, ptr noundef readonly captures(n
   %9 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %176, label %10
+  br i1 %.not, label %174, label %10
 
 10:                                               ; preds = %5
   store ptr null, ptr %3, align 8, !tbaa !109
@@ -1440,7 +1440,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
 
 .thread124:                                       ; preds = %.loopexit132
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  br label %176
+  br label %174
 
 73:                                               ; preds = %.thread, %.loopexit132
   %74 = phi ptr [ %.084, %.thread ], [ %71, %.loopexit132 ]
@@ -1492,11 +1492,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
   store ptr %92, ptr %8, align 8, !tbaa !44
   %102 = load i8, ptr %9, align 1, !tbaa !97
   %.not111 = icmp eq i8 %102, 0
-  br i1 %.not111, label %..loopexit_crit_edge, label %103
-
-..loopexit_crit_edge:                             ; preds = %101
-  %.pre = load ptr, ptr %90, align 8, !tbaa !44
-  br label %.loopexit
+  br i1 %.not111, label %.loopexit, label %103
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %78, align 8, !tbaa !33
@@ -1513,152 +1509,152 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
   %114 = getelementptr inbounds nuw ptr, ptr %104, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !44
   %.not113140 = icmp eq ptr %115, %92
-  br i1 %.not113140, label %.loopexit, label %.lr.ph141
+  br i1 %.not113140, label %.loopexit.thread, label %.lr.ph141
 
 116:                                              ; preds = %.lr.ph141
   %117 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !44
   %.not113 = icmp eq ptr %118, %92
-  br i1 %.not113, label %.loopexit.loopexit, label %.lr.ph141, !llvm.loop !112
+  br i1 %.not113, label %.loopexit.thread153.loopexit, label %.lr.ph141, !llvm.loop !112
 
 .lr.ph141:                                        ; preds = %103, %116
   %119 = phi ptr [ %118, %116 ], [ %115, %103 ]
   %.not116 = icmp eq ptr %119, null
   br i1 %.not116, label %.loopexit130, label %116
 
-.loopexit.loopexit:                               ; preds = %116
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  br label %.loopexit
+.loopexit:                                        ; preds = %101
+  %.pre = load ptr, ptr %90, align 8, !tbaa !44
+  %120 = icmp eq ptr %92, %.pre
+  br i1 %120, label %.loopexit.thread, label %.loopexit.thread153
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %..loopexit_crit_edge, %103
-  %121 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %92, %103 ], [ %115, %.loopexit.loopexit ]
-  %.088 = phi ptr [ %90, %..loopexit_crit_edge ], [ %114, %103 ], [ %114, %.loopexit.loopexit ]
-  %.186 = phi ptr [ %.085139, %..loopexit_crit_edge ], [ %114, %103 ], [ %120, %.loopexit.loopexit ]
-  %.not114 = icmp eq ptr %92, %121
-  br i1 %.not114, label %128, label %122
+.loopexit.thread153.loopexit:                     ; preds = %116
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  br label %.loopexit.thread153
 
-122:                                              ; preds = %.loopexit
-  %123 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %124 = load ptr, ptr %123, align 8, !tbaa !84
-  store ptr %124, ptr %.186, align 8, !tbaa !44
-  %125 = load ptr, ptr %.088, align 8, !tbaa !44
-  %126 = load ptr, ptr %8, align 8, !tbaa !44
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store ptr %125, ptr %127, align 8, !tbaa !84
-  store ptr %126, ptr %.088, align 8, !tbaa !44
-  br label %128
+.loopexit.thread153:                              ; preds = %.loopexit.thread153.loopexit, %.loopexit
+  %.186158 = phi ptr [ %.085139, %.loopexit ], [ %121, %.loopexit.thread153.loopexit ]
+  %.088157 = phi ptr [ %90, %.loopexit ], [ %114, %.loopexit.thread153.loopexit ]
+  %122 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %123 = load ptr, ptr %122, align 8, !tbaa !84
+  store ptr %123, ptr %.186158, align 8, !tbaa !44
+  %124 = load ptr, ptr %.088157, align 8, !tbaa !44
+  %125 = load ptr, ptr %8, align 8, !tbaa !44
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  store ptr %124, ptr %126, align 8, !tbaa !84
+  store ptr %125, ptr %.088157, align 8, !tbaa !44
+  br label %.loopexit.thread
 
-128:                                              ; preds = %122, %.loopexit
-  %129 = phi ptr [ %126, %122 ], [ %92, %.loopexit ]
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %131 = load ptr, ptr %130, align 8, !tbaa !18
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %133 = load ptr, ptr %132, align 8, !tbaa !85
-  %.not115 = icmp eq ptr %129, %133
-  br i1 %.not115, label %141, label %FTC_MruNode_Up.exit119
+.loopexit.thread:                                 ; preds = %103, %.loopexit.thread153, %.loopexit
+  %127 = phi ptr [ %125, %.loopexit.thread153 ], [ %92, %.loopexit ], [ %92, %103 ]
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %129 = load ptr, ptr %128, align 8, !tbaa !18
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %131 = load ptr, ptr %130, align 8, !tbaa !85
+  %.not115 = icmp eq ptr %127, %131
+  br i1 %.not115, label %139, label %FTC_MruNode_Up.exit119
 
-FTC_MruNode_Up.exit119:                           ; preds = %128
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !72
-  %136 = load ptr, ptr %129, align 8, !tbaa !73
-  store ptr %136, ptr %135, align 8, !tbaa !73
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store ptr %135, ptr %137, align 8, !tbaa !72
-  %138 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %139 = load ptr, ptr %138, align 8, !tbaa !72
-  store ptr %129, ptr %139, align 8, !tbaa !73
-  store ptr %129, ptr %138, align 8, !tbaa !72
-  store ptr %133, ptr %129, align 8, !tbaa !73
-  store ptr %139, ptr %134, align 8, !tbaa !72
-  store ptr %129, ptr %132, align 8, !tbaa !63
-  br label %141
+FTC_MruNode_Up.exit119:                           ; preds = %.loopexit.thread
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %133 = load ptr, ptr %132, align 8, !tbaa !72
+  %134 = load ptr, ptr %127, align 8, !tbaa !73
+  store ptr %134, ptr %133, align 8, !tbaa !73
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  store ptr %133, ptr %135, align 8, !tbaa !72
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %137 = load ptr, ptr %136, align 8, !tbaa !72
+  store ptr %127, ptr %137, align 8, !tbaa !73
+  store ptr %127, ptr %136, align 8, !tbaa !72
+  store ptr %131, ptr %127, align 8, !tbaa !73
+  store ptr %137, ptr %132, align 8, !tbaa !72
+  store ptr %127, ptr %130, align 8, !tbaa !63
+  br label %139
 
 .loopexit131:                                     ; preds = %98, %73
   store ptr null, ptr %8, align 8, !tbaa !44
   br label %.loopexit130
 
 .loopexit130:                                     ; preds = %.lr.ph141, %.loopexit131
-  %140 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %41, ptr noundef %6, ptr noundef %8)
+  %138 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %41, ptr noundef %6, ptr noundef %8)
   %.pre149 = load ptr, ptr %8, align 8, !tbaa !44
-  br label %141
+  br label %139
 
-141:                                              ; preds = %128, %FTC_MruNode_Up.exit119, %.loopexit130
-  %142 = phi ptr [ %.pre149, %.loopexit130 ], [ %129, %FTC_MruNode_Up.exit119 ], [ %129, %128 ]
-  %.2 = phi i32 [ %140, %.loopexit130 ], [ 0, %FTC_MruNode_Up.exit119 ], [ 0, %128 ]
+139:                                              ; preds = %.loopexit.thread, %FTC_MruNode_Up.exit119, %.loopexit130
+  %140 = phi ptr [ %.pre149, %.loopexit130 ], [ %127, %FTC_MruNode_Up.exit119 ], [ %127, %.loopexit.thread ]
+  %.2 = phi i32 [ %138, %.loopexit130 ], [ 0, %FTC_MruNode_Up.exit119 ], [ 0, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  %143 = load i32, ptr %75, align 8, !tbaa !77
-  %144 = add i32 %143, -1
-  store i32 %144, ptr %75, align 8, !tbaa !77
-  %145 = icmp eq i32 %144, 0
-  br i1 %145, label %146, label %164
+  %141 = load i32, ptr %75, align 8, !tbaa !77
+  %142 = add i32 %141, -1
+  store i32 %142, ptr %75, align 8, !tbaa !77
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %162
 
-146:                                              ; preds = %141
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %148 = load ptr, ptr %147, align 8, !tbaa !39
-  %149 = load ptr, ptr %43, align 8, !tbaa !63
-  %150 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !72
-  %152 = load ptr, ptr %74, align 8, !tbaa !73
-  store ptr %152, ptr %151, align 8, !tbaa !73
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store ptr %151, ptr %153, align 8, !tbaa !72
-  %154 = icmp eq ptr %74, %152
-  br i1 %154, label %.sink.split.i.i, label %155
+144:                                              ; preds = %139
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %146 = load ptr, ptr %145, align 8, !tbaa !39
+  %147 = load ptr, ptr %43, align 8, !tbaa !63
+  %148 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !72
+  %150 = load ptr, ptr %74, align 8, !tbaa !73
+  store ptr %150, ptr %149, align 8, !tbaa !73
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  store ptr %149, ptr %151, align 8, !tbaa !72
+  %152 = icmp eq ptr %74, %150
+  br i1 %152, label %.sink.split.i.i, label %153
 
-155:                                              ; preds = %146
-  %156 = icmp eq ptr %74, %149
-  br i1 %156, label %.sink.split.i.i, label %FTC_MruNode_Remove.exit.i
+153:                                              ; preds = %144
+  %154 = icmp eq ptr %74, %147
+  br i1 %154, label %.sink.split.i.i, label %FTC_MruNode_Remove.exit.i
 
-.sink.split.i.i:                                  ; preds = %155, %146
-  %.sink.i.i = phi ptr [ null, %146 ], [ %152, %155 ]
+.sink.split.i.i:                                  ; preds = %153, %144
+  %.sink.i.i = phi ptr [ null, %144 ], [ %150, %153 ]
   store ptr %.sink.i.i, ptr %43, align 8, !tbaa !63
   br label %FTC_MruNode_Remove.exit.i
 
-FTC_MruNode_Remove.exit.i:                        ; preds = %.sink.split.i.i, %155
-  %157 = load i32, ptr %42, align 8, !tbaa !86
-  %158 = add i32 %157, -1
-  store i32 %158, ptr %42, align 8, !tbaa !86
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %160 = load ptr, ptr %159, align 8, !tbaa !87
-  %.not.i120 = icmp eq ptr %160, null
-  br i1 %.not.i120, label %FTC_MruList_Remove.exit, label %161
+FTC_MruNode_Remove.exit.i:                        ; preds = %.sink.split.i.i, %153
+  %155 = load i32, ptr %42, align 8, !tbaa !86
+  %156 = add i32 %155, -1
+  store i32 %156, ptr %42, align 8, !tbaa !86
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %158 = load ptr, ptr %157, align 8, !tbaa !87
+  %.not.i120 = icmp eq ptr %158, null
+  br i1 %.not.i120, label %FTC_MruList_Remove.exit, label %159
 
-161:                                              ; preds = %FTC_MruNode_Remove.exit.i
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %163 = load ptr, ptr %162, align 8, !tbaa !38
-  call void %160(ptr noundef nonnull %74, ptr noundef %163) #12
+159:                                              ; preds = %FTC_MruNode_Remove.exit.i
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %161 = load ptr, ptr %160, align 8, !tbaa !38
+  call void %158(ptr noundef nonnull %74, ptr noundef %161) #12
   br label %FTC_MruList_Remove.exit
 
-FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.exit.i, %161
-  call void @ft_mem_free(ptr noundef %148, ptr noundef nonnull %74) #12
-  br label %164
+FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.exit.i, %159
+  call void @ft_mem_free(ptr noundef %146, ptr noundef nonnull %74) #12
+  br label %162
 
-164:                                              ; preds = %141, %FTC_MruList_Remove.exit
+162:                                              ; preds = %139, %FTC_MruList_Remove.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   %.not117 = icmp eq i32 %.2, 0
-  br i1 %.not117, label %165, label %176
+  br i1 %.not117, label %163, label %174
 
-165:                                              ; preds = %164
-  %166 = getelementptr inbounds nuw i8, ptr %142, i64 64
-  %167 = getelementptr inbounds nuw i8, ptr %142, i64 48
-  %168 = load i32, ptr %167, align 8, !tbaa !83
-  %169 = sub i32 %2, %168
-  %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds nuw %struct.FTC_SBitRec_, ptr %166, i64 %170
-  store ptr %171, ptr %3, align 8, !tbaa !109
-  br i1 %.not101, label %176, label %172
+163:                                              ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %140, i64 64
+  %165 = getelementptr inbounds nuw i8, ptr %140, i64 48
+  %166 = load i32, ptr %165, align 8, !tbaa !83
+  %167 = sub i32 %2, %166
+  %168 = zext i32 %167 to i64
+  %169 = getelementptr inbounds nuw %struct.FTC_SBitRec_, ptr %164, i64 %168
+  store ptr %169, ptr %3, align 8, !tbaa !109
+  br i1 %.not101, label %174, label %170
 
-172:                                              ; preds = %165
-  store ptr %142, ptr %4, align 8, !tbaa !44
-  %173 = getelementptr inbounds nuw i8, ptr %142, i64 34
-  %174 = load i16, ptr %173, align 2, !tbaa !90
-  %175 = add i16 %174, 1
-  store i16 %175, ptr %173, align 2, !tbaa !90
-  br label %176
+170:                                              ; preds = %163
+  store ptr %140, ptr %4, align 8, !tbaa !44
+  %171 = getelementptr inbounds nuw i8, ptr %140, i64 34
+  %172 = load i16, ptr %171, align 2, !tbaa !90
+  %173 = add i16 %172, 1
+  store i16 %173, ptr %171, align 2, !tbaa !90
+  br label %174
 
-176:                                              ; preds = %.thread124, %164, %172, %165, %5
-  %.0 = phi i32 [ 6, %5 ], [ 0, %165 ], [ 0, %172 ], [ %.2, %164 ], [ %70, %.thread124 ]
+174:                                              ; preds = %.thread124, %162, %170, %163, %5
+  %.0 = phi i32 [ 6, %5 ], [ 0, %163 ], [ 0, %170 ], [ %.2, %162 ], [ %70, %.thread124 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
   ret i32 %.0
 }
@@ -1887,7 +1883,7 @@ define i32 @FTC_SBitCache_LookupScaler(ptr noundef %0, ptr noundef readonly capt
   %11 = icmp ne ptr %4, null
   %12 = icmp ne ptr %1, null
   %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %202
+  br i1 %or.cond, label %13, label %200
 
 13:                                               ; preds = %6
   store ptr null, ptr %4, align 8, !tbaa !109
@@ -2046,7 +2042,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
 
 .thread125:                                       ; preds = %.loopexit132
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  br label %202
+  br label %200
 
 99:                                               ; preds = %.thread, %.loopexit132
   %100 = phi ptr [ %.085, %.thread ], [ %97, %.loopexit132 ]
@@ -2098,11 +2094,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
   store ptr %118, ptr %9, align 8, !tbaa !44
   %128 = load i8, ptr %10, align 1, !tbaa !97
   %.not112 = icmp eq i8 %128, 0
-  br i1 %.not112, label %..loopexit_crit_edge, label %129
-
-..loopexit_crit_edge:                             ; preds = %127
-  %.pre = load ptr, ptr %116, align 8, !tbaa !44
-  br label %.loopexit
+  br i1 %.not112, label %.loopexit, label %129
 
 129:                                              ; preds = %127
   %130 = load ptr, ptr %104, align 8, !tbaa !33
@@ -2119,152 +2111,152 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
   %140 = getelementptr inbounds nuw ptr, ptr %130, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !44
   %.not114140 = icmp eq ptr %141, %118
-  br i1 %.not114140, label %.loopexit, label %.lr.ph141
+  br i1 %.not114140, label %.loopexit.thread, label %.lr.ph141
 
 142:                                              ; preds = %.lr.ph141
   %143 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !44
   %.not114 = icmp eq ptr %144, %118
-  br i1 %.not114, label %.loopexit.loopexit, label %.lr.ph141, !llvm.loop !120
+  br i1 %.not114, label %.loopexit.thread153.loopexit, label %.lr.ph141, !llvm.loop !120
 
 .lr.ph141:                                        ; preds = %129, %142
   %145 = phi ptr [ %144, %142 ], [ %141, %129 ]
   %.not117 = icmp eq ptr %145, null
   br i1 %.not117, label %.loopexit130, label %142
 
-.loopexit.loopexit:                               ; preds = %142
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  br label %.loopexit
+.loopexit:                                        ; preds = %127
+  %.pre = load ptr, ptr %116, align 8, !tbaa !44
+  %146 = icmp eq ptr %118, %.pre
+  br i1 %146, label %.loopexit.thread, label %.loopexit.thread153
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %..loopexit_crit_edge, %129
-  %147 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %118, %129 ], [ %141, %.loopexit.loopexit ]
-  %.089 = phi ptr [ %116, %..loopexit_crit_edge ], [ %140, %129 ], [ %140, %.loopexit.loopexit ]
-  %.187 = phi ptr [ %.086139, %..loopexit_crit_edge ], [ %140, %129 ], [ %146, %.loopexit.loopexit ]
-  %.not115 = icmp eq ptr %118, %147
-  br i1 %.not115, label %154, label %148
+.loopexit.thread153.loopexit:                     ; preds = %142
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  br label %.loopexit.thread153
 
-148:                                              ; preds = %.loopexit
-  %149 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !84
-  store ptr %150, ptr %.187, align 8, !tbaa !44
-  %151 = load ptr, ptr %.089, align 8, !tbaa !44
-  %152 = load ptr, ptr %9, align 8, !tbaa !44
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  store ptr %151, ptr %153, align 8, !tbaa !84
-  store ptr %152, ptr %.089, align 8, !tbaa !44
-  br label %154
+.loopexit.thread153:                              ; preds = %.loopexit.thread153.loopexit, %.loopexit
+  %.187158 = phi ptr [ %.086139, %.loopexit ], [ %147, %.loopexit.thread153.loopexit ]
+  %.089157 = phi ptr [ %116, %.loopexit ], [ %140, %.loopexit.thread153.loopexit ]
+  %148 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %149 = load ptr, ptr %148, align 8, !tbaa !84
+  store ptr %149, ptr %.187158, align 8, !tbaa !44
+  %150 = load ptr, ptr %.089157, align 8, !tbaa !44
+  %151 = load ptr, ptr %9, align 8, !tbaa !44
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  store ptr %150, ptr %152, align 8, !tbaa !84
+  store ptr %151, ptr %.089157, align 8, !tbaa !44
+  br label %.loopexit.thread
 
-154:                                              ; preds = %148, %.loopexit
-  %155 = phi ptr [ %152, %148 ], [ %118, %.loopexit ]
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %157 = load ptr, ptr %156, align 8, !tbaa !18
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %159 = load ptr, ptr %158, align 8, !tbaa !85
-  %.not116 = icmp eq ptr %155, %159
-  br i1 %.not116, label %167, label %FTC_MruNode_Up.exit120
+.loopexit.thread:                                 ; preds = %129, %.loopexit.thread153, %.loopexit
+  %153 = phi ptr [ %151, %.loopexit.thread153 ], [ %118, %.loopexit ], [ %118, %129 ]
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %155 = load ptr, ptr %154, align 8, !tbaa !18
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %157 = load ptr, ptr %156, align 8, !tbaa !85
+  %.not116 = icmp eq ptr %153, %157
+  br i1 %.not116, label %165, label %FTC_MruNode_Up.exit120
 
-FTC_MruNode_Up.exit120:                           ; preds = %154
-  %160 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %161 = load ptr, ptr %160, align 8, !tbaa !72
-  %162 = load ptr, ptr %155, align 8, !tbaa !73
-  store ptr %162, ptr %161, align 8, !tbaa !73
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  store ptr %161, ptr %163, align 8, !tbaa !72
-  %164 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !72
-  store ptr %155, ptr %165, align 8, !tbaa !73
-  store ptr %155, ptr %164, align 8, !tbaa !72
-  store ptr %159, ptr %155, align 8, !tbaa !73
-  store ptr %165, ptr %160, align 8, !tbaa !72
-  store ptr %155, ptr %158, align 8, !tbaa !63
-  br label %167
+FTC_MruNode_Up.exit120:                           ; preds = %.loopexit.thread
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %159 = load ptr, ptr %158, align 8, !tbaa !72
+  %160 = load ptr, ptr %153, align 8, !tbaa !73
+  store ptr %160, ptr %159, align 8, !tbaa !73
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  store ptr %159, ptr %161, align 8, !tbaa !72
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !72
+  store ptr %153, ptr %163, align 8, !tbaa !73
+  store ptr %153, ptr %162, align 8, !tbaa !72
+  store ptr %157, ptr %153, align 8, !tbaa !73
+  store ptr %163, ptr %158, align 8, !tbaa !72
+  store ptr %153, ptr %156, align 8, !tbaa !63
+  br label %165
 
 .loopexit131:                                     ; preds = %124, %99
   store ptr null, ptr %9, align 8, !tbaa !44
   br label %.loopexit130
 
 .loopexit130:                                     ; preds = %.lr.ph141, %.loopexit131
-  %166 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %7, ptr noundef %9)
+  %164 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %51, ptr noundef %7, ptr noundef %9)
   %.pre149 = load ptr, ptr %9, align 8, !tbaa !44
-  br label %167
+  br label %165
 
-167:                                              ; preds = %154, %FTC_MruNode_Up.exit120, %.loopexit130
-  %168 = phi ptr [ %.pre149, %.loopexit130 ], [ %155, %FTC_MruNode_Up.exit120 ], [ %155, %154 ]
-  %.2 = phi i32 [ %166, %.loopexit130 ], [ 0, %FTC_MruNode_Up.exit120 ], [ 0, %154 ]
+165:                                              ; preds = %.loopexit.thread, %FTC_MruNode_Up.exit120, %.loopexit130
+  %166 = phi ptr [ %.pre149, %.loopexit130 ], [ %153, %FTC_MruNode_Up.exit120 ], [ %153, %.loopexit.thread ]
+  %.2 = phi i32 [ %164, %.loopexit130 ], [ 0, %FTC_MruNode_Up.exit120 ], [ 0, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  %169 = load i32, ptr %101, align 8, !tbaa !77
-  %170 = add i32 %169, -1
-  store i32 %170, ptr %101, align 8, !tbaa !77
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %172, label %190
+  %167 = load i32, ptr %101, align 8, !tbaa !77
+  %168 = add i32 %167, -1
+  store i32 %168, ptr %101, align 8, !tbaa !77
+  %169 = icmp eq i32 %168, 0
+  br i1 %169, label %170, label %188
 
-172:                                              ; preds = %167
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %174 = load ptr, ptr %173, align 8, !tbaa !39
-  %175 = load ptr, ptr %53, align 8, !tbaa !63
-  %176 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %177 = load ptr, ptr %176, align 8, !tbaa !72
-  %178 = load ptr, ptr %100, align 8, !tbaa !73
-  store ptr %178, ptr %177, align 8, !tbaa !73
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store ptr %177, ptr %179, align 8, !tbaa !72
-  %180 = icmp eq ptr %100, %178
-  br i1 %180, label %.sink.split.i.i, label %181
+170:                                              ; preds = %165
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %172 = load ptr, ptr %171, align 8, !tbaa !39
+  %173 = load ptr, ptr %53, align 8, !tbaa !63
+  %174 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %175 = load ptr, ptr %174, align 8, !tbaa !72
+  %176 = load ptr, ptr %100, align 8, !tbaa !73
+  store ptr %176, ptr %175, align 8, !tbaa !73
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  store ptr %175, ptr %177, align 8, !tbaa !72
+  %178 = icmp eq ptr %100, %176
+  br i1 %178, label %.sink.split.i.i, label %179
 
-181:                                              ; preds = %172
-  %182 = icmp eq ptr %100, %175
-  br i1 %182, label %.sink.split.i.i, label %FTC_MruNode_Remove.exit.i
+179:                                              ; preds = %170
+  %180 = icmp eq ptr %100, %173
+  br i1 %180, label %.sink.split.i.i, label %FTC_MruNode_Remove.exit.i
 
-.sink.split.i.i:                                  ; preds = %181, %172
-  %.sink.i.i = phi ptr [ null, %172 ], [ %178, %181 ]
+.sink.split.i.i:                                  ; preds = %179, %170
+  %.sink.i.i = phi ptr [ null, %170 ], [ %176, %179 ]
   store ptr %.sink.i.i, ptr %53, align 8, !tbaa !63
   br label %FTC_MruNode_Remove.exit.i
 
-FTC_MruNode_Remove.exit.i:                        ; preds = %.sink.split.i.i, %181
-  %183 = load i32, ptr %52, align 8, !tbaa !86
-  %184 = add i32 %183, -1
-  store i32 %184, ptr %52, align 8, !tbaa !86
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %186 = load ptr, ptr %185, align 8, !tbaa !87
-  %.not.i121 = icmp eq ptr %186, null
-  br i1 %.not.i121, label %FTC_MruList_Remove.exit, label %187
+FTC_MruNode_Remove.exit.i:                        ; preds = %.sink.split.i.i, %179
+  %181 = load i32, ptr %52, align 8, !tbaa !86
+  %182 = add i32 %181, -1
+  store i32 %182, ptr %52, align 8, !tbaa !86
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %184 = load ptr, ptr %183, align 8, !tbaa !87
+  %.not.i121 = icmp eq ptr %184, null
+  br i1 %.not.i121, label %FTC_MruList_Remove.exit, label %185
 
-187:                                              ; preds = %FTC_MruNode_Remove.exit.i
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %189 = load ptr, ptr %188, align 8, !tbaa !38
-  call void %186(ptr noundef nonnull %100, ptr noundef %189) #12
+185:                                              ; preds = %FTC_MruNode_Remove.exit.i
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %187 = load ptr, ptr %186, align 8, !tbaa !38
+  call void %184(ptr noundef nonnull %100, ptr noundef %187) #12
   br label %FTC_MruList_Remove.exit
 
-FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.exit.i, %187
-  call void @ft_mem_free(ptr noundef %174, ptr noundef nonnull %100) #12
-  br label %190
+FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.exit.i, %185
+  call void @ft_mem_free(ptr noundef %172, ptr noundef nonnull %100) #12
+  br label %188
 
-190:                                              ; preds = %167, %FTC_MruList_Remove.exit
+188:                                              ; preds = %165, %FTC_MruList_Remove.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   %.not118 = icmp eq i32 %.2, 0
-  br i1 %.not118, label %191, label %202
+  br i1 %.not118, label %189, label %200
 
-191:                                              ; preds = %190
-  %192 = getelementptr inbounds nuw i8, ptr %168, i64 64
-  %193 = getelementptr inbounds nuw i8, ptr %168, i64 48
-  %194 = load i32, ptr %193, align 8, !tbaa !83
-  %195 = sub i32 %3, %194
-  %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw %struct.FTC_SBitRec_, ptr %192, i64 %196
-  store ptr %197, ptr %4, align 8, !tbaa !109
-  br i1 %.not, label %202, label %198
+189:                                              ; preds = %188
+  %190 = getelementptr inbounds nuw i8, ptr %166, i64 64
+  %191 = getelementptr inbounds nuw i8, ptr %166, i64 48
+  %192 = load i32, ptr %191, align 8, !tbaa !83
+  %193 = sub i32 %3, %192
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds nuw %struct.FTC_SBitRec_, ptr %190, i64 %194
+  store ptr %195, ptr %4, align 8, !tbaa !109
+  br i1 %.not, label %200, label %196
 
-198:                                              ; preds = %191
-  store ptr %168, ptr %5, align 8, !tbaa !44
-  %199 = getelementptr inbounds nuw i8, ptr %168, i64 34
-  %200 = load i16, ptr %199, align 2, !tbaa !90
-  %201 = add i16 %200, 1
-  store i16 %201, ptr %199, align 2, !tbaa !90
-  br label %202
+196:                                              ; preds = %189
+  store ptr %166, ptr %5, align 8, !tbaa !44
+  %197 = getelementptr inbounds nuw i8, ptr %166, i64 34
+  %198 = load i16, ptr %197, align 2, !tbaa !90
+  %199 = add i16 %198, 1
+  store i16 %199, ptr %197, align 2, !tbaa !90
+  br label %200
 
-202:                                              ; preds = %.thread125, %190, %198, %191, %6
-  %.0 = phi i32 [ 6, %6 ], [ 0, %191 ], [ 0, %198 ], [ %.2, %190 ], [ %96, %.thread125 ]
+200:                                              ; preds = %.thread125, %188, %196, %189, %6
+  %.0 = phi i32 [ 6, %6 ], [ 0, %189 ], [ 0, %196 ], [ %.2, %188 ], [ %96, %.thread125 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #12
   ret i32 %.0
 }

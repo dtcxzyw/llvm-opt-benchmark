@@ -322,33 +322,33 @@ define hidden void @proto_reg_handoff_tdmop() #0 {
   %8 = load i32, ptr @pref_tdmop_ethertype, align 4
   store i32 %8, ptr @proto_reg_handoff_tdmop.current_tdmop_ethertype, align 4
   store i1 true, ptr @proto_reg_handoff_tdmop.init, align 1
-  br label %17
+  br label %18
 
 9:                                                ; preds = %0
   %.pre = load i32, ptr @proto_reg_handoff_tdmop.current_tdmop_ethertype, align 4
   %.pre6 = load i32, ptr @pref_tdmop_ethertype, align 4
-  %.not4 = icmp eq i32 %.pre, %.pre6
-  br i1 %.not4, label %17, label %10
+  %10 = icmp eq i32 %.pre, %.pre6
+  br i1 %10, label %18, label %11
 
-10:                                               ; preds = %9
-  %11 = load ptr, ptr @tdmop_handle, align 8
-  tail call void @dissector_delete_uint(ptr noundef nonnull @.str.39, i32 noundef %.pre, ptr noundef %11)
-  %12 = load i32, ptr @pref_tdmop_ethertype, align 4
-  %.not5 = icmp eq i32 %12, 0
-  br i1 %.not5, label %15, label %13
+11:                                               ; preds = %9
+  %12 = load ptr, ptr @tdmop_handle, align 8
+  tail call void @dissector_delete_uint(ptr noundef nonnull @.str.39, i32 noundef %.pre, ptr noundef %12)
+  %13 = load i32, ptr @pref_tdmop_ethertype, align 4
+  %.not5 = icmp eq i32 %13, 0
+  br i1 %.not5, label %16, label %14
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr @tdmop_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.39, i32 noundef %12, ptr noundef %14)
+14:                                               ; preds = %11
+  %15 = load ptr, ptr @tdmop_handle, align 8
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.39, i32 noundef %13, ptr noundef %15)
   %.pre7 = load i32, ptr @pref_tdmop_ethertype, align 4
-  br label %15
+  br label %16
 
-15:                                               ; preds = %13, %10
-  %16 = phi i32 [ %.pre7, %13 ], [ 0, %10 ]
-  store i32 %16, ptr @proto_reg_handoff_tdmop.current_tdmop_ethertype, align 4
-  br label %17
+16:                                               ; preds = %14, %11
+  %17 = phi i32 [ %.pre7, %14 ], [ 0, %11 ]
+  store i32 %17, ptr @proto_reg_handoff_tdmop.current_tdmop_ethertype, align 4
+  br label %18
 
-17:                                               ; preds = %.thread, %15, %9
+18:                                               ; preds = %.thread, %16, %9
   ret void
 }
 

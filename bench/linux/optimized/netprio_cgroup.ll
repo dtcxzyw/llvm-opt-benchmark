@@ -231,94 +231,89 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
   br i1 %5, label %7, label %12
 
 7:                                                ; preds = %2
-  br i1 %6, label %48, label %8
+  br i1 %6, label %45, label %8
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp ugt i32 %10, %.80.val
-  br i1 %11, label %.thread, label %48
+  br i1 %11, label %.thread.thread, label %45
 
 12:                                               ; preds = %2
-  br i1 %6, label %15, label %..thread_crit_edge
+  br i1 %6, label %14, label %.thread
 
-..thread_crit_edge:                               ; preds = %12
+.thread:                                          ; preds = %12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %.thread
+  %13 = icmp ugt i32 %.pre, %.80.val
+  br i1 %13, label %.thread.thread, label %14
 
-.thread:                                          ; preds = %..thread_crit_edge, %8
-  %13 = phi i32 [ %.pre, %..thread_crit_edge ], [ %10, %8 ]
-  %14 = icmp ugt i32 %13, %.80.val
-  br i1 %14, label %43, label %15
+14:                                               ; preds = %.thread, %12
+  %15 = zext i32 %.80.val to i64
+  br label %16
 
-15:                                               ; preds = %.thread, %12
-  %16 = phi i1 [ false, %.thread ], [ true, %12 ]
-  %17 = zext i32 %.80.val to i64
-  br label %18
+16:                                               ; preds = %21, %14
+  %17 = phi i64 [ 128, %14 ], [ %22, %21 ]
+  %18 = add i64 %17, -20
+  %19 = lshr exact i64 %18, 2
+  %20 = icmp samesign ugt i64 %19, %15
+  br i1 %20, label %25, label %21
 
-18:                                               ; preds = %23, %15
-  %19 = phi i64 [ 128, %15 ], [ %24, %23 ]
-  %20 = add i64 %19, -20
-  %21 = lshr exact i64 %20, 2
-  %22 = icmp samesign ugt i64 %21, %17
-  br i1 %22, label %27, label %23
+21:                                               ; preds = %16
+  %22 = shl i64 %17, 1
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %16, !prof !9
 
-23:                                               ; preds = %18
-  %24 = shl i64 %19, 1
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %18, !prof !9
-
-26:                                               ; preds = %23
+24:                                               ; preds = %21
   tail call void asm sideeffect "752: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 752b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 752) #11, !srcloc !10
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 64, i32 2305, i64 12) #11, !srcloc !11
   tail call void asm sideeffect "753: nop\0A\09.pushsection .discard.instr_end\0A\09.long 753b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 753) #11, !srcloc !12
-  br label %48, !llvm.loop !13
+  br label %45, !llvm.loop !13
 
-27:                                               ; preds = %18
-  %28 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %19, i32 noundef 3520) #12
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %48, label %30
+25:                                               ; preds = %16
+  %26 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %17, i32 noundef 3520) #12
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %45, label %28
 
-30:                                               ; preds = %27
-  br i1 %16, label %40, label %31
+28:                                               ; preds = %25
+  br i1 %6, label %38, label %29
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 20
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = zext i32 %35 to i64
-  %37 = shl nuw nsw i64 %36, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull align 4 %33, i64 %37, i1 false)
-  %38 = trunc i64 %21 to i32
-  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i32 %38, ptr %39, align 8
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %33 = load i32, ptr %32, align 8
+  %34 = zext i32 %33 to i64
+  %35 = shl nuw nsw i64 %34, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr nonnull align 4 %31, i64 %35, i1 false)
+  %36 = trunc i64 %19 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store i32 %36, ptr %37, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
-  store volatile ptr %28, ptr %3, align 8
+  store volatile ptr %26, ptr %3, align 8
   tail call void @kvfree_call_rcu(ptr noundef nonnull %4, ptr noundef nonnull %4) #11
   %.pre8 = load ptr, ptr %3, align 8
-  br label %43
+  br label %.thread.thread
 
-40:                                               ; preds = %30
-  %41 = trunc i64 %21 to i32
-  %42 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i32 %41, ptr %42, align 8
+38:                                               ; preds = %28
+  %39 = trunc i64 %19 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store i32 %39, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
-  store volatile ptr %28, ptr %3, align 8
-  br label %43
+  store volatile ptr %26, ptr %3, align 8
+  br label %.thread.thread
 
-43:                                               ; preds = %.thread, %40, %31
-  %44 = phi ptr [ %4, %.thread ], [ %28, %40 ], [ %.pre8, %31 ]
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
-  %46 = sext i32 %.80.val to i64
-  %47 = getelementptr [0 x i32], ptr %45, i64 0, i64 %46
-  store i32 %1, ptr %47, align 4
-  br label %48
+.thread.thread:                                   ; preds = %8, %.thread, %38, %29
+  %41 = phi ptr [ %4, %.thread ], [ %26, %38 ], [ %.pre8, %29 ], [ %4, %8 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 20
+  %43 = sext i32 %.80.val to i64
+  %44 = getelementptr [0 x i32], ptr %42, i64 0, i64 %43
+  store i32 %1, ptr %44, align 4
+  br label %45
 
-48:                                               ; preds = %26, %27, %43, %8, %7
-  %49 = phi i32 [ 0, %43 ], [ 0, %8 ], [ 0, %7 ], [ -28, %26 ], [ -12, %27 ]
-  ret i32 %49
+45:                                               ; preds = %24, %25, %.thread.thread, %8, %7
+  %46 = phi i32 [ 0, %.thread.thread ], [ 0, %8 ], [ 0, %7 ], [ -28, %24 ], [ -12, %25 ]
+  ret i32 %46
 }
 
 ; Function Attrs: null_pointer_is_valid

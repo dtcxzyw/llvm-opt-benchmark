@@ -98,32 +98,32 @@ define dso_local range(i32 0, 22) i32 @file2string(ptr noundef writeonly capture
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   call void @curlx_dyn_init(ptr noundef nonnull %3, i64 noundef 17179869184) #18
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.loopexit, label %.preheader61
+  br i1 %.not, label %.loopexit, label %.preheader54
 
-.preheader61:                                     ; preds = %2, %._crit_edge
+.preheader54:                                     ; preds = %2, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #18
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 4096, ptr noundef nonnull %1)
   %6 = call i32 @ferror(ptr noundef nonnull %1) #18
   %.not35 = icmp eq i32 %6, 0
-  br i1 %.not35, label %.preheader60, label %7
+  br i1 %.not35, label %.preheader53, label %7
 
-.preheader60:                                     ; preds = %.preheader61
-  %.not3664 = icmp eq i64 %5, 0
-  br i1 %.not3664, label %._crit_edge, label %.preheader
+.preheader53:                                     ; preds = %.preheader54
+  %.not3657 = icmp eq i64 %5, 0
+  br i1 %.not3657, label %._crit_edge, label %.preheader
 
-7:                                                ; preds = %.preheader61
+7:                                                ; preds = %.preheader54
   call void @curlx_dyn_free(ptr noundef nonnull %3) #18
   store ptr null, ptr %0, align 8, !tbaa !30
-  br label %.thread56
+  br label %.thread49
 
-.preheader:                                       ; preds = %.preheader60, %.loopexit72
-  %.02566 = phi i64 [ %29, %.loopexit72 ], [ %5, %.preheader60 ]
-  %.02765 = phi ptr [ %28, %.loopexit72 ], [ %4, %.preheader60 ]
+.preheader:                                       ; preds = %.preheader53, %.loopexit65
+  %.02559 = phi i64 [ %30, %.loopexit65 ], [ %5, %.preheader53 ]
+  %.02758 = phi ptr [ %29, %.loopexit65 ], [ %4, %.preheader53 ]
   br label %8
 
 8:                                                ; preds = %.preheader, %10
-  %.01523.i = phi i64 [ %11, %10 ], [ %.02566, %.preheader ]
-  %.01622.i = phi ptr [ %12, %10 ], [ %.02765, %.preheader ]
+  %.01523.i = phi i64 [ %11, %10 ], [ %.02559, %.preheader ]
+  %.01622.i = phi ptr [ %12, %10 ], [ %.02758, %.preheader ]
   %9 = load i8, ptr %.01622.i, align 1, !tbaa !31
   switch i8 %9, label %10 [
     i8 13, label %.split.loop.exit19.i
@@ -139,72 +139,72 @@ define dso_local range(i32 0, 22) i32 @file2string(ptr noundef writeonly capture
 
 .split.loop.exit19.i:                             ; preds = %8, %8, %8
   %13 = ptrtoint ptr %.01622.i to i64
-  %14 = ptrtoint ptr %.02765 to i64
+  %14 = ptrtoint ptr %.02758 to i64
   %15 = sub i64 %13, %14
   br label %memcrlf.exit
 
 memcrlf.exit:                                     ; preds = %10, %.split.loop.exit19.i
-  %.2.i = phi i64 [ %15, %.split.loop.exit19.i ], [ %.02566, %10 ]
-  %16 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull %.02765, i64 noundef %.2.i) #18
+  %.2.i = phi i64 [ %15, %.split.loop.exit19.i ], [ %.02559, %10 ]
+  %16 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull %.02758, i64 noundef %.2.i) #18
   %.not37 = icmp eq i32 %16, 0
-  br i1 %.not37, label %17, label %.thread56
+  br i1 %.not37, label %17, label %.thread49
 
 17:                                               ; preds = %memcrlf.exit
-  %.not38 = icmp eq i64 %.02566, %.2.i
+  %.not38 = icmp eq i64 %.02559, %.2.i
   br i1 %.not38, label %._crit_edge, label %18
 
 18:                                               ; preds = %17
-  %19 = sub i64 %.02566, %.2.i
-  %20 = getelementptr inbounds nuw i8, ptr %.02765, i64 %.2.i
+  %19 = sub i64 %.02559, %.2.i
+  %20 = getelementptr inbounds nuw i8, ptr %.02758, i64 %.2.i
   br label %21
 
-21:                                               ; preds = %.thread49, %18
-  %.01523.i40 = phi i64 [ %19, %18 ], [ %23, %.thread49 ]
-  %.01622.i41 = phi ptr [ %20, %18 ], [ %24, %.thread49 ]
+21:                                               ; preds = %23, %18
+  %.01523.i40 = phi i64 [ %19, %18 ], [ %24, %23 ]
+  %.01622.i41 = phi ptr [ %20, %18 ], [ %25, %23 ]
   %22 = load i8, ptr %.01622.i41, align 1, !tbaa !31
-  switch i8 %22, label %.split.loop.exit19.i43 [
-    i8 13, label %.thread49
-    i8 10, label %.thread49
-    i8 0, label %.thread49
+  switch i8 %22, label %.split.loop.exit19.i44 [
+    i8 13, label %23
+    i8 10, label %23
+    i8 0, label %23
   ]
 
-.thread49:                                        ; preds = %21, %21, %21
-  %23 = add i64 %.01523.i40, -1
-  %24 = getelementptr inbounds nuw i8, ptr %.01622.i41, i64 1
-  %.not.i45 = icmp eq i64 %23, 0
-  br i1 %.not.i45, label %.loopexit72, label %21, !llvm.loop !32
+23:                                               ; preds = %21, %21, %21
+  %24 = add i64 %.01523.i40, -1
+  %25 = getelementptr inbounds nuw i8, ptr %.01622.i41, i64 1
+  %.not.i42 = icmp eq i64 %24, 0
+  br i1 %.not.i42, label %.loopexit65, label %21, !llvm.loop !32
 
-.split.loop.exit19.i43:                           ; preds = %21
-  %25 = ptrtoint ptr %.01622.i41 to i64
-  %26 = ptrtoint ptr %20 to i64
-  %27 = sub i64 %25, %26
-  br label %.loopexit72
+.split.loop.exit19.i44:                           ; preds = %21
+  %26 = ptrtoint ptr %.01622.i41 to i64
+  %27 = ptrtoint ptr %20 to i64
+  %28 = sub i64 %26, %27
+  br label %.loopexit65
 
-.loopexit72:                                      ; preds = %.thread49, %.split.loop.exit19.i43
-  %.2.i44 = phi i64 [ %27, %.split.loop.exit19.i43 ], [ %19, %.thread49 ]
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 %.2.i44
-  %29 = sub i64 %19, %.2.i44
-  %.not36 = icmp eq i64 %29, 0
+.loopexit65:                                      ; preds = %23, %.split.loop.exit19.i44
+  %.2.i43 = phi i64 [ %28, %.split.loop.exit19.i44 ], [ %19, %23 ]
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 %.2.i43
+  %30 = sub i64 %19, %.2.i43
+  %.not36 = icmp eq i64 %30, 0
   br i1 %.not36, label %._crit_edge, label %.preheader, !llvm.loop !34
 
-.thread56:                                        ; preds = %memcrlf.exit, %7
+.thread49:                                        ; preds = %memcrlf.exit, %7
   %.131.ph = phi i32 [ 21, %7 ], [ 15, %memcrlf.exit ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #18
-  br label %32
+  br label %33
 
-._crit_edge:                                      ; preds = %17, %.loopexit72, %.preheader60
+._crit_edge:                                      ; preds = %17, %.loopexit65, %.preheader53
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #18
-  %30 = call i32 @feof(ptr noundef nonnull %1) #18
-  %.not39 = icmp eq i32 %30, 0
-  br i1 %.not39, label %.preheader61, label %.loopexit, !llvm.loop !35
+  %31 = call i32 @feof(ptr noundef nonnull %1) #18
+  %.not39 = icmp eq i32 %31, 0
+  br i1 %.not39, label %.preheader54, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge, %2
-  %31 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %3) #18
-  store ptr %31, ptr %0, align 8, !tbaa !30
-  br label %32
+  %32 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %3) #18
+  store ptr %32, ptr %0, align 8, !tbaa !30
+  br label %33
 
-32:                                               ; preds = %.thread56, %.loopexit
-  %.4 = phi i32 [ 0, %.loopexit ], [ %.131.ph, %.thread56 ]
+33:                                               ; preds = %.thread49, %.loopexit
+  %.4 = phi i32 [ 0, %.loopexit ], [ %.131.ph, %.thread49 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #18
   ret i32 %.4
 }

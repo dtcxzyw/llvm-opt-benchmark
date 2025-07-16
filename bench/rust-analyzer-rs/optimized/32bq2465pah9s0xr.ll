@@ -10230,11 +10230,11 @@ define hidden void @"_ZN3hir9semantics19Semantics$LT$DB$GT$18file_to_module_def1
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !2631
   %.pre = load i64, ptr %9, align 8, !alias.scope !2632, !noalias !2641
   %.pre1 = load i64, ptr %11, align 8, !alias.scope !2632, !noalias !2641
+  %25 = icmp eq i64 %.pre, %.pre1
   store i32 1, ptr %0, align 4, !alias.scope !2612, !noalias !2615
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2643)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2644)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2645)
-  %25 = icmp eq i64 %.pre, %.pre1
   br i1 %25, label %"_ZN4core3ptr207drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$hir_def..ModuleId$u3b$$u20$1$u5d$$GT$$C$$LT$hir..Module$u20$as$u20$core..convert..From$LT$hir_def..ModuleId$GT$$GT$..from$GT$$GT$17hc086608801541575E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23, %.noexc.i.i
@@ -32068,8 +32068,8 @@ define hidden noundef range(i8 0, 5) i8 @_ZN3ide11inlay_hints11label_of_ty3rec17
   %43 = extractvalue { i32, i32 } %42, 0
   %switch.i = icmp ne i32 %43, 0
   %44 = extractvalue { i32, i32 } %42, 1
-  %.not.i = icmp eq i32 %41, %44
-  %or.cond = select i1 %switch.i, i1 %.not.i, i1 false
+  %.not2.i = icmp eq i32 %41, %44
+  %or.cond = select i1 %switch.i, i1 %.not2.i, i1 false
   br i1 %or.cond, label %46, label %_ZN3ide11inlay_hints13hint_iterator17h308f4b9490202f06E.exit.thread
 
 45:                                               ; preds = %35
@@ -32214,8 +32214,8 @@ define hidden noundef range(i8 0, 5) i8 @_ZN3ide11inlay_hints11label_of_ty3rec17
 88:                                               ; preds = %86
   %89 = call { ptr, ptr } @_ZN3hir4Type26normalize_trait_assoc_type17h4fbe001469f01b8fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %.val, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d537e0d620497b5fd4725a9c6fad5b51.187.llvm.9018798831783864632, ptr noalias noundef nonnull readonly align 8 @anon.d537e0d620497b5fd4725a9c6fad5b51.36.llvm.9018798831783864632, i64 noundef 0, i32 noundef %83), !noalias !7472
   %90 = extractvalue { ptr, ptr } %89, 0
-  %.not38.i = icmp eq ptr %90, null
-  br i1 %.not38.i, label %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17hdcb9a1deca4a2e94E.exit.i", label %_ZN3ide11inlay_hints13hint_iterator17h308f4b9490202f06E.exit
+  %.not.i = icmp eq ptr %90, null
+  br i1 %.not.i, label %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17hdcb9a1deca4a2e94E.exit.i", label %_ZN3ide11inlay_hints13hint_iterator17h308f4b9490202f06E.exit
 
 91:                                               ; preds = %84, %65, %33
   %92 = landingpad { ptr, i32 }

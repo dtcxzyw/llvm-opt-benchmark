@@ -8284,134 +8284,137 @@ define internal i32 @hls_decode_entry_wpp(ptr readnone captures(none) %0, ptr no
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 3408
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 11184
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 4096
-  %65 = sext i32 %34 to i64
-  br label %66
+  %65 = load i32, ptr %53, align 8, !tbaa !468
+  %66 = icmp slt i32 %34, %65
+  br i1 %66, label %.lr.ph, label %.thread
 
-66:                                               ; preds = %52, %119
-  %indvars.iv = phi i64 [ %65, %52 ], [ %indvars.iv.next, %119 ]
-  %.0138210 = phi i32 [ %29, %52 ], [ %122, %119 ]
-  %.0144208 = phi i32 [ 0, %52 ], [ %108, %119 ]
-  %67 = load i32, ptr %53, align 8, !tbaa !468
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv, %68
-  br i1 %69, label %70, label %.thread
+.lr.ph:                                           ; preds = %52
+  %67 = sext i32 %34 to i64
+  br label %68
 
-70:                                               ; preds = %66
-  %71 = load i32, ptr %54, align 8, !tbaa !199
-  %72 = srem i32 %.0138210, %71
-  %73 = load i32, ptr %18, align 4, !tbaa !411
-  %74 = shl i32 %72, %73
-  %75 = sdiv i32 %.0138210, %71
-  %76 = shl i32 %75, %73
+68:                                               ; preds = %.lr.ph, %118
+  %.0144208288 = phi i32 [ 0, %.lr.ph ], [ %106, %118 ]
+  %.0138210287 = phi i32 [ %29, %.lr.ph ], [ %121, %118 ]
+  %indvars.iv286 = phi i64 [ %67, %.lr.ph ], [ %indvars.iv.next, %118 ]
+  %69 = load i32, ptr %54, align 8, !tbaa !199
+  %70 = srem i32 %.0138210287, %69
+  %71 = load i32, ptr %18, align 4, !tbaa !411
+  %72 = shl i32 %70, %71
+  %73 = sdiv i32 %.0138210287, %69
+  %74 = shl i32 %73, %71
   %.val = load ptr, ptr %55, align 8, !tbaa !217
-  %77 = trunc nsw i64 %indvars.iv to i32
-  tail call fastcc void @hls_decode_neighbour(ptr noundef %6, ptr %.val, ptr noundef nonnull %15, ptr noundef nonnull %17, i32 noundef %74, i32 noundef %76, i32 noundef %77)
-  br i1 %.not, label %83, label %78
+  %75 = trunc nsw i64 %indvars.iv286 to i32
+  tail call fastcc void @hls_decode_neighbour(ptr noundef %6, ptr %.val, ptr noundef nonnull %15, ptr noundef nonnull %17, i32 noundef %72, i32 noundef %74, i32 noundef %75)
+  br i1 %.not, label %81, label %76
 
-78:                                               ; preds = %70
-  %79 = load ptr, ptr %56, align 8, !tbaa !190
-  %80 = getelementptr %struct.ThreadProgress, ptr %79, i64 %39
-  %81 = getelementptr i8, ptr %80, i64 -96
-  %82 = add nuw nsw i32 %.0144208, 3
-  tail call void @ff_thread_progress_await(ptr noundef %81, i32 noundef %82) #15
-  br label %83
+76:                                               ; preds = %68
+  %77 = load ptr, ptr %56, align 8, !tbaa !190
+  %78 = getelementptr %struct.ThreadProgress, ptr %77, i64 %39
+  %79 = getelementptr i8, ptr %78, i64 -96
+  %80 = add nuw nsw i32 %.0144208288, 3
+  tail call void @ff_thread_progress_await(ptr noundef %79, i32 noundef %80) #15
+  br label %81
 
-83:                                               ; preds = %78, %70
-  %84 = load atomic i32, ptr %57 seq_cst, align 4
-  %.not152 = icmp eq i32 %84, 0
-  br i1 %.not152, label %85, label %.thread
+81:                                               ; preds = %76, %68
+  %82 = load atomic i32, ptr %57 seq_cst, align 4
+  %.not152 = icmp eq i32 %82, 0
+  br i1 %.not152, label %83, label %.thread
 
-85:                                               ; preds = %83
-  %86 = tail call i32 @ff_hevc_cabac_init(ptr noundef %6, ptr noundef nonnull %15, i32 noundef %77, ptr noundef %43, i64 noundef %48, i32 noundef 1) #15
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %._crit_edge225, label %88
+83:                                               ; preds = %81
+  %84 = tail call i32 @ff_hevc_cabac_init(ptr noundef %6, ptr noundef nonnull %15, i32 noundef %75, ptr noundef %43, i64 noundef %48, i32 noundef 1) #15
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %._crit_edge225, label %86
 
-._crit_edge225:                                   ; preds = %85
-  %.pre226 = sext i32 %.0138210 to i64
+._crit_edge225:                                   ; preds = %83
+  %.pre226 = sext i32 %.0138210287 to i64
   br label %split
 
-88:                                               ; preds = %85
-  %89 = load i32, ptr %18, align 4, !tbaa !411
-  %90 = ashr i32 %74, %89
-  %91 = ashr i32 %76, %89
-  tail call fastcc void @hls_sao_param(ptr noundef %6, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %17, i32 noundef %90, i32 noundef %91)
-  %92 = load i32, ptr %58, align 4, !tbaa !470
-  %93 = load ptr, ptr %59, align 8, !tbaa !206
-  %94 = sext i32 %.0138210 to i64
-  %95 = getelementptr inbounds %struct.DBParams, ptr %93, i64 %94
-  store i32 %92, ptr %95, align 4, !tbaa !471
-  %96 = load i32, ptr %60, align 8, !tbaa !473
-  %97 = getelementptr inbounds %struct.DBParams, ptr %93, i64 %94, i32 1
-  store i32 %96, ptr %97, align 4, !tbaa !474
-  %98 = load i8, ptr %61, align 2, !tbaa !475
-  %99 = load ptr, ptr %62, align 8, !tbaa !216
-  %100 = getelementptr inbounds i8, ptr %99, i64 %94
-  store i8 %98, ptr %100, align 1, !tbaa !74
-  %101 = load i32, ptr %18, align 4, !tbaa !411
-  %102 = tail call fastcc i32 @hls_coding_quadtree(ptr noundef %6, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %17, i32 noundef %74, i32 noundef %76, i32 noundef %101, i32 noundef 0)
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %split, label %104
+86:                                               ; preds = %83
+  %87 = load i32, ptr %18, align 4, !tbaa !411
+  %88 = ashr i32 %72, %87
+  %89 = ashr i32 %74, %87
+  tail call fastcc void @hls_sao_param(ptr noundef %6, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %17, i32 noundef %88, i32 noundef %89)
+  %90 = load i32, ptr %58, align 4, !tbaa !470
+  %91 = load ptr, ptr %59, align 8, !tbaa !206
+  %92 = sext i32 %.0138210287 to i64
+  %93 = getelementptr inbounds %struct.DBParams, ptr %91, i64 %92
+  store i32 %90, ptr %93, align 4, !tbaa !471
+  %94 = load i32, ptr %60, align 8, !tbaa !473
+  %95 = getelementptr inbounds %struct.DBParams, ptr %91, i64 %92, i32 1
+  store i32 %94, ptr %95, align 4, !tbaa !474
+  %96 = load i8, ptr %61, align 2, !tbaa !475
+  %97 = load ptr, ptr %62, align 8, !tbaa !216
+  %98 = getelementptr inbounds i8, ptr %97, i64 %92
+  store i8 %96, ptr %98, align 1, !tbaa !74
+  %99 = load i32, ptr %18, align 4, !tbaa !411
+  %100 = tail call fastcc i32 @hls_coding_quadtree(ptr noundef %6, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %17, i32 noundef %72, i32 noundef %74, i32 noundef %99, i32 noundef 0)
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %split, label %102
 
-104:                                              ; preds = %88
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %105 = trunc nsw i64 %indvars.iv.next to i32
-  tail call void @ff_hevc_save_states(ptr noundef %6, ptr noundef nonnull %15, i32 noundef %105) #15
-  %106 = load ptr, ptr %56, align 8, !tbaa !190
-  %107 = getelementptr inbounds %struct.ThreadProgress, ptr %106, i64 %39
-  %108 = add nuw nsw i32 %.0144208, 1
-  tail call void @ff_thread_progress_report(ptr noundef %107, i32 noundef %108) #15
-  tail call void @ff_hevc_hls_filters(ptr noundef %6, ptr noundef nonnull %13, ptr noundef nonnull %15, i32 noundef %74, i32 noundef %76, i32 noundef %20) #15
-  %.not153 = icmp eq i32 %102, 0
+102:                                              ; preds = %86
+  %indvars.iv.next = add nsw i64 %indvars.iv286, 1
+  %103 = trunc nsw i64 %indvars.iv.next to i32
+  tail call void @ff_hevc_save_states(ptr noundef %6, ptr noundef nonnull %15, i32 noundef %103) #15
+  %104 = load ptr, ptr %56, align 8, !tbaa !190
+  %105 = getelementptr inbounds %struct.ThreadProgress, ptr %104, i64 %39
+  %106 = add nuw nsw i32 %.0144208288, 1
+  tail call void @ff_thread_progress_report(ptr noundef %105, i32 noundef %106) #15
+  tail call void @ff_hevc_hls_filters(ptr noundef %6, ptr noundef nonnull %13, ptr noundef nonnull %15, i32 noundef %72, i32 noundef %74, i32 noundef %20) #15
+  %.not153 = icmp eq i32 %100, 0
   %.pre = load i32, ptr %23, align 8, !tbaa !197
-  %109 = add nsw i32 %74, %20
-  %110 = icmp slt i32 %109, %.pre
-  %or.cond = select i1 %.not153, i1 %110, i1 false
-  br i1 %or.cond, label %111, label %._crit_edge
+  %107 = add nsw i32 %72, %20
+  %108 = icmp slt i32 %107, %.pre
+  br i1 %.not153, label %109, label %113
 
-111:                                              ; preds = %104
-  %112 = load i32, ptr %63, align 8, !tbaa !463
-  %.not154 = icmp eq i32 %2, %112
-  br i1 %.not154, label %._crit_edge, label %113
+109:                                              ; preds = %102
+  br i1 %108, label %110, label %.thread231
 
-113:                                              ; preds = %111
+110:                                              ; preds = %109
+  %111 = load i32, ptr %63, align 8, !tbaa !463
+  %.not154 = icmp eq i32 %2, %111
+  br i1 %.not154, label %.thread, label %112
+
+112:                                              ; preds = %110
   store atomic i32 1, ptr %57 seq_cst, align 4
   br label %.thread
 
-._crit_edge:                                      ; preds = %104, %111
-  %.not155 = icmp slt i32 %109, %.pre
-  br i1 %.not155, label %119, label %114
+113:                                              ; preds = %102
+  br i1 %108, label %118, label %.thread231
 
-114:                                              ; preds = %._crit_edge
-  %115 = add nsw i32 %76, %20
-  %116 = getelementptr inbounds nuw i8, ptr %17, i64 20220
-  %117 = load i32, ptr %116, align 4, !tbaa !198
-  %.not156 = icmp slt i32 %115, %117
-  br i1 %.not156, label %.thread, label %118
+.thread231:                                       ; preds = %113, %109
+  %114 = add nsw i32 %74, %20
+  %115 = getelementptr inbounds nuw i8, ptr %17, i64 20220
+  %116 = load i32, ptr %115, align 4, !tbaa !198
+  %.not156 = icmp slt i32 %114, %116
+  br i1 %.not156, label %.thread, label %117
 
-118:                                              ; preds = %114
-  tail call void @ff_hevc_hls_filter(ptr noundef %6, ptr noundef nonnull %13, ptr noundef nonnull %15, i32 noundef %74, i32 noundef %76, i32 noundef %20) #15
+117:                                              ; preds = %.thread231
+  tail call void @ff_hevc_hls_filter(ptr noundef %6, ptr noundef nonnull %13, ptr noundef nonnull %15, i32 noundef %72, i32 noundef %74, i32 noundef %20) #15
   br label %.thread
 
-119:                                              ; preds = %._crit_edge
-  %120 = load ptr, ptr %64, align 8, !tbaa !455
-  %121 = getelementptr inbounds i32, ptr %120, i64 %indvars.iv.next
-  %122 = load i32, ptr %121, align 4, !tbaa !137
-  br i1 %.not153, label %.thread, label %66
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %64, align 8, !tbaa !455
+  %120 = getelementptr inbounds i32, ptr %119, i64 %indvars.iv.next
+  %121 = load i32, ptr %120, align 4, !tbaa !137
+  %122 = load i32, ptr %53, align 8, !tbaa !468
+  %123 = sext i32 %122 to i64
+  %124 = icmp slt i64 %indvars.iv.next, %123
+  br i1 %124, label %68, label %.thread
 
-split:                                            ; preds = %88, %._crit_edge225
-  %.pre-phi = phi i64 [ %.pre226, %._crit_edge225 ], [ %94, %88 ]
-  %.1143.ph = phi i32 [ %86, %._crit_edge225 ], [ %102, %88 ]
-  %123 = load ptr, ptr %55, align 8, !tbaa !217
-  %124 = getelementptr inbounds i32, ptr %123, i64 %.pre-phi
-  store i32 -1, ptr %124, align 4, !tbaa !137
+split:                                            ; preds = %86, %._crit_edge225
+  %.pre-phi = phi i64 [ %.pre226, %._crit_edge225 ], [ %92, %86 ]
+  %.1143.ph = phi i32 [ %84, %._crit_edge225 ], [ %100, %86 ]
+  %125 = load ptr, ptr %55, align 8, !tbaa !217
+  %126 = getelementptr inbounds i32, ptr %125, i64 %.pre-phi
+  store i32 -1, ptr %126, align 4, !tbaa !137
   store atomic i32 1, ptr %57 seq_cst, align 4
   br label %.thread
 
-.thread:                                          ; preds = %66, %119, %83, %114, %113, %118, %split
-  %.2 = phi i32 [ %.1143.ph, %split ], [ 0, %113 ], [ %105, %118 ], [ 0, %114 ], [ 0, %83 ], [ 0, %119 ], [ 0, %66 ]
-  %125 = load ptr, ptr %56, align 8, !tbaa !190
-  %126 = getelementptr inbounds %struct.ThreadProgress, ptr %125, i64 %39
-  tail call void @ff_thread_progress_report(ptr noundef %126, i32 noundef 2147483647) #15
+.thread:                                          ; preds = %81, %118, %52, %.thread231, %110, %112, %117, %split
+  %.2 = phi i32 [ %.1143.ph, %split ], [ 0, %112 ], [ %103, %117 ], [ 0, %110 ], [ 0, %.thread231 ], [ 0, %52 ], [ 0, %118 ], [ 0, %81 ]
+  %127 = load ptr, ptr %56, align 8, !tbaa !190
+  %128 = getelementptr inbounds %struct.ThreadProgress, ptr %127, i64 %39
+  tail call void @ff_thread_progress_report(ptr noundef %128, i32 noundef 2147483647) #15
   ret i32 %.2
 }
 

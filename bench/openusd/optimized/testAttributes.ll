@@ -251,7 +251,7 @@ define linkonce_odr dso_local void @_ZN4TestD2Ev(ptr noundef nonnull align 4 der
   %6 = load i32, ptr @_ZL4done, align 4
   %7 = and i32 %6, %5
   %.not.i = icmp eq i32 %7, %5
-  br i1 %.not.i, label %.thread, label %8
+  br i1 %.not.i, label %43, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @stderr, align 8
@@ -289,27 +289,27 @@ define linkonce_odr dso_local void @_ZN4TestD2Ev(ptr noundef nonnull align 4 der
   %.pre.i = load i32, ptr @_ZL4done, align 4
   %.pre11.i = and i32 %.pre.i, %5
   %41 = icmp eq i32 %.pre11.i, %5
-  br i1 %41, label %.thread, label %42
+  br i1 %41, label %43, label %42
 
 42:                                               ; preds = %8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10Arch_ErrorEPKcS1_mS1_(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._ZL10TestAndSet9Operation, i64 noundef 77, ptr noundef nonnull @.str.3) #12
-          to label %.noexc unwind label %46
+          to label %.noexc unwind label %47
 
 .noexc:                                           ; preds = %42
   unreachable
 
-.thread:                                          ; preds = %1, %8
-  %43 = phi i32 [ %.pre.i, %8 ], [ %6, %1 ]
-  %44 = shl nuw i32 1, %2
-  %45 = or i32 %43, %44
-  store i32 %45, ptr @_ZL4done, align 4
+43:                                               ; preds = %8, %1
+  %44 = phi i32 [ %.pre.i, %8 ], [ %6, %1 ]
+  %45 = shl nuw i32 1, %2
+  %46 = or i32 %44, %45
+  store i32 %46, ptr @_ZL4done, align 4
   ret void
 
-46:                                               ; preds = %42
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %42
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #13
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #13
   unreachable
 }
 

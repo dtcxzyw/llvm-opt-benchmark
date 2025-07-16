@@ -1512,7 +1512,7 @@ define internal fastcc void @update_obj_state(ptr noundef nonnull %0, i16 nounde
   %.3117 = phi i32 [ %.088120, %.preheader107.lr.ph ], [ %.4, %92 ]
   %.091116 = phi i32 [ 0, %.preheader107.lr.ph ], [ %93, %92 ]
   %.not127 = icmp eq i32 %.3117, 0
-  br i1 %.not127, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not127, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader107
   %wide.trip.count = zext nneg i32 %.3117 to i64
@@ -1533,23 +1533,19 @@ define internal fastcc void @update_obj_state(ptr noundef nonnull %0, i16 nounde
   %or.cond.not106 = select i1 %68, i1 true, i1 %71
   %.not98 = icmp ult i16 %65, %25
   %or.cond99 = select i1 %or.cond.not106, i1 true, i1 %.not98
-  br i1 %or.cond99, label %72, label %._crit_edge.loopexit
+  br i1 %or.cond99, label %72, label %._crit_edge
 
 72:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !80
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %73 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader107
-  %.092.lcssa = phi i32 [ 0, %.preheader107 ], [ %73, %._crit_edge.loopexit ]
-  %74 = icmp eq i32 %.092.lcssa, %.3117
+  %74 = icmp eq i32 %.3117, %73
   br i1 %74, label %._crit_edge.thread, label %92
 
-._crit_edge.thread:                               ; preds = %72, %._crit_edge
+._crit_edge.thread:                               ; preds = %72, %.preheader107, %._crit_edge
   %75 = load i32, ptr %56, align 8, !tbaa !81
   %76 = trunc i32 %75 to i16
   %77 = zext nneg i32 %.3117 to i64

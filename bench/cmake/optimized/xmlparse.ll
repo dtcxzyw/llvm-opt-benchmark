@@ -17993,7 +17993,7 @@ keylen.exit:                                      ; preds = %copy_salt_to_sipkey
   br label %23
 
 23:                                               ; preds = %sip_round.exit.i, %keylen.exit
-  %.0.i = phi ptr [ %1, %keylen.exit ], [ %.1.lcssa.i, %sip_round.exit.i ]
+  %.0.i = phi ptr [ %1, %keylen.exit ], [ %.1.lcssa.i16, %sip_round.exit.i ]
   %24 = icmp ult ptr %.0.i, %18
   br i1 %24, label %.lr.ph.i, label %sip24_update.exit
 
@@ -18001,7 +18001,7 @@ keylen.exit:                                      ; preds = %copy_salt_to_sipkey
   %.134.i = phi ptr [ %27, %26 ], [ %.0.i, %23 ]
   %25 = load ptr, ptr %14, align 8, !tbaa !318
   %.not.i.not.not = icmp ult ptr %25, %14
-  br i1 %.not.i.not.not, label %26, label %.critedge.i
+  br i1 %.not.i.not.not, label %26, label %.critedge.i.thread13
 
 26:                                               ; preds = %.lr.ph.i
   %27 = getelementptr inbounds nuw i8, ptr %.134.i, i64 1
@@ -18010,84 +18010,80 @@ keylen.exit:                                      ; preds = %copy_salt_to_sipkey
   store ptr %29, ptr %14, align 8, !tbaa !318
   store i8 %28, ptr %25, align 1, !tbaa !61
   %30 = icmp ult ptr %27, %18
-  br i1 %30, label %.lr.ph.i, label %..critedge.i.loopexit_crit_edge, !llvm.loop !342
+  br i1 %30, label %.lr.ph.i, label %.critedge.i, !llvm.loop !342
 
-..critedge.i.loopexit_crit_edge:                  ; preds = %26
+.critedge.i:                                      ; preds = %26
   %.pre.pre = load ptr, ptr %14, align 8, !tbaa !318
-  br label %.critedge.i, !llvm.loop !342
+  %31 = icmp ult ptr %.pre.pre, %14
+  br i1 %31, label %sip24_update.exit, label %.critedge.i.thread13
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.i.loopexit_crit_edge
-  %31 = phi ptr [ %.pre.pre, %..critedge.i.loopexit_crit_edge ], [ %25, %.lr.ph.i ]
-  %.1.lcssa.i = phi ptr [ %27, %..critedge.i.loopexit_crit_edge ], [ %.134.i, %.lr.ph.i ]
-  %32 = icmp ult ptr %31, %14
-  br i1 %32, label %sip24_update.exit, label %33
-
-33:                                               ; preds = %.critedge.i
-  %34 = load i32, ptr %13, align 8
-  %35 = zext i32 %34 to i64
-  %36 = load i8, ptr %19, align 4, !tbaa !61
-  %37 = zext i8 %36 to i64
-  %38 = shl nuw nsw i64 %37, 32
-  %39 = or disjoint i64 %38, %35
-  %40 = load i8, ptr %20, align 1, !tbaa !61
-  %41 = zext i8 %40 to i64
-  %42 = shl nuw nsw i64 %41, 40
-  %43 = or disjoint i64 %39, %42
-  %44 = load i8, ptr %21, align 2, !tbaa !61
-  %45 = zext i8 %44 to i64
-  %46 = shl nuw nsw i64 %45, 48
-  %47 = or disjoint i64 %43, %46
-  %48 = load i8, ptr %22, align 1, !tbaa !61
-  %49 = zext i8 %48 to i64
-  %50 = shl nuw i64 %49, 56
-  %51 = or disjoint i64 %47, %50
-  %52 = load i64, ptr %12, align 8, !tbaa !317
-  %53 = xor i64 %51, %52
+.critedge.i.thread13:                             ; preds = %.lr.ph.i, %.critedge.i
+  %.1.lcssa.i16 = phi ptr [ %27, %.critedge.i ], [ %.134.i, %.lr.ph.i ]
+  %32 = load i32, ptr %13, align 8
+  %33 = zext i32 %32 to i64
+  %34 = load i8, ptr %19, align 4, !tbaa !61
+  %35 = zext i8 %34 to i64
+  %36 = shl nuw nsw i64 %35, 32
+  %37 = or disjoint i64 %36, %33
+  %38 = load i8, ptr %20, align 1, !tbaa !61
+  %39 = zext i8 %38 to i64
+  %40 = shl nuw nsw i64 %39, 40
+  %41 = or disjoint i64 %37, %40
+  %42 = load i8, ptr %21, align 2, !tbaa !61
+  %43 = zext i8 %42 to i64
+  %44 = shl nuw nsw i64 %43, 48
+  %45 = or disjoint i64 %41, %44
+  %46 = load i8, ptr %22, align 1, !tbaa !61
+  %47 = zext i8 %46 to i64
+  %48 = shl nuw i64 %47, 56
+  %49 = or disjoint i64 %45, %48
+  %50 = load i64, ptr %12, align 8, !tbaa !317
+  %51 = xor i64 %49, %50
   %.promoted.i.i = load i64, ptr %9, align 8, !tbaa !315
   %.promoted36.i.i = load i64, ptr %3, align 8, !tbaa !313
   %.promoted40.i.i = load i64, ptr %10, align 8, !tbaa !316
-  br label %54
+  br label %52
 
-54:                                               ; preds = %54, %33
-  %.042.i.i = phi i32 [ 0, %33 ], [ %73, %54 ]
-  %55 = phi i64 [ %.promoted.i.i, %33 ], [ %71, %54 ]
-  %56 = phi i64 [ %.promoted36.i.i, %33 ], [ %66, %54 ]
-  %57 = phi i64 [ %53, %33 ], [ %68, %54 ]
-  %58 = phi i64 [ %.promoted40.i.i, %33 ], [ %72, %54 ]
-  %59 = add i64 %56, %55
-  %60 = call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 13)
-  %61 = xor i64 %59, %60
-  %62 = call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 32)
-  %63 = add i64 %58, %57
-  %64 = call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 16)
-  %65 = xor i64 %63, %64
-  %66 = add i64 %65, %62
-  %67 = call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 21)
-  %68 = xor i64 %67, %66
-  %69 = add i64 %63, %61
-  %70 = call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 17)
-  %71 = xor i64 %69, %70
-  %72 = call i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 32)
-  %73 = add nuw nsw i32 %.042.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %73, 2
-  br i1 %exitcond.not.i.i, label %sip_round.exit.i, label %54, !llvm.loop !343
+52:                                               ; preds = %52, %.critedge.i.thread13
+  %.042.i.i = phi i32 [ 0, %.critedge.i.thread13 ], [ %71, %52 ]
+  %53 = phi i64 [ %.promoted.i.i, %.critedge.i.thread13 ], [ %69, %52 ]
+  %54 = phi i64 [ %.promoted36.i.i, %.critedge.i.thread13 ], [ %64, %52 ]
+  %55 = phi i64 [ %51, %.critedge.i.thread13 ], [ %66, %52 ]
+  %56 = phi i64 [ %.promoted40.i.i, %.critedge.i.thread13 ], [ %70, %52 ]
+  %57 = add i64 %54, %53
+  %58 = call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 13)
+  %59 = xor i64 %57, %58
+  %60 = call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 32)
+  %61 = add i64 %56, %55
+  %62 = call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 16)
+  %63 = xor i64 %61, %62
+  %64 = add i64 %63, %60
+  %65 = call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 21)
+  %66 = xor i64 %65, %64
+  %67 = add i64 %61, %59
+  %68 = call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 17)
+  %69 = xor i64 %67, %68
+  %70 = call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 32)
+  %71 = add nuw nsw i32 %.042.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %71, 2
+  br i1 %exitcond.not.i.i, label %sip_round.exit.i, label %52, !llvm.loop !343
 
-sip_round.exit.i:                                 ; preds = %54
-  store i64 %71, ptr %9, align 8, !tbaa !315
-  store i64 %68, ptr %12, align 8, !tbaa !317
-  store i64 %72, ptr %10, align 8, !tbaa !316
-  %74 = xor i64 %66, %51
-  store i64 %74, ptr %3, align 8, !tbaa !313
+sip_round.exit.i:                                 ; preds = %52
+  store i64 %69, ptr %9, align 8, !tbaa !315
+  store i64 %66, ptr %12, align 8, !tbaa !317
+  store i64 %70, ptr %10, align 8, !tbaa !316
+  %72 = xor i64 %64, %49
+  store i64 %72, ptr %3, align 8, !tbaa !313
   store ptr %13, ptr %14, align 8, !tbaa !318
-  %75 = load i64, ptr %15, align 8, !tbaa !319
-  %76 = add i64 %75, 8
-  store i64 %76, ptr %15, align 8, !tbaa !319
+  %73 = load i64, ptr %15, align 8, !tbaa !319
+  %74 = add i64 %73, 8
+  store i64 %74, ptr %15, align 8, !tbaa !319
   br i1 %.not.i.not.not, label %sip24_update.exit, label %23, !llvm.loop !344
 
 sip24_update.exit:                                ; preds = %23, %.critedge.i, %sip_round.exit.i
-  %77 = call fastcc i64 @sip24_final(ptr noundef %3)
+  %75 = call fastcc i64 @sip24_final(ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #25
-  ret i64 %77
+  ret i64 %75
 }
 
 ; Function Attrs: nounwind

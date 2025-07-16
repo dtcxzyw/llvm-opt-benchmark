@@ -761,13 +761,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_PoolAlloc(ptr noundef captures(none) %0, i64 noundef %1) #0 {
   %3 = icmp eq i64 %1, 0
-  br i1 %3, label %50, label %4
+  br i1 %3, label %44, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !5
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %13, label %7
+  br i1 %.not, label %.critedge53, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %6, align 8, !tbaa !22
@@ -775,82 +775,69 @@ define dso_local ptr @RM_PoolAlloc(ptr noundef captures(none) %0, i64 noundef %1
   %10 = load i32, ptr %9, align 4, !tbaa !22
   %11 = sub i32 %8, %10
   %12 = zext i32 %11 to i64
-  br label %13
+  %13 = icmp ugt i64 %1, %12
+  br i1 %13, label %.critedge53, label %.preheader
 
-13:                                               ; preds = %4, %7
-  %14 = phi i64 [ %12, %7 ], [ 0, %4 ]
-  %.not51 = icmp ult i64 %14, %1
-  br i1 %.not51, label %33, label %.preheader
+.preheader:                                       ; preds = %7, %.preheader
+  %.041 = phi i64 [ %15, %.preheader ], [ 8, %7 ]
+  %14 = icmp samesign ult i64 %1, %.041
+  %15 = lshr i64 %.041, 1
+  %16 = icmp samesign uge i64 %15, %1
+  %17 = and i1 %14, %16
+  br i1 %17, label %.preheader, label %18, !llvm.loop !23
 
-.preheader:                                       ; preds = %13, %.preheader
-  %.041 = phi i64 [ %16, %.preheader ], [ 8, %13 ]
-  %15 = icmp samesign ult i64 %1, %.041
-  %16 = lshr i64 %.041, 1
-  %17 = icmp samesign uge i64 %16, %1
-  %18 = and i1 %15, %17
-  br i1 %18, label %.preheader, label %19, !llvm.loop !23
+18:                                               ; preds = %.preheader
+  %19 = zext i32 %10 to i64
+  %20 = add nuw nsw i64 %.041, 4294967295
+  %21 = and i64 %20, %19
+  %.not52 = icmp eq i64 %21, 0
+  br i1 %.not52, label %.critedge, label %22
 
-19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !22
-  %22 = zext i32 %21 to i64
-  %23 = add nuw nsw i64 %.041, 4294967295
-  %24 = and i64 %23, %22
-  %.not52 = icmp eq i64 %24, 0
-  br i1 %.not52, label %29, label %25
+22:                                               ; preds = %18
+  %23 = sub nsw i64 %.041, %21
+  %24 = trunc i64 %23 to i32
+  %25 = add i32 %10, %24
+  store i32 %25, ptr %9, align 4, !tbaa !22
+  %.pre = sub nuw i32 %8, %25
+  %.pre54 = zext i32 %.pre to i64
+  br label %.critedge
 
-25:                                               ; preds = %19
-  %26 = sub nsw i64 %.041, %24
-  %27 = trunc i64 %26 to i32
-  %28 = add i32 %21, %27
-  store i32 %28, ptr %20, align 4, !tbaa !22
-  br label %29
+.critedge:                                        ; preds = %22, %18
+  %.pre-phi55 = phi i64 [ %.pre54, %22 ], [ %12, %18 ]
+  %26 = phi i32 [ %25, %22 ], [ %10, %18 ]
+  %27 = icmp ugt i32 %26, %8
+  %28 = icmp samesign ugt i64 %1, %.pre-phi55
+  %29 = select i1 %27, i1 true, i1 %28
+  br i1 %29, label %.critedge53, label %36
 
-29:                                               ; preds = %25, %19
-  %30 = phi i32 [ %28, %25 ], [ %21, %19 ]
-  %31 = load i32, ptr %6, align 8, !tbaa !22
-  %narrow = tail call i32 @llvm.usub.sat.i32(i32 %31, i32 %30)
-  %32 = zext i32 %narrow to i64
-  br label %33
-
-33:                                               ; preds = %29, %13
-  %.042 = phi i64 [ %32, %29 ], [ %14, %13 ]
-  %34 = icmp ult i64 %.042, %1
-  br i1 %34, label %35, label %._crit_edge
-
-._crit_edge:                                      ; preds = %33
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !22
-  br label %42
-
-35:                                               ; preds = %33
+.critedge53:                                      ; preds = %7, %4, %.critedge
   %spec.select = tail call i64 @llvm.umax.i64(i64 %1, i64 8192)
-  %36 = add i64 %spec.select, 16
-  %37 = tail call noalias ptr @zmalloc(i64 noundef %36) #36
-  %38 = trunc i64 %spec.select to i32
-  store i32 %38, ptr %37, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  store i32 0, ptr %39, align 4, !tbaa !22
-  %40 = load ptr, ptr %5, align 8, !tbaa !5
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !19
-  store ptr %37, ptr %5, align 8, !tbaa !5
-  br label %42
+  %30 = add i64 %spec.select, 16
+  %31 = tail call noalias ptr @zmalloc(i64 noundef %30) #36
+  %32 = trunc i64 %spec.select to i32
+  store i32 %32, ptr %31, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 0, ptr %33, align 4, !tbaa !22
+  %34 = load ptr, ptr %5, align 8, !tbaa !5
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %34, ptr %35, align 8, !tbaa !19
+  store ptr %31, ptr %5, align 8, !tbaa !5
+  br label %36
 
-42:                                               ; preds = %._crit_edge, %35
-  %43 = phi i32 [ 0, %35 ], [ %.pre, %._crit_edge ]
-  %.043 = phi ptr [ %37, %35 ], [ %6, %._crit_edge ]
-  %44 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %.043, i64 4
-  %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
-  %48 = trunc i64 %1 to i32
-  %49 = add i32 %43, %48
-  store i32 %49, ptr %45, align 4, !tbaa !22
-  br label %50
+36:                                               ; preds = %.critedge53, %.critedge
+  %37 = phi i32 [ 0, %.critedge53 ], [ %26, %.critedge ]
+  %.043 = phi ptr [ %31, %.critedge53 ], [ %6, %.critedge ]
+  %38 = getelementptr inbounds nuw i8, ptr %.043, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.043, i64 4
+  %40 = zext i32 %37 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
+  %42 = trunc i64 %1 to i32
+  %43 = add i32 %37, %42
+  store i32 %43, ptr %39, align 4, !tbaa !22
+  br label %44
 
-50:                                               ; preds = %2, %42
-  %.0 = phi ptr [ %47, %42 ], [ null, %2 ]
+44:                                               ; preds = %2, %36
+  %.0 = phi ptr [ %41, %36 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -30500,9 +30487,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #33
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33

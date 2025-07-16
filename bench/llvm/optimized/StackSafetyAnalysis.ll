@@ -6519,13 +6519,11 @@ _ZNKSt8_Rb_treeIPKN4llvm11InstructionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14
   %12 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !283
   %14 = icmp ult ptr %1, %13
-  %spec.select.i.i = select i1 %14, ptr %6, ptr %.19.i.i.i
   br label %_ZNKSt3setIPKN4llvm11InstructionESt4lessIS3_ESaIS3_EE4findERKS3_.exit
 
 _ZNKSt3setIPKN4llvm11InstructionESt4lessIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %2, %_ZNKSt8_Rb_treeIPKN4llvm11InstructionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %11
-  %.sroa.0.0.i.i = phi ptr [ %6, %_ZNKSt8_Rb_treeIPKN4llvm11InstructionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ %6, %2 ], [ %spec.select.i.i, %11 ]
-  %15 = icmp eq ptr %.sroa.0.0.i.i, %6
-  ret i1 %15
+  %.sroa.0.0.i.i = phi i1 [ true, %_ZNKSt8_Rb_treeIPKN4llvm11InstructionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ true, %2 ], [ %14, %11 ]
+  ret i1 %.sroa.0.0.i.i
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable

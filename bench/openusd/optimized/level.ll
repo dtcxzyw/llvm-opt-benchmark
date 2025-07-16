@@ -1602,22 +1602,22 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_111findInArrayENS1_10ConstArrayI
   %216 = load i32, ptr %211, align 4
   switch i32 %216, label %._crit_edge [
     i32 0, label %.loopexit
-    i32 1, label %217
+    i32 1, label %219
   ]
 
 ._crit_edge:                                      ; preds = %206
   %.pre = load i32, ptr %215, align 4
-  br label %220
+  %217 = icmp eq i32 %.pre, %.3233
+  %218 = zext i1 %217 to i64
+  br label %222
 
-217:                                              ; preds = %206
-  %218 = load i32, ptr %215, align 4
-  %219 = icmp eq i32 %218, %.3233
-  br i1 %219, label %.loopexit, label %220
+219:                                              ; preds = %206
+  %220 = load i32, ptr %215, align 4
+  %221 = icmp eq i32 %220, %.3233
+  br i1 %221, label %.loopexit, label %222
 
-220:                                              ; preds = %._crit_edge, %217
-  %221 = phi i32 [ %.pre, %._crit_edge ], [ %218, %217 ]
-  %222 = icmp eq i32 %221, %.3233
-  %223 = zext i1 %222 to i64
+222:                                              ; preds = %._crit_edge, %219
+  %223 = phi i64 [ %218, %._crit_edge ], [ 0, %219 ]
   %224 = getelementptr inbounds nuw i32, ptr %215, i64 %223
   %225 = load i32, ptr %224, align 4
   %226 = shl nsw i32 %225, 1
@@ -1637,7 +1637,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_111findInArrayENS1_10ConstArrayI
   %239 = icmp sgt i64 %238, 0
   br i1 %239, label %.lr.ph.i.i.i.i170, label %._crit_edge.i.i.i.i162
 
-.lr.ph.i.i.i.i170:                                ; preds = %220
+.lr.ph.i.i.i.i170:                                ; preds = %222
   %240 = and i64 %.idx6.i161, -16
   %scevgep.i.i.i.i171 = getelementptr i8, ptr %234, i64 %240
   br label %241
@@ -1677,9 +1677,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_111findInArrayENS1_10ConstArrayI
   %260 = and i64 %236, 3
   br label %._crit_edge.i.i.i.i162
 
-._crit_edge.i.i.i.i162:                           ; preds = %._crit_edge.loopexit.i.i.i.i174, %220
-  %.pre-phi56.i.i.i.i163 = phi i64 [ %260, %._crit_edge.loopexit.i.i.i.i174 ], [ %236, %220 ]
-  %.029.lcssa.i.i.i.i164 = phi ptr [ %scevgep.i.i.i.i171, %._crit_edge.loopexit.i.i.i.i174 ], [ %234, %220 ]
+._crit_edge.i.i.i.i162:                           ; preds = %._crit_edge.loopexit.i.i.i.i174, %222
+  %.pre-phi56.i.i.i.i163 = phi i64 [ %260, %._crit_edge.loopexit.i.i.i.i174 ], [ %236, %222 ]
+  %.029.lcssa.i.i.i.i164 = phi ptr [ %scevgep.i.i.i.i171, %._crit_edge.loopexit.i.i.i.i174 ], [ %234, %222 ]
   switch i64 %.pre-phi56.i.i.i.i163, label %272 [
     i64 3, label %261
     i64 2, label %._crit_edge._crit_edge.i.i.i.i168
@@ -1746,8 +1746,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_111findInArrayENS1_10ConstArrayI
   %exitcond259.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count258
   br i1 %exitcond259.not, label %.loopexit, label %186, !llvm.loop !22
 
-.loopexit:                                        ; preds = %186, %217, %284, %206, %.loopexit195, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %.loopexit195 ], [ false, %186 ], [ false, %217 ], [ true, %284 ], [ false, %206 ]
+.loopexit:                                        ; preds = %186, %219, %284, %206, %.loopexit195, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %.loopexit195 ], [ false, %186 ], [ false, %219 ], [ true, %284 ], [ false, %206 ]
   ret i1 %.0
 }
 

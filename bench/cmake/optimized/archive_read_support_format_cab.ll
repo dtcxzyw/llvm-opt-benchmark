@@ -1148,7 +1148,7 @@ cab_read_header.exit:                             ; preds = %372, %369
 
 445:                                              ; preds = %439
   %.not17.i = icmp eq i32 %.019.i, 0
-  br i1 %.not17.i, label %446, label %cab_convert_path_separator_1.exit
+  br i1 %.not17.i, label %446, label %._crit_edge.loopexit.i
 
 446:                                              ; preds = %445
   store i8 47, ptr %442, align 1, !tbaa !4
@@ -1166,115 +1166,120 @@ cab_read_header.exit:                             ; preds = %372, %369
   %.1.i = phi i32 [ 0, %446 ], [ %spec.select.i92, %447 ]
   %450 = add nuw i64 %.01318.i, 1
   %451 = icmp ult i64 %450, %449
-  br i1 %451, label %439, label %cab_convert_path_separator_1.exit, !llvm.loop !93
+  br i1 %451, label %439, label %._crit_edge.loopexit.i, !llvm.loop !93
 
-cab_convert_path_separator_1.exit:                ; preds = %445, %448, %434
-  %452 = phi i64 [ 0, %434 ], [ %449, %448 ], [ %440, %445 ]
-  %.013.lcssa.i = phi i64 [ 0, %434 ], [ %450, %448 ], [ %.01318.i, %445 ]
-  %.not101 = icmp eq i64 %.013.lcssa.i, %452
-  %453 = load ptr, ptr %435, align 8, !tbaa !94
-  %454 = call i32 @_archive_entry_copy_pathname_l(ptr noundef %1, ptr noundef %453, i64 noundef %452, ptr noundef %.078) #18
-  %.not87 = icmp eq i32 %454, 0
-  br i1 %.not87, label %462, label %455
+._crit_edge.loopexit.i:                           ; preds = %448, %445
+  %.013.lcssa.ph.i = phi i64 [ %450, %448 ], [ %.01318.i, %445 ]
+  %.lcssa.ph.i = phi i64 [ %449, %448 ], [ %440, %445 ]
+  %452 = icmp ne i64 %.013.lcssa.ph.i, %.lcssa.ph.i
+  br label %cab_convert_path_separator_1.exit
 
-455:                                              ; preds = %cab_convert_path_separator_1.exit
-  %456 = tail call ptr @__errno_location() #21
-  %457 = load i32, ptr %456, align 4, !tbaa !95
-  %458 = icmp eq i32 %457, 12
-  br i1 %458, label %459, label %460
+cab_convert_path_separator_1.exit:                ; preds = %434, %._crit_edge.loopexit.i
+  %453 = phi i64 [ 0, %434 ], [ %.lcssa.ph.i, %._crit_edge.loopexit.i ]
+  %.013.lcssa.i = phi i1 [ false, %434 ], [ %452, %._crit_edge.loopexit.i ]
+  %454 = load ptr, ptr %435, align 8, !tbaa !94
+  %455 = call i32 @_archive_entry_copy_pathname_l(ptr noundef %1, ptr noundef %454, i64 noundef %453, ptr noundef %.078) #18
+  %.not87 = icmp eq i32 %455, 0
+  br i1 %.not87, label %463, label %456
 
-459:                                              ; preds = %455
+456:                                              ; preds = %cab_convert_path_separator_1.exit
+  %457 = tail call ptr @__errno_location() #21
+  %458 = load i32, ptr %457, align 4, !tbaa !95
+  %459 = icmp eq i32 %458, 12
+  br i1 %459, label %460, label %461
+
+460:                                              ; preds = %456
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.7) #18
   br label %cab_read_header.exit.thread
 
-460:                                              ; preds = %455
-  %461 = call ptr @archive_string_conversion_charset_name(ptr noundef %.078) #18
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.8, ptr noundef %461) #18
-  br label %462
+461:                                              ; preds = %456
+  %462 = call ptr @archive_string_conversion_charset_name(ptr noundef %.078) #18
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.8, ptr noundef %462) #18
+  br label %463
 
-462:                                              ; preds = %460, %cab_convert_path_separator_1.exit
-  %.1 = phi i32 [ -20, %460 ], [ %.077, %cab_convert_path_separator_1.exit ]
-  br i1 %.not101, label %cab_convert_path_separator_2.exit, label %463
+463:                                              ; preds = %461, %cab_convert_path_separator_1.exit
+  %.1 = phi i32 [ -20, %461 ], [ %.077, %cab_convert_path_separator_1.exit ]
+  br i1 %.013.lcssa.i, label %464, label %cab_convert_path_separator_2.exit
 
-463:                                              ; preds = %462
-  %464 = call ptr @archive_entry_pathname_w(ptr noundef %1) #18
-  %.not.i95 = icmp eq ptr %464, null
-  br i1 %.not.i95, label %cab_convert_path_separator_2.exit, label %465
+464:                                              ; preds = %463
+  %465 = call ptr @archive_entry_pathname_w(ptr noundef %1) #18
+  %.not.i95 = icmp eq ptr %465, null
+  br i1 %.not.i95, label %cab_convert_path_separator_2.exit, label %466
 
-465:                                              ; preds = %463
-  %466 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %467 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i64 0, ptr %467, align 8, !tbaa !96
-  %468 = call i64 @wcslen(ptr noundef nonnull %464) #20
-  %469 = call ptr @archive_wstrncat(ptr noundef nonnull %466, ptr noundef nonnull %464, i64 noundef %468) #18
-  %470 = load i64, ptr %467, align 8, !tbaa !96
-  %.not16.i96 = icmp eq i64 %470, 0
-  %.pre.i97 = load ptr, ptr %466, align 8, !tbaa !97
+466:                                              ; preds = %464
+  %467 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %468 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store i64 0, ptr %468, align 8, !tbaa !96
+  %469 = call i64 @wcslen(ptr noundef nonnull %465) #20
+  %470 = call ptr @archive_wstrncat(ptr noundef nonnull %467, ptr noundef nonnull %465, i64 noundef %469) #18
+  %471 = load i64, ptr %468, align 8, !tbaa !96
+  %.not16.i96 = icmp eq i64 %471, 0
+  %.pre.i97 = load ptr, ptr %467, align 8, !tbaa !97
   br i1 %.not16.i96, label %._crit_edge.i99, label %.lr.ph.i98
 
-.lr.ph.i98:                                       ; preds = %465, %475
-  %.015.i = phi i64 [ %476, %475 ], [ 0, %465 ]
-  %471 = getelementptr inbounds nuw i32, ptr %.pre.i97, i64 %.015.i
-  %472 = load i32, ptr %471, align 4, !tbaa !95
-  %473 = icmp eq i32 %472, 92
-  br i1 %473, label %474, label %475
+.lr.ph.i98:                                       ; preds = %466, %476
+  %.015.i = phi i64 [ %477, %476 ], [ 0, %466 ]
+  %472 = getelementptr inbounds nuw i32, ptr %.pre.i97, i64 %.015.i
+  %473 = load i32, ptr %472, align 4, !tbaa !95
+  %474 = icmp eq i32 %473, 92
+  br i1 %474, label %475, label %476
 
-474:                                              ; preds = %.lr.ph.i98
-  store i32 47, ptr %471, align 4, !tbaa !95
-  br label %475
+475:                                              ; preds = %.lr.ph.i98
+  store i32 47, ptr %472, align 4, !tbaa !95
+  br label %476
 
-475:                                              ; preds = %474, %.lr.ph.i98
-  %476 = add nuw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %476, %470
+476:                                              ; preds = %475, %.lr.ph.i98
+  %477 = add nuw i64 %.015.i, 1
+  %exitcond.not.i = icmp eq i64 %477, %471
   br i1 %exitcond.not.i, label %._crit_edge.i99, label %.lr.ph.i98, !llvm.loop !98
 
-._crit_edge.i99:                                  ; preds = %475, %465
+._crit_edge.i99:                                  ; preds = %476, %466
   call void @archive_entry_copy_pathname_w(ptr noundef %1, ptr noundef %.pre.i97) #18
   br label %cab_convert_path_separator_2.exit
 
-cab_convert_path_separator_2.exit:                ; preds = %._crit_edge.i99, %463, %462
-  %477 = load i32, ptr %387, align 8, !tbaa !73
-  %478 = zext i32 %477 to i64
-  call void @archive_entry_set_size(ptr noundef %1, i64 noundef %478) #18
-  %479 = load i8, ptr %416, align 2, !tbaa !78
-  %480 = and i8 %479, 1
-  %.not88 = icmp eq i8 %480, 0
+cab_convert_path_separator_2.exit:                ; preds = %._crit_edge.i99, %464, %463
+  %478 = load i32, ptr %387, align 8, !tbaa !73
+  %479 = zext i32 %478 to i64
+  call void @archive_entry_set_size(ptr noundef %1, i64 noundef %479) #18
+  %480 = load i8, ptr %416, align 2, !tbaa !78
+  %481 = and i8 %480, 1
+  %.not88 = icmp eq i8 %481, 0
   %. = select i1 %.not88, i32 33206, i32 33133
   call void @archive_entry_set_mode(ptr noundef %1, i32 noundef %.) #18
-  %481 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  %482 = load i64, ptr %481, align 8, !tbaa !77
-  call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %482, i64 noundef 0) #18
-  %483 = load i32, ptr %387, align 8, !tbaa !73
-  %484 = zext i32 %483 to i64
-  %485 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %484, ptr %485, align 8, !tbaa !99
+  %482 = getelementptr inbounds nuw i8, ptr %387, i64 8
+  %483 = load i64, ptr %482, align 8, !tbaa !77
+  call void @archive_entry_set_mtime(ptr noundef %1, i64 noundef %483, i64 noundef 0) #18
+  %484 = load i32, ptr %387, align 8, !tbaa !73
+  %485 = zext i32 %484 to i64
+  %486 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %485, ptr %486, align 8, !tbaa !99
   store i64 0, ptr %7, align 8, !tbaa !100
-  %486 = icmp eq i32 %483, 0
-  br i1 %486, label %487, label %488
+  %487 = icmp eq i32 %484, 0
+  br i1 %487, label %488, label %489
 
-487:                                              ; preds = %cab_convert_path_separator_2.exit
+488:                                              ; preds = %cab_convert_path_separator_2.exit
   store i8 1, ptr %388, align 2, !tbaa !83
   store i8 1, ptr %389, align 1, !tbaa !84
-  br label %488
+  br label %489
 
-488:                                              ; preds = %487, %cab_convert_path_separator_2.exit
-  %489 = getelementptr inbounds nuw i8, ptr %7, i64 208
-  %490 = getelementptr inbounds nuw i8, ptr %7, i64 90
-  %491 = load i8, ptr %490, align 2, !tbaa !52
-  %492 = zext i8 %491 to i32
-  %493 = getelementptr inbounds nuw i8, ptr %7, i64 91
-  %494 = load i8, ptr %493, align 1, !tbaa !51
-  %495 = zext i8 %494 to i32
-  %496 = load ptr, ptr %392, align 8, !tbaa !86
-  %497 = getelementptr inbounds nuw i8, ptr %496, i64 16
-  %498 = load ptr, ptr %497, align 8, !tbaa !69
-  %499 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %489, i64 noundef 64, ptr noundef nonnull @.str.9, i32 noundef %492, i32 noundef %495, ptr noundef %498) #18
-  %500 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %489, ptr %500, align 8, !tbaa !46
+489:                                              ; preds = %488, %cab_convert_path_separator_2.exit
+  %490 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %491 = getelementptr inbounds nuw i8, ptr %7, i64 90
+  %492 = load i8, ptr %491, align 2, !tbaa !52
+  %493 = zext i8 %492 to i32
+  %494 = getelementptr inbounds nuw i8, ptr %7, i64 91
+  %495 = load i8, ptr %494, align 1, !tbaa !51
+  %496 = zext i8 %495 to i32
+  %497 = load ptr, ptr %392, align 8, !tbaa !86
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 16
+  %499 = load ptr, ptr %498, align 8, !tbaa !69
+  %500 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %490, i64 noundef 64, ptr noundef nonnull @.str.9, i32 noundef %493, i32 noundef %496, ptr noundef %499) #18
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %490, ptr %501, align 8, !tbaa !46
   br label %cab_read_header.exit.thread
 
-cab_read_header.exit.thread:                      ; preds = %.thread339.i, %cab_skip_sfx.exit.thread.i, %277, %240, %373, %201, %185, %165, %149, %cab_strnlen.exit.thread.i, %82, %68, %20, %422, %488, %459, %380
-  %.0 = phi i32 [ 1, %380 ], [ -30, %459 ], [ %.1, %488 ], [ -30, %422 ], [ -30, %20 ], [ -30, %68 ], [ -30, %82 ], [ -30, %cab_strnlen.exit.thread.i ], [ -30, %149 ], [ -30, %165 ], [ -30, %185 ], [ -30, %201 ], [ -30, %373 ], [ -30, %240 ], [ -30, %277 ], [ -30, %cab_skip_sfx.exit.thread.i ], [ -30, %.thread339.i ]
+cab_read_header.exit.thread:                      ; preds = %.thread339.i, %cab_skip_sfx.exit.thread.i, %277, %240, %373, %201, %185, %165, %149, %cab_strnlen.exit.thread.i, %82, %68, %20, %422, %489, %460, %380
+  %.0 = phi i32 [ 1, %380 ], [ -30, %460 ], [ %.1, %489 ], [ -30, %422 ], [ -30, %20 ], [ -30, %68 ], [ -30, %82 ], [ -30, %cab_strnlen.exit.thread.i ], [ -30, %149 ], [ -30, %165 ], [ -30, %185 ], [ -30, %201 ], [ -30, %373 ], [ -30, %240 ], [ -30, %277 ], [ -30, %cab_skip_sfx.exit.thread.i ], [ -30, %.thread339.i ]
   ret i32 %.0
 }
 

@@ -3186,21 +3186,16 @@ define i32 @Mop_ManMergeContainAll(ptr noundef readonly captures(none) %0, ptr n
   %5 = getelementptr i8, ptr %1, i64 8
   br label %7
 
-.critedge2.loopexit.loopexit:                     ; preds = %.lr.ph
+.critedge2.loopexit:                              ; preds = %.lr.ph
   %.pre = sext i32 %.val to i64
-  br label %.critedge2.loopexit
-
-.critedge2.loopexit:                              ; preds = %.critedge2.loopexit.loopexit, %7
-  %.pre-phi = phi i64 [ %.pre, %.critedge2.loopexit.loopexit ], [ %11, %7 ]
-  %.1.lcssa = phi i32 [ %15, %.critedge2.loopexit.loopexit ], [ %10, %7 ]
-  %6 = icmp slt i64 %indvars.iv.next37, %.pre-phi
+  %6 = icmp slt i64 %indvars.iv.next37, %.pre
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %6, label %7, label %.critedge, !llvm.loop !85
 
 7:                                                ; preds = %.lr.ph31, %.critedge2.loopexit
   %indvars.iv36 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next37, %.critedge2.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph31 ], [ %indvars.iv.next, %.critedge2.loopexit ]
-  %.030 = phi i32 [ 0, %.lr.ph31 ], [ %.1.lcssa, %.critedge2.loopexit ]
+  %.030 = phi i32 [ 0, %.lr.ph31 ], [ %15, %.critedge2.loopexit ]
   %.val24 = load ptr, ptr %5, align 8, !tbaa !79
   %8 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24, i64 %indvars.iv36
   %9 = tail call i32 @Mop_ManRemoveIdentical(ptr noundef %0, ptr noundef %8)
@@ -3209,7 +3204,7 @@ define i32 @Mop_ManMergeContainAll(ptr noundef readonly captures(none) %0, ptr n
   %.val25 = load i32, ptr %3, align 4, !tbaa !77
   %11 = sext i32 %.val25 to i64
   %12 = icmp slt i64 %indvars.iv.next37, %11
-  br i1 %12, label %.lr.ph, label %.critedge2.loopexit
+  br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.lr.ph ], [ %indvars.iv, %7 ]
@@ -3222,10 +3217,10 @@ define i32 @Mop_ManMergeContainAll(ptr noundef readonly captures(none) %0, ptr n
   %.val = load i32, ptr %3, align 4, !tbaa !77
   %16 = trunc nuw i64 %indvars.iv.next34 to i32
   %17 = icmp sgt i32 %.val, %16
-  br i1 %17, label %.lr.ph, label %.critedge2.loopexit.loopexit, !llvm.loop !86
+  br i1 %17, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !86
 
-.critedge:                                        ; preds = %.critedge2.loopexit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1.lcssa, %.critedge2.loopexit ]
+.critedge:                                        ; preds = %.critedge2.loopexit, %7, %2
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %10, %7 ], [ %15, %.critedge2.loopexit ]
   ret i32 %.0.lcssa
 }
 
@@ -3240,15 +3235,15 @@ define void @Mop_ManReduce2(ptr noundef readonly captures(none) %0) local_unname
 
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8, !tbaa !87
-  %.neg149 = mul i64 %7, -1000000
+  %.neg137 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !89
   %.neg = sdiv i64 %9, -1000
-  %.neg150 = add i64 %.neg, %.neg149
+  %.neg138 = add i64 %.neg, %.neg137
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %1, %6
-  %.0.i.neg = phi i64 [ %.neg150, %6 ], [ 1, %1 ]
+  %.0.i.neg = phi i64 [ %.neg138, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !26
@@ -3328,7 +3323,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %50 = getelementptr i8, ptr %14, i64 4
   %.val2228.i = load i32, ptr %50, align 4, !tbaa !77
   %51 = icmp sgt i32 %.val2228.i, 0
-  br i1 %51, label %.lr.ph31.i, label %Mop_ManMergeContainAll.exit98
+  br i1 %51, label %.lr.ph31.i, label %Mop_ManMergeContainAll.exit92
 
 .lr.ph31.i:                                       ; preds = %Mop_ManCountOutputLits.exit
   %52 = getelementptr i8, ptr %14, i64 8
@@ -3336,35 +3331,35 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %53 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef %.val24.i)
   %54 = zext nneg i32 %.val2228.i to i64
   %.not = icmp eq i32 %.val2228.i, 1
-  br i1 %.not, label %.lr.ph.i38, label %.lr.ph.i36.preheader
+  br i1 %.not, label %.lr.ph.i38, label %.lr.ph.i35.preheader
 
-.critedge2.loopexit.i:                            ; preds = %.lr.ph.i36
-  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv.next37.i161, 1
-  %55 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i161
+.critedge2.loopexit.i:                            ; preds = %.lr.ph.i35
+  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv.next37.i149, 1
+  %55 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i149
   %56 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %55)
   %57 = add nsw i32 %56, %62
   %exitcond.not = icmp eq i64 %indvars.iv.next37.i, %54
-  br i1 %exitcond.not, label %.lr.ph.i38, label %.lr.ph.i36.preheader
+  br i1 %exitcond.not, label %.lr.ph.i38, label %.lr.ph.i35.preheader
 
-.lr.ph.i36.preheader:                             ; preds = %.lr.ph31.i, %.critedge2.loopexit.i
-  %indvars.iv.next37.i161 = phi i64 [ %indvars.iv.next37.i, %.critedge2.loopexit.i ], [ 1, %.lr.ph31.i ]
+.lr.ph.i35.preheader:                             ; preds = %.lr.ph31.i, %.critedge2.loopexit.i
+  %indvars.iv.next37.i149 = phi i64 [ %indvars.iv.next37.i, %.critedge2.loopexit.i ], [ 1, %.lr.ph31.i ]
   %58 = phi i32 [ %57, %.critedge2.loopexit.i ], [ %53, %.lr.ph31.i ]
   %59 = phi ptr [ %55, %.critedge2.loopexit.i ], [ %.val24.i, %.lr.ph31.i ]
-  br label %.lr.ph.i36
+  br label %.lr.ph.i35
 
-.lr.ph.i36:                                       ; preds = %.lr.ph.i36.preheader, %.lr.ph.i36
-  %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.lr.ph.i36 ], [ %indvars.iv.next37.i161, %.lr.ph.i36.preheader ]
-  %.127.i = phi i32 [ %62, %.lr.ph.i36 ], [ %58, %.lr.ph.i36.preheader ]
+.lr.ph.i35:                                       ; preds = %.lr.ph.i35.preheader, %.lr.ph.i35
+  %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.lr.ph.i35 ], [ %indvars.iv.next37.i149, %.lr.ph.i35.preheader ]
+  %.127.i = phi i32 [ %62, %.lr.ph.i35 ], [ %58, %.lr.ph.i35.preheader ]
   %60 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv33.i
   %61 = call i32 @Mop_ManMergeContainTwo(ptr noundef readonly %0, ptr noundef %59, ptr noundef nonnull %60)
   %62 = add nsw i32 %61, %.127.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %63 = trunc nuw i64 %indvars.iv.next34.i to i32
   %64 = icmp sgt i32 %.val2228.i, %63
-  br i1 %64, label %.lr.ph.i36, label %.critedge2.loopexit.i, !llvm.loop !86
+  br i1 %64, label %.lr.ph.i35, label %.critedge2.loopexit.i, !llvm.loop !86
 
 .lr.ph.i38:                                       ; preds = %.critedge2.loopexit.i, %.lr.ph31.i
-  %.lcssa157 = phi i32 [ %53, %.lr.ph31.i ], [ %57, %.critedge2.loopexit.i ]
+  %.lcssa145 = phi i32 [ %53, %.lr.ph31.i ], [ %57, %.critedge2.loopexit.i ]
   %invariant.gep = getelementptr i8, ptr %.val24.i, i64 -32
   br label %65
 
@@ -3404,152 +3399,152 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 .lr.ph31.i45:                                     ; preds = %79, %71
   %.019.i = phi i32 [ -1, %71 ], [ %.1.i, %79 ]
   %81 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %.val24.i)
-  br i1 %.not, label %.lr.ph.i67, label %.lr.ph.i56.preheader.preheader
+  br i1 %.not, label %.lr.ph.i64, label %.lr.ph.i52.preheader.preheader
 
-.lr.ph.i56.preheader.preheader:                   ; preds = %.lr.ph31.i45
+.lr.ph.i52.preheader.preheader:                   ; preds = %.lr.ph31.i45
   %umax = call i64 @llvm.umax.i64(i64 %54, i64 2)
-  br label %.lr.ph.i56.preheader
+  br label %.lr.ph.i52.preheader
 
-.critedge2.loopexit.i52:                          ; preds = %.lr.ph.i56
-  %indvars.iv.next37.i50 = add nuw nsw i64 %indvars.iv.next37.i50163, 1
-  %82 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i50163
+.critedge2.loopexit.i58:                          ; preds = %.lr.ph.i52
+  %indvars.iv.next37.i50 = add nuw nsw i64 %indvars.iv.next37.i50151, 1
+  %82 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i50151
   %83 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %82)
   %84 = add nsw i32 %83, %89
-  %exitcond181.not = icmp eq i64 %indvars.iv.next37.i50, %umax
-  br i1 %exitcond181.not, label %.lr.ph.i67, label %.lr.ph.i56.preheader
+  %exitcond169.not = icmp eq i64 %indvars.iv.next37.i50, %umax
+  br i1 %exitcond169.not, label %.lr.ph.i64, label %.lr.ph.i52.preheader
 
-.lr.ph.i56.preheader:                             ; preds = %.lr.ph.i56.preheader.preheader, %.critedge2.loopexit.i52
-  %indvars.iv.next37.i50163 = phi i64 [ %indvars.iv.next37.i50, %.critedge2.loopexit.i52 ], [ 1, %.lr.ph.i56.preheader.preheader ]
-  %85 = phi i32 [ %84, %.critedge2.loopexit.i52 ], [ %81, %.lr.ph.i56.preheader.preheader ]
-  %86 = phi ptr [ %82, %.critedge2.loopexit.i52 ], [ %.val24.i, %.lr.ph.i56.preheader.preheader ]
-  br label %.lr.ph.i56
+.lr.ph.i52.preheader:                             ; preds = %.lr.ph.i52.preheader.preheader, %.critedge2.loopexit.i58
+  %indvars.iv.next37.i50151 = phi i64 [ %indvars.iv.next37.i50, %.critedge2.loopexit.i58 ], [ 1, %.lr.ph.i52.preheader.preheader ]
+  %85 = phi i32 [ %84, %.critedge2.loopexit.i58 ], [ %81, %.lr.ph.i52.preheader.preheader ]
+  %86 = phi ptr [ %82, %.critedge2.loopexit.i58 ], [ %.val24.i, %.lr.ph.i52.preheader.preheader ]
+  br label %.lr.ph.i52
 
-.lr.ph.i56:                                       ; preds = %.lr.ph.i56.preheader, %.lr.ph.i56
-  %indvars.iv33.i57 = phi i64 [ %indvars.iv.next34.i60, %.lr.ph.i56 ], [ %indvars.iv.next37.i50163, %.lr.ph.i56.preheader ]
-  %.127.i58 = phi i32 [ %89, %.lr.ph.i56 ], [ %85, %.lr.ph.i56.preheader ]
-  %87 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv33.i57
+.lr.ph.i52:                                       ; preds = %.lr.ph.i52.preheader, %.lr.ph.i52
+  %indvars.iv33.i53 = phi i64 [ %indvars.iv.next34.i56, %.lr.ph.i52 ], [ %indvars.iv.next37.i50151, %.lr.ph.i52.preheader ]
+  %.127.i54 = phi i32 [ %89, %.lr.ph.i52 ], [ %85, %.lr.ph.i52.preheader ]
+  %87 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv33.i53
   %88 = call i32 @Mop_ManMergeContainTwo(ptr noundef readonly %0, ptr noundef nonnull %86, ptr noundef nonnull %87)
-  %89 = add nsw i32 %88, %.127.i58
-  %indvars.iv.next34.i60 = add nuw nsw i64 %indvars.iv33.i57, 1
-  %90 = trunc nuw i64 %indvars.iv.next34.i60 to i32
+  %89 = add nsw i32 %88, %.127.i54
+  %indvars.iv.next34.i56 = add nuw nsw i64 %indvars.iv33.i53, 1
+  %90 = trunc nuw i64 %indvars.iv.next34.i56 to i32
   %91 = icmp sgt i32 %.val2228.i, %90
-  br i1 %91, label %.lr.ph.i56, label %.critedge2.loopexit.i52, !llvm.loop !86
+  br i1 %91, label %.lr.ph.i52, label %.critedge2.loopexit.i58, !llvm.loop !86
 
-.lr.ph.i67:                                       ; preds = %.critedge2.loopexit.i52, %.lr.ph31.i45
-  %.lcssa155 = phi i32 [ %81, %.lr.ph31.i45 ], [ %84, %.critedge2.loopexit.i52 ]
+.lr.ph.i64:                                       ; preds = %.critedge2.loopexit.i58, %.lr.ph31.i45
+  %.lcssa143 = phi i32 [ %81, %.lr.ph31.i45 ], [ %84, %.critedge2.loopexit.i58 ]
   br label %92
 
-92:                                               ; preds = %106, %.lr.ph.i67
-  %indvars.iv.i68 = phi i64 [ %54, %.lr.ph.i67 ], [ %indvars.iv.next.i70, %106 ]
-  %.027.i69 = phi i32 [ 0, %.lr.ph.i67 ], [ %.1.i74, %106 ]
-  %indvars.iv.next.i70 = add nsw i64 %indvars.iv.i68, -1
-  %93 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next.i70
+92:                                               ; preds = %106, %.lr.ph.i64
+  %indvars.iv.i65 = phi i64 [ %54, %.lr.ph.i64 ], [ %indvars.iv.next.i67, %106 ]
+  %.027.i66 = phi i32 [ 0, %.lr.ph.i64 ], [ %.1.i71, %106 ]
+  %indvars.iv.next.i67 = add nsw i64 %indvars.iv.i65, -1
+  %93 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next.i67
   %94 = getelementptr i8, ptr %93, i64 4
-  %.val.i72 = load i32, ptr %94, align 4, !tbaa !21
-  %95 = icmp eq i32 %.val.i72, 0
+  %.val.i69 = load i32, ptr %94, align 4, !tbaa !21
+  %95 = icmp eq i32 %.val.i69, 0
   br i1 %95, label %106, label %96
 
 96:                                               ; preds = %92
-  %97 = icmp eq i64 %indvars.iv.next.i70, 0
+  %97 = icmp eq i64 %indvars.iv.next.i67, 0
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %96
-  %puts.i75 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  %puts.i72 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %99 = load ptr, ptr @stdout, align 8, !tbaa !29
   %100 = call i32 @fflush(ptr noundef %99)
-  br label %.lr.ph31.i79
+  br label %.lr.ph31.i76
 
 101:                                              ; preds = %96
   %102 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %93)
-  %gep166 = getelementptr %struct.Vec_Int_t_, ptr %invariant.gep, i64 %indvars.iv.i68
-  %103 = call i32 @Mop_ManMergeDist1Pairs(ptr noundef readonly %0, ptr noundef nonnull %93, ptr noundef %gep166, ptr noundef readonly %13, i32 noundef 1000000000)
-  %104 = add i32 %102, %.027.i69
+  %gep154 = getelementptr %struct.Vec_Int_t_, ptr %invariant.gep, i64 %indvars.iv.i65
+  %103 = call i32 @Mop_ManMergeDist1Pairs(ptr noundef readonly %0, ptr noundef nonnull %93, ptr noundef %gep154, ptr noundef readonly %13, i32 noundef 1000000000)
+  %104 = add i32 %102, %.027.i66
   %105 = add i32 %104, %103
   br label %106
 
 106:                                              ; preds = %101, %92
-  %.1.i74 = phi i32 [ %.027.i69, %92 ], [ %105, %101 ]
-  %107 = icmp samesign ugt i64 %indvars.iv.i68, 1
-  br i1 %107, label %92, label %.lr.ph31.i79, !llvm.loop !80
+  %.1.i71 = phi i32 [ %.027.i66, %92 ], [ %105, %101 ]
+  %107 = icmp samesign ugt i64 %indvars.iv.i65, 1
+  br i1 %107, label %92, label %.lr.ph31.i76, !llvm.loop !80
 
-.lr.ph31.i79:                                     ; preds = %106, %98
-  %.019.i66 = phi i32 [ -1, %98 ], [ %.1.i74, %106 ]
+.lr.ph31.i76:                                     ; preds = %106, %98
+  %.019.i63 = phi i32 [ -1, %98 ], [ %.1.i71, %106 ]
   %108 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %.val24.i)
-  br i1 %.not, label %Mop_ManMergeContainAll.exit98, label %.lr.ph.i90.preheader.preheader
+  br i1 %.not, label %Mop_ManMergeContainAll.exit92, label %.lr.ph.i83.preheader.preheader
 
-.lr.ph.i90.preheader.preheader:                   ; preds = %.lr.ph31.i79
-  %umax182 = call i64 @llvm.umax.i64(i64 %54, i64 2)
-  br label %.lr.ph.i90.preheader
+.lr.ph.i83.preheader.preheader:                   ; preds = %.lr.ph31.i76
+  %umax170 = call i64 @llvm.umax.i64(i64 %54, i64 2)
+  br label %.lr.ph.i83.preheader
 
-.critedge2.loopexit.i86:                          ; preds = %.lr.ph.i90
-  %indvars.iv.next37.i84 = add nuw nsw i64 %indvars.iv.next37.i84168, 1
-  %109 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i84168
+.critedge2.loopexit.i89:                          ; preds = %.lr.ph.i83
+  %indvars.iv.next37.i81 = add nuw nsw i64 %indvars.iv.next37.i81156, 1
+  %109 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv.next37.i81156
   %110 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %109)
   %111 = add nsw i32 %110, %116
-  %exitcond183.not = icmp eq i64 %indvars.iv.next37.i84, %umax182
-  br i1 %exitcond183.not, label %Mop_ManMergeContainAll.exit98, label %.lr.ph.i90.preheader
+  %exitcond171.not = icmp eq i64 %indvars.iv.next37.i81, %umax170
+  br i1 %exitcond171.not, label %Mop_ManMergeContainAll.exit92, label %.lr.ph.i83.preheader
 
-.lr.ph.i90.preheader:                             ; preds = %.lr.ph.i90.preheader.preheader, %.critedge2.loopexit.i86
-  %indvars.iv.next37.i84168 = phi i64 [ %indvars.iv.next37.i84, %.critedge2.loopexit.i86 ], [ 1, %.lr.ph.i90.preheader.preheader ]
-  %112 = phi i32 [ %111, %.critedge2.loopexit.i86 ], [ %108, %.lr.ph.i90.preheader.preheader ]
-  %113 = phi ptr [ %109, %.critedge2.loopexit.i86 ], [ %.val24.i, %.lr.ph.i90.preheader.preheader ]
-  br label %.lr.ph.i90
+.lr.ph.i83.preheader:                             ; preds = %.lr.ph.i83.preheader.preheader, %.critedge2.loopexit.i89
+  %indvars.iv.next37.i81156 = phi i64 [ %indvars.iv.next37.i81, %.critedge2.loopexit.i89 ], [ 1, %.lr.ph.i83.preheader.preheader ]
+  %112 = phi i32 [ %111, %.critedge2.loopexit.i89 ], [ %108, %.lr.ph.i83.preheader.preheader ]
+  %113 = phi ptr [ %109, %.critedge2.loopexit.i89 ], [ %.val24.i, %.lr.ph.i83.preheader.preheader ]
+  br label %.lr.ph.i83
 
-.lr.ph.i90:                                       ; preds = %.lr.ph.i90.preheader, %.lr.ph.i90
-  %indvars.iv33.i91 = phi i64 [ %indvars.iv.next34.i94, %.lr.ph.i90 ], [ %indvars.iv.next37.i84168, %.lr.ph.i90.preheader ]
-  %.127.i92 = phi i32 [ %116, %.lr.ph.i90 ], [ %112, %.lr.ph.i90.preheader ]
-  %114 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv33.i91
+.lr.ph.i83:                                       ; preds = %.lr.ph.i83.preheader, %.lr.ph.i83
+  %indvars.iv33.i84 = phi i64 [ %indvars.iv.next34.i87, %.lr.ph.i83 ], [ %indvars.iv.next37.i81156, %.lr.ph.i83.preheader ]
+  %.127.i85 = phi i32 [ %116, %.lr.ph.i83 ], [ %112, %.lr.ph.i83.preheader ]
+  %114 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val24.i, i64 %indvars.iv33.i84
   %115 = call i32 @Mop_ManMergeContainTwo(ptr noundef readonly %0, ptr noundef nonnull %113, ptr noundef nonnull %114)
-  %116 = add nsw i32 %115, %.127.i92
-  %indvars.iv.next34.i94 = add nuw nsw i64 %indvars.iv33.i91, 1
-  %117 = trunc nuw i64 %indvars.iv.next34.i94 to i32
+  %116 = add nsw i32 %115, %.127.i85
+  %indvars.iv.next34.i87 = add nuw nsw i64 %indvars.iv33.i84, 1
+  %117 = trunc nuw i64 %indvars.iv.next34.i87 to i32
   %118 = icmp sgt i32 %.val2228.i, %117
-  br i1 %118, label %.lr.ph.i90, label %.critedge2.loopexit.i86, !llvm.loop !86
+  br i1 %118, label %.lr.ph.i83, label %.critedge2.loopexit.i89, !llvm.loop !86
 
-Mop_ManMergeContainAll.exit98:                    ; preds = %.critedge2.loopexit.i86, %.lr.ph31.i79, %Mop_ManCountOutputLits.exit
-  %.019.i66146 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.019.i66, %.lr.ph31.i79 ], [ %.019.i66, %.critedge2.loopexit.i86 ]
-  %.019.i130136145 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.019.i, %.lr.ph31.i79 ], [ %.019.i, %.critedge2.loopexit.i86 ]
-  %.0.lcssa.i33126129137144 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.lcssa157, %.lr.ph31.i79 ], [ %.lcssa157, %.critedge2.loopexit.i86 ]
-  %.0.lcssa.i44138143 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.lcssa155, %.lr.ph31.i79 ], [ %.lcssa155, %.critedge2.loopexit.i86 ]
-  %.0.lcssa.i78 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %108, %.lr.ph31.i79 ], [ %111, %.critedge2.loopexit.i86 ]
+Mop_ManMergeContainAll.exit92:                    ; preds = %.critedge2.loopexit.i89, %.lr.ph31.i76, %Mop_ManCountOutputLits.exit
+  %.019.i63136 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.019.i63, %.lr.ph31.i76 ], [ %.019.i63, %.critedge2.loopexit.i89 ]
+  %.019.i122126135 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.019.i, %.lr.ph31.i76 ], [ %.019.i, %.critedge2.loopexit.i89 ]
+  %.0.lcssa.i33118121127134 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.lcssa145, %.lr.ph31.i76 ], [ %.lcssa145, %.critedge2.loopexit.i89 ]
+  %.0.lcssa.i44128133 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %.lcssa143, %.lr.ph31.i76 ], [ %.lcssa143, %.critedge2.loopexit.i89 ]
+  %.0.lcssa.i75 = phi i32 [ 0, %Mop_ManCountOutputLits.exit ], [ %108, %.lr.ph31.i76 ], [ %111, %.critedge2.loopexit.i89 ]
   call fastcc void @Mop_ManUnCreateGroups(ptr noundef %0, ptr noundef %14)
   %119 = load ptr, ptr %10, align 8, !tbaa !26
   %120 = getelementptr i8, ptr %119, i64 4
-  %.val11.i99 = load i32, ptr %120, align 4, !tbaa !21
-  %121 = icmp sgt i32 %.val11.i99, 0
-  br i1 %121, label %.lr.ph.i101, label %Mop_ManCountOutputLits.exit120
+  %.val11.i93 = load i32, ptr %120, align 4, !tbaa !21
+  %121 = icmp sgt i32 %.val11.i93, 0
+  br i1 %121, label %.lr.ph.i95, label %Mop_ManCountOutputLits.exit114
 
-.lr.ph.i101:                                      ; preds = %Mop_ManMergeContainAll.exit98
+.lr.ph.i95:                                       ; preds = %Mop_ManMergeContainAll.exit92
   %122 = getelementptr i8, ptr %119, i64 8
-  %.val12.i102 = load ptr, ptr %122, align 8, !tbaa !25
+  %.val12.i96 = load ptr, ptr %122, align 8, !tbaa !25
   %123 = getelementptr i8, ptr %0, i64 12
-  %.val.i103 = load i32, ptr %123, align 4, !tbaa !13
+  %.val.i97 = load i32, ptr %123, align 4, !tbaa !13
   %124 = getelementptr i8, ptr %0, i64 24
-  %.val10.i104 = load ptr, ptr %124, align 8, !tbaa !20
-  %125 = getelementptr i8, ptr %.val10.i104, i64 8
-  %.val10.val.i105 = load ptr, ptr %125, align 8, !tbaa !17
-  %126 = icmp sgt i32 %.val.i103, 0
-  %wide.trip.count.i.i106 = zext nneg i32 %.val.i103 to i64
-  br i1 %126, label %.lr.ph.preheader.i.us.preheader.i107, label %Mop_ManCountOutputLits.exit120
+  %.val10.i98 = load ptr, ptr %124, align 8, !tbaa !20
+  %125 = getelementptr i8, ptr %.val10.i98, i64 8
+  %.val10.val.i99 = load ptr, ptr %125, align 8, !tbaa !17
+  %126 = icmp sgt i32 %.val.i97, 0
+  %wide.trip.count.i.i100 = zext nneg i32 %.val.i97 to i64
+  br i1 %126, label %.lr.ph.preheader.i.us.preheader.i101, label %Mop_ManCountOutputLits.exit114
 
-.lr.ph.preheader.i.us.preheader.i107:             ; preds = %.lr.ph.i101
-  %wide.trip.count.i108 = zext nneg i32 %.val11.i99 to i64
-  br label %.lr.ph.preheader.i.us.i109
+.lr.ph.preheader.i.us.preheader.i101:             ; preds = %.lr.ph.i95
+  %wide.trip.count.i102 = zext nneg i32 %.val11.i93 to i64
+  br label %.lr.ph.preheader.i.us.i103
 
-.lr.ph.preheader.i.us.i109:                       ; preds = %Mop_ManCountOnes.exit.loopexit.us.i117, %.lr.ph.preheader.i.us.preheader.i107
-  %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader.i107 ], [ %indvars.iv.next.i118, %Mop_ManCountOnes.exit.loopexit.us.i117 ]
-  %.014.us.i111 = phi i32 [ 0, %.lr.ph.preheader.i.us.preheader.i107 ], [ %153, %Mop_ManCountOnes.exit.loopexit.us.i117 ]
-  %127 = getelementptr inbounds nuw i32, ptr %.val12.i102, i64 %indvars.iv.i110
+.lr.ph.preheader.i.us.i103:                       ; preds = %Mop_ManCountOnes.exit.loopexit.us.i111, %.lr.ph.preheader.i.us.preheader.i101
+  %indvars.iv.i104 = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader.i101 ], [ %indvars.iv.next.i112, %Mop_ManCountOnes.exit.loopexit.us.i111 ]
+  %.014.us.i105 = phi i32 [ 0, %.lr.ph.preheader.i.us.preheader.i101 ], [ %153, %Mop_ManCountOnes.exit.loopexit.us.i111 ]
+  %127 = getelementptr inbounds nuw i32, ptr %.val12.i96, i64 %indvars.iv.i104
   %128 = load i32, ptr %127, align 4, !tbaa !28
-  %129 = mul nsw i32 %128, %.val.i103
+  %129 = mul nsw i32 %128, %.val.i97
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i64, ptr %.val10.val.i105, i64 %130
-  br label %.lr.ph.i.us.i112
+  %131 = getelementptr inbounds i64, ptr %.val10.val.i99, i64 %130
+  br label %.lr.ph.i.us.i106
 
-.lr.ph.i.us.i112:                                 ; preds = %.lr.ph.i.us.i112, %.lr.ph.preheader.i.us.i109
-  %indvars.iv.i.us.i113 = phi i64 [ 0, %.lr.ph.preheader.i.us.i109 ], [ %indvars.iv.next.i.us.i115, %.lr.ph.i.us.i112 ]
-  %.08.i.us.i114 = phi i32 [ 0, %.lr.ph.preheader.i.us.i109 ], [ %152, %.lr.ph.i.us.i112 ]
-  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %indvars.iv.i.us.i113
+.lr.ph.i.us.i106:                                 ; preds = %.lr.ph.i.us.i106, %.lr.ph.preheader.i.us.i103
+  %indvars.iv.i.us.i107 = phi i64 [ 0, %.lr.ph.preheader.i.us.i103 ], [ %indvars.iv.next.i.us.i109, %.lr.ph.i.us.i106 ]
+  %.08.i.us.i108 = phi i32 [ 0, %.lr.ph.preheader.i.us.i103 ], [ %152, %.lr.ph.i.us.i106 ]
+  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %indvars.iv.i.us.i107
   %133 = load i64, ptr %132, align 8, !tbaa !39
   %134 = lshr i64 %133, 1
   %135 = and i64 %134, 6148914691236517205
@@ -3569,26 +3564,26 @@ Mop_ManMergeContainAll.exit98:                    ; preds = %.critedge2.loopexit
   %149 = add nuw nsw i64 %148, %147
   %150 = trunc i64 %149 to i32
   %151 = and i32 %150, 255
-  %152 = add nuw nsw i32 %151, %.08.i.us.i114
-  %indvars.iv.next.i.us.i115 = add nuw nsw i64 %indvars.iv.i.us.i113, 1
-  %exitcond.not.i.us.i116 = icmp eq i64 %indvars.iv.next.i.us.i115, %wide.trip.count.i.i106
-  br i1 %exitcond.not.i.us.i116, label %Mop_ManCountOnes.exit.loopexit.us.i117, label %.lr.ph.i.us.i112, !llvm.loop !49
+  %152 = add nuw nsw i32 %151, %.08.i.us.i108
+  %indvars.iv.next.i.us.i109 = add nuw nsw i64 %indvars.iv.i.us.i107, 1
+  %exitcond.not.i.us.i110 = icmp eq i64 %indvars.iv.next.i.us.i109, %wide.trip.count.i.i100
+  br i1 %exitcond.not.i.us.i110, label %Mop_ManCountOnes.exit.loopexit.us.i111, label %.lr.ph.i.us.i106, !llvm.loop !49
 
-Mop_ManCountOnes.exit.loopexit.us.i117:           ; preds = %.lr.ph.i.us.i112
-  %153 = add nuw nsw i32 %152, %.014.us.i111
-  %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i110, 1
-  %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count.i108
-  br i1 %exitcond.not.i119, label %Mop_ManCountOutputLits.exit120, label %.lr.ph.preheader.i.us.i109, !llvm.loop !90
+Mop_ManCountOnes.exit.loopexit.us.i111:           ; preds = %.lr.ph.i.us.i106
+  %153 = add nuw nsw i32 %152, %.014.us.i105
+  %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i104, 1
+  %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i102
+  br i1 %exitcond.not.i113, label %Mop_ManCountOutputLits.exit114, label %.lr.ph.preheader.i.us.i103, !llvm.loop !90
 
-Mop_ManCountOutputLits.exit120:                   ; preds = %Mop_ManCountOnes.exit.loopexit.us.i117, %Mop_ManMergeContainAll.exit98, %.lr.ph.i101
-  %.0.lcssa.i100 = phi i32 [ 0, %Mop_ManMergeContainAll.exit98 ], [ 0, %.lr.ph.i101 ], [ %153, %Mop_ManCountOnes.exit.loopexit.us.i117 ]
+Mop_ManCountOutputLits.exit114:                   ; preds = %Mop_ManCountOnes.exit.loopexit.us.i111, %Mop_ManMergeContainAll.exit92, %.lr.ph.i95
+  %.0.lcssa.i94 = phi i32 [ 0, %Mop_ManMergeContainAll.exit92 ], [ 0, %.lr.ph.i95 ], [ %153, %Mop_ManCountOnes.exit.loopexit.us.i111 ]
   %154 = load i32, ptr %14, align 8, !tbaa !91
   %155 = icmp sgt i32 %154, 0
   %156 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre.i.i = load ptr, ptr %156, align 8, !tbaa !79
   br i1 %155, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 
-.lr.ph.i.i.preheader:                             ; preds = %Mop_ManCountOutputLits.exit120
+.lr.ph.i.i.preheader:                             ; preds = %Mop_ManCountOutputLits.exit114
   %157 = zext nneg i32 %154 to i64
   br label %.lr.ph.i.i
 
@@ -3606,10 +3601,10 @@ Mop_ManCountOutputLits.exit120:                   ; preds = %Mop_ManCountOnes.ex
 
 161:                                              ; preds = %160, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next.i.i, %157
-  br i1 %exitcond184.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !92
+  %exitcond172.not = icmp eq i64 %indvars.iv.next.i.i, %157
+  br i1 %exitcond172.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !92
 
-._crit_edge.i.i:                                  ; preds = %Mop_ManCountOutputLits.exit120
+._crit_edge.i.i:                                  ; preds = %Mop_ManCountOutputLits.exit114
   %.not.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i, label %Vec_WecFree.exit, label %._crit_edge.thread.i.i
 
@@ -3633,11 +3628,11 @@ Vec_IntFree.exit:                                 ; preds = %Vec_WecFree.exit, %
   %165 = load ptr, ptr %10, align 8, !tbaa !26
   %166 = getelementptr i8, ptr %165, i64 4
   %.val = load i32, ptr %166, align 4, !tbaa !21
-  %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.val32, i32 noundef %.val, i32 noundef %.0.lcssa.i33126129137144, i32 noundef %.019.i130136145, i32 noundef %.0.lcssa.i44138143, i32 noundef %.019.i66146, i32 noundef %.0.lcssa.i78, i32 noundef %.0.lcssa.i, i32 noundef %.0.lcssa.i100)
+  %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.val32, i32 noundef %.val, i32 noundef %.0.lcssa.i33118121127134, i32 noundef %.019.i122126135, i32 noundef %.0.lcssa.i44128133, i32 noundef %.019.i63136, i32 noundef %.0.lcssa.i75, i32 noundef %.0.lcssa.i, i32 noundef %.0.lcssa.i94)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #24
   %168 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #24
   %169 = icmp slt i32 %168, 0
-  br i1 %169, label %Abc_Clock.exit122, label %170
+  br i1 %169, label %Abc_Clock.exit116, label %170
 
 170:                                              ; preds = %Vec_IntFree.exit
   %171 = load i64, ptr %2, align 8, !tbaa !87
@@ -3646,12 +3641,12 @@ Vec_IntFree.exit:                                 ; preds = %Vec_WecFree.exit, %
   %174 = load i64, ptr %173, align 8, !tbaa !89
   %175 = sdiv i64 %174, 1000
   %176 = add nsw i64 %175, %172
-  br label %Abc_Clock.exit122
+  br label %Abc_Clock.exit116
 
-Abc_Clock.exit122:                                ; preds = %Vec_IntFree.exit, %170
-  %.0.i121 = phi i64 [ %176, %170 ], [ -1, %Vec_IntFree.exit ]
+Abc_Clock.exit116:                                ; preds = %Vec_IntFree.exit, %170
+  %.0.i115 = phi i64 [ %176, %170 ], [ -1, %Vec_IntFree.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
-  %177 = add i64 %.0.i121, %.0.i.neg
+  %177 = add i64 %.0.i115, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.14)
   %178 = sitofp i64 %177 to double
   %179 = fdiv double %178, 1.000000e+06

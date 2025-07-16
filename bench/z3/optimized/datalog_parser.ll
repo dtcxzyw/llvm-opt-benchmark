@@ -19110,17 +19110,13 @@ _ZN6vectorImLb0EjE5resetEv.exit.us:               ; preds = %123, %121
 127:                                              ; preds = %126
   %128 = load ptr, ptr %9, align 8, !tbaa !553
   %129 = icmp eq ptr %128, null
-  br i1 %129, label %_ZNK6vectorImLb0EjE4sizeEv.exit.us, label %130
+  br i1 %129, label %.split.us, label %_ZNK6vectorImLb0EjE4sizeEv.exit.us
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %128, i64 -4
-  %132 = load i32, ptr %131, align 4, !tbaa !324
-  br label %_ZNK6vectorImLb0EjE4sizeEv.exit.us
-
-_ZNK6vectorImLb0EjE4sizeEv.exit.us:               ; preds = %130, %127
-  %.0.i49.us = phi i32 [ %132, %130 ], [ 0, %127 ]
-  %.not40.us = icmp eq i32 %.0.i49.us, %.fr96
-  br i1 %.not40.us, label %133, label %.split.us
+_ZNK6vectorImLb0EjE4sizeEv.exit.us:               ; preds = %127
+  %130 = getelementptr inbounds i8, ptr %128, i64 -4
+  %131 = load i32, ptr %130, align 4, !tbaa !324
+  %132 = icmp eq i32 %131, %.fr96
+  br i1 %132, label %133, label %.split.us
 
 133:                                              ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.us
   %134 = load ptr, ptr %10, align 8, !tbaa !553
@@ -19300,7 +19296,7 @@ _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %195
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %_ZNK6vectorImLb0EjE4sizeEv.exit.thread, label %.split.us
 
-.split.us:                                        ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.us, %_ZNK6vectorImLb0EjE4sizeEv.exit
+.split.us:                                        ; preds = %127, %_ZNK6vectorImLb0EjE4sizeEv.exit.us, %_ZNK6vectorImLb0EjE4sizeEv.exit
   %201 = call ptr @__cxa_allocate_exception(i64 40) #28
   %202 = load i32, ptr %35, align 8, !tbaa !547
   %203 = load ptr, ptr %34, align 8, !tbaa !62

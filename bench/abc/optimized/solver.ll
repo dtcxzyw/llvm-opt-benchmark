@@ -5173,9 +5173,9 @@ define void @solver_debug_check_clauses(ptr noundef readonly captures(none) %0) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %11
 
-11:                                               ; preds = %.lr.ph46, %72
-  %12 = phi ptr [ %7, %.lr.ph46 ], [ %73, %72 ]
-  %indvars.iv50 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next51, %72 ]
+11:                                               ; preds = %.lr.ph46, %.critedge56
+  %12 = phi ptr [ %7, %.lr.ph46 ], [ %72, %.critedge56 ]
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next51, %.critedge56 ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val21 = load ptr, ptr %13, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i32, ptr %.val21, i64 %indvars.iv50
@@ -5196,7 +5196,7 @@ clause_fetch.exit:                                ; preds = %11, %16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !30
   %.not47 = icmp eq i32 %23, 0
-  br i1 %.not47, label %vec_uint_find.exit.thread, label %.lr.ph
+  br i1 %.not47, label %vec_uint_find.exit.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %clause_fetch.exit
   %24 = load ptr, ptr %10, align 8, !tbaa !47
@@ -5205,7 +5205,7 @@ clause_fetch.exit:                                ; preds = %11, %16
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %.not.i = icmp eq i32 %27, 0
   %wide.trip.count.i = zext i32 %27 to i64
-  br i1 %.not.i, label %vec_uint_find.exit.thread, label %.lr.ph.split
+  br i1 %.not.i, label %.critedge56, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -5239,14 +5239,10 @@ vec_uint_find.exit:                               ; preds = %33
 
 vec_uint_find.exit.thread.loopexit:               ; preds = %32
   %38 = trunc nuw i64 %indvars.iv to i32
-  br label %vec_uint_find.exit.thread
+  %39 = icmp eq i32 %23, %38
+  br i1 %39, label %vec_uint_find.exit.thread.thread, label %.critedge56
 
-vec_uint_find.exit.thread:                        ; preds = %clause_fetch.exit, %.lr.ph, %vec_uint_find.exit.thread.loopexit
-  %.01837 = phi i32 [ %38, %vec_uint_find.exit.thread.loopexit ], [ 0, %clause_fetch.exit ], [ 0, %.lr.ph ]
-  %39 = icmp eq i32 %.01837, %23
-  br i1 %39, label %vec_uint_find.exit.thread.thread, label %72
-
-vec_uint_find.exit.thread.thread:                 ; preds = %vec_uint_find.exit, %vec_uint_find.exit.thread
+vec_uint_find.exit.thread.thread:                 ; preds = %vec_uint_find.exit, %clause_fetch.exit, %vec_uint_find.exit.thread.loopexit
   %40 = load ptr, ptr %10, align 8, !tbaa !47
   %41 = load ptr, ptr @stdout, align 8, !tbaa !89
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -5303,20 +5299,20 @@ vec_uint_print.exit:                              ; preds = %48, %vec_uint_find.
 clause_print.exit:                                ; preds = %65, %vec_uint_print.exit
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.pre = load ptr, ptr %3, align 8, !tbaa !44
-  br label %72
+  br label %.critedge56
 
-72:                                               ; preds = %clause_print.exit, %vec_uint_find.exit.thread
-  %73 = phi ptr [ %.pre, %clause_print.exit ], [ %12, %vec_uint_find.exit.thread ]
+.critedge56:                                      ; preds = %.lr.ph, %clause_print.exit, %vec_uint_find.exit.thread.loopexit
+  %72 = phi ptr [ %.pre, %clause_print.exit ], [ %12, %vec_uint_find.exit.thread.loopexit ], [ %12, %.lr.ph ]
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %74 = getelementptr i8, ptr %73, i64 4
-  %.val = load i32, ptr %74, align 4, !tbaa !3
-  %75 = zext i32 %.val to i64
-  %76 = icmp samesign ult i64 %indvars.iv.next51, %75
-  br i1 %76, label %11, label %.critedge, !llvm.loop !185
+  %73 = getelementptr i8, ptr %72, i64 4
+  %.val = load i32, ptr %73, align 4, !tbaa !3
+  %74 = zext i32 %.val to i64
+  %75 = icmp samesign ult i64 %indvars.iv.next51, %74
+  br i1 %75, label %11, label %.critedge, !llvm.loop !185
 
-.critedge:                                        ; preds = %72, %1
-  %77 = load ptr, ptr @stdout, align 8, !tbaa !89
-  %78 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 22, i64 1, ptr %77)
+.critedge:                                        ; preds = %.critedge56, %1
+  %76 = load ptr, ptr @stdout, align 8, !tbaa !89
+  %77 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 22, i64 1, ptr %76)
   ret void
 }
 
@@ -5364,7 +5360,7 @@ clause_fetch.exit:                                ; preds = %.lr.ph40.split, %17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !30
   %.not46 = icmp eq i32 %24, 0
-  br i1 %.not46, label %vec_uint_find.exit, label %.lr.ph
+  br i1 %.not46, label %vec_uint_find.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %clause_fetch.exit
   %25 = load ptr, ptr %11, align 8, !tbaa !47
@@ -5397,19 +5393,18 @@ clause_fetch.exit:                                ; preds = %.lr.ph40.split, %17
   %36 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4, !tbaa !35
   %38 = icmp eq i32 %37, %33
-  br i1 %38, label %vec_uint_find.exit, label %34
+  br i1 %38, label %vec_uint_find.exit.loopexit, label %34
 
 .loopexit:                                        ; preds = %34
   %39 = add nuw i32 %.01935, 1
   %exitcond.not = icmp eq i32 %39, %24
   br i1 %exitcond.not, label %vec_uint_find.exit.thread, label %.lr.ph.i, !llvm.loop !186
 
-vec_uint_find.exit:                               ; preds = %35, %clause_fetch.exit
-  %.01934 = phi i32 [ 0, %clause_fetch.exit ], [ %.01935, %35 ]
-  %40 = icmp eq i32 %.01934, %24
+vec_uint_find.exit.loopexit:                      ; preds = %35
+  %40 = icmp eq i32 %.01935, %24
   br i1 %40, label %vec_uint_find.exit.thread, label %54
 
-vec_uint_find.exit.thread:                        ; preds = %.loopexit, %.lr.ph, %vec_uint_find.exit
+vec_uint_find.exit.thread:                        ; preds = %.loopexit, %clause_fetch.exit, %.lr.ph, %vec_uint_find.exit.loopexit
   %41 = load ptr, ptr @stdout, align 8, !tbaa !89
   %42 = trunc nuw i64 %indvars.iv to i32
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.8, i32 noundef %42) #19
@@ -5438,8 +5433,8 @@ clause_print.exit:                                ; preds = %47, %vec_uint_find.
   %.pre = load ptr, ptr %4, align 8, !tbaa !44
   br label %54
 
-54:                                               ; preds = %clause_print.exit, %vec_uint_find.exit
-  %55 = phi ptr [ %.pre, %clause_print.exit ], [ %13, %vec_uint_find.exit ]
+54:                                               ; preds = %clause_print.exit, %vec_uint_find.exit.loopexit
+  %55 = phi ptr [ %.pre, %clause_print.exit ], [ %13, %vec_uint_find.exit.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = getelementptr i8, ptr %55, i64 4
   %.val = load i32, ptr %56, align 4, !tbaa !3

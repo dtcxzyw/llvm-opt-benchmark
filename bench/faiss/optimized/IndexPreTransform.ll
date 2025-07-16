@@ -1342,8 +1342,8 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   resume { ptr, i32 } %common.resume.op
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit: ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i
-  %.not52 = icmp eq ptr %2, %68
   %79 = icmp eq ptr %71, %70
+  %.not52 = icmp eq ptr %2, %68
   br i1 %79, label %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge, label %80
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit._crit_edge: ; preds = %60, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit

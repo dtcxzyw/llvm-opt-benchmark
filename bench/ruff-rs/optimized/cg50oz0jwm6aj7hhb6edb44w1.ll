@@ -110610,7 +110610,7 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules7airflow5rules1
 ..thread_crit_edge:                               ; preds = %4
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre13 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre12 = load i64, ptr %.phi.trans.insert, align 8
   br label %.thread
 
 6:                                                ; preds = %2
@@ -110641,7 +110641,7 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules7airflow5rules1
   br i1 %.not8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread", label %57
 
 .thread:                                          ; preds = %..thread_crit_edge, %6, %11, %17
-  %24 = phi i64 [ %.pre13, %..thread_crit_edge ], [ %9, %6 ], [ %9, %11 ], [ %9, %17 ]
+  %24 = phi i64 [ %.pre12, %..thread_crit_edge ], [ %9, %6 ], [ %9, %11 ], [ %9, %17 ]
   %25 = phi ptr [ %.pre, %..thread_crit_edge ], [ %7, %6 ], [ %7, %11 ], [ %7, %17 ]
   %26 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %24, ptr noalias noundef nonnull readonly align 1 @anon.8ad231a129453d088979dfad2582f60a.307, i64 noundef 7)
   br i1 %26, label %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread"
@@ -110685,12 +110685,12 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules7airflow5rules1
   %47 = icmp samesign ult i64 %.sroa.02.012.i, %38
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw i64 %.sroa.02.012.i, 1
-  %.not = icmp ne i64 %34, 0
-  %49 = icmp ult i64 %48, %34
-  %or.cond10 = select i1 %.not, i1 %49, i1 false
-  br i1 %or.cond10, label %50, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread"
+  %49 = icmp uge i64 %48, %34
+  %.not = icmp eq i64 %34, 0
+  %brmerge = select i1 %.not, i1 true, i1 %49
+  br i1 %brmerge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread", label %50
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread": ; preds = %43, %33, %50, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit", %23, %4, %.thread, %27, %57
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread": ; preds = %43, %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit", %50, %23, %4, %.thread, %27, %57
   %.sroa.0.0 = phi i1 [ %63, %57 ], [ false, %27 ], [ false, %.thread ], [ false, %4 ], [ false, %23 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit" ], [ %56, %50 ], [ false, %33 ], [ false, %43 ]
   ret i1 %.sroa.0.0
 

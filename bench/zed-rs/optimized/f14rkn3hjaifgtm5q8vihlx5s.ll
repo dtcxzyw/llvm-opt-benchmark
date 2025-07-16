@@ -89982,7 +89982,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17h018c02488ec9a6b1E"(
   %45 = load ptr, ptr %0, align 8, !alias.scope !23706, !nonnull !9, !noundef !9
   %46 = atomicrmw sub ptr %45, i64 1 release, align 8, !noalias !23706
   %47 = icmp eq i64 %46, 1
-  br i1 %47, label %49, label %.thread44
+  br i1 %47, label %49, label %.thread43
 
 48:                                               ; preds = %38
   tail call void @llvm.trap()
@@ -89991,14 +89991,14 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17h018c02488ec9a6b1E"(
 49:                                               ; preds = %42
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h38c723132f9f797bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-          to label %.thread44 unwind label %50
+          to label %.thread43 unwind label %50
 
 50:                                               ; preds = %49
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h7292503d10f3ce9cE.exit30.sink.split"
 
-.thread44:                                        ; preds = %49, %42
+.thread43:                                        ; preds = %49, %42
   store ptr %44, ptr %0, align 8
   br label %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h7292503d10f3ce9cE.exit28"
 
@@ -90021,7 +90021,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17h018c02488ec9a6b1E"(
   %63 = icmp slt i64 %62, 0
   br i1 %63, label %70, label %68
 
-"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h7292503d10f3ce9cE.exit28": ; preds = %.thread44, %.thread41, %67, %.critedge, %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h7292503d10f3ce9cE.exit"
+"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h7292503d10f3ce9cE.exit28": ; preds = %.thread43, %.thread41, %67, %.critedge, %"_ZN4core3ptr60drop_in_place$LT$sum_tree..SumTree$LT$text..Fragment$GT$$GT$17h7292503d10f3ce9cE.exit"
   ret void
 
 .critedge.loopexit:                               ; preds = %58
@@ -90169,7 +90169,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17ha699cf40c32bc551E"(
   %45 = load ptr, ptr %0, align 8, !alias.scope !23743, !nonnull !9, !noundef !9
   %46 = atomicrmw sub ptr %45, i64 1 release, align 8, !noalias !23743
   %47 = icmp eq i64 %46, 1
-  br i1 %47, label %49, label %.thread44
+  br i1 %47, label %49, label %.thread43
 
 48:                                               ; preds = %38
   tail call void @llvm.trap()
@@ -90178,14 +90178,14 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17ha699cf40c32bc551E"(
 49:                                               ; preds = %42
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8a9a33feff2fd32bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-          to label %.thread44 unwind label %50
+          to label %.thread43 unwind label %50
 
 50:                                               ; preds = %49
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h17ce5e4d5c7bf97bE.exit30.sink.split"
 
-.thread44:                                        ; preds = %49, %42
+.thread43:                                        ; preds = %49, %42
   store ptr %44, ptr %0, align 8
   br label %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h17ce5e4d5c7bf97bE.exit28"
 
@@ -90208,7 +90208,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17ha699cf40c32bc551E"(
   %63 = icmp slt i64 %62, 0
   br i1 %63, label %70, label %68
 
-"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h17ce5e4d5c7bf97bE.exit28": ; preds = %.thread44, %.thread41, %67, %.critedge, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h17ce5e4d5c7bf97bE.exit"
+"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h17ce5e4d5c7bf97bE.exit28": ; preds = %.thread43, %.thread41, %67, %.critedge, %"_ZN4core3ptr69drop_in_place$LT$sum_tree..SumTree$LT$text..InsertionFragment$GT$$GT$17h17ce5e4d5c7bf97bE.exit"
   ret void
 
 .critedge.loopexit:                               ; preds = %58
@@ -90356,7 +90356,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hd3202b0478d15695E"(
   %45 = load ptr, ptr %0, align 8, !alias.scope !23780, !nonnull !9, !noundef !9
   %46 = atomicrmw sub ptr %45, i64 1 release, align 8, !noalias !23780
   %47 = icmp eq i64 %46, 1
-  br i1 %47, label %49, label %.thread44
+  br i1 %47, label %49, label %.thread43
 
 48:                                               ; preds = %38
   tail call void @llvm.trap()
@@ -90365,14 +90365,14 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hd3202b0478d15695E"(
 49:                                               ; preds = %42
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbb5d4ed39e835fbfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-          to label %.thread44 unwind label %50
+          to label %.thread43 unwind label %50
 
 50:                                               ; preds = %49
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h316b5e4164dcb74aE.exit30.sink.split"
 
-.thread44:                                        ; preds = %49, %42
+.thread43:                                        ; preds = %49, %42
   store ptr %44, ptr %0, align 8
   br label %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h316b5e4164dcb74aE.exit28"
 
@@ -90395,7 +90395,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hd3202b0478d15695E"(
   %63 = icmp slt i64 %62, 0
   br i1 %63, label %70, label %68
 
-"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h316b5e4164dcb74aE.exit28": ; preds = %.thread44, %.thread41, %67, %.critedge, %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h316b5e4164dcb74aE.exit"
+"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h316b5e4164dcb74aE.exit28": ; preds = %.thread43, %.thread41, %67, %.critedge, %"_ZN4core3ptr117drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$language..buffer..Operation$GT$$GT$$GT$17h316b5e4164dcb74aE.exit"
   ret void
 
 .critedge.loopexit:                               ; preds = %58
@@ -90543,7 +90543,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hddcc45d84ba39646E"(
   %45 = load ptr, ptr %0, align 8, !alias.scope !23817, !nonnull !9, !noundef !9
   %46 = atomicrmw sub ptr %45, i64 1 release, align 8, !noalias !23817
   %47 = icmp eq i64 %46, 1
-  br i1 %47, label %49, label %.thread44
+  br i1 %47, label %49, label %.thread43
 
 48:                                               ; preds = %38
   tail call void @llvm.trap()
@@ -90552,14 +90552,14 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hddcc45d84ba39646E"(
 49:                                               ; preds = %42
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h64ef374784e35f10E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-          to label %.thread44 unwind label %50
+          to label %.thread43 unwind label %50
 
 50:                                               ; preds = %49
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17he3eac26fa19ec28fE.exit30.sink.split"
 
-.thread44:                                        ; preds = %49, %42
+.thread43:                                        ; preds = %49, %42
   store ptr %44, ptr %0, align 8
   br label %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17he3eac26fa19ec28fE.exit28"
 
@@ -90582,7 +90582,7 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17hddcc45d84ba39646E"(
   %63 = icmp slt i64 %62, 0
   br i1 %63, label %70, label %68
 
-"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17he3eac26fa19ec28fE.exit28": ; preds = %.thread44, %.thread41, %67, %.critedge, %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17he3eac26fa19ec28fE.exit"
+"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17he3eac26fa19ec28fE.exit28": ; preds = %.thread43, %.thread41, %67, %.critedge, %"_ZN4core3ptr105drop_in_place$LT$sum_tree..SumTree$LT$text..operation_queue..OperationItem$LT$text..Operation$GT$$GT$$GT$17he3eac26fa19ec28fE.exit"
   ret void
 
 .critedge.loopexit:                               ; preds = %58

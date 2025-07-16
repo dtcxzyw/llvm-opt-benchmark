@@ -26493,21 +26493,25 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
   %narrow40.i = add nuw nsw i8 %55, 32
   %.in41.i = select i1 %or.cond43.i, i8 %narrow40.i, i8 %55
   %.not.i = icmp eq i8 %spec.select, %.in41.i
-  br i1 %.not.i, label %57, label %mz_zip_reader_filename_less.exit
+  br i1 %.not.i, label %57, label %mz_zip_reader_filename_less.exit.loopexit
 
 57:                                               ; preds = %.lr.ph
   %58 = getelementptr inbounds nuw i8, ptr %.036.i5, i64 1
   %59 = getelementptr inbounds nuw i8, ptr %.037.i4, i64 1
   %60 = icmp ult ptr %58, %.ptr56
-  br i1 %60, label %.lr.ph, label %mz_zip_reader_filename_less.exit
+  br i1 %60, label %.lr.ph, label %mz_zip_reader_filename_less.exit.loopexit
 
-mz_zip_reader_filename_less.exit:                 ; preds = %.lr.ph, %57, %17
-  %.036.i.lcssa = phi ptr [ %.ptr, %17 ], [ %.036.i5, %.lr.ph ], [ %58, %57 ]
-  %.135.i = phi i8 [ 0, %17 ], [ %spec.select, %57 ], [ %spec.select, %.lr.ph ]
-  %.1.i = phi i8 [ 0, %17 ], [ %.in41.i, %.lr.ph ], [ %spec.select, %57 ]
-  %61 = icmp eq ptr %.036.i.lcssa, %.ptr56
-  %62 = icmp ult i8 %.135.i, %.1.i
-  %.in42.i = select i1 %61, i1 %48, i1 %62
+mz_zip_reader_filename_less.exit.loopexit:        ; preds = %57, %.lr.ph
+  %.in41.i.lcssa = phi i8 [ %spec.select, %57 ], [ %.in41.i, %.lr.ph ]
+  %.036.i.lcssa.ph = phi ptr [ %58, %57 ], [ %.036.i5, %.lr.ph ]
+  %61 = icmp ult i8 %spec.select, %.in41.i.lcssa
+  br label %mz_zip_reader_filename_less.exit
+
+mz_zip_reader_filename_less.exit:                 ; preds = %mz_zip_reader_filename_less.exit.loopexit, %17
+  %.036.i.lcssa = phi ptr [ %.ptr, %17 ], [ %.036.i.lcssa.ph, %mz_zip_reader_filename_less.exit.loopexit ]
+  %.135.i = phi i1 [ false, %17 ], [ %61, %mz_zip_reader_filename_less.exit.loopexit ]
+  %62 = icmp eq ptr %.036.i.lcssa, %.ptr56
+  %.in42.i = select i1 %62, i1 %48, i1 %.135.i
   %63 = zext i1 %.in42.i to i64
   br label %64
 
@@ -26571,21 +26575,25 @@ mz_zip_reader_filename_less.exit:                 ; preds = %.lr.ph, %57, %17
   %narrow40.i102 = add nuw nsw i8 %104, 32
   %.in41.i100 = select i1 %or.cond43.i99, i8 %narrow40.i102, i8 %104
   %.not.i101 = icmp eq i8 %spec.select1, %.in41.i100
-  br i1 %.not.i101, label %106, label %mz_zip_reader_filename_less.exit104
+  br i1 %.not.i101, label %106, label %mz_zip_reader_filename_less.exit104.loopexit
 
 106:                                              ; preds = %.lr.ph14
   %107 = getelementptr inbounds nuw i8, ptr %.036.i9113, i64 1
   %108 = getelementptr inbounds nuw i8, ptr %.037.i9012, i64 1
   %109 = icmp ult ptr %107, %.ptr59
-  br i1 %109, label %.lr.ph14, label %mz_zip_reader_filename_less.exit104
+  br i1 %109, label %.lr.ph14, label %mz_zip_reader_filename_less.exit104.loopexit
 
-mz_zip_reader_filename_less.exit104:              ; preds = %.lr.ph14, %106, %64
-  %.036.i91.lcssa = phi ptr [ %.ptr58, %64 ], [ %.036.i9113, %.lr.ph14 ], [ %107, %106 ]
-  %.135.i94 = phi i8 [ 0, %64 ], [ %spec.select1, %106 ], [ %spec.select1, %.lr.ph14 ]
-  %.1.i95 = phi i8 [ 0, %64 ], [ %.in41.i100, %.lr.ph14 ], [ %spec.select1, %106 ]
-  %110 = icmp eq ptr %.036.i91.lcssa, %.ptr59
-  %111 = icmp uge i8 %.135.i94, %.1.i95
-  %.in42.i96 = select i1 %110, i1 %97, i1 %111
+mz_zip_reader_filename_less.exit104.loopexit:     ; preds = %106, %.lr.ph14
+  %.in41.i100.lcssa = phi i8 [ %spec.select1, %106 ], [ %.in41.i100, %.lr.ph14 ]
+  %.036.i91.lcssa.ph = phi ptr [ %107, %106 ], [ %.036.i9113, %.lr.ph14 ]
+  %110 = icmp uge i8 %spec.select1, %.in41.i100.lcssa
+  br label %mz_zip_reader_filename_less.exit104
+
+mz_zip_reader_filename_less.exit104:              ; preds = %mz_zip_reader_filename_less.exit104.loopexit, %64
+  %.036.i91.lcssa = phi ptr [ %.ptr58, %64 ], [ %.036.i91.lcssa.ph, %mz_zip_reader_filename_less.exit104.loopexit ]
+  %.135.i94 = phi i1 [ true, %64 ], [ %110, %mz_zip_reader_filename_less.exit104.loopexit ]
+  %111 = icmp eq ptr %.036.i91.lcssa, %.ptr59
+  %.in42.i96 = select i1 %111, i1 %97, i1 %.135.i94
   br i1 %.in42.i96, label %mz_zip_reader_filename_less.exit104._crit_edge, label %112
 
 112:                                              ; preds = %mz_zip_reader_filename_less.exit104
@@ -26692,21 +26700,25 @@ mz_zip_reader_filename_less.exit104._crit_edge:   ; preds = %112, %mz_zip_reader
   %narrow40.i117 = add nuw nsw i8 %162, 32
   %.in41.i115 = select i1 %or.cond43.i114, i8 %narrow40.i117, i8 %162
   %.not.i116 = icmp eq i8 %spec.select2, %.in41.i115
-  br i1 %.not.i116, label %164, label %mz_zip_reader_filename_less.exit119
+  br i1 %.not.i116, label %164, label %mz_zip_reader_filename_less.exit119.loopexit
 
 164:                                              ; preds = %.lr.ph28
   %165 = getelementptr inbounds nuw i8, ptr %.036.i10626, i64 1
   %166 = getelementptr inbounds nuw i8, ptr %.037.i10525, i64 1
   %167 = icmp ult ptr %165, %.ptr62
-  br i1 %167, label %.lr.ph28, label %mz_zip_reader_filename_less.exit119
+  br i1 %167, label %.lr.ph28, label %mz_zip_reader_filename_less.exit119.loopexit
 
-mz_zip_reader_filename_less.exit119:              ; preds = %.lr.ph28, %164, %124
-  %.036.i106.lcssa = phi ptr [ %.ptr61, %124 ], [ %.036.i10626, %.lr.ph28 ], [ %165, %164 ]
-  %.135.i109 = phi i8 [ 0, %124 ], [ %spec.select2, %164 ], [ %spec.select2, %.lr.ph28 ]
-  %.1.i110 = phi i8 [ 0, %124 ], [ %.in41.i115, %.lr.ph28 ], [ %spec.select2, %164 ]
-  %168 = icmp eq ptr %.036.i106.lcssa, %.ptr62
-  %169 = icmp ult i8 %.135.i109, %.1.i110
-  %.in42.i111 = select i1 %168, i1 %155, i1 %169
+mz_zip_reader_filename_less.exit119.loopexit:     ; preds = %164, %.lr.ph28
+  %.in41.i115.lcssa = phi i8 [ %spec.select2, %164 ], [ %.in41.i115, %.lr.ph28 ]
+  %.036.i106.lcssa.ph = phi ptr [ %165, %164 ], [ %.036.i10626, %.lr.ph28 ]
+  %168 = icmp ult i8 %spec.select2, %.in41.i115.lcssa
+  br label %mz_zip_reader_filename_less.exit119
+
+mz_zip_reader_filename_less.exit119:              ; preds = %mz_zip_reader_filename_less.exit119.loopexit, %124
+  %.036.i106.lcssa = phi ptr [ %.ptr61, %124 ], [ %.036.i106.lcssa.ph, %mz_zip_reader_filename_less.exit119.loopexit ]
+  %.135.i109 = phi i1 [ false, %124 ], [ %168, %mz_zip_reader_filename_less.exit119.loopexit ]
+  %169 = icmp eq ptr %.036.i106.lcssa, %.ptr62
+  %.in42.i111 = select i1 %169, i1 %155, i1 %.135.i109
   %170 = zext i1 %.in42.i111 to i64
   br label %171
 
@@ -26768,21 +26780,25 @@ mz_zip_reader_filename_less.exit119:              ; preds = %.lr.ph28, %164, %12
   %narrow40.i132 = add nuw nsw i8 %209, 32
   %.in41.i130 = select i1 %or.cond43.i129, i8 %narrow40.i132, i8 %209
   %.not.i131 = icmp eq i8 %spec.select3, %.in41.i130
-  br i1 %.not.i131, label %211, label %mz_zip_reader_filename_less.exit134
+  br i1 %.not.i131, label %211, label %mz_zip_reader_filename_less.exit134.loopexit
 
 211:                                              ; preds = %.lr.ph39
   %212 = getelementptr inbounds nuw i8, ptr %.036.i12137, i64 1
   %213 = getelementptr inbounds nuw i8, ptr %.037.i12036, i64 1
   %214 = icmp ult ptr %212, %.ptr65
-  br i1 %214, label %.lr.ph39, label %mz_zip_reader_filename_less.exit134
+  br i1 %214, label %.lr.ph39, label %mz_zip_reader_filename_less.exit134.loopexit
 
-mz_zip_reader_filename_less.exit134:              ; preds = %.lr.ph39, %211, %171
-  %.036.i121.lcssa = phi ptr [ %.ptr64, %171 ], [ %.036.i12137, %.lr.ph39 ], [ %212, %211 ]
-  %.135.i124 = phi i8 [ 0, %171 ], [ %spec.select3, %211 ], [ %spec.select3, %.lr.ph39 ]
-  %.1.i125 = phi i8 [ 0, %171 ], [ %.in41.i130, %.lr.ph39 ], [ %spec.select3, %211 ]
-  %215 = icmp eq ptr %.036.i121.lcssa, %.ptr65
-  %216 = icmp uge i8 %.135.i124, %.1.i125
-  %.in42.i126 = select i1 %215, i1 %202, i1 %216
+mz_zip_reader_filename_less.exit134.loopexit:     ; preds = %211, %.lr.ph39
+  %.in41.i130.lcssa = phi i8 [ %spec.select3, %211 ], [ %.in41.i130, %.lr.ph39 ]
+  %.036.i121.lcssa.ph = phi ptr [ %212, %211 ], [ %.036.i12137, %.lr.ph39 ]
+  %215 = icmp uge i8 %spec.select3, %.in41.i130.lcssa
+  br label %mz_zip_reader_filename_less.exit134
+
+mz_zip_reader_filename_less.exit134:              ; preds = %mz_zip_reader_filename_less.exit134.loopexit, %171
+  %.036.i121.lcssa = phi ptr [ %.ptr64, %171 ], [ %.036.i121.lcssa.ph, %mz_zip_reader_filename_less.exit134.loopexit ]
+  %.135.i124 = phi i1 [ true, %171 ], [ %215, %mz_zip_reader_filename_less.exit134.loopexit ]
+  %216 = icmp eq ptr %.036.i121.lcssa, %.ptr65
+  %.in42.i126 = select i1 %216, i1 %202, i1 %.135.i124
   br i1 %.in42.i126, label %mz_zip_reader_filename_less.exit134._crit_edge, label %217
 
 217:                                              ; preds = %mz_zip_reader_filename_less.exit134

@@ -663,30 +663,30 @@ define internal i64 @ossl_cipher_update(i32 noundef %0, ptr noundef readonly cap
   %8 = load i64, ptr %1, align 8, !tbaa !6
   store i64 %8, ptr %5, align 8, !tbaa !6
   %.not34 = icmp eq i32 %0, 1
-  br i1 %.not34, label %13, label %9
+  br i1 %.not34, label %14, label %9
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   store i64 %11, ptr %6, align 8, !tbaa !6
   %12 = icmp eq i64 %11, 4
-  br label %14
+  %13 = icmp eq i32 %0, 2
+  br label %15
 
-13:                                               ; preds = %.preheader
+14:                                               ; preds = %.preheader
   store i64 4, ptr %6, align 8, !tbaa !6
-  br label %14
+  br label %15
 
-14:                                               ; preds = %9, %13
-  %15 = phi i1 [ %12, %9 ], [ true, %13 ]
-  %.185.i.lcssa = phi i32 [ 2, %9 ], [ 1, %13 ]
-  %16 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %16, label %rb_scan_args_set.exit, label %17
+15:                                               ; preds = %9, %14
+  %16 = phi i1 [ %12, %9 ], [ true, %14 ]
+  %.185.i.lcssa = phi i1 [ %13, %9 ], [ true, %14 ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %17
 
-17:                                               ; preds = %14, %3
+17:                                               ; preds = %15, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #12
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %14
+rb_scan_args_set.exit:                            ; preds = %15
   %18 = load i64, ptr @id_key_set, align 8, !tbaa !6
   %19 = tail call i64 @rb_attr_get(i64 noundef %2, i64 noundef %18) #11
   %20 = and i64 %19, -5
@@ -736,7 +736,7 @@ RSTRING_PTR.exit:                                 ; preds = %23, %30
 
 40:                                               ; preds = %36
   %41 = add nsw i64 %32, 32
-  br i1 %15, label %42, label %44
+  br i1 %16, label %42, label %44
 
 42:                                               ; preds = %40
   %43 = call i64 @rb_str_new(ptr noundef null, i64 noundef %41) #11, !callees !37

@@ -29346,7 +29346,7 @@ define internal fastcc void @dumpConstraint(ptr noundef %0, ptr noundef readonly
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %11 = load i8, ptr %10, align 8, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %417
+  br i1 %12, label %13, label %414
 
 13:                                               ; preds = %2
   %14 = tail call ptr @createPQExpBuffer() #14
@@ -29365,11 +29365,11 @@ define internal fastcc void @dumpConstraint(ptr noundef %0, ptr noundef readonly
   %23 = phi ptr [ @.str.722, %13 ], [ %21, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %25 = load i8, ptr %24, align 8
-  switch i8 %25, label %291 [
+  switch i8 %25, label %288 [
     i8 112, label %26
     i8 117, label %26
     i8 120, label %26
-    i8 102, label %239
+    i8 102, label %236
   ]
 
 26:                                               ; preds = %22, %22, %22
@@ -29418,7 +29418,7 @@ define internal fastcc void @dumpConstraint(ptr noundef %0, ptr noundef readonly
 
 53:                                               ; preds = %40
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.780, ptr noundef nonnull %52) #14
-  br label %167
+  br label %164
 
 54:                                               ; preds = %40
   %55 = load i8, ptr %24, align 8
@@ -29529,504 +29529,499 @@ switch.lookup:                                    ; preds = %88
   %107 = getelementptr inbounds nuw i8, ptr %29, i64 116
   %108 = load i32, ptr %107, align 4
   %109 = icmp slt i32 %106, %108
-  br i1 %109, label %110, label %111
+  br i1 %109, label %110, label %._crit_edge243
 
 110:                                              ; preds = %105
   tail call void @appendPQExpBufferStr(ptr noundef %14, ptr noundef nonnull @.str.1393) #14
   %.pre251 = load i32, ptr %65, align 8
   %.pre252 = load i32, ptr %107, align 4
-  br label %111
+  %111 = icmp slt i32 %.pre251, %.pre252
+  br i1 %111, label %.lr.ph242, label %._crit_edge243
 
-111:                                              ; preds = %110, %105
-  %112 = phi i32 [ %.pre252, %110 ], [ %108, %105 ]
-  %113 = phi i32 [ %.pre251, %110 ], [ %106, %105 ]
-  %114 = icmp slt i32 %113, %112
-  br i1 %114, label %.lr.ph242, label %._crit_edge243
+.lr.ph242:                                        ; preds = %110
+  %112 = getelementptr inbounds nuw i8, ptr %29, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %9, i64 232
+  %114 = getelementptr inbounds nuw i8, ptr %9, i64 240
+  %115 = sext i32 %.pre251 to i64
+  br label %116
 
-.lr.ph242:                                        ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %29, i64 120
-  %116 = getelementptr inbounds nuw i8, ptr %9, i64 232
-  %117 = getelementptr inbounds nuw i8, ptr %9, i64 240
-  %118 = sext i32 %113 to i64
-  br label %119
+116:                                              ; preds = %.lr.ph242, %135
+  %indvars.iv248 = phi i64 [ %115, %.lr.ph242 ], [ %indvars.iv.next249, %135 ]
+  %117 = load ptr, ptr %112, align 8
+  %118 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv248
+  %119 = load i32, ptr %118, align 4
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %._crit_edge243, label %121
 
-119:                                              ; preds = %.lr.ph242, %138
-  %indvars.iv248 = phi i64 [ %118, %.lr.ph242 ], [ %indvars.iv.next249, %138 ]
-  %120 = load ptr, ptr %115, align 8
-  %121 = getelementptr inbounds i32, ptr %120, i64 %indvars.iv248
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp eq i32 %122, 0
-  br i1 %123, label %._crit_edge243, label %124
+121:                                              ; preds = %116
+  %122 = icmp sgt i32 %119, 0
+  br i1 %122, label %123, label %130
 
-124:                                              ; preds = %119
-  %125 = icmp sgt i32 %122, 0
-  br i1 %125, label %126, label %133
+123:                                              ; preds = %121
+  %124 = load i32, ptr %113, align 8
+  %.not.i223 = icmp sgt i32 %119, %124
+  br i1 %.not.i223, label %130, label %125
 
-126:                                              ; preds = %124
-  %127 = load i32, ptr %116, align 8
-  %.not.i223 = icmp sgt i32 %122, %127
-  br i1 %.not.i223, label %133, label %128
+125:                                              ; preds = %123
+  %126 = load ptr, ptr %114, align 8
+  %127 = zext nneg i32 %119 to i64
+  %128 = getelementptr ptr, ptr %126, i64 %127
+  %129 = getelementptr i8, ptr %128, i64 -8
+  br label %135
 
-128:                                              ; preds = %126
-  %129 = load ptr, ptr %117, align 8
-  %130 = zext nneg i32 %122 to i64
-  %131 = getelementptr ptr, ptr %129, i64 %130
-  %132 = getelementptr i8, ptr %131, i64 -8
-  br label %138
+130:                                              ; preds = %123, %121
+  %131 = icmp ugt i32 %119, -7
+  br i1 %131, label %switch.lookup261, label %132
 
-133:                                              ; preds = %126, %124
-  %134 = icmp ugt i32 %122, -7
-  br i1 %134, label %switch.lookup261, label %135
-
-135:                                              ; preds = %133
-  %136 = load ptr, ptr %45, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1322, i32 noundef range(i32 1, 0) %122, ptr noundef %136) #14
+132:                                              ; preds = %130
+  %133 = load ptr, ptr %45, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1322, i32 noundef range(i32 1, 0) %119, ptr noundef %133) #14
   tail call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
-switch.lookup261:                                 ; preds = %133
-  %switch.tableidx262 = add nsw i32 %122, 6
-  %137 = zext i32 %switch.tableidx262 to i64
-  %switch.gep263 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dumpConstraint.14, i64 0, i64 %137
-  br label %138
+switch.lookup261:                                 ; preds = %130
+  %switch.tableidx262 = add nsw i32 %119, 6
+  %134 = zext i32 %switch.tableidx262 to i64
+  %switch.gep263 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dumpConstraint.14, i64 0, i64 %134
+  br label %135
 
-138:                                              ; preds = %switch.lookup261, %128
-  %.0.i222.in = phi ptr [ %132, %128 ], [ %switch.gep263, %switch.lookup261 ]
+135:                                              ; preds = %switch.lookup261, %125
+  %.0.i222.in = phi ptr [ %129, %125 ], [ %switch.gep263, %switch.lookup261 ]
   %.0.i222 = load ptr, ptr %.0.i222.in, align 8
-  %139 = load i32, ptr %65, align 8
-  %140 = trunc nsw i64 %indvars.iv248 to i32
-  %141 = icmp eq i32 %139, %140
-  %142 = select i1 %141, ptr @.str.722, ptr @.str.143
-  %143 = tail call ptr @fmtId(ptr noundef %.0.i222) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1063, ptr noundef nonnull %142, ptr noundef %143) #14
+  %136 = load i32, ptr %65, align 8
+  %137 = trunc nsw i64 %indvars.iv248 to i32
+  %138 = icmp eq i32 %136, %137
+  %139 = select i1 %138, ptr @.str.722, ptr @.str.143
+  %140 = tail call ptr @fmtId(ptr noundef %.0.i222) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1063, ptr noundef nonnull %139, ptr noundef %140) #14
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, 1
-  %144 = load i32, ptr %107, align 4
-  %145 = sext i32 %144 to i64
-  %146 = icmp slt i64 %indvars.iv.next249, %145
-  br i1 %146, label %119, label %._crit_edge243, !llvm.loop !155
+  %141 = load i32, ptr %107, align 4
+  %142 = sext i32 %141 to i64
+  %143 = icmp slt i64 %indvars.iv.next249, %142
+  br i1 %143, label %116, label %._crit_edge243, !llvm.loop !155
 
-._crit_edge243:                                   ; preds = %138, %119, %111
+._crit_edge243:                                   ; preds = %135, %116, %105, %110
   tail call void @appendPQExpBufferChar(ptr noundef %14, i8 noundef signext 41) #14
-  %147 = getelementptr inbounds nuw i8, ptr %29, i64 88
-  %148 = load ptr, ptr %147, align 8
-  %.not.i225 = icmp eq ptr %148, null
+  %144 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  %145 = load ptr, ptr %144, align 8
+  %.not.i225 = icmp eq ptr %145, null
   br i1 %.not.i225, label %nonemptyReloptions.exit.thread, label %nonemptyReloptions.exit
 
 nonemptyReloptions.exit:                          ; preds = %._crit_edge243
-  %149 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %148) #15
-  %150 = icmp ugt i64 %149, 2
-  br i1 %150, label %151, label %nonemptyReloptions.exit.thread
+  %146 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %145) #15
+  %147 = icmp ugt i64 %146, 2
+  br i1 %147, label %148, label %nonemptyReloptions.exit.thread
 
-151:                                              ; preds = %nonemptyReloptions.exit
+148:                                              ; preds = %nonemptyReloptions.exit
   tail call void @appendPQExpBufferStr(ptr noundef %14, ptr noundef nonnull @.str.1226) #14
-  %152 = load ptr, ptr %147, align 8
-  %153 = getelementptr i8, ptr %0, i64 64
-  %.val = load i32, ptr %153, align 8
-  %154 = getelementptr i8, ptr %0, i64 68
-  %.val221 = load i8, ptr %154, align 4, !range !7, !noundef !8
-  %155 = trunc nuw i8 %.val221 to i1
-  %156 = tail call zeroext i1 @appendReloptionsArray(ptr noundef %14, ptr noundef %152, ptr noundef nonnull @.str.722, i32 noundef %.val, i1 noundef zeroext %155) #14
-  br i1 %156, label %appendReloptionsArrayAH.exit, label %157
+  %149 = load ptr, ptr %144, align 8
+  %150 = getelementptr i8, ptr %0, i64 64
+  %.val = load i32, ptr %150, align 8
+  %151 = getelementptr i8, ptr %0, i64 68
+  %.val221 = load i8, ptr %151, align 4, !range !7, !noundef !8
+  %152 = trunc nuw i8 %.val221 to i1
+  %153 = tail call zeroext i1 @appendReloptionsArray(ptr noundef %14, ptr noundef %149, ptr noundef nonnull @.str.722, i32 noundef %.val, i1 noundef zeroext %152) #14
+  br i1 %153, label %appendReloptionsArrayAH.exit, label %154
 
-157:                                              ; preds = %151
+154:                                              ; preds = %148
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.309) #14
   br label %appendReloptionsArrayAH.exit
 
-appendReloptionsArrayAH.exit:                     ; preds = %151, %157
+appendReloptionsArrayAH.exit:                     ; preds = %148, %154
   tail call void @appendPQExpBufferChar(ptr noundef %14, i8 noundef signext 41) #14
   br label %nonemptyReloptions.exit.thread
 
 nonemptyReloptions.exit.thread:                   ; preds = %._crit_edge243, %appendReloptionsArrayAH.exit, %nonemptyReloptions.exit
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %159 = load i8, ptr %158, align 8, !range !7, !noundef !8
-  %160 = trunc nuw i8 %159 to i1
-  br i1 %160, label %161, label %166
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %156 = load i8, ptr %155, align 8, !range !7, !noundef !8
+  %157 = trunc nuw i8 %156 to i1
+  br i1 %157, label %158, label %163
 
-161:                                              ; preds = %nonemptyReloptions.exit.thread
+158:                                              ; preds = %nonemptyReloptions.exit.thread
   tail call void @appendPQExpBufferStr(ptr noundef %14, ptr noundef nonnull @.str.1394) #14
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 105
-  %163 = load i8, ptr %162, align 1, !range !7, !noundef !8
-  %164 = trunc nuw i8 %163 to i1
-  br i1 %164, label %165, label %166
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 105
+  %160 = load i8, ptr %159, align 1, !range !7, !noundef !8
+  %161 = trunc nuw i8 %160 to i1
+  br i1 %161, label %162, label %163
 
-165:                                              ; preds = %161
+162:                                              ; preds = %158
   tail call void @appendPQExpBufferStr(ptr noundef %14, ptr noundef nonnull @.str.1395) #14
-  br label %166
+  br label %163
 
-166:                                              ; preds = %161, %165, %nonemptyReloptions.exit.thread
+163:                                              ; preds = %158, %162, %nonemptyReloptions.exit.thread
   tail call void @appendPQExpBufferStr(ptr noundef %14, ptr noundef nonnull @.str.694) #14
-  br label %167
+  br label %164
 
-167:                                              ; preds = %166, %53
-  %168 = getelementptr inbounds nuw i8, ptr %29, i64 128
-  %169 = load i8, ptr %168, align 8, !range !7, !noundef !8
-  %170 = trunc nuw i8 %169 to i1
-  br i1 %170, label %171, label %180
+164:                                              ; preds = %163, %53
+  %165 = getelementptr inbounds nuw i8, ptr %29, i64 128
+  %166 = load i8, ptr %165, align 8, !range !7, !noundef !8
+  %167 = trunc nuw i8 %166 to i1
+  br i1 %167, label %168, label %177
 
-171:                                              ; preds = %167
-  %172 = load ptr, ptr %41, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load ptr, ptr %173, align 8
-  %175 = load ptr, ptr %45, align 8
-  %176 = tail call ptr @fmtQualifiedId(ptr noundef %174, ptr noundef %175) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1333, ptr noundef %176) #14
-  %177 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %178 = load ptr, ptr %177, align 8
-  %179 = tail call ptr @fmtId(ptr noundef %178) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1334, ptr noundef %179) #14
-  br label %180
+168:                                              ; preds = %164
+  %169 = load ptr, ptr %41, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %171 = load ptr, ptr %170, align 8
+  %172 = load ptr, ptr %45, align 8
+  %173 = tail call ptr @fmtQualifiedId(ptr noundef %171, ptr noundef %172) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1333, ptr noundef %173) #14
+  %174 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %175 = load ptr, ptr %174, align 8
+  %176 = tail call ptr @fmtId(ptr noundef %175) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1334, ptr noundef %176) #14
+  br label %177
 
-180:                                              ; preds = %171, %167
-  %181 = getelementptr inbounds nuw i8, ptr %29, i64 129
-  %182 = load i8, ptr %181, align 1, !range !7, !noundef !8
-  %183 = trunc nuw i8 %182 to i1
-  br i1 %183, label %184, label %193
+177:                                              ; preds = %168, %164
+  %178 = getelementptr inbounds nuw i8, ptr %29, i64 129
+  %179 = load i8, ptr %178, align 1, !range !7, !noundef !8
+  %180 = trunc nuw i8 %179 to i1
+  br i1 %180, label %181, label %190
 
-184:                                              ; preds = %180
-  %185 = load ptr, ptr %41, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %187 = load ptr, ptr %186, align 8
-  %188 = load ptr, ptr %45, align 8
-  %189 = tail call ptr @fmtQualifiedId(ptr noundef %187, ptr noundef %188) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1342, ptr noundef %189) #14
-  %190 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %191 = load ptr, ptr %190, align 8
-  %192 = tail call ptr @fmtId(ptr noundef %191) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1343, ptr noundef %192) #14
-  br label %193
+181:                                              ; preds = %177
+  %182 = load ptr, ptr %41, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  %184 = load ptr, ptr %183, align 8
+  %185 = load ptr, ptr %45, align 8
+  %186 = tail call ptr @fmtQualifiedId(ptr noundef %184, ptr noundef %185) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1342, ptr noundef %186) #14
+  %187 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %188 = load ptr, ptr %187, align 8
+  %189 = tail call ptr @fmtId(ptr noundef %188) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1343, ptr noundef %189) #14
+  br label %190
 
-193:                                              ; preds = %184, %180
-  %194 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %199 = load ptr, ptr %198, align 8
-  %200 = tail call ptr @fmtQualifiedId(ptr noundef %197, ptr noundef %199) #14
-  tail call fastcc void @append_depends_on_extension(ptr noundef nonnull %0, ptr noundef %14, ptr noundef nonnull %29, ptr noundef nonnull @.str.1258, ptr noundef nonnull @.str.1341, ptr noundef %200)
-  %201 = load ptr, ptr %41, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  %203 = load ptr, ptr %202, align 8
-  %204 = load ptr, ptr %45, align 8
-  %205 = tail call ptr @fmtQualifiedId(ptr noundef %203, ptr noundef %204) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1266, ptr noundef nonnull %23, ptr noundef %205) #14
+190:                                              ; preds = %181, %177
+  %191 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %196 = load ptr, ptr %195, align 8
+  %197 = tail call ptr @fmtQualifiedId(ptr noundef %194, ptr noundef %196) #14
+  tail call fastcc void @append_depends_on_extension(ptr noundef nonnull %0, ptr noundef %14, ptr noundef nonnull %29, ptr noundef nonnull @.str.1258, ptr noundef nonnull @.str.1341, ptr noundef %197)
+  %198 = load ptr, ptr %41, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
+  %200 = load ptr, ptr %199, align 8
+  %201 = load ptr, ptr %45, align 8
+  %202 = tail call ptr @fmtQualifiedId(ptr noundef %200, ptr noundef %201) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1266, ptr noundef nonnull %23, ptr noundef %202) #14
+  %203 = load ptr, ptr %48, align 8
+  %204 = tail call ptr @fmtId(ptr noundef %203) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1396, ptr noundef %204) #14
+  %205 = load ptr, ptr %45, align 8
   %206 = load ptr, ptr %48, align 8
-  %207 = tail call ptr @fmtId(ptr noundef %206) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1396, ptr noundef %207) #14
-  %208 = load ptr, ptr %45, align 8
-  %209 = load ptr, ptr %48, align 8
-  %210 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.416, ptr noundef %208, ptr noundef %209) #14
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %212 = load i32, ptr %211, align 8
-  %213 = and i32 %212, 1
-  %.not217 = icmp eq i32 %213, 0
-  br i1 %.not217, label %407, label %214
+  %207 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.416, ptr noundef %205, ptr noundef %206) #14
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %209 = load i32, ptr %208, align 8
+  %210 = and i32 %209, 1
+  %.not217 = icmp eq i32 %210, 0
+  br i1 %.not217, label %404, label %211
 
-214:                                              ; preds = %193
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %217 = load i32, ptr %216, align 4
-  store ptr %210, ptr %3, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %219 = load ptr, ptr %41, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
+211:                                              ; preds = %190
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %214 = load i32, ptr %213, align 4
+  store ptr %207, ptr %3, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %216 = load ptr, ptr %41, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
+  %218 = load ptr, ptr %217, align 8
+  store ptr %218, ptr %215, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %221 = load ptr, ptr %220, align 8
-  store ptr %221, ptr %218, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %223 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %224 = load ptr, ptr %223, align 8
-  store ptr %224, ptr %222, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %226 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %227 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %225, i8 0, i64 16, i1 false)
-  %228 = load ptr, ptr %227, align 8
-  store ptr %228, ptr %226, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @.str.1397, ptr %229, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 4, ptr %230, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store i32 0, ptr %231, align 4
-  %232 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %233 = load ptr, ptr %14, align 8
-  store ptr %233, ptr %232, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %235 = load ptr, ptr %15, align 8
-  store ptr %235, ptr %234, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %236, i8 0, i64 40, i1 false)
-  %237 = load i64, ptr %215, align 4
-  %238 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %237, i32 noundef %217, ptr noundef nonnull %3) #14
-  br label %407
+  store ptr %221, ptr %219, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %224 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, i8 0, i64 16, i1 false)
+  %225 = load ptr, ptr %224, align 8
+  store ptr %225, ptr %223, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr @.str.1397, ptr %226, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i32 4, ptr %227, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  store i32 0, ptr %228, align 4
+  %229 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %230 = load ptr, ptr %14, align 8
+  store ptr %230, ptr %229, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %232 = load ptr, ptr %15, align 8
+  store ptr %232, ptr %231, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %233, i8 0, i64 40, i1 false)
+  %234 = load i64, ptr %212, align 4
+  %235 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %234, i32 noundef %214, ptr noundef nonnull %3) #14
+  br label %404
 
-239:                                              ; preds = %22
-  %240 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %241 = load i8, ptr %240, align 8
-  %242 = icmp eq i8 %241, 112
-  %243 = select i1 %242, ptr @.str.722, ptr @.str.1398
-  %244 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %9, i64 16
+236:                                              ; preds = %22
+  %237 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %238 = load i8, ptr %237, align 8
+  %239 = icmp eq i8 %238, 112
+  %240 = select i1 %239, ptr @.str.722, ptr @.str.1398
+  %241 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %246 = load ptr, ptr %245, align 8
+  %247 = tail call ptr @fmtQualifiedId(ptr noundef %244, ptr noundef %246) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1399, ptr noundef nonnull %23, ptr noundef nonnull %240, ptr noundef %247) #14
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %249 = load ptr, ptr %248, align 8
-  %250 = tail call ptr @fmtQualifiedId(ptr noundef %247, ptr noundef %249) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1399, ptr noundef nonnull %23, ptr noundef nonnull %243, ptr noundef %250) #14
-  %251 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %250 = tail call ptr @fmtId(ptr noundef %249) #14
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %252 = load ptr, ptr %251, align 8
-  %253 = tail call ptr @fmtId(ptr noundef %252) #14
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1400, ptr noundef %250, ptr noundef %252) #14
+  %253 = load ptr, ptr %241, align 8
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load ptr, ptr %254, align 8
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1400, ptr noundef %253, ptr noundef %255) #14
-  %256 = load ptr, ptr %244, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  %258 = load ptr, ptr %257, align 8
-  %259 = load ptr, ptr %248, align 8
-  %260 = tail call ptr @fmtQualifiedId(ptr noundef %258, ptr noundef %259) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1401, ptr noundef nonnull %23, ptr noundef nonnull %243, ptr noundef %260) #14
-  %261 = load ptr, ptr %251, align 8
-  %262 = tail call ptr @fmtId(ptr noundef %261) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1396, ptr noundef %262) #14
-  %263 = load ptr, ptr %248, align 8
-  %264 = load ptr, ptr %251, align 8
-  %265 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.416, ptr noundef %263, ptr noundef %264) #14
-  %266 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %267 = load i32, ptr %266, align 8
-  %268 = and i32 %267, 1
-  %.not213 = icmp eq i32 %268, 0
-  br i1 %.not213, label %407, label %269
+  %256 = load ptr, ptr %245, align 8
+  %257 = tail call ptr @fmtQualifiedId(ptr noundef %255, ptr noundef %256) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1401, ptr noundef nonnull %23, ptr noundef nonnull %240, ptr noundef %257) #14
+  %258 = load ptr, ptr %248, align 8
+  %259 = tail call ptr @fmtId(ptr noundef %258) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1396, ptr noundef %259) #14
+  %260 = load ptr, ptr %245, align 8
+  %261 = load ptr, ptr %248, align 8
+  %262 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.416, ptr noundef %260, ptr noundef %261) #14
+  %263 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %264 = load i32, ptr %263, align 8
+  %265 = and i32 %264, 1
+  %.not213 = icmp eq i32 %265, 0
+  br i1 %.not213, label %404, label %266
 
-269:                                              ; preds = %239
-  %270 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %271 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %272 = load i32, ptr %271, align 4
-  store ptr %265, ptr %4, align 8
-  %273 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %274 = load ptr, ptr %244, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
-  %276 = load ptr, ptr %275, align 8
-  store ptr %276, ptr %273, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %278 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %279 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %277, i8 0, i64 24, i1 false)
-  %280 = load ptr, ptr %279, align 8
-  store ptr %280, ptr %278, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr @.str.1402, ptr %281, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i32 4, ptr %282, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i32 0, ptr %283, align 4
-  %284 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %285 = load ptr, ptr %14, align 8
-  store ptr %285, ptr %284, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %287 = load ptr, ptr %15, align 8
-  store ptr %287, ptr %286, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %288, i8 0, i64 40, i1 false)
-  %289 = load i64, ptr %270, align 4
-  %290 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %289, i32 noundef %272, ptr noundef nonnull %4) #14
-  br label %407
+266:                                              ; preds = %236
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %269 = load i32, ptr %268, align 4
+  store ptr %262, ptr %4, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %271 = load ptr, ptr %241, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
+  %273 = load ptr, ptr %272, align 8
+  store ptr %273, ptr %270, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %276 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %274, i8 0, i64 24, i1 false)
+  %277 = load ptr, ptr %276, align 8
+  store ptr %277, ptr %275, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr @.str.1402, ptr %278, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store i32 4, ptr %279, align 8
+  %280 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  store i32 0, ptr %280, align 4
+  %281 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %282 = load ptr, ptr %14, align 8
+  store ptr %282, ptr %281, align 8
+  %283 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %284 = load ptr, ptr %15, align 8
+  store ptr %284, ptr %283, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %285, i8 0, i64 40, i1 false)
+  %286 = load i64, ptr %267, align 4
+  %287 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %286, i32 noundef %269, ptr noundef nonnull %4) #14
+  br label %404
 
-291:                                              ; preds = %22
-  %292 = icmp eq i8 %25, 99
-  %or.cond = and i1 %16, %292
-  br i1 %or.cond, label %293, label %349
+288:                                              ; preds = %22
+  %289 = icmp eq i8 %25, 99
+  %or.cond = and i1 %16, %289
+  br i1 %or.cond, label %290, label %346
 
-293:                                              ; preds = %291
-  %294 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %295 = load i8, ptr %294, align 4, !range !7, !noundef !8
-  %296 = trunc nuw i8 %295 to i1
-  br i1 %296, label %297, label %407
+290:                                              ; preds = %288
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %292 = load i8, ptr %291, align 4, !range !7, !noundef !8
+  %293 = trunc nuw i8 %292 to i1
+  br i1 %293, label %294, label %404
 
-297:                                              ; preds = %293
-  %298 = getelementptr inbounds nuw i8, ptr %1, i64 107
-  %299 = load i8, ptr %298, align 1, !range !7, !noundef !8
-  %300 = trunc nuw i8 %299 to i1
-  br i1 %300, label %301, label %407
+294:                                              ; preds = %290
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 107
+  %296 = load i8, ptr %295, align 1, !range !7, !noundef !8
+  %297 = trunc nuw i8 %296 to i1
+  br i1 %297, label %298, label %404
 
-301:                                              ; preds = %297
-  %302 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %303 = load ptr, ptr %302, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %9, i64 16
+298:                                              ; preds = %294
+  %299 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %304 = load ptr, ptr %303, align 8
+  %305 = tail call ptr @fmtQualifiedId(ptr noundef %302, ptr noundef %304) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1403, ptr noundef nonnull %23, ptr noundef %305) #14
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %307 = load ptr, ptr %306, align 8
-  %308 = tail call ptr @fmtQualifiedId(ptr noundef %305, ptr noundef %307) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1403, ptr noundef nonnull %23, ptr noundef %308) #14
-  %309 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %308 = tail call ptr @fmtId(ptr noundef %307) #14
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %310 = load ptr, ptr %309, align 8
-  %311 = tail call ptr @fmtId(ptr noundef %310) #14
-  %312 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1400, ptr noundef %308, ptr noundef %310) #14
+  %311 = load ptr, ptr %299, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 16
   %313 = load ptr, ptr %312, align 8
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1400, ptr noundef %311, ptr noundef %313) #14
-  %314 = load ptr, ptr %302, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
-  %316 = load ptr, ptr %315, align 8
-  %317 = load ptr, ptr %306, align 8
-  %318 = tail call ptr @fmtQualifiedId(ptr noundef %316, ptr noundef %317) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1404, ptr noundef nonnull %23, ptr noundef %318) #14
-  %319 = load ptr, ptr %309, align 8
-  %320 = tail call ptr @fmtId(ptr noundef %319) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1396, ptr noundef %320) #14
-  %321 = load ptr, ptr %306, align 8
-  %322 = load ptr, ptr %309, align 8
-  %323 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.416, ptr noundef %321, ptr noundef %322) #14
-  %324 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %325 = load i32, ptr %324, align 8
-  %326 = and i32 %325, 1
-  %.not212 = icmp eq i32 %326, 0
-  br i1 %.not212, label %407, label %327
+  %314 = load ptr, ptr %303, align 8
+  %315 = tail call ptr @fmtQualifiedId(ptr noundef %313, ptr noundef %314) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1404, ptr noundef nonnull %23, ptr noundef %315) #14
+  %316 = load ptr, ptr %306, align 8
+  %317 = tail call ptr @fmtId(ptr noundef %316) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1396, ptr noundef %317) #14
+  %318 = load ptr, ptr %303, align 8
+  %319 = load ptr, ptr %306, align 8
+  %320 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.416, ptr noundef %318, ptr noundef %319) #14
+  %321 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %322 = load i32, ptr %321, align 8
+  %323 = and i32 %322, 1
+  %.not212 = icmp eq i32 %323, 0
+  br i1 %.not212, label %404, label %324
 
-327:                                              ; preds = %301
-  %328 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %329 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %330 = load i32, ptr %329, align 4
-  store ptr %323, ptr %5, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %332 = load ptr, ptr %302, align 8
-  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
-  %334 = load ptr, ptr %333, align 8
-  store ptr %334, ptr %331, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %336 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %337 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %335, i8 0, i64 24, i1 false)
-  %338 = load ptr, ptr %337, align 8
-  store ptr %338, ptr %336, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr @.str.1405, ptr %339, align 8
-  %340 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 4, ptr %340, align 8
-  %341 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store i32 0, ptr %341, align 4
-  %342 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %343 = load ptr, ptr %14, align 8
-  store ptr %343, ptr %342, align 8
-  %344 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %345 = load ptr, ptr %15, align 8
-  store ptr %345, ptr %344, align 8
-  %346 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %346, i8 0, i64 40, i1 false)
-  %347 = load i64, ptr %328, align 4
-  %348 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %347, i32 noundef %330, ptr noundef nonnull %5) #14
-  br label %407
+324:                                              ; preds = %298
+  %325 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %327 = load i32, ptr %326, align 4
+  store ptr %320, ptr %5, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %329 = load ptr, ptr %299, align 8
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 16
+  %331 = load ptr, ptr %330, align 8
+  store ptr %331, ptr %328, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %334 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %332, i8 0, i64 24, i1 false)
+  %335 = load ptr, ptr %334, align 8
+  store ptr %335, ptr %333, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr @.str.1405, ptr %336, align 8
+  %337 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 4, ptr %337, align 8
+  %338 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 0, ptr %338, align 4
+  %339 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %340 = load ptr, ptr %14, align 8
+  store ptr %340, ptr %339, align 8
+  %341 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %342 = load ptr, ptr %15, align 8
+  store ptr %342, ptr %341, align 8
+  %343 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %343, i8 0, i64 40, i1 false)
+  %344 = load i64, ptr %325, align 4
+  %345 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %344, i32 noundef %327, ptr noundef nonnull %5) #14
+  br label %404
 
-349:                                              ; preds = %291
-  %350 = icmp eq ptr %9, null
-  %or.cond3 = select i1 %292, i1 %350, i1 false
-  br i1 %or.cond3, label %351, label %405
+346:                                              ; preds = %288
+  %347 = icmp eq ptr %9, null
+  %or.cond3 = select i1 %289, i1 %347, i1 false
+  br i1 %or.cond3, label %348, label %402
 
-351:                                              ; preds = %349
-  %352 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %355 = load i8, ptr %354, align 4, !range !7, !noundef !8
-  %356 = trunc nuw i8 %355 to i1
-  br i1 %356, label %357, label %416
+348:                                              ; preds = %346
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %352 = load i8, ptr %351, align 4, !range !7, !noundef !8
+  %353 = trunc nuw i8 %352 to i1
+  br i1 %353, label %354, label %413
 
-357:                                              ; preds = %351
-  %358 = getelementptr inbounds nuw i8, ptr %353, i64 24
-  %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 16
-  %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds nuw i8, ptr %353, i64 16
+354:                                              ; preds = %348
+  %355 = getelementptr inbounds nuw i8, ptr %350, i64 24
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 16
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %350, i64 16
+  %360 = load ptr, ptr %359, align 8
+  %361 = tail call ptr @fmtQualifiedId(ptr noundef %358, ptr noundef %360) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1406, ptr noundef %361) #14
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %363 = load ptr, ptr %362, align 8
-  %364 = tail call ptr @fmtQualifiedId(ptr noundef %361, ptr noundef %363) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1406, ptr noundef %364) #14
-  %365 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %364 = tail call ptr @fmtId(ptr noundef %363) #14
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %366 = load ptr, ptr %365, align 8
-  %367 = tail call ptr @fmtId(ptr noundef %366) #14
-  %368 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1400, ptr noundef %364, ptr noundef %366) #14
+  %367 = load ptr, ptr %355, align 8
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 16
   %369 = load ptr, ptr %368, align 8
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %14, ptr noundef nonnull @.str.1400, ptr noundef %367, ptr noundef %369) #14
-  %370 = load ptr, ptr %358, align 8
-  %371 = getelementptr inbounds nuw i8, ptr %370, i64 16
-  %372 = load ptr, ptr %371, align 8
-  %373 = load ptr, ptr %362, align 8
-  %374 = tail call ptr @fmtQualifiedId(ptr noundef %372, ptr noundef %373) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1407, ptr noundef %374) #14
-  %375 = load ptr, ptr %365, align 8
-  %376 = tail call ptr @fmtId(ptr noundef %375) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1396, ptr noundef %376) #14
-  %377 = load ptr, ptr %362, align 8
-  %378 = load ptr, ptr %365, align 8
-  %379 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.416, ptr noundef %377, ptr noundef %378) #14
-  %380 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %381 = load i32, ptr %380, align 8
-  %382 = and i32 %381, 1
-  %.not = icmp eq i32 %382, 0
-  br i1 %.not, label %416, label %383
+  %370 = load ptr, ptr %359, align 8
+  %371 = tail call ptr @fmtQualifiedId(ptr noundef %369, ptr noundef %370) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1407, ptr noundef %371) #14
+  %372 = load ptr, ptr %362, align 8
+  %373 = tail call ptr @fmtId(ptr noundef %372) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %15, ptr noundef nonnull @.str.1396, ptr noundef %373) #14
+  %374 = load ptr, ptr %359, align 8
+  %375 = load ptr, ptr %362, align 8
+  %376 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.416, ptr noundef %374, ptr noundef %375) #14
+  %377 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %378 = load i32, ptr %377, align 8
+  %379 = and i32 %378, 1
+  %.not = icmp eq i32 %379, 0
+  br i1 %.not, label %413, label %380
 
-383:                                              ; preds = %357
-  %384 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %385 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %386 = load i32, ptr %385, align 4
-  store ptr %379, ptr %6, align 8
-  %387 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %388 = load ptr, ptr %358, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %388, i64 16
-  %390 = load ptr, ptr %389, align 8
-  store ptr %390, ptr %387, align 8
-  %391 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %392 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %393 = getelementptr inbounds nuw i8, ptr %353, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %391, i8 0, i64 24, i1 false)
-  %394 = load ptr, ptr %393, align 8
-  store ptr %394, ptr %392, align 8
-  %395 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr @.str.1405, ptr %395, align 8
-  %396 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 4, ptr %396, align 8
-  %397 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  store i32 0, ptr %397, align 4
-  %398 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %399 = load ptr, ptr %14, align 8
-  store ptr %399, ptr %398, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %401 = load ptr, ptr %15, align 8
-  store ptr %401, ptr %400, align 8
-  %402 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %402, i8 0, i64 40, i1 false)
-  %403 = load i64, ptr %384, align 4
-  %404 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %403, i32 noundef %386, ptr noundef nonnull %6) #14
-  br label %416
+380:                                              ; preds = %354
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %382 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %383 = load i32, ptr %382, align 4
+  store ptr %376, ptr %6, align 8
+  %384 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %385 = load ptr, ptr %355, align 8
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 16
+  %387 = load ptr, ptr %386, align 8
+  store ptr %387, ptr %384, align 8
+  %388 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %390 = getelementptr inbounds nuw i8, ptr %350, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %388, i8 0, i64 24, i1 false)
+  %391 = load ptr, ptr %390, align 8
+  store ptr %391, ptr %389, align 8
+  %392 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr @.str.1405, ptr %392, align 8
+  %393 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i32 4, ptr %393, align 8
+  %394 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  store i32 0, ptr %394, align 4
+  %395 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %396 = load ptr, ptr %14, align 8
+  store ptr %396, ptr %395, align 8
+  %397 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %398 = load ptr, ptr %15, align 8
+  store ptr %398, ptr %397, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %399, i8 0, i64 40, i1 false)
+  %400 = load i64, ptr %381, align 4
+  %401 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %400, i32 noundef %383, ptr noundef nonnull %6) #14
+  br label %413
 
-405:                                              ; preds = %349
-  %406 = sext i8 %25 to i32
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1408, i32 noundef %406) #14
+402:                                              ; preds = %346
+  %403 = sext i8 %25 to i32
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1408, i32 noundef %403) #14
   tail call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
-407:                                              ; preds = %239, %269, %193, %214, %293, %297, %327, %301
-  %.0.ph = phi ptr [ %265, %239 ], [ %265, %269 ], [ %210, %193 ], [ %210, %214 ], [ null, %293 ], [ null, %297 ], [ %323, %301 ], [ %323, %327 ]
-  %408 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %409 = load i8, ptr %408, align 4, !range !7, !noundef !8
-  %410 = trunc nuw i8 %409 to i1
-  br i1 %410, label %411, label %416
+404:                                              ; preds = %236, %266, %190, %211, %290, %294, %324, %298
+  %.0.ph = phi ptr [ %262, %236 ], [ %262, %266 ], [ %207, %190 ], [ %207, %211 ], [ null, %290 ], [ null, %294 ], [ %320, %298 ], [ %320, %324 ]
+  %405 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %406 = load i8, ptr %405, align 4, !range !7, !noundef !8
+  %407 = trunc nuw i8 %406 to i1
+  br i1 %407, label %408, label %413
 
-411:                                              ; preds = %407
-  %412 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %413 = load i32, ptr %412, align 8
-  %414 = and i32 %413, 4
-  %.not218 = icmp eq i32 %414, 0
-  br i1 %.not218, label %416, label %415
+408:                                              ; preds = %404
+  %409 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %410 = load i32, ptr %409, align 8
+  %411 = and i32 %410, 4
+  %.not218 = icmp eq i32 %411, 0
+  br i1 %.not218, label %413, label %412
 
-415:                                              ; preds = %411
+412:                                              ; preds = %408
   call fastcc void @dumpTableConstraintComment(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  br label %416
+  br label %413
 
-416:                                              ; preds = %357, %383, %351, %415, %411, %407
-  %.0233 = phi ptr [ %.0.ph, %415 ], [ %.0.ph, %411 ], [ %.0.ph, %407 ], [ %379, %383 ], [ %379, %357 ], [ null, %351 ]
+413:                                              ; preds = %354, %380, %348, %412, %408, %404
+  %.0233 = phi ptr [ %.0.ph, %412 ], [ %.0.ph, %408 ], [ %.0.ph, %404 ], [ %376, %380 ], [ %376, %354 ], [ null, %348 ]
   call void @free(ptr noundef %.0233) #14
   call void @destroyPQExpBuffer(ptr noundef %14) #14
   call void @destroyPQExpBuffer(ptr noundef %15) #14
-  br label %417
+  br label %414
 
-417:                                              ; preds = %2, %416
+414:                                              ; preds = %2, %413
   ret void
 }
 

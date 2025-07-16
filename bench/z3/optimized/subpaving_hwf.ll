@@ -21395,185 +21395,187 @@ _ZN6bufferIPN9subpaving9context_tINS0_10config_hwfEE4nodeELb0ELj1024EED2Ev.exit:
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZNK9subpaving9context_tINS_10config_hwfEE19display_constraintsERSob(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %8
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %.critedge.preheader, label %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit.lr.ph
 
-8:                                                ; preds = %39, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %3 ]
-  %9 = load ptr, ptr %4, align 8, !tbaa !41
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit, label %11
-
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 -4
-  %13 = load i32, ptr %12, align 4, !tbaa !44
-  %14 = zext i32 %13 to i64
+_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit.lr.ph: ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit
 
-_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit: ; preds = %8, %11
-  %.0.i.i = phi i64 [ %14, %11 ], [ 0, %8 ]
-  %15 = icmp samesign ult i64 %indvars.iv, %.0.i.i
-  br i1 %15, label %17, label %.preheader24
+.critedge.preheader:                              ; preds = %42, %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit, %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %11 = load ptr, ptr %10, align 8, !tbaa !203
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %.critedge24.preheader, label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit.lr.ph
 
-.preheader24:                                     ; preds = %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  br label %40
+_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit.lr.ph: ; preds = %.critedge.preheader
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  br label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit
 
-17:                                               ; preds = %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit
-  %18 = load ptr, ptr %5, align 8, !tbaa !182
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !183
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %39, label %21
+_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit: ; preds = %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit.lr.ph, %42
+  %15 = phi ptr [ %5, %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit.lr.ph ], [ %43, %42 ]
+  %indvars.iv = phi i64 [ 0, %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit.lr.ph ], [ %indvars.iv.next, %42 ]
+  %16 = getelementptr inbounds i8, ptr %15, i64 -4
+  %17 = load i32, ptr %16, align 4, !tbaa !44
+  %18 = zext i32 %17 to i64
+  %19 = icmp samesign ult i64 %indvars.iv, %18
+  br i1 %19, label %20, label %.critedge.preheader
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %6, align 8, !tbaa !194
-  %23 = load ptr, ptr %22, align 8, !tbaa !25
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = trunc nuw i64 %indvars.iv to i32
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %26)
-  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.17, i64 noundef 3)
-  %28 = load ptr, ptr %5, align 8, !tbaa !182
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
-  %30 = load ptr, ptr %29, align 8, !tbaa !183
-  %31 = load i32, ptr %30, align 8, !tbaa !72
-  switch i32 %31, label %37 [
-    i32 1, label %32
-    i32 2, label %34
+20:                                               ; preds = %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit
+  %21 = load ptr, ptr %7, align 8, !tbaa !182
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %23 = load ptr, ptr %22, align 8, !tbaa !183
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %42, label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %8, align 8, !tbaa !194
+  %26 = load ptr, ptr %25, align 8, !tbaa !25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = trunc nuw i64 %indvars.iv to i32
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %29)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.17, i64 noundef 3)
+  %31 = load ptr, ptr %7, align 8, !tbaa !182
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %33 = load ptr, ptr %32, align 8, !tbaa !183
+  %34 = load i32, ptr %33, align 8, !tbaa !72
+  switch i32 %34, label %40 [
+    i32 1, label %35
+    i32 2, label %37
   ]
 
-32:                                               ; preds = %21
-  %33 = load ptr, ptr %6, align 8, !tbaa !194
-  tail call void @_ZNK9subpaving9context_tINS_10config_hwfEE8monomial7displayERSoRKNS_16display_var_procEb(ptr noundef nonnull align 8 dereferenceable(20) %30, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %33, i1 noundef zeroext %2)
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %8, align 8, !tbaa !194
+  tail call void @_ZNK9subpaving9context_tINS_10config_hwfEE8monomial7displayERSoRKNS_16display_var_procEb(ptr noundef nonnull align 8 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %36, i1 noundef zeroext %2)
   br label %_ZNK9subpaving9context_tINS_10config_hwfEE18display_definitionERSoPKNS2_10definitionEb.exit
 
-34:                                               ; preds = %21
-  %35 = load ptr, ptr %7, align 8, !tbaa !176
-  %36 = load ptr, ptr %6, align 8, !tbaa !194
-  tail call void @_ZNK9subpaving9context_tINS_10config_hwfEE10polynomial7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procEb(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(8) %36, i1 noundef zeroext %2)
+37:                                               ; preds = %24
+  %38 = load ptr, ptr %9, align 8, !tbaa !176
+  %39 = load ptr, ptr %8, align 8, !tbaa !194
+  tail call void @_ZNK9subpaving9context_tINS_10config_hwfEE10polynomial7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procEb(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(8) %39, i1 noundef zeroext %2)
   br label %_ZNK9subpaving9context_tINS_10config_hwfEE18display_definitionERSoPKNS2_10definitionEb.exit
 
-37:                                               ; preds = %21
+40:                                               ; preds = %24
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.5, i32 noundef 625, ptr noundef nonnull @.str.6)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZNK9subpaving9context_tINS_10config_hwfEE18display_definitionERSoPKNS2_10definitionEb.exit
 
-_ZNK9subpaving9context_tINS_10config_hwfEE18display_definitionERSoPKNS2_10definitionEb.exit: ; preds = %32, %34, %37
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11, i64 noundef 1)
-  br label %39
+_ZNK9subpaving9context_tINS_10config_hwfEE18display_definitionERSoPKNS2_10definitionEb.exit: ; preds = %35, %37, %40
+  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11, i64 noundef 1)
+  %.pre = load ptr, ptr %4, align 8, !tbaa !41
+  br label %42
 
-39:                                               ; preds = %17, %_ZNK9subpaving9context_tINS_10config_hwfEE18display_definitionERSoPKNS2_10definitionEb.exit
+42:                                               ; preds = %20, %_ZNK9subpaving9context_tINS_10config_hwfEE18display_definitionERSoPKNS2_10definitionEb.exit
+  %43 = phi ptr [ %15, %20 ], [ %.pre, %_ZNK9subpaving9context_tINS_10config_hwfEE18display_definitionERSoPKNS2_10definitionEb.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %8, !llvm.loop !294
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.critedge.preheader, label %_ZNK9subpaving9context_tINS_10config_hwfEE8num_varsEv.exit, !llvm.loop !294
 
-40:                                               ; preds = %.preheader24, %49
-  %indvars.iv26 = phi i64 [ 0, %.preheader24 ], [ %indvars.iv.next27, %49 ]
-  %41 = load ptr, ptr %16, align 8, !tbaa !203
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit, label %43
+.critedge24.preheader:                            ; preds = %.critedge, %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit, %.critedge.preheader
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %46 = load ptr, ptr %45, align 8, !tbaa !211
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %.critedge25, label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit.lr.ph
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 -4
-  %45 = load i32, ptr %44, align 4, !tbaa !44
-  %46 = zext i32 %45 to i64
-  br label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit
-
-_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit: ; preds = %40, %43
-  %.0.i = phi i64 [ %46, %43 ], [ 0, %40 ]
-  %47 = icmp samesign ult i64 %indvars.iv26, %.0.i
-  br i1 %47, label %49, label %.preheader
-
-.preheader:                                       ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  br label %65
-
-49:                                               ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit
-  %50 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv26
-  %51 = load ptr, ptr %50, align 8, !tbaa !78
-  %52 = ptrtoint ptr %51 to i64
-  %53 = and i64 %52, -8
-  %54 = inttoptr i64 %53 to ptr
-  %55 = load ptr, ptr %7, align 8, !tbaa !176
-  %56 = load ptr, ptr %6, align 8, !tbaa !194
-  %57 = load i32, ptr %54, align 8, !tbaa !3
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %60 = load i32, ptr %59, align 8
-  %61 = and i32 %60, 1073741824
-  %62 = icmp ne i32 %61, 0
-  %63 = icmp slt i32 %60, 0
-  tail call void @_ZN9subpaving9context_tINS_10config_hwfEE7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procEjR3hwfbb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(8) %56, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %58, i1 noundef zeroext %62, i1 noundef zeroext %63)
-  %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11, i64 noundef 1)
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  br label %40, !llvm.loop !295
-
-65:                                               ; preds = %.preheader, %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit
-  %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit ]
-  %66 = load ptr, ptr %48, align 8, !tbaa !211
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit, label %68
-
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 -4
-  %70 = load i32, ptr %69, align 4, !tbaa !44
-  %71 = zext i32 %70 to i64
+_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit.lr.ph: ; preds = %.critedge24.preheader
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 528
   br label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit
 
-_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit: ; preds = %65, %68
-  %.0.i23 = phi i64 [ %71, %68 ], [ 0, %65 ]
-  %72 = icmp samesign ult i64 %indvars.iv29, %.0.i23
-  br i1 %72, label %74, label %73
+_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit: ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit.lr.ph, %.critedge
+  %indvars.iv30 = phi i64 [ 0, %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit.lr.ph ], [ %indvars.iv.next31, %.critedge ]
+  %50 = phi ptr [ %11, %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit.lr.ph ], [ %70, %.critedge ]
+  %51 = getelementptr inbounds i8, ptr %50, i64 -4
+  %52 = load i32, ptr %51, align 4, !tbaa !44
+  %53 = zext i32 %52 to i64
+  %54 = icmp samesign ult i64 %indvars.iv30, %53
+  br i1 %54, label %.critedge, label %.critedge24.preheader
 
-73:                                               ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit
+.critedge:                                        ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit
+  %55 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv30
+  %56 = load ptr, ptr %55, align 8, !tbaa !78
+  %57 = ptrtoint ptr %56 to i64
+  %58 = and i64 %57, -8
+  %59 = inttoptr i64 %58 to ptr
+  %60 = load ptr, ptr %13, align 8, !tbaa !176
+  %61 = load ptr, ptr %14, align 8, !tbaa !194
+  %62 = load i32, ptr %59, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = and i32 %65, 1073741824
+  %67 = icmp ne i32 %66, 0
+  %68 = icmp slt i32 %65, 0
+  tail call void @_ZN9subpaving9context_tINS_10config_hwfEE7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procEjR3hwfbb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(8) %61, i32 noundef %62, ptr noundef nonnull align 8 dereferenceable(8) %63, i1 noundef zeroext %67, i1 noundef zeroext %68)
+  %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11, i64 noundef 1)
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %70 = load ptr, ptr %10, align 8, !tbaa !203
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %.critedge24.preheader, label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE4ineqELb0EjE4sizeEv.exit, !llvm.loop !295
+
+_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit: ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit.lr.ph, %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit
+  %indvars.iv33 = phi i64 [ 0, %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit.lr.ph ], [ %indvars.iv.next34, %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit ]
+  %72 = phi ptr [ %46, %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit.lr.ph ], [ %102, %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit ]
+  %73 = getelementptr inbounds i8, ptr %72, i64 -4
+  %74 = load i32, ptr %73, align 4, !tbaa !44
+  %75 = zext i32 %74 to i64
+  %76 = icmp samesign ult i64 %indvars.iv33, %75
+  br i1 %76, label %77, label %.critedge25
+
+.critedge25:                                      ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit, %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit, %.critedge24.preheader
   ret void
 
-74:                                               ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit
-  %75 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv29
-  %76 = load ptr, ptr %75, align 8, !tbaa !225
-  %77 = load ptr, ptr %7, align 8, !tbaa !176
-  %78 = load ptr, ptr %6, align 8, !tbaa !194
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %80 = load i32, ptr %79, align 8, !tbaa !76
-  %.not9.i = icmp eq i32 %80, 0
+77:                                               ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit
+  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv33
+  %79 = load ptr, ptr %78, align 8, !tbaa !225
+  %80 = load ptr, ptr %48, align 8, !tbaa !176
+  %81 = load ptr, ptr %49, align 8, !tbaa !194
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %83 = load i32, ptr %82, align 8, !tbaa !76
+  %.not9.i = icmp eq i32 %83, 0
   br i1 %.not9.i, label %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %74
-  %81 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  br label %82
-
-82:                                               ; preds = %85, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %85 ]
-  %.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i, label %85, label %83
-
-83:                                               ; preds = %82
-  %84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 4)
+.lr.ph.i:                                         ; preds = %77
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 24
   br label %85
 
-85:                                               ; preds = %83, %82
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %81, i64 0, i64 %indvars.iv.i
-  %87 = load ptr, ptr %86, align 8, !tbaa !78
-  %88 = load i32, ptr %87, align 8, !tbaa !3
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %91 = load i32, ptr %90, align 8
-  %92 = and i32 %91, 1073741824
-  %93 = icmp ne i32 %92, 0
-  %94 = icmp slt i32 %91, 0
-  tail call void @_ZN9subpaving9context_tINS_10config_hwfEE7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procEjR3hwfbb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(8) %78, i32 noundef %88, ptr noundef nonnull align 8 dereferenceable(8) %89, i1 noundef zeroext %93, i1 noundef zeroext %94)
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %95 = load i32, ptr %79, align 8, !tbaa !76
-  %96 = zext i32 %95 to i64
-  %97 = icmp samesign ult i64 %indvars.iv.next.i, %96
-  br i1 %97, label %82, label %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit, !llvm.loop !80
+85:                                               ; preds = %88, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %88 ]
+  %.not.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not.i, label %88, label %86
 
-_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit: ; preds = %85, %74
-  %98 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11, i64 noundef 1)
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  br label %65, !llvm.loop !296
+86:                                               ; preds = %85
+  %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 4)
+  br label %88
+
+88:                                               ; preds = %86, %85
+  %89 = getelementptr inbounds nuw [0 x ptr], ptr %84, i64 0, i64 %indvars.iv.i
+  %90 = load ptr, ptr %89, align 8, !tbaa !78
+  %91 = load i32, ptr %90, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, 1073741824
+  %96 = icmp ne i32 %95, 0
+  %97 = icmp slt i32 %94, 0
+  tail call void @_ZN9subpaving9context_tINS_10config_hwfEE7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procEjR3hwfbb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(8) %81, i32 noundef %91, ptr noundef nonnull align 8 dereferenceable(8) %92, i1 noundef zeroext %96, i1 noundef zeroext %97)
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %98 = load i32, ptr %82, align 8, !tbaa !76
+  %99 = zext i32 %98 to i64
+  %100 = icmp samesign ult i64 %indvars.iv.next.i, %99
+  br i1 %100, label %85, label %_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit, !llvm.loop !80
+
+_ZN9subpaving9context_tINS_10config_hwfEE6clause7displayERSoR3f2nI11hwf_managerERKNS_16display_var_procE.exit: ; preds = %88, %77
+  %101 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11, i64 noundef 1)
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %102 = load ptr, ptr %45, align 8, !tbaa !211
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %.critedge25, label %_ZNK6vectorIPN9subpaving9context_tINS0_10config_hwfEE6clauseELb0EjE4sizeEv.exit, !llvm.loop !296
 }
 
 ; Function Attrs: mustprogress uwtable

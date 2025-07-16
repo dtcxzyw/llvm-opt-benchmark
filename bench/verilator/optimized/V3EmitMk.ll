@@ -24680,7 +24680,7 @@ _ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit: ; preds = %_ZNKSt7__cxx1112
 
 132:                                              ; preds = %.lr.ph280, %_ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit135
   %.2278 = phi i32 [ %.0288, %.lr.ph280 ], [ %180, %_ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit135 ]
-  %.038277 = phi i32 [ 0, %.lr.ph280 ], [ %375, %_ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit135 ]
+  %.038277 = phi i32 [ 0, %.lr.ph280 ], [ %377, %_ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit135 ]
   %.sroa.0144.0276 = phi ptr [ %127, %.lr.ph280 ], [ %.sroa.0144.1.lcssa, %_ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit135 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #24
@@ -25151,7 +25151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZN
   %319 = icmp eq i64 %312, 0
   %320 = icmp samesign ugt i64 %318, %317
   %or.cond52 = or i1 %319, %320
-  br i1 %or.cond52, label %321, label %._crit_edge
+  br i1 %or.cond52, label %321, label %._crit_edge.loopexit
 
 321:                                              ; preds = %314, %.lr.ph273
   %322 = load ptr, ptr %41, align 8, !tbaa !561
@@ -25331,23 +25331,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   %372 = getelementptr inbounds nuw i8, ptr %.sroa.0144.1271, i64 40
   %373 = load ptr, ptr %129, align 8, !tbaa !638
   %.not169 = icmp eq ptr %372, %373
-  br i1 %.not169, label %._crit_edge, label %.lr.ph273, !llvm.loop !676
+  br i1 %.not169, label %._crit_edge.loopexit, label %.lr.ph273, !llvm.loop !676
 
-._crit_edge:                                      ; preds = %370, %314, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
-  %374 = phi ptr [ %.sroa.0144.0276, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ %310, %314 ], [ %372, %370 ]
-  %.sroa.0144.1.lcssa = phi ptr [ %.sroa.0144.0276, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ %.sroa.0144.1271, %314 ], [ %372, %370 ]
-  %375 = add nuw nsw i32 %.038277, 1
-  %376 = load i32, ptr %122, align 8, !tbaa !656
-  %377 = icmp eq i32 %375, %376
-  %378 = icmp ne ptr %.sroa.0144.1.lcssa, %374
-  %379 = select i1 %377, i1 %378, i1 false
+._crit_edge.loopexit:                             ; preds = %314, %370
+  %374 = phi ptr [ %372, %370 ], [ %310, %314 ]
+  %.sroa.0144.1.lcssa.ph = phi ptr [ %372, %370 ], [ %.sroa.0144.1271, %314 ]
+  %375 = icmp ne ptr %.sroa.0144.1.lcssa.ph, %374
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
+  %376 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ %375, %._crit_edge.loopexit ]
+  %.sroa.0144.1.lcssa = phi ptr [ %.sroa.0144.0276, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ %.sroa.0144.1.lcssa.ph, %._crit_edge.loopexit ]
+  %377 = add nuw nsw i32 %.038277, 1
+  %378 = load i32, ptr %122, align 8, !tbaa !656
+  %379 = icmp eq i32 %377, %378
+  %spec.select = and i1 %379, %376
   %380 = load ptr, ptr %41, align 8, !tbaa !561
   %381 = load ptr, ptr %40, align 8, !tbaa !560
   %382 = ptrtoint ptr %380 to i64
   %383 = ptrtoint ptr %381 to i64
   %384 = sub i64 %382, %383
   %385 = icmp ugt i64 %384, 32
-  %or.cond = or i1 %379, %385
+  %or.cond = or i1 %spec.select, %385
   br i1 %or.cond, label %386, label %415
 
 386:                                              ; preds = %._crit_edge
@@ -25671,7 +25676,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN9EmitGroup27FileOrConcatenatedFilesListD2Ev.exit135: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #24
   %501 = load i32, ptr %122, align 8, !tbaa !656
-  %502 = icmp slt i32 %375, %501
+  %502 = icmp slt i32 %377, %501
   br i1 %502, label %132, label %.preheader, !llvm.loop !677
 
 503:                                              ; preds = %413, %476, %368

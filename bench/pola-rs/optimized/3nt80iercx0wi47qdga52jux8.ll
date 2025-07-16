@@ -46705,15 +46705,15 @@ _ZN3std4sync6poison4once4Once9call_once17h442c850277f11d15E.exit: ; preds = %.no
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.516.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.pre.i = load i64, ptr %179, align 8, !alias.scope !4203, !noalias !4218
-  br label %189
+  %189 = icmp eq i64 %.pre.i, %173
+  br label %190
 
-189:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit58.i", %.noexc210
-  %190 = phi i64 [ %.pre.i, %.noexc210 ], [ %173, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit58.i" ]
-  %191 = phi i32 [ 1, %.noexc210 ], [ %276, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit58.i" ]
-  %192 = load i64, ptr %178, align 8, !range !120, !alias.scope !4203, !noalias !4218, !noundef !4
-  %193 = icmp ne i64 %192, -9223372036854775808
-  %194 = icmp eq i64 %190, %173
-  %or.cond.i = select i1 %193, i1 %194, i1 false
+190:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit58.i", %.noexc210
+  %191 = phi i1 [ %189, %.noexc210 ], [ true, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit58.i" ]
+  %192 = phi i32 [ 1, %.noexc210 ], [ %276, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit58.i" ]
+  %193 = load i64, ptr %178, align 8, !range !120, !alias.scope !4203, !noalias !4218, !noundef !4
+  %194 = icmp ne i64 %193, -9223372036854775808
+  %or.cond.i = select i1 %194, i1 %191, i1 false
   br i1 %or.cond.i, label %199, label %196
 
 195:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit58.i"
@@ -46723,15 +46723,15 @@ _ZN3std4sync6poison4once4Once9call_once17h442c850277f11d15E.exit: ; preds = %.no
 .noexc211:                                        ; preds = %195
   unreachable
 
-196:                                              ; preds = %189
-  %197 = icmp eq i64 %192, -9223372036854775808
+196:                                              ; preds = %190
+  %197 = icmp eq i64 %193, -9223372036854775808
   br i1 %197, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit.i", label %198
 
 198:                                              ; preds = %196
   invoke void @"_ZN4core3ptr61drop_in_place$LT$polars_io..file_cache..entry..CachedData$GT$17h63fe52dc273500f2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %178)
           to label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit.i" unwind label %236, !noalias !4200
 
-199:                                              ; preds = %189
+199:                                              ; preds = %190
   %200 = load ptr, ptr %.sroa.516.0..sroa_idx17.i, align 8, !alias.scope !4203, !noalias !4218, !nonnull !4, !noundef !4
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 72
   %202 = load i64, ptr %201, align 8, !noalias !4200, !noundef !4
@@ -46973,9 +46973,9 @@ _ZN3std4sync6poison4once4Once9call_once17h442c850277f11d15E.exit: ; preds = %.no
   store i64 %173, ptr %179, align 8, !alias.scope !4203, !noalias !4218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35), !noalias !4205
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39), !noalias !4205
-  %276 = add nuw nsw i32 %191, 1
+  %276 = add nuw nsw i32 %192, 1
   %exitcond.not.i = icmp eq i32 %276, 3
-  br i1 %exitcond.not.i, label %195, label %189, !prof !4227
+  br i1 %exitcond.not.i, label %195, label %190, !prof !4227
 
 .loopexit.i:                                      ; preds = %266, %255
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -49240,30 +49240,30 @@ common.resume:                                    ; preds = %98, %.thread12, %11
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.527.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.pre = load i64, ptr %39, align 8
-  br label %49
+  %49 = icmp eq i64 %.pre, %33
+  br label %50
 
-49:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h45670316979bb1adE.exit", %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit82"
-  %50 = phi i64 [ %.pre, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h45670316979bb1adE.exit" ], [ %33, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit82" ]
-  %51 = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h45670316979bb1adE.exit" ], [ %170, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit82" ]
-  %52 = load i64, ptr %38, align 8, !range !120, !noundef !4
-  %53 = icmp ne i64 %52, -9223372036854775808
-  %54 = icmp eq i64 %50, %33
-  %or.cond = select i1 %53, i1 %54, i1 false
+50:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h45670316979bb1adE.exit", %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit82"
+  %51 = phi i1 [ %49, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h45670316979bb1adE.exit" ], [ true, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit82" ]
+  %52 = phi i32 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h45670316979bb1adE.exit" ], [ %170, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit82" ]
+  %53 = load i64, ptr %38, align 8, !range !120, !noundef !4
+  %54 = icmp ne i64 %53, -9223372036854775808
+  %or.cond = select i1 %54, i1 %51, i1 false
   br i1 %or.cond, label %59, label %56
 
 55:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit82"
   call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.9c42337fde20ee2cf432511e12198f95.243, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9c42337fde20ee2cf432511e12198f95.771) #30
   unreachable
 
-56:                                               ; preds = %49
-  %57 = icmp eq i64 %52, -9223372036854775808
+56:                                               ; preds = %50
+  %57 = icmp eq i64 %53, -9223372036854775808
   br i1 %57, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit", label %58
 
 58:                                               ; preds = %56
   invoke void @"_ZN4core3ptr61drop_in_place$LT$polars_io..file_cache..entry..CachedData$GT$17h63fe52dc273500f2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %38)
           to label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$polars_io..file_cache..entry..CachedData$GT$$GT$17hb5dc102c13942da2E.exit" unwind label %98
 
-59:                                               ; preds = %49
+59:                                               ; preds = %50
   %60 = load ptr, ptr %.sroa.527.0..sroa_idx28, align 8, !nonnull !4, !noundef !4
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %62 = load i64, ptr %61, align 8, !noundef !4
@@ -49595,9 +49595,9 @@ common.resume:                                    ; preds = %98, %.thread12, %11
   store i64 %33, ptr %39, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
-  %170 = add nuw nsw i32 %51, 1
+  %170 = add nuw nsw i32 %52, 1
   %exitcond.not = icmp eq i32 %170, 3
-  br i1 %exitcond.not, label %55, label %49, !prof !4227
+  br i1 %exitcond.not, label %55, label %50, !prof !4227
 
 .loopexit:                                        ; preds = %149, %160
   %lpad.loopexit = landingpad { ptr, i32 }

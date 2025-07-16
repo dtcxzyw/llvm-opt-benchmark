@@ -12362,12 +12362,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_layer(ptr noundef re
   %10 = load ptr, ptr %9, align 8, !tbaa !549
   %.not40 = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  br i1 %.not40, label %12, label %._crit_edge
-
-._crit_edge:                                      ; preds = %8
-  %.pre = load i32, ptr %11, align 4, !tbaa !551
-  %.pre55 = load i32, ptr %4, align 8, !tbaa !552
-  br label %67
+  br i1 %.not40, label %12, label %67
 
 12:                                               ; preds = %8
   store i32 0, ptr %11, align 4, !tbaa !551
@@ -12413,7 +12408,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_layer(ptr noundef re
   %.234.i = phi i32 [ %.03241.i, %32 ], [ %20, %34 ]
   %.231.i = phi i32 [ %33, %32 ], [ %.02942.i, %34 ]
   %37 = icmp ult i32 %.231.i, %.234.i
-  br i1 %37, label %.lr.ph.i, label %find_base_glyph_record.exit.thread, !llvm.loop !553
+  br i1 %37, label %.lr.ph.i, label %find_base_glyph_record.exit.thread, !llvm.loop !552
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -12437,93 +12432,93 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_layer(ptr noundef re
   %54 = zext i8 %53 to i64
   %55 = or disjoint i64 %51, %54
   %56 = zext i16 %46 to i32
-  store i32 %56, ptr %4, align 8, !tbaa !552
+  store i32 %56, ptr %4, align 8, !tbaa !553
   %57 = zext i16 %46 to i64
   %58 = add nuw nsw i64 %55, %57
   %59 = shl nuw nsw i64 %58, 2
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %61 = load i64, ptr %60, align 8, !tbaa !541
   %62 = icmp ugt i64 %59, %61
-  br i1 %62, label %find_base_glyph_record.exit.thread, label %.critedge
+  br i1 %62, label %find_base_glyph_record.exit.thread, label %.thread
 
-.critedge:                                        ; preds = %47
+.thread:                                          ; preds = %47
   %63 = shl nuw nsw i64 %55, 2
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !539
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %63
   store ptr %66, ptr %9, align 8, !tbaa !549
-  br label %67
+  br label %69
 
-67:                                               ; preds = %._crit_edge, %.critedge
-  %68 = phi ptr [ %10, %._crit_edge ], [ %66, %.critedge ]
-  %69 = phi i32 [ %.pre55, %._crit_edge ], [ %56, %.critedge ]
-  %70 = phi i32 [ %.pre, %._crit_edge ], [ 0, %.critedge ]
+67:                                               ; preds = %8
+  %.pre = load i32, ptr %11, align 4, !tbaa !551
+  %.pre55 = load i32, ptr %4, align 8, !tbaa !553
+  %68 = icmp ult i32 %.pre, %.pre55
+  br i1 %68, label %69, label %find_base_glyph_record.exit.thread
+
+69:                                               ; preds = %.thread, %67
+  %70 = phi ptr [ %66, %.thread ], [ %10, %67 ]
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.not43 = icmp ult i32 %70, %69
-  br i1 %.not43, label %72, label %find_base_glyph_record.exit.thread
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %73 = load ptr, ptr %72, align 8, !tbaa !539
+  %74 = icmp ult ptr %70, %73
+  br i1 %74, label %find_base_glyph_record.exit.thread, label %75
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !539
-  %75 = icmp ult ptr %68, %74
-  br i1 %75, label %find_base_glyph_record.exit.thread, label %76
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %77 = load ptr, ptr %76, align 8, !tbaa !540
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %79 = load i64, ptr %78, align 8, !tbaa !541
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 %79
+  %.not44 = icmp ult ptr %70, %80
+  br i1 %.not44, label %81, label %find_base_glyph_record.exit.thread
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %78 = load ptr, ptr %77, align 8, !tbaa !540
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %80 = load i64, ptr %79, align 8, !tbaa !541
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %80
-  %.not44 = icmp ult ptr %68, %81
-  br i1 %.not44, label %82, label %find_base_glyph_record.exit.thread
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %70, i64 2
+  store ptr %82, ptr %9, align 8, !tbaa !549
+  %83 = load i8, ptr %70, align 1, !tbaa !15
+  %84 = zext i8 %83 to i32
+  %85 = shl nuw nsw i32 %84, 8
+  %86 = getelementptr inbounds nuw i8, ptr %70, i64 1
+  %87 = load i8, ptr %86, align 1, !tbaa !15
+  %88 = zext i8 %87 to i32
+  %89 = or disjoint i32 %85, %88
+  store i32 %89, ptr %2, align 4, !tbaa !16
+  %90 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store ptr %90, ptr %9, align 8, !tbaa !549
+  %91 = load i8, ptr %82, align 1, !tbaa !15
+  %92 = zext i8 %91 to i32
+  %93 = shl nuw nsw i32 %92, 8
+  %94 = getelementptr inbounds nuw i8, ptr %70, i64 3
+  %95 = load i8, ptr %94, align 1, !tbaa !15
+  %96 = zext i8 %95 to i32
+  %97 = or disjoint i32 %93, %96
+  store i32 %97, ptr %3, align 4, !tbaa !16
+  %98 = load i32, ptr %2, align 4, !tbaa !16
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %100 = load i64, ptr %99, align 8, !tbaa !46
+  %101 = trunc i64 %100 to i32
+  %.not45 = icmp ult i32 %98, %101
+  br i1 %.not45, label %102, label %find_base_glyph_record.exit.thread
 
-82:                                               ; preds = %76
-  %83 = getelementptr inbounds nuw i8, ptr %68, i64 2
-  store ptr %83, ptr %9, align 8, !tbaa !549
-  %84 = load i8, ptr %68, align 1, !tbaa !15
-  %85 = zext i8 %84 to i32
-  %86 = shl nuw nsw i32 %85, 8
-  %87 = getelementptr inbounds nuw i8, ptr %68, i64 1
-  %88 = load i8, ptr %87, align 1, !tbaa !15
-  %89 = zext i8 %88 to i32
-  %90 = or disjoint i32 %86, %89
-  store i32 %90, ptr %2, align 4, !tbaa !16
-  %91 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store ptr %91, ptr %9, align 8, !tbaa !549
-  %92 = load i8, ptr %83, align 1, !tbaa !15
-  %93 = zext i8 %92 to i32
-  %94 = shl nuw nsw i32 %93, 8
-  %95 = getelementptr inbounds nuw i8, ptr %68, i64 3
-  %96 = load i8, ptr %95, align 1, !tbaa !15
-  %97 = zext i8 %96 to i32
-  %98 = or disjoint i32 %94, %97
-  store i32 %98, ptr %3, align 4, !tbaa !16
-  %99 = load i32, ptr %2, align 4, !tbaa !16
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %101 = load i64, ptr %100, align 8, !tbaa !46
-  %102 = trunc i64 %101 to i32
-  %.not45 = icmp ult i32 %99, %102
-  br i1 %.not45, label %103, label %find_base_glyph_record.exit.thread
+102:                                              ; preds = %81
+  %.not46 = icmp eq i32 %97, 65535
+  br i1 %.not46, label %107, label %103
 
-103:                                              ; preds = %82
-  %.not46 = icmp eq i32 %98, 65535
-  br i1 %.not46, label %108, label %104
+103:                                              ; preds = %102
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %105 = load i16, ptr %104, align 8, !tbaa !505
+  %106 = zext i16 %105 to i32
+  %.not47 = icmp samesign ult i32 %97, %106
+  br i1 %.not47, label %107, label %find_base_glyph_record.exit.thread
 
-104:                                              ; preds = %103
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %106 = load i16, ptr %105, align 8, !tbaa !505
-  %107 = zext i16 %106 to i32
-  %.not47 = icmp samesign ult i32 %98, %107
-  br i1 %.not47, label %108, label %find_base_glyph_record.exit.thread
-
-108:                                              ; preds = %104, %103
-  %109 = load i32, ptr %71, align 4, !tbaa !551
-  %110 = add i32 %109, 1
-  store i32 %110, ptr %71, align 4, !tbaa !551
+107:                                              ; preds = %103, %102
+  %108 = load i32, ptr %71, align 4, !tbaa !551
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %71, align 4, !tbaa !551
   br label %find_base_glyph_record.exit.thread
 
-find_base_glyph_record.exit.thread:               ; preds = %36, %12, %82, %104, %67, %72, %76, %38, %47, %5, %108
-  %.0 = phi i8 [ 1, %108 ], [ 0, %5 ], [ 0, %47 ], [ 0, %38 ], [ 0, %76 ], [ 0, %72 ], [ 0, %67 ], [ 0, %104 ], [ 0, %82 ], [ 0, %12 ], [ 0, %36 ]
+find_base_glyph_record.exit.thread:               ; preds = %36, %12, %81, %103, %67, %69, %75, %38, %47, %5, %107
+  %.0 = phi i8 [ 1, %107 ], [ 0, %5 ], [ 0, %47 ], [ 0, %38 ], [ 0, %75 ], [ 0, %69 ], [ 0, %67 ], [ 0, %103 ], [ 0, %81 ], [ 0, %12 ], [ 0, %36 ]
   ret i8 %.0
 }
 
@@ -13010,7 +13005,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_color_glyph_clipbox(ptr n
 define internal zeroext range(i8 0, 2) i8 @tt_face_get_paint_layers(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !551
-  %6 = load i32, ptr %1, align 8, !tbaa !552
+  %6 = load i32, ptr %1, align 8, !tbaa !553
   %7 = icmp eq i32 %5, %6
   br i1 %7, label %63, label %8
 
@@ -27084,8 +27079,8 @@ attributes #30 = { nounwind willreturn memory(read) }
 !549 = !{!550, !14, i64 8}
 !550 = !{!"FT_LayerIterator_", !11, i64 0, !11, i64 4, !14, i64 8}
 !551 = !{!550, !11, i64 4}
-!552 = !{!550, !11, i64 0}
-!553 = distinct !{!553, !18}
+!552 = distinct !{!552, !18}
+!553 = !{!550, !11, i64 0}
 !554 = !{!555, !14, i64 0}
 !555 = !{!"FT_Opaque_Paint_", !14, i64 0, !9, i64 8}
 !556 = distinct !{!556, !18}

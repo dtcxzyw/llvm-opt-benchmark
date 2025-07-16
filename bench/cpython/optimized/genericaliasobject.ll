@@ -987,7 +987,7 @@ define hidden ptr @_Py_make_parameters(ptr noundef readonly captures(none) %0) l
 
 .preheader:                                       ; preds = %1
   %.not70126 = icmp sgt i64 %.val, 0
-  br i1 %.not70126, label %.lr.ph132, label %._crit_edge
+  br i1 %.not70126, label %.lr.ph132, label %._crit_edge._crit_edge
 
 .lr.ph132:                                        ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1240,18 +1240,16 @@ Py_DECREF.exit:                                   ; preds = %8, %tuple_add.exit,
   %exitcond135.not = icmp eq i64 %102, %.val
   br i1 %exitcond135.not, label %._crit_edge, label %8, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %Py_DECREF.exit, %.preheader
-  %.054.lcssa = phi i64 [ 0, %.preheader ], [ %.256, %Py_DECREF.exit ]
-  %.040.lcssa = phi i64 [ %.val, %.preheader ], [ %.242, %Py_DECREF.exit ]
-  %103 = icmp slt i64 %.054.lcssa, %.040.lcssa
+._crit_edge:                                      ; preds = %Py_DECREF.exit
+  %103 = icmp slt i64 %.256, %.242
   br i1 %103, label %104, label %._crit_edge._crit_edge
 
-._crit_edge._crit_edge:                           ; preds = %._crit_edge
+._crit_edge._crit_edge:                           ; preds = %.preheader, %._crit_edge
   %.pre = load ptr, ptr %2, align 8, !tbaa !12
   br label %Py_XDECREF.exit95
 
 104:                                              ; preds = %._crit_edge
-  %105 = call i32 @_PyTuple_Resize(ptr noundef nonnull %2, i64 noundef %.054.lcssa) #5
+  %105 = call i32 @_PyTuple_Resize(ptr noundef nonnull %2, i64 noundef %.256) #5
   %106 = icmp slt i32 %105, 0
   %.pre136 = load ptr, ptr %2, align 8, !tbaa !12
   br i1 %106, label %107, label %Py_XDECREF.exit95

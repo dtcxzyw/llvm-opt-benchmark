@@ -1039,7 +1039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .preheader92:                                     ; preds = %43
   %.not111 = icmp eq i32 %1, 0
-  br i1 %.not111, label %._crit_edge, label %.lr.ph
+  br i1 %.not111, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %.preheader92
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1063,14 +1063,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ._crit_edge.loopexit:                             ; preds = %54
   %60 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader92
-  %.052.lcssa = phi i32 [ 0, %.preheader92 ], [ %60, %._crit_edge.loopexit ]
-  %61 = icmp eq i32 %.052.lcssa, %1
+  %61 = icmp eq i32 %1, %60
   br i1 %61, label %._crit_edge.thread, label %69
 
-._crit_edge.thread:                               ; preds = %59, %._crit_edge
+._crit_edge.thread:                               ; preds = %59, %.preheader92, %._crit_edge.loopexit
   %62 = icmp sgt i32 %1, 1
   br i1 %62, label %233, label %63
 
@@ -1082,7 +1078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %68 = icmp eq i32 %67, 1
   br i1 %68, label %233, label %69
 
-69:                                               ; preds = %._crit_edge, %63, %43, %40, %29
+69:                                               ; preds = %._crit_edge.loopexit, %63, %43, %40, %29
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #25
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !61

@@ -13207,8 +13207,8 @@ for.inc84:                                        ; preds = %for.body74, %for.bo
   br i1 %exitcond91.not, label %if.end91.thread, label %for.body74, !llvm.loop !235
 
 for.end86:                                        ; preds = %for.body74
-  %cmp87 = icmp eq i64 %i71.082, %nNewLength.3
-  br i1 %cmp87, label %if.end91.thread, label %if.end91
+  %8 = icmp eq i64 %i71.082, %nNewLength.3
+  br i1 %8, label %if.end91.thread, label %if.end91
 
 if.end91.thread:                                  ; preds = %for.inc84, %if.end70, %for.end86
   store i8 48, ptr %pString, align 1
@@ -13221,14 +13221,14 @@ if.end91:                                         ; preds = %for.end86
   br i1 %cmp92, label %land.lhs.true93, label %if.end105
 
 land.lhs.true93:                                  ; preds = %if.end91
-  %8 = load i8, ptr %pString, align 1
-  %cmp96 = icmp eq i8 %8, 48
+  %9 = load i8, ptr %pString, align 1
+  %cmp96 = icmp eq i8 %9, 48
   br i1 %cmp96, label %land.lhs.true97, label %if.end105
 
 land.lhs.true97:                                  ; preds = %land.lhs.true93
   %arrayidx98 = getelementptr inbounds nuw i8, ptr %pString, i64 1
-  %9 = load i8, ptr %arrayidx98, align 1
-  %cmp100 = icmp eq i8 %9, 46
+  %10 = load i8, ptr %arrayidx98, align 1
+  %cmp100 = icmp eq i8 %10, 46
   br i1 %cmp100, label %if.then101, label %if.end105
 
 if.then101:                                       ; preds = %land.lhs.true97

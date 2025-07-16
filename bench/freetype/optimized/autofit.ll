@@ -4392,7 +4392,7 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
 
 .preheader:                                       ; preds = %37
   %.not80 = icmp eq i32 %43, 0
-  br i1 %.not80, label %._crit_edge76, label %.lr.ph75.preheader
+  br i1 %.not80, label %._crit_edge76.thread, label %.lr.ph75.preheader
 
 .lr.ph75.preheader:                               ; preds = %.preheader
   %wide.trip.count = zext i32 %43 to i64
@@ -4405,23 +4405,19 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   %48 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %42, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !44
   %.not66 = icmp eq i32 %47, %49
-  br i1 %.not66, label %50, label %._crit_edge76.loopexit
+  br i1 %.not66, label %50, label %._crit_edge76
 
 50:                                               ; preds = %.lr.ph75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge76.thread, label %.lr.ph75, !llvm.loop !309
 
-._crit_edge76.loopexit:                           ; preds = %.lr.ph75
+._crit_edge76:                                    ; preds = %.lr.ph75
   %51 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge76
-
-._crit_edge76:                                    ; preds = %._crit_edge76.loopexit, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %51, %._crit_edge76.loopexit ]
-  %52 = icmp eq i32 %.0.lcssa, %43
+  %52 = icmp eq i32 %43, %51
   br i1 %52, label %._crit_edge76.thread, label %53
 
-._crit_edge76.thread:                             ; preds = %50, %._crit_edge76
+._crit_edge76.thread:                             ; preds = %50, %.preheader, %._crit_edge76
   call void @hb_buffer_clear_contents(ptr noundef %2) #20
   br label %53
 
@@ -7457,8 +7453,8 @@ select.unfold241.i:                               ; preds = %._crit_edge.thread.
   %306 = icmp ult ptr %305, %299
   br i1 %306, label %.lr.ph269.i, label %.lr.ph271.i, !llvm.loop !399
 
-.lr.ph271.i:                                      ; preds = %.loopexit260.i, %368
-  %.1165270.i = phi ptr [ %369, %368 ], [ %295, %.loopexit260.i ]
+.lr.ph271.i:                                      ; preds = %.loopexit260.i, %371
+  %.1165270.i = phi ptr [ %372, %371 ], [ %295, %.loopexit260.i ]
   %307 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 72
   %308 = load ptr, ptr %307, align 8, !tbaa !91
   %.not213.i = icmp eq ptr %308, null
@@ -7561,39 +7557,41 @@ select.unfold241.i:                               ; preds = %._crit_edge.thread.
   %358 = getelementptr inbounds nuw i8, ptr %.2168.i, i64 24
   %359 = load ptr, ptr %358, align 8, !tbaa !102
   %.not217.i = icmp eq ptr %359, %308
-  br i1 %.not217.i, label %.loopexit.i, label %311, !llvm.loop !402
+  br i1 %.not217.i, label %.loopexit.loopexit.i, label %311, !llvm.loop !402
 
-.loopexit.i:                                      ; preds = %357, %.lr.ph271.i
-  %.0161.i = phi i32 [ 0, %.lr.ph271.i ], [ %.2163.i, %357 ]
-  %.0158.i = phi i32 [ 0, %.lr.ph271.i ], [ %.2160.i, %357 ]
-  %360 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 24
-  %361 = icmp sgt i32 %.0161.i, 0
-  %.not218.i = icmp sge i32 %.0161.i, %.0158.i
-  %or.cond233.not.i = select i1 %361, i1 %.not218.i, i1 false
-  %spec.store.select.i = zext i1 %or.cond233.not.i to i8
-  store i8 %spec.store.select.i, ptr %360, align 8
-  %362 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 56
-  %363 = load ptr, ptr %362, align 8, !tbaa !400
-  %.not219.i = icmp eq ptr %363, null
-  br i1 %.not219.i, label %368, label %364
+.loopexit.loopexit.i:                             ; preds = %357
+  %360 = icmp samesign uge i32 %.2163.i, %.2160.i
+  %361 = icmp ne i32 %.2163.i, 0
+  %362 = select i1 %361, i1 %360, i1 false
+  %363 = zext i1 %362 to i8
+  br label %.loopexit.i
 
-364:                                              ; preds = %.loopexit.i
-  %365 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 48
-  %366 = load ptr, ptr %365, align 8, !tbaa !401
-  %.not220.i = icmp eq ptr %366, null
-  br i1 %.not220.i, label %368, label %367
+.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.lr.ph271.i
+  %.0161.i = phi i8 [ 0, %.lr.ph271.i ], [ %363, %.loopexit.loopexit.i ]
+  %364 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 24
+  store i8 %.0161.i, ptr %364, align 8
+  %365 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 56
+  %366 = load ptr, ptr %365, align 8, !tbaa !400
+  %.not219.i = icmp eq ptr %366, null
+  br i1 %.not219.i, label %371, label %367
 
-367:                                              ; preds = %364
-  store ptr null, ptr %362, align 8, !tbaa !400
-  br label %368
+367:                                              ; preds = %.loopexit.i
+  %368 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 48
+  %369 = load ptr, ptr %368, align 8, !tbaa !401
+  %.not220.i = icmp eq ptr %369, null
+  br i1 %.not220.i, label %371, label %370
 
-368:                                              ; preds = %367, %364, %.loopexit.i
-  %369 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 88
-  %370 = icmp ult ptr %369, %299
-  br i1 %370, label %.lr.ph271.i, label %af_cjk_hints_compute_edges.exit, !llvm.loop !403
+370:                                              ; preds = %367
+  store ptr null, ptr %365, align 8, !tbaa !400
+  br label %371
 
-af_cjk_hints_compute_edges.exit:                  ; preds = %368, %9, %296, %._crit_edge266.i, %291, %af_cjk_hints_compute_segments.exit
-  %.0 = phi i32 [ %33, %af_cjk_hints_compute_segments.exit ], [ %267, %291 ], [ 0, %296 ], [ 0, %._crit_edge266.i ], [ %13, %9 ], [ 0, %368 ]
+371:                                              ; preds = %370, %367, %.loopexit.i
+  %372 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 88
+  %373 = icmp ult ptr %372, %299
+  br i1 %373, label %.lr.ph271.i, label %af_cjk_hints_compute_edges.exit, !llvm.loop !403
+
+af_cjk_hints_compute_edges.exit:                  ; preds = %371, %9, %296, %._crit_edge266.i, %291, %af_cjk_hints_compute_segments.exit
+  %.0 = phi i32 [ %33, %af_cjk_hints_compute_segments.exit ], [ %267, %291 ], [ 0, %296 ], [ 0, %._crit_edge266.i ], [ %13, %9 ], [ 0, %371 ]
   ret i32 %.0
 }
 

@@ -326,7 +326,7 @@ _ZN17PreferenceManager9factoriesEv.exit:          ; preds = %3, %7, %9
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.not10.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not10.i.i.i.i, label %_ZNKSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %12
   %16 = load i32, ptr %4, align 4
@@ -347,47 +347,41 @@ _ZN17PreferenceManager9factoriesEv.exit:          ; preds = %3, %7, %9
 
 _ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %17
   %21 = icmp eq ptr %.19.i.i.i.i, %15
-  br i1 %21, label %_ZNKSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, label %22
+  br i1 %21, label %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit, label %22
 
 22:                                               ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %24 = load i32, ptr %23, align 4
-  %25 = icmp slt i32 %16, %24
-  %spec.select.i.i.i = select i1 %25, ptr %15, ptr %.19.i.i.i.i
-  br label %_ZNKSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
-
-_ZNKSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %22, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %12
-  %.sroa.0.0.i.i.i = phi ptr [ %15, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %15, %12 ], [ %spec.select.i.i.i, %22 ]
-  %26 = icmp ne ptr %.sroa.0.0.i.i.i, %15
+  %25 = icmp sge i32 %16, %24
   br label %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit
 
-_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit: ; preds = %_ZN17PreferenceManager9factoriesEv.exit, %_ZNKSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
-  %.0.i = phi i1 [ %26, %_ZNKSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ false, %_ZN17PreferenceManager9factoriesEv.exit ]
-  %27 = icmp eq ptr %2, null
-  %or.cond.not = or i1 %27, %.0.i
-  br i1 %or.cond.not, label %36, label %28
+_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit: ; preds = %_ZN17PreferenceManager9factoriesEv.exit, %12, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %22
+  %.0.i = phi i1 [ false, %_ZN17PreferenceManager9factoriesEv.exit ], [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ false, %12 ], [ %25, %22 ]
+  %26 = icmp eq ptr %2, null
+  %or.cond.not = or i1 %26, %.0.i
+  br i1 %or.cond.not, label %35, label %27
 
-28:                                               ; preds = %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit
-  %29 = load atomic i8, ptr @_ZGVZN17PreferenceManager9factoriesEvE4inst acquire, align 8
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %_ZN17PreferenceManager9factoriesEv.exit6, !prof !6
+27:                                               ; preds = %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit
+  %28 = load atomic i8, ptr @_ZGVZN17PreferenceManager9factoriesEvE4inst acquire, align 8
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %30, label %_ZN17PreferenceManager9factoriesEv.exit6, !prof !6
 
-31:                                               ; preds = %28
-  %32 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #17
-  %.not.i5 = icmp eq i32 %32, 0
-  br i1 %.not.i5, label %_ZN17PreferenceManager9factoriesEv.exit6, label %33
+30:                                               ; preds = %27
+  %31 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #17
+  %.not.i5 = icmp eq i32 %31, 0
+  br i1 %.not.i5, label %_ZN17PreferenceManager9factoriesEv.exit6, label %32
 
-33:                                               ; preds = %31
-  %34 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #17
+32:                                               ; preds = %30
+  %33 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #17
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #17
   br label %_ZN17PreferenceManager9factoriesEv.exit6
 
-_ZN17PreferenceManager9factoriesEv.exit6:         ; preds = %28, %31, %33
-  %35 = call noundef align 8 dereferenceable(8) ptr @_ZN4QMapIiP17PreferenceFactoryEixERKi(ptr noundef nonnull align 8 dereferenceable_or_null(8) @_ZZN17PreferenceManager9factoriesEvE4inst, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store ptr %2, ptr %35, align 8
-  br label %36
+_ZN17PreferenceManager9factoriesEv.exit6:         ; preds = %27, %30, %32
+  %34 = call noundef align 8 dereferenceable(8) ptr @_ZN4QMapIiP17PreferenceFactoryEixERKi(ptr noundef nonnull align 8 dereferenceable_or_null(8) @_ZZN17PreferenceManager9factoriesEvE4inst, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  store ptr %2, ptr %34, align 8
+  br label %35
 
-36:                                               ; preds = %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit, %_ZN17PreferenceManager9factoriesEv.exit6
+35:                                               ; preds = %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit, %_ZN17PreferenceManager9factoriesEv.exit6
   ret void
 }
 
@@ -526,7 +520,7 @@ _ZNSt3mapIiP17PreferenceFactorySt4lessIiESaISt4pairIKiS1_EEE6insertEOS6_.exit: ;
 define noundef ptr @_ZN17PreferenceManager13getPreferenceEP9PrefsItem(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %40, label %4
+  br i1 %.not, label %39, label %4
 
 4:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
@@ -582,44 +576,44 @@ _ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaI
 _ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %24 = load i32, ptr %23, align 4
-  %25 = icmp slt i32 %17, %24
-  br i1 %25, label %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread, label %26
+  %.not15 = icmp slt i32 %17, %24
+  br i1 %.not15, label %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread, label %25
 
-26:                                               ; preds = %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit
-  %27 = load atomic i8, ptr @_ZGVZN17PreferenceManager9factoriesEvE4inst acquire, align 8
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %_ZN17PreferenceManager9factoriesEv.exit13, !prof !6
+25:                                               ; preds = %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit
+  %26 = load atomic i8, ptr @_ZGVZN17PreferenceManager9factoriesEvE4inst acquire, align 8
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %28, label %_ZN17PreferenceManager9factoriesEv.exit13, !prof !6
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #17
-  %.not.i12 = icmp eq i32 %30, 0
-  br i1 %.not.i12, label %_ZN17PreferenceManager9factoriesEv.exit13, label %31
+28:                                               ; preds = %25
+  %29 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #17
+  %.not.i12 = icmp eq i32 %29, 0
+  br i1 %.not.i12, label %_ZN17PreferenceManager9factoriesEv.exit13, label %30
 
-31:                                               ; preds = %29
-  %32 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #17
+30:                                               ; preds = %28
+  %31 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4QMapIiP17PreferenceFactoryED2Ev, ptr nonnull @_ZZN17PreferenceManager9factoriesEvE4inst, ptr nonnull @__dso_handle) #17
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17PreferenceManager9factoriesEvE4inst) #17
   br label %_ZN17PreferenceManager9factoriesEv.exit13
 
-_ZN17PreferenceManager9factoriesEv.exit13:        ; preds = %26, %29, %31
-  %33 = call noundef align 8 dereferenceable(8) ptr @_ZN4QMapIiP17PreferenceFactoryEixERKi(ptr noundef nonnull align 8 dereferenceable_or_null(8) @_ZZN17PreferenceManager9factoriesEvE4inst, ptr noundef nonnull align 4 dereferenceable(4) %3)
+_ZN17PreferenceManager9factoriesEv.exit13:        ; preds = %25, %28, %30
+  %32 = call noundef align 8 dereferenceable(8) ptr @_ZN4QMapIiP17PreferenceFactoryEixERKi(ptr noundef nonnull align 8 dereferenceable_or_null(8) @_ZZN17PreferenceManager9factoriesEvE4inst, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
-  %37 = load ptr, ptr %36, align 8
-  %38 = call noundef ptr %37(ptr noundef align 8 dereferenceable_or_null(16) %34, ptr noundef %0)
-  %.not10 = icmp eq ptr %38, null
-  br i1 %.not10, label %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread, label %39
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef ptr %36(ptr noundef align 8 dereferenceable_or_null(16) %33, ptr noundef %0)
+  %.not10 = icmp eq ptr %37, null
+  br i1 %.not10, label %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread, label %38
 
-39:                                               ; preds = %_ZN17PreferenceManager9factoriesEv.exit13
-  call void @_ZN19WiresharkPreference12setPrefsItemEP9PrefsItem(ptr noundef nonnull align 8 dereferenceable_or_null(24) %38, ptr noundef nonnull %1)
+38:                                               ; preds = %_ZN17PreferenceManager9factoriesEv.exit13
+  call void @_ZN19WiresharkPreference12setPrefsItemEP9PrefsItem(ptr noundef nonnull align 8 dereferenceable_or_null(24) %37, ptr noundef nonnull %1)
   br label %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread
 
-_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread: ; preds = %13, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN17PreferenceManager9factoriesEv.exit, %_ZN17PreferenceManager9factoriesEv.exit13, %39, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit
-  %.1 = phi ptr [ null, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit ], [ %38, %39 ], [ null, %_ZN17PreferenceManager9factoriesEv.exit13 ], [ null, %_ZN17PreferenceManager9factoriesEv.exit ], [ null, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ null, %13 ]
+_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread: ; preds = %13, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN17PreferenceManager9factoriesEv.exit, %_ZN17PreferenceManager9factoriesEv.exit13, %38, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit
+  %.1 = phi ptr [ null, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit ], [ %37, %38 ], [ null, %_ZN17PreferenceManager9factoriesEv.exit13 ], [ null, %_ZN17PreferenceManager9factoriesEv.exit ], [ null, %_ZNKSt8_Rb_treeIiSt4pairIKiP17PreferenceFactoryESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  br label %40
+  br label %39
 
-40:                                               ; preds = %2, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread
+39:                                               ; preds = %2, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread
   %.0 = phi ptr [ %.1, %_ZNK4QMapIiP17PreferenceFactoryE8containsERKi.exit.thread ], [ null, %2 ]
   ret ptr %.0
 }

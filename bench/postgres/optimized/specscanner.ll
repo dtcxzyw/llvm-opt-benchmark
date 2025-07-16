@@ -1365,55 +1365,51 @@ define dso_local nonnull ptr @spec_yy_create_buffer(ptr noundef %0, i32 noundef 
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 0, ptr %20, align 8
   %.not10.i.i = icmp eq ptr %.pr.pre.i, null
-  br i1 %.not10.i.i, label %spec_yy_flush_buffer.exit.thread.i, label %22
+  br i1 %.not10.i.i, label %.critedge.i.sink.split, label %21
 
-spec_yy_flush_buffer.exit.thread.i:               ; preds = %12
+21:                                               ; preds = %12
+  %22 = load i64, ptr @yy_buffer_stack_top, align 8
+  %23 = getelementptr inbounds nuw ptr, ptr %.pr.pre.i, i64 %22
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %3, %24
+  br i1 %25, label %26, label %.critedge.i.sink.split
+
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 28
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr @yy_n_chars, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr @yy_c_buf_p, align 8
+  store ptr %30, ptr @spec_yytext, align 8
+  %31 = load ptr, ptr %23, align 8
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr @spec_yyin, align 8
+  %33 = load i8, ptr %30, align 1
+  store i8 %33, ptr @yy_hold_char, align 1
+  %.pre = load ptr, ptr %23, align 8
+  %34 = icmp eq ptr %3, %.pre
   store ptr %0, ptr %3, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  store i32 1, ptr %21, align 4
-  br label %.thread.i
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  store i32 1, ptr %35, align 4
+  br i1 %34, label %spec_yy_init_buffer.exit, label %.critedge.i
 
-22:                                               ; preds = %12
-  %23 = load i64, ptr @yy_buffer_stack_top, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %.pr.pre.i, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %3, %25
-  br i1 %26, label %27, label %35
-
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 28
-  %29 = load i32, ptr %28, align 4
-  store i32 %29, ptr @yy_n_chars, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr @yy_c_buf_p, align 8
-  store ptr %31, ptr @spec_yytext, align 8
-  %32 = load ptr, ptr %24, align 8
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr @spec_yyin, align 8
-  %34 = load i8, ptr %31, align 1
-  store i8 %34, ptr @yy_hold_char, align 1
-  %.pre = load ptr, ptr %24, align 8
-  br label %35
-
-35:                                               ; preds = %22, %27
-  %36 = phi ptr [ %25, %22 ], [ %.pre, %27 ]
+.critedge.i.sink.split:                           ; preds = %21, %12
   store ptr %0, ptr %3, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  store i32 1, ptr %36, align 4
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.i.sink.split, %26
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 1, ptr %37, align 4
-  %.not9.i = icmp eq ptr %3, %36
-  br i1 %.not9.i, label %spec_yy_init_buffer.exit, label %.thread.i
-
-.thread.i:                                        ; preds = %35, %spec_yy_flush_buffer.exit.thread.i
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 0, ptr %39, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i32 0, ptr %38, align 8
   br label %spec_yy_init_buffer.exit
 
-spec_yy_init_buffer.exit:                         ; preds = %35, %.thread.i
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 0, ptr %40, align 4
+spec_yy_init_buffer.exit:                         ; preds = %26, %.critedge.i
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 0, ptr %39, align 4
   store i32 %15, ptr %14, align 4
   ret ptr %3
 }
@@ -1471,13 +1467,13 @@ define dso_local void @spec_yyrestart(ptr noundef %0) local_unnamed_addr #0 {
   store i64 0, ptr %8, align 8
   store i64 1, ptr @yy_buffer_stack_max, align 8
   store i64 0, ptr @yy_buffer_stack_top, align 8
-  br label %.thread6
+  br label %.thread5
 
 11:                                               ; preds = %3
   %12 = load i64, ptr @yy_buffer_stack_max, align 8
   %13 = add i64 %12, -1
   %.not10.i = icmp ult i64 %4, %13
-  br i1 %.not10.i, label %.thread6, label %14
+  br i1 %.not10.i, label %.thread5, label %14
 
 14:                                               ; preds = %11
   %15 = add i64 %12, 8
@@ -1495,23 +1491,23 @@ define dso_local void @spec_yyrestart(ptr noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
   store i64 %15, ptr @yy_buffer_stack_max, align 8
-  br label %.thread6
+  br label %.thread5
 
-.thread6:                                         ; preds = %19, %11, %10
+.thread5:                                         ; preds = %19, %11, %10
   %21 = load ptr, ptr @spec_yyin, align 8
   %22 = tail call ptr @spec_yy_create_buffer(ptr noundef %21, i32 noundef 16384)
   %23 = load ptr, ptr @yy_buffer_stack, align 8
   %24 = load i64, ptr @yy_buffer_stack_top, align 8
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   store ptr %22, ptr %25, align 8
-  %.not37 = icmp eq ptr %23, null
+  %.not36 = icmp eq ptr %23, null
   br label %26
 
-26:                                               ; preds = %3, %.thread6
-  %27 = phi ptr [ %22, %.thread6 ], [ %6, %3 ]
-  %28 = phi i64 [ %24, %.thread6 ], [ %4, %3 ]
-  %.not38 = phi i1 [ %.not37, %.thread6 ], [ false, %3 ]
-  %29 = phi ptr [ %23, %.thread6 ], [ %2, %3 ]
+26:                                               ; preds = %3, %.thread5
+  %27 = phi ptr [ %22, %.thread5 ], [ %6, %3 ]
+  %28 = phi i64 [ %24, %.thread5 ], [ %4, %3 ]
+  %.not37 = phi i1 [ %.not36, %.thread5 ], [ false, %3 ]
+  %29 = phi ptr [ %23, %.thread5 ], [ %2, %3 ]
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
   %31 = tail call ptr @__errno_location() #26
   %32 = load i32, ptr %31, align 4
@@ -1530,18 +1526,18 @@ define dso_local void @spec_yyrestart(ptr noundef %0) local_unnamed_addr #0 {
   store i32 1, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store i32 0, ptr %41, align 8
-  br i1 %.not38, label %spec_yy_flush_buffer.exit.thread.i, label %43
+  br i1 %.not37, label %spec_yy_flush_buffer.exit.thread.i, label %43
 
 spec_yy_flush_buffer.exit.thread.i:               ; preds = %26
   store ptr %0, ptr %27, align 8
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 52
   store i32 1, ptr %42, align 4
-  br label %.thread.i
+  br label %.critedge.i
 
 43:                                               ; preds = %26
   %44 = load ptr, ptr %30, align 8
   %45 = icmp eq ptr %27, %44
-  br i1 %45, label %46, label %spec_yy_flush_buffer.exit.thread12.i
+  br i1 %45, label %46, label %spec_yy_flush_buffer.exit.thread11.i
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 28
@@ -1556,40 +1552,40 @@ spec_yy_flush_buffer.exit.thread.i:               ; preds = %26
   store ptr %52, ptr @spec_yyin, align 8
   %53 = load i8, ptr %50, align 1
   store i8 %53, ptr @yy_hold_char, align 1
-  br label %spec_yy_flush_buffer.exit.thread12.i
+  br label %spec_yy_flush_buffer.exit.thread11.i
 
-spec_yy_flush_buffer.exit.thread12.i:             ; preds = %46, %43
+spec_yy_flush_buffer.exit.thread11.i:             ; preds = %46, %43
   store ptr %0, ptr %27, align 8
   %54 = getelementptr inbounds nuw i8, ptr %27, i64 52
   store i32 1, ptr %54, align 4
   %55 = load ptr, ptr %30, align 8
-  %.not9.i4 = icmp eq ptr %27, %55
-  br i1 %.not9.i4, label %spec_yy_init_buffer.exit, label %.thread.i
+  %56 = icmp eq ptr %27, %55
+  br i1 %56, label %spec_yy_init_buffer.exit, label %.critedge.i
 
-.thread.i:                                        ; preds = %spec_yy_flush_buffer.exit.thread12.i, %spec_yy_flush_buffer.exit.thread.i
-  %56 = getelementptr inbounds nuw i8, ptr %27, i64 44
-  store i32 1, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store i32 0, ptr %57, align 8
+.critedge.i:                                      ; preds = %spec_yy_flush_buffer.exit.thread11.i, %spec_yy_flush_buffer.exit.thread.i
+  %57 = getelementptr inbounds nuw i8, ptr %27, i64 44
+  store i32 1, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  store i32 0, ptr %58, align 8
   br label %spec_yy_init_buffer.exit
 
-spec_yy_init_buffer.exit:                         ; preds = %spec_yy_flush_buffer.exit.thread12.i, %.thread.i
-  %58 = getelementptr inbounds nuw i8, ptr %27, i64 36
-  store i32 0, ptr %58, align 4
+spec_yy_init_buffer.exit:                         ; preds = %spec_yy_flush_buffer.exit.thread11.i, %.critedge.i
+  %59 = getelementptr inbounds nuw i8, ptr %27, i64 36
+  store i32 0, ptr %59, align 4
   store i32 %32, ptr %31, align 4
-  %59 = load ptr, ptr %30, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
-  %61 = load i32, ptr %60, align 4
-  store i32 %61, ptr @yy_n_chars, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr @yy_c_buf_p, align 8
-  store ptr %63, ptr @spec_yytext, align 8
-  %64 = load ptr, ptr %30, align 8
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr @spec_yyin, align 8
-  %66 = load i8, ptr %63, align 1
-  store i8 %66, ptr @yy_hold_char, align 1
+  %60 = load ptr, ptr %30, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
+  %62 = load i32, ptr %61, align 4
+  store i32 %62, ptr @yy_n_chars, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %64 = load ptr, ptr %63, align 8
+  store ptr %64, ptr @yy_c_buf_p, align 8
+  store ptr %64, ptr @spec_yytext, align 8
+  %65 = load ptr, ptr %30, align 8
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr @spec_yyin, align 8
+  %67 = load i8, ptr %64, align 1
+  store i8 %67, ptr @yy_hold_char, align 1
   ret void
 }
 
@@ -1700,32 +1696,32 @@ define dso_local void @spec_yy_delete_buffer(ptr noundef captures(address) %0) l
 2:                                                ; preds = %1
   %3 = load ptr, ptr @yy_buffer_stack, align 8
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %.thread, label %4
+  br i1 %.not6, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %0, %7
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %4
   store ptr null, ptr %6, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %9, %4
+.critedge:                                        ; preds = %2, %9, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %15, label %12
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %.critedge
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #24
   br label %15
 
-15:                                               ; preds = %12, %.thread
+15:                                               ; preds = %12, %.critedge
   tail call void @free(ptr noundef nonnull %0) #24
   br label %16
 
@@ -1742,7 +1738,7 @@ define dso_local void @spec_yyfree(ptr noundef captures(none) %0) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @spec_yy_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %2
+  br i1 %.not, label %.critedge, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1762,14 +1758,14 @@ define dso_local void @spec_yy_flush_buffer(ptr noundef captures(address) %0) lo
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr @yy_buffer_stack, align 8
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %.thread, label %13
+  br i1 %.not10, label %.critedge, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8
   %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %0, %16
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 28
@@ -1784,9 +1780,9 @@ define dso_local void @spec_yy_flush_buffer(ptr noundef captures(address) %0) lo
   store ptr %24, ptr @spec_yyin, align 8
   %25 = load i8, ptr %22, align 1
   store i8 %25, ptr @yy_hold_char, align 1
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %1, %18, %13
+.critedge:                                        ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -1902,22 +1898,22 @@ define dso_local void @spec_yypop_buffer_state() local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.thread, label %.thread.i
+  br i1 %.not4, label %.thread, label %.critedge.i
 
-.thread.i:                                        ; preds = %2
+.critedge.i:                                      ; preds = %2
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %.not7.i = icmp eq i32 %7, 0
   br i1 %.not7.i, label %spec_yy_delete_buffer.exit, label %8
 
-8:                                                ; preds = %.thread.i
+8:                                                ; preds = %.critedge.i
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #24
   br label %spec_yy_delete_buffer.exit
 
-spec_yy_delete_buffer.exit:                       ; preds = %.thread.i, %8
+spec_yy_delete_buffer.exit:                       ; preds = %.critedge.i, %8
   tail call void @free(ptr noundef nonnull %5) #24
   store ptr null, ptr %4, align 8
   %.not5 = icmp eq i64 %3, 0
@@ -2174,34 +2170,34 @@ define dso_local void @spec_yyset_debug(i32 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @spec_yylex_destroy() local_unnamed_addr #0 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8
-  %.not7 = icmp eq ptr %.pr, null
-  br i1 %.not7, label %.critedge, label %.lr.ph.preheader
+  %.not6 = icmp eq ptr %.pr, null
+  br i1 %.not6, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8
-  %1 = icmp eq ptr %.pre10, null
-  br i1 %1, label %.critedge, label %.thread.i
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8
+  %1 = icmp eq ptr %.pre9, null
+  br i1 %1, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph.preheader
+.critedge.i:                                      ; preds = %.lr.ph.preheader
   %2 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %.pre10, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.pre9, i64 32
   %4 = load i32, ptr %3, align 8
   %.not7.i = icmp eq i32 %4, 0
   br i1 %.not7.i, label %spec_yypop_buffer_state.exit, label %5
 
-5:                                                ; preds = %.thread.i
-  %6 = getelementptr inbounds nuw i8, ptr %.pre10, i64 8
+5:                                                ; preds = %.critedge.i
+  %6 = getelementptr inbounds nuw i8, ptr %.pre9, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #24
-  %.pre11 = load ptr, ptr @yy_buffer_stack, align 8
+  %.pre10 = load ptr, ptr @yy_buffer_stack, align 8
   br label %spec_yypop_buffer_state.exit
 
-spec_yypop_buffer_state.exit:                     ; preds = %.thread.i, %5
-  %8 = phi ptr [ %.pr, %.thread.i ], [ %.pre11, %5 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #24
+spec_yypop_buffer_state.exit:                     ; preds = %.critedge.i, %5
+  %8 = phi ptr [ %.pr, %.critedge.i ], [ %.pre10, %5 ]
+  tail call void @free(ptr noundef nonnull %.pre9) #24
   %9 = load i64, ptr @yy_buffer_stack_top, align 8
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
   store ptr null, ptr %10, align 8

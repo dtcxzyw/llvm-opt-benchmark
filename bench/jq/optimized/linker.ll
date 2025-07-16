@@ -1125,14 +1125,14 @@ default_search.exit:                              ; preds = %110, %96, %112
   br i1 %156, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %154, %.lr.ph
-  %.0156.lcssa = phi i64 [ %155, %154 ], [ %.0156181, %.lr.ph ]
-  %157 = icmp ult i64 %.0156.lcssa, %.pre.pre
+  %.0156.lcssa.ph = phi i64 [ %155, %154 ], [ %.0156181, %.lr.ph ]
+  %157 = icmp ult i64 %.0156.lcssa.ph, %.pre.pre
   br i1 %157, label %158, label %._crit_edge.thread
 
 158:                                              ; preds = %._crit_edge
   tail call void @jv_free(i64 %127, ptr %128) #11
   %159 = load ptr, ptr %20, align 8, !tbaa !24
-  %160 = getelementptr inbounds nuw %struct.block, ptr %159, i64 %.0156.lcssa
+  %160 = getelementptr inbounds nuw %struct.block, ptr %159, i64 %.0156.lcssa.ph
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %163 = load ptr, ptr %162, align 8

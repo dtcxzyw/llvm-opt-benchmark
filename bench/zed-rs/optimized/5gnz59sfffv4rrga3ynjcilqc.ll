@@ -8822,20 +8822,20 @@ define hidden void @_ZN6editor21selections_collection20SelectionsCollection3all1
   store ptr %73, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx5.sroa_idx.i.i.i.i.i, align 8, !alias.scope !2146, !noalias !2119
   store i64 2, ptr %57, align 8, !alias.scope !2146, !noalias !2119
   store i64 1, ptr %56, align 8, !alias.scope !2147, !noalias !2119
-  %.pre24.i.i.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !range !228, !alias.scope !2156, !noalias !2161
-  %.phi.trans.insert25.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %.val.i72.i.i.pre.i.i.i = load i64, ptr %.phi.trans.insert25.i.i.i, align 8, !alias.scope !2156, !noalias !2161
-  %.phi.trans.insert27.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 72
-  %.val4.i73.i.i.pre.i.i.i = load i64, ptr %.phi.trans.insert27.i.i.i, align 8, !alias.scope !2156, !noalias !2161
-  %.pre29.i.i.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 8, !range !1286, !alias.scope !2156, !noalias !2161
-  %.pre24.fr.i.i.i = freeze i64 %.pre24.i.i.i
-  %74 = trunc i64 %.pre24.fr.i.i.i to i1
-  %75 = icmp eq i8 %.pre29.i.i.i, 2
+  %.pre25.i.i.i = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !range !228, !alias.scope !2156, !noalias !2161
+  %.phi.trans.insert26.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %.val.i72.i.i.pre.i.i.i = load i64, ptr %.phi.trans.insert26.i.i.i, align 8, !alias.scope !2156, !noalias !2161
+  %.phi.trans.insert28.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 72
+  %.val4.i73.i.i.pre.i.i.i = load i64, ptr %.phi.trans.insert28.i.i.i, align 8, !alias.scope !2156, !noalias !2161
+  %.pre30.i.i.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 8, !range !1286, !alias.scope !2156, !noalias !2161
+  %.pre25.fr.i.i.i = freeze i64 %.pre25.i.i.i
+  %74 = trunc i64 %.pre25.fr.i.i.i to i1
+  %75 = icmp eq i8 %.pre30.i.i.i, 2
   call void @llvm.experimental.noalias.scope.decl(metadata !2164)
   call void @llvm.experimental.noalias.scope.decl(metadata !2165)
   %76 = sub nuw i64 %.val4.i73.i.i.pre.i.i.i, %.val.i72.i.i.pre.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29), !noalias !2166
-  br i1 %75, label %.thread52.i.i.i, label %77
+  br i1 %75, label %.thread53.i.i.i, label %77
 
 77:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32579dfe5f30ea7bE.exit.i.i.i"
   invoke void @"_ZN87_$LT$itertools..tee..Tee$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5c59f9af68e214f4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i)
@@ -8844,10 +8844,10 @@ define hidden void @_ZN6editor21selections_collection20SelectionsCollection3all1
 .noexc8.i.i.i:                                    ; preds = %77
   %.pre.i.i7.i.i.i = load i64, ptr %29, align 8, !noalias !2166
   %78 = freeze i64 %.pre.i.i7.i.i.i
-  br label %.thread52.i.i.i
+  br label %.thread53.i.i.i
 
-.thread52.i.i.i:                                  ; preds = %.noexc8.i.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32579dfe5f30ea7bE.exit.i.i.i"
-  %.ph51.i.i.i = phi i64 [ %78, %.noexc8.i.i.i ], [ 0, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32579dfe5f30ea7bE.exit.i.i.i" ]
+.thread53.i.i.i:                                  ; preds = %.noexc8.i.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32579dfe5f30ea7bE.exit.i.i.i"
+  %.ph52.i.i.i = phi i64 [ %78, %.noexc8.i.i.i ], [ 0, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32579dfe5f30ea7bE.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !2166
   %79 = call i64 @llvm.uadd.sat.i64(i64 %76, i64 1)
   %80 = select i1 %74, i64 %79, i64 1
@@ -8865,17 +8865,17 @@ define hidden void @_ZN6editor21selections_collection20SelectionsCollection3all1
   %.val4.i.i.i.pre.i.i.i = load i64, ptr %57, align 8, !alias.scope !2156, !noalias !2161
   %.pre.fr.i.i.i = freeze i64 %.pre.i.i.i
   %86 = trunc i64 %.pre.fr.i.i.i to i1
-  %.sroa.0.0.i.i37.i.i.i = load ptr, ptr %85, align 8, !alias.scope !2146, !noalias !2119, !nonnull !4, !align !23, !noundef !4
+  %.sroa.0.0.i.i38.i.i.i = load ptr, ptr %85, align 8, !alias.scope !2146, !noalias !2119, !nonnull !4, !align !23, !noundef !4
   %87 = sub nuw i64 %.val4.i.i.i.pre.i.i.i, %.val.i.i.i.pre.i.i.i
   %88 = sub nuw i64 %68, %83
   %89 = call i64 @llvm.uadd.sat.i64(i64 %87, i64 %88)
   %spec.select.i.i.i = select i1 %86, i64 %89, i64 %88
   br label %90
 
-90:                                               ; preds = %81, %.thread52.i.i.i
-  %.fr.i.i.i = phi i64 [ %.ph51.i.i.i, %.thread52.i.i.i ], [ 0, %81 ]
-  %.sroa.0.0.i.i414556.i.i.i = phi ptr [ %58, %.thread52.i.i.i ], [ %.sroa.0.0.i.i37.i.i.i, %81 ]
-  %91 = phi i64 [ %80, %.thread52.i.i.i ], [ %spec.select.i.i.i, %81 ]
+90:                                               ; preds = %81, %.thread53.i.i.i
+  %.fr.i.i.i = phi i64 [ %.ph52.i.i.i, %.thread53.i.i.i ], [ 0, %81 ]
+  %.sroa.0.0.i.i424657.i.i.i = phi ptr [ %58, %.thread53.i.i.i ], [ %.sroa.0.0.i.i38.i.i.i, %81 ]
+  %91 = phi i64 [ %80, %.thread53.i.i.i ], [ %spec.select.i.i.i, %81 ]
   %92 = shl nuw i64 %.fr.i.i.i, 1
   %.inv.i.i.i.i.i = icmp sgt i64 %.fr.i.i.i, -1
   %93 = call i64 @llvm.uadd.sat.i64(i64 %92, i64 %91)
@@ -8902,7 +8902,7 @@ define hidden void @_ZN6editor21selections_collection20SelectionsCollection3all1
 103:                                              ; preds = %98
   %104 = load ptr, ptr %102, align 8, !noalias !2116, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !2116
-  store ptr %.sroa.0.0.i.i414556.i.i.i, ptr %104, align 8, !noalias !2167
+  store ptr %.sroa.0.0.i.i424657.i.i.i, ptr %104, align 8, !noalias !2167
   store i64 %101, ptr %32, align 8, !noalias !2116
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %104, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !2116
@@ -8934,24 +8934,24 @@ define hidden void @_ZN6editor21selections_collection20SelectionsCollection3all1
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %113
   %.pre.i.i.i.i.i.i = load i64, ptr %106, align 8, !alias.scope !2186, !noalias !2185
   %.pre1.i.i.i.i.i.i = load i64, ptr %105, align 8, !alias.scope !2186, !noalias !2185
-  br label %115
+  %115 = icmp eq i64 %.pre.i.i.i.i.i.i, %.pre1.i.i.i.i.i.i
+  br label %116
 
-115:                                              ; preds = %.critedge.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %116 = phi i64 [ %.pre1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ 0, %.critedge.i.i.i.i.i.i.i ]
-  %117 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ 2, %.critedge.i.i.i.i.i.i.i ]
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %117, %116
+116:                                              ; preds = %.critedge.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+  %117 = phi i64 [ %.pre1.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ 0, %.critedge.i.i.i.i.i.i.i ]
+  %.not.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %115, %._crit_edge.i.i.i.i.i.i ], [ false, %.critedge.i.i.i.i.i.i.i ]
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %118, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he4866060f6a6a98eE.exit.i.i.i.i.i.i.i
 
-118:                                              ; preds = %115
+118:                                              ; preds = %116
   store i64 0, ptr %31, align 8, !alias.scope !2178, !noalias !2185
   br label %122
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17he4866060f6a6a98eE.exit.i.i.i.i.i.i.i: ; preds = %115
-  %119 = add nuw nsw i64 %116, 1
+_ZN4core4iter8adapters7flatten17and_then_or_clear17he4866060f6a6a98eE.exit.i.i.i.i.i.i.i: ; preds = %116
+  %119 = add nuw nsw i64 %117, 1
   store i64 %119, ptr %105, align 8, !alias.scope !2186, !noalias !2185
-  %120 = icmp ult i64 %116, 2
+  %120 = icmp ult i64 %117, 2
   call void @llvm.assume(i1 %120)
-  %121 = getelementptr inbounds nuw ptr, ptr %.sroa.5.0..sroa_idx5.i.i.i.i.i.i.i, i64 %116
+  %121 = getelementptr inbounds nuw ptr, ptr %.sroa.5.0..sroa_idx5.i.i.i.i.i.i.i, i64 %117
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h32579dfe5f30ea7bE.exit.i.i.i.i.i"
 
 122:                                              ; preds = %118, %113
@@ -9012,7 +9012,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc13154d3dff25e69E.exit.i10.i.i.i.i.i.i.
   store ptr %140, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx5.sroa_idx.i.i.i.i.i.i.i, align 8, !alias.scope !2215, !noalias !2185
   store i64 0, ptr %105, align 8, !alias.scope !2215, !noalias !2185
   store i64 2, ptr %106, align 8, !alias.scope !2215, !noalias !2185
-  br label %115
+  br label %116
 
 .body.i.i.i.i.i:                                  ; preds = %171, %143
   %.pn.ph.i.i.i.i.i = phi { ptr, i32 } [ %144, %143 ], [ %172, %171 ]

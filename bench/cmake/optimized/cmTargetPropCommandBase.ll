@@ -1401,9 +1401,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 ._crit_edge:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, %75, %70, %64
   %.pre = load ptr, ptr %12, align 8, !tbaa !48
   %.pre103 = load ptr, ptr %62, align 8, !tbaa !48
-  %117 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %118 = icmp eq ptr %.pre, %.pre103
-  br i1 %118, label %._crit_edge.thread, label %119
+  %117 = icmp eq ptr %.pre, %.pre103
+  %118 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  br i1 %117, label %._crit_edge.thread, label %119
 
 119:                                              ; preds = %._crit_edge
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1684,7 +1684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
   br label %242
 
 ._crit_edge.thread:                               ; preds = %50, %189, %191, %._crit_edge
-  %217 = phi ptr [ %117, %189 ], [ %117, %191 ], [ %117, %._crit_edge ], [ %62, %50 ]
+  %217 = phi ptr [ %118, %189 ], [ %118, %191 ], [ %118, %._crit_edge ], [ %62, %50 ]
   %218 = load ptr, ptr %0, align 8, !tbaa !4
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %220 = load ptr, ptr %219, align 8
@@ -1692,7 +1692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
           to label %222 unwind label %144
 
 222:                                              ; preds = %._crit_edge.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
-  %223 = phi ptr [ %117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74 ], [ %117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86 ], [ %217, %._crit_edge.thread ]
+  %223 = phi ptr [ %118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74 ], [ %118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86 ], [ %217, %._crit_edge.thread ]
   %.136 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86 ], [ %221, %._crit_edge.thread ]
   %224 = load ptr, ptr %12, align 8, !tbaa !37
   %225 = load ptr, ptr %223, align 8, !tbaa !36

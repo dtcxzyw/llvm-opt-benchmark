@@ -6004,9 +6004,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGALgtERKNS_13Lazy_exact_n
   %14 = extractelement <2 x double> %10, i64 1
   %15 = fcmp ole double %14, %7
   %or.cond.not = select i1 %13, i1 true, i1 %15
-  br i1 %or.cond.not, label %55, label %_ZN4CGALltEdRKNS_11Interval_ntILb0EEE.exit
+  br i1 %or.cond.not, label %_ZN4CGALltEdRKNS_11Interval_ntILb0EEE.exit, label %.critedge
 
-_ZN4CGALltEdRKNS_11Interval_ntILb0EEE.exit:       ; preds = %2
+.critedge:                                        ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   store ptr %8, ptr %6, align 8, !tbaa !329
@@ -6019,7 +6019,7 @@ _ZN4CGALltEdRKNS_11Interval_ntILb0EEE.exit:       ; preds = %2
   %19 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i unwind label %22
 
-_ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %_ZN4CGALltEdRKNS_11Interval_ntILb0EEE.exit
+_ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %.critedge
   %.not.i.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i.i, label %_ZNK4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE5exactEv.exit, label %20
 
@@ -6034,7 +6034,7 @@ common.resume:                                    ; preds = %52, %22
   %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %53, %52 ]
   resume { ptr, i32 } %common.resume.op
 
-22:                                               ; preds = %20, %_ZN4CGALltEdRKNS_11Interval_ntILb0EEE.exit
+22:                                               ; preds = %20, %.critedge
   %23 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %17, align 8, !tbaa !332
@@ -6106,9 +6106,9 @@ _ZN5boost14multiprecisionltIiNS0_8backends16rational_adaptorINS2_15cpp_int_backe
   %54 = icmp sgt i32 %27, 0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  br label %55
+  br label %_ZN4CGALltEdRKNS_11Interval_ntILb0EEE.exit
 
-55:                                               ; preds = %2, %_ZN5boost14multiprecisionltIiNS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEENSt9enable_ifIXaaaasr6detail22is_valid_mixed_compareINS0_6numberIT0_XT1_EEET_EE5valuenesr15number_categoryISD_EE5valueLNS0_20number_category_typeE4Entsr20is_number_expressionISF_EE5valueEbE4typeERKSF_RKSE_.exit
+_ZN4CGALltEdRKNS_11Interval_ntILb0EEE.exit:       ; preds = %2, %_ZN5boost14multiprecisionltIiNS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEENSt9enable_ifIXaaaasr6detail22is_valid_mixed_compareINS0_6numberIT0_XT1_EEET_EE5valuenesr15number_categoryISD_EE5valueLNS0_20number_category_typeE4Entsr20is_number_expressionISF_EE5valueEbE4typeERKSF_RKSE_.exit
   %.0 = phi i1 [ %54, %_ZN5boost14multiprecisionltIiNS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEENSt9enable_ifIXaaaasr6detail22is_valid_mixed_compareINS0_6numberIT0_XT1_EEET_EE5valuenesr15number_categoryISD_EE5valueLNS0_20number_category_typeE4Entsr20is_number_expressionISF_EE5valueEbE4typeERKSF_RKSE_.exit ], [ %13, %2 ]
   ret i1 %.0
 }

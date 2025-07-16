@@ -720,7 +720,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h089e86ab72f8a2dfE.llvm.5773283630039730002.exit": ; preds = %2
   %22 = load ptr, ptr %19, align 8, !noalias !164, !nonnull !3, !noundef !3
-  %23 = icmp uge i64 %18, %15
+  %23 = icmp ule i64 %15, %18
   tail call void @llvm.assume(i1 %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !164
   store i64 %18, ptr %6, align 8
@@ -997,7 +997,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h089e86ab72f8a2dfE.llvm.5773283630039730002.exit": ; preds = %2
   %22 = load ptr, ptr %19, align 8, !noalias !211, !nonnull !3, !noundef !3
-  %23 = icmp uge i64 %18, %15
+  %23 = icmp ule i64 %15, %18
   tail call void @llvm.assume(i1 %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !211
   store i64 %18, ptr %6, align 8
@@ -1606,22 +1606,22 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !range !167, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %trunc, label %17, label %10
+  br i1 %trunc, label %16, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %12 = icmp eq i64 %2, 0
-  %13 = icmp uge i64 %8, %0
-  %14 = or i1 %12, %13
-  tail call void @llvm.assume(i1 %14)
+  %13 = icmp ule i64 %0, %8
+  %.sroa.03.0 = or i1 %12, %13
+  tail call void @llvm.assume(i1 %.sroa.03.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %15 = insertvalue { i64, ptr } poison, i64 %8, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %11, 1
-  ret { i64, ptr } %16
+  %14 = insertvalue { i64, ptr } poison, i64 %8, 0
+  %15 = insertvalue { i64, ptr } %14, ptr %11, 1
+  ret { i64, ptr } %15
 
-17:                                               ; preds = %4
-  %18 = load i64, ptr %9, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #23
+16:                                               ; preds = %4
+  %17 = load i64, ptr %9, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #23
   unreachable
 }
 
@@ -2832,7 +2832,7 @@ define hidden void @_ZN6fs_err4read17h367e3582a1dc5ed5E(ptr dead_on_unwind noali
 
 44:                                               ; preds = %.noexc
   %45 = load ptr, ptr %41, align 8, !noalias !504, !nonnull !3, !noundef !3
-  %46 = icmp uge i64 %40, %22
+  %46 = icmp ule i64 %22, %40
   call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !504
   store i64 %40, ptr %8, align 8

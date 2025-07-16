@@ -20558,12 +20558,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h01b55ed3b0
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3560
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h7e2003fe50710abeE.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h7e2003fe50710abeE.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -20596,12 +20596,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h15099f4bcc
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3563
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hc3ad056a3ba36e64E.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hc3ad056a3ba36e64E.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -20634,12 +20634,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h39bc9c7f21
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3566
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h4aa43f8737d5b36dE.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h4aa43f8737d5b36dE.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -20672,12 +20672,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h4527763ceb
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3569
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17he4c8badddfccbd65E.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17he4c8badddfccbd65E.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -20710,12 +20710,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h4a8b53f4c4
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3572
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hfeb243523bc793a4E.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hfeb243523bc793a4E.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -20748,12 +20748,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h51948477a7
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3575
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h58ff84d0fa40719aE.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h58ff84d0fa40719aE.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -20786,12 +20786,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h95420a7f43
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3578
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17he05e5f981be6f69dE.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17he05e5f981be6f69dE.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -20824,12 +20824,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h954d72f961
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3581
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h63fe031708bde39aE.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h63fe031708bde39aE.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -20862,12 +20862,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hed74d1b02b
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !3584
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h7a610f3cafb638adE.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h7a610f3cafb638adE.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8
@@ -39794,8 +39794,8 @@ _ZN8wasmtime7runtime5store11StoreOpaque8instance17h4e7eb8a39e3c7112E.exit: ; pre
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda4c48586bb438efE.exit": ; preds = %111, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %.pre31 = load i64, ptr %13, align 8, !range !3070, !alias.scope !7814, !noalias !7817
-  call void @llvm.experimental.noalias.scope.decl(metadata !7814)
   %65 = icmp eq i64 %10, %.pre31
+  call void @llvm.experimental.noalias.scope.decl(metadata !7814)
   br i1 %65, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda4c48586bb438efE.exit.thread", label %66
 
 66:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hda4c48586bb438efE.exit"

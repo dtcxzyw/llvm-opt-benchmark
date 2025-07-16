@@ -2880,6 +2880,10 @@ _ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.
   %291 = icmp ugt i64 %.052.i.i, %.val
   br i1 %291, label %_ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.exit.thread.i, label %292
 
+_ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.exit.thread.i: ; preds = %.lr.ph.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !483
+  br label %301
+
 292:                                              ; preds = %.lr.ph.i.i
   %293 = call noundef i64 @_ZN12regex_syntax3hir17ClassUnicodeRange3len17h6f4e2fcba4868fecE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %290), !noalias !480
   %294 = add i64 %293, %.052.i.i
@@ -2887,13 +2891,9 @@ _ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.
   %296 = icmp eq ptr %295, null
   br i1 %296, label %_ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.exit.i, label %.lr.ph.i.i
 
-_ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.exit.thread.i: ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !483
-  br label %301
-
 _ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.exit.i: ; preds = %292
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !483
   %297 = icmp ugt i64 %294, %.val
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !483
   br i1 %297, label %301, label %298
 
 298:                                              ; preds = %_ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.exit.i, %_ZN10grep_regex7literal9Extractor24class_over_limit_unicode17h26b2a3fa1ec96a0aE.exit.thread2.i
@@ -3160,6 +3160,10 @@ _ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.ex
   %381 = icmp ugt i64 %.052.i.i31, %.val
   br i1 %381, label %_ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.exit.thread.i, label %382
 
+_ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.exit.thread.i: ; preds = %.lr.ph.i.i30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !575
+  br label %391
+
 382:                                              ; preds = %.lr.ph.i.i30
   %383 = call noundef i64 @_ZN12regex_syntax3hir15ClassBytesRange3len17hff0b36e1eb8e1d40E(ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %380), !noalias !572
   %384 = add i64 %383, %.052.i.i31
@@ -3167,13 +3171,9 @@ _ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.ex
   %386 = icmp eq ptr %385, null
   br i1 %386, label %_ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.exit.i, label %.lr.ph.i.i30
 
-_ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.exit.thread.i: ; preds = %.lr.ph.i.i30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !575
-  br label %391
-
 _ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.exit.i: ; preds = %382
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !575
   %387 = icmp ugt i64 %384, %.val
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !575
   br i1 %387, label %391, label %388
 
 388:                                              ; preds = %_ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.exit.i, %_ZN10grep_regex7literal9Extractor22class_over_limit_bytes17h3e8b92cadab1edcdE.exit.thread2.i

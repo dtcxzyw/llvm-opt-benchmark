@@ -364,7 +364,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %110
 
-._crit_edge:                                      ; preds = %_ZN15FieldStreamBase4nextEv.exit, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit
+._crit_edge:                                      ; preds = %264, %_ZN15FieldStreamBase4nextEv.exit, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 120
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %108) #12
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -373,7 +373,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   ret void
 
 110:                                              ; preds = %.lr.ph, %_ZN15FieldStreamBase4nextEv.exit
-  %111 = phi i32 [ %94, %.lr.ph ], [ %270, %_ZN15FieldStreamBase4nextEv.exit ]
+  %111 = phi i32 [ %94, %.lr.ph ], [ %.pre, %_ZN15FieldStreamBase4nextEv.exit ]
   %.sroa.0.0.copyload.i.i = load i32, ptr %96, align 4
   %112 = load i16, ptr %97, align 4
   %113 = load i16, ptr %98, align 2
@@ -697,19 +697,14 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit66: ; preds = %258, %257, %_ZN27
   store i32 %266, ptr %92, align 8
   %267 = load i32, ptr %93, align 4
   %.not.i67 = icmp slt i32 %266, %267
-  br i1 %.not.i67, label %268, label %_ZN15FieldStreamBase4nextEv.exit
+  br i1 %.not.i67, label %_ZN15FieldStreamBase4nextEv.exit, label %._crit_edge
 
-268:                                              ; preds = %264
+_ZN15FieldStreamBase4nextEv.exit:                 ; preds = %264
   call void @_ZN15FieldInfoReader15read_field_infoER9FieldInfo(ptr noundef nonnull align 8 dereferenceable(20) %106, ptr noundef nonnull align 4 dereferenceable(26) %107)
   %.pre = load i32, ptr %92, align 8
   %.pre74 = load i32, ptr %93, align 4
-  br label %_ZN15FieldStreamBase4nextEv.exit
-
-_ZN15FieldStreamBase4nextEv.exit:                 ; preds = %264, %268
-  %269 = phi i32 [ %267, %264 ], [ %.pre74, %268 ]
-  %270 = phi i32 [ %266, %264 ], [ %.pre, %268 ]
-  %.not70 = icmp slt i32 %270, %269
-  br i1 %.not70, label %110, label %._crit_edge, !llvm.loop !8
+  %268 = icmp slt i32 %.pre, %.pre74
+  br i1 %268, label %110, label %._crit_edge, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

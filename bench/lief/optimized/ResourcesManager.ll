@@ -41773,8 +41773,8 @@ _ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit: ; preds 
   br i1 %.not10.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %56, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %20, %_ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %.0811.i.i.i.i.i = phi ptr [ %55, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %.012.i.i.i.i.i = phi ptr [ %59, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %20, %_ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %.0811.i.i.i.i.i = phi ptr [ %58, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit ]
   tail call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0811.i.i.i.i.i) #23
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4LIEF2PE12ResourceIconE, i64 16), ptr %.012.i.i.i.i.i, align 8, !tbaa !105
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
@@ -41790,149 +41790,153 @@ _ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit: ; preds 
   %42 = sub i64 %40, %41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %38, %39
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i, label %43
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.thread, label %46
 
-43:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %44 = icmp slt i64 %42, 0
-  br i1 %44, label %45, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i, !prof !545
+_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.thread: ; preds = %.lr.ph.i.i.i.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr null, i64 %42
+  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  store ptr %44, ptr %45, align 8, !tbaa !113
+  br label %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-45:                                               ; preds = %43
+46:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %47 = icmp slt i64 %42, 0
+  br i1 %47, label %48, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i, !prof !545
+
+48:                                               ; preds = %46
   tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 
-_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %43
-  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #25
+_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i: ; preds = %46
+  %49 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #25
   %.pre = load ptr, ptr %36, align 8, !tbaa !198
   %.pre36 = load ptr, ptr %37, align 8, !tbaa !198
+  %50 = icmp eq ptr %.pre36, %.pre
+  store ptr %49, ptr %35, align 8, !tbaa !80
+  %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 40
+  store ptr %49, ptr %51, align 8, !tbaa !82
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %42
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 48
+  store ptr %52, ptr %53, align 8, !tbaa !113
+  br i1 %50, label %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %54
+
+54:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i
   %.pre37 = ptrtoint ptr %.pre36 to i64
   %.pre38 = ptrtoint ptr %.pre to i64
   %.pre40 = sub i64 %.pre37, %.pre38
-  br label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i
-
-_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.pre-phi41 = phi i64 [ %.pre40, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
-  %47 = phi ptr [ %.pre36, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %38, %.lr.ph.i.i.i.i.i ]
-  %48 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %39, %.lr.ph.i.i.i.i.i ]
-  %49 = phi ptr [ %46, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
-  store ptr %49, ptr %35, align 8, !tbaa !80
-  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 40
-  store ptr %49, ptr %50, align 8, !tbaa !82
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %42
-  %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 48
-  store ptr %51, ptr %52, align 8, !tbaa !113
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, %48
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %53
-
-53:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %49, ptr align 1 %48, i64 %.pre-phi41, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %.pre, i64 %.pre40, i1 false)
   br label %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %53, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i
-  %54 = getelementptr inbounds i8, ptr %49, i64 %.pre-phi41
-  store ptr %54, ptr %50, align 8, !tbaa !82
-  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 56
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 56
-  %.not.i.i.i.i.i = icmp eq ptr %55, %1
+_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.thread, %54, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i
+  %55 = phi ptr [ %43, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.thread ], [ %51, %54 ], [ %51, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i ]
+  %56 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.thread ], [ %49, %54 ], [ %49, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i ]
+  %.pre-phi4144 = phi i64 [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.thread ], [ %.pre40, %54 ], [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i ]
+  %57 = getelementptr inbounds i8, ptr %56, i64 %.pre-phi4144
+  store ptr %57, ptr %55, align 8, !tbaa !82
+  %58 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 56
+  %.not.i.i.i.i.i = icmp eq ptr %58, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1446
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit ], [ %56, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 56
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN4LIEF2PE12ResourceIconESaIS2_EE12_M_check_lenEmPKc.exit ], [ %59, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %60 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 56
   %.not10.i.i.i.i.i18 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i.i18, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit29, label %.lr.ph.i.i.i.i.i19
 
 .lr.ph.i.i.i.i.i19:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26
-  %.012.i.i.i.i.i20 = phi ptr [ %84, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26 ], [ %57, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  %.0811.i.i.i.i.i21 = phi ptr [ %83, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
+  %.012.i.i.i.i.i20 = phi ptr [ %87, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26 ], [ %60, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
+  %.0811.i.i.i.i.i21 = phi ptr [ %86, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   tail call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(56) %.0811.i.i.i.i.i21) #23
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4LIEF2PE12ResourceIconE, i64 16), ptr %.012.i.i.i.i.i20, align 8, !tbaa !105
-  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %58, ptr noundef nonnull align 8 dereferenceable(20) %59, i64 20, i1 false)
-  %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 32
-  %61 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 32
-  %62 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 40
-  %63 = load ptr, ptr %62, align 8, !tbaa !82
-  %64 = load ptr, ptr %61, align 8, !tbaa !80
-  %65 = ptrtoint ptr %63 to i64
-  %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %65, %66
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %63, %64
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i22, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i24, label %68
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %61, ptr noundef nonnull align 8 dereferenceable(20) %62, i64 20, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 40
+  %66 = load ptr, ptr %65, align 8, !tbaa !82
+  %67 = load ptr, ptr %64, align 8, !tbaa !80
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %66, %67
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i22, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i24, label %71
 
-68:                                               ; preds = %.lr.ph.i.i.i.i.i19
-  %69 = icmp slt i64 %67, 0
-  br i1 %69, label %70, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i23, !prof !545
+71:                                               ; preds = %.lr.ph.i.i.i.i.i19
+  %72 = icmp slt i64 %70, 0
+  br i1 %72, label %73, label %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i23, !prof !545
 
-70:                                               ; preds = %68
+73:                                               ; preds = %71
   tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 
-_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i23: ; preds = %68
-  %71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %67) #25
+_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i23: ; preds = %71
+  %74 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #25
   br label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i24
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i24: ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i23, %.lr.ph.i.i.i.i.i19
-  %72 = phi ptr [ %71, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i23 ], [ null, %.lr.ph.i.i.i.i.i19 ]
-  store ptr %72, ptr %60, align 8, !tbaa !80
-  %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 40
-  store ptr %72, ptr %73, align 8, !tbaa !82
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 %67
-  %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 48
-  store ptr %74, ptr %75, align 8, !tbaa !113
-  %76 = load ptr, ptr %61, align 8, !tbaa !198
-  %77 = load ptr, ptr %62, align 8, !tbaa !198
-  %78 = ptrtoint ptr %77 to i64
-  %79 = ptrtoint ptr %76 to i64
-  %80 = sub i64 %78, %79
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i25 = icmp eq ptr %77, %76
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i25, label %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26, label %81
+  %75 = phi ptr [ %74, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i23 ], [ null, %.lr.ph.i.i.i.i.i19 ]
+  store ptr %75, ptr %63, align 8, !tbaa !80
+  %76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 40
+  store ptr %75, ptr %76, align 8, !tbaa !82
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %70
+  %78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 48
+  store ptr %77, ptr %78, align 8, !tbaa !113
+  %79 = load ptr, ptr %64, align 8, !tbaa !198
+  %80 = load ptr, ptr %65, align 8, !tbaa !198
+  %81 = ptrtoint ptr %80 to i64
+  %82 = ptrtoint ptr %79 to i64
+  %83 = sub i64 %81, %82
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i25 = icmp eq ptr %80, %79
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i25, label %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26, label %84
 
-81:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %76, i64 %80, i1 false)
+84:                                               ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i24
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %75, ptr align 1 %79, i64 %83, i1 false)
   br label %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26
 
-_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26: ; preds = %81, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i24
-  %82 = getelementptr inbounds i8, ptr %72, i64 %80
-  store ptr %82, ptr %73, align 8, !tbaa !82
-  %83 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 56
-  %84 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 56
-  %.not.i.i.i.i.i27 = icmp eq ptr %83, %5
+_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26: ; preds = %84, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i24
+  %85 = getelementptr inbounds i8, ptr %75, i64 %83
+  store ptr %85, ptr %76, align 8, !tbaa !82
+  %86 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i20, i64 56
+  %.not.i.i.i.i.i27 = icmp eq ptr %86, %5
   br i1 %.not.i.i.i.i.i27, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit29, label %.lr.ph.i.i.i.i.i19, !llvm.loop !1446
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit29: ; preds = %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %.0.lcssa.i.i.i.i.i28 = phi ptr [ %57, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %84, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26 ]
+  %.0.lcssa.i.i.i.i.i28 = phi ptr [ %60, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %87, %_ZSt10_ConstructIN4LIEF2PE12ResourceIconEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i26 ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN4LIEF2PE12ResourceIconES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit29, %.lr.ph.i.i.i
-  %.05.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit29 ]
-  %85 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !105
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i) #23
-  %88 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 56
-  %.not.i.i.i = icmp eq ptr %88, %5
+  %.05.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit29 ]
+  %88 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !105
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i) #23
+  %91 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 56
+  %.not.i.i.i = icmp eq ptr %91, %5
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4LIEF2PE12ResourceIconES2_EvT_S4_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !205
 
 _ZSt8_DestroyIPN4LIEF2PE12ResourceIconES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN4LIEF2PE12ResourceIconES3_SaIS2_EET0_T_S6_S5_RT1_.exit29
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i30 = icmp eq ptr %6, null
-  br i1 %.not.i30, label %_ZNSt12_Vector_baseIN4LIEF2PE12ResourceIconESaIS2_EE13_M_deallocateEPS2_m.exit, label %90
+  br i1 %.not.i30, label %_ZNSt12_Vector_baseIN4LIEF2PE12ResourceIconESaIS2_EE13_M_deallocateEPS2_m.exit, label %93
 
-90:                                               ; preds = %_ZSt8_DestroyIPN4LIEF2PE12ResourceIconES2_EvT_S4_RSaIT0_E.exit
-  %91 = load ptr, ptr %89, align 8, !tbaa !203
-  %92 = ptrtoint ptr %91 to i64
-  %93 = sub i64 %92, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %93) #26
+93:                                               ; preds = %_ZSt8_DestroyIPN4LIEF2PE12ResourceIconES2_EvT_S4_RSaIT0_E.exit
+  %94 = load ptr, ptr %92, align 8, !tbaa !203
+  %95 = ptrtoint ptr %94 to i64
+  %96 = sub i64 %95, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %96) #26
   br label %_ZNSt12_Vector_baseIN4LIEF2PE12ResourceIconESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN4LIEF2PE12ResourceIconESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4LIEF2PE12ResourceIconES2_EvT_S4_RSaIT0_E.exit, %90
+_ZNSt12_Vector_baseIN4LIEF2PE12ResourceIconESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4LIEF2PE12ResourceIconES2_EvT_S4_RSaIT0_E.exit, %93
   store ptr %20, ptr %0, align 8, !tbaa !199
   store ptr %.0.lcssa.i.i.i.i.i28, ptr %4, align 8, !tbaa !202
-  %94 = getelementptr inbounds nuw %"class.LIEF::PE::ResourceIcon", ptr %20, i64 %16
-  store ptr %94, ptr %89, align 8, !tbaa !203
+  %97 = getelementptr inbounds nuw %"class.LIEF::PE::ResourceIcon", ptr %20, i64 %16
+  store ptr %97, ptr %92, align 8, !tbaa !203
   ret void
 }
 

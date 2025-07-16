@@ -3635,63 +3635,66 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %_ZN
   %84 = load i64, ptr %83, align 8
   %.not3681 = icmp eq i64 %84, 0
   %.not36 = select i1 %82, i1 true, i1 %.not3681
-  br i1 %.not36, label %85, label %99
+  br i1 %.not36, label %86, label %.thread
 
-85:                                               ; preds = %78
-  %86 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #29
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(88) %86, ptr noundef nonnull %87)
-          to label %88 unwind label %95
+.thread:                                          ; preds = %78
+  %85 = inttoptr i64 %84 to ptr
+  br label %103
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 80
-  store ptr %13, ptr %89, align 8, !tbaa !149
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV18SplitVarPostVertex, i64 16), ptr %86, align 8, !tbaa !15
-  %90 = ptrtoint ptr %86 to i64
-  store i64 %90, ptr %83, align 8, !tbaa !14
-  %91 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !18
-  store i32 %91, ptr %79, align 4, !tbaa !157
-  %92 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #29
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %92, align 8, !tbaa !15
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(80) %92, ptr noundef nonnull %87, ptr noundef %42, ptr noundef nonnull %86, i32 noundef 10, i1 noundef zeroext true)
-          to label %_ZN13SplitPostEdgeC2EP7V3GraphP13V3GraphVertexS3_.exit unwind label %97
+86:                                               ; preds = %78
+  %87 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #29
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  invoke void @_ZN13V3GraphVertexC2EP7V3Graph(ptr noundef nonnull align 8 dereferenceable(88) %87, ptr noundef nonnull %88)
+          to label %89 unwind label %95
 
-_ZN13SplitPostEdgeC2EP7V3GraphP13V3GraphVertexS3_.exit: ; preds = %88
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 72
-  store i32 0, ptr %94, align 8, !tbaa !158
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV13SplitPostEdge, i64 16), ptr %92, align 8, !tbaa !15
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 80
+  store ptr %13, ptr %90, align 8, !tbaa !149
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV18SplitVarPostVertex, i64 16), ptr %87, align 8, !tbaa !15
+  %91 = ptrtoint ptr %87 to i64
+  store i64 %91, ptr %83, align 8, !tbaa !14
+  %92 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !18
+  store i32 %92, ptr %79, align 4, !tbaa !157
+  %93 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #29
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %93, align 8, !tbaa !15
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, i8 0, i64 32, i1 false)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(80) %93, ptr noundef nonnull %88, ptr noundef %42, ptr noundef nonnull %87, i32 noundef 10, i1 noundef zeroext true)
+          to label %99 unwind label %97
+
+95:                                               ; preds = %86
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdlPvm(ptr noundef nonnull %87, i64 noundef 88) #25
+  br label %191
+
+97:                                               ; preds = %89
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef 80) #25
+  br label %191
+
+99:                                               ; preds = %89
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 72
+  store i32 0, ptr %100, align 8, !tbaa !158
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV13SplitPostEdge, i64 16), ptr %93, align 8, !tbaa !15
   %.pre = load i32, ptr %79, align 4, !tbaa !157
   %.pre95 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !18
   %.pre96 = load i64, ptr %83, align 8
-  br label %99
+  %101 = icmp eq i32 %.pre, %.pre95
+  %102 = inttoptr i64 %.pre96 to ptr
+  %cond.fr = freeze i1 %101
+  %spec.select = select i1 %cond.fr, ptr %102, ptr null
+  br label %103
 
-95:                                               ; preds = %85
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef 88) #25
-  br label %191
-
-97:                                               ; preds = %88
-  %98 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %92, i64 noundef 80) #25
-  br label %191
-
-99:                                               ; preds = %_ZN13SplitPostEdgeC2EP7V3GraphP13V3GraphVertexS3_.exit, %78
-  %100 = phi i64 [ %.pre96, %_ZN13SplitPostEdgeC2EP7V3GraphP13V3GraphVertexS3_.exit ], [ %84, %78 ]
-  %101 = phi i32 [ %.pre95, %_ZN13SplitPostEdgeC2EP7V3GraphP13V3GraphVertexS3_.exit ], [ %80, %78 ]
-  %102 = phi i32 [ %.pre, %_ZN13SplitPostEdgeC2EP7V3GraphP13V3GraphVertexS3_.exit ], [ %80, %78 ]
-  %103 = icmp eq i32 %102, %101
-  %104 = inttoptr i64 %100 to ptr
-  %.sroa.0.0.i.i46 = select i1 %103, ptr %104, ptr null
+103:                                              ; preds = %99, %.thread
+  %104 = phi ptr [ %85, %.thread ], [ %spec.select, %99 ]
   %105 = load ptr, ptr %6, align 8, !tbaa !108
   %106 = load ptr, ptr %8, align 8, !tbaa !108
   %.not8287 = icmp eq ptr %105, %106
   br i1 %.not8287, label %.loopexit, label %.lr.ph89
 
-.lr.ph89:                                         ; preds = %99
+.lr.ph89:                                         ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %108
 
@@ -3702,7 +3705,7 @@ _ZN13SplitPostEdgeC2EP7V3GraphP13V3GraphVertexS3_.exit: ; preds = %88
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %110, align 8, !tbaa !15
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 32, i1 false)
-  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(80) %110, ptr noundef nonnull %107, ptr noundef %.sroa.0.0.i.i46, ptr noundef %109, i32 noundef 10, i1 noundef zeroext true)
+  invoke void @_ZN11V3GraphEdge4initEP7V3GraphP13V3GraphVertexS3_ib(ptr noundef nonnull align 8 dereferenceable(80) %110, ptr noundef nonnull %107, ptr noundef %104, ptr noundef %109, i32 noundef 10, i1 noundef zeroext true)
           to label %112 unwind label %115
 
 112:                                              ; preds = %108
@@ -3913,7 +3916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
   %.pn38.pn = phi { ptr, i32 } [ %39, %38 ], [ %116, %115 ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %158, %157 ], [ %138, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %179, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67 ], [ %98, %97 ], [ %96, %95 ]
   resume { ptr, i32 } %.pn38.pn
 
-.loopexit:                                        ; preds = %154, %112, %146, %99, %18, %187, %2
+.loopexit:                                        ; preds = %154, %112, %146, %103, %18, %187, %2
   ret void
 }
 

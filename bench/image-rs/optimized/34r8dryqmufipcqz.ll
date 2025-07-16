@@ -18275,15 +18275,15 @@ define hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u
   %.sink5.i.i = phi ptr [ %31, %28 ], [ %26, %.noexc ]
   %.sink3.i.i = phi i64 [ %33, %28 ], [ %20, %.noexc ]
   %34 = icmp ult i64 %18, %.sink3.i.i
-  br i1 %34, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit, label %.invoke90, !prof !4543
+  br i1 %34, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit, label %.invoke91, !prof !4543
 
-.invoke90:                                        ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
+.invoke91:                                        ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
   %35 = phi i64 [ %18, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i" ], [ %44, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37" ], [ %70, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44" ], [ %94, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i" ]
   %36 = phi i64 [ %.sink3.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i" ], [ %.sink3.i.i39, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37" ], [ %.sink3.i.i46, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44" ], [ %.sink3.i.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i" ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %35, i64 noundef %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbd0a4e148fbe6762a2d1a1104c17af0.124.llvm.10740287948243559469) #26
-          to label %.cont91 unwind label %164
+          to label %.cont92 unwind label %164
 
-.cont91:                                          ; preds = %.invoke90
+.cont92:                                          ; preds = %.invoke91
   unreachable
 
 _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
@@ -18297,7 +18297,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %43 = icmp eq i8 %40, 2
   %spec.select.i = select i1 %43, i8 %42, i8 %40
   %switch = icmp eq i8 %spec.select.i, 1
-  %spec.select = select i1 %switch, i64 4, i64 3
+  %spec.select88 = select i1 %switch, i64 4, i64 3
   %44 = load i64, ptr %17, align 8, !noundef !19
   %45 = load i64, ptr %19, align 8, !alias.scope !4703, !noalias !4708, !noundef !19
   %46 = icmp ugt i64 %45, 3
@@ -18328,7 +18328,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %.sink5.i.i38 = phi ptr [ %56, %53 ], [ %51, %.noexc40 ]
   %.sink3.i.i39 = phi i64 [ %58, %53 ], [ %45, %.noexc40 ]
   %59 = icmp ult i64 %44, %.sink3.i.i39
-  br i1 %59, label %60, label %.invoke90, !prof !4543
+  br i1 %59, label %60, label %.invoke91, !prof !4543
 
 60:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37"
   %61 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %.sink5.i.i38, i64 0, i64 %44
@@ -18370,7 +18370,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %.sink5.i.i45 = phi ptr [ %82, %79 ], [ %77, %.noexc47 ]
   %.sink3.i.i46 = phi i64 [ %84, %79 ], [ %71, %.noexc47 ]
   %85 = icmp ult i64 %70, %.sink3.i.i46
-  br i1 %85, label %86, label %.invoke90, !prof !4543
+  br i1 %85, label %86, label %.invoke91, !prof !4543
 
 86:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44"
   %87 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %.sink5.i.i45, i64 0, i64 %70
@@ -18410,7 +18410,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %.sink5.i.i.i = phi ptr [ %106, %103 ], [ %101, %.noexc51 ]
   %.sink3.i.i.i = phi i64 [ %108, %103 ], [ %95, %.noexc51 ]
   %109 = icmp ult i64 %94, %.sink3.i.i.i
-  br i1 %109, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, label %.invoke90, !prof !4543
+  br i1 %109, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, label %.invoke91, !prof !4543
 
 _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
   %110 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %.sink5.i.i.i, i64 0, i64 %94
@@ -18422,8 +18422,8 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %116 = load i8, ptr %41, align 8, !range !572, !alias.scope !4730, !noundef !19
   %117 = icmp eq i8 %115, 2
   %spec.select.i54 = select i1 %117, i8 %116, i8 %115
-  %switch88 = icmp eq i8 %spec.select.i54, 1
-  %. = select i1 %switch88, i64 16, i64 12
+  %switch89 = icmp eq i8 %spec.select.i54, 1
+  %. = select i1 %switch89, i64 16, i64 12
   %118 = and i64 %112, 4294967295
   %119 = and i64 %114, 4294967295
   %120 = mul nuw i64 %119, %118
@@ -18487,7 +18487,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %.sroa.08.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 176
   store i64 %69, ptr %.sroa.08.sroa.3.0..sroa_idx, align 8
   %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 184
-  store i64 %spec.select, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
+  store i64 %spec.select88, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
   %.sroa.08.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 192
   store i64 %67, ptr %.sroa.08.sroa.5.0..sroa_idx, align 8
   %.sroa.08.sroa.5.sroa.2.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 200
@@ -18497,7 +18497,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %.sroa.08.sroa.5.sroa.4.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 212
   store i32 %93, ptr %.sroa.08.sroa.5.sroa.4.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx, align 4
   %.sroa.08.sroa.5.sroa.5.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 216
-  store i64 %spec.select, ptr %.sroa.08.sroa.5.sroa.5.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %spec.select88, ptr %.sroa.08.sroa.5.sroa.5.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx, align 8
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 240
   store i8 0, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %12, i64 241
@@ -18609,7 +18609,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %.pn82 = phi { ptr, i32 } [ %lpad.thr_comm, %164 ], [ %157, %156 ], [ %141, %140 ]
   resume { ptr, i32 } %.pn82
 
-164:                                              ; preds = %.noexc58, %.noexc57, %.noexc59, %.invoke90, %.invoke, %126, %23, %48, %74, %98, %125
+164:                                              ; preds = %.noexc58, %.noexc57, %.noexc59, %.invoke91, %.invoke, %126, %23, %48, %74, %98, %125
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr102drop_in_place$LT$exr..block..reader..Reader$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h314cb8c62eab15dbE"(ptr noalias noundef nonnull align 8 dereferenceable(4344) %1) #24
@@ -18672,15 +18672,15 @@ define hidden void @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u
   %.sink5.i.i = phi ptr [ %31, %28 ], [ %26, %.noexc ]
   %.sink3.i.i = phi i64 [ %33, %28 ], [ %20, %.noexc ]
   %34 = icmp ult i64 %18, %.sink3.i.i
-  br i1 %34, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit, label %.invoke90, !prof !4543
+  br i1 %34, label %_ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit, label %.invoke91, !prof !4543
 
-.invoke90:                                        ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
+.invoke91:                                        ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37", %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
   %35 = phi i64 [ %18, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i" ], [ %44, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37" ], [ %70, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44" ], [ %94, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i" ]
   %36 = phi i64 [ %.sink3.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i" ], [ %.sink3.i.i39, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37" ], [ %.sink3.i.i46, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44" ], [ %.sink3.i.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i" ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %35, i64 noundef %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbd0a4e148fbe6762a2d1a1104c17af0.124.llvm.10740287948243559469) #26
-          to label %.cont91 unwind label %164
+          to label %.cont92 unwind label %164
 
-.cont91:                                          ; preds = %.invoke90
+.cont92:                                          ; preds = %.invoke91
   unreachable
 
 _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i"
@@ -18694,7 +18694,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %43 = icmp eq i8 %40, 2
   %spec.select.i = select i1 %43, i8 %42, i8 %40
   %switch = icmp eq i8 %spec.select.i, 1
-  %spec.select = select i1 %switch, i64 4, i64 3
+  %spec.select88 = select i1 %switch, i64 4, i64 3
   %44 = load i64, ptr %17, align 8, !noundef !19
   %45 = load i64, ptr %19, align 8, !alias.scope !4778, !noalias !4783, !noundef !19
   %46 = icmp ugt i64 %45, 3
@@ -18725,7 +18725,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %.sink5.i.i38 = phi ptr [ %56, %53 ], [ %51, %.noexc40 ]
   %.sink3.i.i39 = phi i64 [ %58, %53 ], [ %45, %.noexc40 ]
   %59 = icmp ult i64 %44, %.sink3.i.i39
-  br i1 %59, label %60, label %.invoke90, !prof !4543
+  br i1 %59, label %60, label %.invoke91, !prof !4543
 
 60:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i37"
   %61 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %.sink5.i.i38, i64 0, i64 %44
@@ -18767,7 +18767,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %.sink5.i.i45 = phi ptr [ %82, %79 ], [ %77, %.noexc47 ]
   %.sink3.i.i46 = phi i64 [ %84, %79 ], [ %71, %.noexc47 ]
   %85 = icmp ult i64 %70, %.sink3.i.i46
-  br i1 %85, label %86, label %.invoke90, !prof !4543
+  br i1 %85, label %86, label %.invoke91, !prof !4543
 
 86:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i44"
   %87 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %.sink5.i.i45, i64 0, i64 %70
@@ -18807,7 +18807,7 @@ _ZN5image5color9ColorType13channel_count17h091181b88688e861E.exit: ; preds = %"_
   %.sink5.i.i.i = phi ptr [ %106, %103 ], [ %101, %.noexc51 ]
   %.sink3.i.i.i = phi i64 [ %108, %103 ], [ %95, %.noexc51 ]
   %109 = icmp ult i64 %94, %.sink3.i.i.i
-  br i1 %109, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, label %.invoke90, !prof !4543
+  br i1 %109, label %_ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit, label %.invoke91, !prof !4543
 
 _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.15361875792781664197.exit.i.i"
   %110 = getelementptr inbounds [0 x { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }], ptr %.sink5.i.i.i, i64 0, i64 %94
@@ -18819,8 +18819,8 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %116 = load i8, ptr %41, align 8, !range !572, !alias.scope !4805, !noundef !19
   %117 = icmp eq i8 %115, 2
   %spec.select.i54 = select i1 %117, i8 %116, i8 %115
-  %switch88 = icmp eq i8 %spec.select.i54, 1
-  %. = select i1 %switch88, i64 16, i64 12
+  %switch89 = icmp eq i8 %spec.select.i54, 1
+  %. = select i1 %switch89, i64 16, i64 12
   %118 = and i64 %112, 4294967295
   %119 = and i64 %114, 4294967295
   %120 = mul nuw i64 %119, %118
@@ -18884,7 +18884,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %.sroa.08.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 176
   store i64 %69, ptr %.sroa.08.sroa.3.0..sroa_idx, align 8
   %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 184
-  store i64 %spec.select, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
+  store i64 %spec.select88, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
   %.sroa.08.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 192
   store i64 %67, ptr %.sroa.08.sroa.5.0..sroa_idx, align 8
   %.sroa.08.sroa.5.sroa.2.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 200
@@ -18894,7 +18894,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %.sroa.08.sroa.5.sroa.4.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 212
   store i32 %93, ptr %.sroa.08.sroa.5.sroa.4.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx, align 4
   %.sroa.08.sroa.5.sroa.5.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 216
-  store i64 %spec.select, ptr %.sroa.08.sroa.5.sroa.5.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %spec.select88, ptr %.sroa.08.sroa.5.sroa.5.0..sroa.08.sroa.5.0..sroa_idx.sroa_idx, align 8
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 240
   store i8 0, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %12, i64 241
@@ -19006,7 +19006,7 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit: ; preds = %
   %.pn82 = phi { ptr, i32 } [ %lpad.thr_comm, %164 ], [ %157, %156 ], [ %141, %140 ]
   resume { ptr, i32 } %.pn82
 
-164:                                              ; preds = %.noexc58, %.noexc57, %.noexc59, %.invoke90, %.invoke, %126, %23, %48, %74, %98, %125
+164:                                              ; preds = %.noexc58, %.noexc57, %.noexc59, %.invoke91, %.invoke, %126, %23, %48, %74, %98, %125
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$exr..block..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h0590c39c61ced690E"(ptr noalias noundef nonnull align 8 dereferenceable(4368) %1) #24

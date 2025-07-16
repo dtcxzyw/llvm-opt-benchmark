@@ -477,14 +477,14 @@ define hidden range(i32 0, 2) i32 @tls1_check_curve_id(ptr noundef readonly capt
   br label %7
 
 7:                                                ; preds = %._crit_edge, %2
-  %.not42 = phi i1 [ true, %2 ], [ false, %._crit_edge ]
-  br i1 %.not42, label %tls1_get_curvelist.exit.thread, label %8
+  %.not38 = phi i1 [ true, %2 ], [ false, %._crit_edge ]
+  br i1 %.not38, label %tls1_get_curvelist.exit.thread, label %8
 
 8:                                                ; preds = %7
   %9 = load i8, ptr %5, align 1
   %10 = and i8 %9, 2
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %._crit_edge.thread, label %tls1_get_curvelist.exit
+  br i1 %.not, label %._crit_edge.thread34, label %tls1_get_curvelist.exit
 
 tls1_get_curvelist.exit.thread:                   ; preds = %7
   %11 = load ptr, ptr %3, align 8, !tbaa !74
@@ -493,7 +493,7 @@ tls1_get_curvelist.exit.thread:                   ; preds = %7
   %spec.select = select i1 %.not11.i, ptr @eccurves_default, ptr %11
   %spec.select20 = select i1 %.not11.i, i64 3, i64 %12
   %13 = icmp eq i64 %spec.select20, 0
-  br i1 %13, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %13, label %._crit_edge.thread34, label %.lr.ph.preheader
 
 tls1_get_curvelist.exit:                          ; preds = %8
   %14 = load ptr, ptr %6, align 8, !tbaa !58
@@ -502,16 +502,16 @@ tls1_get_curvelist.exit:                          ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 528
   %18 = load i64, ptr %17, align 8, !tbaa !59
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %._crit_edge.thread, label %.lr.ph.preheader
+  br i1 %19, label %._crit_edge.thread34, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %tls1_get_curvelist.exit, %tls1_get_curvelist.exit.thread
-  %.12933 = phi ptr [ %spec.select, %tls1_get_curvelist.exit.thread ], [ %16, %tls1_get_curvelist.exit ]
+  %.12932 = phi ptr [ %spec.select, %tls1_get_curvelist.exit.thread ], [ %16, %tls1_get_curvelist.exit ]
   %.0173031 = phi i64 [ %spec.select20, %tls1_get_curvelist.exit.thread ], [ %18, %tls1_get_curvelist.exit ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %.01321 = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw i16, ptr %.12933, i64 %.01321
+  %20 = getelementptr inbounds nuw i16, ptr %.12932, i64 %.01321
   %21 = load i16, ptr %20, align 2, !tbaa !56
   %22 = icmp eq i16 %21, %1
   br i1 %22, label %._crit_edge, label %23
@@ -519,21 +519,19 @@ tls1_get_curvelist.exit:                          ; preds = %8
 23:                                               ; preds = %.lr.ph
   %24 = add nuw i64 %.01321, 1
   %exitcond.not = icmp eq i64 %24, %.0173031
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge.thread34, label %.lr.ph, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %.lr.ph, %tls1_get_curvelist.exit.thread
-  %.0173032 = phi i64 [ 0, %tls1_get_curvelist.exit.thread ], [ %.0173031, %.lr.ph ]
-  %.013.lcssa = phi i64 [ 0, %tls1_get_curvelist.exit.thread ], [ %.01321, %.lr.ph ]
-  %25 = icmp ne i64 %.013.lcssa, %.0173032
-  %brmerge.not = and i1 %25, %.not42
-  br i1 %brmerge.not, label %7, label %._crit_edge.thread.loopexit46.split.loop.exit
+._crit_edge:                                      ; preds = %.lr.ph
+  %25 = icmp ne i64 %.01321, %.0173031
+  %brmerge.not = and i1 %25, %.not38
+  br i1 %brmerge.not, label %7, label %._crit_edge.thread34.loopexit42.split.loop.exit
 
-._crit_edge.thread.loopexit46.split.loop.exit:    ; preds = %._crit_edge
+._crit_edge.thread34.loopexit42.split.loop.exit:  ; preds = %._crit_edge
   %.mux.le = zext i1 %25 to i32
-  br label %._crit_edge.thread
+  br label %._crit_edge.thread34
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit46.split.loop.exit, %tls1_get_curvelist.exit, %8, %23
-  %.014 = phi i32 [ 0, %23 ], [ %.mux.le, %._crit_edge.thread.loopexit46.split.loop.exit ], [ 1, %tls1_get_curvelist.exit ], [ 1, %8 ]
+._crit_edge.thread34:                             ; preds = %._crit_edge.thread34.loopexit42.split.loop.exit, %tls1_get_curvelist.exit.thread, %tls1_get_curvelist.exit, %8, %23
+  %.014 = phi i32 [ 0, %23 ], [ %.mux.le, %._crit_edge.thread34.loopexit42.split.loop.exit ], [ 0, %tls1_get_curvelist.exit.thread ], [ 1, %tls1_get_curvelist.exit ], [ 1, %8 ]
   ret i32 %.014
 }
 
@@ -582,14 +580,14 @@ tls1_curve_params_from_ec_key.exit.thread:        ; preds = %8, %11, %14
   br label %25
 
 25:                                               ; preds = %._crit_edge.i, %18
-  %.not42.i = phi i1 [ true, %18 ], [ false, %._crit_edge.i ]
-  br i1 %.not42.i, label %tls1_get_curvelist.exit.thread.i, label %26
+  %.not38.i = phi i1 [ true, %18 ], [ false, %._crit_edge.i ]
+  br i1 %.not38.i, label %tls1_get_curvelist.exit.thread.i, label %26
 
 26:                                               ; preds = %25
   %27 = load i8, ptr %23, align 1
   %28 = and i8 %27, 2
   %.not.i12 = icmp eq i8 %28, 0
-  br i1 %.not.i12, label %tls1_check_curve_id.exit.loopexit26, label %tls1_get_curvelist.exit.i
+  br i1 %.not.i12, label %tls1_check_curve_id.exit.loopexit24, label %tls1_get_curvelist.exit.i
 
 tls1_get_curvelist.exit.thread.i:                 ; preds = %25
   %29 = load ptr, ptr %21, align 8, !tbaa !74
@@ -598,7 +596,7 @@ tls1_get_curvelist.exit.thread.i:                 ; preds = %25
   %spec.select.i = select i1 %.not11.i.i, ptr @eccurves_default, ptr %29
   %spec.select20.i = select i1 %.not11.i.i, i64 3, i64 %30
   %31 = icmp eq i64 %spec.select20.i, 0
-  br i1 %31, label %tls1_check_curve_id.exit.loopexit26, label %.lr.ph.preheader.i
+  br i1 %31, label %tls1_check_curve_id.exit.loopexit24, label %.lr.ph.preheader.i
 
 tls1_get_curvelist.exit.i:                        ; preds = %26
   %32 = load ptr, ptr %24, align 8, !tbaa !58
@@ -607,16 +605,16 @@ tls1_get_curvelist.exit.i:                        ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 528
   %36 = load i64, ptr %35, align 8, !tbaa !59
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %tls1_check_curve_id.exit.loopexit26, label %.lr.ph.preheader.i
+  br i1 %37, label %tls1_check_curve_id.exit.loopexit24, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %tls1_get_curvelist.exit.i, %tls1_get_curvelist.exit.thread.i
-  %.12933.i = phi ptr [ %spec.select.i, %tls1_get_curvelist.exit.thread.i ], [ %34, %tls1_get_curvelist.exit.i ]
+  %.12932.i = phi ptr [ %spec.select.i, %tls1_get_curvelist.exit.thread.i ], [ %34, %tls1_get_curvelist.exit.i ]
   %.0173031.i = phi i64 [ %spec.select20.i, %tls1_get_curvelist.exit.thread.i ], [ %36, %tls1_get_curvelist.exit.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %.01321.i = phi i64 [ %42, %41 ], [ 0, %.lr.ph.preheader.i ]
-  %38 = getelementptr inbounds nuw i16, ptr %.12933.i, i64 %.01321.i
+  %38 = getelementptr inbounds nuw i16, ptr %.12932.i, i64 %.01321.i
   %39 = load i16, ptr %38, align 2, !tbaa !56
   %40 = icmp eq i16 %39, %15
   br i1 %40, label %._crit_edge.i, label %41
@@ -628,17 +626,17 @@ tls1_get_curvelist.exit.i:                        ; preds = %26
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %43 = icmp ne i64 %.01321.i, %.0173031.i
-  %brmerge.not = and i1 %.not42.i, %43
-  br i1 %brmerge.not, label %25, label %tls1_check_curve_id.exit.loopexit26
+  %brmerge.not = and i1 %.not38.i, %43
+  br i1 %brmerge.not, label %25, label %tls1_check_curve_id.exit.loopexit24
 
-tls1_check_curve_id.exit.loopexit26:              ; preds = %tls1_get_curvelist.exit.i, %26, %tls1_get_curvelist.exit.thread.i, %._crit_edge.i
-  %.014.i.not.ph = phi i1 [ true, %26 ], [ true, %tls1_get_curvelist.exit.i ], [ %43, %._crit_edge.i ], [ false, %tls1_get_curvelist.exit.thread.i ]
+tls1_check_curve_id.exit.loopexit24:              ; preds = %tls1_get_curvelist.exit.i, %tls1_get_curvelist.exit.thread.i, %26, %._crit_edge.i
+  %.014.i.not.ph = phi i1 [ true, %26 ], [ true, %tls1_get_curvelist.exit.i ], [ false, %tls1_get_curvelist.exit.thread.i ], [ %43, %._crit_edge.i ]
   %44 = select i1 %.014.i.not.ph, i1 %20, i1 false
   %45 = zext i1 %44 to i32
   br label %tls1_check_curve_id.exit
 
-tls1_check_curve_id.exit:                         ; preds = %41, %tls1_check_curve_id.exit.loopexit26, %tls1_curve_params_from_ec_key.exit.thread, %5, %2
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %tls1_curve_params_from_ec_key.exit.thread ], [ %45, %tls1_check_curve_id.exit.loopexit26 ], [ 0, %41 ]
+tls1_check_curve_id.exit:                         ; preds = %41, %tls1_check_curve_id.exit.loopexit24, %tls1_curve_params_from_ec_key.exit.thread, %5, %2
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %tls1_curve_params_from_ec_key.exit.thread ], [ %45, %tls1_check_curve_id.exit.loopexit24 ], [ 0, %41 ]
   call void @EVP_PKEY_free(ptr noundef %4) #21
   ret i32 %.0
 }

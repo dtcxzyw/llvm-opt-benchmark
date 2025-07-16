@@ -8727,7 +8727,7 @@ want_ancestry.exit.thread:                        ; preds = %738, %want_ancestry
   %744 = phi i64 [ %.pre360, %want_ancestry.exit.thread ], [ %736, %want_ancestry.exit ], [ %736, %init_topo_walk.exit ]
   %745 = and i64 %744, 1024
   %.not55 = icmp eq i64 %745, 0
-  br i1 %.not55, label %921, label %746
+  br i1 %.not55, label %919, label %746
 
 746:                                              ; preds = %743
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
@@ -9023,7 +9023,7 @@ mark_treesame_root_parents.exit.i.i:              ; preds = %839, %mark_redundan
   %851 = load i32, ptr %850, align 8
   %852 = and i32 %851, 256
   %.not22.i.i = icmp eq i32 %852, 0
-  br i1 %.not22.i.i, label %leave_one_treesame_to_parent.exit.i, label %853
+  br i1 %.not22.i.i, label %.critedge.i, label %853
 
 853:                                              ; preds = %849
   %.not23.i35.i = icmp eq ptr %.01829.i.i, null
@@ -9040,154 +9040,154 @@ mark_treesame_root_parents.exit.i.i:              ; preds = %839, %mark_redundan
 
 ._crit_edge.i40.i:                                ; preds = %854
   %.not25.i41.i = icmp eq ptr %.1.i37.i, null
-  br i1 %.not25.i41.i, label %leave_one_treesame_to_parent.exit.i, label %857
+  br i1 %.not25.i41.i, label %.critedge.i, label %leave_one_treesame_to_parent.exit.i
 
-857:                                              ; preds = %._crit_edge.i40.i
-  %858 = load i32, ptr %.1.i37.i, align 8
-  %859 = and i32 %858, -257
-  store i32 %859, ptr %.1.i37.i, align 8
-  br label %leave_one_treesame_to_parent.exit.i
+leave_one_treesame_to_parent.exit.i:              ; preds = %._crit_edge.i40.i
+  %857 = load i32, ptr %.1.i37.i, align 8
+  %858 = and i32 %857, -257
+  store i32 %858, ptr %.1.i37.i, align 8
+  %859 = icmp eq i32 %841, 1
+  br i1 %859, label %.critedge.thread.i.i, label %leave_one_treesame_to_parent.exit..critedge_crit_edge.i
 
-leave_one_treesame_to_parent.exit.i:              ; preds = %849, %857, %._crit_edge.i40.i
-  %.020.i.i = phi i32 [ 1, %857 ], [ 0, %._crit_edge.i40.i ], [ 0, %849 ]
-  %860 = icmp eq i32 %841, %.020.i.i
-  br i1 %860, label %.critedge.thread.i.i, label %861
+leave_one_treesame_to_parent.exit..critedge_crit_edge.i: ; preds = %leave_one_treesame_to_parent.exit.i
+  %.pr43.pre.i = load ptr, ptr %770, align 8, !tbaa !58
+  br label %.critedge.i
 
-861:                                              ; preds = %leave_one_treesame_to_parent.exit.i
-  %.pr43.i = load ptr, ptr %770, align 8, !tbaa !58
+.critedge.i:                                      ; preds = %849, %leave_one_treesame_to_parent.exit..critedge_crit_edge.i, %._crit_edge.i40.i
+  %.pr43.i = phi ptr [ %.pr43.pre.i, %leave_one_treesame_to_parent.exit..critedge_crit_edge.i ], [ %.01727.i.i, %._crit_edge.i40.i ], [ %.01727.i.i, %849 ]
   %.not26.i.i = icmp eq ptr %.pr43.i, null
   br i1 %.not26.i.i, label %.critedge.i.thread.i, label %.lr.ph.i30.i
 
-.lr.ph.i30.i:                                     ; preds = %861, %874
-  %862 = phi ptr [ %875, %874 ], [ %.pr43.i, %861 ]
-  %.029.i.i = phi ptr [ %.1.i.i, %874 ], [ %770, %861 ]
-  %.01828.i.i = phi i32 [ %.119.i.i, %874 ], [ 0, %861 ]
-  %.02027.i.i = phi i32 [ %.121.i.i, %874 ], [ 0, %861 ]
-  %863 = load ptr, ptr %862, align 8, !tbaa !59
-  %864 = load i32, ptr %863, align 8
-  %865 = and i32 %864, 256
-  %.not25.i31.i = icmp eq i32 %865, 0
-  br i1 %.not25.i31.i, label %871, label %866
+.lr.ph.i30.i:                                     ; preds = %.critedge.i, %872
+  %860 = phi ptr [ %873, %872 ], [ %.pr43.i, %.critedge.i ]
+  %.029.i.i = phi ptr [ %.1.i.i, %872 ], [ %770, %.critedge.i ]
+  %.01828.i.i = phi i32 [ %.119.i.i, %872 ], [ 0, %.critedge.i ]
+  %.02027.i.i = phi i32 [ %.121.i.i, %872 ], [ 0, %.critedge.i ]
+  %861 = load ptr, ptr %860, align 8, !tbaa !59
+  %862 = load i32, ptr %861, align 8
+  %863 = and i32 %862, 256
+  %.not25.i31.i = icmp eq i32 %863, 0
+  br i1 %.not25.i31.i, label %869, label %864
 
-866:                                              ; preds = %.lr.ph.i30.i
-  %867 = and i32 %864, -257
-  store i32 %867, ptr %863, align 8
-  %868 = getelementptr inbounds nuw i8, ptr %862, i64 8
-  %869 = load ptr, ptr %868, align 8, !tbaa !251
-  store ptr %869, ptr %.029.i.i, align 8, !tbaa !58
-  call void @free(ptr noundef nonnull %862) #26
-  %870 = add nsw i32 %.01828.i.i, 1
+864:                                              ; preds = %.lr.ph.i30.i
+  %865 = and i32 %862, -257
+  store i32 %865, ptr %861, align 8
+  %866 = getelementptr inbounds nuw i8, ptr %860, i64 8
+  %867 = load ptr, ptr %866, align 8, !tbaa !251
+  store ptr %867, ptr %.029.i.i, align 8, !tbaa !58
+  call void @free(ptr noundef nonnull %860) #26
+  %868 = add nsw i32 %.01828.i.i, 1
   call fastcc void @compact_treesame(ptr noundef nonnull %0, ptr noundef nonnull %760, i32 noundef %.02027.i.i)
-  br label %874, !llvm.loop !369
+  br label %872, !llvm.loop !369
 
-871:                                              ; preds = %.lr.ph.i30.i
-  %872 = getelementptr inbounds nuw i8, ptr %862, i64 8
-  %873 = add nsw i32 %.02027.i.i, 1
-  br label %874
+869:                                              ; preds = %.lr.ph.i30.i
+  %870 = getelementptr inbounds nuw i8, ptr %860, i64 8
+  %871 = add nsw i32 %.02027.i.i, 1
+  br label %872
 
-874:                                              ; preds = %871, %866
-  %.121.i.i = phi i32 [ %.02027.i.i, %866 ], [ %873, %871 ]
-  %.119.i.i = phi i32 [ %870, %866 ], [ %.01828.i.i, %871 ]
-  %.1.i.i = phi ptr [ %.029.i.i, %866 ], [ %872, %871 ]
-  %875 = load ptr, ptr %.1.i.i, align 8, !tbaa !58
-  %.not.i32.i = icmp eq ptr %875, null
+872:                                              ; preds = %869, %864
+  %.121.i.i = phi i32 [ %.02027.i.i, %864 ], [ %871, %869 ]
+  %.119.i.i = phi i32 [ %868, %864 ], [ %.01828.i.i, %869 ]
+  %.1.i.i = phi ptr [ %.029.i.i, %864 ], [ %870, %869 ]
+  %873 = load ptr, ptr %.1.i.i, align 8, !tbaa !58
+  %.not.i32.i = icmp eq ptr %873, null
   br i1 %.not.i32.i, label %._crit_edge.i.i110, label %.lr.ph.i30.i
 
-._crit_edge.i.i110:                               ; preds = %874
-  %876 = icmp eq i32 %.119.i.i, 0
-  br i1 %876, label %.critedge.i.i, label %877
+._crit_edge.i.i110:                               ; preds = %872
+  %874 = icmp eq i32 %.119.i.i, 0
+  br i1 %874, label %.critedge.i.i, label %875
 
-877:                                              ; preds = %._crit_edge.i.i110
-  %878 = load i32, ptr %760, align 8
-  %879 = and i32 %878, 64
-  %.not24.i.i = icmp eq i32 %879, 0
-  br i1 %.not24.i.i, label %880, label %.critedge.i.i
+875:                                              ; preds = %._crit_edge.i.i110
+  %876 = load i32, ptr %760, align 8
+  %877 = and i32 %876, 64
+  %.not24.i.i = icmp eq i32 %877, 0
+  br i1 %.not24.i.i, label %878, label %.critedge.i.i
 
-880:                                              ; preds = %877
+878:                                              ; preds = %875
   call fastcc void @update_treesame(ptr noundef nonnull %0, ptr noundef nonnull %760)
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %880, %877, %._crit_edge.i.i110, %806
-  %.4.i.i = phi i32 [ %807, %806 ], [ %.121.i.i, %880 ], [ %.121.i.i, %877 ], [ %.121.i.i, %._crit_edge.i.i110 ]
+.critedge.i.i:                                    ; preds = %878, %875, %._crit_edge.i.i110, %806
+  %.4.i.i = phi i32 [ %807, %806 ], [ %.121.i.i, %878 ], [ %.121.i.i, %875 ], [ %.121.i.i, %._crit_edge.i.i110 ]
   %.not81.i.i = icmp eq i32 %.4.i.i, 0
   br i1 %.not81.i.i, label %.critedge.i.thread.i, label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %.critedge.i.i, %leave_one_treesame_to_parent.exit.i, %mark_treesame_root_parents.exit.i.i, %locate_simplify_state.exit91._crit_edge.i.i
-  %881 = load i32, ptr %760, align 8
-  %882 = and i32 %881, 96
-  %or.cond.not.i.i = icmp eq i32 %882, 64
-  br i1 %or.cond.not.i.i, label %883, label %.critedge.i.thread.i
+  %879 = load i32, ptr %760, align 8
+  %880 = and i32 %879, 96
+  %or.cond.not.i.i = icmp eq i32 %880, 64
+  br i1 %or.cond.not.i.i, label %881, label %.critedge.i.thread.i
 
-883:                                              ; preds = %.critedge.thread.i.i
-  %884 = load ptr, ptr %770, align 8, !tbaa !363
-  %.not.i27.i = icmp eq ptr %884, null
-  br i1 %.not.i27.i, label %.critedge.i.thread.i, label %885
+881:                                              ; preds = %.critedge.thread.i.i
+  %882 = load ptr, ptr %770, align 8, !tbaa !363
+  %.not.i27.i = icmp eq ptr %882, null
+  br i1 %.not.i27.i, label %.critedge.i.thread.i, label %883
 
-885:                                              ; preds = %883
-  %886 = load i64, ptr %243, align 8
-  %887 = and i64 %886, 274877906944
-  %.not19.i.i = icmp eq i64 %887, 0
-  br i1 %.not19.i.i, label %888, label %891
+883:                                              ; preds = %881
+  %884 = load i64, ptr %243, align 8
+  %885 = and i64 %884, 274877906944
+  %.not19.i.i = icmp eq i64 %885, 0
+  br i1 %.not19.i.i, label %886, label %889
 
-888:                                              ; preds = %885
-  %889 = getelementptr inbounds nuw i8, ptr %884, i64 8
-  %890 = load ptr, ptr %889, align 8, !tbaa !251
-  %.not20.i.i = icmp eq ptr %890, null
-  br i1 %.not20.i.i, label %891, label %.preheader.i29.i
+886:                                              ; preds = %883
+  %887 = getelementptr inbounds nuw i8, ptr %882, i64 8
+  %888 = load ptr, ptr %887, align 8, !tbaa !251
+  %.not20.i.i = icmp eq ptr %888, null
+  br i1 %.not20.i.i, label %889, label %.preheader.i29.i
 
-891:                                              ; preds = %888, %885
-  %892 = load ptr, ptr %884, align 8, !tbaa !59
+889:                                              ; preds = %886, %883
+  %890 = load ptr, ptr %882, align 8, !tbaa !59
   br label %one_relevant_parent.exit.i
 
-.preheader.i29.i:                                 ; preds = %888, %893
-  %.017.i.i = phi ptr [ %896, %893 ], [ %884, %888 ]
-  %.014.i.i105 = phi ptr [ %.216.i.i, %893 ], [ null, %888 ]
+.preheader.i29.i:                                 ; preds = %886, %891
+  %.017.i.i = phi ptr [ %894, %891 ], [ %882, %886 ]
+  %.014.i.i105 = phi ptr [ %.216.i.i, %891 ], [ null, %886 ]
   %.not21.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not21.i.i, label %one_relevant_parent.exit.i, label %893
+  br i1 %.not21.i.i, label %one_relevant_parent.exit.i, label %891
 
-893:                                              ; preds = %.preheader.i29.i
-  %894 = load ptr, ptr %.017.i.i, align 8, !tbaa !59
-  %895 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
-  %896 = load ptr, ptr %895, align 8, !tbaa !251
-  %.val.i.i = load i32, ptr %894, align 8
-  %897 = and i32 %.val.i.i, 16416
-  %.not25.i.i = icmp eq i32 %897, 32
+891:                                              ; preds = %.preheader.i29.i
+  %892 = load ptr, ptr %.017.i.i, align 8, !tbaa !59
+  %893 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
+  %894 = load ptr, ptr %893, align 8, !tbaa !251
+  %.val.i.i = load i32, ptr %892, align 8
+  %895 = and i32 %.val.i.i, 16416
+  %.not25.i.i = icmp eq i32 %895, 32
   %.not23.i.i = icmp eq ptr %.014.i.i105, null
-  %spec.select.i.i = select i1 %.not23.i.i, ptr %894, ptr %.014.i.i105
+  %spec.select.i.i = select i1 %.not23.i.i, ptr %892, ptr %.014.i.i105
   %.216.i.i = select i1 %.not25.i.i, ptr %.014.i.i105, ptr %spec.select.i.i
   %cond.i.i = select i1 %.not25.i.i, i1 true, i1 %.not23.i.i
   br i1 %cond.i.i, label %.preheader.i29.i, label %.critedge.i.thread.i, !llvm.loop !370
 
-one_relevant_parent.exit.i:                       ; preds = %.preheader.i29.i, %891
-  %.0.i28.i = phi ptr [ %892, %891 ], [ %.014.i.i105, %.preheader.i29.i ]
-  %898 = icmp eq ptr %.0.i28.i, null
-  br i1 %898, label %.critedge.i.thread.i, label %899
+one_relevant_parent.exit.i:                       ; preds = %.preheader.i29.i, %889
+  %.0.i28.i = phi ptr [ %890, %889 ], [ %.014.i.i105, %.preheader.i29.i ]
+  %896 = icmp eq ptr %.0.i28.i, null
+  br i1 %896, label %.critedge.i.thread.i, label %897
 
-899:                                              ; preds = %one_relevant_parent.exit.i
-  %900 = and i64 %886, 256
-  %.not84.i.i = icmp eq i64 %900, 0
-  %901 = and i32 %881, 524288
-  %.not85.i.i = icmp eq i32 %901, 0
+897:                                              ; preds = %one_relevant_parent.exit.i
+  %898 = and i64 %884, 256
+  %.not84.i.i = icmp eq i64 %898, 0
+  %899 = and i32 %879, 524288
+  %.not85.i.i = icmp eq i32 %899, 0
   %or.cond101.i.i = or i1 %.not85.i.i, %.not84.i.i
-  br i1 %or.cond101.i.i, label %902, label %.critedge.i.thread.i
+  br i1 %or.cond101.i.i, label %900, label %.critedge.i.thread.i
 
-902:                                              ; preds = %899
-  %903 = call ptr @lookup_decoration(ptr noundef nonnull %750, ptr noundef nonnull %.0.i28.i) #26
-  %.not.i24.i = icmp eq ptr %903, null
-  br i1 %.not.i24.i, label %904, label %locate_simplify_state.exit26.i
+900:                                              ; preds = %897
+  %901 = call ptr @lookup_decoration(ptr noundef nonnull %750, ptr noundef nonnull %.0.i28.i) #26
+  %.not.i24.i = icmp eq ptr %901, null
+  br i1 %.not.i24.i, label %902, label %locate_simplify_state.exit26.i
 
-904:                                              ; preds = %902
-  %905 = call ptr @xcalloc(i64 noundef 1, i64 noundef 8) #26
-  %906 = call ptr @add_decoration(ptr noundef nonnull %750, ptr noundef nonnull %.0.i28.i, ptr noundef %905) #26
+902:                                              ; preds = %900
+  %903 = call ptr @xcalloc(i64 noundef 1, i64 noundef 8) #26
+  %904 = call ptr @add_decoration(ptr noundef nonnull %750, ptr noundef nonnull %.0.i28.i, ptr noundef %903) #26
   br label %locate_simplify_state.exit26.i
 
-locate_simplify_state.exit26.i:                   ; preds = %904, %902
-  %.0.i25.i = phi ptr [ %903, %902 ], [ %905, %904 ]
-  %907 = load ptr, ptr %.0.i25.i, align 8, !tbaa !361
+locate_simplify_state.exit26.i:                   ; preds = %902, %900
+  %.0.i25.i = phi ptr [ %901, %900 ], [ %903, %902 ]
+  %905 = load ptr, ptr %.0.i25.i, align 8, !tbaa !361
   br label %.critedge.i.thread.i
 
-.critedge.i.thread.i:                             ; preds = %893, %locate_simplify_state.exit26.i, %899, %one_relevant_parent.exit.i, %883, %.critedge.thread.i.i, %.critedge.i.i, %861, %842
-  %storemerge.i.i = phi ptr [ %907, %locate_simplify_state.exit26.i ], [ %760, %one_relevant_parent.exit.i ], [ %760, %.critedge.thread.i.i ], [ %760, %.critedge.i.i ], [ %760, %899 ], [ %760, %861 ], [ %760, %842 ], [ %760, %883 ], [ %760, %893 ]
+.critedge.i.thread.i:                             ; preds = %891, %locate_simplify_state.exit26.i, %897, %one_relevant_parent.exit.i, %881, %.critedge.thread.i.i, %.critedge.i.i, %.critedge.i, %842
+  %storemerge.i.i = phi ptr [ %905, %locate_simplify_state.exit26.i ], [ %760, %one_relevant_parent.exit.i ], [ %760, %.critedge.thread.i.i ], [ %760, %.critedge.i.i ], [ %760, %897 ], [ %760, %.critedge.i ], [ %760, %842 ], [ %760, %881 ], [ %760, %891 ]
   store ptr %storemerge.i.i, ptr %.0.i.i.i, align 8, !tbaa !361
   br label %simplify_one.exit.i
 
@@ -9198,90 +9198,90 @@ simplify_one.exit.i:                              ; preds = %.critedge.i.thread.
   br i1 %.not22.i, label %.loopexit49.i, label %759, !llvm.loop !371
 
 ._crit_edge.i98:                                  ; preds = %.loopexit49.i, %.preheader.i94
-  %.pr68.i = load ptr, ptr %0, align 8, !tbaa !271
-  store ptr %.pr68.i, ptr %4, align 8, !tbaa !58
+  %.pr69.i = load ptr, ptr %0, align 8, !tbaa !271
+  store ptr %.pr69.i, ptr %4, align 8, !tbaa !58
   store ptr null, ptr %0, align 8, !tbaa !271
-  %.not2159.i = icmp eq ptr %.pr68.i, null
+  %.not2159.i = icmp eq ptr %.pr69.i, null
   br i1 %.not2159.i, label %simplify_merges.exit, label %.lr.ph62.i
 
 .lr.ph62.i:                                       ; preds = %._crit_edge.i98
-  %908 = getelementptr inbounds nuw i8, ptr %0, i64 2688
-  br label %909
+  %906 = getelementptr inbounds nuw i8, ptr %0, i64 2688
+  br label %907
 
-909:                                              ; preds = %920, %.lr.ph62.i
-  %.160.i = phi ptr [ %0, %.lr.ph62.i ], [ %.2.i100, %920 ]
-  %910 = call ptr @pop_commit(ptr noundef nonnull %4) #26
-  %911 = call ptr @lookup_decoration(ptr noundef nonnull %908, ptr noundef %910) #26
-  %.not.i23.i = icmp eq ptr %911, null
-  br i1 %.not.i23.i, label %912, label %locate_simplify_state.exit.i
+907:                                              ; preds = %918, %.lr.ph62.i
+  %.160.i = phi ptr [ %0, %.lr.ph62.i ], [ %.2.i100, %918 ]
+  %908 = call ptr @pop_commit(ptr noundef nonnull %4) #26
+  %909 = call ptr @lookup_decoration(ptr noundef nonnull %906, ptr noundef %908) #26
+  %.not.i23.i = icmp eq ptr %909, null
+  br i1 %.not.i23.i, label %910, label %locate_simplify_state.exit.i
 
-912:                                              ; preds = %909
-  %913 = call ptr @xcalloc(i64 noundef 1, i64 noundef 8) #26
-  %914 = call ptr @add_decoration(ptr noundef nonnull %908, ptr noundef %910, ptr noundef %913) #26
+910:                                              ; preds = %907
+  %911 = call ptr @xcalloc(i64 noundef 1, i64 noundef 8) #26
+  %912 = call ptr @add_decoration(ptr noundef nonnull %906, ptr noundef %908, ptr noundef %911) #26
   br label %locate_simplify_state.exit.i
 
-locate_simplify_state.exit.i:                     ; preds = %912, %909
-  %.0.i.i99 = phi ptr [ %911, %909 ], [ %913, %912 ]
-  %915 = load ptr, ptr %.0.i.i99, align 8, !tbaa !361
-  %916 = icmp eq ptr %915, %910
-  br i1 %916, label %917, label %920
+locate_simplify_state.exit.i:                     ; preds = %910, %907
+  %.0.i.i99 = phi ptr [ %909, %907 ], [ %911, %910 ]
+  %913 = load ptr, ptr %.0.i.i99, align 8, !tbaa !361
+  %914 = icmp eq ptr %913, %908
+  br i1 %914, label %915, label %918
 
-917:                                              ; preds = %locate_simplify_state.exit.i
-  %918 = call ptr @commit_list_insert(ptr noundef %910, ptr noundef %.160.i) #26
-  %919 = getelementptr inbounds nuw i8, ptr %918, i64 8
-  br label %920
+915:                                              ; preds = %locate_simplify_state.exit.i
+  %916 = call ptr @commit_list_insert(ptr noundef %908, ptr noundef %.160.i) #26
+  %917 = getelementptr inbounds nuw i8, ptr %916, i64 8
+  br label %918
 
-920:                                              ; preds = %917, %locate_simplify_state.exit.i
-  %.2.i100 = phi ptr [ %919, %917 ], [ %.160.i, %locate_simplify_state.exit.i ]
+918:                                              ; preds = %915, %locate_simplify_state.exit.i
+  %.2.i100 = phi ptr [ %917, %915 ], [ %.160.i, %locate_simplify_state.exit.i ]
   %.pr48.i = load ptr, ptr %4, align 8, !tbaa !58
   %.not21.i = icmp eq ptr %.pr48.i, null
-  br i1 %.not21.i, label %simplify_merges.exit, label %909, !llvm.loop !372
+  br i1 %.not21.i, label %simplify_merges.exit, label %907, !llvm.loop !372
 
-simplify_merges.exit:                             ; preds = %920, %746, %748, %._crit_edge.i98
+simplify_merges.exit:                             ; preds = %918, %746, %748, %._crit_edge.i98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
-  br label %921
+  br label %919
 
-921:                                              ; preds = %simplify_merges.exit, %743
-  %922 = getelementptr inbounds nuw i8, ptr %0, i64 2664
-  %923 = load ptr, ptr %922, align 8, !tbaa !236
-  %.not56 = icmp eq ptr %923, null
-  br i1 %.not56, label %set_children.exit, label %924
+919:                                              ; preds = %simplify_merges.exit, %743
+  %920 = getelementptr inbounds nuw i8, ptr %0, i64 2664
+  %921 = load ptr, ptr %920, align 8, !tbaa !236
+  %.not56 = icmp eq ptr %921, null
+  br i1 %.not56, label %set_children.exit, label %922
 
-924:                                              ; preds = %921
+922:                                              ; preds = %919
   %.01015.i = load ptr, ptr %0, align 8, !tbaa !58
   %.not16.i = icmp eq ptr %.01015.i, null
   br i1 %.not16.i, label %set_children.exit, label %.lr.ph19.i
 
-.lr.ph19.i:                                       ; preds = %924, %._crit_edge.i113
-  %.01017.i = phi ptr [ %.010.i, %._crit_edge.i113 ], [ %.01015.i, %924 ]
-  %925 = load ptr, ptr %.01017.i, align 8, !tbaa !59
-  %926 = getelementptr inbounds nuw i8, ptr %925, i64 48
-  %.012.i = load ptr, ptr %926, align 8, !tbaa !58
+.lr.ph19.i:                                       ; preds = %922, %._crit_edge.i113
+  %.01017.i = phi ptr [ %.010.i, %._crit_edge.i113 ], [ %.01015.i, %922 ]
+  %923 = load ptr, ptr %.01017.i, align 8, !tbaa !59
+  %924 = getelementptr inbounds nuw i8, ptr %923, i64 48
+  %.012.i = load ptr, ptr %924, align 8, !tbaa !58
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %._crit_edge.i113, label %.lr.ph.i111
 
 .lr.ph.i111:                                      ; preds = %.lr.ph19.i, %.lr.ph.i111
   %.014.i = phi ptr [ %.0.i112, %.lr.ph.i111 ], [ %.012.i, %.lr.ph19.i ]
-  %927 = load ptr, ptr %.014.i, align 8, !tbaa !59
-  %928 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #26
-  store ptr %925, ptr %928, align 8, !tbaa !59
-  %929 = call ptr @add_decoration(ptr noundef nonnull %922, ptr noundef %927, ptr noundef nonnull %928) #26
-  %930 = getelementptr inbounds nuw i8, ptr %928, i64 8
-  store ptr %929, ptr %930, align 8, !tbaa !251
-  %931 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %.0.i112 = load ptr, ptr %931, align 8, !tbaa !58
+  %925 = load ptr, ptr %.014.i, align 8, !tbaa !59
+  %926 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #26
+  store ptr %923, ptr %926, align 8, !tbaa !59
+  %927 = call ptr @add_decoration(ptr noundef nonnull %920, ptr noundef %925, ptr noundef nonnull %926) #26
+  %928 = getelementptr inbounds nuw i8, ptr %926, i64 8
+  store ptr %927, ptr %928, align 8, !tbaa !251
+  %929 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+  %.0.i112 = load ptr, ptr %929, align 8, !tbaa !58
   %.not11.i = icmp eq ptr %.0.i112, null
   br i1 %.not11.i, label %._crit_edge.i113, label %.lr.ph.i111, !llvm.loop !373
 
 ._crit_edge.i113:                                 ; preds = %.lr.ph.i111, %.lr.ph19.i
-  %932 = getelementptr inbounds nuw i8, ptr %.01017.i, i64 8
-  %.010.i = load ptr, ptr %932, align 8, !tbaa !58
+  %930 = getelementptr inbounds nuw i8, ptr %.01017.i, i64 8
+  %.010.i = load ptr, ptr %930, align 8, !tbaa !58
   %.not.i114 = icmp eq ptr %.010.i, null
   br i1 %.not.i114, label %set_children.exit, label %.lr.ph19.i, !llvm.loop !374
 
-set_children.exit:                                ; preds = %._crit_edge.i113, %924, %limit_list.exit.thread, %921, %342
-  %.0 = phi i32 [ 0, %342 ], [ 0, %921 ], [ -1, %limit_list.exit.thread ], [ 0, %924 ], [ 0, %._crit_edge.i113 ]
+set_children.exit:                                ; preds = %._crit_edge.i113, %922, %limit_list.exit.thread, %919, %342
+  %.0 = phi i32 [ 0, %342 ], [ 0, %919 ], [ -1, %limit_list.exit.thread ], [ 0, %922 ], [ 0, %._crit_edge.i113 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #26
   ret i32 %.0
 }

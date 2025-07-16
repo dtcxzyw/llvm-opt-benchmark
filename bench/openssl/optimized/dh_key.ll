@@ -569,7 +569,7 @@ define internal range(i32 0, 2) i32 @generate_key(ptr noundef %0) #0 {
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 276, ptr noundef nonnull @__func__.generate_key) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 103, ptr noundef null) #9
-  br label %119
+  br label %120
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -586,7 +586,7 @@ define internal range(i32 0, 2) i32 @generate_key(ptr noundef %0) #0 {
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 282, ptr noundef nonnull @__func__.generate_key) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 130, ptr noundef null) #9
-  br label %119
+  br label %120
 
 14:                                               ; preds = %10, %7
   %15 = load ptr, ptr %2, align 8, !tbaa !3
@@ -598,7 +598,7 @@ define internal range(i32 0, 2) i32 @generate_key(ptr noundef %0) #0 {
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 287, ptr noundef nonnull @__func__.generate_key) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 126, ptr noundef null) #9
-  br label %119
+  br label %120
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -773,7 +773,7 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   %110 = load i64, ptr %109, align 8, !tbaa !40
   %111 = add i64 %110, 1
   store i64 %111, ptr %109, align 8, !tbaa !40
-  br label %114
+  br label %115
 
 112:                                              ; preds = %ossl_dh_generate_public_key.exit.thread102, %80, %83, %68, %78, %61, %ossl_dh_generate_public_key.exit, %34, %27, %19, %47, %40, %52, %87
   %.063.ph = phi ptr [ %.164, %ossl_dh_generate_public_key.exit.thread102 ], [ %.164, %80 ], [ %.164, %83 ], [ %.164, %68 ], [ %.164, %78 ], [ %.164, %61 ], [ %.164, %ossl_dh_generate_public_key.exit ], [ null, %34 ], [ null, %27 ], [ null, %19 ], [ %.164, %47 ], [ %.164, %40 ], [ %.164, %52 ], [ %.164, %87 ]
@@ -783,31 +783,31 @@ ossl_dh_generate_public_key.exit:                 ; preds = %90, %94
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 524291, ptr noundef null) #9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !38
-  %.not93 = icmp eq ptr %.063.ph, %.pre
-  br i1 %.not93, label %114, label %113
+  %113 = icmp eq ptr %.063.ph, %.pre
+  br i1 %113, label %115, label %114
 
-113:                                              ; preds = %112
+114:                                              ; preds = %112
   tail call void @BN_free(ptr noundef %.063.ph) #9
-  br label %114
+  br label %115
 
-114:                                              ; preds = %.thread117, %113, %112
-  %.065112123 = phi i32 [ 1, %.thread117 ], [ 0, %113 ], [ 0, %112 ]
-  %.062116122 = phi ptr [ %.1, %.thread117 ], [ %.062.ph, %113 ], [ %.062.ph, %112 ]
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %116 = load ptr, ptr %115, align 8, !tbaa !22
-  %.not94 = icmp eq ptr %.062116122, %116
-  br i1 %.not94, label %118, label %117
+115:                                              ; preds = %.thread117, %114, %112
+  %.065112123 = phi i32 [ 1, %.thread117 ], [ 0, %114 ], [ 0, %112 ]
+  %.062116122 = phi ptr [ %.1, %.thread117 ], [ %.062.ph, %114 ], [ %.062.ph, %112 ]
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %117 = load ptr, ptr %116, align 8, !tbaa !22
+  %.not94 = icmp eq ptr %.062116122, %117
+  br i1 %.not94, label %119, label %118
 
-117:                                              ; preds = %114
+118:                                              ; preds = %115
   tail call void @BN_free(ptr noundef %.062116122) #9
-  br label %118
-
-118:                                              ; preds = %117, %114
-  tail call void @BN_CTX_free(ptr noundef %22) #9
   br label %119
 
-119:                                              ; preds = %118, %18, %13, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ 0, %18 ], [ %.065112123, %118 ]
+119:                                              ; preds = %118, %115
+  tail call void @BN_CTX_free(ptr noundef %22) #9
+  br label %120
+
+120:                                              ; preds = %119, %18, %13, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ 0, %18 ], [ %.065112123, %119 ]
   ret i32 %.0
 }
 

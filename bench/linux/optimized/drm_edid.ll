@@ -2291,14 +2291,18 @@ define internal range(i32 -1, 1) i32 @drm_do_probe_ddc_edid(ptr noundef %0, ptr 
   %35 = add nsw i32 %30, -1
   %36 = icmp eq i32 %35, 0
   %37 = select i1 %34, i1 true, i1 %36
-  br i1 %37, label %.loopexit, label %29, !llvm.loop !24
+  br i1 %37, label %.loopexit.loopexit, label %29, !llvm.loop !24
 
-.loopexit:                                        ; preds = %33, %.thread
+.loopexit.loopexit:                               ; preds = %33
   %38 = icmp ne i32 %31, %24
   %39 = sext i1 %38 to i32
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.thread
+  %40 = phi i32 [ %39, %.loopexit.loopexit ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
-  ret i32 %39
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -9121,7 +9125,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_hdmi_avi_infoframe_from_disp
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %6 = and i1 %4, %5
-  br i1 %6, label %7, label %230
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %3
   tail call void @hdmi_avi_infoframe_init(ptr noundef nonnull %0) #21
@@ -9382,7 +9386,7 @@ drm_match_hdmi_mode.exit15:                       ; preds = %88, %.loopexit.spli
 
 163:                                              ; preds = %160
   %164 = icmp eq i8 %71, 0
-  br i1 %164, label %187, label %165
+  br i1 %164, label %186, label %165
 
 165:                                              ; preds = %163
   %166 = zext i8 %71 to i32
@@ -9398,7 +9402,7 @@ drm_match_hdmi_mode.exit15:                       ; preds = %88, %.loopexit.spli
 172:                                              ; preds = %165
   %173 = add nsw i8 %71, 63
   %174 = icmp ult i8 %173, 27
-  br i1 %174, label %175, label %.thread17
+  br i1 %174, label %175, label %.critedge
 
 175:                                              ; preds = %172
   %176 = add nsw i32 %166, -193
@@ -9409,94 +9413,90 @@ drm_match_hdmi_mode.exit15:                       ; preds = %88, %.loopexit.spli
 179:                                              ; preds = %175, %168
   %180 = phi ptr [ %171, %168 ], [ %178, %175 ]
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread17, label %182
+  br i1 %181, label %.critedge, label %182
 
 182:                                              ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 116
   %184 = load i32, ptr %183, align 4
-  br label %.thread17
+  %185 = icmp eq i32 %161, %184
+  br i1 %185, label %.thread16, label %.critedge
 
-.thread17:                                        ; preds = %172, %182, %179
-  %185 = phi i32 [ %184, %182 ], [ 0, %179 ], [ 0, %172 ]
-  %186 = icmp eq i32 %161, %185
-  br i1 %186, label %.thread16, label %230
+186:                                              ; preds = %163
+  %187 = icmp eq i8 %124, 0
+  br i1 %187, label %.critedge, label %188
 
-187:                                              ; preds = %163
-  %188 = icmp eq i8 %124, 0
-  br i1 %188, label %230, label %189
+188:                                              ; preds = %186
+  %189 = zext i8 %124 to i64
+  %190 = getelementptr [5 x %struct.drm_display_mode], ptr @edid_4k_modes, i64 0, i64 %189, i32 33
+  %191 = load i32, ptr %190, align 4
+  %192 = icmp eq i32 %161, %191
+  br i1 %192, label %.thread16, label %.critedge
 
-189:                                              ; preds = %187
-  %190 = zext i8 %124 to i64
-  %191 = getelementptr [5 x %struct.drm_display_mode], ptr @edid_4k_modes, i64 0, i64 %190, i32 33
-  %192 = load i32, ptr %191, align 4
-  %193 = icmp eq i32 %161, %192
-  br i1 %193, label %.thread16, label %230
+.thread16:                                        ; preds = %140, %147, %152, %188, %182, %160
+  %193 = phi i32 [ %161, %160 ], [ 0, %188 ], [ 0, %182 ], [ 0, %152 ], [ 0, %147 ], [ 0, %140 ]
+  br i1 %15, label %.thread19, label %194
 
-.thread16:                                        ; preds = %140, %147, %152, %189, %.thread17, %160
-  %194 = phi i32 [ %161, %160 ], [ 0, %189 ], [ 0, %.thread17 ], [ 0, %152 ], [ 0, %147 ], [ 0, %140 ]
-  br i1 %15, label %.thread19, label %195
+194:                                              ; preds = %.thread16
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %196 = load i8, ptr %195, align 8, !range !17, !noundef !18
+  %197 = icmp eq i8 %196, 0
+  br i1 %197, label %198, label %.thread19
 
-195:                                              ; preds = %.thread16
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %197 = load i8, ptr %196, align 8, !range !17, !noundef !18
-  %198 = icmp eq i8 %197, 0
-  br i1 %198, label %199, label %.thread19
+198:                                              ; preds = %194
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 220
+  %200 = load i32, ptr %199, align 4
+  %201 = and i32 %200, 8
+  %202 = icmp ne i32 %201, 0
+  %203 = icmp ult i8 %71, 65
+  %204 = or i1 %203, %202
+  br i1 %204, label %.thread19, label %205
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 220
-  %201 = load i32, ptr %200, align 4
-  %202 = and i32 %201, 8
-  %203 = icmp ne i32 %202, 0
-  %204 = icmp ult i8 %71, 65
-  %205 = or i1 %204, %203
-  br i1 %205, label %.thread19, label %206
+205:                                              ; preds = %198
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  %207 = load ptr, ptr %206, align 8
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %224, label %209
 
-206:                                              ; preds = %199
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %208 = load ptr, ptr %207, align 8
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %225, label %210
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %211 = load i32, ptr %210, align 8
+  %212 = icmp sgt i32 %211, 0
+  br i1 %212, label %213, label %224
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %212 = load i32, ptr %211, align 8
-  %213 = icmp sgt i32 %212, 0
-  br i1 %213, label %214, label %225
+213:                                              ; preds = %209
+  %214 = zext nneg i32 %211 to i64
+  br label %215
 
-214:                                              ; preds = %210
-  %215 = zext nneg i32 %212 to i64
-  br label %216
+215:                                              ; preds = %215, %213
+  %216 = phi i64 [ 0, %213 ], [ %220, %215 ]
+  %217 = getelementptr i8, ptr %207, i64 %216
+  %218 = load i8, ptr %217, align 1
+  %219 = icmp eq i8 %218, %71
+  %220 = add nuw nsw i64 %216, 1
+  %221 = icmp eq i64 %220, %214
+  %222 = select i1 %219, i1 true, i1 %221
+  br i1 %222, label %223, label %215, !llvm.loop !96
 
-216:                                              ; preds = %216, %214
-  %217 = phi i64 [ 0, %214 ], [ %221, %216 ]
-  %218 = getelementptr i8, ptr %208, i64 %217
-  %219 = load i8, ptr %218, align 1
-  %220 = icmp eq i8 %219, %71
-  %221 = add nuw nsw i64 %217, 1
-  %222 = icmp eq i64 %221, %215
-  %223 = select i1 %220, i1 true, i1 %222
-  br i1 %223, label %224, label %216, !llvm.loop !96
+223:                                              ; preds = %215
+  br i1 %219, label %.thread19, label %224
 
-224:                                              ; preds = %216
-  br i1 %220, label %.thread19, label %225
+.thread19:                                        ; preds = %194, %.thread16, %223, %198
+  br label %224
 
-.thread19:                                        ; preds = %195, %.thread16, %224, %199
-  br label %225
+224:                                              ; preds = %.thread19, %223, %209, %205
+  %225 = phi i8 [ %71, %.thread19 ], [ 0, %223 ], [ 0, %209 ], [ 0, %205 ]
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 %225, ptr %226, align 4
+  store i32 %193, ptr %125, align 4
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 8, ptr %227, align 4
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %228, align 4
+  br label %.critedge
 
-225:                                              ; preds = %.thread19, %224, %210, %206
-  %226 = phi i8 [ %71, %.thread19 ], [ 0, %224 ], [ 0, %210 ], [ 0, %206 ]
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %226, ptr %227, align 4
-  store i32 %194, ptr %125, align 4
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 8, ptr %228, align 4
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %229, align 4
-  br label %230
-
-230:                                              ; preds = %225, %189, %187, %.thread17, %3
-  %231 = phi i32 [ 0, %225 ], [ -22, %3 ], [ -22, %.thread17 ], [ -22, %189 ], [ -22, %187 ]
-  ret i32 %231
+.critedge:                                        ; preds = %172, %179, %224, %188, %186, %182, %3
+  %229 = phi i32 [ 0, %224 ], [ -22, %3 ], [ -22, %182 ], [ -22, %188 ], [ -22, %186 ], [ -22, %179 ], [ -22, %172 ]
+  ret i32 %229
 }
 
 ; Function Attrs: null_pointer_is_valid

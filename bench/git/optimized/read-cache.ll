@@ -1977,25 +1977,21 @@ define dso_local noundef i32 @remove_file_from_index(ptr noundef %0, ptr noundef
   %22 = add i32 %21, -1
   store i32 %22, ptr %6, align 4, !tbaa !34
   %.not.i = icmp ult i32 %spec.select, %22
-  br i1 %.not.i, label %23, label %remove_index_entry_at.exit
+  br i1 %.not.i, label %remove_index_entry_at.exit, label %.critedge
 
-23:                                               ; preds = %18
-  %24 = sub nuw i32 %22, %spec.select
-  %25 = zext i32 %24 to i64
-  %26 = load ptr, ptr %0, align 8, !tbaa !4
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %10
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = shl nuw nsw i64 %25, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %27, ptr nonnull readonly align 1 %28, i64 %29, i1 false)
+remove_index_entry_at.exit:                       ; preds = %18
+  %23 = sub nuw i32 %22, %spec.select
+  %24 = zext i32 %23 to i64
+  %25 = load ptr, ptr %0, align 8, !tbaa !4
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %10
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = shl nuw nsw i64 %24, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %26, ptr nonnull readonly align 1 %27, i64 %28, i1 false)
   %.pre = load i32, ptr %6, align 4, !tbaa !34
-  br label %remove_index_entry_at.exit
+  %29 = icmp ult i32 %spec.select, %.pre
+  br i1 %29, label %12, label %.critedge, !llvm.loop !78
 
-remove_index_entry_at.exit:                       ; preds = %18, %23
-  %30 = phi i32 [ %22, %18 ], [ %.pre, %23 ]
-  %31 = icmp ult i32 %spec.select, %30
-  br i1 %31, label %12, label %.critedge, !llvm.loop !78
-
-.critedge:                                        ; preds = %12, %remove_index_entry_at.exit, %2
+.critedge:                                        ; preds = %18, %12, %remove_index_entry_at.exit, %2
   ret i32 0
 }
 

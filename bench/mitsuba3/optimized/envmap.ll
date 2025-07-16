@@ -1900,13 +1900,13 @@ _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorI
   tail call void @_ZdlPv(ptr noundef nonnull %47) #33
   %.pre = load ptr, ptr %40, align 8
   %.pre509 = load ptr, ptr %39, align 8
+  %52 = icmp ult ptr %.pre, %.pre509
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %53 = icmp ult ptr %.pre, %.pre509
-  br i1 %53, label %54, label %72
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br i1 %52, label %54, label %72
 
 54:                                               ; preds = %.thread, %51
-  %55 = phi ptr [ %48, %.thread ], [ %52, %51 ]
+  %55 = phi ptr [ %48, %.thread ], [ %53, %51 ]
   %56 = phi ptr [ %42, %.thread ], [ %.pre, %51 ]
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %2, align 4
   %57 = load i32, ptr %26, align 8
@@ -1954,7 +1954,7 @@ _ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE22__
           to label %_ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE12emplace_backIJRKNS1_6VectorIjLm2EEERjEEERS4_DpOT_.exit unwind label %.loopexit.split-lp
 
 _ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE12emplace_backIJRKNS1_6VectorIjLm2EEERjEEERS4_DpOT_.exit: ; preds = %72, %_ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE22__construct_one_at_endB8ne190000IJRKNS1_6VectorIjLm2EEERjEEEvDpOT_.exit.i
-  %74 = phi ptr [ %55, %_ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE22__construct_one_at_endB8ne190000IJRKNS1_6VectorIjLm2EEERjEEEvDpOT_.exit.i ], [ %52, %72 ]
+  %74 = phi ptr [ %55, %_ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE22__construct_one_at_endB8ne190000IJRKNS1_6VectorIjLm2EEERjEEEvDpOT_.exit.i ], [ %53, %72 ]
   %.0.i = phi ptr [ %71, %_ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE22__construct_one_at_endB8ne190000IJRKNS1_6VectorIjLm2EEERjEEEvDpOT_.exit.i ], [ %73, %72 ]
   store ptr %.0.i, ptr %74, align 8
   %75 = load i32, ptr %26, align 8
@@ -7730,8 +7730,8 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %10
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %87
-  %.014 = phi i64 [ %63, %87 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
+.lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %84
+  %.014 = phi i64 [ %63, %84 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
   %28 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %.014
   %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4)
@@ -7796,7 +7796,7 @@ _ZN5drjit6detail9to_stringILb0EN7mitsuba6VectorIjLm2EEEJmEEEvRNS_12StringBufferE
   %63 = add nuw i64 %.014, 1
   %64 = load i64, ptr %2, align 8
   %65 = icmp ult i64 %63, %64
-  br i1 %65, label %66, label %87
+  br i1 %65, label %66, label %._crit_edge
 
 66:                                               ; preds = %_ZN5drjit6detail9to_stringILb0EN7mitsuba6VectorIjLm2EEEJmEEEvRNS_12StringBufferERKT0_PKmDpT1_.exit
   %67 = load ptr, ptr %8, align 8
@@ -7805,7 +7805,7 @@ _ZN5drjit6detail9to_stringILb0EN7mitsuba6VectorIjLm2EEEJmEEEvRNS_12StringBufferE
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
   %.not.i.i11 = icmp ugt i64 %71, 2
-  br i1 %.not.i.i11, label %_ZN5drjit12StringBuffer3putEPKc.exit, label %72
+  br i1 %.not.i.i11, label %84, label %72
 
 72:                                               ; preds = %66
   %73 = load ptr, ptr %0, align 8
@@ -7825,57 +7825,53 @@ _ZN5drjit6detail9to_stringILb0EN7mitsuba6VectorIjLm2EEEJmEEEvRNS_12StringBufferE
   store ptr %82, ptr %8, align 8
   %83 = getelementptr inbounds i8, ptr %81, i64 %78
   store ptr %83, ptr %5, align 8
-  br label %_ZN5drjit12StringBuffer3putEPKc.exit
+  br label %84
 
-_ZN5drjit12StringBuffer3putEPKc.exit:             ; preds = %66, %72
-  %84 = phi ptr [ %83, %72 ], [ %68, %66 ]
-  store i16 8236, ptr %84, align 1
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 2
-  store ptr %86, ptr %5, align 8
-  store i8 0, ptr %86, align 1
+84:                                               ; preds = %72, %66
+  %85 = phi ptr [ %83, %72 ], [ %68, %66 ]
+  store i16 8236, ptr %85, align 1
+  %86 = load ptr, ptr %5, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
+  store ptr %87, ptr %5, align 8
+  store i8 0, ptr %87, align 1
   %.pre = load i64, ptr %2, align 8
-  br label %87
+  %88 = icmp ult i64 %63, %.pre
+  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !132
 
-87:                                               ; preds = %_ZN5drjit6detail9to_stringILb0EN7mitsuba6VectorIjLm2EEEJmEEEvRNS_12StringBufferERKT0_PKmDpT1_.exit, %_ZN5drjit12StringBuffer3putEPKc.exit
-  %88 = phi i64 [ %64, %_ZN5drjit6detail9to_stringILb0EN7mitsuba6VectorIjLm2EEEJmEEEvRNS_12StringBufferERKT0_PKmDpT1_.exit ], [ %.pre, %_ZN5drjit12StringBuffer3putEPKc.exit ]
-  %89 = icmp ult i64 %63, %88
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !132
+._crit_edge:                                      ; preds = %_ZN5drjit6detail9to_stringILb0EN7mitsuba6VectorIjLm2EEEJmEEEvRNS_12StringBufferERKT0_PKmDpT1_.exit, %84, %_ZN5drjit12StringBuffer3putEc.exit
+  %89 = load ptr, ptr %5, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
+  %91 = load ptr, ptr %8, align 8
+  %.not.i12 = icmp ult ptr %90, %91
+  br i1 %.not.i12, label %_ZN5drjit12StringBuffer3putEc.exit13, label %92
 
-._crit_edge:                                      ; preds = %87, %_ZN5drjit12StringBuffer3putEc.exit
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
-  %92 = load ptr, ptr %8, align 8
-  %.not.i12 = icmp ult ptr %91, %92
-  br i1 %.not.i12, label %_ZN5drjit12StringBuffer3putEc.exit13, label %93
-
-93:                                               ; preds = %._crit_edge
-  %94 = load ptr, ptr %0, align 8
-  %95 = ptrtoint ptr %92 to i64
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = shl i64 %97, 1
-  %99 = add i64 %98, 2
-  %100 = ptrtoint ptr %90 to i64
-  %101 = sub i64 %100, %96
-  %102 = add i64 %101, 1
-  %103 = tail call i64 @llvm.umin.i64(i64 %102, i64 %97)
-  %104 = tail call noalias ptr @malloc(i64 noundef %99) #36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %104, ptr align 1 %94, i64 %103, i1 false)
-  tail call void @free(ptr noundef %94) #31
-  store ptr %104, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 %99
-  store ptr %105, ptr %8, align 8
-  %106 = getelementptr inbounds i8, ptr %104, i64 %101
+92:                                               ; preds = %._crit_edge
+  %93 = load ptr, ptr %0, align 8
+  %94 = ptrtoint ptr %91 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = shl i64 %96, 1
+  %98 = add i64 %97, 2
+  %99 = ptrtoint ptr %89 to i64
+  %100 = sub i64 %99, %95
+  %101 = add i64 %100, 1
+  %102 = tail call i64 @llvm.umin.i64(i64 %101, i64 %96)
+  %103 = tail call noalias ptr @malloc(i64 noundef %98) #36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %93, i64 %102, i1 false)
+  tail call void @free(ptr noundef %93) #31
+  store ptr %103, ptr %0, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 %98
+  store ptr %104, ptr %8, align 8
+  %105 = getelementptr inbounds i8, ptr %103, i64 %100
   br label %_ZN5drjit12StringBuffer3putEc.exit13
 
-_ZN5drjit12StringBuffer3putEc.exit13:             ; preds = %._crit_edge, %93
-  %107 = phi ptr [ %106, %93 ], [ %90, %._crit_edge ]
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
-  store ptr %108, ptr %5, align 8
-  store i8 93, ptr %107, align 1
-  %109 = load ptr, ptr %5, align 8
-  store i8 0, ptr %109, align 1
+_ZN5drjit12StringBuffer3putEc.exit13:             ; preds = %._crit_edge, %92
+  %106 = phi ptr [ %105, %92 ], [ %89, %._crit_edge ]
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
+  store ptr %107, ptr %5, align 8
+  store i8 93, ptr %106, align 1
+  %108 = load ptr, ptr %5, align 8
+  store i8 0, ptr %108, align 1
   ret void
 }
 
@@ -8108,8 +8104,8 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
   %.not = icmp eq i64 %26, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %55
-  %.013 = phi i64 [ %31, %55 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
+.lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %52
+  %.013 = phi i64 [ %31, %52 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
   %27 = getelementptr inbounds float, ptr %1, i64 %.013
   %28 = load float, ptr %27, align 4
   %29 = fpext float %28 to double
@@ -8117,7 +8113,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
   %31 = add nuw i64 %.013, 1
   %32 = load i64, ptr %2, align 8
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %34, label %55
+  br i1 %33, label %34, label %._crit_edge
 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %7, align 8
@@ -8126,7 +8122,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %.not.i.i = icmp ugt i64 %39, 2
-  br i1 %.not.i.i, label %_ZN5drjit12StringBuffer3putEPKc.exit, label %40
+  br i1 %.not.i.i, label %52, label %40
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %0, align 8
@@ -8146,57 +8142,53 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
   store ptr %50, ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %49, i64 %46
   store ptr %51, ptr %4, align 8
-  br label %_ZN5drjit12StringBuffer3putEPKc.exit
+  br label %52
 
-_ZN5drjit12StringBuffer3putEPKc.exit:             ; preds = %34, %40
-  %52 = phi ptr [ %51, %40 ], [ %36, %34 ]
-  store i16 8236, ptr %52, align 1
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
-  store ptr %54, ptr %4, align 8
-  store i8 0, ptr %54, align 1
+52:                                               ; preds = %40, %34
+  %53 = phi ptr [ %51, %40 ], [ %36, %34 ]
+  store i16 8236, ptr %53, align 1
+  %54 = load ptr, ptr %4, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
+  store ptr %55, ptr %4, align 8
+  store i8 0, ptr %55, align 1
   %.pre = load i64, ptr %2, align 8
-  br label %55
+  %56 = icmp ult i64 %31, %.pre
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !133
 
-55:                                               ; preds = %.lr.ph, %_ZN5drjit12StringBuffer3putEPKc.exit
-  %56 = phi i64 [ %32, %.lr.ph ], [ %.pre, %_ZN5drjit12StringBuffer3putEPKc.exit ]
-  %57 = icmp ult i64 %31, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !133
+._crit_edge:                                      ; preds = %.lr.ph, %52, %_ZN5drjit12StringBuffer3putEc.exit
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  %59 = load ptr, ptr %7, align 8
+  %.not.i11 = icmp ult ptr %58, %59
+  br i1 %.not.i11, label %_ZN5drjit12StringBuffer3putEc.exit12, label %60
 
-._crit_edge:                                      ; preds = %55, %_ZN5drjit12StringBuffer3putEc.exit
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  %60 = load ptr, ptr %7, align 8
-  %.not.i11 = icmp ult ptr %59, %60
-  br i1 %.not.i11, label %_ZN5drjit12StringBuffer3putEc.exit12, label %61
-
-61:                                               ; preds = %._crit_edge
-  %62 = load ptr, ptr %0, align 8
-  %63 = ptrtoint ptr %60 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %66 = shl i64 %65, 1
-  %67 = add i64 %66, 2
-  %68 = ptrtoint ptr %58 to i64
-  %69 = sub i64 %68, %64
-  %70 = add i64 %69, 1
-  %71 = tail call i64 @llvm.umin.i64(i64 %70, i64 %65)
-  %72 = tail call noalias ptr @malloc(i64 noundef %67) #36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %62, i64 %71, i1 false)
-  tail call void @free(ptr noundef %62) #31
-  store ptr %72, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 %67
-  store ptr %73, ptr %7, align 8
-  %74 = getelementptr inbounds i8, ptr %72, i64 %69
+60:                                               ; preds = %._crit_edge
+  %61 = load ptr, ptr %0, align 8
+  %62 = ptrtoint ptr %59 to i64
+  %63 = ptrtoint ptr %61 to i64
+  %64 = sub i64 %62, %63
+  %65 = shl i64 %64, 1
+  %66 = add i64 %65, 2
+  %67 = ptrtoint ptr %57 to i64
+  %68 = sub i64 %67, %63
+  %69 = add i64 %68, 1
+  %70 = tail call i64 @llvm.umin.i64(i64 %69, i64 %64)
+  %71 = tail call noalias ptr @malloc(i64 noundef %66) #36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %61, i64 %70, i1 false)
+  tail call void @free(ptr noundef %61) #31
+  store ptr %71, ptr %0, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 %66
+  store ptr %72, ptr %7, align 8
+  %73 = getelementptr inbounds i8, ptr %71, i64 %68
   br label %_ZN5drjit12StringBuffer3putEc.exit12
 
-_ZN5drjit12StringBuffer3putEc.exit12:             ; preds = %._crit_edge, %61
-  %75 = phi ptr [ %74, %61 ], [ %58, %._crit_edge ]
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store ptr %76, ptr %4, align 8
-  store i8 93, ptr %75, align 1
-  %77 = load ptr, ptr %4, align 8
-  store i8 0, ptr %77, align 1
+_ZN5drjit12StringBuffer3putEc.exit12:             ; preds = %._crit_edge, %60
+  %74 = phi ptr [ %73, %60 ], [ %57, %._crit_edge ]
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
+  store ptr %75, ptr %4, align 8
+  store i8 93, ptr %74, align 1
+  %76 = load ptr, ptr %4, align 8
+  store i8 0, ptr %76, align 1
   ret void
 }
 

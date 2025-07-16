@@ -2062,9 +2062,9 @@ declare ptr @__ctype_tolower_loc() local_unnamed_addr #10
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @isURL(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %in_tld_set.exit.thread, label %.preheader163
+  br i1 %.not, label %in_tld_set.exit.thread, label %.preheader159
 
-.preheader163:                                    ; preds = %2, %4
+.preheader159:                                    ; preds = %2, %4
   %.090 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %3 = load i8, ptr %.090, align 1, !tbaa !94
   switch i8 %3, label %.thread [
@@ -2074,11 +2074,11 @@ define internal fastcc range(i32 0, 2) i32 @isURL(ptr noundef %0, i32 noundef ra
     i8 109, label %19
   ]
 
-4:                                                ; preds = %.preheader163
+4:                                                ; preds = %.preheader159
   %5 = getelementptr inbounds nuw i8, ptr %.090, i64 1
-  br label %.preheader163
+  br label %.preheader159
 
-6:                                                ; preds = %.preheader163
+6:                                                ; preds = %.preheader159
   %7 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.090, ptr noundef nonnull dereferenceable(7) @https, i64 noundef 6) #17
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
@@ -2093,13 +2093,13 @@ define internal fastcc range(i32 0, 2) i32 @isURL(ptr noundef %0, i32 noundef ra
   %14 = getelementptr inbounds nuw i8, ptr %.090, i64 4
   br i1 %13, label %select.unfold, label %.thread
 
-15:                                               ; preds = %.preheader163
+15:                                               ; preds = %.preheader159
   %16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.090, ptr noundef nonnull dereferenceable(5) @ftp, i64 noundef 4) #17
   %17 = icmp eq i32 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %.090, i64 3
   br i1 %17, label %select.unfold, label %.thread
 
-19:                                               ; preds = %.preheader163
+19:                                               ; preds = %.preheader159
   %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.090, ptr noundef nonnull dereferenceable(10) @mailto_proto, i64 noundef 9) #17
   %21 = icmp eq i32 %20, 0
   %22 = getelementptr inbounds nuw i8, ptr %.090, i64 8
@@ -2118,8 +2118,8 @@ select.unfold:                                    ; preds = %19, %15, %11, %9
   %29 = icmp eq i8 %28, 47
   br i1 %29, label %in_tld_set.exit.thread, label %.thread
 
-.thread:                                          ; preds = %.preheader163, %19, %15, %11, %26, %select.unfold
-  %.082142 = phi ptr [ %.082, %26 ], [ %.082, %select.unfold ], [ null, %11 ], [ null, %15 ], [ null, %19 ], [ null, %.preheader163 ]
+.thread:                                          ; preds = %.preheader159, %19, %15, %11, %26, %select.unfold
+  %.082142 = phi ptr [ %.082, %26 ], [ %.082, %select.unfold ], [ null, %11 ], [ null, %15 ], [ null, %19 ], [ null, %.preheader159 ]
   %.not98 = icmp eq i32 %1, 0
   br i1 %.not98, label %32, label %30
 
@@ -2280,21 +2280,21 @@ tld_hash.exit.i:                                  ; preds = %77, %76
 .critedge115:                                     ; preds = %111, %60, %59
   %115 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.284, i32 noundef 46) #17
   %116 = icmp ugt ptr %115, %.078
-  %.not106176 = icmp eq ptr %115, null
-  %or.cond177 = or i1 %116, %.not106176
-  br i1 %or.cond177, label %in_tld_set.exit.thread, label %.lr.ph
+  %.not106172 = icmp eq ptr %115, null
+  %or.cond173 = or i1 %116, %.not106172
+  br i1 %or.cond173, label %in_tld_set.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge115
   br i1 %.not98, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %validate_uri_xpalphas_nodot.exit.us
   %117 = phi ptr [ %126, %validate_uri_xpalphas_nodot.exit.us ], [ %115, %.lr.ph ]
-  %.079179.us = phi ptr [ %125, %validate_uri_xpalphas_nodot.exit.us ], [ %.284, %.lr.ph ]
-  %118 = icmp ult ptr %.079179.us, %117
+  %.079175.us = phi ptr [ %125, %validate_uri_xpalphas_nodot.exit.us ], [ %.284, %.lr.ph ]
+  %118 = icmp ult ptr %.079175.us, %117
   br i1 %118, label %.lr.ph.i.us, label %in_tld_set.exit.thread
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.split.us, %123
-  %.09.i.us = phi ptr [ %124, %123 ], [ %.079179.us, %.lr.ph.split.us ]
+  %.09.i.us = phi ptr [ %124, %123 ], [ %.079175.us, %.lr.ph.split.us ]
   %119 = load i8, ptr %.09.i.us, align 1, !tbaa !94
   %120 = zext i8 %119 to i64
   %121 = getelementptr inbounds nuw [256 x i8], ptr @URI_xpalpha_nodot, i64 0, i64 %120
@@ -2313,17 +2313,17 @@ validate_uri_xpalphas_nodot.exit.us:              ; preds = %123
   %127 = icmp ugt ptr %126, %.078
   %.not106.us = icmp eq ptr %126, null
   %or.cond.us = or i1 %127, %.not106.us
-  br i1 %or.cond.us, label %.thread152, label %.lr.ph.split.us
+  br i1 %or.cond.us, label %.thread149, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %in_tld_set.exit128
   %128 = phi ptr [ %181, %in_tld_set.exit128 ], [ %115, %.lr.ph ]
-  %.079179 = phi ptr [ %180, %in_tld_set.exit128 ], [ %.284, %.lr.ph ]
-  %.085178 = phi ptr [ %.287, %in_tld_set.exit128 ], [ null, %.lr.ph ]
-  %129 = icmp ult ptr %.079179, %128
+  %.079175 = phi ptr [ %180, %in_tld_set.exit128 ], [ %.284, %.lr.ph ]
+  %.085174 = phi ptr [ %.287, %in_tld_set.exit128 ], [ null, %.lr.ph ]
+  %129 = icmp ult ptr %.079175, %128
   br i1 %129, label %.lr.ph.i, label %in_tld_set.exit.thread
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %134
-  %.09.i = phi ptr [ %135, %134 ], [ %.079179, %.lr.ph.split ]
+  %.09.i = phi ptr [ %135, %134 ], [ %.079175, %.lr.ph.split ]
   %130 = load i8, ptr %.09.i, align 1, !tbaa !94
   %131 = zext i8 %130 to i64
   %132 = getelementptr inbounds nuw [256 x i8], ptr @URI_xpalpha_nodot, i64 0, i64 %131
@@ -2338,7 +2338,7 @@ validate_uri_xpalphas_nodot.exit.us:              ; preds = %123
 
 validate_uri_xpalphas_nodot.exit:                 ; preds = %134
   %136 = ptrtoint ptr %128 to i64
-  %137 = ptrtoint ptr %.079179 to i64
+  %137 = ptrtoint ptr %.079175 to i64
   %138 = sub i64 %136, %137
   %139 = trunc i64 %138 to i32
   %140 = add i32 %139, -2
@@ -2350,7 +2350,7 @@ validate_uri_xpalphas_nodot.exit:                 ; preds = %134
   br i1 %switch.i.i122, label %tld_hash.exit.i123, label %142
 
 142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %.079179, i64 5
+  %143 = getelementptr inbounds nuw i8, ptr %.079175, i64 5
   %144 = load i8, ptr %143, align 1, !tbaa !94
   %145 = zext i8 %144 to i64
   %146 = getelementptr inbounds nuw [281 x i16], ptr @tld_hash.asso_values, i64 0, i64 %145
@@ -2361,14 +2361,14 @@ validate_uri_xpalphas_nodot.exit:                 ; preds = %134
 
 tld_hash.exit.i123:                               ; preds = %142, %141
   %.0.i.i124 = phi i32 [ %149, %142 ], [ %139, %141 ]
-  %150 = getelementptr inbounds nuw i8, ptr %.079179, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %.079175, i64 1
   %151 = load i8, ptr %150, align 1, !tbaa !94
   %152 = zext i8 %151 to i64
   %153 = getelementptr inbounds nuw [281 x i16], ptr @tld_hash.asso_values, i64 0, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !98
   %155 = zext i16 %154 to i32
   %156 = add nuw nsw i32 %.0.i.i124, %155
-  %157 = load i8, ptr %.079179, align 1, !tbaa !94
+  %157 = load i8, ptr %.079175, align 1, !tbaa !94
   %158 = zext i8 %157 to i64
   %159 = add nuw nsw i64 %158, 25
   %160 = getelementptr inbounds nuw [281 x i16], ptr @tld_hash.asso_values, i64 0, i64 %159
@@ -2405,21 +2405,21 @@ tld_hash.exit.i123:                               ; preds = %142, %141
   br label %in_tld_set.exit128
 
 in_tld_set.exit128:                               ; preds = %.thread.i125, %176, %validate_uri_xpalphas_nodot.exit
-  %.287 = phi ptr [ %128, %176 ], [ %.085178, %.thread.i125 ], [ %.085178, %validate_uri_xpalphas_nodot.exit ]
+  %.287 = phi ptr [ %128, %176 ], [ %.085174, %.thread.i125 ], [ %.085174, %validate_uri_xpalphas_nodot.exit ]
   %180 = getelementptr inbounds nuw i8, ptr %128, i64 1
   %181 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %180, i32 noundef 46) #17
   %182 = icmp ugt ptr %181, %.078
   %.not106 = icmp eq ptr %181, null
   %or.cond = or i1 %182, %.not106
-  br i1 %or.cond, label %.thread152, label %.lr.ph.split
+  br i1 %or.cond, label %.thread149, label %.lr.ph.split
 
-.thread152:                                       ; preds = %in_tld_set.exit128, %validate_uri_xpalphas_nodot.exit.us
+.thread149:                                       ; preds = %in_tld_set.exit128, %validate_uri_xpalphas_nodot.exit.us
   %.085.lcssa = phi ptr [ null, %validate_uri_xpalphas_nodot.exit.us ], [ %.287, %in_tld_set.exit128 ]
   %.079.lcssa = phi ptr [ %125, %validate_uri_xpalphas_nodot.exit.us ], [ %180, %in_tld_set.exit128 ]
   %183 = icmp eq ptr %.079.lcssa, %.284
   br i1 %183, label %in_tld_set.exit.thread, label %184
 
-184:                                              ; preds = %.thread152
+184:                                              ; preds = %.thread149
   %185 = icmp ult ptr %.078, %.079.lcssa
   %spec.select117 = select i1 %185, ptr %.079.lcssa, ptr %.078
   br label %186
@@ -2502,8 +2502,8 @@ tld_hash.exit.i132:                               ; preds = %199, %198
 
 in_tld_set.exit137:                               ; preds = %tld_hash.exit.i132, %222, %228, %192
   %.not110 = icmp eq ptr %.085.lcssa, null
-  %or.cond161 = select i1 %.not98, i1 true, i1 %.not110
-  br i1 %or.cond161, label %in_tld_set.exit.thread, label %238
+  %or.cond157 = select i1 %.not98, i1 true, i1 %.not110
+  br i1 %or.cond157, label %in_tld_set.exit.thread, label %238
 
 237:                                              ; preds = %233
   %.not110.old = icmp eq ptr %.085.lcssa, null
@@ -2513,8 +2513,8 @@ in_tld_set.exit137:                               ; preds = %tld_hash.exit.i132,
   store i8 0, ptr %.085.lcssa, align 1, !tbaa !94
   br label %in_tld_set.exit.thread
 
-in_tld_set.exit.thread:                           ; preds = %.lr.ph.split, %.lr.ph.i, %.lr.ph.split.us, %.lr.ph.i.us, %.critedge115, %233, %tld_hash.exit.i, %100, %106, %111, %69, %in_tld_set.exit137, %237, %.thread152, %.critedge, %26, %2, %238
-  %.088 = phi i32 [ 1, %238 ], [ 0, %2 ], [ 1, %26 ], [ 0, %.critedge ], [ 0, %.thread152 ], [ 0, %in_tld_set.exit137 ], [ 0, %237 ], [ 0, %69 ], [ 0, %111 ], [ 0, %106 ], [ 0, %100 ], [ 0, %tld_hash.exit.i ], [ %.mux, %233 ], [ 0, %.critedge115 ], [ 0, %.lr.ph.i.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.split ]
+in_tld_set.exit.thread:                           ; preds = %.lr.ph.split, %.lr.ph.i, %.lr.ph.split.us, %.lr.ph.i.us, %.critedge115, %233, %tld_hash.exit.i, %100, %106, %111, %69, %in_tld_set.exit137, %237, %.thread149, %.critedge, %26, %2, %238
+  %.088 = phi i32 [ 1, %238 ], [ 0, %2 ], [ 1, %26 ], [ 0, %.critedge ], [ 0, %.thread149 ], [ 0, %in_tld_set.exit137 ], [ 0, %237 ], [ 0, %69 ], [ 0, %111 ], [ 0, %106 ], [ 0, %100 ], [ 0, %tld_hash.exit.i ], [ %.mux, %233 ], [ 0, %.critedge115 ], [ 0, %.lr.ph.i.us ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.split ]
   ret i32 %.088
 }
 

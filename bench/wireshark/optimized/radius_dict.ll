@@ -1391,22 +1391,22 @@ Radius__switch_to_buffer.exit:                    ; preds = %694, %.thread.i, %6
   %750 = getelementptr ptr, ptr %747, i64 %749
   %751 = load ptr, ptr %750, align 8
   %.not.i418 = icmp eq ptr %751, null
-  br i1 %.not.i418, label %Radius__delete_buffer.exit, label %.thread.i419
+  br i1 %.not.i418, label %Radius__delete_buffer.exit, label %.critedge.i
 
-.thread.i419:                                     ; preds = %748
+.critedge.i:                                      ; preds = %748
   store ptr null, ptr %750, align 8
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 32
   %753 = load i32, ptr %752, align 8
   %.not13.i = icmp eq i32 %753, 0
   br i1 %.not13.i, label %757, label %754
 
-754:                                              ; preds = %.thread.i419
+754:                                              ; preds = %.critedge.i
   %755 = getelementptr inbounds nuw i8, ptr %751, i64 8
   %756 = load ptr, ptr %755, align 8
   call void @free(ptr noundef %756) #29
   br label %757
 
-757:                                              ; preds = %754, %.thread.i419
+757:                                              ; preds = %754, %.critedge.i
   call void @free(ptr noundef nonnull %751) #29
   br label %Radius__delete_buffer.exit
 
@@ -1419,23 +1419,23 @@ Radius__delete_buffer.exit:                       ; preds = %721, %748, %757
   %763 = load ptr, ptr %762, align 8
   call fastcc void @Radius_ensure_buffer_stack(ptr noundef %0)
   %764 = load ptr, ptr %57, align 8
-  %.not.i420 = icmp eq ptr %764, null
-  br i1 %.not.i420, label %765, label %.thread.i421
+  %.not.i419 = icmp eq ptr %764, null
+  br i1 %.not.i419, label %765, label %.thread.i420
 
 765:                                              ; preds = %Radius__delete_buffer.exit
   %766 = icmp eq ptr %763, null
-  br i1 %766, label %Radius__switch_to_buffer.exit424, label %787
+  br i1 %766, label %Radius__switch_to_buffer.exit423, label %787
 
-.thread.i421:                                     ; preds = %Radius__delete_buffer.exit
+.thread.i420:                                     ; preds = %Radius__delete_buffer.exit
   %767 = load i64, ptr %58, align 8
   %768 = getelementptr ptr, ptr %764, i64 %767
   %769 = load ptr, ptr %768, align 8
   %770 = icmp eq ptr %769, %763
-  br i1 %770, label %Radius__switch_to_buffer.exit424, label %771
+  br i1 %770, label %Radius__switch_to_buffer.exit423, label %771
 
-771:                                              ; preds = %.thread.i421
-  %.not25.i422 = icmp eq ptr %769, null
-  br i1 %.not25.i422, label %787, label %772
+771:                                              ; preds = %.thread.i420
+  %.not25.i421 = icmp eq ptr %769, null
+  br i1 %.not25.i421, label %787, label %772
 
 772:                                              ; preds = %771
   %773 = load i8, ptr %51, align 8
@@ -1455,11 +1455,11 @@ Radius__delete_buffer.exit:                       ; preds = %721, %748, %757
   %785 = load ptr, ptr %784, align 8
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 28
   store i32 %781, ptr %786, align 4
-  %.pre.i423 = load ptr, ptr %57, align 8
+  %.pre.i422 = load ptr, ptr %57, align 8
   br label %787
 
 787:                                              ; preds = %772, %771, %765
-  %788 = phi ptr [ null, %765 ], [ %.pre.i423, %772 ], [ %764, %771 ]
+  %788 = phi ptr [ null, %765 ], [ %.pre.i422, %772 ], [ %764, %771 ]
   %789 = load i64, ptr %58, align 8
   %790 = getelementptr ptr, ptr %788, i64 %789
   store ptr %763, ptr %790, align 8
@@ -1481,9 +1481,9 @@ Radius__delete_buffer.exit:                       ; preds = %721, %748, %757
   %802 = load i8, ptr %799, align 1
   store i8 %802, ptr %51, align 8
   store i32 1, ptr %61, align 8
-  br label %Radius__switch_to_buffer.exit424
+  br label %Radius__switch_to_buffer.exit423
 
-Radius__switch_to_buffer.exit424:                 ; preds = %765, %.thread.i421, %787
+Radius__switch_to_buffer.exit423:                 ; preds = %765, %.thread.i420, %787
   store i32 3, ptr %52, align 4
   br label %.loopexit.backedge
 
@@ -1500,7 +1500,7 @@ Radius__switch_to_buffer.exit424:                 ; preds = %765, %.thread.i421,
   store i32 3, ptr %52, align 4
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %117, %117, %117, %117, %117, %803, %Radius__switch_to_buffer.exit424, %Radius__switch_to_buffer.exit, %add_value.exit416, %add_value.exit, %520, %515, %470, %426, %423, %416, %413, %410, %407, %404, %401, %398, %395, %392, %389, %386, %383, %380, %377, %374, %371, %368, %365, %362, %359, %352, %347, %336, %add_vendor.exit, %274, %267, %261, %260, %254, %248, %237, %236, %193, %168, %160, %159, %133, %127, %126, %125, %124, %123, %122, %121, %120
+.loopexit.backedge:                               ; preds = %117, %117, %117, %117, %117, %803, %Radius__switch_to_buffer.exit423, %Radius__switch_to_buffer.exit, %add_value.exit416, %add_value.exit, %520, %515, %470, %426, %423, %416, %413, %410, %407, %404, %401, %398, %395, %392, %389, %386, %383, %380, %377, %374, %371, %368, %365, %362, %359, %352, %347, %336, %add_vendor.exit, %274, %267, %261, %260, %254, %248, %237, %236, %193, %168, %160, %159, %133, %127, %126, %125, %124, %123, %122, %121, %120
   br label %.loopexit
 
 812:                                              ; preds = %117
@@ -1566,8 +1566,8 @@ Radius__switch_to_buffer.exit424:                 ; preds = %765, %.thread.i421,
   %.02129.i = phi i32 [ %891, %._crit_edge.i ], [ %850, %842 ]
   %.02328.i = phi ptr [ %892, %._crit_edge.i ], [ %847, %842 ]
   %852 = load i8, ptr %.02328.i, align 1
-  %.not.i425 = icmp eq i8 %852, 0
-  br i1 %.not.i425, label %857, label %853
+  %.not.i424 = icmp eq i8 %852, 0
+  br i1 %.not.i424, label %857, label %853
 
 853:                                              ; preds = %.lr.ph31.i
   %854 = zext i8 %852 to i64
@@ -1624,8 +1624,8 @@ Radius__switch_to_buffer.exit424:                 ; preds = %765, %.thread.i421,
   %886 = add nsw i64 %884, %885
   %887 = getelementptr [1782 x i16], ptr @yy_chk, i64 0, i64 %886
   %888 = load i16, ptr %887, align 2
-  %.not25.i426 = icmp eq i16 %875, %888
-  br i1 %.not25.i426, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  %.not25.i425 = icmp eq i16 %875, %888
+  br i1 %.not25.i425, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %880, %863
   %.lcssa.i = phi i64 [ %868, %863 ], [ %886, %880 ]
@@ -1641,8 +1641,8 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %842
   %893 = sext i32 %.021.lcssa.i to i64
   %894 = getelementptr [344 x i16], ptr @yy_accept, i64 0, i64 %893
   %895 = load i16, ptr %894, align 2
-  %.not.i427 = icmp eq i16 %895, 0
-  br i1 %.not.i427, label %897, label %896
+  %.not.i426 = icmp eq i16 %895, 0
+  br i1 %.not.i426, label %897, label %896
 
 896:                                              ; preds = %yy_get_previous_state.exit
   store i32 %.021.lcssa.i, ptr %53, align 8
@@ -1658,10 +1658,10 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %842
   %903 = load i16, ptr %902, align 2
   %904 = sext i16 %903 to i32
   %.not1819.i = icmp eq i32 %.021.lcssa.i, %904
-  br i1 %.not1819.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i428
+  br i1 %.not1819.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i427
 
-.lr.ph.i428:                                      ; preds = %897, %.lr.ph.i428
-  %905 = phi i64 [ %908, %.lr.ph.i428 ], [ %893, %897 ]
+.lr.ph.i427:                                      ; preds = %897, %.lr.ph.i427
+  %905 = phi i64 [ %908, %.lr.ph.i427 ], [ %893, %897 ]
   %906 = getelementptr [377 x i16], ptr @yy_def, i64 0, i64 %905
   %907 = load i16, ptr %906, align 2
   %908 = sext i16 %907 to i64
@@ -1672,11 +1672,11 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %842
   %913 = getelementptr [1782 x i16], ptr @yy_chk, i64 0, i64 %912
   %914 = load i16, ptr %913, align 2
   %.not18.i = icmp eq i16 %907, %914
-  br i1 %.not18.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i428, !llvm.loop !13
+  br i1 %.not18.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i427, !llvm.loop !13
 
-yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i428, %897
-  %.lcssa.i430 = phi i64 [ %901, %897 ], [ %912, %.lr.ph.i428 ]
-  %915 = getelementptr [1782 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i430
+yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i427, %897
+  %.lcssa.i429 = phi i64 [ %901, %897 ], [ %912, %.lr.ph.i427 ]
+  %915 = getelementptr [1782 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i429
   %916 = load i16, ptr %915, align 2
   switch i16 %916, label %917 [
     i16 343, label %.backedge.sink.split1125.backedge
@@ -1729,7 +1729,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i428, %897
   %938 = add i64 %937, %931
   %939 = trunc i64 %938 to i32
   %940 = icmp sgt i32 %939, 0
-  br i1 %940, label %.lr.ph.i435, label %._crit_edge.i431
+  br i1 %940, label %.lr.ph.i435, label %._crit_edge.i430
 
 .lr.ph.i435:                                      ; preds = %936, %.lr.ph.i435
   %.0129161.i = phi ptr [ %943, %.lr.ph.i435 ], [ %838, %936 ]
@@ -1748,9 +1748,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i428, %897
   %.pre175.i = load i64, ptr %58, align 8
   %.phi.trans.insert.i = getelementptr ptr, ptr %.pre.i437, i64 %.pre175.i
   %.pre176.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %._crit_edge.i431
+  br label %._crit_edge.i430
 
-._crit_edge.i431:                                 ; preds = %._crit_edge.loopexit.i, %936
+._crit_edge.i430:                                 ; preds = %._crit_edge.loopexit.i, %936
   %945 = phi ptr [ %.pre176.i, %._crit_edge.loopexit.i ], [ %833, %936 ]
   %946 = phi i64 [ %.pre175.i, %._crit_edge.loopexit.i ], [ %834, %936 ]
   %947 = phi ptr [ %.pre.i437, %._crit_edge.loopexit.i ], [ %835, %936 ]
@@ -1759,12 +1759,12 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i428, %897
   %950 = icmp eq i32 %949, 2
   br i1 %950, label %951, label %953
 
-951:                                              ; preds = %._crit_edge.i431
+951:                                              ; preds = %._crit_edge.i430
   %952 = getelementptr ptr, ptr %947, i64 %946
   store i32 0, ptr %59, align 4
   br label %1046
 
-953:                                              ; preds = %._crit_edge.i431
+953:                                              ; preds = %._crit_edge.i430
   %954 = xor i32 %939, -1
   %.pn.in162.i = getelementptr inbounds nuw i8, ptr %945, i64 24
   %.pn163.i = load i32, ptr %.pn.in162.i, align 8
@@ -1840,8 +1840,8 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i428, %897
   %986 = call i32 @llvm.umin.i32(i32 %.0132.lcssa.i, i32 8192)
   %987 = getelementptr inbounds nuw i8, ptr %985, i64 36
   %988 = load i32, ptr %987, align 4
-  %.not.i432 = icmp eq i32 %988, 0
-  br i1 %.not.i432, label %1019, label %.preheader.i
+  %.not.i431 = icmp eq i32 %988, 0
+  br i1 %.not.i431, label %1019, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge167.i
   %sext144.i = shl i64 %938, 32
@@ -1871,20 +1871,20 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i428, %897
   store i8 %994, ptr %1002, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond174.not.i, label %.critedge.i, label %990, !llvm.loop !16
+  br i1 %exitcond174.not.i, label %.critedge.i432, label %990, !llvm.loop !16
 
 .critedge.split.loop.exit.i:                      ; preds = %990, %990
   %1003 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %.critedge.i
+  br label %.critedge.i432
 
-.critedge.i:                                      ; preds = %993, %.critedge.split.loop.exit.i
+.critedge.i432:                                   ; preds = %993, %.critedge.split.loop.exit.i
   %.0126.lcssa.i = phi i32 [ %1003, %.critedge.split.loop.exit.i ], [ %986, %993 ]
   switch i32 %992, label %1018 [
     i32 10, label %.thread152.i
     i32 -1, label %1014
   ]
 
-.thread152.i:                                     ; preds = %.critedge.i
+.thread152.i:                                     ; preds = %.critedge.i432
   %1004 = load ptr, ptr %57, align 8
   %1005 = load i64, ptr %58, align 8
   %1006 = getelementptr ptr, ptr %1004, i64 %1005
@@ -1898,7 +1898,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i428, %897
   store i8 10, ptr %1013, align 1
   br label %1018
 
-1014:                                             ; preds = %.critedge.i
+1014:                                             ; preds = %.critedge.i432
   %1015 = load ptr, ptr %60, align 8
   %1016 = call i32 @ferror(ptr noundef %1015) #29
   %.not143.i = icmp eq i32 %1016, 0
@@ -1908,8 +1908,8 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i428, %897
   call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.25) #32
   unreachable
 
-1018:                                             ; preds = %1014, %.thread152.i, %.critedge.i
-  %.1154.i = phi i32 [ %1011, %.thread152.i ], [ %.0126.lcssa.i, %1014 ], [ %.0126.lcssa.i, %.critedge.i ]
+1018:                                             ; preds = %1014, %.thread152.i, %.critedge.i432
+  %.1154.i = phi i32 [ %1011, %.thread152.i ], [ %.0126.lcssa.i, %1014 ], [ %.0126.lcssa.i, %.critedge.i432 ]
   store i32 %.1154.i, ptr %59, align 4
   br label %.critedge2.i
 
@@ -2876,7 +2876,7 @@ define hidden void @Radius__delete_buffer(ptr noundef captures(address) %0, ptr 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not12 = icmp eq ptr %5, null
-  br i1 %.not12, label %.thread, label %6
+  br i1 %.not12, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2884,25 +2884,25 @@ define hidden void @Radius__delete_buffer(ptr noundef captures(address) %0, ptr 
   %9 = getelementptr ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %6
   store ptr null, ptr %9, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %12, %6
+.critedge:                                        ; preds = %3, %12, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %18, label %15
 
-15:                                               ; preds = %.thread
+15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #29
   br label %18
 
-18:                                               ; preds = %15, %.thread
+18:                                               ; preds = %15, %.critedge
   tail call void @free(ptr noundef nonnull %0) #29
   br label %19
 
@@ -3080,7 +3080,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Radius__flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3101,7 +3101,7 @@ define hidden void @Radius__flush_buffer(ptr noundef captures(address) %0, ptr n
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %.thread, label %15
+  br i1 %.not15, label %.critedge, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3109,7 +3109,7 @@ define hidden void @Radius__flush_buffer(ptr noundef captures(address) %0, ptr n
   %18 = getelementptr ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -3130,9 +3130,9 @@ define hidden void @Radius__flush_buffer(ptr noundef captures(address) %0, ptr n
   %33 = load i8, ptr %27, align 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %33, ptr %34, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %15, %21, %2
+.critedge:                                        ; preds = %15, %21, %3, %2
   ret void
 }
 
@@ -3243,22 +3243,22 @@ define hidden void @Radius_pop_buffer_state(ptr noundef captures(none) %0) local
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
-  br i1 %.not20, label %41, label %.thread.i
+  br i1 %.not20, label %41, label %.critedge.i
 
-.thread.i:                                        ; preds = %4
+.critedge.i:                                      ; preds = %4
   store ptr null, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %.not13.i = icmp eq i32 %10, 0
   br i1 %.not13.i, label %Radius__delete_buffer.exit, label %11
 
-11:                                               ; preds = %.thread.i
+11:                                               ; preds = %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #29
   br label %Radius__delete_buffer.exit
 
-Radius__delete_buffer.exit:                       ; preds = %.thread.i, %11
+Radius__delete_buffer.exit:                       ; preds = %.critedge.i, %11
   tail call void @free(ptr noundef nonnull %8) #29
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
@@ -3771,9 +3771,9 @@ define hidden noundef i32 @Radius_lex_destroy(ptr noundef captures(none) %0) loc
   %12 = getelementptr ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.critedge, label %.thread.i
+  br i1 %14, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph, %Radius_pop_buffer_state.exit
+.critedge.i:                                      ; preds = %.lr.ph, %Radius_pop_buffer_state.exit
   %15 = phi ptr [ %59, %Radius_pop_buffer_state.exit ], [ %13, %.lr.ph ]
   %16 = phi ptr [ %58, %Radius_pop_buffer_state.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %16, align 8
@@ -3782,13 +3782,13 @@ define hidden noundef i32 @Radius_lex_destroy(ptr noundef captures(none) %0) loc
   %.not13.i = icmp eq i32 %18, 0
   br i1 %.not13.i, label %Radius__delete_buffer.exit, label %19
 
-19:                                               ; preds = %.thread.i
+19:                                               ; preds = %.critedge.i
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #29
   br label %Radius__delete_buffer.exit
 
-Radius__delete_buffer.exit:                       ; preds = %.thread.i, %19
+Radius__delete_buffer.exit:                       ; preds = %.critedge.i, %19
   tail call void @free(ptr noundef nonnull %15) #29
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
@@ -3803,22 +3803,22 @@ Radius__delete_buffer.exit:                       ; preds = %.thread.i, %19
   %28 = getelementptr ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
-  br i1 %.not20.i, label %Radius_pop_buffer_state.exit, label %.thread.i.i
+  br i1 %.not20.i, label %Radius_pop_buffer_state.exit, label %.critedge.i.i
 
-.thread.i.i:                                      ; preds = %26
+.critedge.i.i:                                    ; preds = %26
   store ptr null, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8
   %.not13.i.i = icmp eq i32 %31, 0
   br i1 %.not13.i.i, label %Radius__delete_buffer.exit.i, label %32
 
-32:                                               ; preds = %.thread.i.i
+32:                                               ; preds = %.critedge.i.i
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @free(ptr noundef %34) #29
   br label %Radius__delete_buffer.exit.i
 
-Radius__delete_buffer.exit.i:                     ; preds = %32, %.thread.i.i
+Radius__delete_buffer.exit.i:                     ; preds = %32, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %29) #29
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
@@ -3868,7 +3868,7 @@ Radius_pop_buffer_state.exit:                     ; preds = %26, %44, %47
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.critedge, label %.thread.i, !llvm.loop !18
+  br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !18
 
 .critedge:                                        ; preds = %Radius_pop_buffer_state.exit, %Radius__delete_buffer.exit, %41, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %Radius__delete_buffer.exit ], [ %56, %Radius_pop_buffer_state.exit ]

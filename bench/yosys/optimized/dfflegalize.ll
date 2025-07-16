@@ -3602,24 +3602,20 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit:                 ; preds = %_ZNK5Yosys5RTLIL7Si
   %1298 = load ptr, ptr %971, align 8, !tbaa !202
   %1299 = load ptr, ptr %972, align 8, !tbaa !202
   %1300 = icmp eq ptr %1298, %1299
-  br i1 %1300, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397, label %1301
+  br i1 %1300, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit401, label %1301
 
 1301:                                             ; preds = %1296
   invoke void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %970)
-          to label %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397_crit_edge unwind label %.loopexit713
+          to label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397 unwind label %.loopexit713
 
-._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397_crit_edge: ; preds = %1301
+_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397: ; preds = %1301
   %.pre905 = load ptr, ptr %974, align 8, !tbaa !203
   %.pre906 = load ptr, ptr %973, align 8, !tbaa !204
-  br label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397
+  %1302 = icmp eq ptr %.pre905, %.pre906
+  br i1 %1302, label %.invoke, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit401
 
-_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397: ; preds = %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397_crit_edge, %1296
-  %1302 = phi ptr [ %.pre906, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397_crit_edge ], [ %1294, %1296 ]
-  %1303 = phi ptr [ %.pre905, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397_crit_edge ], [ %1293, %1296 ]
-  %.not.i.i.i398.not = icmp eq ptr %1303, %1302
-  br i1 %.not.i.i.i398.not, label %.invoke, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit401
-
-_ZN5Yosys5RTLIL7SigSpecixEi.exit401:              ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397
+_ZN5Yosys5RTLIL7SigSpecixEi.exit401:              ; preds = %1296, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397
+  %1303 = phi ptr [ %.pre906, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i397 ], [ %1294, %1296 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
   %1304 = load ptr, ptr %961, align 8, !tbaa !157
   %1305 = load ptr, ptr %962, align 8, !tbaa !157
@@ -3631,8 +3627,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
   br label %.loopexit.i
 
 1307:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit401
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1302, align 8, !tbaa !209
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1302, i64 8
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1303, align 8, !tbaa !209
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1303, i64 8
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !34
   %.not.i.i.i.i402 = icmp eq ptr %.sroa.0.0.copyload.i.i, null
   br i1 %.not.i.i.i.i402, label %1313, label %1308
@@ -3678,7 +3674,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
   br i1 %1333, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i, label %1334
 
 1334:                                             ; preds = %.noexc405
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %1302, align 8, !tbaa !209
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %1303, align 8, !tbaa !209
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !34
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %1340, label %1335
@@ -3720,7 +3716,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i403
   %1354 = load ptr, ptr %963, align 8, !tbaa !23
-  %1355 = load ptr, ptr %1302, align 8, !tbaa !205
+  %1355 = load ptr, ptr %1303, align 8, !tbaa !205
   %.fr.i = freeze ptr %1355
   %1356 = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %1357 = trunc i32 %1356 to i8
@@ -3769,7 +3765,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i: ; pr
 
 .loopexit.i:                                      ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i, %._crit_edge.i.i403, %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(16) %1302, i64 16, i1 false), !tbaa.struct !217
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(16) %1303, i64 16, i1 false), !tbaa.struct !217
   store i32 0, ptr %976, align 8, !tbaa !218
   %1379 = invoke noundef i32 @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_iERj(ptr noundef nonnull align 8 dereferenceable(49) %961, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %.noexc406 unwind label %.loopexit713
@@ -3841,24 +3837,20 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit411:              ; preds = %_ZNK5Yosys5RTLIL7Si
   %1401 = load ptr, ptr %979, align 8, !tbaa !202
   %1402 = load ptr, ptr %980, align 8, !tbaa !202
   %1403 = icmp eq ptr %1401, %1402
-  br i1 %1403, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412, label %1404
+  br i1 %1403, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit416, label %1404
 
 1404:                                             ; preds = %1399
   invoke void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %978)
-          to label %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412_crit_edge unwind label %.loopexit713
+          to label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412 unwind label %.loopexit713
 
-._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412_crit_edge: ; preds = %1404
+_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412: ; preds = %1404
   %.pre907 = load ptr, ptr %982, align 8, !tbaa !203
   %.pre908 = load ptr, ptr %981, align 8, !tbaa !204
-  br label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412
+  %1405 = icmp eq ptr %.pre907, %.pre908
+  br i1 %1405, label %.invoke, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit416
 
-_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412: ; preds = %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412_crit_edge, %1399
-  %1405 = phi ptr [ %.pre908, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412_crit_edge ], [ %1397, %1399 ]
-  %1406 = phi ptr [ %.pre907, %._ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412_crit_edge ], [ %1396, %1399 ]
-  %.not.i.i.i413.not = icmp eq ptr %1406, %1405
-  br i1 %.not.i.i.i413.not, label %.invoke, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit416
-
-_ZN5Yosys5RTLIL7SigSpecixEi.exit416:              ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412
+_ZN5Yosys5RTLIL7SigSpecixEi.exit416:              ; preds = %1399, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412
+  %1406 = phi ptr [ %.pre908, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i412 ], [ %1397, %1399 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
   %1407 = load ptr, ptr %965, align 8, !tbaa !157
   %1408 = load ptr, ptr %966, align 8, !tbaa !157
@@ -3870,8 +3862,8 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
   br label %.loopexit.i423
 
 1410:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit416
-  %.sroa.0.0.copyload.i.i417 = load ptr, ptr %1405, align 8, !tbaa !209
-  %.sroa.2.0..sroa_idx.i.i418 = getelementptr inbounds nuw i8, ptr %1405, i64 8
+  %.sroa.0.0.copyload.i.i417 = load ptr, ptr %1406, align 8, !tbaa !209
+  %.sroa.2.0..sroa_idx.i.i418 = getelementptr inbounds nuw i8, ptr %1406, i64 8
   %.sroa.2.0.copyload.i.i419 = load i32, ptr %.sroa.2.0..sroa_idx.i.i418, align 8, !tbaa !34
   %.not.i.i.i.i420 = icmp eq ptr %.sroa.0.0.copyload.i.i417, null
   br i1 %.not.i.i.i.i420, label %1416, label %1411
@@ -3917,7 +3909,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
   br i1 %1436, label %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i442, label %1437
 
 1437:                                             ; preds = %.noexc445
-  %.sroa.0.0.copyload.i.i.i437 = load ptr, ptr %1405, align 8, !tbaa !209
+  %.sroa.0.0.copyload.i.i.i437 = load ptr, ptr %1406, align 8, !tbaa !209
   %.sroa.2.0.copyload.i.i.i438 = load i32, ptr %.sroa.2.0..sroa_idx.i.i418, align 8, !tbaa !34
   %.not.i.i.i.i.i439 = icmp eq ptr %.sroa.0.0.copyload.i.i.i437, null
   br i1 %.not.i.i.i.i.i439, label %1443, label %1438
@@ -3959,7 +3951,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exi
 
 .lr.ph.i.i427:                                    ; preds = %._crit_edge.i.i422
   %1457 = load ptr, ptr %967, align 8, !tbaa !23
-  %1458 = load ptr, ptr %1405, align 8, !tbaa !205
+  %1458 = load ptr, ptr %1406, align 8, !tbaa !205
   %.fr.i428 = freeze ptr %1458
   %1459 = load i32, ptr %.sroa.2.0..sroa_idx.i.i418, align 8
   %1460 = trunc i32 %1459 to i8
@@ -4008,7 +4000,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i432: ;
 
 .loopexit.i423:                                   ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i432, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i435, %._crit_edge.i.i422, %_ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread.i444
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(16) %1405, i64 16, i1 false), !tbaa.struct !217
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(16) %1406, i64 16, i1 false), !tbaa.struct !217
   store i32 0, ptr %983, align 8, !tbaa !218
   %1482 = invoke noundef i32 @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_iERj(ptr noundef nonnull align 8 dereferenceable(49) %965, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %.noexc446 unwind label %.loopexit713
@@ -7789,7 +7781,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass11legalize_ffERN5
   %13 = load i8, ptr %12, align 2, !range !160
   %14 = trunc nuw i8 %13 to i1
   %or.cond42 = select i1 %.not, i1 %14, i1 false
-  br i1 %or.cond42, label %15, label %43
+  br i1 %or.cond42, label %15, label %42
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -7819,477 +7811,469 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %22, %15
 _ZN5Yosys5RTLIL7SigSpecixEi.exit:                 ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i
   %28 = load ptr, ptr %26, align 8, !tbaa !205
   %.not34 = icmp eq ptr %28, null
-  br i1 %.not34, label %43, label %29
+  br i1 %.not34, label %42, label %29
 
 29:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2280
   %31 = load ptr, ptr %17, align 8, !tbaa !202
   %32 = load ptr, ptr %19, align 8, !tbaa !202
   %33 = icmp eq ptr %31, %32
-  br i1 %33, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49, label %34
+  br i1 %33, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit51, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49
 
-34:                                               ; preds = %29
+_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49: ; preds = %29
   tail call void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %16)
   %.pre = load ptr, ptr %24, align 8, !tbaa !203
   %.pre64 = load ptr, ptr %23, align 8, !tbaa !204
-  br label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49
+  %34 = icmp eq ptr %.pre, %.pre64
+  br i1 %34, label %35, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit51
 
-_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49: ; preds = %34, %29
-  %35 = phi ptr [ %.pre64, %34 ], [ %26, %29 ]
-  %36 = phi ptr [ %.pre, %34 ], [ %25, %29 ]
-  %.not.i.i.i50.not = icmp eq ptr %36, %35
-  br i1 %.not.i.i.i50.not, label %37, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit51
-
-37:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49
+35:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.9, i64 noundef 0, i64 noundef 0) #27
   unreachable
 
-_ZN5Yosys5RTLIL7SigSpecixEi.exit51:               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49
-  %38 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %30, ptr noundef nonnull align 8 dereferenceable(12) %35)
-  %39 = load i32, ptr %38, align 4, !tbaa !113
-  %40 = load i32, ptr %10, align 8, !tbaa !36
-  %41 = icmp slt i32 %39, %40
-  br i1 %41, label %42, label %43
+_ZN5Yosys5RTLIL7SigSpecixEi.exit51:               ; preds = %29, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49
+  %36 = phi ptr [ %.pre64, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i49 ], [ %26, %29 ]
+  %37 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %30, ptr noundef nonnull align 8 dereferenceable(12) %36)
+  %38 = load i32, ptr %37, align 4, !tbaa !113
+  %39 = load i32, ptr %10, align 8, !tbaa !36
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit51
+41:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit51
   tail call void @_ZN5Yosys6FfData8unmap_ceEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
-  br label %43
+  br label %42
 
-43:                                               ; preds = %42, %_ZN5Yosys5RTLIL7SigSpecixEi.exit51, %_ZN5Yosys5RTLIL7SigSpecixEi.exit, %9
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2276
-  %45 = load i32, ptr %44, align 4, !tbaa !63
-  %.not35 = icmp ne i32 %45, 0
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 596
-  %47 = load i8, ptr %46, align 4, !range !160
-  %48 = trunc nuw i8 %47 to i1
-  %or.cond45 = select i1 %.not35, i1 %48, i1 false
-  br i1 %or.cond45, label %49, label %77
+42:                                               ; preds = %41, %_ZN5Yosys5RTLIL7SigSpecixEi.exit51, %_ZN5Yosys5RTLIL7SigSpecixEi.exit, %9
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2276
+  %44 = load i32, ptr %43, align 4, !tbaa !63
+  %.not35 = icmp ne i32 %44, 0
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 596
+  %46 = load i8, ptr %45, align 4, !range !160
+  %47 = trunc nuw i8 %46 to i1
+  %or.cond45 = select i1 %.not35, i1 %47, i1 false
+  br i1 %or.cond45, label %48, label %75
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 424
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 432
-  %52 = load ptr, ptr %51, align 8, !tbaa !202
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %54 = load ptr, ptr %53, align 8, !tbaa !202
-  %55 = icmp eq ptr %52, %54
-  br i1 %55, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i52, label %56
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 424
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 432
+  %51 = load ptr, ptr %50, align 8, !tbaa !202
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %53 = load ptr, ptr %52, align 8, !tbaa !202
+  %54 = icmp eq ptr %51, %53
+  br i1 %54, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i52, label %55
 
-56:                                               ; preds = %49
-  tail call void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %50)
+55:                                               ; preds = %48
+  tail call void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %49)
   br label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i52
 
-_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i52: ; preds = %56, %49
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %59 = load ptr, ptr %58, align 8, !tbaa !203
-  %60 = load ptr, ptr %57, align 8, !tbaa !204
-  %.not.i.i.i53.not = icmp eq ptr %59, %60
-  br i1 %.not.i.i.i53.not, label %61, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit54
+_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i52: ; preds = %55, %48
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 456
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  %58 = load ptr, ptr %57, align 8, !tbaa !203
+  %59 = load ptr, ptr %56, align 8, !tbaa !204
+  %.not.i.i.i53.not = icmp eq ptr %58, %59
+  br i1 %.not.i.i.i53.not, label %60, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit54
 
-61:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i52
+60:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i52
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.9, i64 noundef 0, i64 noundef 0) #27
   unreachable
 
 _ZN5Yosys5RTLIL7SigSpecixEi.exit54:               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i52
-  %62 = load ptr, ptr %60, align 8, !tbaa !205
-  %.not36 = icmp eq ptr %62, null
-  br i1 %.not36, label %77, label %63
+  %61 = load ptr, ptr %59, align 8, !tbaa !205
+  %.not36 = icmp eq ptr %61, null
+  br i1 %.not36, label %75, label %62
 
-63:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit54
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2336
-  %65 = load ptr, ptr %51, align 8, !tbaa !202
-  %66 = load ptr, ptr %53, align 8, !tbaa !202
-  %67 = icmp eq ptr %65, %66
-  br i1 %67, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55, label %68
+62:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit54
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2336
+  %64 = load ptr, ptr %50, align 8, !tbaa !202
+  %65 = load ptr, ptr %52, align 8, !tbaa !202
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit57, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55
 
-68:                                               ; preds = %63
-  tail call void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %50)
-  %.pre65 = load ptr, ptr %58, align 8, !tbaa !203
-  %.pre66 = load ptr, ptr %57, align 8, !tbaa !204
-  br label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55
+_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55: ; preds = %62
+  tail call void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %49)
+  %.pre65 = load ptr, ptr %57, align 8, !tbaa !203
+  %.pre66 = load ptr, ptr %56, align 8, !tbaa !204
+  %67 = icmp eq ptr %.pre65, %.pre66
+  br i1 %67, label %68, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit57
 
-_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55: ; preds = %68, %63
-  %69 = phi ptr [ %.pre66, %68 ], [ %60, %63 ]
-  %70 = phi ptr [ %.pre65, %68 ], [ %59, %63 ]
-  %.not.i.i.i56.not = icmp eq ptr %70, %69
-  br i1 %.not.i.i.i56.not, label %71, label %_ZN5Yosys5RTLIL7SigSpecixEi.exit57
-
-71:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55
+68:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.9, i64 noundef 0, i64 noundef 0) #27
   unreachable
 
-_ZN5Yosys5RTLIL7SigSpecixEi.exit57:               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55
-  %72 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %64, ptr noundef nonnull align 8 dereferenceable(12) %69)
-  %73 = load i32, ptr %72, align 4, !tbaa !113
-  %74 = load i32, ptr %44, align 4, !tbaa !63
-  %75 = icmp slt i32 %73, %74
-  br i1 %75, label %76, label %77
+_ZN5Yosys5RTLIL7SigSpecixEi.exit57:               ; preds = %62, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55
+  %69 = phi ptr [ %.pre66, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i55 ], [ %59, %62 ]
+  %70 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %63, ptr noundef nonnull align 8 dereferenceable(12) %69)
+  %71 = load i32, ptr %70, align 4, !tbaa !113
+  %72 = load i32, ptr %43, align 4, !tbaa !63
+  %73 = icmp slt i32 %71, %72
+  br i1 %73, label %74, label %75
 
-76:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit57
+74:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit57
   tail call void @_ZN5Yosys6FfData10unmap_srstEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
-  br label %77
+  br label %75
 
-77:                                               ; preds = %76, %_ZN5Yosys5RTLIL7SigSpecixEi.exit57, %_ZN5Yosys5RTLIL7SigSpecixEi.exit54, %43
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 592
-  %79 = load i8, ptr %78, align 8, !tbaa !283, !range !160, !noundef !161
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %160
+75:                                               ; preds = %74, %_ZN5Yosys5RTLIL7SigSpecixEi.exit57, %_ZN5Yosys5RTLIL7SigSpecixEi.exit54, %42
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 592
+  %77 = load i8, ptr %76, align 8, !tbaa !283, !range !160, !noundef !161
+  %78 = trunc nuw i8 %77 to i1
+  br i1 %78, label %79, label %158
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 598
-  %83 = load i8, ptr %82, align 2, !tbaa !284, !range !160, !noundef !161
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %105
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 598
+  %81 = load i8, ptr %80, align 2, !tbaa !284, !range !160, !noundef !161
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %82, label %83, label %103
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 2224
-  %87 = load i32, ptr %86, align 8, !tbaa !120
-  %88 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %87)
-  br i1 %88, label %90, label %89
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 2224
+  %85 = load i32, ptr %84, align 8, !tbaa !120
+  %86 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %85)
+  br i1 %86, label %88, label %87
 
-89:                                               ; preds = %85
+87:                                               ; preds = %83
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass21emulate_split_set_clrERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-90:                                               ; preds = %85
-  %91 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(800) %1)
-  %92 = load i8, ptr %12, align 2, !tbaa !178, !range !160, !noundef !161
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %94, label %.thread69
+88:                                               ; preds = %83
+  %89 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(800) %1)
+  %90 = load i8, ptr %12, align 2, !tbaa !178, !range !160, !noundef !161
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %92, label %.thread71
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2180
-  %96 = load i32, ptr %95, align 4, !tbaa !113
-  %97 = and i32 %96, %91
-  %.not.i = icmp eq i32 %97, 0
-  br i1 %.not.i, label %98, label %.thread
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 2180
+  %94 = load i32, ptr %93, align 4, !tbaa !113
+  %95 = and i32 %94, %89
+  %.not.i = icmp eq i32 %95, 0
+  br i1 %.not.i, label %96, label %.thread
 
-98:                                               ; preds = %94
+96:                                               ; preds = %92
   tail call void @_ZN5Yosys6FfData8unmap_ceEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   %.pre68 = load i8, ptr %12, align 2, !tbaa !178, !range !160
-  %99 = trunc nuw i8 %.pre68 to i1
-  br i1 %99, label %.thread, label %.thread69
+  %97 = trunc nuw i8 %.pre68 to i1
+  br i1 %97, label %.thread, label %.thread71
 
-.thread69:                                        ; preds = %90, %98
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %101 = load i32, ptr %100, align 8, !tbaa !113
-  %102 = and i32 %101, %91
-  %.not11.i = icmp eq i32 %102, 0
-  br i1 %.not11.i, label %104, label %103
+.thread71:                                        ; preds = %88, %96
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %99 = load i32, ptr %98, align 8, !tbaa !113
+  %100 = and i32 %99, %89
+  %.not11.i = icmp eq i32 %100, 0
+  br i1 %.not11.i, label %102, label %101
 
-103:                                              ; preds = %.thread69
+101:                                              ; preds = %.thread71
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-104:                                              ; preds = %.thread69
+102:                                              ; preds = %.thread71
   tail call void @_ZN5Yosys6FfData12add_dummy_ceEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %.thread
 
-.thread:                                          ; preds = %94, %104, %98
+.thread:                                          ; preds = %92, %102, %96
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-105:                                              ; preds = %81
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 595
-  %107 = load i8, ptr %106, align 1, !tbaa !285, !range !160, !noundef !161
-  %108 = trunc nuw i8 %107 to i1
-  br i1 %108, label %109, label %143
+103:                                              ; preds = %79
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 595
+  %105 = load i8, ptr %104, align 1, !tbaa !285, !range !160, !noundef !161
+  %106 = trunc nuw i8 %105 to i1
+  br i1 %106, label %107, label %141
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 2228
-  %111 = load i32, ptr %110, align 4, !tbaa !121
-  %112 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %111)
-  br i1 %112, label %114, label %113
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2228
+  %109 = load i32, ptr %108, align 4, !tbaa !121
+  %110 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %109)
+  br i1 %110, label %112, label %111
 
-113:                                              ; preds = %109
+111:                                              ; preds = %107
   tail call void @_ZN5Yosys6FfData11aload_to_srEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass21emulate_split_set_clrERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-114:                                              ; preds = %109
-  %115 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(800) %1)
-  %116 = load i8, ptr %12, align 2, !tbaa !178, !range !160, !noundef !161
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %.thread71
+112:                                              ; preds = %107
+  %113 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(800) %1)
+  %114 = load i8, ptr %12, align 2, !tbaa !178, !range !160, !noundef !161
+  %115 = trunc nuw i8 %114 to i1
+  br i1 %115, label %116, label %.thread73
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 2232
-  %120 = load i32, ptr %119, align 8, !tbaa !122
-  %121 = and i32 %120, %115
-  %.not.i58 = icmp eq i32 %121, 0
-  br i1 %.not.i58, label %122, label %.thread70
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 2232
+  %118 = load i32, ptr %117, align 8, !tbaa !122
+  %119 = and i32 %118, %113
+  %.not.i58 = icmp eq i32 %119, 0
+  br i1 %.not.i58, label %120, label %.thread72
 
-122:                                              ; preds = %118
+120:                                              ; preds = %116
   tail call void @_ZN5Yosys6FfData8unmap_ceEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   %.pre67 = load i8, ptr %12, align 2, !tbaa !178, !range !160
-  %123 = trunc nuw i8 %.pre67 to i1
-  br i1 %123, label %.thread70, label %.thread71
+  %121 = trunc nuw i8 %.pre67 to i1
+  br i1 %121, label %.thread72, label %.thread73
 
-.thread71:                                        ; preds = %114, %122
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 2168
-  %125 = load i32, ptr %124, align 8, !tbaa !113
-  %126 = and i32 %125, %115
-  %.not19.i = icmp eq i32 %126, 0
-  br i1 %.not19.i, label %128, label %127
+.thread73:                                        ; preds = %112, %120
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 2168
+  %123 = load i32, ptr %122, align 8, !tbaa !113
+  %124 = and i32 %123, %113
+  %.not19.i = icmp eq i32 %124, 0
+  br i1 %.not19.i, label %126, label %125
 
-127:                                              ; preds = %.thread71
+125:                                              ; preds = %.thread73
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-128:                                              ; preds = %.thread71
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %130 = load i32, ptr %129, align 8, !tbaa !113
-  %131 = and i32 %130, %115
-  %.not20.i = icmp eq i32 %131, 0
-  br i1 %.not20.i, label %133, label %132
+126:                                              ; preds = %.thread73
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %128 = load i32, ptr %127, align 8, !tbaa !113
+  %129 = and i32 %128, %113
+  %.not20.i = icmp eq i32 %129, 0
+  br i1 %.not20.i, label %131, label %130
 
-132:                                              ; preds = %128
+130:                                              ; preds = %126
   tail call void @_ZN5Yosys6FfData11aload_to_srEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-133:                                              ; preds = %128
+131:                                              ; preds = %126
   tail call void @_ZN5Yosys6FfData12add_dummy_ceEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
-  br label %.thread70
+  br label %.thread72
 
-.thread70:                                        ; preds = %118, %133, %122
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 2172
-  %135 = load i32, ptr %134, align 4, !tbaa !113
-  %136 = and i32 %135, %115
-  %.not21.i = icmp eq i32 %136, 0
-  br i1 %.not21.i, label %138, label %137
+.thread72:                                        ; preds = %116, %131, %120
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 2172
+  %133 = load i32, ptr %132, align 4, !tbaa !113
+  %134 = and i32 %133, %113
+  %.not21.i = icmp eq i32 %134, 0
+  br i1 %.not21.i, label %136, label %135
 
-137:                                              ; preds = %.thread70
+135:                                              ; preds = %.thread72
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-138:                                              ; preds = %.thread70
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 2180
-  %140 = load i32, ptr %139, align 4, !tbaa !113
-  %141 = and i32 %140, %115
-  %.not22.i = icmp eq i32 %141, 0
-  br i1 %.not22.i, label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit, label %142
+136:                                              ; preds = %.thread72
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 2180
+  %138 = load i32, ptr %137, align 4, !tbaa !113
+  %139 = and i32 %138, %113
+  %.not22.i = icmp eq i32 %139, 0
+  br i1 %.not22.i, label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit, label %140
 
-142:                                              ; preds = %138
+140:                                              ; preds = %136
   tail call void @_ZN5Yosys6FfData11aload_to_srEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-143:                                              ; preds = %105
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 597
-  %145 = load i8, ptr %144, align 1, !tbaa !286, !range !160, !noundef !161
-  %146 = trunc nuw i8 %145 to i1
-  br i1 %146, label %147, label %148
+141:                                              ; preds = %103
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 597
+  %143 = load i8, ptr %142, align 1, !tbaa !286, !range !160, !noundef !161
+  %144 = trunc nuw i8 %143 to i1
+  br i1 %144, label %145, label %146
 
-147:                                              ; preds = %143
+145:                                              ; preds = %141
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_adffERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-148:                                              ; preds = %143
-  %149 = load i8, ptr %46, align 4, !tbaa !219, !range !160, !noundef !161
-  %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %151, label %159
+146:                                              ; preds = %141
+  %147 = load i8, ptr %45, align 4, !tbaa !219, !range !160, !noundef !161
+  %148 = trunc nuw i8 %147 to i1
+  br i1 %148, label %149, label %157
 
-151:                                              ; preds = %148
-  %152 = load i8, ptr %12, align 2, !tbaa !178, !range !160, !noundef !161
-  %153 = trunc nuw i8 %152 to i1
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 599
-  %155 = load i8, ptr %154, align 1, !range !160
-  %156 = trunc nuw i8 %155 to i1
-  %or.cond48 = select i1 %153, i1 %156, i1 false
-  br i1 %or.cond48, label %157, label %158
+149:                                              ; preds = %146
+  %150 = load i8, ptr %12, align 2, !tbaa !178, !range !160, !noundef !161
+  %151 = trunc nuw i8 %150 to i1
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 599
+  %153 = load i8, ptr %152, align 1, !range !160
+  %154 = trunc nuw i8 %153 to i1
+  %or.cond48 = select i1 %151, i1 %154, i1 false
+  br i1 %or.cond48, label %155, label %156
 
-157:                                              ; preds = %151
+155:                                              ; preds = %149
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_sdffceERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-158:                                              ; preds = %151
+156:                                              ; preds = %149
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_sdffERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-159:                                              ; preds = %148
+157:                                              ; preds = %146
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass12legalize_dffERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-160:                                              ; preds = %77
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 595
-  %162 = load i8, ptr %161, align 1, !tbaa !285, !range !160, !noundef !161
-  %163 = trunc nuw i8 %162 to i1
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 598
-  %165 = load i8, ptr %164, align 2, !tbaa !284, !range !160, !noundef !161
-  %166 = trunc nuw i8 %165 to i1
-  br i1 %163, label %167, label %213
+158:                                              ; preds = %75
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 595
+  %160 = load i8, ptr %159, align 1, !tbaa !285, !range !160, !noundef !161
+  %161 = trunc nuw i8 %160 to i1
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 598
+  %163 = load i8, ptr %162, align 2, !tbaa !284, !range !160, !noundef !161
+  %164 = trunc nuw i8 %163 to i1
+  br i1 %161, label %165, label %211
 
-167:                                              ; preds = %160
-  br i1 %166, label %168, label %174
+165:                                              ; preds = %158
+  br i1 %164, label %166, label %172
 
-168:                                              ; preds = %167
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 2212
-  %170 = load i32, ptr %169, align 4, !tbaa !113
-  %171 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %170)
-  br i1 %171, label %173, label %172
+166:                                              ; preds = %165
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 2212
+  %168 = load i32, ptr %167, align 4, !tbaa !113
+  %169 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %168)
+  br i1 %169, label %171, label %170
 
-172:                                              ; preds = %168
+170:                                              ; preds = %166
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass21emulate_split_set_clrERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-173:                                              ; preds = %168
+171:                                              ; preds = %166
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-174:                                              ; preds = %167
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 597
-  %176 = load i8, ptr %175, align 1, !tbaa !286, !range !160, !noundef !161
-  %177 = trunc nuw i8 %176 to i1
-  br i1 %177, label %178, label %212
+172:                                              ; preds = %165
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 597
+  %174 = load i8, ptr %173, align 1, !tbaa !286, !range !160, !noundef !161
+  %175 = trunc nuw i8 %174 to i1
+  br i1 %175, label %176, label %210
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 2268
-  %180 = load i32, ptr %179, align 4, !tbaa !133
-  %181 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %180)
-  br i1 %181, label %201, label %182
+176:                                              ; preds = %172
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 2268
+  %178 = load i32, ptr %177, align 4, !tbaa !133
+  %179 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %178)
+  br i1 %179, label %199, label %180
 
-182:                                              ; preds = %178
-  %183 = load i32, ptr %179, align 4, !tbaa !133
-  %.not.i59 = icmp eq i32 %183, 0
-  br i1 %.not.i59, label %184, label %185
+180:                                              ; preds = %176
+  %181 = load i32, ptr %177, align 4, !tbaa !133
+  %.not.i59 = icmp eq i32 %181, 0
+  br i1 %.not.i59, label %182, label %183
 
-184:                                              ; preds = %182
+182:                                              ; preds = %180
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass7fail_ffERKN5Yosys6FfDataEPKc(ptr noundef nonnull align 8 dereferenceable(800) %1, ptr noundef nonnull @.str.111)
   unreachable
 
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %187 = load i32, ptr %186, align 8, !tbaa !131
-  %188 = and i32 %187, 6
-  %.not13.i = icmp eq i32 %188, 0
-  br i1 %.not13.i, label %189, label %190
+183:                                              ; preds = %180
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 2256
+  %185 = load i32, ptr %184, align 8, !tbaa !131
+  %186 = and i32 %185, 6
+  %.not13.i = icmp eq i32 %186, 0
+  br i1 %.not13.i, label %187, label %188
 
-189:                                              ; preds = %185
+187:                                              ; preds = %183
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass7fail_ffERKN5Yosys6FfDataEPKc(ptr noundef nonnull align 8 dereferenceable(800) %1, ptr noundef nonnull @.str.112)
   unreachable
 
-190:                                              ; preds = %185
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %192 = load ptr, ptr %191, align 8, !tbaa !287
-  %.not14.i = icmp eq ptr %192, null
-  br i1 %.not14.i, label %200, label %193
+188:                                              ; preds = %183
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %190 = load ptr, ptr %189, align 8, !tbaa !287
+  %.not14.i = icmp eq ptr %190, null
+  br i1 %.not14.i, label %198, label %191
 
-193:                                              ; preds = %190
-  %194 = load ptr, ptr %1, align 8, !tbaa !288
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 304
-  %196 = tail call noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %195)
-  %197 = load ptr, ptr %191, align 8, !tbaa !287
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 72
-  %199 = tail call noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %198)
-  tail call void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull @.str.113, ptr noundef %196, ptr noundef %199)
-  br label %200
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %1, align 8, !tbaa !288
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 304
+  %194 = tail call noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %193)
+  %195 = load ptr, ptr %189, align 8, !tbaa !287
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 72
+  %197 = tail call noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %196)
+  tail call void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull @.str.113, ptr noundef %194, ptr noundef %197)
+  br label %198
 
-200:                                              ; preds = %193, %190
+198:                                              ; preds = %191, %188
   tail call void @_ZN5Yosys6FfData6removeEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass23emulate_split_init_arstERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-201:                                              ; preds = %178
-  %202 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(800) %1)
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 2208
-  %204 = load i32, ptr %203, align 8, !tbaa !113
-  %205 = and i32 %204, %202
-  %.not15.i = icmp eq i32 %205, 0
-  br i1 %.not15.i, label %206, label %211
+199:                                              ; preds = %176
+  %200 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(800) %1)
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 2208
+  %202 = load i32, ptr %201, align 8, !tbaa !113
+  %203 = and i32 %202, %200
+  %.not15.i = icmp eq i32 %203, 0
+  br i1 %.not15.i, label %204, label %209
 
-206:                                              ; preds = %201
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 2212
-  %208 = load i32, ptr %207, align 4, !tbaa !113
-  %209 = and i32 %208, %202
-  %.not16.i = icmp eq i32 %209, 0
-  br i1 %.not16.i, label %211, label %210
+204:                                              ; preds = %199
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 2212
+  %206 = load i32, ptr %205, align 4, !tbaa !113
+  %207 = and i32 %206, %200
+  %.not16.i = icmp eq i32 %207, 0
+  br i1 %.not16.i, label %209, label %208
 
-210:                                              ; preds = %206
+208:                                              ; preds = %204
   tail call void @_ZN5Yosys6FfData10arst_to_srEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
-  br label %211
+  br label %209
 
-211:                                              ; preds = %210, %206, %201
+209:                                              ; preds = %208, %204, %199
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_finishERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-212:                                              ; preds = %174
+210:                                              ; preds = %172
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_dlatchERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-213:                                              ; preds = %160
-  br i1 %166, label %214, label %215
+211:                                              ; preds = %158
+  br i1 %164, label %212, label %213
 
-214:                                              ; preds = %213
+212:                                              ; preds = %211
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass11legalize_srERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-215:                                              ; preds = %213
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 597
-  %217 = load i8, ptr %216, align 1, !tbaa !286, !range !160, !noundef !161
-  %218 = trunc nuw i8 %217 to i1
-  br i1 %218, label %219, label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
+213:                                              ; preds = %211
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 597
+  %215 = load i8, ptr %214, align 1, !tbaa !286, !range !160, !noundef !161
+  %216 = trunc nuw i8 %215 to i1
+  br i1 %216, label %217, label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-219:                                              ; preds = %215
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  %221 = load i32, ptr %220, align 8, !tbaa !132
-  %222 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %221)
-  br i1 %222, label %228, label %223
+217:                                              ; preds = %213
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 2264
+  %219 = load i32, ptr %218, align 8, !tbaa !132
+  %220 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8try_flipERN5Yosys6FfDataEi(ptr noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %219)
+  br i1 %220, label %226, label %221
 
-223:                                              ; preds = %219
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %225 = load i32, ptr %224, align 8, !tbaa !131
-  %.not.i60 = icmp eq i32 %225, 0
-  br i1 %.not.i60, label %226, label %227
+221:                                              ; preds = %217
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 2256
+  %223 = load i32, ptr %222, align 8, !tbaa !131
+  %.not.i60 = icmp eq i32 %223, 0
+  br i1 %.not.i60, label %224, label %225
 
-226:                                              ; preds = %223
+224:                                              ; preds = %221
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass7fail_ffERKN5Yosys6FfDataEPKc(ptr noundef nonnull align 8 dereferenceable(800) %1, ptr noundef nonnull @.str.114)
   unreachable
 
-227:                                              ; preds = %223
+225:                                              ; preds = %221
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass7fail_ffERKN5Yosys6FfDataEPKc(ptr noundef nonnull align 8 dereferenceable(800) %1, ptr noundef nonnull @.str.112)
   unreachable
 
-228:                                              ; preds = %219
-  %229 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(800) %1)
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 2260
-  %231 = load i32, ptr %230, align 4, !tbaa !130
-  %232 = and i32 %231, 7
-  %233 = mul nuw nsw i32 %232, 273
-  %234 = and i32 %233, %229
-  %.not13.i61 = icmp eq i32 %234, 0
-  br i1 %.not13.i61, label %236, label %235
+226:                                              ; preds = %217
+  %227 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(800) %1)
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 2260
+  %229 = load i32, ptr %228, align 4, !tbaa !130
+  %230 = and i32 %229, 7
+  %231 = mul nuw nsw i32 %230, 273
+  %232 = and i32 %231, %227
+  %.not13.i61 = icmp eq i32 %232, 0
+  br i1 %.not13.i61, label %234, label %233
 
-235:                                              ; preds = %228
+233:                                              ; preds = %226
   tail call void @_ZN5Yosys6FfData13arst_to_aloadEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass15legalize_dlatchERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-236:                                              ; preds = %228
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %238 = load i32, ptr %237, align 8, !tbaa !129
-  %239 = and i32 %238, %229
-  %.not14.i62 = icmp eq i32 %239, 0
-  br i1 %.not14.i62, label %241, label %240
+234:                                              ; preds = %226
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 2248
+  %236 = load i32, ptr %235, align 8, !tbaa !129
+  %237 = and i32 %236, %227
+  %.not14.i62 = icmp eq i32 %237, 0
+  br i1 %.not14.i62, label %239, label %238
 
-240:                                              ; preds = %236
+238:                                              ; preds = %234
   tail call void @_ZN5Yosys6FfData10arst_to_srEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass11legalize_srERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-241:                                              ; preds = %236
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 2236
-  %243 = load i32, ptr %242, align 4, !tbaa !123
-  %244 = and i32 %243, %229
-  %.not15.i63 = icmp eq i32 %244, 0
-  br i1 %.not15.i63, label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit, label %245
+239:                                              ; preds = %234
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 2236
+  %241 = load i32, ptr %240, align 4, !tbaa !123
+  %242 = and i32 %241, %227
+  %.not15.i63 = icmp eq i32 %242, 0
+  br i1 %.not15.i63, label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit, label %243
 
-245:                                              ; preds = %241
+243:                                              ; preds = %239
   tail call void @_ZN5Yosys6FfData13add_dummy_clkEv(ptr noundef nonnull align 8 dereferenceable(800) %1)
   tail call fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass13legalize_adffERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
   br label %_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit
 
-_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit: ; preds = %245, %241, %240, %235, %211, %200, %173, %172, %142, %138, %137, %132, %127, %113, %.thread, %103, %89, %212, %215, %214, %147, %157, %158, %159, %2
+_ZN12_GLOBAL__N_115DffLegalizePass14legalize_dffsrERN5Yosys6FfDataE.exit: ; preds = %243, %239, %238, %233, %209, %198, %171, %170, %140, %136, %135, %130, %125, %111, %.thread, %101, %87, %210, %213, %212, %145, %155, %156, %157, %2
   ret void
 }
 

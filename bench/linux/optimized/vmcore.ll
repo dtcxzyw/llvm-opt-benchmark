@@ -1573,141 +1573,133 @@ define internal i64 @read_vmcore(ptr noundef captures(none) %0, ptr noundef %1) 
   %18 = phi i64 [ %.pre, %15 ], [ %9, %12 ]
   %19 = load i64, ptr @elfcorebuf_sz, align 8
   %20 = icmp ult i64 %18, %19
-  br i1 %20, label %21, label %38
+  br i1 %20, label %21, label %35
 
 21:                                               ; preds = %16
   %22 = sub nuw i64 %19, %18
   %23 = tail call i64 @llvm.umin.i64(i64 %22, i64 %17)
   %24 = icmp ugt i64 %23, 2147483647
-  br i1 %24, label %25, label %26, !prof !6
+  br i1 %24, label %.critedge, label %25, !prof !6
+
+.critedge:                                        ; preds = %21
+  tail call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #11, !srcloc !29
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 249, i32 2307, i64 12) #11, !srcloc !30
+  tail call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #11, !srcloc !31
+  br label %.thread
 
 25:                                               ; preds = %21
+  %26 = load ptr, ptr @elfcorebuf, align 8
+  %27 = getelementptr i8, ptr %26, i64 %18
+  %28 = tail call i64 @_copy_to_iter(ptr noundef %27, i64 noundef %23, ptr noundef %1) #11
+  %29 = icmp ult i64 %28, %23
+  br i1 %29, label %.thread, label %30
+
+30:                                               ; preds = %25
+  %31 = load i64, ptr %4, align 8
+  %32 = add i64 %31, %23
+  store i64 %32, ptr %4, align 8
+  %33 = load i64, ptr %5, align 8
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %.thread, label %._crit_edge
+
+._crit_edge:                                      ; preds = %30
+  %.pre18 = load i64, ptr @elfcorebuf_sz, align 8
+  br label %35
+
+35:                                               ; preds = %._crit_edge, %16
+  %36 = phi i64 [ %33, %._crit_edge ], [ %17, %16 ]
+  %37 = phi i64 [ %.pre18, %._crit_edge ], [ %19, %16 ]
+  %38 = phi i64 [ %32, %._crit_edge ], [ %18, %16 ]
+  %39 = phi i64 [ %23, %._crit_edge ], [ 0, %16 ]
+  %40 = load i64, ptr @elfnotes_sz, align 8
+  %41 = add i64 %40, %37
+  %42 = icmp ult i64 %38, %41
+  br i1 %42, label %43, label %59
+
+43:                                               ; preds = %35
+  %44 = sub nuw i64 %41, %38
+  %45 = tail call i64 @llvm.umin.i64(i64 %44, i64 %36)
+  %46 = icmp ugt i64 %45, 2147483647
+  br i1 %46, label %.critedge17, label %47, !prof !6
+
+.critedge17:                                      ; preds = %43
   tail call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #11, !srcloc !29
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 249, i32 2307, i64 12) #11, !srcloc !30
   tail call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #11, !srcloc !31
-  br label %30
+  br label %.thread
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr @elfcorebuf, align 8
-  %28 = getelementptr i8, ptr %27, i64 %18
-  %29 = tail call i64 @_copy_to_iter(ptr noundef %28, i64 noundef %23, ptr noundef %1) #11
-  br label %30
+47:                                               ; preds = %43
+  %48 = load ptr, ptr @elfnotes_buf, align 8
+  %49 = getelementptr i8, ptr %48, i64 %38
+  %50 = sub i64 0, %37
+  %51 = getelementptr i8, ptr %49, i64 %50
+  %52 = tail call i64 @_copy_to_iter(ptr noundef %51, i64 noundef %45, ptr noundef %1) #11
+  %53 = icmp ult i64 %52, %45
+  br i1 %53, label %.thread, label %54
 
-30:                                               ; preds = %26, %25
-  %31 = phi i64 [ %29, %26 ], [ 0, %25 ]
-  %32 = icmp ult i64 %31, %23
-  br i1 %32, label %.thread, label %33
+54:                                               ; preds = %47
+  %55 = load i64, ptr %4, align 8
+  %56 = add i64 %55, %45
+  store i64 %56, ptr %4, align 8
+  %57 = add nuw nsw i64 %45, %39
+  %58 = load i64, ptr %5, align 8
+  %.not = icmp eq i64 %58, 0
+  br i1 %.not, label %.thread, label %59
 
-33:                                               ; preds = %30
-  %34 = load i64, ptr %4, align 8
-  %35 = add i64 %34, %23
-  store i64 %35, ptr %4, align 8
-  %36 = load i64, ptr %5, align 8
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.thread, label %._crit_edge
+59:                                               ; preds = %54, %35
+  %60 = phi i64 [ %58, %54 ], [ %36, %35 ]
+  %61 = phi i64 [ %56, %54 ], [ %38, %35 ]
+  %62 = phi i64 [ %57, %54 ], [ %39, %35 ]
+  %63 = load ptr, ptr @vmcore_list, align 8
+  %64 = icmp eq ptr %63, @vmcore_list
+  br i1 %64, label %.thread, label %.preheader
 
-._crit_edge:                                      ; preds = %33
-  %.pre16 = load i64, ptr @elfcorebuf_sz, align 8
-  br label %38
+.preheader:                                       ; preds = %59, %90
+  %65 = phi i64 [ %91, %90 ], [ %60, %59 ]
+  %66 = phi i64 [ %92, %90 ], [ %61, %59 ]
+  %67 = phi ptr [ %94, %90 ], [ %63, %59 ]
+  %68 = phi i64 [ %93, %90 ], [ %62, %59 ]
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %72 = load i64, ptr %71, align 8
+  %73 = add i64 %72, %70
+  %74 = icmp ult i64 %66, %73
+  br i1 %74, label %75, label %90
 
-38:                                               ; preds = %._crit_edge, %16
-  %39 = phi i64 [ %36, %._crit_edge ], [ %17, %16 ]
-  %40 = phi i64 [ %.pre16, %._crit_edge ], [ %19, %16 ]
-  %41 = phi i64 [ %35, %._crit_edge ], [ %18, %16 ]
-  %42 = phi i64 [ %23, %._crit_edge ], [ 0, %16 ]
-  %43 = load i64, ptr @elfnotes_sz, align 8
-  %44 = add i64 %43, %40
-  %45 = icmp ult i64 %41, %44
-  br i1 %45, label %46, label %65
+75:                                               ; preds = %.preheader
+  %76 = sub nuw i64 %73, %66
+  %77 = tail call i64 @llvm.umin.i64(i64 %76, i64 %65)
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %79 = load i64, ptr %78, align 8
+  %80 = sub i64 %66, %70
+  %81 = add i64 %80, %79
+  store i64 %81, ptr %3, align 8
+  %82 = call i64 @read_from_oldmem(ptr noundef %1, i64 noundef %77, ptr noundef nonnull %3, i1 noundef zeroext false)
+  %83 = icmp slt i64 %82, 0
+  br i1 %83, label %.thread, label %84
 
-46:                                               ; preds = %38
-  %47 = sub nuw i64 %44, %41
-  %48 = tail call i64 @llvm.umin.i64(i64 %47, i64 %39)
-  %49 = icmp ugt i64 %48, 2147483647
-  br i1 %49, label %50, label %51, !prof !6
-
-50:                                               ; preds = %46
-  tail call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #11, !srcloc !29
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 249, i32 2307, i64 12) #11, !srcloc !30
-  tail call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #11, !srcloc !31
-  br label %57
-
-51:                                               ; preds = %46
-  %52 = load ptr, ptr @elfnotes_buf, align 8
-  %53 = getelementptr i8, ptr %52, i64 %41
-  %54 = sub i64 0, %40
-  %55 = getelementptr i8, ptr %53, i64 %54
-  %56 = tail call i64 @_copy_to_iter(ptr noundef %55, i64 noundef %48, ptr noundef %1) #11
-  br label %57
-
-57:                                               ; preds = %51, %50
-  %58 = phi i64 [ %56, %51 ], [ 0, %50 ]
-  %59 = icmp ult i64 %58, %48
-  br i1 %59, label %.thread, label %60
-
-60:                                               ; preds = %57
-  %61 = load i64, ptr %4, align 8
-  %62 = add i64 %61, %48
-  store i64 %62, ptr %4, align 8
-  %63 = add i64 %48, %42
-  %64 = load i64, ptr %5, align 8
-  %.not = icmp eq i64 %64, 0
-  br i1 %.not, label %.thread, label %65
-
-65:                                               ; preds = %60, %38
-  %66 = phi i64 [ %64, %60 ], [ %39, %38 ]
-  %67 = phi i64 [ %62, %60 ], [ %41, %38 ]
-  %68 = phi i64 [ %63, %60 ], [ %42, %38 ]
-  %69 = load ptr, ptr @vmcore_list, align 8
-  %70 = icmp eq ptr %69, @vmcore_list
-  br i1 %70, label %.thread, label %.preheader
-
-.preheader:                                       ; preds = %65, %96
-  %71 = phi i64 [ %97, %96 ], [ %66, %65 ]
-  %72 = phi i64 [ %98, %96 ], [ %67, %65 ]
-  %73 = phi ptr [ %100, %96 ], [ %69, %65 ]
-  %74 = phi i64 [ %99, %96 ], [ %68, %65 ]
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %78 = load i64, ptr %77, align 8
-  %79 = add i64 %78, %76
-  %80 = icmp ult i64 %72, %79
-  br i1 %80, label %81, label %96
-
-81:                                               ; preds = %.preheader
-  %82 = sub nuw i64 %79, %72
-  %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 %71)
-  %84 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %85 = load i64, ptr %84, align 8
-  %86 = sub i64 %72, %76
-  %87 = add i64 %86, %85
-  store i64 %87, ptr %3, align 8
-  %88 = call i64 @read_from_oldmem(ptr noundef %1, i64 noundef %83, ptr noundef nonnull %3, i1 noundef zeroext false)
-  %89 = icmp slt i64 %88, 0
+84:                                               ; preds = %75
+  %85 = load i64, ptr %4, align 8
+  %86 = add i64 %85, %77
+  store i64 %86, ptr %4, align 8
+  %87 = add i64 %77, %68
+  %88 = load i64, ptr %5, align 8
+  %89 = icmp eq i64 %88, 0
   br i1 %89, label %.thread, label %90
 
-90:                                               ; preds = %81
-  %91 = load i64, ptr %4, align 8
-  %92 = add i64 %91, %83
-  store i64 %92, ptr %4, align 8
-  %93 = add i64 %83, %74
-  %94 = load i64, ptr %5, align 8
-  %95 = icmp eq i64 %94, 0
-  br i1 %95, label %.thread, label %96
+90:                                               ; preds = %84, %.preheader
+  %91 = phi i64 [ %88, %84 ], [ %65, %.preheader ]
+  %92 = phi i64 [ %86, %84 ], [ %66, %.preheader ]
+  %93 = phi i64 [ %87, %84 ], [ %68, %.preheader ]
+  %94 = load ptr, ptr %67, align 8
+  %95 = icmp eq ptr %94, @vmcore_list
+  br i1 %95, label %.thread, label %.preheader, !llvm.loop !32
 
-96:                                               ; preds = %90, %.preheader
-  %97 = phi i64 [ %94, %90 ], [ %71, %.preheader ]
-  %98 = phi i64 [ %92, %90 ], [ %72, %.preheader ]
-  %99 = phi i64 [ %93, %90 ], [ %74, %.preheader ]
-  %100 = load ptr, ptr %73, align 8
-  %101 = icmp eq ptr %100, @vmcore_list
-  br i1 %101, label %.thread, label %.preheader, !llvm.loop !32
-
-.thread:                                          ; preds = %96, %90, %81, %57, %65, %60, %33, %30, %8, %2
-  %102 = phi i64 [ %63, %60 ], [ 0, %8 ], [ 0, %2 ], [ -14, %30 ], [ %23, %33 ], [ %68, %65 ], [ -14, %57 ], [ %88, %81 ], [ %93, %90 ], [ %99, %96 ]
+.thread:                                          ; preds = %90, %84, %75, %.critedge17, %47, %.critedge, %59, %54, %30, %25, %8, %2
+  %96 = phi i64 [ %57, %54 ], [ 0, %8 ], [ 0, %2 ], [ -14, %25 ], [ %23, %30 ], [ %62, %59 ], [ -14, %.critedge ], [ -14, %47 ], [ -14, %.critedge17 ], [ %82, %75 ], [ %87, %84 ], [ %93, %90 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  ret i64 %102
+  ret i64 %96
 }
 
 ; Function Attrs: null_pointer_is_valid

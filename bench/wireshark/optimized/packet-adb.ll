@@ -274,8 +274,8 @@ define internal i32 @dissect_adb(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %54
 
 54:                                               ; preds = %50, %44
-  %55 = phi i1 [ true, %44 ], [ false, %50 ]
   %.0387570 = phi i32 [ %.0387571, %44 ], [ %41, %50 ]
+  %55 = phi i1 [ true, %44 ], [ false, %50 ]
   %.0397 = phi ptr [ %3, %44 ], [ null, %50 ]
   %.0386 = phi i32 [ %46, %44 ], [ %., %50 ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 96

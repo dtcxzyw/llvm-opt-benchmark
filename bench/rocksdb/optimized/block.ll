@@ -5378,7 +5378,7 @@ _ZN7rocksdb14IndexBlockIter17ParseNextIndexKeyEv.exit: ; preds = %36, %38
 define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKNS_5SliceEPjjjS4_Pb(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 1)) %6) local_unnamed_addr #2 align 2 {
   store i8 1, ptr %6, align 1, !tbaa !21
   %.not64 = icmp ugt i32 %3, %4
-  br i1 %.not64, label %.thread58, label %.lr.ph
+  br i1 %.not64, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -5407,100 +5407,94 @@ define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKN
 
 22:                                               ; preds = %18
   %23 = icmp eq i32 %.04266, %.04665
-  br i1 %23, label %.thread58.thread, label %24
+  br i1 %23, label %.thread58, label %24
 
 24:                                               ; preds = %22, %20
   %.248 = phi i32 [ %.04665, %20 ], [ %11, %22 ]
   %.244 = phi i32 [ %21, %20 ], [ %.04266, %22 ]
   %.not = icmp ugt i32 %.244, %.248
-  br i1 %.not, label %.thread58, label %9
+  br i1 %.not, label %.loopexit, label %9
 
-.thread58:                                        ; preds = %24, %7
-  %.046.lcssa = phi i32 [ %4, %7 ], [ %.248, %24 ]
-  %.042.lcssa = phi i32 [ %3, %7 ], [ %.244, %24 ]
-  %25 = icmp eq i32 %.042.lcssa, %.046.lcssa
-  br i1 %25, label %.thread58.thread, label %46
+.thread58:                                        ; preds = %22
+  %25 = zext i32 %.04266 to i64
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %25
+  %27 = load i32, ptr %26, align 4, !tbaa !56
+  %.not52 = icmp eq i32 %27, 0
+  br i1 %.not52, label %43, label %28
 
-.thread58.thread:                                 ; preds = %22, %.thread58
-  %.046.lcssa75 = phi i32 [ %.046.lcssa, %.thread58 ], [ %.04266, %22 ]
-  %26 = zext i32 %.046.lcssa75 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !56
-  %.not52 = icmp eq i32 %28, 0
-  br i1 %.not52, label %44, label %29
+28:                                               ; preds = %.thread58
+  %29 = icmp eq i32 %.04266, %3
+  br i1 %29, label %._crit_edge71, label %30
 
-29:                                               ; preds = %.thread58.thread
-  %30 = icmp eq i32 %.046.lcssa75, %3
-  br i1 %30, label %._crit_edge71, label %31
+._crit_edge71:                                    ; preds = %28
+  %.pre72 = add i32 %27, -1
+  br label %36
 
-._crit_edge71:                                    ; preds = %29
-  %.pre72 = add i32 %28, -1
-  br label %37
+30:                                               ; preds = %28
+  %31 = add i32 %.04266, -1
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i32, ptr %2, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !56
+  %35 = add i32 %27, -1
+  %.not53 = icmp eq i32 %34, %35
+  br i1 %.not53, label %43, label %36
 
-31:                                               ; preds = %29
-  %32 = add i32 %.046.lcssa75, -1
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !56
-  %36 = add i32 %28, -1
-  %.not53 = icmp eq i32 %35, %36
-  br i1 %.not53, label %44, label %37
+36:                                               ; preds = %._crit_edge71, %30
+  %.pre-phi = phi i32 [ %.pre72, %._crit_edge71 ], [ %35, %30 ]
+  %37 = tail call noundef i32 @_ZN7rocksdb14IndexBlockIter15CompareBlockKeyEjRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(680) %0, i32 noundef %.pre-phi, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %39, label %._crit_edge
 
-37:                                               ; preds = %._crit_edge71, %31
-  %.pre-phi = phi i32 [ %.pre72, %._crit_edge71 ], [ %36, %31 ]
-  %38 = tail call noundef i32 @_ZN7rocksdb14IndexBlockIter15CompareBlockKeyEjRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(680) %0, i32 noundef %.pre-phi, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %40, label %._crit_edge
+._crit_edge:                                      ; preds = %36
+  %.pre = load i32, ptr %26, align 4, !tbaa !56
+  br label %43
 
-._crit_edge:                                      ; preds = %37
-  %.pre = load i32, ptr %27, align 4, !tbaa !56
-  br label %44
-
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %42 = load i32, ptr %41, align 8, !tbaa !94
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %42, ptr %43, align 4, !tbaa !92
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %41 = load i32, ptr %40, align 8, !tbaa !94
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %41, ptr %42, align 4, !tbaa !92
   store i8 0, ptr %6, align 1, !tbaa !21
   br label %.thread
 
-44:                                               ; preds = %._crit_edge, %31, %.thread58.thread
-  %45 = phi i32 [ %.pre, %._crit_edge ], [ %28, %31 ], [ 0, %.thread58.thread ]
-  store i32 %45, ptr %5, align 4, !tbaa !56
+43:                                               ; preds = %._crit_edge, %30, %.thread58
+  %44 = phi i32 [ %.pre, %._crit_edge ], [ %27, %30 ], [ 0, %.thread58 ]
+  store i32 %44, ptr %5, align 4, !tbaa !56
   br label %.thread
 
-46:                                               ; preds = %.thread58
-  %47 = zext i32 %.046.lcssa to i64
-  %48 = getelementptr inbounds nuw i32, ptr %2, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !56
-  %50 = add i32 %49, 1
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %52 = load i32, ptr %51, align 8, !tbaa !96
-  %53 = icmp ult i32 %50, %52
-  br i1 %53, label %54, label %59
+.loopexit:                                        ; preds = %24, %7
+  %.046.lcssa.ph = phi i32 [ %4, %7 ], [ %.248, %24 ]
+  %45 = zext i32 %.046.lcssa.ph to i64
+  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !56
+  %48 = add i32 %47, 1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %50 = load i32, ptr %49, align 8, !tbaa !96
+  %51 = icmp ult i32 %48, %50
+  br i1 %51, label %52, label %57
 
-54:                                               ; preds = %46
-  %55 = tail call noundef i32 @_ZN7rocksdb14IndexBlockIter15CompareBlockKeyEjRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(680) %0, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %56 = icmp sgt i32 %55, -1
-  br i1 %56, label %57, label %58
+52:                                               ; preds = %.loopexit
+  %53 = tail call noundef i32 @_ZN7rocksdb14IndexBlockIter15CompareBlockKeyEjRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(680) %0, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %55, label %56
 
-57:                                               ; preds = %54
-  store i32 %50, ptr %5, align 4, !tbaa !56
+55:                                               ; preds = %52
+  store i32 %48, ptr %5, align 4, !tbaa !56
   br label %.thread
 
-58:                                               ; preds = %54
+56:                                               ; preds = %52
   store i8 0, ptr %6, align 1, !tbaa !21
-  br label %59
+  br label %57
 
-59:                                               ; preds = %58, %46
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %61 = load i32, ptr %60, align 8, !tbaa !94
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %61, ptr %62, align 4, !tbaa !92
+57:                                               ; preds = %56, %.loopexit
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %59 = load i32, ptr %58, align 8, !tbaa !94
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %59, ptr %60, align 4, !tbaa !92
   br label %.thread
 
-.thread:                                          ; preds = %9, %57, %59, %44, %40
-  %.2 = phi i1 [ false, %40 ], [ true, %44 ], [ true, %57 ], [ false, %59 ], [ false, %9 ]
+.thread:                                          ; preds = %9, %55, %57, %43, %39
+  %.2 = phi i1 [ false, %39 ], [ true, %43 ], [ true, %55 ], [ false, %57 ], [ false, %9 ]
   ret i1 %.2
 }
 

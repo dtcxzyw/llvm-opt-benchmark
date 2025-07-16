@@ -399,11 +399,11 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
-._crit_edge:                                      ; preds = %175, %2
+._crit_edge:                                      ; preds = %174, %2
   ret void
 
-8:                                                ; preds = %.lr.ph, %175
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %175 ]
+8:                                                ; preds = %.lr.ph, %174
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %174 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw %struct.lv_anim_timeline_dsc_t, ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
@@ -416,13 +416,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, 16
   %.not123 = icmp eq i8 %17, 0
-  br i1 %.not123, label %..thread_crit_edge, label %18
-
-..thread_crit_edge:                               ; preds = %14
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 84
-  %.pre153 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !28
-  %.pre156 = add i32 %.pre153, %12
-  br label %.thread
+  br i1 %.not123, label %.thread, label %18
 
 18:                                               ; preds = %14
   br i1 %.not, label %35, label %19
@@ -488,7 +482,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   br label %46
 
 46:                                               ; preds = %45, %42
-  br i1 %.not, label %175, label %47
+  br i1 %.not, label %174, label %47
 
 47:                                               ; preds = %46
   %48 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
@@ -517,19 +511,19 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   %59 = phi i8 [ %.pre152, %57 ], [ %51, %54 ], [ %51, %52 ]
   %60 = or i8 %59, 2
   store i8 %60, ptr %50, align 4
-  br label %175
+  br label %174
 
 61:                                               ; preds = %47
   %62 = and i8 %51, -3
   store i8 %62, ptr %50, align 4
-  br label %175
+  br label %174
 
 63:                                               ; preds = %8
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 84
   %65 = load i32, ptr %64, align 4, !tbaa !28
   %66 = add i32 %65, %12
   %.not125 = icmp ugt i32 %1, %66
-  br i1 %.not125, label %.thread, label %67
+  br i1 %.not125, label %.thread.thread, label %67
 
 67:                                               ; preds = %63
   br i1 %.not, label %79, label %68
@@ -586,7 +580,7 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   br label %93
 
 93:                                               ; preds = %92, %89
-  br i1 %.not, label %175, label %94
+  br i1 %.not, label %174, label %94
 
 94:                                               ; preds = %93
   %95 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
@@ -619,12 +613,12 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   %108 = phi i8 [ %.pre150, %106 ], [ %100, %103 ], [ %100, %101 ]
   %109 = or i8 %108, 2
   store i8 %109, ptr %99, align 4
-  br label %175
+  br label %174
 
 110:                                              ; preds = %97
   %111 = and i8 %100, -3
   store i8 %111, ptr %99, align 4
-  br label %175
+  br label %174
 
 112:                                              ; preds = %94
   %113 = load i32, ptr %64, align 4, !tbaa !28
@@ -654,124 +648,126 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   %125 = phi i8 [ %.pre149, %123 ], [ %117, %120 ], [ %117, %118 ]
   %126 = or i8 %125, 2
   store i8 %126, ptr %116, align 4
-  br label %175
+  br label %174
 
 127:                                              ; preds = %112
   %128 = and i8 %117, -3
   store i8 %128, ptr %116, align 4
-  br label %175
+  br label %174
 
-.thread:                                          ; preds = %..thread_crit_edge, %63
-  %.pre-phi = phi i32 [ %.pre156, %..thread_crit_edge ], [ %66, %63 ]
-  %129 = icmp ugt i32 %1, %.pre-phi
-  br i1 %129, label %130, label %175
+.thread:                                          ; preds = %14
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 84
+  %.pre153 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !28
+  %.pre156 = add i32 %.pre153, %12
+  %129 = icmp ugt i32 %1, %.pre156
+  br i1 %129, label %.thread.thread, label %174
 
-130:                                              ; preds = %.thread
-  br i1 %.not, label %147, label %131
+.thread.thread:                                   ; preds = %63, %.thread
+  br i1 %.not, label %146, label %130
 
-131:                                              ; preds = %130
-  %132 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
-  %133 = trunc nuw i8 %132 to i1
-  %134 = getelementptr inbounds nuw i8, ptr %10, i64 140
-  %135 = load i8, ptr %134, align 4
-  br i1 %133, label %136, label %138
+130:                                              ; preds = %.thread.thread
+  %131 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
+  %132 = trunc nuw i8 %131 to i1
+  %133 = getelementptr inbounds nuw i8, ptr %10, i64 140
+  %134 = load i8, ptr %133, align 4
+  br i1 %132, label %135, label %137
 
-136:                                              ; preds = %131
-  %137 = and i8 %135, -2
-  br label %.sink.split157
+135:                                              ; preds = %130
+  %136 = and i8 %134, -2
+  br label %.sink.split158
 
-138:                                              ; preds = %131
-  %139 = and i8 %135, 1
-  %.not126 = icmp eq i8 %139, 0
-  br i1 %.not126, label %140, label %144
+137:                                              ; preds = %130
+  %138 = and i8 %134, 1
+  %.not126 = icmp eq i8 %138, 0
+  br i1 %.not126, label %139, label %143
 
-140:                                              ; preds = %138
-  %141 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %142 = load ptr, ptr %141, align 8, !tbaa !31
-  %.not127 = icmp eq ptr %142, null
-  br i1 %.not127, label %144, label %143
+139:                                              ; preds = %137
+  %140 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %141 = load ptr, ptr %140, align 8, !tbaa !31
+  %.not127 = icmp eq ptr %141, null
+  br i1 %.not127, label %143, label %142
 
-143:                                              ; preds = %140
-  tail call void %142(ptr noundef nonnull %10) #7
-  %.pre154 = load i8, ptr %134, align 4
-  br label %144
+142:                                              ; preds = %139
+  tail call void %141(ptr noundef nonnull %10) #7
+  %.pre154 = load i8, ptr %133, align 4
+  br label %143
 
-144:                                              ; preds = %143, %140, %138
-  %145 = phi i8 [ %.pre154, %143 ], [ %135, %140 ], [ %135, %138 ]
-  %146 = or i8 %145, 1
-  br label %.sink.split157
+143:                                              ; preds = %142, %139, %137
+  %144 = phi i8 [ %.pre154, %142 ], [ %134, %139 ], [ %134, %137 ]
+  %145 = or i8 %144, 1
+  br label %.sink.split158
 
-.sink.split157:                                   ; preds = %144, %136
-  %.sink158 = phi i8 [ %137, %136 ], [ %146, %144 ]
-  store i8 %.sink158, ptr %134, align 4
-  br label %147
+.sink.split158:                                   ; preds = %143, %135
+  %.sink159 = phi i8 [ %136, %135 ], [ %145, %143 ]
+  store i8 %.sink159, ptr %133, align 4
+  br label %146
 
-147:                                              ; preds = %.sink.split157, %130
-  %148 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %149 = load i32, ptr %148, align 8, !tbaa !30
-  %150 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !32
-  %.not128 = icmp eq ptr %151, null
-  br i1 %.not128, label %154, label %152
+146:                                              ; preds = %.sink.split158, %.thread.thread
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %148 = load i32, ptr %147, align 8, !tbaa !30
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %150 = load ptr, ptr %149, align 8, !tbaa !32
+  %.not128 = icmp eq ptr %150, null
+  br i1 %.not128, label %153, label %151
 
-152:                                              ; preds = %147
-  %153 = load ptr, ptr %10, align 8, !tbaa !33
-  tail call void %151(ptr noundef %153, i32 noundef %149) #7
-  br label %154
+151:                                              ; preds = %146
+  %152 = load ptr, ptr %10, align 8, !tbaa !33
+  tail call void %150(ptr noundef %152, i32 noundef %148) #7
+  br label %153
 
-154:                                              ; preds = %152, %147
-  %155 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %156 = load ptr, ptr %155, align 8, !tbaa !34
-  %.not129 = icmp eq ptr %156, null
-  br i1 %.not129, label %158, label %157
+153:                                              ; preds = %151, %146
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %155 = load ptr, ptr %154, align 8, !tbaa !34
+  %.not129 = icmp eq ptr %155, null
+  br i1 %.not129, label %157, label %156
 
-157:                                              ; preds = %154
-  tail call void %156(ptr noundef nonnull %10, i32 noundef %149) #7
-  br label %158
+156:                                              ; preds = %153
+  tail call void %155(ptr noundef nonnull %10, i32 noundef %148) #7
+  br label %157
 
-158:                                              ; preds = %157, %154
-  br i1 %.not, label %175, label %159
+157:                                              ; preds = %156, %153
+  br i1 %.not, label %174, label %158
 
-159:                                              ; preds = %158
-  %160 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
-  %161 = trunc nuw i8 %160 to i1
-  %162 = getelementptr inbounds nuw i8, ptr %10, i64 140
-  %163 = load i8, ptr %162, align 4
-  br i1 %161, label %164, label %166
+158:                                              ; preds = %157
+  %159 = load i8, ptr %7, align 8, !tbaa !23, !range !24, !noundef !25
+  %160 = trunc nuw i8 %159 to i1
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 140
+  %162 = load i8, ptr %161, align 4
+  br i1 %160, label %163, label %165
 
-164:                                              ; preds = %159
-  %165 = and i8 %163, -3
-  store i8 %165, ptr %162, align 4
-  br label %175
+163:                                              ; preds = %158
+  %164 = and i8 %162, -3
+  store i8 %164, ptr %161, align 4
+  br label %174
 
-166:                                              ; preds = %159
-  %167 = and i8 %163, 2
-  %.not130 = icmp eq i8 %167, 0
-  br i1 %.not130, label %168, label %172
+165:                                              ; preds = %158
+  %166 = and i8 %162, 2
+  %.not130 = icmp eq i8 %166, 0
+  br i1 %.not130, label %167, label %171
 
-168:                                              ; preds = %166
-  %169 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %170 = load ptr, ptr %169, align 8, !tbaa !35
-  %.not131 = icmp eq ptr %170, null
-  br i1 %.not131, label %172, label %171
+167:                                              ; preds = %165
+  %168 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %169 = load ptr, ptr %168, align 8, !tbaa !35
+  %.not131 = icmp eq ptr %169, null
+  br i1 %.not131, label %171, label %170
 
-171:                                              ; preds = %168
-  tail call void %170(ptr noundef nonnull %10) #7
-  %.pre155 = load i8, ptr %162, align 4
-  br label %172
+170:                                              ; preds = %167
+  tail call void %169(ptr noundef nonnull %10) #7
+  %.pre155 = load i8, ptr %161, align 4
+  br label %171
 
-172:                                              ; preds = %171, %168, %166
-  %173 = phi i8 [ %.pre155, %171 ], [ %163, %168 ], [ %163, %166 ]
-  %174 = or i8 %173, 2
-  store i8 %174, ptr %162, align 4
-  br label %175
+171:                                              ; preds = %170, %167, %165
+  %172 = phi i8 [ %.pre155, %170 ], [ %162, %167 ], [ %162, %165 ]
+  %173 = or i8 %172, 2
+  store i8 %173, ptr %161, align 4
+  br label %174
 
-175:                                              ; preds = %110, %107, %127, %124, %93, %158, %172, %164, %.thread, %46, %61, %58
+174:                                              ; preds = %110, %107, %127, %124, %93, %157, %171, %163, %.thread, %46, %61, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %176 = load i32, ptr %5, align 8, !tbaa !10
-  %177 = zext i32 %176 to i64
-  %178 = icmp samesign ult i64 %indvars.iv.next, %177
-  br i1 %178, label %8, label %._crit_edge, !llvm.loop !37
+  %175 = load i32, ptr %5, align 8, !tbaa !10
+  %176 = zext i32 %175 to i64
+  %177 = icmp samesign ult i64 %indvars.iv.next, %176
+  br i1 %177, label %8, label %._crit_edge, !llvm.loop !37
 }
 
 declare i32 @lv_anim_get_playtime(ptr noundef) local_unnamed_addr #2

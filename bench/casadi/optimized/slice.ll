@@ -5451,7 +5451,7 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 
 63:                                               ; preds = %62
   invoke void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTIN6casadi15CasadiExceptionE, ptr nonnull @_ZN6casadi15CasadiExceptionD2Ev) #22
-          to label %158 unwind label %75
+          to label %159 unwind label %75
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.thread: ; preds = %.thread142
   %64 = landingpad { ptr, i32 }
@@ -5700,7 +5700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
 
 .preheader:                                       ; preds = %147
   %.not107178 = icmp eq i64 %.1, 0
-  br i1 %.not107178, label %.critedge113, label %.lr.ph181.preheader
+  br i1 %.not107178, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph181.preheader
 
 .lr.ph181.preheader:                              ; preds = %.preheader
   %.not108174 = icmp eq i64 %43, %41
@@ -5737,18 +5737,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   %.sroa.0134.1.lcssa = phi ptr [ %.sroa.0134.0179, %.lr.ph181 ], [ %155, %154 ]
   %157 = add nsw i64 %.058180, %53
   %.not107 = icmp eq i64 %157, %.1
-  br i1 %.not107, label %.critedge113, label %.lr.ph181, !llvm.loop !95
+  br i1 %.not107, label %.critedge113.loopexit, label %.lr.ph181, !llvm.loop !95
 
-.critedge113:                                     ; preds = %.critedge111, %.preheader
-  %.sroa.0134.0.lcssa = phi ptr [ %14, %.preheader ], [ %.sroa.0134.1.lcssa, %.critedge111 ]
-  %.not161 = icmp eq ptr %.sroa.0134.0.lcssa, %13
+.critedge113.loopexit:                            ; preds = %.critedge111
+  %158 = icmp eq ptr %.sroa.0134.1.lcssa, %13
   br label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
 
-_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %31, %.lr.ph, %.lr.ph177, %152, %1, %.critedge.i, %.critedge113, %29
-  %.076 = phi i1 [ true, %29 ], [ %.not161, %.critedge113 ], [ true, %.critedge.i ], [ true, %1 ], [ false, %152 ], [ false, %.lr.ph177 ], [ false, %.lr.ph ], [ true, %31 ]
+_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %31, %.lr.ph, %.lr.ph177, %152, %.preheader, %.critedge113.loopexit, %1, %.critedge.i, %29
+  %.076 = phi i1 [ true, %29 ], [ true, %.critedge.i ], [ true, %1 ], [ false, %.preheader ], [ %158, %.critedge113.loopexit ], [ false, %152 ], [ false, %.lr.ph177 ], [ false, %.lr.ph ], [ true, %31 ]
   ret i1 %.076
 
-158:                                              ; preds = %63
+159:                                              ; preds = %63
   unreachable
 }
 

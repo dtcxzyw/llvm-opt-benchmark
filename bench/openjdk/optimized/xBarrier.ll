@@ -5029,7 +5029,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %9 = load volatile i8, ptr %8, align 1
   %10 = and i8 %9, 16
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %66, label %11
+  br i1 %.not, label %65, label %11
 
 11:                                               ; preds = %3
   %12 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
@@ -5108,101 +5108,96 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %63, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop22XLoadBarrierOopClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %60, %40
-  %.0.i.i.i.i.i = phi i64 [ %35, %40 ], [ %62, %60 ]
-  %.not.not.i.i.i = icmp ult i64 %.0.i.i.i.i.i, %38
-  br i1 %.not.not.i.i.i, label %64, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop22XLoadBarrierOopClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
-
-64:                                               ; preds = %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i
-  %65 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %65, align 1
+  %64 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %64, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 274) #10
   unreachable
 
-66:                                               ; preds = %3
-  %67 = load i8, ptr @UseCompressedClassPointers, align 1
-  %68 = trunc i8 %67 to i1
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %68, label %70, label %80
+65:                                               ; preds = %3
+  %66 = load i8, ptr @UseCompressedClassPointers, align 1
+  %67 = trunc i8 %66 to i1
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %67, label %69, label %79
 
-70:                                               ; preds = %66
-  %71 = load i32, ptr %69, align 8
-  %72 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %73 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %74 = ptrtoint ptr %72 to i64
-  %75 = zext i32 %71 to i64
-  %76 = zext nneg i32 %73 to i64
-  %77 = shl i64 %75, %76
-  %78 = add i64 %77, %74
-  %79 = inttoptr i64 %78 to ptr
+69:                                               ; preds = %65
+  %70 = load i32, ptr %68, align 8
+  %71 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %72 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %73 = ptrtoint ptr %71 to i64
+  %74 = zext i32 %70 to i64
+  %75 = zext nneg i32 %72 to i64
+  %76 = shl i64 %74, %75
+  %77 = add i64 %76, %73
+  %78 = inttoptr i64 %77 to ptr
   br label %_ZNK7oopDesc5klassEv.exit.i.i
 
-80:                                               ; preds = %66
-  %81 = load ptr, ptr %69, align 8
+79:                                               ; preds = %65
+  %80 = load ptr, ptr %68, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i.i
 
-_ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
-  %.0.i.i.i = phi ptr [ %79, %70 ], [ %81, %80 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %85, label %95
+_ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %79, %69
+  %.0.i.i.i = phi ptr [ %78, %69 ], [ %80, %79 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %84, label %94
 
-85:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %86 = and i32 %83, 1
-  %.not.i.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i, label %87, label %90
+84:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
+  %85 = and i32 %82, 1
+  %.not.i.i.i = icmp eq i32 %85, 0
+  br i1 %.not.i.i.i, label %86, label %89
 
-87:                                               ; preds = %85
-  %88 = lshr i32 %83, 3
-  %89 = zext nneg i32 %88 to i64
+86:                                               ; preds = %84
+  %87 = lshr i32 %82, 3
+  %88 = zext nneg i32 %87 to i64
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %.0.i.i.i, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 256
-  %93 = load ptr, ptr %92, align 8
-  %94 = tail call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #9
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %.0.i.i.i, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 256
+  %92 = load ptr, ptr %91, align 8
+  %93 = tail call noundef i64 %92(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #9
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
-95:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %96 = icmp slt i32 %83, 0
-  br i1 %96, label %97, label %117
+94:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
+  %95 = icmp slt i32 %82, 0
+  br i1 %95, label %96, label %116
 
-97:                                               ; preds = %95
-  %98 = select i1 %68, i64 12, i64 16
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 %98
-  %100 = load i32, ptr %99, align 4
-  %101 = sext i32 %100 to i64
-  %102 = and i32 %83, 63
-  %103 = zext nneg i32 %102 to i64
-  %104 = shl i64 %101, %103
-  %105 = lshr i32 %83, 16
-  %106 = and i32 %105, 255
-  %107 = zext nneg i32 %106 to i64
-  %108 = add i64 %104, %107
-  %109 = load i32, ptr @MinObjAlignmentInBytes, align 4
-  %110 = add nsw i32 %109, -1
-  %111 = sext i32 %110 to i64
-  %112 = add i64 %108, %111
-  %113 = sub i32 0, %109
-  %114 = sext i32 %113 to i64
-  %115 = and i64 %112, %114
-  %116 = lshr i64 %115, 3
+96:                                               ; preds = %94
+  %97 = select i1 %67, i64 12, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 %97
+  %99 = load i32, ptr %98, align 4
+  %100 = sext i32 %99 to i64
+  %101 = and i32 %82, 63
+  %102 = zext nneg i32 %101 to i64
+  %103 = shl i64 %100, %102
+  %104 = lshr i32 %82, 16
+  %105 = and i32 %104, 255
+  %106 = zext nneg i32 %105 to i64
+  %107 = add i64 %103, %106
+  %108 = load i32, ptr @MinObjAlignmentInBytes, align 4
+  %109 = add nsw i32 %108, -1
+  %110 = sext i32 %109 to i64
+  %111 = add i64 %107, %110
+  %112 = sub i32 0, %108
+  %113 = sext i32 %112 to i64
+  %114 = and i64 %111, %113
+  %115 = lshr i64 %114, 3
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
-117:                                              ; preds = %95
-  %118 = load ptr, ptr %.0.i.i.i, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 256
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #9
+116:                                              ; preds = %94
+  %117 = load ptr, ptr %.0.i.i.i, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 256
+  %119 = load ptr, ptr %118, align 8
+  %120 = tail call noundef i64 %119(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #9
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
-_ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %87, %90, %97, %117
-  %.0.i1.i.i = phi i64 [ %94, %90 ], [ %89, %87 ], [ %116, %97 ], [ %121, %117 ]
+_ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %86, %89, %96, %116
+  %.0.i1.i.i = phi i64 [ %93, %89 ], [ %88, %86 ], [ %115, %96 ], [ %120, %116 ]
   tail call void @_ZN23InstanceStackChunkKlass26oop_oop_iterate_stack_slowEP17stackChunkOopDescP17OopIterateClosure9MemRegion(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2, ptr nonnull %1, i64 %.0.i1.i.i) #9
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop22XLoadBarrierOopClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
-_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop22XLoadBarrierOopClosureEEvP17stackChunkOopDescPT0_PlS7_.exit: ; preds = %52, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %60, %32, %11, %_ZN17stackChunkOopDesc5rangeEv.exit
+_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop22XLoadBarrierOopClosureEEvP17stackChunkOopDescPT0_PlS7_.exit: ; preds = %52, %60, %32, %11, %_ZN17stackChunkOopDesc5rangeEv.exit
   ret void
 }
 

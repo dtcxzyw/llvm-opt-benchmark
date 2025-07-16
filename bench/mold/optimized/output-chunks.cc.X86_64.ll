@@ -3708,8 +3708,8 @@ _ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7Cont
   br i1 %.not149.i, label %575, label %569
 
 468:                                              ; preds = %.critedge6.i, %.lr.ph423.i
-  %469 = phi ptr [ %228, %.lr.ph423.i ], [ %566, %.critedge6.i ]
-  %470 = phi ptr [ %227, %.lr.ph423.i ], [ %567, %.critedge6.i ]
+  %469 = phi ptr [ %228, %.lr.ph423.i ], [ %567, %.critedge6.i ]
+  %470 = phi ptr [ %227, %.lr.ph423.i ], [ %568, %.critedge6.i ]
   %.0136422.i = phi i64 [ 0, %.lr.ph423.i ], [ %.1137.i, %.critedge6.i ]
   %471 = add nuw nsw i64 %.0136422.i, 1
   %472 = getelementptr inbounds nuw ptr, ptr %469, i64 %.0136422.i
@@ -3718,157 +3718,157 @@ _ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7Cont
   %475 = load i64, ptr %474, align 1, !noalias !321
   %476 = and i64 %475, 1024
   %.not155.i = icmp eq i64 %476, 0
-  br i1 %.not155.i, label %..critedge6.i_crit_edge, label %477
+  br i1 %.not155.i, label %..critedge6.i_crit_edge, label %478
 
 ..critedge6.i_crit_edge:                          ; preds = %468
   %.pre70 = ptrtoint ptr %470 to i64
   %.pre71 = ptrtoint ptr %469 to i64
   %.pre73 = sub i64 %.pre70, %.pre71
   %.pre75 = ashr exact i64 %.pre73, 3
+  %477 = icmp ult i64 %471, %.pre75
   br label %.critedge6.i
 
-477:                                              ; preds = %468
+478:                                              ; preds = %468
   call fastcc void @_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlmmPNS_5ChunkIS1_EEE_clEmmSD_(ptr nonnull align 8 dereferenceable(4520) %1, ptr nonnull align 8 %6, i64 noundef 7, i64 noundef 4, ptr noundef nonnull %473)
-  %478 = load ptr, ptr %9, align 8, !tbaa !331, !noalias !321
-  %479 = load ptr, ptr %7, align 8, !tbaa !327, !noalias !321
-  %480 = ptrtoint ptr %478 to i64
+  %479 = load ptr, ptr %9, align 8, !tbaa !331, !noalias !321
+  %480 = load ptr, ptr %7, align 8, !tbaa !327, !noalias !321
   %481 = ptrtoint ptr %479 to i64
-  %482 = sub i64 %480, %481
-  %483 = ashr exact i64 %482, 3
-  %484 = icmp ult i64 %471, %483
-  br i1 %484, label %.lr.ph418.i.preheader, label %.critedge6.i
+  %482 = ptrtoint ptr %480 to i64
+  %483 = sub i64 %481, %482
+  %484 = ashr exact i64 %483, 3
+  %485 = icmp ult i64 %471, %484
+  br i1 %485, label %.lr.ph418.i.preheader, label %.critedge6.i
 
-.lr.ph418.i.preheader:                            ; preds = %477
-  %485 = getelementptr inbounds nuw ptr, ptr %479, i64 %471
-  %486 = load ptr, ptr %485, align 8, !tbaa !318, !noalias !321
-  %487 = getelementptr inbounds nuw i8, ptr %486, i64 32
-  %488 = load i64, ptr %487, align 1, !noalias !321
-  %489 = and i64 %488, 1024
-  %.not156.i37 = icmp eq i64 %489, 0
+.lr.ph418.i.preheader:                            ; preds = %478
+  %486 = getelementptr inbounds nuw ptr, ptr %480, i64 %471
+  %487 = load ptr, ptr %486, align 8, !tbaa !318, !noalias !321
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 32
+  %489 = load i64, ptr %488, align 1, !noalias !321
+  %490 = and i64 %489, 1024
+  %.not156.i37 = icmp eq i64 %490, 0
   br i1 %.not156.i37, label %.critedge6.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph418.i.preheader
   %.val184.val.i = load ptr, ptr %229, align 8, !tbaa !333, !alias.scope !321
-  %490 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -8
-  %491 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -7
-  %492 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -6
-  %493 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -5
-  %494 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -4
-  %495 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -3
-  %496 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -2
-  %497 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -1
-  %498 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -40
-  %499 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -16
-  %500 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -15
-  %501 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -14
-  %502 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -13
-  %503 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -12
-  %504 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -11
-  %505 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -10
-  %506 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -9
-  %507 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -24
-  %.pre = load i64, ptr %498, align 1, !noalias !321
-  br label %513
+  %491 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -8
+  %492 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -7
+  %493 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -6
+  %494 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -5
+  %495 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -4
+  %496 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -3
+  %497 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -2
+  %498 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -1
+  %499 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -40
+  %500 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -16
+  %501 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -15
+  %502 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -14
+  %503 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -13
+  %504 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -12
+  %505 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -11
+  %506 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -10
+  %507 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -9
+  %508 = getelementptr inbounds i8, ptr %.val184.val.i, i64 -24
+  %.pre = load i64, ptr %499, align 1, !noalias !321
+  br label %514
 
 .lr.ph418.i:                                      ; preds = %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i
-  %508 = getelementptr inbounds nuw ptr, ptr %560, i64 %515
-  %509 = load ptr, ptr %508, align 8, !tbaa !318, !noalias !321
-  %510 = getelementptr inbounds nuw i8, ptr %509, i64 32
-  %511 = load i64, ptr %510, align 1, !noalias !321
-  %512 = and i64 %511, 1024
-  %.not156.i = icmp eq i64 %512, 0
-  br i1 %.not156.i, label %.critedge6.i, label %513, !llvm.loop !339
+  %509 = getelementptr inbounds nuw ptr, ptr %561, i64 %516
+  %510 = load ptr, ptr %509, align 8, !tbaa !318, !noalias !321
+  %511 = getelementptr inbounds nuw i8, ptr %510, i64 32
+  %512 = load i64, ptr %511, align 1, !noalias !321
+  %513 = and i64 %512, 1024
+  %.not156.i = icmp eq i64 %513, 0
+  br i1 %.not156.i, label %.critedge6.i, label %514, !llvm.loop !339
 
-513:                                              ; preds = %.lr.ph, %.lr.ph418.i
-  %514 = phi ptr [ %486, %.lr.ph ], [ %509, %.lr.ph418.i ]
-  %.2138416.i38 = phi i64 [ %471, %.lr.ph ], [ %515, %.lr.ph418.i ]
-  %515 = add nuw nsw i64 %.2138416.i38, 1
-  %516 = load i64, ptr %490, align 1, !noalias !321
-  %517 = getelementptr inbounds nuw i8, ptr %514, i64 72
-  %518 = load i64, ptr %517, align 1, !noalias !321
-  %.sroa.speculated.i221.i = call i64 @llvm.umax.i64(i64 %516, i64 %518)
-  %519 = trunc i64 %.sroa.speculated.i221.i to i8
-  store i8 %519, ptr %490, align 1, !tbaa !17, !noalias !321
-  %520 = lshr i64 %.sroa.speculated.i221.i, 8
-  %521 = trunc i64 %520 to i8
-  store i8 %521, ptr %491, align 1, !tbaa !17, !noalias !321
-  %522 = lshr i64 %.sroa.speculated.i221.i, 16
-  %523 = trunc i64 %522 to i8
-  store i8 %523, ptr %492, align 1, !tbaa !17, !noalias !321
-  %524 = lshr i64 %.sroa.speculated.i221.i, 24
-  %525 = trunc i64 %524 to i8
-  store i8 %525, ptr %493, align 1, !tbaa !17, !noalias !321
-  %526 = lshr i64 %.sroa.speculated.i221.i, 32
-  %527 = trunc i64 %526 to i8
-  store i8 %527, ptr %494, align 1, !tbaa !17, !noalias !321
-  %528 = lshr i64 %.sroa.speculated.i221.i, 40
-  %529 = trunc i64 %528 to i8
-  store i8 %529, ptr %495, align 1, !tbaa !17, !noalias !321
-  %530 = lshr i64 %.sroa.speculated.i221.i, 48
-  %531 = trunc i64 %530 to i8
-  store i8 %531, ptr %496, align 1, !tbaa !17, !noalias !321
-  %532 = lshr i64 %.sroa.speculated.i221.i, 56
-  %533 = trunc nuw i64 %532 to i8
-  store i8 %533, ptr %497, align 1, !tbaa !17, !noalias !321
-  %534 = getelementptr inbounds nuw i8, ptr %514, i64 40
-  %535 = load i64, ptr %534, align 1, !noalias !321
-  %536 = getelementptr inbounds nuw i8, ptr %514, i64 56
-  %537 = load i64, ptr %536, align 1, !noalias !321
-  %538 = add i64 %537, %535
-  %539 = sub i64 %538, %.pre
-  %540 = trunc i64 %539 to i8
-  store i8 %540, ptr %499, align 1, !tbaa !17, !noalias !321
-  %541 = lshr i64 %539, 8
-  %542 = trunc i64 %541 to i8
-  store i8 %542, ptr %500, align 1, !tbaa !17, !noalias !321
-  %543 = lshr i64 %539, 16
-  %544 = trunc i64 %543 to i8
-  store i8 %544, ptr %501, align 1, !tbaa !17, !noalias !321
-  %545 = lshr i64 %539, 24
-  %546 = trunc i64 %545 to i8
-  store i8 %546, ptr %502, align 1, !tbaa !17, !noalias !321
-  %547 = lshr i64 %539, 32
-  %548 = trunc i64 %547 to i8
-  store i8 %548, ptr %503, align 1, !tbaa !17, !noalias !321
-  %549 = lshr i64 %539, 40
-  %550 = trunc i64 %549 to i8
-  store i8 %550, ptr %504, align 1, !tbaa !17, !noalias !321
-  %551 = lshr i64 %539, 48
-  %552 = trunc i64 %551 to i8
-  store i8 %552, ptr %505, align 1, !tbaa !17, !noalias !321
-  %553 = lshr i64 %539, 56
-  %554 = trunc nuw i64 %553 to i8
-  store i8 %554, ptr %506, align 1, !tbaa !17, !noalias !321
-  %555 = getelementptr inbounds nuw i8, ptr %514, i64 28
-  %556 = load i32, ptr %555, align 1, !noalias !321
-  %.not.i222.i = icmp eq i32 %556, 8
-  br i1 %.not.i222.i, label %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i, label %557
+514:                                              ; preds = %.lr.ph, %.lr.ph418.i
+  %515 = phi ptr [ %487, %.lr.ph ], [ %510, %.lr.ph418.i ]
+  %.2138416.i38 = phi i64 [ %471, %.lr.ph ], [ %516, %.lr.ph418.i ]
+  %516 = add nuw nsw i64 %.2138416.i38, 1
+  %517 = load i64, ptr %491, align 1, !noalias !321
+  %518 = getelementptr inbounds nuw i8, ptr %515, i64 72
+  %519 = load i64, ptr %518, align 1, !noalias !321
+  %.sroa.speculated.i221.i = call i64 @llvm.umax.i64(i64 %517, i64 %519)
+  %520 = trunc i64 %.sroa.speculated.i221.i to i8
+  store i8 %520, ptr %491, align 1, !tbaa !17, !noalias !321
+  %521 = lshr i64 %.sroa.speculated.i221.i, 8
+  %522 = trunc i64 %521 to i8
+  store i8 %522, ptr %492, align 1, !tbaa !17, !noalias !321
+  %523 = lshr i64 %.sroa.speculated.i221.i, 16
+  %524 = trunc i64 %523 to i8
+  store i8 %524, ptr %493, align 1, !tbaa !17, !noalias !321
+  %525 = lshr i64 %.sroa.speculated.i221.i, 24
+  %526 = trunc i64 %525 to i8
+  store i8 %526, ptr %494, align 1, !tbaa !17, !noalias !321
+  %527 = lshr i64 %.sroa.speculated.i221.i, 32
+  %528 = trunc i64 %527 to i8
+  store i8 %528, ptr %495, align 1, !tbaa !17, !noalias !321
+  %529 = lshr i64 %.sroa.speculated.i221.i, 40
+  %530 = trunc i64 %529 to i8
+  store i8 %530, ptr %496, align 1, !tbaa !17, !noalias !321
+  %531 = lshr i64 %.sroa.speculated.i221.i, 48
+  %532 = trunc i64 %531 to i8
+  store i8 %532, ptr %497, align 1, !tbaa !17, !noalias !321
+  %533 = lshr i64 %.sroa.speculated.i221.i, 56
+  %534 = trunc nuw i64 %533 to i8
+  store i8 %534, ptr %498, align 1, !tbaa !17, !noalias !321
+  %535 = getelementptr inbounds nuw i8, ptr %515, i64 40
+  %536 = load i64, ptr %535, align 1, !noalias !321
+  %537 = getelementptr inbounds nuw i8, ptr %515, i64 56
+  %538 = load i64, ptr %537, align 1, !noalias !321
+  %539 = add i64 %538, %536
+  %540 = sub i64 %539, %.pre
+  %541 = trunc i64 %540 to i8
+  store i8 %541, ptr %500, align 1, !tbaa !17, !noalias !321
+  %542 = lshr i64 %540, 8
+  %543 = trunc i64 %542 to i8
+  store i8 %543, ptr %501, align 1, !tbaa !17, !noalias !321
+  %544 = lshr i64 %540, 16
+  %545 = trunc i64 %544 to i8
+  store i8 %545, ptr %502, align 1, !tbaa !17, !noalias !321
+  %546 = lshr i64 %540, 24
+  %547 = trunc i64 %546 to i8
+  store i8 %547, ptr %503, align 1, !tbaa !17, !noalias !321
+  %548 = lshr i64 %540, 32
+  %549 = trunc i64 %548 to i8
+  store i8 %549, ptr %504, align 1, !tbaa !17, !noalias !321
+  %550 = lshr i64 %540, 40
+  %551 = trunc i64 %550 to i8
+  store i8 %551, ptr %505, align 1, !tbaa !17, !noalias !321
+  %552 = lshr i64 %540, 48
+  %553 = trunc i64 %552 to i8
+  store i8 %553, ptr %506, align 1, !tbaa !17, !noalias !321
+  %554 = lshr i64 %540, 56
+  %555 = trunc nuw i64 %554 to i8
+  store i8 %555, ptr %507, align 1, !tbaa !17, !noalias !321
+  %556 = getelementptr inbounds nuw i8, ptr %515, i64 28
+  %557 = load i32, ptr %556, align 1, !noalias !321
+  %.not.i222.i = icmp eq i32 %557, 8
+  br i1 %.not.i222.i, label %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i, label %558
 
-557:                                              ; preds = %513
-  %558 = load i64, ptr %499, align 1, !tbaa !17, !noalias !321
-  store i64 %558, ptr %507, align 1, !tbaa !17, !noalias !321
+558:                                              ; preds = %514
+  %559 = load i64, ptr %500, align 1, !tbaa !17, !noalias !321
+  store i64 %559, ptr %508, align 1, !tbaa !17, !noalias !321
   br label %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i
 
-_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i: ; preds = %557, %513
-  %559 = load ptr, ptr %9, align 8, !tbaa !331, !noalias !321
-  %560 = load ptr, ptr %7, align 8, !tbaa !327, !noalias !321
-  %561 = ptrtoint ptr %559 to i64
+_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i: ; preds = %558, %514
+  %560 = load ptr, ptr %9, align 8, !tbaa !331, !noalias !321
+  %561 = load ptr, ptr %7, align 8, !tbaa !327, !noalias !321
   %562 = ptrtoint ptr %560 to i64
-  %563 = sub i64 %561, %562
-  %564 = ashr exact i64 %563, 3
-  %565 = icmp ult i64 %515, %564
-  br i1 %565, label %.lr.ph418.i, label %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge, !llvm.loop !339
+  %563 = ptrtoint ptr %561 to i64
+  %564 = sub i64 %562, %563
+  %565 = ashr exact i64 %564, 3
+  %566 = icmp ult i64 %516, %565
+  br i1 %566, label %.lr.ph418.i, label %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge, !llvm.loop !339
 
 _ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge: ; preds = %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i
   br label %.critedge6.i, !llvm.loop !339
 
-.critedge6.i:                                     ; preds = %.lr.ph418.i, %..critedge6.i_crit_edge, %.lr.ph418.i.preheader, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge, %477
-  %.pre-phi76 = phi i64 [ %.pre75, %..critedge6.i_crit_edge ], [ %483, %.lr.ph418.i.preheader ], [ %564, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge ], [ %483, %477 ], [ %564, %.lr.ph418.i ]
-  %566 = phi ptr [ %469, %..critedge6.i_crit_edge ], [ %479, %.lr.ph418.i.preheader ], [ %560, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge ], [ %479, %477 ], [ %560, %.lr.ph418.i ]
-  %567 = phi ptr [ %470, %..critedge6.i_crit_edge ], [ %478, %.lr.ph418.i.preheader ], [ %559, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge ], [ %478, %477 ], [ %559, %.lr.ph418.i ]
-  %.1137.i = phi i64 [ %471, %..critedge6.i_crit_edge ], [ %471, %.lr.ph418.i.preheader ], [ %515, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge ], [ %471, %477 ], [ %515, %.lr.ph418.i ]
-  %568 = icmp ult i64 %.1137.i, %.pre-phi76
-  br i1 %568, label %468, label %._crit_edge424.i, !llvm.loop !340
+.critedge6.i:                                     ; preds = %.lr.ph418.i, %..critedge6.i_crit_edge, %.lr.ph418.i.preheader, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge, %478
+  %.pre-phi76 = phi i1 [ %477, %..critedge6.i_crit_edge ], [ true, %.lr.ph418.i.preheader ], [ false, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge ], [ false, %478 ], [ true, %.lr.ph418.i ]
+  %567 = phi ptr [ %469, %..critedge6.i_crit_edge ], [ %480, %.lr.ph418.i.preheader ], [ %561, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge ], [ %480, %478 ], [ %561, %.lr.ph418.i ]
+  %568 = phi ptr [ %470, %..critedge6.i_crit_edge ], [ %479, %.lr.ph418.i.preheader ], [ %560, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge ], [ %479, %478 ], [ %560, %.lr.ph418.i ]
+  %.1137.i = phi i64 [ %471, %..critedge6.i_crit_edge ], [ %471, %.lr.ph418.i.preheader ], [ %516, %_ZZN4moldL11create_phdrINS_6X86_64EEESt6vectorINS_7ElfPhdrIT_EESaIS5_EERNS_7ContextIS4_EEENKUlPNS_5ChunkIS1_EEE_clESD_.exit223.i..critedge6.i.loopexit_crit_edge ], [ %471, %478 ], [ %516, %.lr.ph418.i ]
+  br i1 %.pre-phi76, label %468, label %._crit_edge424.i, !llvm.loop !340
 
 569:                                              ; preds = %._crit_edge424.i
   %570 = getelementptr inbounds nuw i8, ptr %467, i64 56
@@ -29072,9 +29072,9 @@ define linkonce_odr dso_local ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iterator
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %62
-  %.0165 = phi i64 [ %64, %62 ], [ %7, %.lr.ph.preheader ]
-  %.sroa.0109.0164 = phi ptr [ %63, %62 ], [ %0, %.lr.ph.preheader ]
-  %10 = load ptr, ptr %.sroa.0109.0164, align 8, !tbaa !611
+  %.0146 = phi i64 [ %64, %62 ], [ %7, %.lr.ph.preheader ]
+  %.sroa.097.0145 = phi ptr [ %63, %62 ], [ %0, %.lr.ph.preheader ]
+  %10 = load ptr, ptr %.sroa.097.0145, align 8, !tbaa !611
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 560
   %12 = load ptr, ptr %11, align 8, !tbaa !1027
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 552
@@ -29109,13 +29109,13 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11up
   br i1 %22, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %23
 
 23:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !611
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 560
   %27 = load ptr, ptr %26, align 8, !tbaa !1027
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 552
   %.not10.i.i.i.i.i16 = icmp eq ptr %27, null
-  br i1 %.not10.i.i.i.i.i16, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit184, label %.lr.ph.i.i.i.i.i17
+  br i1 %.not10.i.i.i.i.i16, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit165, label %.lr.ph.i.i.i.i.i17
 
 .lr.ph.i.i.i.i.i17:                               ; preds = %23, %.lr.ph.i.i.i.i.i17
   %.012.i.i.i.i.i18 = phi ptr [ %.1.i.i.i.i.i23, %.lr.ph.i.i.i.i.i17 ], [ %27, %23 ]
@@ -29132,93 +29132,93 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11up
 
 _ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i25: ; preds = %.lr.ph.i.i.i.i.i17
   %32 = icmp eq ptr %.19.i.i.i.i.i20, %28
-  br i1 %32, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit182, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit29
+  br i1 %32, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit163, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit27
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit29: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i25
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit27: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i25
   %33 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i20, i64 32
   %34 = load i32, ptr %33, align 4, !tbaa !702
   %35 = icmp ult i32 %14, %34
   br i1 %35, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit, label %36
 
-36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit29
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 16
+36:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit27
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !611
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 560
   %40 = load ptr, ptr %39, align 8, !tbaa !1027
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 552
-  %.not10.i.i.i.i.i30 = icmp eq ptr %40, null
-  br i1 %.not10.i.i.i.i.i30, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit188, label %.lr.ph.i.i.i.i.i31
+  %.not10.i.i.i.i.i28 = icmp eq ptr %40, null
+  br i1 %.not10.i.i.i.i.i28, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit169, label %.lr.ph.i.i.i.i.i29
 
-.lr.ph.i.i.i.i.i31:                               ; preds = %36, %.lr.ph.i.i.i.i.i31
-  %.012.i.i.i.i.i32 = phi ptr [ %.1.i.i.i.i.i37, %.lr.ph.i.i.i.i.i31 ], [ %40, %36 ]
-  %.0811.i.i.i.i.i33 = phi ptr [ %.19.i.i.i.i.i34, %.lr.ph.i.i.i.i.i31 ], [ %41, %36 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i32, i64 32
+.lr.ph.i.i.i.i.i29:                               ; preds = %36, %.lr.ph.i.i.i.i.i29
+  %.012.i.i.i.i.i30 = phi ptr [ %.1.i.i.i.i.i35, %.lr.ph.i.i.i.i.i29 ], [ %40, %36 ]
+  %.0811.i.i.i.i.i31 = phi ptr [ %.19.i.i.i.i.i32, %.lr.ph.i.i.i.i.i29 ], [ %41, %36 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i30, i64 32
   %43 = load i32, ptr %42, align 4, !tbaa !702
   %44 = icmp ult i32 %43, %14
-  %.19.i.i.i.i.i34 = select i1 %44, ptr %.0811.i.i.i.i.i33, ptr %.012.i.i.i.i.i32
-  %.1.in.v.i.i.i.i.i35 = select i1 %44, i64 24, i64 16
-  %.1.in.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i32, i64 %.1.in.v.i.i.i.i.i35
-  %.1.i.i.i.i.i37 = load ptr, ptr %.1.in.i.i.i.i.i36, align 8, !tbaa !1033
-  %.not.i.i.i.i.i38 = icmp eq ptr %.1.i.i.i.i.i37, null
-  br i1 %.not.i.i.i.i.i38, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i39, label %.lr.ph.i.i.i.i.i31, !llvm.loop !1122
+  %.19.i.i.i.i.i32 = select i1 %44, ptr %.0811.i.i.i.i.i31, ptr %.012.i.i.i.i.i30
+  %.1.in.v.i.i.i.i.i33 = select i1 %44, i64 24, i64 16
+  %.1.in.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i30, i64 %.1.in.v.i.i.i.i.i33
+  %.1.i.i.i.i.i35 = load ptr, ptr %.1.in.i.i.i.i.i34, align 8, !tbaa !1033
+  %.not.i.i.i.i.i36 = icmp eq ptr %.1.i.i.i.i.i35, null
+  br i1 %.not.i.i.i.i.i36, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i37, label %.lr.ph.i.i.i.i.i29, !llvm.loop !1122
 
-_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i39: ; preds = %.lr.ph.i.i.i.i.i31
-  %45 = icmp eq ptr %.19.i.i.i.i.i34, %41
-  br i1 %45, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit186, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit43
+_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i37: ; preds = %.lr.ph.i.i.i.i.i29
+  %45 = icmp eq ptr %.19.i.i.i.i.i32, %41
+  br i1 %45, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit167, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit39
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit43: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i39
-  %46 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i34, i64 32
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit39: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i37
+  %46 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i32, i64 32
   %47 = load i32, ptr %46, align 4, !tbaa !702
   %48 = icmp ult i32 %14, %47
-  br i1 %48, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit178, label %49
+  br i1 %48, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit159, label %49
 
-49:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit43
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 24
+49:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit39
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !611
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 560
   %53 = load ptr, ptr %52, align 8, !tbaa !1027
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 552
-  %.not10.i.i.i.i.i44 = icmp eq ptr %53, null
-  br i1 %.not10.i.i.i.i.i44, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit192, label %.lr.ph.i.i.i.i.i45
+  %.not10.i.i.i.i.i40 = icmp eq ptr %53, null
+  br i1 %.not10.i.i.i.i.i40, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit173, label %.lr.ph.i.i.i.i.i41
 
-.lr.ph.i.i.i.i.i45:                               ; preds = %49, %.lr.ph.i.i.i.i.i45
-  %.012.i.i.i.i.i46 = phi ptr [ %.1.i.i.i.i.i51, %.lr.ph.i.i.i.i.i45 ], [ %53, %49 ]
-  %.0811.i.i.i.i.i47 = phi ptr [ %.19.i.i.i.i.i48, %.lr.ph.i.i.i.i.i45 ], [ %54, %49 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i46, i64 32
+.lr.ph.i.i.i.i.i41:                               ; preds = %49, %.lr.ph.i.i.i.i.i41
+  %.012.i.i.i.i.i42 = phi ptr [ %.1.i.i.i.i.i47, %.lr.ph.i.i.i.i.i41 ], [ %53, %49 ]
+  %.0811.i.i.i.i.i43 = phi ptr [ %.19.i.i.i.i.i44, %.lr.ph.i.i.i.i.i41 ], [ %54, %49 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i42, i64 32
   %56 = load i32, ptr %55, align 4, !tbaa !702
   %57 = icmp ult i32 %56, %14
-  %.19.i.i.i.i.i48 = select i1 %57, ptr %.0811.i.i.i.i.i47, ptr %.012.i.i.i.i.i46
-  %.1.in.v.i.i.i.i.i49 = select i1 %57, i64 24, i64 16
-  %.1.in.i.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i46, i64 %.1.in.v.i.i.i.i.i49
-  %.1.i.i.i.i.i51 = load ptr, ptr %.1.in.i.i.i.i.i50, align 8, !tbaa !1033
-  %.not.i.i.i.i.i52 = icmp eq ptr %.1.i.i.i.i.i51, null
-  br i1 %.not.i.i.i.i.i52, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i53, label %.lr.ph.i.i.i.i.i45, !llvm.loop !1122
+  %.19.i.i.i.i.i44 = select i1 %57, ptr %.0811.i.i.i.i.i43, ptr %.012.i.i.i.i.i42
+  %.1.in.v.i.i.i.i.i45 = select i1 %57, i64 24, i64 16
+  %.1.in.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i42, i64 %.1.in.v.i.i.i.i.i45
+  %.1.i.i.i.i.i47 = load ptr, ptr %.1.in.i.i.i.i.i46, align 8, !tbaa !1033
+  %.not.i.i.i.i.i48 = icmp eq ptr %.1.i.i.i.i.i47, null
+  br i1 %.not.i.i.i.i.i48, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i49, label %.lr.ph.i.i.i.i.i41, !llvm.loop !1122
 
-_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i53: ; preds = %.lr.ph.i.i.i.i.i45
-  %58 = icmp eq ptr %.19.i.i.i.i.i48, %54
-  br i1 %58, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit190, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit57
+_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i49: ; preds = %.lr.ph.i.i.i.i.i41
+  %58 = icmp eq ptr %.19.i.i.i.i.i44, %54
+  br i1 %58, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit171, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit51
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit57: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i53
-  %59 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i48, i64 32
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit51: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i49
+  %59 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i44, i64 32
   %60 = load i32, ptr %59, align 4, !tbaa !702
   %61 = icmp ult i32 %14, %60
-  br i1 %61, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit180, label %62
+  br i1 %61, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit161, label %62
 
-62:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit57
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 32
-  %64 = add nsw i64 %.0165, -1
-  %65 = icmp sgt i64 %.0165, 1
+62:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit51
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 32
+  %64 = add nsw i64 %.0146, -1
+  %65 = icmp sgt i64 %.0146, 1
   br i1 %65, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1123
 
 ._crit_edge.loopexit:                             ; preds = %62
   %.pre = ptrtoint ptr %scevgep to i64
-  %.pre176 = sub i64 %4, %.pre
+  %.pre157 = sub i64 %4, %.pre
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.pre-phi177 = phi i64 [ %.pre176, %._crit_edge.loopexit ], [ %6, %3 ]
-  %.sroa.0109.0.lcssa = phi ptr [ %scevgep, %._crit_edge.loopexit ], [ %0, %3 ]
-  %66 = ashr exact i64 %.pre-phi177, 3
+  %.pre-phi158 = phi i64 [ %.pre157, %._crit_edge.loopexit ], [ %6, %3 ]
+  %.sroa.097.0.lcssa = phi ptr [ %scevgep, %._crit_edge.loopexit ], [ %0, %3 ]
+  %66 = ashr exact i64 %.pre-phi158, 3
   switch i64 %66, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread [
     i64 3, label %67
     i64 2, label %83
@@ -29226,159 +29226,159 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11up
   ]
 
 67:                                               ; preds = %._crit_edge
-  %68 = load ptr, ptr %.sroa.0109.0.lcssa, align 8, !tbaa !611
+  %68 = load ptr, ptr %.sroa.097.0.lcssa, align 8, !tbaa !611
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 560
   %70 = load ptr, ptr %69, align 8, !tbaa !1027
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 552
-  %.not10.i.i.i.i.i58 = icmp eq ptr %70, null
-  br i1 %.not10.i.i.i.i.i58, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %.lr.ph.i.i.i.i.i59
+  %.not10.i.i.i.i.i52 = icmp eq ptr %70, null
+  br i1 %.not10.i.i.i.i.i52, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %.lr.ph.i.i.i.i.i53
 
-.lr.ph.i.i.i.i.i59:                               ; preds = %67
+.lr.ph.i.i.i.i.i53:                               ; preds = %67
   %72 = load i32, ptr %2, align 4, !tbaa !702
   br label %73
 
-73:                                               ; preds = %73, %.lr.ph.i.i.i.i.i59
-  %.012.i.i.i.i.i60 = phi ptr [ %70, %.lr.ph.i.i.i.i.i59 ], [ %.1.i.i.i.i.i65, %73 ]
-  %.0811.i.i.i.i.i61 = phi ptr [ %71, %.lr.ph.i.i.i.i.i59 ], [ %.19.i.i.i.i.i62, %73 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i60, i64 32
+73:                                               ; preds = %73, %.lr.ph.i.i.i.i.i53
+  %.012.i.i.i.i.i54 = phi ptr [ %70, %.lr.ph.i.i.i.i.i53 ], [ %.1.i.i.i.i.i59, %73 ]
+  %.0811.i.i.i.i.i55 = phi ptr [ %71, %.lr.ph.i.i.i.i.i53 ], [ %.19.i.i.i.i.i56, %73 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i54, i64 32
   %75 = load i32, ptr %74, align 4, !tbaa !702
   %76 = icmp ult i32 %75, %72
-  %.19.i.i.i.i.i62 = select i1 %76, ptr %.0811.i.i.i.i.i61, ptr %.012.i.i.i.i.i60
-  %.1.in.v.i.i.i.i.i63 = select i1 %76, i64 24, i64 16
-  %.1.in.i.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i60, i64 %.1.in.v.i.i.i.i.i63
-  %.1.i.i.i.i.i65 = load ptr, ptr %.1.in.i.i.i.i.i64, align 8, !tbaa !1033
-  %.not.i.i.i.i.i66 = icmp eq ptr %.1.i.i.i.i.i65, null
-  br i1 %.not.i.i.i.i.i66, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i67, label %73, !llvm.loop !1122
+  %.19.i.i.i.i.i56 = select i1 %76, ptr %.0811.i.i.i.i.i55, ptr %.012.i.i.i.i.i54
+  %.1.in.v.i.i.i.i.i57 = select i1 %76, i64 24, i64 16
+  %.1.in.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i54, i64 %.1.in.v.i.i.i.i.i57
+  %.1.i.i.i.i.i59 = load ptr, ptr %.1.in.i.i.i.i.i58, align 8, !tbaa !1033
+  %.not.i.i.i.i.i60 = icmp eq ptr %.1.i.i.i.i.i59, null
+  br i1 %.not.i.i.i.i.i60, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i61, label %73, !llvm.loop !1122
 
-_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i67: ; preds = %73
-  %77 = icmp eq ptr %.19.i.i.i.i.i62, %71
-  br i1 %77, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit71
+_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i61: ; preds = %73
+  %77 = icmp eq ptr %.19.i.i.i.i.i56, %71
+  br i1 %77, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit63
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit71: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i67
-  %78 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i62, i64 32
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit63: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i61
+  %78 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i56, i64 32
   %79 = load i32, ptr %78, align 4, !tbaa !702
   %80 = icmp ult i32 %72, %79
   br i1 %80, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %81
 
-81:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit71
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0.lcssa, i64 8
+81:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit63
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.097.0.lcssa, i64 8
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge
-  %.sroa.0109.1 = phi ptr [ %82, %81 ], [ %.sroa.0109.0.lcssa, %._crit_edge ]
-  %84 = load ptr, ptr %.sroa.0109.1, align 8, !tbaa !611
+  %.sroa.097.1 = phi ptr [ %82, %81 ], [ %.sroa.097.0.lcssa, %._crit_edge ]
+  %84 = load ptr, ptr %.sroa.097.1, align 8, !tbaa !611
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 560
   %86 = load ptr, ptr %85, align 8, !tbaa !1027
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 552
-  %.not10.i.i.i.i.i72 = icmp eq ptr %86, null
-  br i1 %.not10.i.i.i.i.i72, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %.lr.ph.i.i.i.i.i73
+  %.not10.i.i.i.i.i64 = icmp eq ptr %86, null
+  br i1 %.not10.i.i.i.i.i64, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %.lr.ph.i.i.i.i.i65
 
-.lr.ph.i.i.i.i.i73:                               ; preds = %83
+.lr.ph.i.i.i.i.i65:                               ; preds = %83
   %88 = load i32, ptr %2, align 4, !tbaa !702
   br label %89
 
-89:                                               ; preds = %89, %.lr.ph.i.i.i.i.i73
-  %.012.i.i.i.i.i74 = phi ptr [ %86, %.lr.ph.i.i.i.i.i73 ], [ %.1.i.i.i.i.i79, %89 ]
-  %.0811.i.i.i.i.i75 = phi ptr [ %87, %.lr.ph.i.i.i.i.i73 ], [ %.19.i.i.i.i.i76, %89 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i74, i64 32
+89:                                               ; preds = %89, %.lr.ph.i.i.i.i.i65
+  %.012.i.i.i.i.i66 = phi ptr [ %86, %.lr.ph.i.i.i.i.i65 ], [ %.1.i.i.i.i.i71, %89 ]
+  %.0811.i.i.i.i.i67 = phi ptr [ %87, %.lr.ph.i.i.i.i.i65 ], [ %.19.i.i.i.i.i68, %89 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i66, i64 32
   %91 = load i32, ptr %90, align 4, !tbaa !702
   %92 = icmp ult i32 %91, %88
-  %.19.i.i.i.i.i76 = select i1 %92, ptr %.0811.i.i.i.i.i75, ptr %.012.i.i.i.i.i74
-  %.1.in.v.i.i.i.i.i77 = select i1 %92, i64 24, i64 16
-  %.1.in.i.i.i.i.i78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i74, i64 %.1.in.v.i.i.i.i.i77
-  %.1.i.i.i.i.i79 = load ptr, ptr %.1.in.i.i.i.i.i78, align 8, !tbaa !1033
-  %.not.i.i.i.i.i80 = icmp eq ptr %.1.i.i.i.i.i79, null
-  br i1 %.not.i.i.i.i.i80, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i81, label %89, !llvm.loop !1122
+  %.19.i.i.i.i.i68 = select i1 %92, ptr %.0811.i.i.i.i.i67, ptr %.012.i.i.i.i.i66
+  %.1.in.v.i.i.i.i.i69 = select i1 %92, i64 24, i64 16
+  %.1.in.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i66, i64 %.1.in.v.i.i.i.i.i69
+  %.1.i.i.i.i.i71 = load ptr, ptr %.1.in.i.i.i.i.i70, align 8, !tbaa !1033
+  %.not.i.i.i.i.i72 = icmp eq ptr %.1.i.i.i.i.i71, null
+  br i1 %.not.i.i.i.i.i72, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i73, label %89, !llvm.loop !1122
 
-_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i81: ; preds = %89
-  %93 = icmp eq ptr %.19.i.i.i.i.i76, %87
-  br i1 %93, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit85
+_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i73: ; preds = %89
+  %93 = icmp eq ptr %.19.i.i.i.i.i68, %87
+  br i1 %93, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit75
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit85: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i81
-  %94 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i76, i64 32
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit75: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i73
+  %94 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i68, i64 32
   %95 = load i32, ptr %94, align 4, !tbaa !702
   %96 = icmp ult i32 %88, %95
   br i1 %96, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %97
 
-97:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit85
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0109.1, i64 8
+97:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit75
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.097.1, i64 8
   br label %99
 
 99:                                               ; preds = %97, %._crit_edge
-  %.sroa.0109.2 = phi ptr [ %98, %97 ], [ %.sroa.0109.0.lcssa, %._crit_edge ]
-  %100 = load ptr, ptr %.sroa.0109.2, align 8, !tbaa !611
+  %.sroa.097.2 = phi ptr [ %98, %97 ], [ %.sroa.097.0.lcssa, %._crit_edge ]
+  %100 = load ptr, ptr %.sroa.097.2, align 8, !tbaa !611
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 560
   %102 = load ptr, ptr %101, align 8, !tbaa !1027
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 552
-  %.not10.i.i.i.i.i86 = icmp eq ptr %102, null
-  br i1 %.not10.i.i.i.i.i86, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %.lr.ph.i.i.i.i.i87
+  %.not10.i.i.i.i.i76 = icmp eq ptr %102, null
+  br i1 %.not10.i.i.i.i.i76, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %.lr.ph.i.i.i.i.i77
 
-.lr.ph.i.i.i.i.i87:                               ; preds = %99
+.lr.ph.i.i.i.i.i77:                               ; preds = %99
   %104 = load i32, ptr %2, align 4, !tbaa !702
   br label %105
 
-105:                                              ; preds = %105, %.lr.ph.i.i.i.i.i87
-  %.012.i.i.i.i.i88 = phi ptr [ %102, %.lr.ph.i.i.i.i.i87 ], [ %.1.i.i.i.i.i93, %105 ]
-  %.0811.i.i.i.i.i89 = phi ptr [ %103, %.lr.ph.i.i.i.i.i87 ], [ %.19.i.i.i.i.i90, %105 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i88, i64 32
+105:                                              ; preds = %105, %.lr.ph.i.i.i.i.i77
+  %.012.i.i.i.i.i78 = phi ptr [ %102, %.lr.ph.i.i.i.i.i77 ], [ %.1.i.i.i.i.i83, %105 ]
+  %.0811.i.i.i.i.i79 = phi ptr [ %103, %.lr.ph.i.i.i.i.i77 ], [ %.19.i.i.i.i.i80, %105 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i78, i64 32
   %107 = load i32, ptr %106, align 4, !tbaa !702
   %108 = icmp ult i32 %107, %104
-  %.19.i.i.i.i.i90 = select i1 %108, ptr %.0811.i.i.i.i.i89, ptr %.012.i.i.i.i.i88
-  %.1.in.v.i.i.i.i.i91 = select i1 %108, i64 24, i64 16
-  %.1.in.i.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i88, i64 %.1.in.v.i.i.i.i.i91
-  %.1.i.i.i.i.i93 = load ptr, ptr %.1.in.i.i.i.i.i92, align 8, !tbaa !1033
-  %.not.i.i.i.i.i94 = icmp eq ptr %.1.i.i.i.i.i93, null
-  br i1 %.not.i.i.i.i.i94, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i95, label %105, !llvm.loop !1122
+  %.19.i.i.i.i.i80 = select i1 %108, ptr %.0811.i.i.i.i.i79, ptr %.012.i.i.i.i.i78
+  %.1.in.v.i.i.i.i.i81 = select i1 %108, i64 24, i64 16
+  %.1.in.i.i.i.i.i82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i78, i64 %.1.in.v.i.i.i.i.i81
+  %.1.i.i.i.i.i83 = load ptr, ptr %.1.in.i.i.i.i.i82, align 8, !tbaa !1033
+  %.not.i.i.i.i.i84 = icmp eq ptr %.1.i.i.i.i.i83, null
+  br i1 %.not.i.i.i.i.i84, label %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i85, label %105, !llvm.loop !1122
 
-_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i95: ; preds = %105
-  %109 = icmp eq ptr %.19.i.i.i.i.i90, %103
-  br i1 %109, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit99
+_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i85: ; preds = %105
+  %109 = icmp eq ptr %.19.i.i.i.i.i80, %103
+  br i1 %109, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit87
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit99: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i95
-  %110 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i90, i64 32
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit87: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i85
+  %110 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i80, i64 32
   %111 = load i32, ptr %110, align 4, !tbaa !702
   %112 = icmp ult i32 %104, %111
-  %spec.select = select i1 %112, ptr %.sroa.0109.2, ptr %1
+  %spec.select = select i1 %112, ptr %.sroa.097.2, ptr %1
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit29
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 8
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit27
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 8
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit178: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit43
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 16
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit159: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit39
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 16
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit180: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit57
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 24
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit161: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit51
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 24
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit182: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i25
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 8
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit163: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i25
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 8
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit184: ; preds = %23
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 8
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit165: ; preds = %23
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 8
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit186: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i39
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 16
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit167: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i37
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 16
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit188: ; preds = %36
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 16
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit169: ; preds = %36
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 16
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit190: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i53
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 24
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit171: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i49
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 24
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit192: ; preds = %49
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0164, i64 24
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit173: ; preds = %49
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.097.0145, i64 24
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread: ; preds = %.lr.ph, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit178, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit180, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit182, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit184, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit186, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit188, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit190, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit192, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit99, %99, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i95, %83, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i81, %67, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i67, %._crit_edge, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit85, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit71
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.0109.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit71 ], [ %.sroa.0109.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit85 ], [ %1, %._crit_edge ], [ %.sroa.0109.0.lcssa, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i67 ], [ %.sroa.0109.0.lcssa, %67 ], [ %.sroa.0109.1, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i81 ], [ %.sroa.0109.1, %83 ], [ %.sroa.0109.2, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i95 ], [ %.sroa.0109.2, %99 ], [ %spec.select, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit99 ], [ %113, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %114, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit178 ], [ %115, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit180 ], [ %116, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit182 ], [ %117, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit184 ], [ %118, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit186 ], [ %119, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit188 ], [ %120, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit190 ], [ %121, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit192 ], [ %.sroa.0109.0164, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit ], [ %.sroa.0109.0164, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %.sroa.0109.0164, %.lr.ph ]
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread: ; preds = %.lr.ph, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit159, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit161, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit163, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit165, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit167, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit169, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit171, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit173, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit87, %99, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i85, %83, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i73, %67, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i61, %._crit_edge, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit75, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit63
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.097.0.lcssa, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit63 ], [ %.sroa.097.1, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit75 ], [ %1, %._crit_edge ], [ %.sroa.097.0.lcssa, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i61 ], [ %.sroa.097.0.lcssa, %67 ], [ %.sroa.097.1, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i73 ], [ %.sroa.097.1, %83 ], [ %.sroa.097.2, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i85 ], [ %.sroa.097.2, %99 ], [ %spec.select, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit87 ], [ %113, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit ], [ %114, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit159 ], [ %115, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit161 ], [ %116, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit163 ], [ %117, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit165 ], [ %118, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit167 ], [ %119, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit169 ], [ %120, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit171 ], [ %121, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit.thread.loopexit.split.loop.exit173 ], [ %.sroa.097.0145, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN4mold19NotePropertySectionINS2_6X86_64EE11update_shdrERNS2_7ContextIS4_EEEUlPNS2_10ObjectFileIS4_EEE_EclINS_17__normal_iteratorIPSB_St6vectorISB_SaISB_EEEEEEbT_.exit ], [ %.sroa.097.0145, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %.sroa.097.0145, %.lr.ph ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 

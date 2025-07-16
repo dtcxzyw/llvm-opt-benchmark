@@ -18371,13 +18371,13 @@ Rtl_LibUpdateBoxes.exit:                          ; preds = %Rtl_NtkUpdateBoxes.
   %161 = getelementptr ptr, ptr %.val4.val.val.i.i, i64 %160
   %162 = getelementptr i8, ptr %161, i64 -8000000000
   %163 = load ptr, ptr %162, align 8, !tbaa !22
+  %164 = icmp eq ptr %163, %132
+  %165 = zext i1 %164 to i32
   br label %Rtl_CellNtk.exit.i
 
 Rtl_CellNtk.exit.i:                               ; preds = %157, %152
-  %164 = phi ptr [ %163, %157 ], [ null, %152 ]
-  %165 = icmp eq ptr %164, %132
-  %166 = zext i1 %165 to i32
-  %.2.i = add nsw i32 %.129.i, %166
+  %166 = phi i32 [ %165, %157 ], [ 0, %152 ]
+  %.2.i = add nsw i32 %166, %.129.i
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i123
   br i1 %exitcond.not.i126, label %.critedge2.i, label %152, !llvm.loop !129
@@ -18453,13 +18453,13 @@ Rtl_LibCountInsts.exit:                           ; preds = %.critedge2.i, %142
   %191 = getelementptr ptr, ptr %.val4.val.val.i.i158, i64 %190
   %192 = getelementptr i8, ptr %191, i64 -8000000000
   %193 = load ptr, ptr %192, align 8, !tbaa !22
+  %194 = icmp eq ptr %193, %135
+  %195 = zext i1 %194 to i32
   br label %Rtl_CellNtk.exit.i150
 
 Rtl_CellNtk.exit.i150:                            ; preds = %187, %182
-  %194 = phi ptr [ %193, %187 ], [ null, %182 ]
-  %195 = icmp eq ptr %194, %135
-  %196 = zext i1 %195 to i32
-  %.2.i153 = add nsw i32 %.129.i147, %196
+  %196 = phi i32 [ %195, %187 ], [ 0, %182 ]
+  %.2.i153 = add nsw i32 %196, %.129.i147
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i146, 1
   %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, %wide.trip.count.i145
   br i1 %exitcond.not.i155, label %.critedge2.i135, label %182, !llvm.loop !129
@@ -18550,13 +18550,13 @@ Rtl_LibCountInsts.exit159:                        ; preds = %.critedge2.i135, %R
   %229 = getelementptr ptr, ptr %.val4.val.val.i.i191, i64 %228
   %230 = getelementptr i8, ptr %229, i64 -8000000000
   %231 = load ptr, ptr %230, align 8, !tbaa !22
+  %232 = icmp eq ptr %231, %132
+  %233 = zext i1 %232 to i32
   br label %Rtl_CellNtk.exit.i183
 
 Rtl_CellNtk.exit.i183:                            ; preds = %225, %220
-  %232 = phi ptr [ %231, %225 ], [ null, %220 ]
-  %233 = icmp eq ptr %232, %132
-  %234 = zext i1 %233 to i32
-  %.2.i186 = add nsw i32 %.129.i180, %234
+  %234 = phi i32 [ %233, %225 ], [ 0, %220 ]
+  %.2.i186 = add nsw i32 %234, %.129.i180
   %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i179, 1
   %exitcond.not.i188 = icmp eq i64 %indvars.iv.next.i187, %wide.trip.count.i178
   br i1 %exitcond.not.i188, label %.critedge2.i168, label %220, !llvm.loop !129
@@ -18632,13 +18632,13 @@ Rtl_LibCountInsts.exit192:                        ; preds = %.critedge2.i168, %2
   %259 = getelementptr ptr, ptr %.val4.val.val.i.i224, i64 %258
   %260 = getelementptr i8, ptr %259, i64 -8000000000
   %261 = load ptr, ptr %260, align 8, !tbaa !22
+  %262 = icmp eq ptr %261, %135
+  %263 = zext i1 %262 to i32
   br label %Rtl_CellNtk.exit.i216
 
 Rtl_CellNtk.exit.i216:                            ; preds = %255, %250
-  %262 = phi ptr [ %261, %255 ], [ null, %250 ]
-  %263 = icmp eq ptr %262, %135
-  %264 = zext i1 %263 to i32
-  %.2.i219 = add nsw i32 %.129.i213, %264
+  %264 = phi i32 [ %263, %255 ], [ 0, %250 ]
+  %.2.i219 = add nsw i32 %264, %.129.i213
   %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i212, 1
   %exitcond.not.i221 = icmp eq i64 %indvars.iv.next.i220, %wide.trip.count.i211
   br i1 %exitcond.not.i221, label %.critedge2.i201, label %250, !llvm.loop !129

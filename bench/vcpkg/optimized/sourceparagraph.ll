@@ -11939,15 +11939,15 @@ define dso_local ptr @_ZNK5vcpkg17SourceControlFile12find_featureENS_10StringVie
 "_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit": ; preds = %8, %12
   %.sroa.01.0.lcssa.i.ph = phi ptr [ %.sroa.01.06.i, %8 ], [ %13, %12 ]
   %.pre = load ptr, ptr %6, align 8, !tbaa !110
-  %.not = icmp eq ptr %.sroa.01.0.lcssa.i.ph, %.pre
-  br i1 %.not, label %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit.thread", label %14
+  %14 = icmp eq ptr %.sroa.01.0.lcssa.i.ph, %.pre
+  br i1 %14, label %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit.thread", label %15
 
-14:                                               ; preds = %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit"
-  %15 = load ptr, ptr %.sroa.01.0.lcssa.i.ph, align 8, !tbaa !112
+15:                                               ; preds = %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit"
+  %16 = load ptr, ptr %.sroa.01.0.lcssa.i.ph, align 8, !tbaa !112
   br label %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit.thread"
 
-"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit.thread": ; preds = %3, %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit", %14
-  %.sroa.05.0 = phi ptr [ %15, %14 ], [ null, %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit" ], [ null, %3 ]
+"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit.thread": ; preds = %3, %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit", %15
+  %.sroa.05.0 = phi ptr [ %16, %15 ], [ null, %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit" ], [ null, %3 ]
   ret ptr %.sroa.05.0
 }
 
@@ -12061,14 +12061,14 @@ define dso_local ptr @_ZNK5vcpkg17SourceControlFile29find_dependencies_for_featu
 "_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit.i": ; preds = %21, %17
   %.sroa.01.0.lcssa.i.ph.i = phi ptr [ %.sroa.01.06.i.i, %17 ], [ %22, %21 ]
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !110
-  %.not.i = icmp eq ptr %.sroa.01.0.lcssa.i.ph.i, %.pre.i
-  br i1 %.not.i, label %_ZNK5vcpkg17SourceControlFile12find_featureENS_10StringViewE.exit.thread, label %_ZNK5vcpkg17SourceControlFile12find_featureENS_10StringViewE.exit
+  %23 = icmp eq ptr %.sroa.01.0.lcssa.i.ph.i, %.pre.i
+  br i1 %23, label %_ZNK5vcpkg17SourceControlFile12find_featureENS_10StringViewE.exit.thread, label %_ZNK5vcpkg17SourceControlFile12find_featureENS_10StringViewE.exit
 
 _ZNK5vcpkg17SourceControlFile12find_featureENS_10StringViewE.exit: ; preds = %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit.i"
-  %23 = load ptr, ptr %.sroa.01.0.lcssa.i.ph.i, align 8, !tbaa !112
-  %.not = icmp eq ptr %23, null
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %spec.select = select i1 %.not, ptr null, ptr %24
+  %24 = load ptr, ptr %.sroa.01.0.lcssa.i.ph.i, align 8, !tbaa !112
+  %.not = icmp eq ptr %24, null
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %spec.select = select i1 %.not, ptr null, ptr %25
   br label %_ZNK5vcpkg17SourceControlFile12find_featureENS_10StringViewE.exit.thread
 
 _ZNK5vcpkg17SourceControlFile12find_featureENS_10StringViewE.exit.thread: ; preds = %_ZNK5vcpkg17SourceControlFile12find_featureENS_10StringViewE.exit, %10, %"_ZN5vcpkg4Util7find_ifIRKSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNKS_17SourceControlFile12find_featureENS_10StringViewEE3$_0EEDaOT_T0_.exit.i", %7

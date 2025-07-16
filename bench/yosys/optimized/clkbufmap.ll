@@ -16926,8 +16926,8 @@ _ZNSt6vectorISt4pairIPN5Yosys5RTLIL4WireES4_ESaIS5_EE9push_backEOS5_.exit.thread
 ._crit_edge8044:                                  ; preds = %.thread9688
   %.pre9483 = load ptr, ptr %631, align 8, !tbaa !341
   %.pre9484 = load ptr, ptr %632, align 8, !tbaa !341
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %114) #23
   %7594 = icmp eq ptr %.pre9483, %.pre9484
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %114) #23
   br i1 %7594, label %_ZNSt6vectorISt4pairIPN5Yosys5RTLIL4WireES4_ESaIS5_EE9push_backEOS5_.exit, label %.noexc.i1925
 
 7595:                                             ; preds = %.lr.ph8043, %.thread9688

@@ -1910,8 +1910,8 @@ define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef readonl
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %12 = tail call i32 @rb_keyword_given_p() #12
-  %.not25 = icmp eq i32 %12, 0
-  br i1 %.not25, label %rb_scan_args_set.exit, label %15
+  %.not19 = icmp eq i32 %12, 0
+  br i1 %.not19, label %.thread13, label %15
 
 13:                                               ; preds = %3
   %14 = icmp slt i32 %.0.val, 0
@@ -1920,25 +1920,25 @@ define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef readonl
 15:                                               ; preds = %7
   %16 = tail call i64 @rb_hash_dup(i64 noundef %11) #12
   %17 = add nsw i32 %.0.val, -1
-  br label %rb_scan_args_set.exit
+  br label %.thread13
 
 18:                                               ; preds = %13
   tail call void @rb_error_arity(i32 noundef %.0.val, i32 noundef 0, i32 noundef -1) #13
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %15, %7
-  %storemerge = phi i64 [ 4, %7 ], [ %16, %15 ]
-  %.0.i41024 = phi i32 [ %.0.val, %7 ], [ %17, %15 ]
-  %19 = icmp samesign ugt i32 %.0.i41024, %1
+.thread13:                                        ; preds = %15, %7
+  %.087.i311 = phi i64 [ 4, %7 ], [ %16, %15 ]
+  %.0.i49 = phi i32 [ %.0.val, %7 ], [ %17, %15 ]
+  %19 = icmp samesign ugt i32 %.0.i49, %1
   br i1 %19, label %20, label %rb_check_arity.exit
 
-20:                                               ; preds = %rb_scan_args_set.exit
-  tail call void @rb_error_arity(i32 noundef %.0.i41024, i32 noundef 0, i32 noundef range(i32 -1, 2) %1) #13
+20:                                               ; preds = %.thread13
+  tail call void @rb_error_arity(i32 noundef %.0.i49, i32 noundef 0, i32 noundef range(i32 -1, 2) %1) #13
   unreachable
 
-rb_check_arity.exit:                              ; preds = %13, %rb_scan_args_set.exit
-  %storemerge28 = phi i64 [ %storemerge, %rb_scan_args_set.exit ], [ 4, %13 ]
-  %21 = call i32 @rb_get_kwargs(i64 noundef %storemerge28, ptr noundef nonnull @rawmode_opt_ids, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #12
+rb_check_arity.exit:                              ; preds = %13, %.thread13
+  %.087.i31122 = phi i64 [ %.087.i311, %.thread13 ], [ 4, %13 ]
+  %21 = call i32 @rb_get_kwargs(i64 noundef %.087.i31122, ptr noundef nonnull @rawmode_opt_ids, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %51, label %22
 

@@ -467,7 +467,7 @@ declare noundef i32 @_ZNK8TypeNode4hashEv(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK18ConstraintCastNode3cmpERK4Node(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK8TypeNode3cmpERK4Node(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) #6
-  br i1 %3, label %4, label %21
+  br i1 %3, label %4, label %20
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -475,7 +475,7 @@ define hidden noundef zeroext i1 @_ZNK18ConstraintCastNode3cmpERK4Node(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %6, %8
-  br i1 %.not, label %9, label %21
+  br i1 %.not, label %9, label %20
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -483,25 +483,24 @@ define hidden noundef zeroext i1 @_ZNK18ConstraintCastNode3cmpERK4Node(ptr nound
   %12 = icmp eq ptr %11, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %12, label %._crit_edge, label %13
+  br i1 %12, label %._crit_edge, label %14
 
-13:                                               ; preds = %9
-  %14 = icmp eq ptr %.pre, null
-  br i1 %14, label %._crit_edge, label %17
+._crit_edge:                                      ; preds = %9
+  %13 = icmp eq ptr %11, %.pre
+  br label %20
 
-._crit_edge:                                      ; preds = %9, %13
-  %15 = phi ptr [ null, %13 ], [ %.pre, %9 ]
-  %16 = icmp eq ptr %11, %15
-  br label %21
+14:                                               ; preds = %9
+  %15 = icmp eq ptr %.pre, null
+  br i1 %15, label %20, label %16
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %11, align 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %.pre) #6
-  br label %21
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %.pre) #6
+  br label %20
 
-21:                                               ; preds = %4, %2, %17, %._crit_edge
-  %.0 = phi i1 [ %16, %._crit_edge ], [ %20, %17 ], [ false, %2 ], [ false, %4 ]
+20:                                               ; preds = %14, %._crit_edge, %4, %2, %16
+  %.0 = phi i1 [ %19, %16 ], [ false, %2 ], [ false, %4 ], [ %13, %._crit_edge ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -1273,33 +1272,33 @@ define hidden noundef zeroext i1 @_ZNK10CastIINode3cmpERK4Node(ptr noundef nonnu
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %13 = icmp eq ptr %.pre.i, null
-  br i1 %12, label %._crit_edge.i, label %14
+  br i1 %12, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit, label %14
 
 14:                                               ; preds = %9
-  br i1 %13, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit
+  br i1 %13, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread, label %15
 
-._crit_edge.i:                                    ; preds = %9
-  br i1 %13, label %18, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %11, align 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %.pre.i) #6
+  br i1 %18, label %19, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread
 
-_ZNK18ConstraintCastNode3cmpERK4Node.exit:        ; preds = %14
-  %15 = load ptr, ptr %11, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %.pre.i) #6
-  br i1 %17, label %18, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread
+_ZNK18ConstraintCastNode3cmpERK4Node.exit:        ; preds = %9
+  br i1 %13, label %19, label %_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread
 
-18:                                               ; preds = %._crit_edge.i, %_ZNK18ConstraintCastNode3cmpERK4Node.exit
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %20 = load i8, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %22 = load i8, ptr %21, align 8
-  %23 = xor i8 %22, %20
-  %24 = and i8 %23, 1
-  %25 = icmp eq i8 %24, 0
+19:                                               ; preds = %15, %_ZNK18ConstraintCastNode3cmpERK4Node.exit
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %21 = load i8, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %23 = load i8, ptr %22, align 8
+  %24 = xor i8 %23, %21
+  %25 = and i8 %24, 1
+  %26 = icmp eq i8 %25, 0
   br label %_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread
 
-_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread: ; preds = %14, %4, %2, %._crit_edge.i, %18, %_ZNK18ConstraintCastNode3cmpERK4Node.exit
-  %26 = phi i1 [ false, %_ZNK18ConstraintCastNode3cmpERK4Node.exit ], [ %25, %18 ], [ false, %._crit_edge.i ], [ false, %2 ], [ false, %4 ], [ false, %14 ]
-  ret i1 %26
+_ZNK18ConstraintCastNode3cmpERK4Node.exit.thread: ; preds = %14, %4, %2, %15, %19, %_ZNK18ConstraintCastNode3cmpERK4Node.exit
+  %27 = phi i1 [ false, %_ZNK18ConstraintCastNode3cmpERK4Node.exit ], [ %26, %19 ], [ false, %15 ], [ false, %2 ], [ false, %4 ], [ false, %14 ]
+  ret i1 %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

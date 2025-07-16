@@ -17498,162 +17498,162 @@ reflection_method_factory.exit:                   ; preds = %66, %82
   %.sink32.i = phi i32 [ 262, %82 ], [ 6, %66 ]
   %85 = getelementptr inbounds nuw i8, ptr %68, i64 64
   store i32 %.sink32.i, ptr %85, align 8, !tbaa !26
-  br label %153
+  br label %154
 
 is_closure_invoke.exit.thread:                    ; preds = %41
   %.pr.pr.pre = load i8, ptr %32, align 8, !tbaa !26
   %.pre = load ptr, ptr @zend_ce_closure, align 8
   %86 = icmp eq i8 %.pr.pr.pre, 0
   %87 = icmp eq ptr %17, %.pre
-  %or.cond = select i1 %86, i1 %87, i1 false
-  br i1 %or.cond, label %88, label %is_closure_invoke.exit35.thread
+  %88 = select i1 %86, i1 %87, i1 false
+  br i1 %88, label %89, label %is_closure_invoke.exit35.thread
 
 .thread:                                          ; preds = %29
-  br i1 %.old44, label %88, label %is_closure_invoke.exit35.thread
+  br i1 %.old44, label %89, label %is_closure_invoke.exit35.thread
 
-88:                                               ; preds = %is_closure_invoke.exit.thread, %.thread
-  %89 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %90 = load i64, ptr %89, align 8, !tbaa !76
-  %91 = icmp eq i64 %90, 8
-  br i1 %91, label %is_closure_invoke.exit35, label %is_closure_invoke.exit35.thread
+89:                                               ; preds = %is_closure_invoke.exit.thread, %.thread
+  %90 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %91 = load i64, ptr %90, align 8, !tbaa !76
+  %92 = icmp eq i64 %91, 8
+  br i1 %92, label %is_closure_invoke.exit35, label %is_closure_invoke.exit35.thread
 
-is_closure_invoke.exit35:                         ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %bcmp.i.i33 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %92, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
+is_closure_invoke.exit35:                         ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %bcmp.i.i33 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %93, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
   %.not.i.i34 = icmp eq i32 %bcmp.i.i33, 0
-  br i1 %.not.i.i34, label %93, label %is_closure_invoke.exit35.thread
+  br i1 %.not.i.i34, label %94, label %is_closure_invoke.exit35.thread
 
-93:                                               ; preds = %is_closure_invoke.exit35
-  %94 = call i32 @object_init_ex(ptr noundef nonnull %3, ptr noundef nonnull %17) #13
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %is_closure_invoke.exit35.thread
+94:                                               ; preds = %is_closure_invoke.exit35
+  %95 = call i32 @object_init_ex(ptr noundef nonnull %3, ptr noundef nonnull %17) #13
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %is_closure_invoke.exit35.thread
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %3, align 8, !tbaa !26
-  %98 = call ptr @zend_get_closure_invoke_method(ptr noundef %97) #13
-  %.not29 = icmp eq ptr %98, null
-  br i1 %.not29, label %is_closure_invoke.exit35.thread, label %99
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %3, align 8, !tbaa !26
+  %99 = call ptr @zend_get_closure_invoke_method(ptr noundef %98) #13
+  %.not29 = icmp eq ptr %99, null
+  br i1 %.not29, label %is_closure_invoke.exit35.thread, label %100
 
-99:                                               ; preds = %96
-  call fastcc void @reflection_method_factory(ptr noundef nonnull %17, ptr noundef nonnull %98, ptr noundef null, ptr noundef %1)
+100:                                              ; preds = %97
+  call fastcc void @reflection_method_factory(ptr noundef nonnull %17, ptr noundef nonnull %99, ptr noundef null, ptr noundef %1)
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #13
-  br label %153
+  br label %154
 
-is_closure_invoke.exit35.thread:                  ; preds = %is_closure_invoke.exit, %36, %35, %88, %.thread, %96, %93, %is_closure_invoke.exit35, %is_closure_invoke.exit.thread
-  %100 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %101 = call ptr @zend_hash_find(ptr noundef nonnull %100, ptr noundef %31) #13
-  %.not.i32 = icmp eq ptr %101, null
-  br i1 %.not.i32, label %145, label %102
+is_closure_invoke.exit35.thread:                  ; preds = %is_closure_invoke.exit, %36, %35, %89, %.thread, %97, %94, %is_closure_invoke.exit35, %is_closure_invoke.exit.thread
+  %101 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %102 = call ptr @zend_hash_find(ptr noundef nonnull %101, ptr noundef %31) #13
+  %.not.i32 = icmp eq ptr %102, null
+  br i1 %.not.i32, label %146, label %103
 
-102:                                              ; preds = %is_closure_invoke.exit35.thread
-  %103 = load ptr, ptr %101, align 8, !tbaa !26, !nonnull !74, !noundef !74
-  %104 = load ptr, ptr @reflection_method_ptr, align 8, !tbaa !38
-  %105 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %104) #13
-  %106 = load ptr, ptr %1, align 8, !tbaa !26
-  %107 = getelementptr inbounds i8, ptr %106, i64 -24
-  store ptr %103, ptr %107, align 8, !tbaa !27
-  %108 = getelementptr inbounds i8, ptr %106, i64 -8
-  store i32 1, ptr %108, align 8, !tbaa !32
-  %109 = getelementptr inbounds i8, ptr %106, i64 -16
-  store ptr %17, ptr %109, align 8, !tbaa !33
-  %110 = load ptr, ptr %1, align 8, !tbaa !26
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %112 = load ptr, ptr %111, align 8, !tbaa !34
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %114 = load i32, ptr %113, align 8, !tbaa !35
-  %115 = icmp sgt i32 %114, 0
-  call void @llvm.assume(i1 %115)
-  %116 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %117 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !26
-  store ptr %118, ptr %116, align 8, !tbaa !26
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !26
-  %121 = and i32 %120, 64
-  %.not30.i36 = icmp eq i32 %121, 0
-  br i1 %.not30.i36, label %122, label %125
+103:                                              ; preds = %is_closure_invoke.exit35.thread
+  %104 = load ptr, ptr %102, align 8, !tbaa !26, !nonnull !74, !noundef !74
+  %105 = load ptr, ptr @reflection_method_ptr, align 8, !tbaa !38
+  %106 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %105) #13
+  %107 = load ptr, ptr %1, align 8, !tbaa !26
+  %108 = getelementptr inbounds i8, ptr %107, i64 -24
+  store ptr %104, ptr %108, align 8, !tbaa !27
+  %109 = getelementptr inbounds i8, ptr %107, i64 -8
+  store i32 1, ptr %109, align 8, !tbaa !32
+  %110 = getelementptr inbounds i8, ptr %107, i64 -16
+  store ptr %17, ptr %110, align 8, !tbaa !33
+  %111 = load ptr, ptr %1, align 8, !tbaa !26
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %113 = load ptr, ptr %112, align 8, !tbaa !34
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %115 = load i32, ptr %114, align 8, !tbaa !35
+  %116 = icmp sgt i32 %115, 0
+  call void @llvm.assume(i1 %116)
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !26
+  store ptr %119, ptr %117, align 8, !tbaa !26
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
+  %121 = load i32, ptr %120, align 4, !tbaa !26
+  %122 = and i32 %121, 64
+  %.not30.i36 = icmp eq i32 %122, 0
+  br i1 %.not30.i36, label %123, label %126
 
-122:                                              ; preds = %102
-  %123 = load i32, ptr %118, align 4, !tbaa !37
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %118, align 4, !tbaa !37
-  br label %125
+123:                                              ; preds = %103
+  %124 = load i32, ptr %119, align 4, !tbaa !37
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %119, align 4, !tbaa !37
+  br label %126
 
-125:                                              ; preds = %122, %102
-  %.sink.i37 = phi i32 [ 262, %122 ], [ 6, %102 ]
-  %126 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  store i32 %.sink.i37, ptr %126, align 8, !tbaa !26
-  %127 = load ptr, ptr %1, align 8, !tbaa !26
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !34
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  %131 = load i32, ptr %130, align 8, !tbaa !35
-  %132 = icmp sgt i32 %131, 1
-  call void @llvm.assume(i1 %132)
-  %133 = getelementptr inbounds nuw i8, ptr %127, i64 56
-  %134 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !26
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !36
-  store ptr %137, ptr %133, align 8, !tbaa !26
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %139 = load i32, ptr %138, align 4, !tbaa !26
-  %140 = and i32 %139, 64
-  %.not31.i38 = icmp eq i32 %140, 0
-  br i1 %.not31.i38, label %141, label %reflection_method_factory.exit40
+126:                                              ; preds = %123, %103
+  %.sink.i37 = phi i32 [ 262, %123 ], [ 6, %103 ]
+  %127 = getelementptr inbounds nuw i8, ptr %111, i64 48
+  store i32 %.sink.i37, ptr %127, align 8, !tbaa !26
+  %128 = load ptr, ptr %1, align 8, !tbaa !26
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %130 = load ptr, ptr %129, align 8, !tbaa !34
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  %132 = load i32, ptr %131, align 8, !tbaa !35
+  %133 = icmp sgt i32 %132, 1
+  call void @llvm.assume(i1 %133)
+  %134 = getelementptr inbounds nuw i8, ptr %128, i64 56
+  %135 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %136 = load ptr, ptr %135, align 8, !tbaa !26
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = load ptr, ptr %137, align 8, !tbaa !36
+  store ptr %138, ptr %134, align 8, !tbaa !26
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  %140 = load i32, ptr %139, align 4, !tbaa !26
+  %141 = and i32 %140, 64
+  %.not31.i38 = icmp eq i32 %141, 0
+  br i1 %.not31.i38, label %142, label %reflection_method_factory.exit40
 
-141:                                              ; preds = %125
-  %142 = load i32, ptr %137, align 4, !tbaa !37
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %137, align 4, !tbaa !37
+142:                                              ; preds = %126
+  %143 = load i32, ptr %138, align 4, !tbaa !37
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %138, align 4, !tbaa !37
   br label %reflection_method_factory.exit40
 
-reflection_method_factory.exit40:                 ; preds = %125, %141
-  %.sink32.i39 = phi i32 [ 262, %141 ], [ 6, %125 ]
-  %144 = getelementptr inbounds nuw i8, ptr %127, i64 64
-  store i32 %.sink32.i39, ptr %144, align 8, !tbaa !26
-  br label %153
+reflection_method_factory.exit40:                 ; preds = %126, %142
+  %.sink32.i39 = phi i32 [ 262, %142 ], [ 6, %126 ]
+  %145 = getelementptr inbounds nuw i8, ptr %128, i64 64
+  store i32 %.sink32.i39, ptr %145, align 8, !tbaa !26
+  br label %154
 
-145:                                              ; preds = %is_closure_invoke.exit35.thread
-  %146 = load ptr, ptr @reflection_exception_ptr, align 8, !tbaa !38
-  %147 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !36
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %150 = load ptr, ptr %4, align 8, !tbaa !68
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %152 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %146, i64 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull %149, ptr noundef nonnull %151) #13
-  br label %153
+146:                                              ; preds = %is_closure_invoke.exit35.thread
+  %147 = load ptr, ptr @reflection_exception_ptr, align 8, !tbaa !38
+  %148 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !36
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %151 = load ptr, ptr %4, align 8, !tbaa !68
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  %153 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %147, i64 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull %150, ptr noundef nonnull %152) #13
+  br label %154
 
-153:                                              ; preds = %99, %145, %reflection_method_factory.exit40, %reflection_method_factory.exit
-  %154 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %155 = load i32, ptr %154, align 4, !tbaa !26
-  %156 = and i32 %155, 64
-  %.not.i = icmp eq i32 %156, 0
-  br i1 %.not.i, label %157, label %zend_string_release.exit
+154:                                              ; preds = %100, %146, %reflection_method_factory.exit40, %reflection_method_factory.exit
+  %155 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %156 = load i32, ptr %155, align 4, !tbaa !26
+  %157 = and i32 %156, 64
+  %.not.i = icmp eq i32 %157, 0
+  br i1 %.not.i, label %158, label %zend_string_release.exit
 
-157:                                              ; preds = %153
-  %158 = load i32, ptr %31, align 4, !tbaa !37
-  %159 = icmp ne i32 %158, 0
-  call void @llvm.assume(i1 %159)
-  %160 = add i32 %158, -1
-  store i32 %160, ptr %31, align 4, !tbaa !37
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %zend_string_release.exit
+158:                                              ; preds = %154
+  %159 = load i32, ptr %31, align 4, !tbaa !37
+  %160 = icmp ne i32 %159, 0
+  call void @llvm.assume(i1 %160)
+  %161 = add i32 %159, -1
+  store i32 %161, ptr %31, align 4, !tbaa !37
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %zend_string_release.exit
 
-162:                                              ; preds = %157
-  %163 = and i32 %155, 128
-  %.not5.i = icmp eq i32 %163, 0
-  br i1 %.not5.i, label %165, label %164
+163:                                              ; preds = %158
+  %164 = and i32 %156, 128
+  %.not5.i = icmp eq i32 %164, 0
+  br i1 %.not5.i, label %166, label %165
 
-164:                                              ; preds = %162
+165:                                              ; preds = %163
   call void @free(ptr noundef nonnull %31) #13
   br label %zend_string_release.exit
 
-165:                                              ; preds = %162
+166:                                              ; preds = %163
   call void @_efree(ptr noundef nonnull %31) #13
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %165, %164, %157, %153, %21, %26, %9
+zend_string_release.exit:                         ; preds = %166, %165, %158, %154, %21, %26, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   ret void

@@ -982,9 +982,9 @@ _ZN4llvm8DenseMapIjNS_26BlockFrequencyInfoImplBase6WeightENS_12DenseMapInfoIjvEE
   %.pre.i.i = load i32, ptr %5, align 8, !tbaa !26
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre26.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !105
-  %58 = zext i32 %.pre26.i.i to i64
-  %59 = icmp eq i32 %.pre.i.i, %.pre26.i.i
-  br i1 %59, label %_ZL23combineWeightsByHashingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i, label %73
+  %58 = icmp eq i32 %.pre.i.i, %.pre26.i.i
+  %59 = zext i32 %.pre26.i.i to i64
+  br i1 %58, label %_ZL23combineWeightsByHashingRN4llvm11SmallVectorINS_26BlockFrequencyInfoImplBase6WeightELj4EEE.exit.i, label %73
 
 .lr.ph.i.i:                                       ; preds = %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i.i, %.lr.ph.i.preheader.i
   %.022.i.i = phi ptr [ %72, %_ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i.i ], [ %57, %.lr.ph.i.preheader.i ]
@@ -1028,7 +1028,7 @@ _ZL13combineWeightRN4llvm26BlockFrequencyInfoImplBase6WeightERKS1_.exit.i.i: ; p
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %78, i64 noundef %58, i64 noundef 16) #27
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %78, i64 noundef %59, i64 noundef 16) #27
   %.pre22.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !105
   br label %_ZN4llvm15SmallVectorImplINS_26BlockFrequencyInfoImplBase6WeightEE7reserveEm.exit.i.i
 

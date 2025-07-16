@@ -11344,48 +11344,49 @@ _ZNK10open_spiel10algorithms13InfostateNode20has_infostate_stringEv.exit73.threa
   %428 = sub i64 %426, %427
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %424, %425
-  br i1 %.not.i.i.i.i.i, label %.noexc89.i, label %429
+  br i1 %.not.i.i.i.i.i, label %.noexc89.thread.i, label %430
 
-429:                                              ; preds = %421
-  %430 = icmp ugt i64 %428, 9223372036854775800
-  br i1 %430, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i
+.noexc89.thread.i:                                ; preds = %421
+  %429 = getelementptr inbounds i8, ptr null, i64 %428
+  store ptr %429, ptr %88, align 8
+  br label %436
 
-.noexc.i.i.i:                                     ; preds = %429
+430:                                              ; preds = %421
+  %431 = icmp ugt i64 %428, 9223372036854775800
+  br i1 %431, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i
+
+.noexc.i.i.i:                                     ; preds = %430
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
           to label %.noexc88.i unwind label %.loopexit.split-lp.i.loopexit.split-lp
 
 .noexc88.i:                                       ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %429
-  %431 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %428) #24
-          to label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i..noexc89_crit_edge.i unwind label %.loopexit.i
+_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %430
+  %432 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %428) #24
+          to label %.noexc89.i unwind label %.loopexit.i
 
-_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i..noexc89_crit_edge.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i
+.noexc89.i:                                       ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i
   %.pre.i = load ptr, ptr %422, align 8
   %.pre247.i = load ptr, ptr %423, align 8
+  %433 = icmp eq ptr %.pre247.i, %.pre.i
+  store ptr %432, ptr %55, align 8
+  %434 = getelementptr inbounds nuw i8, ptr %432, i64 %428
+  store ptr %434, ptr %88, align 8
+  br i1 %433, label %436, label %435
+
+435:                                              ; preds = %.noexc89.i
   %.pre250.i = ptrtoint ptr %.pre247.i to i64
   %.pre251.i = ptrtoint ptr %.pre.i to i64
   %.pre253.i = sub i64 %.pre250.i, %.pre251.i
-  br label %.noexc89.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %432, ptr align 8 %.pre.i, i64 %.pre253.i, i1 false)
+  br label %436
 
-.noexc89.i:                                       ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i..noexc89_crit_edge.i, %421
-  %.pre-phi254.i = phi i64 [ %.pre253.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i..noexc89_crit_edge.i ], [ 0, %421 ]
-  %432 = phi ptr [ %.pre247.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i..noexc89_crit_edge.i ], [ %424, %421 ]
-  %433 = phi ptr [ %.pre.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i..noexc89_crit_edge.i ], [ %425, %421 ]
-  %434 = phi ptr [ %431, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i..noexc89_crit_edge.i ], [ null, %421 ]
-  store ptr %434, ptr %55, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 %428
-  store ptr %435, ptr %88, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %432, %433
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %437, label %436
-
-436:                                              ; preds = %.noexc89.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %434, ptr align 8 %433, i64 %.pre-phi254.i, i1 false)
-  br label %437
-
-437:                                              ; preds = %436, %.noexc89.i
-  %438 = getelementptr inbounds i8, ptr %434, i64 %.pre-phi254.i
+436:                                              ; preds = %435, %.noexc89.i, %.noexc89.thread.i
+  %437 = phi ptr [ null, %.noexc89.thread.i ], [ %432, %435 ], [ %432, %.noexc89.i ]
+  %.not.i.i.i.i.i.i.i.i.i264.i = phi i1 [ true, %.noexc89.thread.i ], [ false, %435 ], [ true, %.noexc89.i ]
+  %.pre-phi254263.i = phi i64 [ 0, %.noexc89.thread.i ], [ %.pre253.i, %435 ], [ 0, %.noexc89.i ]
+  %438 = getelementptr inbounds i8, ptr %437, i64 %.pre-phi254263.i
   store ptr %438, ptr %87, align 8
   %439 = getelementptr inbounds nuw i8, ptr %.0.lcssa173.i, i64 216
   %440 = getelementptr inbounds nuw i8, ptr %.0.lcssa173.i, i64 224
@@ -11396,61 +11397,61 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i..noexc89_crit_edge.i:
   %445 = sub i64 %443, %444
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %.not.i.i.i.i90.i = icmp eq ptr %441, %442
-  br i1 %.not.i.i.i.i90.i, label %.noexc95.i, label %446
+  br i1 %.not.i.i.i.i90.i, label %.noexc95.thread.i, label %447
 
-446:                                              ; preds = %437
-  %447 = icmp ugt i64 %445, 9223372036854775800
-  br i1 %447, label %.noexc.i.i93.i, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91.i
+.noexc95.thread.i:                                ; preds = %436
+  %446 = getelementptr inbounds i8, ptr null, i64 %445
+  store ptr %446, ptr %90, align 8
+  br label %453
 
-.noexc.i.i93.i:                                   ; preds = %446
+447:                                              ; preds = %436
+  %448 = icmp ugt i64 %445, 9223372036854775800
+  br i1 %448, label %.noexc.i.i93.i, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91.i
+
+.noexc.i.i93.i:                                   ; preds = %447
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
           to label %.noexc94.i unwind label %.loopexit.split-lp112.i
 
 .noexc94.i:                                       ; preds = %.noexc.i.i93.i
   unreachable
 
-_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91.i: ; preds = %446
-  %448 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %445) #24
-          to label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91..noexc95_crit_edge.i unwind label %.loopexit111.i
+_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91.i: ; preds = %447
+  %449 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %445) #24
+          to label %.noexc95.i unwind label %.loopexit111.i
 
-_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91..noexc95_crit_edge.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91.i
+.noexc95.i:                                       ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91.i
   %.pre248.i = load ptr, ptr %439, align 8
   %.pre249.i = load ptr, ptr %440, align 8
+  %450 = icmp eq ptr %.pre249.i, %.pre248.i
+  store ptr %449, ptr %56, align 8
+  %451 = getelementptr inbounds nuw i8, ptr %449, i64 %445
+  store ptr %451, ptr %90, align 8
+  br i1 %450, label %453, label %452
+
+452:                                              ; preds = %.noexc95.i
   %.pre255.i = ptrtoint ptr %.pre249.i to i64
   %.pre257.i = ptrtoint ptr %.pre248.i to i64
   %.pre259.i = sub i64 %.pre255.i, %.pre257.i
-  br label %.noexc95.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %449, ptr align 8 %.pre248.i, i64 %.pre259.i, i1 false)
+  br label %453
 
-.noexc95.i:                                       ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91..noexc95_crit_edge.i, %437
-  %.pre-phi260.i = phi i64 [ %.pre259.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91..noexc95_crit_edge.i ], [ 0, %437 ]
-  %449 = phi ptr [ %.pre249.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91..noexc95_crit_edge.i ], [ %441, %437 ]
-  %450 = phi ptr [ %.pre248.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91..noexc95_crit_edge.i ], [ %442, %437 ]
-  %451 = phi ptr [ %448, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i91..noexc95_crit_edge.i ], [ null, %437 ]
-  store ptr %451, ptr %56, align 8
-  %452 = getelementptr inbounds i8, ptr %451, i64 %445
-  store ptr %452, ptr %90, align 8
-  %.not.i.i.i.i.i.i.i.i.i92.i = icmp eq ptr %449, %450
-  br i1 %.not.i.i.i.i.i.i.i.i.i92.i, label %454, label %453
-
-453:                                              ; preds = %.noexc95.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %451, ptr align 8 %450, i64 %.pre-phi260.i, i1 false)
-  br label %454
-
-454:                                              ; preds = %453, %.noexc95.i
-  %455 = getelementptr inbounds i8, ptr %451, i64 %.pre-phi260.i
+453:                                              ; preds = %452, %.noexc95.i, %.noexc95.thread.i
+  %454 = phi ptr [ null, %.noexc95.thread.i ], [ %449, %452 ], [ %449, %.noexc95.i ]
+  %.pre-phi260267.i = phi i64 [ 0, %.noexc95.thread.i ], [ %.pre259.i, %452 ], [ 0, %.noexc95.i ]
+  %455 = getelementptr inbounds i8, ptr %454, i64 %.pre-phi260267.i
   store ptr %455, ptr %89, align 8
-  %456 = icmp eq i64 %.pre-phi254.i, %.pre-phi260.i
+  %456 = icmp eq i64 %.pre-phi254263.i, %.pre-phi260267.i
   br i1 %456, label %457, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread108.i
 
-457:                                              ; preds = %454
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.i
+457:                                              ; preds = %453
+  br i1 %.not.i.i.i.i.i.i.i.i.i264.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.i
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.i:      ; preds = %457
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %434, ptr %451, i64 %.pre-phi254.i)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %437, ptr %454, i64 %.pre-phi254263.i)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.i, label %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread108.i
 
-_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread108.i: ; preds = %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.i, %454
+_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread108.i: ; preds = %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.i, %453
   store i32 357, ptr %58, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA143_KcRA2_S2_iS6_RA73_S2_RA30_S2_RA4_S2_RSt6vectorIlSaIlEERA46_S2_SG_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %57, ptr noundef nonnull align 1 dereferenceable(143) @.str.2, ptr noundef nonnull align 1 dereferenceable(2) @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 1 dereferenceable(2) @.str.4, ptr noundef nonnull align 1 dereferenceable(73) @.str.90, ptr noundef nonnull align 1 dereferenceable(30) @.str.91, ptr noundef nonnull align 1 dereferenceable(4) @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 1 dereferenceable(46) @.str.92, ptr noundef nonnull align 8 dereferenceable(24) %56)
           to label %458 unwind label %460
@@ -11484,19 +11485,19 @@ _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread108.i: ; preds = %_ZSteqIlSaIlEE
   br label %466
 
 _ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.i: ; preds = %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.i, %457
-  %.not.i.i.i97.i = icmp eq ptr %451, null
+  %.not.i.i.i97.i = icmp eq ptr %454, null
   br i1 %.not.i.i.i97.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %464
 
 464:                                              ; preds = %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.i
-  call void @_ZdlPvm(ptr noundef nonnull %451, i64 noundef %445) #25
+  call void @_ZdlPvm(ptr noundef nonnull %454, i64 noundef %445) #25
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %464, %_ZSteqIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread.i
-  %.not.i.i.i98.i = icmp eq ptr %434, null
+  %.not.i.i.i98.i = icmp eq ptr %437, null
   br i1 %.not.i.i.i98.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit99.i, label %465
 
 465:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i
-  call void @_ZdlPvm(ptr noundef nonnull %434, i64 noundef %428) #25
+  call void @_ZdlPvm(ptr noundef nonnull %437, i64 noundef %428) #25
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit99.i
 
 466:                                              ; preds = %462, %460

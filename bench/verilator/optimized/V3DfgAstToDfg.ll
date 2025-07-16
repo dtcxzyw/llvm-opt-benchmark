@@ -51618,16 +51618,16 @@ _ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i: ; pre
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 164
   %.sroa.0.0.copyload.i.i = load i8, ptr %25, align 4, !tbaa !451
   switch i8 %.sroa.0.0.copyload.i.i, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread [
-    i8 1, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 2, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 5, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 6, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 7, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 8, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 10, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 24, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 25, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
-    i8 11, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57
+    i8 1, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 2, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 5, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 6, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 7, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 8, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 10, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 24, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 25, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
+    i8 11, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55
   ]
 
 tailrecurse.i:                                    ; preds = %.lr.ph.i
@@ -51650,17 +51650,17 @@ _ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit: ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 204
   %35 = load i8, ptr %34, align 4, !tbaa !453, !range !267, !noundef !268
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread
+  br i1 %36, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread
 
-_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57: ; preds = %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit
+_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55: ; preds = %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %38 = load ptr, ptr %37, align 8, !tbaa !272
   %39 = tail call noundef ptr @_ZNK12AstNodeDType12skipRefIterpEbb(ptr noundef nonnull align 8 dereferenceable(162) %38, i1 noundef zeroext true, i1 noundef zeroext true)
   %.not.i55.i17 = icmp eq ptr %39, null
   br i1 %.not.i55.i17, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread, label %.lr.ph.i18
 
-.lr.ph.i18:                                       ; preds = %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57, %tailrecurse.i20
-  %40 = phi ptr [ %48, %tailrecurse.i20 ], [ %39, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57 ]
+.lr.ph.i18:                                       ; preds = %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55, %tailrecurse.i20
+  %40 = phi ptr [ %48, %tailrecurse.i20 ], [ %39, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %.sroa.0.0.copyload.i.i.i.i19 = load i16, ptr %41, align 8, !tbaa !280
   switch i16 %.sroa.0.0.copyload.i.i.i.i19, label %49 [
@@ -51672,16 +51672,16 @@ _ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24: ; p
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 164
   %.sroa.0.0.copyload.i.i25 = load i8, ptr %42, align 4, !tbaa !451
   switch i8 %.sroa.0.0.copyload.i.i25, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread [
-    i8 1, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 2, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 5, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 6, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 7, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 8, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 10, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 24, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 25, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
-    i8 11, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
+    i8 1, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 2, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 5, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 6, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 7, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 8, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 10, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 24, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 25, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
+    i8 11, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
   ]
 
 tailrecurse.i20:                                  ; preds = %.lr.ph.i18
@@ -51704,9 +51704,9 @@ _ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27: ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 204
   %52 = load i8, ptr %51, align 4, !tbaa !453, !range !267, !noundef !268
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread
+  br i1 %53, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59, label %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread
 
-_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread: ; preds = %tailrecurse.i, %tailrecurse.i20, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread57, %49, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %19, %32, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit
+_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread: ; preds = %tailrecurse.i, %tailrecurse.i20, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread55, %49, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i, %19, %32, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
   store ptr %0, ptr %9, align 8, !tbaa !269
   call void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, i1 noundef zeroext false)
@@ -51717,20 +51717,20 @@ _ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread: ; preds = %t
   %57 = load double, ptr %56, align 8, !tbaa !244
   %58 = fadd double %57, 1.000000e+00
   store double %58, ptr %56, align 8, !tbaa !244
-  br label %128
+  br label %130
 
-_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61: ; preds = %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27
+_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59: ; preds = %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN7AstNode11privateCastI13AstBasicDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i24, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27
   %59 = load ptr, ptr %20, align 8, !tbaa !272
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %_ZNK7AstNode5widthEv.exit, label %60
 
-60:                                               ; preds = %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61
+60:                                               ; preds = %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 152
   %62 = load i32, ptr %61, align 8, !tbaa !119
   br label %_ZNK7AstNode5widthEv.exit
 
-_ZNK7AstNode5widthEv.exit:                        ; preds = %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61, %60
-  %63 = phi i32 [ %62, %60 ], [ 0, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread61 ]
+_ZNK7AstNode5widthEv.exit:                        ; preds = %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59, %60
+  %63 = phi i32 [ %62, %60 ], [ 0, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit27.thread59 ]
   %64 = load ptr, ptr %37, align 8, !tbaa !272
   %.not.i28 = icmp eq ptr %64, null
   br i1 %.not.i28, label %_ZNK7AstNode5widthEv.exit29, label %65
@@ -51756,7 +51756,7 @@ _ZNK7AstNode5widthEv.exit29:                      ; preds = %_ZNK7AstNode5widthE
   %73 = load double, ptr %72, align 8, !tbaa !244
   %74 = fadd double %73, 1.000000e+00
   store double %74, ptr %72, align 8, !tbaa !244
-  br label %128
+  br label %130
 
 75:                                               ; preds = %_ZNK7AstNode5widthEv.exit29
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -51773,7 +51773,7 @@ _ZNK7AstNode5widthEv.exit29:                      ; preds = %_ZNK7AstNode5widthE
 _ZN9VNVisitor7iterateEP7AstNode.exit:             ; preds = %75
   %82 = load i8, ptr %78, align 8, !tbaa !52, !range !267, !noundef !268
   %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %93
+  br i1 %83, label %84, label %94
 
 84:                                               ; preds = %_ZN9VNVisitor7iterateEP7AstNode.exit
   %85 = load ptr, ptr %10, align 8, !tbaa !53
@@ -51783,31 +51783,31 @@ _ZN9VNVisitor7iterateEP7AstNode.exit:             ; preds = %75
 
 .lr.ph.i30:                                       ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %89
+  br label %90
 
 ._crit_edge.i:                                    ; preds = %.noexc
   %.pre.i = load ptr, ptr %10, align 8, !tbaa !59
   %.pre9.i = load ptr, ptr %12, align 8, !tbaa !275
-  %.not.i.i.i = icmp eq ptr %.pre9.i, %.pre.i
-  br i1 %.not.i.i.i, label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit, label %88
+  %88 = icmp eq ptr %.pre9.i, %.pre.i
+  br i1 %88, label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit, label %89
 
-88:                                               ; preds = %._crit_edge.i
+89:                                               ; preds = %._crit_edge.i
   store ptr %.pre.i, ptr %12, align 8, !tbaa !275
   br label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit
 
-89:                                               ; preds = %.noexc, %.lr.ph.i30
-  %.sroa.04.08.i = phi ptr [ %85, %.lr.ph.i30 ], [ %92, %.noexc ]
-  %90 = load ptr, ptr %.sroa.04.08.i, align 8, !tbaa !86
-  %91 = load ptr, ptr %87, align 8, !tbaa !4
-  invoke void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %90, ptr noundef nonnull align 8 dereferenceable(104) %91)
+90:                                               ; preds = %.noexc, %.lr.ph.i30
+  %.sroa.04.08.i = phi ptr [ %85, %.lr.ph.i30 ], [ %93, %.noexc ]
+  %91 = load ptr, ptr %.sroa.04.08.i, align 8, !tbaa !86
+  %92 = load ptr, ptr %87, align 8, !tbaa !4
+  invoke void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(104) %92)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
-  %.not.i31 = icmp eq ptr %92, %86
-  br i1 %.not.i31, label %._crit_edge.i, label %89
+.noexc:                                           ; preds = %90
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
+  %.not.i31 = icmp eq ptr %93, %86
+  br i1 %.not.i31, label %._crit_edge.i, label %90
 
-_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit: ; preds = %88, %._crit_edge.i, %84
+_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit: ; preds = %89, %._crit_edge.i, %84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
   store ptr %0, ptr %7, align 8, !tbaa !269
   invoke void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext false)
@@ -51815,139 +51815,139 @@ _ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit: ; preds = %88, %._crit_e
 
 _ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit: ; preds = %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
-  br label %127
+  br label %129
 
-.loopexit:                                        ; preds = %89
+.loopexit:                                        ; preds = %90
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %113
-  %lpad.loopexit63 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %115
+  %lpad.loopexit61 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc35, %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit47, %.noexc36, %.noexc34, %100, %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit, %75, %120, %_ZN15AstToDfgVisitor14commitVerticesEv.exit, %104
-  %lpad.loopexit.split-lp64 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc35, %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit46, %.noexc36, %.noexc34, %101, %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit, %75, %122, %_ZN15AstToDfgVisitor14commitVerticesEv.exit, %105
+  %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit63, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit61, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %.loopexit.split-lp.loopexit.split-lp ]
   store i8 %77, ptr %76, align 8, !tbaa !306
   resume { ptr, i32 } %lpad.phi
 
-93:                                               ; preds = %_ZN9VNVisitor7iterateEP7AstNode.exit
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %95 = load i32, ptr %94, align 8, !tbaa !271
-  %96 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !87
-  %97 = icmp ne i32 %95, %96
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %99 = load i64, ptr %98, align 8
-  %.not5.i = icmp eq i64 %99, 0
-  %.not.i33 = select i1 %97, i1 true, i1 %.not5.i
-  br i1 %.not.i33, label %100, label %104, !prof !274
+94:                                               ; preds = %_ZN9VNVisitor7iterateEP7AstNode.exit
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %96 = load i32, ptr %95, align 8, !tbaa !271
+  %97 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !87
+  %98 = icmp ne i32 %96, %97
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %100 = load i64, ptr %99, align 8
+  %.not5.i = icmp eq i64 %100, 0
+  %.not.i33 = select i1 %98, i1 true, i1 %.not5.i
+  br i1 %.not.i33, label %101, label %105, !prof !274
 
-100:                                              ; preds = %93
-  %101 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str, i32 noundef 141)
+101:                                              ; preds = %94
+  %102 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str, i32 noundef 141)
           to label %.noexc34 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc34:                                         ; preds = %100
-  %102 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+.noexc34:                                         ; preds = %101
+  %103 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
           to label %.noexc35 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc35:                                         ; preds = %.noexc34
-  %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull @.str.202, i64 noundef 18)
+  %104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull @.str.202, i64 noundef 18)
           to label %.noexc36 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc36:                                         ; preds = %.noexc35
-  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(112) %102) #29
+  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(112) %103) #29
           to label %.noexc37 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc37:                                         ; preds = %.noexc36
   unreachable
 
-104:                                              ; preds = %93
-  %105 = inttoptr i64 %99 to ptr
-  %106 = invoke noundef zeroext i1 @_ZN15AstToDfgVisitor17convertAssignmentEP8FileLineP7AstNodeP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %105)
-          to label %107 unwind label %.loopexit.split-lp.loopexit.split-lp
+105:                                              ; preds = %94
+  %106 = inttoptr i64 %100 to ptr
+  %107 = invoke noundef zeroext i1 @_ZN15AstToDfgVisitor17convertAssignmentEP8FileLineP7AstNodeP9DfgVertex(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %106)
+          to label %108 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %10, align 8, !tbaa !53
-  %109 = load ptr, ptr %12, align 8, !tbaa !53
-  %.not.i.i.i50 = icmp eq ptr %109, %108
-  br i1 %106, label %117, label %110
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %10, align 8, !tbaa !53
+  %110 = load ptr, ptr %12, align 8, !tbaa !53
+  %.not.i.i.i = icmp eq ptr %110, %109
+  br i1 %107, label %119, label %111
 
-110:                                              ; preds = %107
-  br i1 %.not.i.i.i50, label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit47, label %.lr.ph.i39
+111:                                              ; preds = %108
+  br i1 %.not.i.i.i, label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit46, label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %110
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %113
+.lr.ph.i39:                                       ; preds = %111
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %115
 
-._crit_edge.i42:                                  ; preds = %.noexc46
+._crit_edge.i42:                                  ; preds = %.noexc45
   %.pre.i43 = load ptr, ptr %10, align 8, !tbaa !59
   %.pre9.i44 = load ptr, ptr %12, align 8, !tbaa !275
-  %.not.i.i.i45 = icmp eq ptr %.pre9.i44, %.pre.i43
-  br i1 %.not.i.i.i45, label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit47, label %112
+  %113 = icmp eq ptr %.pre9.i44, %.pre.i43
+  br i1 %113, label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit46, label %114
 
-112:                                              ; preds = %._crit_edge.i42
+114:                                              ; preds = %._crit_edge.i42
   store ptr %.pre.i43, ptr %12, align 8, !tbaa !275
-  br label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit47
+  br label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit46
 
-113:                                              ; preds = %.noexc46, %.lr.ph.i39
-  %.sroa.04.08.i40 = phi ptr [ %108, %.lr.ph.i39 ], [ %116, %.noexc46 ]
-  %114 = load ptr, ptr %.sroa.04.08.i40, align 8, !tbaa !86
-  %115 = load ptr, ptr %111, align 8, !tbaa !4
-  invoke void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(104) %115)
-          to label %.noexc46 unwind label %.loopexit.split-lp.loopexit
+115:                                              ; preds = %.noexc45, %.lr.ph.i39
+  %.sroa.04.08.i40 = phi ptr [ %109, %.lr.ph.i39 ], [ %118, %.noexc45 ]
+  %116 = load ptr, ptr %.sroa.04.08.i40, align 8, !tbaa !86
+  %117 = load ptr, ptr %112, align 8, !tbaa !4
+  invoke void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %116, ptr noundef nonnull align 8 dereferenceable(104) %117)
+          to label %.noexc45 unwind label %.loopexit.split-lp.loopexit
 
-.noexc46:                                         ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i40, i64 8
-  %.not.i41 = icmp eq ptr %116, %109
-  br i1 %.not.i41, label %._crit_edge.i42, label %113
+.noexc45:                                         ; preds = %115
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i40, i64 8
+  %.not.i41 = icmp eq ptr %118, %110
+  br i1 %.not.i41, label %._crit_edge.i42, label %115
 
-_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit47: ; preds = %112, %._crit_edge.i42, %110
+_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit46: ; preds = %114, %._crit_edge.i42, %111
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
   store ptr %0, ptr %6, align 8, !tbaa !269
   invoke void @_ZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false)
-          to label %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit49 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit48 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit49: ; preds = %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit47
+_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit48: ; preds = %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
-  br label %127
+  br label %129
 
-117:                                              ; preds = %107
-  br i1 %.not.i.i.i50, label %_ZN15AstToDfgVisitor14commitVerticesEv.exit, label %118
+119:                                              ; preds = %108
+  br i1 %.not.i.i.i, label %_ZN15AstToDfgVisitor14commitVerticesEv.exit, label %120
 
-118:                                              ; preds = %117
-  store ptr %108, ptr %12, align 8, !tbaa !275
+120:                                              ; preds = %119
+  store ptr %109, ptr %12, align 8, !tbaa !275
   br label %_ZN15AstToDfgVisitor14commitVerticesEv.exit
 
-_ZN15AstToDfgVisitor14commitVerticesEv.exit:      ; preds = %117, %118
-  %119 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef null)
-          to label %120 unwind label %.loopexit.split-lp.loopexit.split-lp
+_ZN15AstToDfgVisitor14commitVerticesEv.exit:      ; preds = %119, %120
+  %121 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef null)
+          to label %122 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-120:                                              ; preds = %_ZN15AstToDfgVisitor14commitVerticesEv.exit
-  invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %119)
-          to label %121 unwind label %.loopexit.split-lp.loopexit.split-lp
+122:                                              ; preds = %_ZN15AstToDfgVisitor14commitVerticesEv.exit
+  invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %121)
+          to label %123 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %123 = load ptr, ptr %122, align 8, !tbaa !243
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 88
-  %125 = load double, ptr %124, align 8, !tbaa !244
-  %126 = fadd double %125, 1.000000e+00
-  store double %126, ptr %124, align 8, !tbaa !244
-  br label %127
+123:                                              ; preds = %122
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %125 = load ptr, ptr %124, align 8, !tbaa !243
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 88
+  %127 = load double, ptr %126, align 8, !tbaa !244
+  %128 = fadd double %127, 1.000000e+00
+  store double %128, ptr %126, align 8, !tbaa !244
+  br label %129
 
-127:                                              ; preds = %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit49, %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit, %121
-  %.1 = phi i1 [ true, %121 ], [ false, %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit ], [ false, %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit49 ]
+129:                                              ; preds = %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit48, %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit, %123
+  %.1 = phi i1 [ true, %123 ], [ false, %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit ], [ false, %_ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit48 ]
   store i8 %77, ptr %76, align 8, !tbaa !306
-  br label %128
+  br label %130
 
-128:                                              ; preds = %127, %69, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread
-  %.0 = phi i1 [ false, %69 ], [ %.1, %127 ], [ false, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread ]
+130:                                              ; preds = %129, %69, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread
+  %.0 = phi i1 [ false, %69 ], [ %.1, %129 ], [ false, %_ZN9DfgVertex22isSupportedPackedDTypeEPK12AstNodeDType.exit.thread ]
   ret i1 %.0
 }
 

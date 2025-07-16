@@ -75,17 +75,17 @@ $_ZNSt8_Rb_treeIN3gmx8SimdTypeESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_t
 define noundef range(i32 0, 14) i32 @_ZN3gmx13simdSuggestedERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !4
   %3 = icmp sgt i32 %2, 1
-  br i1 %3, label %4, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+  br i1 %3, label %4, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !30
-  switch i32 %6, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203 [
+  switch i32 %6, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189 [
     i32 1, label %7
-    i32 2, label %58
-    i32 7, label %58
-    i32 5, label %109
-    i32 4, label %127
+    i32 2, label %57
+    i32 7, label %57
+    i32 5, label %106
+    i32 4, label %124
   ]
 
 7:                                                ; preds = %4
@@ -93,7 +93,7 @@ define noundef range(i32 0, 14) i32 @_ZN3gmx13simdSuggestedERKNS_7CpuInfoE(ptr n
   %9 = load ptr, ptr %8, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not10.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not10.i.i.i.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %7, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %9, %7 ]
@@ -115,8 +115,8 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit:      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %16 = load i32, ptr %15, align 4, !tbaa !32
-  %17 = icmp sgt i32 %16, 7
-  br i1 %17, label %.lr.ph.i.i.i.i23.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+  %17 = icmp slt i32 %16, 8
+  br i1 %17, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i23.preheader
 
 .lr.ph.i.i.i.i23.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit
   br label %.lr.ph.i.i.i.i23
@@ -136,401 +136,386 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit:      ; preds = %_ZNKSt8_Rb_treeIN3g
 
 _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i31: ; preds = %.lr.ph.i.i.i.i23
   %21 = icmp eq ptr %.19.i.i.i.i26, %10
-  br i1 %21, label %.lr.ph.i.i.i.i36.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34
+  br i1 %21, label %.lr.ph.i.i.i.i35.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit33
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i31
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit33:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i31
   %22 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i26, i64 32
   %23 = load i32, ptr %22, align 4, !tbaa !32
-  %24 = icmp sgt i32 %23, 5
-  br i1 %24, label %.lr.ph.i.i.i.i36.preheader, label %25
+  %24 = icmp slt i32 %23, 6
+  br i1 %24, label %25, label %.lr.ph.i.i.i.i35.preheader
 
-.lr.ph.i.i.i.i36.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i31, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34
-  br label %.lr.ph.i.i.i.i36
+.lr.ph.i.i.i.i35.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i31, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit33
+  br label %.lr.ph.i.i.i.i35
 
-25:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit34
+25:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit33
   %26 = tail call noundef i32 @_ZN3gmx22identifyAvx512FmaUnitsEv()
   %27 = icmp eq i32 %26, 1
   %28 = select i1 %27, i32 7, i32 9
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189
 
-.lr.ph.i.i.i.i36:                                 ; preds = %.lr.ph.i.i.i.i36.preheader, %.lr.ph.i.i.i.i36
-  %.012.i.i.i.i37 = phi ptr [ %.1.i.i.i.i42, %.lr.ph.i.i.i.i36 ], [ %9, %.lr.ph.i.i.i.i36.preheader ]
-  %.0811.i.i.i.i38 = phi ptr [ %.19.i.i.i.i39, %.lr.ph.i.i.i.i36 ], [ %10, %.lr.ph.i.i.i.i36.preheader ]
-  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i37, i64 32
+.lr.ph.i.i.i.i35:                                 ; preds = %.lr.ph.i.i.i.i35.preheader, %.lr.ph.i.i.i.i35
+  %.012.i.i.i.i36 = phi ptr [ %.1.i.i.i.i41, %.lr.ph.i.i.i.i35 ], [ %9, %.lr.ph.i.i.i.i35.preheader ]
+  %.0811.i.i.i.i37 = phi ptr [ %.19.i.i.i.i38, %.lr.ph.i.i.i.i35 ], [ %10, %.lr.ph.i.i.i.i35.preheader ]
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i36, i64 32
   %30 = load i32, ptr %29, align 4, !tbaa !32
   %31 = icmp slt i32 %30, 4
-  %.19.i.i.i.i39 = select i1 %31, ptr %.0811.i.i.i.i38, ptr %.012.i.i.i.i37
-  %.1.in.v.i.i.i.i40 = select i1 %31, i64 24, i64 16
-  %.1.in.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i37, i64 %.1.in.v.i.i.i.i40
-  %.1.i.i.i.i42 = load ptr, ptr %.1.in.i.i.i.i41, align 8, !tbaa !34
-  %.not.i.i.i.i43 = icmp eq ptr %.1.i.i.i.i42, null
-  br i1 %.not.i.i.i.i43, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i44, label %.lr.ph.i.i.i.i36, !llvm.loop !35
+  %.19.i.i.i.i38 = select i1 %31, ptr %.0811.i.i.i.i37, ptr %.012.i.i.i.i36
+  %.1.in.v.i.i.i.i39 = select i1 %31, i64 24, i64 16
+  %.1.in.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i36, i64 %.1.in.v.i.i.i.i39
+  %.1.i.i.i.i41 = load ptr, ptr %.1.in.i.i.i.i40, align 8, !tbaa !34
+  %.not.i.i.i.i42 = icmp eq ptr %.1.i.i.i.i41, null
+  br i1 %.not.i.i.i.i42, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i43, label %.lr.ph.i.i.i.i35, !llvm.loop !35
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i44: ; preds = %.lr.ph.i.i.i.i36
-  %32 = icmp eq ptr %.19.i.i.i.i39, %10
-  br i1 %32, label %.lr.ph.i.i.i.i49.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i43: ; preds = %.lr.ph.i.i.i.i35
+  %32 = icmp eq ptr %.19.i.i.i.i38, %10
+  br i1 %32, label %.lr.ph.i.i.i.i47.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit45
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i44
-  %33 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i39, i64 32
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit45:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i43
+  %33 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i38, i64 32
   %34 = load i32, ptr %33, align 4, !tbaa !32
-  %35 = icmp sgt i32 %34, 4
-  br i1 %35, label %.lr.ph.i.i.i.i49.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+  %35 = icmp slt i32 %34, 5
+  br i1 %35, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i47.preheader
 
-.lr.ph.i.i.i.i49.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i44, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47
-  br label %.lr.ph.i.i.i.i49
+.lr.ph.i.i.i.i47.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i43, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit45
+  br label %.lr.ph.i.i.i.i47
 
-.lr.ph.i.i.i.i49:                                 ; preds = %.lr.ph.i.i.i.i49.preheader, %.lr.ph.i.i.i.i49
-  %.012.i.i.i.i50 = phi ptr [ %.1.i.i.i.i55, %.lr.ph.i.i.i.i49 ], [ %9, %.lr.ph.i.i.i.i49.preheader ]
-  %.0811.i.i.i.i51 = phi ptr [ %.19.i.i.i.i52, %.lr.ph.i.i.i.i49 ], [ %10, %.lr.ph.i.i.i.i49.preheader ]
-  %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i50, i64 32
+.lr.ph.i.i.i.i47:                                 ; preds = %.lr.ph.i.i.i.i47.preheader, %.lr.ph.i.i.i.i47
+  %.012.i.i.i.i48 = phi ptr [ %.1.i.i.i.i53, %.lr.ph.i.i.i.i47 ], [ %9, %.lr.ph.i.i.i.i47.preheader ]
+  %.0811.i.i.i.i49 = phi ptr [ %.19.i.i.i.i50, %.lr.ph.i.i.i.i47 ], [ %10, %.lr.ph.i.i.i.i47.preheader ]
+  %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i48, i64 32
   %37 = load i32, ptr %36, align 4, !tbaa !32
   %38 = icmp slt i32 %37, 3
-  %.19.i.i.i.i52 = select i1 %38, ptr %.0811.i.i.i.i51, ptr %.012.i.i.i.i50
-  %.1.in.v.i.i.i.i53 = select i1 %38, i64 24, i64 16
-  %.1.in.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i50, i64 %.1.in.v.i.i.i.i53
-  %.1.i.i.i.i55 = load ptr, ptr %.1.in.i.i.i.i54, align 8, !tbaa !34
-  %.not.i.i.i.i56 = icmp eq ptr %.1.i.i.i.i55, null
-  br i1 %.not.i.i.i.i56, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i57, label %.lr.ph.i.i.i.i49, !llvm.loop !35
+  %.19.i.i.i.i50 = select i1 %38, ptr %.0811.i.i.i.i49, ptr %.012.i.i.i.i48
+  %.1.in.v.i.i.i.i51 = select i1 %38, i64 24, i64 16
+  %.1.in.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i48, i64 %.1.in.v.i.i.i.i51
+  %.1.i.i.i.i53 = load ptr, ptr %.1.in.i.i.i.i52, align 8, !tbaa !34
+  %.not.i.i.i.i54 = icmp eq ptr %.1.i.i.i.i53, null
+  br i1 %.not.i.i.i.i54, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i55, label %.lr.ph.i.i.i.i47, !llvm.loop !35
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i57: ; preds = %.lr.ph.i.i.i.i49
-  %39 = icmp eq ptr %.19.i.i.i.i52, %10
-  br i1 %39, label %.lr.ph.i.i.i.i62.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i55: ; preds = %.lr.ph.i.i.i.i47
+  %39 = icmp eq ptr %.19.i.i.i.i50, %10
+  br i1 %39, label %.lr.ph.i.i.i.i59.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit57
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i57
-  %40 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i52, i64 32
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit57:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i55
+  %40 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i50, i64 32
   %41 = load i32, ptr %40, align 4, !tbaa !32
-  %42 = icmp sgt i32 %41, 3
-  br i1 %42, label %.lr.ph.i.i.i.i62.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+  %42 = icmp slt i32 %41, 4
+  br i1 %42, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i59.preheader
 
-.lr.ph.i.i.i.i62.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i57, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60
-  br label %.lr.ph.i.i.i.i62
+.lr.ph.i.i.i.i59.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i55, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit57
+  br label %.lr.ph.i.i.i.i59
 
-.lr.ph.i.i.i.i62:                                 ; preds = %.lr.ph.i.i.i.i62.preheader, %.lr.ph.i.i.i.i62
-  %.012.i.i.i.i63 = phi ptr [ %.1.i.i.i.i68, %.lr.ph.i.i.i.i62 ], [ %9, %.lr.ph.i.i.i.i62.preheader ]
-  %.0811.i.i.i.i64 = phi ptr [ %.19.i.i.i.i65, %.lr.ph.i.i.i.i62 ], [ %10, %.lr.ph.i.i.i.i62.preheader ]
-  %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i63, i64 32
+.lr.ph.i.i.i.i59:                                 ; preds = %.lr.ph.i.i.i.i59.preheader, %.lr.ph.i.i.i.i59
+  %.012.i.i.i.i60 = phi ptr [ %.1.i.i.i.i65, %.lr.ph.i.i.i.i59 ], [ %9, %.lr.ph.i.i.i.i59.preheader ]
+  %.0811.i.i.i.i61 = phi ptr [ %.19.i.i.i.i62, %.lr.ph.i.i.i.i59 ], [ %10, %.lr.ph.i.i.i.i59.preheader ]
+  %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i60, i64 32
   %44 = load i32, ptr %43, align 4, !tbaa !32
   %45 = icmp slt i32 %44, 41
-  %.19.i.i.i.i65 = select i1 %45, ptr %.0811.i.i.i.i64, ptr %.012.i.i.i.i63
-  %.1.in.v.i.i.i.i66 = select i1 %45, i64 24, i64 16
-  %.1.in.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i63, i64 %.1.in.v.i.i.i.i66
-  %.1.i.i.i.i68 = load ptr, ptr %.1.in.i.i.i.i67, align 8, !tbaa !34
-  %.not.i.i.i.i69 = icmp eq ptr %.1.i.i.i.i68, null
-  br i1 %.not.i.i.i.i69, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i70, label %.lr.ph.i.i.i.i62, !llvm.loop !35
+  %.19.i.i.i.i62 = select i1 %45, ptr %.0811.i.i.i.i61, ptr %.012.i.i.i.i60
+  %.1.in.v.i.i.i.i63 = select i1 %45, i64 24, i64 16
+  %.1.in.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i60, i64 %.1.in.v.i.i.i.i63
+  %.1.i.i.i.i65 = load ptr, ptr %.1.in.i.i.i.i64, align 8, !tbaa !34
+  %.not.i.i.i.i66 = icmp eq ptr %.1.i.i.i.i65, null
+  br i1 %.not.i.i.i.i66, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i67, label %.lr.ph.i.i.i.i59, !llvm.loop !35
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i70: ; preds = %.lr.ph.i.i.i.i62
-  %46 = icmp eq ptr %.19.i.i.i.i65, %10
-  br i1 %46, label %.lr.ph.i.i.i.i75.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i67: ; preds = %.lr.ph.i.i.i.i59
+  %46 = icmp eq ptr %.19.i.i.i.i62, %10
+  br i1 %46, label %.lr.ph.i.i.i.i71.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit69
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i70
-  %47 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i65, i64 32
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit69:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i67
+  %47 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i62, i64 32
   %48 = load i32, ptr %47, align 4, !tbaa !32
-  %49 = icmp sgt i32 %48, 41
-  br i1 %49, label %.lr.ph.i.i.i.i75.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+  %49 = icmp slt i32 %48, 42
+  br i1 %49, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i71.preheader
 
-.lr.ph.i.i.i.i75.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i70, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73
-  br label %.lr.ph.i.i.i.i75
+.lr.ph.i.i.i.i71.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i67, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit69
+  br label %.lr.ph.i.i.i.i71
 
-.lr.ph.i.i.i.i75:                                 ; preds = %.lr.ph.i.i.i.i75.preheader, %.lr.ph.i.i.i.i75
-  %.012.i.i.i.i76 = phi ptr [ %.1.i.i.i.i81, %.lr.ph.i.i.i.i75 ], [ %9, %.lr.ph.i.i.i.i75.preheader ]
-  %.0811.i.i.i.i77 = phi ptr [ %.19.i.i.i.i78, %.lr.ph.i.i.i.i75 ], [ %10, %.lr.ph.i.i.i.i75.preheader ]
-  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i76, i64 32
+.lr.ph.i.i.i.i71:                                 ; preds = %.lr.ph.i.i.i.i71.preheader, %.lr.ph.i.i.i.i71
+  %.012.i.i.i.i72 = phi ptr [ %.1.i.i.i.i77, %.lr.ph.i.i.i.i71 ], [ %9, %.lr.ph.i.i.i.i71.preheader ]
+  %.0811.i.i.i.i73 = phi ptr [ %.19.i.i.i.i74, %.lr.ph.i.i.i.i71 ], [ %10, %.lr.ph.i.i.i.i71.preheader ]
+  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i72, i64 32
   %51 = load i32, ptr %50, align 4, !tbaa !32
   %52 = icmp slt i32 %51, 38
-  %.19.i.i.i.i78 = select i1 %52, ptr %.0811.i.i.i.i77, ptr %.012.i.i.i.i76
-  %.1.in.v.i.i.i.i79 = select i1 %52, i64 24, i64 16
-  %.1.in.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i76, i64 %.1.in.v.i.i.i.i79
-  %.1.i.i.i.i81 = load ptr, ptr %.1.in.i.i.i.i80, align 8, !tbaa !34
-  %.not.i.i.i.i82 = icmp eq ptr %.1.i.i.i.i81, null
-  br i1 %.not.i.i.i.i82, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i83, label %.lr.ph.i.i.i.i75, !llvm.loop !35
+  %.19.i.i.i.i74 = select i1 %52, ptr %.0811.i.i.i.i73, ptr %.012.i.i.i.i72
+  %.1.in.v.i.i.i.i75 = select i1 %52, i64 24, i64 16
+  %.1.in.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i72, i64 %.1.in.v.i.i.i.i75
+  %.1.i.i.i.i77 = load ptr, ptr %.1.in.i.i.i.i76, align 8, !tbaa !34
+  %.not.i.i.i.i78 = icmp eq ptr %.1.i.i.i.i77, null
+  br i1 %.not.i.i.i.i78, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i79, label %.lr.ph.i.i.i.i71, !llvm.loop !35
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i83: ; preds = %.lr.ph.i.i.i.i75
-  %53 = icmp eq ptr %.19.i.i.i.i78, %10
-  br i1 %53, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86, label %54
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i79: ; preds = %.lr.ph.i.i.i.i71
+  %53 = icmp eq ptr %.19.i.i.i.i74, %10
+  br i1 %53, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit81
 
-54:                                               ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i83
-  %55 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i78, i64 32
-  %56 = load i32, ptr %55, align 4, !tbaa !32
-  %57 = icmp sgt i32 %56, 38
-  %spec.select.i.i.i84 = select i1 %57, ptr %10, ptr %.19.i.i.i.i78
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit81:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i79
+  %54 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i74, i64 32
+  %55 = load i32, ptr %54, align 4, !tbaa !32
+  %.fr249 = freeze i32 %55
+  %56 = icmp slt i32 %.fr249, 39
+  %spec.select = select i1 %56, i32 3, i32 0
+  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86:    ; preds = %7, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i83, %54
-  %.sroa.0.0.i.i.i85 = phi ptr [ %10, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i83 ], [ %spec.select.i.i.i84, %54 ], [ %10, %7 ]
-  %.not262 = icmp eq ptr %.sroa.0.0.i.i.i85, %10
-  %spec.select = select i1 %.not262, i32 0, i32 3
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+57:                                               ; preds = %4, %4
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %59 = load ptr, ptr %58, align 8, !tbaa !31
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.not10.i.i.i.i82 = icmp eq ptr %59, null
+  br i1 %.not10.i.i.i.i82, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i83
 
-58:                                               ; preds = %4, %4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %60 = load ptr, ptr %59, align 8, !tbaa !31
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.not10.i.i.i.i87 = icmp eq ptr %60, null
-  br i1 %.not10.i.i.i.i87, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164, label %.lr.ph.i.i.i.i88
+.lr.ph.i.i.i.i83:                                 ; preds = %57, %.lr.ph.i.i.i.i83
+  %.012.i.i.i.i84 = phi ptr [ %.1.i.i.i.i89, %.lr.ph.i.i.i.i83 ], [ %59, %57 ]
+  %.0811.i.i.i.i85 = phi ptr [ %.19.i.i.i.i86, %.lr.ph.i.i.i.i83 ], [ %60, %57 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i84, i64 32
+  %62 = load i32, ptr %61, align 4, !tbaa !32
+  %63 = icmp slt i32 %62, 5
+  %.19.i.i.i.i86 = select i1 %63, ptr %.0811.i.i.i.i85, ptr %.012.i.i.i.i84
+  %.1.in.v.i.i.i.i87 = select i1 %63, i64 24, i64 16
+  %.1.in.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i84, i64 %.1.in.v.i.i.i.i87
+  %.1.i.i.i.i89 = load ptr, ptr %.1.in.i.i.i.i88, align 8, !tbaa !34
+  %.not.i.i.i.i90 = icmp eq ptr %.1.i.i.i.i89, null
+  br i1 %.not.i.i.i.i90, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i91, label %.lr.ph.i.i.i.i83, !llvm.loop !35
 
-.lr.ph.i.i.i.i88:                                 ; preds = %58, %.lr.ph.i.i.i.i88
-  %.012.i.i.i.i89 = phi ptr [ %.1.i.i.i.i94, %.lr.ph.i.i.i.i88 ], [ %60, %58 ]
-  %.0811.i.i.i.i90 = phi ptr [ %.19.i.i.i.i91, %.lr.ph.i.i.i.i88 ], [ %61, %58 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i89, i64 32
-  %63 = load i32, ptr %62, align 4, !tbaa !32
-  %64 = icmp slt i32 %63, 5
-  %.19.i.i.i.i91 = select i1 %64, ptr %.0811.i.i.i.i90, ptr %.012.i.i.i.i89
-  %.1.in.v.i.i.i.i92 = select i1 %64, i64 24, i64 16
-  %.1.in.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i89, i64 %.1.in.v.i.i.i.i92
-  %.1.i.i.i.i94 = load ptr, ptr %.1.in.i.i.i.i93, align 8, !tbaa !34
-  %.not.i.i.i.i95 = icmp eq ptr %.1.i.i.i.i94, null
-  br i1 %.not.i.i.i.i95, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i96, label %.lr.ph.i.i.i.i88, !llvm.loop !35
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i91: ; preds = %.lr.ph.i.i.i.i83
+  %64 = icmp eq ptr %.19.i.i.i.i86, %60
+  br i1 %64, label %.lr.ph.i.i.i.i95.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit93
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i96: ; preds = %.lr.ph.i.i.i.i88
-  %65 = icmp eq ptr %.19.i.i.i.i91, %61
-  br i1 %65, label %.lr.ph.i.i.i.i101.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit93:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i91
+  %65 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i86, i64 32
+  %66 = load i32, ptr %65, align 4, !tbaa !32
+  %67 = icmp slt i32 %66, 6
+  br i1 %67, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i95.preheader
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99:    ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i96
-  %66 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i91, i64 32
-  %67 = load i32, ptr %66, align 4, !tbaa !32
-  %68 = icmp sgt i32 %67, 5
-  br i1 %68, label %.lr.ph.i.i.i.i101.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+.lr.ph.i.i.i.i95.preheader:                       ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i91, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit93
+  br label %.lr.ph.i.i.i.i95
 
-.lr.ph.i.i.i.i101.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i96, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99
-  br label %.lr.ph.i.i.i.i101
+.lr.ph.i.i.i.i95:                                 ; preds = %.lr.ph.i.i.i.i95.preheader, %.lr.ph.i.i.i.i95
+  %.012.i.i.i.i96 = phi ptr [ %.1.i.i.i.i101, %.lr.ph.i.i.i.i95 ], [ %59, %.lr.ph.i.i.i.i95.preheader ]
+  %.0811.i.i.i.i97 = phi ptr [ %.19.i.i.i.i98, %.lr.ph.i.i.i.i95 ], [ %60, %.lr.ph.i.i.i.i95.preheader ]
+  %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i96, i64 32
+  %69 = load i32, ptr %68, align 4, !tbaa !32
+  %70 = icmp slt i32 %69, 4
+  %.19.i.i.i.i98 = select i1 %70, ptr %.0811.i.i.i.i97, ptr %.012.i.i.i.i96
+  %.1.in.v.i.i.i.i99 = select i1 %70, i64 24, i64 16
+  %.1.in.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i96, i64 %.1.in.v.i.i.i.i99
+  %.1.i.i.i.i101 = load ptr, ptr %.1.in.i.i.i.i100, align 8, !tbaa !34
+  %.not.i.i.i.i102 = icmp eq ptr %.1.i.i.i.i101, null
+  br i1 %.not.i.i.i.i102, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i103, label %.lr.ph.i.i.i.i95, !llvm.loop !35
 
-.lr.ph.i.i.i.i101:                                ; preds = %.lr.ph.i.i.i.i101.preheader, %.lr.ph.i.i.i.i101
-  %.012.i.i.i.i102 = phi ptr [ %.1.i.i.i.i107, %.lr.ph.i.i.i.i101 ], [ %60, %.lr.ph.i.i.i.i101.preheader ]
-  %.0811.i.i.i.i103 = phi ptr [ %.19.i.i.i.i104, %.lr.ph.i.i.i.i101 ], [ %61, %.lr.ph.i.i.i.i101.preheader ]
-  %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i102, i64 32
-  %70 = load i32, ptr %69, align 4, !tbaa !32
-  %71 = icmp slt i32 %70, 4
-  %.19.i.i.i.i104 = select i1 %71, ptr %.0811.i.i.i.i103, ptr %.012.i.i.i.i102
-  %.1.in.v.i.i.i.i105 = select i1 %71, i64 24, i64 16
-  %.1.in.i.i.i.i106 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i102, i64 %.1.in.v.i.i.i.i105
-  %.1.i.i.i.i107 = load ptr, ptr %.1.in.i.i.i.i106, align 8, !tbaa !34
-  %.not.i.i.i.i108 = icmp eq ptr %.1.i.i.i.i107, null
-  br i1 %.not.i.i.i.i108, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i109, label %.lr.ph.i.i.i.i101, !llvm.loop !35
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i103: ; preds = %.lr.ph.i.i.i.i95
+  %71 = icmp eq ptr %.19.i.i.i.i98, %60
+  br i1 %71, label %.lr.ph.i.i.i.i107.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit105
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i109: ; preds = %.lr.ph.i.i.i.i101
-  %72 = icmp eq ptr %.19.i.i.i.i104, %61
-  br i1 %72, label %.lr.ph.i.i.i.i114.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit105:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i103
+  %72 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i98, i64 32
+  %73 = load i32, ptr %72, align 4, !tbaa !32
+  %74 = icmp slt i32 %73, 5
+  br i1 %74, label %75, label %.lr.ph.i.i.i.i107.preheader
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i109
-  %73 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i104, i64 32
-  %74 = load i32, ptr %73, align 4, !tbaa !32
-  %75 = icmp sgt i32 %74, 4
-  br i1 %75, label %.lr.ph.i.i.i.i114.preheader, label %76
+.lr.ph.i.i.i.i107.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i103, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit105
+  br label %.lr.ph.i.i.i.i107
 
-.lr.ph.i.i.i.i114.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i109, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112
-  br label %.lr.ph.i.i.i.i114
+75:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit105
+  %76 = tail call noundef zeroext i1 @_ZN3gmx12cpuIsAmdZen1ERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  %77 = select i1 %76, i32 8, i32 7
+  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189
 
-76:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit112
-  %77 = tail call noundef zeroext i1 @_ZN3gmx12cpuIsAmdZen1ERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  %78 = select i1 %77, i32 8, i32 7
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+.lr.ph.i.i.i.i107:                                ; preds = %.lr.ph.i.i.i.i107.preheader, %.lr.ph.i.i.i.i107
+  %.012.i.i.i.i108 = phi ptr [ %.1.i.i.i.i113, %.lr.ph.i.i.i.i107 ], [ %59, %.lr.ph.i.i.i.i107.preheader ]
+  %.0811.i.i.i.i109 = phi ptr [ %.19.i.i.i.i110, %.lr.ph.i.i.i.i107 ], [ %60, %.lr.ph.i.i.i.i107.preheader ]
+  %78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i108, i64 32
+  %79 = load i32, ptr %78, align 4, !tbaa !32
+  %80 = icmp slt i32 %79, 3
+  %.19.i.i.i.i110 = select i1 %80, ptr %.0811.i.i.i.i109, ptr %.012.i.i.i.i108
+  %.1.in.v.i.i.i.i111 = select i1 %80, i64 24, i64 16
+  %.1.in.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i108, i64 %.1.in.v.i.i.i.i111
+  %.1.i.i.i.i113 = load ptr, ptr %.1.in.i.i.i.i112, align 8, !tbaa !34
+  %.not.i.i.i.i114 = icmp eq ptr %.1.i.i.i.i113, null
+  br i1 %.not.i.i.i.i114, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i115, label %.lr.ph.i.i.i.i107, !llvm.loop !35
 
-.lr.ph.i.i.i.i114:                                ; preds = %.lr.ph.i.i.i.i114.preheader, %.lr.ph.i.i.i.i114
-  %.012.i.i.i.i115 = phi ptr [ %.1.i.i.i.i120, %.lr.ph.i.i.i.i114 ], [ %60, %.lr.ph.i.i.i.i114.preheader ]
-  %.0811.i.i.i.i116 = phi ptr [ %.19.i.i.i.i117, %.lr.ph.i.i.i.i114 ], [ %61, %.lr.ph.i.i.i.i114.preheader ]
-  %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i115, i64 32
-  %80 = load i32, ptr %79, align 4, !tbaa !32
-  %81 = icmp slt i32 %80, 3
-  %.19.i.i.i.i117 = select i1 %81, ptr %.0811.i.i.i.i116, ptr %.012.i.i.i.i115
-  %.1.in.v.i.i.i.i118 = select i1 %81, i64 24, i64 16
-  %.1.in.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i115, i64 %.1.in.v.i.i.i.i118
-  %.1.i.i.i.i120 = load ptr, ptr %.1.in.i.i.i.i119, align 8, !tbaa !34
-  %.not.i.i.i.i121 = icmp eq ptr %.1.i.i.i.i120, null
-  br i1 %.not.i.i.i.i121, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i122, label %.lr.ph.i.i.i.i114, !llvm.loop !35
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i115: ; preds = %.lr.ph.i.i.i.i107
+  %81 = icmp eq ptr %.19.i.i.i.i110, %60
+  br i1 %81, label %.lr.ph.i.i.i.i131.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit117
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i122: ; preds = %.lr.ph.i.i.i.i114
-  %82 = icmp eq ptr %.19.i.i.i.i117, %61
-  br i1 %82, label %.lr.ph.i.i.i.i140.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit117:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i115
+  %82 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i110, i64 32
+  %83 = load i32, ptr %82, align 4, !tbaa !32
+  %84 = icmp slt i32 %83, 4
+  br i1 %84, label %.lr.ph.i.i.i.i119, label %.lr.ph.i.i.i.i131.preheader
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i122
-  %83 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i117, i64 32
-  %84 = load i32, ptr %83, align 4, !tbaa !32
-  %85 = icmp sgt i32 %84, 3
-  br i1 %85, label %.lr.ph.i.i.i.i140.preheader, label %.lr.ph.i.i.i.i127
+.lr.ph.i.i.i.i131.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i115, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit117
+  br label %.lr.ph.i.i.i.i131
 
-.lr.ph.i.i.i.i140.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i122, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125
-  br label %.lr.ph.i.i.i.i140
+.lr.ph.i.i.i.i119:                                ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit117, %.lr.ph.i.i.i.i119
+  %.012.i.i.i.i120 = phi ptr [ %.1.i.i.i.i125, %.lr.ph.i.i.i.i119 ], [ %59, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit117 ]
+  %.0811.i.i.i.i121 = phi ptr [ %.19.i.i.i.i122, %.lr.ph.i.i.i.i119 ], [ %60, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit117 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i120, i64 32
+  %86 = load i32, ptr %85, align 4, !tbaa !32
+  %87 = icmp slt i32 %86, 19
+  %.19.i.i.i.i122 = select i1 %87, ptr %.0811.i.i.i.i121, ptr %.012.i.i.i.i120
+  %.1.in.v.i.i.i.i123 = select i1 %87, i64 24, i64 16
+  %.1.in.i.i.i.i124 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i120, i64 %.1.in.v.i.i.i.i123
+  %.1.i.i.i.i125 = load ptr, ptr %.1.in.i.i.i.i124, align 8, !tbaa !34
+  %.not.i.i.i.i126 = icmp eq ptr %.1.i.i.i.i125, null
+  br i1 %.not.i.i.i.i126, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i127, label %.lr.ph.i.i.i.i119, !llvm.loop !35
 
-.lr.ph.i.i.i.i127:                                ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125, %.lr.ph.i.i.i.i127
-  %.012.i.i.i.i128 = phi ptr [ %.1.i.i.i.i133, %.lr.ph.i.i.i.i127 ], [ %60, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125 ]
-  %.0811.i.i.i.i129 = phi ptr [ %.19.i.i.i.i130, %.lr.ph.i.i.i.i127 ], [ %61, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit125 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i128, i64 32
-  %87 = load i32, ptr %86, align 4, !tbaa !32
-  %88 = icmp slt i32 %87, 19
-  %.19.i.i.i.i130 = select i1 %88, ptr %.0811.i.i.i.i129, ptr %.012.i.i.i.i128
-  %.1.in.v.i.i.i.i131 = select i1 %88, i64 24, i64 16
-  %.1.in.i.i.i.i132 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i128, i64 %.1.in.v.i.i.i.i131
-  %.1.i.i.i.i133 = load ptr, ptr %.1.in.i.i.i.i132, align 8, !tbaa !34
-  %.not.i.i.i.i134 = icmp eq ptr %.1.i.i.i.i133, null
-  br i1 %.not.i.i.i.i134, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i135, label %.lr.ph.i.i.i.i127, !llvm.loop !35
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i127: ; preds = %.lr.ph.i.i.i.i119
+  %88 = icmp eq ptr %.19.i.i.i.i122, %60
+  br i1 %88, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit129
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i135: ; preds = %.lr.ph.i.i.i.i127
-  %89 = icmp eq ptr %.19.i.i.i.i130, %61
-  br i1 %89, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138, label %90
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit129:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i127
+  %89 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i122, i64 32
+  %90 = load i32, ptr %89, align 4, !tbaa !32
+  %.fr = freeze i32 %90
+  %91 = icmp slt i32 %.fr, 20
+  %spec.select246 = select i1 %91, i32 5, i32 6
+  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189
 
-90:                                               ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i135
-  %91 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i130, i64 32
-  %92 = load i32, ptr %91, align 4, !tbaa !32
-  %93 = icmp sgt i32 %92, 19
-  %spec.select.i.i.i136 = select i1 %93, ptr %61, ptr %.19.i.i.i.i130
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138
+.lr.ph.i.i.i.i131:                                ; preds = %.lr.ph.i.i.i.i131.preheader, %.lr.ph.i.i.i.i131
+  %.012.i.i.i.i132 = phi ptr [ %.1.i.i.i.i137, %.lr.ph.i.i.i.i131 ], [ %59, %.lr.ph.i.i.i.i131.preheader ]
+  %.0811.i.i.i.i133 = phi ptr [ %.19.i.i.i.i134, %.lr.ph.i.i.i.i131 ], [ %60, %.lr.ph.i.i.i.i131.preheader ]
+  %92 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i132, i64 32
+  %93 = load i32, ptr %92, align 4, !tbaa !32
+  %94 = icmp slt i32 %93, 41
+  %.19.i.i.i.i134 = select i1 %94, ptr %.0811.i.i.i.i133, ptr %.012.i.i.i.i132
+  %.1.in.v.i.i.i.i135 = select i1 %94, i64 24, i64 16
+  %.1.in.i.i.i.i136 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i132, i64 %.1.in.v.i.i.i.i135
+  %.1.i.i.i.i137 = load ptr, ptr %.1.in.i.i.i.i136, align 8, !tbaa !34
+  %.not.i.i.i.i138 = icmp eq ptr %.1.i.i.i.i137, null
+  br i1 %.not.i.i.i.i138, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i139, label %.lr.ph.i.i.i.i131, !llvm.loop !35
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i135, %90
-  %.sroa.0.0.i.i.i137 = phi ptr [ %61, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i135 ], [ %spec.select.i.i.i136, %90 ]
-  %.not = icmp eq ptr %.sroa.0.0.i.i.i137, %61
-  %. = select i1 %.not, i32 6, i32 5
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i139: ; preds = %.lr.ph.i.i.i.i131
+  %95 = icmp eq ptr %.19.i.i.i.i134, %60
+  br i1 %95, label %.lr.ph.i.i.i.i143.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit141
 
-.lr.ph.i.i.i.i140:                                ; preds = %.lr.ph.i.i.i.i140.preheader, %.lr.ph.i.i.i.i140
-  %.012.i.i.i.i141 = phi ptr [ %.1.i.i.i.i146, %.lr.ph.i.i.i.i140 ], [ %60, %.lr.ph.i.i.i.i140.preheader ]
-  %.0811.i.i.i.i142 = phi ptr [ %.19.i.i.i.i143, %.lr.ph.i.i.i.i140 ], [ %61, %.lr.ph.i.i.i.i140.preheader ]
-  %94 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i141, i64 32
-  %95 = load i32, ptr %94, align 4, !tbaa !32
-  %96 = icmp slt i32 %95, 41
-  %.19.i.i.i.i143 = select i1 %96, ptr %.0811.i.i.i.i142, ptr %.012.i.i.i.i141
-  %.1.in.v.i.i.i.i144 = select i1 %96, i64 24, i64 16
-  %.1.in.i.i.i.i145 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i141, i64 %.1.in.v.i.i.i.i144
-  %.1.i.i.i.i146 = load ptr, ptr %.1.in.i.i.i.i145, align 8, !tbaa !34
-  %.not.i.i.i.i147 = icmp eq ptr %.1.i.i.i.i146, null
-  br i1 %.not.i.i.i.i147, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i148, label %.lr.ph.i.i.i.i140, !llvm.loop !35
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit141:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i139
+  %96 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i134, i64 32
+  %97 = load i32, ptr %96, align 4, !tbaa !32
+  %98 = icmp slt i32 %97, 42
+  br i1 %98, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i143.preheader
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i148: ; preds = %.lr.ph.i.i.i.i140
-  %97 = icmp eq ptr %.19.i.i.i.i143, %61
-  br i1 %97, label %.lr.ph.i.i.i.i153.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151
+.lr.ph.i.i.i.i143.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i139, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit141
+  br label %.lr.ph.i.i.i.i143
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i148
-  %98 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i143, i64 32
-  %99 = load i32, ptr %98, align 4, !tbaa !32
-  %100 = icmp sgt i32 %99, 41
-  br i1 %100, label %.lr.ph.i.i.i.i153.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+.lr.ph.i.i.i.i143:                                ; preds = %.lr.ph.i.i.i.i143.preheader, %.lr.ph.i.i.i.i143
+  %.012.i.i.i.i144 = phi ptr [ %.1.i.i.i.i149, %.lr.ph.i.i.i.i143 ], [ %59, %.lr.ph.i.i.i.i143.preheader ]
+  %.0811.i.i.i.i145 = phi ptr [ %.19.i.i.i.i146, %.lr.ph.i.i.i.i143 ], [ %60, %.lr.ph.i.i.i.i143.preheader ]
+  %99 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i144, i64 32
+  %100 = load i32, ptr %99, align 4, !tbaa !32
+  %101 = icmp slt i32 %100, 38
+  %.19.i.i.i.i146 = select i1 %101, ptr %.0811.i.i.i.i145, ptr %.012.i.i.i.i144
+  %.1.in.v.i.i.i.i147 = select i1 %101, i64 24, i64 16
+  %.1.in.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i144, i64 %.1.in.v.i.i.i.i147
+  %.1.i.i.i.i149 = load ptr, ptr %.1.in.i.i.i.i148, align 8, !tbaa !34
+  %.not.i.i.i.i150 = icmp eq ptr %.1.i.i.i.i149, null
+  br i1 %.not.i.i.i.i150, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i151, label %.lr.ph.i.i.i.i143, !llvm.loop !35
 
-.lr.ph.i.i.i.i153.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i148, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151
-  br label %.lr.ph.i.i.i.i153
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i151: ; preds = %.lr.ph.i.i.i.i143
+  %102 = icmp eq ptr %.19.i.i.i.i146, %60
+  br i1 %102, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit153
 
-.lr.ph.i.i.i.i153:                                ; preds = %.lr.ph.i.i.i.i153.preheader, %.lr.ph.i.i.i.i153
-  %.012.i.i.i.i154 = phi ptr [ %.1.i.i.i.i159, %.lr.ph.i.i.i.i153 ], [ %60, %.lr.ph.i.i.i.i153.preheader ]
-  %.0811.i.i.i.i155 = phi ptr [ %.19.i.i.i.i156, %.lr.ph.i.i.i.i153 ], [ %61, %.lr.ph.i.i.i.i153.preheader ]
-  %101 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i154, i64 32
-  %102 = load i32, ptr %101, align 4, !tbaa !32
-  %103 = icmp slt i32 %102, 38
-  %.19.i.i.i.i156 = select i1 %103, ptr %.0811.i.i.i.i155, ptr %.012.i.i.i.i154
-  %.1.in.v.i.i.i.i157 = select i1 %103, i64 24, i64 16
-  %.1.in.i.i.i.i158 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i154, i64 %.1.in.v.i.i.i.i157
-  %.1.i.i.i.i159 = load ptr, ptr %.1.in.i.i.i.i158, align 8, !tbaa !34
-  %.not.i.i.i.i160 = icmp eq ptr %.1.i.i.i.i159, null
-  br i1 %.not.i.i.i.i160, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i161, label %.lr.ph.i.i.i.i153, !llvm.loop !35
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit153:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i151
+  %103 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i146, i64 32
+  %104 = load i32, ptr %103, align 4, !tbaa !32
+  %.fr248 = freeze i32 %104
+  %105 = icmp slt i32 %.fr248, 39
+  %spec.select247 = select i1 %105, i32 3, i32 0
+  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i161: ; preds = %.lr.ph.i.i.i.i153
-  %104 = icmp eq ptr %.19.i.i.i.i156, %61
-  br i1 %104, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164, label %105
+106:                                              ; preds = %4
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %108 = load ptr, ptr %107, align 8, !tbaa !31
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.not10.i.i.i.i154 = icmp eq ptr %108, null
+  br i1 %.not10.i.i.i.i154, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i155
 
-105:                                              ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i161
-  %106 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i156, i64 32
-  %107 = load i32, ptr %106, align 4, !tbaa !32
-  %108 = icmp sgt i32 %107, 38
-  %spec.select.i.i.i162 = select i1 %108, ptr %61, ptr %.19.i.i.i.i156
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164
+.lr.ph.i.i.i.i155:                                ; preds = %106, %.lr.ph.i.i.i.i155
+  %.012.i.i.i.i156 = phi ptr [ %.1.i.i.i.i161, %.lr.ph.i.i.i.i155 ], [ %108, %106 ]
+  %.0811.i.i.i.i157 = phi ptr [ %.19.i.i.i.i158, %.lr.ph.i.i.i.i155 ], [ %109, %106 ]
+  %110 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i156, i64 32
+  %111 = load i32, ptr %110, align 4, !tbaa !32
+  %112 = icmp slt i32 %111, 49
+  %.19.i.i.i.i158 = select i1 %112, ptr %.0811.i.i.i.i157, ptr %.012.i.i.i.i156
+  %.1.in.v.i.i.i.i159 = select i1 %112, i64 24, i64 16
+  %.1.in.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i156, i64 %.1.in.v.i.i.i.i159
+  %.1.i.i.i.i161 = load ptr, ptr %.1.in.i.i.i.i160, align 8, !tbaa !34
+  %.not.i.i.i.i162 = icmp eq ptr %.1.i.i.i.i161, null
+  br i1 %.not.i.i.i.i162, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i163, label %.lr.ph.i.i.i.i155, !llvm.loop !35
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164:   ; preds = %58, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i161, %105
-  %.sroa.0.0.i.i.i163 = phi ptr [ %61, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i161 ], [ %spec.select.i.i.i162, %105 ], [ %61, %58 ]
-  %.not256 = icmp eq ptr %.sroa.0.0.i.i.i163, %61
-  %spec.select21 = select i1 %.not256, i32 0, i32 3
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i163: ; preds = %.lr.ph.i.i.i.i155
+  %113 = icmp eq ptr %.19.i.i.i.i158, %109
+  br i1 %113, label %.lr.ph.i.i.i.i167.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit165
 
-109:                                              ; preds = %4
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %111 = load ptr, ptr %110, align 8, !tbaa !31
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.not10.i.i.i.i165 = icmp eq ptr %111, null
-  br i1 %.not10.i.i.i.i165, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203, label %.lr.ph.i.i.i.i166
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit165:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i163
+  %114 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i158, i64 32
+  %115 = load i32, ptr %114, align 4, !tbaa !32
+  %116 = icmp slt i32 %115, 50
+  br i1 %116, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i167.preheader
 
-.lr.ph.i.i.i.i166:                                ; preds = %109, %.lr.ph.i.i.i.i166
-  %.012.i.i.i.i167 = phi ptr [ %.1.i.i.i.i172, %.lr.ph.i.i.i.i166 ], [ %111, %109 ]
-  %.0811.i.i.i.i168 = phi ptr [ %.19.i.i.i.i169, %.lr.ph.i.i.i.i166 ], [ %112, %109 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i167, i64 32
-  %114 = load i32, ptr %113, align 4, !tbaa !32
-  %115 = icmp slt i32 %114, 49
-  %.19.i.i.i.i169 = select i1 %115, ptr %.0811.i.i.i.i168, ptr %.012.i.i.i.i167
-  %.1.in.v.i.i.i.i170 = select i1 %115, i64 24, i64 16
-  %.1.in.i.i.i.i171 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i167, i64 %.1.in.v.i.i.i.i170
-  %.1.i.i.i.i172 = load ptr, ptr %.1.in.i.i.i.i171, align 8, !tbaa !34
-  %.not.i.i.i.i173 = icmp eq ptr %.1.i.i.i.i172, null
-  br i1 %.not.i.i.i.i173, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174, label %.lr.ph.i.i.i.i166, !llvm.loop !35
+.lr.ph.i.i.i.i167.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i163, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit165
+  br label %.lr.ph.i.i.i.i167
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174: ; preds = %.lr.ph.i.i.i.i166
-  %116 = icmp eq ptr %.19.i.i.i.i169, %112
-  br i1 %116, label %.lr.ph.i.i.i.i179.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177
-
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174
-  %117 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i169, i64 32
+.lr.ph.i.i.i.i167:                                ; preds = %.lr.ph.i.i.i.i167.preheader, %.lr.ph.i.i.i.i167
+  %.012.i.i.i.i168 = phi ptr [ %.1.i.i.i.i173, %.lr.ph.i.i.i.i167 ], [ %108, %.lr.ph.i.i.i.i167.preheader ]
+  %.0811.i.i.i.i169 = phi ptr [ %.19.i.i.i.i170, %.lr.ph.i.i.i.i167 ], [ %109, %.lr.ph.i.i.i.i167.preheader ]
+  %117 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i168, i64 32
   %118 = load i32, ptr %117, align 4, !tbaa !32
-  %119 = icmp sgt i32 %118, 49
-  br i1 %119, label %.lr.ph.i.i.i.i179.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+  %119 = icmp slt i32 %118, 48
+  %.19.i.i.i.i170 = select i1 %119, ptr %.0811.i.i.i.i169, ptr %.012.i.i.i.i168
+  %.1.in.v.i.i.i.i171 = select i1 %119, i64 24, i64 16
+  %.1.in.i.i.i.i172 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i168, i64 %.1.in.v.i.i.i.i171
+  %.1.i.i.i.i173 = load ptr, ptr %.1.in.i.i.i.i172, align 8, !tbaa !34
+  %.not.i.i.i.i174 = icmp eq ptr %.1.i.i.i.i173, null
+  br i1 %.not.i.i.i.i174, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i175, label %.lr.ph.i.i.i.i167, !llvm.loop !35
 
-.lr.ph.i.i.i.i179.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177
-  br label %.lr.ph.i.i.i.i179
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i175: ; preds = %.lr.ph.i.i.i.i167
+  %120 = icmp eq ptr %.19.i.i.i.i170, %109
+  br i1 %120, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177
 
-.lr.ph.i.i.i.i179:                                ; preds = %.lr.ph.i.i.i.i179.preheader, %.lr.ph.i.i.i.i179
-  %.012.i.i.i.i180 = phi ptr [ %.1.i.i.i.i185, %.lr.ph.i.i.i.i179 ], [ %111, %.lr.ph.i.i.i.i179.preheader ]
-  %.0811.i.i.i.i181 = phi ptr [ %.19.i.i.i.i182, %.lr.ph.i.i.i.i179 ], [ %112, %.lr.ph.i.i.i.i179.preheader ]
-  %120 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i180, i64 32
-  %121 = load i32, ptr %120, align 4, !tbaa !32
-  %122 = icmp slt i32 %121, 48
-  %.19.i.i.i.i182 = select i1 %122, ptr %.0811.i.i.i.i181, ptr %.012.i.i.i.i180
-  %.1.in.v.i.i.i.i183 = select i1 %122, i64 24, i64 16
-  %.1.in.i.i.i.i184 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i180, i64 %.1.in.v.i.i.i.i183
-  %.1.i.i.i.i185 = load ptr, ptr %.1.in.i.i.i.i184, align 8, !tbaa !34
-  %.not.i.i.i.i186 = icmp eq ptr %.1.i.i.i.i185, null
-  br i1 %.not.i.i.i.i186, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187, label %.lr.ph.i.i.i.i179, !llvm.loop !35
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i175
+  %121 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i170, i64 32
+  %122 = load i32, ptr %121, align 4, !tbaa !32
+  %123 = icmp slt i32 %122, 49
+  br i1 %123, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177.thread
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187: ; preds = %.lr.ph.i.i.i.i179
-  %123 = icmp eq ptr %.19.i.i.i.i182, %112
-  br i1 %123, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177.thread: ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i175, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177
+  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187
-  %124 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i182, i64 32
-  %125 = load i32, ptr %124, align 4, !tbaa !32
-  %126 = icmp sgt i32 %125, 48
-  br i1 %126, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+124:                                              ; preds = %4
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %126 = load ptr, ptr %125, align 8, !tbaa !31
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.not10.i.i.i.i190 = icmp eq ptr %126, null
+  br i1 %.not10.i.i.i.i190, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %.lr.ph.i.i.i.i191
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread: ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
+.lr.ph.i.i.i.i191:                                ; preds = %124, %.lr.ph.i.i.i.i191
+  %.012.i.i.i.i192 = phi ptr [ %.1.i.i.i.i197, %.lr.ph.i.i.i.i191 ], [ %126, %124 ]
+  %.0811.i.i.i.i193 = phi ptr [ %.19.i.i.i.i194, %.lr.ph.i.i.i.i191 ], [ %127, %124 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i192, i64 32
+  %129 = load i32, ptr %128, align 4, !tbaa !32
+  %130 = icmp slt i32 %129, 52
+  %.19.i.i.i.i194 = select i1 %130, ptr %.0811.i.i.i.i193, ptr %.012.i.i.i.i192
+  %.1.in.v.i.i.i.i195 = select i1 %130, i64 24, i64 16
+  %.1.in.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i192, i64 %.1.in.v.i.i.i.i195
+  %.1.i.i.i.i197 = load ptr, ptr %.1.in.i.i.i.i196, align 8, !tbaa !34
+  %.not.i.i.i.i198 = icmp eq ptr %.1.i.i.i.i197, null
+  br i1 %.not.i.i.i.i198, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i199, label %.lr.ph.i.i.i.i191, !llvm.loop !35
 
-127:                                              ; preds = %4
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %129 = load ptr, ptr %128, align 8, !tbaa !31
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.not10.i.i.i.i204 = icmp eq ptr %129, null
-  br i1 %.not10.i.i.i.i204, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203, label %.lr.ph.i.i.i.i205
+_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i199: ; preds = %.lr.ph.i.i.i.i191
+  %131 = icmp eq ptr %.19.i.i.i.i194, %127
+  br i1 %131, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201
 
-.lr.ph.i.i.i.i205:                                ; preds = %127, %.lr.ph.i.i.i.i205
-  %.012.i.i.i.i206 = phi ptr [ %.1.i.i.i.i211, %.lr.ph.i.i.i.i205 ], [ %129, %127 ]
-  %.0811.i.i.i.i207 = phi ptr [ %.19.i.i.i.i208, %.lr.ph.i.i.i.i205 ], [ %130, %127 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i206, i64 32
-  %132 = load i32, ptr %131, align 4, !tbaa !32
-  %133 = icmp slt i32 %132, 52
-  %.19.i.i.i.i208 = select i1 %133, ptr %.0811.i.i.i.i207, ptr %.012.i.i.i.i206
-  %.1.in.v.i.i.i.i209 = select i1 %133, i64 24, i64 16
-  %.1.in.i.i.i.i210 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i206, i64 %.1.in.v.i.i.i.i209
-  %.1.i.i.i.i211 = load ptr, ptr %.1.in.i.i.i.i210, align 8, !tbaa !34
-  %.not.i.i.i.i212 = icmp eq ptr %.1.i.i.i.i211, null
-  br i1 %.not.i.i.i.i212, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213, label %.lr.ph.i.i.i.i205, !llvm.loop !35
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i199
+  %132 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i194, i64 32
+  %133 = load i32, ptr %132, align 4, !tbaa !32
+  %134 = icmp slt i32 %133, 53
+  br i1 %134, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201.thread
 
-_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213: ; preds = %.lr.ph.i.i.i.i205
-  %134 = icmp eq ptr %.19.i.i.i.i208, %130
-  br i1 %134, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201.thread: ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i199, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201
+  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213
-  %135 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i208, i64 32
-  %136 = load i32, ptr %135, align 4, !tbaa !32
-  %137 = icmp sgt i32 %136, 52
-  br i1 %137, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
-
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread: ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216
-  br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
-
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203:   ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread, %127, %109, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit, %25, %76, %4, %1
-  %.0 = phi i32 [ %28, %25 ], [ %78, %76 ], [ 0, %1 ], [ 10, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit ], [ 7, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47 ], [ 6, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60 ], [ 4, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73 ], [ %spec.select, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86 ], [ 9, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99 ], [ %., %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138 ], [ 4, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151 ], [ %spec.select21, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164 ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177 ], [ 11, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190 ], [ 13, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216 ], [ 0, %109 ], [ 0, %127 ], [ 0, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread ], [ 0, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread ], [ 0, %4 ]
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit189:   ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201.thread, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177.thread, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit153, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit129, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit81, %124, %106, %57, %7, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i151, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i127, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i79, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit165, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit141, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit93, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit69, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit57, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit45, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit, %25, %75, %4, %1
+  %.0 = phi i32 [ %28, %25 ], [ %77, %75 ], [ 0, %1 ], [ 10, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit ], [ 7, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit45 ], [ 6, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit57 ], [ 4, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit69 ], [ 9, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit93 ], [ 4, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit141 ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit165 ], [ 11, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177 ], [ 13, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201 ], [ 0, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i79 ], [ 6, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i127 ], [ 0, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i151 ], [ 0, %7 ], [ 0, %57 ], [ 0, %106 ], [ 0, %124 ], [ %spec.select, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit81 ], [ %spec.select246, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit129 ], [ %spec.select247, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit153 ], [ 0, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177.thread ], [ 0, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit201.thread ], [ 0, %4 ]
   ret i32 %.0
 }
 

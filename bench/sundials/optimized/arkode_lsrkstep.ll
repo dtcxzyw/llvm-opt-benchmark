@@ -986,18 +986,18 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %154 = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %155
 
-155:                                              ; preds = %.lr.ph, %223
-  %.0202289 = phi i32 [ 2, %.lr.ph ], [ %225, %223 ]
-  %.0203288 = phi double [ %117, %.lr.ph ], [ %.1204, %223 ]
-  %.0206287 = phi double [ %117, %.lr.ph ], [ %.1207, %223 ]
-  %.0208286 = phi double [ %122, %.lr.ph ], [ %.1209, %223 ]
-  %.0210285 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1211, %223 ]
-  %.0212284 = phi double [ %94, %.lr.ph ], [ %.1213, %223 ]
-  %.0214283 = phi double [ 1.000000e+00, %.lr.ph ], [ %.1215, %223 ]
-  %.0216282 = phi double [ 1.000000e+00, %.lr.ph ], [ %.1217, %223 ]
-  %.0218281 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1219, %223 ]
-  %.0220280 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1221, %223 ]
-  %.0222279 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1223, %223 ]
+155:                                              ; preds = %.lr.ph, %219
+  %.0202289 = phi i32 [ 2, %.lr.ph ], [ %224, %219 ]
+  %.0203288 = phi double [ %117, %.lr.ph ], [ %165, %219 ]
+  %.0206287 = phi double [ %117, %.lr.ph ], [ %.0203288, %219 ]
+  %.0208286 = phi double [ %122, %.lr.ph ], [ %190, %219 ]
+  %.0210285 = phi double [ 0.000000e+00, %.lr.ph ], [ %.0208286, %219 ]
+  %.0212284 = phi double [ %94, %.lr.ph ], [ %157, %219 ]
+  %.0214283 = phi double [ 1.000000e+00, %.lr.ph ], [ %.0212284, %219 ]
+  %.0216282 = phi double [ 1.000000e+00, %.lr.ph ], [ %160, %219 ]
+  %.0218281 = phi double [ 0.000000e+00, %.lr.ph ], [ %.0216282, %219 ]
+  %.0220280 = phi double [ 0.000000e+00, %.lr.ph ], [ %163, %219 ]
+  %.0222279 = phi double [ 0.000000e+00, %.lr.ph ], [ %.0220280, %219 ]
   %156 = fneg double %.0214283
   %157 = tail call double @llvm.fmuladd.f64(double %115, double %.0212284, double %156)
   %158 = fneg double %.0218281
@@ -1092,7 +1092,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
 216:                                              ; preds = %._crit_edge292, %206
   %217 = phi i32 [ %.pre293, %._crit_edge292 ], [ %.pre294, %206 ]
   %218 = icmp slt i32 %.0202289, %217
-  br i1 %218, label %219, label %223
+  br i1 %218, label %219, label %._crit_edge
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %120, align 8, !tbaa !83
@@ -1102,104 +1102,90 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %222 = load ptr, ptr %144, align 8, !tbaa !87
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %222, ptr noundef %220) #13
   %.pre295 = load i32, ptr %57, align 8, !tbaa !76
-  br label %223
+  %223 = icmp slt i32 %.0202289, %.pre295
+  %224 = add nuw nsw i32 %.0202289, 1
+  br i1 %223, label %155, label %._crit_edge
 
-223:                                              ; preds = %216, %219
-  %224 = phi i32 [ %.pre295, %219 ], [ %217, %216 ]
-  %.1223 = phi double [ %.0220280, %219 ], [ %.0222279, %216 ]
-  %.1221 = phi double [ %163, %219 ], [ %.0220280, %216 ]
-  %.1219 = phi double [ %.0216282, %219 ], [ %.0218281, %216 ]
-  %.1217 = phi double [ %160, %219 ], [ %.0216282, %216 ]
-  %.1215 = phi double [ %.0212284, %219 ], [ %.0214283, %216 ]
-  %.1213 = phi double [ %157, %219 ], [ %.0212284, %216 ]
-  %.1211 = phi double [ %.0208286, %219 ], [ %.0210285, %216 ]
-  %.1209 = phi double [ %190, %219 ], [ %.0208286, %216 ]
-  %.1207 = phi double [ %.0203288, %219 ], [ %.0206287, %216 ]
-  %.1204 = phi double [ %165, %219 ], [ %.0203288, %216 ]
-  %225 = add nuw nsw i32 %.0202289, 1
-  %.not244.not = icmp slt i32 %.0202289, %224
-  br i1 %.not244.not, label %155, label %._crit_edge
+._crit_edge:                                      ; preds = %216, %219, %141
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %226 = load i32, ptr %225, align 8, !tbaa !56
+  %.not249 = icmp eq i32 %226, 0
+  %227 = load ptr, ptr %5, align 8, !tbaa !49
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %229 = load double, ptr %228, align 8, !tbaa !86
+  %230 = load double, ptr %17, align 8, !tbaa !68
+  %231 = fadd double %229, %230
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %233 = load ptr, ptr %232, align 8, !tbaa !87
+  %234 = load ptr, ptr %128, align 8, !tbaa !84
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %236 = load ptr, ptr %235, align 8, !tbaa !63
+  %237 = tail call i32 %227(double noundef %231, ptr noundef %233, ptr noundef %234, ptr noundef %236) #13
+  %238 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %239 = load i64, ptr %238, align 8, !tbaa !64
+  %240 = add nsw i64 %239, 1
+  store i64 %240, ptr %238, align 8, !tbaa !64
+  %241 = icmp slt i32 %237, 0
+  br i1 %.not249, label %242, label %266
 
-._crit_edge:                                      ; preds = %223, %141
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %227 = load i32, ptr %226, align 8, !tbaa !56
-  %.not249 = icmp eq i32 %227, 0
-  %228 = load ptr, ptr %5, align 8, !tbaa !49
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %230 = load double, ptr %229, align 8, !tbaa !86
-  %231 = load double, ptr %17, align 8, !tbaa !68
-  %232 = fadd double %230, %231
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %234 = load ptr, ptr %233, align 8, !tbaa !87
-  %235 = load ptr, ptr %128, align 8, !tbaa !84
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %237 = load ptr, ptr %236, align 8, !tbaa !63
-  %238 = tail call i32 %228(double noundef %232, ptr noundef %234, ptr noundef %235, ptr noundef %237) #13
-  %239 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %240 = load i64, ptr %239, align 8, !tbaa !64
-  %241 = add nsw i64 %240, 1
-  store i64 %241, ptr %239, align 8, !tbaa !64
-  %242 = icmp slt i32 %238, 0
-  br i1 %.not249, label %243, label %267
+242:                                              ; preds = %._crit_edge
+  br i1 %241, label %.thread, label %243
 
-243:                                              ; preds = %._crit_edge
-  br i1 %242, label %.thread, label %244
+243:                                              ; preds = %242
+  %.not250 = icmp eq i32 %237, 0
+  br i1 %.not250, label %244, label %.thread
 
 244:                                              ; preds = %243
-  %.not250 = icmp eq i32 %238, 0
-  br i1 %.not250, label %245, label %.thread
-
-245:                                              ; preds = %244
   store double 8.000000e-01, ptr %9, align 8, !tbaa !67
-  %246 = load ptr, ptr %118, align 8, !tbaa !82
-  store ptr %246, ptr %11, align 8, !tbaa !88
-  %247 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double -8.000000e-01, ptr %247, align 8, !tbaa !67
-  %248 = load ptr, ptr %233, align 8, !tbaa !87
-  %249 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %248, ptr %249, align 8, !tbaa !88
-  %250 = load double, ptr %17, align 8, !tbaa !68
-  %251 = fmul double %250, 4.000000e-01
-  %252 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %251, ptr %252, align 8, !tbaa !67
-  %253 = load ptr, ptr %126, align 8, !tbaa !65
-  %254 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %253, ptr %254, align 8, !tbaa !88
-  %255 = load double, ptr %17, align 8, !tbaa !68
-  %256 = fmul double %255, 4.000000e-01
-  %257 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store double %256, ptr %257, align 8, !tbaa !67
-  %258 = load ptr, ptr %128, align 8, !tbaa !84
-  %259 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %258, ptr %259, align 8, !tbaa !88
-  %260 = load ptr, ptr %120, align 8, !tbaa !83
-  %261 = tail call i32 @N_VLinearCombination(i32 noundef 4, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef %260) #13
-  %.not251 = icmp eq i32 %261, 0
-  br i1 %.not251, label %262, label %.thread
+  %245 = load ptr, ptr %118, align 8, !tbaa !82
+  store ptr %245, ptr %11, align 8, !tbaa !88
+  %246 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store double -8.000000e-01, ptr %246, align 8, !tbaa !67
+  %247 = load ptr, ptr %232, align 8, !tbaa !87
+  %248 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %247, ptr %248, align 8, !tbaa !88
+  %249 = load double, ptr %17, align 8, !tbaa !68
+  %250 = fmul double %249, 4.000000e-01
+  %251 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store double %250, ptr %251, align 8, !tbaa !67
+  %252 = load ptr, ptr %126, align 8, !tbaa !65
+  %253 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %252, ptr %253, align 8, !tbaa !88
+  %254 = load double, ptr %17, align 8, !tbaa !68
+  %255 = fmul double %254, 4.000000e-01
+  %256 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store double %255, ptr %256, align 8, !tbaa !67
+  %257 = load ptr, ptr %128, align 8, !tbaa !84
+  %258 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %257, ptr %258, align 8, !tbaa !88
+  %259 = load ptr, ptr %120, align 8, !tbaa !83
+  %260 = tail call i32 @N_VLinearCombination(i32 noundef 4, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef %259) #13
+  %.not251 = icmp eq i32 %260, 0
+  br i1 %.not251, label %261, label %.thread
 
-262:                                              ; preds = %245
-  %263 = load ptr, ptr %120, align 8, !tbaa !83
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %265 = load ptr, ptr %264, align 8, !tbaa !89
-  %266 = tail call double @N_VWrmsNorm(ptr noundef %263, ptr noundef %265) #13
-  store double %266, ptr %1, align 8, !tbaa !67
-  tail call void @lsrkStep_DomEigUpdateLogic(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %266)
+261:                                              ; preds = %244
+  %262 = load ptr, ptr %120, align 8, !tbaa !83
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %264 = load ptr, ptr %263, align 8, !tbaa !89
+  %265 = tail call double @N_VWrmsNorm(ptr noundef %262, ptr noundef %264) #13
+  store double %265, ptr %1, align 8, !tbaa !67
+  tail call void @lsrkStep_DomEigUpdateLogic(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %265)
   br label %.thread
 
-267:                                              ; preds = %._crit_edge
-  br i1 %242, label %.thread, label %268
+266:                                              ; preds = %._crit_edge
+  br i1 %241, label %.thread, label %267
+
+267:                                              ; preds = %266
+  %.not252 = icmp eq i32 %237, 0
+  br i1 %.not252, label %268, label %.thread
 
 268:                                              ; preds = %267
-  %.not252 = icmp eq i32 %238, 0
-  br i1 %.not252, label %269, label %.thread
-
-269:                                              ; preds = %268
-  %270 = load double, ptr %1, align 8, !tbaa !67
-  tail call void @lsrkStep_DomEigUpdateLogic(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %270)
+  %269 = load double, ptr %1, align 8, !tbaa !67
+  tail call void @lsrkStep_DomEigUpdateLogic(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %269)
   br label %.thread
 
-.thread:                                          ; preds = %155, %185, %186, %209, %lsrkStep_AccessStepMem.exit, %14, %262, %269, %268, %267, %245, %244, %243, %132, %70, %54, %39
-  %.0 = phi i32 [ -21, %lsrkStep_AccessStepMem.exit ], [ %15, %14 ], [ -50, %54 ], [ 11, %39 ], [ -8, %70 ], [ -38, %132 ], [ -8, %243 ], [ 9, %244 ], [ -28, %245 ], [ -8, %267 ], [ 9, %268 ], [ 0, %269 ], [ 0, %262 ], [ -8, %155 ], [ 9, %185 ], [ -28, %186 ], [ -38, %209 ]
+.thread:                                          ; preds = %155, %185, %186, %209, %lsrkStep_AccessStepMem.exit, %14, %261, %268, %267, %266, %244, %243, %242, %132, %70, %54, %39
+  %.0 = phi i32 [ -21, %lsrkStep_AccessStepMem.exit ], [ %15, %14 ], [ -50, %54 ], [ 11, %39 ], [ -8, %70 ], [ -38, %132 ], [ -8, %242 ], [ 9, %243 ], [ -28, %244 ], [ -8, %266 ], [ 9, %267 ], [ 0, %268 ], [ 0, %261 ], [ -8, %155 ], [ 9, %185 ], [ -28, %186 ], [ -38, %209 ]
   ret i32 %.0
 }
 

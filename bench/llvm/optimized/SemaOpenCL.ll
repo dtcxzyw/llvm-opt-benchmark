@@ -925,13 +925,13 @@ define dso_local void @_ZN5clang10SemaOpenCL16handleAccessAttrEPNS_4DeclERKNS_10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 128
-  %.not128 = icmp eq i32 %20, 0
-  br i1 %.not128, label %21, label %461
+  %.not127 = icmp eq i32 %20, 0
+  br i1 %.not127, label %21, label %461
 
 21:                                               ; preds = %3
   %22 = and i32 %19, 256
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread, label %23
+  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123, label %23
 
 23:                                               ; preds = %21
   %24 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #17
@@ -942,7 +942,7 @@ define dso_local void @_ZN5clang10SemaOpenCL16handleAccessAttrEPNS_4DeclERKNS_10
   %.idx.i.i = shl nuw nsw i64 %28, 3
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %23, %34
   %.sroa.07.1.i.i.i.i = phi ptr [ %35, %34 ], [ %25, %23 ]
@@ -955,11 +955,11 @@ define dso_local void @_ZN5clang10SemaOpenCL16handleAccessAttrEPNS_4DeclERKNS_10
 34:                                               ; preds = %.lr.ph.i.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %35, %29
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
 
 _ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not129 = icmp eq ptr %.sroa.07.1.i.i.i.i, %29
-  br i1 %.not129, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread, label %36
+  %.not128 = icmp eq ptr %.sroa.07.1.i.i.i.i, %29
+  br i1 %.not128, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123, label %36
 
 36:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit
   %37 = load i32, ptr %18, align 4
@@ -1107,7 +1107,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i45: ; preds = %103
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %92, %94, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i45
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %14) #17
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14) #17
-  br label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread
+  br label %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123
 
 114:                                              ; preds = %_ZNK5clang4Decl7getAttrINS_16OpenCLAccessAttrEEEPT_v.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %15) #17
@@ -1177,15 +1177,15 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit56
   call void @_ZN5clang4Decl14setInvalidDeclEb(ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #17
   br label %461
 
-_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread: ; preds = %34, %23, %21, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit, %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit
+_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123: ; preds = %34, %23, %21, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit, %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit
   %144 = load i32, ptr %18, align 4
   %145 = and i32 %144, 127
   %146 = icmp ne i32 %145, 41
-  %.not130 = icmp eq ptr %1, null
-  %.not = or i1 %.not130, %146
+  %.not129 = icmp eq ptr %1, null
+  %.not = or i1 %.not129, %146
   br i1 %.not, label %439, label %147
 
-147:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread
+147:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i57 = load i64, ptr %148, align 8, !tbaa !44
   %149 = and i64 %.sroa.0.0.copyload.i57, -16
@@ -1206,9 +1206,9 @@ _ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread: ; preds = %34, %
   %162 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %161, ptr %162, align 8
   %163 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr nonnull @.str.1, i64 10, i64 noundef 0) #17
-  %.not131 = icmp eq i64 %163, -1
+  %.not130 = icmp eq i64 %163, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
-  br i1 %.not131, label %439, label %164
+  br i1 %.not130, label %439, label %164
 
 164:                                              ; preds = %147
   %165 = call noundef nonnull align 8 dereferenceable(849) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
@@ -1763,7 +1763,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i70: ; preds = %427
   call void @_ZN5clang4Decl14setInvalidDeclEb(ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #17
   br label %461
 
-439:                                              ; preds = %.critedge31, %147, %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread
+439:                                              ; preds = %.critedge31, %147, %_ZNK5clang4Decl7hasAttrINS_16OpenCLAccessAttrEEEbv.exit.thread123
   %440 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 2192
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 2272

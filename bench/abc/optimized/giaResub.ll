@@ -6680,8 +6680,8 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br label %37
 
 37:                                               ; preds = %.lr.ph88, %.critedge2
-  %.val48118 = phi i32 [ %.val4886, %.lr.ph88 ], [ %.val48, %.critedge2 ]
-  %38 = phi i32 [ 0, %.lr.ph88 ], [ %126, %.critedge2 ]
+  %.val48118 = phi i32 [ %.val4886, %.lr.ph88 ], [ %.val48116, %.critedge2 ]
+  %38 = phi i32 [ 0, %.lr.ph88 ], [ %125, %.critedge2 ]
   %indvars.iv111 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next112, %.critedge2 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph88 ], [ %indvars.iv.next, %.critedge2 ]
   %39 = getelementptr inbounds nuw i32, ptr %.val52, i64 %indvars.iv111
@@ -6696,7 +6696,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %46 = sext i32 %.val48118 to i64
   %47 = icmp slt i64 %indvars.iv.next112, %46
-  br i1 %47, label %.lr.ph, label %.critedge2
+  br i1 %47, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %45
   %.val54 = load ptr, ptr %36, align 8, !tbaa !76
@@ -6704,9 +6704,9 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %49 = load i32, ptr %48, align 4, !tbaa !31
   %50 = add nsw i32 %49, %42
   %51 = icmp slt i32 %50, %.0.lcssa.i
-  br i1 %51, label %.critedge2.loopexit, label %.lr.ph156
+  br i1 %51, label %.critedge2, label %.lr.ph159
 
-.lr.ph156:                                        ; preds = %.lr.ph
+.lr.ph159:                                        ; preds = %.lr.ph
   %52 = getelementptr inbounds nuw i32, ptr %.val52, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !31
   %54 = tail call noundef i32 @llvm.smax.i32(i32 %40, i32 %53)
@@ -6722,17 +6722,17 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %62 = tail call noundef i32 @llvm.smax.i32(i32 %40, i32 %58)
   %63 = add nsw i32 %60, %42
   %64 = icmp slt i32 %63, %.0.lcssa.i
-  br i1 %64, label %.critedge2.loopexit, label %65, !llvm.loop !142
+  br i1 %64, label %.critedge2, label %65, !llvm.loop !142
 
-65:                                               ; preds = %.lr.ph156, %56
-  %66 = phi i32 [ %54, %.lr.ph156 ], [ %62, %56 ]
-  %67 = phi i32 [ %55, %.lr.ph156 ], [ %61, %56 ]
-  %indvars.iv108155 = phi i64 [ %indvars.iv, %.lr.ph156 ], [ %indvars.iv.next109, %56 ]
-  %68 = phi i32 [ %38, %.lr.ph156 ], [ %71, %56 ]
-  %.pn161.in = ashr i32 %67, 1
-  %.pn161 = sext i32 %.pn161.in to i64
-  %.in160 = getelementptr inbounds ptr, ptr %.val54, i64 %.pn161
-  %69 = load ptr, ptr %.in160, align 8, !tbaa !93
+65:                                               ; preds = %.lr.ph159, %56
+  %66 = phi i32 [ %54, %.lr.ph159 ], [ %62, %56 ]
+  %67 = phi i32 [ %55, %.lr.ph159 ], [ %61, %56 ]
+  %indvars.iv108158 = phi i64 [ %indvars.iv, %.lr.ph159 ], [ %indvars.iv.next109, %56 ]
+  %68 = phi i32 [ %38, %.lr.ph159 ], [ %71, %56 ]
+  %.pn164.in = ashr i32 %67, 1
+  %.pn164 = sext i32 %.pn164.in to i64
+  %.in163 = getelementptr inbounds ptr, ptr %.val54, i64 %.pn164
+  %69 = load ptr, ptr %.in163, align 8, !tbaa !93
   %.pn.in = ashr i32 %66, 1
   %.pn = sext i32 %.pn.in to i64
   %.in = getelementptr inbounds ptr, ptr %.val54, i64 %.pn
@@ -6850,31 +6850,25 @@ Gia_ManDivCover.exit.thread63:                    ; preds = %.preheader91.i.i, %
   br label %.critedge
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.lr.ph98.i.i, %.lr.ph103.i.i, %.lr.ph108.i.i
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108155, 1
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108158, 1
   %.val = load i32, ptr %32, align 4, !tbaa !28
   %123 = trunc nuw i64 %indvars.iv.next109 to i32
   %124 = icmp sgt i32 %.val, %123
-  br i1 %124, label %56, label %.loopexit..critedge2.loopexit_crit_edge, !llvm.loop !142
+  br i1 %124, label %56, label %.loopexit..critedge2_crit_edge, !llvm.loop !142
 
-.loopexit..critedge2.loopexit_crit_edge:          ; preds = %.loopexit
-  br label %.critedge2.loopexit, !llvm.loop !142
+.loopexit..critedge2_crit_edge:                   ; preds = %.loopexit
+  br label %.critedge2, !llvm.loop !142
 
-.critedge2.loopexit:                              ; preds = %56, %.loopexit..critedge2.loopexit_crit_edge, %.lr.ph
-  %.val48116 = phi i32 [ %.val, %.loopexit..critedge2.loopexit_crit_edge ], [ %.val48118, %.lr.ph ], [ %.val, %56 ]
-  %125 = phi i32 [ %71, %.loopexit..critedge2.loopexit_crit_edge ], [ %38, %.lr.ph ], [ %71, %56 ]
+.critedge2:                                       ; preds = %56, %.loopexit..critedge2_crit_edge, %.lr.ph
+  %.val48116 = phi i32 [ %.val, %.loopexit..critedge2_crit_edge ], [ %.val48118, %.lr.ph ], [ %.val, %56 ]
+  %125 = phi i32 [ %71, %.loopexit..critedge2_crit_edge ], [ %38, %.lr.ph ], [ %71, %56 ]
   %.pre = sext i32 %.val48116 to i64
-  br label %.critedge2
-
-.critedge2:                                       ; preds = %.critedge2.loopexit, %45
-  %.pre-phi = phi i64 [ %.pre, %.critedge2.loopexit ], [ %46, %45 ]
-  %.val48 = phi i32 [ %.val48116, %.critedge2.loopexit ], [ %.val48118, %45 ]
-  %126 = phi i32 [ %125, %.critedge2.loopexit ], [ %38, %45 ]
-  %127 = icmp slt i64 %indvars.iv.next112, %.pre-phi
+  %126 = icmp slt i64 %indvars.iv.next112, %.pre
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %127, label %37, label %.critedge, !llvm.loop !147
+  br i1 %126, label %37, label %.critedge, !llvm.loop !147
 
-.critedge:                                        ; preds = %.critedge2, %37, %Abc_TtCountOnesVec.exit, %Gia_ManDivCover.exit.thread63
-  %.3 = phi i32 [ %122, %Gia_ManDivCover.exit.thread63 ], [ -1, %Abc_TtCountOnesVec.exit ], [ -1, %37 ], [ -1, %.critedge2 ]
+.critedge:                                        ; preds = %45, %.critedge2, %37, %Abc_TtCountOnesVec.exit, %Gia_ManDivCover.exit.thread63
+  %.3 = phi i32 [ %122, %Gia_ManDivCover.exit.thread63 ], [ -1, %Abc_TtCountOnesVec.exit ], [ -1, %37 ], [ -1, %.critedge2 ], [ -1, %45 ]
   ret i32 %.3
 }
 

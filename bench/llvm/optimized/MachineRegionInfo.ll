@@ -6859,9 +6859,9 @@ _ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_iter
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %56
 
-56:                                               ; preds = %176, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit
-  %57 = phi ptr [ %.pre42, %176 ], [ %50, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit ]
-  %58 = phi ptr [ %.pre, %176 ], [ %.0.lcssa.i.i.i.i.i.i.i16, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit ]
+56:                                               ; preds = %175, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit
+  %57 = phi ptr [ %.pre48, %175 ], [ %50, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit ]
+  %58 = phi ptr [ %.pre, %175 ], [ %.0.lcssa.i.i.i.i.i.i.i16, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit ]
   %59 = load ptr, ptr %52, align 8, !tbaa !180
   %60 = load ptr, ptr %7, align 8, !tbaa !183
   %61 = ptrtoint ptr %59 to i64
@@ -7041,7 +7041,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_itera
 
 145:                                              ; preds = %.loopexit
   call void @_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_15MachineFunctionEEEE11verifyBBMapEPKNS_13MachineRegionE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %143)
-  br label %176
+  br label %175
 
 146:                                              ; preds = %.loopexit
   %147 = and i64 %.0.copyload.i.i.i.i, -8
@@ -7049,7 +7049,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_itera
   %149 = load ptr, ptr %54, align 8, !tbaa !112
   %150 = load i32, ptr %55, align 8, !tbaa !115
   %151 = icmp eq i32 %150, 0
-  br i1 %151, label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_15MachineFunctionEEEE12getRegionForEPNS_17MachineBasicBlockE.exit, label %152
+  br i1 %151, label %.critedge, label %152
 
 152:                                              ; preds = %146
   %153 = trunc i64 %147 to i32
@@ -7069,7 +7069,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_17MachineRegionNodeENS_23df_itera
   %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %164 ], [ %.01826.i.i.i.i, %152 ]
   %.01627.i.i.i.i = phi i32 [ %165, %164 ], [ 1, %152 ]
   %163 = icmp eq ptr %162, inttoptr (i64 -4096 to ptr)
-  br i1 %163, label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_15MachineFunctionEEEE12getRegionForEPNS_17MachineBasicBlockE.exit, label %164, !prof !120
+  br i1 %163, label %.critedge, label %164, !prof !120
 
 164:                                              ; preds = %.lr.ph.i.i.i.i
   %165 = add i32 %.01627.i.i.i.i, 1
@@ -7085,21 +7085,17 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_13MachineRegion
   %171 = phi i64 [ %158, %152 ], [ %167, %164 ]
   %172 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.255", ptr %149, i64 %171, i32 0, i32 1
   %173 = load ptr, ptr %172, align 8, !tbaa !102
-  br label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_15MachineFunctionEEEE12getRegionForEPNS_17MachineBasicBlockE.exit
+  %174 = icmp eq ptr %173, %1
+  br i1 %174, label %175, label %.critedge
 
-_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_15MachineFunctionEEEE12getRegionForEPNS_17MachineBasicBlockE.exit: ; preds = %.lr.ph.i.i.i.i, %146, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_13MachineRegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIPKS2_EEPKSA_RKT_.exit.i.i
-  %174 = phi ptr [ %173, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_13MachineRegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIPKS2_EEPKSA_RKT_.exit.i.i ], [ null, %146 ], [ null, %.lr.ph.i.i.i.i ]
-  %.not = icmp eq ptr %174, %1
-  br i1 %.not, label %176, label %175
-
-175:                                              ; preds = %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_15MachineFunctionEEEE12getRegionForEPNS_17MachineBasicBlockE.exit
+.critedge:                                        ; preds = %146, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_13MachineRegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIPKS2_EEPKSA_RKT_.exit.i.i, %.lr.ph.i.i.i.i
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.15, i1 noundef zeroext true) #19
   unreachable
 
-176:                                              ; preds = %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_15MachineFunctionEEEE12getRegionForEPNS_17MachineBasicBlockE.exit, %145
+175:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEPNS_13MachineRegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIPKS2_EEPKSA_RKT_.exit.i.i, %145
   call void @_ZN4llvm11df_iteratorIPKNS_17MachineRegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(112) %4)
   %.pre = load ptr, ptr %53, align 8, !tbaa !180
-  %.pre42 = load ptr, ptr %30, align 8, !tbaa !183
+  %.pre48 = load ptr, ptr %30, align 8, !tbaa !183
   br label %56
 }
 

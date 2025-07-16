@@ -129,13 +129,13 @@ define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_15DyldBindingInfo5CLASSE(i64 no
   br label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 _ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %3, %4
-  %5 = phi i64 [ 100, %3 ], [ %.pre.i.pre.i, %4 ]
-  %.0.i.i.i.i14.i.i.idx = phi i64 [ 56, %3 ], [ %.add15.i.i, %4 ]
-  %.not19.i.i = icmp samesign ult i64 %0, %5
-  br i1 %.not19.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread12
+  %.pre.i.i = phi i64 [ 100, %3 ], [ %.pre.i.pre.i, %4 ]
+  %.0.i.i.i.i.idx.ph.i.i = phi i64 [ 56, %3 ], [ %.add15.i.i, %4 ]
+  %5 = icmp samesign ult i64 %0, %.pre.i.i
+  br i1 %5, label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread12
 
 _ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread12: ; preds = %2, %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
-  %.0.i.i.i.i14.i.i.idx15 = phi i64 [ %.0.i.i.i.i14.i.i.idx, %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ 40, %2 ]
+  %.0.i.i.i.i14.i.i.idx15 = phi i64 [ %.0.i.i.i.i.idx.ph.i.i, %_ZNK6frozen3mapIN4LIEF5MachO15DyldBindingInfo5CLASSEPKcLm4ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ 40, %2 ]
   %.0.i.i.i.i14.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_15DyldBindingInfo5CLASSE.enums2str, i64 %.0.i.i.i.i14.i.i.idx15
   %6 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.i.i.ptr, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !33

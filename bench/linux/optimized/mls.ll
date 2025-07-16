@@ -61,9 +61,9 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
   %41 = add i32 %40, %38
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %43 = icmp ult i32 %41, %.pre
-  br i1 %43, label %.preheader10, label %.thread
+  %42 = icmp ult i32 %41, %.pre
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  br i1 %42, label %.preheader10, label %.thread
 
 .preheader10:                                     ; preds = %37, %101
   %44 = phi i32 [ %47, %101 ], [ -2, %37 ]
@@ -142,13 +142,13 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
   br label %101
 
 99:                                               ; preds = %.preheader
-  %100 = load i32, ptr %42, align 8
+  %100 = load i32, ptr %43, align 8
   br label %101
 
 101:                                              ; preds = %99, %94, %82
   %102 = phi ptr [ %48, %82 ], [ null, %99 ], [ %87, %94 ]
   %103 = phi i32 [ %85, %82 ], [ %100, %99 ], [ %98, %94 ]
-  %104 = load i32, ptr %42, align 8
+  %104 = load i32, ptr %43, align 8
   %105 = icmp ult i32 %103, %104
   br i1 %105, label %.preheader10, label %106, !llvm.loop !9
 
@@ -261,9 +261,9 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   %43 = add i32 %42, %40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %45 = icmp ult i32 %43, %.pre
-  br i1 %45, label %.preheader12, label %.thread
+  %44 = icmp ult i32 %43, %.pre
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  br i1 %44, label %.preheader12, label %.thread
 
 .preheader12:                                     ; preds = %39, %110
   %46 = phi i32 [ %48, %110 ], [ -2, %39 ]
@@ -350,13 +350,13 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   br label %110
 
 108:                                              ; preds = %.preheader
-  %109 = load i32, ptr %44, align 8
+  %109 = load i32, ptr %45, align 8
   br label %110
 
 110:                                              ; preds = %108, %103, %91
   %111 = phi ptr [ %50, %91 ], [ null, %108 ], [ %96, %103 ]
   %112 = phi i32 [ %94, %91 ], [ %109, %108 ], [ %107, %103 ]
-  %113 = load i32, ptr %44, align 8
+  %113 = load i32, ptr %45, align 8
   %114 = icmp ult i32 %112, %113
   br i1 %114, label %.preheader12, label %115, !llvm.loop !11
 
@@ -903,7 +903,7 @@ define dso_local i32 @mls_range_set(ptr noundef %0, ptr noundef %1) local_unname
 define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 16 {
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %85, label %7
+  br i1 %6, label %82, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -970,26 +970,26 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr noundef
   %48 = load i32, ptr %9, align 8
   %49 = load i32, ptr %10, align 8
   %50 = icmp ult i32 %48, %49
-  br i1 %50, label %85, label %51
+  br i1 %50, label %82, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr i8, ptr %1, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %54 = tail call i32 @ebitmap_contains(ptr noundef %52, ptr noundef nonnull %53, i32 noundef 0) #10
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %85, label %56
+  br i1 %55, label %82, label %56
 
 56:                                               ; preds = %51
   %57 = load i32, ptr %12, align 8
   %58 = load i32, ptr %9, align 8
   %59 = icmp ult i32 %57, %58
-  br i1 %59, label %85, label %60
+  br i1 %59, label %82, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %62 = tail call i32 @ebitmap_contains(ptr noundef nonnull %61, ptr noundef %52, i32 noundef 0) #10
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %85, label %64
+  br i1 %63, label %82, label %64
 
 64:                                               ; preds = %60, %43, %26
   %65 = phi ptr [ %12, %26 ], [ %8, %43 ], [ %10, %60 ]
@@ -997,41 +997,36 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr noundef
   %66 = load i32, ptr %11, align 8
   %67 = load i32, ptr %9, align 8
   %68 = icmp ult i32 %66, %67
-  br i1 %68, label %74, label %69
+  br i1 %68, label %.thread, label %69
 
 69:                                               ; preds = %64
   %70 = getelementptr i8, ptr %2, i64 56
   %71 = getelementptr i8, ptr %1, i64 48
   %72 = tail call i32 @ebitmap_contains(ptr noundef %70, ptr noundef %71, i32 noundef 0) #10
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %._crit_edge2, label %83
+  br i1 %73, label %74, label %80
 
-._crit_edge2:                                     ; preds = %69
+74:                                               ; preds = %69
   %.pre3 = load i32, ptr %9, align 8
   %.pre4 = load i32, ptr %11, align 8
-  br label %74
+  %75 = icmp ult i32 %.pre3, %.pre4
+  br i1 %75, label %82, label %.thread
 
-74:                                               ; preds = %._crit_edge2, %64
-  %75 = phi i32 [ %.pre4, %._crit_edge2 ], [ %66, %64 ]
-  %76 = phi i32 [ %.pre3, %._crit_edge2 ], [ %67, %64 ]
-  %77 = icmp ult i32 %76, %75
-  br i1 %77, label %85, label %78
+.thread:                                          ; preds = %64, %74
+  %76 = getelementptr i8, ptr %1, i64 48
+  %77 = getelementptr i8, ptr %2, i64 56
+  %78 = tail call i32 @ebitmap_contains(ptr noundef %76, ptr noundef %77, i32 noundef 0) #10
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %82, label %80
 
-78:                                               ; preds = %74
-  %79 = getelementptr i8, ptr %1, i64 48
-  %80 = getelementptr i8, ptr %2, i64 56
-  %81 = tail call i32 @ebitmap_contains(ptr noundef %79, ptr noundef %80, i32 noundef 0) #10
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %85, label %83
+80:                                               ; preds = %.thread, %69
+  %81 = phi ptr [ %9, %69 ], [ %11, %.thread ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %14, ptr noundef align 8 dereferenceable(24) %81, i64 24, i1 false)
+  br label %82
 
-83:                                               ; preds = %78, %69
-  %84 = phi ptr [ %9, %69 ], [ %11, %78 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %14, ptr noundef align 8 dereferenceable(24) %84, i64 24, i1 false)
-  br label %85
-
-85:                                               ; preds = %83, %78, %74, %60, %56, %51, %47, %4
-  %86 = phi i32 [ 0, %4 ], [ -22, %74 ], [ -22, %56 ], [ -22, %47 ], [ -22, %78 ], [ -22, %51 ], [ -22, %60 ], [ 0, %83 ]
-  ret i32 %86
+82:                                               ; preds = %80, %.thread, %74, %60, %56, %51, %47, %4
+  %83 = phi i32 [ 0, %4 ], [ -22, %74 ], [ -22, %56 ], [ -22, %47 ], [ -22, %.thread ], [ -22, %51 ], [ -22, %60 ], [ 0, %80 ]
+  ret i32 %83
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1104,9 +1099,9 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
   %48 = add i32 %47, %45
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %50 = icmp ult i32 %48, %.pre
-  br i1 %50, label %51, label %.loopexit
+  %49 = icmp ult i32 %48, %.pre
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  br i1 %49, label %51, label %.loopexit
 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1170,13 +1165,13 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
   br label %97
 
 95:                                               ; preds = %.preheader
-  %96 = load i32, ptr %49, align 8
+  %96 = load i32, ptr %50, align 8
   br label %97
 
 97:                                               ; preds = %95, %90, %78
   %98 = phi ptr [ %55, %78 ], [ null, %95 ], [ %83, %90 ]
   %99 = phi i32 [ %81, %78 ], [ %96, %95 ], [ %94, %90 ]
-  %100 = load i32, ptr %49, align 8
+  %100 = load i32, ptr %50, align 8
   %101 = icmp ult i32 %99, %100
   br i1 %101, label %53, label %.loopexit, !llvm.loop !19
 

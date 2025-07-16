@@ -383,13 +383,13 @@ _ZN10duckdb_re29Prefilter8SimplifyEv.exit:        ; preds = %.lr.ph, %_ZNSt6vect
   br i1 %48, label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE5clearEv.exit.i30, label %_ZN10duckdb_re29Prefilter8SimplifyEv.exit34
 
 _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE5clearEv.exit.i30: ; preds = %.lr.ph116.preheader, %.lr.ph116
-  %.tr10.i29115153 = phi ptr [ %51, %.lr.ph116 ], [ %2, %.lr.ph116.preheader ]
+  %.tr10.i29115154 = phi ptr [ %51, %.lr.ph116 ], [ %2, %.lr.ph116.preheader ]
   %49 = phi ptr [ %40, %.lr.ph116 ], [ %30, %.lr.ph116.preheader ]
   %50 = phi ptr [ %41, %.lr.ph116 ], [ %31, %.lr.ph116.preheader ]
   %51 = load ptr, ptr %49, align 8, !tbaa !23
   store ptr %49, ptr %50, align 8, !tbaa !19
-  tail call void @_ZN10duckdb_re29PrefilterD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %.tr10.i29115153) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %.tr10.i29115153) #22
+  tail call void @_ZN10duckdb_re29PrefilterD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %.tr10.i29115154) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.tr10.i29115154) #22
   %52 = load i32, ptr %51, align 8, !tbaa !13
   %.off.i31 = add i32 %52, -3
   %switch.i32 = icmp ult i32 %.off.i31, 2
@@ -440,108 +440,105 @@ _ZN10duckdb_re29Prefilter8SimplifyEv.exit34:      ; preds = %_ZNSt6vectorIPN10du
   %68 = load ptr, ptr %67, align 8, !tbaa !19
   %69 = load ptr, ptr %66, align 8, !tbaa !22
   %.not = icmp eq ptr %68, %69
-  br i1 %.not, label %._crit_edge, label %.lr.ph121
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %.preheader
   %70 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  br label %73
+  br label %74
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit, %.preheader
-  %.lcssa119 = phi ptr [ %66, %.preheader ], [ %106, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
-  %.lcssa103 = phi ptr [ %68, %.preheader ], [ %109, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
-  %.lcssa = phi ptr [ %69, %.preheader ], [ %105, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
-  %.not.i.i = icmp eq ptr %.lcssa103, %.lcssa
-  br i1 %.not.i.i, label %115, label %71
+._crit_edge:                                      ; preds = %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit
+  %71 = icmp eq ptr %110, %106
+  br i1 %71, label %._crit_edge.thread, label %72
 
-71:                                               ; preds = %._crit_edge
-  %72 = getelementptr inbounds nuw i8, ptr %.lcssa119, i64 8
-  store ptr %.lcssa, ptr %72, align 8, !tbaa !19
-  br label %115
+72:                                               ; preds = %._crit_edge
+  %73 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  store ptr %106, ptr %73, align 8, !tbaa !19
+  br label %._crit_edge.thread
 
-73:                                               ; preds = %.lr.ph121, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit
-  %74 = phi ptr [ %69, %.lr.ph121 ], [ %105, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
-  %75 = phi ptr [ %66, %.lr.ph121 ], [ %106, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
-  %.020120 = phi i64 [ 0, %.lr.ph121 ], [ %107, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %.020120
-  %77 = load ptr, ptr %76, align 8, !tbaa !23
-  %78 = load ptr, ptr %70, align 8, !tbaa !18
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !19
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !29
-  %.not.i = icmp eq ptr %80, %82
-  br i1 %.not.i, label %85, label %83
+74:                                               ; preds = %.lr.ph121, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit
+  %75 = phi ptr [ %69, %.lr.ph121 ], [ %106, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
+  %76 = phi ptr [ %66, %.lr.ph121 ], [ %107, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
+  %.020120 = phi i64 [ 0, %.lr.ph121 ], [ %108, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit ]
+  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %.020120
+  %78 = load ptr, ptr %77, align 8, !tbaa !23
+  %79 = load ptr, ptr %70, align 8, !tbaa !18
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !19
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !29
+  %.not.i = icmp eq ptr %81, %83
+  br i1 %.not.i, label %86, label %84
 
-83:                                               ; preds = %73
-  store ptr %77, ptr %80, align 8, !tbaa !23
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %84, ptr %79, align 8, !tbaa !19
+84:                                               ; preds = %74
+  store ptr %78, ptr %81, align 8, !tbaa !23
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store ptr %85, ptr %80, align 8, !tbaa !19
   br label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit
 
-85:                                               ; preds = %73
-  %86 = load ptr, ptr %78, align 8, !tbaa !22
-  %87 = ptrtoint ptr %80 to i64
-  %88 = ptrtoint ptr %86 to i64
-  %89 = sub i64 %87, %88
-  %90 = icmp eq i64 %89, 9223372036854775800
-  br i1 %90, label %91, label %_ZNKSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+86:                                               ; preds = %74
+  %87 = load ptr, ptr %79, align 8, !tbaa !22
+  %88 = ptrtoint ptr %81 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = icmp eq i64 %90, 9223372036854775800
+  br i1 %91, label %92, label %_ZNKSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-91:                                               ; preds = %85
+92:                                               ; preds = %86
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #23
   unreachable
 
-_ZNKSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %85
-  %92 = ashr exact i64 %89, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %92, i64 1)
-  %93 = add nsw i64 %.sroa.speculated.i.i.i, %92
-  %94 = icmp ult i64 %93, %92
-  %95 = tail call i64 @llvm.umin.i64(i64 %93, i64 1152921504606846975)
-  %96 = select i1 %94, i64 1152921504606846975, i64 %95
-  %.not.i.i.i = icmp ne i64 %96, 0
+_ZNKSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %86
+  %93 = ashr exact i64 %90, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %93, i64 1)
+  %94 = add nsw i64 %.sroa.speculated.i.i.i, %93
+  %95 = icmp ult i64 %94, %93
+  %96 = tail call i64 @llvm.umin.i64(i64 %94, i64 1152921504606846975)
+  %97 = select i1 %95, i64 1152921504606846975, i64 %96
+  %.not.i.i.i = icmp ne i64 %97, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %97 = shl nuw nsw i64 %96, 3
-  %98 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %97) #20
-  %99 = getelementptr inbounds i8, ptr %98, i64 %89
-  store ptr %77, ptr %99, align 8, !tbaa !23
-  %100 = icmp sgt i64 %89, 0
-  br i1 %100, label %101, label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  %98 = shl nuw nsw i64 %97, 3
+  %99 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %98) #20
+  %100 = getelementptr inbounds i8, ptr %99, i64 %90
+  store ptr %78, ptr %100, align 8, !tbaa !23
+  %101 = icmp sgt i64 %90, 0
+  br i1 %101, label %102, label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-101:                                              ; preds = %_ZNKSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %98, ptr align 8 %86, i64 %89, i1 false)
+102:                                              ; preds = %_ZNKSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %99, ptr align 8 %87, i64 %90, i1 false)
   br label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %101, %_ZNKSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %.not.i17.i.i = icmp eq ptr %86, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %103
+_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %102, %_ZNKSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %.not.i17.i.i = icmp eq ptr %87, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %104
 
-103:                                              ; preds = %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %86) #22
+104:                                              ; preds = %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %87) #22
   br label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %103, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %98, ptr %78, align 8, !tbaa !22
-  store ptr %102, ptr %79, align 8, !tbaa !19
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
-  store ptr %104, ptr %81, align 8, !tbaa !29
+_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %104, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %99, ptr %79, align 8, !tbaa !22
+  store ptr %103, ptr %80, align 8, !tbaa !19
+  %105 = getelementptr inbounds nuw ptr, ptr %99, i64 %97
+  store ptr %105, ptr %82, align 8, !tbaa !29
   %.pre136 = load ptr, ptr %65, align 8, !tbaa !18
   %.pre137 = load ptr, ptr %.pre136, align 8, !tbaa !22
   br label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit: ; preds = %83, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %105 = phi ptr [ %74, %83 ], [ %.pre137, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  %106 = phi ptr [ %75, %83 ], [ %.pre136, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  %107 = add nuw i64 %.020120, 1
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %109 = load ptr, ptr %108, align 8, !tbaa !19
-  %110 = ptrtoint ptr %109 to i64
-  %111 = ptrtoint ptr %105 to i64
-  %112 = sub i64 %110, %111
-  %113 = ashr exact i64 %112, 3
-  %114 = icmp ult i64 %107, %113
-  br i1 %114, label %73, label %._crit_edge, !llvm.loop !30
+_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit: ; preds = %84, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
+  %106 = phi ptr [ %75, %84 ], [ %.pre137, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %107 = phi ptr [ %76, %84 ], [ %.pre136, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %108 = add nuw i64 %.020120, 1
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !19
+  %111 = ptrtoint ptr %110 to i64
+  %112 = ptrtoint ptr %106 to i64
+  %113 = sub i64 %111, %112
+  %114 = ashr exact i64 %113, 3
+  %115 = icmp ult i64 %108, %114
+  br i1 %115, label %74, label %._crit_edge, !llvm.loop !30
 
-115:                                              ; preds = %._crit_edge, %71
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %72
   tail call void @_ZN10duckdb_re29PrefilterD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %.096) #21
   tail call void @_ZdlPv(ptr noundef nonnull %.096) #22
   br label %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit42
@@ -780,8 +777,8 @@ _ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   tail call void @_ZdlPv(ptr noundef nonnull %150) #22
   resume { ptr, i32 } %212
 
-_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit42: ; preds = %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i59, %189, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i41, %127, %115, %.thread99, %61
-  %.0 = phi ptr [ %.096, %61 ], [ %.095, %.thread99 ], [ %.095, %115 ], [ %spec.select101, %127 ], [ %spec.select101, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i41 ], [ %150, %189 ], [ %150, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i59 ]
+_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE9push_backERKS2_.exit42: ; preds = %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i59, %189, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i41, %127, %._crit_edge.thread, %.thread99, %61
+  %.0 = phi ptr [ %.096, %61 ], [ %.095, %.thread99 ], [ %.095, %._crit_edge.thread ], [ %spec.select101, %127 ], [ %spec.select101, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i41 ], [ %150, %189 ], [ %150, %_ZNSt6vectorIPN10duckdb_re29PrefilterESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i59 ]
   ret ptr %.0
 }
 
@@ -5559,7 +5556,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #21
   br label %.thread81.backedge
 
-.thread81.backedge:                               ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE4pushEOS5_.exit75, %116, %188
+.thread81.backedge:                               ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE4pushEOS5_.exit75, %116, %187
   br label %.thread81, !llvm.loop !180
 
 140:                                              ; preds = %100, %97
@@ -5591,13 +5588,16 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE
   %158 = load ptr, ptr %35, align 8, !tbaa !155
   %159 = load ptr, ptr %44, align 8, !tbaa !165
   %.not.i.i = icmp eq ptr %158, %159
-  br i1 %.not.i.i, label %162, label %160
+  br i1 %.not.i.i, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit.thread, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %158, i64 -48
-  br label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit
+_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit: ; preds = %157
+  %160 = getelementptr inbounds i8, ptr %158, i64 -48
+  store ptr %160, ptr %35, align 8, !tbaa !155
+  %161 = load ptr, ptr %51, align 8, !tbaa !156
+  %162 = icmp eq ptr %160, %161
+  br i1 %162, label %.thread83, label %170
 
-162:                                              ; preds = %157
+_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit.thread: ; preds = %157
   call void @_ZdlPv(ptr noundef %159) #22
   %163 = load ptr, ptr %45, align 8, !tbaa !125
   %164 = getelementptr inbounds i8, ptr %163, i64 -8
@@ -5607,58 +5607,53 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 480
   store ptr %166, ptr %37, align 8, !tbaa !153
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 432
-  br label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit
+  store ptr %167, ptr %35, align 8, !tbaa !155
+  %168 = load ptr, ptr %51, align 8, !tbaa !156
+  %169 = icmp eq ptr %167, %168
+  br i1 %169, label %.thread83, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76
 
-_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit: ; preds = %160, %162
-  %168 = phi ptr [ %159, %160 ], [ %165, %162 ]
-  %storemerge.i.i = phi ptr [ %161, %160 ], [ %167, %162 ]
-  store ptr %storemerge.i.i, ptr %35, align 8, !tbaa !155
-  %169 = load ptr, ptr %51, align 8, !tbaa !156
-  %170 = icmp eq ptr %storemerge.i.i, %169
-  br i1 %170, label %.thread83, label %171
+170:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit
+  %171 = icmp eq ptr %160, %159
+  br i1 %171, label %172, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76
 
-171:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit
-  %172 = icmp eq ptr %storemerge.i.i, %168
-  br i1 %172, label %173, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76
-
-173:                                              ; preds = %171
-  %174 = load ptr, ptr %45, align 8, !tbaa !151, !noalias !181
-  %175 = getelementptr inbounds i8, ptr %174, i64 -8
-  %176 = load ptr, ptr %175, align 8, !tbaa !126
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 480
+172:                                              ; preds = %170
+  %173 = load ptr, ptr %45, align 8, !tbaa !151, !noalias !181
+  %174 = getelementptr inbounds i8, ptr %173, i64 -8
+  %175 = load ptr, ptr %174, align 8, !tbaa !126
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 480
   br label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76
 
-_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76: ; preds = %171, %173
-  %178 = phi ptr [ %177, %173 ], [ %storemerge.i.i, %171 ]
-  %179 = getelementptr inbounds i8, ptr %178, i64 -8
-  %180 = load ptr, ptr %179, align 8, !tbaa !164
-  %.not73 = icmp eq ptr %180, null
-  br i1 %.not73, label %186, label %181
+_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76: ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit.thread, %170, %172
+  %177 = phi ptr [ %176, %172 ], [ %160, %170 ], [ %167, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit.thread ]
+  %178 = getelementptr inbounds i8, ptr %177, i64 -8
+  %179 = load ptr, ptr %178, align 8, !tbaa !164
+  %.not73 = icmp eq ptr %179, null
+  br i1 %.not73, label %185, label %180
 
-181:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76
-  %182 = getelementptr inbounds i8, ptr %178, i64 -40
-  %183 = load i32, ptr %182, align 8, !tbaa !169
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds ptr, ptr %180, i64 %184
-  store ptr %.265, ptr %185, align 8, !tbaa !131
-  br label %188
+180:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76
+  %181 = getelementptr inbounds i8, ptr %177, i64 -40
+  %182 = load i32, ptr %181, align 8, !tbaa !169
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds ptr, ptr %179, i64 %183
+  store ptr %.265, ptr %184, align 8, !tbaa !131
+  br label %187
 
-186:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76
-  %187 = getelementptr inbounds i8, ptr %178, i64 -16
-  store ptr %.265, ptr %187, align 8, !tbaa !184
-  %.phi.trans.insert89 = getelementptr inbounds i8, ptr %178, i64 -40
+185:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3topEv.exit76
+  %186 = getelementptr inbounds i8, ptr %177, i64 -16
+  store ptr %.265, ptr %186, align 8, !tbaa !184
+  %.phi.trans.insert89 = getelementptr inbounds i8, ptr %177, i64 -40
   %.pre90 = load i32, ptr %.phi.trans.insert89, align 8, !tbaa !169
-  br label %188
+  br label %187
 
-188:                                              ; preds = %186, %181
-  %189 = phi i32 [ %.pre90, %186 ], [ %183, %181 ]
-  %190 = getelementptr inbounds i8, ptr %178, i64 -40
-  %191 = add nsw i32 %189, 1
-  store i32 %191, ptr %190, align 8, !tbaa !169
+187:                                              ; preds = %185, %180
+  %188 = phi i32 [ %.pre90, %185 ], [ %182, %180 ]
+  %189 = getelementptr inbounds i8, ptr %177, i64 -40
+  %190 = add nsw i32 %188, 1
+  store i32 %190, ptr %189, align 8, !tbaa !169
   br label %.thread81.backedge
 
-.thread83:                                        ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit, %_ZN10LogMessageD2Ev.exit
-  %.0 = phi ptr [ %2, %_ZN10LogMessageD2Ev.exit ], [ %.265, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit ]
+.thread83:                                        ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit.thread, %_ZN10LogMessageD2Ev.exit
+  %.0 = phi ptr [ %2, %_ZN10LogMessageD2Ev.exit ], [ %.265, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit.thread ], [ %.265, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEE3popEv.exit ]
   ret ptr %.0
 }
 

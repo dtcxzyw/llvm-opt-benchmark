@@ -593,7 +593,7 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17h79c8db97707b8dcbE(ptr 
 
 15:                                               ; preds = %.noexc
   %16 = load ptr, ptr %13, align 8, !noalias !57, !nonnull !4, !noundef !4
-  %17 = icmp uge i64 %12, %.sroa.0.0.sroa.speculated.i17
+  %17 = icmp ule i64 %.sroa.0.0.sroa.speculated.i17, %12
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !57
   store i64 %12, ptr %5, align 8

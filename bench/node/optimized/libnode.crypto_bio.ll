@@ -1093,8 +1093,8 @@ if.end28:                                         ; preds = %if.then27, %if.end2
   br i1 %cmp3, label %do.body, label %do.body30, !llvm.loop !11
 
 do.body30:                                        ; preds = %if.end28
-  %cmp31.not = icmp eq i64 %spec.select27, %add44
-  br i1 %cmp31.not, label %return, label %do.body37
+  %8 = icmp eq i64 %spec.select27, %add44
+  br i1 %8, label %return, label %do.body37
 
 do.body37:                                        ; preds = %do.body30
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto7NodeBIO7IndexOfEcmE4args_0) #16
@@ -1736,7 +1736,7 @@ do.body8:                                         ; preds = %entry
 lor.lhs.false.i:                                  ; preds = %entry
   %read_head_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp2.i = icmp eq i64 %4, %5
-  br i1 %cmp2.i, label %land.lhs.true.i, label %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit
+  br i1 %cmp2.i, label %land.lhs.true.i, label %if.end18
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %6 = load ptr, ptr %read_head_.i, align 8
@@ -1776,15 +1776,15 @@ if.end15.i:                                       ; preds = %if.then12.i, %cond.
   %data_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %call.i.i, ptr %data_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i, label %if.else.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end15.i
   %isolate_.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %11 = load ptr, ptr %isolate_.i.i.i, align 8
   %call5.i.i = tail call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %11, i64 noundef %len.1.i) #16
-  br label %if.else.i
+  br label %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit
 
-if.else.i:                                        ; preds = %if.end15.i, %if.then.i.i
+_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit: ; preds = %if.then.i.i, %if.end15.i
   %12 = load ptr, ptr %next_.i, align 8
   store ptr %12, ptr %next_.i.i, align 8
   store ptr %call.i, ptr %next_.i, align 8
@@ -1793,59 +1793,53 @@ if.else.i:                                        ; preds = %if.end15.i, %if.the
   %.pre6 = load i64, ptr %write_pos_11.phi.trans.insert, align 8
   %len_13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %.pre7 = load i64, ptr %len_13.phi.trans.insert, align 8
-  br label %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit
-
-_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit: ; preds = %lor.lhs.false.i, %if.else.i
-  %13 = phi i64 [ %5, %lor.lhs.false.i ], [ %.pre7, %if.else.i ]
-  %14 = phi i64 [ %4, %lor.lhs.false.i ], [ %.pre6, %if.else.i ]
-  %15 = phi ptr [ %3, %lor.lhs.false.i ], [ %.pre, %if.else.i ]
-  %cmp14 = icmp eq i64 %14, %13
-  br i1 %cmp14, label %if.then15, label %if.end18
+  %13 = icmp eq i64 %.pre6, %.pre7
+  br i1 %13, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %lor.lhs.false4.i, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit
-  %16 = phi ptr [ %15, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit ], [ %3, %lor.lhs.false4.i ]
-  %next_ = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %17 = load ptr, ptr %next_, align 8
-  store ptr %17, ptr %write_head_, align 8
-  %18 = load ptr, ptr %read_head_.i, align 8
-  %read_pos_2.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %19 = load i64, ptr %read_pos_2.i, align 8
-  %cmp.not3.i = icmp eq i64 %19, 0
+  %14 = phi ptr [ %.pre, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit ], [ %3, %lor.lhs.false4.i ]
+  %next_ = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %15 = load ptr, ptr %next_, align 8
+  store ptr %15, ptr %write_head_, align 8
+  %16 = load ptr, ptr %read_head_.i, align 8
+  %read_pos_2.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %17 = load i64, ptr %read_pos_2.i, align 8
+  %cmp.not3.i = icmp eq i64 %17, 0
   br i1 %cmp.not3.i, label %if.end18, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then15, %if.end.i
-  %20 = phi i64 [ %28, %if.end.i ], [ %19, %if.then15 ]
+  %18 = phi i64 [ %26, %if.end.i ], [ %17, %if.then15 ]
   %read_pos_4.i = phi ptr [ %read_pos_.i, %if.end.i ], [ %read_pos_2.i, %if.then15 ]
-  %21 = phi ptr [ %27, %if.end.i ], [ %18, %if.then15 ]
-  %write_pos_.i4 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %22 = load i64, ptr %write_pos_.i4, align 8
-  %cmp5.i = icmp eq i64 %20, %22
+  %19 = phi ptr [ %25, %if.end.i ], [ %16, %if.then15 ]
+  %write_pos_.i4 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %20 = load i64, ptr %write_pos_.i4, align 8
+  %cmp5.i = icmp eq i64 %18, %20
   br i1 %cmp5.i, label %while.body.i, label %if.end18
 
 while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %read_pos_4.i, align 8
-  %23 = load ptr, ptr %read_head_.i, align 8
-  %write_pos_9.i = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %21 = load ptr, ptr %read_head_.i, align 8
+  %write_pos_9.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %write_pos_9.i, align 8
-  %24 = load ptr, ptr %read_head_.i, align 8
-  %25 = load ptr, ptr %write_head_, align 8
-  %cmp11.not.i = icmp eq ptr %24, %25
+  %22 = load ptr, ptr %read_head_.i, align 8
+  %23 = load ptr, ptr %write_head_, align 8
+  %cmp11.not.i = icmp eq ptr %22, %23
   br i1 %cmp11.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %next_.i5 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load ptr, ptr %next_.i5, align 8
-  store ptr %26, ptr %read_head_.i, align 8
+  %next_.i5 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %24 = load ptr, ptr %next_.i5, align 8
+  store ptr %24, ptr %read_head_.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
-  %27 = phi ptr [ %26, %if.then.i ], [ %24, %while.body.i ]
-  %read_pos_.i = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %28 = load i64, ptr %read_pos_.i, align 8
-  %cmp.not.i = icmp eq i64 %28, 0
+  %25 = phi ptr [ %24, %if.then.i ], [ %22, %while.body.i ]
+  %read_pos_.i = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %26 = load i64, ptr %read_pos_.i, align 8
+  %cmp.not.i = icmp eq i64 %26, 0
   br i1 %cmp.not.i, label %if.end18, label %land.rhs.i, !llvm.loop !6
 
-if.end18:                                         ; preds = %if.end.i, %land.rhs.i, %if.then15, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit
+if.end18:                                         ; preds = %if.end.i, %land.rhs.i, %lor.lhs.false.i, %if.then15, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit
   ret void
 }
 

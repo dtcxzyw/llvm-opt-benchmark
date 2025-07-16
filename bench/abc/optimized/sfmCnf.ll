@@ -184,25 +184,25 @@ Vec_StrGrow.exit.i101:                            ; preds = %41, %39
 57:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.thread217, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %58 = trunc nuw nsw i64 %indvars.iv to i32
   %59 = icmp eq i32 %10, %58
-  br i1 %59, label %._crit_edge.thread, label %.lr.ph166.preheader
+  br i1 %59, label %._crit_edge.thread217, label %.lr.ph166.preheader
 
 .lr.ph166.preheader:                              ; preds = %._crit_edge
   %wide.trip.count191 = zext nneg i32 %10 to i64
   br label %.lr.ph166
 
-._crit_edge.thread:                               ; preds = %57, %._crit_edge
+._crit_edge.thread217:                            ; preds = %57, %._crit_edge
   %60 = load i32, ptr %4, align 8, !tbaa !16
   %61 = icmp eq i32 %60, 0
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !10
   br i1 %61, label %64, label %Vec_StrPush.exit109
 
-64:                                               ; preds = %._crit_edge.thread
+64:                                               ; preds = %._crit_edge.thread217
   %.not9.i.i107 = icmp eq ptr %63, null
   br i1 %.not9.i.i107, label %67, label %65
 
@@ -222,9 +222,9 @@ Vec_StrGrow.exit.i108:                            ; preds = %67, %65
   store i32 16, ptr %4, align 8, !tbaa !16
   br label %Vec_StrPush.exit109
 
-Vec_StrPush.exit109:                              ; preds = %._crit_edge.thread, %Vec_StrGrow.exit.i108
-  %70 = phi i32 [ %.pre211, %Vec_StrGrow.exit.i108 ], [ 0, %._crit_edge.thread ]
-  %71 = phi ptr [ %69, %Vec_StrGrow.exit.i108 ], [ %63, %._crit_edge.thread ]
+Vec_StrPush.exit109:                              ; preds = %._crit_edge.thread217, %Vec_StrGrow.exit.i108
+  %70 = phi i32 [ %.pre211, %Vec_StrGrow.exit.i108 ], [ 0, %._crit_edge.thread217 ]
+  %71 = phi ptr [ %69, %Vec_StrGrow.exit.i108 ], [ %63, %._crit_edge.thread217 ]
   %72 = add nsw i32 %70, 1
   store i32 %72, ptr %11, align 4, !tbaa !3
   %73 = sext i32 %70 to i64

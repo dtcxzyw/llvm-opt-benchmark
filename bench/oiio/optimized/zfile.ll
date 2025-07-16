@@ -1486,7 +1486,7 @@ _ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit: ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %21 = load i32, ptr %20, align 4, !tbaa !47
   %22 = icmp sgt i32 %21, %3
-  br i1 %22, label %23, label %129
+  br i1 %22, label %23, label %.lr.ph
 
 23:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #25
@@ -1633,7 +1633,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %82 = load ptr, ptr %81, align 8, !tbaa !69
   %.not.i.i.i7.i = icmp eq ptr %82, null
-  br i1 %.not.i.i.i7.i, label %_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit, label %83
+  br i1 %.not.i.i.i7.i, label %129, label %83
 
 83:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -1642,11 +1642,6 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %87 = ptrtoint ptr %82 to i64
   %88 = sub i64 %86, %87
   call void @_ZdlPvm(ptr noundef nonnull %82, i64 noundef %88) #26
-  br label %_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit
-
-_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %83
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #25
-  %.pre = load i32, ptr %20, align 4, !tbaa !47
   br label %129
 
 _ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit20.thread: ; preds = %.noexc18, %34, %_ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit20
@@ -1752,12 +1747,13 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit43:     ; preds = %_ZNSt6vectorINSt7__
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #25
   br label %_ZN11OpenImageIO6v3_1_011swap_endianIfEEvPT_i.exit
 
-129:                                              ; preds = %_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit, %19
-  %130 = phi i32 [ %.pre, %_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit ], [ %21, %19 ]
-  %.not47 = icmp sgt i32 %130, %3
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+129:                                              ; preds = %83, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #25
+  %.pre = load i32, ptr %20, align 4, !tbaa !47
+  %130 = icmp sgt i32 %.pre, %3
+  br i1 %130, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %129
+.lr.ph:                                           ; preds = %19, %129
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %133

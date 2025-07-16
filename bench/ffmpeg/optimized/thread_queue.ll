@@ -280,7 +280,7 @@ define range(i32 -541478725, 1) i32 @tq_receive(ptr noundef %0, ptr noundef writ
 .preheader.i:                                     ; preds = %36, %12
   %18 = load i32, ptr %10, align 8, !tbaa !15
   %.not3345.not.i = icmp eq i32 %18, 0
-  br i1 %.not3345.not.i, label %._crit_edge.i, label %.lr.ph48.i
+  br i1 %.not3345.not.i, label %receive_locked.exit, label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.preheader.i
   %19 = load ptr, ptr %0, align 8, !tbaa !9
@@ -363,16 +363,15 @@ define range(i32 -541478725, 1) i32 @tq_receive(ptr noundef %0, ptr noundef writ
   %.130.i = phi i32 [ %49, %48 ], [ %.02946.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %40, !llvm.loop !23
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %40, !llvm.loop !23
 
-._crit_edge.i:                                    ; preds = %50, %.preheader.i
-  %.029.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.130.i, %50 ]
-  %51 = icmp eq i32 %.029.lcssa.i, %18
+._crit_edge.loopexit.i:                           ; preds = %50
+  %51 = icmp eq i32 %.130.i, %18
   %52 = select i1 %51, i32 -541478725, i32 -11
   br label %receive_locked.exit
 
-receive_locked.exit:                              ; preds = %.thread.i, %.thread35.i, %._crit_edge.i
-  %.2.i = phi i32 [ %52, %._crit_edge.i ], [ 0, %.thread.i ], [ -541478725, %.thread35.i ]
+receive_locked.exit:                              ; preds = %.preheader.i, %.thread.i, %.thread35.i, %._crit_edge.loopexit.i
+  %.2.i = phi i32 [ 0, %.thread.i ], [ -541478725, %.thread35.i ], [ -541478725, %.preheader.i ], [ %52, %._crit_edge.loopexit.i ]
   %53 = load ptr, ptr %7, align 8, !tbaa !17
   %54 = call i64 @av_container_fifo_can_read(ptr noundef %53) #5
   %.not = icmp eq i64 %14, %54

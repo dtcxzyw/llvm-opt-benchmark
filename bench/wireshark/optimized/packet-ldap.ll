@@ -2791,190 +2791,190 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
   %38 = add i32 %34, 4
-  %.not150 = icmp ugt i32 %38, %35
-  br i1 %.not150, label %.critedge, label %39
+  %39 = icmp ugt i32 %38, %35
+  br i1 %39, label %.critedge, label %40
 
-39:                                               ; preds = %33
-  %40 = icmp eq i8 %37, 4
-  %41 = icmp eq i8 %36, 5
-  %or.cond = select i1 %41, i1 %40, i1 false
-  %42 = icmp eq i8 %36, 96
-  %or.cond167 = or i1 %42, %or.cond
+40:                                               ; preds = %33
+  %41 = icmp eq i8 %37, 4
+  %42 = icmp eq i8 %36, 5
+  %or.cond = select i1 %42, i1 %41, i1 false
+  %43 = icmp eq i8 %36, 96
+  %or.cond167 = or i1 %43, %or.cond
   br i1 %or.cond167, label %.critedge160, label %.critedge
 
-.critedge160:                                     ; preds = %39
+.critedge160:                                     ; preds = %40
   store i32 3, ptr %.0128, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %.0128, i64 16
-  store i32 %44, ptr %45, align 8
-  %46 = tail call ptr @wmem_file_scope()
-  %47 = tail call noalias ptr @wmem_strdup(ptr noundef %46, ptr noundef nonnull @.str.853)
-  %48 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
-  store ptr %47, ptr %48, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %45 = load i32, ptr %44, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0128, i64 16
+  store i32 %45, ptr %46, align 8
+  %47 = tail call ptr @wmem_file_scope()
+  %48 = tail call noalias ptr @wmem_strdup(ptr noundef %47, ptr noundef nonnull @.str.853)
+  %49 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
+  store ptr %48, ptr %49, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %30, %26, %39, %33, %.critedge160
-  %49 = phi i32 [ %31, %.critedge160 ], [ %31, %33 ], [ %31, %39 ], [ %31, %30 ], [ %29, %26 ]
-  %.1 = phi i1 [ true, %.critedge160 ], [ false, %33 ], [ false, %39 ], [ false, %30 ], [ true, %26 ]
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %1, align 8
-  tail call void @col_set_str(ptr noundef %51, i32 noundef 35, ptr noundef %52)
+.critedge:                                        ; preds = %30, %26, %40, %33, %.critedge160
+  %50 = phi i32 [ %31, %.critedge160 ], [ %31, %33 ], [ %31, %40 ], [ %31, %30 ], [ %29, %26 ]
+  %.1 = phi i1 [ true, %.critedge160 ], [ false, %33 ], [ false, %40 ], [ false, %30 ], [ true, %26 ]
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %1, align 8
+  tail call void @col_set_str(ptr noundef %52, i32 noundef 35, ptr noundef %53)
   %.b151 = load i1, ptr @ldap_found_in_frame, align 1
-  %53 = load ptr, ptr %50, align 8
-  br i1 %.b151, label %54, label %56
+  %54 = load ptr, ptr %51, align 8
+  br i1 %.b151, label %55, label %57
 
-54:                                               ; preds = %.critedge
-  tail call void @col_append_str(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.854)
-  %55 = load ptr, ptr %50, align 8
-  tail call void @col_set_fence(ptr noundef %55, i32 noundef 25)
-  br label %57
+55:                                               ; preds = %.critedge
+  tail call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.854)
+  %56 = load ptr, ptr %51, align 8
+  tail call void @col_set_fence(ptr noundef %56, i32 noundef 25)
+  br label %58
 
-56:                                               ; preds = %.critedge
-  tail call void @col_clear(ptr noundef %53, i32 noundef 25)
+57:                                               ; preds = %.critedge
+  tail call void @col_clear(ptr noundef %54, i32 noundef 25)
   tail call void @register_frame_end_routine(ptr noundef %1, ptr noundef nonnull @ldap_frame_end)
   store i1 true, ptr @ldap_found_in_frame, align 1
-  br label %57
+  br label %58
 
-57:                                               ; preds = %56, %54
-  %58 = load i32, ptr @proto_cldap, align 4
-  %59 = load i32, ptr @proto_ldap, align 4
-  %60 = select i1 %3, i32 %58, i32 %59
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %62 = load i32, ptr @ett_ldap, align 4
-  %63 = tail call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62)
-  br i1 %.1, label %64, label %126
+58:                                               ; preds = %57, %55
+  %59 = load i32, ptr @proto_cldap, align 4
+  %60 = load i32, ptr @proto_ldap, align 4
+  %61 = select i1 %3, i32 %59, i32 %60
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %63 = load i32, ptr @ett_ldap, align 4
+  %64 = tail call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %63)
+  br i1 %.1, label %65, label %127
 
-64:                                               ; preds = %57
-  %65 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %66 = icmp eq i8 %65, 0
-  br i1 %66, label %67, label %126
+65:                                               ; preds = %58
+  %66 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %67 = icmp eq i8 %66, 0
+  br i1 %67, label %68, label %127
 
-67:                                               ; preds = %64
-  %68 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
-  %69 = icmp ugt i32 %68, -5
-  br i1 %69, label %70, label %71
+68:                                               ; preds = %65
+  %69 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %70 = icmp ugt i32 %69, -5
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   tail call void @show_reported_bounds_error(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.critedge166
 
-71:                                               ; preds = %67
-  %72 = add nuw i32 %68, 4
-  %spec.select161 = tail call i32 @llvm.umin.i32(i32 %49, i32 %72)
-  %73 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 0, i32 noundef %spec.select161, i32 noundef %72)
-  %74 = load i32, ptr @hf_ldap_sasl_buffer_length, align 4
-  %75 = tail call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %74, ptr noundef %73, i32 noundef 0, i32 noundef 4, i32 noundef %68)
-  %76 = load i32, ptr @ett_ldap_sasl_blob, align 4
-  %77 = tail call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %73, i32 noundef 4, i32 noundef %68, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.855)
-  %78 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %.not152 = icmp eq ptr %79, null
-  br i1 %.not152, label %.critedge166, label %80
+72:                                               ; preds = %68
+  %73 = add nuw i32 %69, 4
+  %spec.select161 = tail call i32 @llvm.umin.i32(i32 %50, i32 %73)
+  %74 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 0, i32 noundef %spec.select161, i32 noundef %73)
+  %75 = load i32, ptr @hf_ldap_sasl_buffer_length, align 4
+  %76 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %75, ptr noundef %74, i32 noundef 0, i32 noundef 4, i32 noundef %69)
+  %77 = load i32, ptr @ett_ldap_sasl_blob, align 4
+  %78 = tail call ptr @proto_tree_add_subtree(ptr noundef %64, ptr noundef %74, i32 noundef 4, i32 noundef %69, i32 noundef %77, ptr noundef null, ptr noundef nonnull @.str.855)
+  %79 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %.not152 = icmp eq ptr %80, null
+  br i1 %.not152, label %.critedge166, label %81
 
-80:                                               ; preds = %71
-  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(11) @.str.853) #15
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %86, label %83
+81:                                               ; preds = %72
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(11) @.str.853) #15
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %87, label %84
 
-83:                                               ; preds = %80
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(7) @.str.856) #15
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %.critedge166
+84:                                               ; preds = %81
+  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(7) @.str.856) #15
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %.critedge166
 
-86:                                               ; preds = %83, %80
+87:                                               ; preds = %84, %81
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #14
-  %87 = tail call i32 @tvb_reported_length_remaining(ptr noundef %73, i32 noundef 4)
-  %spec.select162 = tail call i32 @llvm.umin.i32(i32 %87, i32 %68)
-  %88 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %73, i32 noundef 4, i32 noundef %spec.select162, i32 noundef %68)
+  %88 = tail call i32 @tvb_reported_length_remaining(ptr noundef %74, i32 noundef 4)
+  %spec.select162 = tail call i32 @llvm.umin.i32(i32 %88, i32 %69)
+  %89 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %74, i32 noundef 4, i32 noundef %spec.select162, i32 noundef %69)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 noundef 0, i64 noundef 56, i1 noundef false) #14
   store i16 1, ptr %5, align 8
-  %89 = load ptr, ptr @gssapi_wrap_handle, align 8
-  %90 = call i32 @call_dissector_with_data(ptr noundef %89, ptr noundef %88, ptr noundef %1, ptr noundef %77, ptr noundef nonnull %5)
-  %.not157 = icmp eq i32 %90, 0
-  br i1 %.not157, label %.critedge164, label %91
+  %90 = load ptr, ptr @gssapi_wrap_handle, align 8
+  %91 = call i32 @call_dissector_with_data(ptr noundef %90, ptr noundef %89, ptr noundef %1, ptr noundef %78, ptr noundef nonnull %5)
+  %.not157 = icmp eq i32 %91, 0
+  br i1 %.not157, label %.critedge164, label %92
 
-91:                                               ; preds = %86
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %93 = load i8, ptr %92, align 8, !range !6, !noundef !7
-  %94 = trunc nuw i8 %93 to i1
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %96 = load ptr, ptr %95, align 8
-  %.not155 = icmp eq ptr %96, null
-  br i1 %94, label %97, label %113
+92:                                               ; preds = %87
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %94 = load i8, ptr %93, align 8, !range !6, !noundef !7
+  %95 = trunc nuw i8 %94 to i1
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %97 = load ptr, ptr %96, align 8
+  %.not155 = icmp eq ptr %97, null
+  br i1 %95, label %98, label %114
 
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %50, align 8
-  br i1 %.not155, label %107, label %99
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %51, align 8
+  br i1 %.not155, label %108, label %100
 
-99:                                               ; preds = %97
-  call void @col_set_str(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.857)
-  %.not156 = icmp eq ptr %77, null
-  br i1 %.not156, label %106, label %100
+100:                                              ; preds = %98
+  call void @col_set_str(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.857)
+  %.not156 = icmp eq ptr %78, null
+  br i1 %.not156, label %107, label %101
 
-100:                                              ; preds = %99
-  %101 = call i32 @tvb_reported_length(ptr noundef nonnull %96)
-  %102 = load i32, ptr @ett_ldap_payload, align 4
-  %103 = icmp eq i32 %101, 1
-  %104 = select i1 %103, ptr @.str.852, ptr @.str.859
-  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %77, ptr noundef nonnull %96, i32 noundef 0, i32 noundef -1, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.858, i32 noundef %101, ptr noundef nonnull %104)
-  br label %106
+101:                                              ; preds = %100
+  %102 = call i32 @tvb_reported_length(ptr noundef nonnull %97)
+  %103 = load i32, ptr @ett_ldap_payload, align 4
+  %104 = icmp eq i32 %102, 1
+  %105 = select i1 %104, ptr @.str.852, ptr @.str.859
+  %106 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %78, ptr noundef nonnull %97, i32 noundef 0, i32 noundef -1, i32 noundef %103, ptr noundef null, ptr noundef nonnull @.str.858, i32 noundef %102, ptr noundef nonnull %105)
+  br label %107
 
-106:                                              ; preds = %100, %99
-  %.0129 = phi ptr [ %105, %100 ], [ null, %99 ]
-  call fastcc void @dissect_ldap_payload(ptr noundef nonnull %96, ptr noundef %1, ptr noundef %.0129, ptr noundef %.0128, i1 noundef zeroext %3)
+107:                                              ; preds = %101, %100
+  %.0129 = phi ptr [ %106, %101 ], [ null, %100 ]
+  call fastcc void @dissect_ldap_payload(ptr noundef nonnull %97, ptr noundef %1, ptr noundef %.0129, ptr noundef %.0128, i1 noundef zeroext %3)
+  br label %126
+
+108:                                              ; preds = %98
+  %109 = sub i32 %69, %91
+  %110 = icmp eq i32 %109, 1
+  %111 = select i1 %110, ptr @.str.852, ptr @.str.859
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.860, i32 noundef %109, ptr noundef nonnull %111)
+  %112 = load i32, ptr @hf_ldap_gssapi_encrypted_payload, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %112, ptr noundef %89, i32 noundef %91, i32 noundef -1, i32 noundef 0)
+  br label %126
+
+114:                                              ; preds = %92
+  br i1 %.not155, label %115, label %117
+
+115:                                              ; preds = %114
+  %116 = call ptr @tvb_new_subset_remaining(ptr noundef %89, i32 noundef %91)
+  br label %117
+
+117:                                              ; preds = %114, %115
+  %.0127 = phi ptr [ %116, %115 ], [ %97, %114 ]
+  %118 = load ptr, ptr %51, align 8
+  call void @col_set_str(ptr noundef %118, i32 noundef 25, ptr noundef nonnull @.str.861)
+  %.not154 = icmp eq ptr %78, null
+  br i1 %.not154, label %125, label %119
+
+119:                                              ; preds = %117
+  %120 = call i32 @tvb_reported_length(ptr noundef %.0127)
+  %121 = load i32, ptr @ett_ldap_payload, align 4
+  %122 = icmp eq i32 %120, 1
+  %123 = select i1 %122, ptr @.str.852, ptr @.str.859
+  %124 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %78, ptr noundef %.0127, i32 noundef 0, i32 noundef -1, i32 noundef %121, ptr noundef null, ptr noundef nonnull @.str.862, i32 noundef %120, ptr noundef nonnull %123)
   br label %125
 
-107:                                              ; preds = %97
-  %108 = sub i32 %68, %90
-  %109 = icmp eq i32 %108, 1
-  %110 = select i1 %109, ptr @.str.852, ptr @.str.859
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.860, i32 noundef %108, ptr noundef nonnull %110)
-  %111 = load i32, ptr @hf_ldap_gssapi_encrypted_payload, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %111, ptr noundef %88, i32 noundef %90, i32 noundef -1, i32 noundef 0)
-  br label %125
-
-113:                                              ; preds = %91
-  br i1 %.not155, label %114, label %116
-
-114:                                              ; preds = %113
-  %115 = call ptr @tvb_new_subset_remaining(ptr noundef %88, i32 noundef %90)
-  br label %116
-
-116:                                              ; preds = %113, %114
-  %.0127 = phi ptr [ %115, %114 ], [ %96, %113 ]
-  %117 = load ptr, ptr %50, align 8
-  call void @col_set_str(ptr noundef %117, i32 noundef 25, ptr noundef nonnull @.str.861)
-  %.not154 = icmp eq ptr %77, null
-  br i1 %.not154, label %124, label %118
-
-118:                                              ; preds = %116
-  %119 = call i32 @tvb_reported_length(ptr noundef %.0127)
-  %120 = load i32, ptr @ett_ldap_payload, align 4
-  %121 = icmp eq i32 %119, 1
-  %122 = select i1 %121, ptr @.str.852, ptr @.str.859
-  %123 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %77, ptr noundef %.0127, i32 noundef 0, i32 noundef -1, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.862, i32 noundef %119, ptr noundef nonnull %122)
-  br label %124
-
-124:                                              ; preds = %118, %116
-  %.0126 = phi ptr [ %123, %118 ], [ null, %116 ]
+125:                                              ; preds = %119, %117
+  %.0126 = phi ptr [ %124, %119 ], [ null, %117 ]
   call fastcc void @dissect_ldap_payload(ptr noundef %.0127, ptr noundef %1, ptr noundef %.0126, ptr noundef %.0128, i1 noundef zeroext %3)
-  br label %125
+  br label %126
 
-125:                                              ; preds = %124, %107, %106
+126:                                              ; preds = %125, %108, %107
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #14
   br label %.critedge166
 
-.critedge164:                                     ; preds = %86
+.critedge164:                                     ; preds = %87
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #14
   br label %.critedge166
 
-126:                                              ; preds = %64, %57
-  tail call fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %63, ptr noundef %.0128, i1 noundef zeroext %3)
+127:                                              ; preds = %65, %58
+  tail call fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %64, ptr noundef %.0128, i1 noundef zeroext %3)
   br label %.critedge166
 
-.critedge166:                                     ; preds = %125, %71, %83, %70, %.critedge164, %126
+.critedge166:                                     ; preds = %126, %72, %84, %71, %.critedge164, %127
   ret void
 }
 

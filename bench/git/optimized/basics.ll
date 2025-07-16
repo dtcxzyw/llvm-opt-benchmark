@@ -327,8 +327,8 @@ reftable_alloc_grow.exit.thread:                  ; preds = %reftable_realloc.ex
 
 reftable_alloc_grow.exit:                         ; preds = %reftable_realloc.exit.i
   %.pre = load i64, ptr %0, align 8, !tbaa !12
-  store ptr %11, ptr %10, align 8, !tbaa !8
   %19 = icmp ugt i64 %7, %.pre
+  store ptr %11, ptr %10, align 8, !tbaa !8
   br i1 %19, label %26, label %reftable_alloc_grow.exit._crit_edge
 
 reftable_alloc_grow.exit._crit_edge:              ; preds = %reftable_alloc_grow.exit.thread, %reftable_alloc_grow.exit
@@ -394,8 +394,8 @@ reftable_alloc_grow.exit.thread.i:                ; preds = %reftable_realloc.ex
 
 reftable_alloc_grow.exit.i:                       ; preds = %reftable_realloc.exit.i.i
   %.pre.i = load i64, ptr %0, align 8, !tbaa !12
-  store ptr %11, ptr %10, align 8, !tbaa !8
   %19 = icmp ugt i64 %7, %.pre.i
+  store ptr %11, ptr %10, align 8, !tbaa !8
   br i1 %19, label %reftable_buf_add.exit, label %reftable_alloc_grow.exit._crit_edge.i
 
 reftable_alloc_grow.exit._crit_edge.i:            ; preds = %reftable_alloc_grow.exit.i, %reftable_alloc_grow.exit.thread.i

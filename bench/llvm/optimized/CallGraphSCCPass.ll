@@ -3152,13 +3152,16 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %_ZN4llvm16dyn_ca
   %162 = getelementptr inbounds nuw i8, ptr %32, i64 32
   br label %167
 
-._crit_edge109:                                   ; preds = %._crit_edge, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread"
-  %.087.lcssa = phi i32 [ 0, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread" ], [ %.188.lcssa, %._crit_edge ]
-  %.081.lcssa = phi i32 [ 0, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread" ], [ %.182.lcssa, %._crit_edge ]
-  %.2.lcssa = phi i1 [ %.065116, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread" ], [ %.3.lcssa, %._crit_edge ]
-  %163 = icmp ugt i32 %.178, %.087.lcssa
-  %164 = icmp ult i32 %.174, %.081.lcssa
-  %or.cond = select i1 %163, i1 %164, i1 false
+._crit_edge109.loopexit:                          ; preds = %._crit_edge
+  %163 = icmp ult i32 %.174, %.182.lcssa
+  br label %._crit_edge109
+
+._crit_edge109:                                   ; preds = %._crit_edge109.loopexit, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread"
+  %.087.lcssa = phi i32 [ 0, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread" ], [ %.188.lcssa, %._crit_edge109.loopexit ]
+  %.081.lcssa = phi i1 [ false, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread" ], [ %163, %._crit_edge109.loopexit ]
+  %.2.lcssa = phi i1 [ %.065116, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread" ], [ %.3.lcssa, %._crit_edge109.loopexit ]
+  %164 = icmp ugt i32 %.178, %.087.lcssa
+  %or.cond = select i1 %164, i1 %.081.lcssa, i1 false
   %.9 = select i1 %or.cond, i1 true, i1 %.2.lcssa
   %165 = and i32 %.067115, 15
   %166 = icmp eq i32 %165, 15
@@ -3182,7 +3185,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %_ZN4llvm16dyn_ca
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.09.0107, i64 8
   %.sroa.09.0 = load ptr, ptr %170, align 8, !tbaa !377
   %.not64 = icmp eq ptr %.sroa.09.0, %161
-  br i1 %.not64, label %._crit_edge109, label %167
+  br i1 %.not64, label %._crit_edge109.loopexit, label %167
 
 .lr.ph98:                                         ; preds = %167, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread
   %.sroa.05.094 = phi ptr [ %.sroa.05.0, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread ], [ %.sroa.05.087, %167 ]

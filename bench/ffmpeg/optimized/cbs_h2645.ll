@@ -21070,18 +21070,18 @@ cbs_h266_write_vps.exit:                          ; preds = %869, %871
   %1766 = zext i16 %1763 to i32
   %1767 = add nuw nsw i32 %1766, 1
   %1768 = icmp eq i32 %1764, %.pre-phi.i
+  %1769 = zext nneg i32 %1764 to i64
   br i1 %1768, label %._crit_edge1948.i.thread, label %1815
 
 ._crit_edge1948.i.thread:                         ; preds = %1539, %._crit_edge1948.i
-  %.81411.lcssa.i230 = phi i32 [ %.pre-phi.i, %._crit_edge1948.i ], [ 0, %1539 ]
+  %.81411.lcssa.i230 = phi i64 [ %1769, %._crit_edge1948.i ], [ 0, %1539 ]
   %.01518.lcssa.i229 = phi i16 [ %.11519.i, %._crit_edge1948.i ], [ 0, %1539 ]
-  %1769 = phi i32 [ %1767, %._crit_edge1948.i ], [ 1, %1539 ]
-  %1770 = getelementptr inbounds nuw i8, ptr %903, i64 2000222
-  %1771 = zext nneg i32 %.81411.lcssa.i230 to i64
-  %1772 = getelementptr inbounds nuw [1000 x i16], ptr %1770, i64 0, i64 %1771
+  %1770 = phi i32 [ %1767, %._crit_edge1948.i ], [ 1, %1539 ]
+  %1771 = getelementptr inbounds nuw i8, ptr %903, i64 2000222
+  %1772 = getelementptr inbounds nuw [1000 x i16], ptr %1771, i64 0, i64 %.81411.lcssa.i230
   store i16 %.01518.lcssa.i229, ptr %1772, align 2, !tbaa !129
   %1773 = getelementptr inbounds nuw i8, ptr %903, i64 2002222
-  %1774 = getelementptr inbounds nuw [1000 x i16], ptr %1773, i64 0, i64 %1771
+  %1774 = getelementptr inbounds nuw [1000 x i16], ptr %1773, i64 0, i64 %.81411.lcssa.i230
   store i16 1, ptr %1774, align 2, !tbaa !129
   %1775 = load i16, ptr %1436, align 8, !tbaa !626
   %1776 = urem i16 %.01518.lcssa.i229, %1775
@@ -21126,20 +21126,20 @@ cbs_h266_write_vps.exit:                          ; preds = %869, %871
 
 ._crit_edge1959.i:                                ; preds = %.lr.ph1958.i, %.preheader1824.i
   %.31525.lcssa.i = phi i16 [ 0, %.preheader1824.i ], [ %1787, %.lr.ph1958.i ]
-  %1789 = getelementptr inbounds nuw [1000 x i16], ptr %30, i64 0, i64 %1771
+  %1789 = getelementptr inbounds nuw [1000 x i16], ptr %30, i64 0, i64 %.81411.lcssa.i230
   store i16 %.11521.lcssa.i, ptr %1789, align 2, !tbaa !129
-  %1790 = getelementptr inbounds nuw [1000 x i16], ptr %31, i64 0, i64 %1771
+  %1790 = getelementptr inbounds nuw [1000 x i16], ptr %31, i64 0, i64 %.81411.lcssa.i230
   store i16 %.31525.lcssa.i, ptr %1790, align 2, !tbaa !129
   %1791 = xor i16 %1776, -1
   %1792 = add i16 %1775, %1791
   %1793 = getelementptr inbounds nuw i8, ptr %903, i64 4092
-  %1794 = getelementptr inbounds nuw [1000 x i16], ptr %1793, i64 0, i64 %1771
+  %1794 = getelementptr inbounds nuw [1000 x i16], ptr %1793, i64 0, i64 %.81411.lcssa.i230
   store i16 %1792, ptr %1794, align 2, !tbaa !129
   %1795 = load i16, ptr %1467, align 2, !tbaa !629
   %1796 = xor i16 %1777, -1
   %1797 = add i16 %1795, %1796
   %1798 = getelementptr inbounds nuw i8, ptr %903, i64 6092
-  %1799 = getelementptr inbounds nuw [1000 x i16], ptr %1798, i64 0, i64 %1771
+  %1799 = getelementptr inbounds nuw [1000 x i16], ptr %1798, i64 0, i64 %.81411.lcssa.i230
   store i16 %1797, ptr %1799, align 2, !tbaa !129
   %1800 = zext i16 %1797 to i64
   br label %1801
@@ -21157,10 +21157,10 @@ cbs_h266_write_vps.exit:                          ; preds = %869, %871
 
 1806:                                             ; preds = %1801
   %1807 = getelementptr inbounds nuw i8, ptr %903, i64 1992182
-  %1808 = getelementptr inbounds nuw [1000 x i16], ptr %1807, i64 0, i64 %1771
+  %1808 = getelementptr inbounds nuw [1000 x i16], ptr %1807, i64 0, i64 %.81411.lcssa.i230
   store i16 %1805, ptr %1808, align 2, !tbaa !129
   %1809 = getelementptr inbounds nuw i8, ptr %903, i64 8092
-  %1810 = getelementptr inbounds nuw [1000 x i16], ptr %1809, i64 0, i64 %1771
+  %1810 = getelementptr inbounds nuw [1000 x i16], ptr %1809, i64 0, i64 %.81411.lcssa.i230
   %1811 = load i16, ptr %1810, align 2, !tbaa !129
   %.not1678.i = icmp eq i16 %1811, 0
   br i1 %.not1678.i, label %1815, label %1812
@@ -21172,7 +21172,7 @@ cbs_h266_write_vps.exit:                          ; preds = %869, %871
   br label %.thread1789.i
 
 1815:                                             ; preds = %1806, %._crit_edge1948.i
-  %1816 = phi i32 [ %1769, %1806 ], [ %1767, %._crit_edge1948.i ]
+  %1816 = phi i32 [ %1770, %1806 ], [ %1767, %._crit_edge1948.i ]
   %1817 = getelementptr inbounds nuw i8, ptr %903, i64 1994182
   %1818 = getelementptr inbounds nuw i8, ptr %925, i64 1412
   %1819 = getelementptr inbounds nuw i8, ptr %925, i64 5412

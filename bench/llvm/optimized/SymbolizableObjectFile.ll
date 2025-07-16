@@ -325,7 +325,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit77:     ; preds = %83, %_ZNKSt14defaul
 
 95:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
-  br i1 %cond5, label %96, label %144
+  br i1 %cond5, label %96, label %145
 
 96:                                               ; preds = %.thread, %95, %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit
   %.sroa.0123.0 = phi ptr [ %.sroa.0123.3, %95 ], [ null, %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit ], [ %.sroa.0123.1.lcssa, %.thread ]
@@ -355,7 +355,7 @@ _ZN4llvm5ErrorD2Ev.exit78:                        ; preds = %.lr.ph158
   store i8 %105, ptr %103, align 8
   store ptr %102, ptr %0, align 8, !tbaa !16, !alias.scope !54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  br label %136
+  br label %137
 
 _ZN4llvm5ErrorD2Ev.exit79:                        ; preds = %.lr.ph158
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
@@ -389,7 +389,7 @@ _ZN4llvm5ErrorD2Ev.exit80:                        ; preds = %110
   store i8 %114, ptr %112, align 8
   store ptr %111, ptr %0, align 8, !tbaa !16, !alias.scope !57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  br label %136
+  br label %137
 
 _ZN4llvm5ErrorD2Ev.exit81:                        ; preds = %110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
@@ -430,65 +430,65 @@ _ZN4llvm5ErrorD2Ev.exit81:                        ; preds = %110
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.090.0161, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.090.0161, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.094.1, i64 36, i1 false), !tbaa.struct !66
   %.pre170 = load ptr, ptr %117, align 8, !tbaa !60
-  %.not.i.i82 = icmp eq ptr %126, %.pre170
-  br i1 %.not.i.i82, label %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit, label %._crit_edge.i.i
+  %127 = icmp eq ptr %126, %.pre170
+  br i1 %127, label %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge
-  %127 = load ptr, ptr %115, align 8, !tbaa !60
-  %128 = ptrtoint ptr %126 to i64
-  %129 = ptrtoint ptr %127 to i64
-  %130 = sub i64 %128, %129
-  %131 = getelementptr inbounds i8, ptr %127, i64 %130
-  store ptr %131, ptr %117, align 8, !tbaa !68
+  %128 = load ptr, ptr %115, align 8, !tbaa !60
+  %129 = ptrtoint ptr %126 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = getelementptr inbounds i8, ptr %128, i64 %131
+  store ptr %132, ptr %117, align 8, !tbaa !68
   br label %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit
 
 _ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit: ; preds = %.critedge56, %._crit_edge, %._crit_edge.i.i
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %133 = load i8, ptr %132, align 8
-  %134 = and i8 %133, -2
-  store i8 %134, ptr %132, align 8
-  %135 = ptrtoint ptr %12 to i64
-  store i64 %135, ptr %0, align 8, !tbaa !70
-  br label %136
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %134 = load i8, ptr %133, align 8
+  %135 = and i8 %134, -2
+  store i8 %135, ptr %133, align 8
+  %136 = ptrtoint ptr %12 to i64
+  store i64 %136, ptr %0, align 8, !tbaa !70
+  br label %137
 
-136:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit78, %_ZN4llvm5ErrorD2Ev.exit80, %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit
+137:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit78, %_ZN4llvm5ErrorD2Ev.exit80, %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit
   %.sroa.0126.1 = phi ptr [ %12, %_ZN4llvm5ErrorD2Ev.exit78 ], [ null, %_ZNSt6vectorIN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_.exit ], [ %12, %_ZN4llvm5ErrorD2Ev.exit80 ]
-  %137 = load ptr, ptr %9, align 8, !tbaa !72
-  %.not.i.i.i83 = icmp eq ptr %137, null
-  br i1 %.not.i.i.i83, label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit, label %138
+  %138 = load ptr, ptr %9, align 8, !tbaa !72
+  %.not.i.i.i83 = icmp eq ptr %138, null
+  br i1 %.not.i.i.i83, label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit, label %139
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %140 = load ptr, ptr %139, align 8, !tbaa !74
-  %141 = ptrtoint ptr %140 to i64
-  %142 = ptrtoint ptr %137 to i64
-  %143 = sub i64 %141, %142
-  call void @_ZdlPvm(ptr noundef nonnull %137, i64 noundef %143) #23
+139:                                              ; preds = %137
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %141 = load ptr, ptr %140, align 8, !tbaa !74
+  %142 = ptrtoint ptr %141 to i64
+  %143 = ptrtoint ptr %138 to i64
+  %144 = sub i64 %142, %143
+  call void @_ZdlPvm(ptr noundef nonnull %138, i64 noundef %144) #23
   br label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit
 
-_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit: ; preds = %136, %138
+_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit: ; preds = %137, %139
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #22
-  br label %144
+  br label %145
 
-144:                                              ; preds = %95, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit
+145:                                              ; preds = %95, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit
   %.sroa.0123.5 = phi ptr [ %.sroa.0123.0, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit ], [ %.sroa.0123.3, %95 ]
   %.sroa.0126.0 = phi ptr [ %.sroa.0126.1, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EED2Ev.exit ], [ %12, %95 ]
   %.not.i84 = icmp eq ptr %.sroa.0123.5, null
   br i1 %.not.i84, label %_ZNSt10unique_ptrIN4llvm13DataExtractorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13DataExtractorEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm13DataExtractorEEclEPS1_.exit.i: ; preds = %144
+_ZNKSt14default_deleteIN4llvm13DataExtractorEEclEPS1_.exit.i: ; preds = %145
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0123.5, i64 noundef 24) #23
   br label %_ZNSt10unique_ptrIN4llvm13DataExtractorESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm13DataExtractorESt14default_deleteIS1_EED2Ev.exit: ; preds = %144, %_ZNKSt14default_deleteIN4llvm13DataExtractorEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4llvm13DataExtractorESt14default_deleteIS1_EED2Ev.exit: ; preds = %145, %_ZNKSt14default_deleteIN4llvm13DataExtractorEEclEPS1_.exit.i
   %.not.i85 = icmp eq ptr %.sroa.0126.0, null
   br i1 %.not.i85, label %_ZNSt10unique_ptrIN4llvm9symbolize22SymbolizableObjectFileESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm9symbolize22SymbolizableObjectFileEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm9symbolize22SymbolizableObjectFileEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13DataExtractorESt14default_deleteIS1_EED2Ev.exit
-  %145 = load ptr, ptr %.sroa.0126.0, align 8, !tbaa !8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %147 = load ptr, ptr %146, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0126.0) #22
+  %146 = load ptr, ptr %.sroa.0126.0, align 8, !tbaa !8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %148 = load ptr, ptr %147, align 8
+  call void %148(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0126.0) #22
   br label %_ZNSt10unique_ptrIN4llvm9symbolize22SymbolizableObjectFileESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm9symbolize22SymbolizableObjectFileESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13DataExtractorESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm9symbolize22SymbolizableObjectFileEEclEPS2_.exit.i

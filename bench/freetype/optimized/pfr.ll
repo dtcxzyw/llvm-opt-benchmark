@@ -697,7 +697,7 @@ pfr_log_font_load.exit:                           ; preds = %pfr_extra_items_ski
   %299 = or i64 %298, 1
   store i64 %299, ptr %297, align 8, !tbaa !77
   %.not189 = icmp eq i32 %293, 0
-  br i1 %.not189, label %._crit_edge, label %.lr.ph
+  br i1 %.not189, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %290
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 600
@@ -709,23 +709,19 @@ pfr_log_font_load.exit:                           ; preds = %pfr_extra_items_ski
   %303 = getelementptr inbounds nuw %struct.PFR_CharRec_, ptr %301, i64 %indvars.iv, i32 3
   %304 = load i32, ptr %303, align 4, !tbaa !79
   %.not141 = icmp eq i32 %304, 0
-  br i1 %.not141, label %305, label %._crit_edge.loopexit
+  br i1 %.not141, label %305, label %._crit_edge
 
 305:                                              ; preds = %302
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %294
   br i1 %exitcond.not, label %._crit_edge.thread, label %302, !llvm.loop !80
 
-._crit_edge.loopexit:                             ; preds = %302
+._crit_edge:                                      ; preds = %302
   %306 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %290
-  %.0130.lcssa = phi i32 [ 0, %290 ], [ %306, %._crit_edge.loopexit ]
-  %307 = icmp eq i32 %.0130.lcssa, %293
+  %307 = icmp eq i32 %293, %306
   br i1 %307, label %._crit_edge.thread, label %312
 
-._crit_edge.thread:                               ; preds = %305, %._crit_edge
+._crit_edge.thread:                               ; preds = %305, %290, %._crit_edge
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %309 = load i32, ptr %308, align 8, !tbaa !81
   %.not142 = icmp eq i32 %309, 0
@@ -742,11 +738,11 @@ pfr_log_font_load.exit:                           ; preds = %pfr_extra_items_ski
   %316 = and i32 %315, 4
   %317 = xor i32 %316, 4
   %318 = zext nneg i32 %317 to i64
-  %spec.select195 = or i64 %313, %318
+  %spec.select197 = or i64 %313, %318
   %319 = and i32 %315, 1
   %.not144 = icmp eq i32 %319, 0
   %. = select i1 %.not144, i64 16, i64 32
-  %320 = or i64 %spec.select195, %.
+  %320 = or i64 %spec.select197, %.
   store i64 %320, ptr %297, align 8, !tbaa !77
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %322 = load i32, ptr %321, align 8, !tbaa !81
@@ -5398,10 +5394,10 @@ default.unreachable:                              ; preds = %455, %.lr.ph214.i
   br label %490
 
 490:                                              ; preds = %488, %483, %471, %463
-  %.sink247.i = phi i64 [ %489, %488 ], [ %487, %483 ], [ %479, %471 ], [ %467, %463 ]
+  %.sink250.i = phi i64 [ %489, %488 ], [ %487, %483 ], [ %479, %471 ], [ %467, %463 ]
   %.11.i = phi ptr [ %.10.i, %488 ], [ %481, %483 ], [ %469, %471 ], [ %459, %463 ]
   %491 = getelementptr inbounds nuw i8, ptr %.0111209.i, i64 8
-  store i64 %.sink247.i, ptr %491, align 8, !tbaa !217
+  store i64 %.sink250.i, ptr %491, align 8, !tbaa !217
   %492 = icmp eq i32 %.0212.i, 0
   %493 = icmp eq i32 %.1211.i, 4
   %or.cond.i = and i1 %492, %493
@@ -5432,7 +5428,7 @@ default.unreachable:                              ; preds = %455, %.lr.ph214.i
   br i1 %505, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !294
 
 ._crit_edge215.i:                                 ; preds = %502
-  switch i32 %404, label %612 [
+  switch i32 %404, label %611 [
     i32 0, label %._crit_edge215.thread244.i
     i32 1, label %._crit_edge215.thread.i
     i32 2, label %._crit_edge215.thread.i
@@ -5447,8 +5443,8 @@ default.unreachable:                              ; preds = %455, %.lr.ph214.i
   br label %pfr_extra_items_skip.exit.thread.sink.split.i
 
 ._crit_edge215.thread.sink.split.i:               ; preds = %413, %406
-  %.sink249.i = phi i64 [ %418, %413 ], [ %411, %406 ]
-  store i64 %.sink249.i, ptr %390, align 8, !tbaa !217
+  %.sink252.i = phi i64 [ %418, %413 ], [ %411, %406 ]
+  store i64 %.sink252.i, ptr %390, align 8, !tbaa !217
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %391, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   br label %._crit_edge215.thread.i
 
@@ -5595,7 +5591,7 @@ pfr_glyph_close_contour.exit.i.i:                 ; preds = %569, %568, %528
   %592 = getelementptr inbounds nuw i8, ptr %529, i64 12
   %593 = load i32, ptr %592, align 4, !tbaa !303
   %.not.not14.i.i = icmp ult i32 %591, %593
-  br i1 %.not.not14.i.i, label %.thread.thread.i.i, label %594
+  br i1 %.not.not14.i.i, label %.thread.i.i.i, label %594
 
 594:                                              ; preds = %585, %pfr_glyph_close_contour.exit.i.i
   %595 = call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %529, i32 noundef 1, i32 noundef 1) #12
@@ -5605,9 +5601,9 @@ pfr_glyph_close_contour.exit.i.i:                 ; preds = %569, %568, %528
 .thread.i161.i:                                   ; preds = %594
   %.val15.pre.i.i = load i8, ptr %389, align 8, !tbaa !292
   %596 = icmp eq i8 %.val15.pre.i.i, 0
-  br i1 %596, label %pfr_glyph_line_to.exit.i.thread, label %.thread.i161..thread.thread.i_crit_edge.i
+  br i1 %596, label %pfr_glyph_line_to.exit.i.thread, label %.thread.thread.i.i
 
-.thread.i161..thread.thread.i_crit_edge.i:        ; preds = %.thread.i161.i
+.thread.thread.i.i:                               ; preds = %.thread.i161.i
   %.val.pre.i.i = load ptr, ptr %282, align 8, !tbaa !149
   %.phi.trans.insert220.i = getelementptr inbounds nuw i8, ptr %.val.pre.i.i, i64 26
   %.pre221.i = load i16, ptr %.phi.trans.insert220.i, align 2, !tbaa !295
@@ -5618,72 +5614,66 @@ pfr_glyph_close_contour.exit.i.i:                 ; preds = %569, %568, %528
   %.pre228.i = zext i16 %.pre221.i to i32
   %.pre229.i = zext i16 %.pre223.i to i32
   %.pre231.i = add nuw nsw i32 %.pre229.i, %.pre228.i
-  br label %.thread.thread.i.i
+  %597 = icmp ult i32 %.pre231.i, %.pre225.i
+  br i1 %597, label %.thread.i.i.i, label %598
 
-.thread.thread.i.i:                               ; preds = %.thread.i161..thread.thread.i_crit_edge.i, %585
-  %.pre-phi232.i = phi i32 [ %.pre231.i, %.thread.i161..thread.thread.i_crit_edge.i ], [ %582, %585 ]
-  %597 = phi i32 [ %.pre225.i, %.thread.i161..thread.thread.i_crit_edge.i ], [ %584, %585 ]
-  %598 = phi i16 [ %.pre223.i, %.thread.i161..thread.thread.i_crit_edge.i ], [ %580, %585 ]
-  %.val23.i.i = phi ptr [ %.val.pre.i.i, %.thread.i161..thread.thread.i_crit_edge.i ], [ %529, %585 ]
-  %599 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 98
-  %.not16.not.i.i.i = icmp ult i32 %.pre-phi232.i, %597
-  br i1 %.not16.not.i.i.i, label %.thread.i.i.i, label %600
-
-600:                                              ; preds = %.thread.thread.i.i
-  %601 = call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %.val23.i.i, i32 noundef 1, i32 noundef 0) #12
-  %.not17.i.i.i = icmp eq i32 %601, 0
+598:                                              ; preds = %.thread.thread.i.i
+  %599 = call i32 @FT_GlyphLoader_CheckPoints(ptr noundef nonnull %.val.pre.i.i, i32 noundef 1, i32 noundef 0) #12
+  %.not17.i.i.i = icmp eq i32 %599, 0
   br i1 %.not17.i.i.i, label %..thread_crit_edge.i.i.i, label %pfr_glyph_line_to.exit.i.thread
 
-..thread_crit_edge.i.i.i:                         ; preds = %600
-  %.pre.i.i.i = load i16, ptr %599, align 2, !tbaa !214
+..thread_crit_edge.i.i.i:                         ; preds = %598
+  %.pre.i.i.i = load i16, ptr %.phi.trans.insert222.i, align 2, !tbaa !214
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %..thread_crit_edge.i.i.i, %.thread.thread.i.i
-  %602 = phi i16 [ %.pre.i.i.i, %..thread_crit_edge.i.i.i ], [ %598, %.thread.thread.i.i ]
-  %603 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 104
-  %604 = load ptr, ptr %603, align 8, !tbaa !215
-  %605 = zext i16 %602 to i64
-  %606 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %604, i64 %605
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %606, ptr noundef nonnull readonly align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !293
-  %607 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 112
-  %608 = load ptr, ptr %607, align 8, !tbaa !298
-  %609 = getelementptr inbounds nuw i8, ptr %608, i64 %605
-  store i8 1, ptr %609, align 1, !tbaa !65
-  %610 = load i16, ptr %599, align 2, !tbaa !214
-  %611 = add i16 %610, 1
-  store i16 %611, ptr %599, align 2, !tbaa !214
+.thread.i.i.i:                                    ; preds = %585, %..thread_crit_edge.i.i.i, %.thread.thread.i.i
+  %600 = phi ptr [ %.phi.trans.insert222.i, %..thread_crit_edge.i.i.i ], [ %.phi.trans.insert222.i, %.thread.thread.i.i ], [ %579, %585 ]
+  %.val23.i248.i = phi ptr [ %.val.pre.i.i, %..thread_crit_edge.i.i.i ], [ %.val.pre.i.i, %.thread.thread.i.i ], [ %529, %585 ]
+  %601 = phi i16 [ %.pre.i.i.i, %..thread_crit_edge.i.i.i ], [ %.pre223.i, %.thread.thread.i.i ], [ %580, %585 ]
+  %602 = getelementptr inbounds nuw i8, ptr %.val23.i248.i, i64 104
+  %603 = load ptr, ptr %602, align 8, !tbaa !215
+  %604 = zext i16 %601 to i64
+  %605 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %603, i64 %604
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %605, ptr noundef nonnull readonly align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !293
+  %606 = getelementptr inbounds nuw i8, ptr %.val23.i248.i, i64 112
+  %607 = load ptr, ptr %606, align 8, !tbaa !298
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 %604
+  store i8 1, ptr %608, align 1, !tbaa !65
+  %609 = load i16, ptr %600, align 2, !tbaa !214
+  %610 = add i16 %609, 1
+  store i16 %610, ptr %600, align 2, !tbaa !214
   br label %pfr_glyph_line_to.exit.i
 
-612:                                              ; preds = %._crit_edge215.i
+611:                                              ; preds = %._crit_edge215.i
   %.val157.i = load ptr, ptr %282, align 8, !tbaa !149
   %.val158.i = load i8, ptr %389, align 8, !tbaa !292
-  %613 = call fastcc i32 @pfr_glyph_curve_to(ptr %.val157.i, i8 %.val158.i, ptr noundef %7, ptr noundef %393, ptr noundef %394)
+  %612 = call fastcc i32 @pfr_glyph_curve_to(ptr %.val157.i, i8 %.val158.i, ptr noundef %7, ptr noundef %393, ptr noundef %394)
   br label %pfr_glyph_line_to.exit.i
 
-pfr_glyph_line_to.exit.i.thread:                  ; preds = %516, %._crit_edge215.thread.i, %594, %600, %.thread.i161.i
-  %.sink250.i.ph = phi i32 [ 8, %.thread.i161.i ], [ %601, %600 ], [ %595, %594 ], [ 8, %._crit_edge215.thread.i ], [ %517, %516 ]
-  store i32 %.sink250.i.ph, ptr %6, align 4, !tbaa !49
+pfr_glyph_line_to.exit.i.thread:                  ; preds = %516, %._crit_edge215.thread.i, %594, %598, %.thread.i161.i
+  %.sink253.i.ph = phi i32 [ 8, %.thread.i161.i ], [ %599, %598 ], [ %595, %594 ], [ 8, %._crit_edge215.thread.i ], [ %517, %516 ]
+  store i32 %.sink253.i.ph, ptr %6, align 4, !tbaa !49
   br label %pfr_extra_items_skip.exit.thread.sink.split.i
 
-pfr_glyph_line_to.exit.i:                         ; preds = %612, %.thread.i.i.i, %.thread.i.i
-  %.sink250.i = phi i32 [ %613, %612 ], [ 0, %.thread.i.i ], [ 0, %.thread.i.i.i ]
-  %.8.lcssa242.i = phi ptr [ %.12.i, %612 ], [ %.8.lcssa243.i, %.thread.i.i ], [ %.12.i, %.thread.i.i.i ]
-  store i32 %.sink250.i, ptr %6, align 4, !tbaa !49
-  %.not152.i = icmp eq i32 %.sink250.i, 0
+pfr_glyph_line_to.exit.i:                         ; preds = %611, %.thread.i.i.i, %.thread.i.i
+  %.sink253.i = phi i32 [ %612, %611 ], [ 0, %.thread.i.i ], [ 0, %.thread.i.i.i ]
+  %.8.lcssa242.i = phi ptr [ %.12.i, %611 ], [ %.8.lcssa243.i, %.thread.i.i ], [ %.12.i, %.thread.i.i.i ]
+  store i32 %.sink253.i, ptr %6, align 4, !tbaa !49
+  %.not152.i = icmp eq i32 %.sink253.i, 0
   br i1 %.not152.i, label %397, label %pfr_extra_items_skip.exit.thread.sink.split.i
 
 pfr_extra_items_skip.exit.thread.sink.split.i:    ; preds = %pfr_glyph_line_to.exit.i, %412, %405, %397, %494, %480, %468, %461, %458, %445, %433, %426, %423, %pfr_glyph_line_to.exit.i.thread, %._crit_edge215.thread244.i
-  %.ph.i = phi i32 [ %.pre226.pre.i, %._crit_edge215.thread244.i ], [ %.sink250.i.ph, %pfr_glyph_line_to.exit.i.thread ], [ 8, %423 ], [ 8, %426 ], [ 8, %433 ], [ 8, %445 ], [ 8, %458 ], [ 8, %461 ], [ 8, %468 ], [ 8, %480 ], [ 8, %494 ], [ 8, %412 ], [ 8, %405 ], [ 8, %397 ], [ %.sink250.i, %pfr_glyph_line_to.exit.i ]
+  %.ph.i = phi i32 [ %.pre226.pre.i, %._crit_edge215.thread244.i ], [ %.sink253.i.ph, %pfr_glyph_line_to.exit.i.thread ], [ 8, %423 ], [ 8, %426 ], [ 8, %433 ], [ 8, %445 ], [ 8, %458 ], [ 8, %461 ], [ 8, %468 ], [ 8, %480 ], [ 8, %494 ], [ 8, %412 ], [ 8, %405 ], [ 8, %397 ], [ %.sink253.i, %pfr_glyph_line_to.exit.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
   br label %pfr_glyph_load_simple.exit
 
 pfr_glyph_load_simple.exit:                       ; preds = %340, %348, %360, %.lr.ph58.split.us.i.i.i101, %382, %.thread, %281, %290, %300, %308, %319, %374, %pfr_extra_items_skip.exit.thread.sink.split.i
-  %614 = phi i32 [ %327, %319 ], [ 8, %374 ], [ 8, %281 ], [ 8, %308 ], [ 8, %300 ], [ 8, %290 ], [ %.ph.i, %pfr_extra_items_skip.exit.thread.sink.split.i ], [ 8, %.thread ], [ 8, %382 ], [ 8, %.lr.ph58.split.us.i.i.i101 ], [ 8, %360 ], [ 8, %348 ], [ 8, %340 ]
+  %613 = phi i32 [ %327, %319 ], [ 8, %374 ], [ 8, %281 ], [ 8, %308 ], [ 8, %300 ], [ 8, %290 ], [ %.ph.i, %pfr_extra_items_skip.exit.thread.sink.split.i ], [ 8, %.thread ], [ 8, %382 ], [ 8, %.lr.ph58.split.us.i.i.i101 ], [ 8, %360 ], [ 8, %348 ], [ 8, %340 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   br label %.loopexit123.sink.split
 
 .loopexit123.sink.split:                          ; preds = %pfr_glyph_load_simple.exit, %pfr_glyph_load_compound.exit.thread
-  %.074.ph = phi i32 [ %.ph, %pfr_glyph_load_compound.exit.thread ], [ %614, %pfr_glyph_load_simple.exit ]
+  %.074.ph = phi i32 [ %.ph, %pfr_glyph_load_compound.exit.thread ], [ %613, %pfr_glyph_load_simple.exit ]
   call void @FT_Stream_ExitFrame(ptr noundef %1) #12
   br label %.loopexit123
 

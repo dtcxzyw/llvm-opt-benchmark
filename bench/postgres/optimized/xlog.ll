@@ -2725,7 +2725,7 @@ RecoveryInProgress.exit:                          ; preds = %0
   %5 = icmp ne i32 %4, 2
   %6 = zext i1 %5 to i8
   store i8 %6, ptr @LocalRecoveryInProgress, align 1
-  br i1 %5, label %106, label %RecoveryInProgress.exit.thread
+  br i1 %5, label %104, label %RecoveryInProgress.exit.thread
 
 RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgress.exit
   %7 = getelementptr inbounds nuw i8, ptr %.pre, i64 316
@@ -2760,7 +2760,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
   store i64 %25, ptr @LogwrtResult.0, align 8
   %26 = load i64, ptr @LogwrtResult.1, align 8
   %.not23 = icmp ugt i64 %20, %26
-  br i1 %.not23, label %40, label %27
+  br i1 %.not23, label %.thread, label %27
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 448
@@ -2774,7 +2774,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
   %33 = tail call i32 @s_lock(ptr noundef nonnull %32, ptr noundef nonnull @.str.14, i32 noundef 3024, ptr noundef nonnull @__func__.XLogBackgroundFlush) #26
   br label %34
 
-34:                                               ; preds = %27, %30
+34:                                               ; preds = %30, %27
   %35 = load ptr, ptr @XLogCtl, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 216
   %37 = load i64, ptr %36, align 8
@@ -2783,130 +2783,126 @@ RecoveryInProgress.exit.thread:                   ; preds = %0, %RecoveryInProgr
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 448
   store i8 0, ptr %39, align 8
   %.pre32 = load i64, ptr @LogwrtResult.1, align 8
-  br label %40
+  %40 = icmp ugt i64 %37, %.pre32
+  br i1 %40, label %.thread, label %41
 
-40:                                               ; preds = %34, %15
-  %41 = phi i64 [ %.pre32, %34 ], [ %26, %15 ]
-  %.sroa.0.0 = phi i64 [ %37, %34 ], [ %20, %15 ]
-  %.not25 = icmp ugt i64 %.sroa.0.0, %41
-  br i1 %.not25, label %54, label %42
+41:                                               ; preds = %34
+  %42 = load i32, ptr @openLogFile, align 4
+  %43 = icmp sgt i32 %42, -1
+  br i1 %43, label %44, label %104
 
-42:                                               ; preds = %40
-  %43 = load i32, ptr @openLogFile, align 4
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %45, label %106
+44:                                               ; preds = %41
+  %45 = load i64, ptr @LogwrtResult.0, align 8
+  %46 = add i64 %45, -1
+  %47 = load i32, ptr @wal_segment_size, align 4
+  %48 = sext i32 %47 to i64
+  %49 = udiv i64 %46, %48
+  %50 = load i64, ptr @openLogSegNo, align 8
+  %51 = icmp eq i64 %49, %50
+  br i1 %51, label %104, label %52
 
-45:                                               ; preds = %42
-  %46 = load i64, ptr @LogwrtResult.0, align 8
-  %47 = add i64 %46, -1
-  %48 = load i32, ptr @wal_segment_size, align 4
-  %49 = sext i32 %48 to i64
-  %50 = udiv i64 %47, %49
-  %51 = load i64, ptr @openLogSegNo, align 8
-  %52 = icmp eq i64 %50, %51
-  br i1 %52, label %106, label %53
-
-53:                                               ; preds = %45
+52:                                               ; preds = %44
   tail call fastcc void @XLogFileClose()
-  br label %106
+  br label %104
 
-54:                                               ; preds = %40
-  %55 = tail call i64 @GetCurrentTimestamp() #26
-  %56 = load i32, ptr @WalWriterFlushAfter, align 4
-  %57 = icmp eq i32 %56, 0
-  %58 = load i64, ptr @XLogBackgroundFlush.lastflush, align 8
-  %59 = icmp eq i64 %58, 0
-  %or.cond = select i1 %57, i1 true, i1 %59
-  br i1 %or.cond, label %.sink.split, label %60
+.thread:                                          ; preds = %15, %34
+  %.sroa.0.035 = phi i64 [ %37, %34 ], [ %20, %15 ]
+  %53 = tail call i64 @GetCurrentTimestamp() #26
+  %54 = load i32, ptr @WalWriterFlushAfter, align 4
+  %55 = icmp eq i32 %54, 0
+  %56 = load i64, ptr @XLogBackgroundFlush.lastflush, align 8
+  %57 = icmp eq i64 %56, 0
+  %or.cond = select i1 %55, i1 true, i1 %57
+  br i1 %or.cond, label %.sink.split, label %58
 
-60:                                               ; preds = %54
-  %61 = lshr i64 %.sroa.0.0, 13
-  %62 = load i64, ptr @LogwrtResult.1, align 8
-  %63 = lshr i64 %62, 13
-  %64 = sub nsw i64 %61, %63
-  %65 = trunc i64 %64 to i32
-  %66 = load i32, ptr @WalWriterDelay, align 4
-  %67 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %58, i64 noundef %55, i32 noundef %66) #26
-  %68 = load i32, ptr @WalWriterFlushAfter, align 4
-  %.not26 = icmp sle i32 %68, %65
-  %or.cond34.not = select i1 %67, i1 true, i1 %.not26
-  br i1 %or.cond34.not, label %.sink.split, label %69
+58:                                               ; preds = %.thread
+  %59 = lshr i64 %.sroa.0.035, 13
+  %60 = load i64, ptr @LogwrtResult.1, align 8
+  %61 = lshr i64 %60, 13
+  %62 = sub nsw i64 %59, %61
+  %63 = trunc i64 %62 to i32
+  %64 = load i32, ptr @WalWriterDelay, align 4
+  %65 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %56, i64 noundef %53, i32 noundef %64) #26
+  %66 = load i32, ptr @WalWriterFlushAfter, align 4
+  %.not26 = icmp sle i32 %66, %63
+  %or.cond37.not = select i1 %65, i1 true, i1 %.not26
+  br i1 %or.cond37.not, label %.sink.split, label %67
 
-.sink.split:                                      ; preds = %60, %54
-  store i64 %55, ptr @XLogBackgroundFlush.lastflush, align 8
-  br label %69
+.sink.split:                                      ; preds = %58, %.thread
+  store i64 %53, ptr @XLogBackgroundFlush.lastflush, align 8
+  br label %67
 
-69:                                               ; preds = %60, %.sink.split
-  %.sroa.16.0 = phi i64 [ %.sroa.0.0, %.sink.split ], [ 0, %60 ]
-  %70 = load volatile i32, ptr @CritSectionCount, align 4
-  %71 = add i32 %70, 1
-  store volatile i32 %71, ptr @CritSectionCount, align 4
-  %72 = tail call fastcc i64 @WaitXLogInsertionsToFinish(i64 noundef %.sroa.0.0)
-  %73 = load ptr, ptr @MainLWLockArray, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1024
-  %75 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %74, i32 noundef 0) #26
-  %76 = load ptr, ptr @XLogCtl, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 280
-  %78 = load volatile i64, ptr %77, align 8
-  store i64 %78, ptr @LogwrtResult.1, align 8
+67:                                               ; preds = %58, %.sink.split
+  %.sroa.16.0 = phi i64 [ %.sroa.0.035, %.sink.split ], [ 0, %58 ]
+  %68 = load volatile i32, ptr @CritSectionCount, align 4
+  %69 = add i32 %68, 1
+  store volatile i32 %69, ptr @CritSectionCount, align 4
+  %70 = tail call fastcc i64 @WaitXLogInsertionsToFinish(i64 noundef %.sroa.0.035)
+  %71 = load ptr, ptr @MainLWLockArray, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1024
+  %73 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %72, i32 noundef 0) #26
+  %74 = load ptr, ptr @XLogCtl, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 280
+  %76 = load volatile i64, ptr %75, align 8
+  store i64 %76, ptr @LogwrtResult.1, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !44
-  %79 = load ptr, ptr @XLogCtl, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 272
-  %81 = load volatile i64, ptr %80, align 8
-  store i64 %81, ptr @LogwrtResult.0, align 8
-  %82 = icmp ugt i64 %.sroa.0.0, %81
-  %83 = load i64, ptr @LogwrtResult.1, align 8
-  %84 = icmp ugt i64 %.sroa.16.0, %83
-  %or.cond28 = select i1 %82, i1 true, i1 %84
-  br i1 %or.cond28, label %85, label %86
+  %77 = load ptr, ptr @XLogCtl, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 272
+  %79 = load volatile i64, ptr %78, align 8
+  store i64 %79, ptr @LogwrtResult.0, align 8
+  %80 = icmp ugt i64 %.sroa.0.035, %79
+  %81 = load i64, ptr @LogwrtResult.1, align 8
+  %82 = icmp ugt i64 %.sroa.16.0, %81
+  %or.cond28 = select i1 %80, i1 true, i1 %82
+  br i1 %or.cond28, label %83, label %84
 
-85:                                               ; preds = %69
-  tail call fastcc void @XLogWrite(i64 %.sroa.0.0, i64 %.sroa.16.0, i32 noundef %8, i1 noundef zeroext %.not23)
-  br label %86
+83:                                               ; preds = %67
+  tail call fastcc void @XLogWrite(i64 %.sroa.0.035, i64 %.sroa.16.0, i32 noundef %8, i1 noundef zeroext %.not23)
+  br label %84
 
-86:                                               ; preds = %69, %85
-  %87 = load ptr, ptr @MainLWLockArray, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1024
-  tail call void @LWLockRelease(ptr noundef nonnull %88) #26
-  %89 = load volatile i32, ptr @CritSectionCount, align 4
-  %90 = add i32 %89, -1
-  store volatile i32 %90, ptr @CritSectionCount, align 4
-  %91 = load i8, ptr @LocalRecoveryInProgress, align 1, !range !4, !noundef !5
-  %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %RecoveryInProgress.exit30
+84:                                               ; preds = %67, %83
+  %85 = load ptr, ptr @MainLWLockArray, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1024
+  tail call void @LWLockRelease(ptr noundef nonnull %86) #26
+  %87 = load volatile i32, ptr @CritSectionCount, align 4
+  %88 = add i32 %87, -1
+  store volatile i32 %88, ptr @CritSectionCount, align 4
+  %89 = load i8, ptr @LocalRecoveryInProgress, align 1, !range !4, !noundef !5
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %91, label %RecoveryInProgress.exit30
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr @XLogCtl, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 324
-  %96 = load volatile i32, ptr %95, align 4
-  %97 = icmp ne i32 %96, 2
-  %98 = zext i1 %97 to i8
-  store i8 %98, ptr @LocalRecoveryInProgress, align 1
-  %99 = xor i1 %97, true
+91:                                               ; preds = %84
+  %92 = load ptr, ptr @XLogCtl, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 324
+  %94 = load volatile i32, ptr %93, align 4
+  %95 = icmp ne i32 %94, 2
+  %96 = zext i1 %95 to i8
+  store i8 %96, ptr @LocalRecoveryInProgress, align 1
+  %97 = xor i1 %95, true
   br label %RecoveryInProgress.exit30
 
-RecoveryInProgress.exit30:                        ; preds = %86, %93
-  %.0.i29 = phi i1 [ %99, %93 ], [ true, %86 ]
-  %100 = load i8, ptr @wake_wal_senders, align 1, !range !4, !noundef !5
-  %101 = trunc nuw i8 %100 to i1
-  br i1 %101, label %102, label %WalSndWakeupProcessRequests.exit
+RecoveryInProgress.exit30:                        ; preds = %84, %91
+  %.0.i29 = phi i1 [ %97, %91 ], [ true, %84 ]
+  %98 = load i8, ptr @wake_wal_senders, align 1, !range !4, !noundef !5
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %WalSndWakeupProcessRequests.exit
 
-102:                                              ; preds = %RecoveryInProgress.exit30
+100:                                              ; preds = %RecoveryInProgress.exit30
   store i8 0, ptr @wake_wal_senders, align 1
-  %103 = load i32, ptr @max_wal_senders, align 4
-  %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %105, label %WalSndWakeupProcessRequests.exit
+  %101 = load i32, ptr @max_wal_senders, align 4
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %103, label %WalSndWakeupProcessRequests.exit
 
-105:                                              ; preds = %102
+103:                                              ; preds = %100
   tail call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext %.0.i29) #26
   br label %WalSndWakeupProcessRequests.exit
 
-WalSndWakeupProcessRequests.exit:                 ; preds = %RecoveryInProgress.exit30, %102, %105
+WalSndWakeupProcessRequests.exit:                 ; preds = %RecoveryInProgress.exit30, %100, %103
   tail call fastcc void @AdvanceXLInsertBuffer(i64 noundef 0, i32 noundef %8, i1 noundef zeroext true)
-  br label %106
+  br label %104
 
-106:                                              ; preds = %42, %53, %45, %RecoveryInProgress.exit, %WalSndWakeupProcessRequests.exit
-  %.0 = phi i1 [ true, %WalSndWakeupProcessRequests.exit ], [ false, %RecoveryInProgress.exit ], [ false, %45 ], [ false, %53 ], [ false, %42 ]
+104:                                              ; preds = %41, %52, %44, %RecoveryInProgress.exit, %WalSndWakeupProcessRequests.exit
+  %.0 = phi i1 [ true, %WalSndWakeupProcessRequests.exit ], [ false, %RecoveryInProgress.exit ], [ false, %44 ], [ false, %52 ], [ false, %41 ]
   ret i1 %.0
 }
 

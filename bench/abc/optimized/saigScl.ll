@@ -151,7 +151,7 @@ define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) lo
   %6 = getelementptr i8, ptr %5, i64 4
   %.val3743 = load i32, ptr %6, align 4, !tbaa !33
   %7 = icmp slt i32 %3, %.val3743
-  br i1 %7, label %.lr.ph.preheader, label %.critedge2
+  br i1 %7, label %.lr.ph.preheader, label %.critedge4
 
 .lr.ph.preheader:                                 ; preds = %.critedge
   %8 = sext i32 %3 to i64
@@ -194,52 +194,46 @@ define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) lo
   %.val37 = load i32, ptr %26, align 4, !tbaa !33
   %27 = sext i32 %.val37 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !34
+  br i1 %28, label %.lr.ph, label %.critedge2, !llvm.loop !34
 
-.critedge2.loopexit:                              ; preds = %24
+.critedge2:                                       ; preds = %24
   %.val40.pre = load i32, ptr %1, align 4, !tbaa !32
   %.val42.pre = load i32, ptr %2, align 8, !tbaa !24
   %.pre56 = sub nsw i32 %.val40.pre, %.val42.pre
-  br label %.critedge2
-
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
-  %.pre-phi = phi i32 [ %.pre56, %.critedge2.loopexit ], [ %3, %.critedge ]
-  %.val3846 = phi i32 [ %.val37, %.critedge2.loopexit ], [ %.val3743, %.critedge ]
-  %29 = phi ptr [ %25, %.critedge2.loopexit ], [ %5, %.critedge ]
-  %.0.lcssa = phi i32 [ %.1, %.critedge2.loopexit ], [ 0, %.critedge ]
-  %30 = icmp slt i32 %.pre-phi, %.val3846
-  br i1 %30, label %.lr.ph48.preheader, label %.critedge4
+  %29 = icmp slt i32 %.pre56, %.val37
+  br i1 %29, label %.lr.ph48.preheader, label %.critedge4
 
 .lr.ph48.preheader:                               ; preds = %.critedge2
-  %31 = sext i32 %.pre-phi to i64
+  %30 = sext i32 %.pre56 to i64
   br label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
-  %indvars.iv50 = phi i64 [ %31, %.lr.ph48.preheader ], [ %indvars.iv.next51, %.lr.ph48 ]
-  %32 = phi ptr [ %29, %.lr.ph48.preheader ], [ %43, %.lr.ph48 ]
-  %33 = getelementptr i8, ptr %32, i64 8
-  %.val = load ptr, ptr %33, align 8, !tbaa !22
-  %34 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv50
-  %35 = load ptr, ptr %34, align 8, !tbaa !25
-  %36 = getelementptr i8, ptr %35, i64 8
-  %.val34 = load ptr, ptr %36, align 8, !tbaa !26
-  %37 = ptrtoint ptr %.val34 to i64
-  %38 = and i64 %37, -2
-  %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load i64, ptr %40, align 8
-  %42 = and i64 %41, -17
-  store i64 %42, ptr %40, align 8
+  %indvars.iv50 = phi i64 [ %30, %.lr.ph48.preheader ], [ %indvars.iv.next51, %.lr.ph48 ]
+  %31 = phi ptr [ %25, %.lr.ph48.preheader ], [ %42, %.lr.ph48 ]
+  %32 = getelementptr i8, ptr %31, i64 8
+  %.val = load ptr, ptr %32, align 8, !tbaa !22
+  %33 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv50
+  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  %35 = getelementptr i8, ptr %34, i64 8
+  %.val34 = load ptr, ptr %35, align 8, !tbaa !26
+  %36 = ptrtoint ptr %.val34 to i64
+  %37 = and i64 %36, -2
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = load i64, ptr %39, align 8
+  %41 = and i64 %40, -17
+  store i64 %41, ptr %39, align 8
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
-  %43 = load ptr, ptr %4, align 8, !tbaa !21
-  %44 = getelementptr i8, ptr %43, i64 4
-  %.val38 = load i32, ptr %44, align 4, !tbaa !33
-  %45 = sext i32 %.val38 to i64
-  %46 = icmp slt i64 %indvars.iv.next51, %45
-  br i1 %46, label %.lr.ph48, label %.critedge4, !llvm.loop !35
+  %42 = load ptr, ptr %4, align 8, !tbaa !21
+  %43 = getelementptr i8, ptr %42, i64 4
+  %.val38 = load i32, ptr %43, align 4, !tbaa !33
+  %44 = sext i32 %.val38 to i64
+  %45 = icmp slt i64 %indvars.iv.next51, %44
+  br i1 %45, label %.lr.ph48, label %.critedge4, !llvm.loop !35
 
-.critedge4:                                       ; preds = %.lr.ph48, %.critedge2
-  ret i32 %.0.lcssa
+.critedge4:                                       ; preds = %.lr.ph48, %.critedge, %.critedge2
+  %.0.lcssa60 = phi i32 [ %.1, %.critedge2 ], [ 0, %.critedge ], [ %.1, %.lr.ph48 ]
+  ret i32 %.0.lcssa60
 }
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

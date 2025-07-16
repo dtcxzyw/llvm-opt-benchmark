@@ -316,10 +316,8 @@ define dso_local zeroext range(i8 0, 2) i8 @acpi_ut_detect_hex_prefix(ptr nounde
   br label %17
 
 17:                                               ; preds = %15, %5, %1
-  %18 = phi ptr [ %16, %15 ], [ %2, %5 ], [ %2, %1 ]
-  %19 = icmp ne ptr %18, %2
-  %20 = zext i1 %19 to i8
-  ret i8 %20
+  %18 = phi i8 [ 1, %15 ], [ 0, %5 ], [ 0, %1 ]
+  ret i8 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)

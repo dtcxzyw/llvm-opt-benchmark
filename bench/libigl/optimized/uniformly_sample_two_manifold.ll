@@ -2095,9 +2095,12 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin
   %wide.trip.count1696 = and i64 %787, 2147483647
   br label %.lr.ph1610.us
 
-._crit_edge1611.us:                               ; preds = %799, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin1ELi0ELin1ELin1EEENS_8internal15member_minCoeffIddEELi1EEEEERKNS_9EigenBaseIT_EE.exit.us
-  %790 = phi i32 [ %779, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin1ELi0ELin1ELin1EEENS_8internal15member_minCoeffIddEELi1EEEEERKNS_9EigenBaseIT_EE.exit.us ], [ %800, %799 ]
-  %791 = icmp ne i32 %779, %790
+._crit_edge1611.us.loopexit:                      ; preds = %799
+  %790 = icmp ne i32 %779, %800
+  br label %._crit_edge1611.us
+
+._crit_edge1611.us:                               ; preds = %._crit_edge1611.us.loopexit, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin1ELi0ELin1ELin1EEENS_8internal15member_minCoeffIddEELi1EEEEERKNS_9EigenBaseIT_EE.exit.us
+  %791 = phi i1 [ %790, %._crit_edge1611.us.loopexit ], [ false, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin1ELi0ELin1ELin1EEENS_8internal15member_minCoeffIddEELi1EEEEERKNS_9EigenBaseIT_EE.exit.us ]
   %792 = or i1 %.02381612.us, %791
   call void @free(ptr noundef %.sroa.0784.61398.us) #18
   %indvars.iv.next1699 = add nuw nsw i64 %indvars.iv1698, 1
@@ -2126,7 +2129,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_16PartialReduxExprINS0_IdLin1ELin
   %.1179.us = phi double [ %795, %797 ], [ %.01781608.us, %.lr.ph1610.us ]
   %indvars.iv.next1694 = add nuw nsw i64 %indvars.iv1693, 1
   %exitcond1697.not = icmp eq i64 %indvars.iv.next1694, %wide.trip.count1696
-  br i1 %exitcond1697.not, label %._crit_edge1611.us, label %.lr.ph1610.us, !llvm.loop !115
+  br i1 %exitcond1697.not, label %._crit_edge1611.us.loopexit, label %.lr.ph1610.us, !llvm.loop !115
 
 .lr.ph1607:                                       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit._crit_edge
   %indvars.iv1687 = phi i64 [ %indvars.iv.next1688, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit._crit_edge ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]

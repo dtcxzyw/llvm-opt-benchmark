@@ -1312,7 +1312,13 @@ invoke.cont10:                                    ; preds = %invoke.cont7
 
 for.cond.preheader:                               ; preds = %invoke.cont10
   %cmp25303.not = icmp eq ptr %5, %6
-  br i1 %cmp25303.not, label %for.end, label %for.body.lr.ph
+  br i1 %cmp25303.not, label %for.end.thread, label %for.body.lr.ph
+
+for.end.thread:                                   ; preds = %for.cond.preheader
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %msg_to_index, align 8
+  %slots_.i.i.i.i.i.i.i59360 = getelementptr inbounds nuw i8, ptr %msg_to_index, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i59360, i8 0, i64 24, i1 false)
+  br label %for.cond72.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 640
@@ -1489,22 +1495,20 @@ lpad34:                                           ; preds = %lpad34.loopexit.spl
   call void @_ZNSt10unique_ptrIN6google8protobuf8compiler3cpp16MessageGeneratorESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp27) #25
   br label %ehcleanup156
 
-for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %25 = phi ptr [ %6, %for.cond.preheader ], [ %24, %for.inc ]
-  %26 = phi ptr [ %5, %for.cond.preheader ], [ %23, %for.inc ]
+for.end:                                          ; preds = %for.inc
+  %25 = icmp eq ptr %23, %24
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %msg_to_index, align 8
   %slots_.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %msg_to_index, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i59, i8 0, i64 24, i1 false)
-  %cmp46310.not = icmp eq ptr %26, %25
-  br i1 %cmp46310.not, label %for.cond72.preheader, label %for.body47.lr.ph
+  br i1 %25, label %for.cond72.preheader, label %for.body47.lr.ph
 
 for.body47.lr.ph:                                 ; preds = %for.end
-  %27 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   br label %for.body47
 
 for.cond57.preheader:                             ; preds = %invoke.cont51
-  %cmp59316.not = icmp eq ptr %30, %31
-  br i1 %cmp59316.not, label %for.cond72.preheader, label %for.body60.lr.ph
+  %27 = icmp eq ptr %30, %31
+  br i1 %27, label %for.cond72.preheader, label %for.body60.lr.ph
 
 for.body60.lr.ph:                                 ; preds = %for.cond57.preheader
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %msg_to_index, i64 16
@@ -1513,7 +1517,7 @@ for.body60.lr.ph:                                 ; preds = %for.cond57.preheade
   br label %for.body60
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %invoke.cont51
-  %28 = phi ptr [ %25, %for.body47.lr.ph ], [ %31, %invoke.cont51 ]
+  %28 = phi ptr [ %24, %for.body47.lr.ph ], [ %31, %invoke.cont51 ]
   %i43.0311 = phi i64 [ 0, %for.body47.lr.ph ], [ %inc54, %invoke.cont51 ]
   %add.ptr.i65 = getelementptr inbounds ptr, ptr %28, i64 %i43.0311
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
@@ -1521,7 +1525,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
           to label %invoke.cont51 unwind label %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont51:                                    ; preds = %for.body47
-  %29 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %26, align 8
   %second.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %conv48 = trunc i64 %i43.0311 to i32
@@ -1571,7 +1575,7 @@ lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
           cleanup
   br label %ehcleanup
 
-for.cond72.preheader:                             ; preds = %for.inc68, %for.end, %for.cond57.preheader
+for.cond72.preheader:                             ; preds = %for.inc68, %for.end.thread, %for.end, %for.cond57.preheader
   %enum_type_count_.i = getelementptr inbounds nuw i8, ptr %file, i64 64
   %32 = load i32, ptr %enum_type_count_.i, align 8
   %cmp75318 = icmp sgt i32 %32, 0
@@ -1877,13 +1881,13 @@ lpad83:                                           ; preds = %if.then.i.i.i.i120
   br i1 %cmp.not.i126, label %_ZNSt10unique_ptrIN6google8protobuf8compiler3cpp13EnumGeneratorESt14default_deleteIS4_EED2Ev.exit128, label %if.then.i127
 
 if.then.i127:                                     ; preds = %lpad83.thread, %lpad83
-  %lpad.phi276362 = phi { ptr, i32 } [ %lpad.loopexit274, %lpad83.thread ], [ %lpad.loopexit.split-lp275, %lpad83 ]
+  %lpad.phi276366 = phi { ptr, i32 } [ %lpad.loopexit274, %lpad83.thread ], [ %lpad.loopexit.split-lp275, %lpad83 ]
   %68 = phi ptr [ %call.i88, %lpad83.thread ], [ %.pre, %lpad83 ]
   call void @_ZNKSt14default_deleteIN6google8protobuf8compiler3cpp13EnumGeneratorEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp78, ptr noundef nonnull %68)
   br label %_ZNSt10unique_ptrIN6google8protobuf8compiler3cpp13EnumGeneratorESt14default_deleteIS4_EED2Ev.exit128
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler3cpp13EnumGeneratorESt14default_deleteIS4_EED2Ev.exit128: ; preds = %lpad83, %if.then.i127
-  %lpad.phi276363 = phi { ptr, i32 } [ %lpad.loopexit.split-lp275, %lpad83 ], [ %lpad.phi276362, %if.then.i127 ]
+  %lpad.phi276367 = phi { ptr, i32 } [ %lpad.loopexit.split-lp275, %lpad83 ], [ %lpad.phi276366, %if.then.i127 ]
   store ptr null, ptr %ref.tmp78, align 8
   br label %ehcleanup
 
@@ -2328,7 +2332,7 @@ _ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EED2Ev.exit234: ; preds = %_Z
   ret void
 
 ehcleanup:                                        ; preds = %lpad50.loopexit, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad50.loopexit.split-lp.loopexit, %lpad.i86, %lpad.i183, %lpad.i131, %lpad137, %lpad101, %_ZNSt10unique_ptrIN6google8protobuf8compiler3cpp13EnumGeneratorESt14default_deleteIS4_EED2Ev.exit128
-  %.pn = phi { ptr, i32 } [ %lpad.phi276363, %_ZNSt10unique_ptrIN6google8protobuf8compiler3cpp13EnumGeneratorESt14default_deleteIS4_EED2Ev.exit128 ], [ %lpad.phi270, %lpad101 ], [ %lpad.phi264, %lpad137 ], [ %58, %lpad.i86 ], [ %70, %lpad.i131 ], [ %93, %lpad.i183 ], [ %lpad.loopexit, %lpad50.loopexit ], [ %lpad.loopexit260, %lpad50.loopexit.split-lp.loopexit ], [ %lpad.loopexit265, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit271, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit278, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit281, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp282, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi276367, %_ZNSt10unique_ptrIN6google8protobuf8compiler3cpp13EnumGeneratorESt14default_deleteIS4_EED2Ev.exit128 ], [ %lpad.phi270, %lpad101 ], [ %lpad.phi264, %lpad137 ], [ %58, %lpad.i86 ], [ %70, %lpad.i131 ], [ %93, %lpad.i183 ], [ %lpad.loopexit, %lpad50.loopexit ], [ %lpad.loopexit260, %lpad50.loopexit.split-lp.loopexit ], [ %lpad.loopexit265, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit271, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit278, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit281, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp282, %lpad50.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %capacity_.i.i.i.i.i235 = getelementptr inbounds nuw i8, ptr %msg_to_index, i64 16
   %124 = load i64, ptr %capacity_.i.i.i.i.i235, align 8
   %tobool.not.i.i.i236 = icmp eq i64 %124, 0

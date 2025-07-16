@@ -116032,8 +116032,8 @@ define linkonce_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_Z
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3184, !noalias !3240
-  store ptr %54, ptr %3, align 8, !tbaa !3187
   %55 = icmp eq ptr %54, %.pre
+  store ptr %54, ptr %3, align 8, !tbaa !3187
   br i1 %55, label %56, label %_ZNSt5dequeIbSaIbEE4backEv.exit
 
 56:                                               ; preds = %.thread, %52

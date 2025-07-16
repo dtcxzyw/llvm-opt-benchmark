@@ -8555,123 +8555,119 @@ define internal fastcc noundef i32 @ctl_arena_init(ptr noundef %0, ptr noundef n
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %5, %9
-  br i1 %11, label %12, label %15
+  br i1 %11, label %12, label %.thread28
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !204
   store ptr %14, ptr %4, align 8, !tbaa !45
-  br label %15
+  %15 = icmp eq ptr %14, %9
+  br i1 %15, label %28, label %.thread28
 
-15:                                               ; preds = %12, %10
-  %16 = phi ptr [ %14, %12 ], [ %5, %10 ]
-  %.not25 = icmp eq ptr %16, %9
-  br i1 %.not25, label %30, label %17
-
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !204
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+.thread28:                                        ; preds = %10, %12
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !204
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !205
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !205
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !205
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %21, ptr %24, align 8, !tbaa !204
-  %25 = load ptr, ptr %18, align 8, !tbaa !204
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %23, ptr %26, align 8, !tbaa !205
-  store ptr %21, ptr %22, align 8, !tbaa !205
-  %27 = load ptr, ptr %26, align 8, !tbaa !205
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %25, ptr %28, align 8, !tbaa !204
-  %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %9, ptr %29, align 8, !tbaa !204
-  br label %32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %19, ptr %22, align 8, !tbaa !204
+  %23 = load ptr, ptr %16, align 8, !tbaa !204
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store ptr %21, ptr %24, align 8, !tbaa !205
+  store ptr %19, ptr %20, align 8, !tbaa !205
+  %25 = load ptr, ptr %24, align 8, !tbaa !205
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %23, ptr %26, align 8, !tbaa !204
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %9, ptr %27, align 8, !tbaa !204
+  br label %30
 
-30:                                               ; preds = %15
+28:                                               ; preds = %12
   store ptr null, ptr %4, align 8, !tbaa !45
-  br label %32
+  br label %30
 
 .thread:                                          ; preds = %2, %7
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %32
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %30
 
-32:                                               ; preds = %17, %30, %.thread
-  %.020.in = phi ptr [ %31, %.thread ], [ %9, %30 ], [ %9, %17 ]
+30:                                               ; preds = %.thread28, %28, %.thread
+  %.020.in = phi ptr [ %29, %.thread ], [ %9, %28 ], [ %9, %.thread28 ]
   %.020 = load i32, ptr %.020.in, align 8, !tbaa !92
-  %33 = zext i32 %.020 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  switch i32 %.020, label %36 [
+  %31 = zext i32 %.020 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  switch i32 %.020, label %34 [
     i32 4096, label %arenas_i2a_impl.exit.i
-    i32 4097, label %35
+    i32 4097, label %33
   ]
 
-35:                                               ; preds = %32
+33:                                               ; preds = %30
   br label %arenas_i2a_impl.exit.i
 
-36:                                               ; preds = %32
-  %37 = add nuw nsw i64 %33, 2
-  %38 = and i64 %37, 4294967295
+34:                                               ; preds = %30
+  %35 = add nuw nsw i64 %31, 2
+  %36 = and i64 %35, 4294967295
   br label %arenas_i2a_impl.exit.i
 
-arenas_i2a_impl.exit.i:                           ; preds = %36, %35, %32
-  %.0.i.i = phi i64 [ %38, %36 ], [ 1, %35 ], [ 0, %32 ]
-  %39 = getelementptr inbounds nuw [4097 x ptr], ptr %34, i64 0, i64 %.0.i.i
-  %40 = load ptr, ptr %39, align 8, !tbaa !29
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %55
+arenas_i2a_impl.exit.i:                           ; preds = %34, %33, %30
+  %.0.i.i = phi i64 [ %36, %34 ], [ 1, %33 ], [ 0, %30 ]
+  %37 = getelementptr inbounds nuw [4097 x ptr], ptr %32, i64 0, i64 %.0.i.i
+  %38 = load ptr, ptr %37, align 8, !tbaa !29
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %53
 
-42:                                               ; preds = %arenas_i2a_impl.exit.i
-  %43 = tail call ptr @je_b0get() #15
-  %44 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %43, i64 noundef 38288, i64 noundef 8) #15
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %arenas_i_impl.exit, label %45
+40:                                               ; preds = %arenas_i2a_impl.exit.i
+  %41 = tail call ptr @je_b0get() #15
+  %42 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %41, i64 noundef 38288, i64 noundef 8) #15
+  %.not.i = icmp eq ptr %42, null
+  br i1 %.not.i, label %arenas_i_impl.exit, label %43
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 88
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 80
-  store ptr %46, ptr %47, align 8, !tbaa !31
-  store i32 %.020, ptr %44, align 8, !tbaa !35
-  %48 = load ptr, ptr @ctl_arenas, align 8, !tbaa !25
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  switch i32 %.020, label %51 [
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 80
+  store ptr %44, ptr %45, align 8, !tbaa !31
+  store i32 %.020, ptr %42, align 8, !tbaa !35
+  %46 = load ptr, ptr @ctl_arenas, align 8, !tbaa !25
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  switch i32 %.020, label %49 [
     i32 4096, label %arenas_i2a_impl.exit23.i
-    i32 4097, label %50
+    i32 4097, label %48
   ]
 
-50:                                               ; preds = %45
+48:                                               ; preds = %43
   br label %arenas_i2a_impl.exit23.i
 
-51:                                               ; preds = %45
-  %52 = add nuw nsw i64 %33, 2
-  %53 = and i64 %52, 4294967295
+49:                                               ; preds = %43
+  %50 = add nuw nsw i64 %31, 2
+  %51 = and i64 %50, 4294967295
   br label %arenas_i2a_impl.exit23.i
 
-arenas_i2a_impl.exit23.i:                         ; preds = %51, %50, %45
-  %.0.i22.i = phi i64 [ %53, %51 ], [ 1, %50 ], [ 0, %45 ]
-  %54 = getelementptr inbounds nuw [4097 x ptr], ptr %49, i64 0, i64 %.0.i22.i
-  store ptr %44, ptr %54, align 8, !tbaa !29
-  br label %55
+arenas_i2a_impl.exit23.i:                         ; preds = %49, %48, %43
+  %.0.i22.i = phi i64 [ %51, %49 ], [ 1, %48 ], [ 0, %43 ]
+  %52 = getelementptr inbounds nuw [4097 x ptr], ptr %47, i64 0, i64 %.0.i22.i
+  store ptr %42, ptr %52, align 8, !tbaa !29
+  br label %53
 
-55:                                               ; preds = %arenas_i2a_impl.exit23.i, %arenas_i2a_impl.exit.i
-  %56 = tail call ptr @je_arena_init(ptr noundef %0, i32 noundef %.020, ptr noundef nonnull %1) #15
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %arenas_i_impl.exit, label %58
+53:                                               ; preds = %arenas_i2a_impl.exit23.i, %arenas_i2a_impl.exit.i
+  %54 = tail call ptr @je_arena_init(ptr noundef %0, i32 noundef %.020, ptr noundef nonnull %1) #15
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %arenas_i_impl.exit, label %56
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr @ctl_arenas, align 8, !tbaa !25
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load i32, ptr %60, align 8, !tbaa !40
-  %62 = icmp eq i32 %.020, %61
-  br i1 %62, label %63, label %arenas_i_impl.exit
+56:                                               ; preds = %53
+  %57 = load ptr, ptr @ctl_arenas, align 8, !tbaa !25
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 8, !tbaa !40
+  %60 = icmp eq i32 %.020, %59
+  br i1 %60, label %61, label %arenas_i_impl.exit
 
-63:                                               ; preds = %58
-  %64 = add i32 %.020, 1
-  store i32 %64, ptr %60, align 8, !tbaa !40
+61:                                               ; preds = %56
+  %62 = add i32 %.020, 1
+  store i32 %62, ptr %58, align 8, !tbaa !40
   br label %arenas_i_impl.exit
 
-arenas_i_impl.exit:                               ; preds = %42, %58, %63, %55
-  %.0 = phi i32 [ -1, %55 ], [ %.020, %63 ], [ %.020, %58 ], [ -1, %42 ]
+arenas_i_impl.exit:                               ; preds = %40, %56, %61, %53
+  %.0 = phi i32 [ -1, %53 ], [ %.020, %61 ], [ %.020, %56 ], [ -1, %40 ]
   ret i32 %.0
 }
 

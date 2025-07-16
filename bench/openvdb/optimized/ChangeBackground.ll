@@ -54267,31 +54267,31 @@ while.body.i.i.i9:                                ; preds = %land.rhs.i.i.i3
   br i1 %cmp.i.i.not.i.i.i11, label %for.end, label %land.rhs.i.i.i3, !llvm.loop !584
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit: ; preds = %land.rhs.i.i.i3
-  %cmp.i.i.i.not = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !585
+  %8 = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %8, label %for.end, label %for.body, !llvm.loop !585
 
 for.end:                                          ; preds = %if.end.i.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit, %while.body.i.i.i9, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE13beginValueOffEv.exit
   %mNewValue = getelementptr inbounds nuw i8, ptr %this, i64 12
   %mBackground.i = getelementptr inbounds nuw i8, ptr %root, i64 48
-  %8 = load float, ptr %mNewValue, align 4
-  %9 = load float, ptr %mBackground.i, align 8
-  %cmp.i.i.i.i = fcmp oeq float %8, %9
+  %9 = load float, ptr %mNewValue, align 4
+  %10 = load float, ptr %mBackground.i, align 8
+  %cmp.i.i.i.i = fcmp oeq float %9, %10
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load float, ptr %arrayidx.i.i.i.i.i, align 4
+  %11 = load float, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 52
-  %11 = load float, ptr %arrayidx.i.i5.i.i.i, align 4
-  %cmp.i6.i.i.i = fcmp oeq float %10, %11
+  %12 = load float, ptr %arrayidx.i.i5.i.i.i, align 4
+  %cmp.i6.i.i.i = fcmp oeq float %11, %12
   br i1 %cmp.i6.i.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IfEES4_EEbRKT_RKT0_.exit.i, label %if.end.i
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IfEES4_EEbRKT_RKT0_.exit.i: ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %12 = load float, ptr %arrayidx.i.i7.i.i.i, align 4
+  %13 = load float, ptr %arrayidx.i.i7.i.i.i, align 4
   %arrayidx.i.i8.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 56
-  %13 = load float, ptr %arrayidx.i.i8.i.i.i, align 8
-  %cmp.i9.i.i.i = fcmp oeq float %12, %13
+  %14 = load float, ptr %arrayidx.i.i8.i.i.i, align 8
+  %cmp.i9.i.i.i = fcmp oeq float %13, %14
   br i1 %cmp.i9.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE13setBackgroundERKS7_b.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IfEES4_EEbRKT_RKT0_.exit.i, %land.lhs.true.i.i.i, %for.end
@@ -63073,31 +63073,31 @@ while.body.i.i.i9:                                ; preds = %land.rhs.i.i.i3
   br i1 %cmp.i.i.not.i.i.i11, label %for.end, label %land.rhs.i.i.i3, !llvm.loop !645
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit: ; preds = %land.rhs.i.i.i3
-  %cmp.i.i.i.not = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !646
+  %8 = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %8, label %for.end, label %for.body, !llvm.loop !646
 
 for.end:                                          ; preds = %if.end.i.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit, %while.body.i.i.i9, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE13beginValueOffEv.exit
   %mNewValue = getelementptr inbounds nuw i8, ptr %this, i64 24
   %mBackground.i = getelementptr inbounds nuw i8, ptr %root, i64 48
-  %8 = load double, ptr %mNewValue, align 8
-  %9 = load double, ptr %mBackground.i, align 8
-  %cmp.i.i.i.i = fcmp oeq double %8, %9
+  %9 = load double, ptr %mNewValue, align 8
+  %10 = load double, ptr %mBackground.i, align 8
+  %cmp.i.i.i.i = fcmp oeq double %9, %10
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %10 = load double, ptr %arrayidx.i.i.i.i.i, align 8
+  %11 = load double, ptr %arrayidx.i.i.i.i.i, align 8
   %arrayidx.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 56
-  %11 = load double, ptr %arrayidx.i.i5.i.i.i, align 8
-  %cmp.i6.i.i.i = fcmp oeq double %10, %11
+  %12 = load double, ptr %arrayidx.i.i5.i.i.i, align 8
+  %cmp.i6.i.i.i = fcmp oeq double %11, %12
   br i1 %cmp.i6.i.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IdEES4_EEbRKT_RKT0_.exit.i, label %if.end.i
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IdEES4_EEbRKT_RKT0_.exit.i: ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %12 = load double, ptr %arrayidx.i.i7.i.i.i, align 8
+  %13 = load double, ptr %arrayidx.i.i7.i.i.i, align 8
   %arrayidx.i.i8.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 64
-  %13 = load double, ptr %arrayidx.i.i8.i.i.i, align 8
-  %cmp.i9.i.i.i = fcmp oeq double %12, %13
+  %14 = load double, ptr %arrayidx.i.i8.i.i.i, align 8
+  %cmp.i9.i.i.i = fcmp oeq double %13, %14
   br i1 %cmp.i9.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE13setBackgroundERKS7_b.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IdEES4_EEbRKT_RKT0_.exit.i, %land.lhs.true.i.i.i, %for.end
@@ -71889,31 +71889,31 @@ while.body.i.i.i9:                                ; preds = %land.rhs.i.i.i3
   br i1 %cmp.i.i.not.i.i.i11, label %for.end, label %land.rhs.i.i.i3, !llvm.loop !755
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit: ; preds = %land.rhs.i.i.i3
-  %cmp.i.i.i.not = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !756
+  %8 = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %8, label %for.end, label %for.body, !llvm.loop !756
 
 for.end:                                          ; preds = %if.end.i.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit, %while.body.i.i.i9, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE13beginValueOffEv.exit
   %mNewValue = getelementptr inbounds nuw i8, ptr %this, i64 12
   %mBackground.i = getelementptr inbounds nuw i8, ptr %root, i64 48
-  %8 = load i32, ptr %mNewValue, align 4
-  %9 = load i32, ptr %mBackground.i, align 8
-  %cmp.i.i.i.i = icmp eq i32 %8, %9
+  %9 = load i32, ptr %mNewValue, align 4
+  %10 = load i32, ptr %mBackground.i, align 8
+  %cmp.i.i.i.i = icmp eq i32 %9, %10
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
+  %11 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 52
-  %11 = load i32, ptr %arrayidx.i.i5.i.i.i, align 4
-  %cmp.i6.i.i.i = icmp eq i32 %10, %11
+  %12 = load i32, ptr %arrayidx.i.i5.i.i.i, align 4
+  %cmp.i6.i.i.i = icmp eq i32 %11, %12
   br i1 %cmp.i6.i.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IiEES4_EEbRKT_RKT0_.exit.i, label %if.end.i
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IiEES4_EEbRKT_RKT0_.exit.i: ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %12 = load i32, ptr %arrayidx.i.i7.i.i.i, align 4
+  %13 = load i32, ptr %arrayidx.i.i7.i.i.i, align 4
   %arrayidx.i.i8.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 56
-  %13 = load i32, ptr %arrayidx.i.i8.i.i.i, align 8
-  %cmp.i9.i.i.i = icmp eq i32 %12, %13
+  %14 = load i32, ptr %arrayidx.i.i8.i.i.i, align 8
+  %cmp.i9.i.i.i = icmp eq i32 %13, %14
   br i1 %cmp.i9.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE13setBackgroundERKS7_b.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IiEES4_EEbRKT_RKT0_.exit.i, %land.lhs.true.i.i.i, %for.end
@@ -89474,31 +89474,31 @@ while.body.i.i.i9:                                ; preds = %land.rhs.i.i.i3
   br i1 %cmp.i.i.not.i.i.i11, label %for.end, label %land.rhs.i.i.i3, !llvm.loop !584
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit: ; preds = %land.rhs.i.i.i3
-  %cmp.i.i.i.not = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !868
+  %8 = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %8, label %for.end, label %for.body, !llvm.loop !868
 
 for.end:                                          ; preds = %if.end.i.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit, %while.body.i.i.i9, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE13beginValueOffEv.exit
   %mNewValue = getelementptr inbounds nuw i8, ptr %this, i64 12
   %mBackground.i = getelementptr inbounds nuw i8, ptr %root, i64 48
-  %8 = load float, ptr %mNewValue, align 4
-  %9 = load float, ptr %mBackground.i, align 8
-  %cmp.i.i.i.i = fcmp oeq float %8, %9
+  %9 = load float, ptr %mNewValue, align 4
+  %10 = load float, ptr %mBackground.i, align 8
+  %cmp.i.i.i.i = fcmp oeq float %9, %10
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load float, ptr %arrayidx.i.i.i.i.i, align 4
+  %11 = load float, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 52
-  %11 = load float, ptr %arrayidx.i.i5.i.i.i, align 4
-  %cmp.i6.i.i.i = fcmp oeq float %10, %11
+  %12 = load float, ptr %arrayidx.i.i5.i.i.i, align 4
+  %cmp.i6.i.i.i = fcmp oeq float %11, %12
   br i1 %cmp.i6.i.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IfEES4_EEbRKT_RKT0_.exit.i, label %if.end.i
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IfEES4_EEbRKT_RKT0_.exit.i: ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %12 = load float, ptr %arrayidx.i.i7.i.i.i, align 4
+  %13 = load float, ptr %arrayidx.i.i7.i.i.i, align 4
   %arrayidx.i.i8.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 56
-  %13 = load float, ptr %arrayidx.i.i8.i.i.i, align 8
-  %cmp.i9.i.i.i = fcmp oeq float %12, %13
+  %14 = load float, ptr %arrayidx.i.i8.i.i.i, align 8
+  %cmp.i9.i.i.i = fcmp oeq float %13, %14
   br i1 %cmp.i9.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE13setBackgroundERKS7_b.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IfEES4_EEbRKT_RKT0_.exit.i, %land.lhs.true.i.i.i, %for.end
@@ -92680,31 +92680,31 @@ while.body.i.i.i9:                                ; preds = %land.rhs.i.i.i3
   br i1 %cmp.i.i.not.i.i.i11, label %for.end, label %land.rhs.i.i.i3, !llvm.loop !645
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit: ; preds = %land.rhs.i.i.i3
-  %cmp.i.i.i.not = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !886
+  %8 = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %8, label %for.end, label %for.body, !llvm.loop !886
 
 for.end:                                          ; preds = %if.end.i.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit, %while.body.i.i.i9, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE13beginValueOffEv.exit
   %mNewValue = getelementptr inbounds nuw i8, ptr %this, i64 24
   %mBackground.i = getelementptr inbounds nuw i8, ptr %root, i64 48
-  %8 = load double, ptr %mNewValue, align 8
-  %9 = load double, ptr %mBackground.i, align 8
-  %cmp.i.i.i.i = fcmp oeq double %8, %9
+  %9 = load double, ptr %mNewValue, align 8
+  %10 = load double, ptr %mBackground.i, align 8
+  %cmp.i.i.i.i = fcmp oeq double %9, %10
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %10 = load double, ptr %arrayidx.i.i.i.i.i, align 8
+  %11 = load double, ptr %arrayidx.i.i.i.i.i, align 8
   %arrayidx.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 56
-  %11 = load double, ptr %arrayidx.i.i5.i.i.i, align 8
-  %cmp.i6.i.i.i = fcmp oeq double %10, %11
+  %12 = load double, ptr %arrayidx.i.i5.i.i.i, align 8
+  %cmp.i6.i.i.i = fcmp oeq double %11, %12
   br i1 %cmp.i6.i.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IdEES4_EEbRKT_RKT0_.exit.i, label %if.end.i
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IdEES4_EEbRKT_RKT0_.exit.i: ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %12 = load double, ptr %arrayidx.i.i7.i.i.i, align 8
+  %13 = load double, ptr %arrayidx.i.i7.i.i.i, align 8
   %arrayidx.i.i8.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 64
-  %13 = load double, ptr %arrayidx.i.i8.i.i.i, align 8
-  %cmp.i9.i.i.i = fcmp oeq double %12, %13
+  %14 = load double, ptr %arrayidx.i.i8.i.i.i, align 8
+  %cmp.i9.i.i.i = fcmp oeq double %13, %14
   br i1 %cmp.i9.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE13setBackgroundERKS7_b.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IdEES4_EEbRKT_RKT0_.exit.i, %land.lhs.true.i.i.i, %for.end
@@ -95883,31 +95883,31 @@ while.body.i.i.i9:                                ; preds = %land.rhs.i.i.i3
   br i1 %cmp.i.i.not.i.i.i11, label %for.end, label %land.rhs.i.i.i3, !llvm.loop !755
 
 _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit: ; preds = %land.rhs.i.i.i3
-  %cmp.i.i.i.not = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !950
+  %8 = icmp eq ptr %call.i13.i.i.i, %add.ptr.i.i.i.i.i
+  br i1 %8, label %for.end, label %for.body, !llvm.loop !950
 
 for.end:                                          ; preds = %if.end.i.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE9ValueIterISB_St17_Rb_tree_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_12ValueOffPredES7_EppEv.exit, %while.body.i.i.i9, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE13beginValueOffEv.exit
   %mNewValue = getelementptr inbounds nuw i8, ptr %this, i64 12
   %mBackground.i = getelementptr inbounds nuw i8, ptr %root, i64 48
-  %8 = load i32, ptr %mNewValue, align 4
-  %9 = load i32, ptr %mBackground.i, align 8
-  %cmp.i.i.i.i = icmp eq i32 %8, %9
+  %9 = load i32, ptr %mNewValue, align 4
+  %10 = load i32, ptr %mBackground.i, align 8
+  %cmp.i.i.i.i = icmp eq i32 %9, %10
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
+  %11 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %arrayidx.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 52
-  %11 = load i32, ptr %arrayidx.i.i5.i.i.i, align 4
-  %cmp.i6.i.i.i = icmp eq i32 %10, %11
+  %12 = load i32, ptr %arrayidx.i.i5.i.i.i, align 4
+  %cmp.i6.i.i.i = icmp eq i32 %11, %12
   br i1 %cmp.i6.i.i.i, label %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IiEES4_EEbRKT_RKT0_.exit.i, label %if.end.i
 
 _ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IiEES4_EEbRKT_RKT0_.exit.i: ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %12 = load i32, ptr %arrayidx.i.i7.i.i.i, align 4
+  %13 = load i32, ptr %arrayidx.i.i7.i.i.i, align 4
   %arrayidx.i.i8.i.i.i = getelementptr inbounds nuw i8, ptr %root, i64 56
-  %13 = load i32, ptr %arrayidx.i.i8.i.i.i, align 8
-  %cmp.i9.i.i.i = icmp eq i32 %12, %13
+  %14 = load i32, ptr %arrayidx.i.i8.i.i.i, align 8
+  %cmp.i9.i.i.i = icmp eq i32 %13, %14
   br i1 %cmp.i9.i.i.i, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE13setBackgroundERKS7_b.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7openvdb5v11_04math14isExactlyEqualINS1_4Vec3IiEES4_EEbRKT_RKT0_.exit.i, %land.lhs.true.i.i.i, %for.end

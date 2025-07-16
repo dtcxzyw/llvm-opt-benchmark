@@ -45757,8 +45757,8 @@ define { i64, i32 } @_ZN4fish7history11HistoryImpl13timestamp_now17h5365ff371065
 
 18:                                               ; preds = %1
   %19 = icmp ne i64 %12, %17
-  %or.cond.not = select i1 %10, i1 true, i1 %19
-  br i1 %or.cond.not, label %22, label %21
+  %brmerge = select i1 %10, i1 true, i1 %19
+  br i1 %brmerge, label %22, label %21
 
 20:                                               ; preds = %1
   br i1 %10, label %21, label %22
@@ -53130,8 +53130,8 @@ define void @_ZN4fish7history7History15add_commandline17h5901ed93332cae19E(ptr n
 
 43:                                               ; preds = %.noexc8
   %44 = icmp ne i64 %37, %42
-  %or.cond.not.i = select i1 %35, i1 true, i1 %44
-  br i1 %or.cond.not.i, label %49, label %46
+  %brmerge.i = select i1 %35, i1 true, i1 %44
+  br i1 %brmerge.i, label %49, label %46
 
 45:                                               ; preds = %.noexc8
   br i1 %35, label %46, label %49
@@ -54493,8 +54493,8 @@ define void @_ZN4fish7history7History31add_pending_with_file_detection17h00ca83d
 
 108:                                              ; preds = %.noexc44
   %109 = icmp ne i64 %102, %107
-  %or.cond.not.i = select i1 %100, i1 true, i1 %109
-  br i1 %or.cond.not.i, label %114, label %111
+  %brmerge.i = select i1 %100, i1 true, i1 %109
+  br i1 %brmerge.i, label %114, label %111
 
 110:                                              ; preds = %.noexc44
   br i1 %100, label %111, label %114

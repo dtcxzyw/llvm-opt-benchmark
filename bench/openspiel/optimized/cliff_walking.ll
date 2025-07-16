@@ -1568,15 +1568,15 @@ define void @_ZNK10open_spiel13cliff_walking17CliffWalkingState8ToStringB5cxx11E
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 76
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %37
-  %.01323 = phi i32 [ 0, %.preheader.lr.ph ], [ %38, %37 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %36
+  %.01323 = phi i32 [ 0, %.preheader.lr.ph ], [ %37, %36 ]
   %14 = load i32, ptr %5, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %32
-  %16 = phi i32 [ %34, %32 ], [ %14, %.preheader ]
-  %.022 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %31
+  %16 = phi i32 [ %33, %31 ], [ %14, %.preheader ]
+  %.022 = phi i32 [ %32, %31 ], [ 0, %.preheader ]
   %17 = load i32, ptr %12, align 8
   %18 = icmp eq i32 %.01323, %17
   %19 = load i32, ptr %13, align 4
@@ -1584,10 +1584,10 @@ define void @_ZNK10open_spiel13cliff_walking17CliffWalkingState8ToStringB5cxx11E
   %or.cond = select i1 %18, i1 %20, i1 false
   br i1 %or.cond, label %.invoke, label %23
 
-.invoke:                                          ; preds = %.lr.ph, %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread, %23
-  %21 = phi i8 [ 88, %23 ], [ %., %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread ], [ 80, %.lr.ph ]
+.invoke:                                          ; preds = %.lr.ph, %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread, %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit, %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread.thread
+  %21 = phi i8 [ 46, %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread.thread ], [ 88, %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit ], [ 71, %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread ], [ 80, %.lr.ph ]
   %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %21)
-          to label %32 unwind label %.loopexit
+          to label %31 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %.invoke
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1617,33 +1617,36 @@ define void @_ZNK10open_spiel13cliff_walking17CliffWalkingState8ToStringB5cxx11E
   %.pre = load i32, ptr %3, align 4
   %27 = add nsw i32 %.pre, -1
   %28 = icmp eq i32 %.01323, %27
-  %or.cond26 = select i1 %or.cond17, i1 %28, i1 false
-  br i1 %or.cond26, label %.invoke, label %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread
+  br i1 %or.cond17, label %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit, label %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread
+
+_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit: ; preds = %23
+  br i1 %28, label %.invoke, label %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread.thread
 
 _ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread: ; preds = %23
-  %29 = icmp eq i32 %.01323, %27
-  %30 = icmp eq i32 %.022, %25
-  %31 = select i1 %29, i1 %30, i1 false
-  %. = select i1 %31, i8 71, i8 46
+  %29 = icmp eq i32 %.022, %25
+  %30 = select i1 %28, i1 %29, i1 false
+  br i1 %30, label %.invoke, label %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread.thread
+
+_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread.thread: ; preds = %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit, %_ZNK10open_spiel13cliff_walking17CliffWalkingState7IsCliffEii.exit.thread
   br label %.invoke
 
-32:                                               ; preds = %.invoke
-  %33 = add nuw nsw i32 %.022, 1
-  %34 = load i32, ptr %5, align 8
-  %35 = icmp slt i32 %33, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+31:                                               ; preds = %.invoke
+  %32 = add nuw nsw i32 %.022, 1
+  %33 = load i32, ptr %5, align 8
+  %34 = icmp slt i32 %32, %33
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %32, %.preheader
-  %36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 10)
-          to label %37 unwind label %.loopexit.split-lp.loopexit
+._crit_edge:                                      ; preds = %31, %.preheader
+  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 10)
+          to label %36 unwind label %.loopexit.split-lp.loopexit
 
-37:                                               ; preds = %._crit_edge
-  %38 = add nuw nsw i32 %.01323, 1
-  %39 = load i32, ptr %3, align 4
-  %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.preheader, label %._crit_edge24, !llvm.loop !6
+36:                                               ; preds = %._crit_edge
+  %37 = add nuw nsw i32 %.01323, 1
+  %38 = load i32, ptr %3, align 4
+  %39 = icmp slt i32 %37, %38
+  br i1 %39, label %.preheader, label %._crit_edge24, !llvm.loop !6
 
-._crit_edge24:                                    ; preds = %37, %.preheader18
+._crit_edge24:                                    ; preds = %36, %.preheader18
   ret void
 }
 

@@ -1198,16 +1198,16 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 
 42:                                               ; preds = %.thread, %40
   %43 = load ptr, ptr %0, align 8
-  %.fr33 = freeze ptr %43
+  %.fr32 = freeze ptr %43
   tail call void @mutex_lock(ptr noundef nonnull @irq_domain_mutex) #16
-  %44 = icmp eq ptr %.fr33, null
+  %44 = icmp eq ptr %.fr32, null
   br i1 %44, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %42, %64
   %45 = phi ptr [ %46, %64 ], [ @irq_domain_list, %42 ]
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, @irq_domain_list
-  br i1 %47, label %.split32.us, label %48
+  br i1 %47, label %.split31.us, label %48
 
 48:                                               ; preds = %.split.us
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -1238,13 +1238,13 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 64:                                               ; preds = %59, %62, %57
   %65 = phi i32 [ %58, %57 ], [ %63, %62 ], [ 0, %59 ]
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.split.us, label %.split32.us, !llvm.loop !20
+  br i1 %66, label %.split.us, label %.split31.us, !llvm.loop !20
 
 .split:                                           ; preds = %42, %91
   %67 = phi ptr [ %68, %91 ], [ @irq_domain_list, %42 ]
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, @irq_domain_list
-  br i1 %69, label %.split32.us, label %70
+  br i1 %69, label %.split31.us, label %70
 
 70:                                               ; preds = %.split
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -1275,16 +1275,16 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 86:                                               ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %68, i64 88
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %.fr33
+  %89 = icmp eq ptr %88, %.fr32
   %90 = zext i1 %89 to i32
   br label %91
 
 91:                                               ; preds = %86, %84, %79
   %92 = phi i32 [ %80, %79 ], [ %85, %84 ], [ %90, %86 ]
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %.split, label %.split32.us, !llvm.loop !20
+  br i1 %93, label %.split, label %.split31.us, !llvm.loop !20
 
-.split32.us:                                      ; preds = %.split, %91, %.split.us, %64
+.split31.us:                                      ; preds = %.split, %91, %.split.us, %64
   %.us-phi = phi ptr [ null, %.split.us ], [ %46, %64 ], [ null, %.split ], [ %68, %91 ]
   tail call void @mutex_unlock(ptr noundef nonnull @irq_domain_mutex) #16
   br label %96
@@ -1293,8 +1293,8 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %95 = load ptr, ptr @irq_default_domain, align 8
   br label %96
 
-96:                                               ; preds = %94, %.split32.us
-  %97 = phi ptr [ %.us-phi, %.split32.us ], [ %95, %94 ]
+96:                                               ; preds = %94, %.split31.us
+  %97 = phi ptr [ %.us-phi, %.split31.us ], [ %95, %94 ]
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %.thread24
 
@@ -1320,7 +1320,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br i1 %112, label %.thread37, label %114
+  br i1 %112, label %.thread36, label %114
 
 114:                                              ; preds = %109
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1328,7 +1328,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %117 = call i32 %111(ptr noundef nonnull %101, ptr noundef null, ptr noundef nonnull %113, i32 noundef %116, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   br label %120
 
-.thread37:                                        ; preds = %109
+.thread36:                                        ; preds = %109
   %118 = load i32, ptr %113, align 4
   %119 = zext i32 %118 to i64
   store i64 %119, ptr %2, align 8
@@ -1353,7 +1353,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   store i32 %127, ptr %3, align 4
   br label %128
 
-128:                                              ; preds = %.thread37, %125, %123
+128:                                              ; preds = %.thread36, %125, %123
   %129 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 48
@@ -1402,12 +1402,12 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 155:                                              ; preds = %153
   %156 = load i32, ptr %3, align 4
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %.thread29, label %158
+  br i1 %157, label %.thread28, label %158
 
 158:                                              ; preds = %155
   %159 = call ptr @irq_get_irq_data(i32 noundef %151) #16
   %160 = icmp eq ptr %159, null
-  br i1 %160, label %.thread27, label %161
+  br i1 %160, label %.critedge, label %161
 
 161:                                              ; preds = %158
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 16
@@ -1415,14 +1415,14 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %164 = load i32, ptr %163, align 8
   %165 = and i32 %164, 15
   %166 = icmp eq i32 %156, %165
-  br i1 %166, label %.thread29, label %.thread27
+  br i1 %166, label %.thread28, label %.critedge
 
-.thread27:                                        ; preds = %158, %161
+.critedge:                                        ; preds = %158, %161
   %167 = call ptr @irq_get_irq_data(i32 noundef %151) #16
   %168 = icmp eq ptr %167, null
   br i1 %168, label %175, label %169
 
-169:                                              ; preds = %.thread27
+169:                                              ; preds = %.critedge
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %171 = load ptr, ptr %170, align 8
   %172 = load i32, ptr %171, align 8
@@ -1430,10 +1430,10 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %175, label %191
 
-175:                                              ; preds = %169, %.thread27
+175:                                              ; preds = %169, %.critedge
   %176 = call ptr @irq_get_irq_data(i32 noundef %151) #16
   %177 = icmp eq ptr %176, null
-  br i1 %177, label %.thread29, label %178
+  br i1 %177, label %.thread28, label %178
 
 178:                                              ; preds = %175
   %179 = load i32, ptr %3, align 4
@@ -1451,12 +1451,12 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %189 = load i32, ptr %188, align 8
   %190 = or i32 %189, 33554432
   store i32 %190, ptr %188, align 8
-  br label %.thread29
+  br label %.thread28
 
 191:                                              ; preds = %169
   %192 = load i64, ptr %2, align 8
   %193 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i64 noundef %192, ptr noundef nonnull @.str.19) #18
-  br label %.thread29
+  br label %.thread28
 
 194:                                              ; preds = %.thread26, %153
   %195 = getelementptr inbounds nuw i8, ptr %101, i64 40
@@ -1468,7 +1468,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 199:                                              ; preds = %194
   %200 = call fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %101, i32 noundef -1, i32 noundef 1, i32 noundef -1, ptr noundef %0, i1 noundef zeroext false, ptr noundef null)
   %201 = icmp slt i32 %200, 1
-  br i1 %201, label %.thread29, label %222
+  br i1 %201, label %.thread28, label %222
 
 202:                                              ; preds = %194
   %203 = load i64, ptr %2, align 8
@@ -1490,7 +1490,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 215:                                              ; preds = %213, %202
   %216 = phi i32 [ %214, %213 ], [ %209, %202 ]
   %217 = icmp slt i32 %216, 1
-  br i1 %217, label %.thread29, label %218
+  br i1 %217, label %.thread28, label %218
 
 218:                                              ; preds = %215
   %219 = call fastcc i32 @irq_domain_associate_locked(ptr noundef nonnull %101, i32 noundef %216, i64 noundef %203)
@@ -1499,7 +1499,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 
 221:                                              ; preds = %218
   call void @irq_free_descs(i32 noundef %216, i32 noundef 1) #16
-  br label %.thread29
+  br label %.thread28
 
 222:                                              ; preds = %218, %199
   %223 = phi i32 [ %200, %199 ], [ %216, %218 ]
@@ -1511,7 +1511,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #16, !srcloc !48
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 875, i32 2305, i64 12) #16, !srcloc !49
   call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_end\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #16, !srcloc !50
-  br label %.thread29
+  br label %.thread28
 
 227:                                              ; preds = %222
   %228 = load i32, ptr %3, align 4
@@ -1529,17 +1529,17 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   %238 = load i32, ptr %237, align 8
   %239 = or i32 %238, 33554432
   store i32 %239, ptr %237, align 8
-  br label %.thread29
+  br label %.thread28
 
-.thread29:                                        ; preds = %215, %221, %227, %226, %199, %191, %178, %175, %161, %155
+.thread28:                                        ; preds = %215, %221, %227, %226, %199, %191, %178, %175, %161, %155
   %240 = phi i32 [ %151, %155 ], [ %151, %161 ], [ %151, %178 ], [ 0, %191 ], [ %223, %227 ], [ 0, %175 ], [ 0, %199 ], [ 0, %226 ], [ 0, %221 ], [ 0, %215 ]
   %241 = load ptr, ptr %129, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 48
   call void @mutex_unlock(ptr noundef nonnull %242) #16
   br label %243
 
-243:                                              ; preds = %.thread29, %120, %99
-  %244 = phi i32 [ %240, %.thread29 ], [ 0, %99 ], [ 0, %120 ]
+243:                                              ; preds = %.thread28, %120, %99
+  %244 = phi i32 [ %240, %.thread28 ], [ 0, %99 ], [ 0, %120 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   ret i32 %244

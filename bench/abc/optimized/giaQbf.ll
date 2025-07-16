@@ -6887,20 +6887,20 @@ Vec_WrdUniqify.exit.thread.i:                     ; preds = %Vec_WrdUniqify.exit
 
 128:                                              ; preds = %Vec_WrdUniqify.exit.thread.i, %Vec_WrdUniqify.exit.i
   %129 = phi ptr [ %127, %Vec_WrdUniqify.exit.thread.i ], [ %112, %Vec_WrdUniqify.exit.i ]
-  %.val88176.i = phi i32 [ %109, %Vec_WrdUniqify.exit.thread.i ], [ %.1.i.i, %Vec_WrdUniqify.exit.i ]
+  %.val88175.i = phi i32 [ %109, %Vec_WrdUniqify.exit.thread.i ], [ %.1.i.i, %Vec_WrdUniqify.exit.i ]
   %130 = add nsw i32 %81, -1
   %131 = shl nuw i32 1, %130
-  %132 = tail call fastcc ptr @Abc_RDataStart(i32 noundef %68, i32 noundef %131, i32 noundef %.val88176.i)
+  %132 = tail call fastcc ptr @Abc_RDataStart(i32 noundef %68, i32 noundef %131, i32 noundef %.val88175.i)
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   store i32 %81, ptr %133, align 4, !tbaa !161
-  %134 = icmp sgt i32 %.val88176.i, 0
+  %134 = icmp sgt i32 %.val88175.i, 0
   br i1 %134, label %.lr.ph143.i, label %.critedge.i
 
 .lr.ph143.i:                                      ; preds = %128
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 12
   %137 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %wide.trip.count165.i = zext nneg i32 %.val88176.i to i64
+  %wide.trip.count165.i = zext nneg i32 %.val88175.i to i64
   %138 = zext i32 %68 to i64
   br label %139
 

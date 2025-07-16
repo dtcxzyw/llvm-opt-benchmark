@@ -625,13 +625,13 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %.not = icmp eq ptr %13, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  br i1 %.not, label %176, label %25
+  br i1 %.not, label %175, label %25
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %27 = load ptr, ptr %26, align 8
   %.not36 = icmp eq ptr %27, null
-  br i1 %.not36, label %176, label %28
+  br i1 %.not36, label %175, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -690,8 +690,8 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   %.not3856 = icmp eq ptr %59, null
   br i1 %.not3856, label %._crit_edge59, label %.lr.ph58
 
-.lr.ph58:                                         ; preds = %.preheader, %163
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %163 ], [ -1, %.preheader ]
+.lr.ph58:                                         ; preds = %.preheader, %162
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %162 ], [ -1, %.preheader ]
   store i32 -1, ptr %8, align 4
   %indvars.iv.next62 = add nsw i64 %indvars.iv61, 1
   %60 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next62
@@ -701,14 +701,14 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   %.not3952 = icmp eq ptr %63, null
   br i1 %.not3952, label %._crit_edge55, label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %.lr.ph58, %159
-  %64 = phi ptr [ %160, %159 ], [ %63, %.lr.ph58 ]
+.lr.ph54:                                         ; preds = %.lr.ph58, %158
+  %64 = phi ptr [ %159, %158 ], [ %63, %.lr.ph58 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not40 = icmp eq ptr %68, null
-  br i1 %.not40, label %159, label %69, !llvm.loop !17
+  br i1 %.not40, label %158, label %69, !llvm.loop !17
 
 69:                                               ; preds = %.lr.ph54
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -716,7 +716,7 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not41 = icmp eq ptr %73, null
-  br i1 %.not41, label %159, label %74, !llvm.loop !17
+  br i1 %.not41, label %158, label %74, !llvm.loop !17
 
 74:                                               ; preds = %69
   %75 = load i32, ptr %7, align 4
@@ -871,7 +871,7 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   %144 = phi i64 [ %.pre24.i, %126 ], [ %140, %135 ], [ %132, %.lr.ph10.i ]
   %145 = load i64, ptr %76, align 8
   %146 = icmp ugt i64 %145, %144
-  br i1 %146, label %147, label %153
+  br i1 %146, label %147, label %155
 
 147:                                              ; preds = %.critedge.i
   %148 = sub nuw i64 %145, %144
@@ -881,93 +881,92 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   %152 = add i64 %151, %150
   store i64 %152, ptr %78, align 8
   %.pre.i = load i64, ptr %76, align 8
-  br label %153
+  %153 = icmp ule i64 %.pre.i, %152
+  %154 = zext i1 %153 to i32
+  br label %155
 
-153:                                              ; preds = %147, %.critedge.i
-  %154 = phi i64 [ %152, %147 ], [ %144, %.critedge.i ]
-  %155 = phi i64 [ %.pre.i, %147 ], [ %145, %.critedge.i ]
-  %.not75.i = icmp ule i64 %155, %154
+155:                                              ; preds = %147, %.critedge.i
+  %.not75.i = phi i32 [ %154, %147 ], [ 1, %.critedge.i ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   call void @slurm_xfree(ptr noundef nonnull %6) #8
-  %156 = zext i1 %.not75.i to i32
   br label %_set_job_bits2.exit
 
-_set_job_bits2.exit:                              ; preds = %74, %87, %153
-  %.063.i = phi i32 [ %156, %153 ], [ 1, %87 ], [ 1, %74 ]
+_set_job_bits2.exit:                              ; preds = %74, %87, %155
+  %.063.i = phi i32 [ %.not75.i, %155 ], [ 1, %87 ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  %157 = load i32, ptr %8, align 4
-  %.not42 = icmp eq i32 %157, 0
-  br i1 %.not42, label %159, label %158
+  %156 = load i32, ptr %8, align 4
+  %.not42 = icmp eq i32 %156, 0
+  br i1 %.not42, label %158, label %157
 
-158:                                              ; preds = %_set_job_bits2.exit
+157:                                              ; preds = %_set_job_bits2.exit
   store i32 %.063.i, ptr %8, align 4
-  br label %159
+  br label %158
 
-159:                                              ; preds = %_set_job_bits2.exit, %158, %.lr.ph54, %69
-  %160 = call ptr @slurm_list_next(ptr noundef %62) #8
-  %.not39 = icmp eq ptr %160, null
+158:                                              ; preds = %_set_job_bits2.exit, %157, %.lr.ph54, %69
+  %159 = call ptr @slurm_list_next(ptr noundef %62) #8
+  %.not39 = icmp eq ptr %159, null
   br i1 %.not39, label %._crit_edge55, label %.lr.ph54
 
-._crit_edge55:                                    ; preds = %159, %.lr.ph58
+._crit_edge55:                                    ; preds = %158, %.lr.ph58
   call void @slurm_list_iterator_destroy(ptr noundef %62) #8
-  %161 = load i32, ptr %8, align 4
-  %162 = icmp eq i32 %161, 1
-  br i1 %162, label %.thread, label %163
+  %160 = load i32, ptr %8, align 4
+  %161 = icmp eq i32 %160, 1
+  br i1 %161, label %.thread, label %162
 
-163:                                              ; preds = %._crit_edge55
-  %164 = load i32, ptr %7, align 4
-  %165 = add nsw i32 %164, 1
-  store i32 %165, ptr %7, align 4
-  %166 = load ptr, ptr %26, align 8
-  %167 = call ptr @next_node_bitmap(ptr noundef %166, ptr noundef nonnull %7) #8
-  %.not38 = icmp eq ptr %167, null
+162:                                              ; preds = %._crit_edge55
+  %163 = load i32, ptr %7, align 4
+  %164 = add nsw i32 %163, 1
+  store i32 %164, ptr %7, align 4
+  %165 = load ptr, ptr %26, align 8
+  %166 = call ptr @next_node_bitmap(ptr noundef %165, ptr noundef nonnull %7) #8
+  %.not38 = icmp eq ptr %166, null
   br i1 %.not38, label %._crit_edge59, label %.lr.ph58, !llvm.loop !22
 
-._crit_edge59:                                    ; preds = %163, %.preheader
+._crit_edge59:                                    ; preds = %162, %.preheader
   %.pr = load i32, ptr %8, align 4
-  %168 = icmp eq i32 %.pr, 0
-  br i1 %168, label %169, label %.thread
+  %167 = icmp eq i32 %.pr, 0
+  br i1 %167, label %168, label %.thread
 
-169:                                              ; preds = %._crit_edge59
-  %170 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.gres_select_filter_select_and_set, i32 noundef %30) #8
+168:                                              ; preds = %._crit_edge59
+  %169 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.gres_select_filter_select_and_set, i32 noundef %30) #8
   store i32 2068, ptr %10, align 4
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge55, %._crit_edge59, %169, %._crit_edge
-  %171 = load ptr, ptr %9, align 8
+.thread:                                          ; preds = %._crit_edge55, %._crit_edge59, %168, %._crit_edge
+  %170 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %171, ptr %4, align 8
-  %.not.i43 = icmp eq ptr %171, null
+  store ptr %170, ptr %4, align 8
+  %.not.i43 = icmp eq ptr %170, null
   br i1 %.not.i43, label %_free_tasks_per_node_sock.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread
-  %172 = icmp sgt i32 %32, 0
-  br i1 %172, label %.lr.ph.i45, label %._crit_edge.i44
+  %171 = icmp sgt i32 %32, 0
+  br i1 %171, label %.lr.ph.i45, label %._crit_edge.i44
 
 .lr.ph.i45:                                       ; preds = %.preheader.i
   %wide.trip.count.i46 = and i64 %31, 2147483647
-  br label %173
+  br label %172
 
-._crit_edge.i44:                                  ; preds = %173, %.preheader.i
+._crit_edge.i44:                                  ; preds = %172, %.preheader.i
   call void @slurm_xfree(ptr noundef nonnull %4) #8
   br label %_free_tasks_per_node_sock.exit
 
-173:                                              ; preds = %173, %.lr.ph.i45
-  %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i48, %173 ]
-  %174 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv.i47
-  call void @slurm_xfree(ptr noundef nonnull %174) #8
+172:                                              ; preds = %172, %.lr.ph.i45
+  %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i48, %172 ]
+  %173 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv.i47
+  call void @slurm_xfree(ptr noundef nonnull %173) #8
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i46
-  br i1 %exitcond.not.i49, label %._crit_edge.i44, label %173, !llvm.loop !23
+  br i1 %exitcond.not.i49, label %._crit_edge.i44, label %172, !llvm.loop !23
 
 _free_tasks_per_node_sock.exit:                   ; preds = %.thread, %._crit_edge.i44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %175 = load i32, ptr %10, align 4
-  br label %176
+  %174 = load i32, ptr %10, align 4
+  br label %175
 
-176:                                              ; preds = %3, %25, %_free_tasks_per_node_sock.exit
-  %.0 = phi i32 [ %175, %_free_tasks_per_node_sock.exit ], [ -1, %25 ], [ -1, %3 ]
+175:                                              ; preds = %3, %25, %_free_tasks_per_node_sock.exit
+  %.0 = phi i32 [ %174, %_free_tasks_per_node_sock.exit ], [ -1, %25 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8

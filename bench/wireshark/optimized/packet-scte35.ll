@@ -439,15 +439,15 @@ define internal range(i32 0, 6) i32 @dissect_scte35_time_signal(ptr noundef %0, 
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.not = icmp sgt i8 %8, -1
-  %spec.select = select i1 %.not, i32 1, i32 5
-  %9 = icmp samesign ult i32 %5, %spec.select
-  br i1 %9, label %25, label %10
+  %.not = icmp slt i8 %8, 0
+  %9 = icmp samesign ult i32 %5, 5
+  %spec.select = select i1 %.not, i1 %9, i1 false
+  br i1 %spec.select, label %25, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = select i1 %.not, ptr @.str.175, ptr @.str.174
+  %13 = select i1 %.not, ptr @.str.174, ptr @.str.175
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.173, ptr noundef nonnull %13)
   %14 = load i32, ptr @proto_scte35_time, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
@@ -457,7 +457,7 @@ define internal range(i32 0, 6) i32 @dissect_scte35_time_signal(ptr noundef %0, 
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %20 = load i32, ptr @hf_time_reserved, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  br i1 %.not, label %25, label %22
+  br i1 %.not, label %22, label %25
 
 22:                                               ; preds = %10
   %23 = load i32, ptr @hf_time_pts, align 4
@@ -1031,11 +1031,11 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %18
-  %.not = icmp sgt i8 %11, -1
+  %.not = icmp slt i8 %11, 0
   %25 = add nuw nsw i32 %22, 4
-  %spec.select = select i1 %.not, i32 %22, i32 %25
-  %26 = icmp samesign ult i32 %7, %spec.select
-  br i1 %26, label %.loopexit, label %27
+  %26 = icmp samesign ult i32 %7, %25
+  %.0104 = select i1 %.not, i1 %26, i1 false
+  br i1 %.0104, label %.loopexit, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1274,7 +1274,7 @@ dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
   br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %175, %27
-  br i1 %.not, label %184, label %180
+  br i1 %.not, label %180, label %184
 
 180:                                              ; preds = %._crit_edge
   %181 = load i32, ptr @hf_e_crc32, align 4

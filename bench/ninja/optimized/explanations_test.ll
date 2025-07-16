@@ -2213,14 +2213,14 @@ _ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stri
   %.pre = load ptr, ptr %4, align 8, !tbaa !30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre233 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
+  %50 = icmp eq ptr %.pre, %.pre233
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %51 = icmp eq ptr %.pre, %.pre233
-  %52 = zext i1 %51 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %52 = zext i1 %50 to i8
   store i8 %52, ptr %5, align 8, !tbaa !32
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %53, align 8, !tbaa !41
-  br i1 %51, label %107, label %58
+  br i1 %50, label %107, label %58
 
 54:                                               ; preds = %44, %43, %42, %1
   %55 = landingpad { ptr, i32 }
@@ -2384,7 +2384,7 @@ _ZN7testing7MessageD2Ev.exit87:                   ; preds = %_ZNKSt14default_del
 
 107:                                              ; preds = %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit
   %108 = phi ptr [ %48, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread ], [ %53, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit ]
-  %109 = phi ptr [ %47, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread ], [ %50, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit ]
+  %109 = phi ptr [ %47, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread ], [ %51, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit ]
   %110 = phi ptr [ null, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread ], [ %.pre233, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit ]
   store ptr null, ptr %108, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
@@ -3607,7 +3607,7 @@ _ZN7testing15AssertionResultD2Ev.exit232:         ; preds = %502, %_ZNKSt14defau
   br label %514
 
 514:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit160, %_ZN7testing15AssertionResultD2Ev.exit106, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit232
-  %515 = phi ptr [ %109, %_ZN7testing15AssertionResultD2Ev.exit160 ], [ %109, %_ZN7testing15AssertionResultD2Ev.exit106 ], [ %50, %_ZN7testing15AssertionResultD2Ev.exit ], [ %109, %_ZN7testing15AssertionResultD2Ev.exit232 ]
+  %515 = phi ptr [ %109, %_ZN7testing15AssertionResultD2Ev.exit160 ], [ %109, %_ZN7testing15AssertionResultD2Ev.exit106 ], [ %51, %_ZN7testing15AssertionResultD2Ev.exit ], [ %109, %_ZN7testing15AssertionResultD2Ev.exit232 ]
   %516 = load ptr, ptr %4, align 8, !tbaa !53
   %517 = load ptr, ptr %515, align 8, !tbaa !51
   %.not4.i.i.i.i = icmp eq ptr %516, %517
@@ -3744,14 +3744,14 @@ _ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stri
   %.pre = load ptr, ptr %3, align 8, !tbaa !30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre93 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
+  %20 = icmp eq ptr %.pre, %.pre93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = icmp eq ptr %.pre, %.pre93
-  %22 = zext i1 %21 to i8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = zext i1 %20 to i8
   store i8 %22, ptr %4, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %23, align 8, !tbaa !41
-  br i1 %21, label %75, label %26
+  br i1 %20, label %75, label %26
 
 24:                                               ; preds = %137, %80, %19
   %25 = landingpad { ptr, i32 }
@@ -3910,7 +3910,7 @@ _ZN7testing7MessageD2Ev.exit39:                   ; preds = %_ZNKSt14default_del
 
 75:                                               ; preds = %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit
   %76 = phi ptr [ %18, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread ], [ %23, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit ]
-  %77 = phi ptr [ %17, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread ], [ %20, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit ]
+  %77 = phi ptr [ %17, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit.thread ], [ %21, %_ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit ]
   store ptr null, ptr %76, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
   %78 = load ptr, ptr %2, align 8, !tbaa !97
@@ -3929,8 +3929,8 @@ _ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stri
 _ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit47: ; preds = %80
   %.pre94 = load ptr, ptr %3, align 8, !tbaa !30
   %.pre97 = load ptr, ptr %77, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
   %81 = icmp eq ptr %.pre94, %.pre97
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
   %82 = zext i1 %81 to i8
   store i8 %82, ptr %8, align 8, !tbaa !32
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4107,8 +4107,8 @@ _ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stri
 _ZN20OptionalExplanations15LookupAndAppendEPKvPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit72: ; preds = %137
   %.pre95 = load ptr, ptr %3, align 8, !tbaa !30
   %.pre96 = load ptr, ptr %77, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #21
   %138 = icmp eq ptr %.pre95, %.pre96
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #21
   %139 = zext i1 %138 to i8
   store i8 %139, ptr %12, align 8, !tbaa !32
   %140 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4268,7 +4268,7 @@ _ZN7testing15AssertionResultD2Ev.exit89:          ; preds = %_ZN20OptionalExplan
   br label %191
 
 191:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit58, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit89
-  %192 = phi ptr [ %77, %_ZN7testing15AssertionResultD2Ev.exit58 ], [ %20, %_ZN7testing15AssertionResultD2Ev.exit ], [ %77, %_ZN7testing15AssertionResultD2Ev.exit89 ]
+  %192 = phi ptr [ %77, %_ZN7testing15AssertionResultD2Ev.exit58 ], [ %21, %_ZN7testing15AssertionResultD2Ev.exit ], [ %77, %_ZN7testing15AssertionResultD2Ev.exit89 ]
   %193 = load ptr, ptr %3, align 8, !tbaa !53
   %194 = load ptr, ptr %192, align 8, !tbaa !51
   %.not4.i.i.i.i = icmp eq ptr %193, %194

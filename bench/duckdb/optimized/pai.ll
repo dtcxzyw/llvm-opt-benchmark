@@ -95,10 +95,10 @@ define void @duckdb_je_pai_dalloc_batch_default(ptr noundef %0, ptr noundef %1, 
   %8 = getelementptr inbounds nuw i8, ptr %.val9, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   store ptr %9, ptr %2, align 8, !tbaa !13
-  %.not.i = icmp eq ptr %9, %.val9
-  br i1 %.not.i, label %27, label %10
+  %10 = icmp eq ptr %9, %.val9
+  br i1 %10, label %27, label %.thread.i
 
-10:                                               ; preds = %7
+.thread.i:                                        ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %.val9, i64 48
@@ -126,7 +126,7 @@ define void @duckdb_je_pai_dalloc_batch_default(ptr noundef %0, ptr noundef %1, 
   store ptr null, ptr %2, align 8, !tbaa !13
   br label %edata_list_active_remove.exit
 
-edata_list_active_remove.exit:                    ; preds = %10, %27
+edata_list_active_remove.exit:                    ; preds = %.thread.i, %27
   %28 = load ptr, ptr %6, align 8, !tbaa !17
   call void %28(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.val9, ptr noundef nonnull %5) #3
   %29 = load i8, ptr %5, align 1, !tbaa !3, !range !10, !noundef !11

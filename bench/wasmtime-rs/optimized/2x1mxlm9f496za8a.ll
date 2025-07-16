@@ -1378,12 +1378,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h81bec52a70
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !199
   %.pre9.i = sub i64 %.pre.i, %4
+  %11 = icmp ule i64 %1, %.pre9.i
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h5307f9f1fde7ac3aE.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h5307f9f1fde7ac3aE.exit.thread": ; preds = %2, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre9.i, %._crit_edge.i ], [ %6, %2 ]
-  %11 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %11)
+  %.pre-phi.i = phi i1 [ %11, %._crit_edge.i ], [ true, %2 ]
+  tail call void @llvm.assume(i1 %.pre-phi.i)
   ret void
 
 12:                                               ; preds = %8

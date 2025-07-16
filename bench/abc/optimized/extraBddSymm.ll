@@ -975,18 +975,18 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i32, ptr %6, align 8, !tbaa !36
   %8 = icmp eq i32 %7, 2147483647
-  br i1 %8, label %.thread98, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = icmp eq ptr %1, %11
-  br i1 %12, label %.thread98, label %13
+  br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
   %14 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddReduceVarSet, ptr noundef %1, ptr noundef %2) #10
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %15, label %.thread98
+  br i1 %.not, label %15, label %.thread
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -997,37 +997,37 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %21 = load i32, ptr %20, align 4, !tbaa !37
   %22 = load i32, ptr %1, align 8, !tbaa !36
   %23 = icmp eq i32 %22, 2147483647
-  br i1 %23, label %.thread97, label %.lr.ph
+  br i1 %23, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %29
   %24 = phi i32 [ %32, %29 ], [ %22, %15 ]
-  %.077104 = phi ptr [ %31, %29 ], [ %1, %15 ]
+  %.077102 = phi ptr [ %31, %29 ], [ %1, %15 ]
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i32, ptr %17, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !37
   %28 = icmp sgt i32 %21, %27
-  br i1 %28, label %29, label %.thread97
+  br i1 %28, label %29, label %.critedge.thread
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw i8, ptr %.077104, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.077102, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !38
   %32 = load i32, ptr %31, align 8, !tbaa !36
   %33 = icmp eq i32 %32, 2147483647
-  br i1 %33, label %.thread97, label %.lr.ph, !llvm.loop !53
+  br i1 %33, label %.critedge.thread, label %.lr.ph, !llvm.loop !53
 
-.thread97:                                        ; preds = %29, %.lr.ph, %15
-  %.077103 = phi ptr [ %1, %15 ], [ %31, %29 ], [ %.077104, %.lr.ph ]
+.critedge.thread:                                 ; preds = %29, %.lr.ph, %15
+  %.077101 = phi ptr [ %1, %15 ], [ %31, %29 ], [ %.077102, %.lr.ph ]
   %34 = phi i32 [ 2147483647, %15 ], [ 2147483647, %29 ], [ %27, %.lr.ph ]
   %35 = icmp eq i32 %21, %34
   br i1 %35, label %36, label %39
 
-36:                                               ; preds = %.thread97
-  %37 = getelementptr inbounds nuw i8, ptr %.077103, i64 16
+36:                                               ; preds = %.critedge.thread
+  %37 = getelementptr inbounds nuw i8, ptr %.077101, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !38
   br label %39
 
-39:                                               ; preds = %.thread97, %36
-  %.076 = phi ptr [ %38, %36 ], [ %.077103, %.thread97 ]
+39:                                               ; preds = %.critedge.thread, %36
+  %.076 = phi ptr [ %38, %36 ], [ %.077101, %.critedge.thread ]
   %.not95 = icmp eq ptr %2, %6
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1053,7 +1053,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.078 = phi ptr [ %50, %43 ], [ %52, %51 ]
   %54 = tail call ptr @extraBddReduceVarSet(ptr noundef nonnull %0, ptr noundef %.076, ptr noundef %.079)
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread98, label %56
+  br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %53
   %57 = ptrtoint ptr %54 to i64
@@ -1069,7 +1069,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 65:                                               ; preds = %56
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %54) #10
-  br label %.thread98
+  br label %.thread
 
 66:                                               ; preds = %56
   %67 = ptrtoint ptr %63 to i64
@@ -1080,17 +1080,17 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 4, !tbaa !47
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %54) #10
-  %.not96 = icmp eq ptr %.077103, %1
+  %.not96 = icmp eq ptr %.077101, %1
   br i1 %.not96, label %94, label %73
 
 73:                                               ; preds = %66
-  %74 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.077103) #10
+  %74 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.077101) #10
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %73
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %63) #10
-  br label %.thread98
+  br label %.thread
 
 77:                                               ; preds = %73
   %78 = ptrtoint ptr %74 to i64
@@ -1107,7 +1107,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 86:                                               ; preds = %77
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %63) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %74) #10
-  br label %.thread98
+  br label %.thread
 
 87:                                               ; preds = %77
   %88 = ptrtoint ptr %84 to i64
@@ -1122,16 +1122,16 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %94
 
 94:                                               ; preds = %87, %66
-  %.pre-phi109 = phi ptr [ %90, %87 ], [ %69, %66 ]
+  %.pre-phi107 = phi ptr [ %90, %87 ], [ %69, %66 ]
   %.074 = phi ptr [ %84, %87 ], [ %63, %66 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.pre-phi109, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.pre-phi107, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !47
   %97 = add i32 %96, -1
   store i32 %97, ptr %95, align 4, !tbaa !47
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddReduceVarSet, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.074) #10
-  br label %.thread98
+  br label %.thread
 
-.thread98:                                        ; preds = %86, %76, %65, %94, %53, %13, %3, %9
+.thread:                                          ; preds = %86, %76, %65, %94, %53, %13, %3, %9
   %.0 = phi ptr [ %1, %9 ], [ %1, %3 ], [ %14, %13 ], [ null, %65 ], [ %.074, %94 ], [ null, %53 ], [ null, %76 ], [ null, %86 ]
   ret ptr %.0
 }

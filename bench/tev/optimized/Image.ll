@@ -73917,8 +73917,8 @@ _ZNKSt3__14__fs10filesystem15directory_entry12is_directoryB8ne190000Ev.exit: ; p
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.not1926 = icmp eq ptr %18, %19
-  br i1 %.not1926, label %.loopexit, label %.lr.ph
+  %.not25 = icmp eq ptr %18, %19
+  br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -73934,8 +73934,8 @@ _ZNKSt3__14__fs10filesystem15directory_entry12is_directoryB8ne190000Ev.exit: ; p
   br label %30
 
 30:                                               ; preds = %.lr.ph, %_ZNSt3__121__tree_const_iteratorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPNS_11__tree_nodeIS6_PvEElEppB8ne190000Ev.exit
-  %.sroa.015.027 = phi ptr [ %18, %.lr.ph ], [ %.06.i.i, %_ZNSt3__121__tree_const_iteratorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPNS_11__tree_nodeIS6_PvEElEppB8ne190000Ev.exit ]
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 32
+  %.sroa.015.026 = phi ptr [ %18, %.lr.ph ], [ %.06.i.i, %_ZNSt3__121__tree_const_iteratorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPNS_11__tree_nodeIS6_PvEElEppB8ne190000Ev.exit ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.015.026, i64 32
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1)
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %31)
           to label %32 unwind label %105
@@ -73943,7 +73943,7 @@ _ZNKSt3__14__fs10filesystem15directory_entry12is_directoryB8ne190000Ev.exit: ; p
 32:                                               ; preds = %30
   %33 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not10.i.i.i.i, label %.thread, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZNKSt3__13setIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE8containsB8ne190000ERKS2_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %32, %_ZNK3tev22PathAndChannelSelectorltERKS0_.exit
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZNK3tev22PathAndChannelSelectorltERKS0_.exit ], [ %22, %32 ]
@@ -74041,18 +74041,18 @@ _ZNK3tev22PathAndChannelSelectorltERKS0_.exit:    ; preds = %48, %71, %73, %76
 
 _ZNKSt3__16__treeIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE13__lower_boundIS2_EENS_21__tree_const_iteratorIS2_PNS_11__tree_nodeIS2_PvEElEERKT_SD_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISB_EEEE.exit.i.i.i: ; preds = %_ZNK3tev22PathAndChannelSelectorltERKS0_.exit
   %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, %22
-  br i1 %.not.i.i.i, label %.thread, label %90
+  br i1 %.not.i.i.i, label %_ZNKSt3__13setIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE8containsB8ne190000ERKS2_.exit, label %90
 
 90:                                               ; preds = %_ZNKSt3__16__treeIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE13__lower_boundIS2_EENS_21__tree_const_iteratorIS2_PNS_11__tree_nodeIS2_PvEElEERKT_SD_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISB_EEEE.exit.i.i.i
   %91 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 32
   %92 = call noundef zeroext i1 @_ZNK3tev22PathAndChannelSelectorltERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %91)
-  br i1 %92, label %.thread, label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit
+  br i1 %92, label %_ZNKSt3__13setIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE8containsB8ne190000ERKS2_.exit, label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit
 
-.thread:                                          ; preds = %90, %_ZNKSt3__16__treeIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE13__lower_boundIS2_EENS_21__tree_const_iteratorIS2_PNS_11__tree_nodeIS2_PvEElEERKT_SD_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISB_EEEE.exit.i.i.i, %32
+_ZNKSt3__13setIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE8containsB8ne190000ERKS2_.exit: ; preds = %90, %_ZNKSt3__16__treeIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE13__lower_boundIS2_EENS_21__tree_const_iteratorIS2_PNS_11__tree_nodeIS2_PvEElEERKT_SD_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISB_EEEE.exit.i.i.i, %32
   %93 = invoke { ptr, i8 } @_ZNSt3__16__treeIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE25__emplace_unique_key_argsIS2_JRS2_EEENS_4pairINS_15__tree_iteratorIS2_PNS_11__tree_nodeIS2_PvEElEEbEERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %94 unwind label %107
 
-94:                                               ; preds = %.thread
+94:                                               ; preds = %_ZNKSt3__13setIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE8containsB8ne190000ERKS2_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   invoke void @_ZN3tev22BackgroundImagesLoader7enqueueERKNSt3__14__fs10filesystem4pathERKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEbRKNS1_10shared_ptrINS_5ImageEEE(ptr noundef nonnull align 8 dereferenceable(272) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %31, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %95 unwind label %109
@@ -74081,7 +74081,7 @@ _ZNKSt3__16__treeIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_E
           cleanup
   br label %119
 
-107:                                              ; preds = %.thread
+107:                                              ; preds = %_ZNKSt3__13setIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_EEE8containsB8ne190000ERKS2_.exit
   %108 = landingpad { ptr, i32 }
           cleanup
   br label %118
@@ -74095,7 +74095,7 @@ _ZNKSt3__16__treeIN3tev22PathAndChannelSelectorENS_4lessIS2_EENS_9allocatorIS2_E
 _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit: ; preds = %90, %101, %97, %95
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #29
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #29
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.015.026, i64 8
   %112 = load ptr, ptr %111, align 8
   %.not.i.i = icmp eq ptr %112, null
   br i1 %.not.i.i, label %.preheader.i.i, label %.preheader8.i.i
@@ -74107,7 +74107,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit: ; preds = %90, %101, %97
   br i1 %.not.i.i.i13, label %_ZNSt3__121__tree_const_iteratorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPNS_11__tree_nodeIS6_PvEElEppB8ne190000Ev.exit, label %.preheader8.i.i, !llvm.loop !139
 
 .preheader.i.i:                                   ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit, %.preheader.i.i
-  %.0.i.i14 = phi ptr [ %115, %.preheader.i.i ], [ %.sroa.015.027, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit ]
+  %.0.i.i14 = phi ptr [ %115, %.preheader.i.i ], [ %.sroa.015.026, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit ]
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i14, i64 16
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %115, align 8
@@ -74116,8 +74116,8 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit: ; preds = %90, %101, %97
 
 _ZNSt3__121__tree_const_iteratorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPNS_11__tree_nodeIS6_PvEElEppB8ne190000Ev.exit: ; preds = %.preheader8.i.i, %.preheader.i.i
   %.06.i.i = phi ptr [ %115, %.preheader.i.i ], [ %.0.i.i.i, %.preheader8.i.i ]
-  %.not19 = icmp eq ptr %.06.i.i, %19
-  br i1 %.not19, label %.loopexit, label %30
+  %.not = icmp eq ptr %.06.i.i, %19
+  br i1 %.not, label %.loopexit, label %30
 
 118:                                              ; preds = %109, %107
   %.pn = phi { ptr, i32 } [ %110, %109 ], [ %108, %107 ]

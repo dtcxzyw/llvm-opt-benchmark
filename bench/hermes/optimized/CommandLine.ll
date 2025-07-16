@@ -2457,7 +2457,7 @@ _ZN4llvh9adl_beginIRKNS_11SmallPtrSetIPNS_2cl10SubCommandELj4EEEEEDTclsr10adl_de
   %retval.sroa.0.4.i13.i.i.i.i.i.i.i = phi ptr [ %6, %if.else.i ], [ %retval.sroa.0.3.i11.i.i.i.i.i.i.i, %land.rhs.i4.i.i12.i10.i.i.i.i.i.i.i ], [ %cond.i9.i8.i.i.i.i.i.i.i, %while.body.i6.i.i15.i16.i.i.i.i.i.i.i ]
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %cond.v.i8.i7.i.i.i.i.i.i.i
   %cmp.i.not2.i.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.0.4.i13.i.i.i.i.i.i.i, %cond.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.not2.i.i.i.i.i.i.i.i, label %_ZNK4llvh2cl6Option18isInAllSubCommandsEv.exit.i, label %land.rhs.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.not2.i.i.i.i.i.i.i.i, label %if.else11.i, label %land.rhs.i.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %_ZN4llvh9adl_beginIRKNS_11SmallPtrSetIPNS_2cl10SubCommandELj4EEEEEDTclsr10adl_detailE9adl_beginclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i.i.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i.i.i.i.i.i.i.i
   %__first.sroa.0.03.i.i.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.2.i.i.i.i.i.i.i.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i.i.i.i.i.i.i.i ], [ %retval.sroa.0.4.i13.i.i.i.i.i.i.i, %_ZN4llvh9adl_beginIRKNS_11SmallPtrSetIPNS_2cl10SubCommandELj4EEEEEDTclsr10adl_detailE9adl_beginclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i.i.i ]
@@ -2497,10 +2497,9 @@ _ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i.i.i.i.i.i.i.i: ; 
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %__first.sroa.0.2.i.i.i.i.i.i.i.i, %cond.i.i.i.i.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %if.else11.i, label %land.rhs.i.i.i.i.i.i.i.i, !llvm.loop !54
 
-_ZNK4llvh2cl6Option18isInAllSubCommandsEv.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvh2cl6Option18isInAllSubCommandsEvEUlPKNS3_10SubCommandEE_EclINS2_19SmallPtrSetIteratorIPS5_EEEEbT_.exit.i.i.i.i.i.i.i.i, %_ZN4llvh9adl_beginIRKNS_11SmallPtrSetIPNS_2cl10SubCommandELj4EEEEEDTclsr10adl_detailE9adl_beginclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i.i.i
-  %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %retval.sroa.0.4.i13.i.i.i.i.i.i.i, %_ZN4llvh9adl_beginIRKNS_11SmallPtrSetIPNS_2cl10SubCommandELj4EEEEEDTclsr10adl_detailE9adl_beginclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i.i.i ], [ %__first.sroa.0.03.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvh2cl6Option18isInAllSubCommandsEvEUlPKNS3_10SubCommandEE_EclINS2_19SmallPtrSetIteratorIPS5_EEEEbT_.exit.i.i.i.i.i.i.i.i ]
-  %cmp.i.i.i.i.i.not.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i, %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.not.i, label %if.else11.i, label %if.then4.i
+_ZNK4llvh2cl6Option18isInAllSubCommandsEv.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvh2cl6Option18isInAllSubCommandsEvEUlPKNS3_10SubCommandEE_EclINS2_19SmallPtrSetIteratorIPS5_EEEEbT_.exit.i.i.i.i.i.i.i.i
+  %.not.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i, %__first.sroa.0.03.i.i.i.i.i.i.i.i
+  br i1 %.not.i, label %if.else11.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZNK4llvh2cl6Option18isInAllSubCommandsEv.exit.i
   %RegisteredSubCommands.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i.i, i64 232
@@ -2533,14 +2532,14 @@ while.body.i6.i.i15.i16.i.i:                      ; preds = %land.rhs.i4.i.i12.i
 _ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i: ; preds = %while.body.i6.i.i15.i16.i.i, %land.rhs.i4.i.i12.i10.i.i, %if.then4.i
   %retval.sroa.0.4.i13.i.i = phi ptr [ %14, %if.then4.i ], [ %cond.i9.i8.i.i, %while.body.i6.i.i15.i16.i.i ], [ %retval.sroa.0.3.i11.i.i, %land.rhs.i4.i.i12.i10.i.i ]
   %cond.i.i.i = getelementptr inbounds nuw ptr, ptr %14, i64 %cond.v.i8.i7.i.i
-  %cmp.i9.not57.i = icmp eq ptr %retval.sroa.0.4.i13.i.i, %cond.i.i.i
-  br i1 %cmp.i9.not57.i, label %_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionE.exit, label %for.body.i
+  %cmp.i9.not58.i = icmp eq ptr %retval.sroa.0.4.i13.i.i, %cond.i.i.i
+  br i1 %cmp.i9.not58.i, label %_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i
-  %__begin4.sroa.0.058.i = phi ptr [ %__begin4.sroa.0.2.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i ], [ %retval.sroa.0.4.i13.i.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i ]
-  %19 = load ptr, ptr %__begin4.sroa.0.058.i, align 8
+  %__begin4.sroa.0.059.i = phi ptr [ %__begin4.sroa.0.2.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i ], [ %retval.sroa.0.4.i13.i.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i ]
+  %19 = load ptr, ptr %__begin4.sroa.0.059.i, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef nonnull %this, ptr noundef %19)
-  %incdec.ptr3.i.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.058.i, i64 8
+  %incdec.ptr3.i.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.059.i, i64 8
   %cmp.not2.i3.i.i = icmp eq ptr %incdec.ptr3.i.i, %cond.i9.i8.i.i
   br i1 %cmp.not2.i3.i.i, label %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i, label %land.rhs.i4.i.i
 
@@ -2560,7 +2559,7 @@ _ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i: ; preds = %while
   %cmp.i9.not.i = icmp eq ptr %__begin4.sroa.0.2.i, %cond.i.i.i
   br i1 %cmp.i9.not.i, label %_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionE.exit, label %for.body.i
 
-if.else11.i:                                      ; preds = %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i.i.i.i.i.i.i.i, %_ZNK4llvh2cl6Option18isInAllSubCommandsEv.exit.i
+if.else11.i:                                      ; preds = %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i.i.i.i.i.i.i.i, %_ZNK4llvh2cl6Option18isInAllSubCommandsEv.exit.i, %_ZN4llvh9adl_beginIRKNS_11SmallPtrSetIPNS_2cl10SubCommandELj4EEEEEDTclsr10adl_detailE9adl_beginclsr3stdE7forwardIT_Efp_EEEOS8_.exit.i.i.i
   %21 = load ptr, ptr %CurArray.i.i.i.i.i.i.i, align 8
   %22 = load ptr, ptr %Subs.i, align 8
   %cmp.i.i4.i3.i11.i = icmp eq ptr %21, %22
@@ -2587,14 +2586,14 @@ while.body.i6.i.i15.i16.i25.i:                    ; preds = %land.rhs.i4.i.i12.i
 _ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit28.i: ; preds = %while.body.i6.i.i15.i16.i25.i, %land.rhs.i4.i.i12.i10.i19.i, %if.else11.i
   %retval.sroa.0.4.i13.i22.i = phi ptr [ %21, %if.else11.i ], [ %cond.i9.i8.i17.i, %while.body.i6.i.i15.i16.i25.i ], [ %retval.sroa.0.3.i11.i20.i, %land.rhs.i4.i.i12.i10.i19.i ]
   %cond.i.i35.i = getelementptr inbounds nuw ptr, ptr %21, i64 %cond.v.i8.i7.i15.i
-  %cmp.i38.not59.i = icmp eq ptr %retval.sroa.0.4.i13.i22.i, %cond.i.i35.i
-  br i1 %cmp.i38.not59.i, label %_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionE.exit, label %for.body22.i
+  %cmp.i38.not60.i = icmp eq ptr %retval.sroa.0.4.i13.i22.i, %cond.i.i35.i
+  br i1 %cmp.i38.not60.i, label %_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionE.exit, label %for.body22.i
 
 for.body22.i:                                     ; preds = %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit28.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit48.i
-  %__begin414.sroa.0.060.i = phi ptr [ %__begin414.sroa.0.2.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit48.i ], [ %retval.sroa.0.4.i13.i22.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit28.i ]
-  %26 = load ptr, ptr %__begin414.sroa.0.060.i, align 8
+  %__begin414.sroa.0.061.i = phi ptr [ %__begin414.sroa.0.2.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit48.i ], [ %retval.sroa.0.4.i13.i22.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit28.i ]
+  %26 = load ptr, ptr %__begin414.sroa.0.061.i, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef nonnull %this, ptr noundef %26)
-  %incdec.ptr3.i39.i = getelementptr inbounds nuw i8, ptr %__begin414.sroa.0.060.i, i64 8
+  %incdec.ptr3.i39.i = getelementptr inbounds nuw i8, ptr %__begin414.sroa.0.061.i, i64 8
   %cmp.not2.i3.i41.i = icmp eq ptr %incdec.ptr3.i39.i, %cond.i9.i8.i17.i
   br i1 %cmp.not2.i3.i41.i, label %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit48.i, label %land.rhs.i4.i42.i
 

@@ -173,24 +173,25 @@ define hidden noundef zeroext i1 @_ZNK3nla6solver12is_monic_varEj(ptr noundef no
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4552
   %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %_ZNK3nla4core12is_monic_varEj.exit, label %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i
+  br i1 %6, label %_ZNK3nla4core12is_monic_varEj.exit, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
 
-_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i:            ; preds = %2
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i:            ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !19
-  %.not.i.i.i = icmp ult i32 %1, %8
-  br i1 %.not.i.i.i, label %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i, label %_ZNK3nla4core12is_monic_varEj.exit
+  %.fr.i.i.i = freeze i32 %8
+  %9 = icmp ult i32 %1, %.fr.i.i.i
+  br i1 %9, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i, label %_ZNK3nla4core12is_monic_varEj.exit
 
-_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i:       ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i
-  %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %9
-  %.then.val.i.i = load i32, ptr %10, align 4, !tbaa !19
-  %11 = icmp ne i32 %.then.val.i.i, -1
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
+  %10 = zext i32 %1 to i64
+  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %10
+  %.pre.i.then.val.i = load i32, ptr %11, align 4, !tbaa !19
+  %12 = icmp ne i32 %.pre.i.then.val.i, -1
   br label %_ZNK3nla4core12is_monic_varEj.exit
 
-_ZNK3nla4core12is_monic_varEj.exit:               ; preds = %2, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i
-  %12 = phi i1 [ %11, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i ], [ false, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i.i ], [ false, %2 ]
-  ret i1 %12
+_ZNK3nla4core12is_monic_varEj.exit:               ; preds = %2, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i
+  %13 = phi i1 [ false, %2 ], [ %12, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress uwtable

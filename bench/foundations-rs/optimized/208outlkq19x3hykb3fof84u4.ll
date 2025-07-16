@@ -7911,20 +7911,20 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h80cf
 define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h84d605f98d61e8c9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 10) %1) unnamed_addr #0 {
   %3 = alloca [40 x i8], align 1
   %4 = tail call noundef i8 @"_ZN58_$LT$u32$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17ha41c77c58a3e2667E"(i32 noundef %1)
-  %.not.not = icmp eq i8 %4, 0
-  br i1 %.not.not, label %.lr.ph.split, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit"
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %.lr.ph, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit"
 
-"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit": ; preds = %.lr.ph.split, %2
+"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit": ; preds = %.lr.ph, %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %5 = trunc nuw nsw i32 %1 to i8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %7 = or disjoint i8 %5, 48
-  store i8 %7, ptr %6, align 1, !alias.scope !727
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
+  %6 = trunc nuw nsw i32 %1 to i8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %8 = or disjoint i8 %6, 48
+  store i8 %8, ptr %7, align 1, !alias.scope !727
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 
-.lr.ph.split:                                     ; preds = %2
+.lr.ph:                                           ; preds = %2
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 @anon.e9ef04808737cbe8ef653d32af212bbe.109, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit"
 }

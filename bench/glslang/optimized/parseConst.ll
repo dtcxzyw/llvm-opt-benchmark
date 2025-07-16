@@ -297,9 +297,9 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %.split.i
+  br i1 %44, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
 
-.split.i:                                         ; preds = %41
+_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i: ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %47 = load ptr, ptr %46, align 8
@@ -312,23 +312,23 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
 
-.lr.ph.i:                                         ; preds = %.split.i
+.lr.ph.i:                                         ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
   %wide.trip.count.i = and i64 %52, 2147483647
   br label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %.058.i = phi i32 [ 1, %.lr.ph.i ], [ %57, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
+  %.05611.i = phi i32 [ 1, %.lr.ph.i ], [ %57, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
   %55 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %48, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 8
-  %57 = mul i32 %56, %.058.i
+  %57 = mul i32 %56, %.05611.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
-_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %41, %.split.i
-  %.us-phi.i = phi i32 [ 1, %41 ], [ 1, %.split.i ], [ %57, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %58 = mul i32 %.us-phi.i, %.1
+_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %41, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
+  %.05.lcssa.i = phi i32 [ 1, %41 ], [ 1, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %57, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
+  %58 = mul i32 %.05.lcssa.i, %.1
   br label %59
 
 59:                                               ; preds = %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, %.loopexit
@@ -390,7 +390,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %36 = icmp samesign ult i64 %indvars.iv.next, %24
   %.not71 = icmp slt i32 %35, %7
   %or.cond = select i1 %36, i1 %.not71, i1 false
-  br i1 %or.cond, label %25, label %.loopexit, !llvm.loop !8
+  br i1 %or.cond, label %25, label %.loopexit, !llvm.loop !7
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -437,7 +437,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, %54
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !8
 
 65:                                               ; preds = %37
   %66 = getelementptr inbounds nuw i8, ptr %44, i64 328
@@ -540,7 +540,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %132 = add nuw nsw i32 %.065105, 1
   %133 = load i32, ptr %72, align 4
   %134 = icmp slt i32 %132, %133
-  br i1 %134, label %.lr.ph107, label %._crit_edge108.loopexit, !llvm.loop !10
+  br i1 %134, label %.lr.ph107, label %._crit_edge108.loopexit, !llvm.loop !9
 
 ._crit_edge108.loopexit:                          ; preds = %131
   %.pre133 = load i32, ptr %69, align 8
@@ -551,7 +551,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %136 = phi i32 [ %133, %._crit_edge108.loopexit ], [ %78, %.preheader ]
   %137 = add nuw nsw i32 %.066109, 1
   %138 = icmp slt i32 %137, %135
-  br i1 %138, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %138, label %.preheader, label %.loopexit, !llvm.loop !10
 
 139:                                              ; preds = %65
   %140 = load ptr, ptr %1, align 8
@@ -616,7 +616,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %175 = add nuw nsw i32 %.061102, 1
   %176 = load i32, ptr %149, align 4
   %177 = icmp slt i32 %175, %176
-  br i1 %177, label %.lr.ph103, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %177, label %.lr.ph103, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %172
   %.pre = load i32, ptr %146, align 8
@@ -627,7 +627,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %179 = phi i32 [ %176, %._crit_edge.loopexit ], [ %155, %.preheader84 ]
   %180 = add nuw nsw i32 %.062104, 1
   %181 = icmp slt i32 %180, %178
-  br i1 %181, label %.preheader84, label %.loopexit, !llvm.loop !14
+  br i1 %181, label %.preheader84, label %.loopexit, !llvm.loop !13
 
 182:                                              ; preds = %139
   %183 = load i32, ptr %8, align 8
@@ -659,7 +659,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count131
-  br i1 %exitcond132.not, label %.loopexit, label %188, !llvm.loop !15
+  br i1 %exitcond132.not, label %.loopexit, label %188, !llvm.loop !14
 
 .loopexit:                                        ; preds = %25, %56, %188, %._crit_edge, %._crit_edge108, %.preheader84.lr.ph, %.preheader.lr.ph, %14, %45, %182, %.preheader85, %.preheader83, %2
   ret void
@@ -829,9 +829,8 @@ attributes #5 = { nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5, !12}
-!12 = !{!"llvm.loop.unswitch.partial.disable"}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !12}
-!15 = distinct !{!15, !5}
+!10 = distinct !{!10, !5, !11}
+!11 = !{!"llvm.loop.unswitch.partial.disable"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5, !11}
+!14 = distinct !{!14, !5}

@@ -4641,117 +4641,113 @@ list_length.exit:                                 ; preds = %19, %22
 197:                                              ; preds = %.critedge167
   %198 = load ptr, ptr %78, align 8
   %.not.i168 = icmp eq ptr %198, null
-  br i1 %.not.i168, label %list_length.exit169, label %199
+  br i1 %.not.i168, label %.critedge165, label %list_length.exit169
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds nuw i8, ptr %198, i64 4
-  %201 = load i32, ptr %200, align 4
-  br label %list_length.exit169
+list_length.exit169:                              ; preds = %197
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
+  %200 = load i32, ptr %199, align 4
+  %201 = icmp slt i32 %200, %9
+  br i1 %201, label %.critedge165, label %202
 
-list_length.exit169:                              ; preds = %197, %199
-  %202 = phi i32 [ %201, %199 ], [ 0, %197 ]
-  %.not159 = icmp slt i32 %202, %9
-  br i1 %.not159, label %.critedge165, label %203
-
-203:                                              ; preds = %list_length.exit169
-  %204 = tail call ptr @copyObjectImpl(ptr noundef %195) #7
-  %205 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %206 = load ptr, ptr %205, align 8
-  %207 = zext nneg i32 %9 to i64
-  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
-  store ptr %204, ptr %208, align 8
+202:                                              ; preds = %list_length.exit169
+  %203 = tail call ptr @copyObjectImpl(ptr noundef %195) #7
+  %204 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %205 = load ptr, ptr %204, align 8
+  %206 = zext nneg i32 %9 to i64
+  %207 = getelementptr inbounds nuw ptr, ptr %205, i64 %206
+  store ptr %203, ptr %207, align 8
   br label %.critedge165
 
-.critedge165:                                     ; preds = %129, %85, %102, %96, %118, %112, %.critedge163, %.critedge167, %list_length.exit169, %203, %177, %76, %32
-  %.0 = phi ptr [ %33, %32 ], [ %.1, %76 ], [ %88, %85 ], [ %195, %203 ], [ %195, %list_length.exit169 ], [ %195, %.critedge167 ], [ %88, %177 ], [ %88, %.critedge163 ], [ %88, %112 ], [ %88, %118 ], [ %88, %96 ], [ %88, %102 ], [ %88, %129 ]
-  %209 = load ptr, ptr %10, align 8
-  %.not160 = icmp eq ptr %209, null
-  br i1 %.not160, label %254, label %210
+.critedge165:                                     ; preds = %129, %197, %85, %102, %96, %118, %112, %.critedge163, %.critedge167, %list_length.exit169, %202, %177, %76, %32
+  %.0 = phi ptr [ %33, %32 ], [ %.1, %76 ], [ %88, %85 ], [ %195, %202 ], [ %195, %list_length.exit169 ], [ %195, %.critedge167 ], [ %88, %177 ], [ %88, %.critedge163 ], [ %88, %112 ], [ %88, %118 ], [ %88, %96 ], [ %88, %102 ], [ %195, %197 ], [ %88, %129 ]
+  %208 = load ptr, ptr %10, align 8
+  %.not160 = icmp eq ptr %208, null
+  br i1 %.not160, label %253, label %209
 
-210:                                              ; preds = %.critedge165
-  %211 = load i32, ptr %.0, align 4
-  switch i32 %211, label %220 [
-    i32 6, label %212
-    i32 318, label %216
+209:                                              ; preds = %.critedge165
+  %210 = load i32, ptr %.0, align 4
+  switch i32 %210, label %219 [
+    i32 6, label %211
+    i32 318, label %215
   ]
 
-212:                                              ; preds = %210
-  %213 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %214 = load ptr, ptr %213, align 8
-  %215 = call ptr @bms_add_members(ptr noundef %214, ptr noundef nonnull %209) #7
-  store ptr %215, ptr %213, align 8
-  br label %254
+211:                                              ; preds = %209
+  %212 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %213 = load ptr, ptr %212, align 8
+  %214 = call ptr @bms_add_members(ptr noundef %213, ptr noundef nonnull %208) #7
+  store ptr %214, ptr %212, align 8
+  br label %253
 
-216:                                              ; preds = %210
-  %217 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %218 = load ptr, ptr %217, align 8
-  %219 = call ptr @bms_add_members(ptr noundef %218, ptr noundef nonnull %209) #7
-  store ptr %219, ptr %217, align 8
-  br label %254
+215:                                              ; preds = %209
+  %216 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %217 = load ptr, ptr %216, align 8
+  %218 = call ptr @bms_add_members(ptr noundef %217, ptr noundef nonnull %208) #7
+  store ptr %218, ptr %216, align 8
+  br label %253
 
-220:                                              ; preds = %210
-  %221 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 208
-  %224 = load i8, ptr %223, align 8, !range !4, !noundef !8
-  %225 = trunc nuw i8 %224 to i1
-  br i1 %225, label %226, label %.loopexit
+219:                                              ; preds = %209
+  %220 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 208
+  %223 = load i8, ptr %222, align 8, !range !4, !noundef !8
+  %224 = trunc nuw i8 %223 to i1
+  br i1 %224, label %225, label %.loopexit
 
-226:                                              ; preds = %220
-  %227 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %228 = load ptr, ptr %227, align 8
-  %229 = load ptr, ptr %6, align 8
-  %230 = call ptr @pull_varnos(ptr noundef %229, ptr noundef nonnull %.0) #7
-  %231 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %232 = load ptr, ptr %231, align 8
-  %233 = call ptr @bms_del_members(ptr noundef %230, ptr noundef %232) #7
-  %234 = call i32 @bms_next_member(ptr noundef %233, i32 noundef -1) #7
-  %235 = icmp sgt i32 %234, -1
-  br i1 %235, label %.lr.ph, label %.loopexit
+225:                                              ; preds = %219
+  %226 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %227 = load ptr, ptr %226, align 8
+  %228 = load ptr, ptr %6, align 8
+  %229 = call ptr @pull_varnos(ptr noundef %228, ptr noundef nonnull %.0) #7
+  %230 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %231 = load ptr, ptr %230, align 8
+  %232 = call ptr @bms_del_members(ptr noundef %229, ptr noundef %231) #7
+  %233 = call i32 @bms_next_member(ptr noundef %232, i32 noundef -1) #7
+  %234 = icmp sgt i32 %233, -1
+  br i1 %234, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %226, %247
-  %236 = phi i32 [ %248, %247 ], [ %234, %226 ]
-  %.6179 = phi ptr [ %.7, %247 ], [ %.0, %226 ]
-  %237 = load ptr, ptr %10, align 8
-  %238 = load ptr, ptr %228, align 8
-  %239 = zext nneg i32 %236 to i64
-  %240 = getelementptr inbounds nuw ptr, ptr %238, i64 %239
-  %241 = load ptr, ptr %240, align 8
-  %242 = call ptr @bms_intersect(ptr noundef %237, ptr noundef %241) #7
-  %243 = icmp eq ptr %242, null
-  br i1 %243, label %247, label %244
+.lr.ph:                                           ; preds = %225, %246
+  %235 = phi i32 [ %247, %246 ], [ %233, %225 ]
+  %.6179 = phi ptr [ %.7, %246 ], [ %.0, %225 ]
+  %236 = load ptr, ptr %10, align 8
+  %237 = load ptr, ptr %227, align 8
+  %238 = zext nneg i32 %235 to i64
+  %239 = getelementptr inbounds nuw ptr, ptr %237, i64 %238
+  %240 = load ptr, ptr %239, align 8
+  %241 = call ptr @bms_intersect(ptr noundef %236, ptr noundef %240) #7
+  %242 = icmp eq ptr %241, null
+  br i1 %242, label %246, label %243
 
-244:                                              ; preds = %.lr.ph
-  %245 = call ptr @bms_make_singleton(i32 noundef %236) #7
-  %246 = call ptr @add_nulling_relids(ptr noundef %.6179, ptr noundef %245, ptr noundef nonnull %242) #7
-  br label %247
+243:                                              ; preds = %.lr.ph
+  %244 = call ptr @bms_make_singleton(i32 noundef %235) #7
+  %245 = call ptr @add_nulling_relids(ptr noundef %.6179, ptr noundef %244, ptr noundef nonnull %241) #7
+  br label %246
 
-247:                                              ; preds = %244, %.lr.ph
-  %.7 = phi ptr [ %.6179, %.lr.ph ], [ %246, %244 ]
-  %248 = call i32 @bms_next_member(ptr noundef %233, i32 noundef %236) #7
-  %249 = icmp sgt i32 %248, -1
-  br i1 %249, label %.lr.ph, label %.loopexit, !llvm.loop !17
+246:                                              ; preds = %243, %.lr.ph
+  %.7 = phi ptr [ %.6179, %.lr.ph ], [ %245, %243 ]
+  %247 = call i32 @bms_next_member(ptr noundef %232, i32 noundef %235) #7
+  %248 = icmp sgt i32 %247, -1
+  br i1 %248, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %247, %226, %220
-  %.5 = phi ptr [ %.0, %220 ], [ %.0, %226 ], [ %.7, %247 ]
-  %250 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %251 = load ptr, ptr %250, align 8
-  %252 = load ptr, ptr %10, align 8
-  %253 = call ptr @add_nulling_relids(ptr noundef %.5, ptr noundef %251, ptr noundef %252) #7
-  br label %254
+.loopexit:                                        ; preds = %246, %225, %219
+  %.5 = phi ptr [ %.0, %219 ], [ %.0, %225 ], [ %.7, %246 ]
+  %249 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %250 = load ptr, ptr %249, align 8
+  %251 = load ptr, ptr %10, align 8
+  %252 = call ptr @add_nulling_relids(ptr noundef %.5, ptr noundef %250, ptr noundef %251) #7
+  br label %253
 
-254:                                              ; preds = %212, %.loopexit, %216, %.critedge165
-  %.4 = phi ptr [ %.0, %212 ], [ %.0, %216 ], [ %253, %.loopexit ], [ %.0, %.critedge165 ]
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %256 = load i32, ptr %255, align 8
-  %.not161 = icmp eq i32 %256, 0
-  br i1 %.not161, label %258, label %257
+253:                                              ; preds = %211, %.loopexit, %215, %.critedge165
+  %.4 = phi ptr [ %.0, %211 ], [ %.0, %215 ], [ %252, %.loopexit ], [ %.0, %.critedge165 ]
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %255 = load i32, ptr %254, align 8
+  %.not161 = icmp eq i32 %255, 0
+  br i1 %.not161, label %257, label %256
 
-257:                                              ; preds = %254
-  call void @IncrementVarSublevelsUp(ptr noundef %.4, i32 noundef %256, i32 noundef 0) #7
-  br label %258
+256:                                              ; preds = %253
+  call void @IncrementVarSublevelsUp(ptr noundef %.4, i32 noundef %255, i32 noundef 0) #7
+  br label %257
 
-258:                                              ; preds = %257, %254
+257:                                              ; preds = %256, %253
   ret ptr %.4
 }
 

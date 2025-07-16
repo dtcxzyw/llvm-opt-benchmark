@@ -2122,7 +2122,8 @@ _ZNK2OT18ResourceTypeRecord18get_resource_countEv.exit.i: ; preds = %_ZNK2OT11Re
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   %101 = or disjoint i32 %97, %100
-  %.not13.i = icmp ugt i32 %1, %101
+  %.fr.i.i = freeze i32 %101
+  %.not13.i = icmp ugt i32 %1, %.fr.i.i
   br i1 %.not13.i, label %135, label %_ZNK2OT18ResourceTypeRecord19get_resource_recordEjPKv.exit.i
 
 _ZNK2OT18ResourceTypeRecord19get_resource_recordEjPKv.exit.i: ; preds = %_ZNK2OT18ResourceTypeRecord18get_resource_countEv.exit.i
@@ -2133,14 +2134,14 @@ _ZNK2OT18ResourceTypeRecord19get_resource_recordEjPKv.exit.i: ; preds = %_ZNK2OT
   %106 = zext i8 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %22, i64 %104
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 %106
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 6
+  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 7
   %110 = load i8, ptr %109, align 1
-  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 7
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 6
   %112 = load i8, ptr %111, align 1
-  %113 = zext i8 %110 to i64
+  %113 = zext i8 %112 to i64
   %114 = shl nuw nsw i64 %113, 8
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 %114
-  %116 = zext i8 %112 to i64
+  %116 = zext i8 %110 to i64
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 %116
   %118 = zext nneg i32 %1 to i64
   %119 = getelementptr inbounds nuw %"struct.OT::ResourceRecord", ptr %117, i64 %118
@@ -2518,195 +2519,195 @@ _ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit: ; pred
   %.pre78 = or disjoint i64 %.pre72, %.pre76
   %.pre80 = zext i8 %.pre64 to i64
   %.pre82 = or disjoint i64 %.pre78, %.pre80
+  %58 = icmp samesign ult i64 %indvars.iv, %.pre82
   br label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28
 
 _ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit, %57
-  %.pre-phi85 = phi i64 [ %56, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit ], [ %.pre82, %57 ]
+  %.pre-phi85 = phi i1 [ false, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit ], [ %58, %57 ]
   %.0.i27 = phi ptr [ @_hb_Null_OT_CmapSubtableLongGroup, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit ], [ %25, %57 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 4
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = shl nuw i32 %60, 24
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 5
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = shl nuw nsw i32 %64, 16
-  %66 = or disjoint i32 %65, %61
-  %67 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 6
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = shl nuw nsw i32 %69, 8
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 7
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = or disjoint i32 %70, %73
-  %75 = or disjoint i32 %74, %66
-  %.not.i29 = icmp ugt i32 %66, 1114111
-  %.sroa.speculated40 = select i1 %.not.i29, i32 1114111, i32 %75
-  %.not.i30 = icmp ult i64 %indvars.iv, %.pre-phi85
-  br i1 %.not.i30, label %76, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 4
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw i32 %61, 24
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 5
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = shl nuw nsw i32 %65, 16
+  %67 = or disjoint i32 %66, %62
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 6
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i32
+  %71 = shl nuw nsw i32 %70, 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 7
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = or disjoint i32 %71, %74
+  %76 = or disjoint i32 %75, %67
+  %.not.i29 = icmp ugt i32 %67, 1114111
+  %.sroa.speculated40 = select i1 %.not.i29, i32 1114111, i32 %76
+  br i1 %.pre-phi85, label %77, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
 
-76:                                               ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28
+77:                                               ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
 
-_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28, %76
-  %.0.i31 = phi ptr [ %25, %76 ], [ @_hb_Null_OT_CmapSubtableLongGroup, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 8
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw i32 %79, 24
-  %81 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 9
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = shl nuw nsw i32 %83, 16
-  %85 = or disjoint i32 %84, %80
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 10
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = shl nuw nsw i32 %88, 8
-  %90 = or disjoint i32 %85, %89
-  %91 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 11
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i32
-  %94 = or disjoint i32 %90, %93
-  %.not = icmp eq i32 %94, 0
-  br i1 %.not, label %95, label %164
+_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28, %77
+  %.0.i31 = phi ptr [ %25, %77 ], [ @_hb_Null_OT_CmapSubtableLongGroup, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 8
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = shl nuw i32 %80, 24
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 9
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i32
+  %85 = shl nuw nsw i32 %84, 16
+  %86 = or disjoint i32 %85, %81
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 10
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = shl nuw nsw i32 %89, 8
+  %91 = or disjoint i32 %86, %90
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 11
+  %93 = load i8, ptr %92, align 1
+  %94 = zext i8 %93 to i32
+  %95 = or disjoint i32 %91, %94
+  %.not = icmp eq i32 %95, 0
+  br i1 %.not, label %96, label %165
 
-95:                                               ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
-  %96 = load i8, ptr %4, align 1
-  %97 = zext i8 %96 to i64
-  %98 = shl nuw nsw i64 %97, 24
-  %99 = load i8, ptr %5, align 1
-  %100 = zext i8 %99 to i64
-  %101 = shl nuw nsw i64 %100, 16
-  %102 = or disjoint i64 %101, %98
-  %103 = load i8, ptr %6, align 1
-  %104 = zext i8 %103 to i64
-  %105 = shl nuw nsw i64 %104, 8
-  %106 = or disjoint i64 %102, %105
-  %107 = load i8, ptr %7, align 1
-  %108 = zext i8 %107 to i64
-  %109 = or disjoint i64 %106, %108
-  %.not.i33 = icmp samesign ult i64 %indvars.iv, %109
-  br i1 %.not.i33, label %110, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
+96:                                               ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
+  %97 = load i8, ptr %4, align 1
+  %98 = zext i8 %97 to i64
+  %99 = shl nuw nsw i64 %98, 24
+  %100 = load i8, ptr %5, align 1
+  %101 = zext i8 %100 to i64
+  %102 = shl nuw nsw i64 %101, 16
+  %103 = or disjoint i64 %102, %99
+  %104 = load i8, ptr %6, align 1
+  %105 = zext i8 %104 to i64
+  %106 = shl nuw nsw i64 %105, 8
+  %107 = or disjoint i64 %103, %106
+  %108 = load i8, ptr %7, align 1
+  %109 = zext i8 %108 to i64
+  %110 = or disjoint i64 %107, %109
+  %.not.i33 = icmp samesign ult i64 %indvars.iv, %110
+  br i1 %.not.i33, label %111, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
 
-110:                                              ; preds = %95
+111:                                              ; preds = %96
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
 
-_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35: ; preds = %95, %110
-  %.0.i34 = phi ptr [ %25, %110 ], [ @_hb_Null_OT_CmapSubtableLongGroup, %95 ]
-  %111 = load i8, ptr %.0.i34, align 1
-  %112 = zext i8 %111 to i32
-  %113 = shl nuw i32 %112, 24
-  %114 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 1
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = shl nuw nsw i32 %116, 16
-  %118 = or disjoint i32 %117, %113
-  %119 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 2
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i8 %120 to i32
-  %122 = shl nuw nsw i32 %121, 8
-  %123 = or disjoint i32 %118, %122
-  %124 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 3
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  %127 = or disjoint i32 %123, %126
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 4
-  %129 = load i8, ptr %128, align 1
-  %130 = zext i8 %129 to i32
-  %131 = shl nuw i32 %130, 24
-  %132 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 5
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = shl nuw nsw i32 %134, 16
-  %136 = or disjoint i32 %135, %131
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 6
-  %138 = load i8, ptr %137, align 1
-  %139 = zext i8 %138 to i32
-  %140 = shl nuw nsw i32 %139, 8
-  %141 = or disjoint i32 %136, %140
-  %142 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 7
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i32
-  %145 = or disjoint i32 %141, %144
-  %.not.i36 = icmp ugt i32 %127, %145
+_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35: ; preds = %96, %111
+  %.0.i34 = phi ptr [ %25, %111 ], [ @_hb_Null_OT_CmapSubtableLongGroup, %96 ]
+  %112 = load i8, ptr %.0.i34, align 1
+  %113 = zext i8 %112 to i32
+  %114 = shl nuw i32 %113, 24
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 1
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i32
+  %118 = shl nuw nsw i32 %117, 16
+  %119 = or disjoint i32 %118, %114
+  %120 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 2
+  %121 = load i8, ptr %120, align 1
+  %122 = zext i8 %121 to i32
+  %123 = shl nuw nsw i32 %122, 8
+  %124 = or disjoint i32 %119, %123
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 3
+  %126 = load i8, ptr %125, align 1
+  %127 = zext i8 %126 to i32
+  %128 = or disjoint i32 %124, %127
+  %129 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 4
+  %130 = load i8, ptr %129, align 1
+  %131 = zext i8 %130 to i32
+  %132 = shl nuw i32 %131, 24
+  %133 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 5
+  %134 = load i8, ptr %133, align 1
+  %135 = zext i8 %134 to i32
+  %136 = shl nuw nsw i32 %135, 16
+  %137 = or disjoint i32 %136, %132
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 6
+  %139 = load i8, ptr %138, align 1
+  %140 = zext i8 %139 to i32
+  %141 = shl nuw nsw i32 %140, 8
+  %142 = or disjoint i32 %137, %141
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 7
+  %144 = load i8, ptr %143, align 1
+  %145 = zext i8 %144 to i32
+  %146 = or disjoint i32 %142, %145
+  %.not.i36 = icmp ugt i32 %128, %146
   br i1 %.not.i36, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit, label %_ZN2OT20CmapSubtableFormat1215group_get_glyphERKNS_21CmapSubtableLongGroupEj.exit
 
 _ZN2OT20CmapSubtableFormat1215group_get_glyphERKNS_21CmapSubtableLongGroupEj.exit: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
-  %146 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 8
-  %147 = load i8, ptr %146, align 1
-  %.neg56 = sub i8 0, %147
+  %147 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 8
+  %148 = load i8, ptr %147, align 1
+  %.neg56 = sub i8 0, %148
   %.neg56.z = zext i8 %.neg56 to i32
   %.neg51 = shl nuw i32 %.neg56.z, 24
-  %148 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 9
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i32
-  %151 = shl nuw nsw i32 %150, 16
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 10
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i32
-  %155 = shl nuw nsw i32 %154, 8
-  %156 = or disjoint i32 %155, %151
-  %157 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 11
-  %158 = load i8, ptr %157, align 1
-  %159 = zext i8 %158 to i32
-  %160 = or disjoint i32 %156, %159
-  %.neg55 = sub i32 %.neg51, %160
-  %161 = sub i32 %.sroa.speculated40, %127
-  %.not23 = icmp eq i32 %161, %.neg55
-  br i1 %.not23, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit, label %162
+  %149 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 9
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i32
+  %152 = shl nuw nsw i32 %151, 16
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 10
+  %154 = load i8, ptr %153, align 1
+  %155 = zext i8 %154 to i32
+  %156 = shl nuw nsw i32 %155, 8
+  %157 = or disjoint i32 %156, %152
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 11
+  %159 = load i8, ptr %158, align 1
+  %160 = zext i8 %159 to i32
+  %161 = or disjoint i32 %157, %160
+  %.neg55 = sub i32 %.neg51, %161
+  %162 = sub i32 %.sroa.speculated40, %128
+  %.not23 = icmp eq i32 %162, %.neg55
+  br i1 %.not23, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit, label %163
 
-162:                                              ; preds = %_ZN2OT20CmapSubtableFormat1215group_get_glyphERKNS_21CmapSubtableLongGroupEj.exit
-  %163 = add i32 %42, 1
-  br label %164
+163:                                              ; preds = %_ZN2OT20CmapSubtableFormat1215group_get_glyphERKNS_21CmapSubtableLongGroupEj.exit
+  %164 = add i32 %42, 1
+  br label %165
 
-164:                                              ; preds = %162, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
-  %.019 = phi i32 [ %42, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32 ], [ %163, %162 ]
-  %.0 = phi i32 [ %94, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32 ], [ 1, %162 ]
+165:                                              ; preds = %163, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
+  %.019 = phi i32 [ %42, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32 ], [ %164, %163 ]
+  %.0 = phi i32 [ %95, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32 ], [ 1, %163 ]
   %.not24 = icmp ult i32 %.0, %2
-  br i1 %.not24, label %165, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
+  br i1 %.not24, label %166, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
 
-165:                                              ; preds = %164
-  %166 = sub i32 %.sroa.speculated40, %.019
-  %167 = add i32 %166, %.0
-  %.not25 = icmp ult i32 %167, %2
-  %168 = add i32 %.019, %2
-  %169 = sub i32 %168, %.0
-  %.049 = select i1 %.not25, i32 %.sroa.speculated40, i32 %169
+166:                                              ; preds = %165
+  %167 = sub i32 %.sroa.speculated40, %.019
+  %168 = add i32 %167, %.0
+  %.not25 = icmp ult i32 %168, %2
+  %169 = add i32 %.019, %2
+  %170 = sub i32 %169, %.0
+  %.049 = select i1 %.not25, i32 %.sroa.speculated40, i32 %170
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.049, i32 1114111)
-  %170 = load i8, ptr %24, align 8
-  %171 = trunc i8 %170 to i1
-  br i1 %171, label %172, label %173
+  %171 = load i8, ptr %24, align 8
+  %172 = trunc i8 %171 to i1
+  br i1 %172, label %173, label %174
 
-172:                                              ; preds = %165
+173:                                              ; preds = %166
   tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %23, i32 noundef %.019, i32 noundef %.sroa.speculated)
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
 
-173:                                              ; preds = %165
-  %174 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %23, i32 noundef %.019, i32 noundef %.sroa.speculated)
+174:                                              ; preds = %166
+  %175 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %23, i32 noundef %.019, i32 noundef %.sroa.speculated)
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
 
-_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35, %173, %172, %164, %_ZN2OT20CmapSubtableFormat1215group_get_glyphERKNS_21CmapSubtableLongGroupEj.exit
+_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35, %174, %173, %165, %_ZN2OT20CmapSubtableFormat1215group_get_glyphERKNS_21CmapSubtableLongGroupEj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %175 = load i8, ptr %4, align 1
-  %176 = zext i8 %175 to i64
-  %177 = shl nuw nsw i64 %176, 24
-  %178 = load i8, ptr %5, align 1
-  %179 = zext i8 %178 to i64
-  %180 = shl nuw nsw i64 %179, 16
-  %181 = or disjoint i64 %180, %177
-  %182 = load i8, ptr %6, align 1
-  %183 = zext i8 %182 to i64
-  %184 = shl nuw nsw i64 %183, 8
-  %185 = or disjoint i64 %181, %184
-  %186 = load i8, ptr %7, align 1
-  %187 = zext i8 %186 to i64
-  %188 = or disjoint i64 %185, %187
-  %189 = icmp samesign ult i64 %indvars.iv.next, %188
-  br i1 %189, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit, label %._crit_edge, !llvm.loop !20
+  %176 = load i8, ptr %4, align 1
+  %177 = zext i8 %176 to i64
+  %178 = shl nuw nsw i64 %177, 24
+  %179 = load i8, ptr %5, align 1
+  %180 = zext i8 %179 to i64
+  %181 = shl nuw nsw i64 %180, 16
+  %182 = or disjoint i64 %181, %178
+  %183 = load i8, ptr %6, align 1
+  %184 = zext i8 %183 to i64
+  %185 = shl nuw nsw i64 %184, 8
+  %186 = or disjoint i64 %182, %185
+  %187 = load i8, ptr %7, align 1
+  %188 = zext i8 %187 to i64
+  %189 = or disjoint i64 %186, %188
+  %190 = icmp samesign ult i64 %indvars.iv.next, %189
+  br i1 %190, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit, %3
   ret void
@@ -2795,147 +2796,147 @@ _ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit: ; pred
   %.pre70 = or disjoint i64 %.pre64, %.pre68
   %.pre72 = zext i8 %.pre56 to i64
   %.pre74 = or disjoint i64 %.pre70, %.pre72
+  %58 = icmp samesign ult i64 %indvars.iv, %.pre74
   br label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28
 
 _ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit, %57
-  %.pre-phi77 = phi i64 [ %56, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit ], [ %.pre74, %57 ]
+  %.pre-phi77 = phi i1 [ false, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit ], [ %58, %57 ]
   %.0.i27 = phi ptr [ @_hb_Null_OT_CmapSubtableLongGroup, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit ], [ %25, %57 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 4
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = shl nuw i32 %60, 24
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 5
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = shl nuw nsw i32 %64, 16
-  %66 = or disjoint i32 %65, %61
-  %67 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 6
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = shl nuw nsw i32 %69, 8
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 7
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = or disjoint i32 %70, %73
-  %75 = or disjoint i32 %74, %66
-  %.not.i29 = icmp ugt i32 %66, 1114111
-  %.sroa.speculated39 = select i1 %.not.i29, i32 1114111, i32 %75
-  %.not.i30 = icmp ult i64 %indvars.iv, %.pre-phi77
-  br i1 %.not.i30, label %76, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 4
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw i32 %61, 24
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 5
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = shl nuw nsw i32 %65, 16
+  %67 = or disjoint i32 %66, %62
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 6
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i32
+  %71 = shl nuw nsw i32 %70, 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 7
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = or disjoint i32 %71, %74
+  %76 = or disjoint i32 %75, %67
+  %.not.i29 = icmp ugt i32 %67, 1114111
+  %.sroa.speculated39 = select i1 %.not.i29, i32 1114111, i32 %76
+  br i1 %.pre-phi77, label %77, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
 
-76:                                               ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28
+77:                                               ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
 
-_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28, %76
-  %.0.i31 = phi ptr [ %25, %76 ], [ @_hb_Null_OT_CmapSubtableLongGroup, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 8
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw i32 %79, 24
-  %81 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 9
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = shl nuw nsw i32 %83, 16
-  %85 = or disjoint i32 %84, %80
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 10
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = shl nuw nsw i32 %88, 8
-  %90 = or disjoint i32 %85, %89
-  %91 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 11
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i32
-  %94 = or disjoint i32 %90, %93
-  %.not = icmp eq i32 %94, 0
-  br i1 %.not, label %95, label %125
+_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32: ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28, %77
+  %.0.i31 = phi ptr [ %25, %77 ], [ @_hb_Null_OT_CmapSubtableLongGroup, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit28 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 8
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = shl nuw i32 %80, 24
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 9
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i32
+  %85 = shl nuw nsw i32 %84, 16
+  %86 = or disjoint i32 %85, %81
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 10
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = shl nuw nsw i32 %89, 8
+  %91 = or disjoint i32 %86, %90
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 11
+  %93 = load i8, ptr %92, align 1
+  %94 = zext i8 %93 to i32
+  %95 = or disjoint i32 %91, %94
+  %.not = icmp eq i32 %95, 0
+  br i1 %.not, label %96, label %126
 
-95:                                               ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
-  %96 = load i8, ptr %4, align 1
-  %97 = zext i8 %96 to i64
-  %98 = shl nuw nsw i64 %97, 24
-  %99 = load i8, ptr %5, align 1
-  %100 = zext i8 %99 to i64
-  %101 = shl nuw nsw i64 %100, 16
-  %102 = or disjoint i64 %101, %98
-  %103 = load i8, ptr %6, align 1
-  %104 = zext i8 %103 to i64
-  %105 = shl nuw nsw i64 %104, 8
-  %106 = or disjoint i64 %102, %105
-  %107 = load i8, ptr %7, align 1
-  %108 = zext i8 %107 to i64
-  %109 = or disjoint i64 %106, %108
-  %.not.i33 = icmp samesign ult i64 %indvars.iv, %109
-  br i1 %.not.i33, label %110, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
+96:                                               ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
+  %97 = load i8, ptr %4, align 1
+  %98 = zext i8 %97 to i64
+  %99 = shl nuw nsw i64 %98, 24
+  %100 = load i8, ptr %5, align 1
+  %101 = zext i8 %100 to i64
+  %102 = shl nuw nsw i64 %101, 16
+  %103 = or disjoint i64 %102, %99
+  %104 = load i8, ptr %6, align 1
+  %105 = zext i8 %104 to i64
+  %106 = shl nuw nsw i64 %105, 8
+  %107 = or disjoint i64 %103, %106
+  %108 = load i8, ptr %7, align 1
+  %109 = zext i8 %108 to i64
+  %110 = or disjoint i64 %107, %109
+  %.not.i33 = icmp samesign ult i64 %indvars.iv, %110
+  br i1 %.not.i33, label %111, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
 
-110:                                              ; preds = %95
+111:                                              ; preds = %96
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !11
   br label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
 
-_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35: ; preds = %95, %110
-  %.0.i34 = phi ptr [ %25, %110 ], [ @_hb_Null_OT_CmapSubtableLongGroup, %95 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 8
-  %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 9
-  %114 = load i8, ptr %113, align 1
-  %115 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 10
-  %116 = load i8, ptr %115, align 1
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 11
-  %118 = load i8, ptr %117, align 1
-  %119 = or i8 %114, %112
-  %120 = or i8 %119, %116
-  %121 = or i8 %120, %118
-  %122 = icmp eq i8 %121, 0
-  br i1 %122, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit, label %123
+_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35: ; preds = %96, %111
+  %.0.i34 = phi ptr [ %25, %111 ], [ @_hb_Null_OT_CmapSubtableLongGroup, %96 ]
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 8
+  %113 = load i8, ptr %112, align 1
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 9
+  %115 = load i8, ptr %114, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 10
+  %117 = load i8, ptr %116, align 1
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 11
+  %119 = load i8, ptr %118, align 1
+  %120 = or i8 %115, %113
+  %121 = or i8 %120, %117
+  %122 = or i8 %121, %119
+  %123 = icmp eq i8 %122, 0
+  br i1 %123, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit, label %124
 
-123:                                              ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
-  %124 = add i32 %42, 1
-  br label %125
+124:                                              ; preds = %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
+  %125 = add i32 %42, 1
+  br label %126
 
-125:                                              ; preds = %123, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
-  %.019 = phi i32 [ %42, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32 ], [ %124, %123 ]
-  %.0 = phi i32 [ %94, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32 ], [ 1, %123 ]
+126:                                              ; preds = %124, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32
+  %.019 = phi i32 [ %42, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32 ], [ %125, %124 ]
+  %.0 = phi i32 [ %95, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit32 ], [ 1, %124 ]
   %.not24 = icmp ult i32 %.0, %2
-  br i1 %.not24, label %126, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
+  br i1 %.not24, label %127, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
 
-126:                                              ; preds = %125
-  %127 = sub i32 %.sroa.speculated39, %.019
-  %128 = add i32 %127, %.0
-  %.not25 = icmp ult i32 %128, %2
-  %129 = add i32 %.019, %2
-  %130 = sub i32 %129, %.0
-  %.048 = select i1 %.not25, i32 %.sroa.speculated39, i32 %130
+127:                                              ; preds = %126
+  %128 = sub i32 %.sroa.speculated39, %.019
+  %129 = add i32 %128, %.0
+  %.not25 = icmp ult i32 %129, %2
+  %130 = add i32 %.019, %2
+  %131 = sub i32 %130, %.0
+  %.048 = select i1 %.not25, i32 %.sroa.speculated39, i32 %131
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.048, i32 1114111)
-  %131 = load i8, ptr %24, align 8
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %133, label %134
+  %132 = load i8, ptr %24, align 8
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %134, label %135
 
-133:                                              ; preds = %126
+134:                                              ; preds = %127
   tail call void @_ZN12hb_bit_set_t9del_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %23, i32 noundef %.019, i32 noundef %.sroa.speculated)
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
 
-134:                                              ; preds = %126
-  %135 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %23, i32 noundef %.019, i32 noundef %.sroa.speculated)
+135:                                              ; preds = %127
+  %136 = tail call noundef zeroext i1 @_ZN12hb_bit_set_t9add_rangeEjj(ptr noundef nonnull align 8 dereferenceable(49) %23, i32 noundef %.019, i32 noundef %.sroa.speculated)
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit
 
-_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit: ; preds = %134, %133, %125, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
+_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit: ; preds = %135, %134, %126, %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %136 = load i8, ptr %4, align 1
-  %137 = zext i8 %136 to i64
-  %138 = shl nuw nsw i64 %137, 24
-  %139 = load i8, ptr %5, align 1
-  %140 = zext i8 %139 to i64
-  %141 = shl nuw nsw i64 %140, 16
-  %142 = or disjoint i64 %141, %138
-  %143 = load i8, ptr %6, align 1
-  %144 = zext i8 %143 to i64
-  %145 = shl nuw nsw i64 %144, 8
-  %146 = or disjoint i64 %142, %145
-  %147 = load i8, ptr %7, align 1
-  %148 = zext i8 %147 to i64
-  %149 = or disjoint i64 %146, %148
-  %150 = icmp samesign ult i64 %indvars.iv.next, %149
-  br i1 %150, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit, label %._crit_edge, !llvm.loop !21
+  %137 = load i8, ptr %4, align 1
+  %138 = zext i8 %137 to i64
+  %139 = shl nuw nsw i64 %138, 24
+  %140 = load i8, ptr %5, align 1
+  %141 = zext i8 %140 to i64
+  %142 = shl nuw nsw i64 %141, 16
+  %143 = or disjoint i64 %142, %139
+  %144 = load i8, ptr %6, align 1
+  %145 = zext i8 %144 to i64
+  %146 = shl nuw nsw i64 %145, 8
+  %147 = or disjoint i64 %143, %146
+  %148 = load i8, ptr %7, align 1
+  %149 = zext i8 %148 to i64
+  %150 = or disjoint i64 %147, %149
+  %151 = icmp samesign ult i64 %indvars.iv.next, %150
+  br i1 %151, label %_ZNK2OT7ArrayOfINS_21CmapSubtableLongGroupENS_7IntTypeIjLj4EEEEixEi.exit, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE9add_rangeEjj.exit, %3
   ret void

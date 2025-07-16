@@ -464,7 +464,7 @@ define internal i64 @rb_coverage_result(i32 noundef %0, ptr noundef readonly cap
 .preheader.split.split:                           ; preds = %8
   switch i32 %0, label %10 [
     i32 0, label %.thread
-    i32 1, label %rb_scan_args_set.exit
+    i32 1, label %12
   ]
 
 10:                                               ; preds = %.preheader.split.split, %8
@@ -475,89 +475,89 @@ define internal i64 @rb_coverage_result(i32 noundef %0, ptr noundef readonly cap
   %11 = tail call i64 @rb_coverage_peek_result(i64 poison)
   br label %.thread26
 
-rb_scan_args_set.exit:                            ; preds = %.preheader.split.split
-  %12 = load i64, ptr %1, align 8, !tbaa !10
-  %13 = tail call i64 @rb_convert_type(i64 noundef %12, i32 noundef 8, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #9
+12:                                               ; preds = %.preheader.split.split
+  %13 = load i64, ptr %1, align 8, !tbaa !10
+  %14 = tail call i64 @rb_convert_type(i64 noundef %13, i32 noundef 8, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #9
   %.pr.i = load i64, ptr @rb_coverage_result.rbimpl_id, align 8, !tbaa !10
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
-.lr.ph.i:                                         ; preds = %rb_scan_args_set.exit, %.lr.ph.i
-  %14 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 4) #9
-  store i64 %14, ptr @rb_coverage_result.rbimpl_id, align 8, !tbaa !10
-  %.not.i14 = icmp eq i64 %14, 0
+.lr.ph.i:                                         ; preds = %12, %.lr.ph.i
+  %15 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 4) #9
+  store i64 %15, ptr @rb_coverage_result.rbimpl_id, align 8, !tbaa !10
+  %.not.i14 = icmp eq i64 %15, 0
   br i1 %.not.i14, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !12
 
-rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %rb_scan_args_set.exit
-  %.lcssa.i = phi i64 [ %.pr.i, %rb_scan_args_set.exit ], [ %14, %.lr.ph.i ]
-  %15 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i) #9
-  %16 = tail call i64 @rb_hash_lookup(i64 noundef %13, i64 noundef %15) #9
-  %17 = and i64 %16, -5
-  %.not32 = icmp eq i64 %17, 0
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %12
+  %.lcssa.i = phi i64 [ %.pr.i, %12 ], [ %15, %.lr.ph.i ]
+  %16 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i) #9
+  %17 = tail call i64 @rb_hash_lookup(i64 noundef %14, i64 noundef %16) #9
+  %18 = and i64 %17, -5
+  %.not32 = icmp eq i64 %18, 0
   %.pr.i15 = load i64, ptr @rb_coverage_result.rbimpl_id.36, align 8, !tbaa !10
   %.not4.i16 = icmp eq i64 %.pr.i15, 0
   br i1 %.not4.i16, label %.lr.ph.i18, label %.loopexit
 
 .lr.ph.i18:                                       ; preds = %rbimpl_intern_const.exit, %.lr.ph.i18
-  %18 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.37, i64 noundef 5) #9
-  store i64 %18, ptr @rb_coverage_result.rbimpl_id.36, align 8, !tbaa !10
-  %.not.i19 = icmp eq i64 %18, 0
+  %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.37, i64 noundef 5) #9
+  store i64 %19, ptr @rb_coverage_result.rbimpl_id.36, align 8, !tbaa !10
+  %.not.i19 = icmp eq i64 %19, 0
   br i1 %.not.i19, label %.lr.ph.i18, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.i18, %rbimpl_intern_const.exit
-  %.lcssa.i17 = phi i64 [ %.pr.i15, %rbimpl_intern_const.exit ], [ %18, %.lr.ph.i18 ]
-  %19 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i17) #9
-  %20 = tail call i64 @rb_hash_lookup(i64 noundef %13, i64 noundef %19) #9
-  %21 = and i64 %20, -5
-  %22 = icmp ne i64 %21, 0
-  %23 = tail call i64 @rb_coverage_peek_result(i64 poison)
-  %or.cond = select i1 %.not32, i1 true, i1 %22
-  br i1 %or.cond, label %25, label %24
+  %.lcssa.i17 = phi i64 [ %.pr.i15, %rbimpl_intern_const.exit ], [ %19, %.lr.ph.i18 ]
+  %20 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i17) #9
+  %21 = tail call i64 @rb_hash_lookup(i64 noundef %14, i64 noundef %20) #9
+  %22 = and i64 %21, -5
+  %23 = icmp ne i64 %22, 0
+  %24 = tail call i64 @rb_coverage_peek_result(i64 poison)
+  %or.cond = select i1 %.not32, i1 true, i1 %23
+  br i1 %or.cond, label %26, label %25
 
-24:                                               ; preds = %.loopexit
+25:                                               ; preds = %.loopexit
   tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.38) #10
   br label %.thread26
 
-25:                                               ; preds = %.loopexit
-  br i1 %22, label %.thread26, label %30
+26:                                               ; preds = %.loopexit
+  br i1 %23, label %.thread26, label %31
 
-.thread26:                                        ; preds = %.thread, %24, %25
-  %.02530 = phi i1 [ %.not32, %25 ], [ false, %.thread ], [ false, %24 ]
-  %26 = phi i64 [ %23, %25 ], [ %11, %.thread ], [ %23, %24 ]
+.thread26:                                        ; preds = %.thread, %25, %26
+  %.02530 = phi i1 [ %.not32, %26 ], [ false, %.thread ], [ false, %25 ]
+  %27 = phi i64 [ %24, %26 ], [ %11, %.thread ], [ %24, %25 ]
   tail call void @rb_clear_coverages() #9
-  %27 = load i64, ptr @me2counter, align 8, !tbaa !10
-  %28 = icmp eq i64 %27, 4
-  br i1 %28, label %30, label %29
+  %28 = load i64, ptr @me2counter, align 8, !tbaa !10
+  %29 = icmp eq i64 %28, 4
+  br i1 %29, label %31, label %30
 
-29:                                               ; preds = %.thread26
-  tail call void @rb_hash_foreach(i64 noundef %27, ptr noundef nonnull @clear_me2counter_i, i64 noundef 4) #9
-  br i1 %.02530, label %37, label %32
+30:                                               ; preds = %.thread26
+  tail call void @rb_hash_foreach(i64 noundef %28, ptr noundef nonnull @clear_me2counter_i, i64 noundef 4) #9
+  br i1 %.02530, label %38, label %33
 
-30:                                               ; preds = %.thread26, %25
-  %.02531 = phi i1 [ %.02530, %.thread26 ], [ %.not32, %25 ]
-  %31 = phi i64 [ %26, %.thread26 ], [ %23, %25 ]
-  br i1 %.02531, label %37, label %32
+31:                                               ; preds = %.thread26, %26
+  %.02531 = phi i1 [ %.02530, %.thread26 ], [ %.not32, %26 ]
+  %32 = phi i64 [ %27, %.thread26 ], [ %24, %26 ]
+  br i1 %.02531, label %38, label %33
 
-32:                                               ; preds = %29, %30
-  %33 = phi i64 [ %26, %29 ], [ %31, %30 ]
-  %34 = load i32, ptr @current_state, align 4, !tbaa !6
-  %35 = icmp eq i32 %34, 2
-  br i1 %35, label %rb_coverage_suspend.exit, label %36
+33:                                               ; preds = %30, %31
+  %34 = phi i64 [ %27, %30 ], [ %32, %31 ]
+  %35 = load i32, ptr @current_state, align 4, !tbaa !6
+  %36 = icmp eq i32 %35, 2
+  br i1 %36, label %rb_coverage_suspend.exit, label %37
 
-rb_coverage_suspend.exit:                         ; preds = %32
+rb_coverage_suspend.exit:                         ; preds = %33
   tail call void @rb_suspend_coverages() #9
   store i32 1, ptr @current_state, align 4, !tbaa !6
-  br label %36
+  br label %37
 
-36:                                               ; preds = %rb_coverage_suspend.exit, %32
+37:                                               ; preds = %rb_coverage_suspend.exit, %33
   tail call void @rb_reset_coverages() #9
   store i64 4, ptr @me2counter, align 8, !tbaa !10
   store i32 0, ptr @current_state, align 4, !tbaa !6
-  br label %37
+  br label %38
 
-37:                                               ; preds = %29, %36, %30
-  %38 = phi i64 [ %26, %29 ], [ %33, %36 ], [ %31, %30 ]
-  ret i64 %38
+38:                                               ; preds = %30, %37, %31
+  %39 = phi i64 [ %27, %30 ], [ %34, %37 ], [ %32, %31 ]
+  ret i64 %39
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

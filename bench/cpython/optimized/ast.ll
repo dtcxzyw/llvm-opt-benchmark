@@ -129,19 +129,19 @@ define hidden range(i32 0, 2) i32 @_PyAST_Validate(ptr noundef readonly captures
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = call fastcc i32 @validate_stmts(ptr noundef %2, ptr noundef %13)
-  br label %40
+  br label %42
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = call fastcc i32 @validate_stmts(ptr noundef %2, ptr noundef %17)
-  br label %40
+  br label %42
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !26
   %22 = call fastcc i32 @validate_expr(ptr noundef %2, ptr noundef %21, i32 noundef 1)
-  br label %40
+  br label %42
 
 23:                                               ; preds = %5
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -152,60 +152,60 @@ define hidden range(i32 0, 2) i32 @_PyAST_Validate(ptr noundef readonly captures
 
 .split.i:                                         ; preds = %23
   %28 = load i64, ptr %25, align 8, !tbaa !27
-  %.not2026.i = icmp slt i64 %28, 1
-  br i1 %.not2026.i, label %.loopexit, label %.lr.ph.split.us.i
+  %29 = icmp sgt i64 %28, 0
+  br i1 %29, label %.lr.ph.split.us.i, label %.loopexit
 
-.lr.ph.split.us.i:                                ; preds = %.split.i, %.critedge.us33.i
-  %.01527.us.i = phi i64 [ %33, %.critedge.us33.i ], [ 0, %.split.i ]
-  %29 = getelementptr [1 x ptr], ptr %27, i64 0, i64 %.01527.us.i
-  %30 = load ptr, ptr %29, align 8, !tbaa !29
-  %.not.us31.i = icmp eq ptr %30, null
-  br i1 %.not.us31.i, label %.split24.i, label %31
+.lr.ph.split.us.i:                                ; preds = %.split.i, %.critedge.us29.i
+  %.01524.us.i = phi i64 [ %34, %.critedge.us29.i ], [ 0, %.split.i ]
+  %30 = getelementptr [1 x ptr], ptr %27, i64 0, i64 %.01524.us.i
+  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %.not.us27.i = icmp eq ptr %31, null
+  br i1 %.not.us27.i, label %.split22.i, label %32
 
-31:                                               ; preds = %.lr.ph.split.us.i
-  %32 = call fastcc i32 @validate_expr(ptr noundef nonnull %2, ptr noundef nonnull %30, i32 noundef 1) #6
-  %.not19.us32.i = icmp eq i32 %32, 0
-  br i1 %.not19.us32.i, label %.thread, label %.critedge.us33.i
+32:                                               ; preds = %.lr.ph.split.us.i
+  %33 = call fastcc i32 @validate_expr(ptr noundef nonnull %2, ptr noundef nonnull %31, i32 noundef 1) #6
+  %.not19.us28.i = icmp eq i32 %33, 0
+  br i1 %.not19.us28.i, label %.thread, label %.critedge.us29.i
 
-.critedge.us33.i:                                 ; preds = %31
-  %33 = add nuw nsw i64 %.01527.us.i, 1
-  %34 = load i64, ptr %25, align 8, !tbaa !27
-  %.not20.us34.not.i = icmp slt i64 %33, %34
-  br i1 %.not20.us34.not.i, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !31
+.critedge.us29.i:                                 ; preds = %32
+  %34 = add nuw nsw i64 %.01524.us.i, 1
+  %35 = load i64, ptr %25, align 8, !tbaa !27
+  %36 = icmp slt i64 %34, %35
+  br i1 %36, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !31
 
-.split24.i:                                       ; preds = %.lr.ph.split.us.i
-  %35 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull @.str.73) #5
+.split22.i:                                       ; preds = %.lr.ph.split.us.i
+  %37 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.73) #5
   br label %.thread
 
-.loopexit:                                        ; preds = %.critedge.us33.i, %23, %.split.i
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !26
-  %38 = call fastcc i32 @validate_expr(ptr noundef %2, ptr noundef %37, i32 noundef 1)
-  br label %40
+.loopexit:                                        ; preds = %.critedge.us29.i, %23, %.split.i
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !26
+  %40 = call fastcc i32 @validate_expr(ptr noundef %2, ptr noundef %39, i32 noundef 1)
+  br label %42
 
 validate_exprs.exit:                              ; preds = %5
-  %39 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %39, ptr noundef nonnull @.str) #5
+  %41 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %41, ptr noundef nonnull @.str) #5
   br label %.thread
 
-40:                                               ; preds = %11, %15, %19, %.loopexit
-  %.015.ph = phi i32 [ %38, %.loopexit ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ]
+42:                                               ; preds = %11, %15, %19, %.loopexit
+  %.015.ph = phi i32 [ %40, %.loopexit ], [ %22, %19 ], [ %18, %15 ], [ %14, %11 ]
   %.not20 = icmp eq i32 %.015.ph, 0
-  br i1 %.not20, label %.thread, label %41
+  br i1 %.not20, label %.thread, label %43
 
-41:                                               ; preds = %40
-  %42 = load i32, ptr %2, align 4, !tbaa !21
-  %.not21 = icmp eq i32 %42, %8
-  br i1 %.not21, label %.thread, label %43
+43:                                               ; preds = %42
+  %44 = load i32, ptr %2, align 4, !tbaa !21
+  %.not21 = icmp eq i32 %44, %8
+  br i1 %.not21, label %.thread, label %45
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !33
-  %45 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %44, ptr noundef nonnull @.str.1, i32 noundef %8, i32 noundef %42) #5
+45:                                               ; preds = %43
+  %46 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !33
+  %47 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %46, ptr noundef nonnull @.str.1, i32 noundef %8, i32 noundef %44) #5
   br label %.thread
 
-.thread:                                          ; preds = %31, %.split24.i, %validate_exprs.exit, %43, %41, %40, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %validate_exprs.exit ], [ 0, %43 ], [ 1, %41 ], [ 0, %40 ], [ 0, %.split24.i ], [ 0, %31 ]
+.thread:                                          ; preds = %32, %.split22.i, %validate_exprs.exit, %45, %43, %42, %1
+  %.0 = phi i32 [ 0, %1 ], [ 0, %validate_exprs.exit ], [ 0, %45 ], [ 1, %43 ], [ 0, %42 ], [ 0, %.split22.i ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret i32 %.0
 }
@@ -220,8 +220,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_stmts(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %6
 
-6:                                                ; preds = %679, %2
-  %.013 = phi i64 [ 0, %2 ], [ %680, %679 ]
+6:                                                ; preds = %685, %2
+  %.013 = phi i64 [ 0, %2 ], [ %686, %685 ]
   br i1 %3, label %9, label %7
 
 7:                                                ; preds = %6
@@ -230,8 +230,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_stmts(ptr noundef n
 
 9:                                                ; preds = %6, %7
   %10 = phi i64 [ %8, %7 ], [ 0, %6 ]
-  %.not139.not.not.not.not.not.not.not.not = icmp sge i64 %.013, %10
-  br i1 %.not139.not.not.not.not.not.not.not.not, label %validate_stmt.exit.thread.loopexit390.loopexit, label %11
+  %.not137.not.not.not.not.not.not.not.not = icmp sge i64 %.013, %10
+  br i1 %.not137.not.not.not.not.not.not.not.not, label %validate_stmt.exit.thread.loopexit404.loopexit, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr [1 x ptr], ptr %4, i64 0, i64 %.013
@@ -261,8 +261,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_stmts(ptr noundef n
   br i1 %or.cond.i, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23
-  %.phi.trans.insert628 = getelementptr inbounds nuw i8, ptr %13, i64 76
-  %.pre629 = load i32, ptr %.phi.trans.insert628, align 4, !tbaa !40
+  %.phi.trans.insert642 = getelementptr inbounds nuw i8, ptr %13, i64 76
+  %.pre643 = load i32, ptr %.phi.trans.insert642, align 4, !tbaa !40
   br label %split
 
 27:                                               ; preds = %23
@@ -276,7 +276,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_stmts(ptr noundef n
   br i1 %.not339.i, label %35, label %split
 
 split:                                            ; preds = %29, %._crit_edge
-  %32 = phi i32 [ %.pre629, %._crit_edge ], [ %31, %29 ]
+  %32 = phi i32 [ %.pre643, %._crit_edge ], [ %31, %29 ]
   %33 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
   %34 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %33, ptr noundef nonnull @.str.4, i32 noundef %26, i32 noundef %32, i32 noundef %16, i32 noundef %18) #5
   br label %validate_stmt.exit.thread
@@ -310,32 +310,32 @@ split:                                            ; preds = %29, %._crit_edge
 
 50:                                               ; preds = %43
   %51 = load i32, ptr %13, align 8, !tbaa !41
-  switch i32 %51, label %validate_stmt.exit.thread124 [
+  switch i32 %51, label %validate_stmt.exit.thread122 [
     i32 1, label %52
-    i32 3, label %87
-    i32 4, label %138
-    i32 5, label %143
-    i32 6, label %160
-    i32 8, label %180
-    i32 9, label %188
-    i32 7, label %208
-    i32 10, label %224
-    i32 11, label %240
-    i32 12, label %256
-    i32 13, label %268
-    i32 14, label %280
-    i32 15, label %310
-    i32 16, label %340
-    i32 17, label %381
-    i32 18, label %396
-    i32 19, label %501
-    i32 20, label %577
-    i32 21, label %586
-    i32 22, label %595
-    i32 23, label %610
-    i32 24, label %619
-    i32 25, label %628
-    i32 2, label %632
+    i32 3, label %89
+    i32 4, label %145
+    i32 5, label %150
+    i32 6, label %169
+    i32 8, label %191
+    i32 9, label %199
+    i32 7, label %219
+    i32 10, label %235
+    i32 11, label %251
+    i32 12, label %267
+    i32 13, label %279
+    i32 14, label %291
+    i32 15, label %320
+    i32 16, label %349
+    i32 17, label %389
+    i32 18, label %404
+    i32 19, label %507
+    i32 20, label %581
+    i32 21, label %590
+    i32 22, label %599
+    i32 23, label %614
+    i32 24, label %623
+    i32 25, label %632
+    i32 2, label %636
     i32 26, label %.sink.split
     i32 27, label %.sink.split
     i32 28, label %.sink.split
@@ -345,36 +345,36 @@ split:                                            ; preds = %29, %._crit_edge
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !26
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %validate_body.exit83.thread, label %56
+  br i1 %55, label %validate_body.exit81.thread, label %56
 
 56:                                               ; preds = %52
   %57 = load i64, ptr %54, align 8, !tbaa !42
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %validate_body.exit83.thread, label %validate_body.exit83
+  br i1 %58, label %validate_body.exit81.thread, label %validate_body.exit81
 
-validate_body.exit83.thread:                      ; preds = %56, %52
+validate_body.exit81.thread:                      ; preds = %56, %52
   %59 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
   %60 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %59, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.7) #5
-  br label %validate_stmt.exit.thread129
+  br label %validate_stmt.exit.thread127
 
-validate_body.exit83:                             ; preds = %56
+validate_body.exit81:                             ; preds = %56
   %61 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %54)
   %.not419.i = icmp eq i32 %61, 0
-  br i1 %.not419.i, label %validate_stmt.exit.thread129, label %62
+  br i1 %.not419.i, label %validate_stmt.exit.thread127, label %62
 
-62:                                               ; preds = %validate_body.exit83
+62:                                               ; preds = %validate_body.exit81
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %64 = load ptr, ptr %63, align 8, !tbaa !26
   %65 = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %0, ptr noundef %64)
   %.not420.i = icmp eq i32 %65, 0
-  br i1 %.not420.i, label %validate_stmt.exit.thread129, label %66
+  br i1 %.not420.i, label %validate_stmt.exit.thread127, label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !26
   %69 = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %0, ptr noundef %68)
   %.not421.i = icmp eq i32 %69, 0
-  br i1 %.not421.i, label %validate_stmt.exit.thread129, label %70
+  br i1 %.not421.i, label %validate_stmt.exit.thread127, label %70
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -385,1283 +385,1264 @@ validate_body.exit83:                             ; preds = %56
 
 .split.i:                                         ; preds = %70
   %75 = load i64, ptr %72, align 8, !tbaa !27
-  %.not2026.i = icmp slt i64 %75, 1
-  br i1 %.not2026.i, label %.loopexit, label %.lr.ph.split.us.i
+  %76 = icmp sgt i64 %75, 0
+  br i1 %76, label %.lr.ph.split.us.i, label %.loopexit
 
-.lr.ph.split.us.i:                                ; preds = %.split.i, %.critedge.us33.i
-  %.01527.us.i = phi i64 [ %80, %.critedge.us33.i ], [ 0, %.split.i ]
-  %76 = getelementptr [1 x ptr], ptr %74, i64 0, i64 %.01527.us.i
-  %77 = load ptr, ptr %76, align 8, !tbaa !29
-  %.not.us31.i = icmp eq ptr %77, null
-  br i1 %.not.us31.i, label %.split24.i, label %78
+.lr.ph.split.us.i:                                ; preds = %.split.i, %.critedge.us29.i
+  %.01524.us.i = phi i64 [ %81, %.critedge.us29.i ], [ 0, %.split.i ]
+  %77 = getelementptr [1 x ptr], ptr %74, i64 0, i64 %.01524.us.i
+  %78 = load ptr, ptr %77, align 8, !tbaa !29
+  %.not.us27.i = icmp eq ptr %78, null
+  br i1 %.not.us27.i, label %.split22.i, label %79
 
-78:                                               ; preds = %.lr.ph.split.us.i
-  %79 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %77, i32 noundef 1) #6
-  %.not19.us32.i = icmp eq i32 %79, 0
-  br i1 %.not19.us32.i, label %validate_stmt.exit.thread129, label %.critedge.us33.i
+79:                                               ; preds = %.lr.ph.split.us.i
+  %80 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %78, i32 noundef 1) #6
+  %.not19.us28.i = icmp eq i32 %80, 0
+  br i1 %.not19.us28.i, label %validate_stmt.exit.thread127, label %.critedge.us29.i
 
-.critedge.us33.i:                                 ; preds = %78
-  %80 = add nuw nsw i64 %.01527.us.i, 1
-  %81 = load i64, ptr %72, align 8, !tbaa !27
-  %.not20.us34.not.i = icmp slt i64 %80, %81
-  br i1 %.not20.us34.not.i, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !31
+.critedge.us29.i:                                 ; preds = %79
+  %81 = add nuw nsw i64 %.01524.us.i, 1
+  %82 = load i64, ptr %72, align 8, !tbaa !27
+  %83 = icmp slt i64 %81, %82
+  br i1 %83, label %.lr.ph.split.us.i, label %.loopexit, !llvm.loop !31
 
-.split24.i:                                       ; preds = %.lr.ph.split.us.i
-  %82 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %82, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread129
+.split22.i:                                       ; preds = %.lr.ph.split.us.i
+  %84 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.73) #5
+  br label %validate_stmt.exit.thread127
 
-.loopexit:                                        ; preds = %.critedge.us33.i, %70, %.split.i
-  %83 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %84 = load ptr, ptr %83, align 8, !tbaa !26
-  %.not423.i = icmp eq ptr %84, null
-  br i1 %.not423.i, label %.sink.split, label %85
+.loopexit:                                        ; preds = %.critedge.us29.i, %70, %.split.i
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %86 = load ptr, ptr %85, align 8, !tbaa !26
+  %.not423.i = icmp eq ptr %86, null
+  br i1 %.not423.i, label %.sink.split, label %87
 
-85:                                               ; preds = %.loopexit
-  %86 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %84, i32 noundef 1)
+87:                                               ; preds = %.loopexit
+  %88 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %86, i32 noundef 1)
   br label %validate_stmt.exit
 
-87:                                               ; preds = %50
-  %88 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %89 = load ptr, ptr %88, align 8, !tbaa !26
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %validate_body.exit78.thread, label %91
+89:                                               ; preds = %50
+  %90 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %91 = load ptr, ptr %90, align 8, !tbaa !26
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %validate_body.exit76.thread, label %93
 
-91:                                               ; preds = %87
-  %92 = load i64, ptr %89, align 8, !tbaa !42
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %validate_body.exit78.thread, label %validate_body.exit78
+93:                                               ; preds = %89
+  %94 = load i64, ptr %91, align 8, !tbaa !42
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %validate_body.exit76.thread, label %validate_body.exit76
 
-validate_body.exit78.thread:                      ; preds = %91, %87
-  %94 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %95 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %94, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.8) #5
-  br label %validate_stmt.exit.thread129
+validate_body.exit76.thread:                      ; preds = %93, %89
+  %96 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %97 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %96, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.8) #5
+  br label %validate_stmt.exit.thread127
 
-validate_body.exit78:                             ; preds = %91
-  %96 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %89)
-  %.not415.i = icmp eq i32 %96, 0
-  br i1 %.not415.i, label %validate_stmt.exit.thread129, label %97
+validate_body.exit76:                             ; preds = %93
+  %98 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %91)
+  %.not415.i = icmp eq i32 %98, 0
+  br i1 %.not415.i, label %validate_stmt.exit.thread127, label %99
 
-97:                                               ; preds = %validate_body.exit78
-  %98 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %99 = load ptr, ptr %98, align 8, !tbaa !26
-  %100 = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %0, ptr noundef %99)
-  %.not416.i = icmp eq i32 %100, 0
-  br i1 %.not416.i, label %validate_stmt.exit.thread129, label %101
+99:                                               ; preds = %validate_body.exit76
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %101 = load ptr, ptr %100, align 8, !tbaa !26
+  %102 = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %0, ptr noundef %101)
+  %.not416.i = icmp eq i32 %102, 0
+  br i1 %.not416.i, label %validate_stmt.exit.thread127, label %103
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !26
-  %104 = icmp eq ptr %103, null
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  br i1 %104, label %.loopexit954, label %.split.i895
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %105 = load ptr, ptr %104, align 8, !tbaa !26
+  %106 = icmp eq ptr %105, null
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  br i1 %106, label %.loopexit960, label %.split.i907
 
-.split.i895:                                      ; preds = %101
-  %106 = load i64, ptr %103, align 8, !tbaa !27
-  %.not2026.i896 = icmp slt i64 %106, 1
-  br i1 %.not2026.i896, label %.loopexit954, label %.lr.ph.split.us.i898
+.split.i907:                                      ; preds = %103
+  %108 = load i64, ptr %105, align 8, !tbaa !27
+  %109 = icmp sgt i64 %108, 0
+  br i1 %109, label %.lr.ph.split.us.i910, label %.loopexit960
 
-.lr.ph.split.us.i898:                             ; preds = %.split.i895, %.critedge.us33.i902
-  %.01527.us.i899 = phi i64 [ %111, %.critedge.us33.i902 ], [ 0, %.split.i895 ]
-  %107 = getelementptr [1 x ptr], ptr %105, i64 0, i64 %.01527.us.i899
-  %108 = load ptr, ptr %107, align 8, !tbaa !29
-  %.not.us31.i900 = icmp eq ptr %108, null
-  br i1 %.not.us31.i900, label %.split24.i905, label %109
+.lr.ph.split.us.i910:                             ; preds = %.split.i907, %.critedge.us29.i914
+  %.01524.us.i911 = phi i64 [ %114, %.critedge.us29.i914 ], [ 0, %.split.i907 ]
+  %110 = getelementptr [1 x ptr], ptr %107, i64 0, i64 %.01524.us.i911
+  %111 = load ptr, ptr %110, align 8, !tbaa !29
+  %.not.us27.i912 = icmp eq ptr %111, null
+  br i1 %.not.us27.i912, label %.split22.i915, label %112
 
-109:                                              ; preds = %.lr.ph.split.us.i898
-  %110 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %108, i32 noundef 1) #6
-  %.not19.us32.i901 = icmp eq i32 %110, 0
-  br i1 %.not19.us32.i901, label %validate_stmt.exit.thread129, label %.critedge.us33.i902
+112:                                              ; preds = %.lr.ph.split.us.i910
+  %113 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %111, i32 noundef 1) #6
+  %.not19.us28.i913 = icmp eq i32 %113, 0
+  br i1 %.not19.us28.i913, label %validate_stmt.exit.thread127, label %.critedge.us29.i914
 
-.critedge.us33.i902:                              ; preds = %109
-  %111 = add nuw nsw i64 %.01527.us.i899, 1
-  %112 = load i64, ptr %103, align 8, !tbaa !27
-  %.not20.us34.not.i903 = icmp slt i64 %111, %112
-  br i1 %.not20.us34.not.i903, label %.lr.ph.split.us.i898, label %.loopexit954, !llvm.loop !31
+.critedge.us29.i914:                              ; preds = %112
+  %114 = add nuw nsw i64 %.01524.us.i911, 1
+  %115 = load i64, ptr %105, align 8, !tbaa !27
+  %116 = icmp slt i64 %114, %115
+  br i1 %116, label %.lr.ph.split.us.i910, label %.loopexit960, !llvm.loop !31
 
-.split24.i905:                                    ; preds = %.lr.ph.split.us.i898
-  %113 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %113, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread129
+.split22.i915:                                    ; preds = %.lr.ph.split.us.i910
+  %117 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %117, ptr noundef nonnull @.str.73) #5
+  br label %validate_stmt.exit.thread127
 
-.loopexit954:                                     ; preds = %.critedge.us33.i902, %101, %.split.i895
-  %114 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %115 = load ptr, ptr %114, align 8, !tbaa !26
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %117 = icmp eq ptr %115, null
-  br i1 %117, label %.loopexit951, label %.split.i907
+.loopexit960:                                     ; preds = %.critedge.us29.i914, %103, %.split.i907
+  %118 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %119 = load ptr, ptr %118, align 8, !tbaa !26
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %121 = icmp eq ptr %119, null
+  br i1 %121, label %.loopexit957, label %.split.i917
 
-.split.i907:                                      ; preds = %.loopexit954, %119
-  %.08.i = phi i64 [ %125, %119 ], [ 0, %.loopexit954 ]
-  %118 = load i64, ptr %115, align 8, !tbaa !27
-  %.not11.not.i = icmp slt i64 %.08.i, %118
-  br i1 %.not11.not.i, label %119, label %.loopexit951
+.split.i917:                                      ; preds = %.loopexit960, %124
+  %.08.i = phi i64 [ %130, %124 ], [ 0, %.loopexit960 ]
+  %122 = load i64, ptr %119, align 8, !tbaa !27
+  %123 = icmp slt i64 %.08.i, %122
+  br i1 %123, label %124, label %.loopexit957
 
-119:                                              ; preds = %.split.i907
-  %120 = getelementptr [1 x ptr], ptr %116, i64 0, i64 %.08.i
-  %121 = load ptr, ptr %120, align 8, !tbaa !44
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !46
-  %124 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %123, i32 noundef 1) #6
-  %.not.i908 = icmp eq i32 %124, 0
-  %125 = add nuw nsw i64 %.08.i, 1
-  br i1 %.not.i908, label %validate_stmt.exit.thread129, label %.split.i907, !llvm.loop !48
+124:                                              ; preds = %.split.i917
+  %125 = getelementptr [1 x ptr], ptr %120, i64 0, i64 %.08.i
+  %126 = load ptr, ptr %125, align 8, !tbaa !44
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8, !tbaa !46
+  %129 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %128, i32 noundef 1) #6
+  %.not.i919 = icmp eq i32 %129, 0
+  %130 = add nuw nsw i64 %.08.i, 1
+  br i1 %.not.i919, label %validate_stmt.exit.thread127, label %.split.i917, !llvm.loop !48
 
-.loopexit951:                                     ; preds = %.split.i907, %.loopexit954
-  %126 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %127 = load ptr, ptr %126, align 8, !tbaa !26
-  %128 = icmp eq ptr %127, null
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  br i1 %128, label %.sink.split, label %.split.i909
+.loopexit957:                                     ; preds = %.split.i917, %.loopexit960
+  %131 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %132 = load ptr, ptr %131, align 8, !tbaa !26
+  %133 = icmp eq ptr %132, null
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  br i1 %133, label %.sink.split, label %.split.i920
 
-.split.i909:                                      ; preds = %.loopexit951
-  %130 = load i64, ptr %127, align 8, !tbaa !27
-  %.not2026.i910 = icmp slt i64 %130, 1
-  br i1 %.not2026.i910, label %.sink.split, label %.lr.ph.split.us.i912
+.split.i920:                                      ; preds = %.loopexit957
+  %135 = load i64, ptr %132, align 8, !tbaa !27
+  %136 = icmp sgt i64 %135, 0
+  br i1 %136, label %.lr.ph.split.us.i923, label %.sink.split
 
-.lr.ph.split.us.i912:                             ; preds = %.split.i909, %.critedge.us33.i916
-  %.01527.us.i913 = phi i64 [ %135, %.critedge.us33.i916 ], [ 0, %.split.i909 ]
-  %131 = getelementptr [1 x ptr], ptr %129, i64 0, i64 %.01527.us.i913
-  %132 = load ptr, ptr %131, align 8, !tbaa !29
-  %.not.us31.i914 = icmp eq ptr %132, null
-  br i1 %.not.us31.i914, label %.split24.i919, label %133
+.lr.ph.split.us.i923:                             ; preds = %.split.i920, %.critedge.us29.i927
+  %.01524.us.i924 = phi i64 [ %141, %.critedge.us29.i927 ], [ 0, %.split.i920 ]
+  %137 = getelementptr [1 x ptr], ptr %134, i64 0, i64 %.01524.us.i924
+  %138 = load ptr, ptr %137, align 8, !tbaa !29
+  %.not.us27.i925 = icmp eq ptr %138, null
+  br i1 %.not.us27.i925, label %.split22.i928, label %139
 
-133:                                              ; preds = %.lr.ph.split.us.i912
-  %134 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %132, i32 noundef 1) #6
-  %.not19.us32.i915 = icmp eq i32 %134, 0
-  br i1 %.not19.us32.i915, label %validate_stmt.exit.thread947, label %.critedge.us33.i916
+139:                                              ; preds = %.lr.ph.split.us.i923
+  %140 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %138, i32 noundef 1) #6
+  %.not19.us28.i926 = icmp eq i32 %140, 0
+  br i1 %.not19.us28.i926, label %validate_stmt.exit.thread953, label %.critedge.us29.i927
 
-.critedge.us33.i916:                              ; preds = %133
-  %135 = add nuw nsw i64 %.01527.us.i913, 1
-  %136 = load i64, ptr %127, align 8, !tbaa !27
-  %.not20.us34.not.i917 = icmp slt i64 %135, %136
-  br i1 %.not20.us34.not.i917, label %.lr.ph.split.us.i912, label %.sink.split, !llvm.loop !31
+.critedge.us29.i927:                              ; preds = %139
+  %141 = add nuw nsw i64 %.01524.us.i924, 1
+  %142 = load i64, ptr %132, align 8, !tbaa !27
+  %143 = icmp slt i64 %141, %142
+  br i1 %143, label %.lr.ph.split.us.i923, label %.sink.split, !llvm.loop !31
 
-.split24.i919:                                    ; preds = %.lr.ph.split.us.i912
-  %137 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %137, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread947
+.split22.i928:                                    ; preds = %.lr.ph.split.us.i923
+  %144 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %144, ptr noundef nonnull @.str.73) #5
+  br label %validate_stmt.exit.thread953
 
-138:                                              ; preds = %50
-  %139 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !26
-  %.not414.i = icmp eq ptr %140, null
-  br i1 %.not414.i, label %.sink.split, label %141
+145:                                              ; preds = %50
+  %146 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %147 = load ptr, ptr %146, align 8, !tbaa !26
+  %.not414.i = icmp eq ptr %147, null
+  br i1 %.not414.i, label %.sink.split, label %148
 
-141:                                              ; preds = %138
-  %142 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %140, i32 noundef 1)
+148:                                              ; preds = %145
+  %149 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %147, i32 noundef 1)
   br label %validate_stmt.exit
 
-143:                                              ; preds = %50
-  %144 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %145 = load ptr, ptr %144, align 8, !tbaa !26
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %_validate_nonempty_seq.exit.thread.i72, label %147
+150:                                              ; preds = %50
+  %151 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !26
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %_validate_nonempty_seq.exit.thread.i70, label %154
 
-147:                                              ; preds = %143
-  %148 = load i64, ptr %145, align 8, !tbaa !42
-  %149 = icmp eq i64 %148, 0
-  br i1 %149, label %_validate_nonempty_seq.exit.thread.i72, label %.split.i.i63
+154:                                              ; preds = %150
+  %155 = load i64, ptr %152, align 8, !tbaa !42
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %_validate_nonempty_seq.exit.thread.i70, label %.split.i.i63
 
-_validate_nonempty_seq.exit.thread.i72:           ; preds = %147, %143
-  %150 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %151 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %150, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #5
-  br label %validate_stmt.exit.thread129
+_validate_nonempty_seq.exit.thread.i70:           ; preds = %154, %150
+  %157 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %158 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %157, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #5
+  br label %validate_stmt.exit.thread127
 
-.split.i.i63:                                     ; preds = %147
-  %152 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  %.not2026.i.i64 = icmp slt i64 %148, 1
-  br i1 %.not2026.i.i64, label %.sink.split, label %.lr.ph.split.us.i.i65
+.split.i.i63:                                     ; preds = %154
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  %160 = icmp sgt i64 %155, 0
+  br i1 %160, label %.lr.ph.split.us.i.i64, label %.sink.split
 
-.lr.ph.split.us.i.i65:                            ; preds = %.split.i.i63, %.critedge.us33.i.i69
-  %.01527.us.i.i66 = phi i64 [ %157, %.critedge.us33.i.i69 ], [ 0, %.split.i.i63 ]
-  %153 = getelementptr [1 x ptr], ptr %152, i64 0, i64 %.01527.us.i.i66
-  %154 = load ptr, ptr %153, align 8, !tbaa !29
-  %.not.us31.i.i67 = icmp eq ptr %154, null
-  br i1 %.not.us31.i.i67, label %.split24.i.i71, label %155
+.lr.ph.split.us.i.i64:                            ; preds = %.split.i.i63, %.critedge.us29.i.i68
+  %.01524.us.i.i65 = phi i64 [ %165, %.critedge.us29.i.i68 ], [ 0, %.split.i.i63 ]
+  %161 = getelementptr [1 x ptr], ptr %159, i64 0, i64 %.01524.us.i.i65
+  %162 = load ptr, ptr %161, align 8, !tbaa !29
+  %.not.us27.i.i66 = icmp eq ptr %162, null
+  br i1 %.not.us27.i.i66, label %.split22.i.i69, label %163
 
-155:                                              ; preds = %.lr.ph.split.us.i.i65
-  %156 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %154, i32 noundef range(i32 1, 4) 3) #6
-  %.not19.us32.i.i68 = icmp eq i32 %156, 0
-  br i1 %.not19.us32.i.i68, label %validate_stmt.exit.thread129, label %.critedge.us33.i.i69
+163:                                              ; preds = %.lr.ph.split.us.i.i64
+  %164 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %162, i32 noundef range(i32 1, 4) 3) #6
+  %.not19.us28.i.i67 = icmp eq i32 %164, 0
+  br i1 %.not19.us28.i.i67, label %validate_stmt.exit.thread127, label %.critedge.us29.i.i68
 
-.critedge.us33.i.i69:                             ; preds = %155
-  %157 = add nuw nsw i64 %.01527.us.i.i66, 1
-  %158 = load i64, ptr %145, align 8, !tbaa !27
-  %.not20.us34.not.i.i70 = icmp slt i64 %157, %158
-  br i1 %.not20.us34.not.i.i70, label %.lr.ph.split.us.i.i65, label %.sink.split, !llvm.loop !31
+.critedge.us29.i.i68:                             ; preds = %163
+  %165 = add nuw nsw i64 %.01524.us.i.i65, 1
+  %166 = load i64, ptr %152, align 8, !tbaa !27
+  %167 = icmp slt i64 %165, %166
+  br i1 %167, label %.lr.ph.split.us.i.i64, label %.sink.split, !llvm.loop !31
 
-.split24.i.i71:                                   ; preds = %.lr.ph.split.us.i.i65
-  %159 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %159, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread129
+.split22.i.i69:                                   ; preds = %.lr.ph.split.us.i.i64
+  %168 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %168, ptr noundef nonnull @.str.73) #5
+  br label %validate_stmt.exit.thread127
 
-160:                                              ; preds = %50
-  %161 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !26
-  %163 = icmp eq ptr %162, null
-  br i1 %163, label %_validate_nonempty_seq.exit.thread.i, label %164
+169:                                              ; preds = %50
+  %170 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %171 = load ptr, ptr %170, align 8, !tbaa !26
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %_validate_nonempty_seq.exit.thread.i, label %173
 
-164:                                              ; preds = %160
-  %165 = load i64, ptr %162, align 8, !tbaa !42
-  %166 = icmp eq i64 %165, 0
-  br i1 %166, label %_validate_nonempty_seq.exit.thread.i, label %.split.i.i
+173:                                              ; preds = %169
+  %174 = load i64, ptr %171, align 8, !tbaa !42
+  %175 = icmp eq i64 %174, 0
+  br i1 %175, label %_validate_nonempty_seq.exit.thread.i, label %.split.i.i
 
-_validate_nonempty_seq.exit.thread.i:             ; preds = %164, %160
-  %167 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %168 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %167, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.46) #5
-  br label %validate_stmt.exit.thread129
-
-.split.i.i:                                       ; preds = %164
-  %169 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %.not2026.i.i = icmp slt i64 %165, 1
-  br i1 %.not2026.i.i, label %validate_assignlist.exit, label %.lr.ph.split.us.i.i
-
-.lr.ph.split.us.i.i:                              ; preds = %.split.i.i, %.critedge.us33.i.i
-  %.01527.us.i.i = phi i64 [ %174, %.critedge.us33.i.i ], [ 0, %.split.i.i ]
-  %170 = getelementptr [1 x ptr], ptr %169, i64 0, i64 %.01527.us.i.i
-  %171 = load ptr, ptr %170, align 8, !tbaa !29
-  %.not.us31.i.i = icmp eq ptr %171, null
-  br i1 %.not.us31.i.i, label %.split24.i.i, label %172
-
-172:                                              ; preds = %.lr.ph.split.us.i.i
-  %173 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %171, i32 noundef range(i32 1, 4) 2) #6
-  %.not19.us32.i.i = icmp eq i32 %173, 0
-  br i1 %.not19.us32.i.i, label %validate_stmt.exit.thread129, label %.critedge.us33.i.i
-
-.critedge.us33.i.i:                               ; preds = %172
-  %174 = add nuw nsw i64 %.01527.us.i.i, 1
-  %175 = load i64, ptr %162, align 8, !tbaa !27
-  %.not20.us34.not.i.i = icmp slt i64 %174, %175
-  br i1 %.not20.us34.not.i.i, label %.lr.ph.split.us.i.i, label %validate_assignlist.exit, !llvm.loop !31
-
-.split24.i.i:                                     ; preds = %.lr.ph.split.us.i.i
+_validate_nonempty_seq.exit.thread.i:             ; preds = %173, %169
   %176 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %176, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread129
+  %177 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %176, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.46) #5
+  br label %validate_stmt.exit.thread127
 
-validate_assignlist.exit:                         ; preds = %.critedge.us33.i.i, %.split.i.i
-  %177 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %178 = load ptr, ptr %177, align 8, !tbaa !26
-  %179 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %178, i32 noundef 1)
+.split.i.i:                                       ; preds = %173
+  %178 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %179 = icmp sgt i64 %174, 0
+  br i1 %179, label %.lr.ph.split.us.i.i, label %validate_assignlist.exit
+
+.lr.ph.split.us.i.i:                              ; preds = %.split.i.i, %.critedge.us29.i.i
+  %.01524.us.i.i = phi i64 [ %184, %.critedge.us29.i.i ], [ 0, %.split.i.i ]
+  %180 = getelementptr [1 x ptr], ptr %178, i64 0, i64 %.01524.us.i.i
+  %181 = load ptr, ptr %180, align 8, !tbaa !29
+  %.not.us27.i.i = icmp eq ptr %181, null
+  br i1 %.not.us27.i.i, label %.split22.i.i, label %182
+
+182:                                              ; preds = %.lr.ph.split.us.i.i
+  %183 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %181, i32 noundef range(i32 1, 4) 2) #6
+  %.not19.us28.i.i = icmp eq i32 %183, 0
+  br i1 %.not19.us28.i.i, label %validate_stmt.exit.thread127, label %.critedge.us29.i.i
+
+.critedge.us29.i.i:                               ; preds = %182
+  %184 = add nuw nsw i64 %.01524.us.i.i, 1
+  %185 = load i64, ptr %171, align 8, !tbaa !27
+  %186 = icmp slt i64 %184, %185
+  br i1 %186, label %.lr.ph.split.us.i.i, label %validate_assignlist.exit, !llvm.loop !31
+
+.split22.i.i:                                     ; preds = %.lr.ph.split.us.i.i
+  %187 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %187, ptr noundef nonnull @.str.73) #5
+  br label %validate_stmt.exit.thread127
+
+validate_assignlist.exit:                         ; preds = %.critedge.us29.i.i, %.split.i.i
+  %188 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %189 = load ptr, ptr %188, align 8, !tbaa !26
+  %190 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %189, i32 noundef 1)
   br label %validate_stmt.exit
 
-180:                                              ; preds = %50
-  %181 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !26
-  %183 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %182, i32 noundef 2)
-  %.not412.i = icmp eq i32 %183, 0
-  br i1 %.not412.i, label %validate_stmt.exit.thread129, label %184
+191:                                              ; preds = %50
+  %192 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %193 = load ptr, ptr %192, align 8, !tbaa !26
+  %194 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %193, i32 noundef 2)
+  %.not412.i = icmp eq i32 %194, 0
+  br i1 %.not412.i, label %validate_stmt.exit.thread127, label %195
 
-184:                                              ; preds = %180
-  %185 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %186 = load ptr, ptr %185, align 8, !tbaa !26
-  %187 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %186, i32 noundef 1)
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %197 = load ptr, ptr %196, align 8, !tbaa !26
+  %198 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %197, i32 noundef 1)
   br label %validate_stmt.exit
 
-188:                                              ; preds = %50
-  %189 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %190 = load ptr, ptr %189, align 8, !tbaa !26
-  %191 = load i32, ptr %190, align 8, !tbaa !49
-  %.not407.i = icmp eq i32 %191, 24
-  br i1 %.not407.i, label %197, label %192
-
-192:                                              ; preds = %188
-  %193 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %194 = load i32, ptr %193, align 8, !tbaa !26
-  %.not408.i = icmp eq i32 %194, 0
-  br i1 %.not408.i, label %197, label %195
-
-195:                                              ; preds = %192
-  %196 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %196, ptr noundef nonnull @.str.9) #5
-  br label %validate_stmt.exit.thread
-
-197:                                              ; preds = %192, %188
-  %198 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %190, i32 noundef 2)
-  %.not409.i = icmp eq i32 %198, 0
-  br i1 %.not409.i, label %validate_stmt.exit.thread129, label %199
-
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds nuw i8, ptr %13, i64 24
+199:                                              ; preds = %50
+  %200 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %201 = load ptr, ptr %200, align 8, !tbaa !26
-  %.not410.i = icmp eq ptr %201, null
-  br i1 %.not410.i, label %204, label %202
+  %202 = load i32, ptr %201, align 8, !tbaa !49
+  %.not407.i = icmp eq i32 %202, 24
+  br i1 %.not407.i, label %208, label %203
 
-202:                                              ; preds = %199
-  %203 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %201, i32 noundef 1)
-  %.not411.i = icmp eq i32 %203, 0
-  br i1 %.not411.i, label %validate_stmt.exit.thread129, label %204
+203:                                              ; preds = %199
+  %204 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %205 = load i32, ptr %204, align 8, !tbaa !26
+  %.not408.i = icmp eq i32 %205, 0
+  br i1 %.not408.i, label %208, label %206
 
-204:                                              ; preds = %202, %199
-  %205 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %206 = load ptr, ptr %205, align 8, !tbaa !26
-  %207 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %206, i32 noundef 1)
-  br label %validate_stmt.exit
-
-208:                                              ; preds = %50
-  %209 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %210 = load ptr, ptr %209, align 8, !tbaa !26
-  %211 = load i32, ptr %210, align 8, !tbaa !49
-  %.not404.i = icmp eq i32 %211, 24
-  br i1 %.not404.i, label %214, label %212
-
-212:                                              ; preds = %208
-  %213 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %213, ptr noundef nonnull @.str.10) #5
+206:                                              ; preds = %203
+  %207 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %207, ptr noundef nonnull @.str.9) #5
   br label %validate_stmt.exit.thread
 
-214:                                              ; preds = %208
-  %215 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %210, i32 noundef 2)
-  %.not405.i = icmp eq i32 %215, 0
-  br i1 %.not405.i, label %validate_stmt.exit.thread129, label %216
+208:                                              ; preds = %203, %199
+  %209 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %201, i32 noundef 2)
+  %.not409.i = icmp eq i32 %209, 0
+  br i1 %.not409.i, label %validate_stmt.exit.thread127, label %210
 
-216:                                              ; preds = %214
-  %217 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %218 = load ptr, ptr %217, align 8, !tbaa !26
-  %219 = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %0, ptr noundef %218)
-  %.not406.i = icmp eq i32 %219, 0
-  br i1 %.not406.i, label %validate_stmt.exit.thread129, label %220
+210:                                              ; preds = %208
+  %211 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %212 = load ptr, ptr %211, align 8, !tbaa !26
+  %.not410.i = icmp eq ptr %212, null
+  br i1 %.not410.i, label %215, label %213
 
-220:                                              ; preds = %216
-  %221 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %222 = load ptr, ptr %221, align 8, !tbaa !26
-  %223 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %222, i32 noundef 1)
+213:                                              ; preds = %210
+  %214 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %212, i32 noundef 1)
+  %.not411.i = icmp eq i32 %214, 0
+  br i1 %.not411.i, label %validate_stmt.exit.thread127, label %215
+
+215:                                              ; preds = %213, %210
+  %216 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %217 = load ptr, ptr %216, align 8, !tbaa !26
+  %218 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %217, i32 noundef 1)
   br label %validate_stmt.exit
 
-224:                                              ; preds = %50
-  %225 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %226 = load ptr, ptr %225, align 8, !tbaa !26
-  %227 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %226, i32 noundef 2)
-  %.not401.i = icmp eq i32 %227, 0
-  br i1 %.not401.i, label %validate_stmt.exit.thread129, label %228
+219:                                              ; preds = %50
+  %220 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %221 = load ptr, ptr %220, align 8, !tbaa !26
+  %222 = load i32, ptr %221, align 8, !tbaa !49
+  %.not404.i = icmp eq i32 %222, 24
+  br i1 %.not404.i, label %225, label %223
 
-228:                                              ; preds = %224
-  %229 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %230 = load ptr, ptr %229, align 8, !tbaa !26
-  %231 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %230, i32 noundef 1)
-  %.not402.i = icmp eq i32 %231, 0
-  br i1 %.not402.i, label %validate_stmt.exit.thread129, label %232
-
-232:                                              ; preds = %228
-  %233 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %234 = load ptr, ptr %233, align 8, !tbaa !26
-  %235 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %234, ptr noundef nonnull @.str.11)
-  %.not403.i = icmp eq i32 %235, 0
-  br i1 %.not403.i, label %validate_stmt.exit.thread129, label %236
-
-236:                                              ; preds = %232
-  %237 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %238 = load ptr, ptr %237, align 8, !tbaa !26
-  %239 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef %238)
-  br label %validate_stmt.exit
-
-240:                                              ; preds = %50
-  %241 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %242 = load ptr, ptr %241, align 8, !tbaa !26
-  %243 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %242, i32 noundef 2)
-  %.not398.i = icmp eq i32 %243, 0
-  br i1 %.not398.i, label %validate_stmt.exit.thread129, label %244
-
-244:                                              ; preds = %240
-  %245 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %246 = load ptr, ptr %245, align 8, !tbaa !26
-  %247 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %246, i32 noundef 1)
-  %.not399.i = icmp eq i32 %247, 0
-  br i1 %.not399.i, label %validate_stmt.exit.thread129, label %248
-
-248:                                              ; preds = %244
-  %249 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %250 = load ptr, ptr %249, align 8, !tbaa !26
-  %251 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %250, ptr noundef nonnull @.str.12)
-  %.not400.i = icmp eq i32 %251, 0
-  br i1 %.not400.i, label %validate_stmt.exit.thread129, label %252
-
-252:                                              ; preds = %248
-  %253 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %254 = load ptr, ptr %253, align 8, !tbaa !26
-  %255 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef %254)
-  br label %validate_stmt.exit
-
-256:                                              ; preds = %50
-  %257 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %258 = load ptr, ptr %257, align 8, !tbaa !26
-  %259 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %258, i32 noundef 1)
-  %.not396.i = icmp eq i32 %259, 0
-  br i1 %.not396.i, label %validate_stmt.exit.thread129, label %260
-
-260:                                              ; preds = %256
-  %261 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %262 = load ptr, ptr %261, align 8, !tbaa !26
-  %263 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %262, ptr noundef nonnull @.str.13)
-  %.not397.i = icmp eq i32 %263, 0
-  br i1 %.not397.i, label %validate_stmt.exit.thread129, label %264
-
-264:                                              ; preds = %260
-  %265 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %266 = load ptr, ptr %265, align 8, !tbaa !26
-  %267 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef %266)
-  br label %validate_stmt.exit
-
-268:                                              ; preds = %50
-  %269 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %270 = load ptr, ptr %269, align 8, !tbaa !26
-  %271 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %270, i32 noundef 1)
-  %.not394.i = icmp eq i32 %271, 0
-  br i1 %.not394.i, label %validate_stmt.exit.thread129, label %272
-
-272:                                              ; preds = %268
-  %273 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %274 = load ptr, ptr %273, align 8, !tbaa !26
-  %275 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %274, ptr noundef nonnull @.str.14)
-  %.not395.i = icmp eq i32 %275, 0
-  br i1 %.not395.i, label %validate_stmt.exit.thread129, label %276
-
-276:                                              ; preds = %272
-  %277 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %278 = load ptr, ptr %277, align 8, !tbaa !26
-  %279 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef %278)
-  br label %validate_stmt.exit
-
-280:                                              ; preds = %50
-  %281 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %282 = load ptr, ptr %281, align 8, !tbaa !26
-  %283 = icmp eq ptr %282, null
-  br i1 %283, label %_validate_nonempty_seq.exit62.thread, label %284
-
-284:                                              ; preds = %280
-  %285 = load i64, ptr %282, align 8, !tbaa !42
-  %286 = icmp eq i64 %285, 0
-  br i1 %286, label %_validate_nonempty_seq.exit62.thread, label %_validate_nonempty_seq.exit62
-
-_validate_nonempty_seq.exit62.thread:             ; preds = %280, %284
-  %287 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %288 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %287, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #5
+223:                                              ; preds = %219
+  %224 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %224, ptr noundef nonnull @.str.10) #5
   br label %validate_stmt.exit.thread
 
-_validate_nonempty_seq.exit62:                    ; preds = %284, %.critedge.i
-  %289 = phi ptr [ %.pre637, %.critedge.i ], [ %282, %284 ]
-  %.0292.i = phi i64 [ %306, %.critedge.i ], [ 0, %284 ]
-  %290 = icmp eq ptr %289, null
-  br i1 %290, label %293, label %291
+225:                                              ; preds = %219
+  %226 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %221, i32 noundef 2)
+  %.not405.i = icmp eq i32 %226, 0
+  br i1 %.not405.i, label %validate_stmt.exit.thread127, label %227
 
-291:                                              ; preds = %_validate_nonempty_seq.exit62
-  %292 = load i64, ptr %289, align 8, !tbaa !27
-  br label %293
+227:                                              ; preds = %225
+  %228 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %229 = load ptr, ptr %228, align 8, !tbaa !26
+  %230 = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %0, ptr noundef %229)
+  %.not406.i = icmp eq i32 %230, 0
+  br i1 %.not406.i, label %validate_stmt.exit.thread127, label %231
 
-293:                                              ; preds = %291, %_validate_nonempty_seq.exit62
-  %294 = phi i64 [ %292, %291 ], [ 0, %_validate_nonempty_seq.exit62 ]
-  %.not393.i = icmp slt i64 %.0292.i, %294
-  br i1 %.not393.i, label %295, label %.critedge425.i
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %233 = load ptr, ptr %232, align 8, !tbaa !26
+  %234 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %233, i32 noundef 1)
+  br label %validate_stmt.exit
 
-295:                                              ; preds = %293
-  %296 = getelementptr inbounds nuw i8, ptr %289, i64 16
-  %297 = getelementptr [1 x ptr], ptr %296, i64 0, i64 %.0292.i
-  %298 = load ptr, ptr %297, align 8, !tbaa !51
-  %299 = load ptr, ptr %298, align 8, !tbaa !53
-  %300 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %299, i32 noundef 1)
-  %.not390.i = icmp eq i32 %300, 0
-  br i1 %.not390.i, label %validate_stmt.exit.thread, label %301
+235:                                              ; preds = %50
+  %236 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %237 = load ptr, ptr %236, align 8, !tbaa !26
+  %238 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %237, i32 noundef 2)
+  %.not401.i = icmp eq i32 %238, 0
+  br i1 %.not401.i, label %validate_stmt.exit.thread127, label %239
 
-301:                                              ; preds = %295
-  %302 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %303 = load ptr, ptr %302, align 8, !tbaa !55
-  %.not391.i = icmp eq ptr %303, null
-  br i1 %.not391.i, label %.critedge.i, label %304
+239:                                              ; preds = %235
+  %240 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %241 = load ptr, ptr %240, align 8, !tbaa !26
+  %242 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %241, i32 noundef 1)
+  %.not402.i = icmp eq i32 %242, 0
+  br i1 %.not402.i, label %validate_stmt.exit.thread127, label %243
 
-304:                                              ; preds = %301
-  %305 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %303, i32 noundef 2)
-  %.not392.i = icmp eq i32 %305, 0
+243:                                              ; preds = %239
+  %244 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %245 = load ptr, ptr %244, align 8, !tbaa !26
+  %246 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %245, ptr noundef nonnull @.str.11)
+  %.not403.i = icmp eq i32 %246, 0
+  br i1 %.not403.i, label %validate_stmt.exit.thread127, label %247
+
+247:                                              ; preds = %243
+  %248 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %249 = load ptr, ptr %248, align 8, !tbaa !26
+  %250 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef %249)
+  br label %validate_stmt.exit
+
+251:                                              ; preds = %50
+  %252 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %253 = load ptr, ptr %252, align 8, !tbaa !26
+  %254 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %253, i32 noundef 2)
+  %.not398.i = icmp eq i32 %254, 0
+  br i1 %.not398.i, label %validate_stmt.exit.thread127, label %255
+
+255:                                              ; preds = %251
+  %256 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %257 = load ptr, ptr %256, align 8, !tbaa !26
+  %258 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %257, i32 noundef 1)
+  %.not399.i = icmp eq i32 %258, 0
+  br i1 %.not399.i, label %validate_stmt.exit.thread127, label %259
+
+259:                                              ; preds = %255
+  %260 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %261 = load ptr, ptr %260, align 8, !tbaa !26
+  %262 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %261, ptr noundef nonnull @.str.12)
+  %.not400.i = icmp eq i32 %262, 0
+  br i1 %.not400.i, label %validate_stmt.exit.thread127, label %263
+
+263:                                              ; preds = %259
+  %264 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %265 = load ptr, ptr %264, align 8, !tbaa !26
+  %266 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef %265)
+  br label %validate_stmt.exit
+
+267:                                              ; preds = %50
+  %268 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %269 = load ptr, ptr %268, align 8, !tbaa !26
+  %270 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %269, i32 noundef 1)
+  %.not396.i = icmp eq i32 %270, 0
+  br i1 %.not396.i, label %validate_stmt.exit.thread127, label %271
+
+271:                                              ; preds = %267
+  %272 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %273 = load ptr, ptr %272, align 8, !tbaa !26
+  %274 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %273, ptr noundef nonnull @.str.13)
+  %.not397.i = icmp eq i32 %274, 0
+  br i1 %.not397.i, label %validate_stmt.exit.thread127, label %275
+
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %277 = load ptr, ptr %276, align 8, !tbaa !26
+  %278 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef %277)
+  br label %validate_stmt.exit
+
+279:                                              ; preds = %50
+  %280 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %281 = load ptr, ptr %280, align 8, !tbaa !26
+  %282 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %281, i32 noundef 1)
+  %.not394.i = icmp eq i32 %282, 0
+  br i1 %.not394.i, label %validate_stmt.exit.thread127, label %283
+
+283:                                              ; preds = %279
+  %284 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %285 = load ptr, ptr %284, align 8, !tbaa !26
+  %286 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %285, ptr noundef nonnull @.str.14)
+  %.not395.i = icmp eq i32 %286, 0
+  br i1 %.not395.i, label %validate_stmt.exit.thread127, label %287
+
+287:                                              ; preds = %283
+  %288 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %289 = load ptr, ptr %288, align 8, !tbaa !26
+  %290 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef %289)
+  br label %validate_stmt.exit
+
+291:                                              ; preds = %50
+  %292 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %293 = load ptr, ptr %292, align 8, !tbaa !26
+  %294 = icmp eq ptr %293, null
+  br i1 %294, label %_validate_nonempty_seq.exit62.thread, label %295
+
+295:                                              ; preds = %291
+  %296 = load i64, ptr %293, align 8, !tbaa !42
+  %297 = icmp eq i64 %296, 0
+  br i1 %297, label %_validate_nonempty_seq.exit62.thread, label %.lr.ph397
+
+_validate_nonempty_seq.exit62.thread:             ; preds = %291, %295
+  %298 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %299 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %298, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #5
+  br label %validate_stmt.exit.thread
+
+.lr.ph397:                                        ; preds = %295, %.critedge.i
+  %300 = phi ptr [ %315, %.critedge.i ], [ %293, %295 ]
+  %.0292.i396 = phi i64 [ %314, %.critedge.i ], [ 0, %295 ]
+  %301 = load i64, ptr %300, align 8, !tbaa !27
+  %302 = icmp slt i64 %.0292.i396, %301
+  br i1 %302, label %303, label %.critedge425.i
+
+303:                                              ; preds = %.lr.ph397
+  %304 = getelementptr inbounds nuw i8, ptr %300, i64 16
+  %305 = getelementptr [1 x ptr], ptr %304, i64 0, i64 %.0292.i396
+  %306 = load ptr, ptr %305, align 8, !tbaa !51
+  %307 = load ptr, ptr %306, align 8, !tbaa !53
+  %308 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %307, i32 noundef 1)
+  %.not390.i = icmp eq i32 %308, 0
+  br i1 %.not390.i, label %validate_stmt.exit.thread, label %309
+
+309:                                              ; preds = %303
+  %310 = getelementptr inbounds nuw i8, ptr %306, i64 8
+  %311 = load ptr, ptr %310, align 8, !tbaa !55
+  %.not391.i = icmp eq ptr %311, null
+  br i1 %.not391.i, label %.critedge.i, label %312
+
+312:                                              ; preds = %309
+  %313 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %311, i32 noundef 2)
+  %.not392.i = icmp eq i32 %313, 0
   br i1 %.not392.i, label %validate_stmt.exit.thread, label %.critedge.i
 
-.critedge.i:                                      ; preds = %304, %301
-  %306 = add nuw nsw i64 %.0292.i, 1
-  %.pre637 = load ptr, ptr %281, align 8, !tbaa !26
-  br label %_validate_nonempty_seq.exit62, !llvm.loop !56
+.critedge.i:                                      ; preds = %312, %309
+  %314 = add nuw nsw i64 %.0292.i396, 1
+  %315 = load ptr, ptr %292, align 8, !tbaa !26
+  %316 = icmp eq ptr %315, null
+  br i1 %316, label %.critedge425.i, label %.lr.ph397, !llvm.loop !56
 
-.critedge425.i:                                   ; preds = %293
-  %307 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %308 = load ptr, ptr %307, align 8, !tbaa !26
-  %309 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %308, ptr noundef nonnull @.str.16)
+.critedge425.i:                                   ; preds = %.lr.ph397, %.critedge.i
+  %317 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %318 = load ptr, ptr %317, align 8, !tbaa !26
+  %319 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %318, ptr noundef nonnull @.str.16)
   br label %validate_stmt.exit
 
-310:                                              ; preds = %50
-  %311 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %312 = load ptr, ptr %311, align 8, !tbaa !26
-  %313 = icmp eq ptr %312, null
-  br i1 %313, label %_validate_nonempty_seq.exit59.thread, label %314
+320:                                              ; preds = %50
+  %321 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %322 = load ptr, ptr %321, align 8, !tbaa !26
+  %323 = icmp eq ptr %322, null
+  br i1 %323, label %_validate_nonempty_seq.exit59.thread, label %324
 
-314:                                              ; preds = %310
-  %315 = load i64, ptr %312, align 8, !tbaa !42
-  %316 = icmp eq i64 %315, 0
-  br i1 %316, label %_validate_nonempty_seq.exit59.thread, label %_validate_nonempty_seq.exit59
+324:                                              ; preds = %320
+  %325 = load i64, ptr %322, align 8, !tbaa !42
+  %326 = icmp eq i64 %325, 0
+  br i1 %326, label %_validate_nonempty_seq.exit59.thread, label %.lr.ph395
 
-_validate_nonempty_seq.exit59.thread:             ; preds = %310, %314
-  %317 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %318 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %317, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17) #5
+_validate_nonempty_seq.exit59.thread:             ; preds = %320, %324
+  %327 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %328 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %327, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17) #5
   br label %validate_stmt.exit.thread
 
-_validate_nonempty_seq.exit59:                    ; preds = %314, %.critedge427.i
-  %319 = phi ptr [ %.pre636, %.critedge427.i ], [ %312, %314 ]
-  %.0293.i = phi i64 [ %336, %.critedge427.i ], [ 0, %314 ]
-  %320 = icmp eq ptr %319, null
-  br i1 %320, label %323, label %321
+.lr.ph395:                                        ; preds = %324, %.critedge427.i
+  %329 = phi ptr [ %344, %.critedge427.i ], [ %322, %324 ]
+  %.0293.i394 = phi i64 [ %343, %.critedge427.i ], [ 0, %324 ]
+  %330 = load i64, ptr %329, align 8, !tbaa !27
+  %331 = icmp slt i64 %.0293.i394, %330
+  br i1 %331, label %332, label %.critedge429.i
 
-321:                                              ; preds = %_validate_nonempty_seq.exit59
-  %322 = load i64, ptr %319, align 8, !tbaa !27
-  br label %323
+332:                                              ; preds = %.lr.ph395
+  %333 = getelementptr inbounds nuw i8, ptr %329, i64 16
+  %334 = getelementptr [1 x ptr], ptr %333, i64 0, i64 %.0293.i394
+  %335 = load ptr, ptr %334, align 8, !tbaa !51
+  %336 = load ptr, ptr %335, align 8, !tbaa !53
+  %337 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %336, i32 noundef 1)
+  %.not385.i = icmp eq i32 %337, 0
+  br i1 %.not385.i, label %validate_stmt.exit.thread, label %338
 
-323:                                              ; preds = %321, %_validate_nonempty_seq.exit59
-  %324 = phi i64 [ %322, %321 ], [ 0, %_validate_nonempty_seq.exit59 ]
-  %.not388.i = icmp slt i64 %.0293.i, %324
-  br i1 %.not388.i, label %325, label %.critedge429.i
+338:                                              ; preds = %332
+  %339 = getelementptr inbounds nuw i8, ptr %335, i64 8
+  %340 = load ptr, ptr %339, align 8, !tbaa !55
+  %.not386.i = icmp eq ptr %340, null
+  br i1 %.not386.i, label %.critedge427.i, label %341
 
-325:                                              ; preds = %323
-  %326 = getelementptr inbounds nuw i8, ptr %319, i64 16
-  %327 = getelementptr [1 x ptr], ptr %326, i64 0, i64 %.0293.i
-  %328 = load ptr, ptr %327, align 8, !tbaa !51
-  %329 = load ptr, ptr %328, align 8, !tbaa !53
-  %330 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %329, i32 noundef 1)
-  %.not385.i = icmp eq i32 %330, 0
-  br i1 %.not385.i, label %validate_stmt.exit.thread, label %331
-
-331:                                              ; preds = %325
-  %332 = getelementptr inbounds nuw i8, ptr %328, i64 8
-  %333 = load ptr, ptr %332, align 8, !tbaa !55
-  %.not386.i = icmp eq ptr %333, null
-  br i1 %.not386.i, label %.critedge427.i, label %334
-
-334:                                              ; preds = %331
-  %335 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %333, i32 noundef 2)
-  %.not387.i = icmp eq i32 %335, 0
+341:                                              ; preds = %338
+  %342 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %340, i32 noundef 2)
+  %.not387.i = icmp eq i32 %342, 0
   br i1 %.not387.i, label %validate_stmt.exit.thread, label %.critedge427.i
 
-.critedge427.i:                                   ; preds = %334, %331
-  %336 = add nuw nsw i64 %.0293.i, 1
-  %.pre636 = load ptr, ptr %311, align 8, !tbaa !26
-  br label %_validate_nonempty_seq.exit59, !llvm.loop !57
+.critedge427.i:                                   ; preds = %341, %338
+  %343 = add nuw nsw i64 %.0293.i394, 1
+  %344 = load ptr, ptr %321, align 8, !tbaa !26
+  %345 = icmp eq ptr %344, null
+  br i1 %345, label %.critedge429.i, label %.lr.ph395, !llvm.loop !57
 
-.critedge429.i:                                   ; preds = %323
-  %337 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %338 = load ptr, ptr %337, align 8, !tbaa !26
-  %339 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %338, ptr noundef nonnull @.str.17)
+.critedge429.i:                                   ; preds = %.lr.ph395, %.critedge427.i
+  %346 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %347 = load ptr, ptr %346, align 8, !tbaa !26
+  %348 = tail call fastcc i32 @validate_body(ptr noundef nonnull %0, ptr noundef %347, ptr noundef nonnull @.str.17)
   br label %validate_stmt.exit
 
-340:                                              ; preds = %50
-  %341 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %342 = load ptr, ptr %341, align 8, !tbaa !26
-  %343 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %342, i32 noundef 1)
-  %.not377.i = icmp eq i32 %343, 0
-  br i1 %.not377.i, label %validate_stmt.exit.thread.loopexit390.loopexit, label %344
+349:                                              ; preds = %50
+  %350 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %351 = load ptr, ptr %350, align 8, !tbaa !26
+  %352 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %351, i32 noundef 1)
+  %.not377.i = icmp eq i32 %352, 0
+  br i1 %.not377.i, label %validate_stmt.exit.thread.loopexit404.loopexit, label %353
 
-344:                                              ; preds = %340
-  %345 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %346 = load ptr, ptr %345, align 8, !tbaa !26
-  %347 = icmp eq ptr %346, null
-  br i1 %347, label %_validate_nonempty_seq.exit56.thread, label %348
+353:                                              ; preds = %349
+  %354 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %355 = load ptr, ptr %354, align 8, !tbaa !26
+  %356 = icmp eq ptr %355, null
+  br i1 %356, label %_validate_nonempty_seq.exit56.thread, label %357
 
-348:                                              ; preds = %344
-  %349 = load i64, ptr %346, align 8, !tbaa !42
-  %350 = icmp eq i64 %349, 0
-  br i1 %350, label %_validate_nonempty_seq.exit56.thread, label %_validate_nonempty_seq.exit56
+357:                                              ; preds = %353
+  %358 = load i64, ptr %355, align 8, !tbaa !42
+  %359 = icmp eq i64 %358, 0
+  br i1 %359, label %_validate_nonempty_seq.exit56.thread, label %.lr.ph393
 
-_validate_nonempty_seq.exit56.thread:             ; preds = %344, %348
-  %351 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %352 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %351, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #5
+_validate_nonempty_seq.exit56.thread:             ; preds = %353, %357
+  %360 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %361 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %360, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #5
   br label %validate_stmt.exit.thread
 
-_validate_nonempty_seq.exit56thread-pre-split:    ; preds = %validate_body.exit53
-  %353 = add nuw nsw i64 %.0291.i, 1
-  %.pr939 = load ptr, ptr %345, align 8, !tbaa !26
-  br label %_validate_nonempty_seq.exit56
+_validate_nonempty_seq.exit56:                    ; preds = %validate_body.exit53
+  %362 = add nuw nsw i64 %.0291.i392, 1
+  %363 = load ptr, ptr %354, align 8, !tbaa !26
+  %364 = icmp eq ptr %363, null
+  br i1 %364, label %.sink.split, label %.lr.ph393, !llvm.loop !58
 
-_validate_nonempty_seq.exit56:                    ; preds = %348, %_validate_nonempty_seq.exit56thread-pre-split
-  %354 = phi ptr [ %.pr939, %_validate_nonempty_seq.exit56thread-pre-split ], [ %346, %348 ]
-  %.0291.i = phi i64 [ %353, %_validate_nonempty_seq.exit56thread-pre-split ], [ 0, %348 ]
-  %355 = icmp eq ptr %354, null
-  br i1 %355, label %358, label %356
+.lr.ph393:                                        ; preds = %357, %_validate_nonempty_seq.exit56
+  %365 = phi ptr [ %363, %_validate_nonempty_seq.exit56 ], [ %355, %357 ]
+  %.0291.i392 = phi i64 [ %362, %_validate_nonempty_seq.exit56 ], [ 0, %357 ]
+  %366 = load i64, ptr %365, align 8, !tbaa !27
+  %367 = icmp slt i64 %.0291.i392, %366
+  br i1 %367, label %368, label %.sink.split
 
-356:                                              ; preds = %_validate_nonempty_seq.exit56
-  %357 = load i64, ptr %354, align 8, !tbaa !27
-  br label %358
+368:                                              ; preds = %.lr.ph393
+  %369 = getelementptr inbounds nuw i8, ptr %365, i64 16
+  %370 = getelementptr [1 x ptr], ptr %369, i64 0, i64 %.0291.i392
+  %371 = load ptr, ptr %370, align 8, !tbaa !59
+  %372 = load ptr, ptr %371, align 8, !tbaa !61
+  %373 = tail call fastcc i32 @validate_pattern(ptr noundef nonnull %0, ptr noundef %372, i32 noundef 0)
+  %.not379.i = icmp eq i32 %373, 0
+  br i1 %.not379.i, label %validate_stmt.exit.thread, label %374
 
-358:                                              ; preds = %356, %_validate_nonempty_seq.exit56
-  %359 = phi i64 [ %357, %356 ], [ 0, %_validate_nonempty_seq.exit56 ]
-  %.not383.i = icmp slt i64 %.0291.i, %359
-  br i1 %.not383.i, label %360, label %.sink.split
+374:                                              ; preds = %368
+  %375 = getelementptr inbounds nuw i8, ptr %371, i64 8
+  %376 = load ptr, ptr %375, align 8, !tbaa !64
+  %.not380.i = icmp eq ptr %376, null
+  br i1 %.not380.i, label %379, label %377
 
-360:                                              ; preds = %358
-  %361 = getelementptr inbounds nuw i8, ptr %354, i64 16
-  %362 = getelementptr [1 x ptr], ptr %361, i64 0, i64 %.0291.i
-  %363 = load ptr, ptr %362, align 8, !tbaa !58
-  %364 = load ptr, ptr %363, align 8, !tbaa !60
-  %365 = tail call fastcc i32 @validate_pattern(ptr noundef nonnull %0, ptr noundef %364, i32 noundef 0)
-  %.not379.i = icmp eq i32 %365, 0
-  br i1 %.not379.i, label %validate_stmt.exit.thread, label %366
+377:                                              ; preds = %374
+  %378 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %376, i32 noundef 1)
+  %.not381.i = icmp eq i32 %378, 0
+  br i1 %.not381.i, label %validate_stmt.exit.thread, label %379
 
-366:                                              ; preds = %360
-  %367 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  %368 = load ptr, ptr %367, align 8, !tbaa !63
-  %.not380.i = icmp eq ptr %368, null
-  br i1 %.not380.i, label %371, label %369
+379:                                              ; preds = %377, %374
+  %380 = getelementptr inbounds nuw i8, ptr %371, i64 16
+  %381 = load ptr, ptr %380, align 8, !tbaa !65
+  %382 = icmp eq ptr %381, null
+  br i1 %382, label %validate_body.exit53.thread, label %383
 
-369:                                              ; preds = %366
-  %370 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %368, i32 noundef 1)
-  %.not381.i = icmp eq i32 %370, 0
-  br i1 %.not381.i, label %validate_stmt.exit.thread, label %371
+383:                                              ; preds = %379
+  %384 = load i64, ptr %381, align 8, !tbaa !42
+  %385 = icmp eq i64 %384, 0
+  br i1 %385, label %validate_body.exit53.thread, label %validate_body.exit53
 
-371:                                              ; preds = %369, %366
-  %372 = getelementptr inbounds nuw i8, ptr %363, i64 16
-  %373 = load ptr, ptr %372, align 8, !tbaa !64
-  %374 = icmp eq ptr %373, null
-  br i1 %374, label %validate_body.exit53.thread, label %375
-
-375:                                              ; preds = %371
-  %376 = load i64, ptr %373, align 8, !tbaa !42
-  %377 = icmp eq i64 %376, 0
-  br i1 %377, label %validate_body.exit53.thread, label %validate_body.exit53
-
-validate_body.exit53.thread:                      ; preds = %375, %371
-  %378 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %379 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %378, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.20) #5
+validate_body.exit53.thread:                      ; preds = %383, %379
+  %386 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %387 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %386, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.20) #5
   br label %validate_stmt.exit.thread
 
-validate_body.exit53:                             ; preds = %375
-  %380 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %373)
-  %.not382.i = icmp eq i32 %380, 0
-  br i1 %.not382.i, label %validate_stmt.exit.thread, label %_validate_nonempty_seq.exit56thread-pre-split, !llvm.loop !65
+validate_body.exit53:                             ; preds = %383
+  %388 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %381)
+  %.not382.i = icmp eq i32 %388, 0
+  br i1 %.not382.i, label %validate_stmt.exit.thread, label %_validate_nonempty_seq.exit56
 
-381:                                              ; preds = %50
-  %382 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %383 = load ptr, ptr %382, align 8, !tbaa !26
-  %.not373.i = icmp eq ptr %383, null
-  br i1 %.not373.i, label %391, label %384
+389:                                              ; preds = %50
+  %390 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %391 = load ptr, ptr %390, align 8, !tbaa !26
+  %.not373.i = icmp eq ptr %391, null
+  br i1 %.not373.i, label %399, label %392
 
-384:                                              ; preds = %381
-  %385 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %383, i32 noundef 1)
-  %.not375.i = icmp eq i32 %385, 0
-  br i1 %.not375.i, label %validate_stmt.exit.thread129, label %386
+392:                                              ; preds = %389
+  %393 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %391, i32 noundef 1)
+  %.not375.i = icmp eq i32 %393, 0
+  br i1 %.not375.i, label %validate_stmt.exit.thread127, label %394
 
-386:                                              ; preds = %384
-  %387 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %388 = load ptr, ptr %387, align 8, !tbaa !26
-  %.not376.i = icmp eq ptr %388, null
-  br i1 %.not376.i, label %.sink.split, label %389
+394:                                              ; preds = %392
+  %395 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %396 = load ptr, ptr %395, align 8, !tbaa !26
+  %.not376.i = icmp eq ptr %396, null
+  br i1 %.not376.i, label %.sink.split, label %397
 
-389:                                              ; preds = %386
-  %390 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %388, i32 noundef 1)
+397:                                              ; preds = %394
+  %398 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %396, i32 noundef 1)
   br label %validate_stmt.exit
 
-391:                                              ; preds = %381
-  %392 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %393 = load ptr, ptr %392, align 8, !tbaa !26
-  %.not374.i = icmp eq ptr %393, null
-  br i1 %.not374.i, label %.sink.split, label %394
+399:                                              ; preds = %389
+  %400 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %401 = load ptr, ptr %400, align 8, !tbaa !26
+  %.not374.i = icmp eq ptr %401, null
+  br i1 %.not374.i, label %.sink.split, label %402
 
-394:                                              ; preds = %391
-  %395 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %395, ptr noundef nonnull @.str.21) #5
-  br label %validate_stmt.exit.thread
-
-396:                                              ; preds = %50
-  %397 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %398 = load ptr, ptr %397, align 8, !tbaa !26
-  %399 = icmp eq ptr %398, null
-  br i1 %399, label %validate_body.exit48.thread, label %400
-
-400:                                              ; preds = %396
-  %401 = load i64, ptr %398, align 8, !tbaa !42
-  %402 = icmp eq i64 %401, 0
-  br i1 %402, label %validate_body.exit48.thread, label %validate_body.exit48
-
-validate_body.exit48.thread:                      ; preds = %400, %396
+402:                                              ; preds = %399
   %403 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %404 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %403, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.22) #5
+  tail call void @PyErr_SetString(ptr noundef %403, ptr noundef nonnull @.str.21) #5
   br label %validate_stmt.exit.thread
 
-validate_body.exit48:                             ; preds = %400
-  %405 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %398)
-  %.not359.i = icmp eq i32 %405, 0
-  br i1 %.not359.i, label %validate_stmt.exit.thread.loopexit390.loopexit, label %406
+404:                                              ; preds = %50
+  %405 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %406 = load ptr, ptr %405, align 8, !tbaa !26
+  %407 = icmp eq ptr %406, null
+  br i1 %407, label %validate_body.exit48.thread, label %408
 
-406:                                              ; preds = %validate_body.exit48
-  %407 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %408 = load ptr, ptr %407, align 8, !tbaa !26
-  %409 = icmp eq ptr %408, null
-  br i1 %409, label %.critedge435.i, label %410
+408:                                              ; preds = %404
+  %409 = load i64, ptr %406, align 8, !tbaa !42
+  %410 = icmp eq i64 %409, 0
+  br i1 %410, label %validate_body.exit48.thread, label %validate_body.exit48
 
-410:                                              ; preds = %406
-  %411 = load i64, ptr %408, align 8, !tbaa !27
-  %412 = icmp eq i64 %411, 0
-  br i1 %412, label %.critedge435.i, label %.critedge441.i.preheader
-
-.critedge435.i:                                   ; preds = %410, %406
-  %413 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %414 = load ptr, ptr %413, align 8, !tbaa !26
-  %415 = icmp eq ptr %414, null
-  br i1 %415, label %.critedge437.i, label %416
-
-416:                                              ; preds = %.critedge435.i
-  %417 = load i64, ptr %414, align 8, !tbaa !27
-  %418 = icmp eq i64 %417, 0
-  br i1 %418, label %.critedge437.i, label %420
-
-.critedge437.i:                                   ; preds = %416, %.critedge435.i
-  %419 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %419, ptr noundef nonnull @.str.23) #5
+validate_body.exit48.thread:                      ; preds = %408, %404
+  %411 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %412 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %411, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.22) #5
   br label %validate_stmt.exit.thread
 
-420:                                              ; preds = %416
-  br i1 %409, label %.critedge439.i, label %421
+validate_body.exit48:                             ; preds = %408
+  %413 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %406)
+  %.not359.i = icmp eq i32 %413, 0
+  br i1 %.not359.i, label %validate_stmt.exit.thread.loopexit404.loopexit, label %414
 
-421:                                              ; preds = %420
-  %.pr = load i64, ptr %408, align 8, !tbaa !27
-  %422 = icmp eq i64 %.pr, 0
-  br i1 %422, label %.critedge439.i, label %.critedge441.i.preheader
+414:                                              ; preds = %validate_body.exit48
+  %415 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %416 = load ptr, ptr %415, align 8, !tbaa !26
+  %417 = icmp eq ptr %416, null
+  br i1 %417, label %.critedge435.i, label %418
 
-.critedge441.i.preheader:                         ; preds = %410, %426, %.critedge439.i, %421
-  br label %.critedge441.i
+418:                                              ; preds = %414
+  %419 = load i64, ptr %416, align 8, !tbaa !27
+  %420 = icmp eq i64 %419, 0
+  br i1 %420, label %.critedge435.i, label %.lr.ph390.preheader
 
-.critedge439.i:                                   ; preds = %421, %420
-  %423 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %424 = load ptr, ptr %423, align 8, !tbaa !26
-  %425 = icmp eq ptr %424, null
-  br i1 %425, label %.critedge441.i.preheader, label %426
+.critedge435.i:                                   ; preds = %418, %414
+  %421 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %422 = load ptr, ptr %421, align 8, !tbaa !26
+  %423 = icmp eq ptr %422, null
+  br i1 %423, label %.critedge437.i, label %424
 
-426:                                              ; preds = %.critedge439.i
-  %427 = load i64, ptr %424, align 8, !tbaa !27
-  %428 = icmp eq i64 %427, 0
-  br i1 %428, label %.critedge441.i.preheader, label %429
+424:                                              ; preds = %.critedge435.i
+  %425 = load i64, ptr %422, align 8, !tbaa !27
+  %426 = icmp eq i64 %425, 0
+  br i1 %426, label %.critedge437.i, label %428
 
-429:                                              ; preds = %426
-  %430 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %430, ptr noundef nonnull @.str.24) #5
+.critedge437.i:                                   ; preds = %424, %.critedge435.i
+  %427 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %427, ptr noundef nonnull @.str.23) #5
   br label %validate_stmt.exit.thread
 
-.critedge441.i:                                   ; preds = %.critedge441.i.preheader, %validate_body.exit43
-  %.0280.i = phi i64 [ %484, %validate_body.exit43 ], [ 0, %.critedge441.i.preheader ]
-  %431 = load ptr, ptr %407, align 8, !tbaa !26
-  %432 = icmp eq ptr %431, null
-  br i1 %432, label %435, label %433
+428:                                              ; preds = %424
+  br i1 %417, label %.critedge439.i, label %429
 
-433:                                              ; preds = %.critedge441.i
-  %434 = load i64, ptr %431, align 8, !tbaa !27
-  br label %435
+429:                                              ; preds = %428
+  %.pr = load i64, ptr %416, align 8, !tbaa !27
+  %430 = icmp eq i64 %.pr, 0
+  br i1 %430, label %.critedge439.i, label %.lr.ph390.preheader
 
-435:                                              ; preds = %433, %.critedge441.i
-  %436 = phi i64 [ %434, %433 ], [ 0, %.critedge441.i ]
-  %.not369.i = icmp slt i64 %.0280.i, %436
-  br i1 %.not369.i, label %437, label %.critedge445.i
+.critedge439.i:                                   ; preds = %429, %428
+  %431 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %432 = load ptr, ptr %431, align 8, !tbaa !26
+  %433 = icmp eq ptr %432, null
+  br i1 %433, label %.critedge441.i, label %434
 
-437:                                              ; preds = %435
-  %438 = getelementptr inbounds nuw i8, ptr %431, i64 16
-  %439 = getelementptr [1 x ptr], ptr %438, i64 0, i64 %.0280.i
-  %440 = load ptr, ptr %439, align 8, !tbaa !66
-  %441 = getelementptr inbounds nuw i8, ptr %440, i64 32
-  %442 = load i32, ptr %441, align 8, !tbaa !68
-  %443 = getelementptr inbounds nuw i8, ptr %440, i64 40
-  %444 = load i32, ptr %443, align 8, !tbaa !70
-  %445 = icmp sgt i32 %442, %444
-  br i1 %445, label %446, label %449
+434:                                              ; preds = %.critedge439.i
+  %435 = load i64, ptr %432, align 8, !tbaa !27
+  %436 = icmp eq i64 %435, 0
+  br i1 %436, label %.critedge441.i, label %437
 
-446:                                              ; preds = %437
-  %447 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %448 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %447, ptr noundef nonnull @.str.3, i32 noundef %442, i32 noundef %444) #5
+437:                                              ; preds = %434
+  %438 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %438, ptr noundef nonnull @.str.24) #5
   br label %validate_stmt.exit.thread
 
-449:                                              ; preds = %437
-  %450 = icmp sgt i32 %442, -1
-  %.not364.i = icmp eq i32 %444, %442
-  %or.cond442.i = or i1 %450, %.not364.i
-  %451 = getelementptr inbounds nuw i8, ptr %440, i64 36
-  %452 = load i32, ptr %451, align 4, !tbaa !71
-  br i1 %or.cond442.i, label %453, label %._crit_edge630
+.critedge441.i:                                   ; preds = %434, %.critedge439.i
+  br i1 %417, label %.critedge445.i.thread, label %.lr.ph390.preheader
 
-._crit_edge630:                                   ; preds = %449
-  %.phi.trans.insert634 = getelementptr inbounds nuw i8, ptr %440, i64 44
-  %.pre635 = load i32, ptr %.phi.trans.insert634, align 4, !tbaa !72
-  br label %split631
+.lr.ph390.preheader:                              ; preds = %429, %418, %.critedge441.i
+  br label %.lr.ph390
 
-453:                                              ; preds = %449
-  %454 = icmp slt i32 %452, 0
-  br i1 %454, label %455, label %461
+439:                                              ; preds = %validate_body.exit43
+  %440 = add nuw nsw i64 %.0280.i389, 1
+  %441 = load ptr, ptr %415, align 8, !tbaa !26
+  %442 = icmp eq ptr %441, null
+  br i1 %442, label %.critedge445.i, label %.lr.ph390, !llvm.loop !66
 
-455:                                              ; preds = %453
-  %456 = getelementptr inbounds nuw i8, ptr %440, i64 44
-  %457 = load i32, ptr %456, align 4, !tbaa !72
-  %.not365.i = icmp eq i32 %452, %457
-  br i1 %.not365.i, label %461, label %split631
+.lr.ph390:                                        ; preds = %.lr.ph390.preheader, %439
+  %443 = phi ptr [ %441, %439 ], [ %416, %.lr.ph390.preheader ]
+  %.0280.i389 = phi i64 [ %440, %439 ], [ 0, %.lr.ph390.preheader ]
+  %444 = load i64, ptr %443, align 8, !tbaa !27
+  %445 = icmp slt i64 %.0280.i389, %444
+  br i1 %445, label %446, label %.critedge445.i
 
-split631:                                         ; preds = %455, %._crit_edge630
-  %458 = phi i32 [ %.pre635, %._crit_edge630 ], [ %457, %455 ]
-  %459 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %460 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %459, ptr noundef nonnull @.str.4, i32 noundef %452, i32 noundef %458, i32 noundef %442, i32 noundef %444) #5
+446:                                              ; preds = %.lr.ph390
+  %447 = getelementptr inbounds nuw i8, ptr %443, i64 16
+  %448 = getelementptr [1 x ptr], ptr %447, i64 0, i64 %.0280.i389
+  %449 = load ptr, ptr %448, align 8, !tbaa !67
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 32
+  %451 = load i32, ptr %450, align 8, !tbaa !69
+  %452 = getelementptr inbounds nuw i8, ptr %449, i64 40
+  %453 = load i32, ptr %452, align 8, !tbaa !71
+  %454 = icmp sgt i32 %451, %453
+  br i1 %454, label %455, label %458
+
+455:                                              ; preds = %446
+  %456 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %457 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %456, ptr noundef nonnull @.str.3, i32 noundef %451, i32 noundef %453) #5
   br label %validate_stmt.exit.thread
 
-461:                                              ; preds = %455, %453
-  br i1 %.not364.i, label %462, label %469
+458:                                              ; preds = %446
+  %459 = icmp sgt i32 %451, -1
+  %.not364.i = icmp eq i32 %453, %451
+  %or.cond442.i = or i1 %459, %.not364.i
+  %460 = getelementptr inbounds nuw i8, ptr %449, i64 36
+  %461 = load i32, ptr %460, align 4, !tbaa !72
+  br i1 %or.cond442.i, label %462, label %._crit_edge644
 
-462:                                              ; preds = %461
-  %463 = getelementptr inbounds nuw i8, ptr %440, i64 44
-  %464 = load i32, ptr %463, align 4, !tbaa !72
-  %465 = icmp sgt i32 %452, %464
-  br i1 %465, label %466, label %469
+._crit_edge644:                                   ; preds = %458
+  %.phi.trans.insert648 = getelementptr inbounds nuw i8, ptr %449, i64 44
+  %.pre649 = load i32, ptr %.phi.trans.insert648, align 4, !tbaa !73
+  br label %split645
 
-466:                                              ; preds = %462
-  %467 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %468 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %467, ptr noundef nonnull @.str.5, i32 noundef %442, i32 noundef %452, i32 noundef %464) #5
+462:                                              ; preds = %458
+  %463 = icmp slt i32 %461, 0
+  br i1 %463, label %464, label %470
+
+464:                                              ; preds = %462
+  %465 = getelementptr inbounds nuw i8, ptr %449, i64 44
+  %466 = load i32, ptr %465, align 4, !tbaa !73
+  %.not365.i = icmp eq i32 %461, %466
+  br i1 %.not365.i, label %470, label %split645
+
+split645:                                         ; preds = %464, %._crit_edge644
+  %467 = phi i32 [ %.pre649, %._crit_edge644 ], [ %466, %464 ]
+  %468 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %469 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %468, ptr noundef nonnull @.str.4, i32 noundef %461, i32 noundef %467, i32 noundef %451, i32 noundef %453) #5
   br label %validate_stmt.exit.thread
 
-469:                                              ; preds = %462, %461
-  %470 = getelementptr inbounds nuw i8, ptr %440, i64 8
-  %471 = load ptr, ptr %470, align 8, !tbaa !26
-  %.not366.i = icmp eq ptr %471, null
-  br i1 %.not366.i, label %474, label %472
+470:                                              ; preds = %464, %462
+  br i1 %.not364.i, label %471, label %478
 
-472:                                              ; preds = %469
-  %473 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %471, i32 noundef 1)
-  %.not367.i = icmp eq i32 %473, 0
-  br i1 %.not367.i, label %validate_stmt.exit.thread, label %474
+471:                                              ; preds = %470
+  %472 = getelementptr inbounds nuw i8, ptr %449, i64 44
+  %473 = load i32, ptr %472, align 4, !tbaa !73
+  %474 = icmp sgt i32 %461, %473
+  br i1 %474, label %475, label %478
 
-474:                                              ; preds = %472, %469
-  %475 = getelementptr inbounds nuw i8, ptr %440, i64 24
-  %476 = load ptr, ptr %475, align 8, !tbaa !26
-  %477 = icmp eq ptr %476, null
-  br i1 %477, label %validate_body.exit43.thread, label %478
-
-478:                                              ; preds = %474
-  %479 = load i64, ptr %476, align 8, !tbaa !42
-  %480 = icmp eq i64 %479, 0
-  br i1 %480, label %validate_body.exit43.thread, label %validate_body.exit43
-
-validate_body.exit43.thread:                      ; preds = %478, %474
-  %481 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %482 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %481, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.25) #5
+475:                                              ; preds = %471
+  %476 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %477 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %476, ptr noundef nonnull @.str.5, i32 noundef %451, i32 noundef %461, i32 noundef %473) #5
   br label %validate_stmt.exit.thread
 
-validate_body.exit43:                             ; preds = %478
-  %483 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %476)
-  %.not368.i = icmp eq i32 %483, 0
-  %484 = add nuw nsw i64 %.0280.i, 1
-  br i1 %.not368.i, label %validate_stmt.exit.thread, label %.critedge441.i, !llvm.loop !73
+478:                                              ; preds = %471, %470
+  %479 = getelementptr inbounds nuw i8, ptr %449, i64 8
+  %480 = load ptr, ptr %479, align 8, !tbaa !26
+  %.not366.i = icmp eq ptr %480, null
+  br i1 %.not366.i, label %483, label %481
 
-.critedge445.i:                                   ; preds = %435
-  %485 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %486 = load ptr, ptr %485, align 8, !tbaa !26
-  %487 = icmp eq ptr %486, null
-  br i1 %487, label %.critedge447.i, label %488
+481:                                              ; preds = %478
+  %482 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %480, i32 noundef 1)
+  %.not367.i = icmp eq i32 %482, 0
+  br i1 %.not367.i, label %validate_stmt.exit.thread, label %483
 
-488:                                              ; preds = %.critedge445.i
-  %489 = load i64, ptr %486, align 8, !tbaa !27
-  %490 = icmp eq i64 %489, 0
-  br i1 %490, label %.critedge447.i, label %491
+483:                                              ; preds = %481, %478
+  %484 = getelementptr inbounds nuw i8, ptr %449, i64 24
+  %485 = load ptr, ptr %484, align 8, !tbaa !26
+  %486 = icmp eq ptr %485, null
+  br i1 %486, label %validate_body.exit43.thread, label %487
 
-491:                                              ; preds = %488
-  %492 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %486)
-  %.not371.i = icmp eq i32 %492, 0
-  br i1 %.not371.i, label %validate_stmt.exit.thread129, label %.critedge447.i
+487:                                              ; preds = %483
+  %488 = load i64, ptr %485, align 8, !tbaa !42
+  %489 = icmp eq i64 %488, 0
+  br i1 %489, label %validate_body.exit43.thread, label %validate_body.exit43
 
-.critedge447.i:                                   ; preds = %491, %488, %.critedge445.i
-  %493 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %494 = load ptr, ptr %493, align 8, !tbaa !26
-  %495 = icmp eq ptr %494, null
-  br i1 %495, label %.sink.split, label %496
+validate_body.exit43.thread:                      ; preds = %487, %483
+  %490 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %491 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %490, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.25) #5
+  br label %validate_stmt.exit.thread
 
-496:                                              ; preds = %.critedge447.i
-  %497 = load i64, ptr %494, align 8, !tbaa !27
-  %498 = icmp eq i64 %497, 0
-  br i1 %498, label %.sink.split, label %499
+validate_body.exit43:                             ; preds = %487
+  %492 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %485)
+  %.not368.i = icmp eq i32 %492, 0
+  br i1 %.not368.i, label %validate_stmt.exit.thread, label %439
 
-499:                                              ; preds = %496
-  %500 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %494)
+.critedge445.i:                                   ; preds = %.lr.ph390, %439
+  %.phi.trans.insert1578 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.pre1579 = load ptr, ptr %.phi.trans.insert1578, align 8, !tbaa !26
+  %493 = icmp eq ptr %.pre1579, null
+  br i1 %493, label %.critedge447.i, label %.critedge445.i.thread
+
+.critedge445.i.thread:                            ; preds = %.critedge441.i, %.critedge445.i
+  %494 = phi ptr [ %.pre1579, %.critedge445.i ], [ %422, %.critedge441.i ]
+  %495 = load i64, ptr %494, align 8, !tbaa !27
+  %496 = icmp eq i64 %495, 0
+  br i1 %496, label %.critedge447.i, label %497
+
+497:                                              ; preds = %.critedge445.i.thread
+  %498 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %494)
+  %.not371.i = icmp eq i32 %498, 0
+  br i1 %.not371.i, label %validate_stmt.exit.thread127, label %.critedge447.i
+
+.critedge447.i:                                   ; preds = %497, %.critedge445.i.thread, %.critedge445.i
+  %499 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %500 = load ptr, ptr %499, align 8, !tbaa !26
+  %501 = icmp eq ptr %500, null
+  br i1 %501, label %.sink.split, label %502
+
+502:                                              ; preds = %.critedge447.i
+  %503 = load i64, ptr %500, align 8, !tbaa !27
+  %504 = icmp eq i64 %503, 0
+  br i1 %504, label %.sink.split, label %505
+
+505:                                              ; preds = %502
+  %506 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %500)
   br label %validate_stmt.exit
 
-501:                                              ; preds = %50
-  %502 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %503 = load ptr, ptr %502, align 8, !tbaa !26
-  %504 = icmp eq ptr %503, null
-  br i1 %504, label %validate_body.exit38.thread, label %505
+507:                                              ; preds = %50
+  %508 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %509 = load ptr, ptr %508, align 8, !tbaa !26
+  %510 = icmp eq ptr %509, null
+  br i1 %510, label %validate_body.exit38.thread, label %511
 
-505:                                              ; preds = %501
-  %506 = load i64, ptr %503, align 8, !tbaa !42
-  %507 = icmp eq i64 %506, 0
-  br i1 %507, label %validate_body.exit38.thread, label %validate_body.exit38
+511:                                              ; preds = %507
+  %512 = load i64, ptr %509, align 8, !tbaa !42
+  %513 = icmp eq i64 %512, 0
+  br i1 %513, label %validate_body.exit38.thread, label %validate_body.exit38
 
-validate_body.exit38.thread:                      ; preds = %505, %501
-  %508 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %509 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %508, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.26) #5
+validate_body.exit38.thread:                      ; preds = %511, %507
+  %514 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %515 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %514, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.26) #5
   br label %validate_stmt.exit.thread
 
-validate_body.exit38:                             ; preds = %505
-  %510 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %503)
-  %.not347.i = icmp eq i32 %510, 0
-  br i1 %.not347.i, label %validate_stmt.exit.thread.loopexit390.loopexit, label %511
+validate_body.exit38:                             ; preds = %511
+  %516 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %509)
+  %.not347.i = icmp eq i32 %516, 0
+  br i1 %.not347.i, label %validate_stmt.exit.thread.loopexit404.loopexit, label %517
 
-511:                                              ; preds = %validate_body.exit38
-  %512 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %513 = load ptr, ptr %512, align 8, !tbaa !26
-  %514 = icmp eq ptr %513, null
-  br i1 %514, label %.critedge451.i, label %515
-
-515:                                              ; preds = %511
-  %516 = load i64, ptr %513, align 8, !tbaa !27
-  %517 = icmp eq i64 %516, 0
-  br i1 %517, label %.critedge451.i, label %.critedge457.i.preheader
-
-.critedge451.i:                                   ; preds = %515, %511
-  %518 = getelementptr inbounds nuw i8, ptr %13, i64 32
+517:                                              ; preds = %validate_body.exit38
+  %518 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %519 = load ptr, ptr %518, align 8, !tbaa !26
   %520 = icmp eq ptr %519, null
-  br i1 %520, label %.critedge453.i, label %521
+  br i1 %520, label %.critedge451.i, label %521
 
-521:                                              ; preds = %.critedge451.i
+521:                                              ; preds = %517
   %522 = load i64, ptr %519, align 8, !tbaa !27
   %523 = icmp eq i64 %522, 0
-  br i1 %523, label %.critedge453.i, label %525
+  br i1 %523, label %.critedge451.i, label %.lr.ph.preheader
 
-.critedge453.i:                                   ; preds = %521, %.critedge451.i
-  %524 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %524, ptr noundef nonnull @.str.27) #5
+.critedge451.i:                                   ; preds = %521, %517
+  %524 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %525 = load ptr, ptr %524, align 8, !tbaa !26
+  %526 = icmp eq ptr %525, null
+  br i1 %526, label %.critedge453.i, label %527
+
+527:                                              ; preds = %.critedge451.i
+  %528 = load i64, ptr %525, align 8, !tbaa !27
+  %529 = icmp eq i64 %528, 0
+  br i1 %529, label %.critedge453.i, label %531
+
+.critedge453.i:                                   ; preds = %527, %.critedge451.i
+  %530 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %530, ptr noundef nonnull @.str.27) #5
   br label %validate_stmt.exit.thread
 
-525:                                              ; preds = %521
-  br i1 %514, label %.critedge455.i, label %526
+531:                                              ; preds = %527
+  br i1 %520, label %.critedge455.i, label %532
 
-526:                                              ; preds = %525
-  %.pr112 = load i64, ptr %513, align 8, !tbaa !27
-  %527 = icmp eq i64 %.pr112, 0
-  br i1 %527, label %.critedge455.i, label %.critedge457.i.preheader
+532:                                              ; preds = %531
+  %.pr110 = load i64, ptr %519, align 8, !tbaa !27
+  %533 = icmp eq i64 %.pr110, 0
+  br i1 %533, label %.critedge455.i, label %.lr.ph.preheader
 
-.critedge457.i.preheader:                         ; preds = %515, %531, %.critedge455.i, %526
-  br label %.critedge457.i
+.critedge455.i:                                   ; preds = %532, %531
+  %534 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %535 = load ptr, ptr %534, align 8, !tbaa !26
+  %536 = icmp eq ptr %535, null
+  br i1 %536, label %.critedge457.i, label %537
 
-.critedge455.i:                                   ; preds = %526, %525
-  %528 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %529 = load ptr, ptr %528, align 8, !tbaa !26
-  %530 = icmp eq ptr %529, null
-  br i1 %530, label %.critedge457.i.preheader, label %531
+537:                                              ; preds = %.critedge455.i
+  %538 = load i64, ptr %535, align 8, !tbaa !27
+  %539 = icmp eq i64 %538, 0
+  br i1 %539, label %.critedge457.i, label %540
 
-531:                                              ; preds = %.critedge455.i
-  %532 = load i64, ptr %529, align 8, !tbaa !27
-  %533 = icmp eq i64 %532, 0
-  br i1 %533, label %.critedge457.i.preheader, label %534
-
-534:                                              ; preds = %531
-  %535 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %535, ptr noundef nonnull @.str.28) #5
+540:                                              ; preds = %537
+  %541 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %541, ptr noundef nonnull @.str.28) #5
   br label %validate_stmt.exit.thread
 
-.critedge457.i:                                   ; preds = %.critedge457.i.preheader, %validate_body.exit33
-  %.0277.i = phi i64 [ %560, %validate_body.exit33 ], [ 0, %.critedge457.i.preheader ]
-  %536 = load ptr, ptr %512, align 8, !tbaa !26
-  %537 = icmp eq ptr %536, null
-  br i1 %537, label %540, label %538
+.critedge457.i:                                   ; preds = %537, %.critedge455.i
+  br i1 %520, label %.critedge461.i.thread, label %.lr.ph.preheader
 
-538:                                              ; preds = %.critedge457.i
-  %539 = load i64, ptr %536, align 8, !tbaa !27
-  br label %540
+.lr.ph.preheader:                                 ; preds = %532, %521, %.critedge457.i
+  br label %.lr.ph
 
-540:                                              ; preds = %538, %.critedge457.i
-  %541 = phi i64 [ %539, %538 ], [ 0, %.critedge457.i ]
-  %.not355.i = icmp slt i64 %.0277.i, %541
-  br i1 %.not355.i, label %542, label %.critedge461.i
+542:                                              ; preds = %validate_body.exit33
+  %543 = add nuw nsw i64 %.0277.i387, 1
+  %544 = load ptr, ptr %518, align 8, !tbaa !26
+  %545 = icmp eq ptr %544, null
+  br i1 %545, label %.critedge461.i, label %.lr.ph, !llvm.loop !74
 
-542:                                              ; preds = %540
-  %543 = getelementptr inbounds nuw i8, ptr %536, i64 16
-  %544 = getelementptr [1 x ptr], ptr %543, i64 0, i64 %.0277.i
-  %545 = load ptr, ptr %544, align 8, !tbaa !66
-  %546 = getelementptr inbounds nuw i8, ptr %545, i64 8
-  %547 = load ptr, ptr %546, align 8, !tbaa !26
-  %.not352.i = icmp eq ptr %547, null
-  br i1 %.not352.i, label %550, label %548
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %542
+  %546 = phi ptr [ %544, %542 ], [ %519, %.lr.ph.preheader ]
+  %.0277.i387 = phi i64 [ %543, %542 ], [ 0, %.lr.ph.preheader ]
+  %547 = load i64, ptr %546, align 8, !tbaa !27
+  %548 = icmp slt i64 %.0277.i387, %547
+  br i1 %548, label %549, label %.critedge461.i
 
-548:                                              ; preds = %542
-  %549 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %547, i32 noundef 1)
-  %.not353.i = icmp eq i32 %549, 0
-  br i1 %.not353.i, label %validate_stmt.exit.thread, label %550
+549:                                              ; preds = %.lr.ph
+  %550 = getelementptr inbounds nuw i8, ptr %546, i64 16
+  %551 = getelementptr [1 x ptr], ptr %550, i64 0, i64 %.0277.i387
+  %552 = load ptr, ptr %551, align 8, !tbaa !67
+  %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
+  %554 = load ptr, ptr %553, align 8, !tbaa !26
+  %.not352.i = icmp eq ptr %554, null
+  br i1 %.not352.i, label %557, label %555
 
-550:                                              ; preds = %548, %542
-  %551 = getelementptr inbounds nuw i8, ptr %545, i64 24
-  %552 = load ptr, ptr %551, align 8, !tbaa !26
-  %553 = icmp eq ptr %552, null
-  br i1 %553, label %validate_body.exit33.thread, label %554
+555:                                              ; preds = %549
+  %556 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %554, i32 noundef 1)
+  %.not353.i = icmp eq i32 %556, 0
+  br i1 %.not353.i, label %validate_stmt.exit.thread, label %557
 
-554:                                              ; preds = %550
-  %555 = load i64, ptr %552, align 8, !tbaa !42
-  %556 = icmp eq i64 %555, 0
-  br i1 %556, label %validate_body.exit33.thread, label %validate_body.exit33
+557:                                              ; preds = %555, %549
+  %558 = getelementptr inbounds nuw i8, ptr %552, i64 24
+  %559 = load ptr, ptr %558, align 8, !tbaa !26
+  %560 = icmp eq ptr %559, null
+  br i1 %560, label %validate_body.exit33.thread, label %561
 
-validate_body.exit33.thread:                      ; preds = %554, %550
-  %557 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %558 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %557, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.25) #5
+561:                                              ; preds = %557
+  %562 = load i64, ptr %559, align 8, !tbaa !42
+  %563 = icmp eq i64 %562, 0
+  br i1 %563, label %validate_body.exit33.thread, label %validate_body.exit33
+
+validate_body.exit33.thread:                      ; preds = %561, %557
+  %564 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %565 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %564, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.25) #5
   br label %validate_stmt.exit.thread
 
-validate_body.exit33:                             ; preds = %554
-  %559 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %552)
-  %.not354.i = icmp eq i32 %559, 0
-  %560 = add nuw nsw i64 %.0277.i, 1
-  br i1 %.not354.i, label %validate_stmt.exit.thread, label %.critedge457.i, !llvm.loop !74
+validate_body.exit33:                             ; preds = %561
+  %566 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %559)
+  %.not354.i = icmp eq i32 %566, 0
+  br i1 %.not354.i, label %validate_stmt.exit.thread, label %542
 
-.critedge461.i:                                   ; preds = %540
-  %561 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %562 = load ptr, ptr %561, align 8, !tbaa !26
-  %563 = icmp eq ptr %562, null
-  br i1 %563, label %.critedge463.i, label %564
+.critedge461.i:                                   ; preds = %.lr.ph, %542
+  %.phi.trans.insert1576 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.pre1577 = load ptr, ptr %.phi.trans.insert1576, align 8, !tbaa !26
+  %567 = icmp eq ptr %.pre1577, null
+  br i1 %567, label %.critedge463.i, label %.critedge461.i.thread
 
-564:                                              ; preds = %.critedge461.i
-  %565 = load i64, ptr %562, align 8, !tbaa !27
-  %566 = icmp eq i64 %565, 0
-  br i1 %566, label %.critedge463.i, label %567
+.critedge461.i.thread:                            ; preds = %.critedge457.i, %.critedge461.i
+  %568 = phi ptr [ %.pre1577, %.critedge461.i ], [ %525, %.critedge457.i ]
+  %569 = load i64, ptr %568, align 8, !tbaa !27
+  %570 = icmp eq i64 %569, 0
+  br i1 %570, label %.critedge463.i, label %571
 
-567:                                              ; preds = %564
-  %568 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %562)
-  %.not357.i = icmp eq i32 %568, 0
-  br i1 %.not357.i, label %validate_stmt.exit.thread129, label %.critedge463.i
+571:                                              ; preds = %.critedge461.i.thread
+  %572 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %568)
+  %.not357.i = icmp eq i32 %572, 0
+  br i1 %.not357.i, label %validate_stmt.exit.thread127, label %.critedge463.i
 
-.critedge463.i:                                   ; preds = %567, %564, %.critedge461.i
-  %569 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %570 = load ptr, ptr %569, align 8, !tbaa !26
-  %571 = icmp eq ptr %570, null
-  br i1 %571, label %.sink.split, label %572
+.critedge463.i:                                   ; preds = %571, %.critedge461.i.thread, %.critedge461.i
+  %573 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %574 = load ptr, ptr %573, align 8, !tbaa !26
+  %575 = icmp eq ptr %574, null
+  br i1 %575, label %.sink.split, label %576
 
-572:                                              ; preds = %.critedge463.i
-  %573 = load i64, ptr %570, align 8, !tbaa !27
-  %574 = icmp eq i64 %573, 0
-  br i1 %574, label %.sink.split, label %575
+576:                                              ; preds = %.critedge463.i
+  %577 = load i64, ptr %574, align 8, !tbaa !27
+  %578 = icmp eq i64 %577, 0
+  br i1 %578, label %.sink.split, label %579
 
-575:                                              ; preds = %572
-  %576 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %570)
+579:                                              ; preds = %576
+  %580 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %574)
   br label %validate_stmt.exit
 
-577:                                              ; preds = %50
-  %578 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %579 = load ptr, ptr %578, align 8, !tbaa !26
-  %580 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %579, i32 noundef 1)
-  %.not345.i = icmp eq i32 %580, 0
-  br i1 %.not345.i, label %validate_stmt.exit.thread129, label %581
-
-581:                                              ; preds = %577
-  %582 = getelementptr inbounds nuw i8, ptr %13, i64 16
+581:                                              ; preds = %50
+  %582 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %583 = load ptr, ptr %582, align 8, !tbaa !26
-  %.not346.i = icmp eq ptr %583, null
-  br i1 %.not346.i, label %.sink.split, label %584
+  %584 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %583, i32 noundef 1)
+  %.not345.i = icmp eq i32 %584, 0
+  br i1 %.not345.i, label %validate_stmt.exit.thread127, label %585
 
-584:                                              ; preds = %581
-  %585 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %583, i32 noundef 1)
+585:                                              ; preds = %581
+  %586 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %587 = load ptr, ptr %586, align 8, !tbaa !26
+  %.not346.i = icmp eq ptr %587, null
+  br i1 %.not346.i, label %.sink.split, label %588
+
+588:                                              ; preds = %585
+  %589 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %587, i32 noundef 1)
   br label %validate_stmt.exit
 
-586:                                              ; preds = %50
-  %587 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %588 = load ptr, ptr %587, align 8, !tbaa !26
-  %589 = icmp eq ptr %588, null
-  br i1 %589, label %.critedge.i27, label %590
+590:                                              ; preds = %50
+  %591 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %592 = load ptr, ptr %591, align 8, !tbaa !26
+  %593 = icmp eq ptr %592, null
+  br i1 %593, label %.critedge.i27, label %594
 
-590:                                              ; preds = %586
-  %591 = load i64, ptr %588, align 8, !tbaa !42
-  %592 = icmp eq i64 %591, 0
-  br i1 %592, label %.critedge.i27, label %.sink.split
+594:                                              ; preds = %590
+  %595 = load i64, ptr %592, align 8, !tbaa !42
+  %596 = icmp eq i64 %595, 0
+  br i1 %596, label %.critedge.i27, label %.sink.split
 
-.critedge.i27:                                    ; preds = %590, %586
-  %593 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %594 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %593, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #5
-  br label %validate_stmt.exit.thread129
+.critedge.i27:                                    ; preds = %594, %590
+  %597 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %598 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %597, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #5
+  br label %validate_stmt.exit.thread127
 
-595:                                              ; preds = %50
-  %596 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %597 = load i32, ptr %596, align 8, !tbaa !26
-  %598 = icmp slt i32 %597, 0
-  br i1 %598, label %599, label %601
+599:                                              ; preds = %50
+  %600 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %601 = load i32, ptr %600, align 8, !tbaa !26
+  %602 = icmp slt i32 %601, 0
+  br i1 %602, label %603, label %605
 
-599:                                              ; preds = %595
-  %600 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %600, ptr noundef nonnull @.str.31) #5
+603:                                              ; preds = %599
+  %604 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %604, ptr noundef nonnull @.str.31) #5
   br label %validate_stmt.exit.thread
 
-601:                                              ; preds = %595
-  %602 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %603 = load ptr, ptr %602, align 8, !tbaa !26
-  %604 = icmp eq ptr %603, null
-  br i1 %604, label %.critedge.i24, label %605
+605:                                              ; preds = %599
+  %606 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %607 = load ptr, ptr %606, align 8, !tbaa !26
+  %608 = icmp eq ptr %607, null
+  br i1 %608, label %.critedge.i24, label %609
 
-605:                                              ; preds = %601
-  %606 = load i64, ptr %603, align 8, !tbaa !42
-  %607 = icmp eq i64 %606, 0
-  br i1 %607, label %.critedge.i24, label %.sink.split
+609:                                              ; preds = %605
+  %610 = load i64, ptr %607, align 8, !tbaa !42
+  %611 = icmp eq i64 %610, 0
+  br i1 %611, label %.critedge.i24, label %.sink.split
 
-.critedge.i24:                                    ; preds = %605, %601
-  %608 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %609 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %608, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.32) #5
-  br label %validate_stmt.exit.thread129
+.critedge.i24:                                    ; preds = %609, %605
+  %612 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %613 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %612, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.32) #5
+  br label %validate_stmt.exit.thread127
 
-610:                                              ; preds = %50
-  %611 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %612 = load ptr, ptr %611, align 8, !tbaa !26
-  %613 = icmp eq ptr %612, null
-  br i1 %613, label %.critedge.i21, label %614
+614:                                              ; preds = %50
+  %615 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %616 = load ptr, ptr %615, align 8, !tbaa !26
+  %617 = icmp eq ptr %616, null
+  br i1 %617, label %.critedge.i21, label %618
 
-614:                                              ; preds = %610
-  %615 = load i64, ptr %612, align 8, !tbaa !42
-  %616 = icmp eq i64 %615, 0
-  br i1 %616, label %.critedge.i21, label %.sink.split
+618:                                              ; preds = %614
+  %619 = load i64, ptr %616, align 8, !tbaa !42
+  %620 = icmp eq i64 %619, 0
+  br i1 %620, label %.critedge.i21, label %.sink.split
 
-.critedge.i21:                                    ; preds = %614, %610
-  %617 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %618 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %617, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.33) #5
-  br label %validate_stmt.exit.thread129
+.critedge.i21:                                    ; preds = %618, %614
+  %621 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %622 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %621, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.33) #5
+  br label %validate_stmt.exit.thread127
 
-619:                                              ; preds = %50
-  %620 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %621 = load ptr, ptr %620, align 8, !tbaa !26
-  %622 = icmp eq ptr %621, null
-  br i1 %622, label %.critedge.i19, label %623
+623:                                              ; preds = %50
+  %624 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %625 = load ptr, ptr %624, align 8, !tbaa !26
+  %626 = icmp eq ptr %625, null
+  br i1 %626, label %.critedge.i19, label %627
 
-623:                                              ; preds = %619
-  %624 = load i64, ptr %621, align 8, !tbaa !42
-  %625 = icmp eq i64 %624, 0
-  br i1 %625, label %.critedge.i19, label %.sink.split
+627:                                              ; preds = %623
+  %628 = load i64, ptr %625, align 8, !tbaa !42
+  %629 = icmp eq i64 %628, 0
+  br i1 %629, label %.critedge.i19, label %.sink.split
 
-.critedge.i19:                                    ; preds = %623, %619
-  %626 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %627 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %626, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.34) #5
-  br label %validate_stmt.exit.thread129
-
-628:                                              ; preds = %50
-  %629 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %630 = load ptr, ptr %629, align 8, !tbaa !26
-  %631 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %630, i32 noundef 1)
-  br label %validate_stmt.exit
+.critedge.i19:                                    ; preds = %627, %623
+  %630 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %631 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %630, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.34) #5
+  br label %validate_stmt.exit.thread127
 
 632:                                              ; preds = %50
-  %633 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %633 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %634 = load ptr, ptr %633, align 8, !tbaa !26
-  %635 = icmp eq ptr %634, null
-  br i1 %635, label %validate_body.exit.thread, label %636
-
-636:                                              ; preds = %632
-  %637 = load i64, ptr %634, align 8, !tbaa !42
-  %638 = icmp eq i64 %637, 0
-  br i1 %638, label %validate_body.exit.thread, label %validate_body.exit
-
-validate_body.exit.thread:                        ; preds = %636, %632
-  %639 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %640 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %639, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.35) #5
-  br label %validate_stmt.exit.thread129
-
-validate_body.exit:                               ; preds = %636
-  %641 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %634)
-  %.not340.i = icmp eq i32 %641, 0
-  br i1 %.not340.i, label %validate_stmt.exit.thread129, label %642
-
-642:                                              ; preds = %validate_body.exit
-  %643 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %644 = load ptr, ptr %643, align 8, !tbaa !26
-  %645 = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %0, ptr noundef %644)
-  %.not341.i = icmp eq i32 %645, 0
-  br i1 %.not341.i, label %validate_stmt.exit.thread129, label %646
-
-646:                                              ; preds = %642
-  %647 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %648 = load ptr, ptr %647, align 8, !tbaa !26
-  %649 = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %0, ptr noundef %648)
-  %.not342.i = icmp eq i32 %649, 0
-  br i1 %.not342.i, label %validate_stmt.exit.thread129, label %650
-
-650:                                              ; preds = %646
-  %651 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %652 = load ptr, ptr %651, align 8, !tbaa !26
-  %653 = icmp eq ptr %652, null
-  %654 = getelementptr inbounds nuw i8, ptr %652, i64 16
-  br i1 %653, label %.loopexit963, label %.split.i921
-
-.split.i921:                                      ; preds = %650
-  %655 = load i64, ptr %652, align 8, !tbaa !27
-  %.not2026.i922 = icmp slt i64 %655, 1
-  br i1 %.not2026.i922, label %.loopexit963, label %.lr.ph.split.us.i924
-
-.lr.ph.split.us.i924:                             ; preds = %.split.i921, %.critedge.us33.i928
-  %.01527.us.i925 = phi i64 [ %660, %.critedge.us33.i928 ], [ 0, %.split.i921 ]
-  %656 = getelementptr [1 x ptr], ptr %654, i64 0, i64 %.01527.us.i925
-  %657 = load ptr, ptr %656, align 8, !tbaa !29
-  %.not.us31.i926 = icmp eq ptr %657, null
-  br i1 %.not.us31.i926, label %.split24.i931, label %658
-
-658:                                              ; preds = %.lr.ph.split.us.i924
-  %659 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %657, i32 noundef 1) #6
-  %.not19.us32.i927 = icmp eq i32 %659, 0
-  br i1 %.not19.us32.i927, label %validate_stmt.exit.thread129, label %.critedge.us33.i928
-
-.critedge.us33.i928:                              ; preds = %658
-  %660 = add nuw nsw i64 %.01527.us.i925, 1
-  %661 = load i64, ptr %652, align 8, !tbaa !27
-  %.not20.us34.not.i929 = icmp slt i64 %660, %661
-  br i1 %.not20.us34.not.i929, label %.lr.ph.split.us.i924, label %.loopexit963, !llvm.loop !31
-
-.split24.i931:                                    ; preds = %.lr.ph.split.us.i924
-  %662 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %662, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread129
-
-.loopexit963:                                     ; preds = %.critedge.us33.i928, %650, %.split.i921
-  %663 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %664 = load ptr, ptr %663, align 8, !tbaa !26
-  %.not344.i = icmp eq ptr %664, null
-  br i1 %.not344.i, label %.sink.split, label %665
-
-665:                                              ; preds = %.loopexit963
-  %666 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %664, i32 noundef 1)
+  %635 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef %634, i32 noundef 1)
   br label %validate_stmt.exit
 
-validate_stmt.exit.thread124:                     ; preds = %50
-  %667 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %667, ptr noundef nonnull @.str.36) #5
-  %668 = load i32, ptr %0, align 4, !tbaa !21
-  %669 = add i32 %668, -1
-  store i32 %669, ptr %0, align 4, !tbaa !21
-  br label %validate_stmt.exit.thread
+636:                                              ; preds = %50
+  %637 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %638 = load ptr, ptr %637, align 8, !tbaa !26
+  %639 = icmp eq ptr %638, null
+  br i1 %639, label %validate_body.exit.thread, label %640
 
-validate_stmt.exit.thread129:                     ; preds = %validate_body.exit, %642, %646, %577, %567, %491, %384, %268, %272, %256, %260, %240, %244, %248, %224, %228, %232, %214, %216, %197, %202, %180, %validate_body.exit78, %97, %validate_body.exit83, %62, %66, %658, %172, %155, %109, %119, %78, %.split24.i931, %.split24.i905, %.split24.i, %validate_body.exit.thread, %.critedge.i19, %.critedge.i21, %.critedge.i24, %.critedge.i27, %.split24.i.i71, %_validate_nonempty_seq.exit.thread.i72, %validate_body.exit78.thread, %validate_body.exit83.thread, %_validate_nonempty_seq.exit.thread.i, %.split24.i.i
-  %670 = load i32, ptr %0, align 4, !tbaa !21
-  %671 = add i32 %670, -1
-  store i32 %671, ptr %0, align 4, !tbaa !21
-  br label %validate_stmt.exit.thread
+640:                                              ; preds = %636
+  %641 = load i64, ptr %638, align 8, !tbaa !42
+  %642 = icmp eq i64 %641, 0
+  br i1 %642, label %validate_body.exit.thread, label %validate_body.exit
 
-validate_stmt.exit.thread947:                     ; preds = %133, %.split24.i919
-  %672 = load i32, ptr %0, align 4, !tbaa !21
-  %673 = add i32 %672, -1
-  store i32 %673, ptr %0, align 4, !tbaa !21
-  br label %validate_stmt.exit.thread
+validate_body.exit.thread:                        ; preds = %640, %636
+  %643 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %644 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %643, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.35) #5
+  br label %validate_stmt.exit.thread127
 
-validate_stmt.exit:                               ; preds = %.critedge425.i, %.critedge429.i, %628, %85, %141, %validate_assignlist.exit, %184, %204, %220, %236, %252, %264, %276, %389, %499, %575, %584, %665
-  %.0278.i.ph = phi i32 [ %666, %665 ], [ %585, %584 ], [ %576, %575 ], [ %500, %499 ], [ %390, %389 ], [ %279, %276 ], [ %267, %264 ], [ %255, %252 ], [ %239, %236 ], [ %223, %220 ], [ %207, %204 ], [ %187, %184 ], [ %179, %validate_assignlist.exit ], [ %142, %141 ], [ %86, %85 ], [ %631, %628 ], [ %339, %.critedge429.i ], [ %309, %.critedge425.i ]
+validate_body.exit:                               ; preds = %640
+  %645 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %0, ptr noundef nonnull %638)
+  %.not340.i = icmp eq i32 %645, 0
+  br i1 %.not340.i, label %validate_stmt.exit.thread127, label %646
+
+646:                                              ; preds = %validate_body.exit
+  %647 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %648 = load ptr, ptr %647, align 8, !tbaa !26
+  %649 = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %0, ptr noundef %648)
+  %.not341.i = icmp eq i32 %649, 0
+  br i1 %.not341.i, label %validate_stmt.exit.thread127, label %650
+
+650:                                              ; preds = %646
+  %651 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %652 = load ptr, ptr %651, align 8, !tbaa !26
+  %653 = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %0, ptr noundef %652)
+  %.not342.i = icmp eq i32 %653, 0
+  br i1 %.not342.i, label %validate_stmt.exit.thread127, label %654
+
+654:                                              ; preds = %650
+  %655 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %656 = load ptr, ptr %655, align 8, !tbaa !26
+  %657 = icmp eq ptr %656, null
+  %658 = getelementptr inbounds nuw i8, ptr %656, i64 16
+  br i1 %657, label %.loopexit969, label %.split.i930
+
+.split.i930:                                      ; preds = %654
+  %659 = load i64, ptr %656, align 8, !tbaa !27
+  %660 = icmp sgt i64 %659, 0
+  br i1 %660, label %.lr.ph.split.us.i933, label %.loopexit969
+
+.lr.ph.split.us.i933:                             ; preds = %.split.i930, %.critedge.us29.i937
+  %.01524.us.i934 = phi i64 [ %665, %.critedge.us29.i937 ], [ 0, %.split.i930 ]
+  %661 = getelementptr [1 x ptr], ptr %658, i64 0, i64 %.01524.us.i934
+  %662 = load ptr, ptr %661, align 8, !tbaa !29
+  %.not.us27.i935 = icmp eq ptr %662, null
+  br i1 %.not.us27.i935, label %.split22.i938, label %663
+
+663:                                              ; preds = %.lr.ph.split.us.i933
+  %664 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %662, i32 noundef 1) #6
+  %.not19.us28.i936 = icmp eq i32 %664, 0
+  br i1 %.not19.us28.i936, label %validate_stmt.exit.thread127, label %.critedge.us29.i937
+
+.critedge.us29.i937:                              ; preds = %663
+  %665 = add nuw nsw i64 %.01524.us.i934, 1
+  %666 = load i64, ptr %656, align 8, !tbaa !27
+  %667 = icmp slt i64 %665, %666
+  br i1 %667, label %.lr.ph.split.us.i933, label %.loopexit969, !llvm.loop !31
+
+.split22.i938:                                    ; preds = %.lr.ph.split.us.i933
+  %668 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %668, ptr noundef nonnull @.str.73) #5
+  br label %validate_stmt.exit.thread127
+
+.loopexit969:                                     ; preds = %.critedge.us29.i937, %654, %.split.i930
+  %669 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %670 = load ptr, ptr %669, align 8, !tbaa !26
+  %.not344.i = icmp eq ptr %670, null
+  br i1 %.not344.i, label %.sink.split, label %671
+
+671:                                              ; preds = %.loopexit969
+  %672 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %670, i32 noundef 1)
+  br label %validate_stmt.exit
+
+validate_stmt.exit.thread122:                     ; preds = %50
+  %673 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %673, ptr noundef nonnull @.str.36) #5
   %674 = load i32, ptr %0, align 4, !tbaa !21
   %675 = add i32 %674, -1
   store i32 %675, ptr %0, align 4, !tbaa !21
+  br label %validate_stmt.exit.thread
+
+validate_stmt.exit.thread127:                     ; preds = %validate_body.exit, %646, %650, %581, %571, %497, %392, %279, %283, %267, %271, %251, %255, %259, %235, %239, %243, %225, %227, %208, %213, %191, %validate_body.exit76, %99, %validate_body.exit81, %62, %66, %663, %182, %163, %112, %124, %79, %.split22.i938, %.split22.i915, %.split22.i, %validate_body.exit.thread, %.critedge.i19, %.critedge.i21, %.critedge.i24, %.critedge.i27, %.split22.i.i69, %_validate_nonempty_seq.exit.thread.i70, %validate_body.exit76.thread, %validate_body.exit81.thread, %_validate_nonempty_seq.exit.thread.i, %.split22.i.i
+  %676 = load i32, ptr %0, align 4, !tbaa !21
+  %677 = add i32 %676, -1
+  store i32 %677, ptr %0, align 4, !tbaa !21
+  br label %validate_stmt.exit.thread
+
+validate_stmt.exit.thread953:                     ; preds = %139, %.split22.i928
+  %678 = load i32, ptr %0, align 4, !tbaa !21
+  %679 = add i32 %678, -1
+  store i32 %679, ptr %0, align 4, !tbaa !21
+  br label %validate_stmt.exit.thread
+
+validate_stmt.exit:                               ; preds = %.critedge425.i, %.critedge429.i, %632, %87, %148, %validate_assignlist.exit, %195, %215, %231, %247, %263, %275, %287, %397, %505, %579, %588, %671
+  %.0278.i.ph = phi i32 [ %672, %671 ], [ %589, %588 ], [ %580, %579 ], [ %506, %505 ], [ %398, %397 ], [ %290, %287 ], [ %278, %275 ], [ %266, %263 ], [ %250, %247 ], [ %234, %231 ], [ %218, %215 ], [ %198, %195 ], [ %190, %validate_assignlist.exit ], [ %149, %148 ], [ %88, %87 ], [ %635, %632 ], [ %348, %.critedge429.i ], [ %319, %.critedge425.i ]
+  %680 = load i32, ptr %0, align 4, !tbaa !21
+  %681 = add i32 %680, -1
+  store i32 %681, ptr %0, align 4, !tbaa !21
   %.0278.i.ph.fr = freeze i32 %.0278.i.ph
   %.not16 = icmp eq i32 %.0278.i.ph.fr, 0
-  br i1 %.not16, label %validate_stmt.exit.thread.loopexit390.loopexit, label %679
+  br i1 %.not16, label %validate_stmt.exit.thread.loopexit404.loopexit, label %685
 
 .critedge:                                        ; preds = %11
-  %676 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %676, ptr noundef nonnull @.str.2) #5
+  %682 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %682, ptr noundef nonnull @.str.2) #5
   br label %validate_stmt.exit.thread
 
-.sink.split:                                      ; preds = %358, %.critedge.us33.i.i69, %.critedge.us33.i916, %.split.i909, %.loopexit951, %50, %50, %50, %.loopexit, %138, %386, %391, %496, %.critedge447.i, %572, %.critedge463.i, %581, %.loopexit963, %.split.i.i63, %590, %605, %614, %623
-  %677 = load i32, ptr %0, align 4, !tbaa !21
-  %678 = add i32 %677, -1
-  store i32 %678, ptr %0, align 4, !tbaa !21
-  br label %679
+.sink.split:                                      ; preds = %_validate_nonempty_seq.exit56, %.lr.ph393, %.critedge.us29.i.i68, %.critedge.us29.i927, %.split.i920, %.loopexit957, %50, %50, %50, %.loopexit, %145, %394, %399, %502, %.critedge447.i, %576, %.critedge463.i, %585, %.loopexit969, %.split.i.i63, %594, %609, %618, %627
+  %683 = load i32, ptr %0, align 4, !tbaa !21
+  %684 = add i32 %683, -1
+  store i32 %684, ptr %0, align 4, !tbaa !21
+  br label %685
 
-679:                                              ; preds = %.sink.split, %validate_stmt.exit
-  %680 = add nuw i64 %.013, 1
+685:                                              ; preds = %.sink.split, %validate_stmt.exit
+  %686 = add nuw i64 %.013, 1
   br label %6, !llvm.loop !75
 
-validate_stmt.exit.thread.loopexit390.loopexit:   ; preds = %validate_body.exit38, %validate_body.exit48, %340, %validate_stmt.exit, %9
-  %681 = zext i1 %.not139.not.not.not.not.not.not.not.not to i32
+validate_stmt.exit.thread.loopexit404.loopexit:   ; preds = %validate_body.exit38, %validate_body.exit48, %349, %validate_stmt.exit, %9
+  %687 = zext i1 %.not137.not.not.not.not.not.not.not.not to i32
   br label %validate_stmt.exit.thread
 
-validate_stmt.exit.thread:                        ; preds = %548, %validate_body.exit33, %472, %validate_body.exit43, %360, %369, %validate_body.exit53, %325, %334, %295, %304, %validate_stmt.exit.thread947, %validate_stmt.exit.thread.loopexit390.loopexit, %validate_body.exit33.thread, %validate_body.exit38.thread, %446, %split631, %466, %validate_body.exit43.thread, %validate_body.exit48.thread, %validate_body.exit53.thread, %_validate_nonempty_seq.exit56.thread, %_validate_nonempty_seq.exit59.thread, %_validate_nonempty_seq.exit62.thread, %599, %.critedge453.i, %534, %.critedge437.i, %429, %394, %212, %195, %48, %40, %split, %20, %validate_stmt.exit.thread129, %validate_stmt.exit.thread124, %.critedge
-  %.not139.not626 = phi i32 [ 0, %validate_body.exit33.thread ], [ 0, %validate_body.exit38.thread ], [ 0, %446 ], [ 0, %split631 ], [ 0, %466 ], [ 0, %validate_body.exit43.thread ], [ 0, %validate_body.exit48.thread ], [ 0, %validate_body.exit53.thread ], [ 0, %_validate_nonempty_seq.exit56.thread ], [ 0, %_validate_nonempty_seq.exit59.thread ], [ 0, %_validate_nonempty_seq.exit62.thread ], [ 0, %599 ], [ 0, %.critedge453.i ], [ 0, %534 ], [ 0, %.critedge437.i ], [ 0, %429 ], [ 0, %394 ], [ 0, %212 ], [ 0, %195 ], [ 0, %48 ], [ 0, %40 ], [ 0, %split ], [ 0, %20 ], [ 0, %validate_stmt.exit.thread129 ], [ 0, %validate_stmt.exit.thread124 ], [ 0, %.critedge ], [ %681, %validate_stmt.exit.thread.loopexit390.loopexit ], [ 0, %validate_stmt.exit.thread947 ], [ 0, %304 ], [ 0, %295 ], [ 0, %334 ], [ 0, %325 ], [ 0, %validate_body.exit53 ], [ 0, %369 ], [ 0, %360 ], [ 0, %validate_body.exit43 ], [ 0, %472 ], [ 0, %validate_body.exit33 ], [ 0, %548 ]
-  ret i32 %.not139.not626
+validate_stmt.exit.thread:                        ; preds = %555, %validate_body.exit33, %481, %validate_body.exit43, %368, %377, %validate_body.exit53, %332, %341, %303, %312, %validate_stmt.exit.thread953, %validate_stmt.exit.thread.loopexit404.loopexit, %validate_body.exit33.thread, %validate_body.exit38.thread, %455, %split645, %475, %validate_body.exit43.thread, %validate_body.exit48.thread, %validate_body.exit53.thread, %_validate_nonempty_seq.exit56.thread, %_validate_nonempty_seq.exit59.thread, %_validate_nonempty_seq.exit62.thread, %603, %.critedge453.i, %540, %.critedge437.i, %437, %402, %223, %206, %48, %40, %split, %20, %validate_stmt.exit.thread127, %validate_stmt.exit.thread122, %.critedge
+  %.not137.not640 = phi i32 [ 0, %validate_body.exit33.thread ], [ 0, %validate_body.exit38.thread ], [ 0, %455 ], [ 0, %split645 ], [ 0, %475 ], [ 0, %validate_body.exit43.thread ], [ 0, %validate_body.exit48.thread ], [ 0, %validate_body.exit53.thread ], [ 0, %_validate_nonempty_seq.exit56.thread ], [ 0, %_validate_nonempty_seq.exit59.thread ], [ 0, %_validate_nonempty_seq.exit62.thread ], [ 0, %603 ], [ 0, %.critedge453.i ], [ 0, %540 ], [ 0, %.critedge437.i ], [ 0, %437 ], [ 0, %402 ], [ 0, %223 ], [ 0, %206 ], [ 0, %48 ], [ 0, %40 ], [ 0, %split ], [ 0, %20 ], [ 0, %validate_stmt.exit.thread127 ], [ 0, %validate_stmt.exit.thread122 ], [ 0, %.critedge ], [ %687, %validate_stmt.exit.thread.loopexit404.loopexit ], [ 0, %validate_stmt.exit.thread953 ], [ 0, %312 ], [ 0, %303 ], [ 0, %341 ], [ 0, %332 ], [ 0, %validate_body.exit53 ], [ 0, %377 ], [ 0, %368 ], [ 0, %validate_body.exit43 ], [ 0, %481 ], [ 0, %validate_body.exit33 ], [ 0, %555 ]
+  ret i32 %.not137.not640
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2229,61 +2210,61 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_exprs(ptr noundef n
 
 .split:                                           ; preds = %4
   %7 = load i64, ptr %1, align 8, !tbaa !27
-  %.not2026 = icmp slt i64 %7, 1
-  br i1 %.not2026, label %.loopexit, label %.lr.ph
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.split
   br i1 %.not18, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us33
-  %.01527.us = phi i64 [ %12, %.critedge.us33 ], [ 0, %.lr.ph ]
-  %8 = getelementptr [1 x ptr], ptr %6, i64 0, i64 %.01527.us
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
-  %.not.us31 = icmp eq ptr %9, null
-  br i1 %.not.us31, label %.split24, label %10
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us29
+  %.01524.us = phi i64 [ %13, %.critedge.us29 ], [ 0, %.lr.ph ]
+  %9 = getelementptr [1 x ptr], ptr %6, i64 0, i64 %.01524.us
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
+  %.not.us27 = icmp eq ptr %10, null
+  br i1 %.not.us27, label %.split22, label %11
 
-10:                                               ; preds = %.lr.ph.split.us
-  %11 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %2)
-  %.not19.us32 = icmp eq i32 %11, 0
-  br i1 %.not19.us32, label %.loopexit, label %.critedge.us33
+11:                                               ; preds = %.lr.ph.split.us
+  %12 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %2)
+  %.not19.us28 = icmp eq i32 %12, 0
+  br i1 %.not19.us28, label %.loopexit, label %.critedge.us29
 
-.critedge.us33:                                   ; preds = %10
-  %12 = add nuw nsw i64 %.01527.us, 1
-  %13 = load i64, ptr %1, align 8, !tbaa !27
-  %.not20.us34.not = icmp slt i64 %12, %13
-  br i1 %.not20.us34.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !31
+.critedge.us29:                                   ; preds = %11
+  %13 = add nuw nsw i64 %.01524.us, 1
+  %14 = load i64, ptr %1, align 8, !tbaa !27
+  %15 = icmp slt i64 %13, %14
+  br i1 %15, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %14 = phi i64 [ %20, %.critedge ], [ %7, %.lr.ph ]
-  %.01527 = phi i64 [ %21, %.critedge ], [ 0, %.lr.ph ]
-  %15 = getelementptr [1 x ptr], ptr %6, i64 0, i64 %.01527
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.critedge, label %17
+  %16 = phi i64 [ %22, %.critedge ], [ %7, %.lr.ph ]
+  %.01524 = phi i64 [ %23, %.critedge ], [ 0, %.lr.ph ]
+  %17 = getelementptr [1 x ptr], ptr %6, i64 0, i64 %.01524
+  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %.critedge, label %19
 
-17:                                               ; preds = %.lr.ph.split
-  %18 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef nonnull %16, i32 noundef %2)
-  %.not19 = icmp eq i32 %18, 0
+19:                                               ; preds = %.lr.ph.split
+  %20 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef nonnull %18, i32 noundef %2)
+  %.not19 = icmp eq i32 %20, 0
   br i1 %.not19, label %.loopexit, label %..critedge_crit_edge
 
-..critedge_crit_edge:                             ; preds = %17
+..critedge_crit_edge:                             ; preds = %19
   %.pre = load i64, ptr %1, align 8, !tbaa !27
   br label %.critedge
 
-.split24:                                         ; preds = %.lr.ph.split.us
-  %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.73) #5
+.split22:                                         ; preds = %.lr.ph.split.us
+  %21 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.73) #5
   br label %.loopexit
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph.split
-  %20 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %14, %.lr.ph.split ]
-  %21 = add nuw nsw i64 %.01527, 1
-  %.not20.not = icmp slt i64 %21, %20
-  br i1 %.not20.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !31
+  %22 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %16, %.lr.ph.split ]
+  %23 = add nuw nsw i64 %.01524, 1
+  %24 = icmp slt i64 %23, %22
+  br i1 %24, label %.lr.ph.split, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %17, %.critedge, %10, %.critedge.us33, %4, %.split, %.split24
-  %.not2022 = phi i32 [ 0, %.split24 ], [ 1, %4 ], [ 1, %.split ], [ 1, %.critedge.us33 ], [ 0, %10 ], [ 1, %.critedge ], [ 0, %17 ]
-  ret i32 %.not2022
+.loopexit:                                        ; preds = %19, %.critedge, %11, %.critedge.us29, %4, %.split, %.split22
+  %switch = phi i32 [ 0, %.split22 ], [ 1, %4 ], [ 1, %.split ], [ 1, %.critedge.us29 ], [ 0, %11 ], [ 1, %.critedge ], [ 0, %19 ]
+  ret i32 %switch
 }
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2677,73 +2658,78 @@ define internal fastcc range(i32 0, 2) i32 @validate_arguments(ptr noundef nonnu
   br i1 %.not45, label %.preheader, label %validate_exprs.exit.thread.sink.split
 
 .preheader:                                       ; preds = %63
+  br i1 %32, label %.critedge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  br i1 %32, label %.split.us, label %.preheader.split
-
-.preheader.split:                                 ; preds = %.preheader, %.critedge.i
-  %.015.i = phi i64 [ %72, %.critedge.i ], [ 0, %.preheader ]
   %66 = load i64, ptr %31, align 8, !tbaa !27
-  %67 = icmp slt i64 %.015.i, %66
-  br i1 %67, label %68, label %.split.us.loopexit
+  %67 = icmp sgt i64 %66, 0
+  br i1 %67, label %.lr.ph64, label %.critedge
 
-68:                                               ; preds = %.preheader.split
-  %69 = getelementptr [1 x ptr], ptr %65, i64 0, i64 %.015.i
-  %70 = load ptr, ptr %69, align 8, !tbaa !29
-  %.not.i = icmp eq ptr %70, null
+68:                                               ; preds = %.critedge.i
+  %69 = add nuw nsw i64 %.015.i6163, 1
+  %70 = load i64, ptr %31, align 8, !tbaa !27
+  %71 = icmp slt i64 %69, %70
+  br i1 %71, label %.lr.ph64, label %.critedge.loopexit
+
+.lr.ph64:                                         ; preds = %.lr.ph, %68
+  %.015.i6163 = phi i64 [ %69, %68 ], [ 0, %.lr.ph ]
+  %72 = getelementptr [1 x ptr], ptr %65, i64 0, i64 %.015.i6163
+  %73 = load ptr, ptr %72, align 8, !tbaa !29
+  %.not.i = icmp eq ptr %73, null
   br i1 %.not.i, label %validate_exprs.exit.thread.sink.split, label %.critedge.i
 
-.critedge.i:                                      ; preds = %68
-  %71 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef 1)
-  %.not19.i = icmp eq i32 %71, 0
-  %72 = add nuw nsw i64 %.015.i, 1
-  br i1 %.not19.i, label %validate_exprs.exit.thread, label %.preheader.split, !llvm.loop !31
+.critedge.i:                                      ; preds = %.lr.ph64
+  %74 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %73, i32 noundef 1)
+  %.not19.i = icmp eq i32 %74, 0
+  br i1 %.not19.i, label %validate_exprs.exit.thread, label %68
 
-.split.us.loopexit:                               ; preds = %.preheader.split
+.critedge.loopexit:                               ; preds = %68
   %.pre = load ptr, ptr %52, align 8, !tbaa !105
-  br label %.split.us
+  br label %.critedge
 
-.split.us:                                        ; preds = %.split.us.loopexit, %.preheader
-  %73 = phi ptr [ %.pre, %.split.us.loopexit ], [ %53, %.preheader ]
-  %74 = icmp eq ptr %73, null
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  br i1 %74, label %validate_exprs.exit.thread, label %.split63
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %.preheader
+  %75 = phi ptr [ %.pre, %.critedge.loopexit ], [ %53, %.lr.ph ], [ %53, %.preheader ]
+  %76 = icmp eq ptr %75, null
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  br i1 %76, label %validate_exprs.exit.thread, label %.critedge.split
 
-.split63:                                         ; preds = %.split.us
-  %76 = load i64, ptr %73, align 8, !tbaa !27
-  %77 = icmp slt i64 %76, 1
-  br i1 %77, label %validate_exprs.exit.thread, label %.lr.ph
+.critedge.split:                                  ; preds = %.critedge
+  %78 = load i64, ptr %75, align 8, !tbaa !27
+  %79 = icmp sgt i64 %78, 0
+  br i1 %79, label %.lr.ph66, label %validate_exprs.exit.thread
 
-.lr.ph:                                           ; preds = %.split63, %.critedge.i54
-  %78 = phi i64 [ %83, %.critedge.i54 ], [ %76, %.split63 ]
-  %.015.i4764 = phi i64 [ %84, %.critedge.i54 ], [ 0, %.split63 ]
-  %79 = getelementptr [1 x ptr], ptr %75, i64 0, i64 %.015.i4764
-  %80 = load ptr, ptr %79, align 8, !tbaa !29
-  %.not.i52 = icmp eq ptr %80, null
-  br i1 %.not.i52, label %.critedge.i54, label %81
+.lr.ph66:                                         ; preds = %.critedge.split, %.critedge.i54
+  %80 = phi i64 [ %85, %.critedge.i54 ], [ %78, %.critedge.split ]
+  %.015.i4765 = phi i64 [ %86, %.critedge.i54 ], [ 0, %.critedge.split ]
+  %81 = getelementptr [1 x ptr], ptr %77, i64 0, i64 %.015.i4765
+  %82 = load ptr, ptr %81, align 8, !tbaa !29
+  %.not.i52 = icmp eq ptr %82, null
+  br i1 %.not.i52, label %.critedge.i54, label %83
 
-81:                                               ; preds = %.lr.ph
-  %82 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %80, i32 noundef 1)
-  %.not19.i53 = icmp eq i32 %82, 0
+83:                                               ; preds = %.lr.ph66
+  %84 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %82, i32 noundef 1)
+  %.not19.i53 = icmp eq i32 %84, 0
   br i1 %.not19.i53, label %validate_exprs.exit.thread, label %..critedge.i54_crit_edge
 
-..critedge.i54_crit_edge:                         ; preds = %81
-  %.pre73 = load i64, ptr %73, align 8, !tbaa !27
+..critedge.i54_crit_edge:                         ; preds = %83
+  %.pre74 = load i64, ptr %75, align 8, !tbaa !27
   br label %.critedge.i54
 
-.critedge.i54:                                    ; preds = %..critedge.i54_crit_edge, %.lr.ph
-  %83 = phi i64 [ %.pre73, %..critedge.i54_crit_edge ], [ %78, %.lr.ph ]
-  %84 = add nuw nsw i64 %.015.i4764, 1
-  %.not72 = icmp slt i64 %84, %83
-  br i1 %.not72, label %.lr.ph, label %validate_exprs.exit.thread, !llvm.loop !31
+.critedge.i54:                                    ; preds = %..critedge.i54_crit_edge, %.lr.ph66
+  %85 = phi i64 [ %.pre74, %..critedge.i54_crit_edge ], [ %80, %.lr.ph66 ]
+  %86 = add nuw nsw i64 %.015.i4765, 1
+  %87 = icmp slt i64 %86, %85
+  br i1 %87, label %.lr.ph66, label %validate_exprs.exit.thread, !llvm.loop !31
 
-validate_exprs.exit.thread.sink.split:            ; preds = %68, %63, %47
-  %.str.73.sink = phi ptr [ @.str.42, %47 ], [ @.str.43, %63 ], [ @.str.73, %68 ]
-  %85 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull %.str.73.sink) #5
+validate_exprs.exit.thread.sink.split:            ; preds = %.lr.ph64, %63, %47
+  %.str.73.sink = phi ptr [ @.str.42, %47 ], [ @.str.43, %63 ], [ @.str.73, %.lr.ph64 ]
+  %88 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %88, ptr noundef nonnull %.str.73.sink) #5
   br label %validate_exprs.exit.thread
 
-validate_exprs.exit.thread:                       ; preds = %.critedge.i, %81, %.critedge.i54, %validate_exprs.exit.thread.sink.split, %.split.us, %.split63, %27, %17, %15, %2, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %15 ], [ 0, %17 ], [ 0, %27 ], [ 1, %.split.us ], [ 1, %.split63 ], [ 0, %validate_exprs.exit.thread.sink.split ], [ 1, %.critedge.i54 ], [ 0, %81 ], [ 0, %.critedge.i ]
+validate_exprs.exit.thread:                       ; preds = %.critedge.i, %83, %.critedge.i54, %validate_exprs.exit.thread.sink.split, %.critedge, %.critedge.split, %27, %17, %15, %2, %5
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %15 ], [ 0, %17 ], [ 0, %27 ], [ 1, %.critedge ], [ 1, %.critedge.split ], [ 0, %validate_exprs.exit.thread.sink.split ], [ 1, %.critedge.i54 ], [ 0, %83 ], [ 0, %.critedge.i ]
   ret i32 %.0
 }
 
@@ -2751,27 +2737,27 @@ validate_exprs.exit.thread:                       ; preds = %.critedge.i, %81, %
 define internal fastcc noundef range(i32 0, 2) i32 @validate_keywords(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %.split13.us, label %.split
+  br i1 %4, label %.split12.us, label %.split
 
-.split:                                           ; preds = %2, %6
-  %.08 = phi i64 [ %12, %6 ], [ 0, %2 ]
+.split:                                           ; preds = %2, %7
+  %.08 = phi i64 [ %13, %7 ], [ 0, %2 ]
   %5 = load i64, ptr %1, align 8, !tbaa !27
-  %.not11.not = icmp slt i64 %.08, %5
-  br i1 %.not11.not, label %6, label %.split13.us
+  %6 = icmp slt i64 %.08, %5
+  br i1 %6, label %7, label %.split12.us
 
-6:                                                ; preds = %.split
-  %7 = getelementptr [1 x ptr], ptr %3, i64 0, i64 %.08
-  %8 = load ptr, ptr %7, align 8, !tbaa !44
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !46
-  %11 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef %10, i32 noundef 1)
-  %.not = icmp eq i32 %11, 0
-  %12 = add nuw nsw i64 %.08, 1
-  br i1 %.not, label %.split13.us, label %.split, !llvm.loop !48
+7:                                                ; preds = %.split
+  %8 = getelementptr [1 x ptr], ptr %3, i64 0, i64 %.08
+  %9 = load ptr, ptr %8, align 8, !tbaa !44
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !46
+  %12 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef %11, i32 noundef 1)
+  %.not = icmp eq i32 %12, 0
+  %13 = add nuw nsw i64 %.08, 1
+  br i1 %.not, label %.split12.us, label %.split, !llvm.loop !48
 
-.split13.us:                                      ; preds = %.split, %6, %2
-  %.us-phi = phi i32 [ 1, %2 ], [ 0, %6 ], [ 1, %.split ]
-  ret i32 %.us-phi
+.split12.us:                                      ; preds = %.split, %7, %2
+  %switch = phi i32 [ 1, %2 ], [ 0, %7 ], [ 1, %.split ]
+  ret i32 %switch
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2786,7 +2772,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
 9:                                                ; preds = %3
   %10 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
   %11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.3, i32 noundef %5, i32 noundef %7) #5
-  br label %197
+  br label %195
 
 12:                                               ; preds = %3
   %13 = icmp sgt i32 %5, -1
@@ -2797,8 +2783,8 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
   br i1 %or.cond, label %16, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12
-  %.phi.trans.insert172 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %.pre173 = load i32, ptr %.phi.trans.insert172, align 4, !tbaa !110
+  %.phi.trans.insert173 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %.pre174 = load i32, ptr %.phi.trans.insert173, align 4, !tbaa !110
   br label %21
 
 16:                                               ; preds = %12
@@ -2812,10 +2798,10 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
   br i1 %.not126, label %25, label %21
 
 21:                                               ; preds = %._crit_edge, %18
-  %22 = phi i32 [ %.pre173, %._crit_edge ], [ %20, %18 ]
+  %22 = phi i32 [ %.pre174, %._crit_edge ], [ %20, %18 ]
   %23 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
   %24 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.4, i32 noundef %15, i32 noundef %22, i32 noundef %5, i32 noundef %7) #5
-  br label %197
+  br label %195
 
 25:                                               ; preds = %18, %16
   br i1 %.not, label %26, label %33
@@ -2829,7 +2815,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
 30:                                               ; preds = %26
   %31 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
   %32 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.5, i32 noundef %5, i32 noundef %15, i32 noundef %28) #5
-  br label %197
+  br label %195
 
 33:                                               ; preds = %26, %25
   %34 = load i32, ptr %0, align 4, !tbaa !21
@@ -2843,7 +2829,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
 39:                                               ; preds = %33
   %40 = load ptr, ptr @PyExc_RecursionError, align 8, !tbaa !33
   tail call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.6) #5
-  br label %197
+  br label %195
 
 41:                                               ; preds = %33
   %42 = load i32, ptr %1, align 8, !tbaa !111
@@ -2853,9 +2839,9 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
     i32 3, label %56
     i32 4, label %60
     i32 5, label %106
-    i32 6, label %159
-    i32 7, label %168
-    i32 8, label %184
+    i32 6, label %157
+    i32 7, label %166
+    i32 8, label %182
   ]
 
 43:                                               ; preds = %41
@@ -2927,14 +2913,14 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
 80:                                               ; preds = %77
   %81 = tail call fastcc i32 @validate_capture(ptr noundef %79)
   %.not137 = icmp eq i32 %81, 0
-  br i1 %.not137, label %.thread161, label %._crit_edge174
+  br i1 %.not137, label %.thread161, label %._crit_edge175
 
-._crit_edge174:                                   ; preds = %80
-  %.pre175 = load ptr, ptr %61, align 8, !tbaa !26
+._crit_edge175:                                   ; preds = %80
+  %.pre176 = load ptr, ptr %61, align 8, !tbaa !26
   br label %82
 
-82:                                               ; preds = %._crit_edge174, %77
-  %83 = phi ptr [ %.pre175, %._crit_edge174 ], [ %62, %77 ]
+82:                                               ; preds = %._crit_edge175, %77
+  %83 = phi ptr [ %.pre176, %._crit_edge175 ], [ %62, %77 ]
   %84 = icmp eq ptr %83, null
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   br i1 %84, label %.critedge166, label %.split
@@ -2946,8 +2932,8 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
 
 .lr.ph:                                           ; preds = %.split, %.thread147
   %88 = phi i64 [ %101, %.thread147 ], [ %86, %.split ]
-  %.0103168 = phi i64 [ %102, %.thread147 ], [ 0, %.split ]
-  %89 = getelementptr [1 x ptr], ptr %85, i64 0, i64 %.0103168
+  %.0103169 = phi i64 [ %102, %.thread147 ], [ 0, %.split ]
+  %89 = getelementptr [1 x ptr], ptr %85, i64 0, i64 %.0103169
   %90 = load ptr, ptr %89, align 8, !tbaa !29
   %91 = load i32, ptr %90, align 8, !tbaa !49
   %92 = icmp eq i32 %91, 20
@@ -2971,12 +2957,12 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
   br i1 %.not139, label %.thread161, label %..thread147_crit_edge
 
 ..thread147_crit_edge:                            ; preds = %99
-  %.pre176 = load i64, ptr %83, align 8, !tbaa !27
+  %.pre177 = load i64, ptr %83, align 8, !tbaa !27
   br label %.thread147
 
 .thread147:                                       ; preds = %..thread147_crit_edge, %97, %93
-  %101 = phi i64 [ %.pre176, %..thread147_crit_edge ], [ %88, %97 ], [ %88, %93 ]
-  %102 = add nuw nsw i64 %.0103168, 1
+  %101 = phi i64 [ %.pre177, %..thread147_crit_edge ], [ %88, %97 ], [ %88, %93 ]
+  %102 = add nuw nsw i64 %.0103169, 1
   %103 = icmp slt i64 %102, %101
   br i1 %103, label %.lr.ph, label %.critedge166, !llvm.loop !112
 
@@ -3023,162 +3009,161 @@ define internal fastcc range(i32 0, 2) i32 @validate_pattern(ptr noundef nonnull
   %.not131 = icmp eq i32 %126, 0
   br i1 %.not131, label %.thread161, label %.preheader
 
-.preheader:                                       ; preds = %124, %128
-  %.097.in = phi ptr [ %129, %128 ], [ %107, %124 ]
+.preheader:                                       ; preds = %124, %130
+  %.097.in = phi ptr [ %131, %130 ], [ %107, %124 ]
   %.097 = load ptr, ptr %.097.in, align 8, !tbaa !26
   %127 = load i32, ptr %.097, align 8, !tbaa !49
-  switch i32 %127, label %130 [
-    i32 24, label %.critedge
-    i32 21, label %128
+  switch i32 %127, label %132 [
+    i32 24, label %.critedge.preheader
+    i32 21, label %130
   ]
 
-128:                                              ; preds = %.preheader
-  %129 = getelementptr inbounds nuw i8, ptr %.097, i64 8
-  br label %.preheader
+.critedge.preheader:                              ; preds = %.preheader
+  %128 = load ptr, ptr %108, align 8, !tbaa !26
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %.thread, label %.lr.ph181
 
 130:                                              ; preds = %.preheader
-  %131 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %131, ptr noundef nonnull @.str.51) #5
+  %131 = getelementptr inbounds nuw i8, ptr %.097, i64 8
+  br label %.preheader
+
+132:                                              ; preds = %.preheader
+  %133 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %133, ptr noundef nonnull @.str.51) #5
   br label %.thread161
 
-.critedge:                                        ; preds = %.preheader, %148
-  %.096 = phi i64 [ %149, %148 ], [ 0, %.preheader ]
-  %132 = load ptr, ptr %108, align 8, !tbaa !26
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %136, label %134
+.lr.ph181:                                        ; preds = %.critedge.preheader, %.critedge
+  %134 = phi ptr [ %147, %.critedge ], [ %128, %.critedge.preheader ]
+  %.096180 = phi i64 [ %146, %.critedge ], [ 0, %.critedge.preheader ]
+  %135 = load i64, ptr %134, align 8, !tbaa !27
+  %136 = icmp slt i64 %.096180, %135
+  br i1 %136, label %137, label %.thread
 
-134:                                              ; preds = %.critedge
-  %135 = load i64, ptr %132, align 8, !tbaa !27
-  br label %136
+137:                                              ; preds = %.lr.ph181
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %139 = getelementptr [1 x ptr], ptr %138, i64 0, i64 %.096180
+  %140 = load ptr, ptr %139, align 8, !tbaa !33
+  br label %142
 
-136:                                              ; preds = %.critedge, %134
-  %137 = phi i64 [ %135, %134 ], [ 0, %.critedge ]
-  %138 = icmp slt i64 %.096, %137
-  br i1 %138, label %139, label %152
-
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %141 = getelementptr [1 x ptr], ptr %140, i64 0, i64 %.096
-  %142 = load ptr, ptr %141, align 8, !tbaa !33
-  br label %144
-
-143:                                              ; preds = %144
+141:                                              ; preds = %142
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %148, label %144, !llvm.loop !91
+  br i1 %.not.i, label %.critedge, label %142, !llvm.loop !91
 
-144:                                              ; preds = %143, %139
-  %indvars.iv.i = phi i64 [ 0, %139 ], [ %indvars.iv.next.i, %143 ]
-  %145 = getelementptr [4 x ptr], ptr @validate_name.forbidden, i64 0, i64 %indvars.iv.i
-  %146 = load ptr, ptr %145, align 8, !tbaa !92
-  %147 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %142, ptr noundef %146) #5
-  %.not9.i = icmp eq i32 %147, 0
-  br i1 %.not9.i, label %143, label %.thread158
+142:                                              ; preds = %141, %137
+  %indvars.iv.i = phi i64 [ 0, %137 ], [ %indvars.iv.next.i, %141 ]
+  %143 = getelementptr [4 x ptr], ptr @validate_name.forbidden, i64 0, i64 %indvars.iv.i
+  %144 = load ptr, ptr %143, align 8, !tbaa !92
+  %145 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %140, ptr noundef %144) #5
+  %.not9.i = icmp eq i32 %145, 0
+  br i1 %.not9.i, label %141, label %.thread158
 
-148:                                              ; preds = %143
-  %149 = add nuw nsw i64 %.096, 1
-  br label %.critedge, !llvm.loop !113
+.critedge:                                        ; preds = %141
+  %146 = add nuw nsw i64 %.096180, 1
+  %147 = load ptr, ptr %108, align 8, !tbaa !26
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %.thread, label %.lr.ph181, !llvm.loop !113
 
-.thread158:                                       ; preds = %144
-  %150 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %151 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %150, ptr noundef nonnull @.str.41, ptr noundef %146) #5
+.thread158:                                       ; preds = %142
+  %149 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %150 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %149, ptr noundef nonnull @.str.41, ptr noundef %144) #5
   br label %.thread161
 
-152:                                              ; preds = %136
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %154 = load ptr, ptr %153, align 8, !tbaa !26
-  %155 = tail call fastcc i32 @validate_patterns(ptr noundef %0, ptr noundef %154, i32 noundef 0)
-  %.not134 = icmp eq i32 %155, 0
-  br i1 %.not134, label %.thread161, label %156
+.thread:                                          ; preds = %.lr.ph181, %.critedge, %.critedge.preheader
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %152 = load ptr, ptr %151, align 8, !tbaa !26
+  %153 = tail call fastcc i32 @validate_patterns(ptr noundef %0, ptr noundef %152, i32 noundef 0)
+  %.not134 = icmp eq i32 %153, 0
+  br i1 %.not134, label %.thread161, label %154
 
-156:                                              ; preds = %152
-  %157 = load ptr, ptr %115, align 8, !tbaa !26
-  %158 = tail call fastcc i32 @validate_patterns(ptr noundef %0, ptr noundef %157, i32 noundef 0)
+154:                                              ; preds = %.thread
+  %155 = load ptr, ptr %115, align 8, !tbaa !26
+  %156 = tail call fastcc i32 @validate_patterns(ptr noundef %0, ptr noundef %155, i32 noundef 0)
   br label %.thread161
 
-159:                                              ; preds = %41
+157:                                              ; preds = %41
   %.not129 = icmp eq i32 %2, 0
-  br i1 %.not129, label %160, label %162
+  br i1 %.not129, label %158, label %160
 
-160:                                              ; preds = %159
-  %161 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %161, ptr noundef nonnull @.str.52) #5
+158:                                              ; preds = %157
+  %159 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %159, ptr noundef nonnull @.str.52) #5
   br label %.thread161
 
-162:                                              ; preds = %159
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %164 = load ptr, ptr %163, align 8, !tbaa !26
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %.thread161, label %166
+160:                                              ; preds = %157
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %162 = load ptr, ptr %161, align 8, !tbaa !26
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %.thread161, label %164
 
-166:                                              ; preds = %162
-  %167 = tail call fastcc i32 @validate_capture(ptr noundef %164)
+164:                                              ; preds = %160
+  %165 = tail call fastcc i32 @validate_capture(ptr noundef %162)
   br label %.thread161
 
-168:                                              ; preds = %41
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %171 = load ptr, ptr %170, align 8, !tbaa !26
-  %.not127 = icmp eq ptr %171, null
-  br i1 %.not127, label %174, label %172
+166:                                              ; preds = %41
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %169 = load ptr, ptr %168, align 8, !tbaa !26
+  %.not127 = icmp eq ptr %169, null
+  br i1 %.not127, label %172, label %170
 
-172:                                              ; preds = %168
-  %173 = tail call fastcc i32 @validate_capture(ptr noundef %171)
-  %.not128 = icmp eq i32 %173, 0
-  br i1 %.not128, label %.thread161, label %174
+170:                                              ; preds = %166
+  %171 = tail call fastcc i32 @validate_capture(ptr noundef %169)
+  %.not128 = icmp eq i32 %171, 0
+  br i1 %.not128, label %.thread161, label %172
 
-174:                                              ; preds = %172, %168
-  %175 = load ptr, ptr %169, align 8, !tbaa !26
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %.thread161, label %177
+172:                                              ; preds = %170, %166
+  %173 = load ptr, ptr %167, align 8, !tbaa !26
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %.thread161, label %175
 
-177:                                              ; preds = %174
-  %178 = load ptr, ptr %170, align 8, !tbaa !26
-  %179 = icmp eq ptr %178, null
-  br i1 %179, label %180, label %182
+175:                                              ; preds = %172
+  %176 = load ptr, ptr %168, align 8, !tbaa !26
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %178, label %180
 
-180:                                              ; preds = %177
-  %181 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %181, ptr noundef nonnull @.str.53) #5
+178:                                              ; preds = %175
+  %179 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %179, ptr noundef nonnull @.str.53) #5
   br label %.thread161
 
-182:                                              ; preds = %177
-  %183 = tail call fastcc i32 @validate_pattern(ptr noundef %0, ptr noundef nonnull %175, i32 noundef 0)
+180:                                              ; preds = %175
+  %181 = tail call fastcc i32 @validate_pattern(ptr noundef %0, ptr noundef nonnull %173, i32 noundef 0)
   br label %.thread161
 
-184:                                              ; preds = %41
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %186 = load ptr, ptr %185, align 8, !tbaa !26
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %.critedge141, label %188
+182:                                              ; preds = %41
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %184 = load ptr, ptr %183, align 8, !tbaa !26
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %.critedge141, label %186
 
-188:                                              ; preds = %184
-  %189 = load i64, ptr %186, align 8, !tbaa !27
-  %190 = icmp slt i64 %189, 2
-  br i1 %190, label %.critedge141, label %192
+186:                                              ; preds = %182
+  %187 = load i64, ptr %184, align 8, !tbaa !27
+  %188 = icmp slt i64 %187, 2
+  br i1 %188, label %.critedge141, label %190
 
-.critedge141:                                     ; preds = %184, %188
-  %191 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %191, ptr noundef nonnull @.str.54) #5
+.critedge141:                                     ; preds = %182, %186
+  %189 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %189, ptr noundef nonnull @.str.54) #5
   br label %.thread161
 
-192:                                              ; preds = %188
-  %193 = tail call fastcc i32 @validate_patterns(ptr noundef %0, ptr noundef nonnull %186, i32 noundef 0)
+190:                                              ; preds = %186
+  %191 = tail call fastcc i32 @validate_patterns(ptr noundef %0, ptr noundef nonnull %184, i32 noundef 0)
   br label %.thread161
 
 .thread163:                                       ; preds = %41
-  %194 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %194, ptr noundef nonnull @.str.55) #5
+  %192 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %192, ptr noundef nonnull @.str.55) #5
   br label %.thread161
 
-.thread161:                                       ; preds = %99, %56, %.critedge166, %156, %192, %47, %.thread158, %174, %172, %166, %162, %152, %124, %80, %.critedge141, %182, %180, %160, %130, %122, %75, %54, %51, %43, %.thread163
-  %.8 = phi i32 [ 0, %.thread163 ], [ 0, %.thread158 ], [ 1, %174 ], [ 0, %172 ], [ %167, %166 ], [ 1, %162 ], [ 0, %152 ], [ 0, %124 ], [ 0, %80 ], [ 0, %.critedge141 ], [ %183, %182 ], [ 0, %180 ], [ 0, %160 ], [ 0, %130 ], [ 0, %122 ], [ 0, %75 ], [ 0, %54 ], [ 1, %51 ], [ %46, %43 ], [ 1, %47 ], [ %59, %56 ], [ %105, %.critedge166 ], [ %158, %156 ], [ %193, %192 ], [ 0, %99 ]
-  %195 = load i32, ptr %0, align 4, !tbaa !21
-  %196 = add i32 %195, -1
-  store i32 %196, ptr %0, align 4, !tbaa !21
-  br label %197
+.thread161:                                       ; preds = %99, %56, %.critedge166, %154, %190, %47, %.thread158, %172, %170, %164, %160, %.thread, %124, %80, %.critedge141, %180, %178, %158, %132, %122, %75, %54, %51, %43, %.thread163
+  %.8 = phi i32 [ 0, %.thread163 ], [ 0, %.thread158 ], [ 1, %172 ], [ 0, %170 ], [ %165, %164 ], [ 1, %160 ], [ 0, %.thread ], [ 0, %124 ], [ 0, %80 ], [ 0, %.critedge141 ], [ %181, %180 ], [ 0, %178 ], [ 0, %158 ], [ 0, %132 ], [ 0, %122 ], [ 0, %75 ], [ 0, %54 ], [ 1, %51 ], [ %46, %43 ], [ 1, %47 ], [ %59, %56 ], [ %105, %.critedge166 ], [ %156, %154 ], [ %191, %190 ], [ 0, %99 ]
+  %193 = load i32, ptr %0, align 4, !tbaa !21
+  %194 = add i32 %193, -1
+  store i32 %194, ptr %0, align 4, !tbaa !21
+  br label %195
 
-197:                                              ; preds = %39, %.thread161, %30, %21, %9
+195:                                              ; preds = %39, %.thread161, %30, %21, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %21 ], [ 0, %30 ], [ 0, %39 ], [ %.8, %.thread161 ]
   ret i32 %.0
 }
@@ -3220,93 +3205,93 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_args(ptr noundef no
 
 .split:                                           ; preds = %2
   %5 = load i64, ptr %1, align 8, !tbaa !27
-  %.not4880 = icmp slt i64 %5, 1
-  br i1 %.not4880, label %.critedge, label %.lr.ph
+  %6 = icmp sgt i64 %5, 0
+  br i1 %6, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.split, %40
-  %6 = phi i64 [ %41, %40 ], [ %5, %.split ]
-  %.03481 = phi i64 [ %42, %40 ], [ 0, %.split ]
-  %7 = getelementptr [1 x ptr], ptr %4, i64 0, i64 %.03481
-  %8 = load ptr, ptr %7, align 8, !tbaa !114
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !115
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !116
-  %13 = icmp sgt i32 %10, %12
-  br i1 %13, label %.split64, label %16
+.lr.ph:                                           ; preds = %.split, %41
+  %7 = phi i64 [ %42, %41 ], [ %5, %.split ]
+  %.03479 = phi i64 [ %43, %41 ], [ 0, %.split ]
+  %8 = getelementptr [1 x ptr], ptr %4, i64 0, i64 %.03479
+  %9 = load ptr, ptr %8, align 8, !tbaa !114
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %11 = load i32, ptr %10, align 8, !tbaa !115
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %13 = load i32, ptr %12, align 8, !tbaa !116
+  %14 = icmp sgt i32 %11, %13
+  br i1 %14, label %.split63, label %17
 
-.split64:                                         ; preds = %.lr.ph
-  %14 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %15 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %10, i32 noundef %12) #5
+.split63:                                         ; preds = %.lr.ph
+  %15 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %16 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %13) #5
   br label %.critedge
 
-16:                                               ; preds = %.lr.ph
-  %17 = icmp sgt i32 %10, -1
-  %.not = icmp eq i32 %12, %10
-  %or.cond = or i1 %17, %.not
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %19 = load i32, ptr %18, align 4, !tbaa !117
-  br i1 %or.cond, label %20, label %..split69_crit_edge
+17:                                               ; preds = %.lr.ph
+  %18 = icmp sgt i32 %11, -1
+  %.not = icmp eq i32 %13, %11
+  %or.cond = or i1 %18, %.not
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %20 = load i32, ptr %19, align 4, !tbaa !117
+  br i1 %or.cond, label %21, label %..split68_crit_edge
 
-..split69_crit_edge:                              ; preds = %16
-  %.phi.trans.insert104 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %.pre105 = load i32, ptr %.phi.trans.insert104, align 4, !tbaa !118
-  br label %.split69
+..split68_crit_edge:                              ; preds = %17
+  %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %.pre102 = load i32, ptr %.phi.trans.insert101, align 4, !tbaa !118
+  br label %.split68
 
-20:                                               ; preds = %16
-  %21 = icmp slt i32 %19, 0
-  br i1 %21, label %22, label %28
+21:                                               ; preds = %17
+  %22 = icmp slt i32 %20, 0
+  br i1 %22, label %23, label %29
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %24 = load i32, ptr %23, align 4, !tbaa !118
-  %.not45 = icmp eq i32 %19, %24
-  br i1 %.not45, label %28, label %.split69
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %25 = load i32, ptr %24, align 4, !tbaa !118
+  %.not45 = icmp eq i32 %20, %25
+  br i1 %.not45, label %29, label %.split68
 
-.split69:                                         ; preds = %22, %..split69_crit_edge
-  %25 = phi i32 [ %.pre105, %..split69_crit_edge ], [ %24, %22 ]
-  %26 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %27 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %26, ptr noundef nonnull @.str.4, i32 noundef %19, i32 noundef %25, i32 noundef %10, i32 noundef %12) #5
+.split68:                                         ; preds = %23, %..split68_crit_edge
+  %26 = phi i32 [ %.pre102, %..split68_crit_edge ], [ %25, %23 ]
+  %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %28 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.4, i32 noundef %20, i32 noundef %26, i32 noundef %11, i32 noundef %13) #5
   br label %.critedge
 
-28:                                               ; preds = %22, %20
-  br i1 %.not, label %29, label %35
+29:                                               ; preds = %23, %21
+  br i1 %.not, label %30, label %36
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %31 = load i32, ptr %30, align 4, !tbaa !118
-  %32 = icmp sgt i32 %19, %31
-  br i1 %32, label %.split75, label %35
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %32 = load i32, ptr %31, align 4, !tbaa !118
+  %33 = icmp sgt i32 %20, %32
+  br i1 %33, label %.split74, label %36
 
-.split75:                                         ; preds = %29
-  %33 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  %34 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %33, ptr noundef nonnull @.str.5, i32 noundef %10, i32 noundef %19, i32 noundef %31) #5
+.split74:                                         ; preds = %30
+  %34 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  %35 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.5, i32 noundef %11, i32 noundef %20, i32 noundef %32) #5
   br label %.critedge
 
-35:                                               ; preds = %29, %28
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !100
-  %.not46 = icmp eq ptr %37, null
-  br i1 %.not46, label %40, label %38
+36:                                               ; preds = %30, %29
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !100
+  %.not46 = icmp eq ptr %38, null
+  br i1 %.not46, label %41, label %39
 
-38:                                               ; preds = %35
-  %39 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef nonnull %37, i32 noundef 1)
-  %.not47 = icmp eq i32 %39, 0
+39:                                               ; preds = %36
+  %40 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef nonnull %38, i32 noundef 1)
+  %.not47 = icmp eq i32 %40, 0
   br i1 %.not47, label %.critedge, label %._crit_edge
 
-._crit_edge:                                      ; preds = %38
-  %.pre106 = load i64, ptr %1, align 8, !tbaa !27
-  br label %40
+._crit_edge:                                      ; preds = %39
+  %.pre103 = load i64, ptr %1, align 8, !tbaa !27
+  br label %41
 
-40:                                               ; preds = %._crit_edge, %35
-  %41 = phi i64 [ %.pre106, %._crit_edge ], [ %6, %35 ]
-  %42 = add nuw nsw i64 %.03481, 1
-  %.not48.not = icmp slt i64 %42, %41
-  br i1 %.not48.not, label %.lr.ph, label %.critedge, !llvm.loop !119
+41:                                               ; preds = %._crit_edge, %36
+  %42 = phi i64 [ %.pre103, %._crit_edge ], [ %7, %36 ]
+  %43 = add nuw nsw i64 %.03479, 1
+  %44 = icmp slt i64 %43, %42
+  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !119
 
-.critedge:                                        ; preds = %38, %40, %2, %.split, %.split64, %.split69, %.split75
-  %.not4862 = phi i32 [ 0, %.split64 ], [ 0, %.split69 ], [ 0, %.split75 ], [ 1, %2 ], [ 1, %.split ], [ 1, %40 ], [ 0, %38 ]
-  ret i32 %.not4862
+.critedge:                                        ; preds = %39, %41, %2, %.split, %.split63, %.split68, %.split74
+  %switch = phi i32 [ 0, %.split63 ], [ 0, %.split68 ], [ 0, %.split74 ], [ 1, %2 ], [ 1, %.split ], [ 1, %41 ], [ 0, %39 ]
+  ret i32 %switch
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3454,23 +3439,23 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_patterns(ptr nounde
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.split16.us, label %.split
 
-.split:                                           ; preds = %3, %7
-  %.013 = phi i64 [ %11, %7 ], [ 0, %3 ]
+.split:                                           ; preds = %3, %8
+  %.013 = phi i64 [ %12, %8 ], [ 0, %3 ]
   %6 = load i64, ptr %1, align 8, !tbaa !27
-  %.not.not17 = icmp slt i64 %.013, %6
-  br i1 %.not.not17, label %7, label %.split16.us
+  %7 = icmp slt i64 %.013, %6
+  br i1 %7, label %8, label %.split16.us
 
-7:                                                ; preds = %.split
-  %8 = getelementptr [1 x ptr], ptr %4, i64 0, i64 %.013
-  %9 = load ptr, ptr %8, align 8, !tbaa !120
-  %10 = tail call fastcc i32 @validate_pattern(ptr noundef %0, ptr noundef %9, i32 noundef %2)
-  %.not.not = icmp eq i32 %10, 0
-  %11 = add nuw nsw i64 %.013, 1
+8:                                                ; preds = %.split
+  %9 = getelementptr [1 x ptr], ptr %4, i64 0, i64 %.013
+  %10 = load ptr, ptr %9, align 8, !tbaa !120
+  %11 = tail call fastcc i32 @validate_pattern(ptr noundef %0, ptr noundef %10, i32 noundef %2)
+  %.not.not = icmp eq i32 %11, 0
+  %12 = add nuw nsw i64 %.013, 1
   br i1 %.not.not, label %.split16.us, label %.split, !llvm.loop !121
 
-.split16.us:                                      ; preds = %7, %.split, %3
-  %.us-phi = phi i32 [ 1, %3 ], [ 1, %.split ], [ 0, %7 ]
-  ret i32 %.us-phi
+.split16.us:                                      ; preds = %8, %.split, %3
+  %switch = phi i32 [ 1, %3 ], [ 1, %.split ], [ 0, %8 ]
+  ret i32 %switch
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3522,16 +3507,16 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_comprehension(ptr n
   br i1 %6, label %validate_exprs.exit.thread.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not38 = icmp slt i64 %5, 1
-  br i1 %.not38, label %validate_exprs.exit.thread, label %.lr.ph
+  %.not41 = icmp slt i64 %5, 1
+  br i1 %.not41, label %validate_exprs.exit.thread, label %.lr.ph44
 
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph44:                                         ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %8
 
-8:                                                ; preds = %.lr.ph, %.critedge25
-  %.01839 = phi i64 [ 0, %.lr.ph ], [ %29, %.critedge25 ]
-  %9 = getelementptr [1 x ptr], ptr %7, i64 0, i64 %.01839
+8:                                                ; preds = %.lr.ph44, %.critedge25
+  %.01842 = phi i64 [ 0, %.lr.ph44 ], [ %31, %.critedge25 ]
+  %9 = getelementptr [1 x ptr], ptr %7, i64 0, i64 %.01842
   %10 = load ptr, ptr %9, align 8, !tbaa !122
   %11 = load ptr, ptr %10, align 8, !tbaa !124
   %12 = tail call fastcc i32 @validate_expr(ptr noundef %0, ptr noundef %11, i32 noundef 2)
@@ -3549,37 +3534,42 @@ define internal fastcc noundef range(i32 0, 2) i32 @validate_comprehension(ptr n
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !127
   %20 = icmp eq ptr %19, null
+  br i1 %20, label %.critedge25, label %.lr.ph
+
+.lr.ph:                                           ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  br i1 %20, label %.critedge25, label %.split
-
-.split:                                           ; preds = %17, %.critedge.i
-  %.015.i = phi i64 [ %28, %.critedge.i ], [ 0, %17 ]
   %22 = load i64, ptr %19, align 8, !tbaa !27
-  %23 = icmp slt i64 %.015.i, %22
-  br i1 %23, label %24, label %.critedge25
+  %23 = icmp sgt i64 %22, 0
+  br i1 %23, label %.lr.ph40, label %.critedge25
 
-24:                                               ; preds = %.split
-  %25 = getelementptr [1 x ptr], ptr %21, i64 0, i64 %.015.i
-  %26 = load ptr, ptr %25, align 8, !tbaa !29
-  %.not.i = icmp eq ptr %26, null
+24:                                               ; preds = %.critedge.i
+  %25 = add nuw nsw i64 %.015.i3639, 1
+  %26 = load i64, ptr %19, align 8, !tbaa !27
+  %27 = icmp slt i64 %25, %26
+  br i1 %27, label %.lr.ph40, label %.critedge25
+
+.lr.ph40:                                         ; preds = %.lr.ph, %24
+  %.015.i3639 = phi i64 [ %25, %24 ], [ 0, %.lr.ph ]
+  %28 = getelementptr [1 x ptr], ptr %21, i64 0, i64 %.015.i3639
+  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %validate_exprs.exit.thread.sink.split, label %.critedge.i
 
-.critedge.i:                                      ; preds = %24
-  %27 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef 1)
-  %.not19.i = icmp eq i32 %27, 0
-  %28 = add nuw nsw i64 %.015.i, 1
-  br i1 %.not19.i, label %validate_exprs.exit.thread, label %.split, !llvm.loop !31
+.critedge.i:                                      ; preds = %.lr.ph40
+  %30 = tail call fastcc i32 @validate_expr(ptr noundef nonnull %0, ptr noundef nonnull %29, i32 noundef 1)
+  %.not19.i = icmp eq i32 %30, 0
+  br i1 %.not19.i, label %validate_exprs.exit.thread, label %24
 
-.critedge25:                                      ; preds = %.split, %17
-  %29 = add nuw nsw i64 %.01839, 1
-  %30 = load i64, ptr %1, align 8, !tbaa !27
-  %.not.not = icmp slt i64 %29, %30
+.critedge25:                                      ; preds = %24, %.lr.ph, %17
+  %31 = add nuw nsw i64 %.01842, 1
+  %32 = load i64, ptr %1, align 8, !tbaa !27
+  %.not.not = icmp slt i64 %31, %32
   br i1 %.not.not, label %8, label %validate_exprs.exit.thread, !llvm.loop !128
 
-validate_exprs.exit.thread.sink.split:            ; preds = %24, %4, %2
-  %.str.73.sink = phi ptr [ @.str.71, %2 ], [ @.str.71, %4 ], [ @.str.73, %24 ]
-  %31 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
-  tail call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull %.str.73.sink) #5
+validate_exprs.exit.thread.sink.split:            ; preds = %.lr.ph40, %4, %2
+  %.str.73.sink = phi ptr [ @.str.71, %2 ], [ @.str.71, %4 ], [ @.str.73, %.lr.ph40 ]
+  %33 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !33
+  tail call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull %.str.73.sink) #5
   br label %validate_exprs.exit.thread
 
 validate_exprs.exit.thread:                       ; preds = %13, %8, %.critedge25, %.critedge.i, %validate_exprs.exit.thread.sink.split, %.preheader
@@ -3830,22 +3820,22 @@ attributes #6 = { "function-inline-cost-multiplier"="2" }
 !55 = !{!54, !30, i64 8}
 !56 = distinct !{!56, !32}
 !57 = distinct !{!57, !32}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTS11_match_case", !6, i64 0}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"_match_case", !62, i64 0, !30, i64 8, !6, i64 16}
-!62 = !{!"p1 _ZTS8_pattern", !6, i64 0}
-!63 = !{!61, !30, i64 8}
-!64 = !{!61, !6, i64 16}
-!65 = distinct !{!65, !32}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 _ZTS14_excepthandler", !6, i64 0}
-!68 = !{!69, !14, i64 32}
-!69 = !{!"_excepthandler", !14, i64 0, !7, i64 8, !14, i64 32, !14, i64 36, !14, i64 40, !14, i64 44}
-!70 = !{!69, !14, i64 40}
-!71 = !{!69, !14, i64 36}
-!72 = !{!69, !14, i64 44}
-!73 = distinct !{!73, !32}
+!58 = distinct !{!58, !32}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS11_match_case", !6, i64 0}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"_match_case", !63, i64 0, !30, i64 8, !6, i64 16}
+!63 = !{!"p1 _ZTS8_pattern", !6, i64 0}
+!64 = !{!62, !30, i64 8}
+!65 = !{!62, !6, i64 16}
+!66 = distinct !{!66, !32}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS14_excepthandler", !6, i64 0}
+!69 = !{!70, !14, i64 32}
+!70 = !{!"_excepthandler", !14, i64 0, !7, i64 8, !14, i64 32, !14, i64 36, !14, i64 40, !14, i64 44}
+!71 = !{!70, !14, i64 40}
+!72 = !{!70, !14, i64 36}
+!73 = !{!70, !14, i64 44}
 !74 = distinct !{!74, !32}
 !75 = distinct !{!75, !32}
 !76 = !{!50, !14, i64 32}
@@ -3892,7 +3882,7 @@ attributes #6 = { "function-inline-cost-multiplier"="2" }
 !117 = !{!101, !14, i64 28}
 !118 = !{!101, !14, i64 36}
 !119 = distinct !{!119, !32}
-!120 = !{!62, !62, i64 0}
+!120 = !{!63, !63, i64 0}
 !121 = distinct !{!121, !32}
 !122 = !{!123, !123, i64 0}
 !123 = !{!"p1 _ZTS14_comprehension", !6, i64 0}

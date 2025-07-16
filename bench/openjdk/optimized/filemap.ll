@@ -2109,38 +2109,33 @@ define hidden void @_ZN11FileMapInfo26allocate_shared_path_tableEP10JavaThread(p
   %14 = load ptr, ptr @_ZN11ClassLoader20_module_path_entriesE, align 8
   %15 = tail call noundef i32 @_ZN11FileMapInfo21add_shared_classpathsEiPKcP14ClassPathEntryP10JavaThread(i32 noundef %11, ptr noundef nonnull @.str.58, ptr noundef %14, ptr noundef nonnull %0)
   %16 = load ptr, ptr %4, align 8
-  %.not23 = icmp eq ptr %16, null
-  br i1 %.not23, label %.preheader.preheader, label %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread
+  %.not23 = icmp ne ptr %16, null
+  %17 = load ptr, ptr @_ZN11FileMapInfo25_non_existent_class_pathsE, align 8
+  %.not.i25 = icmp eq ptr %17, null
+  %or.cond = select i1 %.not23, i1 true, i1 %.not.i25
+  br i1 %or.cond, label %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread, label %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit.preheader
 
-.preheader.preheader:                             ; preds = %13
-  %17 = sext i32 %15 to i64
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %46
-  %indvars.iv25 = phi i64 [ %17, %.preheader.preheader ], [ %indvars.iv.next26, %46 ]
-  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %46 ]
-  %18 = load ptr, ptr @_ZN11FileMapInfo25_non_existent_class_pathsE, align 8
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit, label %19
-
-19:                                               ; preds = %.preheader
-  %20 = load i32, ptr %18, align 4
-  %21 = sext i32 %20 to i64
+_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit.preheader: ; preds = %13
+  %18 = sext i32 %15 to i64
   br label %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit
 
-_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit: ; preds = %.preheader, %19
-  %.0.i = phi i64 [ %21, %19 ], [ 0, %.preheader ]
-  %22 = icmp slt i64 %indvars.iv, %.0.i
+_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit: ; preds = %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit.preheader, %46
+  %indvars.iv28 = phi i64 [ 0, %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit.preheader ], [ %indvars.iv.next29, %46 ]
+  %indvars.iv = phi i64 [ %18, %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit.preheader ], [ %indvars.iv.next, %46 ]
+  %19 = phi ptr [ %17, %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit.preheader ], [ %47, %46 ]
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv28, %21
   br i1 %22, label %23, label %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread
 
 23:                                               ; preds = %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv28
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv25
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   store i8 3, ptr %31, align 8
   %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %27) #26
@@ -2174,11 +2169,13 @@ _ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit: ; preds =
   br i1 %.not24, label %46, label %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread
 
 46:                                               ; preds = %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars.iv.next26 = add nsw i64 %indvars.iv25, 1
-  br label %.preheader, !llvm.loop !16
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %47 = load ptr, ptr @_ZN11FileMapInfo25_non_existent_class_pathsE, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread, label %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit, !llvm.loop !16
 
-_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread: ; preds = %_ZN15MetadataFactory9new_arrayIcEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i, %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit, %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit, %13, %9, %6, %1
+_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread: ; preds = %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit, %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit, %_ZN15MetadataFactory9new_arrayIcEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i, %46, %13, %9, %6, %1
   ret void
 }
 

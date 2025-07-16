@@ -2517,8 +2517,8 @@ _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit: ; preds = %_ZN26Shenandoa
 
 _ZNK7oopDesc13klass_or_nullEv.exit:               ; preds = %47, %58
   %.0.i = phi ptr [ %57, %47 ], [ %59, %58 ]
-  %.not155 = icmp eq ptr %.0.i, null
-  br i1 %.not155, label %_ZNK7oopDesc13klass_or_nullEv.exit.thread, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit91
+  %.not156 = icmp eq ptr %.0.i, null
+  br i1 %.not156, label %_ZNK7oopDesc13klass_or_nullEv.exit.thread, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit91
 
 _ZNK7oopDesc13klass_or_nullEv.exit.thread:        ; preds = %47, %_ZNK7oopDesc13klass_or_nullEv.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2650,8 +2650,8 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %106, %109, %116, %1
   %.0.i1.i = phi i64 [ %113, %109 ], [ %108, %106 ], [ %135, %116 ], [ %140, %136 ]
   %141 = getelementptr inbounds ptr, ptr %1, i64 %.0.i1.i
   %142 = load ptr, ptr %74, align 8
-  %.not156 = icmp ugt ptr %141, %142
-  br i1 %.not156, label %143, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit95
+  %.not157 = icmp ugt ptr %141, %142
+  br i1 %.not157, label %143, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit95
 
 143:                                              ; preds = %_ZN7oopDesc4sizeEv.exit
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2747,8 +2747,8 @@ _ZN7oopDesc4sizeEv.exit100:                       ; preds = %171, %174, %181, %2
   %206 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeWordsShiftE, align 8
   %207 = lshr i64 %.0.i1.i98, %206
   %208 = add i64 %207, %151
-  %.0165 = add i64 %151, 1
-  %209 = icmp ult i64 %.0165, %208
+  %.0166 = add i64 %151, 1
+  %209 = icmp ult i64 %.0166, %208
   br i1 %209, label %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit95
 
 _ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph:    ; preds = %_ZN7oopDesc4sizeEv.exit100
@@ -2758,15 +2758,15 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph:    ; preds = %_ZN7oopDesc4sizeEv.
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102
-  %.0166 = phi i64 [ %.0165, %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph ], [ %.0, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102 ]
+  %.0167 = phi i64 [ %.0166, %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph ], [ %.0, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102 ]
   %213 = load ptr, ptr %3, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 544
   %215 = load i64, ptr %214, align 8
-  %216 = icmp ult i64 %.0166, %215
+  %216 = icmp ult i64 %.0167, %215
   tail call void @llvm.assume(i1 %216)
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 552
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds ptr, ptr %218, i64 %.0166
+  %219 = getelementptr inbounds ptr, ptr %218, i64 %.0167
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
   %222 = load i32, ptr %221, align 8
@@ -2781,7 +2781,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102
 
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit102: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %224
-  %.0 = add nuw i64 %.0166, 1
+  %.0 = add nuw i64 %.0167, 1
   %exitcond.not = icmp eq i64 %.0, %208
   br i1 %exitcond.not, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit95, label %_ZNK14ShenandoahHeap10get_regionEm.exit, !llvm.loop !16
 
@@ -2903,8 +2903,8 @@ _ZN7oopDesc4sizeEv.exit108:                       ; preds = %263, %266, %273, %2
 300:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit103, %_ZN7oopDesc4sizeEv.exit108
   %301 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
   %302 = load volatile i64, ptr %301, align 8
-  %.not157 = icmp eq i64 %302, 0
-  br i1 %.not157, label %303, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109
+  %.not158 = icmp eq i64 %302, 0
+  br i1 %.not158, label %303, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109
 
 303:                                              ; preds = %300
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2926,7 +2926,7 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   %spec.select.i = select i1 %.not.i, ptr %1, ptr %314
   %.0.i110 = select i1 %312, ptr %spec.select.i, ptr %1
   %315 = icmp ne ptr %1, %.0.i110
-  br i1 %315, label %316, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134
+  br i1 %315, label %316, label %501
 
 316:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109
   %317 = load ptr, ptr %3, align 8
@@ -2947,8 +2947,8 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit111
 
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit111: ; preds = %316, %322
-  %.not158 = icmp eq ptr %.0.i110, null
-  br i1 %.not158, label %329, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit112
+  %.not159 = icmp eq ptr %.0.i110, null
+  br i1 %.not159, label %329, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit112
 
 329:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit111
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3004,8 +3004,8 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
 
 _ZNK7oopDesc13klass_or_nullEv.exit115:            ; preds = %352, %363
   %.0.i114 = phi ptr [ %362, %352 ], [ %364, %363 ]
-  %.not159 = icmp eq ptr %.0.i114, null
-  br i1 %.not159, label %_ZNK7oopDesc13klass_or_nullEv.exit115.thread, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit116
+  %.not160 = icmp eq ptr %.0.i114, null
+  br i1 %.not160, label %_ZNK7oopDesc13klass_or_nullEv.exit115.thread, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit116
 
 _ZNK7oopDesc13klass_or_nullEv.exit115.thread:     ; preds = %352, %_ZNK7oopDesc13klass_or_nullEv.exit115
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3182,8 +3182,8 @@ _ZN7oopDesc4sizeEv.exit129:                       ; preds = %441, %444, %451, %4
   %.0.i1.i127 = phi i64 [ %448, %444 ], [ %443, %441 ], [ %470, %451 ], [ %475, %471 ]
   %476 = getelementptr inbounds ptr, ptr %.0.i110, i64 %.0.i1.i127
   %477 = load ptr, ptr %412, align 8
-  %.not160 = icmp ugt ptr %476, %477
-  br i1 %.not160, label %478, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit130
+  %.not161 = icmp ugt ptr %476, %477
+  br i1 %.not161, label %478, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit130
 
 478:                                              ; preds = %_ZN7oopDesc4sizeEv.exit129
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3217,205 +3217,209 @@ _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbP
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 1, ptr noundef nonnull %1, ptr noundef %495, ptr noundef %497, ptr noundef %499, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str, i32 noundef 92) #13
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134
 
-_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134: ; preds = %493, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit130, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109
-  %.087 = phi ptr [ %.0.i.i, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109 ], [ %.0.i.i119, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit130 ], [ %.0.i.i119, %493 ]
-  %500 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %501 = load i32, ptr %500, align 4
-  switch i32 %501, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136 [
-    i32 3, label %556
-    i32 1, label %502
-    i32 2, label %529
+_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit130, %493
+  %500 = icmp ne ptr %.0.i.i, %.0.i.i119
+  br label %501
+
+501:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134
+  %.087 = phi i1 [ %500, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134 ], [ false, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit109 ]
+  %502 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %503 = load i32, ptr %502, align 4
+  switch i32 %503, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136 [
+    i32 3, label %558
+    i32 1, label %504
+    i32 2, label %531
   ]
 
-502:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134
-  %503 = load ptr, ptr %3, align 8
-  %504 = getelementptr inbounds nuw i8, ptr %503, i64 2248
-  %505 = load ptr, ptr %504, align 8
-  %506 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %507 = lshr i64 %17, %506
-  %508 = getelementptr inbounds nuw i8, ptr %505, i64 56
-  %509 = load ptr, ptr %508, align 8
-  %510 = getelementptr inbounds ptr, ptr %509, i64 %507
+504:                                              ; preds = %501
+  %505 = load ptr, ptr %3, align 8
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 2248
+  %507 = load ptr, ptr %506, align 8
+  %508 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %509 = lshr i64 %17, %508
+  %510 = getelementptr inbounds nuw i8, ptr %507, i64 56
   %511 = load ptr, ptr %510, align 8
-  %.not.i135 = icmp ult ptr %1, %511
+  %512 = getelementptr inbounds ptr, ptr %511, i64 %509
+  %513 = load ptr, ptr %512, align 8
+  %.not.i135 = icmp ult ptr %1, %513
   br i1 %.not.i135, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %502
-  %512 = getelementptr inbounds nuw i8, ptr %505, i64 8
-  %513 = load ptr, ptr %512, align 8
-  %514 = ptrtoint ptr %513 to i64
-  %515 = sub i64 %17, %514
-  %516 = lshr i64 %515, 2
-  %517 = and i64 %516, 4611686018427387902
-  %518 = load i32, ptr %505, align 8
-  %519 = zext nneg i32 %518 to i64
-  %520 = lshr i64 %517, %519
-  %521 = and i64 %520, 63
-  %522 = shl i64 3, %521
-  %523 = getelementptr inbounds nuw i8, ptr %505, i64 24
-  %524 = load ptr, ptr %523, align 8
-  %525 = lshr i64 %520, 6
-  %526 = getelementptr inbounds nuw i64, ptr %524, i64 %525
-  %527 = load i64, ptr %526, align 8
-  %528 = and i64 %522, %527
-  %.not162 = icmp eq i64 %528, 0
-  br i1 %.not162, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit: ; preds = %504
+  %514 = getelementptr inbounds nuw i8, ptr %507, i64 8
+  %515 = load ptr, ptr %514, align 8
+  %516 = ptrtoint ptr %515 to i64
+  %517 = sub i64 %17, %516
+  %518 = lshr i64 %517, 2
+  %519 = and i64 %518, 4611686018427387902
+  %520 = load i32, ptr %507, align 8
+  %521 = zext nneg i32 %520 to i64
+  %522 = lshr i64 %519, %521
+  %523 = and i64 %522, 63
+  %524 = shl i64 3, %523
+  %525 = getelementptr inbounds nuw i8, ptr %507, i64 24
+  %526 = load ptr, ptr %525, align 8
+  %527 = lshr i64 %522, 6
+  %528 = getelementptr inbounds nuw i64, ptr %526, i64 %527
+  %529 = load i64, ptr %528, align 8
+  %530 = and i64 %524, %529
+  %.not163 = icmp eq i64 %530, 0
+  br i1 %.not163, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
-529:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134
-  %530 = load ptr, ptr %3, align 8
-  %531 = getelementptr inbounds nuw i8, ptr %530, i64 2248
-  %532 = load ptr, ptr %531, align 8
-  %533 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %534 = lshr i64 %17, %533
-  %535 = getelementptr inbounds nuw i8, ptr %532, i64 56
-  %536 = load ptr, ptr %535, align 8
-  %537 = getelementptr inbounds ptr, ptr %536, i64 %534
+531:                                              ; preds = %501
+  %532 = load ptr, ptr %3, align 8
+  %533 = getelementptr inbounds nuw i8, ptr %532, i64 2248
+  %534 = load ptr, ptr %533, align 8
+  %535 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %536 = lshr i64 %17, %535
+  %537 = getelementptr inbounds nuw i8, ptr %534, i64 56
   %538 = load ptr, ptr %537, align 8
-  %.not.i137 = icmp ult ptr %1, %538
+  %539 = getelementptr inbounds ptr, ptr %538, i64 %536
+  %540 = load ptr, ptr %539, align 8
+  %.not.i137 = icmp ult ptr %1, %540
   br i1 %.not.i137, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138: ; preds = %529
-  %539 = getelementptr inbounds nuw i8, ptr %532, i64 8
-  %540 = load ptr, ptr %539, align 8
-  %541 = ptrtoint ptr %540 to i64
-  %542 = sub i64 %17, %541
-  %543 = lshr i64 %542, 2
-  %544 = and i64 %543, 4611686018427387902
-  %545 = load i32, ptr %532, align 8
-  %546 = zext nneg i32 %545 to i64
-  %547 = lshr i64 %544, %546
-  %548 = and i64 %547, 63
-  %549 = shl i64 3, %548
-  %550 = getelementptr inbounds nuw i8, ptr %532, i64 24
-  %551 = load ptr, ptr %550, align 8
-  %552 = lshr i64 %547, 6
-  %553 = getelementptr inbounds nuw i64, ptr %551, i64 %552
-  %554 = load i64, ptr %553, align 8
-  %555 = and i64 %549, %554
-  %.not161 = icmp eq i64 %555, 0
-  br i1 %.not161, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138: ; preds = %531
+  %541 = getelementptr inbounds nuw i8, ptr %534, i64 8
+  %542 = load ptr, ptr %541, align 8
+  %543 = ptrtoint ptr %542 to i64
+  %544 = sub i64 %17, %543
+  %545 = lshr i64 %544, 2
+  %546 = and i64 %545, 4611686018427387902
+  %547 = load i32, ptr %534, align 8
+  %548 = zext nneg i32 %547 to i64
+  %549 = lshr i64 %546, %548
+  %550 = and i64 %549, 63
+  %551 = shl i64 3, %550
+  %552 = getelementptr inbounds nuw i8, ptr %534, i64 24
+  %553 = load ptr, ptr %552, align 8
+  %554 = lshr i64 %549, 6
+  %555 = getelementptr inbounds nuw i64, ptr %553, i64 %554
+  %556 = load i64, ptr %555, align 8
+  %557 = and i64 %551, %556
+  %.not162 = icmp eq i64 %557, 0
+  br i1 %.not162, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
-556:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134
-  %557 = load ptr, ptr %3, align 8
-  %558 = getelementptr inbounds nuw i8, ptr %557, i64 2248
-  %559 = load ptr, ptr %558, align 8
-  %560 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %561 = lshr i64 %17, %560
-  %562 = getelementptr inbounds nuw i8, ptr %559, i64 56
-  %563 = load ptr, ptr %562, align 8
-  %564 = getelementptr inbounds ptr, ptr %563, i64 %561
+558:                                              ; preds = %501
+  %559 = load ptr, ptr %3, align 8
+  %560 = getelementptr inbounds nuw i8, ptr %559, i64 2248
+  %561 = load ptr, ptr %560, align 8
+  %562 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %563 = lshr i64 %17, %562
+  %564 = getelementptr inbounds nuw i8, ptr %561, i64 56
   %565 = load ptr, ptr %564, align 8
-  %.not.i140 = icmp ult ptr %1, %565
+  %566 = getelementptr inbounds ptr, ptr %565, i64 %563
+  %567 = load ptr, ptr %566, align 8
+  %.not.i140 = icmp ult ptr %1, %567
   br i1 %.not.i140, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
-_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141: ; preds = %556
-  %566 = getelementptr inbounds nuw i8, ptr %559, i64 8
-  %567 = load ptr, ptr %566, align 8
-  %568 = ptrtoint ptr %567 to i64
-  %569 = sub i64 %17, %568
-  %570 = lshr i64 %569, 2
-  %571 = and i64 %570, 4611686018427387902
-  %572 = load i32, ptr %559, align 8
-  %573 = zext nneg i32 %572 to i64
-  %574 = lshr i64 %571, %573
-  %575 = and i64 %574, 63
-  %576 = shl i64 3, %575
-  %577 = getelementptr inbounds nuw i8, ptr %559, i64 24
-  %578 = load ptr, ptr %577, align 8
-  %579 = lshr i64 %574, 6
-  %580 = getelementptr inbounds nuw i64, ptr %578, i64 %579
-  %581 = load i64, ptr %580, align 8
-  %582 = and i64 %576, %581
-  %.not163 = icmp eq i64 %582, 0
-  br i1 %.not163, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
+_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141: ; preds = %558
+  %568 = getelementptr inbounds nuw i8, ptr %561, i64 8
+  %569 = load ptr, ptr %568, align 8
+  %570 = ptrtoint ptr %569 to i64
+  %571 = sub i64 %17, %570
+  %572 = lshr i64 %571, 2
+  %573 = and i64 %572, 4611686018427387902
+  %574 = load i32, ptr %561, align 8
+  %575 = zext nneg i32 %574 to i64
+  %576 = lshr i64 %573, %575
+  %577 = and i64 %576, 63
+  %578 = shl i64 3, %577
+  %579 = getelementptr inbounds nuw i8, ptr %561, i64 24
+  %580 = load ptr, ptr %579, align 8
+  %581 = lshr i64 %576, 6
+  %582 = getelementptr inbounds nuw i64, ptr %580, i64 %581
+  %583 = load i64, ptr %582, align 8
+  %584 = and i64 %578, %583
+  %.not164 = icmp eq i64 %584, 0
+  br i1 %.not164, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
 _ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit
   %.str.82.sink = phi ptr [ @.str.80, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit ], [ @.str.81, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138 ], [ @.str.82, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141 ]
-  %583 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %584 = load ptr, ptr %583, align 8
-  %585 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %585 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %586 = load ptr, ptr %585, align 8
-  %587 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %587 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %588 = load ptr, ptr %587, align 8
-  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %584, ptr noundef %586, ptr noundef %588, ptr noundef nonnull %.str.82.sink, ptr noundef nonnull @.str, i32 noundef 92) #13
+  %589 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %590 = load ptr, ptr %589, align 8
+  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %586, ptr noundef %588, ptr noundef %590, ptr noundef nonnull %.str.82.sink, ptr noundef nonnull @.str, i32 noundef 92) #13
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
 
-_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split, %556, %529, %502, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit134
-  %589 = load i32, ptr %236, align 8
-  switch i32 %589, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143 [
-    i32 2, label %592
-    i32 1, label %590
+_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136.sink.split, %558, %531, %504, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit141, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit138, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit, %501
+  %591 = load i32, ptr %236, align 8
+  switch i32 %591, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143 [
+    i32 2, label %594
+    i32 1, label %592
   ]
-
-590:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
-  %591 = icmp eq ptr %1, %.0.i110
-  br i1 %591, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split
 
 592:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
-  %593 = icmp eq ptr %.0.i.i, %.087
-  %or.cond.not = select i1 %315, i1 %593, i1 false
-  br i1 %or.cond.not, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143
+  %593 = icmp eq ptr %1, %.0.i110
+  br i1 %593, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split
 
-_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split: ; preds = %592, %590
-  %.str.84.sink = phi ptr [ @.str.83, %590 ], [ @.str.84, %592 ]
-  %594 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %595 = load ptr, ptr %594, align 8
-  %596 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %597 = load ptr, ptr %596, align 8
-  %598 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %599 = load ptr, ptr %598, align 8
-  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %595, ptr noundef %597, ptr noundef %599, ptr noundef nonnull %.str.84.sink, ptr noundef nonnull @.str, i32 noundef 92) #13
+594:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
+  %.not = xor i1 %315, true
+  %brmerge = select i1 %.not, i1 true, i1 %.087
+  br i1 %brmerge, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split
+
+_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split: ; preds = %594, %592
+  %.str.84.sink = phi ptr [ @.str.83, %592 ], [ @.str.84, %594 ]
+  %595 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %596 = load ptr, ptr %595, align 8
+  %597 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %598 = load ptr, ptr %597, align 8
+  %599 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %600 = load ptr, ptr %599, align 8
+  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %596, ptr noundef %598, ptr noundef %600, ptr noundef nonnull %.str.84.sink, ptr noundef nonnull @.str, i32 noundef 92) #13
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143
 
-_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split, %590, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136, %592
-  %600 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %601 = load i32, ptr %600, align 8
-  switch i32 %601, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145 [
-    i32 2, label %613
-    i32 1, label %602
+_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143.sink.split, %594, %592, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit136
+  %601 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %602 = load i32, ptr %601, align 8
+  switch i32 %602, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145 [
+    i32 2, label %614
+    i32 1, label %603
   ]
 
-602:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143
-  %603 = load ptr, ptr %3, align 8
-  %604 = getelementptr inbounds nuw i8, ptr %603, i64 2440
-  %605 = load ptr, ptr %604, align 8
-  %606 = getelementptr inbounds nuw i8, ptr %605, i64 8
-  %607 = load i64, ptr %606, align 8
-  %608 = lshr i64 %17, %607
-  %609 = getelementptr inbounds nuw i8, ptr %605, i64 80
-  %610 = load ptr, ptr %609, align 8
-  %611 = getelementptr inbounds i8, ptr %610, i64 %608
-  %612 = load i8, ptr %611, align 1
-  %.not = icmp eq i8 %612, 1
-  br i1 %.not, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145
+603:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143
+  %604 = load ptr, ptr %3, align 8
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 2440
+  %606 = load ptr, ptr %605, align 8
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 8
+  %608 = load i64, ptr %607, align 8
+  %609 = lshr i64 %17, %608
+  %610 = getelementptr inbounds nuw i8, ptr %606, i64 80
+  %611 = load ptr, ptr %610, align 8
+  %612 = getelementptr inbounds i8, ptr %611, i64 %609
+  %613 = load i8, ptr %612, align 1
+  %.not165 = icmp eq i8 %613, 1
+  br i1 %.not165, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145.sink.split, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145
 
-613:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143
-  %614 = load ptr, ptr %3, align 8
-  %615 = getelementptr inbounds nuw i8, ptr %614, i64 2440
-  %616 = load ptr, ptr %615, align 8
-  %617 = getelementptr inbounds nuw i8, ptr %616, i64 8
-  %618 = load i64, ptr %617, align 8
-  %619 = lshr i64 %17, %618
-  %620 = getelementptr inbounds nuw i8, ptr %616, i64 80
-  %621 = load ptr, ptr %620, align 8
-  %622 = getelementptr inbounds i8, ptr %621, i64 %619
-  %623 = load i8, ptr %622, align 1
-  %624 = icmp ne i8 %623, 1
-  %brmerge = or i1 %315, %624
-  br i1 %brmerge, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145.sink.split
+614:                                              ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143
+  %615 = load ptr, ptr %3, align 8
+  %616 = getelementptr inbounds nuw i8, ptr %615, i64 2440
+  %617 = load ptr, ptr %616, align 8
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 8
+  %619 = load i64, ptr %618, align 8
+  %620 = lshr i64 %17, %619
+  %621 = getelementptr inbounds nuw i8, ptr %617, i64 80
+  %622 = load ptr, ptr %621, align 8
+  %623 = getelementptr inbounds i8, ptr %622, i64 %620
+  %624 = load i8, ptr %623, align 1
+  %625 = icmp ne i8 %624, 1
+  %brmerge155 = or i1 %315, %625
+  br i1 %brmerge155, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145, label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145.sink.split
 
-_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145.sink.split: ; preds = %613, %602
-  %.str.86.sink = phi ptr [ @.str.85, %602 ], [ @.str.86, %613 ]
-  %625 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %626 = load ptr, ptr %625, align 8
-  %627 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %628 = load ptr, ptr %627, align 8
-  %629 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %630 = load ptr, ptr %629, align 8
-  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %626, ptr noundef %628, ptr noundef %630, ptr noundef nonnull %.str.86.sink, ptr noundef nonnull @.str, i32 noundef 92) #13
+_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145.sink.split: ; preds = %614, %603
+  %.str.86.sink = phi ptr [ @.str.85, %603 ], [ @.str.86, %614 ]
+  %626 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %627 = load ptr, ptr %626, align 8
+  %628 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %629 = load ptr, ptr %628, align 8
+  %630 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %631 = load ptr, ptr %630, align 8
+  tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %627, ptr noundef %629, ptr noundef %631, ptr noundef nonnull %.str.86.sink, ptr noundef nonnull @.str, i32 noundef 92) #13
   br label %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145
 
-_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145.sink.split, %613, %602, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143
+_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145: ; preds = %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit145.sink.split, %614, %603, %_ZN26ShenandoahVerifyOopClosure5checkEN17ShenandoahAsserts9SafeLevelEP7oopDescbPKc.exit143
   ret void
 }
 

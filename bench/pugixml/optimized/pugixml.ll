@@ -49742,14 +49742,14 @@ _ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6a
 define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE10EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, ptr noundef readonly captures(address) %2, ptr noundef captures(none) %3, i1 noundef zeroext %4) unnamed_addr #6 align 2 {
   br label %6
 
-6:                                                ; preds = %84, %5
-  %.023 = phi ptr [ %2, %5 ], [ %86, %84 ]
+6:                                                ; preds = %82, %5
+  %.023 = phi ptr [ %2, %5 ], [ %84, %82 ]
   %7 = getelementptr inbounds nuw i8, ptr %.023, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !67
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %84, label %.lr.ph48
+  br i1 %.not, label %82, label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -49778,13 +49778,13 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fi
   %19 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val33.us.us, ptr %.val34.us.us, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.147.us.us, ptr noundef %3)
   br i1 %19, label %.loopexit35, label %.preheader.us.us
 
-.loopexit.us.us:                                  ; preds = %31, %.preheader.us.us, %15
-  %.2.us.us = phi ptr [ %17, %15 ], [ %37, %.preheader.us.us ], [ %33, %31 ]
+.loopexit.us.us:                                  ; preds = %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83.thread, %.preheader.us.us, %15
+  %.2.us.us = phi ptr [ %17, %15 ], [ %36, %.preheader.us.us ], [ %32, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83.thread ]
   %.not27.us.us = icmp eq ptr %.2.us.us, null
   br i1 %.not27.us.us, label %.loopexit35, label %.lr.ph48.split.us.split.us, !llvm.loop !634
 
-.lr.ph.us.us:                                     ; preds = %.preheader.us.us, %31
-  %.344.us50.us79 = phi ptr [ %21, %31 ], [ %.147.us.us, %.preheader.us.us ]
+.lr.ph.us.us:                                     ; preds = %.preheader.us.us, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83.thread
+  %.344.us50.us79 = phi ptr [ %21, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83.thread ], [ %.147.us.us, %.preheader.us.us ]
   %20 = getelementptr inbounds nuw i8, ptr %.344.us50.us79, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !80
   %.not30.us51.us80 = icmp eq ptr %21, null
@@ -49792,7 +49792,7 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fi
 
 22:                                               ; preds = %.lr.ph.us.us
   %.not96 = icmp eq ptr %2, %21
-  br i1 %.not96, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83, label %.lr.ph.i.us.us81
+  br i1 %.not96, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83.thread, label %.lr.ph.i.us.us81
 
 .lr.ph.i.us.us81:                                 ; preds = %22, %.lr.ph.i.us.us81
   %.07.i.us.us82 = phi ptr [ %24, %.lr.ph.i.us.us81 ], [ %2, %22 ]
@@ -49803,98 +49803,96 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fi
   %27 = and i1 %25, %26
   br i1 %27, label %.lr.ph.i.us.us81, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83, !llvm.loop !635
 
-_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83: ; preds = %.lr.ph.i.us.us81, %22
-  %.0.lcssa.i.us.us84 = phi ptr [ %2, %22 ], [ %24, %.lr.ph.i.us.us81 ]
-  %28 = icmp eq ptr %.0.lcssa.i.us.us84, %21
-  br i1 %28, label %31, label %29
+_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83: ; preds = %.lr.ph.i.us.us81
+  %28 = icmp eq ptr %24, %21
+  br i1 %28, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83.thread, label %29
 
 29:                                               ; preds = %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83
   %.val.us53.us85 = load i8, ptr %11, align 1, !tbaa !379
   %.val32.us54.us86 = load ptr, ptr %12, align 8
   %30 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us53.us85, ptr %.val32.us54.us86, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %21, ptr noundef %3)
-  br i1 %30, label %.loopexit35, label %31
+  br i1 %30, label %.loopexit35, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83.thread
 
-31:                                               ; preds = %29, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83
-  %32 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !69
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !67
-  %.not29.us55.us87 = icmp eq ptr %35, null
+_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83.thread: ; preds = %22, %29, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us83
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %32 = load ptr, ptr %31, align 8, !tbaa !69
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %34 = load ptr, ptr %33, align 8, !tbaa !67
+  %.not29.us55.us87 = icmp eq ptr %34, null
   br i1 %.not29.us55.us87, label %.lr.ph.us.us, label %.loopexit.us.us, !llvm.loop !636
 
 .preheader.us.us:                                 ; preds = %18
-  %36 = getelementptr inbounds nuw i8, ptr %.147.us.us, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !69
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %39 = load ptr, ptr %38, align 8, !tbaa !67
-  %.not2943.us.us = icmp eq ptr %39, null
+  %35 = getelementptr inbounds nuw i8, ptr %.147.us.us, i64 40
+  %36 = load ptr, ptr %35, align 8, !tbaa !69
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %38 = load ptr, ptr %37, align 8, !tbaa !67
+  %.not2943.us.us = icmp eq ptr %38, null
   br i1 %.not2943.us.us, label %.lr.ph.us.us, label %.loopexit.us.us
 
 .lr.ph48.split.us.split.split:                    ; preds = %.lr.ph48.split.us, %.loopexit.us
   %.147.us = phi ptr [ %.2.us, %.loopexit.us ], [ %8, %.lr.ph48.split.us ]
-  %40 = getelementptr inbounds nuw i8, ptr %.147.us, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !57
-  %.not28.us = icmp eq ptr %41, null
-  br i1 %.not28.us, label %.preheader.us, label %42
+  %39 = getelementptr inbounds nuw i8, ptr %.147.us, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !57
+  %.not28.us = icmp eq ptr %40, null
+  br i1 %.not28.us, label %.preheader.us, label %41
 
-42:                                               ; preds = %.lr.ph48.split.us.split.split
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %44 = load ptr, ptr %43, align 8, !tbaa !69
+41:                                               ; preds = %.lr.ph48.split.us.split.split
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %43 = load ptr, ptr %42, align 8, !tbaa !69
   br label %.loopexit.us
 
 .preheader.us:                                    ; preds = %.lr.ph48.split.us.split.split
   %.val33.us = load i8, ptr %11, align 1, !tbaa !379
   %.val34.us = load ptr, ptr %12, align 8
-  %45 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val33.us, ptr %.val34.us, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.147.us, ptr noundef %3)
-  %46 = getelementptr inbounds nuw i8, ptr %.147.us, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !69
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %49 = load ptr, ptr %48, align 8, !tbaa !67
-  %.not2943.us = icmp eq ptr %49, null
+  %44 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val33.us, ptr %.val34.us, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.147.us, ptr noundef %3)
+  %45 = getelementptr inbounds nuw i8, ptr %.147.us, i64 40
+  %46 = load ptr, ptr %45, align 8, !tbaa !69
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %48 = load ptr, ptr %47, align 8, !tbaa !67
+  %.not2943.us = icmp eq ptr %48, null
   br i1 %.not2943.us, label %.lr.ph.us, label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %61, %.preheader.us, %42
-  %.2.us = phi ptr [ %44, %42 ], [ %47, %.preheader.us ], [ %63, %61 ]
+.loopexit.us:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us.thread, %.preheader.us, %41
+  %.2.us = phi ptr [ %43, %41 ], [ %46, %.preheader.us ], [ %61, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us.thread ]
   %.not27.us = icmp eq ptr %.2.us, null
   br i1 %.not27.us, label %.loopexit35, label %.lr.ph48.split.us.split.split, !llvm.loop !634
 
-.lr.ph.us:                                        ; preds = %.preheader.us, %61
-  %.344.us50.us = phi ptr [ %51, %61 ], [ %.147.us, %.preheader.us ]
-  %50 = getelementptr inbounds nuw i8, ptr %.344.us50.us, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !80
-  %.not30.us51.us = icmp eq ptr %51, null
-  br i1 %.not30.us51.us, label %.loopexit35, label %52
+.lr.ph.us:                                        ; preds = %.preheader.us, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us.thread
+  %.344.us50.us = phi ptr [ %50, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us.thread ], [ %.147.us, %.preheader.us ]
+  %49 = getelementptr inbounds nuw i8, ptr %.344.us50.us, i64 24
+  %50 = load ptr, ptr %49, align 8, !tbaa !80
+  %.not30.us51.us = icmp eq ptr %50, null
+  br i1 %.not30.us51.us, label %.loopexit35, label %51
 
-52:                                               ; preds = %.lr.ph.us
-  %.not95 = icmp eq ptr %2, %51
-  br i1 %.not95, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us, label %.lr.ph.i.us.us
+51:                                               ; preds = %.lr.ph.us
+  %.not95 = icmp eq ptr %2, %50
+  br i1 %.not95, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us.thread, label %.lr.ph.i.us.us
 
-.lr.ph.i.us.us:                                   ; preds = %52, %.lr.ph.i.us.us
-  %.07.i.us.us = phi ptr [ %54, %.lr.ph.i.us.us ], [ %2, %52 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.07.i.us.us, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !80
-  %55 = icmp ne ptr %54, null
-  %56 = icmp ne ptr %54, %51
-  %57 = and i1 %55, %56
-  br i1 %57, label %.lr.ph.i.us.us, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us, !llvm.loop !635
+.lr.ph.i.us.us:                                   ; preds = %51, %.lr.ph.i.us.us
+  %.07.i.us.us = phi ptr [ %53, %.lr.ph.i.us.us ], [ %2, %51 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.07.i.us.us, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !80
+  %54 = icmp ne ptr %53, null
+  %55 = icmp ne ptr %53, %50
+  %56 = and i1 %54, %55
+  br i1 %56, label %.lr.ph.i.us.us, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us, !llvm.loop !635
 
-_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us: ; preds = %.lr.ph.i.us.us, %52
-  %.0.lcssa.i.us.us = phi ptr [ %2, %52 ], [ %54, %.lr.ph.i.us.us ]
-  %58 = icmp eq ptr %.0.lcssa.i.us.us, %51
-  br i1 %58, label %61, label %59
+_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us: ; preds = %.lr.ph.i.us.us
+  %57 = icmp eq ptr %53, %50
+  br i1 %57, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us.thread, label %58
 
-59:                                               ; preds = %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us
+58:                                               ; preds = %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us
   %.val.us53.us = load i8, ptr %11, align 1, !tbaa !379
   %.val32.us54.us = load ptr, ptr %12, align 8
-  %60 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us53.us, ptr %.val32.us54.us, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %51, ptr noundef %3)
-  br label %61
+  %59 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us53.us, ptr %.val32.us54.us, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %50, ptr noundef %3)
+  br label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us.thread
 
-61:                                               ; preds = %59, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us
-  %62 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %63 = load ptr, ptr %62, align 8, !tbaa !69
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %65 = load ptr, ptr %64, align 8, !tbaa !67
-  %.not29.us55.us = icmp eq ptr %65, null
+_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us.thread: ; preds = %51, %58, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us52.us
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %61 = load ptr, ptr %60, align 8, !tbaa !69
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %63 = load ptr, ptr %62, align 8, !tbaa !67
+  %.not29.us55.us = icmp eq ptr %63, null
   br i1 %.not29.us55.us, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !636
 
 .lr.ph48.split:                                   ; preds = %.lr.ph48
@@ -49902,109 +49900,109 @@ _ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us5
 
 .lr.ph48.split.split.us:                          ; preds = %.lr.ph48.split, %.loopexit.us67
   %.147.us59 = phi ptr [ %.2.us63, %.loopexit.us67 ], [ %8, %.lr.ph48.split ]
-  %66 = getelementptr inbounds nuw i8, ptr %.147.us59, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !57
-  %.not28.us60 = icmp eq ptr %67, null
-  br i1 %.not28.us60, label %71, label %68
+  %64 = getelementptr inbounds nuw i8, ptr %.147.us59, i64 32
+  %65 = load ptr, ptr %64, align 8, !tbaa !57
+  %.not28.us60 = icmp eq ptr %65, null
+  br i1 %.not28.us60, label %69, label %66
 
-68:                                               ; preds = %.lr.ph48.split.split.us
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %70 = load ptr, ptr %69, align 8, !tbaa !69
+66:                                               ; preds = %.lr.ph48.split.split.us
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %68 = load ptr, ptr %67, align 8, !tbaa !69
   br label %.loopexit.us67
 
-71:                                               ; preds = %.lr.ph48.split.split.us
+69:                                               ; preds = %.lr.ph48.split.split.us
   %.val33.us61 = load i8, ptr %11, align 1, !tbaa !379
   %.val34.us62 = load ptr, ptr %12, align 8
-  %72 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val33.us61, ptr %.val34.us62, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.147.us59, ptr noundef %3)
-  br i1 %72, label %.loopexit35, label %.preheader.us65
+  %70 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val33.us61, ptr %.val34.us62, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.147.us59, ptr noundef %3)
+  br i1 %70, label %.loopexit35, label %.preheader.us65
 
-.loopexit.us67:                                   ; preds = %._crit_edge, %.preheader.us65, %68
-  %.2.us63 = phi ptr [ %70, %68 ], [ %74, %.preheader.us65 ], [ %81, %._crit_edge ]
+.loopexit.us67:                                   ; preds = %._crit_edge, %.preheader.us65, %66
+  %.2.us63 = phi ptr [ %68, %66 ], [ %72, %.preheader.us65 ], [ %79, %._crit_edge ]
   %.not27.us64 = icmp eq ptr %.2.us63, null
   br i1 %.not27.us64, label %.loopexit35, label %.lr.ph48.split.split.us, !llvm.loop !634
 
-.preheader.us65:                                  ; preds = %71
-  %73 = getelementptr inbounds nuw i8, ptr %.147.us59, i64 40
-  %74 = load ptr, ptr %73, align 8, !tbaa !69
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  %76 = load ptr, ptr %75, align 8, !tbaa !67
-  %.not2943.us66 = icmp eq ptr %76, null
+.preheader.us65:                                  ; preds = %69
+  %71 = getelementptr inbounds nuw i8, ptr %.147.us59, i64 40
+  %72 = load ptr, ptr %71, align 8, !tbaa !69
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
+  %74 = load ptr, ptr %73, align 8, !tbaa !67
+  %.not2943.us66 = icmp eq ptr %74, null
   br i1 %.not2943.us66, label %.lr.ph.us69, label %.loopexit.us67
 
 .lr.ph.us69:                                      ; preds = %.preheader.us65, %._crit_edge
-  %.344.us.us70 = phi ptr [ %78, %._crit_edge ], [ %.147.us59, %.preheader.us65 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.344.us.us70, i64 24
-  %78 = load ptr, ptr %77, align 8, !tbaa !80
-  %.not30.us.us71 = icmp eq ptr %78, null
+  %.344.us.us70 = phi ptr [ %76, %._crit_edge ], [ %.147.us59, %.preheader.us65 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.344.us.us70, i64 24
+  %76 = load ptr, ptr %75, align 8, !tbaa !80
+  %.not30.us.us71 = icmp eq ptr %76, null
   br i1 %.not30.us.us71, label %.loopexit35, label %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us.us72
 
 _ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us.us72: ; preds = %.lr.ph.us69
   %.val.us.us73 = load i8, ptr %11, align 1, !tbaa !379
   %.val32.us.us74 = load ptr, ptr %12, align 8
-  %79 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us.us73, ptr %.val32.us.us74, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %78, ptr noundef %3)
-  br i1 %79, label %.loopexit35, label %._crit_edge
+  %77 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us.us73, ptr %.val32.us.us74, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %76, ptr noundef %3)
+  br i1 %77, label %.loopexit35, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us.us72
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  %81 = load ptr, ptr %80, align 8, !tbaa !69
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  %83 = load ptr, ptr %82, align 8, !tbaa !67
-  %.not29.us.us75 = icmp eq ptr %83, null
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !69
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
+  %81 = load ptr, ptr %80, align 8, !tbaa !67
+  %.not29.us.us75 = icmp eq ptr %81, null
   br i1 %.not29.us.us75, label %.lr.ph.us69, label %.loopexit.us67, !llvm.loop !636
 
-84:                                               ; preds = %6
-  %85 = getelementptr inbounds nuw i8, ptr %.023, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !80
-  %.not31 = icmp eq ptr %86, null
+82:                                               ; preds = %6
+  %83 = getelementptr inbounds nuw i8, ptr %.023, i64 24
+  %84 = load ptr, ptr %83, align 8, !tbaa !80
+  %.not31 = icmp eq ptr %84, null
   br i1 %.not31, label %.loopexit35, label %6, !llvm.loop !637
 
 .lr.ph48.split.split.split:                       ; preds = %.lr.ph48.split, %.loopexit
   %.147 = phi ptr [ %.2, %.loopexit ], [ %8, %.lr.ph48.split ]
-  %87 = getelementptr inbounds nuw i8, ptr %.147, i64 32
-  %88 = load ptr, ptr %87, align 8, !tbaa !57
-  %.not28 = icmp eq ptr %88, null
-  br i1 %.not28, label %.preheader, label %89
+  %85 = getelementptr inbounds nuw i8, ptr %.147, i64 32
+  %86 = load ptr, ptr %85, align 8, !tbaa !57
+  %.not28 = icmp eq ptr %86, null
+  br i1 %.not28, label %.preheader, label %87
 
-89:                                               ; preds = %.lr.ph48.split.split.split
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %91 = load ptr, ptr %90, align 8, !tbaa !69
+87:                                               ; preds = %.lr.ph48.split.split.split
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 40
+  %89 = load ptr, ptr %88, align 8, !tbaa !69
   br label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph48.split.split.split
   %.val33 = load i8, ptr %11, align 1, !tbaa !379
   %.val34 = load ptr, ptr %12, align 8
-  %92 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val33, ptr %.val34, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.147, ptr noundef %3)
-  %93 = getelementptr inbounds nuw i8, ptr %.147, i64 40
-  %94 = load ptr, ptr %93, align 8, !tbaa !69
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 48
-  %96 = load ptr, ptr %95, align 8, !tbaa !67
-  %.not2943 = icmp eq ptr %96, null
+  %90 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val33, ptr %.val34, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %.147, ptr noundef %3)
+  %91 = getelementptr inbounds nuw i8, ptr %.147, i64 40
+  %92 = load ptr, ptr %91, align 8, !tbaa !69
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  %94 = load ptr, ptr %93, align 8, !tbaa !67
+  %.not2943 = icmp eq ptr %94, null
   br i1 %.not2943, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %99
-  %.344.us.us = phi ptr [ %98, %99 ], [ %.147, %.preheader ]
-  %97 = getelementptr inbounds nuw i8, ptr %.344.us.us, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !80
-  %.not30.us.us = icmp eq ptr %98, null
-  br i1 %.not30.us.us, label %.loopexit35, label %99
+.lr.ph:                                           ; preds = %.preheader, %97
+  %.344.us.us = phi ptr [ %96, %97 ], [ %.147, %.preheader ]
+  %95 = getelementptr inbounds nuw i8, ptr %.344.us.us, i64 24
+  %96 = load ptr, ptr %95, align 8, !tbaa !80
+  %.not30.us.us = icmp eq ptr %96, null
+  br i1 %.not30.us.us, label %.loopexit35, label %97
 
-99:                                               ; preds = %.lr.ph
+97:                                               ; preds = %.lr.ph
   %.val.us.us = load i8, ptr %11, align 1, !tbaa !379
   %.val32.us.us = load ptr, ptr %12, align 8
-  %100 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us.us, ptr %.val32.us.us, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %98, ptr noundef %3)
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %102 = load ptr, ptr %101, align 8, !tbaa !69
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %104 = load ptr, ptr %103, align 8, !tbaa !67
-  %.not29.us.us = icmp eq ptr %104, null
+  %98 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %.val.us.us, ptr %.val32.us.us, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %96, ptr noundef %3)
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 40
+  %100 = load ptr, ptr %99, align 8, !tbaa !69
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
+  %102 = load ptr, ptr %101, align 8, !tbaa !67
+  %.not29.us.us = icmp eq ptr %102, null
   br i1 %.not29.us.us, label %.lr.ph, label %.loopexit, !llvm.loop !636
 
-.loopexit:                                        ; preds = %99, %.preheader, %89
-  %.2 = phi ptr [ %91, %89 ], [ %94, %.preheader ], [ %102, %99 ]
+.loopexit:                                        ; preds = %97, %.preheader, %87
+  %.2 = phi ptr [ %89, %87 ], [ %92, %.preheader ], [ %100, %97 ]
   %.not27 = icmp eq ptr %.2, null
   br i1 %.not27, label %.loopexit35, label %.lr.ph48.split.split.split, !llvm.loop !634
 
-.loopexit35:                                      ; preds = %84, %.loopexit.us, %.lr.ph.us, %18, %.loopexit.us.us, %.lr.ph.us.us, %29, %.loopexit, %.lr.ph, %71, %.loopexit.us67, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us.us72, %.lr.ph.us69
+.loopexit35:                                      ; preds = %82, %.loopexit.us, %.lr.ph.us, %18, %.loopexit.us.us, %.lr.ph.us.us, %29, %.loopexit, %.lr.ph, %69, %.loopexit.us67, %_ZN4pugi4impl12_GLOBAL__N_116node_is_ancestorEPNS_15xml_node_structES3_.exit.us.us72, %.lr.ph.us69
   ret void
 }
 

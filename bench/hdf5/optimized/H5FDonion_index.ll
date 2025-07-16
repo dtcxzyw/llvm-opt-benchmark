@@ -1744,14 +1744,14 @@ define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %45, !prof !9
+  br i1 %9, label %10, label %._crit_edge.thread, !prof !9
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !55
   %13 = add i64 %12, -1
   %14 = icmp eq i64 %12, 0
-  br i1 %14, label %45, label %15
+  br i1 %14, label %._crit_edge.thread, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1759,27 +1759,25 @@ define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly
   %18 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %17, i64 %13
   %19 = load i64, ptr %18, align 8, !tbaa !47
   %20 = icmp ugt i64 %1, %19
-  br i1 %20, label %45, label %21
+  br i1 %20, label %._crit_edge.thread, label %21
 
 21:                                               ; preds = %15
   %22 = load i64, ptr %17, align 8, !tbaa !47
   %23 = icmp ult i64 %1, %22
-  br i1 %23, label %45, label %.preheader
-
-.preheader:                                       ; preds = %21
   %.not52 = icmp eq i64 %13, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph
+  %or.cond = or i1 %23, %.not52
+  br i1 %or.cond, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %39
-  %.04055 = phi i64 [ %40, %39 ], [ %13, %.preheader ]
-  %.04254 = phi i64 [ %.1, %39 ], [ %13, %.preheader ]
-  %.04353 = phi i64 [ %.144, %39 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %21, %39
+  %.04055 = phi i64 [ %40, %39 ], [ %13, %21 ]
+  %.04254 = phi i64 [ %.1, %39 ], [ %13, %21 ]
+  %.04353 = phi i64 [ %.144, %39 ], [ 0, %21 ]
   %24 = lshr i64 %.04055, 1
   %25 = add i64 %24, %.04353
   %26 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %17, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !47
   %28 = icmp eq i64 %27, %1
-  br i1 %28, label %.sink.split, label %29
+  br i1 %28, label %._crit_edge.thread.sink.split, label %29
 
 29:                                               ; preds = %.lr.ph
   %30 = icmp ult i64 %27, %1
@@ -1804,28 +1802,25 @@ define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly
   %.not = icmp eq i64 %40, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %39, %.preheader
-  %.043.lcssa = phi i64 [ 0, %.preheader ], [ %.144, %39 ]
-  %.042.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %39 ]
-  %.041.lcssa = phi i64 [ 0, %.preheader ], [ %25, %39 ]
-  %.not47 = icmp eq i64 %.041.lcssa, %.043.lcssa
-  %.not48 = icmp eq i64 %.041.lcssa, %.042.lcssa
-  %or.cond = and i1 %.not47, %.not48
-  br i1 %or.cond, label %45, label %41
+._crit_edge:                                      ; preds = %39
+  %41 = icmp eq i64 %25, %.1
+  %42 = icmp eq i64 %25, %.144
+  %43 = and i1 %42, %41
+  br i1 %43, label %._crit_edge.thread, label %44
 
-41:                                               ; preds = %._crit_edge
-  %42 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %17, i64 %.043.lcssa
-  %43 = load i64, ptr %42, align 8, !tbaa !47
-  %44 = icmp eq i64 %43, %1
-  br i1 %44, label %.sink.split, label %45
+44:                                               ; preds = %._crit_edge
+  %45 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %17, i64 %.144
+  %46 = load i64, ptr %45, align 8, !tbaa !47
+  %47 = icmp eq i64 %46, %1
+  br i1 %47, label %._crit_edge.thread.sink.split, label %._crit_edge.thread
 
-.sink.split:                                      ; preds = %.lr.ph, %41
-  %.lcssa.sink = phi ptr [ %42, %41 ], [ %26, %.lr.ph ]
+._crit_edge.thread.sink.split:                    ; preds = %.lr.ph, %44
+  %.lcssa.sink = phi ptr [ %45, %44 ], [ %26, %.lr.ph ]
   store ptr %.lcssa.sink, ptr %2, align 8, !tbaa !46
-  br label %45
+  br label %._crit_edge.thread
 
-45:                                               ; preds = %.sink.split, %._crit_edge, %21, %15, %10, %41, %3
-  %.0 = phi i32 [ 0, %41 ], [ 0, %3 ], [ 0, %10 ], [ 0, %15 ], [ 0, %21 ], [ 0, %._crit_edge ], [ 1, %.sink.split ]
+._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %._crit_edge, %21, %15, %10, %44, %3
+  %.0 = phi i32 [ 0, %44 ], [ 0, %3 ], [ 0, %10 ], [ 0, %15 ], [ 0, %21 ], [ 0, %._crit_edge ], [ 1, %._crit_edge.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -2486,13 +2481,13 @@ define range(i32 -1, 1) i32 @H5FD__onion_merge_revision_index_into_archival_inde
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %113, !prof !9
+  br i1 %8, label %9, label %118, !prof !9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !73
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %110, label %13
+  br i1 %12, label %115, label %13
 
 13:                                               ; preds = %9
   %14 = shl i64 %11, 4
@@ -2503,8 +2498,8 @@ define range(i32 -1, 1) i32 @H5FD__onion_merge_revision_index_into_archival_inde
 .preheader:                                       ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !61
-  %.not81 = icmp eq i64 %18, 0
-  br i1 %.not81, label %._crit_edge72, label %.lr.ph71
+  %.not87 = icmp eq i64 %18, 0
+  br i1 %.not87, label %._crit_edge72, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2515,7 +2510,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_merge_revision_index_into_archival_inde
   %22 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !26
   %23 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !26
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_merge_revision_index_into_archival_index, i32 noundef 871, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.28) #14
-  br label %110
+  br label %115
 
 ._crit_edge72:                                    ; preds = %._crit_edge, %.preheader
   %.sroa.4.0.lcssa = phi i64 [ 0, %.preheader ], [ %.sroa.4.1.lcssa, %._crit_edge ]
@@ -2561,7 +2556,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_merge_revision_index_into_archival_inde
   %39 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !26
   %40 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !26
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_merge_revision_index_into_archival_index, i32 noundef 896, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.29) #14
-  br label %110
+  br label %115
 
 .._crit_edge78_crit_edge:                         ; preds = %._crit_edge72
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2592,147 +2587,150 @@ H5FD__onion_archival_index_find.exit.us.us:       ; preds = %.lr.ph77.split.us, 
   %54 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %36, i64 %.075.us.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
   %55 = add nuw i64 %.075.us.us, 1
-  %exitcond91.not = icmp eq i64 %55, %26
-  br i1 %exitcond91.not, label %._crit_edge78, label %H5FD__onion_archival_index_find.exit.us.us, !llvm.loop !91
+  %exitcond100.not = icmp eq i64 %55, %26
+  br i1 %exitcond100.not, label %._crit_edge78, label %H5FD__onion_archival_index_find.exit.us.us, !llvm.loop !91
 
 .lr.ph77.split.us.split:                          ; preds = %.lr.ph77.split.us
   %56 = load i64, ptr %51, align 8, !tbaa !47
-  br label %57
+  br i1 %.not52.i, label %.lr.ph77.split.us.split.split.us, label %.lr.ph77.split.us.split.split
 
-57:                                               ; preds = %H5FD__onion_archival_index_find.exit.us, %.lr.ph77.split.us.split
-  %.075.us = phi i64 [ 0, %.lr.ph77.split.us.split ], [ %88, %H5FD__onion_archival_index_find.exit.us ]
-  %.04674.us = phi i64 [ 0, %.lr.ph77.split.us.split ], [ %.147.us, %H5FD__onion_archival_index_find.exit.us ]
-  %58 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %43, i64 %.075.us
-  %59 = load i64, ptr %58, align 8, !tbaa !47
-  %60 = icmp ugt i64 %59, %56
-  br i1 %60, label %85, label %61
+.lr.ph77.split.us.split.split.us:                 ; preds = %.lr.ph77.split.us.split, %.lr.ph77.split.us.split.split.us
+  %.075.us.us81 = phi i64 [ %59, %.lr.ph77.split.us.split.split.us ], [ 0, %.lr.ph77.split.us.split ]
+  %57 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %43, i64 %.075.us.us81
+  %58 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %36, i64 %.075.us.us81
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
+  %59 = add nuw i64 %.075.us.us81, 1
+  %exitcond99.not = icmp eq i64 %59, %26
+  br i1 %exitcond99.not, label %._crit_edge78, label %.lr.ph77.split.us.split.split.us, !llvm.loop !91
 
-61:                                               ; preds = %57
-  %62 = load i64, ptr %15, align 8, !tbaa !47
-  %63 = icmp ult i64 %59, %62
-  br i1 %63, label %85, label %.preheader.i.us
+.lr.ph77.split.us.split.split:                    ; preds = %.lr.ph77.split.us.split, %H5FD__onion_archival_index_find.exit.us
+  %.075.us = phi i64 [ %93, %H5FD__onion_archival_index_find.exit.us ], [ 0, %.lr.ph77.split.us.split ]
+  %.04674.us = phi i64 [ %.147.us, %H5FD__onion_archival_index_find.exit.us ], [ 0, %.lr.ph77.split.us.split ]
+  %60 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %43, i64 %.075.us
+  %61 = load i64, ptr %60, align 8, !tbaa !47
+  %62 = icmp ugt i64 %61, %56
+  br i1 %62, label %90, label %63
 
-.preheader.i.us:                                  ; preds = %61
-  br i1 %.not52.i, label %._crit_edge.i.us, label %.lr.ph.i.us
+63:                                               ; preds = %.lr.ph77.split.us.split.split
+  %64 = load i64, ptr %15, align 8, !tbaa !47
+  %65 = icmp ult i64 %61, %64
+  br i1 %65, label %90, label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %.preheader.i.us, %79
-  %.04055.i.us = phi i64 [ %80, %79 ], [ %50, %.preheader.i.us ]
-  %.04254.i.us = phi i64 [ %.1.i.us, %79 ], [ %50, %.preheader.i.us ]
-  %.04353.i.us = phi i64 [ %.144.i.us, %79 ], [ 0, %.preheader.i.us ]
-  %64 = lshr i64 %.04055.i.us, 1
-  %65 = add i64 %.04353.i.us, %64
-  %66 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %15, i64 %65
-  %67 = load i64, ptr %66, align 8, !tbaa !47
-  %68 = icmp eq i64 %67, %59
-  br i1 %68, label %H5FD__onion_archival_index_find.exit.us, label %69
+.lr.ph.i.us:                                      ; preds = %63, %81
+  %.04055.i.us = phi i64 [ %82, %81 ], [ %50, %63 ]
+  %.04254.i.us = phi i64 [ %.1.i.us, %81 ], [ %50, %63 ]
+  %.04353.i.us = phi i64 [ %.144.i.us, %81 ], [ 0, %63 ]
+  %66 = lshr i64 %.04055.i.us, 1
+  %67 = add i64 %.04353.i.us, %66
+  %68 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %15, i64 %67
+  %69 = load i64, ptr %68, align 8, !tbaa !47
+  %70 = icmp eq i64 %69, %61
+  br i1 %70, label %H5FD__onion_archival_index_find.exit.us, label %71
 
-69:                                               ; preds = %.lr.ph.i.us
-  %70 = icmp ult i64 %67, %59
-  br i1 %70, label %75, label %71
+71:                                               ; preds = %.lr.ph.i.us
+  %72 = icmp ult i64 %69, %61
+  br i1 %72, label %77, label %73
 
-71:                                               ; preds = %69
-  %72 = icmp eq i64 %.04055.i.us, 1
-  %73 = add i64 %65, -1
-  %74 = select i1 %72, i64 %.04353.i.us, i64 %73
-  br label %79
+73:                                               ; preds = %71
+  %74 = icmp eq i64 %.04055.i.us, 1
+  %75 = add i64 %67, -1
+  %76 = select i1 %74, i64 %.04353.i.us, i64 %75
+  br label %81
 
-75:                                               ; preds = %69
-  %76 = icmp eq i64 %65, %.04254.i.us
-  %77 = add i64 %65, 1
-  %78 = select i1 %76, i64 %.04254.i.us, i64 %77
-  br label %79
+77:                                               ; preds = %71
+  %78 = icmp eq i64 %67, %.04254.i.us
+  %79 = add i64 %67, 1
+  %80 = select i1 %78, i64 %.04254.i.us, i64 %79
+  br label %81
 
-79:                                               ; preds = %75, %71
-  %.144.i.us = phi i64 [ %78, %75 ], [ %.04353.i.us, %71 ]
-  %.1.i.us = phi i64 [ %.04254.i.us, %75 ], [ %74, %71 ]
-  %80 = sub i64 %.1.i.us, %.144.i.us
-  %.not.i.us = icmp eq i64 %80, 0
+81:                                               ; preds = %77, %73
+  %.144.i.us = phi i64 [ %80, %77 ], [ %.04353.i.us, %73 ]
+  %.1.i.us = phi i64 [ %.04254.i.us, %77 ], [ %76, %73 ]
+  %82 = sub i64 %.1.i.us, %.144.i.us
+  %.not.i.us = icmp eq i64 %82, 0
   br i1 %.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !57
 
-._crit_edge.i.us:                                 ; preds = %79, %.preheader.i.us
-  %.043.lcssa.i.us = phi i64 [ 0, %.preheader.i.us ], [ %.144.i.us, %79 ]
-  %.042.lcssa.i.us = phi i64 [ 0, %.preheader.i.us ], [ %.1.i.us, %79 ]
-  %.041.lcssa.i.us = phi i64 [ 0, %.preheader.i.us ], [ %65, %79 ]
-  %.not47.i.us = icmp eq i64 %.041.lcssa.i.us, %.043.lcssa.i.us
-  %.not48.i.us = icmp eq i64 %.041.lcssa.i.us, %.042.lcssa.i.us
-  %or.cond.i.us = and i1 %.not47.i.us, %.not48.i.us
-  br i1 %or.cond.i.us, label %85, label %81
+._crit_edge.i.us:                                 ; preds = %81
+  %83 = icmp eq i64 %67, %.1.i.us
+  %84 = icmp eq i64 %67, %.144.i.us
+  %85 = and i1 %84, %83
+  br i1 %85, label %90, label %86
 
-81:                                               ; preds = %._crit_edge.i.us
-  %82 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %15, i64 %.043.lcssa.i.us
-  %83 = load i64, ptr %82, align 8, !tbaa !47
-  %84 = icmp eq i64 %83, %59
-  br i1 %84, label %H5FD__onion_archival_index_find.exit.us, label %85
+86:                                               ; preds = %._crit_edge.i.us
+  %87 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %15, i64 %.144.i.us
+  %88 = load i64, ptr %87, align 8, !tbaa !47
+  %89 = icmp eq i64 %88, %61
+  br i1 %89, label %H5FD__onion_archival_index_find.exit.us, label %90
 
-85:                                               ; preds = %81, %._crit_edge.i.us, %61, %57
-  %86 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %36, i64 %.04674.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
-  %87 = add i64 %.04674.us, 1
+90:                                               ; preds = %86, %._crit_edge.i.us, %63, %.lr.ph77.split.us.split.split
+  %91 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %36, i64 %.04674.us
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false)
+  %92 = add i64 %.04674.us, 1
   br label %H5FD__onion_archival_index_find.exit.us
 
-H5FD__onion_archival_index_find.exit.us:          ; preds = %.lr.ph.i.us, %85, %81
-  %.147.us = phi i64 [ %87, %85 ], [ %.04674.us, %81 ], [ %.04674.us, %.lr.ph.i.us ]
-  %88 = add nuw i64 %.075.us, 1
-  %exitcond90.not = icmp eq i64 %88, %26
-  br i1 %exitcond90.not, label %._crit_edge78, label %57, !llvm.loop !91
+H5FD__onion_archival_index_find.exit.us:          ; preds = %.lr.ph.i.us, %90, %86
+  %.147.us = phi i64 [ %92, %90 ], [ %.04674.us, %86 ], [ %.04674.us, %.lr.ph.i.us ]
+  %93 = add nuw i64 %.075.us, 1
+  %exitcond98.not = icmp eq i64 %93, %26
+  br i1 %exitcond98.not, label %._crit_edge78, label %.lr.ph77.split.us.split.split, !llvm.loop !91
 
-._crit_edge78:                                    ; preds = %H5FD__onion_archival_index_find.exit, %H5FD__onion_archival_index_find.exit.us, %H5FD__onion_archival_index_find.exit.us.us, %.._crit_edge78_crit_edge
-  %.14593 = phi ptr [ null, %.._crit_edge78_crit_edge ], [ %36, %H5FD__onion_archival_index_find.exit.us.us ], [ %36, %H5FD__onion_archival_index_find.exit.us ], [ %36, %H5FD__onion_archival_index_find.exit ]
-  %89 = phi ptr [ %.pre, %.._crit_edge78_crit_edge ], [ %43, %H5FD__onion_archival_index_find.exit.us.us ], [ %43, %H5FD__onion_archival_index_find.exit.us ], [ %43, %H5FD__onion_archival_index_find.exit ]
-  %.046.lcssa = phi i64 [ 0, %.._crit_edge78_crit_edge ], [ %26, %H5FD__onion_archival_index_find.exit.us.us ], [ %.147.us, %H5FD__onion_archival_index_find.exit.us ], [ %26, %H5FD__onion_archival_index_find.exit ]
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %91 = tail call ptr @H5MM_xfree(ptr noundef %89) #14
-  %92 = add i64 %.046.lcssa, %.sroa.4.0.lcssa
-  %93 = shl i64 %92, 4
-  %94 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %93) #16
-  store ptr %94, ptr %90, align 8, !tbaa !54
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %99, label %103
+._crit_edge78:                                    ; preds = %H5FD__onion_archival_index_find.exit, %H5FD__onion_archival_index_find.exit.us, %.lr.ph77.split.us.split.split.us, %H5FD__onion_archival_index_find.exit.us.us, %.._crit_edge78_crit_edge
+  %.145102 = phi ptr [ null, %.._crit_edge78_crit_edge ], [ %36, %H5FD__onion_archival_index_find.exit.us.us ], [ %36, %.lr.ph77.split.us.split.split.us ], [ %36, %H5FD__onion_archival_index_find.exit.us ], [ %36, %H5FD__onion_archival_index_find.exit ]
+  %94 = phi ptr [ %.pre, %.._crit_edge78_crit_edge ], [ %43, %H5FD__onion_archival_index_find.exit.us.us ], [ %43, %.lr.ph77.split.us.split.split.us ], [ %43, %H5FD__onion_archival_index_find.exit.us ], [ %43, %H5FD__onion_archival_index_find.exit ]
+  %.046.lcssa = phi i64 [ 0, %.._crit_edge78_crit_edge ], [ %26, %H5FD__onion_archival_index_find.exit.us.us ], [ %26, %.lr.ph77.split.us.split.split.us ], [ %.147.us, %H5FD__onion_archival_index_find.exit.us ], [ %26, %H5FD__onion_archival_index_find.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %96 = tail call ptr @H5MM_xfree(ptr noundef %94) #14
+  %97 = add i64 %.046.lcssa, %.sroa.4.0.lcssa
+  %98 = shl i64 %97, 4
+  %99 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %98) #16
+  store ptr %99, ptr %95, align 8, !tbaa !54
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %104, label %108
 
 H5FD__onion_archival_index_find.exit:             ; preds = %.lr.ph77, %H5FD__onion_archival_index_find.exit
-  %.075 = phi i64 [ %98, %H5FD__onion_archival_index_find.exit ], [ 0, %.lr.ph77 ]
-  %96 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %43, i64 %.075
-  %97 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %36, i64 %.075
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false)
-  %98 = add nuw i64 %.075, 1
-  %exitcond89.not = icmp eq i64 %98, %26
-  br i1 %exitcond89.not, label %._crit_edge78, label %H5FD__onion_archival_index_find.exit, !llvm.loop !91
+  %.075 = phi i64 [ %103, %H5FD__onion_archival_index_find.exit ], [ 0, %.lr.ph77 ]
+  %101 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %43, i64 %.075
+  %102 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %36, i64 %.075
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false)
+  %103 = add nuw i64 %.075, 1
+  %exitcond97.not = icmp eq i64 %103, %26
+  br i1 %exitcond97.not, label %._crit_edge78, label %H5FD__onion_archival_index_find.exit, !llvm.loop !91
 
-99:                                               ; preds = %._crit_edge78
-  %100 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !26
-  %101 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !26
-  %102 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_merge_revision_index_into_archival_index, i32 noundef 913, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.30) #14
-  br label %110
+104:                                              ; preds = %._crit_edge78
+  %105 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !26
+  %106 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !26
+  %107 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_merge_revision_index_into_archival_index, i32 noundef 913, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.30) #14
+  br label %115
 
-103:                                              ; preds = %._crit_edge78
-  %104 = shl i64 %.sroa.4.0.lcssa, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %15, i64 %104, i1 false)
+108:                                              ; preds = %._crit_edge78
+  %109 = shl i64 %.sroa.4.0.lcssa, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %99, ptr nonnull align 8 %15, i64 %109, i1 false)
   store i64 %.sroa.4.0.lcssa, ptr %25, align 8, !tbaa !55
   %.not52 = icmp eq i64 %.046.lcssa, 0
-  br i1 %.not52, label %108, label %105
+  br i1 %.not52, label %113, label %110
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %94, i64 %.sroa.4.0.lcssa
-  %107 = shl i64 %.046.lcssa, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %106, ptr align 8 %.14593, i64 %107, i1 false)
-  store i64 %92, ptr %25, align 8, !tbaa !55
-  br label %108
-
-108:                                              ; preds = %105, %103
-  %109 = phi i64 [ %92, %105 ], [ %.sroa.4.0.lcssa, %103 ]
-  tail call void @qsort(ptr noundef nonnull %94, i64 noundef %109, i64 noundef 16, ptr noundef nonnull @H5FD__onion_archival_index_list_sort_cmp) #14
-  br label %110
-
-110:                                              ; preds = %9, %108, %99, %38, %21
-  %.sroa.11.0 = phi ptr [ null, %9 ], [ null, %21 ], [ %15, %99 ], [ %15, %108 ], [ %15, %38 ]
-  %.044 = phi ptr [ null, %9 ], [ null, %21 ], [ %.14593, %99 ], [ %.14593, %108 ], [ null, %38 ]
-  %.1 = phi i32 [ 0, %9 ], [ -1, %21 ], [ -1, %99 ], [ 0, %108 ], [ -1, %38 ]
-  %111 = tail call ptr @H5MM_xfree(ptr noundef %.044) #14
-  %112 = tail call ptr @H5MM_xfree(ptr noundef %.sroa.11.0) #14
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %99, i64 %.sroa.4.0.lcssa
+  %112 = shl i64 %.046.lcssa, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %111, ptr align 8 %.145102, i64 %112, i1 false)
+  store i64 %97, ptr %25, align 8, !tbaa !55
   br label %113
 
-113:                                              ; preds = %110, %2
-  %.043 = phi i32 [ %.1, %110 ], [ 0, %2 ]
+113:                                              ; preds = %110, %108
+  %114 = phi i64 [ %97, %110 ], [ %.sroa.4.0.lcssa, %108 ]
+  tail call void @qsort(ptr noundef nonnull %99, i64 noundef %114, i64 noundef 16, ptr noundef nonnull @H5FD__onion_archival_index_list_sort_cmp) #14
+  br label %115
+
+115:                                              ; preds = %9, %113, %104, %38, %21
+  %.sroa.11.0 = phi ptr [ null, %9 ], [ null, %21 ], [ %15, %104 ], [ %15, %113 ], [ %15, %38 ]
+  %.044 = phi ptr [ null, %9 ], [ null, %21 ], [ %.145102, %104 ], [ %.145102, %113 ], [ null, %38 ]
+  %.1 = phi i32 [ 0, %9 ], [ -1, %21 ], [ -1, %104 ], [ 0, %113 ], [ -1, %38 ]
+  %116 = tail call ptr @H5MM_xfree(ptr noundef %.044) #14
+  %117 = tail call ptr @H5MM_xfree(ptr noundef %.sroa.11.0) #14
+  br label %118
+
+118:                                              ; preds = %115, %2
+  %.043 = phi i32 [ %.1, %115 ], [ 0, %2 ]
   ret i32 %.043
 }
 

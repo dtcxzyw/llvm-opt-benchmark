@@ -1690,9 +1690,9 @@ expect_frame_header.exit:                         ; preds = %5
   %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
   store i64 %17, ptr %3, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %13, 4
+  %.not = icmp ne i64 %13, 4
   %18 = icmp eq i64 %16, %11
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %18
+  %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
@@ -1746,9 +1746,9 @@ expect_frame_header.exit:                         ; preds = %5
   %53 = shl nuw nsw i32 1, %52
   %54 = zext nneg i32 %53 to i64
   %55 = icmp ult i64 %46, %54
-  br i1 %55, label %expect_frame_header.exit.thread, label %PACKET_get_quic_vlint.exit16
+  br i1 %55, label %expect_frame_header.exit.thread, label %PACKET_get_quic_vlint.exit15
 
-PACKET_get_quic_vlint.exit16:                     ; preds = %49
+PACKET_get_quic_vlint.exit15:                     ; preds = %49
   %56 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %44) #12
   store i64 %56, ptr %47, align 8, !tbaa !56
   %57 = load ptr, ptr %0, align 8, !tbaa !54
@@ -1759,8 +1759,8 @@ PACKET_get_quic_vlint.exit16:                     ; preds = %49
   store i64 %60, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
-expect_frame_header.exit.thread:                  ; preds = %34, %26, %19, %5, %2, %PACKET_get_quic_vlint.exit16, %41, %49, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit16 ], [ 0, %41 ], [ 0, %49 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ]
+expect_frame_header.exit.thread:                  ; preds = %34, %26, %19, %5, %2, %PACKET_get_quic_vlint.exit15, %41, %49, %expect_frame_header.exit
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit15 ], [ 0, %41 ], [ 0, %49 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -1789,9 +1789,9 @@ expect_frame_header.exit:                         ; preds = %5
   %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
   store i64 %17, ptr %3, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %13, 5
+  %.not = icmp ne i64 %13, 5
   %18 = icmp eq i64 %16, %11
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %18
+  %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
@@ -1823,9 +1823,9 @@ expect_frame_header.exit:                         ; preds = %5
   %38 = shl nuw nsw i32 1, %37
   %39 = zext nneg i32 %38 to i64
   %40 = icmp ult i64 %31, %39
-  br i1 %40, label %expect_frame_header.exit.thread, label %PACKET_get_quic_vlint.exit10
+  br i1 %40, label %expect_frame_header.exit.thread, label %PACKET_get_quic_vlint.exit9
 
-PACKET_get_quic_vlint.exit10:                     ; preds = %34
+PACKET_get_quic_vlint.exit9:                      ; preds = %34
   %41 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %29) #12
   store i64 %41, ptr %32, align 8, !tbaa !56
   %42 = load ptr, ptr %0, align 8, !tbaa !54
@@ -1836,8 +1836,8 @@ PACKET_get_quic_vlint.exit10:                     ; preds = %34
   store i64 %45, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
-expect_frame_header.exit.thread:                  ; preds = %19, %5, %2, %PACKET_get_quic_vlint.exit10, %26, %34, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit10 ], [ 0, %26 ], [ 0, %34 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ]
+expect_frame_header.exit.thread:                  ; preds = %19, %5, %2, %PACKET_get_quic_vlint.exit9, %26, %34, %expect_frame_header.exit
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %26 ], [ 0, %34 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1866,9 +1866,9 @@ expect_frame_header.exit:                         ; preds = %6
   %17 = load i64, ptr %4, align 8, !tbaa !52
   %18 = sub i64 %17, %12
   store i64 %18, ptr %4, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %14, 6
+  %.not = icmp ne i64 %14, 6
   %19 = icmp eq i64 %17, %12
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %19
+  %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %20
 
 20:                                               ; preds = %expect_frame_header.exit
@@ -1968,9 +1968,9 @@ expect_frame_header.exit:                         ; preds = %6
   %17 = load i64, ptr %4, align 8, !tbaa !52
   %18 = sub i64 %17, %12
   store i64 %18, ptr %4, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %14, 7
+  %.not = icmp ne i64 %14, 7
   %19 = icmp eq i64 %17, %12
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %19
+  %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %20
 
 20:                                               ; preds = %expect_frame_header.exit
@@ -1992,15 +1992,15 @@ expect_frame_header.exit:                         ; preds = %6
   store i64 %32, ptr %4, align 8, !tbaa !52
   store ptr %30, ptr %1, align 8, !tbaa !33
   store i64 %28, ptr %2, align 8, !tbaa !56
-  %.val.i9 = load i64, ptr %4, align 8, !tbaa !52
-  %33 = icmp ult i64 %.val.i9, %28
+  %.val.i8 = load i64, ptr %4, align 8, !tbaa !52
+  %33 = icmp ult i64 %.val.i8, %28
   br i1 %33, label %expect_frame_header.exit.thread, label %PACKET_forward.exit
 
 PACKET_forward.exit:                              ; preds = %27
   %34 = load ptr, ptr %0, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %28
   store ptr %35, ptr %0, align 8, !tbaa !54
-  %36 = sub nuw i64 %.val.i9, %28
+  %36 = sub nuw i64 %.val.i8, %28
   store i64 %36, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
@@ -2221,9 +2221,9 @@ expect_frame_header.exit:                         ; preds = %5
   %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
   store i64 %17, ptr %3, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %13, 16
+  %.not = icmp ne i64 %13, 16
   %18 = icmp eq i64 %16, %11
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %18
+  %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
@@ -2276,9 +2276,9 @@ expect_frame_header.exit:                         ; preds = %6
   %17 = load i64, ptr %4, align 8, !tbaa !52
   %18 = sub i64 %17, %12
   store i64 %18, ptr %4, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %14, 17
+  %.not = icmp ne i64 %14, 17
   %19 = icmp eq i64 %17, %12
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %19
+  %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %20
 
 20:                                               ; preds = %expect_frame_header.exit
@@ -2309,9 +2309,9 @@ expect_frame_header.exit:                         ; preds = %6
   %38 = shl nuw nsw i32 1, %37
   %39 = zext nneg i32 %38 to i64
   %40 = icmp ult i64 %32, %39
-  br i1 %40, label %expect_frame_header.exit.thread, label %PACKET_get_quic_vlint.exit10
+  br i1 %40, label %expect_frame_header.exit.thread, label %PACKET_get_quic_vlint.exit9
 
-PACKET_get_quic_vlint.exit10:                     ; preds = %34
+PACKET_get_quic_vlint.exit9:                      ; preds = %34
   %41 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %30) #12
   store i64 %41, ptr %2, align 8, !tbaa !56
   %42 = load ptr, ptr %0, align 8, !tbaa !54
@@ -2322,8 +2322,8 @@ PACKET_get_quic_vlint.exit10:                     ; preds = %34
   store i64 %45, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
-expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_get_quic_vlint.exit10, %27, %34, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit10 ], [ 0, %27 ], [ 0, %34 ], [ 0, %3 ], [ 0, %6 ], [ 0, %20 ]
+expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_get_quic_vlint.exit9, %27, %34, %expect_frame_header.exit
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %27 ], [ 0, %34 ], [ 0, %3 ], [ 0, %6 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -2408,9 +2408,9 @@ expect_frame_header.exit:                         ; preds = %5
   %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
   store i64 %17, ptr %3, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %13, 20
+  %.not = icmp ne i64 %13, 20
   %18 = icmp eq i64 %16, %11
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %18
+  %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
@@ -2463,9 +2463,9 @@ expect_frame_header.exit:                         ; preds = %6
   %17 = load i64, ptr %4, align 8, !tbaa !52
   %18 = sub i64 %17, %12
   store i64 %18, ptr %4, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %14, 21
+  %.not = icmp ne i64 %14, 21
   %19 = icmp eq i64 %17, %12
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %19
+  %or.cond = select i1 %.not, i1 true, i1 %19
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %20
 
 20:                                               ; preds = %expect_frame_header.exit
@@ -2496,9 +2496,9 @@ expect_frame_header.exit:                         ; preds = %6
   %38 = shl nuw nsw i32 1, %37
   %39 = zext nneg i32 %38 to i64
   %40 = icmp ult i64 %32, %39
-  br i1 %40, label %expect_frame_header.exit.thread, label %PACKET_get_quic_vlint.exit10
+  br i1 %40, label %expect_frame_header.exit.thread, label %PACKET_get_quic_vlint.exit9
 
-PACKET_get_quic_vlint.exit10:                     ; preds = %34
+PACKET_get_quic_vlint.exit9:                      ; preds = %34
   %41 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %30) #12
   store i64 %41, ptr %2, align 8, !tbaa !56
   %42 = load ptr, ptr %0, align 8, !tbaa !54
@@ -2509,8 +2509,8 @@ PACKET_get_quic_vlint.exit10:                     ; preds = %34
   store i64 %45, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
-expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_get_quic_vlint.exit10, %27, %34, %expect_frame_header.exit
-  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit10 ], [ 0, %27 ], [ 0, %34 ], [ 0, %3 ], [ 0, %6 ], [ 0, %20 ]
+expect_frame_header.exit.thread:                  ; preds = %20, %6, %3, %PACKET_get_quic_vlint.exit9, %27, %34, %expect_frame_header.exit
+  %.0 = phi i32 [ 0, %expect_frame_header.exit ], [ 1, %PACKET_get_quic_vlint.exit9 ], [ 0, %27 ], [ 0, %34 ], [ 0, %3 ], [ 0, %6 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -2595,9 +2595,9 @@ expect_frame_header.exit:                         ; preds = %5
   %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
   store i64 %17, ptr %3, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %13, 24
+  %.not = icmp ne i64 %13, 24
   %18 = icmp eq i64 %16, %11
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %18
+  %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
@@ -2643,8 +2643,8 @@ expect_frame_header.exit:                         ; preds = %5
   %47 = load i64, ptr %1, align 8, !tbaa !44
   %48 = icmp ult i64 %47, %42
   %.not.i.i = icmp eq i64 %45, %39
-  %or.cond53 = select i1 %48, i1 true, i1 %.not.i.i
-  br i1 %or.cond53, label %expect_frame_header.exit.thread, label %PACKET_get_1.exit
+  %or.cond48 = select i1 %48, i1 true, i1 %.not.i.i
+  br i1 %or.cond48, label %expect_frame_header.exit.thread, label %PACKET_get_1.exit
 
 PACKET_get_1.exit:                                ; preds = %41
   %49 = load i8, ptr %44, align 1, !tbaa !55
@@ -2681,15 +2681,15 @@ PACKET_get_1.exit:                                ; preds = %41
   %68 = sub nuw nsw i32 20, %50
   %69 = zext nneg i32 %68 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %69, i1 false)
-  %.val.i.i30.pr = load i64, ptr %3, align 8, !tbaa !52
+  %.val.i.i29.pr = load i64, ptr %3, align 8, !tbaa !52
   br label %70
 
 70:                                               ; preds = %66, %60
-  %.val.i.i30 = phi i64 [ %.val.i.i30.pr, %66 ], [ %64, %60 ]
-  %71 = icmp ult i64 %.val.i.i30, 16
-  br i1 %71, label %expect_frame_header.exit.thread, label %PACKET_copy_bytes.exit32
+  %.val.i.i29 = phi i64 [ %.val.i.i29.pr, %66 ], [ %64, %60 ]
+  %71 = icmp ult i64 %.val.i.i29, 16
+  br i1 %71, label %expect_frame_header.exit.thread, label %PACKET_copy_bytes.exit31
 
-PACKET_copy_bytes.exit32:                         ; preds = %70
+PACKET_copy_bytes.exit31:                         ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %73 = load ptr, ptr %0, align 8, !tbaa !54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %72, ptr noundef nonnull align 1 dereferenceable(16) %73, i64 range(i64 0, 4294967296) 16, i1 false)
@@ -2701,8 +2701,8 @@ PACKET_copy_bytes.exit32:                         ; preds = %70
   store i64 %77, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
-expect_frame_header.exit.thread:                  ; preds = %55, %34, %26, %19, %5, %2, %PACKET_copy_bytes.exit32, %70, %expect_frame_header.exit, %41, %PACKET_get_1.exit
-  %.0 = phi i32 [ 0, %PACKET_get_1.exit ], [ 0, %41 ], [ 0, %expect_frame_header.exit ], [ 1, %PACKET_copy_bytes.exit32 ], [ 0, %70 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ], [ 0, %55 ]
+expect_frame_header.exit.thread:                  ; preds = %55, %34, %26, %19, %5, %2, %PACKET_copy_bytes.exit31, %70, %expect_frame_header.exit, %41, %PACKET_get_1.exit
+  %.0 = phi i32 [ 0, %PACKET_get_1.exit ], [ 0, %41 ], [ 0, %expect_frame_header.exit ], [ 1, %PACKET_copy_bytes.exit31 ], [ 0, %70 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -2734,9 +2734,9 @@ expect_frame_header.exit:                         ; preds = %5
   %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
   store i64 %17, ptr %3, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %13, 25
+  %.not = icmp ne i64 %13, 25
   %18 = icmp eq i64 %16, %11
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %18
+  %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %19
 
 19:                                               ; preds = %expect_frame_header.exit
@@ -2789,9 +2789,9 @@ expect_frame_header.exit:                         ; preds = %5
   %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
   store i64 %17, ptr %3, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %13, 26
+  %.not = icmp ne i64 %13, 26
   %18 = icmp ult i64 %17, 8
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %18
+  %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %PACKET_get_net_8.exit
 
 PACKET_get_net_8.exit:                            ; preds = %expect_frame_header.exit
@@ -2877,9 +2877,9 @@ expect_frame_header.exit:                         ; preds = %5
   %16 = load i64, ptr %3, align 8, !tbaa !52
   %17 = sub i64 %16, %11
   store i64 %17, ptr %3, align 8, !tbaa !52
-  %.not2.i.not = icmp ne i64 %13, 27
+  %.not = icmp ne i64 %13, 27
   %18 = icmp ult i64 %17, 8
-  %or.cond = select i1 %.not2.i.not, i1 true, i1 %18
+  %or.cond = select i1 %.not, i1 true, i1 %18
   br i1 %or.cond, label %expect_frame_header.exit.thread, label %PACKET_get_net_8.exit
 
 PACKET_get_net_8.exit:                            ; preds = %expect_frame_header.exit

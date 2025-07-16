@@ -223,7 +223,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
 
 45:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27)
-  br i1 %.not.i.i, label %.thread119, label %49
+  br i1 %.not.i.i, label %.critedge, label %49
 
 .thread:                                          ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -231,7 +231,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
   %47 = load ptr, ptr %44, align 8
   %48 = icmp eq ptr %spec.select.i.i, %47
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27)
-  br i1 %48, label %.thread119, label %49
+  br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %.thread, %45
   store ptr @.str.1, ptr %27, align 8
@@ -251,12 +251,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
 .noexc:                                           ; preds = %49
   unreachable
 
-.thread119:                                       ; preds = %45, %.thread
+.critedge:                                        ; preds = %.thread, %45
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27)
   invoke fastcc void @_ZL21_TestForwardIterationRKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__14TraceEventListEE(ptr noundef nonnull align 8 dereferenceable(16) %28)
           to label %51 unwind label %821
 
-51:                                               ; preds = %.thread119
+51:                                               ; preds = %.critedge
   invoke fastcc void @_ZL21_TestReverseIterationRKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__14TraceEventListEE(ptr noundef nonnull align 8 dereferenceable(16) %28)
           to label %52 unwind label %821
 
@@ -2017,7 +2017,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__14TraceEventListEED2Ev.exit66: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__14TraceEventListEED2Ev.exit59, %803, %816, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i65
   ret i32 0
 
-821:                                              ; preds = %56, %49, %54, %52, %51, %.thread119
+821:                                              ; preds = %56, %49, %54, %52, %51, %.critedge
   %822 = landingpad { ptr, i32 }
           cleanup
   br label %.body

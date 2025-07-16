@@ -3451,15 +3451,11 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i: ; preds = %if.then20
   %sub.i.i.i61.i.i = add nsw i64 %conv.i, -1
   %incdec.ptr.i.i.i60.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i.i.i60.i.i, i8 0, i64 %sub.i.i.i61.i.i, i1 false)
-  %add.ptr33.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %conv.i
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit
 
 _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i, %if.then20
-  %buffer.sroa.11.0 = phi ptr [ %add.ptr33.i.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i ], [ null, %if.then20 ]
   %buffer.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i ], [ null, %if.then20 ]
-  %cmp.i.i.i = icmp eq ptr %buffer.sroa.0.0, %buffer.sroa.11.0
-  %spec.select.i = select i1 %cmp.i.i.i, ptr null, ptr %buffer.sroa.0.0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %spec.select.i, ptr align 1 %call, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.sroa.0.0, ptr align 1 %call, i64 %conv.i, i1 false)
   switch i32 %call10, label %cleanup110 [
     i32 0, label %for.cond.preheader
     i32 1, label %for.cond34.preheader
@@ -3493,7 +3489,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv247 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next248, %for.body ]
   %Color = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call, i64 %indvars.iv247, i32 2
-  %Color28 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %spec.select.i, i64 %indvars.iv247, i32 2
+  %Color28 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %buffer.sroa.0.0, i64 %indvars.iv247, i32 2
   %7 = load i32, ptr %Color, align 4, !tbaa !119
   %shr.i.i = lshr i32 %7, 16
   %conv.i169 = trunc i32 %shr.i.i to i8
@@ -3519,7 +3515,7 @@ for.body:                                         ; preds = %for.body, %for.body
 for.body37:                                       ; preds = %for.body37, %for.body37.preheader
   %indvars.iv242 = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next243, %for.body37 ]
   %Color40 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %call, i64 %indvars.iv242, i32 0, i32 2
-  %Color43 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %spec.select.i, i64 %indvars.iv242, i32 0, i32 2
+  %Color43 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %buffer.sroa.0.0, i64 %indvars.iv242, i32 0, i32 2
   %11 = load i32, ptr %Color40, align 4, !tbaa !119
   %shr.i.i173 = lshr i32 %11, 16
   %conv.i174 = trunc i32 %shr.i.i173 to i8
@@ -3545,7 +3541,7 @@ for.body37:                                       ; preds = %for.body37, %for.bo
 for.body55:                                       ; preds = %for.body55, %for.body55.preheader
   %indvars.iv = phi i64 [ 0, %for.body55.preheader ], [ %indvars.iv.next, %for.body55 ]
   %Color58 = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %call, i64 %indvars.iv, i32 0, i32 2
-  %Color61 = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %spec.select.i, i64 %indvars.iv, i32 0, i32 2
+  %Color61 = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %buffer.sroa.0.0, i64 %indvars.iv, i32 0, i32 2
   %15 = load i32, ptr %Color58, align 4, !tbaa !119
   %shr.i.i186 = lshr i32 %15, 16
   %conv.i187 = trunc i32 %shr.i.i186 to i8
@@ -3570,7 +3566,7 @@ for.body55:                                       ; preds = %for.body55, %for.bo
 
 if.end65:                                         ; preds = %for.body55, %for.body37, %for.body, %for.cond.preheader, %for.cond34.preheader, %for.cond52.preheader, %if.end4
   %buffer.sroa.0.1 = phi ptr [ null, %if.end4 ], [ %buffer.sroa.0.0, %for.cond.preheader ], [ %buffer.sroa.0.0, %for.cond34.preheader ], [ %buffer.sroa.0.0, %for.cond52.preheader ], [ %buffer.sroa.0.0, %for.body ], [ %buffer.sroa.0.0, %for.body37 ], [ %buffer.sroa.0.0, %for.body55 ]
-  %vbuf.0 = phi ptr [ %call, %if.end4 ], [ %spec.select.i, %for.cond.preheader ], [ %spec.select.i, %for.cond34.preheader ], [ %spec.select.i, %for.cond52.preheader ], [ %buffer.sroa.0.0, %for.body ], [ %buffer.sroa.0.0, %for.body37 ], [ %buffer.sroa.0.0, %for.body55 ]
+  %vbuf.0 = phi ptr [ %call, %if.end4 ], [ %buffer.sroa.0.0, %for.cond.preheader ], [ %buffer.sroa.0.0, %for.cond34.preheader ], [ %buffer.sroa.0.0, %for.cond52.preheader ], [ %buffer.sroa.0.0, %for.body ], [ %buffer.sroa.0.0, %for.body37 ], [ %buffer.sroa.0.0, %for.body55 ]
   %vbo_verticesID = getelementptr inbounds nuw i8, ptr %HWBuffer, i64 40
   %19 = load i32, ptr %vbo_verticesID, align 8, !tbaa !251
   %tobool66.not = icmp eq i32 %19, 0

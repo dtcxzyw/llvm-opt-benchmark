@@ -5512,25 +5512,20 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit72: ; pre
   %307 = load i32, ptr %6, align 8, !tbaa !78
   %308 = load i32, ptr %7, align 4, !tbaa !180
   %309 = icmp slt i32 %307, %308
-  br i1 %309, label %310, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
+  br i1 %309, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit, label %.loopexit93
 
-310:                                              ; preds = %.thread83
-  %311 = add nsw i32 %307, 1
-  store i32 %311, ptr %6, align 8, !tbaa !78
-  call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %311)
+_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit: ; preds = %.thread83
+  %310 = add nsw i32 %307, 1
+  store i32 %310, ptr %6, align 8, !tbaa !78
+  call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %310)
   %.pre144 = load i32, ptr %6, align 8, !tbaa !78
   %.pre145 = load i32, ptr %7, align 4, !tbaa !180
-  br label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
+  %311 = icmp slt i32 %.pre144, %.pre145
+  br i1 %311, label %32, label %.loopexit93, !llvm.loop !223
 
-_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit: ; preds = %.thread83, %310
-  %312 = phi i32 [ %308, %.thread83 ], [ %.pre145, %310 ]
-  %313 = phi i32 [ %307, %.thread83 ], [ %.pre144, %310 ]
-  %314 = icmp slt i32 %313, %312
-  br i1 %314, label %32, label %.loopexit93, !llvm.loop !223
-
-.loopexit93:                                      ; preds = %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit, %2, %299, %204
-  %315 = phi i1 [ true, %299 ], [ true, %204 ], [ false, %2 ], [ false, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit ]
-  ret i1 %315
+.loopexit93:                                      ; preds = %.thread83, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit, %2, %299, %204
+  %312 = phi i1 [ true, %299 ], [ true, %204 ], [ false, %2 ], [ false, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit ], [ false, %.thread83 ]
+  ret i1 %312
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -6142,23 +6137,18 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69: ; preds = %284, %281, %266
   %295 = load i32, ptr %5, align 8, !tbaa !78
   %296 = load i32, ptr %6, align 4, !tbaa !180
   %297 = icmp slt i32 %295, %296
-  br i1 %297, label %298, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
+  br i1 %297, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit, label %._crit_edge99
 
-298:                                              ; preds = %.loopexit82
-  %299 = add nsw i32 %295, 1
-  store i32 %299, ptr %5, align 8, !tbaa !78
-  call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %299)
+_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit: ; preds = %.loopexit82
+  %298 = add nsw i32 %295, 1
+  store i32 %298, ptr %5, align 8, !tbaa !78
+  call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %298)
   %.pre114 = load i32, ptr %5, align 8, !tbaa !78
   %.pre115 = load i32, ptr %6, align 4, !tbaa !180
-  br label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
+  %299 = icmp slt i32 %.pre114, %.pre115
+  br i1 %299, label %35, label %._crit_edge99, !llvm.loop !229
 
-_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit: ; preds = %.loopexit82, %298
-  %300 = phi i32 [ %296, %.loopexit82 ], [ %.pre115, %298 ]
-  %301 = phi i32 [ %295, %.loopexit82 ], [ %.pre114, %298 ]
-  %302 = icmp slt i32 %301, %300
-  br i1 %302, label %35, label %._crit_edge99, !llvm.loop !229
-
-._crit_edge99:                                    ; preds = %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit, %2
+._crit_edge99:                                    ; preds = %.loopexit82, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit, %2
   ret void
 }
 

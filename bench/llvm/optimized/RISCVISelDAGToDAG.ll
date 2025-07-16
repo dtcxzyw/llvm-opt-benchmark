@@ -14894,7 +14894,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel17selectInvLogic
   %7 = alloca %"class.llvm::SDLoc", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !131
-  switch i32 %9, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46" [
+  switch i32 %9, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit" [
     i32 35, label %10
     i32 11, label %10
   ]
@@ -14934,7 +14934,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %17, %24
   %31 = icmp ne i64 %30, 4095
   %32 = icmp eq i64 %.0.i.i.i, -1
   %or.cond = or i1 %32, %31
-  br i1 %or.cond, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46", label %33
+  br i1 %or.cond, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit", label %33
 
 33:                                               ; preds = %29, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -14956,7 +14956,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %17, %24
   %42 = load ptr, ptr %41, align 8, !tbaa !383
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 8, !tbaa !131
-  switch i32 %44, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46" [
+  switch i32 %44, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit" [
     i32 186, label %45
     i32 187, label %45
     i32 188, label %45
@@ -14971,12 +14971,12 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %17, %24
 48:                                               ; preds = %45
   %49 = load i8, ptr %39, align 2, !tbaa !604, !range !52, !noundef !53
   %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %.critedge, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46"
+  br i1 %50, label %.critedge, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit"
 
 51:                                               ; preds = %40
   %52 = load i8, ptr %37, align 4, !tbaa !605, !range !52, !noundef !53
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46"
+  br i1 %53, label %54, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit"
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 56
@@ -14990,7 +14990,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %17, %24
   %58 = load ptr, ptr %57, align 8, !tbaa !383
   %59 = getelementptr i8, ptr %58, i64 24
   %.val.i.i.i.i.i.i = load i32, ptr %59, align 8, !tbaa !131
-  switch i32 %.val.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46" [
+  switch i32 %.val.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit" [
     i32 589, label %60
     i32 186, label %60
   ]
@@ -15056,7 +15056,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %64, %71, %74
 _ZN4llvm5APIntD2Ev.exit34:                        ; preds = %_ZN4llvm5APIntD2Ev.exit, %81, %84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
   %.not = icmp sgt i32 %68, %78
-  br i1 %.not, label %85, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46"
+  br i1 %.not, label %85, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit"
 
 85:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit34, %.critedge29
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15099,9 +15099,9 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %85, %90
 
 _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit, %102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  br label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46"
+  br label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit.thread46": ; preds = %40, %51, %48, %.lr.ph.i.i.i.i.i, %4, %_ZN4llvm5SDLocD2Ev.exit, %_ZN4llvm5APIntD2Ev.exit34, %29
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZNS_17RISCVDAGToDAGISel17selectInvLogicImmENS_7SDValueERS6_E3$_0EEbOT_T0_.exit": ; preds = %40, %51, %48, %.lr.ph.i.i.i.i.i, %4, %_ZN4llvm5SDLocD2Ev.exit, %_ZN4llvm5APIntD2Ev.exit34, %29
   %.0 = phi i1 [ false, %4 ], [ true, %_ZN4llvm5SDLocD2Ev.exit ], [ false, %_ZN4llvm5APIntD2Ev.exit34 ], [ false, %29 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %48 ], [ false, %51 ], [ false, %40 ]
   ret i1 %.0
 }

@@ -1876,30 +1876,26 @@ lpad:                                             ; preds = %lpad.loopexit.split
 invoke.cont4:                                     ; preds = %invoke.cont
   %4 = load i8, ptr %0, align 1
   %cmp.not = icmp eq i8 %4, 45
-  br i1 %cmp.not, label %invoke.cont7, label %invoke.cont10
+  br i1 %cmp.not, label %invoke.cont7, label %invoke.cont17
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store ptr %add.ptr.i.i, ptr %this, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %input, i8 noundef signext 45)
-          to label %invoke.cont7.invoke.cont10_crit_edge unwind label %lpad.loopexit.split-lp
+          to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
 
-invoke.cont7.invoke.cont10_crit_edge:             ; preds = %invoke.cont7
+invoke.cont10:                                    ; preds = %invoke.cont7
   %.pre = load ptr, ptr %this, align 8
   %.pre41 = load ptr, ptr %e_.i.i, align 8
-  br label %invoke.cont10
-
-invoke.cont10:                                    ; preds = %invoke.cont7.invoke.cont10_crit_edge, %invoke.cont4
-  %5 = phi ptr [ %.pre41, %invoke.cont7.invoke.cont10_crit_edge ], [ %1, %invoke.cont4 ]
-  %6 = phi ptr [ %.pre, %invoke.cont7.invoke.cont10_crit_edge ], [ %0, %invoke.cont4 ]
-  %cmp.i14 = icmp eq ptr %6, %5
-  br i1 %cmp.i14, label %if.then12, label %invoke.cont17
+  %5 = icmp eq ptr %.pre, %.pre41
+  br i1 %5, label %if.then12, label %invoke.cont17
 
 if.then12:                                        ; preds = %invoke.cont10
   store i8 4, ptr %ref.tmp13, align 1
   br label %if.then.invoke
 
-invoke.cont17:                                    ; preds = %invoke.cont10
+invoke.cont17:                                    ; preds = %invoke.cont4, %invoke.cont10
+  %6 = phi ptr [ %.pre, %invoke.cont10 ], [ %0, %invoke.cont4 ]
   %7 = load i8, ptr %6, align 1
   %conv19 = sext i8 %7 to i32
   %isdigittmp = add nsw i32 %conv19, -48

@@ -803,7 +803,7 @@ define internal noundef i64 @range_initialize(i32 noundef %0, ptr noundef readon
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %9, align 8, !tbaa !22
   %10 = icmp slt i32 %0, 2
-  br i1 %10, label %22, label %.preheader4
+  br i1 %10, label %21, label %.preheader4
 
 .preheader4:                                      ; preds = %3, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %3 ]
@@ -825,39 +825,38 @@ define internal noundef i64 @range_initialize(i32 noundef %0, ptr noundef readon
 
 .preheader:                                       ; preds = %16
   %.not17 = icmp eq i32 %0, 2
-  br i1 %.not17, label %20, label %17
+  br i1 %.not17, label %rb_scan_args_set.exit.critedge, label %17
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !7
-  br label %20
+  %20 = icmp eq i32 %0, 3
+  store i64 %19, ptr %6, align 8, !tbaa !7
+  br i1 %20, label %rb_scan_args_set.exit, label %21
 
-20:                                               ; preds = %.preheader, %17
-  %.sink = phi i64 [ %19, %17 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 3, %17 ], [ 2, %.preheader ]
-  store i64 %.sink, ptr %6, align 8, !tbaa !7
-  %21 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %21, label %rb_scan_args_set.exit, label %22
-
-22:                                               ; preds = %20, %3
+21:                                               ; preds = %17, %3
   call void @rb_error_arity(i32 noundef %0, i32 noundef 2, i32 noundef 3) #14
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %20
-  %23 = icmp eq i64 %2, 0
-  %24 = and i64 %2, 7
-  %25 = icmp ne i64 %24, 0
-  %26 = or i1 %23, %25
-  br i1 %26, label %RB_OBJ_FROZEN.exit.thread.i.i, label %RB_FL_ABLE.exit.i.i.i, !prof !19
+rb_scan_args_set.exit.critedge:                   ; preds = %.preheader
+  store i64 4, ptr %6, align 8, !tbaa !7
+  br label %rb_scan_args_set.exit
+
+rb_scan_args_set.exit:                            ; preds = %rb_scan_args_set.exit.critedge, %17
+  %22 = icmp eq i64 %2, 0
+  %23 = and i64 %2, 7
+  %24 = icmp ne i64 %23, 0
+  %25 = or i1 %22, %24
+  br i1 %25, label %RB_OBJ_FROZEN.exit.thread.i.i, label %RB_FL_ABLE.exit.i.i.i, !prof !19
 
 RB_FL_ABLE.exit.i.i.i:                            ; preds = %rb_scan_args_set.exit
-  %27 = inttoptr i64 %2 to ptr
-  %28 = load i64, ptr %27, align 8, !tbaa !11
-  %29 = and i64 %28, 31
-  %.not.i.i.i = icmp eq i64 %29, 27
-  %30 = and i64 %28, 2048
-  %31 = icmp ne i64 %30, 0
-  %or.cond.i.i = or i1 %.not.i.i.i, %31
+  %26 = inttoptr i64 %2 to ptr
+  %27 = load i64, ptr %26, align 8, !tbaa !11
+  %28 = and i64 %27, 31
+  %.not.i.i.i = icmp eq i64 %28, 27
+  %29 = and i64 %27, 2048
+  %30 = icmp ne i64 %29, 0
+  %or.cond.i.i = or i1 %.not.i.i.i, %30
   br i1 %or.cond.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i, !prof !20
 
 RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %RB_FL_ABLE.exit.i.i.i, %rb_scan_args_set.exit
@@ -865,52 +864,52 @@ RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %RB_FL_ABLE.exit.i.i
   unreachable
 
 rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i.i
-  %32 = icmp ne i64 %29, 5
-  %33 = and i64 %28, 49152
-  %.not.i.i = icmp eq i64 %33, 0
-  %or.cond8.i.i = or i1 %32, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_check_frozen_inline.exit.i, label %34, !prof !21
+  %31 = icmp ne i64 %28, 5
+  %32 = and i64 %27, 49152
+  %.not.i.i = icmp eq i64 %32, 0
+  %or.cond8.i.i = or i1 %31, %.not.i.i
+  br i1 %or.cond8.i.i, label %rb_check_frozen_inline.exit.i, label %33, !prof !21
 
-34:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
+33:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   call void @rb_str_modify(i64 noundef %2) #13
-  %.pre.i = load i64, ptr %27, align 8, !tbaa !11
+  %.pre.i = load i64, ptr %26, align 8, !tbaa !11
   br label %rb_check_frozen_inline.exit.i
 
-rb_check_frozen_inline.exit.i:                    ; preds = %34, %rbimpl_RB_TYPE_P_fastpath.exit.i.i
-  %35 = phi i64 [ %28, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %.pre.i, %34 ]
-  %36 = and i64 %35, 1040384
-  %.not.i.i.i.i = icmp eq i64 %36, 0
-  br i1 %.not.i.i.i.i, label %39, label %37
+rb_check_frozen_inline.exit.i:                    ; preds = %33, %rbimpl_RB_TYPE_P_fastpath.exit.i.i
+  %34 = phi i64 [ %27, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %.pre.i, %33 ]
+  %35 = and i64 %34, 1040384
+  %.not.i.i.i.i = icmp eq i64 %35, 0
+  br i1 %.not.i.i.i.i, label %38, label %36
 
-37:                                               ; preds = %rb_check_frozen_inline.exit.i
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 16
+36:                                               ; preds = %rb_check_frozen_inline.exit.i
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br label %RANGE_EXCL.exit.i
 
-39:                                               ; preds = %rb_check_frozen_inline.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !13
+38:                                               ; preds = %rb_check_frozen_inline.exit.i
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
   br label %RANGE_EXCL.exit.i
 
-RANGE_EXCL.exit.i:                                ; preds = %39, %37
-  %.0.i.i.i.i = phi ptr [ %38, %37 ], [ %41, %39 ]
-  %42 = getelementptr i8, ptr %.0.i.i.i.i, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !7
-  %.not.i3 = icmp eq i64 %43, 4
-  br i1 %.not.i3, label %range_modify.exit, label %44
+RANGE_EXCL.exit.i:                                ; preds = %38, %36
+  %.0.i.i.i.i = phi ptr [ %37, %36 ], [ %40, %38 ]
+  %41 = getelementptr i8, ptr %.0.i.i.i.i, i64 16
+  %42 = load i64, ptr %41, align 8, !tbaa !7
+  %.not.i3 = icmp eq i64 %42, 4
+  br i1 %.not.i3, label %range_modify.exit, label %43
 
-44:                                               ; preds = %RANGE_EXCL.exit.i
-  %45 = call i64 @rb_id2sym(i64 noundef 3169) #13
-  call fastcc void @rb_name_err_raise(i64 noundef %2, i64 noundef %45) #15
+43:                                               ; preds = %RANGE_EXCL.exit.i
+  %44 = call i64 @rb_id2sym(i64 noundef 3169) #13
+  call fastcc void @rb_name_err_raise(i64 noundef %2, i64 noundef %44) #15
   unreachable
 
 range_modify.exit:                                ; preds = %RANGE_EXCL.exit.i
-  %46 = load i64, ptr %4, align 8, !tbaa !7
-  %47 = load i64, ptr %5, align 8, !tbaa !7
-  %48 = load i64, ptr %6, align 8, !tbaa !7
-  %49 = and i64 %48, -5
-  %.not = icmp eq i64 %49, 0
-  %50 = select i1 %.not, i64 0, i64 20
-  call fastcc void @range_init(i64 noundef %2, i64 noundef %46, i64 noundef %47, i64 noundef %50)
+  %45 = load i64, ptr %4, align 8, !tbaa !7
+  %46 = load i64, ptr %5, align 8, !tbaa !7
+  %47 = load i64, ptr %6, align 8, !tbaa !7
+  %48 = and i64 %47, -5
+  %.not = icmp eq i64 %48, 0
+  %49 = select i1 %.not, i64 0, i64 20
+  call fastcc void @range_init(i64 noundef %2, i64 noundef %45, i64 noundef %46, i64 noundef %49)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13

@@ -3219,7 +3219,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE4pushEOS
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #16
   br label %.thread81.backedge
 
-.thread81.backedge:                               ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE4pushEOS4_.exit75, %116, %188
+.thread81.backedge:                               ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE4pushEOS4_.exit75, %116, %187
   br label %.thread81, !llvm.loop !125
 
 140:                                              ; preds = %100, %97
@@ -3251,13 +3251,16 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE4pushEOS
   %158 = load ptr, ptr %35, align 8, !tbaa !105
   %159 = load ptr, ptr %44, align 8, !tbaa !114
   %.not.i.i = icmp eq ptr %158, %159
-  br i1 %.not.i.i, label %162, label %160
+  br i1 %.not.i.i, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit.thread, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %158, i64 -48
-  br label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit
+_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit: ; preds = %157
+  %160 = getelementptr inbounds i8, ptr %158, i64 -48
+  store ptr %160, ptr %35, align 8, !tbaa !105
+  %161 = load ptr, ptr %51, align 8, !tbaa !106
+  %162 = icmp eq ptr %160, %161
+  br i1 %162, label %.thread83, label %170
 
-162:                                              ; preds = %157
+_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit.thread: ; preds = %157
   call void @_ZdlPv(ptr noundef %159) #17
   %163 = load ptr, ptr %45, align 8, !tbaa !41
   %164 = getelementptr inbounds i8, ptr %163, i64 -8
@@ -3267,58 +3270,53 @@ _ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE4pushEOS
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 480
   store ptr %166, ptr %37, align 8, !tbaa !103
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 432
-  br label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit
+  store ptr %167, ptr %35, align 8, !tbaa !105
+  %168 = load ptr, ptr %51, align 8, !tbaa !106
+  %169 = icmp eq ptr %167, %168
+  br i1 %169, label %.thread83, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76
 
-_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit: ; preds = %160, %162
-  %168 = phi ptr [ %159, %160 ], [ %165, %162 ]
-  %storemerge.i.i = phi ptr [ %161, %160 ], [ %167, %162 ]
-  store ptr %storemerge.i.i, ptr %35, align 8, !tbaa !105
-  %169 = load ptr, ptr %51, align 8, !tbaa !106
-  %170 = icmp eq ptr %storemerge.i.i, %169
-  br i1 %170, label %.thread83, label %171
+170:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit
+  %171 = icmp eq ptr %160, %159
+  br i1 %171, label %172, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76
 
-171:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit
-  %172 = icmp eq ptr %storemerge.i.i, %168
-  br i1 %172, label %173, label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76
-
-173:                                              ; preds = %171
-  %174 = load ptr, ptr %45, align 8, !tbaa !101, !noalias !126
-  %175 = getelementptr inbounds i8, ptr %174, i64 -8
-  %176 = load ptr, ptr %175, align 8, !tbaa !42
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 480
+172:                                              ; preds = %170
+  %173 = load ptr, ptr %45, align 8, !tbaa !101, !noalias !126
+  %174 = getelementptr inbounds i8, ptr %173, i64 -8
+  %175 = load ptr, ptr %174, align 8, !tbaa !42
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 480
   br label %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76
 
-_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76: ; preds = %171, %173
-  %178 = phi ptr [ %177, %173 ], [ %storemerge.i.i, %171 ]
-  %179 = getelementptr inbounds i8, ptr %178, i64 -8
-  %180 = load ptr, ptr %179, align 8, !tbaa !113
-  %.not73 = icmp eq ptr %180, null
-  br i1 %.not73, label %186, label %181
+_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76: ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit.thread, %170, %172
+  %177 = phi ptr [ %176, %172 ], [ %160, %170 ], [ %167, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit.thread ]
+  %178 = getelementptr inbounds i8, ptr %177, i64 -8
+  %179 = load ptr, ptr %178, align 8, !tbaa !113
+  %.not73 = icmp eq ptr %179, null
+  br i1 %.not73, label %185, label %180
 
-181:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76
-  %182 = getelementptr inbounds i8, ptr %178, i64 -40
-  %183 = load i32, ptr %182, align 8, !tbaa !116
-  %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds ptr, ptr %180, i64 %184
-  store ptr %.265, ptr %185, align 8, !tbaa !50
-  br label %188
+180:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76
+  %181 = getelementptr inbounds i8, ptr %177, i64 -40
+  %182 = load i32, ptr %181, align 8, !tbaa !116
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds ptr, ptr %179, i64 %183
+  store ptr %.265, ptr %184, align 8, !tbaa !50
+  br label %187
 
-186:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76
-  %187 = getelementptr inbounds i8, ptr %178, i64 -16
-  store ptr %.265, ptr %187, align 8, !tbaa !129
-  %.phi.trans.insert89 = getelementptr inbounds i8, ptr %178, i64 -40
+185:                                              ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3topEv.exit76
+  %186 = getelementptr inbounds i8, ptr %177, i64 -16
+  store ptr %.265, ptr %186, align 8, !tbaa !129
+  %.phi.trans.insert89 = getelementptr inbounds i8, ptr %177, i64 -40
   %.pre90 = load i32, ptr %.phi.trans.insert89, align 8, !tbaa !116
-  br label %188
+  br label %187
 
-188:                                              ; preds = %186, %181
-  %189 = phi i32 [ %.pre90, %186 ], [ %183, %181 ]
-  %190 = getelementptr inbounds i8, ptr %178, i64 -40
-  %191 = add nsw i32 %189, 1
-  store i32 %191, ptr %190, align 8, !tbaa !116
+187:                                              ; preds = %185, %180
+  %188 = phi i32 [ %.pre90, %185 ], [ %182, %180 ]
+  %189 = getelementptr inbounds i8, ptr %177, i64 -40
+  %190 = add nsw i32 %188, 1
+  store i32 %190, ptr %189, align 8, !tbaa !116
   br label %.thread81.backedge
 
-.thread83:                                        ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit, %_ZN10LogMessageD2Ev.exit
-  %.0 = phi ptr [ %2, %_ZN10LogMessageD2Ev.exit ], [ %.265, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit ]
+.thread83:                                        ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit.thread, %_ZN10LogMessageD2Ev.exit
+  %.0 = phi ptr [ %2, %_ZN10LogMessageD2Ev.exit ], [ %.265, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit.thread ], [ %.265, %_ZNSt5stackIN10duckdb_re29WalkStateIPNS0_6RegexpEEESt5dequeIS4_SaIS4_EEE3popEv.exit ]
   ret ptr %.0
 }
 

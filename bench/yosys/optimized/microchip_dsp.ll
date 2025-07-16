@@ -48888,25 +48888,25 @@ _ZN5Yosys5RTLIL8SigChunkD2Ev.exit.i.i.i.i.i.i:    ; preds = %1128, %1127
 .thread.i.i.i.i.i.i:                              ; preds = %1104
   %.pre68.i.i.i.i.i.i = load ptr, ptr %1093, align 8, !tbaa !328
   %.pre69.i.i.i.i.i.i = load ptr, ptr %1098, align 8, !tbaa !328
+  %1132 = icmp eq ptr %.pre68.i.i.i.i.i.i, %.pre69.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  %1132 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %1133 = load ptr, ptr %1132, align 8, !tbaa !147
+  %1133 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %1134 = load ptr, ptr %1133, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #28
   store ptr null, ptr %15, align 8, !tbaa !372
-  %1134 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i8 0, ptr %1134, align 8, !tbaa !15
-  %1135 = icmp eq ptr %.pre68.i.i.i.i.i.i, %.pre69.i.i.i.i.i.i
-  br i1 %1135, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i.i.i.i.i.i, label %1136
+  %1135 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i8 0, ptr %1135, align 8, !tbaa !15
+  br i1 %1132, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i.i.i.i.i.i, label %1136
 
 1136:                                             ; preds = %.thread.i.i.i.i.i.i
   invoke void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %1081)
           to label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i
 
 _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i.i.i.i.i.i: ; preds = %1136, %.thread.i.i.i.i.i.i, %.thread.thread.i.i.i.i.i.i
-  %1137 = phi ptr [ %1101, %.thread.thread.i.i.i.i.i.i ], [ %1133, %.thread.i.i.i.i.i.i ], [ %1133, %1136 ]
-  %1138 = phi ptr [ %1100, %.thread.thread.i.i.i.i.i.i ], [ %1132, %.thread.i.i.i.i.i.i ], [ %1132, %1136 ]
+  %1137 = phi ptr [ %1101, %.thread.thread.i.i.i.i.i.i ], [ %1134, %.thread.i.i.i.i.i.i ], [ %1134, %1136 ]
+  %1138 = phi ptr [ %1100, %.thread.thread.i.i.i.i.i.i ], [ %1133, %.thread.i.i.i.i.i.i ], [ %1133, %1136 ]
   %1139 = add nsw i32 %1, 6
   %1140 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %1141 = load ptr, ptr %1140, align 8, !tbaa !255
@@ -52655,25 +52655,25 @@ common.resume.i:                                  ; preds = %965, %919, %122
 .thread58.i:                                      ; preds = %.thread55.i
   %.pre.i = load ptr, ptr %38, align 8, !tbaa !328
   %.pre72.i = load ptr, ptr %40, align 8, !tbaa !328
+  %123 = icmp eq ptr %.pre.i, %.pre72.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %124 = load ptr, ptr %123, align 8, !tbaa !147
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %125 = load ptr, ptr %124, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #28
   store ptr null, ptr %18, align 8, !tbaa !372
-  %125 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 0, ptr %125, align 8, !tbaa !15
-  %126 = icmp eq ptr %.pre.i, %.pre72.i
-  br i1 %126, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i, label %127
+  %126 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i8 0, ptr %126, align 8, !tbaa !15
+  br i1 %123, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i, label %127
 
 127:                                              ; preds = %.thread58.i
   call void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %33)
   br label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i
 
 _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i: ; preds = %127, %.thread58.i, %.thread58.thread.i
-  %128 = phi ptr [ %43, %.thread58.thread.i ], [ %124, %127 ], [ %124, %.thread58.i ]
-  %129 = phi ptr [ %42, %.thread58.thread.i ], [ %123, %127 ], [ %123, %.thread58.i ]
+  %128 = phi ptr [ %43, %.thread58.thread.i ], [ %125, %127 ], [ %125, %.thread58.i ]
+  %129 = phi ptr [ %42, %.thread58.thread.i ], [ %124, %127 ], [ %124, %.thread58.i ]
   %130 = add nsw i32 %1, 1
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1496
@@ -65617,22 +65617,22 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
 .thread58.i.i.i.i.i:                              ; preds = %.thread55.i.i.i.i.i
   %.pre.i.i.i.i.i = load ptr, ptr %112, align 8, !tbaa !328
   %.pre72.i.i.i.i.i = load ptr, ptr %114, align 8, !tbaa !328
+  %813 = icmp eq ptr %.pre.i.i.i.i.i, %.pre72.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  %813 = load ptr, ptr %142, align 8, !tbaa !147
+  %814 = load ptr, ptr %142, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #28
   store ptr null, ptr %18, align 8, !tbaa !372
   store i8 0, ptr %315, align 8, !tbaa !15
-  %814 = icmp eq ptr %.pre.i.i.i.i.i, %.pre72.i.i.i.i.i
-  br i1 %814, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i.i.i.i.i, label %815
+  br i1 %813, label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i.i.i.i.i, label %815
 
 815:                                              ; preds = %.thread58.i.i.i.i.i
   invoke void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dereferenceable(56) %111)
           to label %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit.i
 
 _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i.i.i.i.i.i: ; preds = %815, %.thread58.i.i.i.i.i, %.thread58.thread.i.i.i.i.i
-  %816 = phi ptr [ %740, %.thread58.thread.i.i.i.i.i ], [ %813, %.thread58.i.i.i.i.i ], [ %813, %815 ]
+  %816 = phi ptr [ %740, %.thread58.thread.i.i.i.i.i ], [ %814, %.thread58.i.i.i.i.i ], [ %814, %815 ]
   %817 = load ptr, ptr %133, align 8, !tbaa !255
   %818 = load ptr, ptr %131, align 8, !tbaa !137
   %.not.i.i.i.not.i.i.i.i.i.i = icmp eq ptr %817, %818

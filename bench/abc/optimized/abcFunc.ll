@@ -4359,25 +4359,20 @@ define void @Abc_ObjFaninSort(ptr noundef readonly captures(none) %0) local_unna
   %8 = sext i32 %4 to i64
   br label %10
 
-.loopexit44.loopexit:                             ; preds = %.loopexit
+.loopexit44:                                      ; preds = %.loopexit
   %.pre = sext i32 %.val to i64
-  br label %.loopexit44
-
-.loopexit44:                                      ; preds = %.loopexit44.loopexit, %10
-  %.pre-phi = phi i64 [ %.pre, %.loopexit44.loopexit ], [ %11, %10 ]
-  %.val37 = phi i32 [ %.val, %.loopexit44.loopexit ], [ %.val3761, %10 ]
-  %9 = icmp slt i64 %indvars.iv.next57, %.pre-phi
+  %9 = icmp slt i64 %indvars.iv.next57, %.pre
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %9, label %10, label %._crit_edge, !llvm.loop !142
 
 10:                                               ; preds = %.lr.ph52, %.loopexit44
-  %.val3761 = phi i32 [ %.val3750, %.lr.ph52 ], [ %.val37, %.loopexit44 ]
+  %.val3761 = phi i32 [ %.val3750, %.lr.ph52 ], [ %.val, %.loopexit44 ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next57, %.loopexit44 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph52 ], [ %indvars.iv.next, %.loopexit44 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %11 = sext i32 %.val3761 to i64
   %12 = icmp slt i64 %indvars.iv.next57, %11
-  br i1 %12, label %.lr.ph49, label %.loopexit44
+  br i1 %12, label %.lr.ph49, label %._crit_edge
 
 .lr.ph49:                                         ; preds = %10, %.loopexit
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.loopexit ], [ %indvars.iv, %10 ]
@@ -4415,9 +4410,9 @@ define void @Abc_ObjFaninSort(ptr noundef readonly captures(none) %0) local_unna
   %.val = load i32, ptr %5, align 4, !tbaa !40
   %27 = trunc nuw i64 %indvars.iv.next54 to i32
   %28 = icmp sgt i32 %.val, %27
-  br i1 %28, label %.lr.ph49, label %.loopexit44.loopexit, !llvm.loop !144
+  br i1 %28, label %.lr.ph49, label %.loopexit44, !llvm.loop !144
 
-._crit_edge:                                      ; preds = %.loopexit44, %1
+._crit_edge:                                      ; preds = %.loopexit44, %10, %1
   ret void
 }
 
@@ -4461,25 +4456,20 @@ define void @Abc_NtkFaninSort(ptr noundef readonly captures(none) %0) local_unna
   %21 = sext i32 %17 to i64
   br label %23
 
-.loopexit44.loopexit.i:                           ; preds = %.loopexit.i
+.loopexit44.i:                                    ; preds = %.loopexit.i
   %.pre.i = sext i32 %.val.i to i64
-  br label %.loopexit44.i
-
-.loopexit44.i:                                    ; preds = %23, %.loopexit44.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %.loopexit44.loopexit.i ], [ %24, %23 ]
-  %.val37.i = phi i32 [ %.val.i, %.loopexit44.loopexit.i ], [ %.val3761.i, %23 ]
-  %22 = icmp slt i64 %indvars.iv.next57.i, %.pre-phi.i
+  %22 = icmp slt i64 %indvars.iv.next57.i, %.pre.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %22, label %23, label %Abc_ObjFaninSort.exit, !llvm.loop !142
 
 23:                                               ; preds = %.loopexit44.i, %.lr.ph52.i
-  %.val3761.i = phi i32 [ %.val3750.i, %.lr.ph52.i ], [ %.val37.i, %.loopexit44.i ]
+  %.val3761.i = phi i32 [ %.val3750.i, %.lr.ph52.i ], [ %.val.i, %.loopexit44.i ]
   %indvars.iv56.i = phi i64 [ 0, %.lr.ph52.i ], [ %indvars.iv.next57.i, %.loopexit44.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph52.i ], [ %indvars.iv.next.i, %.loopexit44.i ]
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %24 = sext i32 %.val3761.i to i64
   %25 = icmp slt i64 %indvars.iv.next57.i, %24
-  br i1 %25, label %.lr.ph49.i, label %.loopexit44.i
+  br i1 %25, label %.lr.ph49.i, label %Abc_ObjFaninSort.exit
 
 .lr.ph49.i:                                       ; preds = %23, %.loopexit.i
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %.loopexit.i ], [ %indvars.iv.i, %23 ]
@@ -4517,9 +4507,9 @@ define void @Abc_NtkFaninSort(ptr noundef readonly captures(none) %0) local_unna
   %.val.i = load i32, ptr %18, align 4, !tbaa !40
   %40 = trunc nuw i64 %indvars.iv.next54.i to i32
   %41 = icmp sgt i32 %.val.i, %40
-  br i1 %41, label %.lr.ph49.i, label %.loopexit44.loopexit.i, !llvm.loop !144
+  br i1 %41, label %.lr.ph49.i, label %.loopexit44.i, !llvm.loop !144
 
-Abc_ObjFaninSort.exit:                            ; preds = %.loopexit44.i, %14, %11, %.lr.ph
+Abc_ObjFaninSort.exit:                            ; preds = %23, %.loopexit44.i, %14, %11, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load ptr, ptr %2, align 8, !tbaa !18
   %43 = getelementptr i8, ptr %42, i64 4

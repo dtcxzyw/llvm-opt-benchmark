@@ -784,7 +784,7 @@ define hidden ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolPKc6Handl
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i8 0, ptr %16, align 8
   %17 = icmp eq ptr %2, null
-  br i1 %17, label %81, label %18
+  br i1 %17, label %82, label %18
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -836,91 +836,91 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %31, %33
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %36, i64 noundef %46) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %38) #13
   %.pre = load ptr, ptr %39, align 8
-  %.not8.i.i.i.i = icmp eq ptr %.pre, %40
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %47
+  %47 = icmp eq ptr %.pre, %40
+  br i1 %47, label %_ZN12ResourceMarkD2Ev.exit, label %48
 
-47:                                               ; preds = %44
+48:                                               ; preds = %44
   store ptr %38, ptr %37, align 8
   store ptr %40, ptr %39, align 8
   store ptr %42, ptr %41, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %47, %44, %18
-  %.sroa.037.0 = phi ptr [ null, %18 ], [ %.0.i.i.i.i, %44 ], [ %.0.i.i.i.i, %47 ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  %48 = icmp eq i32 %6, 0
-  br i1 %48, label %49, label %51
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %48, %44, %18
+  %.sroa.037.0 = phi ptr [ null, %18 ], [ %.0.i.i.i.i, %44 ], [ %.0.i.i.i.i, %48 ], [ %.0.i.i.i.i, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %49 = icmp eq i32 %6, 0
+  br i1 %49, label %50, label %52
 
-49:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %50 = call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef nonnull %2, ptr noundef nonnull %0) #13
-  br label %53
+50:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
+  %51 = call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef nonnull %2, ptr noundef nonnull %0) #13
+  br label %54
 
-51:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %52 = call ptr @_ZN16java_lang_String34create_from_platform_dependent_strEPKcP10JavaThread(ptr noundef nonnull %2, ptr noundef nonnull %0) #13
-  br label %53
+52:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
+  %53 = call ptr @_ZN16java_lang_String34create_from_platform_dependent_strEPKcP10JavaThread(ptr noundef nonnull %2, ptr noundef nonnull %0) #13
+  br label %54
 
-53:                                               ; preds = %51, %49
-  %storemerge = phi ptr [ %52, %51 ], [ %50, %49 ]
-  %54 = load ptr, ptr %19, align 8
-  %.not39 = icmp eq ptr %54, null
-  br i1 %.not39, label %69, label %55
+54:                                               ; preds = %52, %50
+  %storemerge = phi ptr [ %53, %52 ], [ %51, %50 ]
+  %55 = load ptr, ptr %19, align 8
+  %.not39 = icmp eq ptr %55, null
+  br i1 %.not39, label %70, label %56
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = ptrtoint ptr %59 to i64
-  %63 = ptrtoint ptr %61 to i64
-  %64 = sub i64 %62, %63
-  %.not.i.i.i.i27 = icmp ult i64 %64, 8
-  br i1 %.not.i.i.i.i27, label %67, label %65
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = ptrtoint ptr %60 to i64
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %.not.i.i.i.i27 = icmp ult i64 %65, 8
+  br i1 %.not.i.i.i.i27, label %68, label %66
 
-65:                                               ; preds = %55
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %66, ptr %60, align 8
+66:                                               ; preds = %56
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr %67, ptr %61, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit31
 
-67:                                               ; preds = %55
-  %68 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %57, i64 noundef 8, i32 noundef 0) #13
+68:                                               ; preds = %56
+  %69 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %58, i64 noundef 8, i32 noundef 0) #13
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit31
 
-_ZN6HandleC2EP6ThreadP7oopDesc.exit31:            ; preds = %65, %67
-  %.0.i.i.i.i29 = phi ptr [ %61, %65 ], [ %68, %67 ]
-  store ptr %54, ptr %.0.i.i.i.i29, align 8
+_ZN6HandleC2EP6ThreadP7oopDesc.exit31:            ; preds = %66, %68
+  %.0.i.i.i.i29 = phi ptr [ %62, %66 ], [ %69, %68 ]
+  store ptr %55, ptr %.0.i.i.i.i29, align 8
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %0)
-  br label %84
+  br label %85
 
-69:                                               ; preds = %53
+70:                                               ; preds = %54
   %.not40 = icmp eq ptr %.sroa.037.0, null
-  br i1 %.not40, label %70, label %84
+  br i1 %.not40, label %71, label %85
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr %13, align 8
-  %72 = load i32, ptr %15, align 8
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %71, i64 %73
-  store i8 2, ptr %74, align 1
-  %75 = load ptr, ptr %11, align 8
-  %76 = ptrtoint ptr %storemerge to i64
-  %77 = load i32, ptr %15, align 8
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %15, align 8
-  %79 = sext i32 %77 to i64
-  %80 = getelementptr inbounds i64, ptr %75, i64 %79
-  store i64 %76, ptr %80, align 8
-  br label %81
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %13, align 8
+  %73 = load i32, ptr %15, align 8
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %72, i64 %74
+  store i8 2, ptr %75, align 1
+  %76 = load ptr, ptr %11, align 8
+  %77 = ptrtoint ptr %storemerge to i64
+  %78 = load i32, ptr %15, align 8
+  %79 = add nsw i32 %78, 1
+  store i32 %79, ptr %15, align 8
+  %80 = sext i32 %78 to i64
+  %81 = getelementptr inbounds i64, ptr %76, i64 %80
+  store i64 %77, ptr %81, align 8
+  br label %82
 
-81:                                               ; preds = %7, %70
-  %.0.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), %70 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), %7 ]
+82:                                               ; preds = %7, %71
+  %.0.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), %71 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), %7 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %82 = ptrtoint ptr %5 to i64
-  %83 = call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolS3_P17JavaCallArguments6HandleS6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %8, ptr %3, ptr %4, i64 %82)
-  br label %84
+  %83 = ptrtoint ptr %5 to i64
+  %84 = call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolS3_P17JavaCallArguments6HandleS6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %8, ptr %3, ptr %4, i64 %83)
+  br label %85
 
-84:                                               ; preds = %69, %81, %_ZN6HandleC2EP6ThreadP7oopDesc.exit31
-  %.sroa.038.0 = phi ptr [ %83, %81 ], [ %.0.i.i.i.i29, %_ZN6HandleC2EP6ThreadP7oopDesc.exit31 ], [ %.sroa.037.0, %69 ]
+85:                                               ; preds = %70, %82, %_ZN6HandleC2EP6ThreadP7oopDesc.exit31
+  %.sroa.038.0 = phi ptr [ %84, %82 ], [ %.0.i.i.i.i29, %_ZN6HandleC2EP6ThreadP7oopDesc.exit31 ], [ %.sroa.037.0, %70 ]
   ret ptr %.sroa.038.0
 }
 

@@ -32869,13 +32869,7 @@ invoke.cont34:                                    ; preds = %cleanup.done
   %cmp44 = icmp eq i32 %policy, 0
   %u.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call_.i = getelementptr inbounds nuw i8, ptr %fn, i64 48
-  br i1 %cmp44, label %for.cond.preheader, label %invoke.cont34.split.us
-
-for.cond.preheader:                               ; preds = %invoke.cont34
-  %.pre2030 = and i64 %2, 4611686018427387903
-  %3 = and i64 %2, 4611686018427387903
-  %or.cond32.not = icmp eq i64 %3, 0
-  br i1 %or.cond32.not, label %if.then.i8, label %for.body
+  br i1 %cmp44, label %for.cond, label %invoke.cont34.split.us
 
 invoke.cont34.split.us:                           ; preds = %invoke.cont34
   %cmp.us12.not = icmp eq i64 %and.i.i, 0
@@ -32888,23 +32882,23 @@ invoke.cont41.us.loopexit:                        ; preds = %for.inc.us
 
 for.body.us:                                      ; preds = %invoke.cont34.split.us, %for.inc.us
   %idx.0.us13 = phi i64 [ %inc.us, %for.inc.us ], [ 0, %invoke.cont34.split.us ]
-  %4 = load i64, ptr %observers_, align 8
-  %and.i.i.i.us = and i64 %4, 4611686018427387903
+  %3 = load i64, ptr %observers_, align 8
+  %and.i.i.i.us = and i64 %3, 4611686018427387903
   %cmp.not.i.us = icmp samesign ult i64 %idx.0.us13, %and.i.i.i.us
   br i1 %cmp.not.i.us, label %invoke.cont46.us, label %if.then.i
 
 invoke.cont46.us:                                 ; preds = %for.body.us
-  %5 = load ptr, ptr %u.i.i.i.i, align 8
-  %tobool.not1.i.i.i.i.us = icmp slt i64 %4, 0
-  %cond.i.i.i.i.us = select i1 %tobool.not1.i.i.i.i.us, ptr %5, ptr %u.i.i.i.i
+  %4 = load ptr, ptr %u.i.i.i.i, align 8
+  %tobool.not1.i.i.i.i.us = icmp slt i64 %3, 0
+  %cond.i.i.i.i.us = select i1 %tobool.not1.i.i.i.i.us, ptr %4, ptr %u.i.i.i.i
   %add.ptr.i.i.us = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i.us, i64 %idx.0.us13
-  %6 = load ptr, ptr %add.ptr.i.i.us, align 8
-  %cmp.i.not.us = icmp eq ptr %6, null
+  %5 = load ptr, ptr %add.ptr.i.i.us, align 8
+  %cmp.i.not.us = icmp eq ptr %5, null
   br i1 %cmp.i.not.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %invoke.cont46.us
-  %7 = load ptr, ptr %call_.i, align 16
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.us, ptr noundef nonnull align 16 dereferenceable(48) %fn)
+  %6 = load ptr, ptr %call_.i, align 16
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.us, ptr noundef nonnull align 16 dereferenceable(48) %fn)
           to label %for.inc.us unwind label %terminate.lpad.loopexit.split.us
 
 for.inc.us:                                       ; preds = %if.end.us, %invoke.cont46.us
@@ -32917,12 +32911,19 @@ terminate.lpad.loopexit.split.us:                 ; preds = %if.end.us
           catch ptr null
   br label %terminate.lpad
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %.pre2035 = phi i64 [ %.pre20, %for.inc ], [ %.pre2030, %for.cond.preheader ]
-  %idx.034 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %.pre15.pre1733 = phi i64 [ %.pre15.pre, %for.inc ], [ %2, %for.cond.preheader ]
-  %cmp.not.i = icmp samesign ult i64 %idx.034, %.pre2035
-  br i1 %cmp.not.i, label %invoke.cont46, label %if.then.i
+for.cond:                                         ; preds = %invoke.cont34, %for.inc
+  %.pre15.pre17 = phi i64 [ %.pre15.pre, %for.inc ], [ %2, %invoke.cont34 ]
+  %idx.0 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont34 ]
+  %cmp = icmp samesign ult i64 %idx.0, %and.i.i
+  %.pre20 = and i64 %.pre15.pre17, 4611686018427387903
+  %7 = icmp samesign ult i64 %idx.0, %.pre20
+  br i1 %cmp, label %for.body, label %invoke.cont41
+
+invoke.cont41:                                    ; preds = %for.cond
+  br i1 %7, label %invoke.cont46, label %if.then.i8
+
+for.body:                                         ; preds = %for.cond
+  br i1 %7, label %invoke.cont46, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.us, %for.body
   invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.245) #26
@@ -32931,11 +32932,11 @@ if.then.i:                                        ; preds = %for.body.us, %for.b
 .noexc:                                           ; preds = %if.then.i
   unreachable
 
-invoke.cont46:                                    ; preds = %for.body
+invoke.cont46:                                    ; preds = %invoke.cont41, %for.body
   %8 = load ptr, ptr %u.i.i.i.i, align 8
-  %tobool.not1.i.i.i.i = icmp slt i64 %.pre15.pre1733, 0
+  %tobool.not1.i.i.i.i = icmp slt i64 %.pre15.pre17, 0
   %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %8, ptr %u.i.i.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i, i64 %idx.034
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i.i.i, i64 %idx.0
   %9 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.not = icmp eq ptr %9, null
   br i1 %cmp.i.not, label %for.inc, label %if.end
@@ -32950,17 +32951,13 @@ if.end.for.inc_crit_edge:                         ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.for.inc_crit_edge, %invoke.cont46
-  %.pre15.pre = phi i64 [ %.pre15.pre.pre, %if.end.for.inc_crit_edge ], [ %.pre15.pre1733, %invoke.cont46 ]
-  %inc = add nuw nsw i64 %idx.034, 1
-  %cmp = icmp samesign ult i64 %inc, %and.i.i
-  %.pre20 = and i64 %.pre15.pre, 4611686018427387903
-  %cmp43 = icmp samesign ult i64 %inc, %.pre20
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp43
-  br i1 %or.cond, label %for.body, label %if.then.i8, !llvm.loop !228
+  %.pre15.pre = phi i64 [ %.pre15.pre.pre, %if.end.for.inc_crit_edge ], [ %.pre15.pre17, %invoke.cont46 ]
+  %inc = add nuw nsw i64 %idx.0, 1
+  br label %for.cond, !llvm.loop !228
 
-if.then.i8:                                       ; preds = %for.inc, %for.cond.preheader, %invoke.cont34.split.us, %invoke.cont41.us.loopexit
-  %.us-phi = phi i64 [ %.pre, %invoke.cont41.us.loopexit ], [ %2, %invoke.cont34.split.us ], [ %2, %for.cond.preheader ], [ %.pre15.pre, %for.inc ]
-  %.us-phi10 = phi i64 [ %.pre19, %invoke.cont41.us.loopexit ], [ 0, %invoke.cont34.split.us ], [ %.pre2030, %for.cond.preheader ], [ %.pre20, %for.inc ]
+if.then.i8:                                       ; preds = %invoke.cont41, %invoke.cont34.split.us, %invoke.cont41.us.loopexit
+  %.us-phi = phi i64 [ %.pre, %invoke.cont41.us.loopexit ], [ %2, %invoke.cont34.split.us ], [ %.pre15.pre17, %invoke.cont41 ]
+  %.us-phi10 = phi i64 [ %.pre19, %invoke.cont41.us.loopexit ], [ 0, %invoke.cont34.split.us ], [ %.pre20, %invoke.cont41 ]
   %removalDuringIteration_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %11 = load i8, ptr %removalDuringIteration_.i.i.i, align 4
   %tobool.i.i.i = trunc i8 %11 to i1

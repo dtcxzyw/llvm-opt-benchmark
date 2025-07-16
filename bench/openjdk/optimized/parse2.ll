@@ -4180,12 +4180,12 @@ _ZN11SwitchRange11adjoinRangeEiiifb.exit.thread:  ; preds = %._ZN11SwitchRange11
   %.phi.trans.insert162 = getelementptr inbounds nuw %class.SwitchRange, ptr %115, i64 %.phi.trans.insert, i32 1
   %.pre = load i32, ptr %.phi.trans.insert162, align 4
   %177 = add nsw i32 %.pre, 1
-  %178 = sitofp i32 %122 to float
-  %179 = icmp eq i32 %118, %177
-  br i1 %179, label %180, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
+  %178 = icmp eq i32 %118, %177
+  %179 = sitofp i32 %122 to float
+  br i1 %178, label %180, label %_ZN11SwitchRange6adjoinEiifb.exit.thread
 
 180:                                              ; preds = %.thread170, %176
-  %181 = phi float [ %167, %.thread170 ], [ %178, %176 ]
+  %181 = phi float [ %167, %.thread170 ], [ %179, %176 ]
   %.pn = phi i64 [ %140, %.thread170 ], [ %.phi.trans.insert, %176 ]
   %.1133173 = phi i32 [ %.0130138, %.thread170 ], [ %.1, %176 ]
   %182 = getelementptr inbounds nuw %class.SwitchRange, ptr %115, i64 %.pn
@@ -4239,7 +4239,7 @@ _ZN11SwitchRange6adjoinEiifb.exit:                ; preds = %190, %193, %194, %.
   br label %209
 
 _ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge, %176, %197, %194, %189
-  %.pre-phi164 = phi float [ %.pre163, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %178, %176 ], [ %181, %197 ], [ %181, %194 ], [ %181, %189 ]
+  %.pre-phi164 = phi float [ %.pre163, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %179, %176 ], [ %181, %197 ], [ %181, %194 ], [ %181, %189 ]
   %.1134 = phi i32 [ %.1, %._ZN11SwitchRange6adjoinEiifb.exit.thread_crit_edge ], [ %.1, %176 ], [ %.1133173, %197 ], [ %.1133173, %194 ], [ %.1133173, %189 ]
   %203 = add nsw i32 %.1134, 1
   %204 = sext i32 %203 to i64

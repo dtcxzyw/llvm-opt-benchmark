@@ -197,10 +197,10 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %107 = sub nsw i32 0, %106
   store i32 %107, ptr %17, align 4, !tbaa !3
   %108 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %17, i32 noundef 6) #5
-  br label %1002
+  br label %1003
 
 109:                                              ; preds = %105
-  br i1 %71, label %1002, label %110
+  br i1 %71, label %1003, label %110
 
 110:                                              ; preds = %109
   br i1 %.not, label %112, label %111
@@ -242,7 +242,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 128:                                              ; preds = %122
   store double 1.000000e+00, ptr %13, align 8, !tbaa !7
-  br label %1002
+  br label %1003
 
 129:                                              ; preds = %122
   %130 = call i32 @ilaenv_(ptr noundef nonnull @c__2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #5
@@ -1992,44 +1992,44 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .loopexit1045:                                    ; preds = %176, %177
   %.pre1475 = load i32, ptr %3, align 4, !tbaa !3
-  %991 = load i8, ptr %0, align 1, !tbaa !9
-  store i8 %991, ptr %33, align 1, !tbaa !9
-  %992 = load i8, ptr %1, align 1, !tbaa !9
-  store i8 %992, ptr %34, align 1, !tbaa !9
-  %.not1015 = icmp eq i32 %173, %.pre1475
-  br i1 %.not1015, label %996, label %993
+  %991 = icmp eq i32 %173, %.pre1475
+  %992 = load i8, ptr %0, align 1, !tbaa !9
+  store i8 %992, ptr %33, align 1, !tbaa !9
+  %993 = load i8, ptr %1, align 1, !tbaa !9
+  store i8 %993, ptr %34, align 1, !tbaa !9
+  br i1 %991, label %997, label %994
 
-993:                                              ; preds = %.loopexit1045
-  br i1 %63, label %994, label %995
+994:                                              ; preds = %.loopexit1045
+  br i1 %63, label %995, label %996
 
-994:                                              ; preds = %993
+995:                                              ; preds = %994
   store i8 86, ptr %33, align 1, !tbaa !9
-  br label %995
-
-995:                                              ; preds = %994, %993
-  br i1 %69, label %.sink.split, label %996
-
-.sink.split:                                      ; preds = %995, %.loopexit1045.thread
-  %.sink1569 = phi i8 [ %158, %.loopexit1045.thread ], [ 86, %995 ]
-  %.ph1568 = phi i32 [ %156, %.loopexit1045.thread ], [ %173, %995 ]
-  store i8 %.sink1569, ptr %34, align 1, !tbaa !9
   br label %996
 
-996:                                              ; preds = %.sink.split, %995, %.loopexit1045
-  %997 = phi i32 [ %173, %995 ], [ %173, %.loopexit1045 ], [ %.ph1568, %.sink.split ]
-  %998 = load i32, ptr %4, align 4, !tbaa !3
-  %999 = icmp slt i32 %997, %998
-  br i1 %999, label %1000, label %1001
+996:                                              ; preds = %995, %994
+  br i1 %69, label %.sink.split, label %997
 
-1000:                                             ; preds = %996
+.sink.split:                                      ; preds = %996, %.loopexit1045.thread
+  %.sink1569 = phi i8 [ %158, %.loopexit1045.thread ], [ 86, %996 ]
+  %.ph1568 = phi i32 [ %156, %.loopexit1045.thread ], [ %173, %996 ]
+  store i8 %.sink1569, ptr %34, align 1, !tbaa !9
+  br label %997
+
+997:                                              ; preds = %.sink.split, %996, %.loopexit1045
+  %998 = phi i32 [ %173, %996 ], [ %173, %.loopexit1045 ], [ %.ph1568, %.sink.split ]
+  %999 = load i32, ptr %4, align 4, !tbaa !3
+  %1000 = icmp slt i32 %998, %999
+  br i1 %1000, label %1001, label %1002
+
+1001:                                             ; preds = %997
   call void @dgghrd_(ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %2, ptr noundef nonnull %27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %28) #5
-  br label %1001
-
-1001:                                             ; preds = %1000, %996
-  store double %57, ptr %13, align 8, !tbaa !7
   br label %1002
 
-1002:                                             ; preds = %109, %1001, %128, %.thread
+1002:                                             ; preds = %1001, %997
+  store double %57, ptr %13, align 8, !tbaa !7
+  br label %1003
+
+1003:                                             ; preds = %109, %1002, %128, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #5

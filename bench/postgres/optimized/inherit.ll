@@ -634,31 +634,31 @@ list_length.exit:                                 ; preds = %8, %27
   %85 = load ptr, ptr %47, align 8
   %86 = getelementptr inbounds nuw i16, ptr %85, i64 %indvars.iv
   %87 = load i16, ptr %86, align 2
-  %88 = icmp sgt i16 %87, 0
-  br i1 %88, label %list_length.exit106, label %98
+  %88 = icmp slt i16 %87, 1
+  br i1 %88, label %.critedge, label %list_length.exit106
 
 list_length.exit106:                              ; preds = %84
   %89 = zext nneg i16 %87 to i32
   %90 = load i32, ptr %48, align 4
-  %.not104 = icmp slt i32 %90, %89
-  br i1 %.not104, label %98, label %91
+  %91 = icmp slt i32 %90, %89
+  br i1 %91, label %.critedge, label %92
 
-91:                                               ; preds = %list_length.exit106
+92:                                               ; preds = %list_length.exit106
   %.val = load ptr, ptr %49, align 8
-  %92 = zext nneg i16 %87 to i64
-  %93 = getelementptr %union.ListCell, ptr %.val, i64 %92
-  %94 = getelementptr i8, ptr %93, i64 -8
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load ptr, ptr %96, align 8
+  %93 = zext nneg i16 %87 to i64
+  %94 = getelementptr %union.ListCell, ptr %.val, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 -8
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8
   br label %100
 
-98:                                               ; preds = %list_length.exit106, %84
+.critedge:                                        ; preds = %list_length.exit106, %84
   %99 = getelementptr inbounds nuw i8, ptr %80, i64 4
   br label %100
 
-100:                                              ; preds = %.lr.ph.split, %91, %98
-  %.0100 = phi ptr [ %97, %91 ], [ %99, %98 ], [ @.str.5, %.lr.ph.split ]
+100:                                              ; preds = %.lr.ph.split, %92, %.critedge
+  %.0100 = phi ptr [ %98, %92 ], [ %99, %.critedge ], [ @.str.5, %.lr.ph.split ]
   %101 = tail call ptr @pstrdup(ptr noundef %.0100) #7
   %102 = tail call ptr @makeString(ptr noundef %101) #7
   %103 = tail call ptr @lappend(ptr noundef %.0108, ptr noundef %102) #7

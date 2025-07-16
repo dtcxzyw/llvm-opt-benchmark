@@ -7041,7 +7041,7 @@ _ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ; 
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %retval.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 4
   %retval.8.retval.8.retval.8.retval.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
-  %retval.8.retval.8.retval.8.retval.sroa_idx94 = getelementptr inbounds nuw i8, ptr %retval, i64 8
+  %retval.8.retval.8.retval.8.retval.sroa_idx101 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
@@ -7089,7 +7089,7 @@ if.then8:                                         ; preds = %sw.bb
   %15 = extractvalue { i64, i64 } %call11, 1
   store i64 %14, ptr %retval, align 8
   %ref.tmp9.sroa.2.0.extract.trunc = trunc i64 %15 to i40
-  store i40 %ref.tmp9.sroa.2.0.extract.trunc, ptr %retval.8.retval.8.retval.8.retval.sroa_idx94, align 8
+  store i40 %ref.tmp9.sroa.2.0.extract.trunc, ptr %retval.8.retval.8.retval.8.retval.sroa_idx101, align 8
   br label %sw.epilog
 
 if.end12:                                         ; preds = %sw.bb
@@ -7292,71 +7292,69 @@ sw.epilog:                                        ; preds = %if.end84, %delete.n
   %44 = load ptr, ptr %_M_finish.i.i.i, align 8
   %45 = load ptr, ptr %_M_first3.i.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %44, %45
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread, label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
 
-if.then.i.i:                                      ; preds = %sw.epilog
+_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %sw.epilog
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %44, i64 -72
-  br label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
-
-if.else.i.i:                                      ; preds = %sw.epilog
-  call void @_ZdlPv(ptr noundef %45) #25
-  %46 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i72 = getelementptr inbounds i8, ptr %46, i64 -8
-  store ptr %add.ptr.i.i.i72, ptr %_M_node5.i.i.i.i, align 8
-  %47 = load ptr, ptr %add.ptr.i.i.i72, align 8
-  store ptr %47, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %47, i64 504
-  store ptr %add.ptr.i.i.i.i73, ptr %_M_last.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 432
-  br label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
-
-_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %48 = phi ptr [ %45, %if.then.i.i ], [ %47, %if.else.i.i ]
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %add.ptr8.i.i.i, %if.else.i.i ]
-  store ptr %storemerge.i.i, ptr %_M_finish.i.i.i, align 8
-  %49 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i75 = icmp eq ptr %storemerge.i.i, %49
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8
+  %46 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i75 = icmp eq ptr %incdec.ptr.i.i, %46
   br i1 %cmp.i.i.i75, label %return.loopexit, label %if.end105
 
+_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread: ; preds = %sw.epilog
+  call void @_ZdlPv(ptr noundef %45) #25
+  %47 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %add.ptr.i.i.i72 = getelementptr inbounds i8, ptr %47, i64 -8
+  store ptr %add.ptr.i.i.i72, ptr %_M_node5.i.i.i.i, align 8
+  %48 = load ptr, ptr %add.ptr.i.i.i72, align 8
+  store ptr %48, ptr %_M_first3.i.i.i.i, align 8
+  %add.ptr.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %48, i64 504
+  store ptr %add.ptr.i.i.i.i73, ptr %_M_last.i.i.i, align 8
+  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 432
+  store ptr %add.ptr8.i.i.i, ptr %_M_finish.i.i.i, align 8
+  %49 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i7596 = icmp eq ptr %add.ptr8.i.i.i, %49
+  br i1 %cmp.i.i.i7596, label %return.loopexit, label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84
+
 if.end105:                                        ; preds = %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
-  %cmp.i.i.i78 = icmp eq ptr %storemerge.i.i, %48
-  br i1 %cmp.i.i.i78, label %if.then.i.i.i80, label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84
+  %50 = icmp eq ptr %incdec.ptr.i.i, %45
+  br i1 %50, label %if.then.i.i.i80, label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84
 
 if.then.i.i.i80:                                  ; preds = %if.end105
-  %50 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !39
-  %add.ptr.i.i.i82 = getelementptr inbounds i8, ptr %50, i64 -8
-  %51 = load ptr, ptr %add.ptr.i.i.i82, align 8
-  %add.ptr.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %51, i64 504
+  %51 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !39
+  %add.ptr.i.i.i82 = getelementptr inbounds i8, ptr %51, i64 -8
+  %52 = load ptr, ptr %add.ptr.i.i.i82, align 8
+  %add.ptr.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %52, i64 504
   br label %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84
 
-_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84: ; preds = %if.end105, %if.then.i.i.i80
-  %52 = phi ptr [ %add.ptr.i.i.i.i83, %if.then.i.i.i80 ], [ %storemerge.i.i, %if.end105 ]
-  %child_args108 = getelementptr inbounds i8, ptr %52, i64 -8
-  %53 = load ptr, ptr %child_args108, align 8
-  %cmp109.not = icmp eq ptr %53, null
+_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84: ; preds = %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread, %if.end105, %if.then.i.i.i80
+  %53 = phi ptr [ %add.ptr.i.i.i.i83, %if.then.i.i.i80 ], [ %incdec.ptr.i.i, %if.end105 ], [ %add.ptr8.i.i.i, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread ]
+  %child_args108 = getelementptr inbounds i8, ptr %53, i64 -8
+  %54 = load ptr, ptr %child_args108, align 8
+  %cmp109.not = icmp eq ptr %54, null
   br i1 %cmp109.not, label %if.else115, label %if.then110
 
 if.then110:                                       ; preds = %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84
-  %n112 = getelementptr inbounds i8, ptr %52, i64 -64
-  %54 = load i32, ptr %n112, align 8
-  %idxprom113 = sext i32 %54 to i64
-  %arrayidx114 = getelementptr inbounds %"struct.re2::Frag", ptr %53, i64 %idxprom113
+  %n112 = getelementptr inbounds i8, ptr %53, i64 -64
+  %55 = load i32, ptr %n112, align 8
+  %idxprom113 = sext i32 %55 to i64
+  %arrayidx114 = getelementptr inbounds %"struct.re2::Frag", ptr %54, i64 %idxprom113
   br label %if.end117
 
 if.else115:                                       ; preds = %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit84
-  %child_arg116 = getelementptr inbounds i8, ptr %52, i64 -28
+  %child_arg116 = getelementptr inbounds i8, ptr %53, i64 -28
   br label %if.end117
 
 if.end117:                                        ; preds = %if.else115, %if.then110
   %child_arg116.sink = phi ptr [ %child_arg116, %if.else115 ], [ %arrayidx114, %if.then110 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %child_arg116.sink, ptr noundef nonnull align 8 dereferenceable(13) %retval, i64 13, i1 false)
-  %n118 = getelementptr inbounds i8, ptr %52, i64 -64
-  %55 = load i32, ptr %n118, align 8
-  %inc119 = add nsw i32 %55, 1
+  %n118 = getelementptr inbounds i8, ptr %53, i64 -64
+  %56 = load i32, ptr %n118, align 8
+  %inc119 = add nsw i32 %56, 1
   store i32 %inc119, ptr %n118, align 8
   br label %for.cond.backedge
 
-return.loopexit:                                  ; preds = %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
+return.loopexit:                                  ; preds = %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit.thread, %_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3popEv.exit
   %retval.0.retval.0.retval.0..fca.0.load.pre = load i64, ptr %retval, align 8
   %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %retval.8.retval.8.retval.8..fca.1.load.pre = load i64, ptr %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8

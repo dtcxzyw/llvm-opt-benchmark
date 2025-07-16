@@ -1976,7 +1976,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers8MVarInfo17getEnumerate
   %19 = sub i64 %17, %18
   %20 = ashr exact i64 %19, 3
   %.not = icmp ult i64 %3, %20
-  br i1 %.not, label %split, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
+  br i1 %.not, label %split.thread, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
@@ -2293,16 +2293,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56: ; preds = %143, %147, %153
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
-  br i1 %.0, label %14, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56._crit_edge
-
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56._crit_edge: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56
-  %.pre = load ptr, ptr %11, align 8, !tbaa !24
-  %.pre93 = load ptr, ptr %10, align 8, !tbaa !27
-  %.pre94 = ptrtoint ptr %.pre to i64
-  %.pre95 = ptrtoint ptr %.pre93 to i64
-  %.pre97 = sub i64 %.pre94, %.pre95
-  %.pre99 = ashr exact i64 %.pre97, 3
-  br label %split
+  br i1 %.0, label %14, label %split
 
 .body:                                            ; preds = %31, %46, %109, %.body43
   %.pn23 = phi { ptr, i32 } [ %.pn21, %.body43 ], [ %32, %31 ], [ %110, %109 ], [ %47, %46 ]
@@ -2310,11 +2301,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56._crit_edge: ; preds = %_ZN4cvc5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   resume { ptr, i32 } %.pn23
 
-split:                                            ; preds = %14, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56._crit_edge
-  %.pre-phi100 = phi i64 [ %.pre99, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56._crit_edge ], [ %20, %14 ]
-  %157 = phi ptr [ %.pre93, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56._crit_edge ], [ %16, %14 ]
-  %.not25 = icmp ult i64 %3, %.pre-phi100
-  br i1 %.not25, label %175, label %158
+split:                                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit56
+  %.pre = load ptr, ptr %11, align 8, !tbaa !24
+  %.pre93 = load ptr, ptr %10, align 8, !tbaa !27
+  %.pre94 = ptrtoint ptr %.pre to i64
+  %.pre95 = ptrtoint ptr %.pre93 to i64
+  %.pre97 = sub i64 %.pre94, %.pre95
+  %.pre99 = ashr exact i64 %.pre97, 3
+  %157 = icmp ult i64 %3, %.pre99
+  br i1 %157, label %split.thread, label %158
 
 158:                                              ; preds = %split
   call void @llvm.experimental.noalias.scope.decl(metadata !298)
@@ -2346,8 +2341,9 @@ split:                                            ; preds = %14, %_ZN4cvc58inter
   call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %159), !noalias !298
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
-175:                                              ; preds = %split
-  %176 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %157, i64 %3
+split.thread:                                     ; preds = %14, %split
+  %175 = phi ptr [ %.pre93, %split ], [ %16, %14 ]
+  %176 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %175, i64 %3
   %177 = load ptr, ptr %176, align 8, !tbaa !18
   store ptr %177, ptr %0, align 8, !tbaa !18
   %178 = load i64, ptr %177, align 8
@@ -2357,7 +2353,7 @@ split:                                            ; preds = %14, %_ZN4cvc58inter
   %182 = icmp samesign ult i32 %181, 1048574
   br i1 %182, label %183, label %189, !prof !9
 
-183:                                              ; preds = %175
+183:                                              ; preds = %split.thread
   %184 = add nuw nsw i32 %181, 1
   %185 = zext nneg i32 %184 to i64
   %186 = shl nuw nsw i64 %185, 40
@@ -2366,7 +2362,7 @@ split:                                            ; preds = %14, %_ZN4cvc58inter
   store i64 %188, ptr %177, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
-189:                                              ; preds = %175
+189:                                              ; preds = %split.thread
   %190 = icmp eq i32 %181, 1048574
   br i1 %190, label %191, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !10
 

@@ -123,61 +123,61 @@ define void @Fraig_NodeTransferFanout(ptr noundef captures(address) %0, ptr noun
   %4 = ptrtoint ptr %1 to i64
   %.pre30 = and i64 %4, -2
   %.pre32 = inttoptr i64 %.pre30 to ptr
-  br label %5
+  %5 = icmp eq ptr %0, %.pre32
+  %6 = select i1 %5, i64 144, i64 152
+  br label %7
 
-5:                                                ; preds = %.lr.ph, %27
-  %.029 = phi ptr [ %.027, %.lr.ph ], [ %.0, %27 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.029, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !12
-  %8 = ptrtoint ptr %7 to i64
-  %9 = and i64 %8, -2
-  %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %0, %10
-  br i1 %11, label %12, label %16
+7:                                                ; preds = %.lr.ph, %29
+  %.029 = phi ptr [ %.027, %.lr.ph ], [ %.0, %29 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.029, i64 32
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  %10 = ptrtoint ptr %9 to i64
+  %11 = and i64 %10, -2
+  %12 = inttoptr i64 %11 to ptr
+  %13 = icmp eq ptr %0, %12
+  br i1 %13, label %14, label %18
 
-12:                                               ; preds = %5
-  %13 = and i64 %8, 1
-  %14 = xor i64 %13, %4
-  %15 = inttoptr i64 %14 to ptr
-  store ptr %15, ptr %6, align 8, !tbaa !12
-  br label %27
+14:                                               ; preds = %7
+  %15 = and i64 %10, 1
+  %16 = xor i64 %15, %4
+  %17 = inttoptr i64 %16 to ptr
+  store ptr %17, ptr %8, align 8, !tbaa !12
+  br label %29
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds nuw i8, ptr %.029, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
-  %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, -2
-  %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %0, %21
-  br i1 %22, label %23, label %27
+18:                                               ; preds = %7
+  %19 = getelementptr inbounds nuw i8, ptr %.029, i64 40
+  %20 = load ptr, ptr %19, align 8, !tbaa !18
+  %21 = ptrtoint ptr %20 to i64
+  %22 = and i64 %21, -2
+  %23 = inttoptr i64 %22 to ptr
+  %24 = icmp eq ptr %0, %23
+  br i1 %24, label %25, label %29
 
-23:                                               ; preds = %16
-  %24 = and i64 %19, 1
-  %25 = xor i64 %24, %4
-  %26 = inttoptr i64 %25 to ptr
-  store ptr %26, ptr %17, align 8, !tbaa !18
-  br label %27
+25:                                               ; preds = %18
+  %26 = and i64 %21, 1
+  %27 = xor i64 %26, %4
+  %28 = inttoptr i64 %27 to ptr
+  store ptr %28, ptr %19, align 8, !tbaa !18
+  br label %29
 
-27:                                               ; preds = %16, %23, %12
-  %.pre-phi33 = phi ptr [ %10, %16 ], [ %10, %23 ], [ %.pre32, %12 ]
-  %28 = icmp eq ptr %0, %.pre-phi33
-  %.in.v = select i1 %28, i64 144, i64 152
-  %.in = getelementptr inbounds nuw i8, ptr %.029, i64 %.in.v
+29:                                               ; preds = %18, %25, %14
+  %.pre-phi33 = phi i64 [ 152, %18 ], [ 152, %25 ], [ %6, %14 ]
+  %.in = getelementptr inbounds nuw i8, ptr %.029, i64 %.pre-phi33
   %.0 = load ptr, ptr %.in, align 8, !tbaa !15
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %27, %2
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %.027, ptr %29, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %31 = load ptr, ptr %30, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store ptr %31, ptr %32, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %34 = load ptr, ptr %33, align 8, !tbaa !14
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store ptr %34, ptr %35, align 8, !tbaa !14
+._crit_edge:                                      ; preds = %29, %2
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store ptr %.027, ptr %30, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %32 = load ptr, ptr %31, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store ptr %32, ptr %33, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %35 = load ptr, ptr %34, align 8, !tbaa !14
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  store ptr %35, ptr %36, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret void
 }

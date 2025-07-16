@@ -3332,11 +3332,11 @@ _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %16
 34:                                               ; preds = %28
   %35 = load i32, ptr @_ZN16DebuggingContext8_enabledE, align 4
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit, label %37
+  br i1 %36, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread, label %37
 
 37:                                               ; preds = %34
   %38 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #15
-  br i1 %38, label %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit, label %39
+  br i1 %38, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread, label %39
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr @g_assert_poison, align 8
@@ -3355,25 +3355,21 @@ _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp ult ptr %27, %48
   %50 = select i1 %.not.i.i4.i.i, i1 %49, i1 false
-  br i1 %50, label %51, label %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
+  br i1 %50, label %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread
 
-51:                                               ; preds = %41
-  %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %53 = tail call noundef ptr @_ZNK16ObjectStartArray12object_startEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(72) %52, ptr noundef nonnull %27)
-  br label %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
+_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit: ; preds = %41
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %52 = tail call noundef ptr @_ZNK16ObjectStartArray12object_startEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull %27)
+  %53 = icmp eq ptr %52, %27
+  br i1 %53, label %54, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread
 
-_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit: ; preds = %34, %37, %41, %51
-  %.0.i.i = phi ptr [ %53, %51 ], [ null, %37 ], [ null, %34 ], [ null, %41 ]
-  %54 = icmp eq ptr %.0.i.i, %27
-  br i1 %54, label %55, label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread
-
-55:                                               ; preds = %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
-  %56 = tail call noundef zeroext i1 @_ZN15LocationPrinter12is_valid_objEPv(ptr noundef nonnull %27) #15
-  %spec.select = select i1 %56, ptr %27, ptr null
+54:                                               ; preds = %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
+  %55 = tail call noundef zeroext i1 @_ZN15LocationPrinter12is_valid_objEPv(ptr noundef nonnull %27) #15
+  %spec.select = select i1 %55, ptr %27, ptr null
   br label %_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread
 
-_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread: ; preds = %55, %16, %9, %12, %1, %_ZNK20ParallelScavengeHeap11block_startEPKv.exit, %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
-  %.0 = phi ptr [ null, %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit ], [ null, %_ZNK20ParallelScavengeHeap11block_startEPKv.exit ], [ %0, %1 ], [ null, %12 ], [ null, %9 ], [ null, %16 ], [ %spec.select, %55 ]
+_ZNK20ParallelScavengeHeap11block_startEPKv.exit.thread: ; preds = %37, %34, %41, %54, %16, %9, %12, %1, %_ZNK20ParallelScavengeHeap11block_startEPKv.exit, %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit
+  %.0 = phi ptr [ null, %_ZNK20ParallelScavengeHeap12block_is_objEPKP12HeapWordImpl.exit ], [ null, %_ZNK20ParallelScavengeHeap11block_startEPKv.exit ], [ %0, %1 ], [ null, %12 ], [ null, %9 ], [ null, %16 ], [ %spec.select, %54 ], [ null, %41 ], [ null, %34 ], [ null, %37 ]
   ret ptr %.0
 }
 

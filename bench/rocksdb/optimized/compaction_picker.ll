@@ -450,10 +450,10 @@ define noundef zeroext i1 @_ZN7rocksdb21FindIntraL0CompactionERKSt6vectorIPNS_12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %34, %.lr.ph
-  %.036.lcssa = phi i64 [ %27, %34 ], [ %.03644, %.lr.ph ]
-  %.035.lcssa = phi i64 [ %12, %34 ], [ %.03545, %.lr.ph ]
-  %.not = icmp uge i64 %.035.lcssa, %1
-  %36 = icmp ult i64 %.036.lcssa, %2
+  %.036.lcssa.ph = phi i64 [ %27, %34 ], [ %.03644, %.lr.ph ]
+  %.035.lcssa.ph = phi i64 [ %12, %34 ], [ %.03545, %.lr.ph ]
+  %36 = icmp ult i64 %.036.lcssa.ph, %2
+  %.not = icmp uge i64 %.035.lcssa.ph, %1
   %or.cond42 = select i1 %.not, i1 %36, i1 false
   br i1 %or.cond42, label %.lr.ph52, label %.loopexit
 
@@ -535,7 +535,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit: ; preds = %
   %69 = phi ptr [ %41, %45 ], [ %68, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %70 = phi ptr [ %47, %45 ], [ %66, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %71 = add nuw i64 %.050, 1
-  %exitcond54.not = icmp eq i64 %71, %.035.lcssa
+  %exitcond54.not = icmp eq i64 %71, %.035.lcssa.ph
   br i1 %exitcond54.not, label %.loopexit, label %40, !llvm.loop !54
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit, %._crit_edge, %5, %14

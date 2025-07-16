@@ -1027,7 +1027,7 @@ json_eat_whitespace.exit:                         ; preds = %.lr.ph.i, %21, %2
 
 30:                                               ; preds = %json_eat_whitespace.exit
   %31 = load i8, ptr %26, align 1, !tbaa !62
-  switch i8 %31, label %636 [
+  switch i8 %31, label %653 [
     i8 110, label %32
     i8 116, label %55
     i8 102, label %78
@@ -1046,7 +1046,7 @@ json_eat_whitespace.exit:                         ; preds = %.lr.ph.i, %21, %2
     i8 57, label %174
     i8 34, label %311
     i8 91, label %313
-    i8 123, label %462
+    i8 123, label %466
   ]
 
 32:                                               ; preds = %30
@@ -1088,7 +1088,7 @@ rvalue_stack_push.exit:                           ; preds = %37, %45
   %52 = load i64, ptr %50, align 8, !tbaa !46
   %53 = add nsw i64 %52, 1
   store i64 %53, ptr %50, align 8, !tbaa !46
-  br label %637
+  br label %654
 
 54:                                               ; preds = %35, %32
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %26) #25
@@ -1133,7 +1133,7 @@ rvalue_stack_push.exit305:                        ; preds = %60, %68
   %75 = load i64, ptr %73, align 8, !tbaa !46
   %76 = add nsw i64 %75, 1
   store i64 %76, ptr %73, align 8, !tbaa !46
-  br label %637
+  br label %654
 
 77:                                               ; preds = %58, %55
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %26) #25
@@ -1179,7 +1179,7 @@ rvalue_stack_push.exit310:                        ; preds = %84, %92
   %99 = load i64, ptr %97, align 8, !tbaa !46
   %100 = add nsw i64 %99, 1
   store i64 %100, ptr %97, align 8, !tbaa !46
-  br label %637
+  br label %654
 
 101:                                              ; preds = %81, %78
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %26) #25
@@ -1230,7 +1230,7 @@ rvalue_stack_push.exit315:                        ; preds = %111, %120
   %127 = load i64, ptr %125, align 8, !tbaa !46
   %128 = add nsw i64 %127, 1
   store i64 %128, ptr %125, align 8, !tbaa !46
-  br label %637
+  br label %654
 
 129:                                              ; preds = %108, %102
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %26) #25
@@ -1280,7 +1280,7 @@ rvalue_stack_push.exit320:                        ; preds = %138, %147
   %154 = load i64, ptr %152, align 8, !tbaa !46
   %155 = add nsw i64 %154, 1
   store i64 %155, ptr %152, align 8, !tbaa !46
-  br label %637
+  br label %654
 
 156:                                              ; preds = %136, %130
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %26) #25
@@ -1310,7 +1310,7 @@ rvalue_stack_push.exit320:                        ; preds = %138, %147
   %170 = load ptr, ptr %169, align 8, !tbaa !57
   %171 = load i64, ptr @CMinusInfinity, align 8, !tbaa !6
   %172 = tail call fastcc i64 @rvalue_stack_push(ptr noundef %170, i64 noundef %171, ptr noundef %0, ptr noundef %169)
-  br label %637
+  br label %654
 
 173:                                              ; preds = %163
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %26) #25
@@ -1562,7 +1562,7 @@ rvalue_stack_push.exit326:                        ; preds = %json_decode_integer
   %274 = load i64, ptr %272, align 8, !tbaa !46
   %275 = add nsw i64 %274, 1
   store i64 %275, ptr %272, align 8, !tbaa !46
-  br label %637
+  br label %654
 
 .critedge4.thread:                                ; preds = %.lr.ph410, %235, %.preheader, %.critedge4
   %276 = phi ptr [ %.promoted409, %.preheader ], [ %213, %.critedge4 ], [ %232, %.lr.ph410 ], [ %scevgep425, %235 ]
@@ -1637,667 +1637,697 @@ rvalue_stack_push.exit333:                        ; preds = %json_decode_float.e
   %309 = load i64, ptr %307, align 8, !tbaa !46
   %310 = add nsw i64 %309, 1
   store i64 %310, ptr %307, align 8, !tbaa !46
-  br label %637
+  br label %654
 
 311:                                              ; preds = %30
   %312 = tail call fastcc i64 @json_parse_string(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
-  br label %637
+  br label %654
 
 313:                                              ; preds = %30
   %314 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %314, ptr %5, align 8, !tbaa !51
   %315 = icmp ult ptr %314, %25
-  br i1 %315, label %.lr.ph.i334, label %json_eat_whitespace.exit338
+  br i1 %315, label %.lr.ph.i334, label %json_eat_whitespace.exit338.thread
 
-.lr.ph.i334:                                      ; preds = %313, %327
-  %316 = phi ptr [ %328, %327 ], [ %25, %313 ]
-  %317 = phi ptr [ %329, %327 ], [ %314, %313 ]
-  %318 = load i8, ptr %317, align 1, !tbaa !62
-  %319 = zext i8 %318 to i64
-  %320 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %319
-  %321 = load i8, ptr %320, align 1, !tbaa !63, !range !29, !noundef !30
-  %322 = trunc nuw i8 %321 to i1
-  br i1 %322, label %323, label %json_eat_whitespace.exit338
+json_eat_whitespace.exit338.thread:               ; preds = %313
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %317 = load ptr, ptr %316, align 8, !tbaa !57
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
+  %319 = load i64, ptr %318, align 8, !tbaa !46
+  br label %349
 
-323:                                              ; preds = %.lr.ph.i334
-  %.not.i335 = icmp eq i8 %318, 47
-  br i1 %.not.i335, label %326, label %324, !prof !64
+.lr.ph.i334:                                      ; preds = %313, %331
+  %320 = phi ptr [ %332, %331 ], [ %25, %313 ]
+  %321 = phi ptr [ %333, %331 ], [ %314, %313 ]
+  %322 = load i8, ptr %321, align 1, !tbaa !62
+  %323 = zext i8 %322 to i64
+  %324 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %323
+  %325 = load i8, ptr %324, align 1, !tbaa !63, !range !29, !noundef !30
+  %326 = trunc nuw i8 %325 to i1
+  br i1 %326, label %327, label %json_eat_whitespace.exit338
 
-324:                                              ; preds = %323
-  %325 = getelementptr inbounds nuw i8, ptr %317, i64 1
-  store ptr %325, ptr %5, align 8, !tbaa !51
-  br label %327
+327:                                              ; preds = %.lr.ph.i334
+  %.not.i335 = icmp eq i8 %322, 47
+  br i1 %.not.i335, label %330, label %328, !prof !64
 
-326:                                              ; preds = %323
+328:                                              ; preds = %327
+  %329 = getelementptr inbounds nuw i8, ptr %321, i64 1
+  store ptr %329, ptr %5, align 8, !tbaa !51
+  br label %331
+
+330:                                              ; preds = %327
   tail call fastcc void @json_eat_comments(ptr noundef nonnull %0)
   %.pre.i336 = load ptr, ptr %5, align 8, !tbaa !51
   %.pre7.i337 = load ptr, ptr %6, align 8, !tbaa !56
-  br label %327
+  br label %331
 
-327:                                              ; preds = %326, %324
-  %328 = phi ptr [ %.pre7.i337, %326 ], [ %316, %324 ]
-  %329 = phi ptr [ %.pre.i336, %326 ], [ %325, %324 ]
-  %330 = icmp ult ptr %329, %328
-  br i1 %330, label %.lr.ph.i334, label %json_eat_whitespace.exit338
+331:                                              ; preds = %330, %328
+  %332 = phi ptr [ %.pre7.i337, %330 ], [ %320, %328 ]
+  %333 = phi ptr [ %.pre.i336, %330 ], [ %329, %328 ]
+  %334 = icmp ult ptr %333, %332
+  br i1 %334, label %.lr.ph.i334, label %json_eat_whitespace.exit338
 
-json_eat_whitespace.exit338:                      ; preds = %.lr.ph.i334, %327, %313
-  %331 = phi ptr [ %25, %313 ], [ %316, %.lr.ph.i334 ], [ %328, %327 ]
-  %332 = phi ptr [ %314, %313 ], [ %317, %.lr.ph.i334 ], [ %329, %327 ]
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %334 = load ptr, ptr %333, align 8, !tbaa !57
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  %336 = load i64, ptr %335, align 8, !tbaa !46
-  %337 = icmp ult ptr %332, %331
-  br i1 %337, label %338, label %345
+json_eat_whitespace.exit338:                      ; preds = %.lr.ph.i334, %331
+  %335 = phi ptr [ %332, %331 ], [ %320, %.lr.ph.i334 ]
+  %336 = phi ptr [ %333, %331 ], [ %321, %.lr.ph.i334 ]
+  %337 = icmp ult ptr %336, %335
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %339 = load ptr, ptr %338, align 8, !tbaa !57
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 16
+  %341 = load i64, ptr %340, align 8, !tbaa !46
+  br i1 %337, label %342, label %349
 
-338:                                              ; preds = %json_eat_whitespace.exit338
-  %339 = load i8, ptr %332, align 1, !tbaa !62
-  %340 = icmp eq i8 %339, 93
-  br i1 %340, label %341, label %345
+342:                                              ; preds = %json_eat_whitespace.exit338
+  %343 = load i8, ptr %336, align 1, !tbaa !62
+  %344 = icmp eq i8 %343, 93
+  br i1 %344, label %345, label %349
 
-341:                                              ; preds = %338
-  %342 = getelementptr inbounds nuw i8, ptr %332, i64 1
-  store ptr %342, ptr %5, align 8, !tbaa !51
-  %343 = tail call fastcc i64 @json_decode_array(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  %344 = tail call fastcc i64 @rvalue_stack_push(ptr noundef nonnull %334, i64 noundef %343, ptr noundef %0, ptr noundef %333)
-  br label %637
+345:                                              ; preds = %342
+  %346 = getelementptr inbounds nuw i8, ptr %336, i64 1
+  store ptr %346, ptr %5, align 8, !tbaa !51
+  %347 = tail call fastcc i64 @json_decode_array(ptr noundef %0, ptr noundef %1, i64 noundef 0)
+  %348 = tail call fastcc i64 @rvalue_stack_push(ptr noundef nonnull %339, i64 noundef %347, ptr noundef %0, ptr noundef %338)
+  br label %654
 
-345:                                              ; preds = %338, %json_eat_whitespace.exit338
-  %346 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  %347 = load i32, ptr %346, align 4, !tbaa !70
-  %348 = add nsw i32 %347, 1
-  store i32 %348, ptr %346, align 4, !tbaa !70
-  %349 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %350 = load i32, ptr %349, align 8, !tbaa !25
-  %.not275 = icmp ne i32 %350, 0
-  %351 = icmp sle i32 %350, %347
-  %spec.select = select i1 %.not275, i1 %351, i1 false
-  br i1 %spec.select, label %352, label %354, !prof !64
+349:                                              ; preds = %json_eat_whitespace.exit338.thread, %342, %json_eat_whitespace.exit338
+  %350 = phi i64 [ %319, %json_eat_whitespace.exit338.thread ], [ %341, %342 ], [ %341, %json_eat_whitespace.exit338 ]
+  %351 = phi ptr [ %316, %json_eat_whitespace.exit338.thread ], [ %338, %342 ], [ %338, %json_eat_whitespace.exit338 ]
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 548
+  %353 = load i32, ptr %352, align 4, !tbaa !70
+  %354 = add nsw i32 %353, 1
+  store i32 %354, ptr %352, align 4, !tbaa !70
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %356 = load i32, ptr %355, align 8, !tbaa !25
+  %.not275 = icmp ne i32 %356, 0
+  %357 = icmp sle i32 %356, %353
+  %spec.select = select i1 %.not275, i1 %357, i1 false
+  br i1 %spec.select, label %358, label %360, !prof !64
 
-352:                                              ; preds = %345
-  %353 = load i64, ptr @eNestingError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %353, ptr noundef nonnull @.str.46, i32 noundef %348) #23
+358:                                              ; preds = %349
+  %359 = load i64, ptr @eNestingError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %359, ptr noundef nonnull @.str.46, i32 noundef %354) #23
   unreachable
 
-354:                                              ; preds = %345
-  %355 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %356 = load i32, ptr %355, align 8, !tbaa !71
-  %357 = add nsw i32 %356, 1
-  store i32 %357, ptr %355, align 8, !tbaa !71
-  %358 = tail call fastcc i64 @json_parse_any(ptr noundef %0, ptr noundef nonnull %1)
-  %359 = getelementptr inbounds nuw i8, ptr %1, i64 53
+360:                                              ; preds = %349
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %362 = load i32, ptr %361, align 8, !tbaa !71
+  %363 = add nsw i32 %362, 1
+  store i32 %363, ptr %361, align 8, !tbaa !71
+  %364 = tail call fastcc i64 @json_parse_any(ptr noundef %0, ptr noundef nonnull %1)
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 53
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %354
-  %360 = load ptr, ptr %5, align 8, !tbaa !51
-  %361 = load ptr, ptr %6, align 8, !tbaa !56
-  %362 = icmp ult ptr %360, %361
-  br i1 %362, label %.lr.ph.i339, label %json_eat_whitespace.exit343
+.backedge:                                        ; preds = %.backedge.backedge, %360
+  %366 = load ptr, ptr %5, align 8, !tbaa !51
+  %367 = load ptr, ptr %6, align 8, !tbaa !56
+  %368 = icmp ult ptr %366, %367
+  br i1 %368, label %.lr.ph.i339, label %json_eat_whitespace.exit343
 
-.lr.ph.i339:                                      ; preds = %.backedge, %374
-  %363 = phi ptr [ %375, %374 ], [ %361, %.backedge ]
-  %364 = phi ptr [ %376, %374 ], [ %360, %.backedge ]
-  %365 = load i8, ptr %364, align 1, !tbaa !62
-  %366 = zext i8 %365 to i64
-  %367 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %366
-  %368 = load i8, ptr %367, align 1, !tbaa !63, !range !29, !noundef !30
-  %369 = trunc nuw i8 %368 to i1
-  br i1 %369, label %370, label %json_eat_whitespace.exit343
+.lr.ph.i339:                                      ; preds = %.backedge, %380
+  %369 = phi ptr [ %381, %380 ], [ %367, %.backedge ]
+  %370 = phi ptr [ %382, %380 ], [ %366, %.backedge ]
+  %371 = load i8, ptr %370, align 1, !tbaa !62
+  %372 = zext i8 %371 to i64
+  %373 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %372
+  %374 = load i8, ptr %373, align 1, !tbaa !63, !range !29, !noundef !30
+  %375 = trunc nuw i8 %374 to i1
+  br i1 %375, label %376, label %json_eat_whitespace.exit343
 
-370:                                              ; preds = %.lr.ph.i339
-  %.not.i340 = icmp eq i8 %365, 47
-  br i1 %.not.i340, label %373, label %371, !prof !64
+376:                                              ; preds = %.lr.ph.i339
+  %.not.i340 = icmp eq i8 %371, 47
+  br i1 %.not.i340, label %379, label %377, !prof !64
 
-371:                                              ; preds = %370
-  %372 = getelementptr inbounds nuw i8, ptr %364, i64 1
-  store ptr %372, ptr %5, align 8, !tbaa !51
-  br label %374
+377:                                              ; preds = %376
+  %378 = getelementptr inbounds nuw i8, ptr %370, i64 1
+  store ptr %378, ptr %5, align 8, !tbaa !51
+  br label %380
 
-373:                                              ; preds = %370
+379:                                              ; preds = %376
   tail call fastcc void @json_eat_comments(ptr noundef nonnull %0)
   %.pre.i341 = load ptr, ptr %5, align 8, !tbaa !51
   %.pre7.i342 = load ptr, ptr %6, align 8, !tbaa !56
-  br label %374
+  br label %380
 
-374:                                              ; preds = %373, %371
-  %375 = phi ptr [ %.pre7.i342, %373 ], [ %363, %371 ]
-  %376 = phi ptr [ %.pre.i341, %373 ], [ %372, %371 ]
-  %377 = icmp ult ptr %376, %375
-  br i1 %377, label %.lr.ph.i339, label %json_eat_whitespace.exit343
+380:                                              ; preds = %379, %377
+  %381 = phi ptr [ %.pre7.i342, %379 ], [ %369, %377 ]
+  %382 = phi ptr [ %.pre.i341, %379 ], [ %378, %377 ]
+  %383 = icmp ult ptr %382, %381
+  br i1 %383, label %.lr.ph.i339, label %json_eat_whitespace.exit343
 
-json_eat_whitespace.exit343:                      ; preds = %.lr.ph.i339, %374, %.backedge
-  %378 = phi ptr [ %361, %.backedge ], [ %363, %.lr.ph.i339 ], [ %375, %374 ]
-  %379 = phi ptr [ %360, %.backedge ], [ %364, %.lr.ph.i339 ], [ %376, %374 ]
-  %380 = icmp ult ptr %379, %378
-  br i1 %380, label %381, label %461
+json_eat_whitespace.exit343:                      ; preds = %.lr.ph.i339, %380, %.backedge
+  %384 = phi ptr [ %367, %.backedge ], [ %369, %.lr.ph.i339 ], [ %381, %380 ]
+  %385 = phi ptr [ %366, %.backedge ], [ %370, %.lr.ph.i339 ], [ %382, %380 ]
+  %386 = icmp ult ptr %385, %384
+  br i1 %386, label %387, label %465
 
-381:                                              ; preds = %json_eat_whitespace.exit343
-  %382 = load i8, ptr %379, align 1, !tbaa !62
-  switch i8 %382, label %461 [
-    i8 93, label %383
-    i8 44, label %432
+387:                                              ; preds = %json_eat_whitespace.exit343
+  %388 = load i8, ptr %385, align 1, !tbaa !62
+  switch i8 %388, label %465 [
+    i8 93, label %389
+    i8 44, label %438
   ]
 
-383:                                              ; preds = %381
-  %384 = getelementptr inbounds nuw i8, ptr %379, i64 1
-  store ptr %384, ptr %5, align 8, !tbaa !51
-  %385 = load ptr, ptr %333, align 8, !tbaa !57
-  %386 = getelementptr inbounds nuw i8, ptr %385, i64 16
-  %387 = load i64, ptr %386, align 8, !tbaa !46
-  %388 = sub nsw i64 %387, %336
-  %389 = load i32, ptr %346, align 4, !tbaa !70
-  %390 = add nsw i32 %389, -1
-  store i32 %390, ptr %346, align 4, !tbaa !70
-  %391 = load i32, ptr %355, align 8, !tbaa !71
-  %392 = add nsw i32 %391, -1
-  store i32 %392, ptr %355, align 8, !tbaa !71
-  %393 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %394 = load i64, ptr %393, align 8, !tbaa !19
-  %.not.i344 = icmp eq i64 %394, 0
-  br i1 %.not.i344, label %408, label %395, !prof !24
+389:                                              ; preds = %387
+  %390 = getelementptr inbounds nuw i8, ptr %385, i64 1
+  store ptr %390, ptr %5, align 8, !tbaa !51
+  %391 = load ptr, ptr %351, align 8, !tbaa !57
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 16
+  %393 = load i64, ptr %392, align 8, !tbaa !46
+  %394 = sub nsw i64 %393, %350
+  %395 = load i32, ptr %352, align 4, !tbaa !70
+  %396 = add nsw i32 %395, -1
+  store i32 %396, ptr %352, align 4, !tbaa !70
+  %397 = load i32, ptr %361, align 8, !tbaa !71
+  %398 = add nsw i32 %397, -1
+  store i32 %398, ptr %361, align 8, !tbaa !71
+  %399 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %400 = load i64, ptr %399, align 8, !tbaa !19
+  %.not.i344 = icmp eq i64 %400, 0
+  br i1 %.not.i344, label %414, label %401, !prof !24
 
-395:                                              ; preds = %383
-  %396 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %394) #20
-  %397 = load ptr, ptr %333, align 8, !tbaa !57
-  %398 = getelementptr i8, ptr %397, i64 16
-  %.val.i = load i64, ptr %398, align 8, !tbaa !46
-  %399 = getelementptr i8, ptr %397, i64 24
-  %.val19.i = load ptr, ptr %399, align 8, !tbaa !47
-  %400 = sub nsw i64 %.val.i, %388
-  %401 = getelementptr inbounds i64, ptr %.val19.i, i64 %400
-  %402 = icmp sgt i64 %388, 0
-  br i1 %402, label %.lr.ph.i345, label %.loopexit.i
+401:                                              ; preds = %389
+  %402 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %400) #20
+  %403 = load ptr, ptr %351, align 8, !tbaa !57
+  %404 = getelementptr i8, ptr %403, i64 16
+  %.val.i = load i64, ptr %404, align 8, !tbaa !46
+  %405 = getelementptr i8, ptr %403, i64 24
+  %.val19.i = load ptr, ptr %405, align 8, !tbaa !47
+  %406 = sub nsw i64 %.val.i, %394
+  %407 = getelementptr inbounds i64, ptr %.val19.i, i64 %406
+  %408 = icmp sgt i64 %394, 0
+  br i1 %408, label %.lr.ph.i345, label %.loopexit.i
 
-.lr.ph.i345:                                      ; preds = %395, %.lr.ph.i345
-  %.022.i = phi i64 [ %407, %.lr.ph.i345 ], [ 0, %395 ]
-  %403 = load i64, ptr @i_leftshift, align 8, !tbaa !6
-  %404 = getelementptr inbounds nuw i64, ptr %401, i64 %.022.i
-  %405 = load i64, ptr %404, align 8, !tbaa !6
-  %406 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %396, i64 noundef %403, i32 noundef 1, i64 noundef %405) #20
-  %407 = add nuw nsw i64 %.022.i, 1
-  %exitcond.not.i = icmp eq i64 %407, %388
+.lr.ph.i345:                                      ; preds = %401, %.lr.ph.i345
+  %.022.i = phi i64 [ %413, %.lr.ph.i345 ], [ 0, %401 ]
+  %409 = load i64, ptr @i_leftshift, align 8, !tbaa !6
+  %410 = getelementptr inbounds nuw i64, ptr %407, i64 %.022.i
+  %411 = load i64, ptr %410, align 8, !tbaa !6
+  %412 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %402, i64 noundef %409, i32 noundef 1, i64 noundef %411) #20
+  %413 = add nuw nsw i64 %.022.i, 1
+  %exitcond.not.i = icmp eq i64 %413, %394
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i345
 
-408:                                              ; preds = %383
-  %409 = getelementptr i8, ptr %385, i64 24
-  %.val21.i = load ptr, ptr %409, align 8, !tbaa !47
-  %410 = getelementptr inbounds i64, ptr %.val21.i, i64 %336
-  %411 = tail call i64 @rb_ary_new_from_values(i64 noundef %388, ptr noundef %410) #20
+414:                                              ; preds = %389
+  %415 = getelementptr i8, ptr %391, i64 24
+  %.val21.i = load ptr, ptr %415, align 8, !tbaa !47
+  %416 = getelementptr inbounds i64, ptr %.val21.i, i64 %350
+  %417 = tail call i64 @rb_ary_new_from_values(i64 noundef %394, ptr noundef %416) #20
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i345, %408, %395
-  %.017.i = phi i64 [ %411, %408 ], [ %396, %395 ], [ %396, %.lr.ph.i345 ]
-  %412 = load ptr, ptr %333, align 8, !tbaa !57
-  %413 = getelementptr inbounds nuw i8, ptr %412, i64 16
-  %414 = load i64, ptr %413, align 8, !tbaa !46
-  %415 = sub nsw i64 %414, %388
-  store i64 %415, ptr %413, align 8, !tbaa !46
-  %416 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %417 = load i8, ptr %416, align 8, !tbaa !34, !range !29, !noundef !30
-  %418 = trunc nuw i8 %417 to i1
-  br i1 %418, label %419, label %json_decode_array.exit
+.loopexit.i:                                      ; preds = %.lr.ph.i345, %414, %401
+  %.017.i = phi i64 [ %417, %414 ], [ %402, %401 ], [ %402, %.lr.ph.i345 ]
+  %418 = load ptr, ptr %351, align 8, !tbaa !57
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 16
+  %420 = load i64, ptr %419, align 8, !tbaa !46
+  %421 = sub nsw i64 %420, %394
+  store i64 %421, ptr %419, align 8, !tbaa !46
+  %422 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %423 = load i8, ptr %422, align 8, !tbaa !34, !range !29, !noundef !30
+  %424 = trunc nuw i8 %423 to i1
+  br i1 %424, label %425, label %json_decode_array.exit
 
-419:                                              ; preds = %.loopexit.i
+425:                                              ; preds = %.loopexit.i
   tail call void @rb_obj_freeze_inline(i64 noundef %.017.i) #20
   br label %json_decode_array.exit
 
-json_decode_array.exit:                           ; preds = %.loopexit.i, %419
-  %420 = load i64, ptr %386, align 8, !tbaa !46
-  %421 = getelementptr inbounds nuw i8, ptr %385, i64 8
-  %422 = load i64, ptr %421, align 8, !tbaa !45
-  %.not.i346 = icmp slt i64 %420, %422
-  br i1 %.not.i346, label %rvalue_stack_push.exit350, label %423, !prof !24
+json_decode_array.exit:                           ; preds = %.loopexit.i, %425
+  %426 = load i64, ptr %392, align 8, !tbaa !46
+  %427 = getelementptr inbounds nuw i8, ptr %391, i64 8
+  %428 = load i64, ptr %427, align 8, !tbaa !45
+  %.not.i346 = icmp slt i64 %426, %428
+  br i1 %.not.i346, label %rvalue_stack_push.exit350, label %429, !prof !24
 
-423:                                              ; preds = %json_decode_array.exit
-  %424 = tail call fastcc ptr @rvalue_stack_grow(ptr noundef nonnull %385, ptr noundef nonnull %0, ptr noundef nonnull %333)
-  %.phi.trans.insert.i347 = getelementptr inbounds nuw i8, ptr %424, i64 16
+429:                                              ; preds = %json_decode_array.exit
+  %430 = tail call fastcc ptr @rvalue_stack_grow(ptr noundef nonnull %391, ptr noundef nonnull %0, ptr noundef nonnull %351)
+  %.phi.trans.insert.i347 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %.pre.i348 = load i64, ptr %.phi.trans.insert.i347, align 8, !tbaa !46
   br label %rvalue_stack_push.exit350
 
-rvalue_stack_push.exit350:                        ; preds = %json_decode_array.exit, %423
-  %425 = phi i64 [ %.pre.i348, %423 ], [ %420, %json_decode_array.exit ]
-  %.0.i349 = phi ptr [ %424, %423 ], [ %385, %json_decode_array.exit ]
-  %426 = getelementptr inbounds nuw i8, ptr %.0.i349, i64 24
-  %427 = load ptr, ptr %426, align 8, !tbaa !47
-  %428 = getelementptr inbounds nuw i8, ptr %.0.i349, i64 16
-  %429 = getelementptr inbounds i64, ptr %427, i64 %425
-  store i64 %.017.i, ptr %429, align 8, !tbaa !6
-  %430 = load i64, ptr %428, align 8, !tbaa !46
-  %431 = add nsw i64 %430, 1
-  store i64 %431, ptr %428, align 8, !tbaa !46
-  br label %637
+rvalue_stack_push.exit350:                        ; preds = %json_decode_array.exit, %429
+  %431 = phi i64 [ %.pre.i348, %429 ], [ %426, %json_decode_array.exit ]
+  %.0.i349 = phi ptr [ %430, %429 ], [ %391, %json_decode_array.exit ]
+  %432 = getelementptr inbounds nuw i8, ptr %.0.i349, i64 24
+  %433 = load ptr, ptr %432, align 8, !tbaa !47
+  %434 = getelementptr inbounds nuw i8, ptr %.0.i349, i64 16
+  %435 = getelementptr inbounds i64, ptr %433, i64 %431
+  store i64 %.017.i, ptr %435, align 8, !tbaa !6
+  %436 = load i64, ptr %434, align 8, !tbaa !46
+  %437 = add nsw i64 %436, 1
+  store i64 %437, ptr %434, align 8, !tbaa !46
+  br label %654
 
-432:                                              ; preds = %381
-  %433 = getelementptr inbounds nuw i8, ptr %379, i64 1
-  store ptr %433, ptr %5, align 8, !tbaa !51
-  %434 = load i8, ptr %359, align 1, !tbaa !33, !range !29, !noundef !30
-  %435 = trunc nuw i8 %434 to i1
-  br i1 %435, label %436, label %459
+438:                                              ; preds = %387
+  %439 = getelementptr inbounds nuw i8, ptr %385, i64 1
+  store ptr %439, ptr %5, align 8, !tbaa !51
+  %440 = load i8, ptr %365, align 1, !tbaa !33, !range !29, !noundef !30
+  %441 = trunc nuw i8 %440 to i1
+  %442 = icmp ult ptr %439, %384
+  %or.cond446 = select i1 %441, i1 %442, i1 false
+  br i1 %or.cond446, label %.lr.ph.i351, label %json_eat_whitespace.exit355.thread
 
-436:                                              ; preds = %432
-  %437 = icmp ult ptr %433, %378
-  br i1 %437, label %.lr.ph.i351, label %json_eat_whitespace.exit355
+.lr.ph.i351:                                      ; preds = %438, %454
+  %443 = phi ptr [ %455, %454 ], [ %384, %438 ]
+  %444 = phi ptr [ %456, %454 ], [ %439, %438 ]
+  %445 = load i8, ptr %444, align 1, !tbaa !62
+  %446 = zext i8 %445 to i64
+  %447 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %446
+  %448 = load i8, ptr %447, align 1, !tbaa !63, !range !29, !noundef !30
+  %449 = trunc nuw i8 %448 to i1
+  br i1 %449, label %450, label %json_eat_whitespace.exit355
 
-.lr.ph.i351:                                      ; preds = %436, %449
-  %438 = phi ptr [ %450, %449 ], [ %378, %436 ]
-  %439 = phi ptr [ %451, %449 ], [ %433, %436 ]
-  %440 = load i8, ptr %439, align 1, !tbaa !62
-  %441 = zext i8 %440 to i64
-  %442 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %441
-  %443 = load i8, ptr %442, align 1, !tbaa !63, !range !29, !noundef !30
-  %444 = trunc nuw i8 %443 to i1
-  br i1 %444, label %445, label %json_eat_whitespace.exit355
+450:                                              ; preds = %.lr.ph.i351
+  %.not.i352 = icmp eq i8 %445, 47
+  br i1 %.not.i352, label %453, label %451, !prof !64
 
-445:                                              ; preds = %.lr.ph.i351
-  %.not.i352 = icmp eq i8 %440, 47
-  br i1 %.not.i352, label %448, label %446, !prof !64
+451:                                              ; preds = %450
+  %452 = getelementptr inbounds nuw i8, ptr %444, i64 1
+  store ptr %452, ptr %5, align 8, !tbaa !51
+  br label %454
 
-446:                                              ; preds = %445
-  %447 = getelementptr inbounds nuw i8, ptr %439, i64 1
-  store ptr %447, ptr %5, align 8, !tbaa !51
-  br label %449
-
-448:                                              ; preds = %445
+453:                                              ; preds = %450
   tail call fastcc void @json_eat_comments(ptr noundef nonnull %0)
   %.pre.i353 = load ptr, ptr %5, align 8, !tbaa !51
   %.pre7.i354 = load ptr, ptr %6, align 8, !tbaa !56
-  br label %449
+  br label %454
 
-449:                                              ; preds = %448, %446
-  %450 = phi ptr [ %.pre7.i354, %448 ], [ %438, %446 ]
-  %451 = phi ptr [ %.pre.i353, %448 ], [ %447, %446 ]
-  %452 = icmp ult ptr %451, %450
-  br i1 %452, label %.lr.ph.i351, label %json_eat_whitespace.exit355
+454:                                              ; preds = %453, %451
+  %455 = phi ptr [ %.pre7.i354, %453 ], [ %443, %451 ]
+  %456 = phi ptr [ %.pre.i353, %453 ], [ %452, %451 ]
+  %457 = icmp ult ptr %456, %455
+  br i1 %457, label %.lr.ph.i351, label %json_eat_whitespace.exit355
 
-json_eat_whitespace.exit355:                      ; preds = %.lr.ph.i351, %449, %436
-  %453 = phi ptr [ %378, %436 ], [ %438, %.lr.ph.i351 ], [ %450, %449 ]
-  %454 = phi ptr [ %433, %436 ], [ %439, %.lr.ph.i351 ], [ %451, %449 ]
-  %455 = icmp ult ptr %454, %453
-  br i1 %455, label %456, label %459
+json_eat_whitespace.exit355:                      ; preds = %.lr.ph.i351, %454
+  %458 = phi ptr [ %455, %454 ], [ %443, %.lr.ph.i351 ]
+  %459 = phi ptr [ %456, %454 ], [ %444, %.lr.ph.i351 ]
+  %460 = icmp ult ptr %459, %458
+  br i1 %460, label %461, label %json_eat_whitespace.exit355.thread
 
-456:                                              ; preds = %json_eat_whitespace.exit355
-  %457 = load i8, ptr %454, align 1, !tbaa !62
-  %458 = icmp eq i8 %457, 93
-  br i1 %458, label %.backedge.backedge, label %459
+461:                                              ; preds = %json_eat_whitespace.exit355
+  %462 = load i8, ptr %459, align 1, !tbaa !62
+  %463 = icmp eq i8 %462, 93
+  br i1 %463, label %.backedge.backedge, label %json_eat_whitespace.exit355.thread
 
-459:                                              ; preds = %json_eat_whitespace.exit355, %456, %432
-  %460 = tail call fastcc i64 @json_parse_any(ptr noundef %0, ptr noundef nonnull %1)
+json_eat_whitespace.exit355.thread:               ; preds = %json_eat_whitespace.exit355, %461, %438
+  %464 = tail call fastcc i64 @json_parse_any(ptr noundef %0, ptr noundef nonnull %1)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %459, %456
+.backedge.backedge:                               ; preds = %json_eat_whitespace.exit355.thread, %461
   br label %.backedge
 
-461:                                              ; preds = %381, %json_eat_whitespace.exit343
-  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.47, ptr noundef %379) #25
+465:                                              ; preds = %387, %json_eat_whitespace.exit343
+  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.47, ptr noundef %385) #25
   unreachable
 
-462:                                              ; preds = %30
-  %463 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %463, ptr %5, align 8, !tbaa !51
-  %464 = icmp ult ptr %463, %25
-  br i1 %464, label %.lr.ph.i356, label %json_eat_whitespace.exit360
+466:                                              ; preds = %30
+  %467 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store ptr %467, ptr %5, align 8, !tbaa !51
+  %468 = icmp ult ptr %467, %25
+  br i1 %468, label %.lr.ph.i356, label %json_eat_whitespace.exit360.thread
 
-.lr.ph.i356:                                      ; preds = %462, %476
-  %465 = phi ptr [ %477, %476 ], [ %25, %462 ]
-  %466 = phi ptr [ %478, %476 ], [ %463, %462 ]
-  %467 = load i8, ptr %466, align 1, !tbaa !62
-  %468 = zext i8 %467 to i64
-  %469 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %468
-  %470 = load i8, ptr %469, align 1, !tbaa !63, !range !29, !noundef !30
-  %471 = trunc nuw i8 %470 to i1
-  br i1 %471, label %472, label %json_eat_whitespace.exit360
+json_eat_whitespace.exit360.thread:               ; preds = %466
+  %469 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %470 = load ptr, ptr %469, align 8, !tbaa !57
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 16
+  %472 = load i64, ptr %471, align 8, !tbaa !46
+  br label %502
 
-472:                                              ; preds = %.lr.ph.i356
-  %.not.i357 = icmp eq i8 %467, 47
-  br i1 %.not.i357, label %475, label %473, !prof !64
+.lr.ph.i356:                                      ; preds = %466, %484
+  %473 = phi ptr [ %485, %484 ], [ %25, %466 ]
+  %474 = phi ptr [ %486, %484 ], [ %467, %466 ]
+  %475 = load i8, ptr %474, align 1, !tbaa !62
+  %476 = zext i8 %475 to i64
+  %477 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %476
+  %478 = load i8, ptr %477, align 1, !tbaa !63, !range !29, !noundef !30
+  %479 = trunc nuw i8 %478 to i1
+  br i1 %479, label %480, label %json_eat_whitespace.exit360
 
-473:                                              ; preds = %472
-  %474 = getelementptr inbounds nuw i8, ptr %466, i64 1
-  store ptr %474, ptr %5, align 8, !tbaa !51
-  br label %476
+480:                                              ; preds = %.lr.ph.i356
+  %.not.i357 = icmp eq i8 %475, 47
+  br i1 %.not.i357, label %483, label %481, !prof !64
 
-475:                                              ; preds = %472
+481:                                              ; preds = %480
+  %482 = getelementptr inbounds nuw i8, ptr %474, i64 1
+  store ptr %482, ptr %5, align 8, !tbaa !51
+  br label %484
+
+483:                                              ; preds = %480
   tail call fastcc void @json_eat_comments(ptr noundef nonnull %0)
   %.pre.i358 = load ptr, ptr %5, align 8, !tbaa !51
   %.pre7.i359 = load ptr, ptr %6, align 8, !tbaa !56
-  br label %476
+  br label %484
 
-476:                                              ; preds = %475, %473
-  %477 = phi ptr [ %.pre7.i359, %475 ], [ %465, %473 ]
-  %478 = phi ptr [ %.pre.i358, %475 ], [ %474, %473 ]
-  %479 = icmp ult ptr %478, %477
-  br i1 %479, label %.lr.ph.i356, label %json_eat_whitespace.exit360
+484:                                              ; preds = %483, %481
+  %485 = phi ptr [ %.pre7.i359, %483 ], [ %473, %481 ]
+  %486 = phi ptr [ %.pre.i358, %483 ], [ %482, %481 ]
+  %487 = icmp ult ptr %486, %485
+  br i1 %487, label %.lr.ph.i356, label %json_eat_whitespace.exit360
 
-json_eat_whitespace.exit360:                      ; preds = %.lr.ph.i356, %476, %462
-  %480 = phi ptr [ %25, %462 ], [ %465, %.lr.ph.i356 ], [ %477, %476 ]
-  %481 = phi ptr [ %463, %462 ], [ %466, %.lr.ph.i356 ], [ %478, %476 ]
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %483 = load ptr, ptr %482, align 8, !tbaa !57
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 16
-  %485 = load i64, ptr %484, align 8, !tbaa !46
-  %486 = icmp ult ptr %481, %480
-  br i1 %486, label %487, label %494
+json_eat_whitespace.exit360:                      ; preds = %.lr.ph.i356, %484
+  %488 = phi ptr [ %485, %484 ], [ %473, %.lr.ph.i356 ]
+  %489 = phi ptr [ %486, %484 ], [ %474, %.lr.ph.i356 ]
+  %490 = icmp ult ptr %489, %488
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %492 = load ptr, ptr %491, align 8, !tbaa !57
+  %493 = getelementptr inbounds nuw i8, ptr %492, i64 16
+  %494 = load i64, ptr %493, align 8, !tbaa !46
+  br i1 %490, label %495, label %502
 
-487:                                              ; preds = %json_eat_whitespace.exit360
-  %488 = load i8, ptr %481, align 1, !tbaa !62
-  %489 = icmp eq i8 %488, 125
-  br i1 %489, label %490, label %494
+495:                                              ; preds = %json_eat_whitespace.exit360
+  %496 = load i8, ptr %489, align 1, !tbaa !62
+  %497 = icmp eq i8 %496, 125
+  br i1 %497, label %498, label %502
 
-490:                                              ; preds = %487
-  %491 = getelementptr inbounds nuw i8, ptr %481, i64 1
-  store ptr %491, ptr %5, align 8, !tbaa !51
-  %492 = tail call fastcc i64 @json_decode_object(ptr noundef %0, ptr noundef %1, i64 noundef 0)
-  %493 = tail call fastcc i64 @rvalue_stack_push(ptr noundef nonnull %483, i64 noundef %492, ptr noundef %0, ptr noundef %482)
-  br label %637
+498:                                              ; preds = %495
+  %499 = getelementptr inbounds nuw i8, ptr %489, i64 1
+  store ptr %499, ptr %5, align 8, !tbaa !51
+  %500 = tail call fastcc i64 @json_decode_object(ptr noundef %0, ptr noundef %1, i64 noundef 0)
+  %501 = tail call fastcc i64 @rvalue_stack_push(ptr noundef nonnull %492, i64 noundef %500, ptr noundef %0, ptr noundef %491)
+  br label %654
 
-494:                                              ; preds = %487, %json_eat_whitespace.exit360
-  %495 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  %496 = load i32, ptr %495, align 4, !tbaa !70
-  %497 = add nsw i32 %496, 1
-  store i32 %497, ptr %495, align 4, !tbaa !70
-  %498 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %499 = load i32, ptr %498, align 8, !tbaa !25
-  %.not268 = icmp ne i32 %499, 0
-  %500 = icmp sle i32 %499, %496
-  %spec.select298 = select i1 %.not268, i1 %500, i1 false
-  br i1 %spec.select298, label %501, label %503, !prof !64
+502:                                              ; preds = %json_eat_whitespace.exit360.thread, %495, %json_eat_whitespace.exit360
+  %503 = phi i64 [ %472, %json_eat_whitespace.exit360.thread ], [ %494, %495 ], [ %494, %json_eat_whitespace.exit360 ]
+  %504 = phi ptr [ %469, %json_eat_whitespace.exit360.thread ], [ %491, %495 ], [ %491, %json_eat_whitespace.exit360 ]
+  %505 = phi ptr [ %467, %json_eat_whitespace.exit360.thread ], [ %489, %495 ], [ %489, %json_eat_whitespace.exit360 ]
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 548
+  %507 = load i32, ptr %506, align 4, !tbaa !70
+  %508 = add nsw i32 %507, 1
+  store i32 %508, ptr %506, align 4, !tbaa !70
+  %509 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %510 = load i32, ptr %509, align 8, !tbaa !25
+  %.not268 = icmp ne i32 %510, 0
+  %511 = icmp sle i32 %510, %507
+  %spec.select298 = select i1 %.not268, i1 %511, i1 false
+  br i1 %spec.select298, label %512, label %514, !prof !64
 
-501:                                              ; preds = %494
-  %502 = load i64, ptr @eNestingError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %502, ptr noundef nonnull @.str.46, i32 noundef %497) #23
+512:                                              ; preds = %502
+  %513 = load i64, ptr @eNestingError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %513, ptr noundef nonnull @.str.46, i32 noundef %508) #23
   unreachable
 
-503:                                              ; preds = %494
-  %504 = load i8, ptr %481, align 1, !tbaa !62
-  %.not269 = icmp eq i8 %504, 34
-  br i1 %.not269, label %506, label %505
+514:                                              ; preds = %502
+  %515 = load i8, ptr %505, align 1, !tbaa !62
+  %.not269 = icmp eq i8 %515, 34
+  br i1 %.not269, label %517, label %516
 
-505:                                              ; preds = %503
-  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.48, ptr noundef nonnull %481) #25
+516:                                              ; preds = %514
+  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.48, ptr noundef nonnull %505) #25
   unreachable
 
-506:                                              ; preds = %503
-  %507 = tail call fastcc i64 @json_parse_string(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext true)
-  %508 = load ptr, ptr %5, align 8, !tbaa !51
-  %509 = load ptr, ptr %6, align 8, !tbaa !56
-  %510 = icmp ult ptr %508, %509
-  br i1 %510, label %.lr.ph.i361, label %json_eat_whitespace.exit365
+517:                                              ; preds = %514
+  %518 = tail call fastcc i64 @json_parse_string(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext true)
+  %519 = load ptr, ptr %5, align 8, !tbaa !51
+  %520 = load ptr, ptr %6, align 8, !tbaa !56
+  %521 = icmp ult ptr %519, %520
+  br i1 %521, label %.lr.ph.i361, label %json_eat_whitespace.exit365.thread
 
-.lr.ph.i361:                                      ; preds = %506, %522
-  %511 = phi ptr [ %523, %522 ], [ %509, %506 ]
-  %512 = phi ptr [ %524, %522 ], [ %508, %506 ]
-  %513 = load i8, ptr %512, align 1, !tbaa !62
-  %514 = zext i8 %513 to i64
-  %515 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %514
-  %516 = load i8, ptr %515, align 1, !tbaa !63, !range !29, !noundef !30
-  %517 = trunc nuw i8 %516 to i1
-  br i1 %517, label %518, label %json_eat_whitespace.exit365
+.lr.ph.i361:                                      ; preds = %517, %533
+  %522 = phi ptr [ %534, %533 ], [ %520, %517 ]
+  %523 = phi ptr [ %535, %533 ], [ %519, %517 ]
+  %524 = load i8, ptr %523, align 1, !tbaa !62
+  %525 = zext i8 %524 to i64
+  %526 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %525
+  %527 = load i8, ptr %526, align 1, !tbaa !63, !range !29, !noundef !30
+  %528 = trunc nuw i8 %527 to i1
+  br i1 %528, label %529, label %json_eat_whitespace.exit365
 
-518:                                              ; preds = %.lr.ph.i361
-  %.not.i362 = icmp eq i8 %513, 47
-  br i1 %.not.i362, label %521, label %519, !prof !64
+529:                                              ; preds = %.lr.ph.i361
+  %.not.i362 = icmp eq i8 %524, 47
+  br i1 %.not.i362, label %532, label %530, !prof !64
 
-519:                                              ; preds = %518
-  %520 = getelementptr inbounds nuw i8, ptr %512, i64 1
-  store ptr %520, ptr %5, align 8, !tbaa !51
-  br label %522
+530:                                              ; preds = %529
+  %531 = getelementptr inbounds nuw i8, ptr %523, i64 1
+  store ptr %531, ptr %5, align 8, !tbaa !51
+  br label %533
 
-521:                                              ; preds = %518
+532:                                              ; preds = %529
   tail call fastcc void @json_eat_comments(ptr noundef nonnull %0)
   %.pre.i363 = load ptr, ptr %5, align 8, !tbaa !51
   %.pre7.i364 = load ptr, ptr %6, align 8, !tbaa !56
-  br label %522
+  br label %533
 
-522:                                              ; preds = %521, %519
-  %523 = phi ptr [ %.pre7.i364, %521 ], [ %511, %519 ]
-  %524 = phi ptr [ %.pre.i363, %521 ], [ %520, %519 ]
-  %525 = icmp ult ptr %524, %523
-  br i1 %525, label %.lr.ph.i361, label %json_eat_whitespace.exit365
+533:                                              ; preds = %532, %530
+  %534 = phi ptr [ %.pre7.i364, %532 ], [ %522, %530 ]
+  %535 = phi ptr [ %.pre.i363, %532 ], [ %531, %530 ]
+  %536 = icmp ult ptr %535, %534
+  br i1 %536, label %.lr.ph.i361, label %json_eat_whitespace.exit365
 
-json_eat_whitespace.exit365:                      ; preds = %.lr.ph.i361, %522, %506
-  %526 = phi ptr [ %509, %506 ], [ %511, %.lr.ph.i361 ], [ %523, %522 ]
-  %527 = phi ptr [ %508, %506 ], [ %512, %.lr.ph.i361 ], [ %524, %522 ]
-  %.not270 = icmp ult ptr %527, %526
-  br i1 %.not270, label %528, label %530
+json_eat_whitespace.exit365:                      ; preds = %.lr.ph.i361, %533
+  %537 = phi ptr [ %534, %533 ], [ %522, %.lr.ph.i361 ]
+  %538 = phi ptr [ %535, %533 ], [ %523, %.lr.ph.i361 ]
+  %539 = icmp ult ptr %538, %537
+  br i1 %539, label %540, label %json_eat_whitespace.exit365.thread
 
-528:                                              ; preds = %json_eat_whitespace.exit365
-  %529 = load i8, ptr %527, align 1, !tbaa !62
-  %.not271 = icmp eq i8 %529, 58
-  br i1 %.not271, label %531, label %530
+540:                                              ; preds = %json_eat_whitespace.exit365
+  %541 = load i8, ptr %538, align 1, !tbaa !62
+  %.not271 = icmp eq i8 %541, 58
+  br i1 %.not271, label %543, label %json_eat_whitespace.exit365.thread
 
-530:                                              ; preds = %528, %json_eat_whitespace.exit365
-  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.49, ptr noundef %527) #25
+json_eat_whitespace.exit365.thread:               ; preds = %517, %540, %json_eat_whitespace.exit365
+  %542 = phi ptr [ %538, %540 ], [ %538, %json_eat_whitespace.exit365 ], [ %519, %517 ]
+  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.49, ptr noundef %542) #25
   unreachable
 
-531:                                              ; preds = %528
-  %532 = getelementptr inbounds nuw i8, ptr %527, i64 1
-  store ptr %532, ptr %5, align 8, !tbaa !51
-  %533 = tail call fastcc i64 @json_parse_any(ptr noundef %0, ptr noundef nonnull %1)
-  %534 = getelementptr inbounds nuw i8, ptr %1, i64 53
+543:                                              ; preds = %540
+  %544 = getelementptr inbounds nuw i8, ptr %538, i64 1
+  store ptr %544, ptr %5, align 8, !tbaa !51
+  %545 = tail call fastcc i64 @json_parse_any(ptr noundef %0, ptr noundef nonnull %1)
+  %546 = getelementptr inbounds nuw i8, ptr %1, i64 53
   br label %.backedge391
 
-.backedge391:                                     ; preds = %.backedge391.backedge, %531
-  %535 = load ptr, ptr %5, align 8, !tbaa !51
-  %536 = load ptr, ptr %6, align 8, !tbaa !56
-  %537 = icmp ult ptr %535, %536
-  br i1 %537, label %.lr.ph.i366, label %json_eat_whitespace.exit370
+.backedge391:                                     ; preds = %.backedge391.backedge, %543
+  %547 = load ptr, ptr %5, align 8, !tbaa !51
+  %548 = load ptr, ptr %6, align 8, !tbaa !56
+  %549 = icmp ult ptr %547, %548
+  br i1 %549, label %.lr.ph.i366, label %json_eat_whitespace.exit370
 
-.lr.ph.i366:                                      ; preds = %.backedge391, %549
-  %538 = phi ptr [ %550, %549 ], [ %536, %.backedge391 ]
-  %539 = phi ptr [ %551, %549 ], [ %535, %.backedge391 ]
-  %540 = load i8, ptr %539, align 1, !tbaa !62
-  %541 = zext i8 %540 to i64
-  %542 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %541
-  %543 = load i8, ptr %542, align 1, !tbaa !63, !range !29, !noundef !30
-  %544 = trunc nuw i8 %543 to i1
-  br i1 %544, label %545, label %json_eat_whitespace.exit370
+.lr.ph.i366:                                      ; preds = %.backedge391, %561
+  %550 = phi ptr [ %562, %561 ], [ %548, %.backedge391 ]
+  %551 = phi ptr [ %563, %561 ], [ %547, %.backedge391 ]
+  %552 = load i8, ptr %551, align 1, !tbaa !62
+  %553 = zext i8 %552 to i64
+  %554 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %553
+  %555 = load i8, ptr %554, align 1, !tbaa !63, !range !29, !noundef !30
+  %556 = trunc nuw i8 %555 to i1
+  br i1 %556, label %557, label %json_eat_whitespace.exit370
 
-545:                                              ; preds = %.lr.ph.i366
-  %.not.i367 = icmp eq i8 %540, 47
-  br i1 %.not.i367, label %548, label %546, !prof !64
+557:                                              ; preds = %.lr.ph.i366
+  %.not.i367 = icmp eq i8 %552, 47
+  br i1 %.not.i367, label %560, label %558, !prof !64
 
-546:                                              ; preds = %545
-  %547 = getelementptr inbounds nuw i8, ptr %539, i64 1
-  store ptr %547, ptr %5, align 8, !tbaa !51
-  br label %549
+558:                                              ; preds = %557
+  %559 = getelementptr inbounds nuw i8, ptr %551, i64 1
+  store ptr %559, ptr %5, align 8, !tbaa !51
+  br label %561
 
-548:                                              ; preds = %545
+560:                                              ; preds = %557
   tail call fastcc void @json_eat_comments(ptr noundef nonnull %0)
   %.pre.i368 = load ptr, ptr %5, align 8, !tbaa !51
   %.pre7.i369 = load ptr, ptr %6, align 8, !tbaa !56
-  br label %549
+  br label %561
 
-549:                                              ; preds = %548, %546
-  %550 = phi ptr [ %.pre7.i369, %548 ], [ %538, %546 ]
-  %551 = phi ptr [ %.pre.i368, %548 ], [ %547, %546 ]
-  %552 = icmp ult ptr %551, %550
-  br i1 %552, label %.lr.ph.i366, label %json_eat_whitespace.exit370
+561:                                              ; preds = %560, %558
+  %562 = phi ptr [ %.pre7.i369, %560 ], [ %550, %558 ]
+  %563 = phi ptr [ %.pre.i368, %560 ], [ %559, %558 ]
+  %564 = icmp ult ptr %563, %562
+  br i1 %564, label %.lr.ph.i366, label %json_eat_whitespace.exit370
 
-json_eat_whitespace.exit370:                      ; preds = %.lr.ph.i366, %549, %.backedge391
-  %553 = phi ptr [ %536, %.backedge391 ], [ %538, %.lr.ph.i366 ], [ %550, %549 ]
-  %554 = phi ptr [ %535, %.backedge391 ], [ %539, %.lr.ph.i366 ], [ %551, %549 ]
-  %555 = icmp ult ptr %554, %553
-  br i1 %555, label %556, label %635
+json_eat_whitespace.exit370:                      ; preds = %.lr.ph.i366, %561, %.backedge391
+  %565 = phi ptr [ %548, %.backedge391 ], [ %550, %.lr.ph.i366 ], [ %562, %561 ]
+  %566 = phi ptr [ %547, %.backedge391 ], [ %551, %.lr.ph.i366 ], [ %563, %561 ]
+  %567 = icmp ult ptr %566, %565
+  br i1 %567, label %568, label %652
 
-556:                                              ; preds = %json_eat_whitespace.exit370
-  %557 = load i8, ptr %554, align 1, !tbaa !62
-  switch i8 %557, label %635 [
-    i8 125, label %558
-    i8 44, label %579
+568:                                              ; preds = %json_eat_whitespace.exit370
+  %569 = load i8, ptr %566, align 1, !tbaa !62
+  switch i8 %569, label %652 [
+    i8 125, label %570
+    i8 44, label %591
   ]
 
-558:                                              ; preds = %556
-  %559 = getelementptr inbounds nuw i8, ptr %554, i64 1
-  store ptr %559, ptr %5, align 8, !tbaa !51
-  %560 = load i32, ptr %495, align 4, !tbaa !70
-  %561 = add nsw i32 %560, -1
-  store i32 %561, ptr %495, align 4, !tbaa !70
-  %562 = load ptr, ptr %482, align 8, !tbaa !57
-  %563 = getelementptr inbounds nuw i8, ptr %562, i64 16
-  %564 = load i64, ptr %563, align 8, !tbaa !46
-  %565 = sub nsw i64 %564, %485
-  %566 = tail call fastcc i64 @json_decode_object(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %565)
-  %567 = load i64, ptr %563, align 8, !tbaa !46
-  %568 = getelementptr inbounds nuw i8, ptr %562, i64 8
-  %569 = load i64, ptr %568, align 8, !tbaa !45
-  %.not.i371 = icmp slt i64 %567, %569
-  br i1 %.not.i371, label %rvalue_stack_push.exit375, label %570, !prof !24
+570:                                              ; preds = %568
+  %571 = getelementptr inbounds nuw i8, ptr %566, i64 1
+  store ptr %571, ptr %5, align 8, !tbaa !51
+  %572 = load i32, ptr %506, align 4, !tbaa !70
+  %573 = add nsw i32 %572, -1
+  store i32 %573, ptr %506, align 4, !tbaa !70
+  %574 = load ptr, ptr %504, align 8, !tbaa !57
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 16
+  %576 = load i64, ptr %575, align 8, !tbaa !46
+  %577 = sub nsw i64 %576, %503
+  %578 = tail call fastcc i64 @json_decode_object(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %577)
+  %579 = load i64, ptr %575, align 8, !tbaa !46
+  %580 = getelementptr inbounds nuw i8, ptr %574, i64 8
+  %581 = load i64, ptr %580, align 8, !tbaa !45
+  %.not.i371 = icmp slt i64 %579, %581
+  br i1 %.not.i371, label %rvalue_stack_push.exit375, label %582, !prof !24
 
-570:                                              ; preds = %558
-  %571 = tail call fastcc ptr @rvalue_stack_grow(ptr noundef nonnull %562, ptr noundef nonnull %0, ptr noundef nonnull %482)
-  %.phi.trans.insert.i372 = getelementptr inbounds nuw i8, ptr %571, i64 16
+582:                                              ; preds = %570
+  %583 = tail call fastcc ptr @rvalue_stack_grow(ptr noundef nonnull %574, ptr noundef nonnull %0, ptr noundef nonnull %504)
+  %.phi.trans.insert.i372 = getelementptr inbounds nuw i8, ptr %583, i64 16
   %.pre.i373 = load i64, ptr %.phi.trans.insert.i372, align 8, !tbaa !46
   br label %rvalue_stack_push.exit375
 
-rvalue_stack_push.exit375:                        ; preds = %558, %570
-  %572 = phi i64 [ %.pre.i373, %570 ], [ %567, %558 ]
-  %.0.i374 = phi ptr [ %571, %570 ], [ %562, %558 ]
-  %573 = getelementptr inbounds nuw i8, ptr %.0.i374, i64 24
-  %574 = load ptr, ptr %573, align 8, !tbaa !47
-  %575 = getelementptr inbounds nuw i8, ptr %.0.i374, i64 16
-  %576 = getelementptr inbounds i64, ptr %574, i64 %572
-  store i64 %566, ptr %576, align 8, !tbaa !6
-  %577 = load i64, ptr %575, align 8, !tbaa !46
-  %578 = add nsw i64 %577, 1
-  store i64 %578, ptr %575, align 8, !tbaa !46
-  br label %637
+rvalue_stack_push.exit375:                        ; preds = %570, %582
+  %584 = phi i64 [ %.pre.i373, %582 ], [ %579, %570 ]
+  %.0.i374 = phi ptr [ %583, %582 ], [ %574, %570 ]
+  %585 = getelementptr inbounds nuw i8, ptr %.0.i374, i64 24
+  %586 = load ptr, ptr %585, align 8, !tbaa !47
+  %587 = getelementptr inbounds nuw i8, ptr %.0.i374, i64 16
+  %588 = getelementptr inbounds i64, ptr %586, i64 %584
+  store i64 %578, ptr %588, align 8, !tbaa !6
+  %589 = load i64, ptr %587, align 8, !tbaa !46
+  %590 = add nsw i64 %589, 1
+  store i64 %590, ptr %587, align 8, !tbaa !46
+  br label %654
 
-579:                                              ; preds = %556
-  %580 = getelementptr inbounds nuw i8, ptr %554, i64 1
-  store ptr %580, ptr %5, align 8, !tbaa !51
-  %581 = icmp ult ptr %580, %553
-  br i1 %581, label %.lr.ph.i376, label %json_eat_whitespace.exit380
+591:                                              ; preds = %568
+  %592 = getelementptr inbounds nuw i8, ptr %566, i64 1
+  store ptr %592, ptr %5, align 8, !tbaa !51
+  %593 = icmp ult ptr %592, %565
+  br i1 %593, label %.lr.ph.i376, label %json_eat_whitespace.exit380.thread
 
-.lr.ph.i376:                                      ; preds = %579, %593
-  %582 = phi ptr [ %594, %593 ], [ %553, %579 ]
-  %583 = phi ptr [ %595, %593 ], [ %580, %579 ]
-  %584 = load i8, ptr %583, align 1, !tbaa !62
-  %585 = zext i8 %584 to i64
-  %586 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %585
-  %587 = load i8, ptr %586, align 1, !tbaa !63, !range !29, !noundef !30
-  %588 = trunc nuw i8 %587 to i1
-  br i1 %588, label %589, label %json_eat_whitespace.exit380
+.lr.ph.i376:                                      ; preds = %591, %605
+  %594 = phi ptr [ %606, %605 ], [ %565, %591 ]
+  %595 = phi ptr [ %607, %605 ], [ %592, %591 ]
+  %596 = load i8, ptr %595, align 1, !tbaa !62
+  %597 = zext i8 %596 to i64
+  %598 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %597
+  %599 = load i8, ptr %598, align 1, !tbaa !63, !range !29, !noundef !30
+  %600 = trunc nuw i8 %599 to i1
+  br i1 %600, label %601, label %json_eat_whitespace.exit380
 
-589:                                              ; preds = %.lr.ph.i376
-  %.not.i377 = icmp eq i8 %584, 47
-  br i1 %.not.i377, label %592, label %590, !prof !64
+601:                                              ; preds = %.lr.ph.i376
+  %.not.i377 = icmp eq i8 %596, 47
+  br i1 %.not.i377, label %604, label %602, !prof !64
 
-590:                                              ; preds = %589
-  %591 = getelementptr inbounds nuw i8, ptr %583, i64 1
-  store ptr %591, ptr %5, align 8, !tbaa !51
-  br label %593
+602:                                              ; preds = %601
+  %603 = getelementptr inbounds nuw i8, ptr %595, i64 1
+  store ptr %603, ptr %5, align 8, !tbaa !51
+  br label %605
 
-592:                                              ; preds = %589
+604:                                              ; preds = %601
   tail call fastcc void @json_eat_comments(ptr noundef nonnull %0)
   %.pre.i378 = load ptr, ptr %5, align 8, !tbaa !51
   %.pre7.i379 = load ptr, ptr %6, align 8, !tbaa !56
-  br label %593
+  br label %605
 
-593:                                              ; preds = %592, %590
-  %594 = phi ptr [ %.pre7.i379, %592 ], [ %582, %590 ]
-  %595 = phi ptr [ %.pre.i378, %592 ], [ %591, %590 ]
-  %596 = icmp ult ptr %595, %594
-  br i1 %596, label %.lr.ph.i376, label %json_eat_whitespace.exit380
+605:                                              ; preds = %604, %602
+  %606 = phi ptr [ %.pre7.i379, %604 ], [ %594, %602 ]
+  %607 = phi ptr [ %.pre.i378, %604 ], [ %603, %602 ]
+  %608 = icmp ult ptr %607, %606
+  br i1 %608, label %.lr.ph.i376, label %json_eat_whitespace.exit380
 
-json_eat_whitespace.exit380:                      ; preds = %.lr.ph.i376, %593, %579
-  %597 = phi ptr [ %553, %579 ], [ %582, %.lr.ph.i376 ], [ %594, %593 ]
-  %598 = phi ptr [ %580, %579 ], [ %583, %.lr.ph.i376 ], [ %595, %593 ]
-  %599 = load i8, ptr %534, align 1, !tbaa !33, !range !29, !noundef !30
-  %600 = trunc nuw i8 %599 to i1
-  br i1 %600, label %601, label %json_eat_whitespace.exit380._crit_edge
+json_eat_whitespace.exit380:                      ; preds = %.lr.ph.i376, %605
+  %609 = phi ptr [ %606, %605 ], [ %594, %.lr.ph.i376 ]
+  %610 = phi ptr [ %607, %605 ], [ %595, %.lr.ph.i376 ]
+  %611 = load i8, ptr %546, align 1, !tbaa !33, !range !29, !noundef !30
+  %612 = trunc nuw i8 %611 to i1
+  br i1 %612, label %616, label %json_eat_whitespace.exit380._crit_edge
 
-json_eat_whitespace.exit380._crit_edge:           ; preds = %json_eat_whitespace.exit380
-  %.pre = load i8, ptr %598, align 1, !tbaa !62
-  br label %604
+json_eat_whitespace.exit380.thread:               ; preds = %591
+  %613 = load i8, ptr %546, align 1, !tbaa !33, !range !29, !noundef !30
+  %614 = trunc nuw i8 %613 to i1
+  br i1 %614, label %.thread, label %json_eat_whitespace.exit380._crit_edge
 
-601:                                              ; preds = %json_eat_whitespace.exit380
-  %602 = icmp ult ptr %598, %597
-  %.pre427 = load i8, ptr %598, align 1, !tbaa !62
-  %603 = icmp eq i8 %.pre427, 125
-  %or.cond456 = select i1 %602, i1 %603, i1 false
-  br i1 %or.cond456, label %.backedge391.backedge, label %604
+.thread:                                          ; preds = %json_eat_whitespace.exit380.thread
+  %.pre427429 = load i8, ptr %592, align 1, !tbaa !62
+  br label %619
 
-.backedge391.backedge:                            ; preds = %601, %632
+json_eat_whitespace.exit380._crit_edge:           ; preds = %json_eat_whitespace.exit380.thread, %json_eat_whitespace.exit380
+  %615 = phi ptr [ %592, %json_eat_whitespace.exit380.thread ], [ %610, %json_eat_whitespace.exit380 ]
+  %.pre = load i8, ptr %615, align 1, !tbaa !62
+  br label %619
+
+616:                                              ; preds = %json_eat_whitespace.exit380
+  %617 = icmp ult ptr %610, %609
+  %.pre427 = load i8, ptr %610, align 1, !tbaa !62
+  %618 = icmp eq i8 %.pre427, 125
+  %or.cond447 = select i1 %617, i1 %618, i1 false
+  br i1 %or.cond447, label %.backedge391.backedge, label %619
+
+.backedge391.backedge:                            ; preds = %616, %649
   br label %.backedge391
 
-604:                                              ; preds = %json_eat_whitespace.exit380._crit_edge, %601
-  %605 = phi i8 [ %.pre, %json_eat_whitespace.exit380._crit_edge ], [ %.pre427, %601 ]
-  %.not272 = icmp eq i8 %605, 34
-  br i1 %.not272, label %607, label %606
-
-606:                                              ; preds = %604
-  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.50, ptr noundef nonnull %598) #25
-  unreachable
-
-607:                                              ; preds = %604
-  %608 = tail call fastcc i64 @json_parse_string(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext true)
-  %609 = load ptr, ptr %5, align 8, !tbaa !51
-  %610 = load ptr, ptr %6, align 8, !tbaa !56
-  %611 = icmp ult ptr %609, %610
-  br i1 %611, label %.lr.ph.i381, label %json_eat_whitespace.exit385
-
-.lr.ph.i381:                                      ; preds = %607, %623
-  %612 = phi ptr [ %624, %623 ], [ %610, %607 ]
-  %613 = phi ptr [ %625, %623 ], [ %609, %607 ]
-  %614 = load i8, ptr %613, align 1, !tbaa !62
-  %615 = zext i8 %614 to i64
-  %616 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %615
-  %617 = load i8, ptr %616, align 1, !tbaa !63, !range !29, !noundef !30
-  %618 = trunc nuw i8 %617 to i1
-  br i1 %618, label %619, label %json_eat_whitespace.exit385
-
-619:                                              ; preds = %.lr.ph.i381
-  %.not.i382 = icmp eq i8 %614, 47
-  br i1 %.not.i382, label %622, label %620, !prof !64
-
-620:                                              ; preds = %619
-  %621 = getelementptr inbounds nuw i8, ptr %613, i64 1
-  store ptr %621, ptr %5, align 8, !tbaa !51
-  br label %623
+619:                                              ; preds = %.thread, %json_eat_whitespace.exit380._crit_edge, %616
+  %620 = phi ptr [ %615, %json_eat_whitespace.exit380._crit_edge ], [ %610, %616 ], [ %592, %.thread ]
+  %621 = phi i8 [ %.pre, %json_eat_whitespace.exit380._crit_edge ], [ %.pre427, %616 ], [ %.pre427429, %.thread ]
+  %.not272 = icmp eq i8 %621, 34
+  br i1 %.not272, label %623, label %622
 
 622:                                              ; preds = %619
+  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.50, ptr noundef nonnull %620) #25
+  unreachable
+
+623:                                              ; preds = %619
+  %624 = tail call fastcc i64 @json_parse_string(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext true)
+  %625 = load ptr, ptr %5, align 8, !tbaa !51
+  %626 = load ptr, ptr %6, align 8, !tbaa !56
+  %627 = icmp ult ptr %625, %626
+  br i1 %627, label %.lr.ph.i381, label %json_eat_whitespace.exit385.thread
+
+.lr.ph.i381:                                      ; preds = %623, %639
+  %628 = phi ptr [ %640, %639 ], [ %626, %623 ]
+  %629 = phi ptr [ %641, %639 ], [ %625, %623 ]
+  %630 = load i8, ptr %629, align 1, !tbaa !62
+  %631 = zext i8 %630 to i64
+  %632 = getelementptr inbounds nuw [256 x i8], ptr @whitespace, i64 0, i64 %631
+  %633 = load i8, ptr %632, align 1, !tbaa !63, !range !29, !noundef !30
+  %634 = trunc nuw i8 %633 to i1
+  br i1 %634, label %635, label %json_eat_whitespace.exit385
+
+635:                                              ; preds = %.lr.ph.i381
+  %.not.i382 = icmp eq i8 %630, 47
+  br i1 %.not.i382, label %638, label %636, !prof !64
+
+636:                                              ; preds = %635
+  %637 = getelementptr inbounds nuw i8, ptr %629, i64 1
+  store ptr %637, ptr %5, align 8, !tbaa !51
+  br label %639
+
+638:                                              ; preds = %635
   tail call fastcc void @json_eat_comments(ptr noundef nonnull %0)
   %.pre.i383 = load ptr, ptr %5, align 8, !tbaa !51
   %.pre7.i384 = load ptr, ptr %6, align 8, !tbaa !56
-  br label %623
+  br label %639
 
-623:                                              ; preds = %622, %620
-  %624 = phi ptr [ %.pre7.i384, %622 ], [ %612, %620 ]
-  %625 = phi ptr [ %.pre.i383, %622 ], [ %621, %620 ]
-  %626 = icmp ult ptr %625, %624
-  br i1 %626, label %.lr.ph.i381, label %json_eat_whitespace.exit385
+639:                                              ; preds = %638, %636
+  %640 = phi ptr [ %.pre7.i384, %638 ], [ %628, %636 ]
+  %641 = phi ptr [ %.pre.i383, %638 ], [ %637, %636 ]
+  %642 = icmp ult ptr %641, %640
+  br i1 %642, label %.lr.ph.i381, label %json_eat_whitespace.exit385
 
-json_eat_whitespace.exit385:                      ; preds = %.lr.ph.i381, %623, %607
-  %627 = phi ptr [ %610, %607 ], [ %612, %.lr.ph.i381 ], [ %624, %623 ]
-  %628 = phi ptr [ %609, %607 ], [ %613, %.lr.ph.i381 ], [ %625, %623 ]
-  %.not273 = icmp ult ptr %628, %627
-  br i1 %.not273, label %629, label %631
+json_eat_whitespace.exit385:                      ; preds = %.lr.ph.i381, %639
+  %643 = phi ptr [ %640, %639 ], [ %628, %.lr.ph.i381 ]
+  %644 = phi ptr [ %641, %639 ], [ %629, %.lr.ph.i381 ]
+  %645 = icmp ult ptr %644, %643
+  br i1 %645, label %646, label %json_eat_whitespace.exit385.thread
 
-629:                                              ; preds = %json_eat_whitespace.exit385
-  %630 = load i8, ptr %628, align 1, !tbaa !62
-  %.not274 = icmp eq i8 %630, 58
-  br i1 %.not274, label %632, label %631
+646:                                              ; preds = %json_eat_whitespace.exit385
+  %647 = load i8, ptr %644, align 1, !tbaa !62
+  %.not274 = icmp eq i8 %647, 58
+  br i1 %.not274, label %649, label %json_eat_whitespace.exit385.thread
 
-631:                                              ; preds = %629, %json_eat_whitespace.exit385
-  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.51, ptr noundef %628) #25
+json_eat_whitespace.exit385.thread:               ; preds = %623, %646, %json_eat_whitespace.exit385
+  %648 = phi ptr [ %644, %646 ], [ %644, %json_eat_whitespace.exit385 ], [ %625, %623 ]
+  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.51, ptr noundef %648) #25
   unreachable
 
-632:                                              ; preds = %629
-  %633 = getelementptr inbounds nuw i8, ptr %628, i64 1
-  store ptr %633, ptr %5, align 8, !tbaa !51
-  %634 = tail call fastcc i64 @json_parse_any(ptr noundef %0, ptr noundef nonnull %1)
+649:                                              ; preds = %646
+  %650 = getelementptr inbounds nuw i8, ptr %644, i64 1
+  store ptr %650, ptr %5, align 8, !tbaa !51
+  %651 = tail call fastcc i64 @json_parse_any(ptr noundef %0, ptr noundef nonnull %1)
   br label %.backedge391.backedge
 
-635:                                              ; preds = %556, %json_eat_whitespace.exit370
-  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.52, ptr noundef %554) #25
+652:                                              ; preds = %568, %json_eat_whitespace.exit370
+  tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.52, ptr noundef %566) #25
   unreachable
 
-636:                                              ; preds = %30
+653:                                              ; preds = %30
   tail call fastcc void @raise_parse_error(ptr noundef nonnull @.str.53, ptr noundef nonnull %26) #25
   unreachable
 
-637:                                              ; preds = %490, %rvalue_stack_push.exit375, %341, %rvalue_stack_push.exit350, %rvalue_stack_push.exit326, %rvalue_stack_push.exit333, %311, %167, %rvalue_stack_push.exit320, %rvalue_stack_push.exit315, %rvalue_stack_push.exit310, %rvalue_stack_push.exit305, %rvalue_stack_push.exit
-  %.0 = phi i64 [ 4, %rvalue_stack_push.exit ], [ 20, %rvalue_stack_push.exit305 ], [ 0, %rvalue_stack_push.exit310 ], [ %115, %rvalue_stack_push.exit315 ], [ %142, %rvalue_stack_push.exit320 ], [ %171, %167 ], [ %312, %311 ], [ %.0.i321, %rvalue_stack_push.exit326 ], [ %.0.i328, %rvalue_stack_push.exit333 ], [ %343, %341 ], [ %.017.i, %rvalue_stack_push.exit350 ], [ %492, %490 ], [ %566, %rvalue_stack_push.exit375 ]
+654:                                              ; preds = %498, %rvalue_stack_push.exit375, %345, %rvalue_stack_push.exit350, %rvalue_stack_push.exit326, %rvalue_stack_push.exit333, %311, %167, %rvalue_stack_push.exit320, %rvalue_stack_push.exit315, %rvalue_stack_push.exit310, %rvalue_stack_push.exit305, %rvalue_stack_push.exit
+  %.0 = phi i64 [ 4, %rvalue_stack_push.exit ], [ 20, %rvalue_stack_push.exit305 ], [ 0, %rvalue_stack_push.exit310 ], [ %115, %rvalue_stack_push.exit315 ], [ %142, %rvalue_stack_push.exit320 ], [ %171, %167 ], [ %312, %311 ], [ %.0.i321, %rvalue_stack_push.exit326 ], [ %.0.i328, %rvalue_stack_push.exit333 ], [ %347, %345 ], [ %.017.i, %rvalue_stack_push.exit350 ], [ %500, %498 ], [ %578, %rvalue_stack_push.exit375 ]
   ret i64 %.0
 }
 

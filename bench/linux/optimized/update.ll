@@ -3957,195 +3957,179 @@ define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr 
   %7 = zext nneg i32 %1 to i64
   br i1 %0, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %29
-  %8 = phi i64 [ %30, %29 ], [ 0, %6 ]
+.split.us:                                        ; preds = %6, %27
+  %8 = phi i64 [ %28, %27 ], [ 0, %6 ]
   %9 = getelementptr ptr, ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, @call_rcu
-  br i1 %11, label %27, label %12
+  br i1 %11, label %25, label %12
 
 12:                                               ; preds = %.split.us
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %.loopexit7.us, label %.preheader29
+  br i1 %13, label %.loopexit7.us.thread, label %.preheader29
 
 .preheader29:                                     ; preds = %12, %17
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %17 ], [ 0, %12 ]
   %14 = getelementptr ptr, ptr %2, i64 %indvars.iv16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %10
-  br i1 %16, label %.loopexit7.us.loopexit, label %17
+  br i1 %16, label %.loopexit7.us, label %17
 
 17:                                               ; preds = %.preheader29
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %18 = icmp eq i64 %8, %indvars.iv.next17
-  br i1 %18, label %.loopexit7.us.loopexit, label %.preheader29, !llvm.loop !57
+  br i1 %18, label %.loopexit7.us, label %.preheader29, !llvm.loop !57
 
-.loopexit7.us.loopexit:                           ; preds = %17, %.preheader29
+.loopexit7.us:                                    ; preds = %.preheader29, %17
   %.ph12.in = phi i64 [ %8, %17 ], [ %indvars.iv16, %.preheader29 ]
   %19 = and i64 %.ph12.in, 4294967295
-  br label %.loopexit7.us
+  %20 = icmp eq i64 %8, %19
+  br i1 %20, label %.loopexit7.us.thread, label %27
 
-.loopexit7.us:                                    ; preds = %.loopexit7.us.loopexit, %12
-  %20 = phi i64 [ 0, %12 ], [ %19, %.loopexit7.us.loopexit ]
-  %21 = icmp eq i64 %8, %20
-  br i1 %21, label %22, label %29
+.loopexit7.us.thread:                             ; preds = %12, %.loopexit7.us
+  %21 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i32 0, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %23, ptr noundef nonnull @.str.78, ptr noundef nonnull @init_completion.__key) #16
+  %24 = load ptr, ptr %9, align 8
+  tail call void %24(ptr noundef %21, ptr noundef nonnull @wakeme_after_rcu) #16
+  br label %27
 
-22:                                               ; preds = %.loopexit7.us
-  %23 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  tail call void @__init_swait_queue_head(ptr noundef nonnull %25, ptr noundef nonnull @.str.78, ptr noundef nonnull @init_completion.__key) #16
-  %26 = load ptr, ptr %9, align 8
-  tail call void %26(ptr noundef %23, ptr noundef nonnull @wakeme_after_rcu) #16
-  br label %29
+25:                                               ; preds = %.split.us
+  %26 = tail call i32 @__SCT__might_resched() #16
+  br label %27
 
-27:                                               ; preds = %.split.us
-  %28 = tail call i32 @__SCT__might_resched() #16
-  br label %29
+27:                                               ; preds = %25, %.loopexit7.us.thread, %.loopexit7.us
+  %28 = add nuw nsw i64 %8, 1
+  %29 = icmp eq i64 %28, %7
+  br i1 %29, label %.preheader, label %.split.us, !llvm.loop !58
 
-29:                                               ; preds = %27, %22, %.loopexit7.us
-  %30 = add nuw nsw i64 %8, 1
-  %31 = icmp eq i64 %30, %7
-  br i1 %31, label %.preheader, label %.split.us, !llvm.loop !58
+.split:                                           ; preds = %6, %48
+  %30 = phi i64 [ %49, %48 ], [ 0, %6 ]
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %.loopexit7.thread, label %32
 
-.split:                                           ; preds = %6, %52
-  %32 = phi i64 [ %53, %52 ], [ 0, %6 ]
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.loopexit7, label %34
+32:                                               ; preds = %.split
+  %33 = getelementptr ptr, ptr %2, i64 %30
+  %34 = load ptr, ptr %33, align 8
+  br label %35
 
-34:                                               ; preds = %.split
-  %35 = getelementptr ptr, ptr %2, i64 %32
-  %36 = load ptr, ptr %35, align 8
-  br label %37
+35:                                               ; preds = %39, %32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %32 ]
+  %36 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, %34
+  br i1 %38, label %.loopexit7, label %39
 
-37:                                               ; preds = %41, %34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %34 ]
-  %38 = getelementptr ptr, ptr %2, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, %36
-  br i1 %40, label %.loopexit7.loopexit, label %41
-
-41:                                               ; preds = %37
+39:                                               ; preds = %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp eq i64 %32, %indvars.iv.next
-  br i1 %42, label %.loopexit7.loopexit, label %37, !llvm.loop !57
+  %40 = icmp eq i64 %30, %indvars.iv.next
+  br i1 %40, label %.loopexit7, label %35, !llvm.loop !57
 
-.loopexit7.loopexit:                              ; preds = %37, %41
-  %.ph13.in = phi i64 [ %32, %41 ], [ %indvars.iv, %37 ]
-  %43 = and i64 %.ph13.in, 4294967295
-  br label %.loopexit7
+.loopexit7:                                       ; preds = %39, %35
+  %.ph13.in = phi i64 [ %30, %39 ], [ %indvars.iv, %35 ]
+  %41 = and i64 %.ph13.in, 4294967295
+  %42 = icmp eq i64 %30, %41
+  br i1 %42, label %.loopexit7.thread, label %48
 
-.loopexit7:                                       ; preds = %.loopexit7.loopexit, %.split
-  %44 = phi i64 [ 0, %.split ], [ %43, %.loopexit7.loopexit ]
-  %45 = icmp eq i64 %32, %44
-  br i1 %45, label %46, label %52
+.loopexit7.thread:                                ; preds = %.split, %.loopexit7
+  %43 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %30
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %45, ptr noundef nonnull @.str.78, ptr noundef nonnull @init_completion.__key) #16
+  %46 = getelementptr ptr, ptr %2, i64 %30
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef %43, ptr noundef nonnull @wakeme_after_rcu) #16
+  br label %48
 
-46:                                               ; preds = %.loopexit7
-  %47 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %32
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  tail call void @__init_swait_queue_head(ptr noundef nonnull %49, ptr noundef nonnull @.str.78, ptr noundef nonnull @init_completion.__key) #16
-  %50 = getelementptr ptr, ptr %2, i64 %32
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef %47, ptr noundef nonnull @wakeme_after_rcu) #16
-  br label %52
+48:                                               ; preds = %.loopexit7.thread, %.loopexit7
+  %49 = add nuw nsw i64 %30, 1
+  %50 = icmp eq i64 %49, %7
+  br i1 %50, label %.preheader, label %.split, !llvm.loop !58
 
-52:                                               ; preds = %46, %.loopexit7
-  %53 = add nuw nsw i64 %32, 1
-  %54 = icmp eq i64 %53, %7
-  br i1 %54, label %.preheader, label %.split, !llvm.loop !58
-
-.preheader:                                       ; preds = %52, %29
+.preheader:                                       ; preds = %48, %27
   br i1 %0, label %.preheader.split9.us, label %.preheader.split9
 
-.preheader.split9.us:                             ; preds = %.preheader, %71
-  %55 = phi i64 [ %72, %71 ], [ 0, %.preheader ]
-  %56 = getelementptr ptr, ptr %2, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, @call_rcu
-  br i1 %58, label %71, label %59
+.preheader.split9.us:                             ; preds = %.preheader, %65
+  %51 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+  %52 = getelementptr ptr, ptr %2, i64 %51
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, @call_rcu
+  br i1 %54, label %65, label %55
 
-59:                                               ; preds = %.preheader.split9.us
-  %60 = icmp eq i64 %55, 0
-  br i1 %60, label %.loopexit.us, label %.preheader27
+55:                                               ; preds = %.preheader.split9.us
+  %56 = icmp eq i64 %51, 0
+  br i1 %56, label %.loopexit.us.thread, label %.preheader27
 
-.preheader27:                                     ; preds = %59, %64
-  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %64 ], [ 0, %59 ]
-  %61 = getelementptr ptr, ptr %2, i64 %indvars.iv22
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, %57
-  br i1 %63, label %.loopexit.us.loopexit, label %64
+.preheader27:                                     ; preds = %55, %60
+  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %60 ], [ 0, %55 ]
+  %57 = getelementptr ptr, ptr %2, i64 %indvars.iv22
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, %53
+  br i1 %59, label %.loopexit.us, label %60
 
-64:                                               ; preds = %.preheader27
+60:                                               ; preds = %.preheader27
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %65 = icmp eq i64 %55, %indvars.iv.next23
-  br i1 %65, label %.loopexit.us.loopexit, label %.preheader27, !llvm.loop !59
+  %61 = icmp eq i64 %51, %indvars.iv.next23
+  br i1 %61, label %.loopexit.us, label %.preheader27, !llvm.loop !59
 
-.loopexit.us.loopexit:                            ; preds = %64, %.preheader27
-  %.ph.in = phi i64 [ %55, %64 ], [ %indvars.iv22, %.preheader27 ]
-  %66 = and i64 %.ph.in, 4294967295
-  br label %.loopexit.us
+.loopexit.us:                                     ; preds = %.preheader27, %60
+  %.ph.in = phi i64 [ %51, %60 ], [ %indvars.iv22, %.preheader27 ]
+  %62 = and i64 %.ph.in, 4294967295
+  %63 = icmp eq i64 %51, %62
+  br i1 %63, label %.loopexit.us.thread, label %65
 
-.loopexit.us:                                     ; preds = %.loopexit.us.loopexit, %59
-  %67 = phi i64 [ 0, %59 ], [ %66, %.loopexit.us.loopexit ]
-  %68 = icmp eq i64 %55, %67
-  br i1 %68, label %69, label %71
+.loopexit.us.thread:                              ; preds = %55, %.loopexit.us
+  %64 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %51, i32 1
+  tail call void @wait_for_completion(ptr noundef %64) #16
+  br label %65
 
-69:                                               ; preds = %.loopexit.us
-  %70 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %55, i32 1
-  tail call void @wait_for_completion(ptr noundef %70) #16
-  br label %71
+65:                                               ; preds = %.loopexit.us.thread, %.loopexit.us, %.preheader.split9.us
+  %66 = add nuw nsw i64 %51, 1
+  %67 = icmp eq i64 %66, %7
+  br i1 %67, label %.critedge, label %.preheader.split9.us, !llvm.loop !60
 
-71:                                               ; preds = %69, %.loopexit.us, %.preheader.split9.us
-  %72 = add nuw nsw i64 %55, 1
-  %73 = icmp eq i64 %72, %7
-  br i1 %73, label %.critedge, label %.preheader.split9.us, !llvm.loop !60
+.preheader.split9:                                ; preds = %.preheader, %82
+  %68 = phi i64 [ %83, %82 ], [ 0, %.preheader ]
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %.loopexit.thread, label %70
 
-.preheader.split9:                                ; preds = %.preheader, %90
-  %74 = phi i64 [ %91, %90 ], [ 0, %.preheader ]
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %.loopexit, label %76
+70:                                               ; preds = %.preheader.split9
+  %71 = getelementptr ptr, ptr %2, i64 %68
+  %72 = load ptr, ptr %71, align 8
+  br label %73
 
-76:                                               ; preds = %.preheader.split9
-  %77 = getelementptr ptr, ptr %2, i64 %74
-  %78 = load ptr, ptr %77, align 8
-  br label %79
+73:                                               ; preds = %77, %70
+  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %77 ], [ 0, %70 ]
+  %74 = getelementptr ptr, ptr %2, i64 %indvars.iv19
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, %72
+  br i1 %76, label %.loopexit, label %77
 
-79:                                               ; preds = %83, %76
-  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %83 ], [ 0, %76 ]
-  %80 = getelementptr ptr, ptr %2, i64 %indvars.iv19
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, %78
-  br i1 %82, label %.loopexit.loopexit, label %83
-
-83:                                               ; preds = %79
+77:                                               ; preds = %73
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %84 = icmp eq i64 %74, %indvars.iv.next20
-  br i1 %84, label %.loopexit.loopexit, label %79, !llvm.loop !59
+  %78 = icmp eq i64 %68, %indvars.iv.next20
+  br i1 %78, label %.loopexit, label %73, !llvm.loop !59
 
-.loopexit.loopexit:                               ; preds = %79, %83
-  %.ph10.in = phi i64 [ %74, %83 ], [ %indvars.iv19, %79 ]
-  %85 = and i64 %.ph10.in, 4294967295
-  br label %.loopexit
+.loopexit:                                        ; preds = %77, %73
+  %.ph10.in = phi i64 [ %68, %77 ], [ %indvars.iv19, %73 ]
+  %79 = and i64 %.ph10.in, 4294967295
+  %80 = icmp eq i64 %68, %79
+  br i1 %80, label %.loopexit.thread, label %82
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader.split9
-  %86 = phi i64 [ 0, %.preheader.split9 ], [ %85, %.loopexit.loopexit ]
-  %87 = icmp eq i64 %74, %86
-  br i1 %87, label %88, label %90
+.loopexit.thread:                                 ; preds = %.preheader.split9, %.loopexit
+  %81 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %68, i32 1
+  tail call void @wait_for_completion(ptr noundef %81) #16
+  br label %82
 
-88:                                               ; preds = %.loopexit
-  %89 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %74, i32 1
-  tail call void @wait_for_completion(ptr noundef %89) #16
-  br label %90
+82:                                               ; preds = %.loopexit.thread, %.loopexit
+  %83 = add nuw nsw i64 %68, 1
+  %84 = icmp eq i64 %83, %7
+  br i1 %84, label %.critedge, label %.preheader.split9, !llvm.loop !60
 
-90:                                               ; preds = %88, %.loopexit
-  %91 = add nuw nsw i64 %74, 1
-  %92 = icmp eq i64 %91, %7
-  br i1 %92, label %.critedge, label %.preheader.split9, !llvm.loop !60
-
-.critedge:                                        ; preds = %90, %71, %4
+.critedge:                                        ; preds = %82, %65, %4
   ret void
 }
 

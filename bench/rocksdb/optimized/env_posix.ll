@@ -5904,23 +5904,23 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv11WaitForJoinEv(ptr noun
   %.pre8 = load ptr, ptr %.pre, align 8, !tbaa !85
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !169
-  %.not.i.i = icmp eq ptr %.pre9, %.pre8
-  br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE5clearEv.exit, label %7
+  %7 = icmp eq ptr %.pre9, %.pre8
+  br i1 %7, label %_ZNSt6vectorImSaImEE5clearEv.exit, label %8
 
-7:                                                ; preds = %._crit_edge
-  %8 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  store ptr %.pre8, ptr %8, align 8, !tbaa !169
+8:                                                ; preds = %._crit_edge
+  %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  store ptr %.pre8, ptr %9, align 8, !tbaa !169
   br label %_ZNSt6vectorImSaImEE5clearEv.exit
 
-_ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %1, %._crit_edge, %7
+_ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %1, %._crit_edge, %8
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.03.07 = phi ptr [ %11, %.lr.ph ], [ %4, %1 ]
-  %9 = load i64, ptr %.sroa.03.07, align 8, !tbaa !91
-  %10 = tail call i32 @pthread_join(i64 noundef %9, ptr noundef null)
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 8
-  %.not = icmp eq ptr %11, %6
+  %.sroa.03.07 = phi ptr [ %12, %.lr.ph ], [ %4, %1 ]
+  %10 = load i64, ptr %.sroa.03.07, align 8, !tbaa !91
+  %11 = tail call i32 @pthread_join(i64 noundef %10, ptr noundef null)
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 8
+  %.not = icmp eq ptr %12, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

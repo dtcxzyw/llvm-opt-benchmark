@@ -1438,14 +1438,14 @@ H5LTyy_flush_buffer.exit.thread:                  ; preds = %5
   store ptr %1, ptr %0, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %15, align 4, !tbaa !35
-  br label %.thread
+  br label %.critedge
 
 16:                                               ; preds = %5
   %17 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %18 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %H5LTyy_flush_buffer.exit.thread16
+  br i1 %20, label %21, label %H5LTyy_flush_buffer.exit.thread15
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -1459,9 +1459,9 @@ H5LTyy_flush_buffer.exit.thread:                  ; preds = %5
   store ptr %26, ptr @H5LTyyin, align 8, !tbaa !8
   %27 = load i8, ptr %25, align 1, !tbaa !25
   store i8 %27, ptr @yy_hold_char, align 1, !tbaa !25
-  br label %H5LTyy_flush_buffer.exit.thread16
+  br label %H5LTyy_flush_buffer.exit.thread15
 
-H5LTyy_flush_buffer.exit.thread16:                ; preds = %16, %21
+H5LTyy_flush_buffer.exit.thread15:                ; preds = %16, %21
   store ptr %1, ptr %0, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %28, align 4, !tbaa !35
@@ -1472,37 +1472,37 @@ H5LTyy_flush_buffer.exit:                         ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %29, align 4, !tbaa !35
   %.not = icmp eq ptr %.pr.pre, null
-  br i1 %.not, label %.thread, label %30
+  br i1 %.not, label %.critedge, label %30
 
-30:                                               ; preds = %H5LTyy_flush_buffer.exit.thread16, %H5LTyy_flush_buffer.exit
+30:                                               ; preds = %H5LTyy_flush_buffer.exit.thread15, %H5LTyy_flush_buffer.exit
   %31 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !14
-  %.not12 = icmp eq ptr %0, %33
-  br i1 %.not12, label %36, label %.thread
+  %34 = icmp eq ptr %0, %33
+  br i1 %34, label %37, label %.critedge
 
-.thread:                                          ; preds = %H5LTyy_flush_buffer.exit.thread, %H5LTyy_flush_buffer.exit, %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 1, ptr %34, align 4, !tbaa !39
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %35, align 8, !tbaa !40
-  br label %36
+.critedge:                                        ; preds = %H5LTyy_flush_buffer.exit.thread, %H5LTyy_flush_buffer.exit, %30
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 1, ptr %35, align 4, !tbaa !39
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %36, align 8, !tbaa !40
+  br label %37
 
-36:                                               ; preds = %.thread, %30
+37:                                               ; preds = %.critedge, %30
   %.not13 = icmp eq ptr %1, null
-  br i1 %.not13, label %42, label %37
+  br i1 %.not13, label %43, label %38
 
-37:                                               ; preds = %36
-  %38 = tail call i32 @fileno(ptr noundef nonnull %1) #25
-  %39 = tail call i32 @isatty(i32 noundef %38) #25
-  %40 = icmp sgt i32 %39, 0
-  %41 = zext i1 %40 to i32
-  br label %42
+38:                                               ; preds = %37
+  %39 = tail call i32 @fileno(ptr noundef nonnull %1) #25
+  %40 = tail call i32 @isatty(i32 noundef %39) #25
+  %41 = icmp sgt i32 %40, 0
+  %42 = zext i1 %41 to i32
+  br label %43
 
-42:                                               ; preds = %36, %37
-  %43 = phi i32 [ %41, %37 ], [ 0, %36 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %43, ptr %44, align 4, !tbaa !41
+43:                                               ; preds = %37, %38
+  %44 = phi i32 [ %42, %38 ], [ 0, %37 ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %44, ptr %45, align 4, !tbaa !41
   store i32 %4, ptr %3, align 4, !tbaa !22
   ret void
 }
@@ -1612,32 +1612,32 @@ define void @H5LTyy_delete_buffer(ptr noundef captures(address) %0) local_unname
 2:                                                ; preds = %1
   %3 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %.thread, label %4
+  br i1 %.not6, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = icmp eq ptr %0, %7
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %4
   store ptr null, ptr %6, align 8, !tbaa !14
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %9, %4
+.critedge:                                        ; preds = %2, %9, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !20
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %15, label %12
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %.critedge
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   tail call void @free(ptr noundef %14) #25
   br label %15
 
-15:                                               ; preds = %12, %.thread
+15:                                               ; preds = %12, %.critedge
   tail call void @free(ptr noundef nonnull %0) #25
   br label %16
 
@@ -1654,7 +1654,7 @@ define void @H5LTyyfree(ptr noundef captures(none) %0) local_unnamed_addr #6 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @H5LTyy_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %2
+  br i1 %.not, label %.critedge, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1674,14 +1674,14 @@ define void @H5LTyy_flush_buffer(ptr noundef captures(address) %0) local_unnamed
   store i32 0, ptr %11, align 8, !tbaa !31
   %12 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %.thread, label %13
+  br i1 %.not10, label %.critedge, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = icmp eq ptr %0, %16
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 28
@@ -1695,9 +1695,9 @@ define void @H5LTyy_flush_buffer(ptr noundef captures(address) %0) local_unnamed
   store ptr %23, ptr @H5LTyyin, align 8, !tbaa !8
   %24 = load i8, ptr %22, align 1, !tbaa !25
   store i8 %24, ptr @yy_hold_char, align 1, !tbaa !25
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %1, %18, %13
+.critedge:                                        ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -1806,22 +1806,22 @@ define void @H5LTyypop_buffer_state() local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %.not4 = icmp eq ptr %5, null
-  br i1 %.not4, label %.thread, label %.thread.i
+  br i1 %.not4, label %.thread, label %.critedge.i
 
-.thread.i:                                        ; preds = %2
+.critedge.i:                                      ; preds = %2
   store ptr null, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !20
   %.not7.i = icmp eq i32 %7, 0
   br i1 %.not7.i, label %H5LTyy_delete_buffer.exit, label %8
 
-8:                                                ; preds = %.thread.i
+8:                                                ; preds = %.critedge.i
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   tail call void @free(ptr noundef %10) #25
   br label %H5LTyy_delete_buffer.exit
 
-H5LTyy_delete_buffer.exit:                        ; preds = %.thread.i, %8
+H5LTyy_delete_buffer.exit:                        ; preds = %.critedge.i, %8
   tail call void @free(ptr noundef nonnull %5) #25
   store ptr null, ptr %4, align 8, !tbaa !14
   %.not5 = icmp eq i64 %3, 0
@@ -2057,36 +2057,36 @@ define void @H5LTyyset_debug(i32 noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: nounwind uwtable
 define noundef i32 @H5LTyylex_destroy() local_unnamed_addr #0 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
-  %.not7 = icmp eq ptr %.pr, null
-  br i1 %.not7, label %.critedge, label %.lr.ph.preheader
+  %.not6 = icmp eq ptr %.pr, null
+  br i1 %.not6, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
-  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
-  %1 = icmp eq ptr %.pre10, null
-  br i1 %1, label %.critedge, label %.thread.i
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
+  %1 = icmp eq ptr %.pre9, null
+  br i1 %1, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph.preheader
+.critedge.i:                                      ; preds = %.lr.ph.preheader
   %2 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %2, align 8, !tbaa !14
-  %3 = getelementptr inbounds nuw i8, ptr %.pre10, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.pre9, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !20
   %.not7.i = icmp eq i32 %4, 0
   br i1 %.not7.i, label %H5LTyypop_buffer_state.exit, label %5
 
-5:                                                ; preds = %.thread.i
-  %6 = getelementptr inbounds nuw i8, ptr %.pre10, i64 8
+5:                                                ; preds = %.critedge.i
+  %6 = getelementptr inbounds nuw i8, ptr %.pre9, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   tail call void @free(ptr noundef %7) #25
-  %.pre11 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
-  %.pre12 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
+  %.pre10 = load ptr, ptr @yy_buffer_stack, align 8, !tbaa !10
+  %.pre11 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   br label %H5LTyypop_buffer_state.exit
 
-H5LTyypop_buffer_state.exit:                      ; preds = %.thread.i, %5
-  %8 = phi i64 [ %.pre, %.thread.i ], [ %.pre12, %5 ]
-  %9 = phi ptr [ %.pr, %.thread.i ], [ %.pre11, %5 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #25
+H5LTyypop_buffer_state.exit:                      ; preds = %.critedge.i, %5
+  %8 = phi i64 [ %.pre, %.critedge.i ], [ %.pre11, %5 ]
+  %9 = phi ptr [ %.pr, %.critedge.i ], [ %.pre10, %5 ]
+  tail call void @free(ptr noundef nonnull %.pre9) #25
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
   store ptr null, ptr %10, align 8, !tbaa !14
   br label %.critedge

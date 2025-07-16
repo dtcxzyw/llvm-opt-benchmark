@@ -11913,7 +11913,7 @@ point_eq_point.exit45.thread.i:                   ; preds = %point_eq_point.exit
   %139 = fcmp uno double %138, 0.000000e+00
   %140 = fcmp oeq double %127, %138
   %.in.i.i50.i = select i1 %128, i1 %139, i1 %140
-  br i1 %.in.i.i50.i, label %141, label %point_eq_point.exit54.thread.loopexit.i
+  br i1 %.in.i.i50.i, label %141, label %point_eq_point.exit54.thread.i
 
 141:                                              ; preds = %.critedge.i49.i
   %142 = getelementptr inbounds nuw i8, ptr %125, i64 8
@@ -11924,7 +11924,7 @@ point_eq_point.exit45.thread.i:                   ; preds = %point_eq_point.exit
   %147 = fcmp uno double %145, 0.000000e+00
   %148 = fcmp oeq double %143, %145
   %.in.i13.i51.i = select i1 %146, i1 %147, i1 %148
-  br i1 %.in.i13.i51.i, label %160, label %point_eq_point.exit54.thread.loopexit.i
+  br i1 %.in.i13.i51.i, label %160, label %point_eq_point.exit54.thread.i
 
 149:                                              ; preds = %134
   %150 = fcmp oeq double %127, %.pre14.i46.i
@@ -11932,7 +11932,7 @@ point_eq_point.exit45.thread.i:                   ; preds = %point_eq_point.exit
   %152 = tail call double @llvm.fabs.f64(double %151)
   %153 = fcmp ole double %152, 0x3EB0C6F7A0B5ED8D
   %154 = or i1 %150, %153
-  br i1 %154, label %point_eq_point.exit54.i, label %point_eq_point.exit54.thread.loopexit.i
+  br i1 %154, label %point_eq_point.exit54.i, label %point_eq_point.exit54.thread.i
 
 point_eq_point.exit54.i:                          ; preds = %149
   %155 = fcmp oeq double %131, %136
@@ -11940,25 +11940,25 @@ point_eq_point.exit54.i:                          ; preds = %149
   %157 = tail call double @llvm.fabs.f64(double %156)
   %158 = fcmp ole double %157, 0x3EB0C6F7A0B5ED8D
   %159 = or i1 %155, %158
-  br i1 %159, label %160, label %point_eq_point.exit54.thread.loopexit.i
+  br i1 %159, label %160, label %point_eq_point.exit54.thread.i
 
 160:                                              ; preds = %point_eq_point.exit54.i, %141
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count94.i
   br i1 %exitcond90.not.i, label %plist_same.exit, label %.lr.ph69.i, !llvm.loop !48
 
-point_eq_point.exit54.thread.loopexit.i:          ; preds = %point_eq_point.exit54.i, %149, %141, %.critedge.i49.i
+point_eq_point.exit54.thread.i:                   ; preds = %point_eq_point.exit54.i, %149, %141, %.critedge.i49.i
   %161 = trunc nuw nsw i64 %indvars.iv86.i to i32
   %162 = icmp eq i32 %.fr, %161
   br i1 %162, label %plist_same.exit, label %point_eq_point.exit.thread.i
 
-point_eq_point.exit.thread.i:                     ; preds = %point_eq_point.exit54.thread.loopexit.i, %point_eq_point.exit.i, %72, %65, %.critedge.i.i
+point_eq_point.exit.thread.i:                     ; preds = %point_eq_point.exit54.thread.i, %point_eq_point.exit.i, %72, %65, %.critedge.i.i
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
   %exitcond95.not.i = icmp eq i64 %indvars.iv.next92.i, %wide.trip.count94.i
   br i1 %exitcond95.not.i, label %plist_same.exit, label %.lr.ph79.i.split, !llvm.loop !49
 
-plist_same.exit:                                  ; preds = %point_eq_point.exit45.thread.i, %point_eq_point.exit54.thread.loopexit.i, %point_eq_point.exit.thread.i, %120, %160, %point_eq_point.exit.i.us, %44, %point_eq_point.exit.thread.i.us, %14, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %14 ], [ 0, %point_eq_point.exit.thread.i.us ], [ 1, %point_eq_point.exit.i.us ], [ 1, %44 ], [ 1, %160 ], [ 1, %120 ], [ 1, %point_eq_point.exit45.thread.i ], [ 1, %point_eq_point.exit54.thread.loopexit.i ], [ 0, %point_eq_point.exit.thread.i ]
+plist_same.exit:                                  ; preds = %point_eq_point.exit45.thread.i, %point_eq_point.exit54.thread.i, %point_eq_point.exit.thread.i, %120, %160, %point_eq_point.exit.i.us, %44, %point_eq_point.exit.thread.i.us, %14, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %14 ], [ 0, %point_eq_point.exit.thread.i.us ], [ 1, %point_eq_point.exit.i.us ], [ 1, %44 ], [ 1, %160 ], [ 1, %120 ], [ 1, %point_eq_point.exit45.thread.i ], [ 1, %point_eq_point.exit54.thread.i ], [ 0, %point_eq_point.exit.thread.i ]
   %163 = load i64, ptr %2, align 8
   %164 = inttoptr i64 %163 to ptr
   %.not16 = icmp eq ptr %5, %164

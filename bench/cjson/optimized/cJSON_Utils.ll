@@ -1876,7 +1876,7 @@ sort_object.exit68.split.us:                      ; preds = %sort_object.exit68,
   %75 = getelementptr inbounds nuw i32, ptr %68, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !16
   %77 = icmp eq i32 %72, %76
-  br i1 %77, label %.lr.ph.i.us, label %._crit_edge.i.us
+  br i1 %77, label %.lr.ph.i.us, label %.thread
 
 .lr.ph.i.us:                                      ; preds = %.preheader.i.us, %80
   %78 = phi i8 [ %83, %80 ], [ %69, %.preheader.i.us ]
@@ -1897,15 +1897,9 @@ sort_object.exit68.split.us:                      ; preds = %sort_object.exit68,
   %89 = getelementptr inbounds nuw i32, ptr %68, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !16
   %91 = icmp eq i32 %86, %90
-  br i1 %91, label %.lr.ph.i.us, label %._crit_edge.i.us
+  br i1 %91, label %.lr.ph.i.us, label %.thread
 
-._crit_edge.i.us:                                 ; preds = %80, %.preheader.i.us
-  %.lcssa30.i.us = phi i32 [ %72, %.preheader.i.us ], [ %86, %80 ]
-  %.lcssa.i.us = phi i32 [ %76, %.preheader.i.us ], [ %90, %80 ]
-  %.not58.us = icmp eq i32 %.lcssa30.i.us, %.lcssa.i.us
-  br i1 %.not58.us, label %compare_strings.exit.thread.us, label %.thread
-
-compare_strings.exit.thread.us:                   ; preds = %.lr.ph.i.us, %._crit_edge.i.us, %65
+compare_strings.exit.thread.us:                   ; preds = %.lr.ph.i.us, %65
   %92 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.152.us, ptr noundef nonnull %.154.us, i32 noundef 0)
   %.not59.not.us = icmp eq i32 %92, 0
   br i1 %.not59.not.us, label %.thread, label %sort_object.exit68.split.us
@@ -1951,8 +1945,8 @@ compare_strings.exit.thread:                      ; preds = %103, %compare_strin
   %not.or.cond5 = xor i1 %or.cond5, true
   br label %.thread
 
-.thread:                                          ; preds = %compare_strings.exit.thread, %compare_strings.exit, %96, %compare_strings.exit.thread.us, %._crit_edge.i.us, %58, %46, %21, %13, %.split.us, %48, %33, %16, %3, %6
-  %.049.shrunk = phi i1 [ false, %6 ], [ false, %3 ], [ false, %16 ], [ %.not61, %33 ], [ %not.or.cond3, %48 ], [ %not.or.cond5, %.split.us ], [ true, %13 ], [ %32, %21 ], [ false, %46 ], [ false, %58 ], [ false, %._crit_edge.i.us ], [ false, %compare_strings.exit.thread.us ], [ false, %96 ], [ false, %compare_strings.exit ], [ false, %compare_strings.exit.thread ]
+.thread:                                          ; preds = %compare_strings.exit.thread, %compare_strings.exit, %96, %compare_strings.exit.thread.us, %58, %.preheader.i.us, %80, %46, %21, %13, %.split.us, %48, %33, %16, %3, %6
+  %.049.shrunk = phi i1 [ false, %6 ], [ false, %3 ], [ false, %16 ], [ %.not61, %33 ], [ %not.or.cond3, %48 ], [ %not.or.cond5, %.split.us ], [ true, %13 ], [ %32, %21 ], [ false, %46 ], [ false, %80 ], [ false, %.preheader.i.us ], [ false, %58 ], [ false, %compare_strings.exit.thread.us ], [ false, %96 ], [ false, %compare_strings.exit ], [ false, %compare_strings.exit.thread ]
   %.049 = zext i1 %.049.shrunk to i32
   ret i32 %.049
 }

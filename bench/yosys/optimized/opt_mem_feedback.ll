@@ -16780,10 +16780,10 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i408: ; preds = 
   %.pre3503 = load ptr, ptr %.phi.trans.insert3502, align 8, !tbaa !356
   %.phi.trans.insert3504 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %.pre3505 = load ptr, ptr %.phi.trans.insert3504, align 8, !tbaa !356
-  %2795 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %2796 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %2797 = icmp eq ptr %.pre3503, %.pre3505
-  br i1 %2797, label %3812, label %3069
+  %2795 = icmp eq ptr %.pre3503, %.pre3505
+  %2796 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %2797 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  br i1 %2795, label %3812, label %3069
 
 2798:                                             ; preds = %.lr.ph3094, %3067
   %.sroa.01891.03092 = phi ptr [ %2750, %.lr.ph3094 ], [ %3068, %3067 ]
@@ -19070,8 +19070,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i567: ; preds = %3678, %3674
   br label %.body565
 
 3697:                                             ; preds = %3191
-  %3698 = load ptr, ptr %2796, align 8, !tbaa !84
-  %3699 = load ptr, ptr %2795, align 8, !tbaa !85
+  %3698 = load ptr, ptr %2797, align 8, !tbaa !84
+  %3699 = load ptr, ptr %2796, align 8, !tbaa !85
   %3700 = ptrtoint ptr %3698 to i64
   %3701 = ptrtoint ptr %3699 to i64
   %3702 = sub i64 %3700, %3701
@@ -19123,7 +19123,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i567: ; preds = %3678, %3674
   %indvars.iv3474 = phi i64 [ %3715, %.lr.ph3114 ], [ %indvars.iv.next3475, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit605 ]
   %indvars.iv.next3475 = add nsw i64 %indvars.iv3474, -1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #23
-  %3724 = load ptr, ptr %2795, align 8, !tbaa !85
+  %3724 = load ptr, ptr %2796, align 8, !tbaa !85
   %3725 = getelementptr inbounds nuw %"struct.Yosys::hashlib::pool<Yosys::RTLIL::SigBit>::entry_t", ptr %3724, i64 %indvars.iv.next3475
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %3725, i64 16, i1 false), !tbaa.struct !148
   %3726 = load ptr, ptr %3095, align 8, !tbaa !77
@@ -19356,7 +19356,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIiiENS1_4poolINS2_INS0_5RTLIL6SigBitEbN
 
 _ZN5Yosys7hashlib4dictISt4pairIiiENS0_4poolINS1_INS_5RTLIL6SigBitEbNS0_8hash_opsIS6_EEEENS7_IS9_EEEENS7_IS3_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictISt4pairIiiENS1_4poolINS2_INS0_5RTLIL6SigBitEbNS1_8hash_opsIS7_EEEENS8_ISA_EEEENS8_IS4_EEE7entry_tESaISF_EED2Ev.exit.i, %3806
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %56) #23
-  %.pr = load ptr, ptr %2795, align 8, !tbaa !85
+  %.pr = load ptr, ptr %2796, align 8, !tbaa !85
   br label %3812
 
 3812:                                             ; preds = %._crit_edge3095, %_ZN5Yosys7hashlib4dictISt4pairIiiENS0_4poolINS1_INS_5RTLIL6SigBitEbNS0_8hash_opsIS6_EEEENS7_IS9_EEEENS7_IS3_EEED2Ev.exit

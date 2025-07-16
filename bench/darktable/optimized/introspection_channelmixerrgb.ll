@@ -7144,27 +7144,27 @@ dt_xyY_to_Lch.exit:                               ; preds = %207, %218, %214, %2
   %270 = icmp eq ptr %1, %269
   %271 = icmp eq ptr %1, %267
   %or.cond = select i1 %270, i1 true, i1 %271
-  br i1 %or.cond, label %._crit_edge, label %272
+  br i1 %or.cond, label %.thread186, label %272
 
 272:                                              ; preds = %268
   %273 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %274 = load ptr, ptr %273, align 8, !tbaa !264
   %275 = icmp eq ptr %1, %274
-  br i1 %275, label %._crit_edge, label %276
+  br i1 %275, label %.thread186, label %276
 
 276:                                              ; preds = %272
   %277 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %278 = load ptr, ptr %277, align 16, !tbaa !265
   %279 = icmp eq ptr %1, %278
-  br i1 %279, label %._crit_edge, label %280
+  br i1 %279, label %.thread186, label %280
 
 280:                                              ; preds = %276
   %281 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %282 = load ptr, ptr %281, align 8, !tbaa !266
   %283 = icmp eq ptr %1, %282
-  br i1 %283, label %._crit_edge, label %.thread186
+  br i1 %283, label %.thread186, label %.thread186.thread
 
-._crit_edge:                                      ; preds = %268, %272, %276, %280
+.thread186:                                       ; preds = %268, %280, %276, %272
   %284 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %285 = load i32, ptr %284, align 4, !tbaa !34
   %286 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -7173,154 +7173,146 @@ dt_xyY_to_Lch.exit:                               ; preds = %207, %218, %214, %2
   %289 = load ptr, ptr %288, align 16, !tbaa !265
   call fastcc void @_update_RGB_colors(ptr noundef nonnull %0, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %285, ptr noundef %7, ptr noundef %267, ptr noundef %287, ptr noundef %289)
   %.pre190 = load ptr, ptr %261, align 8, !tbaa !262
-  br label %.thread186
+  %290 = icmp eq ptr %1, %.pre190
+  br i1 %290, label %312, label %.thread186.thread
 
-.thread186:                                       ; preds = %._crit_edge, %280
-  %290 = phi ptr [ %.pre190, %._crit_edge ], [ %269, %280 ]
-  %291 = icmp eq ptr %1, %290
-  br i1 %291, label %314, label %292
+.thread186.thread:                                ; preds = %280, %.thread186
+  %291 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %292 = load ptr, ptr %291, align 8, !tbaa !267
+  %293 = icmp eq ptr %1, %292
+  br i1 %293, label %312, label %294
 
-292:                                              ; preds = %.thread186
-  %293 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  %294 = load ptr, ptr %293, align 8, !tbaa !267
-  %295 = icmp eq ptr %1, %294
-  br i1 %295, label %314, label %296
+294:                                              ; preds = %.thread186.thread
+  %295 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %296 = load ptr, ptr %295, align 64, !tbaa !268
+  %297 = icmp eq ptr %1, %296
+  br i1 %297, label %312, label %298
 
-296:                                              ; preds = %292
-  %297 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %298 = load ptr, ptr %297, align 64, !tbaa !268
-  %299 = icmp eq ptr %1, %298
-  br i1 %299, label %314, label %300
+298:                                              ; preds = %294
+  %299 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %300 = load ptr, ptr %299, align 8, !tbaa !269
+  %301 = icmp eq ptr %1, %300
+  br i1 %301, label %312, label %302
 
-300:                                              ; preds = %296
-  %301 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  %302 = load ptr, ptr %301, align 8, !tbaa !269
-  %303 = icmp eq ptr %1, %302
-  br i1 %303, label %314, label %304
-
-304:                                              ; preds = %300
-  %305 = getelementptr inbounds nuw i8, ptr %9, i64 256
-  %306 = load ptr, ptr %305, align 64, !tbaa !270
-  %307 = icmp eq ptr %1, %306
-  br i1 %307, label %314, label %.thread187
+302:                                              ; preds = %298
+  %303 = getelementptr inbounds nuw i8, ptr %9, i64 256
+  %304 = load ptr, ptr %303, align 64, !tbaa !270
+  %305 = icmp eq ptr %1, %304
+  br i1 %305, label %312, label %.thread187.thread
 
 .critedge:                                        ; preds = %265
-  %308 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %309 = load i32, ptr %308, align 4, !tbaa !34
-  %310 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %311 = load ptr, ptr %310, align 8, !tbaa !264
-  %312 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %313 = load ptr, ptr %312, align 16, !tbaa !265
-  call fastcc void @_update_RGB_colors(ptr noundef nonnull %0, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %309, ptr noundef %7, ptr noundef %267, ptr noundef %311, ptr noundef %313)
-  br label %314
+  %306 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %307 = load i32, ptr %306, align 4, !tbaa !34
+  %308 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %309 = load ptr, ptr %308, align 8, !tbaa !264
+  %310 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %311 = load ptr, ptr %310, align 16, !tbaa !265
+  call fastcc void @_update_RGB_colors(ptr noundef nonnull %0, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %307, ptr noundef %7, ptr noundef %267, ptr noundef %309, ptr noundef %311)
+  br label %312
 
-314:                                              ; preds = %.critedge, %.thread186, %292, %296, %300, %304
-  %315 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %316 = load i32, ptr %315, align 4, !tbaa !35
-  %317 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %318 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  %319 = load ptr, ptr %318, align 8, !tbaa !267
-  %320 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %321 = load ptr, ptr %320, align 64, !tbaa !268
-  %322 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  %323 = load ptr, ptr %322, align 8, !tbaa !269
-  call fastcc void @_update_RGB_colors(ptr noundef nonnull %0, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00, i32 noundef %316, ptr noundef nonnull %317, ptr noundef %319, ptr noundef %321, ptr noundef %323)
-  br i1 %.not161, label %342, label %..thread187_crit_edge
+312:                                              ; preds = %.critedge, %.thread186, %.thread186.thread, %294, %298, %302
+  %313 = getelementptr inbounds nuw i8, ptr %7, i64 100
+  %314 = load i32, ptr %313, align 4, !tbaa !35
+  %315 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %317 = load ptr, ptr %316, align 8, !tbaa !267
+  %318 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %319 = load ptr, ptr %318, align 64, !tbaa !268
+  %320 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %321 = load ptr, ptr %320, align 8, !tbaa !269
+  call fastcc void @_update_RGB_colors(ptr noundef nonnull %0, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00, i32 noundef %314, ptr noundef nonnull %315, ptr noundef %317, ptr noundef %319, ptr noundef %321)
+  br i1 %.not161, label %338, label %.thread187
 
-..thread187_crit_edge:                            ; preds = %314
+.thread187:                                       ; preds = %312
   %.pre191 = load ptr, ptr %261, align 8, !tbaa !262
-  br label %.thread187
+  %322 = icmp eq ptr %1, %.pre191
+  br i1 %322, label %338, label %.thread187.thread
 
-.thread187:                                       ; preds = %..thread187_crit_edge, %304
-  %324 = phi ptr [ %.pre191, %..thread187_crit_edge ], [ %290, %304 ]
+.thread187.thread:                                ; preds = %302, %.thread187
+  %323 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %324 = load ptr, ptr %323, align 16, !tbaa !271
   %325 = icmp eq ptr %1, %324
-  br i1 %325, label %342, label %326
+  br i1 %325, label %338, label %326
 
-326:                                              ; preds = %.thread187
-  %327 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %328 = load ptr, ptr %327, align 16, !tbaa !271
+326:                                              ; preds = %.thread187.thread
+  %327 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  %328 = load ptr, ptr %327, align 8, !tbaa !272
   %329 = icmp eq ptr %1, %328
-  br i1 %329, label %342, label %330
+  br i1 %329, label %338, label %330
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  %332 = load ptr, ptr %331, align 8, !tbaa !272
+  %331 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %332 = load ptr, ptr %331, align 32, !tbaa !273
   %333 = icmp eq ptr %1, %332
-  br i1 %333, label %342, label %334
+  br i1 %333, label %338, label %334
 
 334:                                              ; preds = %330
-  %335 = getelementptr inbounds nuw i8, ptr %9, i64 160
-  %336 = load ptr, ptr %335, align 32, !tbaa !273
+  %335 = getelementptr inbounds nuw i8, ptr %9, i64 264
+  %336 = load ptr, ptr %335, align 8, !tbaa !274
   %337 = icmp eq ptr %1, %336
-  br i1 %337, label %342, label %338
+  br i1 %337, label %338, label %348
 
-338:                                              ; preds = %334
-  %339 = getelementptr inbounds nuw i8, ptr %9, i64 264
-  %340 = load ptr, ptr %339, align 8, !tbaa !274
-  %341 = icmp eq ptr %1, %340
-  br i1 %341, label %342, label %352
+338:                                              ; preds = %334, %330, %326, %.thread187.thread, %.thread187, %312
+  %339 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %340 = load i32, ptr %339, align 4, !tbaa !36
+  %341 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %342 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %343 = load ptr, ptr %342, align 16, !tbaa !271
+  %344 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  %345 = load ptr, ptr %344, align 8, !tbaa !272
+  %346 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %347 = load ptr, ptr %346, align 32, !tbaa !273
+  call fastcc void @_update_RGB_colors(ptr noundef nonnull %0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, i32 noundef %340, ptr noundef nonnull %341, ptr noundef %343, ptr noundef %345, ptr noundef %347)
+  br label %348
 
-342:                                              ; preds = %338, %334, %330, %326, %.thread187, %314
-  %343 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %344 = load i32, ptr %343, align 4, !tbaa !36
-  %345 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %346 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %347 = load ptr, ptr %346, align 16, !tbaa !271
-  %348 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  %349 = load ptr, ptr %348, align 8, !tbaa !272
-  %350 = getelementptr inbounds nuw i8, ptr %9, i64 160
-  %351 = load ptr, ptr %350, align 32, !tbaa !273
-  call fastcc void @_update_RGB_colors(ptr noundef nonnull %0, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, i32 noundef %344, ptr noundef nonnull %345, ptr noundef %347, ptr noundef %349, ptr noundef %351)
-  br label %352
-
-352:                                              ; preds = %342, %338
-  %353 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %354 = load float, ptr %353, align 4, !tbaa !12
-  %355 = fcmp reassoc nsz arcp contract afn une float %354, 0.000000e+00
+348:                                              ; preds = %338, %334
+  %349 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %350 = load float, ptr %349, align 4, !tbaa !12
+  %351 = fcmp reassoc nsz arcp contract afn une float %350, 0.000000e+00
   %.phi.trans.insert193 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %.pre194 = load float, ptr %.phi.trans.insert193, align 4, !tbaa !12
-  %356 = fcmp reassoc nsz arcp contract afn une float %.pre194, 0.000000e+00
-  %or.cond195 = select i1 %355, i1 true, i1 %356
-  br i1 %or.cond195, label %._crit_edge192, label %357
+  %352 = fcmp reassoc nsz arcp contract afn une float %.pre194, 0.000000e+00
+  %or.cond195 = select i1 %351, i1 true, i1 %352
+  br i1 %or.cond195, label %._crit_edge192, label %353
 
-357:                                              ; preds = %352
+353:                                              ; preds = %348
+  %354 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %355 = load float, ptr %354, align 4, !tbaa !12
+  %356 = fcmp reassoc nsz arcp contract afn une float %355, 0.000000e+00
+  br i1 %356, label %._crit_edge192, label %367
+
+._crit_edge192:                                   ; preds = %348, %353
+  %357 = fadd reassoc nsz arcp contract afn float %.pre194, %350
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %359 = load float, ptr %358, align 4, !tbaa !12
-  %360 = fcmp reassoc nsz arcp contract afn une float %359, 0.000000e+00
-  br i1 %360, label %._crit_edge192, label %371
+  %360 = fadd reassoc nsz arcp contract afn float %357, %359
+  %361 = fcmp reassoc nsz arcp contract afn oeq float %360, 0.000000e+00
+  br i1 %361, label %362, label %367
 
-._crit_edge192:                                   ; preds = %352, %357
-  %361 = fadd reassoc nsz arcp contract afn float %.pre194, %354
-  %362 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %363 = load float, ptr %362, align 4, !tbaa !12
-  %364 = fadd reassoc nsz arcp contract afn float %361, %363
-  %365 = fcmp reassoc nsz arcp contract afn oeq float %364, 0.000000e+00
-  br i1 %365, label %366, label %371
+362:                                              ; preds = %._crit_edge192
+  %363 = getelementptr inbounds nuw i8, ptr %7, i64 116
+  %364 = load i32, ptr %363, align 4, !tbaa !32
+  %.not164 = icmp eq i32 %364, 0
+  br i1 %.not164, label %367, label %365
 
-366:                                              ; preds = %._crit_edge192
-  %367 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  %368 = load i32, ptr %367, align 4, !tbaa !32
-  %.not164 = icmp eq i32 %368, 0
-  br i1 %.not164, label %371, label %369
+365:                                              ; preds = %362
+  %366 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.102, i32 noundef 5) #27
+  call void (ptr, ...) @dt_control_log(ptr noundef %366) #27
+  br label %367
 
-369:                                              ; preds = %366
-  %370 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.102, i32 noundef 5) #27
-  call void (ptr, ...) @dt_control_log(ptr noundef %370) #27
-  br label %371
-
-371:                                              ; preds = %._crit_edge192, %366, %369, %357
-  %372 = load ptr, ptr %261, align 8, !tbaa !262
-  %373 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %374 = load i32, ptr %373, align 4, !tbaa !26
-  %375 = icmp ne i32 %374, 10
-  %376 = zext i1 %375 to i32
-  call void @gtk_widget_set_sensitive(ptr noundef %372, i32 noundef %376) #27
+367:                                              ; preds = %._crit_edge192, %362, %365, %353
+  %368 = load ptr, ptr %261, align 8, !tbaa !262
+  %369 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %370 = load i32, ptr %369, align 4, !tbaa !26
+  %371 = icmp ne i32 %370, 10
+  %372 = zext i1 %371 to i32
+  call void @gtk_widget_set_sensitive(ptr noundef %368, i32 noundef %372) #27
   call fastcc void @_declare_cat_on_pipe(ptr noundef nonnull %0, i32 noundef 0)
-  %377 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !218
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 96
-  %379 = load i32, ptr %378, align 8, !tbaa !255
-  %380 = add nsw i32 %379, -1
-  store i32 %380, ptr %378, align 8, !tbaa !255
+  %373 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !218
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 96
+  %375 = load i32, ptr %374, align 8, !tbaa !255
+  %376 = add nsw i32 %375, -1
+  store i32 %376, ptr %374, align 8, !tbaa !255
   ret void
 }
 

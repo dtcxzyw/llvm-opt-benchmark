@@ -1717,9 +1717,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23.thread: ; preds
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi i32 [ %40, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
-  %42 = icmp slt i32 %.0.i.i.i.i.i.i.i, 0
+  %42 = icmp sgt i32 %.0.i.i.i.i.i.i.i, -1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
-  br i1 %42, label %58, label %43
+  br i1 %42, label %43, label %58
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1767,15 +1767,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   br label %65
 
 65:                                               ; preds = %58, %43
-  %.sink39 = phi ptr [ %62, %58 ], [ %48, %43 ]
-  %.sink37.in = phi ptr [ %64, %58 ], [ %44, %43 ]
+  %.sink37 = phi ptr [ %62, %58 ], [ %48, %43 ]
+  %.sink35.in = phi ptr [ %64, %58 ], [ %44, %43 ]
   %.sink = phi i64 [ 148, %58 ], [ 140, %43 ]
-  %.sink37 = load float, ptr %.sink37.in, align 4, !tbaa !45
-  %66 = getelementptr inbounds nuw i8, ptr %.sink39, i64 260
-  store float %.sink37, ptr %66, align 4, !tbaa !45
+  %.sink35 = load float, ptr %.sink35.in, align 4, !tbaa !45
+  %66 = getelementptr inbounds nuw i8, ptr %.sink37, i64 260
+  store float %.sink35, ptr %66, align 4, !tbaa !45
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %68 = load float, ptr %67, align 4, !tbaa !45
-  %69 = getelementptr inbounds nuw i8, ptr %.sink39, i64 264
+  %69 = getelementptr inbounds nuw i8, ptr %.sink37, i64 264
   store float %68, ptr %69, align 4, !tbaa !45
   %70 = load ptr, ptr %11, align 8, !tbaa !74
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 48

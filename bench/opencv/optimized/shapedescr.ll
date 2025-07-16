@@ -4455,7 +4455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %56, %53
   call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %13) #18
-  br label %224
+  br label %225
 
 57:                                               ; preds = %44
   %58 = landingpad { ptr, i32 }
@@ -4782,73 +4782,73 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 
 ._crit_edge.i:                                    ; preds = %200
   %.pre208.i = load i32, ptr %5, align 4, !tbaa !70
-  %204 = fneg double %121
-  %205 = fmul double %.1142.i, %204
-  %206 = call double @llvm.fmuladd.f64(double %120, double %.1145.i, double %205)
-  %207 = fadd double %.1135.i, %206
-  %.not161.i = icmp slt i32 %.1.i, %.pre208.i
-  br i1 %.not161.i, label %209, label %208
+  %204 = icmp slt i32 %.1.i, %.pre208.i
+  %205 = fneg double %121
+  %206 = fmul double %.1142.i, %205
+  %207 = call double @llvm.fmuladd.f64(double %120, double %.1145.i, double %206)
+  %208 = fadd double %.1135.i, %207
+  br i1 %204, label %210, label %209
 
-208:                                              ; preds = %._crit_edge.i
+209:                                              ; preds = %._crit_edge.i
   call fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %5)
   %.pre209.i = load ptr, ptr %8, align 8, !tbaa !109
-  br label %209
+  br label %210
 
-209:                                              ; preds = %208, %._crit_edge.i
-  %210 = phi ptr [ %.pre209.i, %208 ], [ %201, %._crit_edge.i ]
-  %211 = fmul double %207, 5.000000e-01
-  %212 = sext i32 %.1.i to i64
-  %213 = getelementptr inbounds double, ptr %210, i64 %212
-  store double %211, ptr %213, align 8, !tbaa !59
+210:                                              ; preds = %209, %._crit_edge.i
+  %211 = phi ptr [ %.pre209.i, %209 ], [ %201, %._crit_edge.i ]
+  %212 = fmul double %208, 5.000000e-01
+  %213 = sext i32 %.1.i to i64
+  %214 = getelementptr inbounds double, ptr %211, i64 %213
+  store double %212, ptr %214, align 8, !tbaa !59
   %.not162199.i = icmp slt i32 %.1.i, 0
   br i1 %.not162199.i, label %._crit_edge204.i, label %.lr.ph203.preheader.i
 
-.lr.ph203.preheader.i:                            ; preds = %209
-  %214 = add nuw i32 %.1.i, 1
-  %wide.trip.count.i = zext i32 %214 to i64
+.lr.ph203.preheader.i:                            ; preds = %210
+  %215 = add nuw i32 %.1.i, 1
+  %wide.trip.count.i = zext i32 %215 to i64
   br label %.lr.ph203.i
 
 .lr.ph203.i:                                      ; preds = %.lr.ph203.i, %.lr.ph203.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph203.preheader.i ], [ %indvars.iv.next.i, %.lr.ph203.i ]
-  %.0132201.i = phi double [ 0.000000e+00, %.lr.ph203.preheader.i ], [ %218, %.lr.ph203.i ]
-  %215 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv.i
-  %216 = load double, ptr %215, align 8, !tbaa !59
-  %217 = call double @llvm.fabs.f64(double %216)
-  %218 = fadd double %.0132201.i, %217
+  %.0132201.i = phi double [ 0.000000e+00, %.lr.ph203.preheader.i ], [ %219, %.lr.ph203.i ]
+  %216 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv.i
+  %217 = load double, ptr %216, align 8, !tbaa !59
+  %218 = call double @llvm.fabs.f64(double %217)
+  %219 = fadd double %.0132201.i, %218
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge204.i, label %.lr.ph203.i, !llvm.loop !114
 
-._crit_edge204.i:                                 ; preds = %.lr.ph203.i, %209
-  %.0132.lcssa.i = phi double [ 0.000000e+00, %209 ], [ %218, %.lr.ph203.i ]
-  %219 = load ptr, ptr %6, align 8, !tbaa !109
-  %.not163.i = icmp eq ptr %219, null
-  br i1 %.not163.i, label %220, label %.sink.split.i
+._crit_edge204.i:                                 ; preds = %.lr.ph203.i, %210
+  %.0132.lcssa.i = phi double [ 0.000000e+00, %210 ], [ %219, %.lr.ph203.i ]
+  %220 = load ptr, ptr %6, align 8, !tbaa !109
+  %.not163.i = icmp eq ptr %220, null
+  br i1 %.not163.i, label %221, label %.sink.split.i
 
-220:                                              ; preds = %._crit_edge204.i
-  %221 = load ptr, ptr %7, align 8, !tbaa !109
-  %.not164.i = icmp eq ptr %221, null
+221:                                              ; preds = %._crit_edge204.i
+  %222 = load ptr, ptr %7, align 8, !tbaa !109
+  %.not164.i = icmp eq ptr %222, null
   br i1 %.not164.i, label %_ZL17icvContourSecAreaP5CvSeq7CvSlice.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %220, %._crit_edge204.i
-  %.sink.i = phi ptr [ %219, %._crit_edge204.i ], [ %221, %220 ]
+.sink.split.i:                                    ; preds = %221, %._crit_edge204.i
+  %.sink.i = phi ptr [ %220, %._crit_edge204.i ], [ %222, %221 ]
   call void @cvFree_(ptr noundef nonnull %.sink.i)
   br label %_ZL17icvContourSecAreaP5CvSeq7CvSlice.exit
 
-_ZL17icvContourSecAreaP5CvSeq7CvSlice.exit:       ; preds = %81, %220, %.sink.split.i
-  %.0.i = phi double [ 0.000000e+00, %81 ], [ %.0132.lcssa.i, %220 ], [ %.0132.lcssa.i, %.sink.split.i ]
+_ZL17icvContourSecAreaP5CvSeq7CvSlice.exit:       ; preds = %81, %221, %.sink.split.i
+  %.0.i = phi double [ 0.000000e+00, %81 ], [ %.0132.lcssa.i, %221 ], [ %.0132.lcssa.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #18
   %.not32 = icmp eq i32 %2, 0
-  %222 = call double @llvm.fabs.f64(double %.0.i)
-  %223 = select i1 %.not32, double %222, double %.0.i
-  br label %224
+  %223 = call double @llvm.fabs.f64(double %.0.i)
+  %224 = select i1 %.not32, double %223, double %.0.i
+  br label %225
 
-224:                                              ; preds = %_ZL17icvContourSecAreaP5CvSeq7CvSlice.exit, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
-  %.0 = phi double [ %52, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit ], [ %223, %_ZL17icvContourSecAreaP5CvSeq7CvSlice.exit ]
+225:                                              ; preds = %_ZL17icvContourSecAreaP5CvSeq7CvSlice.exit, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
+  %.0 = phi double [ %52, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit ], [ %224, %_ZL17icvContourSecAreaP5CvSeq7CvSlice.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #18
   ret double %.0

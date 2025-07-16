@@ -1093,37 +1093,38 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3DEXlsERSoRKNS0_4
 
 _ZNK4LIEF3DEX4Type21underlying_array_typeEv.exit: ; preds = %.lr.ph.i
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF3DEXlsERSoRKNS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %10)
-  br label %15
+  %15 = load i32, ptr %4, align 8, !tbaa !6
+  %.not.i22 = icmp eq i32 %15, 3
+  br i1 %.not.i22, label %.lr.ph.i16.preheader, label %.loopexit
 
-15:                                               ; preds = %27, %_ZNK4LIEF3DEX4Type21underlying_array_typeEv.exit
-  %.0 = phi i64 [ 0, %_ZNK4LIEF3DEX4Type21underlying_array_typeEv.exit ], [ %29, %27 ]
-  %16 = load i32, ptr %4, align 8, !tbaa !6
-  %.not.i = icmp eq i32 %16, 3
-  br i1 %.not.i, label %.lr.ph.i16, label %_ZNK4LIEF3DEX4Type3dimEv.exit
+.lr.ph.i16.preheader:                             ; preds = %_ZNK4LIEF3DEX4Type21underlying_array_typeEv.exit, %26
+  %.023 = phi i64 [ %28, %26 ], [ 0, %_ZNK4LIEF3DEX4Type21underlying_array_typeEv.exit ]
+  br label %.lr.ph.i16
 
-.lr.ph.i16:                                       ; preds = %15, %.lr.ph.i16
-  %.08.i = phi i64 [ %17, %.lr.ph.i16 ], [ 0, %15 ]
-  %.057.i = phi ptr [ %22, %.lr.ph.i16 ], [ %1, %15 ]
-  %17 = add i64 %.08.i, 1
-  %18 = getelementptr inbounds nuw i8, ptr %.057.i, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !11
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !35
-  %22 = getelementptr inbounds i8, ptr %21, i64 -24
-  %23 = getelementptr inbounds i8, ptr %21, i64 -16
-  %24 = load i32, ptr %23, align 8, !tbaa !6
-  %25 = icmp eq i32 %24, 3
-  br i1 %25, label %.lr.ph.i16, label %_ZNK4LIEF3DEX4Type3dimEv.exit, !llvm.loop !39
+.lr.ph.i16:                                       ; preds = %.lr.ph.i16.preheader, %.lr.ph.i16
+  %.08.i = phi i64 [ %16, %.lr.ph.i16 ], [ 0, %.lr.ph.i16.preheader ]
+  %.057.i = phi ptr [ %21, %.lr.ph.i16 ], [ %1, %.lr.ph.i16.preheader ]
+  %16 = add i64 %.08.i, 1
+  %17 = getelementptr inbounds nuw i8, ptr %.057.i, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !35
+  %21 = getelementptr inbounds i8, ptr %20, i64 -24
+  %22 = getelementptr inbounds i8, ptr %20, i64 -16
+  %23 = load i32, ptr %22, align 8, !tbaa !6
+  %24 = icmp eq i32 %23, 3
+  br i1 %24, label %.lr.ph.i16, label %_ZNK4LIEF3DEX4Type3dimEv.exit, !llvm.loop !39
 
-_ZNK4LIEF3DEX4Type3dimEv.exit:                    ; preds = %.lr.ph.i16, %15
-  %.06.i = phi i64 [ 0, %15 ], [ %17, %.lr.ph.i16 ]
-  %26 = icmp ult i64 %.0, %.06.i
-  br i1 %26, label %27, label %.loopexit
+_ZNK4LIEF3DEX4Type3dimEv.exit:                    ; preds = %.lr.ph.i16
+  %25 = icmp ult i64 %.023, %16
+  br i1 %25, label %26, label %.loopexit
 
-27:                                               ; preds = %_ZNK4LIEF3DEX4Type3dimEv.exit
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1, i64 noundef 2) #24
-  %29 = add nuw i64 %.0, 1
-  br label %15, !llvm.loop !40
+26:                                               ; preds = %_ZNK4LIEF3DEX4Type3dimEv.exit
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1, i64 noundef 2) #24
+  %28 = add nuw i64 %.023, 1
+  %29 = load i32, ptr %4, align 8, !tbaa !6
+  %.not.i = icmp eq i32 %29, 3
+  br i1 %.not.i, label %.lr.ph.i16.preheader, label %.loopexit, !llvm.loop !40
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1256,7 +1257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK4LIEF3DEX4Type3dimEv.exit, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %30
+.loopexit:                                        ; preds = %_ZNK4LIEF3DEX4Type3dimEv.exit, %26, %_ZNK4LIEF3DEX4Type21underlying_array_typeEv.exit, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %30
   ret ptr %0
 }
 

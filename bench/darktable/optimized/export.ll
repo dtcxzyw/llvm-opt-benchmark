@@ -4156,7 +4156,7 @@ define internal fastcc void @set_format_by_name(ptr noundef captures(none) %0, p
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %24 = load ptr, ptr %23, align 8, !tbaa !107
   tail call void @gtk_widget_hide(ptr noundef %24) #19
-  br label %144
+  br label %142
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 344
@@ -4309,68 +4309,65 @@ _get_max_output_dimension.exit.i:                 ; preds = %77, %75
 109:                                              ; preds = %80
   %110 = load i32, ptr %83, align 4, !tbaa !154
   %111 = icmp ult i32 %110, %96
-  br i1 %111, label %114, label %_update_dimensions.exit
+  br i1 %111, label %.thread.i.i, label %_update_dimensions.exit
 
 112:                                              ; preds = %80
   %113 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.6) #19
   %.pre.i.i = load i32, ptr %83, align 4, !tbaa !154
-  br label %114
+  %114 = icmp ult i32 %.pre.i.i, %96
+  br i1 %114, label %.thread.i.i, label %117
 
-114:                                              ; preds = %112, %109
-  %115 = phi i32 [ %.pre.i.i, %112 ], [ %110, %109 ]
-  %116 = phi i32 [ %113, %112 ], [ %90, %109 ]
-  %117 = icmp ult i32 %115, %96
-  br i1 %117, label %118, label %120
+.thread.i.i:                                      ; preds = %112, %109
+  %115 = phi i32 [ %113, %112 ], [ %90, %109 ]
+  %116 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.7) #19
+  br label %117
 
-118:                                              ; preds = %114
-  %119 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.7) #19
-  br label %120
-
-120:                                              ; preds = %118, %114
-  %121 = phi i32 [ %119, %118 ], [ %96, %114 ]
-  call void @_set_dimensions(ptr noundef nonnull readonly %0, i32 noundef %116, i32 noundef %121, i32 noundef %102, ptr noundef %106)
+117:                                              ; preds = %.thread.i.i, %112
+  %118 = phi i32 [ %115, %.thread.i.i ], [ %113, %112 ]
+  %119 = phi i32 [ %116, %.thread.i.i ], [ %96, %112 ]
+  call void @_set_dimensions(ptr noundef nonnull readonly %0, i32 noundef %118, i32 noundef %119, i32 noundef %102, ptr noundef %106)
   br label %_update_dimensions.exit
 
-_update_dimensions.exit:                          ; preds = %109, %120
-  %122 = getelementptr inbounds nuw i8, ptr %22, i64 192
-  %123 = load ptr, ptr %122, align 8, !tbaa !155
-  %124 = call i32 %123(ptr noundef null) #19
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %126 = load ptr, ptr %125, align 8, !tbaa !81
-  %127 = call i32 @gtk_widget_get_sensitive(ptr noundef %126) #19
-  %128 = and i32 %124, 4
-  %129 = icmp eq i32 %128, 0
-  %130 = icmp ne i32 %127, 0
-  %or.cond = select i1 %129, i1 true, i1 %130
-  br i1 %or.cond, label %136, label %131
+_update_dimensions.exit:                          ; preds = %109, %117
+  %120 = getelementptr inbounds nuw i8, ptr %22, i64 192
+  %121 = load ptr, ptr %120, align 8, !tbaa !155
+  %122 = call i32 %121(ptr noundef null) #19
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %124 = load ptr, ptr %123, align 8, !tbaa !81
+  %125 = call i32 @gtk_widget_get_sensitive(ptr noundef %124) #19
+  %126 = and i32 %122, 4
+  %127 = icmp eq i32 %126, 0
+  %128 = icmp ne i32 %125, 0
+  %or.cond = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond, label %134, label %129
 
-131:                                              ; preds = %_update_dimensions.exit
-  %132 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.15) #19
-  %133 = load ptr, ptr %125, align 8, !tbaa !81
-  call void @gtk_widget_set_sensitive(ptr noundef %133, i32 noundef 1) #19
-  %134 = load ptr, ptr %125, align 8, !tbaa !81
-  %.not38 = icmp ne i32 %132, 0
-  %135 = zext i1 %.not38 to i32
-  call void @dt_bauhaus_combobox_set(ptr noundef %134, i32 noundef %135) #19
-  br label %144
+129:                                              ; preds = %_update_dimensions.exit
+  %130 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.15) #19
+  %131 = load ptr, ptr %123, align 8, !tbaa !81
+  call void @gtk_widget_set_sensitive(ptr noundef %131, i32 noundef 1) #19
+  %132 = load ptr, ptr %123, align 8, !tbaa !81
+  %.not38 = icmp ne i32 %130, 0
+  %133 = zext i1 %.not38 to i32
+  call void @dt_bauhaus_combobox_set(ptr noundef %132, i32 noundef %133) #19
+  br label %142
 
-136:                                              ; preds = %_update_dimensions.exit
-  %or.cond3 = select i1 %129, i1 %130, i1 false
-  br i1 %or.cond3, label %137, label %144
+134:                                              ; preds = %_update_dimensions.exit
+  %or.cond3 = select i1 %127, i1 %128, i1 false
+  br i1 %or.cond3, label %135, label %142
 
-137:                                              ; preds = %136
-  %138 = load ptr, ptr %125, align 8, !tbaa !81
-  %139 = call i32 @dt_bauhaus_combobox_get(ptr noundef %138) #19
-  %140 = load ptr, ptr %125, align 8, !tbaa !81
-  call void @dt_bauhaus_combobox_set(ptr noundef %140, i32 noundef 0) #19
-  %141 = icmp eq i32 %139, 1
-  %142 = zext i1 %141 to i32
-  call void @dt_conf_set_bool(ptr noundef nonnull @.str.15, i32 noundef %142) #19
-  %143 = load ptr, ptr %125, align 8, !tbaa !81
-  call void @gtk_widget_set_sensitive(ptr noundef %143, i32 noundef 0) #19
-  br label %144
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %123, align 8, !tbaa !81
+  %137 = call i32 @dt_bauhaus_combobox_get(ptr noundef %136) #19
+  %138 = load ptr, ptr %123, align 8, !tbaa !81
+  call void @dt_bauhaus_combobox_set(ptr noundef %138, i32 noundef 0) #19
+  %139 = icmp eq i32 %137, 1
+  %140 = zext i1 %139 to i32
+  call void @dt_conf_set_bool(ptr noundef nonnull @.str.15, i32 noundef %140) #19
+  %141 = load ptr, ptr %123, align 8, !tbaa !81
+  call void @gtk_widget_set_sensitive(ptr noundef %141, i32 noundef 0) #19
+  br label %142
 
-144:                                              ; preds = %131, %137, %136, %.thread
+142:                                              ; preds = %129, %135, %134, %.thread
   ret void
 }
 

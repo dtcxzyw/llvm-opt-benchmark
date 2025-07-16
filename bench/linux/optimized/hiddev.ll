@@ -243,13 +243,13 @@ define dso_local i32 @hiddev_connect(ptr noundef %0, i32 noundef %1) local_unnam
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7456
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
-  br i1 %5, label %6, label %36
+  br i1 %5, label %6, label %34
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %33, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -285,70 +285,66 @@ define dso_local i32 @hiddev_connect(ptr noundef %0, i32 noundef %1) local_unnam
 28:                                               ; preds = %27, %27, %27, %20, %14
   %29 = add nuw nsw i64 %15, 1
   %30 = icmp eq i64 %29, %13
-  br i1 %30, label %.thread, label %14, !llvm.loop !9
+  br i1 %30, label %.critedge, label %14, !llvm.loop !9
 
 31:                                               ; preds = %27
   %32 = trunc i64 %15 to i32
-  br label %33
+  %33 = icmp eq i32 %8, %32
+  br i1 %33, label %.critedge, label %34
 
-33:                                               ; preds = %31, %6
-  %34 = phi i32 [ 0, %6 ], [ %32, %31 ]
-  %35 = icmp eq i32 %34, %8
-  br i1 %35, label %.thread, label %36
+34:                                               ; preds = %31, %2
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
+  %36 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 3520, i64 noundef 104) #14
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.critedge, label %38
 
-36:                                               ; preds = %33, %2
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
-  %38 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %37, i32 noundef 3520, i64 noundef 104) #14
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread, label %40
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  tail call void @__init_waitqueue_head(ptr noundef nonnull %39, ptr noundef nonnull @.str, ptr noundef nonnull @hiddev_connect.__key) #13
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  store volatile ptr %40, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 88
+  store volatile ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 96
+  store i32 0, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  tail call void @__mutex_init(ptr noundef nonnull %43, ptr noundef nonnull @.str.2, ptr noundef nonnull @hiddev_connect.__key.1) #13
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 7184
+  store ptr %36, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 72
+  store ptr %0, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i32 1, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call i32 @usb_register_dev(ptr noundef %48, ptr noundef nonnull @hiddev_class) #13
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %53, label %51
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  tail call void @__init_waitqueue_head(ptr noundef nonnull %41, ptr noundef nonnull @.str, ptr noundef nonnull @hiddev_connect.__key) #13
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  store volatile ptr %42, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 88
-  store volatile ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  tail call void @__mutex_init(ptr noundef nonnull %45, ptr noundef nonnull @.str.2, ptr noundef nonnull @hiddev_connect.__key.1) #13
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  store ptr %38, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 72
-  store ptr %0, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i32 1, ptr %48, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 @usb_register_dev(ptr noundef %50, ptr noundef nonnull @hiddev_class) #13
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %55, label %53
+51:                                               ; preds = %38
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %52, ptr noundef nonnull @.str.3) #15
+  store ptr null, ptr %44, align 8
+  tail call void @kfree(ptr noundef nonnull %36) #13
+  br label %.critedge
 
-53:                                               ; preds = %40
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 6352
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %54, ptr noundef nonnull @.str.3) #15
-  store ptr null, ptr %46, align 8
-  tail call void @kfree(ptr noundef nonnull %38) #13
-  br label %.thread
+53:                                               ; preds = %38
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 7156
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %36, i64 100
+  %57 = lshr i32 %55, 29
+  %58 = trunc nuw nsw i32 %57 to i8
+  %59 = and i8 %58, 1
+  store i8 %59, ptr %56, align 4
+  %60 = load ptr, ptr %47, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load i32, ptr %61, align 8
+  store i32 %62, ptr %36, align 8
+  br label %.critedge
 
-55:                                               ; preds = %40
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 7156
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %38, i64 100
-  %59 = lshr i32 %57, 29
-  %60 = trunc nuw nsw i32 %59 to i8
-  %61 = and i8 %60, 1
-  store i8 %61, ptr %58, align 4
-  %62 = load ptr, ptr %49, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = load i32, ptr %63, align 8
-  store i32 %64, ptr %38, align 8
-  br label %.thread
-
-.thread:                                          ; preds = %28, %55, %53, %36, %33
-  %65 = phi i32 [ %51, %53 ], [ 0, %55 ], [ -22, %33 ], [ -12, %36 ], [ -22, %28 ]
-  ret i32 %65
+.critedge:                                        ; preds = %28, %6, %53, %51, %34, %31
+  %63 = phi i32 [ %49, %51 ], [ 0, %53 ], [ -22, %31 ], [ -12, %34 ], [ -22, %6 ], [ -22, %28 ]
+  ret i32 %63
 }
 
 ; Function Attrs: null_pointer_is_valid

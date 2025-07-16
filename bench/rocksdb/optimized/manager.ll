@@ -1805,25 +1805,28 @@ define noundef range(i32 -100000, 1) i32 @_ZN4toku16locktree_manager30check_curr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !34
   %5 = load i64, ptr %0, align 8, !tbaa !22
-  %6 = lshr i64 %5, 1
-  %.not = icmp uge i64 %4, %6
-  %or.cond.not = select i1 %1, i1 %.not, i1 false
-  br i1 %or.cond.not, label %7, label %.thread
+  br i1 %1, label %6, label %.thread
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  tail call void @_ZN4toku16locktree_manager18locktree_escalator3runEPS0_PFvPvES3_(ptr noundef nonnull align 8 dereferenceable(105) %8, ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull @_ZZN4toku16locktree_manager14run_escalationEvEN13escalation_fn3runEPv, ptr noundef nonnull align 8 dereferenceable(392) %0)
-  %9 = load i64, ptr %3, align 8, !tbaa !34
-  %10 = load i64, ptr %0, align 8, !tbaa !22
-  %11 = lshr i64 %10, 1
-  %.not6 = icmp ult i64 %9, %11
-  br i1 %.not6, label %.thread, label %19
+6:                                                ; preds = %2
+  %7 = lshr i64 %5, 1
+  %.not = icmp ult i64 %4, %7
+  br i1 %.not, label %.thread.thread, label %8
 
-.thread:                                          ; preds = %2, %7
-  %12 = phi i64 [ %10, %7 ], [ %5, %2 ]
-  %13 = phi i64 [ %9, %7 ], [ %4, %2 ]
-  %.not7 = icmp ult i64 %13, %12
-  br i1 %.not7, label %19, label %14
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  tail call void @_ZN4toku16locktree_manager18locktree_escalator3runEPS0_PFvPvES3_(ptr noundef nonnull align 8 dereferenceable(105) %9, ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull @_ZZN4toku16locktree_manager14run_escalationEvEN13escalation_fn3runEPv, ptr noundef nonnull align 8 dereferenceable(392) %0)
+  %10 = load i64, ptr %3, align 8, !tbaa !34
+  %11 = load i64, ptr %0, align 8, !tbaa !22
+  %12 = lshr i64 %11, 1
+  %.not6 = icmp ult i64 %10, %12
+  br i1 %.not6, label %.thread.thread, label %19
+
+.thread.thread:                                   ; preds = %6, %8
+  br label %19
+
+.thread:                                          ; preds = %2
+  %13 = icmp ult i64 %4, %5
+  br i1 %13, label %19, label %14
 
 14:                                               ; preds = %.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1835,8 +1838,8 @@ define noundef range(i32 -100000, 1) i32 @_ZN4toku16locktree_manager30check_curr
   %spec.select4 = select i1 %.not8, i32 0, i32 -100000
   br label %19
 
-19:                                               ; preds = %14, %.thread, %7
-  %.1 = phi i32 [ 0, %.thread ], [ -100000, %7 ], [ %spec.select4, %14 ]
+19:                                               ; preds = %.thread.thread, %14, %.thread, %8
+  %.1 = phi i32 [ 0, %.thread ], [ -100000, %8 ], [ %spec.select4, %14 ], [ 0, %.thread.thread ]
   ret i32 %.1
 }
 

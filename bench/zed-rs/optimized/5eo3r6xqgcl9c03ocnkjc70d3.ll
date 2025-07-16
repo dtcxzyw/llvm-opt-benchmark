@@ -4325,12 +4325,15 @@ define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
   %.sroa.013.0.i.i.i = select i1 %18, i64 %19, i64 %.sroa.03.019.i.i.i
   %20 = sub i64 %.sroa.014.0.i.i.i, %.sroa.013.0.i.i.i
   %21 = icmp ult i64 %.sroa.013.0.i.i.i, %.sroa.014.0.i.i.i
-  br i1 %21, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.i"
+  br i1 %21, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.loopexit.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.i": ; preds = %16, %2
-  %.sroa.03.0.lcssa.i.i.i = phi i64 [ 0, %2 ], [ %.sroa.013.0.i.i.i, %16 ]
-  %22 = icmp ule i64 %.sroa.03.0.lcssa.i.i.i, %8
-  tail call void @llvm.assume(i1 %22)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.loopexit.i": ; preds = %16
+  %22 = icmp ule i64 %.sroa.013.0.i.i.i, %8
+  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.i"
+
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.loopexit.i", %2
+  %.sroa.03.0.lcssa.i.i.i = phi i1 [ true, %2 ], [ %22, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.loopexit.i" ]
+  tail call void @llvm.assume(i1 %.sroa.03.0.lcssa.i.i.i)
   br label %"_ZN7channel13channel_store12ChannelStore15update_channels28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb00333f8b3037099E.llvm.5086258882527994251.exit"
 
 23:                                               ; preds = %9
@@ -17723,12 +17726,15 @@ define hidden noundef ptr @"_ZN7channel13channel_store12ChannelStore15update_cha
   %.sroa.013.0.i.i = select i1 %17, i64 %18, i64 %.sroa.03.019.i.i
   %19 = sub i64 %.sroa.014.0.i.i, %.sroa.013.0.i.i
   %20 = icmp ult i64 %.sroa.013.0.i.i, %.sroa.014.0.i.i
-  br i1 %20, label %8, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit"
+  br i1 %20, label %8, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.loopexit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit": ; preds = %15, %2
-  %.sroa.03.0.lcssa.i.i = phi i64 [ 0, %2 ], [ %.sroa.013.0.i.i, %15 ]
-  %21 = icmp ule i64 %.sroa.03.0.lcssa.i.i, %7
-  tail call void @llvm.assume(i1 %21)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.loopexit": ; preds = %15
+  %21 = icmp ule i64 %.sroa.013.0.i.i, %7
+  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit"
+
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.loopexit", %2
+  %.sroa.03.0.lcssa.i.i = phi i1 [ true, %2 ], [ %21, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h3b4cadca2016b513E.llvm.5086258882527994251.exit.loopexit" ]
+  tail call void @llvm.assume(i1 %.sroa.03.0.lcssa.i.i)
   br label %"_ZN7channel13channel_store12ChannelStore15update_channels28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hef5d56985b2aa378E.llvm.5086258882527994251.exit"
 
 22:                                               ; preds = %8

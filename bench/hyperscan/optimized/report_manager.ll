@@ -538,8 +538,8 @@ define hidden void @_ZN3ue213ReportManager18logicalKeyRenumberEv(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %4, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %4, %5
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -557,10 +557,10 @@ define hidden void @_ZN3ue213ReportManager18logicalKeyRenumberEv(ptr noundef non
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %10 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %8, %.lr.ph ]
-  %11 = phi ptr [ %36, %.lr.ph.splitthread-pre-split ], [ %5, %.lr.ph ]
-  %12 = phi ptr [ %37, %.lr.ph.splitthread-pre-split ], [ %4, %.lr.ph ]
-  %13 = phi i64 [ %39, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %.017 = phi i32 [ %38, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %11 = phi ptr [ %35, %.lr.ph.splitthread-pre-split ], [ %5, %.lr.ph ]
+  %12 = phi ptr [ %36, %.lr.ph.splitthread-pre-split ], [ %4, %.lr.ph ]
+  %13 = phi i64 [ %38, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
+  %.017 = phi i32 [ %37, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   %14 = getelementptr inbounds nuw %"struct.ue2::Report", ptr %11, i64 %13
   %.not10.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not10.i.i.i.i, label %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, label %.lr.ph.i.i.i.i
@@ -590,56 +590,56 @@ _ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_bou
 _ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %23 = load i32, ptr %22, align 4
-  %24 = icmp ult i32 %16, %23
-  br i1 %24, label %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, label %.lr.ph.i.i.i.i8
+  %.not = icmp ult i32 %16, %23
+  br i1 %.not, label %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit.thread, label %.lr.ph.i.i.i.i8
 
 .lr.ph.i.i.i.i8:                                  ; preds = %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit, %.lr.ph.i.i.i.i8
   %.012.i.i.i.i9 = phi ptr [ %.1.i.i.i.i14, %.lr.ph.i.i.i.i8 ], [ %10, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit ]
   %.0811.i.i.i.i10 = phi ptr [ %.19.i.i.i.i11, %.lr.ph.i.i.i.i8 ], [ %7, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i9, i64 32
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp ult i32 %26, %16
-  %.19.i.i.i.i11 = select i1 %27, ptr %.0811.i.i.i.i10, ptr %.012.i.i.i.i9
-  %.1.in.v.i.i.i.i12 = select i1 %27, i64 24, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i9, i64 32
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp ult i32 %25, %16
+  %.19.i.i.i.i11 = select i1 %26, ptr %.0811.i.i.i.i10, ptr %.012.i.i.i.i9
+  %.1.in.v.i.i.i.i12 = select i1 %26, i64 24, i64 16
   %.1.in.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i9, i64 %.1.in.v.i.i.i.i12
   %.1.i.i.i.i14 = load ptr, ptr %.1.in.i.i.i.i13, align 8
   %.not.i.i.i.i15 = icmp eq ptr %.1.i.i.i.i14, null
   br i1 %.not.i.i.i.i15, label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit.i, label %.lr.ph.i.i.i.i8, !llvm.loop !15
 
 _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit.i: ; preds = %.lr.ph.i.i.i.i8
-  %28 = icmp eq ptr %.19.i.i.i.i11, %7
-  br i1 %28, label %.critedge.i, label %29
+  %27 = icmp eq ptr %.19.i.i.i.i11, %7
+  br i1 %27, label %.critedge.i, label %28
 
-29:                                               ; preds = %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i11, i64 32
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp ult i32 %16, %31
-  br i1 %32, label %.critedge.i, label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit
+28:                                               ; preds = %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit.i
+  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i11, i64 32
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp ult i32 %16, %30
+  br i1 %31, label %.critedge.i, label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit
 
-.critedge.i:                                      ; preds = %29, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit.i
+.critedge.i:                                      ; preds = %28, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE11lower_boundERS3_.exit.i
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.14) #22
   unreachable
 
-_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit: ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i11, i64 36
-  %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  store i32 %34, ptr %35, align 4
+_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit: ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i11, i64 36
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  store i32 %33, ptr %34, align 4
   %.pre = load ptr, ptr %3, align 8
-  %.pre19 = load ptr, ptr %2, align 8
+  %.pre20 = load ptr, ptr %2, align 8
   br label %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit.thread
 
 _ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit.thread: ; preds = %.lr.ph.split, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit
-  %36 = phi ptr [ %11, %.lr.ph.split ], [ %11, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %.pre19, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit ], [ %11, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit ]
-  %37 = phi ptr [ %12, %.lr.ph.split ], [ %12, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %.pre, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit ], [ %12, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit ]
-  %38 = add i32 %.017, 1
-  %39 = zext i32 %38 to i64
-  %40 = ptrtoint ptr %37 to i64
-  %41 = ptrtoint ptr %36 to i64
-  %42 = sub i64 %40, %41
-  %43 = sdiv exact i64 %42, 72
-  %44 = icmp ugt i64 %43, %39
-  br i1 %44, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !16
+  %35 = phi ptr [ %11, %.lr.ph.split ], [ %11, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %.pre20, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit ], [ %11, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit ]
+  %36 = phi ptr [ %12, %.lr.ph.split ], [ %12, %_ZNKSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %.pre, %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEE2atERS3_.exit ], [ %12, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit ]
+  %37 = add i32 %.017, 1
+  %38 = zext i32 %37 to i64
+  %39 = ptrtoint ptr %36 to i64
+  %40 = ptrtoint ptr %35 to i64
+  %41 = sub i64 %39, %40
+  %42 = sdiv exact i64 %41, 72
+  %43 = icmp ugt i64 %42, %38
+  br i1 %43, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !16
 }
 
 declare void @_ZN3ue213ParsedLogical18logicalKeyRenumberEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #4

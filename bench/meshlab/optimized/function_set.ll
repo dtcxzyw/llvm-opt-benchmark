@@ -7035,17 +7035,17 @@ define noundef zeroext i1 @_ZNK9pymeshlab11FunctionSet22containsFilterFunctionER
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %10
   %12 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 0)
-          to label %13 unwind label %39
+          to label %13 unwind label %38
 
 13:                                               ; preds = %_ZN7QStringC2ERKS_.exit
   store ptr %12, ptr %5, align 8
   %14 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 0)
-          to label %15 unwind label %41
+          to label %15 unwind label %40
 
 15:                                               ; preds = %13
   store ptr %14, ptr %6, align 8
   invoke void @_ZN9pymeshlab8FunctionC1E7QStringS1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-          to label %16 unwind label %43
+          to label %16 unwind label %42
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -7079,11 +7079,11 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %23
-  %spec.select.i.i = select i1 %25, ptr %19, ptr %.19.i.i.i
+  %not. = xor i1 %25, true
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc10, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %16
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %19, %16 ], [ %spec.select.i.i, %.noexc10 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %16 ], [ %not., %.noexc10 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %26 = load ptr, ptr %6, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4
@@ -7151,51 +7151,50 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit22
 
 _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exit16, %_ZN9QtPrivate8RefCount5derefEv.exit.i18, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17
-  %38 = icmp ne ptr %.sroa.0.0.i.i, %19
-  ret i1 %38
+  ret i1 %.sroa.0.0.i.i
 
-39:                                               ; preds = %_ZN7QStringC2ERKS_.exit
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  br label %48
-
-41:                                               ; preds = %13
-  %42 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZN7QStringC2ERKS_.exit
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %47
 
-43:                                               ; preds = %15
-  %44 = landingpad { ptr, i32 }
+40:                                               ; preds = %13
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %46
+
+42:                                               ; preds = %15
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  br label %45
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
 .loopexit.split-lp:                               ; preds = %23
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit.split-lp, %.loopexit
+44:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
+  br label %45
+
+45:                                               ; preds = %44, %42
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %44 ], [ %43, %42 ]
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   br label %46
 
-46:                                               ; preds = %45, %43
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %45 ], [ %44, %43 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
+46:                                               ; preds = %45, %40
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %41, %40 ]
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   br label %47
 
-47:                                               ; preds = %46, %41
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %42, %41 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  br label %48
-
-48:                                               ; preds = %47, %39
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %47 ], [ %40, %39 ]
+47:                                               ; preds = %46, %38
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %46 ], [ %39, %38 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -7450,17 +7449,17 @@ define noundef zeroext i1 @_ZNK9pymeshlab11FunctionSet24containsLoadMeshFunction
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %10
   %12 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 0)
-          to label %13 unwind label %39
+          to label %13 unwind label %38
 
 13:                                               ; preds = %_ZN7QStringC2ERKS_.exit
   store ptr %12, ptr %5, align 8
   %14 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 0)
-          to label %15 unwind label %41
+          to label %15 unwind label %40
 
 15:                                               ; preds = %13
   store ptr %14, ptr %6, align 8
   invoke void @_ZN9pymeshlab8FunctionC1E7QStringS1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-          to label %16 unwind label %43
+          to label %16 unwind label %42
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -7494,11 +7493,11 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %23
-  %spec.select.i.i = select i1 %25, ptr %19, ptr %.19.i.i.i
+  %not. = xor i1 %25, true
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc10, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %16
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %19, %16 ], [ %spec.select.i.i, %.noexc10 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %16 ], [ %not., %.noexc10 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %26 = load ptr, ptr %6, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4
@@ -7566,51 +7565,50 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit22
 
 _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exit16, %_ZN9QtPrivate8RefCount5derefEv.exit.i18, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17
-  %38 = icmp ne ptr %.sroa.0.0.i.i, %19
-  ret i1 %38
+  ret i1 %.sroa.0.0.i.i
 
-39:                                               ; preds = %_ZN7QStringC2ERKS_.exit
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  br label %48
-
-41:                                               ; preds = %13
-  %42 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZN7QStringC2ERKS_.exit
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %47
 
-43:                                               ; preds = %15
-  %44 = landingpad { ptr, i32 }
+40:                                               ; preds = %13
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %46
+
+42:                                               ; preds = %15
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  br label %45
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
 .loopexit.split-lp:                               ; preds = %23
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit.split-lp, %.loopexit
+44:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
+  br label %45
+
+45:                                               ; preds = %44, %42
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %44 ], [ %43, %42 ]
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   br label %46
 
-46:                                               ; preds = %45, %43
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %45 ], [ %44, %43 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
+46:                                               ; preds = %45, %40
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %41, %40 ]
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   br label %47
 
-47:                                               ; preds = %46, %41
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %42, %41 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  br label %48
-
-48:                                               ; preds = %47, %39
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %47 ], [ %40, %39 ]
+47:                                               ; preds = %46, %38
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %46 ], [ %39, %38 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -7865,17 +7863,17 @@ define noundef zeroext i1 @_ZNK9pymeshlab11FunctionSet24containsSaveMeshFunction
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %10
   %12 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 0)
-          to label %13 unwind label %39
+          to label %13 unwind label %38
 
 13:                                               ; preds = %_ZN7QStringC2ERKS_.exit
   store ptr %12, ptr %5, align 8
   %14 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 0)
-          to label %15 unwind label %41
+          to label %15 unwind label %40
 
 15:                                               ; preds = %13
   store ptr %14, ptr %6, align 8
   invoke void @_ZN9pymeshlab8FunctionC1E7QStringS1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-          to label %16 unwind label %43
+          to label %16 unwind label %42
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -7909,11 +7907,11 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %23
-  %spec.select.i.i = select i1 %25, ptr %19, ptr %.19.i.i.i
+  %not. = xor i1 %25, true
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc10, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %16
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %19, %16 ], [ %spec.select.i.i, %.noexc10 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %16 ], [ %not., %.noexc10 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %26 = load ptr, ptr %6, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4
@@ -7981,51 +7979,50 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit22
 
 _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exit16, %_ZN9QtPrivate8RefCount5derefEv.exit.i18, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17
-  %38 = icmp ne ptr %.sroa.0.0.i.i, %19
-  ret i1 %38
+  ret i1 %.sroa.0.0.i.i
 
-39:                                               ; preds = %_ZN7QStringC2ERKS_.exit
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  br label %48
-
-41:                                               ; preds = %13
-  %42 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZN7QStringC2ERKS_.exit
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %47
 
-43:                                               ; preds = %15
-  %44 = landingpad { ptr, i32 }
+40:                                               ; preds = %13
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %46
+
+42:                                               ; preds = %15
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  br label %45
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
 .loopexit.split-lp:                               ; preds = %23
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit.split-lp, %.loopexit
+44:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
+  br label %45
+
+45:                                               ; preds = %44, %42
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %44 ], [ %43, %42 ]
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   br label %46
 
-46:                                               ; preds = %45, %43
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %45 ], [ %44, %43 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
+46:                                               ; preds = %45, %40
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %41, %40 ]
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   br label %47
 
-47:                                               ; preds = %46, %41
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %42, %41 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  br label %48
-
-48:                                               ; preds = %47, %39
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %47 ], [ %40, %39 ]
+47:                                               ; preds = %46, %38
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %46 ], [ %39, %38 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -8280,17 +8277,17 @@ define noundef zeroext i1 @_ZNK9pymeshlab11FunctionSet26containsLoadRasterFuncti
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %10
   %12 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 0)
-          to label %13 unwind label %39
+          to label %13 unwind label %38
 
 13:                                               ; preds = %_ZN7QStringC2ERKS_.exit
   store ptr %12, ptr %5, align 8
   %14 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.66, i32 noundef 0)
-          to label %15 unwind label %41
+          to label %15 unwind label %40
 
 15:                                               ; preds = %13
   store ptr %14, ptr %6, align 8
   invoke void @_ZN9pymeshlab8FunctionC1E7QStringS1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-          to label %16 unwind label %43
+          to label %16 unwind label %42
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -8324,11 +8321,11 @@ _ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %23
-  %spec.select.i.i = select i1 %25, ptr %19, ptr %.19.i.i.i
+  %not. = xor i1 %25, true
   br label %_ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit
 
 _ZNKSt3setIN9pymeshlab8FunctionESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %.noexc10, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %16
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %19, %16 ], [ %spec.select.i.i, %.noexc10 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN9pymeshlab8FunctionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ false, %16 ], [ %not., %.noexc10 ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
   %26 = load ptr, ptr %6, align 8
   %27 = load atomic i32, ptr %26 monotonic, align 4
@@ -8396,51 +8393,50 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit22
 
 _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exit16, %_ZN9QtPrivate8RefCount5derefEv.exit.i18, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17
-  %38 = icmp ne ptr %.sroa.0.0.i.i, %19
-  ret i1 %38
+  ret i1 %.sroa.0.0.i.i
 
-39:                                               ; preds = %_ZN7QStringC2ERKS_.exit
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  br label %48
-
-41:                                               ; preds = %13
-  %42 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZN7QStringC2ERKS_.exit
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %47
 
-43:                                               ; preds = %15
-  %44 = landingpad { ptr, i32 }
+40:                                               ; preds = %13
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %46
+
+42:                                               ; preds = %15
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  br label %45
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
 .loopexit.split-lp:                               ; preds = %23
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit.split-lp, %.loopexit
+44:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN9pymeshlab8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
+  br label %45
+
+45:                                               ; preds = %44, %42
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %44 ], [ %43, %42 ]
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   br label %46
 
-46:                                               ; preds = %45, %43
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %45 ], [ %44, %43 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
+46:                                               ; preds = %45, %40
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %41, %40 ]
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   br label %47
 
-47:                                               ; preds = %46, %41
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %42, %41 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  br label %48
-
-48:                                               ; preds = %47, %39
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %47 ], [ %40, %39 ]
+47:                                               ; preds = %46, %38
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %46 ], [ %39, %38 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   resume { ptr, i32 } %.pn.pn.pn
 }

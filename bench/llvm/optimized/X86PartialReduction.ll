@@ -575,7 +575,7 @@ _ZL17matchAddReductionRKN4llvm18ExtractElementInstERb.exit.thread333: ; preds = 
   store i64 %235, ptr %85, align 8
   br label %236
 
-thread-pre-split.ithread-pre-split:               ; preds = %.lr.ph.i.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit.i, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6insertIPNS_3UseEvEEPS2_S7_T_S8_.exit136, %313, %._crit_edge.i, %333, %337, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i, %_ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.i, %381, %384, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i
+thread-pre-split.ithread-pre-split:               ; preds = %.lr.ph.i.i.i, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit.i, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6insertIPNS_3UseEvEEPS2_S7_T_S8_.exit136, %313, %._crit_edge.i, %333, %337, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i, %.preheader.i.i, %_ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.i, %381, %384, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i
   %.pr.i.pr = load i32, ptr %86, align 8, !tbaa !76
   br label %thread-pre-split.i
 
@@ -836,7 +836,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i:             ; preds = %337
   %346 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %347 = load ptr, ptr %346, align 8, !tbaa !58
   %.not.i.i132.i.i = icmp eq ptr %347, null
-  br i1 %.not.i.i132.i.i, label %_ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.i, label %_ZNK4llvm5Value9hasOneUseEv.exit15.i.i
+  br i1 %.not.i.i132.i.i, label %thread-pre-split.ithread-pre-split, label %_ZNK4llvm5Value9hasOneUseEv.exit15.i.i
 
 _ZNK4llvm5Value9hasOneUseEv.exit15.i.i:           ; preds = %.preheader.i.i, %356
   %348 = phi ptr [ %360, %356 ], [ %347, %.preheader.i.i ]
@@ -860,9 +860,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit15.i.i:           ; preds = %.preheader.i.i, %35
   %.not.i.i13.i.i = icmp eq ptr %360, null
   br i1 %.not.i.i13.i.i, label %_ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.i, label %_ZNK4llvm5Value9hasOneUseEv.exit15.i.i, !llvm.loop !96
 
-_ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.i: ; preds = %356, %352, %_ZNK4llvm5Value9hasOneUseEv.exit15.i.i, %.preheader.i.i
-  %.0.lcssa.i.i = phi ptr [ %344, %.preheader.i.i ], [ %358, %356 ], [ %.03.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit15.i.i ], [ %.03.i.i, %352 ]
-  %361 = icmp eq ptr %.0.lcssa.i.i, %242
+_ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.i: ; preds = %356, %352, %_ZNK4llvm5Value9hasOneUseEv.exit15.i.i
+  %.0.lcssa.ph.i.i = phi ptr [ %.03.i.i, %352 ], [ %.03.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit15.i.i ], [ %358, %356 ]
+  %361 = icmp eq ptr %.0.lcssa.ph.i.i, %242
   br i1 %361, label %_ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.thread91.i, label %thread-pre-split.ithread-pre-split, !llvm.loop !91
 
 _ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.thread91.i: ; preds = %_ZL18isReachableFromPHIPN4llvm7PHINodeEPNS_14BinaryOperatorE.exit.i, %342

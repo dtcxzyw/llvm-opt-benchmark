@@ -289,7 +289,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
 
 4:                                                ; preds = %3
   %5 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %0, ptr noundef %1, i32 noundef %2) #8
-  br label %268
+  br label %266
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
@@ -332,11 +332,15 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
 
 .preheader.i.preheader:                           ; preds = %21
   %.not62.i64 = icmp eq i64 %.05597.i, %.056.i
-  br i1 %.not62.i64, label %.preheader.i.preheader..preheader.i._crit_edge_crit_edge, label %.lr.ph
+  br i1 %.not62.i64, label %.preheader.i.preheader..preheader.i._crit_edge_crit_edge, label %.lr.ph.preheader
 
 .preheader.i.preheader..preheader.i._crit_edge_crit_edge: ; preds = %.preheader.i.preheader
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
+  %.pre75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   br label %.preheader.i._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %.preheader.i.preheader
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
+  br label %.lr.ph
 
 24:                                               ; preds = %21
   %25 = add nsw i64 %.05597.i, -1
@@ -347,13 +351,13 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   %.not62.i = icmp eq i64 %84, %.056.i
   br i1 %.not62.i, label %.preheader.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
 
-.lr.ph:                                           ; preds = %.preheader.i.preheader, %.preheader.i
-  %.1.i65 = phi i64 [ %84, %.preheader.i ], [ %.05597.i, %.preheader.i.preheader ]
-  %27 = phi ptr [ %164, %.preheader.i ], [ %23, %.preheader.i.preheader ]
-  %28 = phi i64 [ %168, %.preheader.i ], [ %10, %.preheader.i.preheader ]
-  %29 = trunc i64 %.1.i65 to i32
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
-  %31 = icmp sgt i32 %29, -1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.preheader.i
+  %27 = phi ptr [ %188, %.preheader.i ], [ %.pre, %.lr.ph.preheader ]
+  %.1.i65 = phi i64 [ %84, %.preheader.i ], [ %.05597.i, %.lr.ph.preheader ]
+  %28 = phi ptr [ %164, %.preheader.i ], [ %23, %.lr.ph.preheader ]
+  %29 = phi i64 [ %168, %.preheader.i ], [ %10, %.lr.ph.preheader ]
+  %30 = trunc i64 %.1.i65 to i32
+  %31 = icmp sgt i32 %30, -1
   %32 = and i64 %.1.i65, 4294967295
   %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %34 = icmp sgt i64 %33, %32
@@ -366,10 +370,10 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
 
 36:                                               ; preds = %.lr.ph
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
-  %38 = ptrtoint ptr %27 to i64
+  %38 = ptrtoint ptr %28 to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
-  %41 = lshr i64 %28, %32
+  %41 = lshr i64 %29, %32
   %42 = add i64 %41, -1
   %43 = and i64 %40, %42
   %44 = icmp eq i64 %43, 0
@@ -395,7 +399,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
 
 sh_testbit.exit.i:                                ; preds = %46
   %53 = lshr i64 %49, 3
-  %54 = getelementptr inbounds nuw i8, ptr %30, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %27, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !30
   %56 = zext i8 %55 to i64
   %57 = and i64 %49, 7
@@ -410,10 +414,10 @@ sh_testbit.exit.i:                                ; preds = %46
 
 61:                                               ; preds = %sh_testbit.exit.i
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
-  tail call fastcc void @sh_clearbit(ptr noundef %27, i32 noundef %29, ptr noundef %62)
-  %63 = load ptr, ptr %27, align 8, !tbaa !31
+  tail call fastcc void @sh_clearbit(ptr noundef %28, i32 noundef %30, ptr noundef %62)
+  %63 = load ptr, ptr %28, align 8, !tbaa !31
   %.not.i71.i = icmp eq ptr %63, null
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !35
   br i1 %.not.i71.i, label %._crit_edge.i.i, label %64
 
@@ -424,7 +428,7 @@ sh_testbit.exit.i:                                ; preds = %46
 
 ._crit_edge.i.i:                                  ; preds = %64, %61
   store ptr %63, ptr %.pre.i.i, align 8, !tbaa !36
-  %66 = load ptr, ptr %27, align 8, !tbaa !31
+  %66 = load ptr, ptr %28, align 8, !tbaa !31
   %67 = icmp eq ptr %66, null
   %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   br i1 %67, label %sh_remove_from_list.exit.i, label %68
@@ -455,7 +459,7 @@ sh_testbit.exit.i:                                ; preds = %46
 sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_edge.i.i
   %80 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.1.i65
   %81 = load ptr, ptr %80, align 8, !tbaa !27
-  %.not66.i = icmp eq ptr %27, %81
+  %.not66.i = icmp eq ptr %28, %81
   br i1 %.not66.i, label %82, label %83
 
 82:                                               ; preds = %sh_remove_from_list.exit.i
@@ -523,14 +527,14 @@ sh_testbit.exit76.i:                              ; preds = %102
 
 117:                                              ; preds = %sh_testbit.exit76.i
   %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
-  tail call fastcc void @sh_setbit(ptr noundef nonnull %27, i32 noundef %85, ptr noundef %118)
+  tail call fastcc void @sh_setbit(ptr noundef nonnull %28, i32 noundef %85, ptr noundef %118)
   %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %84
-  tail call fastcc void @sh_add_to_list(ptr noundef nonnull %120, ptr noundef nonnull %27)
+  tail call fastcc void @sh_add_to_list(ptr noundef nonnull %120, ptr noundef nonnull %28)
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %84
   %123 = load ptr, ptr %122, align 8, !tbaa !27
-  %124 = icmp eq ptr %123, %27
+  %124 = icmp eq ptr %123, %28
   br i1 %124, label %126, label %125
 
 125:                                              ; preds = %117
@@ -540,7 +544,7 @@ sh_testbit.exit76.i:                              ; preds = %102
 126:                                              ; preds = %117
   %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %128 = lshr i64 %127, %84
-  %129 = getelementptr inbounds nuw i8, ptr %27, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %28, i64 %128
   %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %132 = icmp sgt i64 %131, %88
@@ -630,7 +634,7 @@ sh_testbit.exit80.i:                              ; preds = %144
   %185 = shl nuw nsw i64 1, %184
   %186 = and i64 %185, %183
   %.not.i81.i = icmp eq i64 %186, 0
-  br i1 %.not.i81.i, label %sh_find_my_buddy.exit.i, label %187
+  br i1 %.not.i81.i, label %.critedge.i, label %187
 
 187:                                              ; preds = %167
   %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
@@ -639,183 +643,179 @@ sh_testbit.exit80.i:                              ; preds = %144
   %191 = zext i8 %190 to i64
   %192 = and i64 %185, %191
   %.not11.i.i = icmp eq i64 %192, 0
-  br i1 %.not11.i.i, label %193, label %sh_find_my_buddy.exit.i
+  br i1 %.not11.i.i, label %sh_find_my_buddy.exit.i, label %.critedge.i
 
-193:                                              ; preds = %187
-  %194 = add i64 %103, -1
-  %195 = and i64 %178, %194
-  %196 = mul i64 %195, %175
-  %197 = getelementptr inbounds nuw i8, ptr %172, i64 %196
-  br label %sh_find_my_buddy.exit.i
+sh_find_my_buddy.exit.i:                          ; preds = %187
+  %193 = add i64 %103, -1
+  %194 = and i64 %178, %193
+  %195 = mul i64 %194, %175
+  %196 = getelementptr inbounds nuw i8, ptr %172, i64 %195
+  %197 = icmp eq ptr %171, %196
+  br i1 %197, label %.preheader.i, label %.critedge.i, !llvm.loop !29
 
-sh_find_my_buddy.exit.i:                          ; preds = %193, %187, %167
-  %.0.i.i = phi ptr [ null, %187 ], [ %197, %193 ], [ null, %167 ]
-  %198 = icmp eq ptr %171, %.0.i.i
-  br i1 %198, label %.preheader.i, label %199, !llvm.loop !29
-
-199:                                              ; preds = %sh_find_my_buddy.exit.i
+.critedge.i:                                      ; preds = %sh_find_my_buddy.exit.i, %187, %167
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 680) #9
   unreachable
 
 .preheader.i._crit_edge.loopexit:                 ; preds = %.preheader.i
-  %.pre75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
+  %.pre76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   br label %.preheader.i._crit_edge
 
 .preheader.i._crit_edge:                          ; preds = %.preheader.i.preheader..preheader.i._crit_edge_crit_edge, %.preheader.i._crit_edge.loopexit
-  %200 = phi i64 [ %13, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %.pre75, %.preheader.i._crit_edge.loopexit ]
-  %201 = phi ptr [ %.pre, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %179, %.preheader.i._crit_edge.loopexit ]
+  %198 = phi i64 [ %13, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %.pre76, %.preheader.i._crit_edge.loopexit ]
+  %199 = phi ptr [ %.pre75, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %179, %.preheader.i._crit_edge.loopexit ]
   %.lcssa43 = phi i64 [ %10, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %168, %.preheader.i._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %20, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %162, %.preheader.i._crit_edge.loopexit ]
-  %202 = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %.056.i
-  %203 = load ptr, ptr %202, align 8, !tbaa !27
-  %204 = trunc i64 %.056.i to i32
-  %205 = icmp sgt i32 %204, -1
-  %206 = and i64 %.056.i, 4294967295
-  %207 = icmp sgt i64 %200, %206
-  %or.cond.i82.i = select i1 %205, i1 %207, i1 false
-  br i1 %or.cond.i82.i, label %209, label %208
+  %200 = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %.056.i
+  %201 = load ptr, ptr %200, align 8, !tbaa !27
+  %202 = trunc i64 %.056.i to i32
+  %203 = icmp sgt i32 %202, -1
+  %204 = and i64 %.056.i, 4294967295
+  %205 = icmp sgt i64 %198, %204
+  %or.cond.i82.i = select i1 %203, i1 %205, i1 false
+  br i1 %or.cond.i82.i, label %207, label %206
 
-208:                                              ; preds = %.preheader.i._crit_edge
+206:                                              ; preds = %.preheader.i._crit_edge
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
   unreachable
 
-209:                                              ; preds = %.preheader.i._crit_edge
-  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
-  %211 = ptrtoint ptr %203 to i64
-  %212 = ptrtoint ptr %210 to i64
-  %213 = sub i64 %211, %212
-  %214 = lshr i64 %.lcssa43, %206
-  %215 = add i64 %214, -1
-  %216 = and i64 %213, %215
-  %217 = icmp eq i64 %216, 0
-  br i1 %217, label %219, label %218
+207:                                              ; preds = %.preheader.i._crit_edge
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
+  %209 = ptrtoint ptr %201 to i64
+  %210 = ptrtoint ptr %208 to i64
+  %211 = sub i64 %209, %210
+  %212 = lshr i64 %.lcssa43, %204
+  %213 = add i64 %212, -1
+  %214 = and i64 %211, %213
+  %215 = icmp eq i64 %214, 0
+  br i1 %215, label %217, label %216
 
-218:                                              ; preds = %209
+216:                                              ; preds = %207
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
   unreachable
 
-219:                                              ; preds = %209
-  %220 = shl nuw i64 1, %206
-  %221 = udiv i64 %213, %214
-  %222 = add i64 %221, %220
-  %.not.i83.i = icmp ne i64 %222, 0
-  %223 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
-  %224 = icmp ult i64 %222, %223
-  %or.cond15.i84.i = select i1 %.not.i83.i, i1 %224, i1 false
-  br i1 %or.cond15.i84.i, label %sh_testbit.exit85.i, label %225
+217:                                              ; preds = %207
+  %218 = shl nuw i64 1, %204
+  %219 = udiv i64 %211, %212
+  %220 = add i64 %219, %218
+  %.not.i83.i = icmp ne i64 %220, 0
+  %221 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
+  %222 = icmp ult i64 %220, %221
+  %or.cond15.i84.i = select i1 %.not.i83.i, i1 %222, i1 false
+  br i1 %or.cond15.i84.i, label %sh_testbit.exit85.i, label %223
 
-225:                                              ; preds = %219
+223:                                              ; preds = %217
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
   unreachable
 
-sh_testbit.exit85.i:                              ; preds = %219
-  %226 = lshr i64 %222, 3
-  %227 = getelementptr inbounds nuw i8, ptr %201, i64 %226
-  %228 = load i8, ptr %227, align 1, !tbaa !30
-  %229 = zext i8 %228 to i64
-  %230 = and i64 %222, 7
-  %231 = shl nuw nsw i64 1, %230
-  %232 = and i64 %231, %229
-  %.not63.i = icmp eq i64 %232, 0
-  br i1 %.not63.i, label %233, label %234
+sh_testbit.exit85.i:                              ; preds = %217
+  %224 = lshr i64 %220, 3
+  %225 = getelementptr inbounds nuw i8, ptr %199, i64 %224
+  %226 = load i8, ptr %225, align 1, !tbaa !30
+  %227 = zext i8 %226 to i64
+  %228 = and i64 %220, 7
+  %229 = shl nuw nsw i64 1, %228
+  %230 = and i64 %229, %227
+  %.not63.i = icmp eq i64 %230, 0
+  br i1 %.not63.i, label %231, label %232
 
-233:                                              ; preds = %sh_testbit.exit85.i
+231:                                              ; preds = %sh_testbit.exit85.i
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 685) #9
   unreachable
 
-234:                                              ; preds = %sh_testbit.exit85.i
-  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
-  tail call fastcc void @sh_setbit(ptr noundef %203, i32 noundef %204, ptr noundef %235)
-  %236 = load ptr, ptr %203, align 8, !tbaa !31
-  %.not.i86.i = icmp eq ptr %236, null
-  %.phi.trans.insert.i87.i = getelementptr inbounds nuw i8, ptr %203, i64 8
+232:                                              ; preds = %sh_testbit.exit85.i
+  %233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
+  tail call fastcc void @sh_setbit(ptr noundef %201, i32 noundef %202, ptr noundef %233)
+  %234 = load ptr, ptr %201, align 8, !tbaa !31
+  %.not.i86.i = icmp eq ptr %234, null
+  %.phi.trans.insert.i87.i = getelementptr inbounds nuw i8, ptr %201, i64 8
   %.pre.i88.i = load ptr, ptr %.phi.trans.insert.i87.i, align 8, !tbaa !35
-  br i1 %.not.i86.i, label %._crit_edge.i89.i, label %237
+  br i1 %.not.i86.i, label %._crit_edge.i89.i, label %235
 
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  store ptr %.pre.i88.i, ptr %238, align 8, !tbaa !35
+235:                                              ; preds = %232
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  store ptr %.pre.i88.i, ptr %236, align 8, !tbaa !35
   br label %._crit_edge.i89.i
 
-._crit_edge.i89.i:                                ; preds = %237, %234
-  store ptr %236, ptr %.pre.i88.i, align 8, !tbaa !36
-  %239 = load ptr, ptr %203, align 8, !tbaa !31
-  %240 = icmp eq ptr %239, null
-  br i1 %240, label %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i, label %241
+._crit_edge.i89.i:                                ; preds = %235, %232
+  store ptr %234, ptr %.pre.i88.i, align 8, !tbaa !36
+  %237 = load ptr, ptr %201, align 8, !tbaa !31
+  %238 = icmp eq ptr %237, null
+  br i1 %238, label %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i, label %239
 
 ._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i: ; preds = %._crit_edge.i89.i
   %.pre100.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.pre102.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   br label %sh_remove_from_list.exit94.i
 
-241:                                              ; preds = %._crit_edge.i89.i
-  %242 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  %243 = load ptr, ptr %242, align 8, !tbaa !35
-  %244 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %.not17.i90.i = icmp uge ptr %243, %244
-  %245 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
-  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
-  %247 = icmp ult ptr %243, %246
-  %or.cond.i91.i = select i1 %.not17.i90.i, i1 %247, i1 false
+239:                                              ; preds = %._crit_edge.i89.i
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
+  %241 = load ptr, ptr %240, align 8, !tbaa !35
+  %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
+  %.not17.i90.i = icmp uge ptr %241, %242
+  %243 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
+  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %245 = icmp ult ptr %241, %244
+  %or.cond.i91.i = select i1 %.not17.i90.i, i1 %245, i1 false
   %.pre101.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.pre103.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
-  br i1 %or.cond.i91.i, label %sh_remove_from_list.exit94.i, label %248
+  br i1 %or.cond.i91.i, label %sh_remove_from_list.exit94.i, label %246
 
-248:                                              ; preds = %241
-  %.not18.i92.i = icmp uge ptr %243, %.pre101.i
-  %249 = getelementptr inbounds nuw i8, ptr %.pre101.i, i64 %.pre103.i
-  %250 = icmp ult ptr %243, %249
-  %or.cond23.i93.i = select i1 %.not18.i92.i, i1 %250, i1 false
-  br i1 %or.cond23.i93.i, label %sh_remove_from_list.exit94.i, label %251
+246:                                              ; preds = %239
+  %.not18.i92.i = icmp uge ptr %241, %.pre101.i
+  %247 = getelementptr inbounds nuw i8, ptr %.pre101.i, i64 %.pre103.i
+  %248 = icmp ult ptr %241, %247
+  %or.cond23.i93.i = select i1 %.not18.i92.i, i1 %248, i1 false
+  br i1 %or.cond23.i93.i, label %sh_remove_from_list.exit94.i, label %249
 
-251:                                              ; preds = %248
+249:                                              ; preds = %246
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #9
   unreachable
 
-sh_remove_from_list.exit94.i:                     ; preds = %248, %241, %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i
-  %252 = phi i64 [ %.pre102.i, %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i ], [ %.pre103.i, %241 ], [ %.pre103.i, %248 ]
-  %253 = phi ptr [ %.pre100.i, %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i ], [ %.pre101.i, %241 ], [ %.pre101.i, %248 ]
-  %.not64.i = icmp uge ptr %203, %253
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 %252
-  %255 = icmp ult ptr %203, %254
-  %or.cond.i = select i1 %.not64.i, i1 %255, i1 false
-  br i1 %or.cond.i, label %257, label %256
+sh_remove_from_list.exit94.i:                     ; preds = %246, %239, %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i
+  %250 = phi i64 [ %.pre102.i, %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i ], [ %.pre103.i, %239 ], [ %.pre103.i, %246 ]
+  %251 = phi ptr [ %.pre100.i, %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i ], [ %.pre101.i, %239 ], [ %.pre101.i, %246 ]
+  %.not64.i = icmp uge ptr %201, %251
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 %250
+  %253 = icmp ult ptr %201, %252
+  %or.cond.i = select i1 %.not64.i, i1 %253, i1 false
+  br i1 %or.cond.i, label %255, label %254
 
-256:                                              ; preds = %sh_remove_from_list.exit94.i
+254:                                              ; preds = %sh_remove_from_list.exit94.i
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 689) #9
   unreachable
 
-257:                                              ; preds = %sh_remove_from_list.exit94.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %203, i8 0, i64 16, i1 false)
-  %258 = tail call fastcc i64 @sh_actual_size(ptr noundef nonnull %203)
+255:                                              ; preds = %sh_remove_from_list.exit94.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %201, i8 0, i64 16, i1 false)
+  %256 = tail call fastcc i64 @sh_actual_size(ptr noundef nonnull %201)
   br label %sh_malloc.exit.thread
 
-sh_malloc.exit.thread:                            ; preds = %24, %18, %9, %257
-  %.0.i21 = phi ptr [ %203, %257 ], [ null, %9 ], [ null, %18 ], [ null, %24 ]
-  %259 = phi i64 [ %258, %257 ], [ 0, %9 ], [ 0, %18 ], [ 0, %24 ]
-  %260 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
-  %261 = add i64 %260, %259
-  store i64 %261, ptr @secure_mem_used, align 8, !tbaa !25
-  %262 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
-  %263 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %262) #8
-  %264 = icmp eq ptr %.0.i21, null
-  br i1 %264, label %.thread, label %268
+sh_malloc.exit.thread:                            ; preds = %24, %18, %9, %255
+  %.0.i21 = phi ptr [ %201, %255 ], [ null, %9 ], [ null, %18 ], [ null, %24 ]
+  %257 = phi i64 [ %256, %255 ], [ 0, %9 ], [ 0, %18 ], [ 0, %24 ]
+  %258 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
+  %259 = add i64 %258, %257
+  store i64 %259, ptr @secure_mem_used, align 8, !tbaa !25
+  %260 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
+  %261 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %260) #8
+  %262 = icmp eq ptr %.0.i21, null
+  br i1 %262, label %.thread, label %266
 
 .thread:                                          ; preds = %6, %sh_malloc.exit.thread
   %.025 = phi i32 [ 111, %sh_malloc.exit.thread ], [ 524303, %6 ]
-  %265 = icmp ne ptr %1, null
-  %266 = icmp ne i32 %2, 0
-  %or.cond = or i1 %265, %266
-  br i1 %or.cond, label %267, label %268
+  %263 = icmp ne ptr %1, null
+  %264 = icmp ne i32 %2, 0
+  %or.cond = or i1 %263, %264
+  br i1 %or.cond, label %265, label %266
 
-267:                                              ; preds = %.thread
+265:                                              ; preds = %.thread
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef %1, i32 noundef %2, ptr noundef null) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef %.025, ptr noundef null) #8
-  br label %268
+  br label %266
 
-268:                                              ; preds = %sh_malloc.exit.thread, %267, %.thread, %4
-  %.015 = phi ptr [ %5, %4 ], [ null, %.thread ], [ null, %267 ], [ %.0.i21, %sh_malloc.exit.thread ]
+266:                                              ; preds = %sh_malloc.exit.thread, %265, %.thread, %4
+  %.015 = phi ptr [ %5, %4 ], [ null, %.thread ], [ null, %265 ], [ %.0.i21, %sh_malloc.exit.thread ]
   ret ptr %.015
 }
 
@@ -1158,9 +1158,9 @@ sh_testbit.exit:                                  ; preds = %42
   tail call fastcc void @sh_add_to_list(ptr noundef %60, ptr noundef nonnull %0)
   br label %61
 
-61:                                               ; preds = %230, %57
-  %.043 = phi i64 [ %.07.lcssa.i, %57 ], [ %195, %230 ]
-  %.0 = phi ptr [ %0, %57 ], [ %spec.select, %230 ]
+61:                                               ; preds = %228, %57
+  %.043 = phi i64 [ %.07.lcssa.i, %57 ], [ %193, %228 ]
+  %.0 = phi ptr [ %0, %57 ], [ %spec.select, %228 ]
   %62 = trunc i64 %.043 to i32
   %63 = and i64 %.043, 4294967295
   %64 = shl nuw i64 1, %63
@@ -1213,7 +1213,7 @@ sh_find_my_buddy.exit:                            ; preds = %82
   %101 = shl nuw nsw i64 1, %100
   %102 = and i64 %101, %99
   %.not.i57 = icmp eq i64 %102, 0
-  br i1 %.not.i57, label %sh_find_my_buddy.exit60, label %103
+  br i1 %.not.i57, label %.critedge, label %103
 
 103:                                              ; preds = %92
   %104 = getelementptr inbounds nuw i8, ptr %83, i64 %96
@@ -1221,279 +1221,275 @@ sh_find_my_buddy.exit:                            ; preds = %82
   %106 = zext i8 %105 to i64
   %107 = and i64 %101, %106
   %.not11.i58 = icmp eq i64 %107, 0
-  br i1 %.not11.i58, label %108, label %sh_find_my_buddy.exit60
+  br i1 %.not11.i58, label %sh_find_my_buddy.exit60, label %.critedge
 
-108:                                              ; preds = %103
-  %109 = and i64 %95, %88
-  %110 = mul i64 %109, %70
-  %111 = getelementptr inbounds nuw i8, ptr %65, i64 %110
-  br label %sh_find_my_buddy.exit60
+sh_find_my_buddy.exit60:                          ; preds = %103
+  %108 = and i64 %95, %88
+  %109 = mul i64 %108, %70
+  %110 = getelementptr inbounds nuw i8, ptr %65, i64 %109
+  %111 = icmp eq ptr %.0, %110
+  br i1 %111, label %112, label %.critedge
 
-sh_find_my_buddy.exit60:                          ; preds = %92, %103, %108
-  %.0.i59 = phi ptr [ null, %103 ], [ %111, %108 ], [ null, %92 ]
-  %112 = icmp eq ptr %.0, %.0.i59
-  br i1 %112, label %114, label %113
-
-113:                                              ; preds = %sh_find_my_buddy.exit60
+.critedge:                                        ; preds = %103, %92, %sh_find_my_buddy.exit60
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 715) #9
   unreachable
 
-114:                                              ; preds = %sh_find_my_buddy.exit60
-  %115 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
-  %116 = icmp sgt i64 %115, %63
-  br i1 %116, label %118, label %117
+112:                                              ; preds = %sh_find_my_buddy.exit60
+  %113 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
+  %114 = icmp sgt i64 %113, %63
+  br i1 %114, label %116, label %115
 
-117:                                              ; preds = %114
+115:                                              ; preds = %112
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
   unreachable
 
-118:                                              ; preds = %114
-  %119 = add i64 %70, -1
-  %120 = and i64 %119, %68
-  %121 = icmp eq i64 %120, 0
-  br i1 %121, label %123, label %122
+116:                                              ; preds = %112
+  %117 = add i64 %70, -1
+  %118 = and i64 %117, %68
+  %119 = icmp eq i64 %118, 0
+  br i1 %119, label %121, label %120
 
-122:                                              ; preds = %118
+120:                                              ; preds = %116
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
   unreachable
 
-123:                                              ; preds = %118
+121:                                              ; preds = %116
   %.not.i62 = icmp ne i64 %72, 0
-  %124 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
-  %125 = icmp ult i64 %72, %124
-  %or.cond15.i63 = select i1 %.not.i62, i1 %125, i1 false
-  br i1 %or.cond15.i63, label %sh_testbit.exit64, label %126
+  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
+  %123 = icmp ult i64 %72, %122
+  %or.cond15.i63 = select i1 %.not.i62, i1 %123, i1 false
+  br i1 %or.cond15.i63, label %sh_testbit.exit64, label %124
 
-126:                                              ; preds = %123
+124:                                              ; preds = %121
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
   unreachable
 
-sh_testbit.exit64:                                ; preds = %123
-  %127 = and i64 %72, 7
-  %128 = shl nuw nsw i64 1, %127
-  %129 = and i64 %128, %86
-  %.not49 = icmp eq i64 %129, 0
-  br i1 %.not49, label %131, label %130
+sh_testbit.exit64:                                ; preds = %121
+  %125 = and i64 %72, 7
+  %126 = shl nuw nsw i64 1, %125
+  %127 = and i64 %126, %86
+  %.not49 = icmp eq i64 %127, 0
+  br i1 %.not49, label %129, label %128
 
-130:                                              ; preds = %sh_testbit.exit64
+128:                                              ; preds = %sh_testbit.exit64
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 717) #9
   unreachable
 
-131:                                              ; preds = %sh_testbit.exit64
+129:                                              ; preds = %sh_testbit.exit64
   tail call fastcc void @sh_clearbit(ptr noundef nonnull %.0, i32 noundef %62, ptr noundef nonnull %74)
-  %132 = load ptr, ptr %.0, align 8, !tbaa !31
-  %.not.i65 = icmp eq ptr %132, null
+  %130 = load ptr, ptr %.0, align 8, !tbaa !31
+  %.not.i65 = icmp eq ptr %130, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !35
-  br i1 %.not.i65, label %._crit_edge.i, label %133
+  br i1 %.not.i65, label %._crit_edge.i, label %131
 
-133:                                              ; preds = %131
-  %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store ptr %.pre.i, ptr %134, align 8, !tbaa !35
+131:                                              ; preds = %129
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  store ptr %.pre.i, ptr %132, align 8, !tbaa !35
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %133, %131
-  store ptr %132, ptr %.pre.i, align 8, !tbaa !36
-  %135 = load ptr, ptr %.0, align 8, !tbaa !31
-  %136 = icmp eq ptr %135, null
+._crit_edge.i:                                    ; preds = %131, %129
+  store ptr %130, ptr %.pre.i, align 8, !tbaa !36
+  %133 = load ptr, ptr %.0, align 8, !tbaa !31
+  %134 = icmp eq ptr %133, null
   %.pre86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
-  br i1 %136, label %sh_remove_from_list.exit, label %137
+  br i1 %134, label %sh_remove_from_list.exit, label %135
 
-137:                                              ; preds = %._crit_edge.i
-  %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %139 = load ptr, ptr %138, align 8, !tbaa !35
-  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %.not17.i = icmp uge ptr %139, %140
-  %141 = getelementptr inbounds ptr, ptr %140, i64 %.pre86
-  %142 = icmp ult ptr %139, %141
-  %or.cond.i66 = select i1 %.not17.i, i1 %142, i1 false
-  br i1 %or.cond.i66, label %sh_remove_from_list.exit, label %143
+135:                                              ; preds = %._crit_edge.i
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %137 = load ptr, ptr %136, align 8, !tbaa !35
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
+  %.not17.i = icmp uge ptr %137, %138
+  %139 = getelementptr inbounds ptr, ptr %138, i64 %.pre86
+  %140 = icmp ult ptr %137, %139
+  %or.cond.i66 = select i1 %.not17.i, i1 %140, i1 false
+  br i1 %or.cond.i66, label %sh_remove_from_list.exit, label %141
 
-143:                                              ; preds = %137
-  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
-  %.not18.i = icmp uge ptr %139, %144
-  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 %145
-  %147 = icmp ult ptr %139, %146
-  %or.cond23.i = select i1 %.not18.i, i1 %147, i1 false
-  br i1 %or.cond23.i, label %sh_remove_from_list.exit, label %148
+141:                                              ; preds = %135
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
+  %.not18.i = icmp uge ptr %137, %142
+  %143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
+  %145 = icmp ult ptr %137, %144
+  %or.cond23.i = select i1 %.not18.i, i1 %145, i1 false
+  br i1 %or.cond23.i, label %sh_remove_from_list.exit, label %146
 
-148:                                              ; preds = %143
+146:                                              ; preds = %141
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #9
   unreachable
 
-sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %137, %143
-  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
-  %150 = icmp sgt i64 %.pre86, %63
-  br i1 %150, label %152, label %151
+sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %135, %141
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
+  %148 = icmp sgt i64 %.pre86, %63
+  br i1 %148, label %150, label %149
 
-151:                                              ; preds = %sh_remove_from_list.exit
+149:                                              ; preds = %sh_remove_from_list.exit
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
   unreachable
 
-152:                                              ; preds = %sh_remove_from_list.exit
-  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
-  %154 = ptrtoint ptr %153 to i64
-  %155 = sub i64 %66, %154
-  %156 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
-  %157 = lshr i64 %156, %63
-  %158 = add i64 %157, -1
-  %159 = and i64 %158, %155
-  %160 = icmp eq i64 %159, 0
-  br i1 %160, label %162, label %161
+150:                                              ; preds = %sh_remove_from_list.exit
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
+  %152 = ptrtoint ptr %151 to i64
+  %153 = sub i64 %66, %152
+  %154 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
+  %155 = lshr i64 %154, %63
+  %156 = add i64 %155, -1
+  %157 = and i64 %156, %153
+  %158 = icmp eq i64 %157, 0
+  br i1 %158, label %160, label %159
 
-161:                                              ; preds = %152
+159:                                              ; preds = %150
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
   unreachable
 
-162:                                              ; preds = %152
-  %163 = udiv i64 %155, %157
-  %164 = add i64 %163, %64
-  %.not.i68 = icmp ne i64 %164, 0
-  %165 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
-  %166 = icmp ult i64 %164, %165
-  %or.cond15.i69 = select i1 %.not.i68, i1 %166, i1 false
-  br i1 %or.cond15.i69, label %sh_testbit.exit70, label %167
+160:                                              ; preds = %150
+  %161 = udiv i64 %153, %155
+  %162 = add i64 %161, %64
+  %.not.i68 = icmp ne i64 %162, 0
+  %163 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
+  %164 = icmp ult i64 %162, %163
+  %or.cond15.i69 = select i1 %.not.i68, i1 %164, i1 false
+  br i1 %or.cond15.i69, label %sh_testbit.exit70, label %165
 
-167:                                              ; preds = %162
+165:                                              ; preds = %160
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
   unreachable
 
-sh_testbit.exit70:                                ; preds = %162
-  %168 = lshr i64 %164, 3
-  %169 = getelementptr inbounds nuw i8, ptr %149, i64 %168
-  %170 = load i8, ptr %169, align 1, !tbaa !30
-  %171 = zext i8 %170 to i64
-  %172 = and i64 %164, 7
-  %173 = shl nuw nsw i64 1, %172
-  %174 = and i64 %173, %171
-  %.not50 = icmp eq i64 %174, 0
-  br i1 %.not50, label %176, label %175
+sh_testbit.exit70:                                ; preds = %160
+  %166 = lshr i64 %162, 3
+  %167 = getelementptr inbounds nuw i8, ptr %147, i64 %166
+  %168 = load i8, ptr %167, align 1, !tbaa !30
+  %169 = zext i8 %168 to i64
+  %170 = and i64 %162, 7
+  %171 = shl nuw nsw i64 1, %170
+  %172 = and i64 %171, %169
+  %.not50 = icmp eq i64 %172, 0
+  br i1 %.not50, label %174, label %173
 
-175:                                              ; preds = %sh_testbit.exit70
+173:                                              ; preds = %sh_testbit.exit70
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 720) #9
   unreachable
 
-176:                                              ; preds = %sh_testbit.exit70
-  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
-  tail call fastcc void @sh_clearbit(ptr noundef nonnull %91, i32 noundef %62, ptr noundef %177)
-  %178 = load ptr, ptr %91, align 8, !tbaa !31
-  %.not.i71 = icmp eq ptr %178, null
+174:                                              ; preds = %sh_testbit.exit70
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
+  tail call fastcc void @sh_clearbit(ptr noundef nonnull %91, i32 noundef %62, ptr noundef %175)
+  %176 = load ptr, ptr %91, align 8, !tbaa !31
+  %.not.i71 = icmp eq ptr %176, null
   %.phi.trans.insert.i72 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.pre.i73 = load ptr, ptr %.phi.trans.insert.i72, align 8, !tbaa !35
-  br i1 %.not.i71, label %._crit_edge.i74, label %179
+  br i1 %.not.i71, label %._crit_edge.i74, label %177
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store ptr %.pre.i73, ptr %180, align 8, !tbaa !35
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  store ptr %.pre.i73, ptr %178, align 8, !tbaa !35
   br label %._crit_edge.i74
 
-._crit_edge.i74:                                  ; preds = %179, %176
-  store ptr %178, ptr %.pre.i73, align 8, !tbaa !36
-  %181 = load ptr, ptr %91, align 8, !tbaa !31
-  %182 = icmp eq ptr %181, null
+._crit_edge.i74:                                  ; preds = %177, %174
+  store ptr %176, ptr %.pre.i73, align 8, !tbaa !36
+  %179 = load ptr, ptr %91, align 8, !tbaa !31
+  %180 = icmp eq ptr %179, null
   %.pre87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
-  br i1 %182, label %sh_remove_from_list.exit79, label %183
+  br i1 %180, label %sh_remove_from_list.exit79, label %181
 
-183:                                              ; preds = %._crit_edge.i74
-  %184 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  %185 = load ptr, ptr %184, align 8, !tbaa !35
-  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %.not17.i75 = icmp uge ptr %185, %186
-  %187 = getelementptr inbounds ptr, ptr %186, i64 %.pre87
-  %188 = icmp ult ptr %185, %187
-  %or.cond.i76 = select i1 %.not17.i75, i1 %188, i1 false
-  br i1 %or.cond.i76, label %sh_remove_from_list.exit79, label %189
+181:                                              ; preds = %._crit_edge.i74
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %183 = load ptr, ptr %182, align 8, !tbaa !35
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
+  %.not17.i75 = icmp uge ptr %183, %184
+  %185 = getelementptr inbounds ptr, ptr %184, i64 %.pre87
+  %186 = icmp ult ptr %183, %185
+  %or.cond.i76 = select i1 %.not17.i75, i1 %186, i1 false
+  br i1 %or.cond.i76, label %sh_remove_from_list.exit79, label %187
 
-189:                                              ; preds = %183
-  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
-  %.not18.i77 = icmp uge ptr %185, %190
-  %191 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 %191
-  %193 = icmp ult ptr %185, %192
-  %or.cond23.i78 = select i1 %.not18.i77, i1 %193, i1 false
-  br i1 %or.cond23.i78, label %sh_remove_from_list.exit79, label %194
+187:                                              ; preds = %181
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
+  %.not18.i77 = icmp uge ptr %183, %188
+  %189 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 %189
+  %191 = icmp ult ptr %183, %190
+  %or.cond23.i78 = select i1 %.not18.i77, i1 %191, i1 false
+  br i1 %or.cond23.i78, label %sh_remove_from_list.exit79, label %192
 
-194:                                              ; preds = %189
+192:                                              ; preds = %187
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 426) #9
   unreachable
 
-sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %183, %189
-  %195 = add i64 %.043, -1
-  %196 = icmp ugt ptr %.0, %91
-  %197 = select i1 %196, ptr %.0, ptr %91
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %197, i8 0, i64 16, i1 false)
-  %spec.select = select i1 %196, ptr %91, ptr %.0
-  %198 = trunc i64 %195 to i32
-  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
-  %200 = icmp sgt i32 %198, -1
-  %201 = and i64 %195, 4294967295
-  %202 = icmp sgt i64 %.pre87, %201
-  %or.cond.i80 = select i1 %200, i1 %202, i1 false
-  br i1 %or.cond.i80, label %204, label %203
+sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %181, %187
+  %193 = add i64 %.043, -1
+  %194 = icmp ugt ptr %.0, %91
+  %195 = select i1 %194, ptr %.0, ptr %91
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %195, i8 0, i64 16, i1 false)
+  %spec.select = select i1 %194, ptr %91, ptr %.0
+  %196 = trunc i64 %193 to i32
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
+  %198 = icmp sgt i32 %196, -1
+  %199 = and i64 %193, 4294967295
+  %200 = icmp sgt i64 %.pre87, %199
+  %or.cond.i80 = select i1 %198, i1 %200, i1 false
+  br i1 %or.cond.i80, label %202, label %201
 
-203:                                              ; preds = %sh_remove_from_list.exit79
+201:                                              ; preds = %sh_remove_from_list.exit79
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 363) #9
   unreachable
 
-204:                                              ; preds = %sh_remove_from_list.exit79
-  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
-  %206 = ptrtoint ptr %spec.select to i64
-  %207 = ptrtoint ptr %205 to i64
-  %208 = sub i64 %206, %207
-  %209 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
-  %210 = lshr i64 %209, %201
-  %211 = add i64 %210, -1
-  %212 = and i64 %211, %208
-  %213 = icmp eq i64 %212, 0
-  br i1 %213, label %215, label %214
+202:                                              ; preds = %sh_remove_from_list.exit79
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
+  %204 = ptrtoint ptr %spec.select to i64
+  %205 = ptrtoint ptr %203 to i64
+  %206 = sub i64 %204, %205
+  %207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
+  %208 = lshr i64 %207, %199
+  %209 = add i64 %208, -1
+  %210 = and i64 %209, %206
+  %211 = icmp eq i64 %210, 0
+  br i1 %211, label %213, label %212
 
-214:                                              ; preds = %204
+212:                                              ; preds = %202
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 364) #9
   unreachable
 
-215:                                              ; preds = %204
-  %216 = shl nuw i64 1, %201
-  %217 = udiv i64 %208, %210
-  %218 = add i64 %217, %216
-  %.not.i81 = icmp ne i64 %218, 0
-  %219 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
-  %220 = icmp ult i64 %218, %219
-  %or.cond15.i82 = select i1 %.not.i81, i1 %220, i1 false
-  br i1 %or.cond15.i82, label %sh_testbit.exit83, label %221
+213:                                              ; preds = %202
+  %214 = shl nuw i64 1, %199
+  %215 = udiv i64 %206, %208
+  %216 = add i64 %215, %214
+  %.not.i81 = icmp ne i64 %216, 0
+  %217 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
+  %218 = icmp ult i64 %216, %217
+  %or.cond15.i82 = select i1 %.not.i81, i1 %218, i1 false
+  br i1 %or.cond15.i82, label %sh_testbit.exit83, label %219
 
-221:                                              ; preds = %215
+219:                                              ; preds = %213
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 366) #9
   unreachable
 
-sh_testbit.exit83:                                ; preds = %215
-  %222 = lshr i64 %218, 3
-  %223 = getelementptr inbounds nuw i8, ptr %199, i64 %222
-  %224 = load i8, ptr %223, align 1, !tbaa !30
-  %225 = zext i8 %224 to i64
-  %226 = and i64 %218, 7
-  %227 = shl nuw nsw i64 1, %226
-  %228 = and i64 %227, %225
-  %.not51 = icmp eq i64 %228, 0
-  br i1 %.not51, label %230, label %229
+sh_testbit.exit83:                                ; preds = %213
+  %220 = lshr i64 %216, 3
+  %221 = getelementptr inbounds nuw i8, ptr %197, i64 %220
+  %222 = load i8, ptr %221, align 1, !tbaa !30
+  %223 = zext i8 %222 to i64
+  %224 = and i64 %216, 7
+  %225 = shl nuw nsw i64 1, %224
+  %226 = and i64 %225, %223
+  %.not51 = icmp eq i64 %226, 0
+  br i1 %.not51, label %228, label %227
 
-229:                                              ; preds = %sh_testbit.exit83
+227:                                              ; preds = %sh_testbit.exit83
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 731) #9
   unreachable
 
-230:                                              ; preds = %sh_testbit.exit83
-  %231 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
-  tail call fastcc void @sh_setbit(ptr noundef nonnull %spec.select, i32 noundef %198, ptr noundef %231)
+228:                                              ; preds = %sh_testbit.exit83
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
+  tail call fastcc void @sh_setbit(ptr noundef nonnull %spec.select, i32 noundef %196, ptr noundef %229)
+  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
+  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %193
+  tail call fastcc void @sh_add_to_list(ptr noundef %231, ptr noundef nonnull %spec.select)
   %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %195
-  tail call fastcc void @sh_add_to_list(ptr noundef %233, ptr noundef nonnull %spec.select)
-  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %195
-  %236 = load ptr, ptr %235, align 8, !tbaa !27
-  %237 = icmp eq ptr %236, %spec.select
-  br i1 %237, label %61, label %238, !llvm.loop !38
+  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %193
+  %234 = load ptr, ptr %233, align 8, !tbaa !27
+  %235 = icmp eq ptr %234, %spec.select
+  br i1 %235, label %61, label %236, !llvm.loop !38
 
-238:                                              ; preds = %230
+236:                                              ; preds = %228
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 734) #9
   unreachable
 

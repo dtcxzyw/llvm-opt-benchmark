@@ -1550,19 +1550,19 @@ _ZNK4llvm9StringRef8containsEc.exit.i:            ; preds = %_ZNK4llvm9StringRef
 85:                                               ; preds = %84
   %86 = load i8, ptr %.sroa.0108.0, align 1, !tbaa !19
   switch i8 %86, label %.critedge.i [
-    i8 118, label %select.unfold.i
-    i8 97, label %select.unfold.i
-    i8 0, label %select.unfold.i
+    i8 118, label %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit.thread.i
+    i8 97, label %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit.thread.i
+    i8 0, label %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit.thread.i
   ]
 
-select.unfold.i:                                  ; preds = %85, %85, %85
+_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit.thread.i: ; preds = %85, %85, %85
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0, i64 1
   %88 = load i8, ptr %87, align 1, !tbaa !19
   %89 = add i8 %88, -48
   %90 = icmp ult i8 %89, 10
   br i1 %90, label %_ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit.thread, label %.critedge.i
 
-.critedge.i:                                      ; preds = %select.unfold.i, %85
+.critedge.i:                                      ; preds = %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit.thread.i, %85
   %91 = icmp ugt i64 %.sroa.5.0, 3
   br i1 %91, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i, label %_ZNK4llvm9StringRef11starts_withEc.exit.i
 
@@ -1581,16 +1581,16 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringR
 _ZNK4llvm9StringRef11starts_withEc.exit.i:        ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %.critedge.i
   switch i8 %86, label %_ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit [
     i8 116, label %_ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit.thread140
-    i8 112, label %select.unfold17.i
-    i8 105, label %select.unfold17.i
-    i8 0, label %select.unfold17.i
+    i8 112, label %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit6.thread.i
+    i8 105, label %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit6.thread.i
+    i8 0, label %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit6.thread.i
   ]
 
 _ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit.thread140: ; preds = %_ZNK4llvm9StringRef11starts_withEc.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %163
 
-select.unfold17.i:                                ; preds = %_ZNK4llvm9StringRef11starts_withEc.exit.i, %_ZNK4llvm9StringRef11starts_withEc.exit.i, %_ZNK4llvm9StringRef11starts_withEc.exit.i
+_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit6.thread.i: ; preds = %_ZNK4llvm9StringRef11starts_withEc.exit.i, %_ZNK4llvm9StringRef11starts_withEc.exit.i, %_ZNK4llvm9StringRef11starts_withEc.exit.i
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0, i64 1
   %98 = add i64 %.sroa.5.0, -1
   %99 = getelementptr i8, ptr %.sroa.0108.0, i64 %.sroa.5.0
@@ -1599,7 +1599,7 @@ select.unfold17.i:                                ; preds = %_ZNK4llvm9StringRef
   %102 = icmp sgt i64 %101, 0
   br i1 %102, label %.lr.ph.i.i.i.i.i.preheader.i, label %._crit_edge.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %select.unfold17.i
+.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit6.thread.i
   %103 = and i64 %98, -4
   %104 = getelementptr i8, ptr %.sroa.0108.0, i64 %103
   %scevgep.i = getelementptr i8, ptr %104, i64 1
@@ -1640,8 +1640,8 @@ select.unfold17.i:                                ; preds = %_ZNK4llvm9StringRef
   %126 = icmp sgt i64 %.047.i.i.i.i.i.i, 1
   br i1 %126, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !126
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %123, %select.unfold17.i
-  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %97, %select.unfold17.i ], [ %scevgep.i, %123 ]
+._crit_edge.i.i.i.i.i.i:                          ; preds = %123, %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit6.thread.i
+  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %97, %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit6.thread.i ], [ %scevgep.i, %123 ]
   %.pre-phi.i.i.i.i.i.i = ptrtoint ptr %.029.lcssa.i.i.i.i.i.i to i64
   %127 = sub i64 %100, %.pre-phi.i.i.i.i.i.i
   switch i64 %127, label %_ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit.thread [
@@ -1695,7 +1695,7 @@ _ZN4llvm6all_ofINS_9StringRefEPFbcEEEbOT_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
   %147 = icmp eq ptr %99, %.028.i.i.i.i.i.i
   br i1 %147, label %_ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit.thread, label %_ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit
 
-_ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit.thread: ; preds = %_ZNK4llvm9StringRef8containsEc.exit.i, %select.unfold.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, %_ZN4llvm6all_ofINS_9StringRefEPFbcEEEbOT_T0_.exit.i, %._crit_edge.i.i.i.i.i.i, %140
+_ZL29doesSuffixLookLikeMangledTypeN4llvm9StringRefE.exit.thread: ; preds = %_ZNK4llvm9StringRef8containsEc.exit.i, %_ZN4llvm12is_containedIRA3_KccEEbOT_RKT0_.exit.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, %_ZN4llvm6all_ofINS_9StringRefEPFbcEEEbOT_T0_.exit.i, %._crit_edge.i.i.i.i.i.i, %140
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %_ZN4llvmplERKNS_5TwineES2_.exit107
 

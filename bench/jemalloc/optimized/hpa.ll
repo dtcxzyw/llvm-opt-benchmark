@@ -435,33 +435,33 @@ edata_list_active_append.exit:
 define internal void @hpa_dalloc_batch(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = load ptr, ptr %2, align 8, !tbaa !52
-  %.not34 = icmp eq ptr %6, null
-  br i1 %.not34, label %select.unfold._crit_edge, label %.lr.ph
+  %.not33 = icmp eq ptr %6, null
+  br i1 %.not33, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr i8, ptr %1, i64 5664
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.lr.ph, %select.unfold
-  %.035 = phi ptr [ %6, %.lr.ph ], [ %16, %select.unfold ]
+  %.034 = phi ptr [ %6, %.lr.ph ], [ %16, %select.unfold ]
   %.val = load ptr, ptr %7, align 8, !tbaa !39
-  %8 = getelementptr i8, ptr %.035, i64 8
+  %8 = getelementptr i8, ptr %.034, i64 8
   %.val.i = load ptr, ptr %8, align 8, !tbaa !64
   %9 = ptrtoint ptr %.val.i to i64
   %10 = and i64 %9, 4095
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i8, ptr %.val.i, i64 %11
   store ptr %12, ptr %8, align 8, !tbaa !64
-  %13 = load i64, ptr %.035, align 8, !tbaa !66
+  %13 = load i64, ptr %.034, align 8, !tbaa !66
   %14 = and i64 %13, -32769
-  store i64 %14, ptr %.035, align 8, !tbaa !66
-  tail call void @je_emap_deregister_boundary(ptr noundef %0, ptr noundef %.val, ptr noundef nonnull %.035) #8
-  %15 = getelementptr inbounds nuw i8, ptr %.035, i64 40
+  store i64 %14, ptr %.034, align 8, !tbaa !66
+  tail call void @je_emap_deregister_boundary(ptr noundef %0, ptr noundef %.val, ptr noundef nonnull %.034) #8
+  %15 = getelementptr inbounds nuw i8, ptr %.034, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !63
   %17 = load ptr, ptr %2, align 8, !tbaa !52
   %.not27 = icmp eq ptr %16, %17
-  %.not40 = icmp eq ptr %16, null
-  %.not = or i1 %.not27, %.not40
+  %.not39 = icmp eq ptr %16, null
+  %.not = or i1 %.not27, %.not39
   br i1 %.not, label %select.unfold._crit_edge, label %select.unfold
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %4
@@ -499,29 +499,29 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %select.unfold._crit
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %23, %29
-  %.val2836 = load ptr, ptr %2, align 8, !tbaa !52
-  %.not2637 = icmp eq ptr %.val2836, null
-  br i1 %.not2637, label %._crit_edge, label %.lr.ph39
+  %.val2835 = load ptr, ptr %2, align 8, !tbaa !52
+  %.not2636 = icmp eq ptr %.val2835, null
+  br i1 %.not2636, label %._crit_edge, label %.lr.ph38
 
-.lr.ph39:                                         ; preds = %malloc_mutex_lock.exit
+.lr.ph38:                                         ; preds = %malloc_mutex_lock.exit
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %35 = getelementptr i8, ptr %1, i64 5680
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %37
 
-37:                                               ; preds = %.lr.ph39, %hpa_dalloc_locked.exit
-  %.val2838 = phi ptr [ %.val2836, %.lr.ph39 ], [ %.val28, %hpa_dalloc_locked.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %.val2838, i64 40
+37:                                               ; preds = %.lr.ph38, %hpa_dalloc_locked.exit
+  %.val2837 = phi ptr [ %.val2835, %.lr.ph38 ], [ %.val28, %hpa_dalloc_locked.exit ]
+  %38 = getelementptr inbounds nuw i8, ptr %.val2837, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !63
   store ptr %39, ptr %2, align 8, !tbaa !52
-  %.not.i29 = icmp eq ptr %39, %.val2838
-  br i1 %.not.i29, label %57, label %40
+  %40 = icmp eq ptr %39, %.val2837
+  br i1 %40, label %57, label %.thread.i
 
-40:                                               ; preds = %37
+.thread.i:                                        ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !63
-  %43 = getelementptr inbounds nuw i8, ptr %.val2838, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %.val2837, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !63
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store ptr %42, ptr %45, align 8, !tbaa !63
@@ -539,56 +539,56 @@ malloc_mutex_lock.exit:                           ; preds = %23, %29
   store ptr %51, ptr %54, align 8, !tbaa !63
   %55 = load ptr, ptr %43, align 8, !tbaa !63
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  store ptr %.val2838, ptr %56, align 8, !tbaa !63
+  store ptr %.val2837, ptr %56, align 8, !tbaa !63
   br label %edata_list_active_remove.exit
 
 57:                                               ; preds = %37
   store ptr null, ptr %2, align 8, !tbaa !52
   br label %edata_list_active_remove.exit
 
-edata_list_active_remove.exit:                    ; preds = %40, %57
-  %58 = getelementptr i8, ptr %.val2838, i64 24
-  %.val.i30 = load ptr, ptr %58, align 8, !tbaa !67
-  %59 = getelementptr i8, ptr %.val2838, i64 8
+edata_list_active_remove.exit:                    ; preds = %.thread.i, %57
+  %58 = getelementptr i8, ptr %.val2837, i64 24
+  %.val.i29 = load ptr, ptr %58, align 8, !tbaa !67
+  %59 = getelementptr i8, ptr %.val2837, i64 8
   %.val17.i = load ptr, ptr %59, align 8, !tbaa !64
-  %60 = getelementptr i8, ptr %.val2838, i64 16
+  %60 = getelementptr i8, ptr %.val2837, i64 16
   %.val18.i = load i64, ptr %60, align 8, !tbaa !63
   %61 = and i64 %.val18.i, -4096
-  call void @je_edata_cache_fast_put(ptr noundef %0, ptr noundef nonnull %33, ptr noundef nonnull %.val2838) #8
-  call void @je_psset_update_begin(ptr noundef nonnull %34, ptr noundef %.val.i30) #8
-  call void @je_hpdata_unreserve(ptr noundef %.val.i30, ptr noundef %.val17.i, i64 noundef %61) #8
-  %62 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 33
+  call void @je_edata_cache_fast_put(ptr noundef %0, ptr noundef nonnull %33, ptr noundef nonnull %.val2837) #8
+  call void @je_psset_update_begin(ptr noundef nonnull %34, ptr noundef %.val.i29) #8
+  call void @je_hpdata_unreserve(ptr noundef %.val.i29, ptr noundef %.val17.i, i64 noundef %61) #8
+  %62 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 33
   %63 = load i8, ptr %62, align 1, !tbaa !68, !range !54, !noundef !71
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %hpdata_changing_state_get.exit.thread.i.i, label %hpdata_changing_state_get.exit.i.i
 
 hpdata_changing_state_get.exit.i.i:               ; preds = %edata_list_active_remove.exit
-  %65 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 34
+  %65 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 34
   %66 = load i8, ptr %65, align 2, !tbaa !72, !range !54, !noundef !71
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %hpdata_changing_state_get.exit.thread.i.i, label %69
 
 hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_state_get.exit.i.i, %edata_list_active_remove.exit
-  %68 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 19
+  %68 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 19
   store i8 0, ptr %68, align 1, !tbaa !73
   br label %.sink.split.i.i
 
 69:                                               ; preds = %hpdata_changing_state_get.exit.i.i
-  %70 = getelementptr i8, ptr %.val.i30, i64 104
+  %70 = getelementptr i8, ptr %.val.i29, i64 104
   %.val.i.i = load i64, ptr %70, align 8, !tbaa !74
-  %71 = getelementptr i8, ptr %.val.i30, i64 176
+  %71 = getelementptr i8, ptr %.val.i29, i64 176
   %.val14.i.i = load i64, ptr %71, align 8, !tbaa !75
   %72 = icmp ne i64 %.val14.i.i, %.val.i.i
   %73 = zext i1 %72 to i8
-  %74 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 19
+  %74 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 19
   store i8 %73, ptr %74, align 1, !tbaa !73
   %.val16.i.i = load i64, ptr %35, align 8, !tbaa !76
   %75 = shl i64 %.val.i.i, 12
-  %.not.i.i31 = icmp ult i64 %75, %.val16.i.i
-  br i1 %.not.i.i31, label %86, label %76
+  %.not.i.i30 = icmp ult i64 %75, %.val16.i.i
+  br i1 %.not.i.i30, label %86, label %76
 
 76:                                               ; preds = %69
-  %77 = getelementptr i8, ptr %.val.i30, i64 16
+  %77 = getelementptr i8, ptr %.val.i29, i64 16
   %.val18.i.i = load i8, ptr %77, align 8, !tbaa !77, !range !54, !noundef !71
   %78 = trunc nuw i8 %.val18.i.i to i1
   br i1 %78, label %86, label %79
@@ -600,9 +600,9 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   %82 = load ptr, ptr %81, align 8, !tbaa !78
   call void %82(ptr noundef nonnull %5, i1 noundef zeroext true) #8
   %83 = load i64, ptr %5, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 20
   store i8 1, ptr %84, align 4, !tbaa !79
-  %85 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 24
   store i64 %83, ptr %85, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   %.val15.pre.i.i = load i64, ptr %70, align 8, !tbaa !74
@@ -614,12 +614,12 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br i1 %87, label %.sink.split.i.i, label %hpa_dalloc_locked.exit
 
 .sink.split.i.i:                                  ; preds = %86, %hpdata_changing_state_get.exit.thread.i.i
-  %88 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 20
   store i8 0, ptr %88, align 4, !tbaa !79
   br label %hpa_dalloc_locked.exit
 
 hpa_dalloc_locked.exit:                           ; preds = %86, %.sink.split.i.i
-  call void @je_psset_update_end(ptr noundef nonnull %34, ptr noundef nonnull %.val.i30) #8
+  call void @je_psset_update_end(ptr noundef nonnull %34, ptr noundef nonnull %.val.i29) #8
   %.val28 = load ptr, ptr %2, align 8, !tbaa !52
   %.not26 = icmp eq ptr %.val28, null
   br i1 %.not26, label %._crit_edge, label %37, !llvm.loop !80
@@ -628,15 +628,15 @@ hpa_dalloc_locked.exit:                           ; preds = %86, %.sink.split.i.
   call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext false)
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %90 = call ptr @je_psset_pick_hugify(ptr noundef nonnull %89) #8
-  %.not.i32 = icmp eq ptr %90, null
-  br i1 %.not.i32, label %91, label %hpa_shard_has_deferred_work.exit
+  %.not.i31 = icmp eq ptr %90, null
+  br i1 %.not.i31, label %91, label %hpa_shard_has_deferred_work.exit
 
 91:                                               ; preds = %._crit_edge
   %92 = getelementptr i8, ptr %1, i64 1368
-  %.val.i.i33 = load i64, ptr %92, align 8, !tbaa !82
+  %.val.i.i32 = load i64, ptr %92, align 8, !tbaa !82
   %93 = getelementptr i8, ptr %1, i64 5728
   %.val9.i.i = load i64, ptr %93, align 8, !tbaa !44
-  %94 = sub i64 %.val.i.i33, %.val9.i.i
+  %94 = sub i64 %.val.i.i32, %.val9.i.i
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 5688
   %96 = load i32, ptr %95, align 8, !tbaa !83
   %97 = icmp eq i32 %96, -1

@@ -1940,8 +1940,8 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime31destroyCalleeDestroyedA
   %10 = zext i32 %9 to i64
   %.idx = shl nuw nsw i64 %10, 3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %.not34 = icmp eq i32 %9, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph.preheader
+  %.not33 = icmp eq i32 %9, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %12 = load ptr, ptr %2, align 8, !tbaa !670
@@ -1951,14 +1951,14 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime31destroyCalleeDestroyedA
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
-  %.036 = phi ptr [ %55, %53 ], [ %12, %.lr.ph.preheader ]
-  %.02035 = phi ptr [ %54, %53 ], [ %7, %.lr.ph.preheader ]
-  %13 = load ptr, ptr %.02035, align 8, !tbaa !808
+  %.035 = phi ptr [ %55, %53 ], [ %12, %.lr.ph.preheader ]
+  %.02034 = phi ptr [ %54, %53 ], [ %7, %.lr.ph.preheader ]
+  %13 = load ptr, ptr %.02034, align 8, !tbaa !808
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 256
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread, label %17
+  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread27, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %13) #13
@@ -1969,7 +1969,7 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime31destroyCalleeDestroyedA
   %.idx.i.i = shl nuw nsw i64 %22, 3
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread27, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %17, %28
   %.sroa.07.1.i.i.i.i = phi ptr [ %29, %28 ], [ %19, %17 ]
@@ -1982,21 +1982,21 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime31destroyCalleeDestroyedA
 28:                                               ; preds = %.lr.ph.i.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %29, %23
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !812
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread27, label %.lr.ph.i.i.i.i.i, !llvm.loop !812
 
 _ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not30 = icmp eq ptr %.sroa.07.1.i.i.i.i, %23
-  br i1 %.not30, label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread, label %30
+  %.not29 = icmp eq ptr %.sroa.07.1.i.i.i.i, %23
+  br i1 %.not29, label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread27, label %30
 
 30:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #13
-  call void @_ZNK5clang7CodeGen7CallArg9getRValueERNS0_15CodeGenFunctionE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::RValue") align 8 %4, ptr noundef nonnull align 8 dereferenceable(152) %.036, ptr noundef nonnull align 8 dereferenceable(6496) %0) #13
+  call void @_ZNK5clang7CodeGen7CallArg9getRValueERNS0_15CodeGenFunctionE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::RValue") align 8 %4, ptr noundef nonnull align 8 dereferenceable(152) %.035, ptr noundef nonnull align 8 dereferenceable(6496) %0) #13
   %31 = load ptr, ptr %4, align 8, !tbaa !345
   call void @_ZN5clang7CodeGen15CodeGenFunction14EmitARCReleaseEPN4llvm5ValueENS0_20ARCPreciseLifetime_tE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %31, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #13
   br label %53
 
-_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread: ; preds = %28, %17, %.lr.ph, %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit
+_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread27: ; preds = %28, %17, %.lr.ph, %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %32, align 8, !tbaa !345
   %33 = and i64 %.sroa.0.0.copyload.i, -16
@@ -2010,21 +2010,21 @@ _ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread: ; preds = %28, %17
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i8, ptr %40, align 16
   %42 = icmp ne i8 %41, 47
-  %.not2231 = icmp eq ptr %39, null
-  %.not22 = or i1 %.not2231, %42
+  %.not2230 = icmp eq ptr %39, null
+  %.not22 = or i1 %.not2230, %42
   br i1 %.not22, label %53, label %43
 
-43:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread
+43:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread27
   %44 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %39) #13
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 34359738368
-  %.not32 = icmp eq i64 %47, 0
-  br i1 %.not32, label %53, label %48
+  %.not31 = icmp eq i64 %47, 0
+  br i1 %.not31, label %53, label %48
 
 48:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #13
-  call void @_ZNK5clang7CodeGen7CallArg9getRValueERNS0_15CodeGenFunctionE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::RValue") align 8 %5, ptr noundef nonnull align 8 dereferenceable(152) %.036, ptr noundef nonnull align 8 dereferenceable(6496) %0) #13
+  call void @_ZNK5clang7CodeGen7CallArg9getRValueERNS0_15CodeGenFunctionE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::RValue") align 8 %5, ptr noundef nonnull align 8 dereferenceable(152) %.035, ptr noundef nonnull align 8 dereferenceable(6496) %0) #13
   %49 = call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %.sroa.0.0.copyload.i) #13
   %switch = icmp eq i32 %49, 1
   br i1 %switch, label %50, label %51
@@ -2041,9 +2041,9 @@ _ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread: ; preds = %28, %17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #13
   br label %53
 
-53:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread, %43, %52, %30
-  %54 = getelementptr inbounds nuw i8, ptr %.02035, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %.036, i64 152
+53:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit.thread27, %43, %52, %30
+  %54 = getelementptr inbounds nuw i8, ptr %.02034, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.035, i64 152
   %.not = icmp eq ptr %54, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !813
 }

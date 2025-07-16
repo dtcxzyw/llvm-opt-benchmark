@@ -458,230 +458,225 @@ part_data_add_job_to_row.exit:                    ; preds = %160, %165
   %.not20.i = icmp eq i16 %177, 0
   br i1 %.not20.i, label %part_data_sort_res.exit, label %.lr.ph19.i
 
-.loopexit.loopexit.i:                             ; preds = %194
-  %.pre28.i = zext i16 %195 to i64
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %.lr.ph19.i, %.loopexit.loopexit.i
-  %.pre-phi29.i = phi i64 [ %.pre28.i, %.loopexit.loopexit.i ], [ %181, %.lr.ph19.i ]
-  %178 = phi i16 [ %195, %.loopexit.loopexit.i ], [ %180, %.lr.ph19.i ]
-  %179 = icmp samesign ult i64 %indvars.iv.next25.i, %.pre-phi29.i
+.loopexit.i:                                      ; preds = %193
+  %.pre28.i = zext i16 %194 to i64
+  %178 = icmp samesign ult i64 %indvars.iv.next25.i, %.pre28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %179, label %.lr.ph19.i, label %part_data_sort_res.exit, !llvm.loop !17
+  br i1 %178, label %.lr.ph19.i, label %part_data_sort_res.exit, !llvm.loop !17
 
 .lr.ph19.i:                                       ; preds = %.preheader.i, %.loopexit.i
-  %180 = phi i16 [ %178, %.loopexit.i ], [ %177, %.preheader.i ]
+  %179 = phi i16 [ %194, %.loopexit.i ], [ %177, %.preheader.i ]
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.loopexit.i ], [ 0, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ 1, %.preheader.i ]
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %181 = zext i16 %180 to i64
-  %182 = icmp samesign ult i64 %indvars.iv.next25.i, %181
-  br i1 %182, label %.lr.ph.i, label %.loopexit.i
+  %180 = zext i16 %179 to i64
+  %181 = icmp samesign ult i64 %indvars.iv.next25.i, %180
+  br i1 %181, label %.lr.ph.i, label %part_data_sort_res.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph19.i, %194
-  %183 = phi i16 [ %195, %194 ], [ %180, %.lr.ph19.i ]
-  %184 = phi i16 [ %196, %194 ], [ %180, %.lr.ph19.i ]
-  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %194 ], [ %indvars.iv.i, %.lr.ph19.i ]
-  %185 = load ptr, ptr %10, align 8
-  %186 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %185, i64 %indvars.iv21.i
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  %188 = load i32, ptr %187, align 8
-  %189 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %185, i64 %indvars.iv24.i
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  %191 = load i32, ptr %190, align 8
-  %192 = icmp ugt i32 %188, %191
-  br i1 %192, label %193, label %194
+.lr.ph.i:                                         ; preds = %.lr.ph19.i, %193
+  %182 = phi i16 [ %194, %193 ], [ %179, %.lr.ph19.i ]
+  %183 = phi i16 [ %195, %193 ], [ %179, %.lr.ph19.i ]
+  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %193 ], [ %indvars.iv.i, %.lr.ph19.i ]
+  %184 = load ptr, ptr %10, align 8
+  %185 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %184, i64 %indvars.iv21.i
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  %187 = load i32, ptr %186, align 8
+  %188 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %184, i64 %indvars.iv24.i
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
+  %190 = load i32, ptr %189, align 8
+  %191 = icmp ugt i32 %187, %190
+  br i1 %191, label %192, label %193
 
-193:                                              ; preds = %.lr.ph.i
+192:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %189, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef nonnull align 8 dereferenceable(32) %186, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %188, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(32) %185, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.pre.i137 = load i16, ptr %13, align 8
-  br label %194
+  br label %193
 
-194:                                              ; preds = %193, %.lr.ph.i
-  %195 = phi i16 [ %183, %.lr.ph.i ], [ %.pre.i137, %193 ]
-  %196 = phi i16 [ %184, %.lr.ph.i ], [ %.pre.i137, %193 ]
+193:                                              ; preds = %192, %.lr.ph.i
+  %194 = phi i16 [ %182, %.lr.ph.i ], [ %.pre.i137, %192 ]
+  %195 = phi i16 [ %183, %.lr.ph.i ], [ %.pre.i137, %192 ]
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %197 = zext i16 %196 to i64
-  %198 = icmp samesign ult i64 %indvars.iv.next22.i, %197
-  br i1 %198, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !18
+  %196 = zext i16 %195 to i64
+  %197 = icmp samesign ult i64 %indvars.iv.next22.i, %196
+  br i1 %197, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !18
 
-part_data_sort_res.exit:                          ; preds = %.loopexit.i, %.loopexit155, %.preheader.i
+part_data_sort_res.exit:                          ; preds = %.loopexit.i, %.lr.ph19.i, %.loopexit155, %.preheader.i
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next227, %68
   br i1 %exitcond231.not, label %.preheader152, label %.preheader154, !llvm.loop !19
 
-199:                                              ; preds = %.preheader152
+198:                                              ; preds = %.preheader152
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %68
   br i1 %exitcond236.not, label %.critedge, label %.preheader152, !llvm.loop !20
 
-.preheader152:                                    ; preds = %part_data_sort_res.exit, %199
-  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %199 ], [ 0, %part_data_sort_res.exit ]
-  %200 = getelementptr inbounds nuw %struct.sort_support_t, ptr %69, i64 %indvars.iv232, i32 1
-  %201 = load ptr, ptr %200, align 8
-  %.not128 = icmp eq ptr %201, null
-  br i1 %.not128, label %199, label %202
+.preheader152:                                    ; preds = %part_data_sort_res.exit, %198
+  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %198 ], [ 0, %part_data_sort_res.exit ]
+  %199 = getelementptr inbounds nuw %struct.sort_support_t, ptr %69, i64 %indvars.iv232, i32 1
+  %200 = load ptr, ptr %199, align 8
+  %.not128 = icmp eq ptr %200, null
+  br i1 %.not128, label %198, label %201
 
-202:                                              ; preds = %.preheader152
-  %203 = call i32 @get_log_level() #8
-  %204 = icmp sgt i32 %203, 6
-  br i1 %204, label %205, label %206
+201:                                              ; preds = %.preheader152
+  %202 = call i32 @get_log_level() #8
+  %203 = icmp sgt i32 %202, 6
+  br i1 %203, label %204, label %205
 
-205:                                              ; preds = %202
+204:                                              ; preds = %201
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.part_data_build_row_bitmaps) #8
-  br label %206
+  br label %205
 
-206:                                              ; preds = %205, %202
-  %207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %208 = and i64 %207, 1
-  %.not129 = icmp eq i64 %208, 0
-  br i1 %.not129, label %214, label %209
+205:                                              ; preds = %204, %201
+  %206 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %207 = and i64 %206, 1
+  %.not129 = icmp eq i64 %207, 0
+  br i1 %.not129, label %213, label %208
 
-209:                                              ; preds = %206
-  %210 = call i32 @get_log_level() #8
-  %211 = icmp sgt i32 %210, 2
-  br i1 %211, label %212, label %213
+208:                                              ; preds = %205
+  %209 = call i32 @get_log_level() #8
+  %210 = icmp sgt i32 %209, 2
+  br i1 %210, label %211, label %212
 
-212:                                              ; preds = %209
+211:                                              ; preds = %208
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.part_data_build_row_bitmaps) #8
+  br label %212
+
+212:                                              ; preds = %211, %208
+  call void @part_data_dump_res(ptr noundef %0)
   br label %213
 
-213:                                              ; preds = %212, %209
-  call void @part_data_dump_res(ptr noundef %0)
-  br label %214
-
-214:                                              ; preds = %213, %206
-  %215 = load ptr, ptr %10, align 8
-  %216 = load i16, ptr %13, align 8
+213:                                              ; preds = %212, %205
+  %214 = load ptr, ptr %10, align 8
+  %215 = load i16, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %215, ptr %4, align 8
-  %.not.i138 = icmp eq i16 %216, 0
+  store ptr %214, ptr %4, align 8
+  %.not.i138 = icmp eq i16 %215, 0
   br i1 %.not.i138, label %part_data_destroy_row.exit, label %.lr.ph.i139
 
-.lr.ph.i139:                                      ; preds = %214
-  %wide.trip.count.i = zext i16 %216 to i64
-  br label %217
+.lr.ph.i139:                                      ; preds = %213
+  %wide.trip.count.i = zext i16 %215 to i64
+  br label %216
 
-217:                                              ; preds = %217, %.lr.ph.i139
-  %indvars.iv.i140 = phi i64 [ 0, %.lr.ph.i139 ], [ %indvars.iv.next.i141, %217 ]
-  %218 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %215, i64 %indvars.iv.i140, i32 3
-  call void @free_core_array(ptr noundef nonnull %218) #8
-  %219 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %215, i64 %indvars.iv.i140
-  call void @slurm_xfree(ptr noundef %219) #8
+216:                                              ; preds = %216, %.lr.ph.i139
+  %indvars.iv.i140 = phi i64 [ 0, %.lr.ph.i139 ], [ %indvars.iv.next.i141, %216 ]
+  %217 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %214, i64 %indvars.iv.i140, i32 3
+  call void @free_core_array(ptr noundef nonnull %217) #8
+  %218 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %214, i64 %indvars.iv.i140
+  call void @slurm_xfree(ptr noundef %218) #8
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i140, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i141, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %part_data_destroy_row.exit, label %217, !llvm.loop !21
+  br i1 %exitcond.not.i, label %part_data_destroy_row.exit, label %216, !llvm.loop !21
 
-part_data_destroy_row.exit:                       ; preds = %217, %214
+part_data_destroy_row.exit:                       ; preds = %216, %213
   call void @slurm_xfree(ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr %65, ptr %10, align 8
-  %220 = load i16, ptr %13, align 8
-  %.not196 = icmp eq i16 %220, 0
+  %219 = load i16, ptr %13, align 8
+  %.not196 = icmp eq i16 %219, 0
   br i1 %.not196, label %.critedge, label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %part_data_destroy_row.exit, %.loopexit151
-  %221 = phi ptr [ %241, %.loopexit151 ], [ %65, %part_data_destroy_row.exit ]
+  %220 = phi ptr [ %240, %.loopexit151 ], [ %65, %part_data_destroy_row.exit ]
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.loopexit151 ], [ 0, %part_data_destroy_row.exit ]
-  %222 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %221, i64 %indvars.iv240
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 16
-  %224 = load ptr, ptr %223, align 8
-  call void @clear_core_array(ptr noundef %224) #8
-  %225 = getelementptr inbounds nuw i8, ptr %222, i64 24
-  store i32 0, ptr %225, align 8
-  %226 = load ptr, ptr %10, align 8
-  %227 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %226, i64 %indvars.iv240, i32 2
-  %228 = load i32, ptr %227, align 4
-  %229 = icmp eq i32 %228, 0
-  br i1 %229, label %.loopexit151, label %.lr.ph184.preheader
+  %221 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %220, i64 %indvars.iv240
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %223 = load ptr, ptr %222, align 8
+  call void @clear_core_array(ptr noundef %223) #8
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  store i32 0, ptr %224, align 8
+  %225 = load ptr, ptr %10, align 8
+  %226 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %225, i64 %indvars.iv240, i32 2
+  %227 = load i32, ptr %226, align 4
+  %228 = icmp eq i32 %227, 0
+  br i1 %228, label %.loopexit151, label %.lr.ph184.preheader
 
 .lr.ph184.preheader:                              ; preds = %.lr.ph186
-  %230 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %226, i64 %indvars.iv240
+  %229 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %225, i64 %indvars.iv240
   br label %.lr.ph184
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
   %indvars.iv237 = phi i64 [ 0, %.lr.ph184.preheader ], [ %indvars.iv.next238, %.lr.ph184 ]
-  %231 = phi ptr [ %230, %.lr.ph184.preheader ], [ %236, %.lr.ph184 ]
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv237
-  %234 = load ptr, ptr %233, align 8
-  call void @job_res_add_cores(ptr noundef %234, ptr noundef nonnull %231) #8
+  %230 = phi ptr [ %229, %.lr.ph184.preheader ], [ %235, %.lr.ph184 ]
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv237
+  %233 = load ptr, ptr %232, align 8
+  call void @job_res_add_cores(ptr noundef %233, ptr noundef nonnull %230) #8
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
-  %235 = load ptr, ptr %10, align 8
-  %236 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %235, i64 %indvars.iv240
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 12
-  %238 = load i32, ptr %237, align 4
-  %239 = zext i32 %238 to i64
-  %240 = icmp samesign ult i64 %indvars.iv.next238, %239
-  br i1 %240, label %.lr.ph184, label %.loopexit151, !llvm.loop !22
+  %234 = load ptr, ptr %10, align 8
+  %235 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %234, i64 %indvars.iv240
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 12
+  %237 = load i32, ptr %236, align 4
+  %238 = zext i32 %237 to i64
+  %239 = icmp samesign ult i64 %indvars.iv.next238, %238
+  br i1 %239, label %.lr.ph184, label %.loopexit151, !llvm.loop !22
 
 .loopexit151:                                     ; preds = %.lr.ph184, %.lr.ph186
-  %241 = phi ptr [ %226, %.lr.ph186 ], [ %235, %.lr.ph184 ]
+  %240 = phi ptr [ %225, %.lr.ph186 ], [ %234, %.lr.ph184 ]
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
-  %242 = load i16, ptr %13, align 8
-  %243 = zext i16 %242 to i64
-  %244 = icmp samesign ult i64 %indvars.iv.next241, %243
-  br i1 %244, label %.lr.ph186, label %.critedge, !llvm.loop !23
+  %241 = load i16, ptr %13, align 8
+  %242 = zext i16 %241 to i64
+  %243 = icmp samesign ult i64 %indvars.iv.next241, %242
+  br i1 %243, label %.lr.ph186, label %.critedge, !llvm.loop !23
 
-.critedge:                                        ; preds = %199, %.loopexit151, %part_data_destroy_row.exit
-  %.0 = phi ptr [ null, %part_data_destroy_row.exit ], [ null, %.loopexit151 ], [ %65, %199 ]
-  %245 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %246 = and i64 %245, 1
-  %.not130 = icmp eq i64 %246, 0
-  br i1 %.not130, label %252, label %247
+.critedge:                                        ; preds = %198, %.loopexit151, %part_data_destroy_row.exit
+  %.0 = phi ptr [ null, %part_data_destroy_row.exit ], [ null, %.loopexit151 ], [ %65, %198 ]
+  %244 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %245 = and i64 %244, 1
+  %.not130 = icmp eq i64 %245, 0
+  br i1 %.not130, label %251, label %246
 
-247:                                              ; preds = %.critedge
-  %248 = call i32 @get_log_level() #8
-  %249 = icmp sgt i32 %248, 2
-  br i1 %249, label %250, label %251
+246:                                              ; preds = %.critedge
+  %247 = call i32 @get_log_level() #8
+  %248 = icmp sgt i32 %247, 2
+  br i1 %248, label %249, label %250
 
-250:                                              ; preds = %247
+249:                                              ; preds = %246
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.part_data_build_row_bitmaps) #8
+  br label %250
+
+250:                                              ; preds = %249, %246
+  call void @part_data_dump_res(ptr noundef %0)
   br label %251
 
-251:                                              ; preds = %250, %247
-  call void @part_data_dump_res(ptr noundef %0)
-  br label %252
-
-252:                                              ; preds = %251, %.critedge
+251:                                              ; preds = %250, %.critedge
   %.not131 = icmp eq ptr %.0, null
-  br i1 %.not131, label %258, label %253
+  br i1 %.not131, label %257, label %252
 
-253:                                              ; preds = %252
-  %254 = load i16, ptr %13, align 8
+252:                                              ; preds = %251
+  %253 = load i16, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %.0, ptr %3, align 8
-  %.not.i142 = icmp eq i16 %254, 0
+  %.not.i142 = icmp eq i16 %253, 0
   br i1 %.not.i142, label %part_data_destroy_row.exit148, label %.lr.ph.i143
 
-.lr.ph.i143:                                      ; preds = %253
-  %wide.trip.count.i144 = zext i16 %254 to i64
-  br label %255
+.lr.ph.i143:                                      ; preds = %252
+  %wide.trip.count.i144 = zext i16 %253 to i64
+  br label %254
 
-255:                                              ; preds = %255, %.lr.ph.i143
-  %indvars.iv.i145 = phi i64 [ 0, %.lr.ph.i143 ], [ %indvars.iv.next.i146, %255 ]
-  %256 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %.0, i64 %indvars.iv.i145, i32 3
-  call void @free_core_array(ptr noundef nonnull %256) #8
-  %257 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %.0, i64 %indvars.iv.i145
-  call void @slurm_xfree(ptr noundef nonnull %257) #8
+254:                                              ; preds = %254, %.lr.ph.i143
+  %indvars.iv.i145 = phi i64 [ 0, %.lr.ph.i143 ], [ %indvars.iv.next.i146, %254 ]
+  %255 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %.0, i64 %indvars.iv.i145, i32 3
+  call void @free_core_array(ptr noundef nonnull %255) #8
+  %256 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %.0, i64 %indvars.iv.i145
+  call void @slurm_xfree(ptr noundef nonnull %256) #8
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i145, 1
   %exitcond.not.i147 = icmp eq i64 %indvars.iv.next.i146, %wide.trip.count.i144
-  br i1 %exitcond.not.i147, label %part_data_destroy_row.exit148, label %255, !llvm.loop !21
+  br i1 %exitcond.not.i147, label %part_data_destroy_row.exit148, label %254, !llvm.loop !21
 
-part_data_destroy_row.exit148:                    ; preds = %255, %253
+part_data_destroy_row.exit148:                    ; preds = %254, %252
   call void @slurm_xfree(ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %258
+  br label %257
 
-258:                                              ; preds = %part_data_destroy_row.exit148, %252
+257:                                              ; preds = %part_data_destroy_row.exit148, %251
   call void @slurm_xfree(ptr noundef nonnull %6) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph191, %.lr.ph188, %12, %27, %62, %19, %24, %2, %258
+.loopexit:                                        ; preds = %.lr.ph191, %.lr.ph188, %12, %27, %62, %19, %24, %2, %257
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   ret void
 }
@@ -968,58 +963,53 @@ define dso_local void @part_data_sort_res(ptr noundef readonly captures(none) %0
   %.not20 = icmp eq i16 %6, 0
   br i1 %.not20, label %.loopexit16, label %.lr.ph19
 
-.loopexit.loopexit:                               ; preds = %23
-  %.pre28 = zext i16 %24 to i64
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph19
-  %.pre-phi29 = phi i64 [ %.pre28, %.loopexit.loopexit ], [ %10, %.lr.ph19 ]
-  %7 = phi i16 [ %24, %.loopexit.loopexit ], [ %9, %.lr.ph19 ]
-  %8 = icmp samesign ult i64 %indvars.iv.next25, %.pre-phi29
+.loopexit:                                        ; preds = %22
+  %.pre28 = zext i16 %23 to i64
+  %7 = icmp samesign ult i64 %indvars.iv.next25, %.pre28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %8, label %.lr.ph19, label %.loopexit16, !llvm.loop !17
+  br i1 %7, label %.lr.ph19, label %.loopexit16, !llvm.loop !17
 
 .lr.ph19:                                         ; preds = %.preheader, %.loopexit
-  %9 = phi i16 [ %7, %.loopexit ], [ %6, %.preheader ]
+  %8 = phi i16 [ %23, %.loopexit ], [ %6, %.preheader ]
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.loopexit ], [ 0, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 1, %.preheader ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %10 = zext i16 %9 to i64
-  %11 = icmp samesign ult i64 %indvars.iv.next25, %10
-  br i1 %11, label %.lr.ph, label %.loopexit
+  %9 = zext i16 %8 to i64
+  %10 = icmp samesign ult i64 %indvars.iv.next25, %9
+  br i1 %10, label %.lr.ph, label %.loopexit16
 
-.lr.ph:                                           ; preds = %.lr.ph19, %23
-  %12 = phi i16 [ %24, %23 ], [ %9, %.lr.ph19 ]
-  %13 = phi i16 [ %25, %23 ], [ %9, %.lr.ph19 ]
-  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %23 ], [ %indvars.iv, %.lr.ph19 ]
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %14, i64 %indvars.iv21
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %14, i64 %indvars.iv24
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp ugt i32 %17, %20
-  br i1 %21, label %22, label %23
+.lr.ph:                                           ; preds = %.lr.ph19, %22
+  %11 = phi i16 [ %23, %22 ], [ %8, %.lr.ph19 ]
+  %12 = phi i16 [ %24, %22 ], [ %8, %.lr.ph19 ]
+  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %22 ], [ %indvars.iv, %.lr.ph19 ]
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %13, i64 %indvars.iv21
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load i32, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %13, i64 %indvars.iv24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ugt i32 %16, %19
+  br i1 %20, label %21, label %22
 
-22:                                               ; preds = %.lr.ph
+21:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %.pre = load i16, ptr %5, align 8
-  br label %23
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %22
-  %24 = phi i16 [ %12, %.lr.ph ], [ %.pre, %22 ]
-  %25 = phi i16 [ %13, %.lr.ph ], [ %.pre, %22 ]
+22:                                               ; preds = %.lr.ph, %21
+  %23 = phi i16 [ %11, %.lr.ph ], [ %.pre, %21 ]
+  %24 = phi i16 [ %12, %.lr.ph ], [ %.pre, %21 ]
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %26 = zext i16 %25 to i64
-  %27 = icmp samesign ult i64 %indvars.iv.next22, %26
-  br i1 %27, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !18
+  %25 = zext i16 %24 to i64
+  %26 = icmp samesign ult i64 %indvars.iv.next22, %25
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
-.loopexit16:                                      ; preds = %.loopexit, %.preheader, %1
+.loopexit16:                                      ; preds = %.loopexit, %.lr.ph19, %.preheader, %1
   ret void
 }
 

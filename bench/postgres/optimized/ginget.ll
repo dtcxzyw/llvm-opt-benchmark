@@ -107,9 +107,9 @@ BufferGetPage.exit.i:                             ; preds = %34, %28
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %51, ptr %52, align 8
   %53 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull readonly %0, ptr noundef %12)
-  br i1 %53, label %.lr.ph72.i, label %collectMatchesForHeapRow.exit._crit_edge.i
+  br i1 %53, label %.lr.ph75.i, label %collectMatchesForHeapRow.exit._crit_edge.i
 
-.lr.ph72.i:                                       ; preds = %44
+.lr.ph75.i:                                       ; preds = %44
   %invariant.gep.i.i = getelementptr i8, ptr %10, i64 -1
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -118,8 +118,8 @@ BufferGetPage.exit.i:                             ; preds = %34, %28
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 9664
   br label %59
 
-59:                                               ; preds = %collectMatchesForHeapRow.exit.backedge.i, %.lr.ph72.i
-  %.2 = phi i64 [ 0, %.lr.ph72.i ], [ %.3, %collectMatchesForHeapRow.exit.backedge.i ]
+59:                                               ; preds = %collectMatchesForHeapRow.exit.backedge.i, %.lr.ph75.i
+  %.2 = phi i64 [ 0, %.lr.ph75.i ], [ %.3, %collectMatchesForHeapRow.exit.backedge.i ]
   %60 = load ptr, ptr %14, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 9672
   %62 = load i32, ptr %61, align 8
@@ -233,7 +233,7 @@ BufferGetPage.exit.i.i:                           ; preds = %95, %89
 
 .preheader150.i.i:                                ; preds = %112
   %123 = icmp ult i16 %118, %119
-  br i1 %123, label %.lr.ph165.i.i, label %.thread144.i.i
+  br i1 %123, label %.lr.ph165.i.i, label %.thread144.i.thread.i
 
 .lr.ph165.i.i:                                    ; preds = %.preheader150.i.i
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -312,7 +312,7 @@ BufferGetPage.exit.i.i:                           ; preds = %95, %89
   %170 = getelementptr inbounds nuw i8, ptr %117, i64 9
   %171 = load i8, ptr %170, align 1, !range !4, !noundef !5
   %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %173, label %.thread144.sink.split.i.i
+  br i1 %172, label %173, label %.thread144.i.i
 
 173:                                              ; preds = %.thread.i.i
   %174 = load i16, ptr %54, align 2
@@ -320,7 +320,7 @@ BufferGetPage.exit.i.i:                           ; preds = %95, %89
   %.not.i.i.i = icmp eq i8 %175, 0
   %176 = icmp ult i16 %129, %174
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %176, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i.i, label %.thread144.sink.split.i.i
+  br i1 %or.cond.i.i, label %.lr.ph.i.i.i, label %.thread144.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %173
   %177 = getelementptr inbounds nuw i8, ptr %117, i64 24
@@ -339,7 +339,7 @@ BufferGetPage.exit.i.i:                           ; preds = %95, %89
   %185 = call zeroext i16 @gintuple_get_attrnum(ptr noundef nonnull %78, ptr noundef %184) #9
   %186 = load i16, ptr %125, align 8
   %.not36.i.i.i = icmp eq i16 %185, %186
-  br i1 %.not36.i.i.i, label %187, label %.thread144.sink.split.i.i
+  br i1 %.not36.i.i.i, label %187, label %.thread144.i.i
 
 187:                                              ; preds = %179
   %188 = getelementptr inbounds i8, ptr %10, i64 %180
@@ -359,7 +359,7 @@ BufferGetPage.exit.i.i:                           ; preds = %95, %89
   %196 = getelementptr inbounds i8, ptr %9, i64 %180
   %197 = load i8, ptr %196, align 1
   %.not37.i.i.i = icmp eq i8 %197, 0
-  br i1 %.not37.i.i.i, label %198, label %.thread144.sink.split.i.i
+  br i1 %.not37.i.i.i, label %198, label %.thread144.i.i
 
 198:                                              ; preds = %195
   %199 = load i16, ptr %125, align 8
@@ -378,14 +378,14 @@ BufferGetPage.exit.i.i:                           ; preds = %95, %89
   %212 = call i64 @FunctionCall4Coll(ptr noundef nonnull %202, i32 noundef %204, i64 noundef %205, i64 noundef %207, i64 noundef %209, i64 noundef %211) #9
   %213 = trunc i64 %212 to i32
   %214 = icmp eq i32 %213, 0
-  br i1 %214, label %.thread144.sink.split.i.i, label %215
+  br i1 %214, label %.thread144.i.i, label %215
 
 215:                                              ; preds = %198
   %216 = icmp sgt i32 %213, 0
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   %or.cond.i.i.i = select i1 %216, i1 true, i1 %exitcond.not.i.i.i
-  br i1 %or.cond.i.i.i, label %.thread144.sink.split.i.i, label %179, !llvm.loop !9
+  br i1 %or.cond.i.i.i, label %.thread144.i.i, label %179, !llvm.loop !9
 
 .thread140.i.i:                                   ; preds = %161, %157
   %.0142.i.i = phi i32 [ %168, %161 ], [ -1, %157 ]
@@ -399,33 +399,29 @@ BufferGetPage.exit.i.i:                           ; preds = %95, %89
   %.2111.i.i = phi i16 [ %142, %141 ], [ %.3112.i.i, %.thread140.i.i ], [ %.0109163.i.i, %127 ]
   %.2.i.i = phi i16 [ %.0107164.i.i, %141 ], [ %.3.i.i, %.thread140.i.i ], [ %129, %127 ]
   %220 = icmp ult i16 %.2111.i.i, %.2.i.i
-  br i1 %220, label %127, label %.thread144.i.i
+  br i1 %220, label %127, label %.thread144.i.thread.i
 
-.thread144.sink.split.i.i:                        ; preds = %215, %198, %195, %179, %173, %.thread.i.i
+.thread144.i.i:                                   ; preds = %215, %198, %195, %179, %173, %.thread.i.i
   %.0.i.sink.i.i = phi i8 [ 0, %173 ], [ 1, %.thread.i.i ], [ 0, %215 ], [ 1, %198 ], [ 0, %195 ], [ 0, %179 ]
   %221 = load ptr, ptr %110, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 %115
   store i8 %.0.i.sink.i.i, ptr %222, align 1
-  br label %.thread144.i.i
+  %223 = icmp ult i16 %.0109163.i.i, %.0107164.i.i
+  br i1 %223, label %276, label %.thread144.i.thread.i
 
-.thread144.i.i:                                   ; preds = %219, %.thread144.sink.split.i.i, %.preheader150.i.i
-  %.0109154.i.i = phi i16 [ %118, %.preheader150.i.i ], [ %.0109163.i.i, %.thread144.sink.split.i.i ], [ %.2111.i.i, %219 ]
-  %.0107152.i.i = phi i16 [ %119, %.preheader150.i.i ], [ %.0107164.i.i, %.thread144.sink.split.i.i ], [ %.2.i.i, %219 ]
-  %.not123.i.i = icmp ult i16 %.0109154.i.i, %.0107152.i.i
-  br i1 %.not123.i.i, label %276, label %223
-
-223:                                              ; preds = %.thread144.i.i
+.thread144.i.thread.i:                            ; preds = %219, %.thread144.i.i, %.preheader150.i.i
+  %.0107152.i46.i = phi i16 [ %.0107164.i.i, %.thread144.i.i ], [ %119, %.preheader150.i.i ], [ %.2.i.i, %219 ]
   %224 = getelementptr inbounds nuw i8, ptr %117, i64 9
   %225 = load i8, ptr %224, align 1, !range !4, !noundef !5
   %226 = trunc nuw i8 %225 to i1
   br i1 %226, label %227, label %276
 
-227:                                              ; preds = %223
+227:                                              ; preds = %.thread144.i.thread.i
   %228 = load i16, ptr %54, align 2
   %229 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %230 = load i8, ptr %229, align 8
   %.not.i126.i.i = icmp eq i8 %230, 0
-  %231 = icmp ult i16 %.0107152.i.i, %228
+  %231 = icmp ult i16 %.0107152.i46.i, %228
   %or.cond181.i.i = select i1 %.not.i126.i.i, i1 %231, i1 false
   br i1 %or.cond181.i.i, label %.lr.ph.i129.i.i, label %matchPartialInPendingList.exit138.i.i
 
@@ -433,7 +429,7 @@ BufferGetPage.exit.i.i:                           ; preds = %95, %89
   %232 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %233 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %234 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %235 = zext i16 %.0107152.i.i to i64
+  %235 = zext i16 %.0107152.i46.i to i64
   %wide.trip.count.i130.i.i = zext i16 %228 to i64
   br label %236
 
@@ -503,7 +499,7 @@ matchPartialInPendingList.exit138.i.i:            ; preds = %272, %255, %252, %2
   store i8 %.0.i127.i.i, ptr %275, align 1
   br label %276
 
-276:                                              ; preds = %matchPartialInPendingList.exit138.i.i, %223, %.thread144.i.i
+276:                                              ; preds = %matchPartialInPendingList.exit138.i.i, %.thread144.i.thread.i, %.thread144.i.i
   %277 = load ptr, ptr %110, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 %115
   %279 = load i8, ptr %278, align 1
@@ -561,8 +557,8 @@ matchPartialInPendingList.exit138.i.i:            ; preds = %272, %255, %252, %2
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 6
   %307 = load i16, ptr %306, align 2
   %308 = and i16 %307, 32
-  %.not.i86.i = icmp eq i16 %308, 0
-  br i1 %.not.i86.i, label %309, label %.critedge.i.thread.i
+  %.not.i89.i = icmp eq i16 %308, 0
+  br i1 %.not.i89.i, label %309, label %.critedge.i.thread.i
 
 .critedge.i.thread.i:                             ; preds = %._crit_edge174.i.thread.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #9
@@ -622,12 +618,12 @@ BufferGetPage.exit.i38.i:                         ; preds = %321, %315
   %337 = getelementptr inbounds nuw i8, ptr %.0.i.i.i39.i, i64 %336
   %338 = load i32, ptr %337, align 4
   %.not43.i.i = icmp eq i32 %338, -1
-  br i1 %.not43.i.i, label %scanGetCandidate.exit.thread44.i, label %339
+  br i1 %.not43.i.i, label %scanGetCandidate.exit.thread47.i, label %339
 
-scanGetCandidate.exit.thread44.i:                 ; preds = %333
+scanGetCandidate.exit.thread47.i:                 ; preds = %333
   call void @UnlockReleaseBuffer(i32 noundef %313) #9
   store i32 0, ptr %12, align 8
-  br label %.loopexit55.i
+  br label %.loopexit58.i
 
 339:                                              ; preds = %333
   %340 = load ptr, ptr %21, align 8
@@ -685,9 +681,9 @@ scanGetCandidate.exit.thread.i:                   ; preds = %343
 
 scanGetCandidate.exit.i:                          ; preds = %358, %.preheader.i, %scanGetCandidate.exit.thread.i
   %367 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %55, ptr noundef nonnull %11) #9
-  br i1 %367, label %370, label %.loopexit55.i
+  br i1 %367, label %370, label %.loopexit58.i
 
-.loopexit55.i:                                    ; preds = %scanGetCandidate.exit.i, %scanGetCandidate.exit.thread44.i
+.loopexit58.i:                                    ; preds = %scanGetCandidate.exit.i, %scanGetCandidate.exit.thread47.i
   %368 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %368)
   %369 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
@@ -741,17 +737,17 @@ scanGetCandidate.exit.i:                          ; preds = %358, %.preheader.i,
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit.i, %395
-  %.070.i = phi i8 [ %398, %395 ], [ 0, %.loopexit.i ]
-  %.03669.i = phi i32 [ %399, %395 ], [ 0, %.loopexit.i ]
+  %.073.i = phi i8 [ %398, %395 ], [ 0, %.loopexit.i ]
+  %.03672.i = phi i32 [ %399, %395 ], [ 0, %.loopexit.i ]
   %388 = load ptr, ptr %58, align 8
-  %389 = sext i32 %.03669.i to i64
+  %389 = sext i32 %.03672.i to i64
   %390 = getelementptr inbounds %struct.GinScanKeyData, ptr %388, i64 %389
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 56
   %392 = load ptr, ptr %391, align 8
   %393 = call zeroext i1 %392(ptr noundef %390) #9
-  br i1 %393, label %395, label %.thread52.i
+  br i1 %393, label %395, label %.thread55.i
 
-.thread52.i:                                      ; preds = %.lr.ph.i
+.thread55.i:                                      ; preds = %.lr.ph.i
   store ptr %386, ptr @CurrentMemoryContext, align 8
   %394 = load ptr, ptr %16, align 8
   call void @MemoryContextReset(ptr noundef %394) #9
@@ -760,8 +756,8 @@ scanGetCandidate.exit.i:                          ; preds = %358, %.preheader.i,
 395:                                              ; preds = %.lr.ph.i
   %396 = getelementptr inbounds nuw i8, ptr %390, i64 147
   %397 = load i8, ptr %396, align 1, !range !4, !noundef !5
-  %398 = or i8 %397, %.070.i
-  %399 = add nuw i32 %.03669.i, 1
+  %398 = or i8 %397, %.073.i
+  %399 = add nuw i32 %.03672.i, 1
   %400 = load i32, ptr %48, align 8
   %401 = icmp ult i32 %399, %400
   br i1 %401, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !15
@@ -779,8 +775,8 @@ scanGetCandidate.exit.i:                          ; preds = %358, %.preheader.i,
   %404 = add i64 %.2, 1
   br label %collectMatchesForHeapRow.exit.backedge.i
 
-collectMatchesForHeapRow.exit.backedge.i:         ; preds = %378, %._crit_edge.i, %.thread52.i
-  %.3 = phi i64 [ %404, %._crit_edge.i ], [ %.2, %.thread52.i ], [ %.2, %378 ]
+collectMatchesForHeapRow.exit.backedge.i:         ; preds = %378, %._crit_edge.i, %.thread55.i
+  %.3 = phi i64 [ %404, %._crit_edge.i ], [ %.2, %.thread55.i ], [ %.2, %378 ]
   %405 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull readonly %0, ptr noundef %12)
   br i1 %405, label %59, label %collectMatchesForHeapRow.exit._crit_edge.i, !llvm.loop !13
 

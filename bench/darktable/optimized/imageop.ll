@@ -5530,64 +5530,60 @@ dt_hash.exit67:                                   ; preds = %.lr.ph.i62, %dt_has
 81:                                               ; preds = %79
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
   %.not.i68 = icmp eq ptr %82, null
-  br i1 %.not.i68, label %dt_dev_gui_module.exit, label %83
+  br i1 %.not.i68, label %.critedge, label %dt_dev_gui_module.exit
 
-83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 88
-  %85 = load ptr, ptr %84, align 8, !tbaa !294
-  br label %dt_dev_gui_module.exit
-
-dt_dev_gui_module.exit:                           ; preds = %81, %83
-  %86 = phi ptr [ %85, %83 ], [ null, %81 ]
-  %87 = icmp eq ptr %86, %0
-  br i1 %87, label %.lr.ph.i69.preheader, label %.critedge
+dt_dev_gui_module.exit:                           ; preds = %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 88
+  %84 = load ptr, ptr %83, align 8, !tbaa !294
+  %85 = icmp eq ptr %84, %0
+  br i1 %85, label %.lr.ph.i69.preheader, label %.critedge
 
 .lr.ph.i69.preheader:                             ; preds = %79, %dt_dev_gui_module.exit
   br label %.lr.ph.i69
 
 .lr.ph.i69:                                       ; preds = %.lr.ph.i69.preheader, %.lr.ph.i69
-  %.010.i70 = phi i64 [ %93, %.lr.ph.i69 ], [ 0, %.lr.ph.i69.preheader ]
-  %.089.i71 = phi i64 [ %92, %.lr.ph.i69 ], [ %.08.lcssa.i66, %.lr.ph.i69.preheader ]
-  %88 = mul i64 %.089.i71, 33
-  %89 = getelementptr inbounds nuw i8, ptr %2, i64 %.010.i70
-  %90 = load i8, ptr %89, align 1, !tbaa !92
-  %91 = zext i8 %90 to i64
-  %92 = xor i64 %88, %91
-  %93 = add nuw nsw i64 %.010.i70, 1
-  %exitcond.not.i72 = icmp eq i64 %93, 420
+  %.010.i70 = phi i64 [ %91, %.lr.ph.i69 ], [ 0, %.lr.ph.i69.preheader ]
+  %.089.i71 = phi i64 [ %90, %.lr.ph.i69 ], [ %.08.lcssa.i66, %.lr.ph.i69.preheader ]
+  %86 = mul i64 %.089.i71, 33
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 %.010.i70
+  %88 = load i8, ptr %87, align 1, !tbaa !92
+  %89 = zext i8 %88 to i64
+  %90 = xor i64 %86, %89
+  %91 = add nuw nsw i64 %.010.i70, 1
+  %exitcond.not.i72 = icmp eq i64 %91, 420
   br i1 %exitcond.not.i72, label %dt_hash.exit74, label %.lr.ph.i69
 
 dt_hash.exit74:                                   ; preds = %.lr.ph.i69
-  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %96 = load i32, ptr %95, align 4, !tbaa !283
-  %97 = tail call ptr @dt_masks_get_from_id(ptr noundef %94, i32 noundef %96) #24
-  %.not52 = icmp eq ptr %97, null
-  br i1 %.not52, label %100, label %98
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %94 = load i32, ptr %93, align 4, !tbaa !283
+  %95 = tail call ptr @dt_masks_get_from_id(ptr noundef %92, i32 noundef %94) #24
+  %.not52 = icmp eq ptr %95, null
+  br i1 %.not52, label %98, label %96
 
-98:                                               ; preds = %dt_hash.exit74
-  %99 = tail call i64 @dt_masks_group_hash(i64 noundef %92, ptr noundef nonnull %97) #24
-  br label %100
+96:                                               ; preds = %dt_hash.exit74
+  %97 = tail call i64 @dt_masks_group_hash(i64 noundef %90, ptr noundef nonnull %95) #24
+  br label %98
 
-100:                                              ; preds = %98, %dt_hash.exit74
-  %.2 = phi i64 [ %99, %98 ], [ %92, %dt_hash.exit74 ]
-  %101 = load i32, ptr %2, align 4, !tbaa !34
-  %102 = and i32 %101, 8
-  %103 = icmp ne i32 %102, 0
-  %104 = icmp ne ptr %8, null
-  %or.cond = select i1 %103, i1 %104, i1 false
-  br i1 %or.cond, label %105, label %.critedge
+98:                                               ; preds = %96, %dt_hash.exit74
+  %.2 = phi i64 [ %97, %96 ], [ %90, %dt_hash.exit74 ]
+  %99 = load i32, ptr %2, align 4, !tbaa !34
+  %100 = and i32 %99, 8
+  %101 = icmp ne i32 %100, 0
+  %102 = icmp ne ptr %8, null
+  %or.cond = select i1 %101, i1 %102, i1 false
+  br i1 %or.cond, label %103, label %.critedge
 
-105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 480
-  %107 = load i32, ptr %106, align 16, !tbaa !172
-  tail call void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef %3, i32 noundef %107) #24
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 480
+  %105 = load i32, ptr %104, align 16, !tbaa !172
+  tail call void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef %3, i32 noundef %105) #24
   br label %.critedge
 
-.critedge:                                        ; preds = %dt_dev_gui_module.exit, %105, %100, %dt_hash.exit67, %43
-  %.0 = phi i64 [ 0, %43 ], [ %.08.lcssa.i66, %dt_dev_gui_module.exit ], [ %.2, %105 ], [ %.2, %100 ], [ %.08.lcssa.i66, %dt_hash.exit67 ]
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store i64 %.0, ptr %108, align 8, !tbaa !394
+.critedge:                                        ; preds = %81, %dt_dev_gui_module.exit, %103, %98, %dt_hash.exit67, %43
+  %.0 = phi i64 [ 0, %43 ], [ %.08.lcssa.i66, %dt_dev_gui_module.exit ], [ %.2, %103 ], [ %.2, %98 ], [ %.08.lcssa.i66, %dt_hash.exit67 ], [ %.08.lcssa.i66, %81 ]
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  store i64 %.0, ptr %106, align 8, !tbaa !394
   ret void
 }
 
@@ -7753,47 +7749,43 @@ define range(i32 0, 2) i32 @dt_iop_breakpoint(ptr noundef readonly captures(none
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %7 = load ptr, ptr %6, align 8, !tbaa !315
   %.not14 = icmp eq ptr %1, %7
-  br i1 %.not14, label %10, label %8
+  br i1 %.not14, label %.thread21, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @sched_yield() #24
   %.pre = load ptr, ptr %3, align 16, !tbaa !314
-  br label %10
+  %10 = icmp eq ptr %1, %.pre
+  br i1 %10, label %.thread, label %.thread21
 
-10:                                               ; preds = %8, %5
-  %11 = phi ptr [ %.pre, %8 ], [ %4, %5 ]
-  %.not15 = icmp eq ptr %1, %11
-  br i1 %.not15, label %.thread, label %12
+.thread21:                                        ; preds = %5, %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2792
+  %12 = load ptr, ptr %11, align 8, !tbaa !315
+  %.not16 = icmp eq ptr %1, %12
+  br i1 %.not16, label %.thread, label %13
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2792
-  %14 = load ptr, ptr %13, align 8, !tbaa !315
-  %.not16 = icmp eq ptr %1, %14
-  br i1 %.not16, label %.thread, label %15
+13:                                               ; preds = %.thread21
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %15 = load i32, ptr %14, align 16, !tbaa !406
+  %16 = icmp eq i32 %15, 8
+  br i1 %16, label %22, label %.thread
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %17 = load i32, ptr %16, align 16, !tbaa !406
-  %18 = icmp eq i32 %17, 8
-  br i1 %18, label %24, label %.thread
-
-.thread:                                          ; preds = %2, %15, %12, %10
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %20 = load i32, ptr %19, align 16, !tbaa !406
-  switch i32 %20, label %24 [
-    i32 0, label %21
-    i32 8, label %21
+.thread:                                          ; preds = %2, %13, %.thread21, %8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %18 = load i32, ptr %17, align 16, !tbaa !406
+  switch i32 %18, label %22 [
+    i32 0, label %19
+    i32 8, label %19
   ]
 
-21:                                               ; preds = %.thread, %.thread
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !415
-  %.not19 = icmp ne i32 %23, 0
+19:                                               ; preds = %.thread, %.thread
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !415
+  %.not19 = icmp ne i32 %21, 0
   %spec.select = zext i1 %.not19 to i32
-  br label %24
+  br label %22
 
-24:                                               ; preds = %21, %.thread, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %.thread ], [ %spec.select, %21 ]
+22:                                               ; preds = %19, %.thread, %13
+  %.0 = phi i32 [ 1, %13 ], [ 1, %.thread ], [ %spec.select, %19 ]
   ret i32 %.0
 }
 

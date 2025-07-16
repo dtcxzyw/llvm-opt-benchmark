@@ -6265,34 +6265,34 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter23Emit
   %.pre = load i32, ptr %17, align 8, !tbaa !714
   %.pre128 = load i32, ptr %18, align 4, !tbaa !764
   %.pre3.i.i.pre = load ptr, ptr %10, align 8, !tbaa !713
+  %37 = icmp ult i32 %.pre, %.pre128
+  %38 = zext i32 %.pre to i64
   br label %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %4, %35
   %.pre3.i.i = phi ptr [ %.pre3.i.i.pre, %35 ], [ %16, %4 ]
-  %37 = phi i32 [ %.pre128, %35 ], [ 8, %4 ]
-  %38 = phi i32 [ %.pre, %35 ], [ 0, %4 ]
+  %.not.i.i.not.i.i = phi i1 [ %37, %35 ], [ true, %4 ]
+  %39 = phi i64 [ %38, %35 ], [ 0, %4 ]
   %.1.i = phi ptr [ %36, %35 ], [ %32, %4 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
-  %.sroa.0.0.copyload.i = load i64, ptr %39, align 16, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
+  %.sroa.0.0.copyload.i = load i64, ptr %40, align 16, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %9) #15
   store ptr %28, ptr %9, align 8
   %.sroa.4108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %.sroa.4108.0..sroa_idx, align 8
   %.sroa.6110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i8 0, ptr %.sroa.6110.0..sroa_idx, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  store i8 0, ptr %40, align 8, !tbaa !766
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 137
-  store i8 0, ptr %41, align 1, !tbaa !768
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  store i64 %.sroa.0.0.copyload.i, ptr %42, align 8, !tbaa !3
-  %43 = zext i32 %38 to i64
-  %44 = add nuw nsw i64 %43, 1
-  %.not.i.i.not.i.i = icmp ult i32 %38, %37
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  store i8 0, ptr %41, align 8, !tbaa !766
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 137
+  store i8 0, ptr %42, align 1, !tbaa !768
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  store i64 %.sroa.0.0.copyload.i, ptr %43, align 8, !tbaa !3
+  %44 = add nuw nsw i64 %39, 1
   br i1 %.not.i.i.not.i.i, label %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit, label %45, !prof !769
 
 45:                                               ; preds = %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit
-  %46 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i, i64 %43
+  %46 = getelementptr inbounds nuw %"struct.clang::CodeGen::CallArg", ptr %.pre3.i.i, i64 %39
   %47 = icmp uge ptr %9, %.pre3.i.i
   %48 = icmp ult ptr %9, %46
   %spec.select.i.i.i.i.i.i = and i1 %47, %48

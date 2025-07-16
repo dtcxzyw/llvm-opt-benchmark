@@ -282,55 +282,51 @@ sz_psz2ind.exit:                                  ; preds = %2, %7
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 9632
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   %61 = icmp eq ptr %60, %1
-  br i1 %61, label %62, label %65
+  br i1 %61, label %62, label %.thread.i
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %64 = load ptr, ptr %63, align 8, !tbaa !15
   store ptr %64, ptr %59, align 8, !tbaa !3
-  br label %65
+  %65 = icmp eq ptr %64, %1
+  br i1 %65, label %84, label %.thread.i
 
-65:                                               ; preds = %62, %58
-  %66 = phi ptr [ %64, %62 ], [ %60, %58 ]
-  %.not.i = icmp eq ptr %66, %1
-  br i1 %.not.i, label %86, label %67
-
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 64
+.thread.i:                                        ; preds = %62, %58
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %67 = load ptr, ptr %66, align 8, !tbaa !15
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 72
   %69 = load ptr, ptr %68, align 8, !tbaa !15
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %71 = load ptr, ptr %70, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %73 = load ptr, ptr %72, align 8, !tbaa !15
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
-  store ptr %71, ptr %74, align 8, !tbaa !15
-  %75 = load ptr, ptr %72, align 8, !tbaa !15
-  %76 = load ptr, ptr %68, align 8, !tbaa !15
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 72
-  store ptr %75, ptr %77, align 8, !tbaa !15
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 64
-  %79 = load ptr, ptr %78, align 8, !tbaa !15
-  store ptr %79, ptr %72, align 8, !tbaa !15
-  %80 = load ptr, ptr %68, align 8, !tbaa !15
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 72
-  %82 = load ptr, ptr %81, align 8, !tbaa !15
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  store ptr %69, ptr %72, align 8, !tbaa !15
+  %73 = load ptr, ptr %70, align 8, !tbaa !15
+  %74 = load ptr, ptr %66, align 8, !tbaa !15
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
+  store ptr %73, ptr %75, align 8, !tbaa !15
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 64
+  %77 = load ptr, ptr %76, align 8, !tbaa !15
+  store ptr %77, ptr %70, align 8, !tbaa !15
+  %78 = load ptr, ptr %66, align 8, !tbaa !15
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 72
+  %80 = load ptr, ptr %79, align 8, !tbaa !15
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
+  store ptr %78, ptr %81, align 8, !tbaa !15
+  %82 = load ptr, ptr %70, align 8, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
-  store ptr %80, ptr %83, align 8, !tbaa !15
-  %84 = load ptr, ptr %72, align 8, !tbaa !15
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 64
-  store ptr %1, ptr %85, align 8, !tbaa !15
+  store ptr %1, ptr %83, align 8, !tbaa !15
   br label %edata_list_inactive_remove.exit
 
-86:                                               ; preds = %65
+84:                                               ; preds = %62
   store ptr null, ptr %59, align 8, !tbaa !3
   br label %edata_list_inactive_remove.exit
 
-edata_list_inactive_remove.exit:                  ; preds = %67, %86
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 9640
-  %88 = load atomic i64, ptr %87 monotonic, align 8
-  %89 = lshr i64 %.val, 12
-  %90 = sub i64 %88, %89
-  store atomic i64 %90, ptr %87 monotonic, align 8
+edata_list_inactive_remove.exit:                  ; preds = %.thread.i, %84
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 9640
+  %86 = load atomic i64, ptr %85 monotonic, align 8
+  %87 = lshr i64 %.val, 12
+  %88 = sub i64 %86, %87
+  store atomic i64 %88, ptr %85 monotonic, align 8
   ret void
 }
 

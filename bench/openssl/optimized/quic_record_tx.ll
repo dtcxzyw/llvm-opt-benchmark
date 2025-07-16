@@ -605,8 +605,8 @@ ossl_qtx_finish_dgram.exit83:                     ; preds = %ossl_qtx_finish_dgr
   %.pre143.pre = load ptr, ptr %137, align 8, !tbaa !54
   %.phi.trans.insert144.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %.pre145.pre = load ptr, ptr %.phi.trans.insert144.phi.trans.insert, align 8, !tbaa !55
-  store ptr %.pre142, ptr %136, align 8, !tbaa !28
   %180 = icmp eq ptr %.pre143.pre, %.val.i.i
+  store ptr %.pre142, ptr %136, align 8, !tbaa !28
   br i1 %180, label %.thread, label %._crit_edge.i.i
 
 .thread:                                          ; preds = %172, %.thread160, %179

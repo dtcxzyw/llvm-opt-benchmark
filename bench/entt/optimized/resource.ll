@@ -10888,8 +10888,8 @@ _ZN4entt8resourceIK4baseEC2I7derivedvEERKNS0_IT_EE.exit: ; preds = %_ZNSt12__sha
   %15 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %1, align 8, !tbaa !52
   %.pre200 = load ptr, ptr %2, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   %16 = icmp eq ptr %.pre, %.pre200
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   %17 = zext i1 %16 to i8
   store i8 %17, ptr %3, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8

@@ -251,7 +251,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_hwdep_dev_disconnect(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %39, label %5
+  br i1 %4, label %38, label %5
 
 5:                                                ; preds = %1
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #11
@@ -260,7 +260,7 @@ define internal noundef range(i32 -22, 1) i32 @snd_hwdep_dev_disconnect(ptr noun
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr @snd_hwdep_devices, align 8
   %10 = icmp eq ptr %9, @snd_hwdep_devices
-  br i1 %10, label %.loopexit, label %.preheader
+  br i1 %10, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %5, %19
   %11 = phi ptr [ %20, %19 ], [ %9, %5 ]
@@ -273,23 +273,19 @@ define internal noundef range(i32 -22, 1) i32 @snd_hwdep_dev_disconnect(ptr noun
   %16 = getelementptr i8, ptr %11, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, %8
-  br i1 %18, label %.loopexit.loopexit.split.loop.exit, label %19
+  br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15, %.preheader
   %20 = load ptr, ptr %11, align 8
   %21 = icmp eq ptr %20, @snd_hwdep_devices
-  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !6
+  br i1 %21, label %.critedge, label %.preheader, !llvm.loop !6
 
-.loopexit.loopexit.split.loop.exit:               ; preds = %15
-  %22 = getelementptr i8, ptr %11, i64 -8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %19, %.loopexit.loopexit.split.loop.exit, %5
-  %23 = phi ptr [ null, %5 ], [ %22, %.loopexit.loopexit.split.loop.exit ], [ null, %19 ]
+22:                                               ; preds = %15
+  %23 = getelementptr i8, ptr %11, i64 -8
   %24 = icmp eq ptr %23, %3
-  br i1 %24, label %25, label %37
+  br i1 %24, label %25, label %.critedge
 
-25:                                               ; preds = %.loopexit
+25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 280
   tail call void @mutex_lock(ptr noundef nonnull %26) #11
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 232
@@ -307,16 +303,16 @@ define internal noundef range(i32 -22, 1) i32 @snd_hwdep_dev_disconnect(ptr noun
   store volatile ptr %32, ptr %32, align 8
   store volatile ptr %32, ptr %33, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %26) #11
-  br label %37
+  br label %.critedge
 
-37:                                               ; preds = %25, %.loopexit
-  %38 = phi i32 [ 0, %25 ], [ -22, %.loopexit ]
+.critedge:                                        ; preds = %19, %5, %25, %22
+  %37 = phi i32 [ 0, %25 ], [ -22, %22 ], [ -22, %5 ], [ -22, %19 ]
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #11
-  br label %39
+  br label %38
 
-39:                                               ; preds = %37, %1
-  %40 = phi i32 [ -6, %1 ], [ %38, %37 ]
-  ret i32 %40
+38:                                               ; preds = %.critedge, %1
+  %39 = phi i32 [ -6, %1 ], [ %37, %.critedge ]
+  ret i32 %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

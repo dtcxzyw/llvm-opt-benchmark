@@ -158,13 +158,13 @@ bytestream2_get_byte.exit:                        ; preds = %68, %69
   %.pre = load i32, ptr %26, align 8, !tbaa !36
   %.pre313 = load i32, ptr %30, align 4, !tbaa !37
   %.pre315 = mul nsw i32 %.pre313, %.pre
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  store i32 %88, ptr %89, align 4, !tbaa !47
-  %90 = icmp slt i32 %.pre315, %88
-  br i1 %90, label %.thread291, label %91
+  %89 = icmp slt i32 %.pre315, %88
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 68
+  store i32 %88, ptr %90, align 4, !tbaa !47
+  br i1 %89, label %.thread291, label %91
 
 91:                                               ; preds = %.thread316, %83
-  %92 = phi ptr [ %82, %.thread316 ], [ %89, %83 ]
+  %92 = phi ptr [ %82, %.thread316 ], [ %90, %83 ]
   %93 = phi i32 [ %81, %.thread316 ], [ %88, %83 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.2, i32 noundef %.0.i, i32 noundef %73, i32 noundef %93) #12
   %trunc = trunc nuw i32 %.0.i to i8

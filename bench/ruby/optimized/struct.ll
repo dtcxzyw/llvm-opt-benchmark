@@ -2209,7 +2209,7 @@ rb_scan_args_n_opt.exit:
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call i32 @rb_keyword_given_p() #20
   %.not41 = icmp eq i32 %10, 0
-  br i1 %.not41, label %.thread68, label %rb_scan_args_set.exit
+  br i1 %.not41, label %.thread66, label %rb_scan_args_set.exit
 
 11:                                               ; preds = %rb_scan_args_n_opt.exit
   %12 = icmp slt i32 %0, 0
@@ -2219,21 +2219,21 @@ rb_scan_args_set.exit:                            ; preds = %5
   %13 = tail call i64 @rb_hash_dup(i64 noundef %9) #20
   %14 = add nsw i32 %0, -1
   %.not42 = icmp eq i32 %14, 0
-  br i1 %.not42, label %RB_SYMBOL_P.exit.thread, label %.thread68
+  br i1 %.not42, label %RB_SYMBOL_P.exit.thread, label %.thread66
 
 15:                                               ; preds = %11
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef -1) #22
   unreachable
 
-.thread68:                                        ; preds = %5, %rb_scan_args_set.exit
-  %.0.i566277 = phi i32 [ %14, %rb_scan_args_set.exit ], [ %0, %5 ]
-  %.087.i556475 = phi i64 [ %13, %rb_scan_args_set.exit ], [ 4, %5 ]
+.thread66:                                        ; preds = %5, %rb_scan_args_set.exit
+  %.0.i556075 = phi i32 [ %14, %rb_scan_args_set.exit ], [ %0, %5 ]
+  %.087.i546273 = phi i64 [ %13, %rb_scan_args_set.exit ], [ 4, %5 ]
   %16 = load i64, ptr %1, align 8, !tbaa !7
   %17 = and i64 %16, 255
   %18 = icmp eq i64 %17, 12
   br i1 %18, label %RB_SYMBOL_P.exit.thread, label %19
 
-19:                                               ; preds = %.thread68
+19:                                               ; preds = %.thread66
   %20 = icmp eq i64 %16, 0
   %21 = and i64 %16, 7
   %22 = icmp ne i64 %21, 0
@@ -2248,16 +2248,16 @@ RB_SYMBOL_P.exit:                                 ; preds = %19
   br i1 %27, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread40
 
 RB_SYMBOL_P.exit.thread40:                        ; preds = %19, %RB_SYMBOL_P.exit
-  %28 = add nsw i32 %.0.i566277, -1
+  %28 = add nsw i32 %.0.i556075, -1
   %29 = getelementptr i8, ptr %1, i64 8
   br label %RB_SYMBOL_P.exit.thread
 
-RB_SYMBOL_P.exit.thread:                          ; preds = %.thread68, %RB_SYMBOL_P.exit.thread40, %RB_SYMBOL_P.exit, %rb_scan_args_set.exit
-  %.087.i556476 = phi i64 [ %.087.i556475, %RB_SYMBOL_P.exit ], [ %.087.i556475, %RB_SYMBOL_P.exit.thread40 ], [ %13, %rb_scan_args_set.exit ], [ %.087.i556475, %.thread68 ]
-  %.035 = phi i64 [ 4, %RB_SYMBOL_P.exit ], [ %16, %RB_SYMBOL_P.exit.thread40 ], [ 4, %rb_scan_args_set.exit ], [ 4, %.thread68 ]
-  %.032 = phi ptr [ %1, %RB_SYMBOL_P.exit ], [ %29, %RB_SYMBOL_P.exit.thread40 ], [ %1, %rb_scan_args_set.exit ], [ %1, %.thread68 ]
-  %.0 = phi i32 [ %.0.i566277, %RB_SYMBOL_P.exit ], [ %28, %RB_SYMBOL_P.exit.thread40 ], [ 0, %rb_scan_args_set.exit ], [ %.0.i566277, %.thread68 ]
-  %30 = icmp eq i64 %.087.i556476, 4
+RB_SYMBOL_P.exit.thread:                          ; preds = %.thread66, %RB_SYMBOL_P.exit.thread40, %RB_SYMBOL_P.exit, %rb_scan_args_set.exit
+  %.087.i546274 = phi i64 [ %.087.i546273, %RB_SYMBOL_P.exit ], [ %.087.i546273, %RB_SYMBOL_P.exit.thread40 ], [ %13, %rb_scan_args_set.exit ], [ %.087.i546273, %.thread66 ]
+  %.035 = phi i64 [ 4, %RB_SYMBOL_P.exit ], [ %16, %RB_SYMBOL_P.exit.thread40 ], [ 4, %rb_scan_args_set.exit ], [ 4, %.thread66 ]
+  %.032 = phi ptr [ %1, %RB_SYMBOL_P.exit ], [ %29, %RB_SYMBOL_P.exit.thread40 ], [ %1, %rb_scan_args_set.exit ], [ %1, %.thread66 ]
+  %.0 = phi i32 [ %.0.i556075, %RB_SYMBOL_P.exit ], [ %28, %RB_SYMBOL_P.exit.thread40 ], [ 0, %rb_scan_args_set.exit ], [ %.0.i556075, %.thread66 ]
+  %30 = icmp eq i64 %.087.i546274, 4
   br i1 %30, label %RB_SYMBOL_P.exit.thread.thread, label %31
 
 31:                                               ; preds = %RB_SYMBOL_P.exit.thread
@@ -2282,7 +2282,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %33
   br label %35
 
 35:                                               ; preds = %rbimpl_intern_const.exit, %31
-  %36 = call i32 @rb_get_kwargs(i64 noundef %.087.i556476, ptr noundef nonnull @rb_struct_s_def.keyword_ids, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #20
+  %36 = call i32 @rb_get_kwargs(i64 noundef %.087.i546274, ptr noundef nonnull @rb_struct_s_def.keyword_ids, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #20
   %37 = load i64, ptr %3, align 8, !tbaa !7
   %38 = icmp eq i64 %37, 36
   br i1 %38, label %RB_SYMBOL_P.exit.thread.thread.sink.split, label %39
@@ -2298,20 +2298,20 @@ RB_SYMBOL_P.exit.thread.thread.sink.split:        ; preds = %39, %35
   br label %RB_SYMBOL_P.exit.thread.thread
 
 RB_SYMBOL_P.exit.thread.thread:                   ; preds = %RB_SYMBOL_P.exit.thread.thread.sink.split, %11, %39, %RB_SYMBOL_P.exit.thread
-  %.084 = phi i32 [ %.0, %39 ], [ %.0, %RB_SYMBOL_P.exit.thread ], [ 0, %11 ], [ %.0, %RB_SYMBOL_P.exit.thread.thread.sink.split ]
-  %.03283 = phi ptr [ %.032, %39 ], [ %.032, %RB_SYMBOL_P.exit.thread ], [ %1, %11 ], [ %.032, %RB_SYMBOL_P.exit.thread.thread.sink.split ]
-  %.03582 = phi i64 [ %.035, %39 ], [ %.035, %RB_SYMBOL_P.exit.thread ], [ 4, %11 ], [ %.035, %RB_SYMBOL_P.exit.thread.thread.sink.split ]
+  %.082 = phi i32 [ %.0, %39 ], [ %.0, %RB_SYMBOL_P.exit.thread ], [ 0, %11 ], [ %.0, %RB_SYMBOL_P.exit.thread.thread.sink.split ]
+  %.03281 = phi ptr [ %.032, %39 ], [ %.032, %RB_SYMBOL_P.exit.thread ], [ %1, %11 ], [ %.032, %RB_SYMBOL_P.exit.thread.thread.sink.split ]
+  %.03580 = phi i64 [ %.035, %39 ], [ %.035, %RB_SYMBOL_P.exit.thread ], [ 4, %11 ], [ %.035, %RB_SYMBOL_P.exit.thread.thread.sink.split ]
   %41 = call i64 @rb_ident_hash_new() #20
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 0, ptr %43, align 8, !tbaa !7
-  %44 = sext i32 %.084 to i64
-  %45 = icmp sgt i32 %.084, 0
+  %44 = sext i32 %.082 to i64
+  %45 = icmp sgt i32 %.082, 0
   br i1 %45, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %RB_SYMBOL_P.exit.thread.thread, %57
   %.03448 = phi i64 [ %59, %57 ], [ 0, %RB_SYMBOL_P.exit.thread.thread ]
-  %46 = getelementptr i64, ptr %.03283, i64 %.03448
+  %46 = getelementptr i64, ptr %.03281, i64 %.03448
   %47 = load i64, ptr %46, align 8, !tbaa !7
   %48 = call i64 @rb_to_symbol(i64 noundef %47) #20
   %49 = call i32 @rb_is_attrset_sym(i64 noundef %48) #21
@@ -2346,7 +2346,7 @@ RB_SYMBOL_P.exit.thread.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %62, align 8, !tbaa !7
   call void @rb_obj_freeze_inline(i64 noundef %60) #20
-  %63 = icmp eq i64 %.03582, 4
+  %63 = icmp eq i64 %.03580, 4
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %._crit_edge
@@ -2359,7 +2359,7 @@ RB_SYMBOL_P.exit.thread.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br label %73
 
 71:                                               ; preds = %._crit_edge
-  %72 = call fastcc i64 @new_struct(i64 noundef %.03582, i64 noundef %2)
+  %72 = call fastcc i64 @new_struct(i64 noundef %.03580, i64 noundef %2)
   br label %73
 
 73:                                               ; preds = %71, %64

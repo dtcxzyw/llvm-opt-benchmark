@@ -724,9 +724,13 @@ define linkonce_odr hidden void @_ZN6Assimp5Q3BSP10Q3BSPModelD2Ev(ptr noundef no
   %89 = icmp ugt i64 %88, %84
   br i1 %89, label %.lr.ph59, label %.preheader, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %178, %.preheader
-  %90 = phi ptr [ %71, %.preheader ], [ %180, %178 ]
-  %.lcssa = phi ptr [ %72, %.preheader ], [ %179, %178 ]
+._crit_edge.loopexit:                             ; preds = %178
+  %90 = icmp eq ptr %180, %179
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.not.i.i32 = phi i1 [ true, %.preheader ], [ %90, %._crit_edge.loopexit ]
+  %.lcssa = phi ptr [ %72, %.preheader ], [ %179, %._crit_edge.loopexit ]
   %91 = load ptr, ptr %2, align 8
   %92 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %92, %91
@@ -767,7 +771,6 @@ _ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE5clearEv.exit: ; preds = %_ZNSt
   br label %_ZNSt6vectorIPN6Assimp5Q3BSP13sQ3BSPTextureESaIS3_EE5clearEv.exit
 
 _ZNSt6vectorIPN6Assimp5Q3BSP13sQ3BSPTextureESaIS3_EE5clearEv.exit: ; preds = %_ZNSt6vectorIPN6Assimp5Q3BSP10sQ3BSPFaceESaIS3_EE5clearEv.exit, %102
-  %.not.i.i32 = icmp eq ptr %90, %.lcssa
   br i1 %.not.i.i32, label %_ZNSt6vectorIPN6Assimp5Q3BSP14sQ3BSPLightmapESaIS3_EE5clearEv.exit, label %103
 
 103:                                              ; preds = %_ZNSt6vectorIPN6Assimp5Q3BSP13sQ3BSPTextureESaIS3_EE5clearEv.exit
@@ -937,7 +940,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN6Ass
   %185 = sub i64 %183, %184
   %186 = ashr exact i64 %185, 3
   %187 = icmp ugt i64 %186, %182
-  br i1 %187, label %.lr.ph61, label %._crit_edge, !llvm.loop !13
+  br i1 %187, label %.lr.ph61, label %._crit_edge.loopexit, !llvm.loop !13
 }
 
 ; Function Attrs: nobuiltin nounwind

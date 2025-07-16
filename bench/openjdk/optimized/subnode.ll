@@ -8103,28 +8103,28 @@ define linkonce_odr hidden noundef i64 @_ZNK4Node8get_longEv(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL19is_counted_loop_cmpP4Node(ptr readonly captures(address) %.8.val.8.val.8.val.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val.8.val.8.val.8.val, null
-  br i1 %.not, label %72, label %1
+  br i1 %.not, label %_ZNK19BaseCountedLoopNode3phiEv.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %.8.val.8.val.8.val.8.val, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 15
   %5 = icmp eq i32 %4, 12
-  br i1 %5, label %6, label %72
+  br i1 %5, label %6, label %_ZNK19BaseCountedLoopNode3phiEv.exit
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %.8.val.8.val.8.val.8.val, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %.not7 = icmp eq ptr %9, null
-  br i1 %.not7, label %72, label %10
+  br i1 %.not7, label %_ZNK19BaseCountedLoopNode3phiEv.exit, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1023
   %14 = icmp eq i32 %13, 864
-  br i1 %14, label %15, label %72
+  br i1 %14, label %15, label %_ZNK19BaseCountedLoopNode3phiEv.exit
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -8204,16 +8204,12 @@ _ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i:     ; preds = %49
   %68 = and i32 %67, 15
   %69 = icmp eq i32 %68, 12
   %spec.select.i.i = select i1 %69, ptr %65, ptr null
+  %70 = icmp eq ptr %spec.select.i.i, %.8.val.8.val.8.val.8.val
   br label %_ZNK19BaseCountedLoopNode3phiEv.exit
 
-_ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %15, %21, %29, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i, %49, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i, %57, %61
-  %70 = phi ptr [ null, %57 ], [ null, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i ], [ null, %49 ], [ null, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i ], [ null, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i ], [ %spec.select.i.i, %61 ], [ null, %15 ], [ null, %21 ], [ null, %29 ]
-  %71 = icmp eq ptr %70, %.8.val.8.val.8.val.8.val
-  br label %72
-
-72:                                               ; preds = %_ZNK19BaseCountedLoopNode3phiEv.exit, %10, %6, %1, %0
-  %73 = phi i1 [ false, %10 ], [ false, %6 ], [ false, %1 ], [ false, %0 ], [ %71, %_ZNK19BaseCountedLoopNode3phiEv.exit ]
-  ret i1 %73
+_ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %61, %57, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i, %49, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, %29, %21, %15, %10, %6, %1, %0
+  %71 = phi i1 [ false, %10 ], [ false, %6 ], [ false, %1 ], [ false, %0 ], [ false, %57 ], [ false, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i ], [ false, %49 ], [ false, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i ], [ false, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i ], [ %70, %61 ], [ false, %15 ], [ false, %21 ], [ false, %29 ]
+  ret i1 %71
 }
 
 declare noundef i32 @_ZNK7PhiNode14is_diamond_phiEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #2

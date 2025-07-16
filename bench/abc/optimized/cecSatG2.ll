@@ -12863,25 +12863,25 @@ Vec_StrGrow.exit.i:                               ; preds = %19
 
 Vec_StrFill.exit.loopexit:                        ; preds = %.lr.ph.i
   %.pre = load i32, ptr %7, align 8, !tbaa !248
+  %43 = icmp eq i32 %40, %.pre
   br label %Vec_StrFill.exit
 
 Vec_StrFill.exit:                                 ; preds = %Vec_StrFill.exit.loopexit, %Vec_StrGrow.exit.i
-  %43 = phi ptr [ %9, %Vec_StrGrow.exit.i ], [ %38, %Vec_StrFill.exit.loopexit ]
-  %44 = phi i32 [ 100, %Vec_StrGrow.exit.i ], [ %.pre, %Vec_StrFill.exit.loopexit ]
-  %45 = phi i32 [ %2, %Vec_StrGrow.exit.i ], [ %40, %Vec_StrFill.exit.loopexit ]
-  %46 = icmp eq i32 %45, %44
+  %44 = phi ptr [ %9, %Vec_StrGrow.exit.i ], [ %38, %Vec_StrFill.exit.loopexit ]
+  %45 = phi i32 [ 100, %Vec_StrGrow.exit.i ], [ %.pre, %Vec_StrFill.exit.loopexit ]
+  %46 = phi i1 [ false, %Vec_StrGrow.exit.i ], [ %43, %Vec_StrFill.exit.loopexit ]
   br i1 %46, label %47, label %.Vec_StrGrow.exit10_crit_edge.i
 
 47:                                               ; preds = %Vec_StrFill.exit
-  %48 = icmp slt i32 %44, 16
+  %48 = icmp slt i32 %45, 16
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %47
-  %.not9.i.i41 = icmp eq ptr %43, null
+  %.not9.i.i41 = icmp eq ptr %44, null
   br i1 %.not9.i.i41, label %52, label %50
 
 50:                                               ; preds = %49
-  %51 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %43, i64 noundef 16) #34
+  %51 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %44, i64 noundef 16) #34
   br label %.Vec_StrGrow.exit10_crit_edge.i.sink.split
 
 52:                                               ; preds = %49
@@ -12889,13 +12889,13 @@ Vec_StrFill.exit:                                 ; preds = %Vec_StrFill.exit.lo
   br label %.Vec_StrGrow.exit10_crit_edge.i.sink.split
 
 54:                                               ; preds = %47
-  %55 = shl nuw nsw i32 %44, 1
-  %.not9.i9.i = icmp eq ptr %43, null
+  %55 = shl nuw nsw i32 %45, 1
+  %.not9.i9.i = icmp eq ptr %44, null
   %56 = zext nneg i32 %55 to i64
   br i1 %.not9.i9.i, label %59, label %57
 
 57:                                               ; preds = %54
-  %58 = call ptr @realloc(ptr noundef nonnull %43, i64 noundef %56) #34
+  %58 = call ptr @realloc(ptr noundef nonnull %44, i64 noundef %56) #34
   br label %.Vec_StrGrow.exit10_crit_edge.i.sink.split
 
 59:                                               ; preds = %54
@@ -12910,7 +12910,7 @@ Vec_StrFill.exit:                                 ; preds = %Vec_StrFill.exit.lo
   br label %.Vec_StrGrow.exit10_crit_edge.i
 
 .Vec_StrGrow.exit10_crit_edge.i:                  ; preds = %.Vec_StrGrow.exit10_crit_edge.i.sink.split, %Vec_StrFill.exit
-  %61 = phi ptr [ %43, %Vec_StrFill.exit ], [ %.sink45, %.Vec_StrGrow.exit10_crit_edge.i.sink.split ]
+  %61 = phi ptr [ %44, %Vec_StrFill.exit ], [ %.sink45, %.Vec_StrGrow.exit10_crit_edge.i.sink.split ]
   %62 = load i32, ptr %8, align 4, !tbaa !247
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %8, align 4, !tbaa !247

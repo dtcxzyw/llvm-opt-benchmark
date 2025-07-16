@@ -21769,7 +21769,7 @@ _ZN16LinearScanWalker15find_locked_regEiiiPb.exit103: ; preds = %._crit_edge.i99
 .preheader:                                       ; preds = %.preheader.preheader, %209
   %.0.in.i105 = phi i32 [ %.0.i107, %209 ], [ %69, %.preheader.preheader ]
   %208 = icmp sgt i32 %.0.in.i105, 1
-  br i1 %208, label %209, label %_ZNK8Interval11first_usageE15IntervalUseKind.exit110
+  br i1 %208, label %209, label %.thread175.preheader
 
 209:                                              ; preds = %.preheader
   %.0.i107 = add nsw i32 %.0.in.i105, -2
@@ -21777,20 +21777,16 @@ _ZN16LinearScanWalker15find_locked_regEiiiPb.exit103: ; preds = %._crit_edge.i99
   %gep.i108 = getelementptr i32, ptr %invariant.gep.i, i64 %210
   %211 = load i32, ptr %gep.i108, align 4
   %.not.i109 = icmp slt i32 %211, 3
-  br i1 %.not.i109, label %.preheader, label %212, !llvm.loop !99
+  br i1 %.not.i109, label %.preheader, label %_ZNK8Interval11first_usageE15IntervalUseKind.exit110, !llvm.loop !99
 
-212:                                              ; preds = %209
-  %213 = zext nneg i32 %.0.i107 to i64
-  %214 = getelementptr inbounds nuw i32, ptr %71, i64 %213
-  %215 = load i32, ptr %214, align 4
-  br label %_ZNK8Interval11first_usageE15IntervalUseKind.exit110
+_ZNK8Interval11first_usageE15IntervalUseKind.exit110: ; preds = %209
+  %212 = zext nneg i32 %.0.i107 to i64
+  %213 = getelementptr inbounds nuw i32, ptr %71, i64 %212
+  %214 = load i32, ptr %213, align 4
+  %215 = icmp sgt i32 %.056169196, %214
+  br i1 %215, label %302, label %.thread175.preheader
 
-_ZNK8Interval11first_usageE15IntervalUseKind.exit110: ; preds = %.preheader, %212
-  %.06.i106 = phi i32 [ %215, %212 ], [ 2147483647, %.preheader ]
-  %.not68 = icmp sgt i32 %.056169196, %.06.i106
-  br i1 %.not68, label %302, label %.thread175.preheader
-
-.thread175.preheader:                             ; preds = %146, %._crit_edge.i89, %100, %._crit_edge.i, %.thread162, %_ZNK8Interval11first_usageE15IntervalUseKind.exit110, %204
+.thread175.preheader:                             ; preds = %.preheader, %146, %._crit_edge.i89, %100, %._crit_edge.i, %.thread162, %_ZNK8Interval11first_usageE15IntervalUseKind.exit110, %204
   br label %.thread175
 
 .thread175:                                       ; preds = %.thread175.preheader, %217

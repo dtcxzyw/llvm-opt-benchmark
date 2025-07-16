@@ -4430,67 +4430,67 @@ _ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5Sli
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre8 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !235
   %.pre9 = load ptr, ptr %35, align 8, !tbaa !235
-  %.not10.i = icmp eq ptr %.pre9, %.pre8
-  br i1 %.not10.i, label %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit, label %.lr.ph.i
+  %41 = icmp eq ptr %.pre9, %.pre8
+  br i1 %41, label %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit
-  %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit.i
 
-_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit.i: ; preds = %65, %.lr.ph.i
-  %44 = phi ptr [ %.pre9, %.lr.ph.i ], [ %69, %65 ]
-  %45 = phi ptr [ %41, %.lr.ph.i ], [ %67, %65 ]
-  %46 = phi ptr [ %.pre, %.lr.ph.i ], [ %66, %65 ]
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %48 = load i64, ptr %47, align 8, !tbaa !196
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !121
-  %51 = getelementptr inbounds i64, ptr %50, i64 %48
-  %52 = load ptr, ptr %42, align 8, !tbaa !121
-  %53 = icmp eq ptr %52, %51
-  br i1 %53, label %.critedge2.i, label %54
+_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit.i: ; preds = %66, %.lr.ph.i
+  %45 = phi ptr [ %.pre9, %.lr.ph.i ], [ %70, %66 ]
+  %46 = phi ptr [ %42, %.lr.ph.i ], [ %68, %66 ]
+  %47 = phi ptr [ %.pre, %.lr.ph.i ], [ %67, %66 ]
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %49 = load i64, ptr %48, align 8, !tbaa !196
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !121
+  %52 = getelementptr inbounds i64, ptr %51, i64 %49
+  %53 = load ptr, ptr %43, align 8, !tbaa !121
+  %54 = icmp eq ptr %53, %52
+  br i1 %54, label %.critedge2.i, label %55
 
-54:                                               ; preds = %_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit.i
-  %55 = load i64, ptr %52, align 8, !tbaa !101
-  %56 = load i64, ptr %43, align 8, !tbaa !233
-  %57 = icmp ult i64 %55, %56
-  br i1 %57, label %.critedge2.i, label %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit
+55:                                               ; preds = %_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit.i
+  %56 = load i64, ptr %53, align 8, !tbaa !101
+  %57 = load i64, ptr %44, align 8, !tbaa !233
+  %58 = icmp ult i64 %56, %57
+  br i1 %58, label %.critedge2.i, label %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit
 
-.critedge2.i:                                     ; preds = %54, %_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit.i
-  %58 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  store ptr %58, ptr %35, align 8, !tbaa !241
-  %59 = load ptr, ptr %45, align 8, !tbaa !235
-  %60 = icmp eq ptr %58, %59
-  br i1 %60, label %61, label %65
+.critedge2.i:                                     ; preds = %55, %_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit.i
+  %59 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  store ptr %59, ptr %35, align 8, !tbaa !241
+  %60 = load ptr, ptr %46, align 8, !tbaa !235
+  %61 = icmp eq ptr %59, %60
+  br i1 %61, label %62, label %66
 
-61:                                               ; preds = %.critedge2.i
-  store ptr %59, ptr %35, align 8, !tbaa !235
-  %62 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !121
-  store ptr %63, ptr %42, align 8, !tbaa !121
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %59, ptr %64, align 8, !tbaa !235
+62:                                               ; preds = %.critedge2.i
+  store ptr %60, ptr %35, align 8, !tbaa !235
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %64 = load ptr, ptr %63, align 8, !tbaa !121
+  store ptr %64, ptr %43, align 8, !tbaa !121
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %60, ptr %65, align 8, !tbaa !235
   br label %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit.sink.split
 
-65:                                               ; preds = %.critedge2.i
+66:                                               ; preds = %.critedge2.i
   tail call void @_ZN7rocksdb32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-  %66 = load ptr, ptr %3, align 8, !tbaa !231
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !235
-  %69 = load ptr, ptr %35, align 8, !tbaa !235
-  %.not.i = icmp eq ptr %69, %68
+  %67 = load ptr, ptr %3, align 8, !tbaa !231
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !235
+  %70 = load ptr, ptr %35, align 8, !tbaa !235
+  %.not.i = icmp eq ptr %70, %69
   br i1 %.not.i, label %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit, label %_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit.i, !llvm.loop !242
 
-_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit.sink.split: ; preds = %9, %61, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit.thread
-  %.sink14 = phi i64 [ 144, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit.thread ], [ 160, %61 ], [ 160, %9 ]
-  %.sink = phi ptr [ %40, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit.thread ], [ %63, %61 ], [ %12, %9 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
-  store ptr %.sink, ptr %70, align 8, !tbaa !121
+_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit.sink.split: ; preds = %9, %62, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit.thread
+  %.sink14 = phi i64 [ 144, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit.thread ], [ 160, %62 ], [ 160, %9 ]
+  %.sink = phi ptr [ %40, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit.thread ], [ %64, %62 ], [ %12, %9 ]
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
+  store ptr %.sink, ptr %71, align 8, !tbaa !121
   br label %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit
 
-_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit: ; preds = %65, %54, %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit.sink.split, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit
+_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit: ; preds = %66, %55, %_ZN7rocksdb32FragmentedRangeTombstoneIterator29ScanForwardToVisibleTombstoneEv.exit.sink.split, %_ZN7rocksdb32FragmentedRangeTombstoneIterator23SeekToCoveringTombstoneERKNS_5SliceE.exit
   ret void
 }
 

@@ -1137,8 +1137,8 @@ if.end10:                                         ; preds = %for.body
 for.inc:                                          ; preds = %if.end10
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_, ptr noundef nonnull @.str.13)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre
-  br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !9
+  %3 = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre
+  br i1 %3, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %if.end10, %for.body, %for.inc, %if.then
   %retval.0 = phi i8 [ 1, %if.then ], [ 0, %if.end10 ], [ %call8, %for.body ], [ 0, %for.inc ]
@@ -1726,8 +1726,8 @@ for.end:                                          ; preds = %for.inc, %if.end10
 for.inc68:                                        ; preds = %for.end
   %call66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_.i, ptr noundef nonnull @.str.13)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre
-  br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !13
+  %8 = icmp eq ptr %incdec.ptr.i.i.i.i, %.pre
+  br i1 %8, label %return, label %for.body, !llvm.loop !13
 
 return:                                           ; preds = %for.end, %for.inc68, %if.end48, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit17, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.then36, %if.then
   %retval.0 = phi i8 [ 1, %if.then ], [ 4, %if.then36 ], [ 2, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %_ZN8proxygen24StructuredHeadersEncoder16encodeIdentifierERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit17 ], [ %call47, %if.end48 ], [ 0, %for.inc68 ], [ 0, %for.end ]

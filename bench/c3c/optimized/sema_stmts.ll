@@ -6705,25 +6705,25 @@ sema_check_type_case.exit:                        ; preds = %167, %.loopexit141,
   br i1 %278, label %114, label %._crit_edge.loopexit, !llvm.loop !47
 
 ._crit_edge.loopexit:                             ; preds = %sema_check_type_case.exit, %sema_check_type_case.exit.thread
-  %.1271.i277 = phi i8 [ %.1271.i.ph, %sema_check_type_case.exit.thread ], [ %.1271.i, %sema_check_type_case.exit ]
-  %.1273.i276 = phi i8 [ 0, %sema_check_type_case.exit.thread ], [ 1, %sema_check_type_case.exit ]
-  %.1120275 = phi i1 [ %.0119158, %sema_check_type_case.exit.thread ], [ %.1120, %sema_check_type_case.exit ]
-  %.1123274 = phi i8 [ %.1123.ph, %sema_check_type_case.exit.thread ], [ %.1123, %sema_check_type_case.exit ]
-  %279 = shl nuw nsw i8 %.1123274, 3
+  %.1271.i276 = phi i8 [ %.1271.i.ph, %sema_check_type_case.exit.thread ], [ %.1271.i, %sema_check_type_case.exit ]
+  %.1273.i275 = phi i8 [ 0, %sema_check_type_case.exit.thread ], [ 1, %sema_check_type_case.exit ]
+  %.1120274 = phi i1 [ %.0119158, %sema_check_type_case.exit.thread ], [ %.1120, %sema_check_type_case.exit ]
+  %.1123273 = phi i8 [ %.1123.ph, %sema_check_type_case.exit.thread ], [ %.1123, %sema_check_type_case.exit ]
+  %279 = shl nuw nsw i8 %.1123273, 3
   %280 = and i8 %279, 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit, %103
-  %.not211266 = phi i1 [ true, %103 ], [ false, %._crit_edge.loopexit ], [ true, %.thread ]
+  %.not211265 = phi i1 [ true, %103 ], [ false, %._crit_edge.loopexit ], [ true, %.thread ]
   %281 = phi i1 [ %107, %103 ], [ %107, %._crit_edge.loopexit ], [ %102, %.thread ]
-  %.0263.i265 = phi i32 [ 0, %103 ], [ %105, %._crit_edge.loopexit ], [ 0, %.thread ]
+  %.0263.i264 = phi i32 [ 0, %103 ], [ %105, %._crit_edge.loopexit ], [ 0, %.thread ]
   %.0122.lcssa = phi i8 [ 0, %103 ], [ %280, %._crit_edge.loopexit ], [ 0, %.thread ]
-  %.0119.lcssa = phi i1 [ %narrow, %103 ], [ %.1120275, %._crit_edge.loopexit ], [ %narrow, %.thread ]
-  %.0272.i.lcssa = phi i8 [ 1, %103 ], [ %.1273.i276, %._crit_edge.loopexit ], [ 1, %.thread ]
-  %.0270.i.lcssa = phi i8 [ 0, %103 ], [ %.1271.i277, %._crit_edge.loopexit ], [ 0, %.thread ]
+  %.0119.lcssa = phi i1 [ %narrow, %103 ], [ %.1120274, %._crit_edge.loopexit ], [ %narrow, %.thread ]
+  %.0272.i.lcssa = phi i8 [ 1, %103 ], [ %.1273.i275, %._crit_edge.loopexit ], [ 1, %.thread ]
+  %.0270.i.lcssa = phi i8 [ 0, %103 ], [ %.1271.i276, %._crit_edge.loopexit ], [ 0, %.thread ]
   %282 = trunc nuw i8 %.0270.i.lcssa to i1
   %or.cond.not.i = or i1 %98, %282
-  br i1 %or.cond.not.i, label %294, label %283
+  br i1 %or.cond.not.i, label %293, label %283
 
 283:                                              ; preds = %._crit_edge
   %284 = getelementptr inbounds nuw i8, ptr %86, i64 56
@@ -6731,28 +6731,24 @@ sema_check_type_case.exit:                        ; preds = %167, %.loopexit141,
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 96
   %287 = load ptr, ptr %286, align 8
   %.not.i79 = icmp eq ptr %287, null
-  br i1 %.not.i79, label %291, label %288
+  br i1 %.not.i79, label %293, label %288
 
 288:                                              ; preds = %283
   %289 = getelementptr inbounds i8, ptr %287, i64 -8
   %290 = load i32, ptr %289, align 4
-  br label %291
+  %291 = icmp uge i32 %.0263.i264, %290
+  %292 = zext i1 %291 to i8
+  br label %293
 
-291:                                              ; preds = %288, %283
-  %.0264.i = phi i32 [ %290, %288 ], [ 0, %283 ]
-  %292 = icmp uge i32 %.0263.i265, %.0264.i
-  %293 = zext i1 %292 to i8
-  br label %294
+293:                                              ; preds = %288, %283, %._crit_edge
+  %.2.i = phi i8 [ %.0270.i.lcssa, %._crit_edge ], [ %292, %288 ], [ 1, %283 ]
+  %294 = trunc nuw i8 %.2.i to i1
+  br i1 %.not211265, label %._crit_edge191, label %.lr.ph190
 
-294:                                              ; preds = %291, %._crit_edge
-  %.pre-phi = phi i1 [ %292, %291 ], [ %282, %._crit_edge ]
-  %.2.i = phi i8 [ %293, %291 ], [ %.0270.i.lcssa, %._crit_edge ]
-  br i1 %.not211266, label %._crit_edge191, label %.lr.ph190
-
-.lr.ph190:                                        ; preds = %294
+.lr.ph190:                                        ; preds = %293
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %297 = add i32 %.0263.i265, -1
+  %297 = add i32 %.0263.i264, -1
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -6763,8 +6759,8 @@ sema_check_type_case.exit:                        ; preds = %167, %.loopexit141,
   %.not299.i = icmp eq i8 %304, 0
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %306 = zext i32 %297 to i64
-  %wide.trip.count = zext i32 %.0263.i265 to i64
-  %invariant.gep376 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %wide.trip.count = zext i32 %.0263.i264 to i64
+  %invariant.gep375 = getelementptr inbounds nuw i8, ptr %81, i64 8
   br label %307
 
 307:                                              ; preds = %.lr.ph190, %442
@@ -6784,8 +6780,8 @@ sema_check_type_case.exit:                        ; preds = %167, %.loopexit141,
   br i1 %313, label %316, label %314
 
 314:                                              ; preds = %307
-  %gep377 = getelementptr inbounds nuw ptr, ptr %invariant.gep376, i64 %indvars.iv230
-  %315 = load ptr, ptr %gep377, align 8
+  %gep376 = getelementptr inbounds nuw ptr, ptr %invariant.gep375, i64 %indvars.iv230
+  %315 = load ptr, ptr %gep376, align 8
   br label %316
 
 316:                                              ; preds = %314, %307
@@ -7027,10 +7023,10 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %433, %418
   %exitcond.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge191, label %307, !llvm.loop !50
 
-._crit_edge191:                                   ; preds = %442, %294
-  %.0276.i.lcssa = phi i8 [ %.2.i, %294 ], [ %.1277.i, %442 ]
-  %.3.i.lcssa = phi i8 [ %.0272.i.lcssa, %294 ], [ %437, %442 ]
-  %or.cond10.i = select i1 %98, i1 true, i1 %.pre-phi
+._crit_edge191:                                   ; preds = %442, %293
+  %.0276.i.lcssa = phi i8 [ %.2.i, %293 ], [ %.1277.i, %442 ]
+  %.3.i.lcssa = phi i8 [ %.0272.i.lcssa, %293 ], [ %437, %442 ]
+  %or.cond10.i = select i1 %98, i1 true, i1 %294
   %or.cond10.not.i = xor i1 %or.cond10.i, true
   %443 = trunc nuw i8 %.3.i.lcssa to i1
   %or.cond12.i = select i1 %or.cond10.not.i, i1 %443, i1 false
@@ -7051,7 +7047,7 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %433, %418
 
 452:                                              ; preds = %449, %444
   %.0.i = phi i32 [ %451, %449 ], [ 0, %444 ]
-  %453 = sub i32 %.0.i, %.0263.i265
+  %453 = sub i32 %.0.i, %.0263.i264
   %.fr215 = freeze i32 %453
   call void @scratch_buffer_clear() #9
   %454 = icmp eq i32 %.fr215, 1
@@ -7076,12 +7072,12 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %433, %418
 
 .lr.ph201:                                        ; preds = %458
   %461 = icmp ugt i32 %.fr215, 3
-  br i1 %.not211266, label %.lr.ph201.split, label %.lr.ph196.us.preheader
+  br i1 %.not211265, label %.lr.ph201.split, label %.lr.ph196.us.preheader
 
 .lr.ph196.us.preheader:                           ; preds = %.lr.ph201
   %wide.trip.count240 = zext i32 %460 to i64
   %.pre261 = load ptr, ptr @expr_arena, align 8
-  %wide.trip.count235 = zext i32 %.0263.i265 to i64
+  %wide.trip.count235 = zext i32 %.0263.i264 to i64
   br label %.lr.ph196.us
 
 .lr.ph196.us:                                     ; preds = %.lr.ph196.us.preheader, %.loopexit.us

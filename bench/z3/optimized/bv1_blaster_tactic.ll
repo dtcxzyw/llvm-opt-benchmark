@@ -14875,7 +14875,7 @@ _ZN12rewriter_tplIN18bv1_blaster_tactic6rw_cfgEE12cache_resultILb1EEEvP4exprS5_P
   store ptr null, ptr %227, align 8, !tbaa !155
   %382 = load ptr, ptr %150, align 8, !tbaa !165
   %.not.i4.i207 = icmp eq ptr %382, null
-  br i1 %.not.i4.i207, label %391, label %383
+  br i1 %.not.i4.i207, label %392, label %383
 
 383:                                              ; preds = %381
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -14885,7 +14885,7 @@ _ZN12rewriter_tplIN18bv1_blaster_tactic6rw_cfgEE12cache_resultILb1EEEvP4exprS5_P
   %388 = add i32 %387, -1
   store i32 %388, ptr %386, align 4, !tbaa !162
   %389 = icmp eq i32 %388, 0
-  br i1 %389, label %390, label %391
+  br i1 %389, label %390, label %392
 
 390:                                              ; preds = %383
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %385, ptr noundef nonnull %382)
@@ -14893,10 +14893,11 @@ _ZN12rewriter_tplIN18bv1_blaster_tactic6rw_cfgEE12cache_resultILb1EEEvP4exprS5_P
 
 ._crit_edge246:                                   ; preds = %390
   %.pre247 = load ptr, ptr %227, align 8, !tbaa !155
-  br label %391
+  %391 = icmp eq ptr %1, %.pre247
+  br label %392
 
-391:                                              ; preds = %._crit_edge246, %383, %381
-  %392 = phi ptr [ %.pre247, %._crit_edge246 ], [ null, %383 ], [ null, %381 ]
+392:                                              ; preds = %._crit_edge246, %383, %381
+  %.not.i210 = phi i1 [ %391, %._crit_edge246 ], [ false, %383 ], [ false, %381 ]
   store ptr null, ptr %150, align 8, !tbaa !165
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %394 = load ptr, ptr %393, align 8, !tbaa !224
@@ -14904,12 +14905,11 @@ _ZN12rewriter_tplIN18bv1_blaster_tactic6rw_cfgEE12cache_resultILb1EEEvP4exprS5_P
   %396 = load i32, ptr %395, align 4, !tbaa !170
   %397 = add i32 %396, -1
   store i32 %397, ptr %395, align 4, !tbaa !170
-  %.not.i210 = icmp eq ptr %1, %392
   %398 = icmp eq i32 %397, 0
   %or.cond = select i1 %.not.i210, i1 true, i1 %398
   br i1 %or.cond, label %_ZN12rewriter_tplIN18bv1_blaster_tactic6rw_cfgEE18set_new_child_flagEP4exprS4_.exit, label %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i
 
-_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i: ; preds = %391
+_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i: ; preds = %392
   %399 = add i32 %396, -2
   %400 = zext i32 %399 to i64
   %401 = getelementptr inbounds nuw %"struct.rewriter_core::frame", ptr %394, i64 %400, i32 1
@@ -14918,7 +14918,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i: ; preds = %391
   store i32 %403, ptr %401, align 8
   br label %_ZN12rewriter_tplIN18bv1_blaster_tactic6rw_cfgEE18set_new_child_flagEP4exprS4_.exit
 
-_ZN12rewriter_tplIN18bv1_blaster_tactic6rw_cfgEE18set_new_child_flagEP4exprS4_.exit: ; preds = %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i, %391
+_ZN12rewriter_tplIN18bv1_blaster_tactic6rw_cfgEE18set_new_child_flagEP4exprS4_.exit: ; preds = %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i, %392
   %404 = load ptr, ptr %115, align 8, !tbaa !167
   %405 = icmp eq ptr %404, null
   br i1 %405, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i

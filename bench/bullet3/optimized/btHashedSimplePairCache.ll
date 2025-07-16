@@ -805,49 +805,51 @@ _ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread: 
   %69 = load ptr, ptr %68, align 8, !tbaa !15
   %70 = sext i32 %43 to i64
   %71 = getelementptr inbounds %struct.btSimplePair, ptr %69, i64 %70
-  br label %80
+  br label %82
 
 _ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit: ; preds = %_ZNK20btAlignedObjectArrayI12btSimplePairE4copyEiiPS0_.exit.i.i, %66
   store i8 1, ptr %63, align 8, !tbaa !7
   store ptr %.0.i.i.i, ptr %61, align 8, !tbaa !15
   store i32 %47, ptr %19, align 8, !tbaa !17
   %.pre2.i = load i32, ptr %42, align 4, !tbaa !16
-  %72 = add nsw i32 %.pre2.i, 1
-  store i32 %72, ptr %42, align 4, !tbaa !16
-  %73 = sext i32 %43 to i64
-  %74 = getelementptr inbounds %struct.btSimplePair, ptr %.0.i.i.i, i64 %73
-  %75 = icmp slt i32 %20, %47
-  br i1 %75, label %76, label %80
+  %72 = icmp slt i32 %20, %47
+  %73 = add nsw i32 %.pre2.i, 1
+  store i32 %73, ptr %42, align 4, !tbaa !16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !15
+  %76 = sext i32 %43 to i64
+  %77 = getelementptr inbounds %struct.btSimplePair, ptr %75, i64 %76
+  br i1 %72, label %78, label %82
 
-76:                                               ; preds = %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit
+78:                                               ; preds = %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit
   tail call void @_ZN23btHashedSimplePairCache10growTablesEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %77 = load i32, ptr %19, align 8, !tbaa !17
-  %78 = add nsw i32 %77, -1
-  %79 = and i32 %78, %18
-  %.pre = sext i32 %79 to i64
-  br label %80
+  %79 = load i32, ptr %19, align 8, !tbaa !17
+  %80 = add nsw i32 %79, -1
+  %81 = and i32 %80, %18
+  %.pre = sext i32 %81 to i64
+  br label %82
 
-80:                                               ; preds = %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread, %76, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit
-  %81 = phi ptr [ %74, %76 ], [ %74, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %71, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
-  %82 = phi i64 [ %73, %76 ], [ %73, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %70, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
-  %.pre-phi = phi i64 [ %.pre, %76 ], [ %25, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %25, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
-  store i32 %1, ptr %81, align 8, !tbaa !33
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  store i32 %2, ptr %83, align 4, !tbaa !35
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr null, ptr %84, align 8, !tbaa !27
-  %85 = load ptr, ptr %23, align 8, !tbaa !22
-  %86 = getelementptr inbounds i32, ptr %85, i64 %.pre-phi
-  %87 = load i32, ptr %86, align 4, !tbaa !26
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %89 = load ptr, ptr %88, align 8, !tbaa !22
-  %90 = getelementptr inbounds i32, ptr %89, i64 %82
-  store i32 %87, ptr %90, align 4, !tbaa !26
-  store i32 %43, ptr %86, align 4, !tbaa !26
+82:                                               ; preds = %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread, %78, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit
+  %83 = phi ptr [ %77, %78 ], [ %77, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %71, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
+  %84 = phi i64 [ %76, %78 ], [ %76, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %70, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
+  %.pre-phi = phi i64 [ %.pre, %78 ], [ %25, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit ], [ %25, %_ZN20btAlignedObjectArrayI12btSimplePairE21expandNonInitializingEv.exit.thread ]
+  store i32 %1, ptr %83, align 8, !tbaa !33
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store i32 %2, ptr %85, align 4, !tbaa !35
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr null, ptr %86, align 8, !tbaa !27
+  %87 = load ptr, ptr %23, align 8, !tbaa !22
+  %88 = getelementptr inbounds i32, ptr %87, i64 %.pre-phi
+  %89 = load i32, ptr %88, align 4, !tbaa !26
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %91 = load ptr, ptr %90, align 8, !tbaa !22
+  %92 = getelementptr inbounds i32, ptr %91, i64 %84
+  store i32 %89, ptr %92, align 4, !tbaa !26
+  store i32 %43, ptr %88, align 4, !tbaa !26
   br label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit
 
-_ZN23btHashedSimplePairCache16internalFindPairEiii.exit: ; preds = %31, %80
-  %.0 = phi ptr [ %81, %80 ], [ %33, %31 ]
+_ZN23btHashedSimplePairCache16internalFindPairEiii.exit: ; preds = %31, %82
+  %.0 = phi ptr [ %83, %82 ], [ %33, %31 ]
   ret ptr %.0
 }
 

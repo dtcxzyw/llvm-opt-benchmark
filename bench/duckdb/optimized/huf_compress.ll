@@ -2993,8 +2993,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL21HUF_compress_internalEPvm
   %33 = and i32 %11, 4
   %34 = icmp eq i32 %33, 0
   %35 = icmp eq ptr %10, null
-  %or.cond.not226 = or i1 %35, %34
-  br i1 %or.cond.not226, label %41, label %36
+  %or.cond.not227 = or i1 %35, %34
+  br i1 %or.cond.not227, label %41, label %36
 
 36:                                               ; preds = %31
   %37 = load i32, ptr %10, align 4, !tbaa !59
@@ -3071,11 +3071,11 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL21HUF_compress_internalEPvm
 73:                                               ; preds = %72, %66
   %74 = phi i32 [ 0, %72 ], [ %67, %66 ]
   %.not172 = icmp eq i32 %74, 0
-  %or.cond223 = or i1 %or.cond.not226, %.not172
-  br i1 %or.cond223, label %.thread198, label %.thread220
+  %or.cond224 = or i1 %or.cond.not227, %.not172
+  br i1 %or.cond224, label %.thread198, label %.thread220
 
 .thread219:                                       ; preds = %69
-  br i1 %or.cond.not226, label %.thread198, label %.thread220
+  br i1 %or.cond.not227, label %.thread198, label %.thread220
 
 .thread220:                                       ; preds = %73, %.thread219
   %75 = call fastcc noundef i64 @_ZN11duckdb_zstdL27HUF_compressCTable_internalEPhS0_S0_PKvmNS_15HUF_nbStreams_eEPKmi(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9, i32 noundef %11)
@@ -3103,11 +3103,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL21HUF_compress_internalEPvm
 88:                                               ; preds = %87
   %89 = load i32, ptr %10, align 4, !tbaa !59
   %.not175 = icmp eq i32 %89, 0
-  br i1 %.not175, label %..thread206_crit_edge, label %90
-
-..thread206_crit_edge:                            ; preds = %88
-  %.pre = add nuw i64 %85, 12
-  br label %.thread206
+  br i1 %.not175, label %.thread206, label %90
 
 90:                                               ; preds = %88
   %91 = load i32, ptr %13, align 4, !tbaa !11
@@ -3162,27 +3158,27 @@ _ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194: ; preds = %.lr.ph.
   %114 = add nuw i64 %85, 12
   %.not177 = icmp ult i64 %114, %3
   %or.cond182 = and i1 %.not177, %.not176
-  br i1 %or.cond182, label %.thread206, label %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194.thread
+  br i1 %or.cond182, label %.thread206.thread, label %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194.thread
 
 _ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194.thread: ; preds = %90, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194
   %115 = call fastcc noundef i64 @_ZN11duckdb_zstdL27HUF_compressCTable_internalEPhS0_S0_PKvmNS_15HUF_nbStreams_eEPKmi(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9, i32 noundef %11)
   br label %.thread
 
-.thread206:                                       ; preds = %..thread206_crit_edge, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194
-  %.pre-phi = phi i64 [ %.pre, %..thread206_crit_edge ], [ %114, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194 ]
-  %.not178 = icmp ult i64 %.pre-phi, %3
-  br i1 %.not178, label %117, label %.thread
+.thread206:                                       ; preds = %88
+  %.pre = add nuw i64 %85, 12
+  %116 = icmp ult i64 %.pre, %3
+  br i1 %116, label %.thread206.thread, label %.thread
 
 .thread209:                                       ; preds = %87
-  %116 = add nuw i64 %85, 12
-  %.not178210 = icmp ult i64 %116, %3
+  %117 = add nuw i64 %85, 12
+  %.not178210 = icmp ult i64 %117, %3
   br i1 %.not178210, label %.thread211, label %.thread
 
-117:                                              ; preds = %.thread206
+.thread206.thread:                                ; preds = %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194, %.thread206
   store i32 0, ptr %10, align 4, !tbaa !59
   br label %.thread211
 
-.thread211:                                       ; preds = %.thread209, %117
+.thread211:                                       ; preds = %.thread209, %.thread206.thread
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 %85
   %.not179 = icmp eq ptr %9, null
   br i1 %.not179, label %120, label %119

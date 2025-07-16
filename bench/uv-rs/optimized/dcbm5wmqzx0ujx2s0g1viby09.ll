@@ -14647,7 +14647,7 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17h24344ae25f61de33E(ptr 
 
 15:                                               ; preds = %.noexc
   %16 = load ptr, ptr %13, align 8, !noalias !7547, !nonnull !3, !noundef !3
-  %17 = icmp uge i64 %12, %.sroa.0.0.sroa.speculated.i17
+  %17 = icmp ule i64 %.sroa.0.0.sroa.speculated.i17, %12
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !7547
   store i64 %12, ptr %5, align 8
@@ -14721,7 +14721,7 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17h315079c0ce2eea20E(ptr 
 
 15:                                               ; preds = %.noexc
   %16 = load ptr, ptr %13, align 8, !noalias !7552, !nonnull !3, !noundef !3
-  %17 = icmp uge i64 %12, %.sroa.0.0.sroa.speculated.i17
+  %17 = icmp ule i64 %.sroa.0.0.sroa.speculated.i17, %12
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !7552
   store i64 %12, ptr %5, align 8
@@ -14795,7 +14795,7 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17h593b4aaa63784eb6E(ptr 
 
 15:                                               ; preds = %.noexc
   %16 = load ptr, ptr %13, align 8, !noalias !7557, !nonnull !3, !noundef !3
-  %17 = icmp uge i64 %12, %.sroa.0.0.sroa.speculated.i17
+  %17 = icmp ule i64 %.sroa.0.0.sroa.speculated.i17, %12
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !7557
   store i64 %12, ptr %5, align 8
@@ -14869,7 +14869,7 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17h65b9bd5312d2c274E(ptr 
 
 15:                                               ; preds = %.noexc
   %16 = load ptr, ptr %13, align 8, !noalias !7562, !nonnull !3, !noundef !3
-  %17 = icmp uge i64 %12, %.sroa.0.0.sroa.speculated.i17
+  %17 = icmp ule i64 %.sroa.0.0.sroa.speculated.i17, %12
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !7562
   store i64 %12, ptr %5, align 8
@@ -14944,7 +14944,7 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17h6fd0e73649fa0ac0E(ptr 
 
 16:                                               ; preds = %.noexc
   %17 = load ptr, ptr %14, align 8, !noalias !7567, !nonnull !3, !noundef !3
-  %18 = icmp uge i64 %13, %.sroa.0.0.sroa.speculated.i17
+  %18 = icmp ule i64 %.sroa.0.0.sroa.speculated.i17, %13
   tail call void @llvm.assume(i1 %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !7567
   store i64 %13, ptr %6, align 8
@@ -15034,7 +15034,7 @@ define void @_ZN4core5slice4sort6stable14driftsort_main17hd190081cb974b9caE(ptr 
 
 16:                                               ; preds = %.noexc
   %17 = load ptr, ptr %14, align 8, !noalias !7581, !nonnull !3, !noundef !3
-  %18 = icmp uge i64 %13, %.sroa.0.0.sroa.speculated.i17
+  %18 = icmp ule i64 %.sroa.0.0.sroa.speculated.i17, %13
   tail call void @llvm.assume(i1 %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !7581
   store i64 %13, ptr %6, align 8

@@ -2053,7 +2053,7 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
 .thread53:                                        ; preds = %0
   %14 = load ptr, ptr %5, align 8
   %15 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.51, ptr noundef %14) #13
-  br label %99
+  br label %96
 
 16:                                               ; preds = %0
   %17 = load ptr, ptr @agent_list, align 8
@@ -2081,188 +2081,192 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
   store i32 -559074791, ptr %4, align 4
   %29 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %3, i64 noundef 4) #13
   %.not.i = icmp eq i64 %29, 4
-  br i1 %.not.i, label %.outer.i, label %.sink.split.i
+  br i1 %.not.i, label %.outer.i.preheader, label %.sink.split.i
 
-30:                                               ; preds = %43, %.outer.i
-  %.018.i = phi i64 [ -1, %43 ], [ %.018.ph.i, %.outer.i ]
-  %31 = icmp slt i64 %.018.i, %40
-  br i1 %31, label %32, label %47
+.outer.i.preheader:                               ; preds = %19
+  %.not72 = icmp eq i32 %.val37, 0
+  br i1 %.not72, label %.outer.i._crit_edge, label %.critedge.i.preheader.preheader
 
-32:                                               ; preds = %30
-  %33 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %.0.ph.i, i64 noundef %40) #13
-  %34 = icmp sgt i64 %33, 0
-  br i1 %34, label %35, label %41
+.critedge.i.preheader.preheader:                  ; preds = %.outer.i.preheader
+  %30 = zext i32 %.val37 to i64
+  br label %.critedge.i.preheader
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 %33
-  %37 = trunc i64 %33 to i32
-  %38 = sub i32 %39, %37
-  br label %.outer.i, !llvm.loop !12
+.critedge.i:                                      ; preds = %.critedge.i.preheader, %42
+  %31 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %.0.ph.i65, i64 noundef %38) #13
+  %32 = icmp sgt i64 %31, 0
+  br i1 %32, label %.outer.i, label %40
 
-.outer.i:                                         ; preds = %19, %35
-  %39 = phi i32 [ %38, %35 ], [ %.val37, %19 ]
-  %.018.ph.i = phi i64 [ %33, %35 ], [ 0, %19 ]
-  %.0.ph.i = phi ptr [ %36, %35 ], [ %.val, %19 ]
-  %40 = zext i32 %39 to i64
-  br label %30
+.outer.i:                                         ; preds = %.critedge.i
+  %33 = getelementptr inbounds nuw i8, ptr %.0.ph.i65, i64 %31
+  %34 = trunc i64 %31 to i32
+  %35 = sub i32 %39, %34
+  %36 = zext i32 %35 to i64
+  %37 = icmp samesign ult i64 %31, %36
+  br i1 %37, label %.critedge.i.preheader, label %.outer.i._crit_edge, !llvm.loop !12
 
-41:                                               ; preds = %32
-  %42 = icmp eq i64 %33, -1
-  br i1 %42, label %43, label %.sink.split.i
+.critedge.i.preheader:                            ; preds = %.critedge.i.preheader.preheader, %.outer.i
+  %38 = phi i64 [ %36, %.outer.i ], [ %30, %.critedge.i.preheader.preheader ]
+  %.0.ph.i65 = phi ptr [ %33, %.outer.i ], [ %.val, %.critedge.i.preheader.preheader ]
+  %39 = phi i32 [ %35, %.outer.i ], [ %.val37, %.critedge.i.preheader.preheader ]
+  br label %.critedge.i
 
-43:                                               ; preds = %41
-  %44 = tail call ptr @__errno_location() #14
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, 4
-  br i1 %46, label %30, label %.sink.split.i, !llvm.loop !12
+40:                                               ; preds = %.critedge.i
+  %41 = icmp eq i64 %31, -1
+  br i1 %41, label %42, label %.sink.split.i
 
-47:                                               ; preds = %30
-  %48 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %4, i64 noundef 4) #13
-  %.not22.i = icmp eq i64 %48, 4
+42:                                               ; preds = %40
+  %43 = tail call ptr @__errno_location() #14
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %44, 4
+  br i1 %45, label %.critedge.i, label %.sink.split.i, !llvm.loop !12
+
+.outer.i._crit_edge:                              ; preds = %.outer.i, %.outer.i.preheader
+  %46 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %4, i64 noundef 4) #13
+  %.not22.i = icmp eq i64 %46, 4
   br i1 %.not22.i, label %_save_dbd_rec.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %43, %41, %47, %19
-  %49 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.56) #13
+.sink.split.i:                                    ; preds = %42, %40, %.outer.i._crit_edge, %19
+  %47 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.56) #13
   br label %_save_dbd_rec.exit
 
-_save_dbd_rec.exit:                               ; preds = %47, %.sink.split.i
-  %.not33 = phi i1 [ true, %47 ], [ false, %.sink.split.i ]
+_save_dbd_rec.exit:                               ; preds = %.outer.i._crit_edge, %.sink.split.i
+  %.not33 = phi i1 [ true, %.outer.i._crit_edge ], [ false, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
   %.not32 = icmp eq ptr %23, null
-  br i1 %.not32, label %51, label %50
+  br i1 %.not32, label %49, label %48
 
-50:                                               ; preds = %_save_dbd_rec.exit
+48:                                               ; preds = %_save_dbd_rec.exit
   call void @slurm_free_buf(ptr noundef nonnull %23) #13
-  br label %51
+  br label %49
 
-51:                                               ; preds = %50, %_save_dbd_rec.exit
+49:                                               ; preds = %48, %_save_dbd_rec.exit
   br i1 %.not33, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %51
-  %52 = load ptr, ptr @agent_list, align 8
-  %53 = call ptr @slurm_list_dequeue(ptr noundef %52) #13
-  %.not346567 = icmp eq ptr %53, null
-  br i1 %.not346567, label %.loopexit, label %.lr.ph
+.preheader:                                       ; preds = %49
+  %50 = load ptr, ptr @agent_list, align 8
+  %51 = call ptr @slurm_list_dequeue(ptr noundef %50) #13
+  %.not346669 = icmp eq ptr %51, null
+  br i1 %.not346669, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.outer
-  %54 = phi ptr [ %91, %.outer ], [ %53, %.preheader ]
-  %.1.ph68 = phi i32 [ %89, %.outer ], [ 0, %.preheader ]
-  br label %55
+  %52 = phi ptr [ %88, %.outer ], [ %51, %.preheader ]
+  %.1.ph70 = phi i32 [ %86, %.outer ], [ 0, %.preheader ]
+  br label %53
 
-55:                                               ; preds = %.lr.ph, %.backedge
-  %56 = phi ptr [ %54, %.lr.ph ], [ %61, %.backedge ]
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp ult i32 %58, 2
-  br i1 %59, label %.backedge, label %62
+53:                                               ; preds = %.lr.ph, %.backedge
+  %54 = phi ptr [ %52, %.lr.ph ], [ %59, %.backedge ]
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp ult i32 %56, 2
+  br i1 %57, label %.backedge, label %60
 
-.backedge:                                        ; preds = %55, %62
-  call void @slurm_free_buf(ptr noundef nonnull %56) #13
-  %60 = load ptr, ptr @agent_list, align 8
-  %61 = call ptr @slurm_list_dequeue(ptr noundef %60) #13
-  %.not34 = icmp eq ptr %61, null
-  br i1 %.not34, label %.loopexit, label %55, !llvm.loop !13
+.backedge:                                        ; preds = %53, %60
+  call void @slurm_free_buf(ptr noundef nonnull %54) #13
+  %58 = load ptr, ptr @agent_list, align 8
+  %59 = call ptr @slurm_list_dequeue(ptr noundef %58) #13
+  %.not34 = icmp eq ptr %59, null
+  br i1 %.not34, label %.loopexit, label %53, !llvm.loop !13
 
-62:                                               ; preds = %55
-  store i32 0, ptr %57, align 4
-  %63 = call i32 @slurm_unpack16(ptr noundef nonnull %6, ptr noundef nonnull %56) #13
-  store i32 %58, ptr %57, align 4
-  %64 = load i16, ptr %6, align 2
-  %65 = icmp eq i16 %64, 1434
-  br i1 %65, label %.backedge, label %66
+60:                                               ; preds = %53
+  store i32 0, ptr %55, align 4
+  %61 = call i32 @slurm_unpack16(ptr noundef nonnull %6, ptr noundef nonnull %54) #13
+  store i32 %56, ptr %55, align 4
+  %62 = load i16, ptr %6, align 2
+  %63 = icmp eq i16 %62, 1434
+  br i1 %63, label %.backedge, label %64
 
-66:                                               ; preds = %62
-  %67 = getelementptr i8, ptr %56, i64 8
-  %.val38 = load ptr, ptr %67, align 8
+64:                                               ; preds = %60
+  %65 = getelementptr i8, ptr %54, i64 8
+  %.val38 = load ptr, ptr %65, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #13
-  store i32 %58, ptr %1, align 4
+  store i32 %56, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
   store i32 -559074791, ptr %2, align 4
-  %68 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %1, i64 noundef 4) #13
-  %.not.i40 = icmp eq i64 %68, 4
-  br i1 %.not.i40, label %.outer.i43, label %_save_dbd_rec.exit48
+  %66 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %1, i64 noundef 4) #13
+  %.not.i40 = icmp eq i64 %66, 4
+  br i1 %.not.i40, label %.outer.i43.preheader, label %_save_dbd_rec.exit48
 
-69:                                               ; preds = %82, %.outer.i43
-  %.018.i46 = phi i64 [ -1, %82 ], [ %.018.ph.i44, %.outer.i43 ]
-  %70 = icmp slt i64 %.018.i46, %79
-  br i1 %70, label %71, label %86
+.outer.i43.preheader:                             ; preds = %64
+  %67 = zext i32 %56 to i64
+  br label %.critedge.i47.preheader
 
-71:                                               ; preds = %69
-  %72 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %.0.ph.i45, i64 noundef %79) #13
-  %73 = icmp sgt i64 %72, 0
-  br i1 %73, label %74, label %80
+.critedge.i47:                                    ; preds = %.critedge.i47.preheader, %79
+  %68 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %.0.ph.i4568, i64 noundef %75) #13
+  %69 = icmp sgt i64 %68, 0
+  br i1 %69, label %.outer.i43, label %77
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %.0.ph.i45, i64 %72
-  %76 = trunc i64 %72 to i32
-  %77 = sub i32 %78, %76
-  br label %.outer.i43, !llvm.loop !12
+.outer.i43:                                       ; preds = %.critedge.i47
+  %70 = getelementptr inbounds nuw i8, ptr %.0.ph.i4568, i64 %68
+  %71 = trunc i64 %68 to i32
+  %72 = sub i32 %76, %71
+  %73 = zext i32 %72 to i64
+  %74 = icmp samesign ult i64 %68, %73
+  br i1 %74, label %.critedge.i47.preheader, label %83, !llvm.loop !12
 
-.outer.i43:                                       ; preds = %66, %74
-  %78 = phi i32 [ %77, %74 ], [ %58, %66 ]
-  %.018.ph.i44 = phi i64 [ %72, %74 ], [ 0, %66 ]
-  %.0.ph.i45 = phi ptr [ %75, %74 ], [ %.val38, %66 ]
-  %79 = zext i32 %78 to i64
-  br label %69
+.critedge.i47.preheader:                          ; preds = %.outer.i43.preheader, %.outer.i43
+  %75 = phi i64 [ %67, %.outer.i43.preheader ], [ %73, %.outer.i43 ]
+  %.0.ph.i4568 = phi ptr [ %.val38, %.outer.i43.preheader ], [ %70, %.outer.i43 ]
+  %76 = phi i32 [ %56, %.outer.i43.preheader ], [ %72, %.outer.i43 ]
+  br label %.critedge.i47
 
-80:                                               ; preds = %71
-  %81 = icmp eq i64 %72, -1
-  br i1 %81, label %82, label %_save_dbd_rec.exit48
+77:                                               ; preds = %.critedge.i47
+  %78 = icmp eq i64 %68, -1
+  br i1 %78, label %79, label %_save_dbd_rec.exit48
 
-82:                                               ; preds = %80
-  %83 = tail call ptr @__errno_location() #14
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp eq i32 %84, 4
-  br i1 %85, label %69, label %_save_dbd_rec.exit48, !llvm.loop !12
+79:                                               ; preds = %77
+  %80 = tail call ptr @__errno_location() #14
+  %81 = load i32, ptr %80, align 4
+  %82 = icmp eq i32 %81, 4
+  br i1 %82, label %.critedge.i47, label %_save_dbd_rec.exit48, !llvm.loop !12
 
-86:                                               ; preds = %69
-  %87 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %2, i64 noundef 4) #13
-  %.not22.i47 = icmp eq i64 %87, 4
-  br i1 %.not22.i47, label %.outer, label %_save_dbd_rec.exit48
+83:                                               ; preds = %.outer.i43
+  %84 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %2, i64 noundef 4) #13
+  %.not22.i46 = icmp eq i64 %84, 4
+  br i1 %.not22.i46, label %.outer, label %_save_dbd_rec.exit48
 
-_save_dbd_rec.exit48:                             ; preds = %66, %86, %80, %82
-  %88 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.56) #13
+_save_dbd_rec.exit48:                             ; preds = %64, %83, %77, %79
+  %85 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.56) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #13
-  call void @slurm_free_buf(ptr noundef nonnull %56) #13
+  call void @slurm_free_buf(ptr noundef nonnull %54) #13
   br label %.loopexit
 
-.outer:                                           ; preds = %86
+.outer:                                           ; preds = %83
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #13
-  call void @slurm_free_buf(ptr noundef nonnull %56) #13
-  %89 = add nuw nsw i32 %.1.ph68, 1
-  %90 = load ptr, ptr @agent_list, align 8
-  %91 = call ptr @slurm_list_dequeue(ptr noundef %90) #13
-  %.not3465 = icmp eq ptr %91, null
-  br i1 %.not3465, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  call void @slurm_free_buf(ptr noundef nonnull %54) #13
+  %86 = add nuw nsw i32 %.1.ph70, 1
+  %87 = load ptr, ptr @agent_list, align 8
+  %88 = call ptr @slurm_list_dequeue(ptr noundef %87) #13
+  %.not3466 = icmp eq ptr %88, null
+  br i1 %.not3466, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
-.loopexit:                                        ; preds = %.outer, %.backedge, %.preheader, %51, %_save_dbd_rec.exit48
-  %.0 = phi i32 [ 0, %51 ], [ %.1.ph68, %_save_dbd_rec.exit48 ], [ 0, %.preheader ], [ %.1.ph68, %.backedge ], [ %89, %.outer ]
+.loopexit:                                        ; preds = %.outer, %.backedge, %.preheader, %49, %_save_dbd_rec.exit48
+  %.0 = phi i32 [ 0, %49 ], [ %.1.ph70, %_save_dbd_rec.exit48 ], [ 0, %.preheader ], [ %.1.ph70, %.backedge ], [ %86, %.outer ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #13
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %16
   %.252 = phi i32 [ %.0, %.loopexit ], [ 0, %16 ]
-  %92 = call i32 @slurm_get_log_level() #13
-  %93 = icmp sgt i32 %92, 3
-  br i1 %93, label %94, label %95
+  %89 = call i32 @slurm_get_log_level() #13
+  %90 = icmp sgt i32 %89, 3
+  br i1 %90, label %91, label %92
 
-94:                                               ; preds = %.thread
+91:                                               ; preds = %.thread
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.53, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._save_dbd_state, i32 noundef %.252) #13
-  br label %95
+  br label %92
 
-95:                                               ; preds = %94, %.thread
-  %96 = call i32 @fsync_and_close(i32 noundef %12, ptr noundef nonnull @.str.54) #13
-  %.not36 = icmp eq i32 %96, 0
-  br i1 %.not36, label %99, label %97
+92:                                               ; preds = %91, %.thread
+  %93 = call i32 @fsync_and_close(i32 noundef %12, ptr noundef nonnull @.str.54) #13
+  %.not36 = icmp eq i32 %93, 0
+  br i1 %.not36, label %96, label %94
 
-97:                                               ; preds = %95
-  %98 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.55) #13
-  br label %99
+94:                                               ; preds = %92
+  %95 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.55) #13
+  br label %96
 
-99:                                               ; preds = %.thread53, %95, %97
+96:                                               ; preds = %.thread53, %92, %94
   call void @slurm_xfree(ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13

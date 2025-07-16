@@ -31,14 +31,14 @@ define void @If_ManCacheRecord(ptr noundef captures(none) %0, i32 noundef %1, i3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !24
   %.pre40 = load i32, ptr %7, align 8, !tbaa !27
+  %15 = icmp eq i32 %.pre, %.pre40
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %spec.select18 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %16 = icmp eq i32 %.pre, %.pre40
-  br i1 %16, label %19, label %.Vec_IntGrow.exit10_crit_edge.i
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  br i1 %15, label %19, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %.thread, %14
-  %17 = phi ptr [ %13, %.thread ], [ %15, %14 ]
+  %17 = phi ptr [ %13, %.thread ], [ %16, %14 ]
   %spec.select1846 = phi i32 [ %spec.select1842, %.thread ], [ %spec.select18, %14 ]
   %spec.select44 = phi i32 [ %spec.select41, %.thread ], [ %spec.select, %14 ]
   %18 = phi ptr [ %9, %.thread ], [ %7, %14 ]
@@ -94,7 +94,7 @@ Vec_IntGrow.exit.i:                               ; preds = %26, %24
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %39
-  %41 = phi ptr [ %17, %.Vec_IntGrow.exit10_crit_edge.i ], [ %15, %39 ], [ %15, %Vec_IntGrow.exit.i ]
+  %41 = phi ptr [ %17, %.Vec_IntGrow.exit10_crit_edge.i ], [ %16, %39 ], [ %16, %Vec_IntGrow.exit.i ]
   %spec.select1845 = phi i32 [ %spec.select1846, %.Vec_IntGrow.exit10_crit_edge.i ], [ %spec.select18, %39 ], [ %spec.select18, %Vec_IntGrow.exit.i ]
   %spec.select43 = phi i32 [ %spec.select44, %.Vec_IntGrow.exit10_crit_edge.i ], [ %spec.select, %39 ], [ %spec.select, %Vec_IntGrow.exit.i ]
   %42 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %40, %39 ], [ %28, %Vec_IntGrow.exit.i ]

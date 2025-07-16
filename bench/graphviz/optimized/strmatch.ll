@@ -342,30 +342,26 @@ define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnam
   %10 = call fastcc i32 @grpmatch(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5)
   %11 = icmp ne i32 %10, 0
   %12 = load ptr, ptr %7, align 8
-  %13 = icmp ne ptr %12, null
-  %or.cond.us.i = select i1 %11, i1 true, i1 %13
+  %13 = icmp eq ptr %12, null
+  %not. = xor i1 %11, true
+  %or.cond.us.i = select i1 %not., i1 %13, i1 false
   %14 = load ptr, ptr %9, align 8
-  %15 = icmp eq ptr %14, %5
-  %or.cond = select i1 %or.cond.us.i, i1 %15, i1 false
-  br i1 %or.cond, label %.split64.us.i, label %strgrpmatch.exit
+  %15 = icmp ne ptr %14, %5
+  %or.cond = select i1 %or.cond.us.i, i1 true, i1 %15
+  %brmerge = or i1 %or.cond, %11
+  %not.or.cond = xor i1 %or.cond, true
+  br i1 %brmerge, label %strgrpmatch.exit, label %16
 
-.split64.us.i:                                    ; preds = %2
-  br i1 %11, label %18, label %16
-
-16:                                               ; preds = %.split64.us.i
+16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %17, i64 176, i1 false), !tbaa.struct !14
   %.pre = load ptr, ptr %9, align 8, !tbaa !17
-  br label %18
-
-18:                                               ; preds = %16, %.split64.us.i
-  %19 = phi ptr [ %.pre, %16 ], [ %14, %.split64.us.i ]
-  %.not46.i = icmp eq ptr %19, %5
-  %spec.select = zext i1 %.not46.i to i32
+  %18 = icmp eq ptr %.pre, %5
   br label %strgrpmatch.exit
 
-strgrpmatch.exit:                                 ; preds = %18, %2
-  %.0.i = phi i32 [ 0, %2 ], [ %spec.select, %18 ]
+strgrpmatch.exit:                                 ; preds = %2, %16
+  %.0.i.in = phi i1 [ %not.or.cond, %2 ], [ %18, %16 ]
+  %.0.i = zext i1 %.0.i.in to i32
   call void @llvm.lifetime.end.p0(i64 368, ptr nonnull %3) #7
   ret i32 %.0.i
 }

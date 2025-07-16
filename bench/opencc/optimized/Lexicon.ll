@@ -915,9 +915,8 @@ define noundef zeroext i1 @_ZN6opencc7Lexicon8IsSortedEv(ptr noundef nonnull rea
   br i1 %9, label %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEPFbRKS7_SE_EEbT_SH_T0_.exit, label %.preheader.i.i.i, !llvm.loop !24
 
 _ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEEPFbRKS7_SE_EEbT_SH_T0_.exit: ; preds = %.preheader.i.i.i, %6, %1
-  %.sroa.05.0.i.i.i = phi ptr [ %2, %1 ], [ %.sroa.05.1.i.i.i, %6 ], [ %4, %.preheader.i.i.i ]
-  %10 = icmp eq ptr %.sroa.05.0.i.i.i, %4
-  ret i1 %10
+  %.sroa.05.0.i.i.i = phi i1 [ true, %1 ], [ %.not.i.i.i, %6 ], [ %.not.i.i.i, %.preheader.i.i.i ]
+  ret i1 %.sroa.05.0.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable

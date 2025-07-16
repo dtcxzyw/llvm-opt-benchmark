@@ -1569,14 +1569,14 @@ _Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread: ; preds = %5
   store ptr %1, ptr %0, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %15, align 4, !tbaa !42
-  br label %.thread
+  br label %.critedge
 
 16:                                               ; preds = %5
   %17 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread16
+  br i1 %20, label %21, label %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread15
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -1590,9 +1590,9 @@ _Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread: ; preds = %5
   store ptr %26, ptr @rtlil_frontend_yyin, align 8, !tbaa !13
   %27 = load i8, ptr %25, align 1, !tbaa !29
   store i8 %27, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
-  br label %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread16
+  br label %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread15
 
-_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread16: ; preds = %16, %21
+_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread15: ; preds = %16, %21
   store ptr %1, ptr %0, align 8, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %28, align 4, !tbaa !42
@@ -1603,37 +1603,37 @@ _Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit: ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %29, align 4, !tbaa !42
   %.not = icmp eq ptr %.pr.pre, null
-  br i1 %.not, label %.thread, label %30
+  br i1 %.not, label %.critedge, label %30
 
-30:                                               ; preds = %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread16, %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit
+30:                                               ; preds = %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread15, %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit
   %31 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !20
-  %.not12 = icmp eq ptr %0, %33
-  br i1 %.not12, label %36, label %.thread
+  %34 = icmp eq ptr %0, %33
+  br i1 %34, label %37, label %.critedge
 
-.thread:                                          ; preds = %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread, %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit, %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 1, ptr %34, align 4, !tbaa !48
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %35, align 8, !tbaa !49
-  br label %36
+.critedge:                                        ; preds = %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread, %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit, %30
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 1, ptr %35, align 4, !tbaa !48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %36, align 8, !tbaa !49
+  br label %37
 
-36:                                               ; preds = %.thread, %30
+37:                                               ; preds = %.critedge, %30
   %.not13 = icmp eq ptr %1, null
-  br i1 %.not13, label %42, label %37
+  br i1 %.not13, label %43, label %38
 
-37:                                               ; preds = %36
-  %38 = tail call i32 @fileno(ptr noundef nonnull %1) #30
-  %39 = tail call i32 @isatty(i32 noundef %38) #30
-  %40 = icmp sgt i32 %39, 0
-  %41 = zext i1 %40 to i32
-  br label %42
+38:                                               ; preds = %37
+  %39 = tail call i32 @fileno(ptr noundef nonnull %1) #30
+  %40 = tail call i32 @isatty(i32 noundef %39) #30
+  %41 = icmp sgt i32 %40, 0
+  %42 = zext i1 %41 to i32
+  br label %43
 
-42:                                               ; preds = %36, %37
-  %43 = phi i32 [ %41, %37 ], [ 0, %36 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %43, ptr %44, align 4, !tbaa !50
+43:                                               ; preds = %37, %38
+  %44 = phi i32 [ %42, %38 ], [ 0, %37 ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %44, ptr %45, align 4, !tbaa !50
   store i32 %4, ptr %3, align 4, !tbaa !11
   ret void
 }
@@ -1743,32 +1743,32 @@ define void @_Z31rtlil_frontend_yy_delete_bufferP15yy_buffer_state(ptr noundef c
 2:                                                ; preds = %1
   %3 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !15
   %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %.thread, label %4
+  br i1 %.not6, label %.critedge, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = icmp eq ptr %0, %7
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %4
   store ptr null, ptr %6, align 8, !tbaa !20
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %9, %4
+.critedge:                                        ; preds = %2, %9, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !25
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %15, label %12
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %.critedge
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   tail call void @free(ptr noundef %14) #30
   br label %15
 
-15:                                               ; preds = %12, %.thread
+15:                                               ; preds = %12, %.critedge
   tail call void @free(ptr noundef nonnull %0) #30
   br label %16
 
@@ -1785,7 +1785,7 @@ define void @_Z21rtlil_frontend_yyfreePv(ptr noundef captures(none) %0) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state(ptr noundef captures(address) %0) local_unnamed_addr #15 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %2
+  br i1 %.not, label %.critedge, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1805,14 +1805,14 @@ define void @_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state(ptr noundef ca
   store i32 0, ptr %11, align 8, !tbaa !38
   %12 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !15
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %.thread, label %13
+  br i1 %.not10, label %.critedge, label %13
 
 13:                                               ; preds = %2
   %14 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = icmp eq ptr %0, %16
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 28
@@ -1826,9 +1826,9 @@ define void @_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state(ptr noundef ca
   store ptr %23, ptr @rtlil_frontend_yyin, align 8, !tbaa !13
   %24 = load i8, ptr %22, align 1, !tbaa !29
   store i8 %24, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %1, %18, %13
+.critedge:                                        ; preds = %2, %1, %18, %13
   ret void
 }
 
@@ -1937,22 +1937,22 @@ define void @_Z33rtlil_frontend_yypop_buffer_statev() local_unnamed_addr #13 {
   %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %.critedge, label %.thread.i
+  br i1 %6, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %2
+.critedge.i:                                      ; preds = %2
   store ptr null, ptr %4, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !25
   %.not7.i = icmp eq i32 %8, 0
   br i1 %.not7.i, label %_Z31rtlil_frontend_yy_delete_bufferP15yy_buffer_state.exit, label %9
 
-9:                                                ; preds = %.thread.i
+9:                                                ; preds = %.critedge.i
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   tail call void @free(ptr noundef %11) #30
   br label %_Z31rtlil_frontend_yy_delete_bufferP15yy_buffer_state.exit
 
-_Z31rtlil_frontend_yy_delete_bufferP15yy_buffer_state.exit: ; preds = %.thread.i, %9
+_Z31rtlil_frontend_yy_delete_bufferP15yy_buffer_state.exit: ; preds = %.critedge.i, %9
   tail call void @free(ptr noundef nonnull %5) #30
   store ptr null, ptr %4, align 8, !tbaa !20
   %.not6 = icmp eq i64 %3, 0
@@ -2185,36 +2185,36 @@ define void @_Z26rtlil_frontend_yyset_debugi(i32 noundef %0) local_unnamed_addr 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z28rtlil_frontend_yylex_destroyv() local_unnamed_addr #5 {
   %.pr = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !15
-  %.not6 = icmp eq ptr %.pr, null
-  br i1 %.not6, label %.critedge, label %.lr.ph.preheader
+  %.not7 = icmp eq ptr %.pr, null
+  br i1 %.not7, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
-  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !20
-  %1 = icmp eq ptr %.pre9, null
-  br i1 %1, label %.critedge, label %.thread.i
+  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !20
+  %1 = icmp eq ptr %.pre10, null
+  br i1 %1, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph.preheader
+.critedge.i:                                      ; preds = %.lr.ph.preheader
   %2 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %2, align 8, !tbaa !20
-  %3 = getelementptr inbounds nuw i8, ptr %.pre9, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.pre10, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !25
   %.not7.i = icmp eq i32 %4, 0
   br i1 %.not7.i, label %_Z33rtlil_frontend_yypop_buffer_statev.exit, label %5
 
-5:                                                ; preds = %.thread.i
-  %6 = getelementptr inbounds nuw i8, ptr %.pre9, i64 8
+5:                                                ; preds = %.critedge.i
+  %6 = getelementptr inbounds nuw i8, ptr %.pre10, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   tail call void @free(ptr noundef %7) #30
-  %.pre10 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !15
-  %.pre11 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
+  %.pre11 = load ptr, ptr @_ZL15yy_buffer_stack, align 8, !tbaa !15
+  %.pre12 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   br label %_Z33rtlil_frontend_yypop_buffer_statev.exit
 
-_Z33rtlil_frontend_yypop_buffer_statev.exit:      ; preds = %.thread.i, %5
-  %8 = phi i64 [ %.pre, %.thread.i ], [ %.pre11, %5 ]
-  %9 = phi ptr [ %.pr, %.thread.i ], [ %.pre10, %5 ]
-  tail call void @free(ptr noundef nonnull %.pre9) #30
+_Z33rtlil_frontend_yypop_buffer_statev.exit:      ; preds = %.critedge.i, %5
+  %8 = phi i64 [ %.pre, %.critedge.i ], [ %.pre12, %5 ]
+  %9 = phi ptr [ %.pr, %.critedge.i ], [ %.pre11, %5 ]
+  tail call void @free(ptr noundef nonnull %.pre10) #30
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
   store ptr null, ptr %10, align 8, !tbaa !20
   br label %.critedge

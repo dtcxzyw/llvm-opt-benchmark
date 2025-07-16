@@ -3635,16 +3635,16 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   %15 = icmp ne i32 %14, 0
   tail call void @llvm.assume(i1 %15)
   %.not74 = icmp eq i32 %4, 0
-  br i1 %.not74, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not74, label %.thread86, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 440
   br label %.outer
 
-.outer:                                           ; preds = %.loopexit86, %.lr.ph
-  %.ph = phi i32 [ %42, %.loopexit86 ], [ %4, %.lr.ph ]
-  %.068.ph = phi i32 [ %.1, %.loopexit86 ], [ 0, %.lr.ph ]
-  %.05267.ph = phi i32 [ %.05267, %.loopexit86 ], [ 0, %.lr.ph ]
+.outer:                                           ; preds = %.loopexit88, %.lr.ph
+  %.ph = phi i32 [ %42, %.loopexit88 ], [ %4, %.lr.ph ]
+  %.068.ph = phi i32 [ %.1, %.loopexit88 ], [ 0, %.lr.ph ]
+  %.05267.ph = phi i32 [ %.05267, %.loopexit88 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   br label %18
 
@@ -3667,11 +3667,11 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   %29 = shl nuw nsw i64 %28, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %25, i64 %29, i1 false)
   %.pre = load i32, ptr %3, align 8, !tbaa !148
-  br label %.loopexit86
+  br label %.loopexit88
 
 30:                                               ; preds = %18
   %31 = icmp eq ptr %21, %1
-  br i1 %31, label %32, label %.loopexit86.loopexit
+  br i1 %31, label %32, label %.loopexit88.loopexit
 
 32:                                               ; preds = %30
   %33 = icmp ult i32 %.068, %11
@@ -3687,13 +3687,13 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.21, ptr noundef nonnull %37, ptr noundef nonnull %40) #19
   unreachable
 
-.loopexit86.loopexit:                             ; preds = %30
+.loopexit88.loopexit:                             ; preds = %30
   %41 = add i32 %.068, 1
-  br label %.loopexit86
+  br label %.loopexit88
 
-.loopexit86:                                      ; preds = %.loopexit86.loopexit, %23
-  %42 = phi i32 [ %.pre, %23 ], [ %.ph, %.loopexit86.loopexit ]
-  %.1 = phi i32 [ %.068, %23 ], [ %41, %.loopexit86.loopexit ]
+.loopexit88:                                      ; preds = %.loopexit88.loopexit, %23
+  %42 = phi i32 [ %.pre, %23 ], [ %.ph, %.loopexit88.loopexit ]
+  %.1 = phi i32 [ %.068, %23 ], [ %41, %.loopexit88.loopexit ]
   %43 = icmp ult i32 %.1, %42
   br i1 %43, label %.outer, label %._crit_edge
 
@@ -3702,9 +3702,9 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   %45 = icmp ult i32 %44, %.ph
   br i1 %45, label %18, label %._crit_edge.thread84
 
-._crit_edge:                                      ; preds = %.loopexit86
+._crit_edge:                                      ; preds = %.loopexit88
   %46 = icmp eq i32 %.05267, 0
-  br i1 %46, label %._crit_edge.thread, label %._crit_edge.thread84
+  br i1 %46, label %66, label %._crit_edge.thread84
 
 ._crit_edge.thread84:                             ; preds = %.thread, %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -3741,48 +3741,47 @@ define dso_local void @zend_do_implement_interface(ptr noundef %0, ptr noundef %
   %.not64 = icmp eq ptr %65, %52
   br i1 %.not64, label %.loopexit, label %.lr.ph73
 
-._crit_edge.thread:                               ; preds = %10, %._crit_edge
-  %.lcssa80 = phi i32 [ %42, %._crit_edge ], [ 0, %10 ]
-  %.not62 = icmp ult i32 %.lcssa80, %4
-  br i1 %.not62, label %._crit_edge76, label %66
+66:                                               ; preds = %._crit_edge
+  %67 = icmp ult i32 %42, %4
+  br i1 %67, label %._crit_edge76, label %.thread86
 
-._crit_edge76:                                    ; preds = %._crit_edge.thread
+._crit_edge76:                                    ; preds = %66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 440
   %.pre77 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !21
-  br label %78
+  br label %79
 
-66:                                               ; preds = %._crit_edge.thread
-  %67 = load i8, ptr %0, align 8, !tbaa !86
-  %68 = icmp eq i8 %67, 1
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %70 = load ptr, ptr %69, align 8, !tbaa !21
-  %71 = add i32 %4, 1
-  %72 = zext i32 %71 to i64
-  %73 = shl nuw nsw i64 %72, 3
-  br i1 %68, label %74, label %76
+.thread86:                                        ; preds = %10, %66
+  %68 = load i8, ptr %0, align 8, !tbaa !86
+  %69 = icmp eq i8 %68, 1
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %71 = load ptr, ptr %70, align 8, !tbaa !21
+  %72 = add i32 %4, 1
+  %73 = zext i32 %72 to i64
+  %74 = shl nuw nsw i64 %73, 3
+  br i1 %69, label %75, label %77
 
-74:                                               ; preds = %66
-  %75 = tail call ptr @realloc(ptr noundef %70, i64 noundef %73) #21
-  store ptr %75, ptr %69, align 8, !tbaa !21
-  br label %78
+75:                                               ; preds = %.thread86
+  %76 = tail call ptr @realloc(ptr noundef %71, i64 noundef %74) #21
+  store ptr %76, ptr %70, align 8, !tbaa !21
+  br label %79
 
-76:                                               ; preds = %66
-  %77 = tail call ptr @_erealloc(ptr noundef %70, i64 noundef %73) #21
-  store ptr %77, ptr %69, align 8, !tbaa !21
-  br label %78
+77:                                               ; preds = %.thread86
+  %78 = tail call ptr @_erealloc(ptr noundef %71, i64 noundef %74) #21
+  store ptr %78, ptr %70, align 8, !tbaa !21
+  br label %79
 
-78:                                               ; preds = %._crit_edge76, %74, %76
-  %79 = phi ptr [ %.pre77, %._crit_edge76 ], [ %75, %74 ], [ %77, %76 ]
-  %80 = load i32, ptr %3, align 8, !tbaa !148
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %3, align 8, !tbaa !148
-  %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %79, i64 %82
-  store ptr %1, ptr %83, align 8, !tbaa !88
+79:                                               ; preds = %._crit_edge76, %75, %77
+  %80 = phi ptr [ %.pre77, %._crit_edge76 ], [ %76, %75 ], [ %78, %77 ]
+  %81 = load i32, ptr %3, align 8, !tbaa !148
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %3, align 8, !tbaa !148
+  %83 = zext i32 %81 to i64
+  %84 = getelementptr inbounds nuw ptr, ptr %80, i64 %83
+  store ptr %1, ptr %84, align 8, !tbaa !88
   tail call fastcc void @do_interface_implementation(ptr noundef nonnull %0, ptr noundef %1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %._crit_edge.thread84, %78
+.loopexit:                                        ; preds = %64, %._crit_edge.thread84, %79
   ret void
 }
 

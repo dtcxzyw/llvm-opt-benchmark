@@ -1274,20 +1274,20 @@ define dso_local void @_ZN4llvm16RISCVInstPrinter22printCSRSystemRegisterEPKNS_6
   %32 = getelementptr inbounds nuw i8, ptr %.026.us, i64 48
   %33 = load i64, ptr %32, align 8
   %.not33.i.i.i.i.i.i.i.i.i.us = icmp eq i64 %33, 0
-  %or.cond.i.us = select i1 %.not32.i.i.i.i.i.i.i.i.i.us, i1 %.not33.i.i.i.i.i.i.i.i.i.us, i1 false
+  %or.cond.i.i.i.i.us = select i1 %.not32.i.i.i.i.i.i.i.i.i.us, i1 %.not33.i.i.i.i.i.i.i.i.i.us, i1 false
   %34 = getelementptr inbounds nuw i8, ptr %.026.us, i64 56
   %35 = load i64, ptr %34, align 8
   %.not34.i.i.i.i.i.i.i.i.i.us = icmp eq i64 %35, 0
-  %or.cond8.i.us = select i1 %or.cond.i.us, i1 %.not34.i.i.i.i.i.i.i.i.i.us, i1 false
+  %or.cond16.i.i.i.i.us = select i1 %or.cond.i.i.i.i.us, i1 %.not34.i.i.i.i.i.i.i.i.i.us, i1 false
   %36 = getelementptr inbounds nuw i8, ptr %.026.us, i64 64
   %37 = load i64, ptr %36, align 8
   %.not35.i.i.i.i.i.i.i.i.i.us = icmp eq i64 %37, 0
-  %or.cond10.i.us = select i1 %or.cond8.i.us, i1 %.not35.i.i.i.i.i.i.i.i.i.us, i1 false
+  %or.cond18.i.i.i.i.us = select i1 %or.cond16.i.i.i.i.us, i1 %.not35.i.i.i.i.i.i.i.i.i.us, i1 false
   %scevgep.i.i.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %.026.us, i64 72
   %38 = load i64, ptr %scevgep.i.i.i.i.i.i.i.i.i.us, align 8
   %.not31.i.i.i.i.i.i.i.i.i.us = icmp eq i64 %38, 0
-  %or.cond11.i.us = select i1 %or.cond10.i.us, i1 %.not31.i.i.i.i.i.i.i.i.i.us, i1 false
-  br i1 %or.cond11.i.us, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread, label %_ZNK4llvm13FeatureBitset4noneEv.exit.thread.i.us
+  %or.cond.i.us = select i1 %or.cond18.i.i.i.i.us, i1 %.not31.i.i.i.i.i.i.i.i.i.us, i1 false
+  br i1 %or.cond.i.us, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread, label %_ZNK4llvm13FeatureBitset4noneEv.exit.thread.i.us
 
 _ZNK4llvm13FeatureBitset4noneEv.exit.thread.i.us: ; preds = %29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #20
@@ -1344,20 +1344,20 @@ _ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.t
   %60 = getelementptr inbounds nuw i8, ptr %.026, i64 48
   %61 = load i64, ptr %60, align 8
   %.not33.i.i.i.i.i.i.i.i.i = icmp eq i64 %61, 0
-  %or.cond.i = select i1 %.not32.i.i.i.i.i.i.i.i.i, i1 %.not33.i.i.i.i.i.i.i.i.i, i1 false
+  %or.cond.i.i.i.i = select i1 %.not32.i.i.i.i.i.i.i.i.i, i1 %.not33.i.i.i.i.i.i.i.i.i, i1 false
   %62 = getelementptr inbounds nuw i8, ptr %.026, i64 56
   %63 = load i64, ptr %62, align 8
   %.not34.i.i.i.i.i.i.i.i.i = icmp eq i64 %63, 0
-  %or.cond8.i = select i1 %or.cond.i, i1 %.not34.i.i.i.i.i.i.i.i.i, i1 false
+  %or.cond16.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 %.not34.i.i.i.i.i.i.i.i.i, i1 false
   %64 = getelementptr inbounds nuw i8, ptr %.026, i64 64
   %65 = load i64, ptr %64, align 8
   %.not35.i.i.i.i.i.i.i.i.i = icmp eq i64 %65, 0
-  %or.cond10.i = select i1 %or.cond8.i, i1 %.not35.i.i.i.i.i.i.i.i.i, i1 false
+  %or.cond18.i.i.i.i = select i1 %or.cond16.i.i.i.i, i1 %.not35.i.i.i.i.i.i.i.i.i, i1 false
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.026, i64 72
   %66 = load i64, ptr %scevgep.i.i.i.i.i.i.i.i.i, align 8
   %.not31.i.i.i.i.i.i.i.i.i = icmp eq i64 %66, 0
-  %or.cond11.i = select i1 %or.cond10.i, i1 %.not31.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond11.i, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread, label %_ZNK4llvm13FeatureBitset4noneEv.exit.thread.i
+  %or.cond.i = select i1 %or.cond18.i.i.i.i, i1 %.not31.i.i.i.i.i.i.i.i.i, i1 false
+  br i1 %or.cond.i, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread, label %_ZNK4llvm13FeatureBitset4noneEv.exit.thread.i
 
 _ZNK4llvm13FeatureBitset4noneEv.exit.thread.i:    ; preds = %57
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #20

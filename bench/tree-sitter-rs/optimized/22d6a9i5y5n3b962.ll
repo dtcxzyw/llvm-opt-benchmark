@@ -7926,22 +7926,22 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %10 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, i32, i8, [3 x i8] }, ptr %0, i64 %.12312.us19
   %11 = tail call noundef range(i8 -1, 2) i8 @"_ZN79_$LT$tree_sitter_cli..generate..nfa..CharacterSet$u20$as$u20$core..cmp..Ord$GT$3cmp17h8b841ff6f2efaf85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10), !range !1550
   %12 = icmp eq i8 %11, -1
-  br i1 %12, label %._crit_edge.us, label %.lr.ph20
+  br i1 %12, label %._crit_edge.us.loopexit, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %7
   %.12312.us19 = phi i64 [ %8, %7 ], [ 1, %.lr.ph20.preheader ]
   %exitcond35.not = icmp eq i64 %.12312.us19, %16
-  br i1 %exitcond35.not, label %._crit_edge.us, label %7
+  br i1 %exitcond35.not, label %._crit_edge.us.loopexit, label %7
 
-._crit_edge.us:                                   ; preds = %.lr.ph20, %7, %.lr.ph.us
-  %.123.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph20 ], [ %8, %7 ]
-  %13 = icmp eq i64 %.123.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %7, %.lr.ph20
+  %.lcssa23 = phi i64 [ %8, %7 ], [ %1, %.lr.ph20 ]
+  %13 = icmp eq i64 %.lcssa23, %1
   br label %.thread
 
 .lr.ph.us:                                        ; preds = %2
   %14 = tail call noundef range(i8 -1, 2) i8 @"_ZN79_$LT$tree_sitter_cli..generate..nfa..CharacterSet$u20$as$u20$core..cmp..Ord$GT$3cmp17h8b841ff6f2efaf85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0), !range !1550
   %15 = icmp eq i8 %14, -1
-  br i1 %15, label %._crit_edge.us, label %.lr.ph20.preheader
+  br i1 %15, label %.thread, label %.lr.ph20.preheader
 
 .lr.ph20.preheader:                               ; preds = %.lr.ph.us
   %16 = add nsw i64 %1, -1
@@ -7954,8 +7954,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %18 = icmp ult i64 %.02218, %1
   br i1 %18, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17hf261c5f802d1549dE.exit, %26, %._crit_edge.us
-  %.us-phi = phi i1 [ %13, %._crit_edge.us ], [ true, %26 ], [ %25, %_ZN4core5slice4sort26insertion_sort_shift_right17hf261c5f802d1549dE.exit ], [ %25, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17hf261c5f802d1549dE.exit, %26, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %13, %._crit_edge.us.loopexit ], [ true, %26 ], [ %25, %_ZN4core5slice4sort26insertion_sort_shift_right17hf261c5f802d1549dE.exit ], [ %25, %._crit_edge ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %26
@@ -8691,16 +8691,16 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %15 = icmp ult i64 %.val.i.i.us, %.val2.i.i.us
   %16 = icmp samesign ult i8 %.val1.i.i.us, %.val3.i.i.us
   %17 = select i1 %14, i1 %15, i1 %16
-  br i1 %17, label %._crit_edge.us, label %.lr.ph21
+  br i1 %17, label %._crit_edge.us.loopexit, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %.lr.ph21.preheader, %8
   %.1237.us20 = phi i64 [ %9, %8 ], [ 1, %.lr.ph21.preheader ]
   %exitcond31.not = icmp eq i64 %.1237.us20, %25
-  br i1 %exitcond31.not, label %._crit_edge.us, label %8
+  br i1 %exitcond31.not, label %._crit_edge.us.loopexit, label %8
 
-._crit_edge.us:                                   ; preds = %.lr.ph21, %8, %.lr.ph.us
-  %.123.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph21 ], [ %9, %8 ]
-  %18 = icmp eq i64 %.123.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %8, %.lr.ph21
+  %.lcssa24 = phi i64 [ %9, %8 ], [ %1, %.lr.ph21 ]
+  %18 = icmp eq i64 %.lcssa24, %1
   br label %.thread
 
 .lr.ph.us:                                        ; preds = %2
@@ -8716,7 +8716,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %22 = icmp ult i64 %.val.i.i.us16, %.val2.i.i.us18
   %23 = icmp samesign ult i8 %.val1.i.i.us17, %.val3.i.i.us19
   %24 = select i1 %21, i1 %22, i1 %23
-  br i1 %24, label %._crit_edge.us, label %.lr.ph21.preheader
+  br i1 %24, label %.thread, label %.lr.ph21.preheader
 
 .lr.ph21.preheader:                               ; preds = %.lr.ph.us
   %25 = add nsw i64 %1, -1
@@ -8729,8 +8729,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %27 = icmp ult i64 %.02213, %1
   br i1 %27, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h52ffa94dd873a716E.exit, %39, %._crit_edge.us
-  %.us-phi = phi i1 [ %18, %._crit_edge.us ], [ true, %39 ], [ %38, %_ZN4core5slice4sort26insertion_sort_shift_right17h52ffa94dd873a716E.exit ], [ %38, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h52ffa94dd873a716E.exit, %39, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %18, %._crit_edge.us.loopexit ], [ true, %39 ], [ %38, %_ZN4core5slice4sort26insertion_sort_shift_right17h52ffa94dd873a716E.exit ], [ %38, %._crit_edge ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %39
@@ -9716,16 +9716,16 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %17 = icmp ult i64 %.val.us, %.val27.us
   %18 = icmp samesign ult i8 %.val26.us, %.val28.us
   %19 = select i1 %16, i1 %17, i1 %18
-  br i1 %19, label %._crit_edge.us, label %.lr.ph19
+  br i1 %19, label %._crit_edge.us.loopexit, label %.lr.ph19
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %10
   %.1237.us18 = phi i64 [ %11, %10 ], [ 1, %.lr.ph19.preheader ]
   %exitcond29.not = icmp eq i64 %.1237.us18, %25
-  br i1 %exitcond29.not, label %._crit_edge.us, label %10
+  br i1 %exitcond29.not, label %._crit_edge.us.loopexit, label %10
 
-._crit_edge.us:                                   ; preds = %.lr.ph19, %10, %.lr.ph.us
-  %.123.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph19 ], [ %11, %10 ]
-  %20 = icmp eq i64 %.123.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %10, %.lr.ph19
+  %.lcssa22 = phi i64 [ %11, %10 ], [ %1, %.lr.ph19 ]
+  %20 = icmp eq i64 %.lcssa22, %1
   br label %.thread
 
 .lr.ph.us:                                        ; preds = %2
@@ -9737,7 +9737,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %22 = icmp ult i64 %.val.us14, %.val27.us16
   %23 = icmp samesign ult i8 %.val26.us15, %.val28.us17
   %24 = select i1 %21, i1 %22, i1 %23
-  br i1 %24, label %._crit_edge.us, label %.lr.ph19.preheader
+  br i1 %24, label %.thread, label %.lr.ph19.preheader
 
 .lr.ph19.preheader:                               ; preds = %.lr.ph.us
   %25 = add nsw i64 %1, -1
@@ -9750,8 +9750,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %27 = icmp ult i64 %.02213, %1
   br i1 %27, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h8f45c3c611f00142E.exit, %39, %._crit_edge.us
-  %.us-phi = phi i1 [ %20, %._crit_edge.us ], [ true, %39 ], [ %38, %_ZN4core5slice4sort26insertion_sort_shift_right17h8f45c3c611f00142E.exit ], [ %38, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h8f45c3c611f00142E.exit, %39, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %20, %._crit_edge.us.loopexit ], [ true, %39 ], [ %38, %_ZN4core5slice4sort26insertion_sort_shift_right17h8f45c3c611f00142E.exit ], [ %38, %._crit_edge ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %39
@@ -9941,16 +9941,16 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %15 = icmp ult i64 %.val.i.i.us, %.val2.i.i.us
   %16 = icmp samesign ult i8 %.val1.i.i.us, %.val3.i.i.us
   %17 = select i1 %14, i1 %15, i1 %16
-  br i1 %17, label %._crit_edge.us, label %.lr.ph21
+  br i1 %17, label %._crit_edge.us.loopexit, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %.lr.ph21.preheader, %8
   %.1237.us20 = phi i64 [ %9, %8 ], [ 1, %.lr.ph21.preheader ]
   %exitcond31.not = icmp eq i64 %.1237.us20, %25
-  br i1 %exitcond31.not, label %._crit_edge.us, label %8
+  br i1 %exitcond31.not, label %._crit_edge.us.loopexit, label %8
 
-._crit_edge.us:                                   ; preds = %.lr.ph21, %8, %.lr.ph.us
-  %.123.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph21 ], [ %9, %8 ]
-  %18 = icmp eq i64 %.123.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %8, %.lr.ph21
+  %.lcssa24 = phi i64 [ %9, %8 ], [ %1, %.lr.ph21 ]
+  %18 = icmp eq i64 %.lcssa24, %1
   br label %.thread
 
 .lr.ph.us:                                        ; preds = %2
@@ -9966,7 +9966,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %22 = icmp ult i64 %.val.i.i.us16, %.val2.i.i.us18
   %23 = icmp samesign ult i8 %.val1.i.i.us17, %.val3.i.i.us19
   %24 = select i1 %21, i1 %22, i1 %23
-  br i1 %24, label %._crit_edge.us, label %.lr.ph21.preheader
+  br i1 %24, label %.thread, label %.lr.ph21.preheader
 
 .lr.ph21.preheader:                               ; preds = %.lr.ph.us
   %25 = add nsw i64 %1, -1
@@ -9979,8 +9979,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %27 = icmp ult i64 %.02213, %1
   br i1 %27, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h03ff1a11b6e8f64cE.exit, %39, %._crit_edge.us
-  %.us-phi = phi i1 [ %18, %._crit_edge.us ], [ true, %39 ], [ %38, %_ZN4core5slice4sort26insertion_sort_shift_right17h03ff1a11b6e8f64cE.exit ], [ %38, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h03ff1a11b6e8f64cE.exit, %39, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %18, %._crit_edge.us.loopexit ], [ true, %39 ], [ %38, %_ZN4core5slice4sort26insertion_sort_shift_right17h03ff1a11b6e8f64cE.exit ], [ %38, %._crit_edge ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %39
@@ -10178,16 +10178,16 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %.val26.us = load ptr, ptr %8, align 8, !nonnull !14, !align !428, !noundef !14
   %9 = tail call noundef i8 @"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp17hcec4af5f3c382b25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val.us, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val26.us), !range !1550
   %10 = icmp eq i8 %9, -1
-  br i1 %10, label %._crit_edge.us, label %.lr.ph23
+  br i1 %10, label %._crit_edge.us.loopexit, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %.lr.ph23.preheader, %5
   %.12313.us22 = phi i64 [ %6, %5 ], [ 1, %.lr.ph23.preheader ]
   %exitcond39.not = icmp eq i64 %.12313.us22, %14
-  br i1 %exitcond39.not, label %._crit_edge.us, label %5
+  br i1 %exitcond39.not, label %._crit_edge.us.loopexit, label %5
 
-._crit_edge.us:                                   ; preds = %.lr.ph23, %5, %.lr.ph.us
-  %.123.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph23 ], [ %6, %5 ]
-  %11 = icmp eq i64 %.123.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %5, %.lr.ph23
+  %.lcssa26 = phi i64 [ %6, %5 ], [ %1, %.lr.ph23 ]
+  %11 = icmp eq i64 %.lcssa26, %1
   br label %.thread
 
 .lr.ph.us:                                        ; preds = %2
@@ -10195,7 +10195,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %.val26.us21 = load ptr, ptr %0, align 8, !nonnull !14, !align !428, !noundef !14
   %12 = tail call noundef i8 @"_ZN91_$LT$tree_sitter_cli..generate..build_tables..item..ParseItem$u20$as$u20$core..cmp..Ord$GT$3cmp17hcec4af5f3c382b25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val.us20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val26.us21), !range !1550
   %13 = icmp eq i8 %12, -1
-  br i1 %13, label %._crit_edge.us, label %.lr.ph23.preheader
+  br i1 %13, label %.thread, label %.lr.ph23.preheader
 
 .lr.ph23.preheader:                               ; preds = %.lr.ph.us
   %14 = add nsw i64 %1, -1
@@ -10208,8 +10208,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %16 = icmp ult i64 %.02219, %1
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h97392fb89ff0e9f4E.exit, %24, %._crit_edge.us
-  %.us-phi = phi i1 [ %11, %._crit_edge.us ], [ true, %24 ], [ %23, %_ZN4core5slice4sort26insertion_sort_shift_right17h97392fb89ff0e9f4E.exit ], [ %23, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h97392fb89ff0e9f4E.exit, %24, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %11, %._crit_edge.us.loopexit ], [ true, %24 ], [ %23, %_ZN4core5slice4sort26insertion_sort_shift_right17h97392fb89ff0e9f4E.exit ], [ %23, %._crit_edge ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %24
@@ -11141,16 +11141,16 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %15 = trunc i64 %.val26.us to i32
   %16 = sub i32 0, %15
   %17 = icmp slt i32 %14, %16
-  br i1 %17, label %._crit_edge.us, label %.lr.ph17
+  br i1 %17, label %._crit_edge.us.loopexit, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %9
   %.1237.us16 = phi i64 [ %10, %9 ], [ 1, %.lr.ph17.preheader ]
   %exitcond27.not = icmp eq i64 %.1237.us16, %24
-  br i1 %exitcond27.not, label %._crit_edge.us, label %9
+  br i1 %exitcond27.not, label %._crit_edge.us.loopexit, label %9
 
-._crit_edge.us:                                   ; preds = %.lr.ph17, %9, %.lr.ph.us
-  %.123.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph17 ], [ %10, %9 ]
-  %18 = icmp eq i64 %.123.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %9, %.lr.ph17
+  %.lcssa20 = phi i64 [ %10, %9 ], [ %1, %.lr.ph17 ]
+  %18 = icmp eq i64 %.lcssa20, %1
   br label %.thread
 
 .lr.ph.us:                                        ; preds = %2
@@ -11161,7 +11161,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %21 = trunc i64 %.val26.us15 to i32
   %22 = sub i32 0, %21
   %23 = icmp slt i32 %20, %22
-  br i1 %23, label %._crit_edge.us, label %.lr.ph17.preheader
+  br i1 %23, label %.thread, label %.lr.ph17.preheader
 
 .lr.ph17.preheader:                               ; preds = %.lr.ph.us
   %24 = add nsw i64 %1, -1
@@ -11174,8 +11174,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %26 = icmp ult i64 %.02213, %1
   br i1 %26, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17hd9b0231e419f4cf0E.exit, %37, %._crit_edge.us
-  %.us-phi = phi i1 [ %18, %._crit_edge.us ], [ true, %37 ], [ %36, %_ZN4core5slice4sort26insertion_sort_shift_right17hd9b0231e419f4cf0E.exit ], [ %36, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17hd9b0231e419f4cf0E.exit, %37, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %18, %._crit_edge.us.loopexit ], [ true, %37 ], [ %36, %_ZN4core5slice4sort26insertion_sort_shift_right17hd9b0231e419f4cf0E.exit ], [ %36, %._crit_edge ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %37
@@ -11599,23 +11599,23 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %.val.us = load i32, ptr %8, align 4, !alias.scope !2283, !noalias !2286, !noundef !14
   %.val26.us = load i32, ptr %9, align 4, !alias.scope !2286, !noalias !2283, !noundef !14
   %10 = icmp ult i32 %.val.us, %.val26.us
-  br i1 %10, label %._crit_edge.us, label %.lr.ph17
+  br i1 %10, label %._crit_edge.us.loopexit, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %6
   %.1237.us16 = phi i64 [ %7, %6 ], [ 1, %.lr.ph17.preheader ]
   %exitcond27.not = icmp eq i64 %.1237.us16, %13
-  br i1 %exitcond27.not, label %._crit_edge.us, label %6
+  br i1 %exitcond27.not, label %._crit_edge.us.loopexit, label %6
 
-._crit_edge.us:                                   ; preds = %.lr.ph17, %6, %.lr.ph.us
-  %.123.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph17 ], [ %7, %6 ]
-  %11 = icmp eq i64 %.123.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %6, %.lr.ph17
+  %.lcssa20 = phi i64 [ %7, %6 ], [ %1, %.lr.ph17 ]
+  %11 = icmp eq i64 %.lcssa20, %1
   br label %.thread
 
 .lr.ph.us:                                        ; preds = %2
   %.val.us14 = load i32, ptr %4, align 4, !alias.scope !2283, !noalias !2286, !noundef !14
   %.val26.us15 = load i32, ptr %0, align 4, !alias.scope !2286, !noalias !2283, !noundef !14
   %12 = icmp ult i32 %.val.us14, %.val26.us15
-  br i1 %12, label %._crit_edge.us, label %.lr.ph17.preheader
+  br i1 %12, label %.thread, label %.lr.ph17.preheader
 
 .lr.ph17.preheader:                               ; preds = %.lr.ph.us
   %13 = add nsw i64 %1, -1
@@ -11628,8 +11628,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %15 = icmp ult i64 %.02213, %1
   br i1 %15, label %.lr.ph, label %._crit_edge
 
-.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h44fdd7dd14758ee6E.exit, %22, %._crit_edge.us
-  %.us-phi = phi i1 [ %11, %._crit_edge.us ], [ true, %22 ], [ %21, %_ZN4core5slice4sort26insertion_sort_shift_right17h44fdd7dd14758ee6E.exit ], [ %21, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN4core5slice4sort26insertion_sort_shift_right17h44fdd7dd14758ee6E.exit, %22, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %11, %._crit_edge.us.loopexit ], [ true, %22 ], [ %21, %_ZN4core5slice4sort26insertion_sort_shift_right17h44fdd7dd14758ee6E.exit ], [ %21, %._crit_edge ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %22

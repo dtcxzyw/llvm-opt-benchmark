@@ -652,28 +652,28 @@ define internal i32 @dissect_tibia_tcp(ptr noundef %0, ptr noundef %1, ptr nound
   br label %._crit_edge8
 
 8:                                                ; preds = %4
-  %.not7 = icmp eq i32 %5, %7
-  br i1 %.not7, label %._crit_edge8, label %10
+  %9 = icmp eq i32 %5, %7
+  br i1 %9, label %._crit_edge8, label %11
 
 ._crit_edge8:                                     ; preds = %.thread, %8
   %.pre9 = load i32, ptr @dissect_tibia_tcp.fragment_num, align 4
-  %9 = add i32 %.pre9, 1
-  br label %11
+  %10 = add i32 %.pre9, 1
+  br label %12
 
-10:                                               ; preds = %8
+11:                                               ; preds = %8
   store i32 %7, ptr @dissect_tibia_tcp.packet_num, align 4
-  br label %11
+  br label %12
 
-11:                                               ; preds = %._crit_edge8, %10
-  %12 = phi i32 [ %9, %._crit_edge8 ], [ 1, %10 ]
-  store i32 %12, ptr @dissect_tibia_tcp.fragment_num, align 4
-  %13 = load i8, ptr @reassemble_tcp_segments, align 1, !range !6, !noundef !7
-  %14 = trunc nuw i8 %13 to i1
-  %15 = zext i32 %12 to i64
-  %16 = inttoptr i64 %15 to ptr
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %14, i32 noundef 2, ptr noundef nonnull @get_dissect_tibia_len, ptr noundef nonnull @dissect_tibia, ptr noundef %16)
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  ret i32 %17
+12:                                               ; preds = %._crit_edge8, %11
+  %13 = phi i32 [ %10, %._crit_edge8 ], [ 1, %11 ]
+  store i32 %13, ptr @dissect_tibia_tcp.fragment_num, align 4
+  %14 = load i8, ptr @reassemble_tcp_segments, align 1, !range !6, !noundef !7
+  %15 = trunc nuw i8 %14 to i1
+  %16 = zext i32 %13 to i64
+  %17 = inttoptr i64 %16 to ptr
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %15, i32 noundef 2, ptr noundef nonnull @get_dissect_tibia_len, ptr noundef nonnull @dissect_tibia, ptr noundef %17)
+  %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -1026,17 +1026,21 @@ define noundef zeroext i1 @_ZNK17RichParameterList12hasParameterERK7QString(ptr 
 5:                                                ; preds = %.lr.ph.i
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   %7 = tail call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %1) #24
-  br i1 %7, label %_ZNK17RichParameterList13findParameterERK7QString.exit, label %8
+  br i1 %7, label %_ZNK17RichParameterList13findParameterERK7QString.exit.loopexit, label %8
 
 8:                                                ; preds = %5, %.lr.ph.i
   %.sroa.03.0.i = load ptr, ptr %.sroa.03.011.i, align 8
   %.not8.i = icmp eq ptr %.sroa.03.0.i, %0
-  br i1 %.not8.i, label %_ZNK17RichParameterList13findParameterERK7QString.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not8.i, label %_ZNK17RichParameterList13findParameterERK7QString.exit.loopexit, label %.lr.ph.i, !llvm.loop !17
 
-_ZNK17RichParameterList13findParameterERK7QString.exit: ; preds = %5, %8, %2
-  %.sroa.07.0.i = phi ptr [ %0, %2 ], [ %.sroa.03.011.i, %5 ], [ %0, %8 ]
-  %9 = icmp ne ptr %.sroa.07.0.i, %0
-  ret i1 %9
+_ZNK17RichParameterList13findParameterERK7QString.exit.loopexit: ; preds = %8, %5
+  %.sroa.07.0.i.ph = phi ptr [ %0, %8 ], [ %.sroa.03.011.i, %5 ]
+  %9 = icmp ne ptr %.sroa.07.0.i.ph, %0
+  br label %_ZNK17RichParameterList13findParameterERK7QString.exit
+
+_ZNK17RichParameterList13findParameterERK7QString.exit: ; preds = %_ZNK17RichParameterList13findParameterERK7QString.exit.loopexit, %2
+  %.sroa.07.0.i = phi i1 [ false, %2 ], [ %9, %_ZNK17RichParameterList13findParameterERK7QString.exit.loopexit ]
+  ret i1 %.sroa.07.0.i
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -56478,7 +56478,7 @@ _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i.i: ; preds = %16, %.lr.p
   %22 = load ptr, ptr %21, align 8, !tbaa !1040
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %.not10.i.i.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not10.i.i.i.i.i.i, label %_ZNKSt3setIjSt4lessIjESaIjEE4findERKj.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not10.i.i.i.i.i.i, label %"_ZZN4llvm11Instruction27dropUnknownNonDebugMetadataENS_8ArrayRefIjEEENK3$_0clEjPNS_6MDNodeE.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %20, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %22, %20 ]
@@ -56495,22 +56495,16 @@ _ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i.i: ; preds = %16, %.lr.p
 
 _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %27 = icmp eq ptr %.19.i.i.i.i.i.i, %23
-  br i1 %27, label %_ZNKSt3setIjSt4lessIjESaIjEE4findERKj.exit.i.i.i, label %28
+  br i1 %27, label %"_ZZN4llvm11Instruction27dropUnknownNonDebugMetadataENS_8ArrayRefIjEEENK3$_0clEjPNS_6MDNodeE.exit", label %28
 
 28:                                               ; preds = %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i, i64 32
   %30 = load i32, ptr %29, align 4, !tbaa !1020
-  %31 = icmp ult i32 %1, %30
-  %spec.select.i.i.i.i.i = select i1 %31, ptr %23, ptr %.19.i.i.i.i.i.i
-  br label %_ZNKSt3setIjSt4lessIjESaIjEE4findERKj.exit.i.i.i
-
-_ZNKSt3setIjSt4lessIjESaIjEE4findERKj.exit.i.i.i: ; preds = %28, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i.i, %20
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %23, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i.i ], [ %23, %20 ], [ %spec.select.i.i.i.i.i, %28 ]
-  %32 = icmp ne ptr %.sroa.0.0.i.i.i.i.i, %23
+  %31 = icmp uge i32 %1, %30
   br label %"_ZZN4llvm11Instruction27dropUnknownNonDebugMetadataENS_8ArrayRefIjEEENK3$_0clEjPNS_6MDNodeE.exit"
 
-"_ZZN4llvm11Instruction27dropUnknownNonDebugMetadataENS_8ArrayRefIjEEENK3$_0clEjPNS_6MDNodeE.exit": ; preds = %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i.i, %_ZNKSt3setIjSt4lessIjESaIjEE4findERKj.exit.i.i.i
-  %.0.i.i.i = phi i1 [ %19, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i.i ], [ %32, %_ZNKSt3setIjSt4lessIjESaIjEE4findERKj.exit.i.i.i ]
+"_ZZN4llvm11Instruction27dropUnknownNonDebugMetadataENS_8ArrayRefIjEEENK3$_0clEjPNS_6MDNodeE.exit": ; preds = %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i.i, %20, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i.i, %28
+  %.0.i.i.i = phi i1 [ %19, %_ZNK4llvm8SmallSetIjLj32ESt4lessIjEE5vfindERKj.exit.i.i.i ], [ false, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i.i.i.i ], [ false, %20 ], [ %31, %28 ]
   %.not.i = xor i1 %.0.i.i.i, true
   ret i1 %.not.i
 }

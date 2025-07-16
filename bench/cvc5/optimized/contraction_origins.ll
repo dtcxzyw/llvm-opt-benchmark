@@ -790,7 +790,7 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24Contra
 
 .critedge.i:                                      ; preds = %23, %_ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESt4lessIS3_ESaISt4pairIKS3_SA_EEE11lower_boundERSE_.exit.i, %3
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.5) #22
-          to label %.noexc unwind label %53
+          to label %.noexc unwind label %52
 
 .noexc:                                           ; preds = %.critedge.i
   unreachable
@@ -799,7 +799,7 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory5arith2nl3icp24Contra
   %30 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   invoke void @_ZNK4cvc58internal6theory5arith2nl3icp24ContractionOriginManager10getOriginsEPKNS5_17ContractionOriginERSt3setINS0_12NodeTemplateILb1EEESt4lessISB_ESaISB_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(48) %4)
-          to label %32 unwind label %53
+          to label %32 unwind label %52
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %6, align 8, !tbaa !15
@@ -837,12 +837,11 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS
   %45 = load ptr, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !3
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 1099511627775
-  %48 = icmp samesign ult i64 %36, %47
-  %spec.select.i.i = select i1 %48, ptr %5, ptr %.19.i.i.i
+  %48 = icmp samesign uge i64 %36, %47
   br label %_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE4findERKS3_.exit
 
 _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE4findERKS3_.exit: ; preds = %44, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %32
-  %.sroa.0.0.i.i = phi ptr [ %5, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ %5, %32 ], [ %spec.select.i.i, %44 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i ], [ false, %32 ], [ %48, %44 ]
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %33)
           to label %_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %49
 
@@ -854,16 +853,15 @@ _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE4findERKS3_.ex
   unreachable
 
 _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EE4findERKS3_.exit
-  %52 = icmp ne ptr %.sroa.0.0.i.i, %5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #20
-  ret i1 %52
+  ret i1 %.sroa.0.0.i.i
 
-53:                                               ; preds = %.critedge.i, %29
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %.critedge.i, %29
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #20
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable

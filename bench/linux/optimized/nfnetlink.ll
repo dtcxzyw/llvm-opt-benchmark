@@ -1120,7 +1120,7 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @__rcu_read_lock() #9
   br label %.thread6
 
-.split:                                           ; preds = %.split.preheader, %97
+.split:                                           ; preds = %.split.preheader, %93
   call void @__rcu_read_lock() #9
   %34 = load volatile ptr, ptr %19, align 8
   %35 = icmp eq ptr %34, null
@@ -1202,40 +1202,35 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 78:                                               ; preds = %75
   %79 = call i32 %73(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   call void @__rcu_read_unlock() #9
-  br label %97
+  br label %93
 
 80:                                               ; preds = %75
   call void @__rcu_read_unlock() #9
   call void @mutex_lock(ptr noundef %30) #9
   %81 = load ptr, ptr %19, align 8
   %82 = icmp eq ptr %81, %40
-  br i1 %82, label %83, label %93
+  br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %80
   %84 = load i8, ptr %41, align 1
   %85 = zext i8 %84 to i16
   %86 = icmp samesign ult i16 %21, %85
-  br i1 %86, label %87, label %90
+  br i1 %86, label %87, label %.critedge
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %45, align 8
-  %89 = getelementptr %struct.nfnl_callback, ptr %88, i64 %22
-  br label %90
+  %89 = icmp eq ptr %88, %46
+  br i1 %89, label %90, label %.critedge
 
-90:                                               ; preds = %87, %83
-  %91 = phi ptr [ %89, %87 ], [ null, %83 ]
-  %92 = icmp eq ptr %91, %47
-  br i1 %92, label %94, label %93
-
-93:                                               ; preds = %90, %80
+.critedge:                                        ; preds = %83, %87, %80
   call void @mutex_unlock(ptr noundef %30) #9
-  br label %97
+  br label %93
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %47, align 8
-  %96 = call i32 %95(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %47, align 8
+  %92 = call i32 %91(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   call void @mutex_unlock(ptr noundef %30) #9
-  br label %97
+  br label %93
 
 .thread9:                                         ; preds = %75
   call void @__rcu_read_unlock() #9
@@ -1250,20 +1245,20 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4) #9
   br label %.loopexit
 
-97:                                               ; preds = %78, %93, %94
-  %98 = phi i32 [ -11, %93 ], [ %96, %94 ], [ %79, %78 ]
-  %99 = icmp eq i32 %98, -11
+93:                                               ; preds = %78, %.critedge, %90
+  %94 = phi i32 [ -11, %.critedge ], [ %92, %90 ], [ %79, %78 ]
+  %95 = icmp eq i32 %94, -11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4) #9
-  br i1 %99, label %.split, label %.loopexit
+  br i1 %95, label %.split, label %.loopexit
 
 .thread6:                                         ; preds = %39, %44, %.thread, %.split.us
   call void @__rcu_read_unlock() #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %97, %.thread9, %.thread8, %.thread6, %3
-  %100 = phi i32 [ 0, %3 ], [ -22, %.thread6 ], [ %.ph, %.thread8 ], [ -22, %.thread9 ], [ %98, %97 ]
-  ret i32 %100
+.loopexit:                                        ; preds = %93, %.thread9, %.thread8, %.thread6, %3
+  %96 = phi i32 [ 0, %3 ], [ -22, %.thread6 ], [ %.ph, %.thread8 ], [ -22, %.thread9 ], [ %94, %93 ]
+  ret i32 %96
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

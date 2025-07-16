@@ -2510,28 +2510,28 @@ land.rhs:                                         ; preds = %entry
   %1 = load ptr, ptr %buf, align 8
   %2 = load i64, ptr %stream_data, align 8
   %cmp5.not.i = icmp eq i64 %2, 0
-  br i1 %cmp5.not.i, label %_ZZN4node4quic18DefaultApplication12ShouldSetFinERKNS0_7Session11Application10StreamDataEENKUlT_mE_clIP10ngtcp2_vecEEDaS7_m.exit, label %land.rhs.i
+  br i1 %cmp5.not.i, label %land.end, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs, %for.inc.i
   %i.06.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %land.rhs ]
   %len.i = getelementptr inbounds %struct.ngtcp2_vec, ptr %1, i64 %i.06.i, i32 1
   %3 = load i64, ptr %len.i, align 8
   %cmp2.i = icmp eq i64 %3, 0
-  br i1 %cmp2.i, label %for.inc.i, label %_ZZN4node4quic18DefaultApplication12ShouldSetFinERKNS0_7Session11Application10StreamDataEENKUlT_mE_clIP10ngtcp2_vecEEDaS7_m.exit
+  br i1 %cmp2.i, label %for.inc.i, label %for.end.loopexit.i
 
 for.inc.i:                                        ; preds = %land.rhs.i
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %2
-  br i1 %exitcond.not.i, label %_ZZN4node4quic18DefaultApplication12ShouldSetFinERKNS0_7Session11Application10StreamDataEENKUlT_mE_clIP10ngtcp2_vecEEDaS7_m.exit, label %land.rhs.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %land.rhs.i, !llvm.loop !81
 
-_ZZN4node4quic18DefaultApplication12ShouldSetFinERKNS0_7Session11Application10StreamDataEENKUlT_mE_clIP10ngtcp2_vecEEDaS7_m.exit: ; preds = %land.rhs.i, %for.inc.i, %land.rhs
-  %i.0.lcssa.i = phi i64 [ 0, %land.rhs ], [ %i.06.i, %land.rhs.i ], [ %2, %for.inc.i ]
-  %cmp3.i = icmp eq i64 %i.0.lcssa.i, %2
+for.end.loopexit.i:                               ; preds = %for.inc.i, %land.rhs.i
+  %i.0.lcssa.ph.i = phi i64 [ %i.06.i, %land.rhs.i ], [ %2, %for.inc.i ]
+  %4 = icmp eq i64 %i.0.lcssa.ph.i, %2
   br label %land.end
 
-land.end:                                         ; preds = %_ZZN4node4quic18DefaultApplication12ShouldSetFinERKNS0_7Session11Application10StreamDataEENKUlT_mE_clIP10ngtcp2_vecEEDaS7_m.exit, %entry
-  %4 = phi i1 [ false, %entry ], [ %cmp3.i, %_ZZN4node4quic18DefaultApplication12ShouldSetFinERKNS0_7Session11Application10StreamDataEENKUlT_mE_clIP10ngtcp2_vecEEDaS7_m.exit ]
-  ret i1 %4
+land.end:                                         ; preds = %for.end.loopexit.i, %land.rhs, %entry
+  %5 = phi i1 [ false, %entry ], [ true, %land.rhs ], [ %4, %for.end.loopexit.i ]
+  ret i1 %5
 }
 
 ; Function Attrs: nobuiltin nounwind

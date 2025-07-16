@@ -1672,7 +1672,7 @@ _ZN4YAML6detail9node_data9reset_mapEv.exit:       ; preds = %.lr.ph.i.i.i, %_ZNS
   %19 = load ptr, ptr %18, align 8, !tbaa !47
   %20 = load ptr, ptr %17, align 8, !tbaa !46
   %.not = icmp eq ptr %19, %20
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %_ZN4YAML6detail9node_data14reset_sequenceEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4YAML6detail9node_data9reset_mapEv.exit
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1697,17 +1697,15 @@ _ZN4YAML6detail9node_data9reset_mapEv.exit:       ; preds = %.lr.ph.i.i.i, %_ZNS
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 128
   br label %45
 
-._crit_edge:                                      ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %_ZN4YAML6detail9node_data9reset_mapEv.exit
-  %41 = phi ptr [ %19, %_ZN4YAML6detail9node_data9reset_mapEv.exit ], [ %93, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
-  %.lcssa28 = phi ptr [ %20, %_ZN4YAML6detail9node_data9reset_mapEv.exit ], [ %94, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
-  %.not.i.i.i20 = icmp eq ptr %41, %.lcssa28
-  br i1 %.not.i.i.i20, label %_ZN4YAML6detail9node_data14reset_sequenceEv.exit, label %42
+._crit_edge:                                      ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
+  %41 = icmp eq ptr %93, %94
+  br i1 %41, label %_ZN4YAML6detail9node_data14reset_sequenceEv.exit, label %42
 
 42:                                               ; preds = %._crit_edge
-  store ptr %.lcssa28, ptr %18, align 8, !tbaa !47
+  store ptr %94, ptr %18, align 8, !tbaa !47
   br label %_ZN4YAML6detail9node_data14reset_sequenceEv.exit
 
-_ZN4YAML6detail9node_data14reset_sequenceEv.exit: ; preds = %._crit_edge, %42
+_ZN4YAML6detail9node_data14reset_sequenceEv.exit: ; preds = %_ZN4YAML6detail9node_data9reset_mapEv.exit, %._crit_edge, %42
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %43, align 8, !tbaa !48
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16

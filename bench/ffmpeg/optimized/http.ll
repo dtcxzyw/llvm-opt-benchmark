@@ -560,22 +560,22 @@ define internal fastcc range(i32 -2147483648, 1) i32 @http_open_cnx(ptr noundef 
   %49 = getelementptr inbounds nuw i8, ptr %23, i64 10444
   br label %.outer
 
-.outer:                                           ; preds = %470, %2
-  %.092.ph = phi i32 [ %474, %470 ], [ 1, %2 ]
-  %.091.ph = phi i32 [ %.091.ph133, %470 ], [ 0, %2 ]
-  %.090.ph = phi i32 [ %.090.ph134.ph, %470 ], [ 0, %2 ]
-  %.089.ph = phi i32 [ %473, %470 ], [ 0, %2 ]
-  %.088.ph = phi i32 [ %471, %470 ], [ 0, %2 ]
+.outer:                                           ; preds = %468, %2
+  %.092.ph = phi i32 [ %472, %468 ], [ 1, %2 ]
+  %.091.ph = phi i32 [ %.091.ph133, %468 ], [ 0, %2 ]
+  %.090.ph = phi i32 [ %.090.ph134.ph, %468 ], [ 0, %2 ]
+  %.089.ph = phi i32 [ %471, %468 ], [ 0, %2 ]
+  %.088.ph = phi i32 [ %469, %468 ], [ 0, %2 ]
   %smax = call i32 @llvm.smax.i32(i32 %.090.ph, i32 8)
   br label %.outer132.outer
 
 .outer132.outer:                                  ; preds = %redirect_cache_set.exit, %.outer
   %.091.ph133.ph = phi i32 [ 0, %redirect_cache_set.exit ], [ %.091.ph, %.outer ]
-  %.090.ph134.ph = phi i32 [ %500, %redirect_cache_set.exit ], [ %.090.ph, %.outer ]
+  %.090.ph134.ph = phi i32 [ %498, %redirect_cache_set.exit ], [ %.090.ph, %.outer ]
   br label %.outer132
 
 .outer132:                                        ; preds = %.outer132.backedge, %.outer132.outer
-  %.091.ph133 = phi i32 [ %.091.ph133.ph, %.outer132.outer ], [ %477, %.outer132.backedge ]
+  %.091.ph133 = phi i32 [ %.091.ph133.ph, %.outer132.outer ], [ %475, %.outer132.backedge ]
   %.val.pre = load ptr, ptr %24, align 8, !tbaa !20
   br label %50
 
@@ -1561,20 +1561,16 @@ has_header.exit196.thread250.i.i:                 ; preds = %381, %has_header.ex
   %426 = getelementptr inbounds nuw i8, ptr %117, i64 10416
   %427 = load ptr, ptr %426, align 8, !tbaa !79
   %.not148.i.i = icmp eq ptr %427, null
-  br i1 %.not148.i.i, label %._crit_edge.i.i, label %428
+  br i1 %.not148.i.i, label %._crit_edge.i.i, label %430
 
 ._crit_edge.i.i:                                  ; preds = %425
   %.pre264.i.i = load i64, ptr %118, align 8, !tbaa !32
-  br label %429
+  %428 = icmp ne i64 %119, %.pre264.i.i
+  %429 = sext i1 %428 to i32
+  br label %http_open_cnx_internal.exit
 
-428:                                              ; preds = %425
+430:                                              ; preds = %425
   store i64 %119, ptr %118, align 8, !tbaa !32
-  br label %429
-
-429:                                              ; preds = %428, %._crit_edge.i.i
-  %430 = phi i64 [ %.pre264.i.i, %._crit_edge.i.i ], [ %119, %428 ]
-  %431 = icmp ne i64 %119, %430
-  %432 = sext i1 %431 to i32
   br label %http_open_cnx_internal.exit
 
 http_open_cnx_internal.exit.thread:               ; preds = %112, %90
@@ -1591,8 +1587,8 @@ http_open_cnx_internal.exit.thread:               ; preds = %112, %90
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #15
   br label %.loopexit131
 
-http_open_cnx_internal.exit:                      ; preds = %392, %393, %401, %420, %422, %429
-  %.0101.i.i = phi i32 [ %397, %393 ], [ %405, %401 ], [ %423, %422 ], [ %432, %429 ], [ 0, %420 ], [ -22, %392 ]
+http_open_cnx_internal.exit:                      ; preds = %392, %393, %401, %420, %422, %._crit_edge.i.i, %430
+  %.0101.i.i = phi i32 [ %397, %393 ], [ %405, %401 ], [ %423, %422 ], [ 0, %420 ], [ -22, %392 ], [ %429, %._crit_edge.i.i ], [ 0, %430 ]
   call void @av_freep(ptr noundef nonnull %10) #15
   call void @av_freep(ptr noundef nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
@@ -1608,267 +1604,267 @@ http_open_cnx_internal.exit:                      ; preds = %392, %393, %401, %4
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %14) #15
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13) #15
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #15
-  %433 = icmp slt i32 %.0101.i.i, 0
-  br i1 %433, label %.loopexit131, label %476
+  %431 = icmp slt i32 %.0101.i.i, 0
+  br i1 %431, label %.loopexit131, label %474
 
 .loopexit131:                                     ; preds = %http_open_cnx_internal.exit, %http_open_cnx_internal.exit.thread
-  %434 = phi i32 [ %.ph, %http_open_cnx_internal.exit.thread ], [ %.0101.i.i, %http_open_cnx_internal.exit ]
+  %432 = phi i32 [ %.ph, %http_open_cnx_internal.exit.thread ], [ %.0101.i.i, %http_open_cnx_internal.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
-  switch i32 %434, label %436 [
-    i32 -808465656, label %439
-    i32 -825242872, label %439
-    i32 -858797304, label %439
-    i32 -875574520, label %439
-    i32 -959591672, label %439
-    i32 -1482175736, label %439
-    i32 -1482175992, label %435
+  switch i32 %432, label %434 [
+    i32 -808465656, label %437
+    i32 -825242872, label %437
+    i32 -858797304, label %437
+    i32 -875574520, label %437
+    i32 -959591672, label %437
+    i32 -1482175736, label %437
+    i32 -1482175992, label %433
   ]
 
-435:                                              ; preds = %.loopexit131
-  br label %439
+433:                                              ; preds = %.loopexit131
+  br label %437
 
-436:                                              ; preds = %.loopexit131
-  %437 = load i32, ptr %44, align 8, !tbaa !80
-  %438 = icmp eq i32 %437, 0
+434:                                              ; preds = %.loopexit131
+  %435 = load i32, ptr %44, align 8, !tbaa !80
+  %436 = icmp eq i32 %435, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  br i1 %438, label %.loopexit, label %449
+  br i1 %436, label %.loopexit, label %447
 
-439:                                              ; preds = %435, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131
-  %.0.i116 = phi ptr [ @.str.114, %435 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ]
-  %440 = load ptr, ptr %43, align 8, !tbaa !81
-  %.not.i117 = icmp eq ptr %440, null
-  br i1 %.not.i117, label %http_should_reconnect.exit.thread, label %441
+437:                                              ; preds = %433, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131, %.loopexit131
+  %.0.i116 = phi ptr [ @.str.114, %433 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ], [ @.str.113, %.loopexit131 ]
+  %438 = load ptr, ptr %43, align 8, !tbaa !81
+  %.not.i117 = icmp eq ptr %438, null
+  br i1 %.not.i117, label %http_should_reconnect.exit.thread, label %439
 
-http_should_reconnect.exit.thread:                ; preds = %439
+http_should_reconnect.exit.thread:                ; preds = %437
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
   br label %.loopexit
 
-441:                                              ; preds = %439
-  %442 = call i32 @av_match_list(ptr noundef nonnull %.0.i116, ptr noundef nonnull %440, i8 noundef signext 44) #15
-  %443 = icmp sgt i32 %442, 0
-  br i1 %443, label %http_should_reconnect.exit.thread128, label %http_should_reconnect.exit
+439:                                              ; preds = %437
+  %440 = call i32 @av_match_list(ptr noundef nonnull %.0.i116, ptr noundef nonnull %438, i8 noundef signext 44) #15
+  %441 = icmp sgt i32 %440, 0
+  br i1 %441, label %http_should_reconnect.exit.thread128, label %http_should_reconnect.exit
 
-http_should_reconnect.exit.thread128:             ; preds = %441
+http_should_reconnect.exit.thread128:             ; preds = %439
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  br label %449
+  br label %447
 
-http_should_reconnect.exit:                       ; preds = %441
-  %444 = load i32, ptr %36, align 4, !tbaa !51
-  %445 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4, ptr noundef nonnull @.str.115, i32 noundef %444) #15
-  %446 = load ptr, ptr %43, align 8, !tbaa !81
-  %447 = call i32 @av_match_list(ptr noundef nonnull %3, ptr noundef %446, i8 noundef signext 44) #15
-  %448 = icmp slt i32 %447, 1
+http_should_reconnect.exit:                       ; preds = %439
+  %442 = load i32, ptr %36, align 4, !tbaa !51
+  %443 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4, ptr noundef nonnull @.str.115, i32 noundef %442) #15
+  %444 = load ptr, ptr %43, align 8, !tbaa !81
+  %445 = call i32 @av_match_list(ptr noundef nonnull %3, ptr noundef %444, i8 noundef signext 44) #15
+  %446 = icmp slt i32 %445, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  br i1 %448, label %.loopexit, label %449
+  br i1 %446, label %.loopexit, label %447
 
-449:                                              ; preds = %436, %http_should_reconnect.exit.thread128, %http_should_reconnect.exit
-  %450 = load i32, ptr %45, align 8, !tbaa !82
-  %451 = icmp sgt i32 %.089.ph, %450
-  br i1 %451, label %.loopexit, label %452
+447:                                              ; preds = %434, %http_should_reconnect.exit.thread128, %http_should_reconnect.exit
+  %448 = load i32, ptr %45, align 8, !tbaa !82
+  %449 = icmp sgt i32 %.089.ph, %448
+  br i1 %449, label %.loopexit, label %450
 
-452:                                              ; preds = %449
-  %453 = load i32, ptr %46, align 8, !tbaa !83
-  %454 = icmp sgt i32 %453, -1
-  %455 = icmp sgt i32 %.092.ph, %453
-  %or.cond113 = select i1 %454, i1 %455, i1 false
-  br i1 %or.cond113, label %.loopexit, label %456
+450:                                              ; preds = %447
+  %451 = load i32, ptr %46, align 8, !tbaa !83
+  %452 = icmp sgt i32 %451, -1
+  %453 = icmp sgt i32 %.092.ph, %451
+  %or.cond113 = select i1 %452, i1 %453, i1 false
+  br i1 %or.cond113, label %.loopexit, label %454
 
-456:                                              ; preds = %452
-  %457 = load i32, ptr %47, align 4, !tbaa !84
-  %458 = icmp sgt i32 %.088.ph, %457
-  br i1 %458, label %.loopexit, label %459
+454:                                              ; preds = %450
+  %455 = load i32, ptr %47, align 4, !tbaa !84
+  %456 = icmp sgt i32 %.088.ph, %455
+  br i1 %456, label %.loopexit, label %457
 
-459:                                              ; preds = %456
-  %460 = load i32, ptr %48, align 8, !tbaa !85
-  %.not108 = icmp eq i32 %460, 0
-  br i1 %.not108, label %466, label %461
+457:                                              ; preds = %454
+  %458 = load i32, ptr %48, align 8, !tbaa !85
+  %.not108 = icmp eq i32 %458, 0
+  br i1 %.not108, label %464, label %459
+
+459:                                              ; preds = %457
+  %460 = load i32, ptr %49, align 4, !tbaa !86
+  %.not109 = icmp eq i32 %460, 0
+  br i1 %.not109, label %464, label %461
 
 461:                                              ; preds = %459
-  %462 = load i32, ptr %49, align 4, !tbaa !86
-  %.not109 = icmp eq i32 %462, 0
-  br i1 %.not109, label %466, label %463
+  %462 = icmp sgt i32 %460, %448
+  br i1 %462, label %.loopexit, label %463
 
 463:                                              ; preds = %461
-  %464 = icmp sgt i32 %462, %450
-  br i1 %464, label %.loopexit, label %465
-
-465:                                              ; preds = %463
   store i32 0, ptr %49, align 4, !tbaa !86
-  br label %466
+  br label %464
 
-466:                                              ; preds = %465, %461, %459
-  %.1 = phi i32 [ %462, %465 ], [ %.089.ph, %461 ], [ %.089.ph, %459 ]
+464:                                              ; preds = %463, %459, %457
+  %.1 = phi i32 [ %460, %463 ], [ %.089.ph, %459 ], [ %.089.ph, %457 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.9, i64 noundef %66, i32 noundef %.1) #15
-  %467 = mul i32 %.1, 1000000
-  %468 = zext i32 %467 to i64
-  %469 = call i32 @ff_network_sleep_interruptible(i64 noundef %468, ptr noundef nonnull %29) #15
-  %.not110 = icmp eq i32 %469, -110
-  br i1 %.not110, label %470, label %.loopexit
+  %465 = mul i32 %.1, 1000000
+  %466 = zext i32 %465 to i64
+  %467 = call i32 @ff_network_sleep_interruptible(i64 noundef %466, ptr noundef nonnull %29) #15
+  %.not110 = icmp eq i32 %467, -110
+  br i1 %.not110, label %468, label %.loopexit
 
-470:                                              ; preds = %466
-  %471 = add nsw i32 %.1, %.088.ph
-  %472 = shl nsw i32 %.1, 1
-  %473 = or disjoint i32 %472, 1
-  %474 = add nuw nsw i32 %.092.ph, 1
+468:                                              ; preds = %464
+  %469 = add nsw i32 %.1, %.088.ph
+  %470 = shl nsw i32 %.1, 1
+  %471 = or disjoint i32 %470, 1
+  %472 = add nuw nsw i32 %.092.ph, 1
   store i64 %66, ptr %28, align 8, !tbaa !32
-  %475 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
+  %473 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
   br label %.outer
 
-476:                                              ; preds = %http_open_cnx_internal.exit
-  %477 = add nsw i32 %.091.ph133, 1
-  %478 = load i32, ptr %36, align 4, !tbaa !51
-  switch i32 %478, label %ff_http_averror.exit [
-    i32 401, label %479
-    i32 407, label %488
-    i32 301, label %496
-    i32 302, label %496
-    i32 303, label %496
-    i32 307, label %496
-    i32 308, label %496
+474:                                              ; preds = %http_open_cnx_internal.exit
+  %475 = add nsw i32 %.091.ph133, 1
+  %476 = load i32, ptr %36, align 4, !tbaa !51
+  switch i32 %476, label %ff_http_averror.exit [
+    i32 401, label %477
+    i32 407, label %486
+    i32 301, label %494
+    i32 302, label %494
+    i32 303, label %494
+    i32 307, label %494
+    i32 308, label %494
   ]
 
-479:                                              ; preds = %476
-  %480 = icmp eq i32 %65, 0
-  br i1 %480, label %483, label %481
+477:                                              ; preds = %474
+  %478 = icmp eq i32 %65, 0
+  br i1 %478, label %481, label %479
 
-481:                                              ; preds = %479
-  %482 = load i32, ptr %40, align 4, !tbaa !87
-  %.not106 = icmp eq i32 %482, 0
-  br i1 %.not106, label %.loopexit, label %483
+479:                                              ; preds = %477
+  %480 = load i32, ptr %40, align 4, !tbaa !87
+  %.not106 = icmp eq i32 %480, 0
+  br i1 %.not106, label %.loopexit, label %481
 
-483:                                              ; preds = %481, %479
-  %484 = load i32, ptr %27, align 8, !tbaa !42
-  %485 = icmp ne i32 %484, 0
-  %486 = icmp slt i32 %.091.ph133, 3
-  %or.cond = select i1 %485, i1 %486, i1 false
+481:                                              ; preds = %479, %477
+  %482 = load i32, ptr %27, align 8, !tbaa !42
+  %483 = icmp ne i32 %482, 0
+  %484 = icmp slt i32 %.091.ph133, 3
+  %or.cond = select i1 %483, i1 %484, i1 false
   br i1 %or.cond, label %.outer132.backedge, label %.loopexit
 
-.outer132.backedge:                               ; preds = %483, %492
-  %487 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
+.outer132.backedge:                               ; preds = %481, %490
+  %485 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
   br label %.outer132
 
-488:                                              ; preds = %476
-  %489 = icmp eq i32 %65, 0
-  br i1 %489, label %492, label %490
+486:                                              ; preds = %474
+  %487 = icmp eq i32 %65, 0
+  br i1 %487, label %490, label %488
 
-490:                                              ; preds = %488
-  %491 = load i32, ptr %37, align 4, !tbaa !88
-  %.not105 = icmp eq i32 %491, 0
-  br i1 %.not105, label %.loopexit, label %492
+488:                                              ; preds = %486
+  %489 = load i32, ptr %37, align 4, !tbaa !88
+  %.not105 = icmp eq i32 %489, 0
+  br i1 %.not105, label %.loopexit, label %490
 
-492:                                              ; preds = %490, %488
-  %493 = load i32, ptr %38, align 8, !tbaa !89
-  %494 = icmp ne i32 %493, 0
-  %495 = icmp slt i32 %.091.ph133, 3
-  %or.cond3 = select i1 %494, i1 %495, i1 false
+490:                                              ; preds = %488, %486
+  %491 = load i32, ptr %38, align 8, !tbaa !89
+  %492 = icmp ne i32 %491, 0
+  %493 = icmp slt i32 %.091.ph133, 3
+  %or.cond3 = select i1 %492, i1 %493, i1 false
   br i1 %or.cond3, label %.outer132.backedge, label %.loopexit
 
-496:                                              ; preds = %476, %476, %476, %476, %476
-  %497 = load ptr, ptr %41, align 8, !tbaa !79
-  %.not103 = icmp eq ptr %497, null
-  br i1 %.not103, label %ff_http_averror.exit, label %498
+494:                                              ; preds = %474, %474, %474, %474, %474
+  %495 = load ptr, ptr %41, align 8, !tbaa !79
+  %.not103 = icmp eq ptr %495, null
+  br i1 %.not103, label %ff_http_averror.exit, label %496
 
-498:                                              ; preds = %496
-  %499 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
-  %500 = add i32 %.090.ph134.ph, 1
+496:                                              ; preds = %494
+  %497 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
+  %498 = add i32 %.090.ph134.ph, 1
   %exitcond = icmp eq i32 %.090.ph134.ph, %smax
-  br i1 %exitcond, label %ff_http_averror.exit, label %501
+  br i1 %exitcond, label %ff_http_averror.exit, label %499
 
-501:                                              ; preds = %498
-  %502 = load i64, ptr %42, align 8, !tbaa !90
-  %.not104 = icmp eq i64 %502, 0
-  br i1 %.not104, label %503, label %509
+499:                                              ; preds = %496
+  %500 = load i64, ptr %42, align 8, !tbaa !90
+  %.not104 = icmp eq i64 %500, 0
+  br i1 %.not104, label %501, label %507
 
-503:                                              ; preds = %501
-  %504 = load i32, ptr %36, align 4, !tbaa !51
-  %505 = icmp eq i32 %504, 301
-  %506 = icmp eq i32 %504, 308
-  %507 = or i1 %505, %506
-  %508 = select i1 %507, i64 9223372036854775807, i64 -1
-  store i64 %508, ptr %42, align 8, !tbaa !90
-  br label %509
+501:                                              ; preds = %499
+  %502 = load i32, ptr %36, align 4, !tbaa !51
+  %503 = icmp eq i32 %502, 301
+  %504 = icmp eq i32 %502, 308
+  %505 = or i1 %503, %504
+  %506 = select i1 %505, i64 9223372036854775807, i64 -1
+  store i64 %506, ptr %42, align 8, !tbaa !90
+  br label %507
 
-509:                                              ; preds = %503, %501
-  %510 = phi i64 [ %508, %503 ], [ %502, %501 ]
-  %511 = call i64 @time(ptr noundef null) #15
-  %512 = icmp sgt i64 %510, %511
-  br i1 %512, label %513, label %redirect_cache_set.exit
+507:                                              ; preds = %501, %499
+  %508 = phi i64 [ %506, %501 ], [ %500, %499 ]
+  %509 = call i64 @time(ptr noundef null) #15
+  %510 = icmp sgt i64 %508, %509
+  br i1 %510, label %511, label %redirect_cache_set.exit
 
-513:                                              ; preds = %509
-  %514 = load ptr, ptr %25, align 8, !tbaa !38
-  %515 = call i32 @av_dict_count(ptr noundef %514) #15
-  %516 = icmp slt i32 %515, 32
-  br i1 %516, label %517, label %redirect_cache_set.exit
+511:                                              ; preds = %507
+  %512 = load ptr, ptr %25, align 8, !tbaa !38
+  %513 = call i32 @av_dict_count(ptr noundef %512) #15
+  %514 = icmp slt i32 %513, 32
+  br i1 %514, label %515, label %redirect_cache_set.exit
 
-517:                                              ; preds = %513
-  %518 = load ptr, ptr %24, align 8, !tbaa !20
-  %519 = load ptr, ptr %41, align 8, !tbaa !79
-  %520 = load i64, ptr %42, align 8, !tbaa !90
-  %521 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.116, i64 noundef %520, ptr noundef %519) #15
-  %.not.i118 = icmp eq ptr %521, null
-  br i1 %.not.i118, label %redirect_cache_set.exit, label %522
+515:                                              ; preds = %511
+  %516 = load ptr, ptr %24, align 8, !tbaa !20
+  %517 = load ptr, ptr %41, align 8, !tbaa !79
+  %518 = load i64, ptr %42, align 8, !tbaa !90
+  %519 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.116, i64 noundef %518, ptr noundef %517) #15
+  %.not.i118 = icmp eq ptr %519, null
+  br i1 %.not.i118, label %redirect_cache_set.exit, label %520
 
-522:                                              ; preds = %517
-  %523 = call i32 @av_dict_set(ptr noundef nonnull %25, ptr noundef %518, ptr noundef nonnull %521, i32 noundef 9) #15
+520:                                              ; preds = %515
+  %521 = call i32 @av_dict_set(ptr noundef nonnull %25, ptr noundef %516, ptr noundef nonnull %519, i32 noundef 9) #15
   br label %redirect_cache_set.exit
 
-redirect_cache_set.exit:                          ; preds = %522, %517, %513, %509
-  %524 = load ptr, ptr %24, align 8, !tbaa !20
-  call void @av_free(ptr noundef %524) #15
-  %525 = load ptr, ptr %41, align 8, !tbaa !79
-  store ptr %525, ptr %24, align 8, !tbaa !20
+redirect_cache_set.exit:                          ; preds = %520, %515, %511, %507
+  %522 = load ptr, ptr %24, align 8, !tbaa !20
+  call void @av_free(ptr noundef %522) #15
+  %523 = load ptr, ptr %41, align 8, !tbaa !79
+  store ptr %523, ptr %24, align 8, !tbaa !20
   store ptr null, ptr %41, align 8, !tbaa !79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(864) %27, i8 0, i64 864, i1 false)
   br label %.outer132.outer
 
-.loopexit:                                        ; preds = %452, %466, %463, %http_should_reconnect.exit, %449, %456, %436, %490, %492, %481, %483, %redirect_cache_get.exit, %http_should_reconnect.exit.thread
-  %.087 = phi i32 [ %434, %http_should_reconnect.exit.thread ], [ -12, %redirect_cache_get.exit ], [ 0, %483 ], [ 0, %481 ], [ 0, %492 ], [ 0, %490 ], [ %434, %436 ], [ %434, %449 ], [ %434, %456 ], [ %434, %463 ], [ %469, %466 ], [ %434, %http_should_reconnect.exit ], [ %434, %452 ]
-  %526 = load ptr, ptr %39, align 8, !tbaa !37
-  %.not112 = icmp eq ptr %526, null
-  br i1 %.not112, label %529, label %527
+.loopexit:                                        ; preds = %450, %464, %461, %http_should_reconnect.exit, %447, %454, %434, %488, %490, %479, %481, %redirect_cache_get.exit, %http_should_reconnect.exit.thread
+  %.087 = phi i32 [ %432, %http_should_reconnect.exit.thread ], [ -12, %redirect_cache_get.exit ], [ 0, %481 ], [ 0, %479 ], [ 0, %490 ], [ 0, %488 ], [ %432, %434 ], [ %432, %447 ], [ %432, %454 ], [ %432, %461 ], [ %467, %464 ], [ %432, %http_should_reconnect.exit ], [ %432, %450 ]
+  %524 = load ptr, ptr %39, align 8, !tbaa !37
+  %.not112 = icmp eq ptr %524, null
+  br i1 %.not112, label %527, label %525
 
-527:                                              ; preds = %.loopexit
-  %528 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
-  br label %529
+525:                                              ; preds = %.loopexit
+  %526 = call i32 @ffurl_closep(ptr noundef nonnull %39) #15
+  br label %527
 
-529:                                              ; preds = %527, %.loopexit
-  %530 = icmp slt i32 %.087, 0
-  br i1 %530, label %ff_http_averror.exit, label %531
+527:                                              ; preds = %525, %.loopexit
+  %528 = icmp slt i32 %.087, 0
+  br i1 %528, label %ff_http_averror.exit, label %529
 
-531:                                              ; preds = %529
-  %532 = load i32, ptr %36, align 4, !tbaa !51
-  switch i32 %532, label %537 [
+529:                                              ; preds = %527
+  %530 = load i32, ptr %36, align 4, !tbaa !51
+  switch i32 %530, label %535 [
     i32 400, label %ff_http_averror.exit
-    i32 401, label %533
-    i32 403, label %534
-    i32 404, label %535
-    i32 429, label %536
+    i32 401, label %531
+    i32 403, label %532
+    i32 404, label %533
+    i32 429, label %534
   ]
 
-533:                                              ; preds = %531
+531:                                              ; preds = %529
   br label %ff_http_averror.exit
 
-534:                                              ; preds = %531
+532:                                              ; preds = %529
   br label %ff_http_averror.exit
 
-535:                                              ; preds = %531
+533:                                              ; preds = %529
   br label %ff_http_averror.exit
 
-536:                                              ; preds = %531
+534:                                              ; preds = %529
   br label %ff_http_averror.exit
 
-537:                                              ; preds = %531
-  %538 = add i32 %532, -400
-  %or.cond.i122 = icmp ult i32 %538, 100
-  br i1 %or.cond.i122, label %ff_http_averror.exit, label %539
+535:                                              ; preds = %529
+  %536 = add i32 %530, -400
+  %or.cond.i122 = icmp ult i32 %536, 100
+  br i1 %or.cond.i122, label %ff_http_averror.exit, label %537
 
-539:                                              ; preds = %537
-  %540 = icmp sgt i32 %532, 499
-  %..i123 = select i1 %540, i32 -1482175992, i32 -5
+537:                                              ; preds = %535
+  %538 = icmp sgt i32 %530, 499
+  %..i123 = select i1 %538, i32 -1482175992, i32 -5
   br label %ff_http_averror.exit
 
-ff_http_averror.exit:                             ; preds = %496, %498, %476, %539, %537, %536, %535, %534, %533, %531, %529
-  %.0 = phi i32 [ %.087, %529 ], [ -825242872, %533 ], [ -858797304, %534 ], [ -875574520, %535 ], [ -959591672, %536 ], [ -808465656, %531 ], [ -1482175736, %537 ], [ %..i123, %539 ], [ 0, %476 ], [ -5, %498 ], [ 0, %496 ]
+ff_http_averror.exit:                             ; preds = %494, %496, %474, %537, %535, %534, %533, %532, %531, %529, %527
+  %.0 = phi i32 [ %.087, %527 ], [ -825242872, %531 ], [ -858797304, %532 ], [ -875574520, %533 ], [ -959591672, %534 ], [ -808465656, %529 ], [ -1482175736, %535 ], [ %..i123, %537 ], [ 0, %474 ], [ -5, %496 ], [ 0, %494 ]
   ret i32 %.0
 }
 

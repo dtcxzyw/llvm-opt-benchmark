@@ -1120,11 +1120,11 @@ _ZNK4llvm12IRSimilarity21IRSimilarityCandidate14getBasicBlocksERNS_8DenseSetIPNS
   %72 = add i8 %71, -30
   %73 = icmp ult i8 %72, 11
   %spec.select.i.i = select i1 %73, ptr %70, ptr null
+  %74 = icmp ne ptr %spec.select.i.i, %21
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %_ZNK4llvm12IRSimilarity21IRSimilarityCandidate14getBasicBlocksERNS_8DenseSetIPNS_10BasicBlockENS_12DenseMapInfoIS4_vEEEE.exit, %69
-  %.0.i.i = phi ptr [ null, %_ZNK4llvm12IRSimilarity21IRSimilarityCandidate14getBasicBlocksERNS_8DenseSetIPNS_10BasicBlockENS_12DenseMapInfoIS4_vEEEE.exit ], [ %spec.select.i.i, %69 ]
-  %74 = icmp ne ptr %.0.i.i, %21
+  %.0.i.i = phi i1 [ true, %_ZNK4llvm12IRSimilarity21IRSimilarityCandidate14getBasicBlocksERNS_8DenseSetIPNS_10BasicBlockENS_12DenseMapInfoIS4_vEEEE.exit ], [ %74, %69 ]
   %75 = load i8, ptr %49, align 8, !tbaa !131
   %.not122134 = icmp eq i8 %75, 84
   br i1 %.not122134, label %.lr.ph137, label %.critedge
@@ -1240,7 +1240,7 @@ _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEm
 
 133:                                              ; preds = %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit
   %134 = icmp eq ptr %113, %64
-  %or.cond = select i1 %134, i1 %74, i1 false
+  %or.cond = select i1 %134, i1 %.0.i.i, i1 false
   %135 = zext i1 %or.cond to i32
   %spec.select = add i32 %.046128, %135
   %spec.select121 = select i1 %or.cond, ptr %113, ptr %.2129
@@ -13599,7 +13599,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10IROutliner35isCompatibleWithAlrea
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit: ; preds = %23, %.lr.ph.split
   %.pn.i = phi i64 [ %17, %.lr.ph.split ], [ %26, %23 ]
   %.not27 = icmp samesign eq i64 %.pn.i, %15
-  br i1 %.not27, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread, label %.loopexit
+  br i1 %.not27, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread, label %"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit"
 
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit
   %30 = add i32 %storemerge29, 1
@@ -13705,27 +13705,27 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_12IRSimilarity17IRInstructionDataEE8Alloca
 91:                                               ; preds = %96, %.lr.ph.i.i.i.i.i
   %.sroa.03.07.i.i.i.i.i = phi ptr [ %.val, %.lr.ph.i.i.i.i.i ], [ %98, %96 ]
   %92 = tail call fastcc noundef zeroext i1 @_ZL36nextIRInstructionDataMatchesNextInstRN4llvm12IRSimilarity17IRInstructionDataE(ptr noundef nonnull readonly align 8 dereferenceable(168) %.sroa.03.07.i.i.i.i.i)
-  br i1 %92, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS2_16OutlinableRegionEE3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i", label %"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit"
+  br i1 %92, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS2_16OutlinableRegionEE3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i", label %"_ZSt7find_ifIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEZNS0_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS0_16OutlinableRegionEE3$_0ET_SD_SD_T0_.exit.loopexit.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS2_16OutlinableRegionEE3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i": ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !101
   %95 = tail call noundef zeroext i1 @_ZN4llvm11InstVisitorINS_10IROutliner18InstructionAllowedEbE5visitERNS_11InstructionE(ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 8 dereferenceable(72) %94)
-  br i1 %95, label %96, label %"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit"
+  br i1 %95, label %96, label %"_ZSt7find_ifIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEZNS0_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS0_16OutlinableRegionEE3$_0ET_SD_SD_T0_.exit.loopexit.i.i"
 
 96:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS2_16OutlinableRegionEE3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i"
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !138
   %.not.i.i.i.i.i24 = icmp eq ptr %98, %.val23.val
-  br i1 %.not.i.i.i.i.i24, label %"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit", label %91, !llvm.loop !687
+  br i1 %.not.i.i.i.i.i24, label %"_ZSt7find_ifIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEZNS0_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS0_16OutlinableRegionEE3$_0ET_SD_SD_T0_.exit.loopexit.i.i", label %91, !llvm.loop !687
 
-"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit": ; preds = %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS2_16OutlinableRegionEE3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i", %96, %87
-  %.sroa.03.0.lcssa.i.i.i.i.i = phi ptr [ %.val, %87 ], [ %.sroa.03.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS2_16OutlinableRegionEE3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i" ], [ %.val23.val, %96 ], [ %.sroa.03.07.i.i.i.i.i, %91 ]
-  %99 = icmp eq ptr %.val23.val, %.sroa.03.0.lcssa.i.i.i.i.i
-  br label %.loopexit
+"_ZSt7find_ifIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEZNS0_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS0_16OutlinableRegionEE3$_0ET_SD_SD_T0_.exit.loopexit.i.i": ; preds = %96, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS2_16OutlinableRegionEE3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i", %91
+  %.sroa.03.0.lcssa.i.i.i.ph.i.i = phi ptr [ %.sroa.03.07.i.i.i.i.i, %91 ], [ %.val23.val, %96 ], [ %.sroa.03.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS2_16OutlinableRegionEE3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i" ]
+  %99 = icmp eq ptr %.val23.val, %.sroa.03.0.lcssa.i.i.i.ph.i.i
+  br label %"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit"
 
-.loopexit:                                        ; preds = %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit, %"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit"
-  %.1 = phi i1 [ %99, %"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit" ], [ false, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit ]
+"_ZN4llvm7none_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS_16OutlinableRegionEE3$_0EEbOT_T0_.exit": ; preds = %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit, %"_ZSt7find_ifIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEZNS0_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS0_16OutlinableRegionEE3$_0ET_SD_SD_T0_.exit.loopexit.i.i", %87
+  %.1 = phi i1 [ true, %87 ], [ %99, %"_ZSt7find_ifIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12IRSimilarity17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEZNS0_10IROutliner35isCompatibleWithAlreadyOutlinedCodeERKNS0_16OutlinableRegionEE3$_0ET_SD_SD_T0_.exit.loopexit.i.i" ], [ false, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit ]
   ret i1 %.1
 }
 
@@ -13911,10 +13911,10 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21I
 
 42:                                               ; preds = %28, %35, %"_ZN4llvm11stable_sortIRSt6vectorINS_12IRSimilarity21IRSimilarityCandidateESaIS3_EEZNS_10IROutliner24pruneIncompatibleRegionsES6_R15OutlinableGroupE3$_0EEvOT_T0_.exit"
   %43 = load ptr, ptr %5, align 8, !tbaa !690
-  %.not5465 = icmp eq ptr %24, %43
-  br i1 %.not5465, label %.loopexit, label %.lr.ph69
+  %.not5869 = icmp eq ptr %24, %43
+  br i1 %.not5869, label %.loopexit, label %.lr.ph73
 
-.lr.ph69:                                         ; preds = %42
+.lr.ph73:                                         ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -13925,15 +13925,15 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21I
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %52
 
-52:                                               ; preds = %.lr.ph69, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
-  %.03067 = phi i32 [ 0, %.lr.ph69 ], [ %.131, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.048.066 = phi ptr [ %24, %.lr.ph69 ], [ %187, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit ]
-  %53 = load i32, ptr %.sroa.048.066, align 8, !tbaa !670
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.048.066, i64 4
+52:                                               ; preds = %.lr.ph73, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
+  %.03071 = phi i32 [ 0, %.lr.ph73 ], [ %.131, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.048.070 = phi ptr [ %24, %.lr.ph73 ], [ %187, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit ]
+  %53 = load i32, ptr %.sroa.048.070, align 8, !tbaa !670
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.048.070, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !671
   %56 = add i32 %53, -1
   %57 = add i32 %56, %55
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.048.066, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.048.070, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !139
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !101
@@ -13941,8 +13941,8 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21I
   %63 = load ptr, ptr %62, align 8, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %65 = load ptr, ptr %64, align 8, !tbaa !424
-  %.not.not63 = icmp ugt i32 %53, %57
-  br i1 %.not.not63, label %.critedge, label %.lr.ph
+  %.not.not67 = icmp ugt i32 %53, %57
+  br i1 %.not.not67, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
   %66 = load ptr, ptr %44, align 8, !tbaa !221
@@ -13953,13 +13953,13 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21I
   br i1 %68, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread
-  %storemerge64 = phi i32 [ %85, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread ], [ %53, %.lr.ph ]
-  %71 = mul i32 %storemerge64, 37
+  %storemerge68 = phi i32 [ %85, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread ], [ %53, %.lr.ph ]
+  %71 = mul i32 %storemerge68, 37
   %.01728.i.i.i.i = and i32 %69, %71
   %72 = zext i32 %.01728.i.i.i.i to i64
   %73 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.680", ptr %66, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !88
-  %75 = icmp eq i32 %storemerge64, %74
+  %75 = icmp eq i32 %storemerge68, %74
   br i1 %75, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit, label %.lr.ph.i.i.i.i, !prof !84
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.split, %78
@@ -13976,26 +13976,26 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21I
   %81 = zext i32 %.017.i.i.i.i to i64
   %82 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.680", ptr %66, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !88
-  %84 = icmp eq i32 %storemerge64, %83
+  %84 = icmp eq i32 %storemerge68, %83
   br i1 %84, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit, label %.lr.ph.i.i.i.i, !prof !85, !llvm.loop !225
 
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit: ; preds = %78, %.lr.ph.split
   %.pn.i = phi i64 [ %72, %.lr.ph.split ], [ %81, %78 ]
-  %.not55 = icmp samesign eq i64 %.pn.i, %70
-  br i1 %.not55, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread, label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
+  %.not59 = icmp samesign eq i64 %.pn.i, %70
+  br i1 %.not59, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread, label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
 
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit
-  %85 = add i32 %storemerge64, 1
+  %85 = add i32 %storemerge68, 1
   %.not.not = icmp ugt i32 %85, %57
   br i1 %.not.not, label %.critedge, label %.lr.ph.split, !llvm.loop !698
 
 .critedge:                                        ; preds = %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread, %.lr.ph, %52
-  %86 = getelementptr i8, ptr %.sroa.048.066, i64 16
+  %86 = getelementptr i8, ptr %.sroa.048.070, i64 16
   %.val39 = load ptr, ptr %86, align 8, !tbaa !99
   %87 = getelementptr i8, ptr %.val39, i64 8
   %.val39.val = load ptr, ptr %87, align 8, !tbaa !138
   %.not5.i.i.i.i.i.i = icmp eq ptr %59, %.val39.val
-  br i1 %.not5.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not5.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.critedge, %92
   %.sroa.02.06.i.i.i.i.i.i = phi ptr [ %94, %92 ], [ %59, %.critedge ]
@@ -14015,12 +14015,11 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
   %.not.i.i.i.i.i.i = icmp eq ptr %94, %.val39.val
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !699
 
-"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %.critedge
-  %.sroa.02.0.lcssa.i.i.i.i.i.i = phi ptr [ %59, %.critedge ], [ %.sroa.02.06.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %.not56 = icmp eq ptr %.val39.val, %.sroa.02.0.lcssa.i.i.i.i.i.i
-  br i1 %.not56, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread", label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
+"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i
+  %.not60 = icmp eq ptr %.val39.val, %.sroa.02.06.i.i.i.i.i.i
+  br i1 %.not60, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread", label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
 
-"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread": ; preds = %92, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit"
+"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread": ; preds = %92, %.critedge, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit"
   %95 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %65, i32 noundef 48) #27
   br i1 %95, label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit, label %96
 
@@ -14043,8 +14042,8 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
   br i1 %or.cond, label %109, label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
 
 109:                                              ; preds = %98
-  %.not = icmp eq i32 %.03067, 0
-  %.not33 = icmp ugt i32 %53, %.03067
+  %.not = icmp eq i32 %.03071, 0
+  %.not33 = icmp ugt i32 %53, %.03071
   %or.cond36 = or i1 %.not, %.not33
   br i1 %or.cond36, label %110, label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
 
@@ -14054,7 +14053,7 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
   %111 = getelementptr i8, ptr %.val41, i64 8
   %.val41.val = load ptr, ptr %111, align 8, !tbaa !138
   %.not6.i.i.i.i.i.i = icmp eq ptr %.val40, %.val41.val
-  br i1 %.not6.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i42
+  br i1 %.not6.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i.i42
 
 .lr.ph.i.i.i.i.i.i42:                             ; preds = %110, %116
   %.sroa.03.07.i.i.i.i.i.i = phi ptr [ %118, %116 ], [ %.val40, %110 ]
@@ -14073,12 +14072,11 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
   %.not.i.i.i.i.i.i43 = icmp eq ptr %118, %.val41.val
   br i1 %.not.i.i.i.i.i.i43, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i.i42, !llvm.loop !700
 
-"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i42, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner24pruneIncompatibleRegionsERSt6vectorINS2_12IRSimilarity21IRSimilarityCandidateESaIS6_EER15OutlinableGroupE3$_2EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS5_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i.i", %110
-  %.sroa.03.0.lcssa.i.i.i.i.i.i = phi ptr [ %.val40, %110 ], [ %.sroa.03.07.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner24pruneIncompatibleRegionsERSt6vectorINS2_12IRSimilarity21IRSimilarityCandidateESaIS6_EER15OutlinableGroupE3$_2EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS5_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i.i" ], [ %.sroa.03.07.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i42 ]
-  %.not57 = icmp eq ptr %.val41.val, %.sroa.03.0.lcssa.i.i.i.i.i.i
-  br i1 %.not57, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit.thread", label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
+"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i42, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10IROutliner24pruneIncompatibleRegionsERSt6vectorINS2_12IRSimilarity21IRSimilarityCandidateESaIS6_EER15OutlinableGroupE3$_2EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS5_17IRInstructionDataELb1ELb1EvLb0EvEELb0ELb0EEEEEbT_.exit.i.i.i.i.i.i"
+  %.not61 = icmp eq ptr %.val41.val, %.sroa.03.07.i.i.i.i.i.i
+  br i1 %.not61, label %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit.thread", label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
 
-"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit.thread": ; preds = %116, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit"
+"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit.thread": ; preds = %116, %110, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit"
   %119 = load i64, ptr %48, align 8, !tbaa !674
   %120 = add i64 %119, 264
   store i64 %120, ptr %48, align 8, !tbaa !674
@@ -14106,7 +14104,7 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
 
 _ZN4llvm24SpecificBumpPtrAllocatorINS_16OutlinableRegionEE8AllocateEm.exit: ; preds = %130, %133
   %.0.i.i.i.i.i = phi ptr [ %132, %130 ], [ %134, %133 ]
-  store ptr %.sroa.048.066, ptr %.0.i.i.i.i.i, align 8, !tbaa !56
+  store ptr %.sroa.048.070, ptr %.0.i.i.i.i.i, align 8, !tbaa !56
   %135 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %135, i8 0, i64 20, i1 false)
@@ -14212,10 +14210,10 @@ _ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   br label %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %165, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit", %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread", %96, %98, %109, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit"
-  %.131 = phi i32 [ %.03067, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit" ], [ %.03067, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread" ], [ %.03067, %96 ], [ %.03067, %98 ], [ %.03067, %109 ], [ %.03067, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit" ], [ %57, %165 ], [ %57, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.03067, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit ]
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.048.066, i64 120
-  %.not54 = icmp eq ptr %187, %43
-  br i1 %.not54, label %.loopexit, label %52
+  %.131 = phi i32 [ %.03071, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit" ], [ %.03071, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_1EEbOT_T0_.exit.thread" ], [ %.03071, %96 ], [ %.03071, %98 ], [ %.03071, %109 ], [ %.03071, %"_ZN4llvm6any_ofIRNS_12IRSimilarity21IRSimilarityCandidateEZNS_10IROutliner24pruneIncompatibleRegionsERSt6vectorIS2_SaIS2_EER15OutlinableGroupE3$_2EEbOT_T0_.exit" ], [ %57, %165 ], [ %57, %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.03071, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit ]
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.048.070, i64 120
+  %.not58 = icmp eq ptr %187, %43
+  br i1 %.not58, label %.loopexit, label %52
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIPN4llvm16OutlinableRegionESaIS2_EE9push_backERKS2_.exit, %42, %35
   ret void

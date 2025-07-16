@@ -5157,12 +5157,12 @@ define dso_local void @whileBlockedCron() local_unnamed_addr #0 {
 5:                                                ; preds = %0
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7808), align 8, !tbaa !139
   %.not6 = icmp slt i64 %3, %6
-  br i1 %.not6, label %7, label %55
+  br i1 %.not6, label %7, label %51
 
 7:                                                ; preds = %5
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !207
   %.not7 = icmp eq i64 %8, 0
-  br i1 %.not7, label %16, label %9
+  br i1 %.not7, label %.lr.ph.preheader, label %9
 
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #43
@@ -5173,102 +5173,101 @@ define dso_local void @whileBlockedCron() local_unnamed_addr #0 {
   %14 = load i64, ptr %13, align 8, !tbaa !45
   %15 = add nsw i64 %12, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #43
-  %.neg = sdiv i64 %15, -1000
+  %16 = sdiv i64 %15, 1000
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7840), align 8, !tbaa !206
   %.pre14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7808), align 8, !tbaa !139
-  br label %16
+  %17 = icmp slt i64 %.pre, %.pre14
+  br i1 %17, label %.lr.ph.preheader, label %._crit_edge
 
-16:                                               ; preds = %7, %9
-  %17 = phi i64 [ %.pre14, %9 ], [ %6, %7 ]
-  %18 = phi i64 [ %.pre, %9 ], [ %3, %7 ]
-  %.0.neg = phi i64 [ %.neg, %9 ], [ 0, %7 ]
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 52), align 4, !tbaa !122
-  %20 = sdiv i32 1000, %19
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %18, %17
-  br i1 %22, label %.lr.ph, label %._crit_edge
+.lr.ph.preheader:                                 ; preds = %7, %9
+  %.018 = phi i64 [ %16, %9 ], [ 0, %7 ]
+  %.pn = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 52), align 4, !tbaa !122
+  %.in = sdiv i32 1000, %.pn
+  %18 = sext i32 %.in to i64
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %16, %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   tail call void @activeDefragCycle() #43
-  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7840), align 8, !tbaa !206
-  %24 = add nsw i64 %23, %21
-  store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7840), align 8, !tbaa !206
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 156), align 4, !tbaa !144
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @server, i64 156), align 4, !tbaa !144
-  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7808), align 8, !tbaa !139
-  %28 = icmp slt i64 %24, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !208
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7840), align 8, !tbaa !206
+  %20 = add nsw i64 %19, %18
+  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7840), align 8, !tbaa !206
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 156), align 4, !tbaa !144
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @server, i64 156), align 4, !tbaa !144
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7808), align 8, !tbaa !139
+  %24 = icmp slt i64 %20, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !208
 
-._crit_edge:                                      ; preds = %.lr.ph, %16
-  %29 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !189
-  %.not8 = icmp eq i32 %29, 0
-  br i1 %.not8, label %31, label %30
+._crit_edge:                                      ; preds = %.lr.ph, %9
+  %.017 = phi i64 [ %16, %9 ], [ %.018, %.lr.ph ]
+  %25 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !189
+  %.not8 = icmp eq i32 %25, 0
+  br i1 %.not8, label %27, label %26
 
-30:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   tail call void @cronUpdateMemoryStats()
-  br label %31
+  br label %27
 
-31:                                               ; preds = %30, %._crit_edge
-  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !207
-  %.not9 = icmp eq i64 %32, 0
-  br i1 %.not9, label %.thread, label %33
+27:                                               ; preds = %26, %._crit_edge
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !207
+  %.not9 = icmp eq i64 %28, 0
+  br i1 %.not9, label %.thread19, label %29
 
-33:                                               ; preds = %31
+29:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #43
-  %34 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #43
-  %35 = load i64, ptr %1, align 8, !tbaa !42
-  %36 = mul nsw i64 %35, 1000000
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !45
-  %39 = add nsw i64 %36, %38
+  %30 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #43
+  %31 = load i64, ptr %1, align 8, !tbaa !42
+  %32 = mul nsw i64 %31, 1000000
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !45
+  %35 = add nsw i64 %32, %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #43
-  %40 = sdiv i64 %39, 1000
-  %41 = add i64 %.0.neg, %40
+  %36 = sdiv i64 %35, 1000
+  %37 = sub nsw i64 %36, %.017
   %.pre15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !207
   %.not10 = icmp eq i64 %.pre15, 0
-  %.not11 = icmp slt i64 %41, %.pre15
+  %.not11 = icmp slt i64 %37, %.pre15
   %or.cond = select i1 %.not10, i1 true, i1 %.not11
-  br i1 %or.cond, label %.thread, label %42
+  br i1 %or.cond, label %.thread19, label %38
 
-42:                                               ; preds = %33
-  tail call void @latencyAddSample(ptr noundef nonnull @.str.27, i64 noundef %41) #43
-  br label %.thread
+38:                                               ; preds = %29
+  tail call void @latencyAddSample(ptr noundef nonnull @.str.27, i64 noundef %37) #43
+  br label %.thread19
 
-.thread:                                          ; preds = %31, %42, %33
-  %43 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 112), align 8, !tbaa !161
-  %.not12 = icmp eq i32 %43, 0
-  br i1 %.not12, label %55, label %44
+.thread19:                                        ; preds = %27, %38, %29
+  %39 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 112), align 8, !tbaa !161
+  %.not12 = icmp eq i32 %39, 0
+  br i1 %.not12, label %51, label %40
 
-44:                                               ; preds = %.thread
-  %45 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !189
-  %.not13 = icmp eq i32 %45, 0
-  br i1 %.not13, label %55, label %46
+40:                                               ; preds = %.thread19
+  %41 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !189
+  %.not13 = icmp eq i32 %41, 0
+  br i1 %.not13, label %51, label %42
 
-46:                                               ; preds = %44
-  %47 = tail call i32 @prepareForShutdown(i32 noundef 2)
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %50
+42:                                               ; preds = %40
+  %43 = tail call i32 @prepareForShutdown(i32 noundef 2)
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %46
 
-49:                                               ; preds = %46
+45:                                               ; preds = %42
   tail call void @exit(i32 noundef 0) #45
   unreachable
 
-50:                                               ; preds = %46
-  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
-  %52 = icmp sgt i32 %51, 3
-  br i1 %52, label %54, label %53
+46:                                               ; preds = %42
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
+  %48 = icmp sgt i32 %47, 3
+  br i1 %48, label %50, label %49
 
-53:                                               ; preds = %50
+49:                                               ; preds = %46
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.28)
-  br label %54
+  br label %50
 
-54:                                               ; preds = %50, %53
+50:                                               ; preds = %46, %49
   store volatile i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 112), align 8, !tbaa !161
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 128), align 8, !tbaa !162
-  br label %55
+  br label %51
 
-55:                                               ; preds = %.thread, %44, %54, %5
+51:                                               ; preds = %.thread19, %40, %50, %5
   ret void
 }
 

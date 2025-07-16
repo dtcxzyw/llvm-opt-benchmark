@@ -5583,8 +5583,8 @@ set_thread_data.exit.preheader:                   ; preds = %1, %3
   %.b.i77.ph = phi i1 [ %.b.i77.pre118.pre121.mux, %1 ], [ %.b.i77.pre118.pre, %3 ]
   br label %set_thread_data.exit
 
-set_thread_data.exit:                             ; preds = %set_thread_data.exit.preheader, %220
-  %.b.i77 = phi i1 [ %.b.i77.pre, %220 ], [ %.b.i77.ph, %set_thread_data.exit.preheader ]
+set_thread_data.exit:                             ; preds = %set_thread_data.exit.preheader, %216
+  %.b.i77 = phi i1 [ %.b.i77.pre, %216 ], [ %.b.i77.ph, %set_thread_data.exit.preheader ]
   br i1 %.b.i77, label %6, label %lock_mutex.exit.preheader
 
 6:                                                ; preds = %set_thread_data.exit
@@ -5645,11 +5645,11 @@ lock_mutex.exit80:                                ; preds = %lock_mutex.exit, %u
 
 .critedge:                                        ; preds = %.preheader101, %23
   %.b.i81 = load i1, ptr @threads_active, align 4
-  br i1 %.b.i81, label %25, label %222
+  br i1 %.b.i81, label %25, label %218
 
 25:                                               ; preds = %.critedge
   %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @work_mutex) #24
-  br label %222
+  br label %218
 
 27:                                               ; preds = %19
   %28 = trunc nsw i64 %indvars.iv to i32
@@ -5658,7 +5658,7 @@ lock_mutex.exit80:                                ; preds = %lock_mutex.exit, %u
   %sext = shl i64 %indvars.iv, 32
   %30 = ashr exact i64 %sext, 26
   %31 = getelementptr inbounds i8, ptr %17, i64 %30
-  br label %95
+  br label %91
 
 32:                                               ; preds = %lock_mutex.exit80
   %33 = getelementptr inbounds i8, ptr %14, i64 -40
@@ -5667,7 +5667,7 @@ lock_mutex.exit80:                                ; preds = %lock_mutex.exit, %u
   %36 = getelementptr inbounds i8, ptr %14, i64 -20
   %37 = load i32, ptr %36, align 4, !tbaa !194
   %.not62 = icmp sgt i32 %35, %37
-  br i1 %.not62, label %60, label %38
+  br i1 %.not62, label %.thread123, label %38
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr @ref_deltas, align 8, !tbaa !100
@@ -5682,7 +5682,7 @@ lock_mutex.exit80:                                ; preds = %lock_mutex.exit, %u
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 58
   %48 = load i8, ptr %47, align 2, !tbaa !97
   %.not63 = icmp eq i8 %48, 7
-  br i1 %.not63, label %55, label %49
+  br i1 %.not63, label %70, label %49
 
 49:                                               ; preds = %38
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -5693,346 +5693,343 @@ lock_mutex.exit80:                                ; preds = %lock_mutex.exit, %u
   call void (ptr, ...) @die(ptr noundef nonnull @.str.89, i64 noundef %51, ptr noundef %54) #25
   unreachable
 
-55:                                               ; preds = %38
-  %56 = getelementptr inbounds i8, ptr %14, i64 -32
-  %57 = load ptr, ptr %56, align 8, !tbaa !195
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 58
-  %59 = load i8, ptr %58, align 2, !tbaa !97
-  store i8 %59, ptr %47, align 2, !tbaa !97
-  br label %76
+.thread123:                                       ; preds = %32
+  %55 = load ptr, ptr @objects, align 8, !tbaa !62
+  %56 = load ptr, ptr @ofs_deltas, align 8, !tbaa !66
+  %57 = getelementptr inbounds i8, ptr %14, i64 -16
+  %58 = load i32, ptr %57, align 8, !tbaa !196
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %57, align 8, !tbaa !196
+  %60 = sext i32 %58 to i64
+  %61 = getelementptr inbounds %struct.ofs_delta_entry, ptr %56, i64 %60, i32 1
+  %62 = load i32, ptr %61, align 8, !tbaa !98
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds %struct.object_entry, ptr %55, i64 %63
+  %65 = getelementptr inbounds i8, ptr %14, i64 -32
+  %66 = load ptr, ptr %65, align 8, !tbaa !195
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 58
+  %68 = load i8, ptr %67, align 2, !tbaa !97
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 58
+  store i8 %68, ptr %69, align 2, !tbaa !97
+  br label %75
 
-60:                                               ; preds = %32
-  %61 = load ptr, ptr @objects, align 8, !tbaa !62
-  %62 = load ptr, ptr @ofs_deltas, align 8, !tbaa !66
-  %63 = getelementptr inbounds i8, ptr %14, i64 -16
-  %64 = load i32, ptr %63, align 8, !tbaa !196
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %63, align 8, !tbaa !196
-  %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds %struct.ofs_delta_entry, ptr %62, i64 %66, i32 1
-  %68 = load i32, ptr %67, align 8, !tbaa !98
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.object_entry, ptr %61, i64 %69
+70:                                               ; preds = %38
   %71 = getelementptr inbounds i8, ptr %14, i64 -32
   %72 = load ptr, ptr %71, align 8, !tbaa !195
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 58
   %74 = load i8, ptr %73, align 2, !tbaa !97
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 58
-  store i8 %74, ptr %75, align 2, !tbaa !97
-  br label %76
+  store i8 %74, ptr %47, align 2, !tbaa !97
+  %.not135 = icmp slt i32 %35, %37
+  br i1 %.not135, label %86, label %75
 
-76:                                               ; preds = %60, %55
-  %77 = phi i32 [ %40, %55 ], [ %35, %60 ]
-  %.153 = phi ptr [ %46, %55 ], [ %70, %60 ]
-  %78 = icmp sgt i32 %77, %37
-  br i1 %78, label %79, label %90
+75:                                               ; preds = %.thread123, %70
+  %.153126 = phi ptr [ %64, %.thread123 ], [ %46, %70 ]
+  %76 = getelementptr inbounds i8, ptr %14, i64 -16
+  %77 = load i32, ptr %76, align 8, !tbaa !196
+  %78 = getelementptr inbounds i8, ptr %14, i64 -12
+  %79 = load i32, ptr %78, align 4, !tbaa !197
+  %80 = icmp sgt i32 %77, %79
+  br i1 %80, label %81, label %86
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %14, i64 -16
-  %81 = load i32, ptr %80, align 8, !tbaa !196
-  %82 = getelementptr inbounds i8, ptr %14, i64 -12
-  %83 = load i32, ptr %82, align 4, !tbaa !197
-  %84 = icmp sgt i32 %81, %83
-  br i1 %84, label %85, label %90
-
-85:                                               ; preds = %79
+81:                                               ; preds = %75
   %.val = load ptr, ptr %14, align 8, !tbaa !187
-  %86 = getelementptr i8, ptr %14, i64 8
-  %.val74 = load ptr, ptr %86, align 8, !tbaa !198
-  %87 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store ptr %.val74, ptr %87, align 8, !tbaa !198
+  %82 = getelementptr i8, ptr %14, i64 8
+  %.val74 = load ptr, ptr %82, align 8, !tbaa !198
+  %83 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  store ptr %.val74, ptr %83, align 8, !tbaa !198
   store ptr %.val, ptr %.val74, align 8, !tbaa !187
-  %88 = load ptr, ptr @done_head, align 8, !tbaa !187
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %14, ptr %89, align 8, !tbaa !198
-  store ptr %88, ptr %14, align 8, !tbaa !187
-  store ptr @done_head, ptr %86, align 8, !tbaa !198
+  %84 = load ptr, ptr @done_head, align 8, !tbaa !187
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store ptr %14, ptr %85, align 8, !tbaa !198
+  store ptr %84, ptr %14, align 8, !tbaa !187
+  store ptr @done_head, ptr %82, align 8, !tbaa !198
   store ptr %14, ptr @done_head, align 8, !tbaa !187
-  br label %90
+  br label %86
 
-90:                                               ; preds = %85, %79, %76
-  %91 = call fastcc ptr @get_base_data(ptr noundef nonnull %33)
-  %92 = getelementptr inbounds i8, ptr %14, i64 -8
-  %93 = load i32, ptr %92, align 8, !tbaa !199
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %92, align 8, !tbaa !199
-  br label %95
+86:                                               ; preds = %81, %75, %70
+  %.153125 = phi ptr [ %.153126, %81 ], [ %.153126, %75 ], [ %46, %70 ]
+  %87 = call fastcc ptr @get_base_data(ptr noundef nonnull %33)
+  %88 = getelementptr inbounds i8, ptr %14, i64 -8
+  %89 = load i32, ptr %88, align 8, !tbaa !199
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %88, align 8, !tbaa !199
+  br label %91
 
-95:                                               ; preds = %90, %27
-  %.052 = phi ptr [ %31, %27 ], [ %.153, %90 ]
-  %.0 = phi ptr [ null, %27 ], [ %33, %90 ]
+91:                                               ; preds = %86, %27
+  %.052 = phi ptr [ %31, %27 ], [ %.153125, %86 ]
+  %.0 = phi ptr [ null, %27 ], [ %33, %86 ]
   %.b.i83 = load i1, ptr @threads_active, align 4
-  br i1 %.b.i83, label %96, label %unlock_mutex.exit84
+  br i1 %.b.i83, label %92, label %unlock_mutex.exit84
 
-96:                                               ; preds = %95
-  %97 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @work_mutex) #24
+92:                                               ; preds = %91
+  %93 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @work_mutex) #24
   br label %unlock_mutex.exit84
 
-unlock_mutex.exit84:                              ; preds = %95, %96
+unlock_mutex.exit84:                              ; preds = %91, %92
   %.not66 = icmp eq ptr %.0, null
-  br i1 %.not66, label %168, label %98
+  br i1 %.not66, label %164, label %94
 
-98:                                               ; preds = %unlock_mutex.exit84
+94:                                               ; preds = %unlock_mutex.exit84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
   %.b.i85 = load i1, ptr @show_stat, align 4
-  br i1 %.b.i85, label %99, label %129
+  br i1 %.b.i85, label %95, label %125
 
-99:                                               ; preds = %98
-  %100 = load ptr, ptr @objects, align 8, !tbaa !62
-  %101 = ptrtoint ptr %.052 to i64
-  %102 = ptrtoint ptr %100 to i64
-  %103 = sub i64 %101, %102
-  %104 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !195
-  %106 = ptrtoint ptr %105 to i64
-  %107 = sub i64 %106, %102
-  %108 = lshr exact i64 %107, 6
-  %109 = trunc i64 %108 to i32
-  %110 = load ptr, ptr @obj_stat, align 8, !tbaa !64
-  %sext.i = shl i64 %107, 26
-  %111 = ashr i64 %sext.i, 32
-  %112 = getelementptr inbounds %struct.object_stat, ptr %110, i64 %111
-  %113 = load i32, ptr %112, align 4, !tbaa !128
-  %114 = add i32 %113, 1
-  %sext28.i = shl i64 %103, 26
-  %115 = ashr i64 %sext28.i, 32
-  %116 = getelementptr inbounds %struct.object_stat, ptr %110, i64 %115
-  store i32 %114, ptr %116, align 4, !tbaa !128
+95:                                               ; preds = %94
+  %96 = load ptr, ptr @objects, align 8, !tbaa !62
+  %97 = ptrtoint ptr %.052 to i64
+  %98 = ptrtoint ptr %96 to i64
+  %99 = sub i64 %97, %98
+  %100 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !195
+  %102 = ptrtoint ptr %101 to i64
+  %103 = sub i64 %102, %98
+  %104 = lshr exact i64 %103, 6
+  %105 = trunc i64 %104 to i32
+  %106 = load ptr, ptr @obj_stat, align 8, !tbaa !64
+  %sext.i = shl i64 %103, 26
+  %107 = ashr i64 %sext.i, 32
+  %108 = getelementptr inbounds %struct.object_stat, ptr %106, i64 %107
+  %109 = load i32, ptr %108, align 4, !tbaa !128
+  %110 = add i32 %109, 1
+  %sext28.i = shl i64 %99, 26
+  %111 = ashr i64 %sext28.i, 32
+  %112 = getelementptr inbounds %struct.object_stat, ptr %106, i64 %111
+  store i32 %110, ptr %112, align 4, !tbaa !128
   %.b.i.i = load i1, ptr @threads_active, align 4
-  br i1 %.b.i.i, label %117, label %lock_mutex.exit.i
+  br i1 %.b.i.i, label %113, label %lock_mutex.exit.i
 
-117:                                              ; preds = %99
-  %118 = call i32 @pthread_mutex_lock(ptr noundef nonnull @deepest_delta_mutex) #24
+113:                                              ; preds = %95
+  %114 = call i32 @pthread_mutex_lock(ptr noundef nonnull @deepest_delta_mutex) #24
   %.pre.i = load ptr, ptr @obj_stat, align 8, !tbaa !64
-  %.phi.trans.insert.i = getelementptr inbounds %struct.object_stat, ptr %.pre.i, i64 %115
+  %.phi.trans.insert.i = getelementptr inbounds %struct.object_stat, ptr %.pre.i, i64 %111
   %.pre35.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !128
   br label %lock_mutex.exit.i
 
-lock_mutex.exit.i:                                ; preds = %117, %99
-  %119 = phi i32 [ %114, %99 ], [ %.pre35.i, %117 ]
-  %120 = phi ptr [ %110, %99 ], [ %.pre.i, %117 ]
-  %121 = load i32, ptr @deepest_delta, align 4, !tbaa !9
-  %122 = icmp ult i32 %121, %119
-  br i1 %122, label %123, label %124
+lock_mutex.exit.i:                                ; preds = %113, %95
+  %115 = phi i32 [ %110, %95 ], [ %.pre35.i, %113 ]
+  %116 = phi ptr [ %106, %95 ], [ %.pre.i, %113 ]
+  %117 = load i32, ptr @deepest_delta, align 4, !tbaa !9
+  %118 = icmp ult i32 %117, %115
+  br i1 %118, label %119, label %120
 
-123:                                              ; preds = %lock_mutex.exit.i
-  store i32 %119, ptr @deepest_delta, align 4, !tbaa !9
-  br label %124
+119:                                              ; preds = %lock_mutex.exit.i
+  store i32 %115, ptr @deepest_delta, align 4, !tbaa !9
+  br label %120
 
-124:                                              ; preds = %123, %lock_mutex.exit.i
+120:                                              ; preds = %119, %lock_mutex.exit.i
   %.b.i29.i = load i1, ptr @threads_active, align 4
-  br i1 %.b.i29.i, label %125, label %unlock_mutex.exit.i
+  br i1 %.b.i29.i, label %121, label %unlock_mutex.exit.i
 
-125:                                              ; preds = %124
-  %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @deepest_delta_mutex) #24
+121:                                              ; preds = %120
+  %122 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @deepest_delta_mutex) #24
   %.pre36.i = load ptr, ptr @obj_stat, align 8, !tbaa !64
   br label %unlock_mutex.exit.i
 
-unlock_mutex.exit.i:                              ; preds = %125, %124
-  %127 = phi ptr [ %120, %124 ], [ %.pre36.i, %125 ]
-  %128 = getelementptr inbounds %struct.object_stat, ptr %127, i64 %115, i32 1
-  store i32 %109, ptr %128, align 4, !tbaa !130
-  br label %129
+unlock_mutex.exit.i:                              ; preds = %121, %120
+  %123 = phi ptr [ %116, %120 ], [ %.pre36.i, %121 ]
+  %124 = getelementptr inbounds %struct.object_stat, ptr %123, i64 %111, i32 1
+  store i32 %105, ptr %124, align 4, !tbaa !130
+  br label %125
 
-129:                                              ; preds = %unlock_mutex.exit.i, %98
-  %130 = call fastcc ptr @unpack_data(ptr noundef readonly %.052, ptr noundef null, ptr noundef null)
-  %131 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  %132 = load ptr, ptr %131, align 8, !tbaa !200
-  %133 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  %134 = load i64, ptr %133, align 8, !tbaa !201
-  %135 = getelementptr inbounds nuw i8, ptr %.052, i64 48
-  %136 = load i64, ptr %135, align 8, !tbaa !80
-  %137 = call ptr @patch_delta(ptr noundef %132, i64 noundef %134, ptr noundef %130, i64 noundef %136, ptr noundef nonnull %2) #24
-  call void @free(ptr noundef %130) #24
-  %.not.i = icmp eq ptr %137, null
-  br i1 %.not.i, label %138, label %142
+125:                                              ; preds = %unlock_mutex.exit.i, %94
+  %126 = call fastcc ptr @unpack_data(ptr noundef readonly %.052, ptr noundef null, ptr noundef null)
+  %127 = getelementptr inbounds nuw i8, ptr %.0, i64 56
+  %128 = load ptr, ptr %127, align 8, !tbaa !200
+  %129 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %130 = load i64, ptr %129, align 8, !tbaa !201
+  %131 = getelementptr inbounds nuw i8, ptr %.052, i64 48
+  %132 = load i64, ptr %131, align 8, !tbaa !80
+  %133 = call ptr @patch_delta(ptr noundef %128, i64 noundef %130, ptr noundef %126, i64 noundef %132, ptr noundef nonnull %2) #24
+  call void @free(ptr noundef %126) #24
+  %.not.i = icmp eq ptr %133, null
+  br i1 %.not.i, label %134, label %138
 
-138:                                              ; preds = %129
-  %139 = getelementptr inbounds nuw i8, ptr %.052, i64 40
-  %140 = load i64, ptr %139, align 8, !tbaa !70
-  %141 = call fastcc ptr @_(ptr noundef nonnull @.str.90)
-  call void (i64, ptr, ...) @bad_object(i64 noundef %140, ptr noundef %141) #28
+134:                                              ; preds = %125
+  %135 = getelementptr inbounds nuw i8, ptr %.052, i64 40
+  %136 = load i64, ptr %135, align 8, !tbaa !70
+  %137 = call fastcc ptr @_(ptr noundef nonnull @.str.90)
+  call void (i64, ptr, ...) @bad_object(i64 noundef %136, ptr noundef %137) #28
   unreachable
 
-142:                                              ; preds = %129
-  %143 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 400
-  %145 = load ptr, ptr %144, align 8, !tbaa !34
+138:                                              ; preds = %125
+  %139 = load ptr, ptr @the_repository, align 8, !tbaa !21
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 400
+  %141 = load ptr, ptr %140, align 8, !tbaa !34
+  %142 = load i64, ptr %2, align 8, !tbaa !28
+  %143 = getelementptr inbounds nuw i8, ptr %.052, i64 58
+  %144 = load i8, ptr %143, align 2, !tbaa !97
+  %145 = sext i8 %144 to i32
+  call void @hash_object_file(ptr noundef %141, ptr noundef nonnull %133, i64 noundef %142, i32 noundef %145, ptr noundef nonnull %.052) #24
   %146 = load i64, ptr %2, align 8, !tbaa !28
-  %147 = getelementptr inbounds nuw i8, ptr %.052, i64 58
-  %148 = load i8, ptr %147, align 2, !tbaa !97
-  %149 = sext i8 %148 to i32
-  call void @hash_object_file(ptr noundef %145, ptr noundef nonnull %137, i64 noundef %146, i32 noundef %149, ptr noundef nonnull %.052) #24
-  %150 = load i64, ptr %2, align 8, !tbaa !28
-  %151 = load i8, ptr %147, align 2, !tbaa !97
-  %152 = sext i8 %151 to i32
-  call fastcc void @sha1_object(ptr noundef nonnull %137, ptr noundef null, i64 noundef %150, i32 noundef %152, ptr noundef nonnull %.052)
-  %153 = call fastcc ptr @make_base(ptr noundef nonnull %.052, ptr noundef nonnull %.0)
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 56
-  store ptr %137, ptr %154, align 8, !tbaa !200
-  %155 = load i64, ptr %2, align 8, !tbaa !28
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 64
-  store i64 %155, ptr %156, align 8, !tbaa !201
+  %147 = load i8, ptr %143, align 2, !tbaa !97
+  %148 = sext i8 %147 to i32
+  call fastcc void @sha1_object(ptr noundef nonnull %133, ptr noundef null, i64 noundef %146, i32 noundef %148, ptr noundef nonnull %.052)
+  %149 = call fastcc ptr @make_base(ptr noundef nonnull %.052, ptr noundef nonnull %.0)
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 56
+  store ptr %133, ptr %150, align 8, !tbaa !200
+  %151 = load i64, ptr %2, align 8, !tbaa !28
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 64
+  store i64 %151, ptr %152, align 8, !tbaa !201
   %.b.i30.i = load i1, ptr @threads_active, align 4
   br i1 %.b.i30.i, label %lock_mutex.exit31.i, label %lock_mutex.exit31.thread.i
 
-lock_mutex.exit31.thread.i:                       ; preds = %142
-  %157 = load i32, ptr @nr_resolved_deltas, align 4, !tbaa !9
-  %158 = add nsw i32 %157, 1
-  store i32 %158, ptr @nr_resolved_deltas, align 4, !tbaa !9
+lock_mutex.exit31.thread.i:                       ; preds = %138
+  %153 = load i32, ptr @nr_resolved_deltas, align 4, !tbaa !9
+  %154 = add nsw i32 %153, 1
+  store i32 %154, ptr @nr_resolved_deltas, align 4, !tbaa !9
   br label %resolve_delta.exit
 
-lock_mutex.exit31.i:                              ; preds = %142
-  %159 = call i32 @pthread_mutex_lock(ptr noundef nonnull @counter_mutex) #24
+lock_mutex.exit31.i:                              ; preds = %138
+  %155 = call i32 @pthread_mutex_lock(ptr noundef nonnull @counter_mutex) #24
   %.b.i32.pr.i = load i1, ptr @threads_active, align 4
-  %160 = load i32, ptr @nr_resolved_deltas, align 4, !tbaa !9
-  %161 = add nsw i32 %160, 1
-  store i32 %161, ptr @nr_resolved_deltas, align 4, !tbaa !9
-  br i1 %.b.i32.pr.i, label %162, label %resolve_delta.exit
+  %156 = load i32, ptr @nr_resolved_deltas, align 4, !tbaa !9
+  %157 = add nsw i32 %156, 1
+  store i32 %157, ptr @nr_resolved_deltas, align 4, !tbaa !9
+  br i1 %.b.i32.pr.i, label %158, label %resolve_delta.exit
 
-162:                                              ; preds = %lock_mutex.exit31.i
-  %163 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @counter_mutex) #24
+158:                                              ; preds = %lock_mutex.exit31.i
+  %159 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @counter_mutex) #24
   br label %resolve_delta.exit
 
-resolve_delta.exit:                               ; preds = %lock_mutex.exit31.thread.i, %lock_mutex.exit31.i, %162
+resolve_delta.exit:                               ; preds = %lock_mutex.exit31.thread.i, %lock_mutex.exit31.i, %158
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
-  %164 = getelementptr inbounds nuw i8, ptr %153, i64 36
-  %165 = load i32, ptr %164, align 4, !tbaa !202
-  %.not68 = icmp eq i32 %165, 0
-  br i1 %.not68, label %166, label %178
+  %160 = getelementptr inbounds nuw i8, ptr %149, i64 36
+  %161 = load i32, ptr %160, align 4, !tbaa !202
+  %.not68 = icmp eq i32 %161, 0
+  br i1 %.not68, label %162, label %174
 
-166:                                              ; preds = %resolve_delta.exit
-  %167 = load ptr, ptr %154, align 8, !tbaa !200
-  call void @free(ptr noundef %167) #24
-  store ptr null, ptr %154, align 8, !tbaa !200
-  br label %178
+162:                                              ; preds = %resolve_delta.exit
+  %163 = load ptr, ptr %150, align 8, !tbaa !200
+  call void @free(ptr noundef %163) #24
+  store ptr null, ptr %150, align 8, !tbaa !200
+  br label %174
 
-168:                                              ; preds = %unlock_mutex.exit84
-  %169 = call fastcc ptr @make_base(ptr noundef %.052, ptr noundef null)
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 36
-  %171 = load i32, ptr %170, align 4, !tbaa !202
-  %.not67 = icmp eq i32 %171, 0
-  br i1 %.not67, label %178, label %172
+164:                                              ; preds = %unlock_mutex.exit84
+  %165 = call fastcc ptr @make_base(ptr noundef %.052, ptr noundef null)
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 36
+  %167 = load i32, ptr %166, align 4, !tbaa !202
+  %.not67 = icmp eq i32 %167, 0
+  br i1 %.not67, label %174, label %168
 
-172:                                              ; preds = %168
-  %173 = call fastcc ptr @unpack_data(ptr noundef readonly %.052, ptr noundef null, ptr noundef null)
-  %174 = getelementptr inbounds nuw i8, ptr %169, i64 56
-  store ptr %173, ptr %174, align 8, !tbaa !200
-  %175 = getelementptr inbounds nuw i8, ptr %.052, i64 48
-  %176 = load i64, ptr %175, align 8, !tbaa !80
-  %177 = getelementptr inbounds nuw i8, ptr %169, i64 64
-  store i64 %176, ptr %177, align 8, !tbaa !201
-  br label %178
+168:                                              ; preds = %164
+  %169 = call fastcc ptr @unpack_data(ptr noundef readonly %.052, ptr noundef null, ptr noundef null)
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 56
+  store ptr %169, ptr %170, align 8, !tbaa !200
+  %171 = getelementptr inbounds nuw i8, ptr %.052, i64 48
+  %172 = load i64, ptr %171, align 8, !tbaa !80
+  %173 = getelementptr inbounds nuw i8, ptr %165, i64 64
+  store i64 %172, ptr %173, align 8, !tbaa !201
+  br label %174
 
-178:                                              ; preds = %168, %172, %resolve_delta.exit, %166
-  %.056 = phi ptr [ %153, %resolve_delta.exit ], [ %153, %166 ], [ %169, %172 ], [ %169, %168 ]
+174:                                              ; preds = %164, %168, %resolve_delta.exit, %162
+  %.056 = phi ptr [ %149, %resolve_delta.exit ], [ %149, %162 ], [ %165, %168 ], [ %165, %164 ]
   %.b.i86 = load i1, ptr @threads_active, align 4
-  br i1 %.b.i86, label %179, label %lock_mutex.exit87
+  br i1 %.b.i86, label %175, label %lock_mutex.exit87
 
-179:                                              ; preds = %178
-  %180 = call i32 @pthread_mutex_lock(ptr noundef nonnull @work_mutex) #24
+175:                                              ; preds = %174
+  %176 = call i32 @pthread_mutex_lock(ptr noundef nonnull @work_mutex) #24
   br label %lock_mutex.exit87
 
-lock_mutex.exit87:                                ; preds = %178, %179
-  br i1 %.not66, label %181, label %.thread123
+lock_mutex.exit87:                                ; preds = %174, %175
+  br i1 %.not66, label %177, label %.thread127
 
-181:                                              ; preds = %lock_mutex.exit87
-  %182 = getelementptr inbounds nuw i8, ptr %.056, i64 56
-  %183 = load ptr, ptr %182, align 8, !tbaa !200
-  %.not69 = icmp eq ptr %183, null
-  br i1 %.not69, label %.thread, label %189
+177:                                              ; preds = %lock_mutex.exit87
+  %178 = getelementptr inbounds nuw i8, ptr %.056, i64 56
+  %179 = load ptr, ptr %178, align 8, !tbaa !200
+  %.not69 = icmp eq ptr %179, null
+  br i1 %.not69, label %.thread, label %185
 
-.thread123:                                       ; preds = %lock_mutex.exit87
-  %184 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %185 = load i32, ptr %184, align 8, !tbaa !199
-  %186 = add nsw i32 %185, -1
-  store i32 %186, ptr %184, align 8, !tbaa !199
-  %187 = getelementptr inbounds nuw i8, ptr %.056, i64 56
-  %188 = load ptr, ptr %187, align 8, !tbaa !200
-  %.not69124 = icmp eq ptr %188, null
-  br i1 %.not69124, label %.lr.ph108, label %189
+.thread127:                                       ; preds = %lock_mutex.exit87
+  %180 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %181 = load i32, ptr %180, align 8, !tbaa !199
+  %182 = add nsw i32 %181, -1
+  store i32 %182, ptr %180, align 8, !tbaa !199
+  %183 = getelementptr inbounds nuw i8, ptr %.056, i64 56
+  %184 = load ptr, ptr %183, align 8, !tbaa !200
+  %.not69128 = icmp eq ptr %184, null
+  br i1 %.not69128, label %.lr.ph108, label %185
 
-189:                                              ; preds = %.thread123, %181
-  %190 = phi ptr [ %187, %.thread123 ], [ %182, %181 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.056, i64 40
-  %192 = load ptr, ptr @work_head, align 8, !tbaa !187
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store ptr %191, ptr %193, align 8, !tbaa !198
-  store ptr %192, ptr %191, align 8, !tbaa !187
-  %194 = getelementptr inbounds nuw i8, ptr %.056, i64 48
-  store ptr @work_head, ptr %194, align 8, !tbaa !198
-  store ptr %191, ptr @work_head, align 8, !tbaa !187
-  %195 = getelementptr inbounds nuw i8, ptr %.056, i64 64
-  %196 = load i64, ptr %195, align 8, !tbaa !201
-  %197 = load i64, ptr @base_cache_used, align 8, !tbaa !28
-  %198 = add i64 %197, %196
-  store i64 %198, ptr @base_cache_used, align 8, !tbaa !28
+185:                                              ; preds = %.thread127, %177
+  %186 = phi ptr [ %183, %.thread127 ], [ %178, %177 ]
+  %187 = getelementptr inbounds nuw i8, ptr %.056, i64 40
+  %188 = load ptr, ptr @work_head, align 8, !tbaa !187
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  store ptr %187, ptr %189, align 8, !tbaa !198
+  store ptr %188, ptr %187, align 8, !tbaa !187
+  %190 = getelementptr inbounds nuw i8, ptr %.056, i64 48
+  store ptr @work_head, ptr %190, align 8, !tbaa !198
+  store ptr %187, ptr @work_head, align 8, !tbaa !187
+  %191 = getelementptr inbounds nuw i8, ptr %.056, i64 64
+  %192 = load i64, ptr %191, align 8, !tbaa !201
+  %193 = load i64, ptr @base_cache_used, align 8, !tbaa !28
+  %194 = add i64 %193, %192
+  store i64 %194, ptr @base_cache_used, align 8, !tbaa !28
   call fastcc void @prune_base_data(ptr noundef null)
-  %199 = load ptr, ptr %190, align 8, !tbaa !200
-  %.not.i88 = icmp eq ptr %199, null
-  br i1 %.not.i88, label %free_base_data.exit, label %200
+  %195 = load ptr, ptr %186, align 8, !tbaa !200
+  %.not.i88 = icmp eq ptr %195, null
+  br i1 %.not.i88, label %free_base_data.exit, label %196
 
-200:                                              ; preds = %189
-  call void @free(ptr noundef nonnull %199) #24
-  store ptr null, ptr %190, align 8, !tbaa !200
-  %201 = load i64, ptr %195, align 8, !tbaa !201
-  %202 = load i64, ptr @base_cache_used, align 8, !tbaa !28
-  %203 = sub i64 %202, %201
-  store i64 %203, ptr @base_cache_used, align 8, !tbaa !28
+196:                                              ; preds = %185
+  call void @free(ptr noundef nonnull %195) #24
+  store ptr null, ptr %186, align 8, !tbaa !200
+  %197 = load i64, ptr %191, align 8, !tbaa !201
+  %198 = load i64, ptr @base_cache_used, align 8, !tbaa !28
+  %199 = sub i64 %198, %197
+  store i64 %199, ptr @base_cache_used, align 8, !tbaa !28
   br label %free_base_data.exit
 
-.lr.ph108:                                        ; preds = %.thread123, %216
-  %.051107 = phi ptr [ %208, %216 ], [ %.0, %.thread123 ]
-  %204 = getelementptr inbounds nuw i8, ptr %.051107, i64 36
-  %205 = load i32, ptr %204, align 4, !tbaa !202
-  %206 = add nsw i32 %205, -1
-  store i32 %206, ptr %204, align 4, !tbaa !202
-  %.not71 = icmp eq i32 %206, 0
-  br i1 %.not71, label %207, label %.thread
+.lr.ph108:                                        ; preds = %.thread127, %212
+  %.051107 = phi ptr [ %204, %212 ], [ %.0, %.thread127 ]
+  %200 = getelementptr inbounds nuw i8, ptr %.051107, i64 36
+  %201 = load i32, ptr %200, align 4, !tbaa !202
+  %202 = add nsw i32 %201, -1
+  store i32 %202, ptr %200, align 4, !tbaa !202
+  %.not71 = icmp eq i32 %202, 0
+  br i1 %.not71, label %203, label %.thread
 
-207:                                              ; preds = %.lr.ph108
-  %208 = load ptr, ptr %.051107, align 8, !tbaa !203
-  %209 = getelementptr inbounds nuw i8, ptr %.051107, i64 56
-  %210 = load ptr, ptr %209, align 8, !tbaa !200
-  %.not.i89 = icmp eq ptr %210, null
-  br i1 %.not.i89, label %216, label %211
+203:                                              ; preds = %.lr.ph108
+  %204 = load ptr, ptr %.051107, align 8, !tbaa !203
+  %205 = getelementptr inbounds nuw i8, ptr %.051107, i64 56
+  %206 = load ptr, ptr %205, align 8, !tbaa !200
+  %.not.i89 = icmp eq ptr %206, null
+  br i1 %.not.i89, label %212, label %207
 
-211:                                              ; preds = %207
-  call void @free(ptr noundef nonnull %210) #24
-  store ptr null, ptr %209, align 8, !tbaa !200
-  %212 = getelementptr inbounds nuw i8, ptr %.051107, i64 64
-  %213 = load i64, ptr %212, align 8, !tbaa !201
-  %214 = load i64, ptr @base_cache_used, align 8, !tbaa !28
-  %215 = sub i64 %214, %213
-  store i64 %215, ptr @base_cache_used, align 8, !tbaa !28
-  br label %216
+207:                                              ; preds = %203
+  call void @free(ptr noundef nonnull %206) #24
+  store ptr null, ptr %205, align 8, !tbaa !200
+  %208 = getelementptr inbounds nuw i8, ptr %.051107, i64 64
+  %209 = load i64, ptr %208, align 8, !tbaa !201
+  %210 = load i64, ptr @base_cache_used, align 8, !tbaa !28
+  %211 = sub i64 %210, %209
+  store i64 %211, ptr @base_cache_used, align 8, !tbaa !28
+  br label %212
 
-216:                                              ; preds = %211, %207
-  %217 = getelementptr inbounds nuw i8, ptr %.051107, i64 40
-  %.val75 = load ptr, ptr %217, align 8, !tbaa !187
-  %218 = getelementptr i8, ptr %.051107, i64 48
-  %.val76 = load ptr, ptr %218, align 8, !tbaa !198
-  %219 = getelementptr inbounds nuw i8, ptr %.val75, i64 8
-  store ptr %.val76, ptr %219, align 8, !tbaa !198
+212:                                              ; preds = %207, %203
+  %213 = getelementptr inbounds nuw i8, ptr %.051107, i64 40
+  %.val75 = load ptr, ptr %213, align 8, !tbaa !187
+  %214 = getelementptr i8, ptr %.051107, i64 48
+  %.val76 = load ptr, ptr %214, align 8, !tbaa !198
+  %215 = getelementptr inbounds nuw i8, ptr %.val75, i64 8
+  store ptr %.val76, ptr %215, align 8, !tbaa !198
   store ptr %.val75, ptr %.val76, align 8, !tbaa !187
   call void @free(ptr noundef nonnull %.051107) #24
-  %.not70 = icmp eq ptr %208, null
+  %.not70 = icmp eq ptr %204, null
   br i1 %.not70, label %.thread, label %.lr.ph108
 
-.thread:                                          ; preds = %216, %.lr.ph108, %181
+.thread:                                          ; preds = %212, %.lr.ph108, %177
   call void @free(ptr noundef %.056) #24
   br label %free_base_data.exit
 
-free_base_data.exit:                              ; preds = %200, %189, %.thread
+free_base_data.exit:                              ; preds = %196, %185, %.thread
   %.b.i91 = load i1, ptr @threads_active, align 4
-  br i1 %.b.i91, label %220, label %lock_mutex.exit
+  br i1 %.b.i91, label %216, label %lock_mutex.exit
 
-220:                                              ; preds = %free_base_data.exit
-  %221 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @work_mutex) #24
+216:                                              ; preds = %free_base_data.exit
+  %217 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @work_mutex) #24
   %.b.i77.pre = load i1, ptr @threads_active, align 4
   br label %set_thread_data.exit
 
-222:                                              ; preds = %.critedge, %25
+218:                                              ; preds = %.critedge, %25
   ret ptr null
 }
 

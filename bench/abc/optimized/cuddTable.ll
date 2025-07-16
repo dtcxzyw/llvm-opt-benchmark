@@ -415,7 +415,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %105 = load i32, ptr %104, align 4, !tbaa !67
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph284.preheader, label %._crit_edge285
+  br i1 %106, label %.lr.ph284.preheader, label %._crit_edge285.thread
 
 .lr.ph284.preheader:                              ; preds = %102
   %wide.trip.count356 = zext nneg i32 %105 to i64
@@ -462,12 +462,11 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
   br i1 %exitcond357.not, label %._crit_edge285, label %.lr.ph284, !llvm.loop !69
 
-._crit_edge285:                                   ; preds = %._crit_edge279, %102
-  %.0208.lcssa = phi i32 [ 0, %102 ], [ %.1209.lcssa, %._crit_edge279 ]
-  %.not247 = icmp eq i32 %.0208.lcssa, %100
-  br i1 %.not247, label %120, label %118
+._crit_edge285:                                   ; preds = %._crit_edge279
+  %118 = icmp eq i32 %.1209.lcssa, %100
+  br i1 %118, label %120, label %._crit_edge285.thread
 
-118:                                              ; preds = %._crit_edge285
+._crit_edge285.thread:                            ; preds = %102, %._crit_edge285
   %119 = trunc nuw nsw i64 %indvars.iv358 to i32
   tail call fastcc void @ddReportRefMess(ptr noundef %0, i32 noundef %119)
   unreachable
@@ -501,7 +500,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %133 = load i32, ptr %132, align 4, !tbaa !74
   %134 = icmp sgt i32 %133, 0
-  br i1 %134, label %.lr.ph305.preheader, label %._crit_edge306
+  br i1 %134, label %.lr.ph305.preheader, label %._crit_edge306.thread
 
 .lr.ph305.preheader:                              ; preds = %129
   %wide.trip.count366 = zext nneg i32 %133 to i64
@@ -548,12 +547,11 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
   br i1 %exitcond367.not, label %._crit_edge306, label %.lr.ph305, !llvm.loop !76
 
-._crit_edge306:                                   ; preds = %._crit_edge299, %129
-  %.3211.lcssa = phi i32 [ 0, %129 ], [ %.4212.lcssa, %._crit_edge299 ]
-  %.not238 = icmp eq i32 %.3211.lcssa, %128
-  br i1 %.not238, label %147, label %146
+._crit_edge306:                                   ; preds = %._crit_edge299
+  %146 = icmp eq i32 %.4212.lcssa, %128
+  br i1 %146, label %147, label %._crit_edge306.thread
 
-146:                                              ; preds = %._crit_edge306
+._crit_edge306.thread:                            ; preds = %129, %._crit_edge306
   tail call fastcc void @ddReportRefMess(ptr noundef %0, i32 noundef 2147483647)
   unreachable
 
@@ -607,7 +605,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 12
   %172 = load i32, ptr %171, align 4, !tbaa !67
   %173 = icmp sgt i32 %172, 0
-  br i1 %173, label %.lr.ph320.preheader, label %._crit_edge321
+  br i1 %173, label %.lr.ph320.preheader, label %._crit_edge321.thread
 
 .lr.ph320.preheader:                              ; preds = %169
   %wide.trip.count371 = zext nneg i32 %172 to i64
@@ -654,12 +652,11 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %exitcond372.not = icmp eq i64 %indvars.iv.next369, %wide.trip.count371
   br i1 %exitcond372.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !81
 
-._crit_edge321:                                   ; preds = %._crit_edge314, %169
-  %.6214.lcssa = phi i32 [ 0, %169 ], [ %.7.lcssa, %._crit_edge314 ]
-  %.not244 = icmp eq i32 %.6214.lcssa, %167
-  br i1 %.not244, label %187, label %185
+._crit_edge321:                                   ; preds = %._crit_edge314
+  %185 = icmp eq i32 %.7.lcssa, %167
+  br i1 %185, label %187, label %._crit_edge321.thread
 
-185:                                              ; preds = %._crit_edge321
+._crit_edge321.thread:                            ; preds = %169, %._crit_edge321
   %186 = trunc nuw nsw i64 %indvars.iv373 to i32
   tail call fastcc void @ddReportRefMess(ptr noundef %0, i32 noundef %186)
   unreachable

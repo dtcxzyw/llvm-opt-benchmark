@@ -2459,9 +2459,9 @@ define noundef ptr @_ZN7rocksdb10LDBCommand19InitFromCmdLineArgsERKSt6vectorINSt
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
   %.pre33 = load ptr, ptr %7, align 8, !tbaa !27
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %22 = icmp eq ptr %.pre, %.pre33
-  br i1 %22, label %27, label %31
+  %21 = icmp eq ptr %.pre, %.pre33
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %21, label %27, label %31
 
 .lr.ph:                                           ; preds = %5, %23
   %.sroa.027.032 = phi ptr [ %24, %23 ], [ %17, %5 ]
@@ -2479,7 +2479,7 @@ define noundef ptr @_ZN7rocksdb10LDBCommand19InitFromCmdLineArgsERKSt6vectorINSt
   br label %.body
 
 27:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %28 = phi ptr [ %20, %._crit_edge.thread ], [ %21, %._crit_edge ]
+  %28 = phi ptr [ %20, %._crit_edge.thread ], [ %22, %._crit_edge ]
   %29 = load ptr, ptr @stderr, align 8, !tbaa !43
   %30 = call i64 @fwrite(ptr nonnull @.str.133, i64 22, i64 1, ptr %29) #37
   br label %101
@@ -2491,7 +2491,7 @@ define noundef ptr @_ZN7rocksdb10LDBCommand19InitFromCmdLineArgsERKSt6vectorINSt
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %31
   %32 = load ptr, ptr %7, align 8, !tbaa !34
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load ptr, ptr %21, align 8, !tbaa !34
+  %34 = load ptr, ptr %22, align 8, !tbaa !34
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_assign_auxIN9__gnu_cxx17__normal_iteratorIPS5_S7_EEEEvT_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr nonnull %33, ptr %34)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6assignIN9__gnu_cxx17__normal_iteratorIPS5_S7_EEvEEvT_SD_.exit unwind label %95
 
@@ -2664,7 +2664,7 @@ _ZN7rocksdb10LDBCommand13SetLDBOptionsERKNS_10LDBOptionsE.exit: ; preds = %_ZN7r
   br label %.body
 
 101:                                              ; preds = %_ZNKSt8functionIFPN7rocksdb10LDBCommandERKNS1_12ParsedParamsEEEclES5_.exit, %_ZN7rocksdb10LDBCommand13SetLDBOptionsERKNS_10LDBOptionsE.exit, %27
-  %102 = phi ptr [ %28, %27 ], [ %21, %_ZN7rocksdb10LDBCommand13SetLDBOptionsERKNS_10LDBOptionsE.exit ], [ %21, %_ZNKSt8functionIFPN7rocksdb10LDBCommandERKNS1_12ParsedParamsEEEclES5_.exit ]
+  %102 = phi ptr [ %28, %27 ], [ %22, %_ZN7rocksdb10LDBCommand13SetLDBOptionsERKNS_10LDBOptionsE.exit ], [ %22, %_ZNKSt8functionIFPN7rocksdb10LDBCommandERKNS1_12ParsedParamsEEEclES5_.exit ]
   %.0 = phi ptr [ null, %27 ], [ %41, %_ZN7rocksdb10LDBCommand13SetLDBOptionsERKNS_10LDBOptionsE.exit ], [ null, %_ZNKSt8functionIFPN7rocksdb10LDBCommandERKNS1_12ParsedParamsEEEclES5_.exit ]
   %103 = load ptr, ptr %7, align 8, !tbaa !27
   %104 = load ptr, ptr %102, align 8, !tbaa !30

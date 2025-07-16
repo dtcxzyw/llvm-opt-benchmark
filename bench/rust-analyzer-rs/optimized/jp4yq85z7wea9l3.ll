@@ -50746,12 +50746,12 @@ define hidden void @_ZN3ide19syntax_highlighting10highlights4Node3add17h6220fecf
   %spec.select.i92 = and i1 %15, %switch.selectcmp.i91
   br i1 %spec.select.i92, label %.lr.ph, label %tailrecurse._crit_edge
 
-tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %2
+tailrecurse._crit_edge:                           ; preds = %2
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.276, i64 noundef 68, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.278) #56
   unreachable
 
-.lr.ph:                                           ; preds = %2, %tailrecurse.backedge
-  %.tr93 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %2 ]
+.lr.ph:                                           ; preds = %2, %.lr.ph.backedge
+  %.tr93 = phi ptr [ %.tr93.be, %.lr.ph.backedge ], [ %0, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %.tr93, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %.tr93, i64 48
   %18 = load i64, ptr %17, align 8, !noundef !16
@@ -50769,7 +50769,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %27 = icmp ule i32 %24, %8
   %switch.selectcmp.i49 = icmp ule i32 %10, %26
   %spec.select.i50 = and i1 %27, %switch.selectcmp.i49
-  br i1 %spec.select.i50, label %tailrecurse.backedge, label %51
+  br i1 %spec.select.i50, label %.lr.ph.backedge, label %51
 
 .lr.ph.i.i.i:                                     ; preds = %51, %.lr.ph.i.i.i
   %.027.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ %18, %51 ]
@@ -50872,8 +50872,8 @@ _ZN4stdx14equal_range_by17h717932affd742812E.exit: ; preds = %.lr.ph.i.i11.i, %.
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #55
   unreachable
 
-common.resume:                                    ; preds = %111, %.thread67, %87, %91, %61
-  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %88, %91 ], [ %88, %87 ], [ %109, %.thread67 ], [ %112, %111 ]
+common.resume:                                    ; preds = %108, %.thread67, %87, %91, %61
+  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %88, %91 ], [ %88, %87 ], [ %106, %.thread67 ], [ %109, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd24e5e3e9692c8a1E.exit": ; preds = %.critedge, %._crit_edge.i
@@ -50887,7 +50887,7 @@ common.resume:                                    ; preds = %111, %.thread67, %8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br label %70
 
-70:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd24e5e3e9692c8a1E.exit", %110
+70:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd24e5e3e9692c8a1E.exit", %107
   ret void
 
 71:                                               ; preds = %_ZN4stdx14equal_range_by17h717932affd742812E.exit
@@ -50902,7 +50902,11 @@ common.resume:                                    ; preds = %111, %.thread67, %8
   %78 = icmp ule i32 %75, %8
   %switch.selectcmp.i51 = icmp ule i32 %10, %77
   %spec.select.i52 = and i1 %78, %switch.selectcmp.i51
-  br i1 %spec.select.i52, label %tailrecurse.backedge, label %80
+  br i1 %spec.select.i52, label %.lr.ph.backedge, label %80
+
+.lr.ph.backedge:                                  ; preds = %73, %20
+  %.tr93.be = phi ptr [ %22, %20 ], [ %37, %73 ]
+  br label %.lr.ph
 
 79:                                               ; preds = %71
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.019.lcssa.i.i.i, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.279) #56
@@ -50968,49 +50972,40 @@ common.resume:                                    ; preds = %111, %.thread67, %8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h0e473fad58dc7ff5E.llvm.7519451831489459490"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5)
   %100 = load i64, ptr %82, align 8, !noundef !16
   %.not45 = icmp ult i64 %.019.lcssa.i.i.i, %100
-  br i1 %.not45, label %104, label %107, !prof !12635
+  br i1 %.not45, label %101, label %104, !prof !12635
 
-tailrecurse.backedge:                             ; preds = %73, %20
-  %101 = phi i32 [ %26, %20 ], [ %77, %73 ]
-  %102 = phi i32 [ %24, %20 ], [ %75, %73 ]
-  %.tr.be = phi ptr [ %22, %20 ], [ %37, %73 ]
-  %103 = icmp ule i32 %102, %8
-  %switch.selectcmp.i = icmp ule i32 %10, %101
-  %spec.select.i = and i1 %103, %switch.selectcmp.i
-  br i1 %spec.select.i, label %.lr.ph, label %tailrecurse._crit_edge
+101:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6splice17hd8d948ca2ff73d78E.exit"
+  %102 = load ptr, ptr %81, align 8, !nonnull !16, !noundef !16
+  %103 = getelementptr inbounds [0 x { { { i64, [1 x i64] }, { i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32 } }, { { i64, ptr, {} }, i64 } }], ptr %102, i64 0, i64 %.019.lcssa.i.i.i, i32 1
+  invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$ide..syntax_highlighting..highlights..Node$GT$$GT$17h9286a8ef99dc0031E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %103)
+          to label %107 unwind label %.thread67
 
 104:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6splice17hd8d948ca2ff73d78E.exit"
-  %105 = load ptr, ptr %81, align 8, !nonnull !16, !noundef !16
-  %106 = getelementptr inbounds [0 x { { { i64, [1 x i64] }, { i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32 } }, { { i64, ptr, {} }, i64 } }], ptr %105, i64 0, i64 %.019.lcssa.i.i.i, i32 1
-  invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$ide..syntax_highlighting..highlights..Node$GT$$GT$17h9286a8ef99dc0031E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %106)
-          to label %110 unwind label %.thread67
-
-107:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6splice17hd8d948ca2ff73d78E.exit"
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.019.lcssa.i.i.i, i64 noundef %100, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.281) #56
-          to label %108 unwind label %111
+          to label %105 unwind label %108
 
-108:                                              ; preds = %107
+105:                                              ; preds = %104
   unreachable
 
-.thread67:                                        ; preds = %104
-  %109 = landingpad { ptr, i32 }
+.thread67:                                        ; preds = %101
+  %106 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   br label %common.resume
 
-110:                                              ; preds = %104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+107:                                              ; preds = %101
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %70
 
-111:                                              ; preds = %107
-  %112 = landingpad { ptr, i32 }
+108:                                              ; preds = %104
+  %109 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$ide..syntax_highlighting..highlights..Node$GT$$GT$17h9286a8ef99dc0031E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #54
-          to label %common.resume unwind label %113
+          to label %common.resume unwind label %110
 
-113:                                              ; preds = %111
-  %114 = landingpad { ptr, i32 }
+110:                                              ; preds = %108
+  %111 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #55
   unreachable

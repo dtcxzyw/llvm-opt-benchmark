@@ -31287,7 +31287,7 @@ toupper.exit.i36:                                 ; preds = %119, %toupper.exit.
 
 _ZN17ExampleAppConsole7StricmpEPKcS1_.exit43:     ; preds = %119
   %134 = icmp eq i32 %121, %89
-  br i1 %134, label %136, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53
+  br i1 %134, label %136, label %.critedge
 
 _ZN17ExampleAppConsole7StricmpEPKcS1_.exit43.thread: ; preds = %toupper.exit.i36
   %135 = icmp eq i32 %128, %132
@@ -31332,15 +31332,13 @@ toupper.exit.i46:                                 ; preds = %_ZN17ExampleAppCons
   %158 = icmp ne i32 %153, %157
   %.not.i49 = icmp eq i8 %154, 0
   %or.cond.i50 = or i1 %.not.i49, %158
-  br i1 %or.cond.i50, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53, label %toupper.exit.i46, !llvm.loop !533
+  br i1 %or.cond.i50, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53.loopexit, label %toupper.exit.i46, !llvm.loop !533
 
-_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53:     ; preds = %toupper.exit.i46, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit43
-  %.lcssa8.i51 = phi i32 [ %121, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit43 ], [ %153, %toupper.exit.i46 ]
-  %.lcssa.i52 = phi i32 [ %89, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit43 ], [ %157, %toupper.exit.i46 ]
-  %159 = icmp eq i32 %.lcssa8.i51, %.lcssa.i52
-  br i1 %159, label %160, label %173
+_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53.loopexit: ; preds = %toupper.exit.i46
+  %159 = icmp eq i32 %153, %157
+  br i1 %159, label %160, label %.critedge
 
-160:                                              ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53
+160:                                              ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53.loopexit
   %161 = tail call i32 @llvm.smax.i32(i32 %81, i32 10)
   %162 = add nsw i32 %161, -10
   %.not = icmp sgt i32 %162, %80
@@ -31364,13 +31362,13 @@ _ZN17ExampleAppConsole7StricmpEPKcS1_.exit53:     ; preds = %toupper.exit.i46, %
   %172 = icmp slt i64 %indvars.iv.next81, %171
   br i1 %172, label %165, label %_ZN17ExampleAppConsole8ClearLogEv.exit, !llvm.loop !537
 
-173:                                              ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53
+.critedge:                                        ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit43, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit53.loopexit
   tail call void (ptr, ptr, ...) @_ZN17ExampleAppConsole6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(594) %0, ptr noundef nonnull @.str.2030, ptr noundef nonnull %1)
   br label %_ZN17ExampleAppConsole8ClearLogEv.exit
 
-_ZN17ExampleAppConsole8ClearLogEv.exit:           ; preds = %165, %141, %160, %136, %110, %._crit_edge.i, %173
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 593
-  store i8 1, ptr %174, align 1, !tbaa !528
+_ZN17ExampleAppConsole8ClearLogEv.exit:           ; preds = %165, %141, %160, %136, %110, %._crit_edge.i, %.critedge
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 593
+  store i8 1, ptr %173, align 1, !tbaa !528
   ret void
 }
 

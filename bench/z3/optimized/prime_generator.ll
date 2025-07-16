@@ -655,36 +655,36 @@ _ZNK6vectorImLb0EjE4sizeEv.exit.thread:           ; preds = %2, %_ZNK6vectorImLb
   tail call void @_ZN15prime_generator22process_next_k_numbersEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 1024)
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.preheader.preheader, label %_ZNK6vectorImLb0EjE4sizeEv.exit12
+  br i1 %16, label %.critedge.preheader, label %_ZNK6vectorImLb0EjE4sizeEv.exit12
 
 _ZNK6vectorImLb0EjE4sizeEv.exit12:                ; preds = %14
   %17 = getelementptr inbounds i8, ptr %15, i64 -4
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = icmp ult i32 %1, %18
-  br i1 %19, label %.loopexit, label %.preheader.preheader
+  br i1 %19, label %.loopexit, label %.critedge.preheader
 
-.preheader.preheader:                             ; preds = %14, %_ZNK6vectorImLb0EjE4sizeEv.exit12
-  br label %.preheader
+.critedge.preheader:                              ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit12, %14
+  br label %.critedge
 
-.preheader:                                       ; preds = %.preheader.preheader, %25
-  %20 = phi ptr [ %.pre, %25 ], [ %15, %.preheader.preheader ]
+.critedge:                                        ; preds = %.critedge.preheader, %25
+  %20 = phi ptr [ %.pre, %25 ], [ %15, %.critedge.preheader ]
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_ZNK6vectorImLb0EjE4sizeEv.exit14, label %22
 
-22:                                               ; preds = %.preheader
+22:                                               ; preds = %.critedge
   %23 = getelementptr inbounds i8, ptr %20, i64 -4
   %24 = load i32, ptr %23, align 4, !tbaa !9
   br label %_ZNK6vectorImLb0EjE4sizeEv.exit14
 
-_ZNK6vectorImLb0EjE4sizeEv.exit14:                ; preds = %.preheader, %22
-  %.0.i13 = phi i32 [ %24, %22 ], [ 0, %.preheader ]
+_ZNK6vectorImLb0EjE4sizeEv.exit14:                ; preds = %.critedge, %22
+  %.0.i13 = phi i32 [ %24, %22 ], [ 0, %.critedge ]
   %.not = icmp ugt i32 %1, %.0.i13
   br i1 %.not, label %.loopexit, label %25
 
 25:                                               ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit14
   tail call void @_ZN15prime_generator22process_next_k_numbersEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16384)
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
-  br label %.preheader, !llvm.loop !30
+  br label %.critedge, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit14, %_ZNK6vectorImLb0EjE4sizeEv.exit12, %_ZNK6vectorImLb0EjE4sizeEv.exit
   %.lcssa.sink = phi ptr [ %3, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ %15, %_ZNK6vectorImLb0EjE4sizeEv.exit12 ], [ %20, %_ZNK6vectorImLb0EjE4sizeEv.exit14 ]

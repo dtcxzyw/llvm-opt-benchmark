@@ -685,7 +685,7 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %96 = trunc i64 %95 to i32
   store i32 %96, ptr %89, align 4, !tbaa !22
   %.not289.i.us.i = icmp ult i32 %90, %32
-  br i1 %.not289.i.us.i, label %.thread287.i, label %97
+  br i1 %.not289.i.us.i, label %.thread286.i, label %97
 
 97:                                               ; preds = %.thread.i
   %98 = zext i32 %90 to i64
@@ -693,9 +693,9 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %.val8.us.i = load i32, ptr %99, align 1, !tbaa !22
   %.0230.i.val7.us.pre.i = load i32, ptr %.0230.i.us.i, align 1, !tbaa !22
   %100 = icmp eq i32 %.0230.i.val7.us.pre.i, %.val8.us.i
-  br i1 %100, label %.split175.us.i, label %.thread287.i
+  br i1 %100, label %.split175.us.i, label %.thread286.i
 
-.thread287.i:                                     ; preds = %97, %.thread.i
+.thread286.i:                                     ; preds = %97, %.thread.i
   %101 = getelementptr inbounds nuw i32, ptr %13, i64 %93
   %102 = load i32, ptr %101, align 4, !tbaa !22
   %.0234.i.val.us.i = load i32, ptr %.0234.i.us.i, align 1, !tbaa !22
@@ -704,7 +704,7 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %.not290.i.us.i = icmp ult ptr %103, %.0237.i.us.i
   br i1 %.not290.i.us.i, label %110, label %105
 
-105:                                              ; preds = %.thread287.i
+105:                                              ; preds = %.thread286.i
   %106 = add i64 %.0240.i.us.i, 1
   %107 = getelementptr inbounds nuw i8, ptr %.0234.i.us.i, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %107, i32 0, i32 3, i32 1)
@@ -713,9 +713,9 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %109 = getelementptr inbounds nuw i8, ptr %.0237.i.us.i, i64 128
   br label %110
 
-110:                                              ; preds = %105, %.thread287.i
-  %.1241.i.ph.us.i = phi i64 [ %.0240.i.us.i, %.thread287.i ], [ %106, %105 ]
-  %.1238.i.ph.us.i = phi ptr [ %.0237.i.us.i, %.thread287.i ], [ %109, %105 ]
+110:                                              ; preds = %105, %.thread286.i
+  %.1241.i.ph.us.i = phi i64 [ %.0240.i.us.i, %.thread286.i ], [ %106, %105 ]
+  %.1238.i.ph.us.i = phi ptr [ %.0237.i.us.i, %.thread286.i ], [ %109, %105 ]
   %111 = icmp ult ptr %104, %36
   br i1 %111, label %.split.us.i, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !33
 
@@ -745,7 +745,7 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
 
 118:                                              ; preds = %.split.i
   %.not288.i.i = icmp ult i32 %.0259.i.i, %32
-  br i1 %.not288.i.i, label %.thread290.i, label %119
+  br i1 %.not288.i.i, label %.thread288.i, label %119
 
 119:                                              ; preds = %118
   %120 = zext i32 %.0259.i.i to i64
@@ -753,9 +753,9 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %.val10.i = load i32, ptr %121, align 1, !tbaa !22
   %.1228.i.val9.pre.i = load i32, ptr %.1228.i.i, align 1, !tbaa !22
   %122 = icmp eq i32 %.1228.i.val9.pre.i, %.val10.i
-  br i1 %122, label %.sink.split.i, label %.thread290.i
+  br i1 %122, label %.sink.split.i, label %.thread288.i
 
-.thread290.i:                                     ; preds = %119, %118
+.thread288.i:                                     ; preds = %119, %118
   %123 = getelementptr inbounds nuw i32, ptr %13, i64 %.0261.i.i
   %124 = load i32, ptr %123, align 4, !tbaa !22
   %125 = mul i32 %.0232.i.val.i, -1640531535
@@ -766,15 +766,15 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %130 = trunc i64 %129 to i32
   store i32 %130, ptr %123, align 4, !tbaa !22
   %.not289.i.i = icmp ult i32 %124, %32
-  br i1 %.not289.i.i, label %.thread293.i, label %131
+  br i1 %.not289.i.i, label %.thread290.i, label %131
 
-131:                                              ; preds = %.thread290.i
+131:                                              ; preds = %.thread288.i
   %132 = zext i32 %124 to i64
   %133 = getelementptr inbounds nuw i8, ptr %18, i64 %132
   %.val8.i = load i32, ptr %133, align 1, !tbaa !22
   %.0230.i.val7.pre.i = load i32, ptr %.0230.i.i, align 1, !tbaa !22
   %134 = icmp eq i32 %.0230.i.val7.pre.i, %.val8.i
-  br i1 %134, label %.split175.us.i, label %.thread293.i
+  br i1 %134, label %.split175.us.i, label %.thread290.i
 
 .split175.us.i:                                   ; preds = %131, %97
   %.us-phi176.i = phi i32 [ %90, %97 ], [ %124, %131 ]
@@ -786,7 +786,7 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %135 = icmp ult i64 %.us-phi179.i, 5
   br i1 %135, label %.sink.split.i, label %165
 
-.thread293.i:                                     ; preds = %131, %.thread290.i
+.thread290.i:                                     ; preds = %131, %.thread288.i
   %136 = getelementptr inbounds nuw i32, ptr %13, i64 %127
   %137 = load i32, ptr %136, align 4, !tbaa !22
   %.0234.i.val.i = load i32, ptr %.0234.i.i, align 1, !tbaa !22
@@ -795,7 +795,7 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   %.not290.i.i = icmp ult ptr %138, %.0237.i.i
   br i1 %.not290.i.i, label %159, label %140
 
-140:                                              ; preds = %.thread293.i
+140:                                              ; preds = %.thread290.i
   %141 = add i64 %.0240.i.i, 1
   %142 = getelementptr inbounds nuw i8, ptr %.0234.i.i, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %142, i32 0, i32 3, i32 1)
@@ -822,9 +822,9 @@ define dso_local i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none
   store i32 %157, ptr %158, align 4, !tbaa !22
   br label %.critedge.i.i
 
-159:                                              ; preds = %140, %.thread293.i
-  %.1241.i.ph.i = phi i64 [ %.0240.i.i, %.thread293.i ], [ %141, %140 ]
-  %.1238.i.ph.i = phi ptr [ %.0237.i.i, %.thread293.i ], [ %144, %140 ]
+159:                                              ; preds = %140, %.thread290.i
+  %.1241.i.ph.i = phi i64 [ %.0240.i.i, %.thread290.i ], [ %141, %140 ]
+  %.1238.i.ph.i = phi ptr [ %.0237.i.i, %.thread290.i ], [ %144, %140 ]
   %160 = icmp ult ptr %139, %36
   br i1 %160, label %.split.i, label %ZSTD_compressBlock_fast_noDict_4_1.exit, !llvm.loop !33
 
@@ -1413,7 +1413,7 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   %421 = trunc i64 %420 to i32
   store i32 %421, ptr %415, align 4, !tbaa !22
   %.not289.i.us.i243 = icmp ult i32 %416, %32
-  br i1 %.not289.i.us.i243, label %.thread287.i246, label %422
+  br i1 %.not289.i.us.i243, label %.thread286.i246, label %422
 
 422:                                              ; preds = %.thread.i242
   %423 = zext i32 %416 to i64
@@ -1421,9 +1421,9 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   %.val8.us.i244 = load i32, ptr %424, align 1, !tbaa !22
   %.0230.i.val7.us.pre.i245 = load i32, ptr %.0230.i.us.i235, align 1, !tbaa !22
   %425 = icmp eq i32 %.0230.i.val7.us.pre.i245, %.val8.us.i244
-  br i1 %425, label %.split175.us.i93, label %.thread287.i246
+  br i1 %425, label %.split175.us.i93, label %.thread286.i246
 
-.thread287.i246:                                  ; preds = %422, %.thread.i242
+.thread286.i246:                                  ; preds = %422, %.thread.i242
   %426 = getelementptr inbounds nuw i32, ptr %13, i64 %418
   %427 = load i32, ptr %426, align 4, !tbaa !22
   %.0234.i.val.us.i247 = load i64, ptr %.0234.i.us.i233, align 1, !tbaa !21
@@ -1432,7 +1432,7 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   %.not290.i.us.i248 = icmp ult ptr %428, %.0237.i.us.i232
   br i1 %.not290.i.us.i248, label %435, label %430
 
-430:                                              ; preds = %.thread287.i246
+430:                                              ; preds = %.thread286.i246
   %431 = add i64 %.0240.i.us.i231, 1
   %432 = getelementptr inbounds nuw i8, ptr %.0234.i.us.i233, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %432, i32 0, i32 3, i32 1)
@@ -1441,9 +1441,9 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   %434 = getelementptr inbounds nuw i8, ptr %.0237.i.us.i232, i64 128
   br label %435
 
-435:                                              ; preds = %430, %.thread287.i246
-  %.1241.i.ph.us.i249 = phi i64 [ %.0240.i.us.i231, %.thread287.i246 ], [ %431, %430 ]
-  %.1238.i.ph.us.i250 = phi ptr [ %.0237.i.us.i232, %.thread287.i246 ], [ %434, %430 ]
+435:                                              ; preds = %430, %.thread286.i246
+  %.1241.i.ph.us.i249 = phi i64 [ %.0240.i.us.i231, %.thread286.i246 ], [ %431, %430 ]
+  %.1238.i.ph.us.i250 = phi ptr [ %.0237.i.us.i232, %.thread286.i246 ], [ %434, %430 ]
   %436 = icmp ult ptr %429, %36
   br i1 %436, label %.split.us.i227, label %ZSTD_compressBlock_fast_noDict_5_1.exit, !llvm.loop !33
 
@@ -1472,7 +1472,7 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
 
 443:                                              ; preds = %.split.i67
   %.not288.i.i81 = icmp ult i32 %.0259.i.i70, %32
-  br i1 %.not288.i.i81, label %.thread290.i84, label %444
+  br i1 %.not288.i.i81, label %.thread288.i84, label %444
 
 444:                                              ; preds = %443
   %445 = zext i32 %.0259.i.i70 to i64
@@ -1480,9 +1480,9 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   %.val10.i82 = load i32, ptr %446, align 1, !tbaa !22
   %.1228.i.val9.pre.i83 = load i32, ptr %.1228.i.i76, align 1, !tbaa !22
   %447 = icmp eq i32 %.1228.i.val9.pre.i83, %.val10.i82
-  br i1 %447, label %.sink.split.i220, label %.thread290.i84
+  br i1 %447, label %.sink.split.i220, label %.thread288.i84
 
-.thread290.i84:                                   ; preds = %444, %443
+.thread288.i84:                                   ; preds = %444, %443
   %448 = getelementptr inbounds nuw i32, ptr %13, i64 %.0261.i.i78
   %449 = load i32, ptr %448, align 4, !tbaa !22
   %.0232.i.val15.i = load i64, ptr %.0232.i.i74, align 1, !tbaa !21
@@ -1493,15 +1493,15 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   %454 = trunc i64 %453 to i32
   store i32 %454, ptr %448, align 4, !tbaa !22
   %.not289.i.i85 = icmp ult i32 %449, %32
-  br i1 %.not289.i.i85, label %.thread293.i88, label %455
+  br i1 %.not289.i.i85, label %.thread290.i88, label %455
 
-455:                                              ; preds = %.thread290.i84
+455:                                              ; preds = %.thread288.i84
   %456 = zext i32 %449 to i64
   %457 = getelementptr inbounds nuw i8, ptr %18, i64 %456
   %.val8.i86 = load i32, ptr %457, align 1, !tbaa !22
   %.0230.i.val7.pre.i87 = load i32, ptr %.0230.i.i75, align 1, !tbaa !22
   %458 = icmp eq i32 %.0230.i.val7.pre.i87, %.val8.i86
-  br i1 %458, label %.split175.us.i93, label %.thread293.i88
+  br i1 %458, label %.split175.us.i93, label %.thread290.i88
 
 .split175.us.i93:                                 ; preds = %455, %422
   %.us-phi176.i94 = phi i32 [ %416, %422 ], [ %449, %455 ]
@@ -1513,7 +1513,7 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   %459 = icmp ult i64 %.us-phi179.i97, 5
   br i1 %459, label %.sink.split.i220, label %489
 
-.thread293.i88:                                   ; preds = %455, %.thread290.i84
+.thread290.i88:                                   ; preds = %455, %.thread288.i84
   %460 = getelementptr inbounds nuw i32, ptr %13, i64 %451
   %461 = load i32, ptr %460, align 4, !tbaa !22
   %.0234.i.val.i89 = load i64, ptr %.0234.i.i73, align 1, !tbaa !21
@@ -1522,7 +1522,7 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   %.not290.i.i90 = icmp ult ptr %462, %.0237.i.i72
   br i1 %.not290.i.i90, label %483, label %464
 
-464:                                              ; preds = %.thread293.i88
+464:                                              ; preds = %.thread290.i88
   %465 = add i64 %.0240.i.i71, 1
   %466 = getelementptr inbounds nuw i8, ptr %.0234.i.i73, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %466, i32 0, i32 3, i32 1)
@@ -1549,9 +1549,9 @@ ZSTD_compressBlock_fast_noDict_4_1.exit:          ; preds = %.critedge3.i.i, %15
   store i32 %481, ptr %482, align 4, !tbaa !22
   br label %.critedge.i.i103
 
-483:                                              ; preds = %464, %.thread293.i88
-  %.1241.i.ph.i91 = phi i64 [ %.0240.i.i71, %.thread293.i88 ], [ %465, %464 ]
-  %.1238.i.ph.i92 = phi ptr [ %.0237.i.i72, %.thread293.i88 ], [ %468, %464 ]
+483:                                              ; preds = %464, %.thread290.i88
+  %.1241.i.ph.i91 = phi i64 [ %.0240.i.i71, %.thread290.i88 ], [ %465, %464 ]
+  %.1238.i.ph.i92 = phi ptr [ %.0237.i.i72, %.thread290.i88 ], [ %468, %464 ]
   %484 = icmp ult ptr %463, %36
   br i1 %484, label %.split.i67, label %ZSTD_compressBlock_fast_noDict_5_1.exit, !llvm.loop !33
 
@@ -2138,7 +2138,7 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   %742 = trunc i64 %741 to i32
   store i32 %742, ptr %736, align 4, !tbaa !22
   %.not289.i.us.i453 = icmp ult i32 %737, %32
-  br i1 %.not289.i.us.i453, label %.thread287.i456, label %743
+  br i1 %.not289.i.us.i453, label %.thread286.i456, label %743
 
 743:                                              ; preds = %.thread.i451
   %744 = zext i32 %737 to i64
@@ -2146,9 +2146,9 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   %.val8.us.i454 = load i32, ptr %745, align 1, !tbaa !22
   %.0230.i.val7.us.pre.i455 = load i32, ptr %.0230.i.us.i444, align 1, !tbaa !22
   %746 = icmp eq i32 %.0230.i.val7.us.pre.i455, %.val8.us.i454
-  br i1 %746, label %.split175.us.i301, label %.thread287.i456
+  br i1 %746, label %.split175.us.i301, label %.thread286.i456
 
-.thread287.i456:                                  ; preds = %743, %.thread.i451
+.thread286.i456:                                  ; preds = %743, %.thread.i451
   %747 = getelementptr inbounds nuw i32, ptr %13, i64 %739
   %748 = load i32, ptr %747, align 4, !tbaa !22
   %.0234.i.val.us.i457 = load i64, ptr %.0234.i.us.i442, align 1, !tbaa !21
@@ -2157,7 +2157,7 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   %.not290.i.us.i458 = icmp ult ptr %749, %.0237.i.us.i441
   br i1 %.not290.i.us.i458, label %756, label %751
 
-751:                                              ; preds = %.thread287.i456
+751:                                              ; preds = %.thread286.i456
   %752 = add i64 %.0240.i.us.i440, 1
   %753 = getelementptr inbounds nuw i8, ptr %.0234.i.us.i442, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %753, i32 0, i32 3, i32 1)
@@ -2166,9 +2166,9 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   %755 = getelementptr inbounds nuw i8, ptr %.0237.i.us.i441, i64 128
   br label %756
 
-756:                                              ; preds = %751, %.thread287.i456
-  %.1241.i.ph.us.i459 = phi i64 [ %.0240.i.us.i440, %.thread287.i456 ], [ %752, %751 ]
-  %.1238.i.ph.us.i460 = phi ptr [ %.0237.i.us.i441, %.thread287.i456 ], [ %755, %751 ]
+756:                                              ; preds = %751, %.thread286.i456
+  %.1241.i.ph.us.i459 = phi i64 [ %.0240.i.us.i440, %.thread286.i456 ], [ %752, %751 ]
+  %.1238.i.ph.us.i460 = phi ptr [ %.0237.i.us.i441, %.thread286.i456 ], [ %755, %751 ]
   %757 = icmp ult ptr %750, %36
   br i1 %757, label %.split.us.i436, label %ZSTD_compressBlock_fast_noDict_6_1.exit, !llvm.loop !33
 
@@ -2197,7 +2197,7 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
 
 764:                                              ; preds = %.split.i274
   %.not288.i.i288 = icmp ult i32 %.0259.i.i277, %32
-  br i1 %.not288.i.i288, label %.thread290.i291, label %765
+  br i1 %.not288.i.i288, label %.thread288.i291, label %765
 
 765:                                              ; preds = %764
   %766 = zext i32 %.0259.i.i277 to i64
@@ -2205,9 +2205,9 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   %.val10.i289 = load i32, ptr %767, align 1, !tbaa !22
   %.1228.i.val9.pre.i290 = load i32, ptr %.1228.i.i283, align 1, !tbaa !22
   %768 = icmp eq i32 %.1228.i.val9.pre.i290, %.val10.i289
-  br i1 %768, label %.sink.split.i429, label %.thread290.i291
+  br i1 %768, label %.sink.split.i429, label %.thread288.i291
 
-.thread290.i291:                                  ; preds = %765, %764
+.thread288.i291:                                  ; preds = %765, %764
   %769 = getelementptr inbounds nuw i32, ptr %13, i64 %.0261.i.i285
   %770 = load i32, ptr %769, align 4, !tbaa !22
   %.0232.i.val15.i292 = load i64, ptr %.0232.i.i281, align 1, !tbaa !21
@@ -2218,15 +2218,15 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   %775 = trunc i64 %774 to i32
   store i32 %775, ptr %769, align 4, !tbaa !22
   %.not289.i.i293 = icmp ult i32 %770, %32
-  br i1 %.not289.i.i293, label %.thread293.i296, label %776
+  br i1 %.not289.i.i293, label %.thread290.i296, label %776
 
-776:                                              ; preds = %.thread290.i291
+776:                                              ; preds = %.thread288.i291
   %777 = zext i32 %770 to i64
   %778 = getelementptr inbounds nuw i8, ptr %18, i64 %777
   %.val8.i294 = load i32, ptr %778, align 1, !tbaa !22
   %.0230.i.val7.pre.i295 = load i32, ptr %.0230.i.i282, align 1, !tbaa !22
   %779 = icmp eq i32 %.0230.i.val7.pre.i295, %.val8.i294
-  br i1 %779, label %.split175.us.i301, label %.thread293.i296
+  br i1 %779, label %.split175.us.i301, label %.thread290.i296
 
 .split175.us.i301:                                ; preds = %776, %743
   %.us-phi176.i302 = phi i32 [ %737, %743 ], [ %770, %776 ]
@@ -2238,7 +2238,7 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   %780 = icmp ult i64 %.us-phi179.i305, 5
   br i1 %780, label %.sink.split.i429, label %810
 
-.thread293.i296:                                  ; preds = %776, %.thread290.i291
+.thread290.i296:                                  ; preds = %776, %.thread288.i291
   %781 = getelementptr inbounds nuw i32, ptr %13, i64 %772
   %782 = load i32, ptr %781, align 4, !tbaa !22
   %.0234.i.val.i297 = load i64, ptr %.0234.i.i280, align 1, !tbaa !21
@@ -2247,7 +2247,7 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   %.not290.i.i298 = icmp ult ptr %783, %.0237.i.i279
   br i1 %.not290.i.i298, label %804, label %785
 
-785:                                              ; preds = %.thread293.i296
+785:                                              ; preds = %.thread290.i296
   %786 = add i64 %.0240.i.i278, 1
   %787 = getelementptr inbounds nuw i8, ptr %.0234.i.i280, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %787, i32 0, i32 3, i32 1)
@@ -2274,9 +2274,9 @@ ZSTD_compressBlock_fast_noDict_5_1.exit:          ; preds = %.critedge3.i.i137, 
   store i32 %802, ptr %803, align 4, !tbaa !22
   br label %.critedge.i.i311
 
-804:                                              ; preds = %785, %.thread293.i296
-  %.1241.i.ph.i299 = phi i64 [ %.0240.i.i278, %.thread293.i296 ], [ %786, %785 ]
-  %.1238.i.ph.i300 = phi ptr [ %.0237.i.i279, %.thread293.i296 ], [ %789, %785 ]
+804:                                              ; preds = %785, %.thread290.i296
+  %.1241.i.ph.i299 = phi i64 [ %.0240.i.i278, %.thread290.i296 ], [ %786, %785 ]
+  %.1238.i.ph.i300 = phi ptr [ %.0237.i.i279, %.thread290.i296 ], [ %789, %785 ]
   %805 = icmp ult ptr %784, %36
   br i1 %805, label %.split.i274, label %ZSTD_compressBlock_fast_noDict_6_1.exit, !llvm.loop !33
 
@@ -2863,7 +2863,7 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   %1063 = trunc i64 %1062 to i32
   store i32 %1063, ptr %1057, align 4, !tbaa !22
   %.not289.i.us.i663 = icmp ult i32 %1058, %32
-  br i1 %.not289.i.us.i663, label %.thread287.i666, label %1064
+  br i1 %.not289.i.us.i663, label %.thread286.i666, label %1064
 
 1064:                                             ; preds = %.thread.i661
   %1065 = zext i32 %1058 to i64
@@ -2871,9 +2871,9 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   %.val8.us.i664 = load i32, ptr %1066, align 1, !tbaa !22
   %.0230.i.val7.us.pre.i665 = load i32, ptr %.0230.i.us.i654, align 1, !tbaa !22
   %1067 = icmp eq i32 %.0230.i.val7.us.pre.i665, %.val8.us.i664
-  br i1 %1067, label %.split175.us.i511, label %.thread287.i666
+  br i1 %1067, label %.split175.us.i511, label %.thread286.i666
 
-.thread287.i666:                                  ; preds = %1064, %.thread.i661
+.thread286.i666:                                  ; preds = %1064, %.thread.i661
   %1068 = getelementptr inbounds nuw i32, ptr %13, i64 %1060
   %1069 = load i32, ptr %1068, align 4, !tbaa !22
   %.0234.i.val.us.i667 = load i64, ptr %.0234.i.us.i652, align 1, !tbaa !21
@@ -2882,7 +2882,7 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   %.not290.i.us.i668 = icmp ult ptr %1070, %.0237.i.us.i651
   br i1 %.not290.i.us.i668, label %1077, label %1072
 
-1072:                                             ; preds = %.thread287.i666
+1072:                                             ; preds = %.thread286.i666
   %1073 = add i64 %.0240.i.us.i650, 1
   %1074 = getelementptr inbounds nuw i8, ptr %.0234.i.us.i652, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %1074, i32 0, i32 3, i32 1)
@@ -2891,9 +2891,9 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   %1076 = getelementptr inbounds nuw i8, ptr %.0237.i.us.i651, i64 128
   br label %1077
 
-1077:                                             ; preds = %1072, %.thread287.i666
-  %.1241.i.ph.us.i669 = phi i64 [ %.0240.i.us.i650, %.thread287.i666 ], [ %1073, %1072 ]
-  %.1238.i.ph.us.i670 = phi ptr [ %.0237.i.us.i651, %.thread287.i666 ], [ %1076, %1072 ]
+1077:                                             ; preds = %1072, %.thread286.i666
+  %.1241.i.ph.us.i669 = phi i64 [ %.0240.i.us.i650, %.thread286.i666 ], [ %1073, %1072 ]
+  %.1238.i.ph.us.i670 = phi ptr [ %.0237.i.us.i651, %.thread286.i666 ], [ %1076, %1072 ]
   %1078 = icmp ult ptr %1071, %36
   br i1 %1078, label %.split.us.i646, label %ZSTD_compressBlock_fast_noDict_7_1.exit, !llvm.loop !33
 
@@ -2922,7 +2922,7 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
 
 1085:                                             ; preds = %.split.i484
   %.not288.i.i498 = icmp ult i32 %.0259.i.i487, %32
-  br i1 %.not288.i.i498, label %.thread290.i501, label %1086
+  br i1 %.not288.i.i498, label %.thread288.i501, label %1086
 
 1086:                                             ; preds = %1085
   %1087 = zext i32 %.0259.i.i487 to i64
@@ -2930,9 +2930,9 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   %.val10.i499 = load i32, ptr %1088, align 1, !tbaa !22
   %.1228.i.val9.pre.i500 = load i32, ptr %.1228.i.i493, align 1, !tbaa !22
   %1089 = icmp eq i32 %.1228.i.val9.pre.i500, %.val10.i499
-  br i1 %1089, label %.sink.split.i639, label %.thread290.i501
+  br i1 %1089, label %.sink.split.i639, label %.thread288.i501
 
-.thread290.i501:                                  ; preds = %1086, %1085
+.thread288.i501:                                  ; preds = %1086, %1085
   %1090 = getelementptr inbounds nuw i32, ptr %13, i64 %.0261.i.i495
   %1091 = load i32, ptr %1090, align 4, !tbaa !22
   %.0232.i.val15.i502 = load i64, ptr %.0232.i.i491, align 1, !tbaa !21
@@ -2943,15 +2943,15 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   %1096 = trunc i64 %1095 to i32
   store i32 %1096, ptr %1090, align 4, !tbaa !22
   %.not289.i.i503 = icmp ult i32 %1091, %32
-  br i1 %.not289.i.i503, label %.thread293.i506, label %1097
+  br i1 %.not289.i.i503, label %.thread290.i506, label %1097
 
-1097:                                             ; preds = %.thread290.i501
+1097:                                             ; preds = %.thread288.i501
   %1098 = zext i32 %1091 to i64
   %1099 = getelementptr inbounds nuw i8, ptr %18, i64 %1098
   %.val8.i504 = load i32, ptr %1099, align 1, !tbaa !22
   %.0230.i.val7.pre.i505 = load i32, ptr %.0230.i.i492, align 1, !tbaa !22
   %1100 = icmp eq i32 %.0230.i.val7.pre.i505, %.val8.i504
-  br i1 %1100, label %.split175.us.i511, label %.thread293.i506
+  br i1 %1100, label %.split175.us.i511, label %.thread290.i506
 
 .split175.us.i511:                                ; preds = %1097, %1064
   %.us-phi176.i512 = phi i32 [ %1058, %1064 ], [ %1091, %1097 ]
@@ -2963,7 +2963,7 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   %1101 = icmp ult i64 %.us-phi179.i515, 5
   br i1 %1101, label %.sink.split.i639, label %1131
 
-.thread293.i506:                                  ; preds = %1097, %.thread290.i501
+.thread290.i506:                                  ; preds = %1097, %.thread288.i501
   %1102 = getelementptr inbounds nuw i32, ptr %13, i64 %1093
   %1103 = load i32, ptr %1102, align 4, !tbaa !22
   %.0234.i.val.i507 = load i64, ptr %.0234.i.i490, align 1, !tbaa !21
@@ -2972,7 +2972,7 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   %.not290.i.i508 = icmp ult ptr %1104, %.0237.i.i489
   br i1 %.not290.i.i508, label %1125, label %1106
 
-1106:                                             ; preds = %.thread293.i506
+1106:                                             ; preds = %.thread290.i506
   %1107 = add i64 %.0240.i.i488, 1
   %1108 = getelementptr inbounds nuw i8, ptr %.0234.i.i490, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %1108, i32 0, i32 3, i32 1)
@@ -2999,9 +2999,9 @@ ZSTD_compressBlock_fast_noDict_6_1.exit:          ; preds = %.critedge3.i.i345, 
   store i32 %1123, ptr %1124, align 4, !tbaa !22
   br label %.critedge.i.i521
 
-1125:                                             ; preds = %1106, %.thread293.i506
-  %.1241.i.ph.i509 = phi i64 [ %.0240.i.i488, %.thread293.i506 ], [ %1107, %1106 ]
-  %.1238.i.ph.i510 = phi ptr [ %.0237.i.i489, %.thread293.i506 ], [ %1110, %1106 ]
+1125:                                             ; preds = %1106, %.thread290.i506
+  %.1241.i.ph.i509 = phi i64 [ %.0240.i.i488, %.thread290.i506 ], [ %1107, %1106 ]
+  %.1238.i.ph.i510 = phi ptr [ %.0237.i.i489, %.thread290.i506 ], [ %1110, %1106 ]
   %1126 = icmp ult ptr %1105, %36
   br i1 %1126, label %.split.i484, label %ZSTD_compressBlock_fast_noDict_7_1.exit, !llvm.loop !33
 
@@ -3642,7 +3642,7 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   %1424 = trunc i64 %1423 to i32
   store i32 %1424, ptr %1417, align 4, !tbaa !22
   %.not289.i.us.i873 = icmp ult i32 %1418, %1361
-  br i1 %.not289.i.us.i873, label %.thread287.i876, label %1425
+  br i1 %.not289.i.us.i873, label %.thread286.i876, label %1425
 
 1425:                                             ; preds = %.thread.i872
   %1426 = zext i32 %1418 to i64
@@ -3650,9 +3650,9 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   %.val8.us.i874 = load i32, ptr %1427, align 1, !tbaa !22
   %.0230.i.val7.us.pre.i875 = load i32, ptr %.0230.i.us.i863, align 1, !tbaa !22
   %1428 = icmp eq i32 %.0230.i.val7.us.pre.i875, %.val8.us.i874
-  br i1 %1428, label %.split175.us.i721, label %.thread287.i876
+  br i1 %1428, label %.split175.us.i721, label %.thread286.i876
 
-.thread287.i876:                                  ; preds = %1425, %.thread.i872
+.thread286.i876:                                  ; preds = %1425, %.thread.i872
   %1429 = getelementptr inbounds nuw i32, ptr %13, i64 %1421
   %1430 = load i32, ptr %1429, align 4, !tbaa !22
   %.0234.i.val.us.i877 = load i32, ptr %.0234.i.us.i861, align 1, !tbaa !22
@@ -3661,7 +3661,7 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   %.not290.i.us.i878 = icmp ult ptr %1431, %.0237.i.us.i860
   br i1 %.not290.i.us.i878, label %1438, label %1433
 
-1433:                                             ; preds = %.thread287.i876
+1433:                                             ; preds = %.thread286.i876
   %1434 = add i64 %.0240.i.us.i859, 1
   %1435 = getelementptr inbounds nuw i8, ptr %.0234.i.us.i861, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %1435, i32 0, i32 3, i32 1)
@@ -3670,9 +3670,9 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   %1437 = getelementptr inbounds nuw i8, ptr %.0237.i.us.i860, i64 128
   br label %1438
 
-1438:                                             ; preds = %1433, %.thread287.i876
-  %.1241.i.ph.us.i879 = phi i64 [ %.0240.i.us.i859, %.thread287.i876 ], [ %1434, %1433 ]
-  %.1238.i.ph.us.i880 = phi ptr [ %.0237.i.us.i860, %.thread287.i876 ], [ %1437, %1433 ]
+1438:                                             ; preds = %1433, %.thread286.i876
+  %.1241.i.ph.us.i879 = phi i64 [ %.0240.i.us.i859, %.thread286.i876 ], [ %1434, %1433 ]
+  %.1238.i.ph.us.i880 = phi ptr [ %.0237.i.us.i860, %.thread286.i876 ], [ %1437, %1433 ]
   %1439 = icmp ult ptr %1432, %1365
   br i1 %1439, label %.split.us.i855, label %ZSTD_compressBlock_fast_noDict_4_0.exit, !llvm.loop !33
 
@@ -3702,7 +3702,7 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
 
 1446:                                             ; preds = %.split.i694
   %.not288.i.i709 = icmp ult i32 %.0259.i.i697, %1361
-  br i1 %.not288.i.i709, label %.thread290.i712, label %1447
+  br i1 %.not288.i.i709, label %.thread288.i712, label %1447
 
 1447:                                             ; preds = %1446
   %1448 = zext i32 %.0259.i.i697 to i64
@@ -3710,9 +3710,9 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   %.val10.i710 = load i32, ptr %1449, align 1, !tbaa !22
   %.1228.i.val9.pre.i711 = load i32, ptr %.1228.i.i703, align 1, !tbaa !22
   %1450 = icmp eq i32 %.1228.i.val9.pre.i711, %.val10.i710
-  br i1 %1450, label %.sink.split.i848, label %.thread290.i712
+  br i1 %1450, label %.sink.split.i848, label %.thread288.i712
 
-.thread290.i712:                                  ; preds = %1447, %1446
+.thread288.i712:                                  ; preds = %1447, %1446
   %1451 = getelementptr inbounds nuw i32, ptr %13, i64 %.0261.i.i706
   %1452 = load i32, ptr %1451, align 4, !tbaa !22
   %1453 = mul i32 %.0232.i.val.i708, -1640531535
@@ -3723,15 +3723,15 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   %1458 = trunc i64 %1457 to i32
   store i32 %1458, ptr %1451, align 4, !tbaa !22
   %.not289.i.i713 = icmp ult i32 %1452, %1361
-  br i1 %.not289.i.i713, label %.thread293.i716, label %1459
+  br i1 %.not289.i.i713, label %.thread290.i716, label %1459
 
-1459:                                             ; preds = %.thread290.i712
+1459:                                             ; preds = %.thread288.i712
   %1460 = zext i32 %1452 to i64
   %1461 = getelementptr inbounds nuw i8, ptr %1347, i64 %1460
   %.val8.i714 = load i32, ptr %1461, align 1, !tbaa !22
   %.0230.i.val7.pre.i715 = load i32, ptr %.0230.i.i702, align 1, !tbaa !22
   %1462 = icmp eq i32 %.0230.i.val7.pre.i715, %.val8.i714
-  br i1 %1462, label %.split175.us.i721, label %.thread293.i716
+  br i1 %1462, label %.split175.us.i721, label %.thread290.i716
 
 .split175.us.i721:                                ; preds = %1459, %1425
   %.us-phi176.i722 = phi i32 [ %1418, %1425 ], [ %1452, %1459 ]
@@ -3743,7 +3743,7 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   %1463 = icmp ult i64 %.us-phi179.i725, 5
   br i1 %1463, label %.sink.split.i848, label %1493
 
-.thread293.i716:                                  ; preds = %1459, %.thread290.i712
+.thread290.i716:                                  ; preds = %1459, %.thread288.i712
   %1464 = getelementptr inbounds nuw i32, ptr %13, i64 %1455
   %1465 = load i32, ptr %1464, align 4, !tbaa !22
   %.0234.i.val.i717 = load i32, ptr %.0234.i.i700, align 1, !tbaa !22
@@ -3752,7 +3752,7 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   %.not290.i.i718 = icmp ult ptr %1466, %.0237.i.i699
   br i1 %.not290.i.i718, label %1487, label %1468
 
-1468:                                             ; preds = %.thread293.i716
+1468:                                             ; preds = %.thread290.i716
   %1469 = add i64 %.0240.i.i698, 1
   %1470 = getelementptr inbounds nuw i8, ptr %.0234.i.i700, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %1470, i32 0, i32 3, i32 1)
@@ -3779,9 +3779,9 @@ ZSTD_compressBlock_fast_noDict_7_1.exit:          ; preds = %.critedge3.i.i555, 
   store i32 %1485, ptr %1486, align 4, !tbaa !22
   br label %.critedge.i.i731
 
-1487:                                             ; preds = %1468, %.thread293.i716
-  %.1241.i.ph.i719 = phi i64 [ %.0240.i.i698, %.thread293.i716 ], [ %1469, %1468 ]
-  %.1238.i.ph.i720 = phi ptr [ %.0237.i.i699, %.thread293.i716 ], [ %1472, %1468 ]
+1487:                                             ; preds = %1468, %.thread290.i716
+  %.1241.i.ph.i719 = phi i64 [ %.0240.i.i698, %.thread290.i716 ], [ %1469, %1468 ]
+  %.1238.i.ph.i720 = phi ptr [ %.0237.i.i699, %.thread290.i716 ], [ %1472, %1468 ]
   %1488 = icmp ult ptr %1467, %1365
   br i1 %1488, label %.split.i694, label %ZSTD_compressBlock_fast_noDict_4_0.exit, !llvm.loop !33
 
@@ -4369,7 +4369,7 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   %1748 = trunc i64 %1747 to i32
   store i32 %1748, ptr %1742, align 4, !tbaa !22
   %.not289.i.us.i1083 = icmp ult i32 %1743, %1361
-  br i1 %.not289.i.us.i1083, label %.thread287.i1086, label %1749
+  br i1 %.not289.i.us.i1083, label %.thread286.i1086, label %1749
 
 1749:                                             ; preds = %.thread.i1081
   %1750 = zext i32 %1743 to i64
@@ -4377,9 +4377,9 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   %.val8.us.i1084 = load i32, ptr %1751, align 1, !tbaa !22
   %.0230.i.val7.us.pre.i1085 = load i32, ptr %.0230.i.us.i1074, align 1, !tbaa !22
   %1752 = icmp eq i32 %.0230.i.val7.us.pre.i1085, %.val8.us.i1084
-  br i1 %1752, label %.split175.us.i931, label %.thread287.i1086
+  br i1 %1752, label %.split175.us.i931, label %.thread286.i1086
 
-.thread287.i1086:                                 ; preds = %1749, %.thread.i1081
+.thread286.i1086:                                 ; preds = %1749, %.thread.i1081
   %1753 = getelementptr inbounds nuw i32, ptr %13, i64 %1745
   %1754 = load i32, ptr %1753, align 4, !tbaa !22
   %.0234.i.val.us.i1087 = load i64, ptr %.0234.i.us.i1072, align 1, !tbaa !21
@@ -4388,7 +4388,7 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   %.not290.i.us.i1088 = icmp ult ptr %1755, %.0237.i.us.i1071
   br i1 %.not290.i.us.i1088, label %1762, label %1757
 
-1757:                                             ; preds = %.thread287.i1086
+1757:                                             ; preds = %.thread286.i1086
   %1758 = add i64 %.0240.i.us.i1070, 1
   %1759 = getelementptr inbounds nuw i8, ptr %.0234.i.us.i1072, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %1759, i32 0, i32 3, i32 1)
@@ -4397,9 +4397,9 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   %1761 = getelementptr inbounds nuw i8, ptr %.0237.i.us.i1071, i64 128
   br label %1762
 
-1762:                                             ; preds = %1757, %.thread287.i1086
-  %.1241.i.ph.us.i1089 = phi i64 [ %.0240.i.us.i1070, %.thread287.i1086 ], [ %1758, %1757 ]
-  %.1238.i.ph.us.i1090 = phi ptr [ %.0237.i.us.i1071, %.thread287.i1086 ], [ %1761, %1757 ]
+1762:                                             ; preds = %1757, %.thread286.i1086
+  %.1241.i.ph.us.i1089 = phi i64 [ %.0240.i.us.i1070, %.thread286.i1086 ], [ %1758, %1757 ]
+  %.1238.i.ph.us.i1090 = phi ptr [ %.0237.i.us.i1071, %.thread286.i1086 ], [ %1761, %1757 ]
   %1763 = icmp ult ptr %1756, %1365
   br i1 %1763, label %.split.us.i1066, label %ZSTD_compressBlock_fast_noDict_5_0.exit, !llvm.loop !33
 
@@ -4428,7 +4428,7 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
 
 1770:                                             ; preds = %.split.i904
   %.not288.i.i918 = icmp ult i32 %.0259.i.i907, %1361
-  br i1 %.not288.i.i918, label %.thread290.i921, label %1771
+  br i1 %.not288.i.i918, label %.thread288.i921, label %1771
 
 1771:                                             ; preds = %1770
   %1772 = zext i32 %.0259.i.i907 to i64
@@ -4436,9 +4436,9 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   %.val10.i919 = load i32, ptr %1773, align 1, !tbaa !22
   %.1228.i.val9.pre.i920 = load i32, ptr %.1228.i.i913, align 1, !tbaa !22
   %1774 = icmp eq i32 %.1228.i.val9.pre.i920, %.val10.i919
-  br i1 %1774, label %.sink.split.i1059, label %.thread290.i921
+  br i1 %1774, label %.sink.split.i1059, label %.thread288.i921
 
-.thread290.i921:                                  ; preds = %1771, %1770
+.thread288.i921:                                  ; preds = %1771, %1770
   %1775 = getelementptr inbounds nuw i32, ptr %13, i64 %.0261.i.i915
   %1776 = load i32, ptr %1775, align 4, !tbaa !22
   %.0232.i.val15.i922 = load i64, ptr %.0232.i.i911, align 1, !tbaa !21
@@ -4449,15 +4449,15 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   %1781 = trunc i64 %1780 to i32
   store i32 %1781, ptr %1775, align 4, !tbaa !22
   %.not289.i.i923 = icmp ult i32 %1776, %1361
-  br i1 %.not289.i.i923, label %.thread293.i926, label %1782
+  br i1 %.not289.i.i923, label %.thread290.i926, label %1782
 
-1782:                                             ; preds = %.thread290.i921
+1782:                                             ; preds = %.thread288.i921
   %1783 = zext i32 %1776 to i64
   %1784 = getelementptr inbounds nuw i8, ptr %1347, i64 %1783
   %.val8.i924 = load i32, ptr %1784, align 1, !tbaa !22
   %.0230.i.val7.pre.i925 = load i32, ptr %.0230.i.i912, align 1, !tbaa !22
   %1785 = icmp eq i32 %.0230.i.val7.pre.i925, %.val8.i924
-  br i1 %1785, label %.split175.us.i931, label %.thread293.i926
+  br i1 %1785, label %.split175.us.i931, label %.thread290.i926
 
 .split175.us.i931:                                ; preds = %1782, %1749
   %.us-phi176.i932 = phi i32 [ %1743, %1749 ], [ %1776, %1782 ]
@@ -4469,7 +4469,7 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   %1786 = icmp ult i64 %.us-phi179.i935, 5
   br i1 %1786, label %.sink.split.i1059, label %1816
 
-.thread293.i926:                                  ; preds = %1782, %.thread290.i921
+.thread290.i926:                                  ; preds = %1782, %.thread288.i921
   %1787 = getelementptr inbounds nuw i32, ptr %13, i64 %1778
   %1788 = load i32, ptr %1787, align 4, !tbaa !22
   %.0234.i.val.i927 = load i64, ptr %.0234.i.i910, align 1, !tbaa !21
@@ -4478,7 +4478,7 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   %.not290.i.i928 = icmp ult ptr %1789, %.0237.i.i909
   br i1 %.not290.i.i928, label %1810, label %1791
 
-1791:                                             ; preds = %.thread293.i926
+1791:                                             ; preds = %.thread290.i926
   %1792 = add i64 %.0240.i.i908, 1
   %1793 = getelementptr inbounds nuw i8, ptr %.0234.i.i910, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %1793, i32 0, i32 3, i32 1)
@@ -4505,9 +4505,9 @@ ZSTD_compressBlock_fast_noDict_4_0.exit:          ; preds = %.critedge3.i.i765, 
   store i32 %1808, ptr %1809, align 4, !tbaa !22
   br label %.critedge.i.i941
 
-1810:                                             ; preds = %1791, %.thread293.i926
-  %.1241.i.ph.i929 = phi i64 [ %.0240.i.i908, %.thread293.i926 ], [ %1792, %1791 ]
-  %.1238.i.ph.i930 = phi ptr [ %.0237.i.i909, %.thread293.i926 ], [ %1795, %1791 ]
+1810:                                             ; preds = %1791, %.thread290.i926
+  %.1241.i.ph.i929 = phi i64 [ %.0240.i.i908, %.thread290.i926 ], [ %1792, %1791 ]
+  %.1238.i.ph.i930 = phi ptr [ %.0237.i.i909, %.thread290.i926 ], [ %1795, %1791 ]
   %1811 = icmp ult ptr %1790, %1365
   br i1 %1811, label %.split.i904, label %ZSTD_compressBlock_fast_noDict_5_0.exit, !llvm.loop !33
 
@@ -5093,7 +5093,7 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   %2068 = trunc i64 %2067 to i32
   store i32 %2068, ptr %2062, align 4, !tbaa !22
   %.not289.i.us.i1293 = icmp ult i32 %2063, %1361
-  br i1 %.not289.i.us.i1293, label %.thread287.i1296, label %2069
+  br i1 %.not289.i.us.i1293, label %.thread286.i1296, label %2069
 
 2069:                                             ; preds = %.thread.i1291
   %2070 = zext i32 %2063 to i64
@@ -5101,9 +5101,9 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   %.val8.us.i1294 = load i32, ptr %2071, align 1, !tbaa !22
   %.0230.i.val7.us.pre.i1295 = load i32, ptr %.0230.i.us.i1284, align 1, !tbaa !22
   %2072 = icmp eq i32 %.0230.i.val7.us.pre.i1295, %.val8.us.i1294
-  br i1 %2072, label %.split175.us.i1141, label %.thread287.i1296
+  br i1 %2072, label %.split175.us.i1141, label %.thread286.i1296
 
-.thread287.i1296:                                 ; preds = %2069, %.thread.i1291
+.thread286.i1296:                                 ; preds = %2069, %.thread.i1291
   %2073 = getelementptr inbounds nuw i32, ptr %13, i64 %2065
   %2074 = load i32, ptr %2073, align 4, !tbaa !22
   %.0234.i.val.us.i1297 = load i64, ptr %.0234.i.us.i1282, align 1, !tbaa !21
@@ -5112,7 +5112,7 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   %.not290.i.us.i1298 = icmp ult ptr %2075, %.0237.i.us.i1281
   br i1 %.not290.i.us.i1298, label %2082, label %2077
 
-2077:                                             ; preds = %.thread287.i1296
+2077:                                             ; preds = %.thread286.i1296
   %2078 = add i64 %.0240.i.us.i1280, 1
   %2079 = getelementptr inbounds nuw i8, ptr %.0234.i.us.i1282, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %2079, i32 0, i32 3, i32 1)
@@ -5121,9 +5121,9 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   %2081 = getelementptr inbounds nuw i8, ptr %.0237.i.us.i1281, i64 128
   br label %2082
 
-2082:                                             ; preds = %2077, %.thread287.i1296
-  %.1241.i.ph.us.i1299 = phi i64 [ %.0240.i.us.i1280, %.thread287.i1296 ], [ %2078, %2077 ]
-  %.1238.i.ph.us.i1300 = phi ptr [ %.0237.i.us.i1281, %.thread287.i1296 ], [ %2081, %2077 ]
+2082:                                             ; preds = %2077, %.thread286.i1296
+  %.1241.i.ph.us.i1299 = phi i64 [ %.0240.i.us.i1280, %.thread286.i1296 ], [ %2078, %2077 ]
+  %.1238.i.ph.us.i1300 = phi ptr [ %.0237.i.us.i1281, %.thread286.i1296 ], [ %2081, %2077 ]
   %2083 = icmp ult ptr %2076, %1365
   br i1 %2083, label %.split.us.i1276, label %ZSTD_compressBlock_fast_noDict_6_0.exit, !llvm.loop !33
 
@@ -5152,7 +5152,7 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
 
 2090:                                             ; preds = %.split.i1114
   %.not288.i.i1128 = icmp ult i32 %.0259.i.i1117, %1361
-  br i1 %.not288.i.i1128, label %.thread290.i1131, label %2091
+  br i1 %.not288.i.i1128, label %.thread288.i1131, label %2091
 
 2091:                                             ; preds = %2090
   %2092 = zext i32 %.0259.i.i1117 to i64
@@ -5160,9 +5160,9 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   %.val10.i1129 = load i32, ptr %2093, align 1, !tbaa !22
   %.1228.i.val9.pre.i1130 = load i32, ptr %.1228.i.i1123, align 1, !tbaa !22
   %2094 = icmp eq i32 %.1228.i.val9.pre.i1130, %.val10.i1129
-  br i1 %2094, label %.sink.split.i1269, label %.thread290.i1131
+  br i1 %2094, label %.sink.split.i1269, label %.thread288.i1131
 
-.thread290.i1131:                                 ; preds = %2091, %2090
+.thread288.i1131:                                 ; preds = %2091, %2090
   %2095 = getelementptr inbounds nuw i32, ptr %13, i64 %.0261.i.i1125
   %2096 = load i32, ptr %2095, align 4, !tbaa !22
   %.0232.i.val15.i1132 = load i64, ptr %.0232.i.i1121, align 1, !tbaa !21
@@ -5173,15 +5173,15 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   %2101 = trunc i64 %2100 to i32
   store i32 %2101, ptr %2095, align 4, !tbaa !22
   %.not289.i.i1133 = icmp ult i32 %2096, %1361
-  br i1 %.not289.i.i1133, label %.thread293.i1136, label %2102
+  br i1 %.not289.i.i1133, label %.thread290.i1136, label %2102
 
-2102:                                             ; preds = %.thread290.i1131
+2102:                                             ; preds = %.thread288.i1131
   %2103 = zext i32 %2096 to i64
   %2104 = getelementptr inbounds nuw i8, ptr %1347, i64 %2103
   %.val8.i1134 = load i32, ptr %2104, align 1, !tbaa !22
   %.0230.i.val7.pre.i1135 = load i32, ptr %.0230.i.i1122, align 1, !tbaa !22
   %2105 = icmp eq i32 %.0230.i.val7.pre.i1135, %.val8.i1134
-  br i1 %2105, label %.split175.us.i1141, label %.thread293.i1136
+  br i1 %2105, label %.split175.us.i1141, label %.thread290.i1136
 
 .split175.us.i1141:                               ; preds = %2102, %2069
   %.us-phi176.i1142 = phi i32 [ %2063, %2069 ], [ %2096, %2102 ]
@@ -5193,7 +5193,7 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   %2106 = icmp ult i64 %.us-phi179.i1145, 5
   br i1 %2106, label %.sink.split.i1269, label %2136
 
-.thread293.i1136:                                 ; preds = %2102, %.thread290.i1131
+.thread290.i1136:                                 ; preds = %2102, %.thread288.i1131
   %2107 = getelementptr inbounds nuw i32, ptr %13, i64 %2098
   %2108 = load i32, ptr %2107, align 4, !tbaa !22
   %.0234.i.val.i1137 = load i64, ptr %.0234.i.i1120, align 1, !tbaa !21
@@ -5202,7 +5202,7 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   %.not290.i.i1138 = icmp ult ptr %2109, %.0237.i.i1119
   br i1 %.not290.i.i1138, label %2130, label %2111
 
-2111:                                             ; preds = %.thread293.i1136
+2111:                                             ; preds = %.thread290.i1136
   %2112 = add i64 %.0240.i.i1118, 1
   %2113 = getelementptr inbounds nuw i8, ptr %.0234.i.i1120, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %2113, i32 0, i32 3, i32 1)
@@ -5229,9 +5229,9 @@ ZSTD_compressBlock_fast_noDict_5_0.exit:          ; preds = %.critedge3.i.i975, 
   store i32 %2128, ptr %2129, align 4, !tbaa !22
   br label %.critedge.i.i1151
 
-2130:                                             ; preds = %2111, %.thread293.i1136
-  %.1241.i.ph.i1139 = phi i64 [ %.0240.i.i1118, %.thread293.i1136 ], [ %2112, %2111 ]
-  %.1238.i.ph.i1140 = phi ptr [ %.0237.i.i1119, %.thread293.i1136 ], [ %2115, %2111 ]
+2130:                                             ; preds = %2111, %.thread290.i1136
+  %.1241.i.ph.i1139 = phi i64 [ %.0240.i.i1118, %.thread290.i1136 ], [ %2112, %2111 ]
+  %.1238.i.ph.i1140 = phi ptr [ %.0237.i.i1119, %.thread290.i1136 ], [ %2115, %2111 ]
   %2131 = icmp ult ptr %2110, %1365
   br i1 %2131, label %.split.i1114, label %ZSTD_compressBlock_fast_noDict_6_0.exit, !llvm.loop !33
 
@@ -5817,7 +5817,7 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   %2388 = trunc i64 %2387 to i32
   store i32 %2388, ptr %2382, align 4, !tbaa !22
   %.not289.i.us.i1503 = icmp ult i32 %2383, %1361
-  br i1 %.not289.i.us.i1503, label %.thread287.i1506, label %2389
+  br i1 %.not289.i.us.i1503, label %.thread286.i1506, label %2389
 
 2389:                                             ; preds = %.thread.i1501
   %2390 = zext i32 %2383 to i64
@@ -5825,9 +5825,9 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   %.val8.us.i1504 = load i32, ptr %2391, align 1, !tbaa !22
   %.0230.i.val7.us.pre.i1505 = load i32, ptr %.0230.i.us.i1494, align 1, !tbaa !22
   %2392 = icmp eq i32 %.0230.i.val7.us.pre.i1505, %.val8.us.i1504
-  br i1 %2392, label %.split175.us.i1351, label %.thread287.i1506
+  br i1 %2392, label %.split175.us.i1351, label %.thread286.i1506
 
-.thread287.i1506:                                 ; preds = %2389, %.thread.i1501
+.thread286.i1506:                                 ; preds = %2389, %.thread.i1501
   %2393 = getelementptr inbounds nuw i32, ptr %13, i64 %2385
   %2394 = load i32, ptr %2393, align 4, !tbaa !22
   %.0234.i.val.us.i1507 = load i64, ptr %.0234.i.us.i1492, align 1, !tbaa !21
@@ -5836,7 +5836,7 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   %.not290.i.us.i1508 = icmp ult ptr %2395, %.0237.i.us.i1491
   br i1 %.not290.i.us.i1508, label %2402, label %2397
 
-2397:                                             ; preds = %.thread287.i1506
+2397:                                             ; preds = %.thread286.i1506
   %2398 = add i64 %.0240.i.us.i1490, 1
   %2399 = getelementptr inbounds nuw i8, ptr %.0234.i.us.i1492, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %2399, i32 0, i32 3, i32 1)
@@ -5845,9 +5845,9 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   %2401 = getelementptr inbounds nuw i8, ptr %.0237.i.us.i1491, i64 128
   br label %2402
 
-2402:                                             ; preds = %2397, %.thread287.i1506
-  %.1241.i.ph.us.i1509 = phi i64 [ %.0240.i.us.i1490, %.thread287.i1506 ], [ %2398, %2397 ]
-  %.1238.i.ph.us.i1510 = phi ptr [ %.0237.i.us.i1491, %.thread287.i1506 ], [ %2401, %2397 ]
+2402:                                             ; preds = %2397, %.thread286.i1506
+  %.1241.i.ph.us.i1509 = phi i64 [ %.0240.i.us.i1490, %.thread286.i1506 ], [ %2398, %2397 ]
+  %.1238.i.ph.us.i1510 = phi ptr [ %.0237.i.us.i1491, %.thread286.i1506 ], [ %2401, %2397 ]
   %2403 = icmp ult ptr %2396, %1365
   br i1 %2403, label %.split.us.i1486, label %ZSTD_compressBlock_fast_noDict_7_0.exit, !llvm.loop !33
 
@@ -5876,7 +5876,7 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
 
 2410:                                             ; preds = %.split.i1324
   %.not288.i.i1338 = icmp ult i32 %.0259.i.i1327, %1361
-  br i1 %.not288.i.i1338, label %.thread290.i1341, label %2411
+  br i1 %.not288.i.i1338, label %.thread288.i1341, label %2411
 
 2411:                                             ; preds = %2410
   %2412 = zext i32 %.0259.i.i1327 to i64
@@ -5884,9 +5884,9 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   %.val10.i1339 = load i32, ptr %2413, align 1, !tbaa !22
   %.1228.i.val9.pre.i1340 = load i32, ptr %.1228.i.i1333, align 1, !tbaa !22
   %2414 = icmp eq i32 %.1228.i.val9.pre.i1340, %.val10.i1339
-  br i1 %2414, label %.sink.split.i1479, label %.thread290.i1341
+  br i1 %2414, label %.sink.split.i1479, label %.thread288.i1341
 
-.thread290.i1341:                                 ; preds = %2411, %2410
+.thread288.i1341:                                 ; preds = %2411, %2410
   %2415 = getelementptr inbounds nuw i32, ptr %13, i64 %.0261.i.i1335
   %2416 = load i32, ptr %2415, align 4, !tbaa !22
   %.0232.i.val15.i1342 = load i64, ptr %.0232.i.i1331, align 1, !tbaa !21
@@ -5897,15 +5897,15 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   %2421 = trunc i64 %2420 to i32
   store i32 %2421, ptr %2415, align 4, !tbaa !22
   %.not289.i.i1343 = icmp ult i32 %2416, %1361
-  br i1 %.not289.i.i1343, label %.thread293.i1346, label %2422
+  br i1 %.not289.i.i1343, label %.thread290.i1346, label %2422
 
-2422:                                             ; preds = %.thread290.i1341
+2422:                                             ; preds = %.thread288.i1341
   %2423 = zext i32 %2416 to i64
   %2424 = getelementptr inbounds nuw i8, ptr %1347, i64 %2423
   %.val8.i1344 = load i32, ptr %2424, align 1, !tbaa !22
   %.0230.i.val7.pre.i1345 = load i32, ptr %.0230.i.i1332, align 1, !tbaa !22
   %2425 = icmp eq i32 %.0230.i.val7.pre.i1345, %.val8.i1344
-  br i1 %2425, label %.split175.us.i1351, label %.thread293.i1346
+  br i1 %2425, label %.split175.us.i1351, label %.thread290.i1346
 
 .split175.us.i1351:                               ; preds = %2422, %2389
   %.us-phi176.i1352 = phi i32 [ %2383, %2389 ], [ %2416, %2422 ]
@@ -5917,7 +5917,7 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   %2426 = icmp ult i64 %.us-phi179.i1355, 5
   br i1 %2426, label %.sink.split.i1479, label %2456
 
-.thread293.i1346:                                 ; preds = %2422, %.thread290.i1341
+.thread290.i1346:                                 ; preds = %2422, %.thread288.i1341
   %2427 = getelementptr inbounds nuw i32, ptr %13, i64 %2418
   %2428 = load i32, ptr %2427, align 4, !tbaa !22
   %.0234.i.val.i1347 = load i64, ptr %.0234.i.i1330, align 1, !tbaa !21
@@ -5926,7 +5926,7 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   %.not290.i.i1348 = icmp ult ptr %2429, %.0237.i.i1329
   br i1 %.not290.i.i1348, label %2450, label %2431
 
-2431:                                             ; preds = %.thread293.i1346
+2431:                                             ; preds = %.thread290.i1346
   %2432 = add i64 %.0240.i.i1328, 1
   %2433 = getelementptr inbounds nuw i8, ptr %.0234.i.i1330, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %2433, i32 0, i32 3, i32 1)
@@ -5953,9 +5953,9 @@ ZSTD_compressBlock_fast_noDict_6_0.exit:          ; preds = %.critedge3.i.i1185,
   store i32 %2448, ptr %2449, align 4, !tbaa !22
   br label %.critedge.i.i1361
 
-2450:                                             ; preds = %2431, %.thread293.i1346
-  %.1241.i.ph.i1349 = phi i64 [ %.0240.i.i1328, %.thread293.i1346 ], [ %2432, %2431 ]
-  %.1238.i.ph.i1350 = phi ptr [ %.0237.i.i1329, %.thread293.i1346 ], [ %2435, %2431 ]
+2450:                                             ; preds = %2431, %.thread290.i1346
+  %.1241.i.ph.i1349 = phi i64 [ %.0240.i.i1328, %.thread290.i1346 ], [ %2432, %2431 ]
+  %.1238.i.ph.i1350 = phi ptr [ %.0237.i.i1329, %.thread290.i1346 ], [ %2435, %2431 ]
   %2451 = icmp ult ptr %2430, %1365
   br i1 %2451, label %.split.i1324, label %ZSTD_compressBlock_fast_noDict_7_0.exit, !llvm.loop !33
 

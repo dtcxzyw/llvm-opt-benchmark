@@ -2675,12 +2675,15 @@ define noundef range(i8 0, 4) i8 @_ZN3git6status9GitStatus3get17hf353843cd49339f
   %.sroa.013.0.i = select i1 %20, i64 %21, i64 %.sroa.03.021.i
   %22 = sub i64 %.sroa.014.0.i, %.sroa.013.0.i
   %23 = icmp ult i64 %.sroa.013.0.i, %.sroa.014.0.i
-  br i1 %23, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit"
+  br i1 %23, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit.loopexit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit": ; preds = %18, %3
-  %.sroa.03.0.lcssa.i = phi i64 [ 0, %3 ], [ %.sroa.013.0.i, %18 ]
-  %24 = icmp ule i64 %.sroa.03.0.lcssa.i, %8
-  tail call void @llvm.assume(i1 %24)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit.loopexit": ; preds = %18
+  %24 = icmp ule i64 %.sroa.013.0.i, %8
+  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit"
+
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit.loopexit", %3
+  %.sroa.03.0.lcssa.i = phi i1 [ true, %3 ], [ %24, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit.loopexit" ]
+  tail call void @llvm.assume(i1 %.sroa.03.0.lcssa.i)
   br label %25
 
 25:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit", %26

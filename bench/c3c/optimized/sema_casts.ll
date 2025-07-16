@@ -5300,72 +5300,72 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr noundef readonly ca
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not51 = icmp eq ptr %17, null
-  br i1 %.not51, label %.thread55, label %18
+  br i1 %.not51, label %.critedge, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %17, i64 -8
   %20 = load i32, ptr %19, align 4
-  %.not52 = icmp eq i32 %10, %20
-  br i1 %.not52, label %34, label %.thread58
+  %21 = icmp eq i32 %10, %20
+  br i1 %21, label %35, label %.critedge.thread
 
-.thread55:                                        ; preds = %11
-  br i1 %2, label %.thread, label %21
+.critedge:                                        ; preds = %11
+  br i1 %2, label %.thread, label %22
 
-.thread58:                                        ; preds = %18
-  br i1 %2, label %.thread, label %25
+.critedge.thread:                                 ; preds = %18
+  br i1 %2, label %.thread, label %26
 
-21:                                               ; preds = %.thread55
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @type_quoted_error_string(ptr noundef %23) #10
-  br label %30
+22:                                               ; preds = %.critedge
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call ptr @type_quoted_error_string(ptr noundef %24) #10
+  br label %31
 
-25:                                               ; preds = %.thread58
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr @type_quoted_error_string(ptr noundef %27) #10
-  %29 = load i32, ptr %19, align 4
-  br label %30
+26:                                               ; preds = %.critedge.thread
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call ptr @type_quoted_error_string(ptr noundef %28) #10
+  %30 = load i32, ptr %19, align 4
+  br label %31
 
-30:                                               ; preds = %21, %25
-  %31 = phi ptr [ %28, %25 ], [ %24, %21 ]
-  %.044 = phi i32 [ %29, %25 ], [ 0, %21 ]
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %33 = load i64, ptr %32, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %33, ptr noundef nonnull @.str.31, ptr noundef %31, i32 noundef %.044, i32 noundef %10) #10
+31:                                               ; preds = %22, %26
+  %32 = phi ptr [ %29, %26 ], [ %25, %22 ]
+  %.044 = phi i32 [ %30, %26 ], [ 0, %22 ]
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %34 = load i64, ptr %33, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.31, ptr noundef %32, i32 noundef %.044, i32 noundef %10) #10
   br label %.thread
 
-34:                                               ; preds = %18
-  %35 = load ptr, ptr %0, align 8
-  %36 = tail call zeroext i1 @sema_analyse_decl(ptr noundef %35, ptr noundef nonnull %15) #10
-  br i1 %36, label %37, label %.thread
+35:                                               ; preds = %18
+  %36 = load ptr, ptr %0, align 8
+  %37 = tail call zeroext i1 @sema_analyse_decl(ptr noundef %36, ptr noundef nonnull %15) #10
+  br i1 %37, label %38, label %.thread
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %9, align 4
-  %.not63 = icmp eq i32 %38, 0
-  br i1 %.not63, label %.thread, label %.lr.ph.preheader
+38:                                               ; preds = %35
+  %39 = load i32, ptr %9, align 4
+  %.not59 = icmp eq i32 %39, 0
+  br i1 %.not59, label %.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %37
-  %wide.trip.count = zext i32 %38 to i64
+.lr.ph.preheader:                                 ; preds = %38
+  %wide.trip.count = zext i32 %39 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %39 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call zeroext i1 @may_cast(ptr noundef %41, ptr noundef %40, ptr noundef %45, i1 noundef zeroext false, i1 noundef zeroext %2)
+  %40 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %0, align 8
+  %43 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call zeroext i1 @may_cast(ptr noundef %42, ptr noundef %41, ptr noundef %46, i1 noundef zeroext false, i1 noundef zeroext %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %46, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %47, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !12
 
-.thread:                                          ; preds = %.lr.ph, %37, %3, %.thread58, %34, %.thread55, %8, %30
-  %.046 = phi i1 [ false, %30 ], [ true, %8 ], [ false, %.thread55 ], [ false, %34 ], [ false, %.thread58 ], [ true, %3 ], [ true, %37 ], [ %46, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %38, %3, %.critedge.thread, %35, %.critedge, %8, %31
+  %.046 = phi i1 [ false, %31 ], [ true, %8 ], [ false, %.critedge ], [ false, %35 ], [ false, %.critedge.thread ], [ true, %3 ], [ true, %38 ], [ %47, %.lr.ph ]
   ret i1 %.046
 }
 

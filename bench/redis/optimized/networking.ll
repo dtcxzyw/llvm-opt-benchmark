@@ -14813,7 +14813,7 @@ define dso_local void @evictClients() local_unnamed_addr #0 {
   %1 = alloca %struct.listIter, align 8
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !278
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %66, label %3
+  br i1 %.not, label %67, label %3
 
 3:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #26
@@ -14849,11 +14849,11 @@ getClientEvictionLimit.exit:                      ; preds = %10, %17
   %.not3038 = icmp ult i64 %21, %spec.store.select.i
   br i1 %.not3038, label %getClientEvictionLimit.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %getClientEvictionLimit.exit, %62
-  %.039 = phi i32 [ %.2, %62 ], [ 18, %getClientEvictionLimit.exit ]
+.lr.ph:                                           ; preds = %getClientEvictionLimit.exit, %63
+  %.039 = phi i32 [ %.2, %63 ], [ 18, %getClientEvictionLimit.exit ]
   %22 = call ptr @listNext(ptr noundef nonnull %1) #26
   %.not31 = icmp eq ptr %22, null
-  br i1 %.not31, label %51, label %23
+  br i1 %.not31, label %52, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -14870,84 +14870,84 @@ getClientEvictionLimit.exit:                      ; preds = %10, %17
   call void @pauseIOThread(i32 noundef %28) #26
   %32 = call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %25) #26
   %.pre = load i64, ptr %30, align 8, !tbaa !201
-  %.not33 = icmp ult i64 %.pre, %31
-  br i1 %.not33, label %33, label %.thread
+  %33 = icmp ult i64 %.pre, %31
+  br i1 %33, label %34, label %.thread
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 712
-  %35 = load ptr, ptr %34, align 8, !tbaa !209
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !278
-  %37 = sext i32 %.039 to i64
-  %38 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %36, i64 %37
-  %39 = icmp eq ptr %35, %38
-  br i1 %39, label %.thread, label %.thread41
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 712
+  %36 = load ptr, ptr %35, align 8, !tbaa !209
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !278
+  %38 = sext i32 %.039 to i64
+  %39 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %37, i64 %38
+  %40 = icmp eq ptr %36, %39
+  br i1 %40, label %.thread, label %.thread41
 
-.thread:                                          ; preds = %23, %33, %29
-  %40 = call ptr @sdsempty() #26
-  %41 = call ptr @catClientInfoString(ptr noundef %40, ptr noundef nonnull %25)
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !125
-  %43 = icmp sgt i32 %42, 2
-  br i1 %43, label %45, label %44
+.thread:                                          ; preds = %23, %34, %29
+  %41 = call ptr @sdsempty() #26
+  %42 = call ptr @catClientInfoString(ptr noundef %41, ptr noundef nonnull %25)
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !125
+  %44 = icmp sgt i32 %43, 2
+  br i1 %44, label %46, label %45
 
-44:                                               ; preds = %.thread
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.244, ptr noundef %41) #26
-  br label %45
+45:                                               ; preds = %.thread
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.244, ptr noundef %42) #26
+  br label %46
 
-45:                                               ; preds = %44, %.thread
+46:                                               ; preds = %45, %.thread
   call void @freeClient(ptr noundef nonnull %25)
-  call void @sdsfree(ptr noundef %41) #26
-  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2536), align 8, !tbaa !279
-  %47 = add nsw i64 %46, 1
-  store i64 %47, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2536), align 8, !tbaa !279
-  br i1 %.not32, label %62, label %.thread41
+  call void @sdsfree(ptr noundef %42) #26
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2536), align 8, !tbaa !279
+  %48 = add nsw i64 %47, 1
+  store i64 %48, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2536), align 8, !tbaa !279
+  br i1 %.not32, label %63, label %.thread41
 
-.thread41:                                        ; preds = %33, %45
+.thread41:                                        ; preds = %34, %46
   call void @resumeIOThread(i32 noundef %28) #26
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !278
-  %49 = sext i32 %.039 to i64
-  %50 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %48, i64 %49
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !278
+  %50 = sext i32 %.039 to i64
+  %51 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %49, i64 %50
   br label %.sink.split
 
-51:                                               ; preds = %.lr.ph
-  %52 = icmp slt i32 %.039, 1
-  br i1 %52, label %53, label %57
+52:                                               ; preds = %.lr.ph
+  %53 = icmp slt i32 %.039, 1
+  br i1 %53, label %54, label %58
 
-53:                                               ; preds = %51
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !125
-  %55 = icmp sgt i32 %54, 3
-  br i1 %55, label %getClientEvictionLimit.exit.thread, label %56
+54:                                               ; preds = %52
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !125
+  %56 = icmp sgt i32 %55, 3
+  br i1 %56, label %getClientEvictionLimit.exit.thread, label %57
 
-56:                                               ; preds = %53
+57:                                               ; preds = %54
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.245) #26
   br label %getClientEvictionLimit.exit.thread
 
-57:                                               ; preds = %51
-  %58 = add nsw i32 %.039, -1
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !278
-  %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw %struct.clientMemUsageBucket, ptr %59, i64 %60
+58:                                               ; preds = %52
+  %59 = add nsw i32 %.039, -1
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !278
+  %61 = zext nneg i32 %59 to i64
+  %62 = getelementptr inbounds nuw %struct.clientMemUsageBucket, ptr %60, i64 %61
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread41, %57
-  %.sink.in = phi ptr [ %61, %57 ], [ %50, %.thread41 ]
-  %.2.ph = phi i32 [ %58, %57 ], [ %.039, %.thread41 ]
+.sink.split:                                      ; preds = %.thread41, %58
+  %.sink.in = phi ptr [ %62, %58 ], [ %51, %.thread41 ]
+  %.2.ph = phi i32 [ %59, %58 ], [ %.039, %.thread41 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !212
   call void @listRewind(ptr noundef %.sink, ptr noundef nonnull %1) #26
-  br label %62
+  br label %63
 
-62:                                               ; preds = %.sink.split, %45
-  %.2 = phi i32 [ %.039, %45 ], [ %.2.ph, %.sink.split ]
-  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2952), align 8, !tbaa !16
-  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2968), align 8, !tbaa !16
-  %65 = add i64 %64, %63
-  %.not30 = icmp ult i64 %65, %spec.store.select.i
+63:                                               ; preds = %.sink.split, %46
+  %.2 = phi i32 [ %.039, %46 ], [ %.2.ph, %.sink.split ]
+  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2952), align 8, !tbaa !16
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2968), align 8, !tbaa !16
+  %66 = add i64 %65, %64
+  %.not30 = icmp ult i64 %66, %spec.store.select.i
   br i1 %.not30, label %getClientEvictionLimit.exit.thread, label %.lr.ph
 
-getClientEvictionLimit.exit.thread:               ; preds = %62, %getClientEvictionLimit.exit, %56, %53, %17
+getClientEvictionLimit.exit.thread:               ; preds = %63, %getClientEvictionLimit.exit, %57, %54, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #26
-  br label %66
+  br label %67
 
-66:                                               ; preds = %0, %getClientEvictionLimit.exit.thread
+67:                                               ; preds = %0, %getClientEvictionLimit.exit.thread
   ret void
 }
 

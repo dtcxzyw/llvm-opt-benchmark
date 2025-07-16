@@ -16,23 +16,23 @@ define hidden i32 @ExUtilGetUInt(ptr noundef %0, i32 noundef %1, ptr noundef cap
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store ptr null, ptr %4, align 8, !tbaa !4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %8, label %5
+  br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
   %6 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %1) #8
   %7 = trunc i64 %6 to i32
   %.pre = load ptr, ptr %4, align 8, !tbaa !4
-  br label %8
+  %8 = icmp eq ptr %.pre, %0
+  br label %9
 
-8:                                                ; preds = %3, %5
-  %9 = phi ptr [ %.pre, %5 ], [ null, %3 ]
-  %10 = phi i32 [ %7, %5 ], [ 0, %3 ]
-  %11 = icmp eq ptr %9, %0
+9:                                                ; preds = %3, %5
+  %10 = phi i1 [ %8, %5 ], [ true, %3 ]
+  %11 = phi i32 [ %7, %5 ], [ 0, %3 ]
   %12 = icmp ne ptr %2, null
-  %or.cond = and i1 %12, %11
+  %or.cond = and i1 %12, %10
   br i1 %or.cond, label %13, label %19
 
-13:                                               ; preds = %8
+13:                                               ; preds = %9
   %14 = load i32, ptr %2, align 4, !tbaa !9
   %.not11 = icmp eq i32 %14, 0
   br i1 %.not11, label %15, label %19
@@ -44,9 +44,9 @@ define hidden i32 @ExUtilGetUInt(ptr noundef %0, i32 noundef %1, ptr noundef cap
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull %17) #9
   br label %19
 
-19:                                               ; preds = %15, %13, %8
+19:                                               ; preds = %15, %13, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  ret i32 %10
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -67,23 +67,23 @@ define hidden i32 @ExUtilGetInt(ptr noundef %0, i32 noundef %1, ptr noundef capt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store ptr null, ptr %4, align 8, !tbaa !4
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %8, label %5
+  br i1 %.not.i, label %9, label %5
 
 5:                                                ; preds = %3
   %6 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %1) #8
   %7 = trunc i64 %6 to i32
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !4
-  br label %8
+  %8 = icmp eq ptr %.pre.i, %0
+  br label %9
 
-8:                                                ; preds = %5, %3
-  %9 = phi ptr [ %.pre.i, %5 ], [ null, %3 ]
-  %10 = phi i32 [ %7, %5 ], [ 0, %3 ]
-  %11 = icmp eq ptr %9, %0
+9:                                                ; preds = %5, %3
+  %10 = phi i1 [ %8, %5 ], [ true, %3 ]
+  %11 = phi i32 [ %7, %5 ], [ 0, %3 ]
   %12 = icmp ne ptr %2, null
-  %or.cond.i = and i1 %12, %11
+  %or.cond.i = and i1 %12, %10
   br i1 %or.cond.i, label %13, label %ExUtilGetUInt.exit
 
-13:                                               ; preds = %8
+13:                                               ; preds = %9
   %14 = load i32, ptr %2, align 4, !tbaa !9
   %.not11.i = icmp eq i32 %14, 0
   br i1 %.not11.i, label %15, label %ExUtilGetUInt.exit
@@ -95,9 +95,9 @@ define hidden i32 @ExUtilGetInt(ptr noundef %0, i32 noundef %1, ptr noundef capt
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull %17) #9
   br label %ExUtilGetUInt.exit
 
-ExUtilGetUInt.exit:                               ; preds = %8, %13, %15
+ExUtilGetUInt.exit:                               ; preds = %9, %13, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  ret i32 %10
+  ret i32 %11
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -160,23 +160,23 @@ define hidden float @ExUtilGetFloat(ptr noundef %0, ptr noundef captures(address
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !tbaa !4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %7, label %4
+  br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = call double @strtod(ptr noundef nonnull %0, ptr noundef nonnull %3) #8
   %6 = fptrunc double %5 to float
   %.pre = load ptr, ptr %3, align 8, !tbaa !4
-  br label %7
+  %7 = icmp eq ptr %.pre, %0
+  br label %8
 
-7:                                                ; preds = %2, %4
-  %8 = phi ptr [ %.pre, %4 ], [ null, %2 ]
-  %9 = phi float [ %6, %4 ], [ 0.000000e+00, %2 ]
-  %10 = icmp eq ptr %8, %0
+8:                                                ; preds = %2, %4
+  %9 = phi i1 [ %7, %4 ], [ true, %2 ]
+  %10 = phi float [ %6, %4 ], [ 0.000000e+00, %2 ]
   %11 = icmp ne ptr %1, null
-  %or.cond = and i1 %11, %10
+  %or.cond = and i1 %11, %9
   br i1 %or.cond, label %12, label %18
 
-12:                                               ; preds = %7
+12:                                               ; preds = %8
   %13 = load i32, ptr %1, align 4, !tbaa !9
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %14, label %18
@@ -188,9 +188,9 @@ define hidden float @ExUtilGetFloat(ptr noundef %0, ptr noundef captures(address
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.2, ptr noundef nonnull %16) #9
   br label %18
 
-18:                                               ; preds = %14, %12, %7
+18:                                               ; preds = %14, %12, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  ret float %9
+  ret float %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn

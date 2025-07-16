@@ -4748,7 +4748,7 @@ define hidden void @_ZN3zip4read26central_header_to_zip_file17h8144220287a22003E
 
 170:                                              ; preds = %.noexc137.i
   %171 = load ptr, ptr %164, align 8, !noalias !605, !nonnull !15, !noundef !15
-  %172 = icmp uge i64 %163, %67
+  %172 = icmp ule i64 %67, %163
   call void @llvm.assume(i1 %172)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !605
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %171, ptr nonnull readonly align 1 %63, i64 %67, i1 false), !noalias !616
@@ -6531,22 +6531,22 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !range !86, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %trunc, label %17, label %10
+  br i1 %trunc, label %16, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %9, align 8, !nonnull !15, !noundef !15
   %12 = icmp eq i64 %2, 0
-  %13 = icmp uge i64 %8, %0
-  %14 = or i1 %12, %13
-  tail call void @llvm.assume(i1 %14)
+  %13 = icmp ule i64 %0, %8
+  %.sroa.03.0 = or i1 %12, %13
+  tail call void @llvm.assume(i1 %.sroa.03.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %15 = insertvalue { i64, ptr } poison, i64 %8, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %11, 1
-  ret { i64, ptr } %16
+  %14 = insertvalue { i64, ptr } poison, i64 %8, 0
+  %15 = insertvalue { i64, ptr } %14, ptr %11, 1
+  ret { i64, ptr } %15
 
-17:                                               ; preds = %4
-  %18 = load i64, ptr %9, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #30
+16:                                               ; preds = %4
+  %17 = load i64, ptr %9, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #30
   unreachable
 }
 
@@ -7353,7 +7353,7 @@ define hidden void @"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFro
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbb7908080d49f783E.llvm.13999927383908161603.exit": ; preds = %13
   %20 = load ptr, ptr %17, align 8, !noalias !1180, !nonnull !15, !noundef !15
-  %21 = icmp uge i64 %16, %2
+  %21 = icmp ule i64 %2, %16
   tail call void @llvm.assume(i1 %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1180
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 %1, i64 %2, i1 false)
@@ -8434,7 +8434,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 50:                                               ; preds = %.noexc.i
   %51 = load ptr, ptr %47, align 8, !noalias !1356, !nonnull !15, !noundef !15
-  %52 = icmp uge i64 %46, %43
+  %52 = icmp ule i64 %43, %46
   call void @llvm.assume(i1 %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1356
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %41, i64 %43, i1 false), !noalias !1362
@@ -8625,7 +8625,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 50:                                               ; preds = %.noexc.i
   %51 = load ptr, ptr %47, align 8, !noalias !1375, !nonnull !15, !noundef !15
-  %52 = icmp uge i64 %46, %43
+  %52 = icmp ule i64 %43, %46
   call void @llvm.assume(i1 %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1375
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %41, i64 %43, i1 false), !noalias !1381
@@ -8816,7 +8816,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 50:                                               ; preds = %.noexc.i
   %51 = load ptr, ptr %47, align 8, !noalias !1394, !nonnull !15, !noundef !15
-  %52 = icmp uge i64 %46, %43
+  %52 = icmp ule i64 %43, %46
   call void @llvm.assume(i1 %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1394
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %41, i64 %43, i1 false), !noalias !1400
@@ -9007,7 +9007,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 50:                                               ; preds = %.noexc.i
   %51 = load ptr, ptr %47, align 8, !noalias !1413, !nonnull !15, !noundef !15
-  %52 = icmp uge i64 %46, %43
+  %52 = icmp ule i64 %43, %46
   call void @llvm.assume(i1 %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1413
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %41, i64 %43, i1 false), !noalias !1419
@@ -9202,7 +9202,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 53:                                               ; preds = %.noexc.i
   %54 = load ptr, ptr %50, align 8, !noalias !1432, !nonnull !15, !noundef !15
-  %55 = icmp uge i64 %49, %46
+  %55 = icmp ule i64 %46, %49
   call void @llvm.assume(i1 %55)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1432
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %44, i64 %46, i1 false), !noalias !1438
@@ -9393,7 +9393,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 50:                                               ; preds = %.noexc.i
   %51 = load ptr, ptr %47, align 8, !noalias !1451, !nonnull !15, !noundef !15
-  %52 = icmp uge i64 %46, %43
+  %52 = icmp ule i64 %43, %46
   call void @llvm.assume(i1 %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1451
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %41, i64 %43, i1 false), !noalias !1457
@@ -9639,7 +9639,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 67:                                               ; preds = %.noexc.i
   %68 = load ptr, ptr %64, align 8, !noalias !1491, !nonnull !15, !noundef !15
-  %69 = icmp uge i64 %63, %60
+  %69 = icmp ule i64 %60, %63
   call void @llvm.assume(i1 %69)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1491
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull readonly align 1 %58, i64 %60, i1 false), !noalias !1497
@@ -9829,7 +9829,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 49:                                               ; preds = %.noexc.i
   %50 = load ptr, ptr %46, align 8, !noalias !1510, !nonnull !15, !noundef !15
-  %51 = icmp uge i64 %45, %42
+  %51 = icmp ule i64 %42, %45
   call void @llvm.assume(i1 %51)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1510
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 1 %40, i64 %42, i1 false), !noalias !1516
@@ -10016,7 +10016,7 @@ define internal fastcc void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20
 
 47:                                               ; preds = %.noexc.i
   %48 = load ptr, ptr %44, align 8, !noalias !1529, !nonnull !15, !noundef !15
-  %49 = icmp uge i64 %43, %40
+  %49 = icmp ule i64 %40, %43
   call void @llvm.assume(i1 %49)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1529
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %38, i64 %40, i1 false), !noalias !1535
@@ -10206,7 +10206,7 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
 
 49:                                               ; preds = %.noexc.i
   %50 = load ptr, ptr %46, align 8, !noalias !1548, !nonnull !15, !noundef !15
-  %51 = icmp uge i64 %45, %42
+  %51 = icmp ule i64 %42, %45
   call void @llvm.assume(i1 %51)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1548
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 1 %40, i64 %42, i1 false), !noalias !1554
@@ -12348,7 +12348,7 @@ define hidden void @"_ZN207_$LT$uv_distribution..source..has_sources.._..$LT$imp
 
 107:                                              ; preds = %.noexc.i.i.i
   %108 = load ptr, ptr %42, align 8, !noalias !1922, !nonnull !15, !noundef !15
-  %109 = icmp uge i64 %104, %102
+  %109 = icmp ule i64 %102, %104
   call void @llvm.assume(i1 %109)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1922
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull readonly align 1 %101, i64 %102, i1 false), !noalias !1928
@@ -13135,7 +13135,7 @@ define hidden void @"_ZN198_$LT$uv_distribution..source..has_sources.._..$LT$imp
 
 107:                                              ; preds = %.noexc.i.i.i
   %108 = load ptr, ptr %42, align 8, !noalias !2076, !nonnull !15, !noundef !15
-  %109 = icmp uge i64 %104, %102
+  %109 = icmp ule i64 %102, %104
   call void @llvm.assume(i1 %109)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2076
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull readonly align 1 %101, i64 %102, i1 false), !noalias !2082
@@ -13922,7 +13922,7 @@ define hidden void @"_ZN200_$LT$uv_distribution..source..has_sources.._..$LT$imp
 
 107:                                              ; preds = %.noexc.i.i.i
   %108 = load ptr, ptr %42, align 8, !noalias !2226, !nonnull !15, !noundef !15
-  %109 = icmp uge i64 %104, %102
+  %109 = icmp ule i64 %102, %104
   call void @llvm.assume(i1 %109)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2226
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull readonly align 1 %101, i64 %102, i1 false), !noalias !2232

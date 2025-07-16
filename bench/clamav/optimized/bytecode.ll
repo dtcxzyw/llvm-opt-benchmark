@@ -7395,10 +7395,10 @@ set_mode.exit:                                    ; preds = %set_mode.exit.sink.
 
 ._crit_edge.i:                                    ; preds = %64
   %70 = trunc nuw i64 %indvars.iv.i to i32
-  %.not35.i = icmp eq i32 %62, %70
-  br i1 %.not35.i, label %._crit_edge.thread.i, label %81
+  %.not40.i = icmp eq i32 %62, %70
+  br i1 %.not40.i, label %._crit_edge.thread.i, label %81
 
-._crit_edge.thread.i:                             ; preds = %69, %59, %._crit_edge.i
+._crit_edge.thread.i:                             ; preds = %69, %._crit_edge.i, %59
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #25
   %71 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 1, i64 noundef 200) #24
   %.not56.i = icmp eq ptr %71, null
@@ -7440,7 +7440,7 @@ run_builtin_or_loaded.exit.thread:                ; preds = %72, %79
   %.3.i = phi ptr [ %65, %._crit_edge.i ], [ %71, %80 ]
   %82 = call fastcc i32 @cli_bytecode_prepare_interpreter(ptr noundef nonnull %.3.i)
   %.not59.i = icmp eq i32 %82, 0
-  br i1 %.not59.i, label %83, label %.thread29.i
+  br i1 %.not59.i, label %83, label %.thread34.i
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %.3.i, i64 104
@@ -7452,17 +7452,17 @@ run_builtin_or_loaded.exit.thread:                ; preds = %72, %79
   %.pre166 = select i1 %.not.not28.i, ptr @.str.380, ptr @.str.379
   br label %.thread4.i
 
-.thread29.i:                                      ; preds = %81
+.thread34.i:                                      ; preds = %81
   %86 = select i1 %.not.not28.i, ptr @.str.380, ptr @.str.379
   %87 = call ptr @cl_strerror(i32 noundef %82) #25
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.378, ptr noundef nonnull %86, ptr noundef nonnull @.str.48, ptr noundef %87) #25
   %88 = getelementptr inbounds nuw i8, ptr %.3.i, i64 104
   %89 = load i32, ptr %88, align 8, !tbaa !143
-  %.not6130.i = icmp eq i32 %89, 3
-  br i1 %.not6130.i, label %.thread8.i, label %.thread4.i
+  %.not6135.i = icmp eq i32 %89, 3
+  br i1 %.not6135.i, label %.thread8.i, label %.thread4.i
 
-.thread4.i:                                       ; preds = %..thread4.i_crit_edge, %.thread29.i
-  %.pre-phi = phi ptr [ %.pre166, %..thread4.i_crit_edge ], [ %86, %.thread29.i ]
+.thread4.i:                                       ; preds = %..thread4.i_crit_edge, %.thread34.i
+  %.pre-phi = phi ptr [ %.pre166, %..thread4.i_crit_edge ], [ %86, %.thread34.i ]
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.381, ptr noundef nonnull %.pre-phi, ptr noundef nonnull @.str.48) #25
   br label %.thread8.i
 
@@ -7474,9 +7474,9 @@ run_builtin_or_loaded.exit.thread:                ; preds = %72, %79
   %.not65.i = icmp eq i32 %93, 0
   br i1 %.not65.i, label %95, label %.thread8.i
 
-.thread8.i:                                       ; preds = %.thread29.i, %90, %.thread4.i
-  %.pre-phi.i = phi ptr [ %.pre-phi, %.thread4.i ], [ %92, %90 ], [ %86, %.thread29.i ]
-  %.14611.i = phi i32 [ 4, %.thread4.i ], [ %93, %90 ], [ %82, %.thread29.i ]
+.thread8.i:                                       ; preds = %.thread34.i, %90, %.thread4.i
+  %.pre-phi.i = phi ptr [ %.pre-phi, %.thread4.i ], [ %92, %90 ], [ %86, %.thread34.i ]
+  %.14611.i = phi i32 [ 4, %.thread4.i ], [ %93, %90 ], [ %82, %.thread34.i ]
   %94 = call ptr @cl_strerror(i32 noundef %.14611.i) #25
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.383, ptr noundef nonnull %.pre-phi.i, ptr noundef nonnull @.str.48, ptr noundef %94) #25
   br label %95

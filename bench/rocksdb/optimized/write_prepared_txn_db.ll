@@ -8918,11 +8918,10 @@ _ZNSt8_Rb_treeImSt4pairIKmSt6vectorImSaImEEESt10_Select1stIS5_ESt4lessImESaIS5_E
   %25 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %26 = load i64, ptr %25, align 8, !tbaa !36
   %27 = icmp ult i64 %1, %26
-  %spec.select.i.i = select i1 %27, ptr %19, ptr %.19.i.i.i
   br label %_ZNSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %24, %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorImSaImEEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit
-  %.sroa.0.0.i.i = phi ptr [ %19, %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorImSaImEEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %19, %_ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit ], [ %spec.select.i.i, %24 ]
+  %.sroa.0.0.i.i = phi i1 [ true, %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorImSaImEEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ true, %_ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit ], [ %27, %24 ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %15)
           to label %_ZN7rocksdb8ReadLockD2Ev.exit unwind label %28
 
@@ -8934,8 +8933,7 @@ _ZNSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; pred
   unreachable
 
 _ZN7rocksdb8ReadLockD2Ev.exit:                    ; preds = %_ZNSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %.not19 = icmp eq ptr %.sroa.0.0.i.i, %19
-  br i1 %.not19, label %_ZN7rocksdb9WriteLockD2Ev.exit, label %31
+  br i1 %.sroa.0.0.i.i, label %_ZN7rocksdb9WriteLockD2Ev.exit, label %31
 
 31:                                               ; preds = %_ZN7rocksdb8ReadLockD2Ev.exit
   %32 = load ptr, ptr %6, align 8, !tbaa !56

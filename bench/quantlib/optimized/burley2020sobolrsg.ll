@@ -749,14 +749,14 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T
   %16 = load ptr, ptr %group4Seeds_, align 8, !tbaa !25
   %17 = load ptr, ptr %integerSequence_, align 8
   %.pre = load i64, ptr %this, align 8
+  %18 = icmp ne i64 %.pre, 0
   br label %do.body
 
 do.body:                                          ; preds = %for.cond.cleanup, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit
-  %18 = phi i64 [ %.pre, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit ], [ %29, %for.cond.cleanup ]
+  %cmp19110 = phi i1 [ %18, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit ], [ true, %for.cond.cleanup ]
   %i.0 = phi i64 [ 0, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit ], [ %inc28, %for.cond.cleanup ]
   %group.0 = phi i64 [ 0, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit ], [ %inc, %for.cond.cleanup ]
   %inc = add i64 %group.0, 1
-  %cmp19110 = icmp ult i64 %i.0, %18
   br i1 %cmp19110, label %for.body.preheader, label %do.body31
 
 for.body.preheader:                               ; preds = %do.body

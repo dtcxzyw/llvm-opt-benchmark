@@ -6434,19 +6434,19 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit.i: ; pred
   store i64 %266, ptr %263, align 8
   store i32 1, ptr %264, align 8, !tbaa !26
   %.not.i138 = icmp eq i8 %261, 84
-  br i1 %.not.i138, label %267, label %.preheader180
+  br i1 %.not.i138, label %267, label %.preheader181
 
 267:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit.i
   call void @_ZN4llvm7objcarc17getEquivalentPHIsIKNS_7PHINodeENS_11SmallVectorIPKNS_5ValueELj2EEEEEvRT_RT0_(ptr noundef nonnull align 8 dereferenceable(76) %241, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %.pre.pre.i = load i32, ptr %264, align 8, !tbaa !26
-  br label %.preheader180
+  br label %.preheader181
 
-.preheader180:                                    ; preds = %267, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit.i
+.preheader181:                                    ; preds = %267, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit.i
   %.ph = phi i32 [ 1, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit.i ], [ %.pre.pre.i, %267 ]
   br label %268
 
-268:                                              ; preds = %.preheader180, %.critedge15.i
-  %269 = phi i32 [ %309, %.critedge15.i ], [ %.ph, %.preheader180 ]
+268:                                              ; preds = %.preheader181, %.critedge15.i
+  %269 = phi i32 [ %309, %.critedge15.i ], [ %.ph, %.preheader181 ]
   %270 = load ptr, ptr %10, align 8, !tbaa !25
   %271 = zext i32 %269 to i64
   %272 = getelementptr inbounds nuw ptr, ptr %270, i64 %271
@@ -7280,8 +7280,8 @@ _ZN4llvm7objcarc17GetRCIdentityRootEPNS_5ValueE.exit: ; preds = %_ZN4llvm7objcar
 
 661:                                              ; preds = %._crit_edge
   switch i32 %.371, label %663 [
-    i32 0, label %667
-    i32 3, label %667
+    i32 0, label %thread-pre-split
+    i32 3, label %thread-pre-split
     i32 4, label %.sink.split
     i32 5, label %662
     i32 2, label %thread-pre-split
@@ -7300,14 +7300,10 @@ _ZN4llvm7objcarc17GetRCIdentityRootEPNS_5ValueE.exit: ; preds = %_ZN4llvm7objcar
   %664 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 40
   %665 = load ptr, ptr %664, align 8, !tbaa !265
   %666 = call noundef ptr @_ZN4llvm7objcarc20findSingleDependencyENS0_14DependenceKindEPKNS_5ValueEPNS_10BasicBlockEPNS_11InstructionERNS0_18ProvenanceAnalysisE(i32 noundef %.sink, ptr noundef nonnull %.sroa.2.0.copyload.i, ptr noundef %665, ptr noundef %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(56) %595) #21
-  br label %667
+  %667 = icmp eq ptr %666, %.sroa.2.0.copyload.i
+  br i1 %667, label %668, label %thread-pre-split
 
-667:                                              ; preds = %.sink.split, %661, %661
-  %.0107 = phi ptr [ null, %661 ], [ null, %661 ], [ %666, %.sink.split ]
-  %.not117 = icmp eq ptr %.0107, %.sroa.2.0.copyload.i
-  br i1 %.not117, label %668, label %thread-pre-split
-
-668:                                              ; preds = %667
+668:                                              ; preds = %.sink.split
   store i8 1, ptr %0, align 8, !tbaa !56
   %669 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 4
   %670 = load i32, ptr %669, align 4
@@ -7706,8 +7702,8 @@ _ZN4llvm11SmallVectorINS_17OperandBundleDefTIPNS_5ValueEEELj1EED2Ev.exit: ; pred
   %.not118 = icmp eq i64 %indvars.iv.next135, %682
   br i1 %.not118, label %._crit_edge122.loopexit, label %695, !llvm.loop !443
 
-thread-pre-split:                                 ; preds = %649, %610, %_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE.exit195, %661, %661, %661, %667, %._crit_edge
-  %.sroa.7.3.ph = phi i64 [ %.sroa.7.0, %._crit_edge ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %667 ], [ %.sroa.7.1.lcssa, %_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE.exit195 ], [ %.sroa.7.0, %610 ], [ %.sroa.7.0, %649 ]
+thread-pre-split:                                 ; preds = %649, %661, %661, %610, %_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE.exit195, %661, %661, %661, %.sink.split, %._crit_edge
+  %.sroa.7.3.ph = phi i64 [ %.sroa.7.0, %._crit_edge ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %.sink.split ], [ %.sroa.7.1.lcssa, %_ZN4llvm7objcarcL16EraseInstructionEPNS_11InstructionE.exit195 ], [ %.sroa.7.0, %610 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %661 ], [ %.sroa.7.0, %649 ]
   %.pr = load i32, ptr %593, align 8, !tbaa !26
   br label %855
 
@@ -7782,7 +7778,7 @@ define linkonce_odr void @_ZN4llvm7objcarc17getEquivalentPHIsIKNS_7PHINodeENS_11
   %17 = load i32, ptr %8, align 4
   %18 = and i32 %17, 134217727
   %.not39 = icmp eq i32 %18, 0
-  br i1 %.not39, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge, label %.lr.ph
+  br i1 %.not39, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 4
@@ -7838,23 +7834,19 @@ _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit: ; preds = %
   %44 = load ptr, ptr %43, align 8, !tbaa !174
   %45 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #21
   %.not = icmp eq ptr %30, %45
-  br i1 %.not, label %46, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.loopexit
+  br i1 %.not, label %46, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge
 
 46:                                               ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread, label %21, !llvm.loop !446
 
-_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.loopexit: ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit
+_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge: ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit
   %47 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge
-
-_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge: ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.loopexit, %16
-  %.022.lcssa = phi i32 [ 0, %16 ], [ %47, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.loopexit ]
-  %48 = icmp eq i32 %.022.lcssa, %18
+  %48 = icmp eq i32 %18, %47
   br i1 %48, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread, label %61
 
-_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread: ; preds = %46, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge
+_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread: ; preds = %46, %16, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge
   %49 = load i32, ptr %11, align 8, !tbaa !26
   %50 = load i32, ptr %12, align 4, !tbaa !27
   %.not.i.i.not.i = icmp ult i32 %49, %50
@@ -8272,7 +8264,7 @@ define linkonce_odr void @_ZN4llvm7objcarc17getEquivalentPHIsIKNS_7PHINodeENS_11
   %17 = load i32, ptr %8, align 4
   %18 = and i32 %17, 134217727
   %.not39 = icmp eq i32 %18, 0
-  br i1 %.not39, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge, label %.lr.ph
+  br i1 %.not39, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 4
@@ -8328,23 +8320,19 @@ _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit: ; preds = %
   %44 = load ptr, ptr %43, align 8, !tbaa !174
   %45 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #21
   %.not = icmp eq ptr %30, %45
-  br i1 %.not, label %46, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.loopexit
+  br i1 %.not, label %46, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge
 
 46:                                               ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread, label %21, !llvm.loop !450
 
-_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.loopexit: ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit
+_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge: ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit
   %47 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge
-
-_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge: ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.loopexit, %16
-  %.022.lcssa = phi i32 [ 0, %16 ], [ %47, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.loopexit ]
-  %48 = icmp eq i32 %.022.lcssa, %18
+  %48 = icmp eq i32 %18, %47
   br i1 %48, label %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread, label %61
 
-_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread: ; preds = %46, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge
+_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge.thread: ; preds = %46, %16, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge
   %49 = load i32, ptr %11, align 8, !tbaa !26
   %50 = load i32, ptr %12, align 4, !tbaa !27
   %.not.i.i.not.i = icmp ult i32 %49, %50

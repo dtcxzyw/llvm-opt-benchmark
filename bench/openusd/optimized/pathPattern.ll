@@ -1222,7 +1222,7 @@ define noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit unwind label %16
 
-16:                                               ; preds = %171, %59, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit, %75, %20, %11, %3
+16:                                               ; preds = %170, %59, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit, %75, %20, %11, %3
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22
@@ -1310,20 +1310,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L13IsLiteralPrimERKNSt7__cxx1112basic_strin
 62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L13IsLiteralPrimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %63 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.3) #18
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %._crit_edge
-
-._crit_edge:                                      ; preds = %62
-  %.pre = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre28 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %136
+  br i1 %64, label %65, label %136
 
 65:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L13IsLiteralPrimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %62
   %66 = load ptr, ptr %2, align 8
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %66, %68
-  br i1 %.not, label %69, label %136
+  br i1 %.not, label %69, label %.thread30
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1447,100 +1441,102 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   %135 = atomicrmw sub ptr %134, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22
 
-136:                                              ; preds = %._crit_edge, %65
-  %137 = phi ptr [ %.pre28, %._crit_edge ], [ %68, %65 ]
-  %138 = phi ptr [ %.pre, %._crit_edge ], [ %66, %65 ]
-  %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.not27 = icmp eq ptr %138, %137
-  br i1 %.not27, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit, label %140
+136:                                              ; preds = %62
+  %.pre = load ptr, ptr %2, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.pre28 = load ptr, ptr %.phi.trans.insert, align 8
+  %137 = icmp eq ptr %.pre, %.pre28
+  br i1 %137, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit, label %.thread30
 
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %141, align 8
-  %145 = ptrtoint ptr %143 to i64
-  %146 = ptrtoint ptr %144 to i64
-  %147 = sub i64 %145, %146
-  %148 = sdiv exact i64 %147, 80
-  %149 = trunc i64 %148 to i32
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %151 = load ptr, ptr %150, align 8
-  %.not.i.i23 = icmp eq ptr %143, %151
-  br i1 %.not.i.i23, label %171, label %152
+.thread30:                                        ; preds = %65, %136
+  %138 = phi ptr [ %.pre, %136 ], [ %66, %65 ]
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr %139, align 8
+  %143 = ptrtoint ptr %141 to i64
+  %144 = ptrtoint ptr %142 to i64
+  %145 = sub i64 %143, %144
+  %146 = sdiv exact i64 %145, 80
+  %147 = trunc i64 %146 to i32
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %149 = load ptr, ptr %148, align 8
+  %.not.i.i23 = icmp eq ptr %141, %149
+  br i1 %.not.i.i23, label %170, label %150
 
-152:                                              ; preds = %140
-  store ptr %138, ptr %143, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %154 = load ptr, ptr %139, align 8
-  store ptr %154, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %156 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %157 = load ptr, ptr %156, align 8
-  store ptr %157, ptr %155, align 8
+150:                                              ; preds = %.thread30
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %138, ptr %141, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %153 = load ptr, ptr %151, align 8
+  store ptr %153, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %156 = load ptr, ptr %155, align 8
+  store ptr %156, ptr %154, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 24, i1 false)
-  %158 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %159 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %160 = load ptr, ptr %159, align 8
-  store ptr %160, ptr %158, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %143, i64 32
-  %162 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %163 = load ptr, ptr %162, align 8
-  store ptr %163, ptr %161, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %165 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %166 = load ptr, ptr %165, align 8
-  store ptr %166, ptr %164, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, i8 0, i64 24, i1 false)
-  %167 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  %168 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %168) #18
-  %169 = load ptr, ptr %142, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 80
-  store ptr %170, ptr %142, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %159 = load ptr, ptr %158, align 8
+  store ptr %159, ptr %157, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %141, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %162 = load ptr, ptr %161, align 8
+  store ptr %162, ptr %160, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %141, i64 40
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %165 = load ptr, ptr %164, align 8
+  store ptr %165, ptr %163, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false)
+  %166 = getelementptr inbounds nuw i8, ptr %141, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull align 8 dereferenceable(32) %167) #18
+  %168 = load ptr, ptr %140, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 80
+  store ptr %169, ptr %140, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit
 
-171:                                              ; preds = %140
-  invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr %143, ptr noundef nonnull align 8 dereferenceable(80) %2)
+170:                                              ; preds = %.thread30
+  invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr %141, ptr noundef nonnull align 8 dereferenceable(80) %2)
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit unwind label %16
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit: ; preds = %69, %152, %171, %136
-  %.0 = phi i32 [ -1, %136 ], [ %149, %171 ], [ %149, %152 ], [ -1, %69 ]
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit: ; preds = %69, %150, %170, %136
+  %.0 = phi i32 [ -1, %136 ], [ %147, %170 ], [ %147, %150 ], [ -1, %69 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %172 unwind label %16
+          to label %171 unwind label %16
 
-172:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit
-  %173 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %.0, ptr %173, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i8 %61, ptr %174, align 4
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %178 = load ptr, ptr %177, align 8
-  %.not.i.i24 = icmp eq ptr %176, %178
-  br i1 %.not.i.i24, label %183, label %179
+171:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 %.0, ptr %172, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  store i8 %61, ptr %173, align 4
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %177 = load ptr, ptr %176, align 8
+  %.not.i.i24 = icmp eq ptr %175, %177
+  br i1 %.not.i.i24, label %182, label %178
 
-179:                                              ; preds = %172
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(37) %176, ptr noundef nonnull align 8 dereferenceable(37) %8) #18
-  %180 = getelementptr inbounds nuw i8, ptr %176, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %180, ptr noundef nonnull align 8 dereferenceable(5) %173, i64 5, i1 false)
-  %181 = load ptr, ptr %175, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 40
-  store ptr %182, ptr %175, align 8
+178:                                              ; preds = %171
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(37) %175, ptr noundef nonnull align 8 dereferenceable(37) %8) #18
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %179, ptr noundef nonnull align 8 dereferenceable(5) %172, i64 5, i1 false)
+  %180 = load ptr, ptr %174, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 40
+  store ptr %181, ptr %174, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EE9push_backEOS2_.exit
 
-183:                                              ; preds = %172
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr %176, ptr noundef nonnull align 8 dereferenceable(37) %8)
-          to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EE9push_backEOS2_.exit unwind label %185
+182:                                              ; preds = %171
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %183, ptr %175, ptr noundef nonnull align 8 dereferenceable(37) %8)
+          to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EE9push_backEOS2_.exit unwind label %184
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EE9push_backEOS2_.exit: ; preds = %179, %183
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2_EE9push_backEOS2_.exit: ; preds = %178, %182
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(37) %8) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-185:                                              ; preds = %183
-  %186 = landingpad { ptr, i32 }
+184:                                              ; preds = %182
+  %185 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(37) %8) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22
@@ -1549,8 +1545,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %123, %_ZN32px
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   ret ptr %0
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22: ; preds = %132, %127, %185, %16
-  %.pn = phi { ptr, i32 } [ %186, %185 ], [ %17, %16 ], [ %128, %127 ], [ %128, %132 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22: ; preds = %132, %127, %184, %16
+  %.pn = phi { ptr, i32 } [ %185, %184 ], [ %17, %16 ], [ %128, %127 ], [ %128, %132 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   resume { ptr, i32 } %.pn
 }

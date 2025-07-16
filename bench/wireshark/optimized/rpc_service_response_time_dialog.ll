@@ -5182,8 +5182,8 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
   %44 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
   %45 = load i64, ptr %44, align 8
   %46 = call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %33, ptr %31, i64 %45, ptr %43, i32 noundef 1) #27
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %48
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %48, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread
 
 48:                                               ; preds = %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit
   %49 = load ptr, ptr @dcerpc_uuids, align 8
@@ -5534,8 +5534,8 @@ _ZNK4QMapI7QStringjE8containsERKS0_.exit:         ; preds = %_ZNKSt8_Rb_treeI7QS
   %44 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
   %45 = load i64, ptr %44, align 8
   %46 = call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %33, ptr %31, i64 %45, ptr %43, i32 noundef 1) #27
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %_ZNK4QMapI7QStringjE8containsERKS0_.exit.thread, label %48
+  %47 = icmp sgt i32 %46, -1
+  br i1 %47, label %48, label %_ZNK4QMapI7QStringjE8containsERKS0_.exit.thread
 
 48:                                               ; preds = %_ZNK4QMapI7QStringjE8containsERKS0_.exit
   call void @dissector_table_foreach(ptr noundef nonnull @.str.12, ptr noundef nonnull @_ZL21onc_rpc_find_versionsPKc6ftenumPvS2_S2_, ptr noundef %0)
@@ -5640,8 +5640,8 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
   %30 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %19, ptr %17, i64 %31, ptr %29, i32 noundef 1) #27
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %36
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %36, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread
 
 34:                                               ; preds = %139
   %35 = landingpad { ptr, i32 }
@@ -5726,8 +5726,8 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
   store ptr %66, ptr %62, align 8
   %68 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %69 = load ptr, ptr %68, align 8
-  %.not83110 = icmp eq ptr %69, null
-  br i1 %.not83110, label %._crit_edge, label %.lr.ph
+  %.not83104 = icmp eq ptr %69, null
+  br i1 %.not83104, label %._crit_edge, label %.lr.ph
 
 70:                                               ; preds = %63
   %71 = landingpad { ptr, i32 }
@@ -5736,12 +5736,12 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
   %72 = phi ptr [ %77, %.lr.ph ], [ %48, %67 ]
-  %.056112 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %67 ]
-  %.068111 = phi i32 [ %75, %.lr.ph ], [ 0, %67 ]
+  %.056106 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %67 ]
+  %.068105 = phi i32 [ %75, %.lr.ph ], [ 0, %67 ]
   %73 = load i16, ptr %72, align 8
   %74 = zext i16 %73 to i32
-  %spec.select = call i32 @llvm.umax.i32(i32 %.056112, i32 %74)
-  %75 = add i32 %.068111, 1
+  %spec.select = call i32 @llvm.umax.i32(i32 %.056106, i32 %74)
+  %75 = add i32 %.068105, 1
   %76 = sext i32 %75 to i64
   %77 = getelementptr %struct._dcerpc_sub_dissector, ptr %48, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -5805,8 +5805,8 @@ _ZNK4QMapI7QStringjE8containsERKS0_.exit:         ; preds = %_ZNKSt8_Rb_treeI7QS
   %103 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i91, i64 48
   %104 = load i64, ptr %103, align 8
   %105 = call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %92, ptr %90, i64 %104, ptr %102, i32 noundef 1) #27
-  %106 = icmp slt i32 %105, 0
-  br i1 %106, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread, label %109
+  %106 = icmp sgt i32 %105, -1
+  br i1 %106, label %109, label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread
 
 107:                                              ; preds = %109
   %108 = landingpad { ptr, i32 }
@@ -5915,20 +5915,20 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK4QMapI7QStringP
 146:                                              ; preds = %107, %132, %138, %50, %57, %70, %59, %56, %34
   %.pn84 = phi { ptr, i32 } [ %35, %34 ], [ %51, %50 ], [ %.pn76, %56 ], [ %58, %57 ], [ %71, %70 ], [ %60, %59 ], [ %133, %132 ], [ %.pn, %138 ], [ %108, %107 ]
   %147 = load ptr, ptr %2, align 8
-  %.not.i.i.i99 = icmp eq ptr %147, null
-  br i1 %.not.i.i.i99, label %_ZN7QStringD2Ev.exit102, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i100
+  %.not.i.i.i97 = icmp eq ptr %147, null
+  br i1 %.not.i.i.i97, label %_ZN7QStringD2Ev.exit100, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i100:   ; preds = %146
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98:    ; preds = %146
   %148 = atomicrmw sub ptr %147, i32 1 seq_cst, align 4
-  %.not.i.i101 = icmp eq i32 %148, 1
-  br i1 %.not.i.i101, label %149, label %_ZN7QStringD2Ev.exit102
+  %.not.i.i99 = icmp eq i32 %148, 1
+  br i1 %.not.i.i99, label %149, label %_ZN7QStringD2Ev.exit100
 
-149:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i100
+149:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98
   %150 = load ptr, ptr %2, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %150, i64 noundef 2, i64 noundef 8) #23
-  br label %_ZN7QStringD2Ev.exit102
+  br label %_ZN7QStringD2Ev.exit100
 
-_ZN7QStringD2Ev.exit102:                          ; preds = %146, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i100, %149
+_ZN7QStringD2Ev.exit100:                          ; preds = %146, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98, %149
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #23
   resume { ptr, i32 } %.pn84
 }

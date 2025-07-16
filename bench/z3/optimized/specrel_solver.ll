@@ -469,7 +469,7 @@ define hidden i32 @_ZN7specrel6solver11internalizeEP4exprbb(ptr noundef nonnull 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !390
   %8 = tail call noundef zeroext i1 @_ZN3euf15th_internalizer9visit_recER11ast_managerP4exprbb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(976) %7, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3)
-  br i1 %8, label %9, label %23
+  br i1 %8, label %9, label %24
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -479,19 +479,20 @@ define hidden i32 @_ZN7specrel6solver11internalizeEP4exprbb(ptr noundef nonnull 
   %14 = load i32, ptr %1, align 4, !tbaa !410
   %15 = getelementptr inbounds i8, ptr %13, i64 -4
   %16 = load i32, ptr %15, align 4, !tbaa !387
-  %.not.i.i.i.i = icmp ult i32 %14, %16
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %17
-  %.then.val.i.i.i = load ptr, ptr %18, align 8, !tbaa !408
-  %19 = getelementptr inbounds nuw i8, ptr %.then.val.i.i.i, i64 28
-  %20 = load i32, ptr %19, align 4, !tbaa !412
-  %21 = shl i32 %20, 1
-  %22 = zext i1 %2 to i32
-  %spec.select = or disjoint i32 %21, %22
-  br label %23
+  %.fr.i.i.i.i = freeze i32 %16
+  %17 = icmp ult i32 %14, %.fr.i.i.i.i
+  tail call void @llvm.assume(i1 %17)
+  %18 = zext i32 %14 to i64
+  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %18
+  %.pre.i.then.val.i.i = load ptr, ptr %19, align 8, !tbaa !408
+  %20 = getelementptr inbounds nuw i8, ptr %.pre.i.then.val.i.i, i64 28
+  %21 = load i32, ptr %20, align 4, !tbaa !412
+  %22 = shl i32 %21, 1
+  %23 = zext i1 %2 to i32
+  %spec.select = or disjoint i32 %22, %23
+  br label %24
 
-23:                                               ; preds = %9, %4
+24:                                               ; preds = %9, %4
   %.sroa.0.0 = phi i32 [ -2, %4 ], [ %spec.select, %9 ]
   ret i32 %.sroa.0.0
 }
@@ -516,16 +517,17 @@ define hidden i32 @_ZThn48_N7specrel6solver11internalizeEP4exprbb(ptr noundef no
   %13 = load i32, ptr %1, align 4, !tbaa !410
   %14 = getelementptr inbounds i8, ptr %12, i64 -4
   %15 = load i32, ptr %14, align 4, !tbaa !387
-  %.not.i.i.i.i.i = icmp ult i32 %13, %15
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %12, i64 %16
-  %.then.val.i.i.i.i = load ptr, ptr %17, align 8, !tbaa !408
-  %18 = getelementptr inbounds nuw i8, ptr %.then.val.i.i.i.i, i64 28
-  %19 = load i32, ptr %18, align 4, !tbaa !412
-  %20 = shl i32 %19, 1
-  %21 = zext i1 %2 to i32
-  %spec.select.i = or disjoint i32 %20, %21
+  %.fr.i.i.i.i.i = freeze i32 %15
+  %16 = icmp ult i32 %13, %.fr.i.i.i.i.i
+  tail call void @llvm.assume(i1 %16)
+  %17 = zext i32 %13 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %17
+  %.pre.i.then.val.i.i.i = load ptr, ptr %18, align 8, !tbaa !408
+  %19 = getelementptr inbounds nuw i8, ptr %.pre.i.then.val.i.i.i, i64 28
+  %20 = load i32, ptr %19, align 4, !tbaa !412
+  %21 = shl i32 %20, 1
+  %22 = zext i1 %2 to i32
+  %spec.select.i = or disjoint i32 %21, %22
   br label %_ZN7specrel6solver11internalizeEP4exprbb.exit
 
 _ZN7specrel6solver11internalizeEP4exprbb.exit:    ; preds = %4, %8

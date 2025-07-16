@@ -951,53 +951,53 @@ define internal fastcc i64 @setup_hash(i32 noundef %0, ptr noundef readonly capt
 
 .preheader.split.split:                           ; preds = %2
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %.thread, label %.split.us
+  br i1 %.not, label %rb_scan_args_set.exit.thread13, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %4 = load i64, ptr %1, align 8, !tbaa !6
   %5 = icmp eq i32 %0, 1
-  br i1 %5, label %rb_scan_args_set.exit, label %6
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %.split.us, %2
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #8
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %.split.us
-  %7 = icmp eq i64 %4, 0
-  %8 = and i64 %4, 7
-  %9 = icmp ne i64 %8, 0
-  %10 = or i1 %7, %9
-  br i1 %10, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit
+7:                                                ; preds = %.split.us
+  %8 = icmp eq i64 %4, 0
+  %9 = and i64 %4, 7
+  %10 = icmp ne i64 %9, 0
+  %11 = or i1 %8, %10
+  br i1 %11, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit
 
-rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rb_scan_args_set.exit
-  %11 = inttoptr i64 %4 to ptr
-  %12 = load i64, ptr %11, align 8, !tbaa !32
-  %13 = and i64 %12, 31
-  %14 = icmp eq i64 %13, 8
-  br i1 %14, label %17, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
+rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %7
+  %12 = inttoptr i64 %4 to ptr
+  %13 = load i64, ptr %12, align 8, !tbaa !32
+  %14 = and i64 %13, 31
+  %15 = icmp eq i64 %14, 8
+  br i1 %15, label %rb_scan_args_set.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_scan_args_set.exit, %rbimpl_RB_TYPE_P_fastpath.exit
-  %15 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.18) #8
+rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %7, %rbimpl_RB_TYPE_P_fastpath.exit
+  %16 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.18) #8
   unreachable
 
-.thread:                                          ; preds = %.preheader.split.split
-  %16 = tail call i64 @rb_hash_new() #7
+rb_scan_args_set.exit.thread13:                   ; preds = %.preheader.split.split
+  %17 = tail call i64 @rb_hash_new() #7
   br label %31
 
-17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
+rb_scan_args_set.exit:                            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
   %18 = inttoptr i64 %4 to ptr
   %19 = load i64, ptr %18, align 8, !tbaa !32
   %20 = and i64 %19, 32768
   %.not.i.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i.i, label %21, label %24
 
-21:                                               ; preds = %17
+21:                                               ; preds = %rb_scan_args_set.exit
   %22 = lshr i64 %19, 16
   %23 = and i64 %22, 15
   br label %RHASH_EMPTY_P.exit
 
-24:                                               ; preds = %17
+24:                                               ; preds = %rb_scan_args_set.exit
   %25 = add i64 %4, 24
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1013,8 +1013,8 @@ RHASH_EMPTY_P.exit:                               ; preds = %21, %24
   tail call void @rb_hash_foreach(i64 noundef %4, ptr noundef nonnull @set_zero_i, i64 noundef %4) #7
   br label %31
 
-31:                                               ; preds = %RHASH_EMPTY_P.exit, %30, %.thread
-  %32 = phi i64 [ %4, %RHASH_EMPTY_P.exit ], [ %4, %30 ], [ %16, %.thread ]
+31:                                               ; preds = %RHASH_EMPTY_P.exit, %30, %rb_scan_args_set.exit.thread13
+  %32 = phi i64 [ %4, %RHASH_EMPTY_P.exit ], [ %4, %30 ], [ %17, %rb_scan_args_set.exit.thread13 ]
   ret i64 %32
 }
 

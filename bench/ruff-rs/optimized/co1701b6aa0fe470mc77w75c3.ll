@@ -2209,10 +2209,10 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17hebeaa2162c1ac2a6E(
   %15 = alloca [12 x i8], align 4
   %16 = lshr i64 %1, 1
   %17 = add i64 %16, %1
-  %.not20 = icmp eq i64 %17, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph22
+  %.not21 = icmp eq i64 %17, 0
+  br i1 %.not21, label %._crit_edge, label %.lr.ph23
 
-.lr.ph22:                                         ; preds = %3
+.lr.ph23:                                         ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -2222,9 +2222,9 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17hebeaa2162c1ac2a6E(
 ._crit_edge:                                      ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit, %3
   ret void
 
-22:                                               ; preds = %.lr.ph22, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit
-  %.sroa.4.021 = phi i64 [ %17, %.lr.ph22 ], [ %23, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit ]
-  %23 = add i64 %.sroa.4.021, -1
+22:                                               ; preds = %.lr.ph23, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit
+  %.sroa.4.022 = phi i64 [ %17, %.lr.ph23 ], [ %23, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit ]
+  %23 = add i64 %.sroa.4.022, -1
   %.not7 = icmp ult i64 %23, %1
   br i1 %.not7, label %26, label %24
 
@@ -2247,16 +2247,16 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17hebeaa2162c1ac2a6E(
   call void @llvm.assume(i1 %30)
   %31 = shl i64 %.sroa.05.0, 1
   %32 = or disjoint i64 %31, 1
-  %.not.i18 = icmp ult i64 %32, %.sroa.0.0.sroa.speculated.i
-  br i1 %.not.i18, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit
+  %.not.i19 = icmp ult i64 %32, %.sroa.0.0.sroa.speculated.i
+  br i1 %.not.i19, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit
 
-.lr.ph:                                           ; preds = %29, %87
-  %33 = phi i64 [ %91, %87 ], [ %32, %29 ]
-  %34 = phi i64 [ %90, %87 ], [ %31, %29 ]
-  %.sroa.0.0.i19 = phi i64 [ %.sroa.04.0.i, %87 ], [ %.sroa.05.0, %29 ]
+.lr.ph:                                           ; preds = %29, %88
+  %33 = phi i64 [ %92, %88 ], [ %32, %29 ]
+  %34 = phi i64 [ %91, %88 ], [ %31, %29 ]
+  %.sroa.0.0.i20 = phi i64 [ %.sroa.04.0.i, %88 ], [ %.sroa.05.0, %29 ]
   %35 = add nuw i64 %34, 2
   %36 = icmp ult i64 %35, %.sroa.0.0.sroa.speculated.i
-  br i1 %36, label %37, label %63
+  br i1 %36, label %37, label %64
 
 37:                                               ; preds = %.lr.ph
   %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %33
@@ -2286,8 +2286,8 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17hebeaa2162c1ac2a6E(
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !144
   unreachable
 
-common.resume:                                    ; preds = %68, %78, %42, %52
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %53, %52 ], [ %69, %68 ], [ %79, %78 ]
+common.resume:                                    ; preds = %69, %79, %42, %52
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %53, %52 ], [ %70, %69 ], [ %80, %79 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i": ; preds = %41
@@ -2312,7 +2312,7 @@ common.resume:                                    ; preds = %68, %78, %42, %52
   call void @_ZN7ruff_db10diagnostic10Diagnostic12primary_span17hb80c945fde0d3182E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %39)
   %50 = load i32, ptr %11, align 8, !range !143, !noalias !147, !noundef !3
   %.not.i3.i = icmp eq i32 %50, 2
-  br i1 %.not.i3.i, label %59, label %51
+  br i1 %.not.i3.i, label %58, label %51
 
 51:                                               ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !147
@@ -2338,124 +2338,128 @@ common.resume:                                    ; preds = %68, %78, %42, %52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !147
   %56 = load i32, ptr %12, align 4, !range !131, !noalias !147, !noundef !3
   %57 = trunc nuw i32 %56 to i1
-  %58 = load i32, ptr %19, align 4
-  %spec.select23 = select i1 %57, i32 %58, i32 0
-  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit"
+  br i1 %57, label %59, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit"
 
-59:                                               ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i"
+58:                                               ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !147
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit": ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i", %59
-  %.sroa.0.0.i5.i = phi i32 [ 0, %59 ], [ %spec.select23, %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i" ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12), !noalias !147
-  %60 = icmp ult i32 %.sroa.0.0.i.i, %.sroa.0.0.i5.i
-  %61 = zext i1 %60 to i64
-  %62 = add nuw i64 %33, %61
-  br label %63
+59:                                               ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i"
+  %60 = load i32, ptr %19, align 4, !noalias !147, !noundef !3
+  %61 = icmp ult i32 %.sroa.0.0.i.i, %60
+  %62 = zext i1 %61 to i64
+  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit"
 
-63:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit", %.lr.ph
-  %.sroa.04.0.i = phi i64 [ %62, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit" ], [ %33, %.lr.ph ]
-  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.0.i19
-  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.04.0.i
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit": ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i", %58, %59
+  %.sroa.0.0.i5.i = phi i64 [ %62, %59 ], [ 0, %58 ], [ 0, %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i" ]
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12), !noalias !147
+  %63 = add nuw i64 %.sroa.0.0.i5.i, %33
+  br label %64
+
+64:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit", %.lr.ph
+  %.sroa.04.0.i = phi i64 [ %63, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit" ], [ %33, %.lr.ph ]
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.0.i20
+  %66 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.04.0.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !153
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !153
-  call void @_ZN7ruff_db10diagnostic10Diagnostic12primary_span17hb80c945fde0d3182E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64), !noalias !159
-  %66 = load i32, ptr %8, align 8, !range !143, !noalias !153, !noundef !3
-  %.not.i.i8 = icmp eq i32 %66, 2
-  br i1 %.not.i.i8, label %75, label %67
+  call void @_ZN7ruff_db10diagnostic10Diagnostic12primary_span17hb80c945fde0d3182E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65), !noalias !159
+  %67 = load i32, ptr %8, align 8, !range !143, !noalias !153, !noundef !3
+  %.not.i.i8 = icmp eq i32 %67, 2
+  br i1 %.not.i.i8, label %76, label %68
 
-67:                                               ; preds = %63
+68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !153
   invoke void @_ZN7ruff_db10diagnostic4Span5range17h9c69a3602c5b3c54E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-          to label %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i11" unwind label %68, !noalias !159
+          to label %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i11" unwind label %69, !noalias !159
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %68
+  %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$ruff_db..diagnostic..Span$GT$17h651a44a8674b0d43E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #23
-          to label %common.resume unwind label %70, !noalias !160
+          to label %common.resume unwind label %71, !noalias !160
 
-70:                                               ; preds = %68
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %69
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !160
   unreachable
 
-"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i11": ; preds = %67
+"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i11": ; preds = %68
   call void @"_ZN4core3ptr46drop_in_place$LT$ruff_db..diagnostic..Span$GT$17h651a44a8674b0d43E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7), !noalias !160
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !153
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !153
-  %72 = load i32, ptr %9, align 4, !range !131, !noalias !153, !noundef !3
-  %73 = trunc nuw i32 %72 to i1
-  %74 = load i32, ptr %20, align 4
-  %spec.select24 = select i1 %73, i32 %74, i32 0
+  %73 = load i32, ptr %9, align 4, !range !131, !noalias !153, !noundef !3
+  %74 = trunc nuw i32 %73 to i1
+  %75 = load i32, ptr %20, align 4
+  %spec.select24 = select i1 %74, i32 %75, i32 0
   br label %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i12"
 
-75:                                               ; preds = %63
+76:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !153
   br label %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i12"
 
-"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i12": ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i11", %75
-  %.sroa.0.0.i.i13 = phi i32 [ 0, %75 ], [ %spec.select24, %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i11" ]
+"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i12": ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i11", %76
+  %.sroa.0.0.i.i13 = phi i32 [ 0, %76 ], [ %spec.select24, %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i.i11" ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !153
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !163
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !163
-  call void @_ZN7ruff_db10diagnostic10Diagnostic12primary_span17hb80c945fde0d3182E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65)
-  %76 = load i32, ptr %5, align 8, !range !143, !noalias !163, !noundef !3
-  %.not.i3.i14 = icmp eq i32 %76, 2
-  br i1 %.not.i3.i14, label %85, label %77
+  call void @_ZN7ruff_db10diagnostic10Diagnostic12primary_span17hb80c945fde0d3182E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %66)
+  %77 = load i32, ptr %5, align 8, !range !143, !noalias !163, !noundef !3
+  %.not.i3.i14 = icmp eq i32 %77, 2
+  br i1 %.not.i3.i14, label %85, label %78
 
-77:                                               ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i12"
+78:                                               ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i12"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !163
   invoke void @_ZN7ruff_db10diagnostic4Span5range17h9c69a3602c5b3c54E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
-          to label %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i15" unwind label %78
+          to label %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i15" unwind label %79
 
-78:                                               ; preds = %77
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %78
+  %80 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$ruff_db..diagnostic..Span$GT$17h651a44a8674b0d43E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #23
-          to label %common.resume unwind label %80, !noalias !166
+          to label %common.resume unwind label %81, !noalias !166
 
-80:                                               ; preds = %78
-  %81 = landingpad { ptr, i32 }
+81:                                               ; preds = %79
+  %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !166
   unreachable
 
-"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i15": ; preds = %77
+"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i15": ; preds = %78
   call void @"_ZN4core3ptr46drop_in_place$LT$ruff_db..diagnostic..Span$GT$17h651a44a8674b0d43E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4), !noalias !166
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !163
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !163
-  %82 = load i32, ptr %6, align 4, !range !131, !noalias !163, !noundef !3
-  %83 = trunc nuw i32 %82 to i1
-  %84 = load i32, ptr %21, align 4
-  %spec.select25 = select i1 %83, i32 %84, i32 0
-  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17"
+  %83 = load i32, ptr %6, align 4, !range !131, !noalias !163, !noundef !3
+  %84 = trunc nuw i32 %83 to i1
+  br i1 %84, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17.thread"
 
 85:                                               ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc95fda16cd3e7669E.exit.i12"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !163
-  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17"
+  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17.thread"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17": ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i15", %85
-  %.sroa.0.0.i5.i16 = phi i32 [ 0, %85 ], [ %spec.select25, %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i15" ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17.thread": ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i15", %85
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !163
-  %86 = icmp ult i32 %.sroa.0.0.i.i13, %.sroa.0.0.i5.i16
-  br i1 %86, label %87, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit
+  br label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit
 
-87:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17"
-  %88 = load ptr, ptr %64, align 8
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17": ; preds = %"_ZN10ty_project15check_file_impl28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h05fca4ffdf0bc729E.exit.i4.i15"
+  %86 = load i32, ptr %21, align 4, !noalias !163, !noundef !3
+  %87 = icmp ult i32 %.sroa.0.0.i.i13, %86
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !163
+  br i1 %87, label %88, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit
+
+88:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17"
   %89 = load ptr, ptr %65, align 8
-  store ptr %89, ptr %64, align 8
-  store ptr %88, ptr %65, align 8
-  %90 = shl i64 %.sroa.04.0.i, 1
-  %91 = or disjoint i64 %90, 1
-  %.not.i = icmp ult i64 %91, %.sroa.0.0.sroa.speculated.i
+  %90 = load ptr, ptr %66, align 8
+  store ptr %90, ptr %65, align 8
+  store ptr %89, ptr %66, align 8
+  %91 = shl i64 %.sroa.04.0.i, 1
+  %92 = or disjoint i64 %91, 1
+  %.not.i = icmp ult i64 %92, %.sroa.0.0.sroa.speculated.i
   br i1 %.not.i, label %.lr.ph, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit
 
-_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17", %87, %29
+_ZN4core5slice4sort8unstable8heapsort9sift_down17h048593cf4f76f420E.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17", %88, %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h8573ed530cb317c7E.exit17.thread"
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %._crit_edge, label %22
 }

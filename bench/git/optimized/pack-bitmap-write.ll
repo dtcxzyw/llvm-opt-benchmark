@@ -450,15 +450,15 @@ define dso_local range(i32 0, 2) i32 @bitmap_writer_has_bitmapped_object_id(ptr 
   %33 = shl nuw i32 3, %20
   %34 = and i32 %33, %18
   %.not33.i = icmp eq i32 %34, 0
-  %spec.select.i = select i1 %.not33.i, i32 %.027.i, i32 %7
+  %35 = icmp ne i32 %.027.i, %7
+  %36 = and i1 %35, %.not33.i
+  %37 = zext i1 %36 to i32
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %.critedge2.i, %2, %.critedge.i
-  %.1.i = phi i32 [ 0, %2 ], [ %spec.select.i, %.critedge.i ], [ %7, %.critedge2.i ]
+  %.1.i = phi i32 [ 0, %2 ], [ %37, %.critedge.i ], [ 0, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
-  %35 = icmp ne i32 %.1.i, %7
-  %36 = zext i1 %35 to i32
-  ret i32 %36
+  ret i32 %.1.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

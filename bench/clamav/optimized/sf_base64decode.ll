@@ -25,17 +25,17 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %17
 
-17:                                               ; preds = %.lr.ph, %74
-  %.03955 = phi i64 [ 0, %.lr.ph ], [ %.1, %74 ]
-  %.04054 = phi ptr [ %0, %.lr.ph ], [ %75, %74 ]
-  %.04153 = phi ptr [ %2, %.lr.ph ], [ %.142, %74 ]
-  %.04352 = phi ptr [ %6, %.lr.ph ], [ %.144, %74 ]
+17:                                               ; preds = %.lr.ph, %71
+  %.03955 = phi i64 [ 0, %.lr.ph ], [ %.1, %71 ]
+  %.04054 = phi ptr [ %0, %.lr.ph ], [ %72, %71 ]
+  %.04153 = phi ptr [ %2, %.lr.ph ], [ %.142, %71 ]
+  %.04352 = phi ptr [ %6, %.lr.ph ], [ %.144, %71 ]
   %18 = load i8, ptr %.04054, align 1, !tbaa !7
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !7
   %.not = icmp eq i8 %21, 100
-  br i1 %.not, label %74, label %22
+  br i1 %.not, label %71, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %.04352, i64 1
@@ -43,7 +43,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
   %24 = add i64 %.03955, 1
   %25 = and i64 %24, 3
   %.not46 = icmp eq i64 %25, 0
-  br i1 %.not46, label %26, label %74
+  br i1 %.not46, label %26, label %71
 
 26:                                               ; preds = %22
   %27 = load i8, ptr %6, align 1, !tbaa !7
@@ -67,7 +67,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
   %42 = load i8, ptr %41, align 1, !tbaa !7
   %43 = load i64, ptr %4, align 8, !tbaa !3
   %44 = icmp ult i64 %43, %3
-  br i1 %44, label %45, label %55
+  br i1 %44, label %45, label %._crit_edge
 
 45:                                               ; preds = %31
   %46 = zext i8 %27 to i64
@@ -76,62 +76,56 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
   %49 = shl i8 %48, 2
   %50 = lshr i8 %34, 4
   %51 = or i8 %49, %50
-  %52 = getelementptr inbounds nuw i8, ptr %.04153, i64 1
   store i8 %51, ptr %.04153, align 1, !tbaa !7
-  %53 = load i64, ptr %4, align 8, !tbaa !3
-  %54 = add i64 %53, 1
-  store i64 %54, ptr %4, align 8, !tbaa !3
+  %52 = load i64, ptr %4, align 8, !tbaa !3
+  %53 = add i64 %52, 1
+  store i64 %53, ptr %4, align 8, !tbaa !3
   %.pre = load i8, ptr %15, align 1, !tbaa !7
-  br label %55
+  %54 = icmp uge i64 %53, %3
+  %.not47 = icmp eq i8 %.pre, 61
+  %brmerge = select i1 %.not47, i1 true, i1 %54
+  br i1 %brmerge, label %._crit_edge, label %55
 
-55:                                               ; preds = %45, %31
-  %56 = phi i64 [ %54, %45 ], [ %43, %31 ]
-  %57 = phi i8 [ %.pre, %45 ], [ %35, %31 ]
-  %.2 = phi ptr [ %52, %45 ], [ %.04153, %31 ]
-  %.not47 = icmp ne i8 %57, 61
-  %58 = icmp ult i64 %56, %3
-  %or.cond64 = select i1 %.not47, i1 %58, i1 false
-  br i1 %or.cond64, label %59, label %._crit_edge
+55:                                               ; preds = %45
+  %56 = getelementptr inbounds nuw i8, ptr %.04153, i64 1
+  %57 = shl i8 %34, 4
+  %58 = lshr i8 %38, 2
+  %59 = or i8 %58, %57
+  store i8 %59, ptr %56, align 1, !tbaa !7
+  %60 = load i64, ptr %4, align 8, !tbaa !3
+  %61 = add i64 %60, 1
+  store i64 %61, ptr %4, align 8, !tbaa !3
+  %62 = load i8, ptr %16, align 1, !tbaa !7
+  %.not48 = icmp ne i8 %62, 61
+  %63 = icmp ult i64 %61, %3
+  %or.cond50 = select i1 %.not48, i1 %63, i1 false
+  br i1 %or.cond50, label %64, label %._crit_edge
 
-59:                                               ; preds = %55
-  %60 = shl i8 %34, 4
-  %61 = lshr i8 %38, 2
-  %62 = or i8 %61, %60
-  store i8 %62, ptr %.2, align 1, !tbaa !7
-  %63 = load i64, ptr %4, align 8, !tbaa !3
-  %64 = add i64 %63, 1
-  store i64 %64, ptr %4, align 8, !tbaa !3
-  %65 = load i8, ptr %16, align 1, !tbaa !7
-  %.not48 = icmp ne i8 %65, 61
-  %66 = icmp ult i64 %64, %3
-  %or.cond50 = select i1 %.not48, i1 %66, i1 false
-  br i1 %or.cond50, label %67, label %._crit_edge
+64:                                               ; preds = %55
+  %65 = getelementptr inbounds nuw i8, ptr %.04153, i64 2
+  %66 = shl i8 %38, 6
+  %67 = or i8 %42, %66
+  %68 = getelementptr inbounds nuw i8, ptr %.04153, i64 3
+  store i8 %67, ptr %65, align 1, !tbaa !7
+  %69 = load i64, ptr %4, align 8, !tbaa !3
+  %70 = add i64 %69, 1
+  store i64 %70, ptr %4, align 8, !tbaa !3
+  br label %71
 
-67:                                               ; preds = %59
-  %68 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  %69 = shl i8 %38, 6
-  %70 = or i8 %42, %69
-  %71 = getelementptr inbounds nuw i8, ptr %.2, i64 2
-  store i8 %70, ptr %68, align 1, !tbaa !7
-  %72 = load i64, ptr %4, align 8, !tbaa !3
-  %73 = add i64 %72, 1
-  store i64 %73, ptr %4, align 8, !tbaa !3
-  br label %74
+71:                                               ; preds = %22, %64, %17
+  %.144 = phi ptr [ %23, %22 ], [ %6, %64 ], [ %.04352, %17 ]
+  %.142 = phi ptr [ %.04153, %22 ], [ %68, %64 ], [ %.04153, %17 ]
+  %.1 = phi i64 [ %24, %22 ], [ %24, %64 ], [ %.03955, %17 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.04054, i64 1
+  %73 = icmp ult ptr %72, %10
+  %74 = icmp ult i64 %.1, %9
+  %75 = select i1 %73, i1 %74, i1 false
+  br i1 %75, label %17, label %._crit_edge
 
-74:                                               ; preds = %22, %67, %17
-  %.144 = phi ptr [ %23, %22 ], [ %6, %67 ], [ %.04352, %17 ]
-  %.142 = phi ptr [ %.04153, %22 ], [ %71, %67 ], [ %.04153, %17 ]
-  %.1 = phi i64 [ %24, %22 ], [ %24, %67 ], [ %.03955, %17 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.04054, i64 1
-  %76 = icmp ult ptr %75, %10
-  %77 = icmp ult i64 %.1, %9
-  %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %17, label %._crit_edge
-
-._crit_edge:                                      ; preds = %26, %59, %55, %74, %5
-  %79 = phi i32 [ 0, %5 ], [ 0, %74 ], [ 0, %55 ], [ 0, %59 ], [ -1, %26 ]
+._crit_edge:                                      ; preds = %26, %55, %71, %45, %31, %5
+  %76 = phi i32 [ 0, %5 ], [ 0, %31 ], [ 0, %71 ], [ 0, %45 ], [ 0, %55 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #2
-  ret i32 %79
+  ret i32 %76
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

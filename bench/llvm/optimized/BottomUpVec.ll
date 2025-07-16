@@ -1473,9 +1473,9 @@ _ZN4llvm16DenseMapIteratorIPNS_9sandboxir10BasicBlockENS_11SmallVectorIPNS1_11In
   %173 = icmp eq ptr %172, null
   %174 = load ptr, ptr %74, align 8
   %175 = icmp eq ptr %174, null
-  %.not3.i.not12.i = select i1 %173, i1 %175, i1 false
+  %.not3.i.not15.i = select i1 %173, i1 %175, i1 false
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #20
-  br i1 %.not3.i.not12.i, label %_ZNK4llvm9sandboxir5Value8hasNUsesEj.exit, label %.lr.ph.i
+  br i1 %.not3.i.not15.i, label %_ZNK4llvm9sandboxir5Value8hasNUsesEj.exit, label %.lr.ph.i
 
 _ZNK4llvm9sandboxir5Value8hasNUsesEj.exit:        ; preds = %.lr.ph79
   call void @_ZN4llvm9sandboxir11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(36) %171) #20

@@ -8673,7 +8673,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile19parseDylink0SectionERNS1
 
 .critedge:                                        ; preds = %.loopexit
   %24 = icmp ult ptr %446, %8
-  br i1 %24, label %_ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit, label %.critedge._crit_edge
+  br i1 %24, label %_ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %3, %.critedge
   %25 = phi ptr [ %446, %.critedge ], [ %.pre, %3 ]
@@ -9727,26 +9727,24 @@ _ZNSt6vectorIN4llvm4wasm20WasmDylinkImportInfoESaIS2_EE9push_backEOS2_.exit: ; p
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #26, !noalias !727
   br label %_ZN4llvm5ErrorD2Ev.exit, !llvm.loop !732
 
-.critedge._crit_edge:                             ; preds = %.critedge, %3
-  %.lcssa532 = phi ptr [ %8, %3 ], [ %446, %.critedge ]
-  %.lcssa499 = phi ptr [ %.pre, %3 ], [ %446, %.critedge ]
-  %.not = icmp eq ptr %.lcssa499, %.lcssa532
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %452
+.critedge._crit_edge:                             ; preds = %3
+  %452 = icmp eq ptr %.pre, %8
+  br i1 %452, label %_ZN4llvm5ErrorD2Ev.exit, label %453
 
-452:                                              ; preds = %.critedge._crit_edge
-  %453 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27, !noalias !733
+453:                                              ; preds = %.critedge._crit_edge
+  %454 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27, !noalias !733
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #26, !noalias !733
-  %454 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %454, align 1, !tbaa !35, !noalias !733
+  %455 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %455, align 1, !tbaa !35, !noalias !733
   store ptr @.str.21, ptr %4, align 8, !tbaa !36, !noalias !733
-  %455 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 3, ptr %455, align 8, !tbaa !32, !noalias !733
-  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %453, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 3) #26, !noalias !733
+  %456 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 3, ptr %456, align 8, !tbaa !32, !noalias !733
+  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %454, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 3) #26, !noalias !733
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #26, !noalias !733
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.critedge._crit_edge, %448, %452
-  %.sink = phi ptr [ %449, %448 ], [ %453, %452 ], [ null, %.critedge._crit_edge ]
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.critedge, %.critedge._crit_edge, %448, %453
+  %.sink = phi ptr [ %449, %448 ], [ %454, %453 ], [ null, %.critedge._crit_edge ], [ null, %.critedge ]
   store ptr %.sink, ptr %0, align 8, !tbaa !37
   ret void
 }

@@ -1782,23 +1782,19 @@ define dso_local void @vendor_fetch(ptr noundef readonly captures(none) %0) loca
 22:                                               ; preds = %._crit_edge
   %23 = load ptr, ptr %2, align 8
   %.not30 = icmp eq ptr %23, null
-  br i1 %.not30, label %27, label %24
+  br i1 %.not30, label %.critedge, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %23, i64 -8
   %26 = load i32, ptr %25, align 4
-  br label %27
+  %27 = icmp ult i32 %.1, %26
+  br i1 %27, label %28, label %.critedge
 
-27:                                               ; preds = %22, %24
-  %.024 = phi i32 [ %26, %24 ], [ 0, %22 ]
-  %28 = icmp ult i32 %.1, %.024
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %27
+28:                                               ; preds = %24
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.51) #21
   unreachable
 
-30:                                               ; preds = %27
+.critedge:                                        ; preds = %22, %24
   ret void
 }
 

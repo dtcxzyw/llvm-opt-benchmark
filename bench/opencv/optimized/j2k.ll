@@ -13047,7 +13047,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mct(ptr noundef readonly captu
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 5664
   %40 = load i32, ptr %39, align 8, !tbaa !170
   %.not113 = icmp eq i32 %40, 0
-  br i1 %.not113, label %._crit_edge, label %.lr.ph
+  br i1 %.not113, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %44
   %.083104 = phi ptr [ %45, %44 ], [ %38, %33 ]
@@ -13063,13 +13063,11 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mct(ptr noundef readonly captu
   %exitcond.not = icmp eq i32 %46, %40
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !420
 
-._crit_edge:                                      ; preds = %.lr.ph, %33
-  %.085.lcssa = phi i32 [ 0, %33 ], [ %.085103, %.lr.ph ]
-  %.083.lcssa = phi ptr [ %38, %33 ], [ %.083104, %.lr.ph ]
-  %47 = icmp eq i32 %.085.lcssa, %40
+._crit_edge:                                      ; preds = %.lr.ph
+  %47 = icmp eq i32 %.085103, %40
   br i1 %47, label %._crit_edge.thread, label %93
 
-._crit_edge.thread:                               ; preds = %44, %._crit_edge
+._crit_edge.thread:                               ; preds = %44, %33, %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 5668
   %49 = load i32, ptr %48, align 4, !tbaa !171
   %50 = icmp eq i32 %40, %49
@@ -13165,7 +13163,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mct(ptr noundef readonly captu
   br label %93
 
 93:                                               ; preds = %87, %._crit_edge
-  %.184 = phi ptr [ %91, %87 ], [ %.083.lcssa, %._crit_edge ]
+  %.184 = phi ptr [ %91, %87 ], [ %.083104, %._crit_edge ]
   %94 = getelementptr inbounds nuw i8, ptr %.184, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !173
   %.not97 = icmp eq ptr %95, null
@@ -13343,7 +13341,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mcc(ptr noundef readonly captu
 
 25:                                               ; preds = %22
   %26 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
-  br label %192
+  br label %193
 
 27:                                               ; preds = %22
   call void @opj_read_bytes_LE(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2) #21
@@ -13354,7 +13352,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mcc(ptr noundef readonly captu
 
 30:                                               ; preds = %27
   %31 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.243) #21
-  br label %192
+  br label %193
 
 32:                                               ; preds = %27
   %33 = icmp ult i32 %2, 7
@@ -13362,7 +13360,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mcc(ptr noundef readonly captu
 
 34:                                               ; preds = %32
   %35 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
-  br label %192
+  br label %193
 
 36:                                               ; preds = %32
   call void @opj_read_bytes_LE(ptr noundef nonnull %28, ptr noundef nonnull %6, i32 noundef 1) #21
@@ -13372,7 +13370,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mcc(ptr noundef readonly captu
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 5680
   %41 = load i32, ptr %40, align 8, !tbaa !181
   %.not216 = icmp eq i32 %41, 0
-  br i1 %.not216, label %._crit_edge, label %.lr.ph
+  br i1 %.not216, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
   %42 = load i32, ptr %6, align 4, !tbaa !125
@@ -13391,331 +13389,329 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mcc(ptr noundef readonly captu
   %exitcond.not = icmp eq i32 %48, %41
   br i1 %exitcond.not, label %._crit_edge.thread, label %43, !llvm.loop !423
 
-._crit_edge:                                      ; preds = %43, %36
-  %.0137.lcssa = phi i32 [ 0, %36 ], [ %.0137179, %43 ]
-  %.0130.lcssa = phi ptr [ %39, %36 ], [ %.0130180, %43 ]
-  %.not153 = icmp eq i32 %.0137.lcssa, %41
-  br i1 %.not153, label %._crit_edge.thread, label %72
+._crit_edge:                                      ; preds = %43
+  %49 = icmp eq i32 %.0137179, %41
+  br i1 %49, label %._crit_edge.thread, label %73
 
-._crit_edge.thread:                               ; preds = %46, %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %23, i64 5684
-  %50 = load i32, ptr %49, align 4, !tbaa !182
-  %51 = icmp eq i32 %41, %50
-  br i1 %51, label %52, label %67
+._crit_edge.thread:                               ; preds = %46, %36, %._crit_edge
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 5684
+  %51 = load i32, ptr %50, align 4, !tbaa !182
+  %52 = icmp eq i32 %41, %51
+  br i1 %52, label %53, label %68
 
-52:                                               ; preds = %._crit_edge.thread
-  %53 = add i32 %41, 10
-  store i32 %53, ptr %49, align 4, !tbaa !182
-  %54 = zext i32 %53 to i64
-  %55 = shl nuw nsw i64 %54, 5
-  %56 = call ptr @opj_realloc(ptr noundef %39, i64 noundef %55) #21
-  %.not149.not = icmp eq ptr %56, null
-  br i1 %.not149.not, label %.thread, label %59
+53:                                               ; preds = %._crit_edge.thread
+  %54 = add i32 %41, 10
+  store i32 %54, ptr %50, align 4, !tbaa !182
+  %55 = zext i32 %54 to i64
+  %56 = shl nuw nsw i64 %55, 5
+  %57 = call ptr @opj_realloc(ptr noundef %39, i64 noundef %56) #21
+  %.not149.not = icmp eq ptr %57, null
+  br i1 %.not149.not, label %.thread, label %60
 
-.thread:                                          ; preds = %52
-  %57 = load ptr, ptr %38, align 8, !tbaa !183
-  call void @opj_free(ptr noundef %57) #21
+.thread:                                          ; preds = %53
+  %58 = load ptr, ptr %38, align 8, !tbaa !183
+  call void @opj_free(ptr noundef %58) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %58 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.244) #21
-  br label %192
+  %59 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.244) #21
+  br label %193
 
-59:                                               ; preds = %52
-  store ptr %56, ptr %38, align 8, !tbaa !183
-  %60 = load i32, ptr %40, align 8, !tbaa !181
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %struct.opj_simple_mcc_decorrelation_data, ptr %56, i64 %61
-  %63 = load i32, ptr %49, align 4, !tbaa !182
-  %64 = sub i32 %63, %60
-  %65 = zext i32 %64 to i64
-  %66 = shl nuw nsw i64 %65, 5
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %62, i8 0, i64 %66, i1 false)
+60:                                               ; preds = %53
+  store ptr %57, ptr %38, align 8, !tbaa !183
+  %61 = load i32, ptr %40, align 8, !tbaa !181
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %struct.opj_simple_mcc_decorrelation_data, ptr %57, i64 %62
+  %64 = load i32, ptr %50, align 4, !tbaa !182
+  %65 = sub i32 %64, %61
+  %66 = zext i32 %65 to i64
+  %67 = shl nuw nsw i64 %66, 5
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %63, i8 0, i64 %67, i1 false)
   %.pre = load ptr, ptr %38, align 8, !tbaa !183
   %.pre231 = load i32, ptr %40, align 8, !tbaa !181
-  br label %67
+  br label %68
 
-67:                                               ; preds = %59, %._crit_edge.thread
-  %68 = phi i32 [ %.pre231, %59 ], [ %41, %._crit_edge.thread ]
-  %69 = phi ptr [ %.pre, %59 ], [ %39, %._crit_edge.thread ]
-  %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw %struct.opj_simple_mcc_decorrelation_data, ptr %69, i64 %70
-  br label %72
+68:                                               ; preds = %60, %._crit_edge.thread
+  %69 = phi i32 [ %.pre231, %60 ], [ %41, %._crit_edge.thread ]
+  %70 = phi ptr [ %.pre, %60 ], [ %39, %._crit_edge.thread ]
+  %71 = zext i32 %69 to i64
+  %72 = getelementptr inbounds nuw %struct.opj_simple_mcc_decorrelation_data, ptr %70, i64 %71
+  br label %73
 
-72:                                               ; preds = %67, %._crit_edge
-  %.not153235 = phi i1 [ true, %67 ], [ false, %._crit_edge ]
-  %.1131 = phi ptr [ %71, %67 ], [ %.0130.lcssa, %._crit_edge ]
-  %73 = load i32, ptr %6, align 4, !tbaa !125
-  store i32 %73, ptr %.1131, align 8, !tbaa !187
+73:                                               ; preds = %68, %._crit_edge
+  %.0137.lcssa234 = phi i1 [ true, %68 ], [ false, %._crit_edge ]
+  %.1131 = phi ptr [ %72, %68 ], [ %.0130180, %._crit_edge ]
+  %74 = load i32, ptr %6, align 4, !tbaa !125
+  store i32 %74, ptr %.1131, align 8, !tbaa !187
   call void @opj_read_bytes_LE(ptr noundef nonnull %37, ptr noundef nonnull %5, i32 noundef 2) #21
-  %74 = load i32, ptr %5, align 4, !tbaa !125
-  %.not150 = icmp eq i32 %74, 0
-  br i1 %.not150, label %77, label %75
+  %75 = load i32, ptr %5, align 4, !tbaa !125
+  %.not150 = icmp eq i32 %75, 0
+  br i1 %.not150, label %78, label %76
 
-75:                                               ; preds = %72
-  %76 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.243) #21
-  br label %192
+76:                                               ; preds = %73
+  %77 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.243) #21
+  br label %193
 
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  call void @opj_read_bytes_LE(ptr noundef nonnull %78, ptr noundef nonnull %7, i32 noundef 2) #21
-  %79 = load i32, ptr %7, align 4, !tbaa !125
-  %80 = icmp ugt i32 %79, 1
-  br i1 %80, label %81, label %83
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  call void @opj_read_bytes_LE(ptr noundef nonnull %79, ptr noundef nonnull %7, i32 noundef 2) #21
+  %80 = load i32, ptr %7, align 4, !tbaa !125
+  %81 = icmp ugt i32 %80, 1
+  br i1 %81, label %82, label %84
 
-81:                                               ; preds = %77
-  %82 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.245) #21
-  br label %192
+82:                                               ; preds = %78
+  %83 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.245) #21
+  br label %193
 
-83:                                               ; preds = %77
-  %84 = add i32 %2, -7
-  %.not217 = icmp eq i32 %79, 0
+84:                                               ; preds = %78
+  %85 = add i32 %2, -7
+  %.not217 = icmp eq i32 %80, 0
   br i1 %.not217, label %._crit_edge214, label %.lr.ph213
 
-.lr.ph213:                                        ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %86 = getelementptr inbounds nuw i8, ptr %.1131, i64 4
-  %87 = getelementptr inbounds nuw i8, ptr %.1131, i64 24
-  %88 = getelementptr inbounds nuw i8, ptr %.1131, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %.1131, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %23, i64 5656
-  %91 = getelementptr inbounds nuw i8, ptr %23, i64 5664
-  br label %92
+.lr.ph213:                                        ; preds = %84
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %87 = getelementptr inbounds nuw i8, ptr %.1131, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.1131, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %.1131, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.1131, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %23, i64 5656
+  %92 = getelementptr inbounds nuw i8, ptr %23, i64 5664
+  br label %93
 
-92:                                               ; preds = %.lr.ph213, %182
-  %.0132211 = phi ptr [ %85, %.lr.ph213 ], [ %151, %182 ]
-  %.1138210 = phi i32 [ 0, %.lr.ph213 ], [ %183, %182 ]
-  %.0139209 = phi i32 [ %84, %.lr.ph213 ], [ %140, %182 ]
-  %93 = icmp ult i32 %.0139209, 3
-  br i1 %93, label %94, label %96
+93:                                               ; preds = %.lr.ph213, %183
+  %.0132211 = phi ptr [ %86, %.lr.ph213 ], [ %152, %183 ]
+  %.1138210 = phi i32 [ 0, %.lr.ph213 ], [ %184, %183 ]
+  %.0139209 = phi i32 [ %85, %.lr.ph213 ], [ %141, %183 ]
+  %94 = icmp ult i32 %.0139209, 3
+  br i1 %94, label %95, label %97
 
-94:                                               ; preds = %92
-  %95 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
-  br label %192
+95:                                               ; preds = %93
+  %96 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
+  br label %193
 
-96:                                               ; preds = %92
+97:                                               ; preds = %93
   call void @opj_read_bytes_LE(ptr noundef nonnull %.0132211, ptr noundef nonnull %5, i32 noundef 1) #21
-  %97 = load i32, ptr %5, align 4, !tbaa !125
-  %.not154 = icmp eq i32 %97, 1
-  br i1 %.not154, label %100, label %98
+  %98 = load i32, ptr %5, align 4, !tbaa !125
+  %.not154 = icmp eq i32 %98, 1
+  br i1 %.not154, label %101, label %99
 
-98:                                               ; preds = %96
-  %99 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.246) #21
-  br label %192
+99:                                               ; preds = %97
+  %100 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.246) #21
+  br label %193
 
-100:                                              ; preds = %96
-  %101 = getelementptr inbounds nuw i8, ptr %.0132211, i64 1
-  call void @opj_read_bytes_LE(ptr noundef nonnull %101, ptr noundef nonnull %8, i32 noundef 2) #21
-  %102 = add i32 %.0139209, -3
-  %103 = load i32, ptr %8, align 4, !tbaa !125
-  %104 = lshr i32 %103, 15
-  %105 = add nuw nsw i32 %104, 1
-  %106 = and i32 %103, 32767
-  store i32 %106, ptr %86, align 4, !tbaa !186
-  %107 = mul nuw i32 %105, %106
-  %108 = add nuw i32 %107, 2
-  %109 = icmp ult i32 %102, %108
-  br i1 %109, label %110, label %112
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %.0132211, i64 1
+  call void @opj_read_bytes_LE(ptr noundef nonnull %102, ptr noundef nonnull %8, i32 noundef 2) #21
+  %103 = add i32 %.0139209, -3
+  %104 = load i32, ptr %8, align 4, !tbaa !125
+  %105 = lshr i32 %104, 15
+  %106 = add nuw nsw i32 %105, 1
+  %107 = and i32 %104, 32767
+  store i32 %107, ptr %87, align 4, !tbaa !186
+  %108 = mul nuw i32 %106, %107
+  %109 = add nuw i32 %108, 2
+  %110 = icmp ult i32 %103, %109
+  br i1 %110, label %111, label %113
 
-110:                                              ; preds = %100
-  %111 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
-  br label %192
+111:                                              ; preds = %101
+  %112 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
+  br label %193
 
-112:                                              ; preds = %100
-  %113 = getelementptr inbounds nuw i8, ptr %.0132211, i64 3
-  %114 = sub nuw i32 %102, %108
-  %.not218 = icmp eq i32 %106, 0
+113:                                              ; preds = %101
+  %114 = getelementptr inbounds nuw i8, ptr %.0132211, i64 3
+  %115 = sub nuw i32 %103, %109
+  %.not218 = icmp eq i32 %107, 0
   br i1 %.not218, label %._crit_edge191, label %.lr.ph190
 
-.lr.ph190:                                        ; preds = %112
-  %115 = zext nneg i32 %105 to i64
-  br label %116
+.lr.ph190:                                        ; preds = %113
+  %116 = zext nneg i32 %106 to i64
+  br label %117
 
-116:                                              ; preds = %.lr.ph190, %120
-  %.1133188 = phi ptr [ %113, %.lr.ph190 ], [ %121, %120 ]
-  %.0134187 = phi i32 [ 0, %.lr.ph190 ], [ %122, %120 ]
-  call void @opj_read_bytes_LE(ptr noundef nonnull %.1133188, ptr noundef nonnull %5, i32 noundef %105) #21
-  %117 = load i32, ptr %5, align 4, !tbaa !125
-  %.not160 = icmp eq i32 %117, %.0134187
-  br i1 %.not160, label %120, label %118
+117:                                              ; preds = %.lr.ph190, %121
+  %.1133188 = phi ptr [ %114, %.lr.ph190 ], [ %122, %121 ]
+  %.0134187 = phi i32 [ 0, %.lr.ph190 ], [ %123, %121 ]
+  call void @opj_read_bytes_LE(ptr noundef nonnull %.1133188, ptr noundef nonnull %5, i32 noundef %106) #21
+  %118 = load i32, ptr %5, align 4, !tbaa !125
+  %.not160 = icmp eq i32 %118, %.0134187
+  br i1 %.not160, label %121, label %119
 
-118:                                              ; preds = %116
-  %119 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.247) #21
-  br label %192
+119:                                              ; preds = %117
+  %120 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.247) #21
+  br label %193
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw i8, ptr %.1133188, i64 %115
-  %122 = add nuw i32 %.0134187, 1
-  %123 = load i32, ptr %86, align 4, !tbaa !186
-  %124 = icmp ult i32 %122, %123
-  br i1 %124, label %116, label %._crit_edge191, !llvm.loop !424
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds nuw i8, ptr %.1133188, i64 %116
+  %123 = add nuw i32 %.0134187, 1
+  %124 = load i32, ptr %87, align 4, !tbaa !186
+  %125 = icmp ult i32 %123, %124
+  br i1 %125, label %117, label %._crit_edge191, !llvm.loop !424
 
-._crit_edge191:                                   ; preds = %120, %112
-  %.1133.lcssa = phi ptr [ %113, %112 ], [ %121, %120 ]
+._crit_edge191:                                   ; preds = %121, %113
+  %.1133.lcssa = phi ptr [ %114, %113 ], [ %122, %121 ]
   call void @opj_read_bytes_LE(ptr noundef nonnull %.1133.lcssa, ptr noundef nonnull %8, i32 noundef 2) #21
-  %125 = getelementptr inbounds nuw i8, ptr %.1133.lcssa, i64 2
-  %126 = load i32, ptr %8, align 4, !tbaa !125
-  %127 = lshr i32 %126, 15
-  %128 = add nuw nsw i32 %127, 1
-  %129 = and i32 %126, 32767
-  store i32 %129, ptr %8, align 4, !tbaa !125
-  %130 = load i32, ptr %86, align 4, !tbaa !186
-  %.not155 = icmp eq i32 %129, %130
-  br i1 %.not155, label %133, label %131
+  %126 = getelementptr inbounds nuw i8, ptr %.1133.lcssa, i64 2
+  %127 = load i32, ptr %8, align 4, !tbaa !125
+  %128 = lshr i32 %127, 15
+  %129 = add nuw nsw i32 %128, 1
+  %130 = and i32 %127, 32767
+  store i32 %130, ptr %8, align 4, !tbaa !125
+  %131 = load i32, ptr %87, align 4, !tbaa !186
+  %.not155 = icmp eq i32 %130, %131
+  br i1 %.not155, label %134, label %132
 
-131:                                              ; preds = %._crit_edge191
-  %132 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.248) #21
-  br label %192
+132:                                              ; preds = %._crit_edge191
+  %133 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.248) #21
+  br label %193
 
-133:                                              ; preds = %._crit_edge191
-  %134 = mul nuw i32 %128, %129
-  %135 = add nuw i32 %134, 3
-  %136 = icmp ult i32 %114, %135
-  br i1 %136, label %137, label %139
+134:                                              ; preds = %._crit_edge191
+  %135 = mul nuw i32 %129, %130
+  %136 = add nuw i32 %135, 3
+  %137 = icmp ult i32 %115, %136
+  br i1 %137, label %138, label %140
 
-137:                                              ; preds = %133
-  %138 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
-  br label %192
+138:                                              ; preds = %134
+  %139 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
+  br label %193
 
-139:                                              ; preds = %133
-  %140 = sub nuw i32 %114, %135
-  %.not219 = icmp eq i32 %129, 0
+140:                                              ; preds = %134
+  %141 = sub nuw i32 %115, %136
+  %.not219 = icmp eq i32 %130, 0
   br i1 %.not219, label %._crit_edge197, label %.lr.ph196
 
-.lr.ph196:                                        ; preds = %139
-  %141 = zext nneg i32 %128 to i64
-  br label %142
+.lr.ph196:                                        ; preds = %140
+  %142 = zext nneg i32 %129 to i64
+  br label %143
 
-142:                                              ; preds = %.lr.ph196, %146
-  %.2194 = phi ptr [ %125, %.lr.ph196 ], [ %147, %146 ]
-  %.1135193 = phi i32 [ 0, %.lr.ph196 ], [ %148, %146 ]
-  call void @opj_read_bytes_LE(ptr noundef nonnull %.2194, ptr noundef nonnull %5, i32 noundef %128) #21
-  %143 = load i32, ptr %5, align 4, !tbaa !125
-  %.not159 = icmp eq i32 %143, %.1135193
-  br i1 %.not159, label %146, label %144
+143:                                              ; preds = %.lr.ph196, %147
+  %.2194 = phi ptr [ %126, %.lr.ph196 ], [ %148, %147 ]
+  %.1135193 = phi i32 [ 0, %.lr.ph196 ], [ %149, %147 ]
+  call void @opj_read_bytes_LE(ptr noundef nonnull %.2194, ptr noundef nonnull %5, i32 noundef %129) #21
+  %144 = load i32, ptr %5, align 4, !tbaa !125
+  %.not159 = icmp eq i32 %144, %.1135193
+  br i1 %.not159, label %147, label %145
 
-144:                                              ; preds = %142
-  %145 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.247) #21
-  br label %192
+145:                                              ; preds = %143
+  %146 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.247) #21
+  br label %193
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds nuw i8, ptr %.2194, i64 %141
-  %148 = add nuw i32 %.1135193, 1
-  %149 = load i32, ptr %86, align 4, !tbaa !186
-  %150 = icmp ult i32 %148, %149
-  br i1 %150, label %142, label %._crit_edge197, !llvm.loop !425
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds nuw i8, ptr %.2194, i64 %142
+  %149 = add nuw i32 %.1135193, 1
+  %150 = load i32, ptr %87, align 4, !tbaa !186
+  %151 = icmp ult i32 %149, %150
+  br i1 %151, label %143, label %._crit_edge197, !llvm.loop !425
 
-._crit_edge197:                                   ; preds = %146, %139
-  %.2.lcssa = phi ptr [ %125, %139 ], [ %147, %146 ]
+._crit_edge197:                                   ; preds = %147, %140
+  %.2.lcssa = phi ptr [ %126, %140 ], [ %148, %147 ]
   call void @opj_read_bytes_LE(ptr noundef nonnull %.2.lcssa, ptr noundef nonnull %5, i32 noundef 3) #21
-  %151 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 3
-  %152 = load i32, ptr %5, align 4, !tbaa !125
-  %153 = and i32 %152, 65536
-  %.not156 = icmp eq i32 %153, 0
-  %154 = zext i1 %.not156 to i8
-  %155 = load i8, ptr %87, align 8
-  %156 = and i8 %155, -2
-  %157 = or disjoint i8 %156, %154
-  store i8 %157, ptr %87, align 8
-  %158 = and i32 %152, 255
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, i8 0, i64 16, i1 false)
-  store i32 %158, ptr %6, align 4, !tbaa !125
-  %.not157 = icmp eq i32 %158, 0
-  br i1 %.not157, label %169, label %159
+  %152 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 3
+  %153 = load i32, ptr %5, align 4, !tbaa !125
+  %154 = and i32 %153, 65536
+  %.not156 = icmp eq i32 %154, 0
+  %155 = zext i1 %.not156 to i8
+  %156 = load i8, ptr %88, align 8
+  %157 = and i8 %156, -2
+  %158 = or disjoint i8 %157, %155
+  store i8 %158, ptr %88, align 8
+  %159 = and i32 %153, 255
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
+  store i32 %159, ptr %6, align 4, !tbaa !125
+  %.not157 = icmp eq i32 %159, 0
+  br i1 %.not157, label %170, label %160
 
-159:                                              ; preds = %._crit_edge197
-  %160 = load i32, ptr %91, align 8, !tbaa !170
-  %.not220 = icmp eq i32 %160, 0
+160:                                              ; preds = %._crit_edge197
+  %161 = load i32, ptr %92, align 8, !tbaa !170
+  %.not220 = icmp eq i32 %161, 0
   br i1 %.not220, label %._crit_edge203, label %.lr.ph202.preheader
 
-.lr.ph202.preheader:                              ; preds = %159
-  %161 = load ptr, ptr %90, align 8, !tbaa !172
+.lr.ph202.preheader:                              ; preds = %160
+  %162 = load ptr, ptr %91, align 8, !tbaa !172
   br label %.lr.ph202
 
-.lr.ph202:                                        ; preds = %.lr.ph202.preheader, %165
-  %.0128200 = phi ptr [ %166, %165 ], [ %161, %.lr.ph202.preheader ]
-  %.2136199 = phi i32 [ %167, %165 ], [ 0, %.lr.ph202.preheader ]
-  %162 = getelementptr inbounds nuw i8, ptr %.0128200, i64 8
-  %163 = load i32, ptr %162, align 8, !tbaa !175
-  %164 = icmp eq i32 %163, %158
-  br i1 %164, label %.thread161, label %165
+.lr.ph202:                                        ; preds = %.lr.ph202.preheader, %166
+  %.0128200 = phi ptr [ %167, %166 ], [ %162, %.lr.ph202.preheader ]
+  %.2136199 = phi i32 [ %168, %166 ], [ 0, %.lr.ph202.preheader ]
+  %163 = getelementptr inbounds nuw i8, ptr %.0128200, i64 8
+  %164 = load i32, ptr %163, align 8, !tbaa !175
+  %165 = icmp eq i32 %164, %159
+  br i1 %165, label %.thread161, label %166
 
 .thread161:                                       ; preds = %.lr.ph202
-  store ptr %.0128200, ptr %88, align 8, !tbaa !184
-  br label %169
+  store ptr %.0128200, ptr %89, align 8, !tbaa !184
+  br label %170
 
-165:                                              ; preds = %.lr.ph202
-  %166 = getelementptr inbounds nuw i8, ptr %.0128200, i64 32
-  %167 = add nuw i32 %.2136199, 1
-  %exitcond229.not = icmp eq i32 %167, %160
+166:                                              ; preds = %.lr.ph202
+  %167 = getelementptr inbounds nuw i8, ptr %.0128200, i64 32
+  %168 = add nuw i32 %.2136199, 1
+  %exitcond229.not = icmp eq i32 %168, %161
   br i1 %exitcond229.not, label %._crit_edge203, label %.lr.ph202, !llvm.loop !426
 
-._crit_edge203:                                   ; preds = %159, %165
-  %168 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
-  br label %192
+._crit_edge203:                                   ; preds = %160, %166
+  %169 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
+  br label %193
 
-169:                                              ; preds = %.thread161, %._crit_edge197
-  %170 = lshr i32 %152, 8
-  %171 = and i32 %170, 255
-  store i32 %171, ptr %6, align 4, !tbaa !125
-  %.not158 = icmp eq i32 %171, 0
-  br i1 %.not158, label %182, label %172
+170:                                              ; preds = %.thread161, %._crit_edge197
+  %171 = lshr i32 %153, 8
+  %172 = and i32 %171, 255
+  store i32 %172, ptr %6, align 4, !tbaa !125
+  %.not158 = icmp eq i32 %172, 0
+  br i1 %.not158, label %183, label %173
 
-172:                                              ; preds = %169
-  %173 = load i32, ptr %91, align 8, !tbaa !170
-  %.not221 = icmp eq i32 %173, 0
+173:                                              ; preds = %170
+  %174 = load i32, ptr %92, align 8, !tbaa !170
+  %.not221 = icmp eq i32 %174, 0
   br i1 %.not221, label %._crit_edge208, label %.lr.ph207.preheader
 
-.lr.ph207.preheader:                              ; preds = %172
-  %174 = load ptr, ptr %90, align 8, !tbaa !172
+.lr.ph207.preheader:                              ; preds = %173
+  %175 = load ptr, ptr %91, align 8, !tbaa !172
   br label %.lr.ph207
 
-.lr.ph207:                                        ; preds = %.lr.ph207.preheader, %178
-  %.1129205 = phi ptr [ %179, %178 ], [ %174, %.lr.ph207.preheader ]
-  %.3204 = phi i32 [ %180, %178 ], [ 0, %.lr.ph207.preheader ]
-  %175 = getelementptr inbounds nuw i8, ptr %.1129205, i64 8
-  %176 = load i32, ptr %175, align 8, !tbaa !175
-  %177 = icmp eq i32 %176, %171
-  br i1 %177, label %.thread164, label %178
+.lr.ph207:                                        ; preds = %.lr.ph207.preheader, %179
+  %.1129205 = phi ptr [ %180, %179 ], [ %175, %.lr.ph207.preheader ]
+  %.3204 = phi i32 [ %181, %179 ], [ 0, %.lr.ph207.preheader ]
+  %176 = getelementptr inbounds nuw i8, ptr %.1129205, i64 8
+  %177 = load i32, ptr %176, align 8, !tbaa !175
+  %178 = icmp eq i32 %177, %172
+  br i1 %178, label %.thread164, label %179
 
 .thread164:                                       ; preds = %.lr.ph207
-  store ptr %.1129205, ptr %89, align 8, !tbaa !188
-  br label %182
+  store ptr %.1129205, ptr %90, align 8, !tbaa !188
+  br label %183
 
-178:                                              ; preds = %.lr.ph207
-  %179 = getelementptr inbounds nuw i8, ptr %.1129205, i64 32
-  %180 = add nuw i32 %.3204, 1
-  %exitcond230.not = icmp eq i32 %180, %173
+179:                                              ; preds = %.lr.ph207
+  %180 = getelementptr inbounds nuw i8, ptr %.1129205, i64 32
+  %181 = add nuw i32 %.3204, 1
+  %exitcond230.not = icmp eq i32 %181, %174
   br i1 %exitcond230.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !427
 
-._crit_edge208:                                   ; preds = %172, %178
-  %181 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
-  br label %192
+._crit_edge208:                                   ; preds = %173, %179
+  %182 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
+  br label %193
 
-182:                                              ; preds = %.thread164, %169
-  %183 = add nuw i32 %.1138210, 1
-  %184 = load i32, ptr %7, align 4, !tbaa !125
-  %185 = icmp ult i32 %183, %184
-  br i1 %185, label %92, label %._crit_edge214, !llvm.loop !428
+183:                                              ; preds = %.thread164, %170
+  %184 = add nuw i32 %.1138210, 1
+  %185 = load i32, ptr %7, align 4, !tbaa !125
+  %186 = icmp ult i32 %184, %185
+  br i1 %186, label %93, label %._crit_edge214, !llvm.loop !428
 
-._crit_edge214:                                   ; preds = %182, %83
-  %.0139.lcssa = phi i32 [ %84, %83 ], [ %140, %182 ]
+._crit_edge214:                                   ; preds = %183, %84
+  %.0139.lcssa = phi i32 [ %85, %84 ], [ %141, %183 ]
   %.not151 = icmp eq i32 %.0139.lcssa, 0
-  br i1 %.not151, label %188, label %186
+  br i1 %.not151, label %189, label %187
 
-186:                                              ; preds = %._crit_edge214
-  %187 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
-  br label %192
+187:                                              ; preds = %._crit_edge214
+  %188 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.242) #21
+  br label %193
 
-188:                                              ; preds = %._crit_edge214
-  br i1 %.not153235, label %189, label %192
+189:                                              ; preds = %._crit_edge214
+  br i1 %.0137.lcssa234, label %190, label %193
 
-189:                                              ; preds = %188
-  %190 = load i32, ptr %40, align 8, !tbaa !181
-  %191 = add i32 %190, 1
-  store i32 %191, ptr %40, align 8, !tbaa !181
-  br label %192
+190:                                              ; preds = %189
+  %191 = load i32, ptr %40, align 8, !tbaa !181
+  %192 = add i32 %191, 1
+  store i32 %192, ptr %40, align 8, !tbaa !181
+  br label %193
 
-192:                                              ; preds = %.thread, %188, %189, %186, %._crit_edge208, %._crit_edge203, %144, %137, %131, %118, %110, %98, %94, %81, %75, %34, %30, %25
-  %.0 = phi i32 [ 0, %25 ], [ 1, %30 ], [ 0, %34 ], [ 1, %75 ], [ 1, %81 ], [ 0, %94 ], [ 1, %98 ], [ 0, %110 ], [ 1, %118 ], [ 1, %131 ], [ 0, %137 ], [ 1, %144 ], [ 0, %._crit_edge203 ], [ 0, %._crit_edge208 ], [ 0, %186 ], [ 1, %189 ], [ 1, %188 ], [ 0, %.thread ]
+193:                                              ; preds = %.thread, %189, %190, %187, %._crit_edge208, %._crit_edge203, %145, %138, %132, %119, %111, %99, %95, %82, %76, %34, %30, %25
+  %.0 = phi i32 [ 0, %25 ], [ 1, %30 ], [ 0, %34 ], [ 1, %76 ], [ 1, %82 ], [ 0, %95 ], [ 1, %99 ], [ 0, %111 ], [ 1, %119 ], [ 1, %132 ], [ 0, %138 ], [ 1, %145 ], [ 0, %._crit_edge203 ], [ 0, %._crit_edge208 ], [ 0, %187 ], [ 1, %190 ], [ 1, %189 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
@@ -13835,10 +13831,10 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mco(ptr noundef readonly captu
 .lr.ph.i:                                         ; preds = %51
   %55 = load i32, ptr %5, align 4, !tbaa !125
   %56 = load i32, ptr %53, align 8, !tbaa !187
-  %.not79.i = icmp eq i32 %56, %55
-  br i1 %.not79.i, label %57, label %115
+  %57 = icmp eq i32 %56, %55
+  br i1 %57, label %._crit_edge.i, label %115
 
-57:                                               ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !186
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -13846,7 +13842,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mco(ptr noundef readonly captu
   %.not.i = icmp eq i32 %59, %61
   br i1 %.not.i, label %62, label %115
 
-62:                                               ; preds = %57
+62:                                               ; preds = %._crit_edge.i
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !184
   %.not58.i = icmp eq ptr %64, null
@@ -13940,7 +13936,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_read_mco(ptr noundef readonly captu
   call void @opj_free(ptr noundef nonnull %100) #21
   br label %115
 
-115:                                              ; preds = %57, %._crit_edge75.i, %85, %.lr.ph.i, %51
+115:                                              ; preds = %._crit_edge.i, %._crit_edge75.i, %85, %51, %.lr.ph.i
   %116 = add nuw i32 %.140, 1
   %117 = load i32, ptr %6, align 4, !tbaa !125
   %118 = icmp ult i32 %116, %117

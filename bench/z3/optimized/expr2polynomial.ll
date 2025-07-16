@@ -2232,25 +2232,26 @@ define hidden noundef zeroext i1 @_ZNK15expr2polynomial6is_varEP4expr(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !140
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %_ZNK8expr2var6is_varEP4expr.exit, label %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i
+  br i1 %9, label %_ZNK8expr2var6is_varEP4expr.exit, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
 
-_ZNK6vectorIjLb0EjE3getEjRKj.exit.i:              ; preds = %2
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %2
   %10 = load i32, ptr %1, align 4, !tbaa !143
   %11 = getelementptr inbounds i8, ptr %8, i64 -4
   %12 = load i32, ptr %11, align 4, !tbaa !80
-  %.not.i.i = icmp ult i32 %10, %12
-  br i1 %.not.i.i, label %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i, label %_ZNK8expr2var6is_varEP4expr.exit
+  %.fr.i.i = freeze i32 %12
+  %13 = icmp ult i32 %10, %.fr.i.i
+  br i1 %13, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then, label %_ZNK8expr2var6is_varEP4expr.exit
 
-_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i:         ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i
-  %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %13
-  %.then.val.i = load i32, ptr %14, align 4, !tbaa !80
-  %15 = icmp ne i32 %.then.val.i, -1
+_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then:         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
+  %14 = zext i32 %10 to i64
+  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %14
+  %.pre.i.then.val = load i32, ptr %15, align 4, !tbaa !80
+  %16 = icmp ne i32 %.pre.i.then.val, -1
   br label %_ZNK8expr2var6is_varEP4expr.exit
 
-_ZNK8expr2var6is_varEP4expr.exit:                 ; preds = %2, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i
-  %16 = phi i1 [ %15, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i ], [ false, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.i ], [ false, %2 ]
-  ret i1 %16
+_ZNK8expr2var6is_varEP4expr.exit:                 ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %2
+  %17 = phi i1 [ false, %2 ], [ %16, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

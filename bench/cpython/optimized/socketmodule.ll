@@ -7686,16 +7686,16 @@ sock_recv_guts.exit:                              ; preds = %20
 
 37:                                               ; preds = %sock_recv_guts.exit
   %.pre = load i64, ptr %4, align 8, !tbaa !47
-  %.not9 = icmp eq i64 %29, %.pre
-  br i1 %.not9, label %Py_DECREF.exit, label %38
+  %38 = icmp eq i64 %29, %.pre
+  br i1 %38, label %Py_DECREF.exit, label %39
 
-38:                                               ; preds = %37
-  %39 = call i32 @_PyBytes_Resize(ptr noundef nonnull %6, i64 noundef %29) #13
+39:                                               ; preds = %37
+  %40 = call i32 @_PyBytes_Resize(ptr noundef nonnull %6, i64 noundef %29) #13
   %.pre14 = load ptr, ptr %6, align 8, !tbaa !19
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %37, %38, %.thread, %36, %33, %31, %13, %2, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %2 ], [ null, %13 ], [ null, %31 ], [ null, %33 ], [ null, %36 ], [ %.pre14, %38 ], [ %14, %37 ], [ %14, %.thread ]
+Py_DECREF.exit:                                   ; preds = %37, %39, %.thread, %36, %33, %31, %13, %2, %11
+  %.0 = phi ptr [ null, %11 ], [ null, %2 ], [ null, %13 ], [ null, %31 ], [ null, %33 ], [ null, %36 ], [ %.pre14, %39 ], [ %14, %37 ], [ %14, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13

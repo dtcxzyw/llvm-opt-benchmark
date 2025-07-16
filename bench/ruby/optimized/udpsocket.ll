@@ -53,34 +53,34 @@ define internal i64 @udp_init(i32 noundef %0, ptr noundef readonly captures(none
 
 .preheader.split.split:                           ; preds = %3
   switch i32 %0, label %5 [
-    i32 0, label %rb_scan_args_set.exit.thread
-    i32 1, label %rb_scan_args_set.exit
+    i32 0, label %rb_scan_args_set.exit
+    i32 1, label %6
   ]
 
 5:                                                ; preds = %.preheader.split.split, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #6
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %.preheader.split.split
-  %6 = load i64, ptr %1, align 8, !tbaa !6
-  %7 = tail call i32 @rsock_family_arg(i64 noundef %6) #5
-  br label %rb_scan_args_set.exit.thread
+6:                                                ; preds = %.preheader.split.split
+  %7 = load i64, ptr %1, align 8, !tbaa !6
+  %8 = tail call i32 @rsock_family_arg(i64 noundef %7) #5
+  br label %rb_scan_args_set.exit
 
-rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split, %rb_scan_args_set.exit
-  %.0 = phi i32 [ %7, %rb_scan_args_set.exit ], [ 2, %.preheader.split.split ]
-  %8 = tail call i32 @rsock_socket(i32 noundef %.0, i32 noundef 2, i32 noundef 0) #5
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %13
+rb_scan_args_set.exit:                            ; preds = %.preheader.split.split, %6
+  %.0 = phi i32 [ %8, %6 ], [ 2, %.preheader.split.split ]
+  %9 = tail call i32 @rsock_socket(i32 noundef %.0, i32 noundef 2, i32 noundef 0) #5
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %rb_scan_args_set.exit.thread
-  %11 = tail call ptr @rb_errno_ptr() #5
-  %12 = load i32, ptr %11, align 4, !tbaa !10
-  tail call void @rb_syserr_fail(i32 noundef %12, ptr noundef nonnull @.str.7) #6
+11:                                               ; preds = %rb_scan_args_set.exit
+  %12 = tail call ptr @rb_errno_ptr() #5
+  %13 = load i32, ptr %12, align 4, !tbaa !10
+  tail call void @rb_syserr_fail(i32 noundef %13, ptr noundef nonnull @.str.7) #6
   unreachable
 
-13:                                               ; preds = %rb_scan_args_set.exit.thread
-  %14 = tail call i64 @rsock_init_sock(i64 noundef %2, i32 noundef %8) #5
-  ret i64 %14
+14:                                               ; preds = %rb_scan_args_set.exit
+  %15 = tail call i64 @rsock_init_sock(i64 noundef %2, i32 noundef %9) #5
+  ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

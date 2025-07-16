@@ -3702,38 +3702,38 @@ _Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv.exit: ; preds = %3, %6, %1
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %.thread, label %41
+  br i1 %.not, label %.critedge, label %41
 
 41:                                               ; preds = %_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv.exit
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds ptr, ptr %40, i64 %43
   %45 = load ptr, ptr %44, align 8
-  %.not17 = icmp eq ptr %0, %45
-  br i1 %.not17, label %48, label %.thread
+  %46 = icmp eq ptr %0, %45
+  br i1 %46, label %49, label %.critedge
 
-.thread:                                          ; preds = %_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv.exit, %41
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %47, align 8
-  br label %48
+.critedge:                                        ; preds = %_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv.exit, %41
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 1, ptr %47, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %48, align 8
+  br label %49
 
-48:                                               ; preds = %.thread, %41
+49:                                               ; preds = %.critedge, %41
   %.not18 = icmp eq ptr %1, null
-  br i1 %.not18, label %54, label %49
+  br i1 %.not18, label %55, label %50
 
-49:                                               ; preds = %48
-  %50 = tail call i32 @fileno(ptr noundef nonnull %1) #32
-  %51 = tail call i32 @isatty(i32 noundef %50) #32
-  %52 = icmp sgt i32 %51, 0
-  %53 = zext i1 %52 to i32
-  br label %54
+50:                                               ; preds = %49
+  %51 = tail call i32 @fileno(ptr noundef nonnull %1) #32
+  %52 = tail call i32 @isatty(i32 noundef %51) #32
+  %53 = icmp sgt i32 %52, 0
+  %54 = zext i1 %53 to i32
+  br label %55
 
-54:                                               ; preds = %48, %49
-  %55 = phi i32 [ %53, %49 ], [ 0, %48 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %55, ptr %56, align 4
+55:                                               ; preds = %49, %50
+  %56 = phi i32 [ %54, %50 ], [ 0, %49 ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %56, ptr %57, align 4
   store i32 %5, ptr %4, align 4
   ret void
 }
@@ -3879,7 +3879,7 @@ define void @_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not14 = icmp eq ptr %5, null
-  br i1 %.not14, label %.thread, label %6
+  br i1 %.not14, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3887,25 +3887,25 @@ define void @_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv(ptr noundef 
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %6
   store ptr null, ptr %9, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %12, %6
+.critedge:                                        ; preds = %3, %12, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %18, label %15
 
-15:                                               ; preds = %.thread
+15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #32
   br label %18
 
-18:                                               ; preds = %15, %.thread
+18:                                               ; preds = %15, %.critedge
   tail call void @free(ptr noundef nonnull %0) #32
   br label %19
 
@@ -3922,7 +3922,7 @@ define void @_Z20textFileFormatYyfreePvS_(ptr noundef captures(none) %0, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3943,7 +3943,7 @@ define void @_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv(ptr noundef c
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %.thread, label %15
+  br i1 %.not15, label %.critedge, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3951,7 +3951,7 @@ define void @_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv(ptr noundef c
   %18 = getelementptr inbounds ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -3972,9 +3972,9 @@ define void @_Z29textFileFormatYy_flush_bufferP15yy_buffer_statePv(ptr noundef c
   %33 = load i8, ptr %27, align 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %33, ptr %34, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %2, %21, %15
+.critedge:                                        ; preds = %3, %2, %21, %15
   ret void
 }
 
@@ -4126,22 +4126,22 @@ define void @_Z32textFileFormatYypop_buffer_statePv(ptr noundef captures(none) %
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.critedge, label %.thread.i
+  br i1 %9, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %4
+.critedge.i:                                      ; preds = %4
   store ptr null, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load i32, ptr %10, align 8
   %.not15.i = icmp eq i32 %11, 0
   br i1 %.not15.i, label %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit, label %12
 
-12:                                               ; preds = %.thread.i
+12:                                               ; preds = %.critedge.i
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #32
   br label %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit
 
-_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %12
+_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.critedge.i, %12
   tail call void @free(ptr noundef nonnull %8) #32
   %15 = load ptr, ptr %2, align 8
   %16 = load i64, ptr %5, align 8
@@ -4575,8 +4575,8 @@ define noundef i32 @_Z27textFileFormatYylex_destroyPv(ptr noundef captures(none)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %.not25 = icmp eq ptr %4, null
-  br i1 %.not25, label %.critedge, label %.lr.ph
+  %.not26 = icmp eq ptr %4, null
+  br i1 %.not26, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4589,9 +4589,9 @@ define noundef i32 @_Z27textFileFormatYylex_destroyPv(ptr noundef captures(none)
   %12 = getelementptr inbounds ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.critedge, label %.thread.i
+  br i1 %14, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph, %_Z32textFileFormatYypop_buffer_statePv.exit
+.critedge.i:                                      ; preds = %.lr.ph, %_Z32textFileFormatYypop_buffer_statePv.exit
   %15 = phi ptr [ %61, %_Z32textFileFormatYypop_buffer_statePv.exit ], [ %13, %.lr.ph ]
   %16 = phi ptr [ %60, %_Z32textFileFormatYypop_buffer_statePv.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %16, align 8
@@ -4600,13 +4600,13 @@ define noundef i32 @_Z27textFileFormatYylex_destroyPv(ptr noundef captures(none)
   %.not15.i = icmp eq i32 %18, 0
   br i1 %.not15.i, label %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit, label %19
 
-19:                                               ; preds = %.thread.i
+19:                                               ; preds = %.critedge.i
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #32
   br label %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit
 
-_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %19
+_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.critedge.i, %19
   tail call void @free(ptr noundef nonnull %15) #32
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
@@ -4621,22 +4621,22 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %_Z32textFileFormatYypop_buffer_statePv.exit, label %.thread.i.i
+  br i1 %30, label %_Z32textFileFormatYypop_buffer_statePv.exit, label %.critedge.i.i
 
-.thread.i.i:                                      ; preds = %26
+.critedge.i.i:                                    ; preds = %26
   store ptr null, ptr %28, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %32 = load i32, ptr %31, align 8
   %.not15.i.i = icmp eq i32 %32, 0
   br i1 %.not15.i.i, label %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i, label %33
 
-33:                                               ; preds = %.thread.i.i
+33:                                               ; preds = %.critedge.i.i
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @free(ptr noundef %35) #32
   br label %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i
 
-_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.thread.i.i
+_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %29) #32
   %36 = load ptr, ptr %3, align 8
   %37 = load i64, ptr %2, align 8
@@ -4686,7 +4686,7 @@ _Z32textFileFormatYypop_buffer_statePv.exit:      ; preds = %26, %45, %49
   %60 = getelementptr inbounds ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.critedge, label %.thread.i, !llvm.loop !12
+  br i1 %62, label %.critedge, label %.critedge.i, !llvm.loop !12
 
 .critedge:                                        ; preds = %_Z32textFileFormatYypop_buffer_statePv.exit, %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit, %42, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %42 ], [ null, %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit ], [ %58, %_Z32textFileFormatYypop_buffer_statePv.exit ]

@@ -3335,12 +3335,15 @@ define noundef range(i8 0, 18) i8 @_ZN16wasmtime_environ13trap_encoding16lookup_
   %.022.i.i = select i1 %25, i64 %26, i64 %.01926.i.i
   %27 = sub i64 %.021.i.i, %.022.i.i
   %28 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %28, label %.lr.ph.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit"
+  br i1 %28, label %.lr.ph.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit.loopexit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit": ; preds = %23, %17
-  %.019.lcssa.i.i = phi i64 [ 0, %17 ], [ %.022.i.i, %23 ]
-  %29 = icmp ule i64 %.019.lcssa.i.i, %9
-  tail call void @llvm.assume(i1 %29)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit.loopexit": ; preds = %23
+  %29 = icmp ule i64 %.022.i.i, %9
+  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit"
+
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit.loopexit", %17
+  %.019.lcssa.i.i = phi i1 [ true, %17 ], [ %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit.loopexit" ]
+  tail call void @llvm.assume(i1 %.019.lcssa.i.i)
   br label %_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit
 
 30:                                               ; preds = %.lr.ph.i.i

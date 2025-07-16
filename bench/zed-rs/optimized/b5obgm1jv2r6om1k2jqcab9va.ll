@@ -3171,39 +3171,34 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355
   %62 = load i64, ptr %2, align 8, !alias.scope !712, !noalias !715, !noundef !7
   %63 = sub i64 %62, %59
   %64 = icmp ugt i64 %35, %63
-  br i1 %64, label %.thread.i.i, label %65
+  br i1 %64, label %.lr.ph.split.us.i.i, label %65
 
 65:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit5
   %.not7.i.i = icmp eq i64 %35, 0
-  br i1 %.not7.i.i, label %"_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$9append_to17h75cdfa585b2ccb70E.exit", label %.lr.ph.split.us.i.i
+  br i1 %.not7.i.i, label %"_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$9append_to17h75cdfa585b2ccb70E.exit", label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc857481c84811c1bE.llvm.12860031636858333160.exit.us.i.i"
 
-.lr.ph.split.us.i.i:                              ; preds = %.thread.i.i, %65
-  %.pre-phi.i = phi i64 [ %.pre2.i, %.thread.i.i ], [ %63, %65 ]
-  %66 = phi i64 [ %.pre.i6, %.thread.i.i ], [ %59, %65 ]
-  %67 = icmp ugt i64 %35, %.pre-phi.i
-  br i1 %67, label %68, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc857481c84811c1bE.llvm.12860031636858333160.exit.us.i.i"
-
-68:                                               ; preds = %.lr.ph.split.us.i.i
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4c482a34ee6c14cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %66, i64 noundef %35), !noalias !715
-  %.pre.i.us.i.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !717, !noalias !715
-  br label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc857481c84811c1bE.llvm.12860031636858333160.exit.us.i.i"
-
-"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc857481c84811c1bE.llvm.12860031636858333160.exit.us.i.i": ; preds = %68, %.lr.ph.split.us.i.i
-  %69 = phi i64 [ %.pre.i.us.i.i, %68 ], [ %66, %.lr.ph.split.us.i.i ]
-  %70 = load ptr, ptr %29, align 8, !alias.scope !717, !noalias !715, !nonnull !7, !noundef !7
-  %71 = getelementptr inbounds i8, ptr %70, i64 %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %61, i64 %35, i1 false), !noalias !707
-  %72 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !717, !noalias !715, !noundef !7
-  %73 = add i64 %72, %35
-  store i64 %73, ptr %.phi.trans.insert.i, align 8, !alias.scope !717, !noalias !715
-  br label %"_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$9append_to17h75cdfa585b2ccb70E.exit"
-
-.thread.i.i:                                      ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit5
+.lr.ph.split.us.i.i:                              ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.8801228890571076355.exit5
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4c482a34ee6c14cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %59, i64 noundef %35), !noalias !715
   %.pre.i6 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !717, !noalias !715
   %.pre1.i = load i64, ptr %2, align 8, !alias.scope !717, !noalias !715
   %.pre2.i = sub i64 %.pre1.i, %.pre.i6
-  br label %.lr.ph.split.us.i.i
+  %66 = icmp ugt i64 %35, %.pre2.i
+  br i1 %66, label %67, label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc857481c84811c1bE.llvm.12860031636858333160.exit.us.i.i"
+
+67:                                               ; preds = %.lr.ph.split.us.i.i
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4c482a34ee6c14cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.pre.i6, i64 noundef %35), !noalias !715
+  %.pre.i.us.i.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !717, !noalias !715
+  br label %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc857481c84811c1bE.llvm.12860031636858333160.exit.us.i.i"
+
+"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc857481c84811c1bE.llvm.12860031636858333160.exit.us.i.i": ; preds = %65, %67, %.lr.ph.split.us.i.i
+  %68 = phi i64 [ %.pre.i.us.i.i, %67 ], [ %.pre.i6, %.lr.ph.split.us.i.i ], [ %59, %65 ]
+  %69 = load ptr, ptr %29, align 8, !alias.scope !717, !noalias !715, !nonnull !7, !noundef !7
+  %70 = getelementptr inbounds i8, ptr %69, i64 %68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull readonly align 1 %61, i64 %35, i1 false), !noalias !707
+  %71 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !717, !noalias !715, !noundef !7
+  %72 = add i64 %71, %35
+  store i64 %72, ptr %.phi.trans.insert.i, align 8, !alias.scope !717, !noalias !715
+  br label %"_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$9append_to17h75cdfa585b2ccb70E.exit"
 
 "_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$9append_to17h75cdfa585b2ccb70E.exit": ; preds = %65, %"_ZN62_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17hc857481c84811c1bE.llvm.12860031636858333160.exit.us.i.i"
   ret void

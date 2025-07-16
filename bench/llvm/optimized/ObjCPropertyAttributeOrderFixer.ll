@@ -1539,8 +1539,8 @@ define dso_local void @_ZN5clang6format31ObjCPropertyAttributeOrderFixer23analyz
 _ZNK5clang6format11FormatToken5isNotIPNS_14IdentifierInfoEEEbT_.exit: ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !116
-  %.not20 = icmp eq ptr %10, %15
-  br i1 %.not20, label %.preheader, label %_ZNK5clang6format11FormatToken5isNotIPNS_14IdentifierInfoEEEbT_.exit.thread
+  %.not18 = icmp eq ptr %10, %15
+  br i1 %.not18, label %.preheader, label %_ZNK5clang6format11FormatToken5isNotIPNS_14IdentifierInfoEEEbT_.exit.thread
 
 .preheader:                                       ; preds = %_ZNK5clang6format11FormatToken5isNotIPNS_14IdentifierInfoEEEbT_.exit, %16
   %.pn.i = phi ptr [ %.0.i, %16 ], [ %7, %_ZNK5clang6format11FormatToken5isNotIPNS_14IdentifierInfoEEEbT_.exit ]
@@ -1732,8 +1732,8 @@ _ZNSt4pairIN5clang7tooling12ReplacementsEjEC2IRS2_iTnNSt9enable_ifIXaaclsr5_PCCP
 _ZNK5clang6format11FormatToken5isNotIPNS_14IdentifierInfoEEEbT_.exit.i: ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !116
-  %.not20.i = icmp eq ptr %64, %69
-  br i1 %.not20.i, label %.preheader.i, label %_ZN5clang6format31ObjCPropertyAttributeOrderFixer23analyzeObjCPropertyDeclERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenE.exit
+  %.not18.i = icmp eq ptr %64, %69
+  br i1 %.not18.i, label %.preheader.i, label %_ZN5clang6format31ObjCPropertyAttributeOrderFixer23analyzeObjCPropertyDeclERKNS_13SourceManagerERKNS0_18AdditionalKeywordsERNS_7tooling12ReplacementsEPKNS0_11FormatTokenE.exit
 
 .preheader.i:                                     ; preds = %_ZNK5clang6format11FormatToken5isNotIPNS_14IdentifierInfoEEEbT_.exit.i, %70
   %.pn.i.i = phi ptr [ %.0.i.i, %70 ], [ %61, %_ZNK5clang6format11FormatToken5isNotIPNS_14IdentifierInfoEEEbT_.exit.i ]

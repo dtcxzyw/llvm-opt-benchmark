@@ -4954,9 +4954,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb71cc9e05c3a25ecE.exit.thread.
   store i64 %.sroa.0.0.i.i.i, ptr %13, align 8, !noalias !487
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9.i.i.i, i64 48, i1 false), !noalias !487
   call void @llvm.experimental.noalias.scope.decl(metadata !558)
-  %102 = load i64, ptr %15, align 8, !range !247, !alias.scope !561, !noalias !562, !noundef !3
+  %.not12.i.i.i.i = icmp ne i64 %.sroa.0.0.i.i.i, 5
+  %102 = load i64, ptr %15, align 8, !range !247, !alias.scope !561, !noalias !562
   %103 = icmp samesign ugt i64 %102, %.sroa.0.0.i.i.i
-  br i1 %103, label %104, label %105
+  %or.cond.i.i.i.i = select i1 %.not12.i.i.i.i, i1 %103, i1 false
+  br i1 %or.cond.i.i.i.i, label %104, label %105
 
 104:                                              ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c261f5c4b66f334E.exit.i.i.i"
   store i64 %.sroa.0.0.i.i.i, ptr %15, align 8, !alias.scope !561, !noalias !562
@@ -4974,8 +4976,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb71cc9e05c3a25ecE.exit.thread.
     i64 1, label %._crit_edge.i.i.i.i.i
   ]
 
-._crit_edge.i.i.i.i.i:                            ; preds = %.noexc17.i.i.i.i, %105
-  %.sroa.05.0.lcssa.i.i.i.i.i = phi i64 [ 0, %105 ], [ %120, %.noexc17.i.i.i.i ]
+._crit_edge.i.i.i.i.i:                            ; preds = %.noexc16.i.i.i.i, %105
+  %.sroa.05.0.lcssa.i.i.i.i.i = phi i64 [ 0, %105 ], [ %120, %.noexc16.i.i.i.i ]
   %110 = icmp ult i64 %.sroa.05.0.lcssa.i.i.i.i.i, %.sink10.i.i.i.i.i
   call void @llvm.assume(i1 %110)
   %111 = getelementptr inbounds nuw { i64, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %.sink11.i.i.i.i.i, i64 %.sroa.05.0.lcssa.i.i.i.i.i
@@ -4986,18 +4988,18 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb71cc9e05c3a25ecE.exit.thread.
   %113 = icmp eq i8 %112, 0
   br i1 %113, label %129, label %123
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %105, %.noexc17.i.i.i.i
-  %.sroa.01.025.i.i.i.i.i = phi i64 [ %121, %.noexc17.i.i.i.i ], [ %.sink10.i.i.i.i.i, %105 ]
-  %.sroa.05.024.i.i.i.i.i = phi i64 [ %120, %.noexc17.i.i.i.i ], [ 0, %105 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %105, %.noexc16.i.i.i.i
+  %.sroa.01.025.i.i.i.i.i = phi i64 [ %121, %.noexc16.i.i.i.i ], [ %.sink10.i.i.i.i.i, %105 ]
+  %.sroa.05.024.i.i.i.i.i = phi i64 [ %120, %.noexc16.i.i.i.i ], [ 0, %105 ]
   %114 = lshr i64 %.sroa.01.025.i.i.i.i.i, 1
   %115 = add i64 %114, %.sroa.05.024.i.i.i.i.i
   %116 = icmp ult i64 %115, %.sink10.i.i.i.i.i
   call void @llvm.assume(i1 %116)
   %117 = getelementptr inbounds nuw { i64, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %.sink11.i.i.i.i.i, i64 %115
   %118 = invoke noundef range(i8 -1, 2) i8 @"_ZN89_$LT$tracing_subscriber..filter..directive..StaticDirective$u20$as$u20$core..cmp..Ord$GT$3cmp17h2188bfdca1250078E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %117, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %13)
-          to label %.noexc17.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !528
+          to label %.noexc16.i.i.i.i unwind label %.loopexit.i.i.i.i, !noalias !528
 
-.noexc17.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
+.noexc16.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
   %119 = icmp eq i8 %118, 1
   %120 = select i1 %119, i64 %.sroa.05.024.i.i.i.i.i, i64 %115, !unpredictable !3
   %121 = sub i64 %.sroa.01.025.i.i.i.i.i, %114
@@ -5162,9 +5164,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb71cc9e05c3a25ecE.exit.thread.
   store i64 %.sroa.01.0.copyload2.i.i, ptr %5, align 8, !noalias !579
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.7.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.7.0..sroa_idx3.i.i, i64 72, i1 false), !noalias !581
   call void @llvm.experimental.noalias.scope.decl(metadata !588)
-  %158 = load i64, ptr %7, align 8, !range !247, !alias.scope !591, !noalias !592, !noundef !3
+  %.not12.i.i.i = icmp ne i64 %.sroa.01.0.copyload2.i.i, 5
+  %158 = load i64, ptr %7, align 8, !range !247, !alias.scope !591, !noalias !592
   %159 = icmp samesign ugt i64 %158, %.sroa.01.0.copyload2.i.i
-  br i1 %159, label %160, label %161
+  %or.cond.i.i.i = select i1 %.not12.i.i.i, i1 %159, i1 false
+  br i1 %or.cond.i.i.i, label %160, label %161
 
 160:                                              ; preds = %157
   store i64 %.sroa.01.0.copyload2.i.i, ptr %7, align 8, !alias.scope !591, !noalias !592
@@ -5182,8 +5186,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb71cc9e05c3a25ecE.exit.thread.
     i64 1, label %._crit_edge.i.i.i.i
   ]
 
-._crit_edge.i.i.i.i:                              ; preds = %.noexc17.i.i.i, %161
-  %.sroa.05.0.lcssa.i.i.i.i = phi i64 [ 0, %161 ], [ %176, %.noexc17.i.i.i ]
+._crit_edge.i.i.i.i:                              ; preds = %.noexc16.i.i.i, %161
+  %.sroa.05.0.lcssa.i.i.i.i = phi i64 [ 0, %161 ], [ %176, %.noexc16.i.i.i ]
   %166 = icmp ult i64 %.sroa.05.0.lcssa.i.i.i.i, %.sink10.i.i.i.i
   call void @llvm.assume(i1 %166)
   %167 = getelementptr inbounds nuw { i64, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink11.i.i.i.i, i64 %.sroa.05.0.lcssa.i.i.i.i
@@ -5194,18 +5198,18 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb71cc9e05c3a25ecE.exit.thread.
   %169 = icmp eq i8 %168, 0
   br i1 %169, label %185, label %179
 
-.lr.ph.i.i.i.i:                                   ; preds = %161, %.noexc17.i.i.i
-  %.sroa.01.025.i.i.i.i = phi i64 [ %177, %.noexc17.i.i.i ], [ %.sink10.i.i.i.i, %161 ]
-  %.sroa.05.024.i.i.i.i = phi i64 [ %176, %.noexc17.i.i.i ], [ 0, %161 ]
+.lr.ph.i.i.i.i:                                   ; preds = %161, %.noexc16.i.i.i
+  %.sroa.01.025.i.i.i.i = phi i64 [ %177, %.noexc16.i.i.i ], [ %.sink10.i.i.i.i, %161 ]
+  %.sroa.05.024.i.i.i.i = phi i64 [ %176, %.noexc16.i.i.i ], [ 0, %161 ]
   %170 = lshr i64 %.sroa.01.025.i.i.i.i, 1
   %171 = add i64 %170, %.sroa.05.024.i.i.i.i
   %172 = icmp ult i64 %171, %.sink10.i.i.i.i
   call void @llvm.assume(i1 %172)
   %173 = getelementptr inbounds nuw { i64, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink11.i.i.i.i, i64 %171
   %174 = invoke noundef range(i8 -1, 2) i8 @"_ZN88_$LT$tracing_subscriber..filter..env..directive..Directive$u20$as$u20$core..cmp..Ord$GT$3cmp17hff8b8e9743affa3aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %173, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5)
-          to label %.noexc17.i.i.i unwind label %.loopexit.i.i.i25, !noalias !581
+          to label %.noexc16.i.i.i unwind label %.loopexit.i.i.i25, !noalias !581
 
-.noexc17.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
+.noexc16.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
   %175 = icmp eq i8 %174, 1
   %176 = select i1 %175, i64 %.sroa.05.024.i.i.i.i, i64 %171, !unpredictable !3
   %177 = sub i64 %.sroa.01.025.i.i.i.i, %170

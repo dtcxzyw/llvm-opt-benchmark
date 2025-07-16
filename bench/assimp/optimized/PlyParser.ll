@@ -6137,9 +6137,9 @@ define hidden noundef zeroext i1 @_ZN6Assimp3PLY19ElementInstanceList23ParseInst
 _ZNKSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE12_M_check_lenEmPKc.exit.i.us: ; preds = %22
   %24 = mul nuw nsw i64 %21, 24
   %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #31
-          to label %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit.i33.us unwind label %.loopexit.split-lp.loopexit.split.us
+          to label %.lr.ph.preheader.i35.us unwind label %.loopexit.split-lp.loopexit.split.us
 
-_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit.i33.us: ; preds = %_ZNKSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE12_M_check_lenEmPKc.exit.i.us
+.lr.ph.preheader.i35.us:                          ; preds = %_ZNKSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE12_M_check_lenEmPKc.exit.i.us
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %24, i1 false)
   store ptr %25, ptr %9, align 8
   %.idx = mul nuw nsw i64 %21, 24
@@ -6148,9 +6148,9 @@ _ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit.i33.us: ; pre
   store ptr %26, ptr %14, align 8
   br label %.lr.ph.i36.us
 
-.lr.ph.i36.us:                                    ; preds = %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit.i33.us, %.noexc48.us
-  %.sroa.011.016.i37.us = phi ptr [ %28, %.noexc48.us ], [ %25, %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit.i33.us ]
-  %.sroa.09.015.i38.us = phi ptr [ %29, %.noexc48.us ], [ %17, %_ZNSt6vectorIN6Assimp3PLY16PropertyInstanceESaIS2_EE6resizeEm.exit.i33.us ]
+.lr.ph.i36.us:                                    ; preds = %.noexc48.us, %.lr.ph.preheader.i35.us
+  %.sroa.011.016.i37.us = phi ptr [ %28, %.noexc48.us ], [ %25, %.lr.ph.preheader.i35.us ]
+  %.sroa.09.015.i38.us = phi ptr [ %29, %.noexc48.us ], [ %17, %.lr.ph.preheader.i35.us ]
   %27 = invoke noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance19ParseInstanceBinaryERNS_14IOStreamBufferIcEERSt6vectorIcSaIcEERPKcRjPKNS0_8PropertyEPS1_b(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %.sroa.09.015.i38.us, ptr noundef nonnull %.sroa.011.016.i37.us, i1 noundef zeroext %7)
           to label %.noexc48.us unwind label %.loopexit.split.us
 

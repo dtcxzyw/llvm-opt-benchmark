@@ -341,18 +341,18 @@ _ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RK
 do.body27:                                        ; preds = %if.then.i, %if.end.i, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
   %call.i = call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
-  br i1 %call.i, label %if.end.i21, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
+  br i1 %call.i, label %if.end.i21, label %do.body34.sink.split
 
 if.end.i21:                                       ; preds = %do.body27
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef nonnull %5) #13
   %call3.i = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   %cmp.i.i.i.i = icmp eq ptr %call3.i, null
-  br i1 %cmp.i.i.i.i, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i, label %if.end.i.i.i
+  br i1 %cmp.i.i.i.i, label %do.body34.critedge22, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i21
   %call5.i.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call3.i) #13
   %cmp.i.i.i = icmp ult i32 %call5.i.i.i, 40
-  br i1 %cmp.i.i.i, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
+  br i1 %cmp.i.i.i, label %do.body34.critedge22, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
 
 _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i: ; preds = %if.end.i.i.i
   %10 = load i64, ptr %call3.i, align 8
@@ -365,48 +365,48 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   %15 = inttoptr i64 %14 to ptr
   %16 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
   %cmp12.not.i.i.i = icmp eq ptr %16, %15
-  br i1 %cmp12.not.i.i.i, label %if.end.i.i, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i
+  br i1 %cmp12.not.i.i.i, label %if.end.i.i, label %do.body34.critedge22
 
 if.end.i.i:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
   %sub.i.i.i = add i64 %12, 271
   %17 = inttoptr i64 %sub.i.i.i to ptr
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
-  br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i
-
-_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i: ; preds = %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i.i, %if.end.i21
-  %retval.0.i.i = phi ptr [ %19, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.end.i21 ], [ null, %if.end.i.i.i ]
+  %20 = icmp eq ptr %env, %19
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #13
-  br label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
-
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %do.body27, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i
-  %retval.0.i = phi ptr [ %retval.0.i.i, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %do.body27 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  %cmp29.not = icmp eq ptr %retval.0.i, %env
-  br i1 %cmp29.not, label %if.end39, label %do.body34
+  br i1 %20, label %if.end39, label %do.body34
 
-do.body34:                                        ; preds = %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
+do.body34.critedge22:                             ; preds = %if.end.i.i.i, %if.end.i21, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
+  call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #13
+  br label %do.body34.sink.split
+
+do.body34.sink.split:                             ; preds = %do.body27, %do.body34.critedge22
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  br label %do.body34
+
+do.body34:                                        ; preds = %do.body34.sink.split, %if.end.i.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node21InternalCallbackScopeC1EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEiE4args_0) #13
   call void @abort() #16
   unreachable
 
-if.end39:                                         ; preds = %if.then.i, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
+if.end39:                                         ; preds = %if.then.i, %if.end.i.i, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   call void @_ZN2v87Isolate7SetIdleEb(ptr noundef nonnull align 1 dereferenceable(1) %5, i1 noundef zeroext false) #13
   %async_hooks_.i = getelementptr inbounds nuw i8, ptr %env, i64 880
-  %20 = load double, ptr %async_context_, align 8
+  %21 = load double, ptr %async_context_, align 8
   %trigger_async_id = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %21 = load double, ptr %trigger_async_id, align 8
-  call void @_ZN4node10AsyncHooks18push_async_contextEddN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i, double noundef %20, double noundef %21, ptr %object.coerce) #13
+  %22 = load double, ptr %trigger_async_id, align 8
+  call void @_ZN4node10AsyncHooks18push_async_contextEddN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i, double noundef %21, double noundef %22, ptr %object.coerce) #13
   store i8 1, ptr %pushed_ids_, align 1
-  %22 = load double, ptr %asyncContext, align 8
-  %cmp48 = fcmp oeq double %22, 0.000000e+00
-  %23 = load i8, ptr %skip_hooks_, align 8
-  %tobool50 = trunc i8 %23 to i1
+  %23 = load double, ptr %asyncContext, align 8
+  %cmp48 = fcmp oeq double %23, 0.000000e+00
+  %24 = load i8, ptr %skip_hooks_, align 8
+  %tobool50 = trunc i8 %24 to i1
   %or.cond = select i1 %cmp48, i1 true, i1 %tobool50
   br i1 %or.cond, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %if.end39
-  call void @_ZN4node9AsyncWrap10EmitBeforeEPNS_11EnvironmentEd(ptr noundef nonnull %env, double noundef %22) #13
+  call void @_ZN4node9AsyncWrap10EmitBeforeEPNS_11EnvironmentEd(ptr noundef nonnull %env, double noundef %23) #13
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %if.end39

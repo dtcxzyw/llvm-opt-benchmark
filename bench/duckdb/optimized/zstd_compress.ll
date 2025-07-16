@@ -13019,7 +13019,7 @@ _ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98: ; preds =
   %146 = getelementptr i8, ptr %1, i64 56
   %.val = load i8, ptr %146, align 8, !tbaa !65
   %.not76 = icmp eq i8 %.val, 0
-  br i1 %.not76, label %147, label %458
+  br i1 %.not76, label %147, label %455
 
 147:                                              ; preds = %_ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98
   %.not77.not = icmp eq i32 %4, 0
@@ -13029,7 +13029,7 @@ _ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98: ; preds =
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %150 = load ptr, ptr %149, align 8, !tbaa !68
   %151 = icmp ult ptr %150, %144
-  br i1 %151, label %152, label %156
+  br i1 %151, label %152, label %_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit
 
 152:                                              ; preds = %148
   %153 = ptrtoint ptr %144 to i64
@@ -13038,651 +13038,646 @@ _ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98: ; preds =
   tail call void @llvm.memset.p0.i64(ptr align 1 %150, i8 0, i64 %155, i1 false)
   %.pre.i99 = load ptr, ptr %149, align 8, !tbaa !68
   %.pre7.i = load ptr, ptr %60, align 8, !tbaa !67
-  br label %156
+  %156 = icmp ult ptr %.pre.i99, %.pre7.i
+  br i1 %156, label %157, label %_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit
 
-156:                                              ; preds = %152, %148
-  %157 = phi ptr [ %.pre7.i, %152 ], [ %144, %148 ]
-  %158 = phi ptr [ %.pre.i99, %152 ], [ %150, %148 ]
-  %159 = icmp ult ptr %158, %157
-  br i1 %159, label %160, label %_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit
-
-160:                                              ; preds = %156
-  store ptr %157, ptr %149, align 8, !tbaa !68
+157:                                              ; preds = %152
+  store ptr %.pre7.i, ptr %149, align 8, !tbaa !68
   br label %_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit
 
-_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit: ; preds = %160, %156, %147
-  %161 = phi ptr [ %157, %160 ], [ %157, %156 ], [ %144, %147 ]
-  %162 = load i32, ptr %8, align 4, !tbaa !98
-  %163 = add i32 %162, -6
-  %164 = icmp ult i32 %163, -3
-  %165 = icmp ne i32 %3, 1
-  %.not164 = or i1 %165, %164
-  br i1 %.not164, label %275, label %166
+_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit: ; preds = %157, %152, %148, %147
+  %158 = phi ptr [ %.pre7.i, %157 ], [ %.pre7.i, %152 ], [ %144, %148 ], [ %144, %147 ]
+  %159 = load i32, ptr %8, align 4, !tbaa !98
+  %160 = add i32 %159, -6
+  %161 = icmp ult i32 %160, -3
+  %162 = icmp ne i32 %3, 1
+  %.not164 = or i1 %162, %161
+  br i1 %.not164, label %272, label %163
 
-166:                                              ; preds = %_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit
-  %167 = add nuw i64 %26, 63
-  %168 = and i64 %167, -64
-  %169 = load i32, ptr %62, align 8, !tbaa !336
-  br i1 %13, label %170, label %234
+163:                                              ; preds = %_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit
+  %164 = add nuw i64 %26, 63
+  %165 = and i64 %164, -64
+  %166 = load i32, ptr %62, align 8, !tbaa !336
+  br i1 %13, label %167, label %231
 
-170:                                              ; preds = %166
-  %171 = icmp slt i32 %169, 1
-  br i1 %171, label %172, label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i
+167:                                              ; preds = %163
+  %168 = icmp slt i32 %166, 1
+  br i1 %168, label %169, label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i
 
-172:                                              ; preds = %170
-  %173 = load ptr, ptr %59, align 8, !tbaa !66
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %173, ptr %174, align 8, !tbaa !68
-  %175 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i = load ptr, ptr %175, align 8, !tbaa !73
-  %176 = ptrtoint ptr %.val.i.i.i to i64
-  %177 = and i64 %176, -64
-  %178 = inttoptr i64 %177 to ptr
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %178, ptr %179, align 8, !tbaa !392
-  %180 = ptrtoint ptr %173 to i64
-  %181 = sub i64 0, %180
-  %182 = and i64 %181, 63
-  %183 = getelementptr inbounds nuw i8, ptr %173, i64 %182
-  %184 = icmp ugt ptr %183, %.val.i.i.i
-  br i1 %184, label %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit, label %185
+169:                                              ; preds = %167
+  %170 = load ptr, ptr %59, align 8, !tbaa !66
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %170, ptr %171, align 8, !tbaa !68
+  %172 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i = load ptr, ptr %172, align 8, !tbaa !73
+  %173 = ptrtoint ptr %.val.i.i.i to i64
+  %174 = and i64 %173, -64
+  %175 = inttoptr i64 %174 to ptr
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %175, ptr %176, align 8, !tbaa !392
+  %177 = ptrtoint ptr %170 to i64
+  %178 = sub i64 0, %177
+  %179 = and i64 %178, 63
+  %180 = getelementptr inbounds nuw i8, ptr %170, i64 %179
+  %181 = icmp ugt ptr %180, %.val.i.i.i
+  br i1 %181, label %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit, label %182
 
-185:                                              ; preds = %172
-  store ptr %183, ptr %59, align 8, !tbaa !66
-  store ptr %183, ptr %60, align 8, !tbaa !67
-  %.not.i.i.i = icmp eq i64 %182, 0
-  br i1 %.not.i.i.i, label %.thread.i.i.i, label %186
+182:                                              ; preds = %169
+  store ptr %180, ptr %59, align 8, !tbaa !66
+  store ptr %180, ptr %60, align 8, !tbaa !67
+  %.not.i.i.i = icmp eq i64 %179, 0
+  br i1 %.not.i.i.i, label %.thread.i.i.i, label %183
 
-186:                                              ; preds = %185
-  store ptr %183, ptr %174, align 8, !tbaa !68
+183:                                              ; preds = %182
+  store ptr %180, ptr %171, align 8, !tbaa !68
   br label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %186, %185
+.thread.i.i.i:                                    ; preds = %183, %182
   store i32 1, ptr %62, align 8, !tbaa !336
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i
 
-_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i: ; preds = %170, %.thread.i.i.i
-  %187 = phi ptr [ %161, %170 ], [ %183, %.thread.i.i.i ]
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %189 = load ptr, ptr %188, align 8, !tbaa !391
-  %190 = sub i64 0, %168
-  %191 = getelementptr inbounds i8, ptr %189, i64 %190
-  %192 = icmp ult ptr %191, %187
-  br i1 %192, label %193, label %194
+_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i: ; preds = %167, %.thread.i.i.i
+  %184 = phi ptr [ %158, %167 ], [ %180, %.thread.i.i.i ]
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %186 = load ptr, ptr %185, align 8, !tbaa !391
+  %187 = sub i64 0, %165
+  %188 = getelementptr inbounds i8, ptr %186, i64 %187
+  %189 = icmp ult ptr %188, %184
+  br i1 %189, label %190, label %191
 
-193:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i
+190:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i
   store i8 1, ptr %146, align 8, !tbaa !65
   br label %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit
 
-194:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %196 = load ptr, ptr %195, align 8, !tbaa !68
-  %197 = icmp ult ptr %191, %196
-  br i1 %197, label %198, label %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i
+191:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %193 = load ptr, ptr %192, align 8, !tbaa !68
+  %194 = icmp ult ptr %188, %193
+  br i1 %194, label %195, label %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i
 
-198:                                              ; preds = %194
-  store ptr %191, ptr %195, align 8, !tbaa !68
+195:                                              ; preds = %191
+  store ptr %188, ptr %192, align 8, !tbaa !68
   br label %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i
 
-_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i: ; preds = %198, %194
-  store ptr %191, ptr %188, align 8, !tbaa !391
-  %199 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %200 = load ptr, ptr %199, align 8, !tbaa !392
-  %201 = icmp ult ptr %191, %200
-  br i1 %201, label %202, label %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit
+_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i: ; preds = %195, %191
+  store ptr %188, ptr %185, align 8, !tbaa !391
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %197 = load ptr, ptr %196, align 8, !tbaa !392
+  %198 = icmp ult ptr %188, %197
+  br i1 %198, label %199, label %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit
 
-202:                                              ; preds = %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i
-  %203 = ptrtoint ptr %200 to i64
-  %204 = ptrtoint ptr %191 to i64
-  %205 = sub i64 %203, %204
-  %..i = tail call i64 @llvm.umin.i64(i64 %205, i64 %168)
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %191, i8 0, i64 %..i, i1 false)
-  store ptr %191, ptr %199, align 8, !tbaa !392
+199:                                              ; preds = %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i
+  %200 = ptrtoint ptr %197 to i64
+  %201 = ptrtoint ptr %188 to i64
+  %202 = sub i64 %200, %201
+  %..i = tail call i64 @llvm.umin.i64(i64 %202, i64 %165)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %188, i8 0, i64 %..i, i1 false)
+  store ptr %188, ptr %196, align 8, !tbaa !392
   br label %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit
 
-_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit: ; preds = %172, %193, %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i, %202
-  %.0.i20.i = phi ptr [ %191, %202 ], [ %191, %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i ], [ null, %193 ], [ null, %172 ]
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.0.i20.i, ptr %206, align 8, !tbaa !416
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %208 = load i64, ptr %207, align 8, !tbaa !417
-  %209 = tail call i64 @llvm.fshl.i64(i64 %208, i64 %208, i64 15)
-  %210 = tail call i64 @llvm.fshl.i64(i64 %208, i64 %208, i64 40)
-  %211 = xor i64 %210, %209
-  %212 = xor i64 %211, %208
-  %213 = mul i64 %212, -6939452855193903323
-  %214 = lshr i64 %213, 35
-  %215 = add nuw nsw i64 %214, 8
-  %216 = xor i64 %215, %213
-  %217 = mul i64 %216, -6939452855193903323
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %219 = load i32, ptr %218, align 8, !tbaa !418
-  %220 = zext i32 %219 to i64
-  %221 = shl nuw nsw i64 %220, 15
-  %222 = tail call i64 @llvm.fshl.i64(i64 %220, i64 %220, i64 40)
-  %223 = xor i64 %222, %221
-  %224 = xor i64 %223, %220
-  %225 = mul i64 %224, -6939452855193903323
-  %226 = lshr i64 %225, 35
-  %227 = add nuw nsw i64 %226, 4
-  %228 = xor i64 %227, %225
-  %229 = mul i64 %228, -6939452855193903323
-  %230 = xor i64 %229, %217
-  %231 = lshr i64 %230, 28
-  %232 = xor i64 %217, %231
-  %233 = xor i64 %232, %229
-  store i64 %233, ptr %207, align 8, !tbaa !417
-  br label %268
+_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit: ; preds = %169, %190, %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i, %199
+  %.0.i20.i = phi ptr [ %188, %199 ], [ %188, %_ZN11duckdb_zstdL27ZSTD_cwksp_reserve_internalEPNS_10ZSTD_cwkspEmNS_24ZSTD_cwksp_alloc_phase_eE.exit.i ], [ null, %190 ], [ null, %169 ]
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.0.i20.i, ptr %203, align 8, !tbaa !416
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %205 = load i64, ptr %204, align 8, !tbaa !417
+  %206 = tail call i64 @llvm.fshl.i64(i64 %205, i64 %205, i64 15)
+  %207 = tail call i64 @llvm.fshl.i64(i64 %205, i64 %205, i64 40)
+  %208 = xor i64 %207, %206
+  %209 = xor i64 %208, %205
+  %210 = mul i64 %209, -6939452855193903323
+  %211 = lshr i64 %210, 35
+  %212 = add nuw nsw i64 %211, 8
+  %213 = xor i64 %212, %210
+  %214 = mul i64 %213, -6939452855193903323
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %216 = load i32, ptr %215, align 8, !tbaa !418
+  %217 = zext i32 %216 to i64
+  %218 = shl nuw nsw i64 %217, 15
+  %219 = tail call i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 40)
+  %220 = xor i64 %219, %218
+  %221 = xor i64 %220, %217
+  %222 = mul i64 %221, -6939452855193903323
+  %223 = lshr i64 %222, 35
+  %224 = add nuw nsw i64 %223, 4
+  %225 = xor i64 %224, %222
+  %226 = mul i64 %225, -6939452855193903323
+  %227 = xor i64 %226, %214
+  %228 = lshr i64 %227, 28
+  %229 = xor i64 %214, %228
+  %230 = xor i64 %229, %226
+  store i64 %230, ptr %204, align 8, !tbaa !417
+  br label %265
 
-234:                                              ; preds = %166
-  %235 = icmp slt i32 %169, 2
-  br i1 %235, label %236, label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100
+231:                                              ; preds = %163
+  %232 = icmp slt i32 %166, 2
+  br i1 %232, label %233, label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100
 
-236:                                              ; preds = %234
-  %.not.i102 = icmp eq i32 %169, 1
-  br i1 %.not.i102, label %.thread.i.i.i105, label %237
+233:                                              ; preds = %231
+  %.not.i102 = icmp eq i32 %166, 1
+  br i1 %.not.i102, label %.thread.i.i.i105, label %234
 
-237:                                              ; preds = %236
-  %238 = load ptr, ptr %59, align 8, !tbaa !66
-  %239 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %238, ptr %239, align 8, !tbaa !68
-  %240 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i103 = load ptr, ptr %240, align 8, !tbaa !73
-  %241 = ptrtoint ptr %.val.i.i.i103 to i64
-  %242 = and i64 %241, -64
-  %243 = inttoptr i64 %242 to ptr
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %243, ptr %244, align 8, !tbaa !392
-  %245 = ptrtoint ptr %238 to i64
-  %246 = sub i64 0, %245
-  %247 = and i64 %246, 63
-  %248 = getelementptr inbounds nuw i8, ptr %238, i64 %247
-  %249 = icmp ugt ptr %248, %.val.i.i.i103
-  br i1 %249, label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit, label %250
+234:                                              ; preds = %233
+  %235 = load ptr, ptr %59, align 8, !tbaa !66
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %235, ptr %236, align 8, !tbaa !68
+  %237 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i103 = load ptr, ptr %237, align 8, !tbaa !73
+  %238 = ptrtoint ptr %.val.i.i.i103 to i64
+  %239 = and i64 %238, -64
+  %240 = inttoptr i64 %239 to ptr
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %240, ptr %241, align 8, !tbaa !392
+  %242 = ptrtoint ptr %235 to i64
+  %243 = sub i64 0, %242
+  %244 = and i64 %243, 63
+  %245 = getelementptr inbounds nuw i8, ptr %235, i64 %244
+  %246 = icmp ugt ptr %245, %.val.i.i.i103
+  br i1 %246, label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit, label %247
 
-250:                                              ; preds = %237
-  store ptr %248, ptr %59, align 8, !tbaa !66
-  store ptr %248, ptr %60, align 8, !tbaa !67
-  %.not.i.i.i104 = icmp eq i64 %247, 0
-  br i1 %.not.i.i.i104, label %.thread.i.i.i105, label %251
+247:                                              ; preds = %234
+  store ptr %245, ptr %59, align 8, !tbaa !66
+  store ptr %245, ptr %60, align 8, !tbaa !67
+  %.not.i.i.i104 = icmp eq i64 %244, 0
+  br i1 %.not.i.i.i104, label %.thread.i.i.i105, label %248
 
-251:                                              ; preds = %250
-  store ptr %248, ptr %239, align 8, !tbaa !68
+248:                                              ; preds = %247
+  store ptr %245, ptr %236, align 8, !tbaa !68
   br label %.thread.i.i.i105
 
-.thread.i.i.i105:                                 ; preds = %251, %250, %236
-  %252 = phi ptr [ %248, %251 ], [ %248, %250 ], [ %161, %236 ]
+.thread.i.i.i105:                                 ; preds = %248, %247, %233
+  %249 = phi ptr [ %245, %248 ], [ %245, %247 ], [ %158, %233 ]
   store i32 2, ptr %62, align 8, !tbaa !336
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100
 
-_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100: ; preds = %234, %.thread.i.i.i105
-  %253 = phi ptr [ %161, %234 ], [ %252, %.thread.i.i.i105 ]
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %255 = load ptr, ptr %254, align 8, !tbaa !391
-  %256 = sub i64 0, %168
-  %257 = getelementptr inbounds i8, ptr %255, i64 %256
-  %258 = icmp ult ptr %257, %253
-  br i1 %258, label %259, label %260
+_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100: ; preds = %231, %.thread.i.i.i105
+  %250 = phi ptr [ %158, %231 ], [ %249, %.thread.i.i.i105 ]
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %252 = load ptr, ptr %251, align 8, !tbaa !391
+  %253 = sub i64 0, %165
+  %254 = getelementptr inbounds i8, ptr %252, i64 %253
+  %255 = icmp ult ptr %254, %250
+  br i1 %255, label %256, label %257
 
-259:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100
+256:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100
   store i8 1, ptr %146, align 8, !tbaa !65
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit
 
-260:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100
-  %261 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %262 = load ptr, ptr %261, align 8, !tbaa !68
-  %263 = icmp ult ptr %257, %262
-  br i1 %263, label %264, label %265
+257:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i100
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %259 = load ptr, ptr %258, align 8, !tbaa !68
+  %260 = icmp ult ptr %254, %259
+  br i1 %260, label %261, label %262
 
-264:                                              ; preds = %260
-  store ptr %257, ptr %261, align 8, !tbaa !68
-  br label %265
+261:                                              ; preds = %257
+  store ptr %254, ptr %258, align 8, !tbaa !68
+  br label %262
 
-265:                                              ; preds = %264, %260
-  store ptr %257, ptr %254, align 8, !tbaa !391
+262:                                              ; preds = %261, %257
+  store ptr %254, ptr %251, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit: ; preds = %237, %259, %265
-  %.0.i.i = phi ptr [ null, %259 ], [ %257, %265 ], [ null, %237 ]
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.0.i.i, ptr %266, align 8, !tbaa !416
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit: ; preds = %234, %256, %262
+  %.0.i.i = phi ptr [ null, %256 ], [ %254, %262 ], [ null, %234 ]
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.0.i.i, ptr %263, align 8, !tbaa !416
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, i8 0, i64 %26, i1 false)
-  %267 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 0, ptr %267, align 8, !tbaa !417
-  br label %268
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 0, ptr %264, align 8, !tbaa !417
+  br label %265
 
-268:                                              ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit, %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit
-  %269 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %270 = load i32, ptr %269, align 4, !tbaa !96
-  %271 = tail call i32 @llvm.umax.i32(i32 %270, i32 4)
-  %spec.select157 = tail call i32 @llvm.umin.i32(i32 %271, i32 6)
-  %272 = load i32, ptr %23, align 4, !tbaa !95
-  %273 = sub i32 %272, %spec.select157
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %273, ptr %274, align 4, !tbaa !419
-  br label %275
+265:                                              ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit, %_ZN11duckdb_zstdL36ZSTD_cwksp_reserve_aligned_init_onceEPNS_10ZSTD_cwkspEm.exit
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %267 = load i32, ptr %266, align 4, !tbaa !96
+  %268 = tail call i32 @llvm.umax.i32(i32 %267, i32 4)
+  %spec.select157 = tail call i32 @llvm.umin.i32(i32 %268, i32 6)
+  %269 = load i32, ptr %23, align 4, !tbaa !95
+  %270 = sub i32 %269, %spec.select157
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %270, ptr %271, align 4, !tbaa !419
+  br label %272
 
-275:                                              ; preds = %268, %_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit
-  br i1 %13, label %276, label %456
+272:                                              ; preds = %265, %_ZN11duckdb_zstdL23ZSTD_cwksp_clean_tablesEPNS_10ZSTD_cwkspE.exit
+  br i1 %13, label %273, label %453
 
-276:                                              ; preds = %275
-  %277 = load i32, ptr %8, align 4, !tbaa !98
-  %278 = icmp sgt i32 %277, 6
-  br i1 %278, label %279, label %456
+273:                                              ; preds = %272
+  %274 = load i32, ptr %8, align 4, !tbaa !98
+  %275 = icmp sgt i32 %274, 6
+  br i1 %275, label %276, label %453
+
+276:                                              ; preds = %273
+  %277 = load i32, ptr %62, align 8, !tbaa !336
+  %278 = icmp slt i32 %277, 2
+  br i1 %278, label %279, label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106
 
 279:                                              ; preds = %276
-  %280 = load i32, ptr %62, align 8, !tbaa !336
-  %281 = icmp slt i32 %280, 2
-  br i1 %281, label %282, label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106
+  %.not.i109 = icmp eq i32 %277, 1
+  br i1 %.not.i109, label %.thread.i.i.i112, label %280
 
-282:                                              ; preds = %279
-  %.not.i109 = icmp eq i32 %280, 1
-  br i1 %.not.i109, label %.thread.i.i.i112, label %283
+280:                                              ; preds = %279
+  %281 = load ptr, ptr %59, align 8, !tbaa !66
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %281, ptr %282, align 8, !tbaa !68
+  %283 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i110 = load ptr, ptr %283, align 8, !tbaa !73
+  %284 = ptrtoint ptr %.val.i.i.i110 to i64
+  %285 = and i64 %284, -64
+  %286 = inttoptr i64 %285 to ptr
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %286, ptr %287, align 8, !tbaa !392
+  %288 = ptrtoint ptr %281 to i64
+  %289 = sub i64 0, %288
+  %290 = and i64 %289, 63
+  %291 = getelementptr inbounds nuw i8, ptr %281, i64 %290
+  %292 = icmp ugt ptr %291, %.val.i.i.i110
+  br i1 %292, label %308, label %293
 
-283:                                              ; preds = %282
-  %284 = load ptr, ptr %59, align 8, !tbaa !66
-  %285 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %284, ptr %285, align 8, !tbaa !68
-  %286 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i110 = load ptr, ptr %286, align 8, !tbaa !73
-  %287 = ptrtoint ptr %.val.i.i.i110 to i64
-  %288 = and i64 %287, -64
-  %289 = inttoptr i64 %288 to ptr
-  %290 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %289, ptr %290, align 8, !tbaa !392
-  %291 = ptrtoint ptr %284 to i64
-  %292 = sub i64 0, %291
-  %293 = and i64 %292, 63
-  %294 = getelementptr inbounds nuw i8, ptr %284, i64 %293
-  %295 = icmp ugt ptr %294, %.val.i.i.i110
-  br i1 %295, label %311, label %296
+293:                                              ; preds = %280
+  store ptr %291, ptr %59, align 8, !tbaa !66
+  store ptr %291, ptr %60, align 8, !tbaa !67
+  %.not.i.i.i111 = icmp eq i64 %290, 0
+  br i1 %.not.i.i.i111, label %.thread.i.i.i112, label %294
 
-296:                                              ; preds = %283
-  store ptr %294, ptr %59, align 8, !tbaa !66
-  store ptr %294, ptr %60, align 8, !tbaa !67
-  %.not.i.i.i111 = icmp eq i64 %293, 0
-  br i1 %.not.i.i.i111, label %.thread.i.i.i112, label %297
-
-297:                                              ; preds = %296
-  store ptr %294, ptr %285, align 8, !tbaa !68
+294:                                              ; preds = %293
+  store ptr %291, ptr %282, align 8, !tbaa !68
   br label %.thread.i.i.i112
 
-.thread.i.i.i112:                                 ; preds = %297, %296, %282
+.thread.i.i.i112:                                 ; preds = %294, %293, %279
   store i32 2, ptr %62, align 8, !tbaa !336
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106
 
-_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106: ; preds = %.thread.i.i.i112, %279
-  %298 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %299 = load ptr, ptr %298, align 8, !tbaa !391
-  %300 = getelementptr inbounds i8, ptr %299, i64 -1024
-  %301 = load ptr, ptr %60, align 8, !tbaa !67
-  %302 = icmp ult ptr %300, %301
-  br i1 %302, label %303, label %304
+_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106: ; preds = %.thread.i.i.i112, %276
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %296 = load ptr, ptr %295, align 8, !tbaa !391
+  %297 = getelementptr inbounds i8, ptr %296, i64 -1024
+  %298 = load ptr, ptr %60, align 8, !tbaa !67
+  %299 = icmp ult ptr %297, %298
+  br i1 %299, label %300, label %301
 
-303:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106
+300:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106
   store i8 1, ptr %146, align 8, !tbaa !65
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit113.thread
 
-304:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106
-  %305 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %306 = load ptr, ptr %305, align 8, !tbaa !68
-  %307 = icmp ult ptr %300, %306
-  br i1 %307, label %308, label %309
+301:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i106
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %303 = load ptr, ptr %302, align 8, !tbaa !68
+  %304 = icmp ult ptr %297, %303
+  br i1 %304, label %305, label %306
 
-308:                                              ; preds = %304
-  store ptr %300, ptr %305, align 8, !tbaa !68
-  br label %309
+305:                                              ; preds = %301
+  store ptr %297, ptr %302, align 8, !tbaa !68
+  br label %306
 
-309:                                              ; preds = %308, %304
-  store ptr %300, ptr %298, align 8, !tbaa !391
+306:                                              ; preds = %305, %301
+  store ptr %297, ptr %295, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit113.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit113.thread: ; preds = %303, %309
-  %.0.i.i108.ph = phi ptr [ %300, %309 ], [ null, %303 ]
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %.0.i.i108.ph, ptr %310, align 8, !tbaa !420
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit113.thread: ; preds = %300, %306
+  %.0.i.i108.ph = phi ptr [ %297, %306 ], [ null, %300 ]
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %.0.i.i108.ph, ptr %307, align 8, !tbaa !420
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i114
 
-311:                                              ; preds = %283
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr null, ptr %312, align 8, !tbaa !420
-  %313 = load ptr, ptr %59, align 8, !tbaa !66
-  %314 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %313, ptr %314, align 8, !tbaa !68
-  %315 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i118 = load ptr, ptr %315, align 8, !tbaa !73
-  %316 = ptrtoint ptr %.val.i.i.i118 to i64
-  %317 = and i64 %316, -64
-  %318 = inttoptr i64 %317 to ptr
-  %319 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %318, ptr %319, align 8, !tbaa !392
-  %320 = ptrtoint ptr %313 to i64
-  %321 = sub i64 0, %320
-  %322 = and i64 %321, 63
-  %323 = getelementptr inbounds nuw i8, ptr %313, i64 %322
-  %324 = icmp ugt ptr %323, %.val.i.i.i118
-  br i1 %324, label %340, label %325
+308:                                              ; preds = %280
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr null, ptr %309, align 8, !tbaa !420
+  %310 = load ptr, ptr %59, align 8, !tbaa !66
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %310, ptr %311, align 8, !tbaa !68
+  %312 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i118 = load ptr, ptr %312, align 8, !tbaa !73
+  %313 = ptrtoint ptr %.val.i.i.i118 to i64
+  %314 = and i64 %313, -64
+  %315 = inttoptr i64 %314 to ptr
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %315, ptr %316, align 8, !tbaa !392
+  %317 = ptrtoint ptr %310 to i64
+  %318 = sub i64 0, %317
+  %319 = and i64 %318, 63
+  %320 = getelementptr inbounds nuw i8, ptr %310, i64 %319
+  %321 = icmp ugt ptr %320, %.val.i.i.i118
+  br i1 %321, label %337, label %322
 
-325:                                              ; preds = %311
-  store ptr %323, ptr %59, align 8, !tbaa !66
-  store ptr %323, ptr %60, align 8, !tbaa !67
-  %.not.i.i.i119 = icmp eq i64 %322, 0
-  br i1 %.not.i.i.i119, label %.thread.i.i.i120, label %326
+322:                                              ; preds = %308
+  store ptr %320, ptr %59, align 8, !tbaa !66
+  store ptr %320, ptr %60, align 8, !tbaa !67
+  %.not.i.i.i119 = icmp eq i64 %319, 0
+  br i1 %.not.i.i.i119, label %.thread.i.i.i120, label %323
 
-326:                                              ; preds = %325
-  store ptr %323, ptr %314, align 8, !tbaa !68
+323:                                              ; preds = %322
+  store ptr %320, ptr %311, align 8, !tbaa !68
   br label %.thread.i.i.i120
 
-.thread.i.i.i120:                                 ; preds = %326, %325
+.thread.i.i.i120:                                 ; preds = %323, %322
   store i32 2, ptr %62, align 8, !tbaa !336
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i114
 
 _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i114: ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit113.thread, %.thread.i.i.i120
-  %327 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %328 = load ptr, ptr %327, align 8, !tbaa !391
-  %329 = getelementptr inbounds i8, ptr %328, i64 -192
-  %330 = load ptr, ptr %60, align 8, !tbaa !67
-  %331 = icmp ult ptr %329, %330
-  br i1 %331, label %332, label %333
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %325 = load ptr, ptr %324, align 8, !tbaa !391
+  %326 = getelementptr inbounds i8, ptr %325, i64 -192
+  %327 = load ptr, ptr %60, align 8, !tbaa !67
+  %328 = icmp ult ptr %326, %327
+  br i1 %328, label %329, label %330
 
-332:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i114
+329:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i114
   store i8 1, ptr %146, align 8, !tbaa !65
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit121.thread
 
-333:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i114
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %335 = load ptr, ptr %334, align 8, !tbaa !68
-  %336 = icmp ult ptr %329, %335
-  br i1 %336, label %337, label %338
+330:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i114
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %332 = load ptr, ptr %331, align 8, !tbaa !68
+  %333 = icmp ult ptr %326, %332
+  br i1 %333, label %334, label %335
 
-337:                                              ; preds = %333
-  store ptr %329, ptr %334, align 8, !tbaa !68
-  br label %338
+334:                                              ; preds = %330
+  store ptr %326, ptr %331, align 8, !tbaa !68
+  br label %335
 
-338:                                              ; preds = %337, %333
-  store ptr %329, ptr %327, align 8, !tbaa !391
+335:                                              ; preds = %334, %330
+  store ptr %326, ptr %324, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit121.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit121.thread: ; preds = %332, %338
-  %.0.i.i116.ph = phi ptr [ %329, %338 ], [ null, %332 ]
-  %339 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %.0.i.i116.ph, ptr %339, align 8, !tbaa !421
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit121.thread: ; preds = %329, %335
+  %.0.i.i116.ph = phi ptr [ %326, %335 ], [ null, %329 ]
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %.0.i.i116.ph, ptr %336, align 8, !tbaa !421
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i122
 
-340:                                              ; preds = %311
-  %341 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr null, ptr %341, align 8, !tbaa !421
-  %342 = load ptr, ptr %59, align 8, !tbaa !66
-  %343 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %342, ptr %343, align 8, !tbaa !68
-  %344 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i126 = load ptr, ptr %344, align 8, !tbaa !73
-  %345 = ptrtoint ptr %.val.i.i.i126 to i64
-  %346 = and i64 %345, -64
-  %347 = inttoptr i64 %346 to ptr
-  %348 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %347, ptr %348, align 8, !tbaa !392
-  %349 = ptrtoint ptr %342 to i64
-  %350 = sub i64 0, %349
-  %351 = and i64 %350, 63
-  %352 = getelementptr inbounds nuw i8, ptr %342, i64 %351
-  %353 = icmp ugt ptr %352, %.val.i.i.i126
-  br i1 %353, label %369, label %354
+337:                                              ; preds = %308
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr null, ptr %338, align 8, !tbaa !421
+  %339 = load ptr, ptr %59, align 8, !tbaa !66
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %339, ptr %340, align 8, !tbaa !68
+  %341 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i126 = load ptr, ptr %341, align 8, !tbaa !73
+  %342 = ptrtoint ptr %.val.i.i.i126 to i64
+  %343 = and i64 %342, -64
+  %344 = inttoptr i64 %343 to ptr
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %344, ptr %345, align 8, !tbaa !392
+  %346 = ptrtoint ptr %339 to i64
+  %347 = sub i64 0, %346
+  %348 = and i64 %347, 63
+  %349 = getelementptr inbounds nuw i8, ptr %339, i64 %348
+  %350 = icmp ugt ptr %349, %.val.i.i.i126
+  br i1 %350, label %366, label %351
 
-354:                                              ; preds = %340
-  store ptr %352, ptr %59, align 8, !tbaa !66
-  store ptr %352, ptr %60, align 8, !tbaa !67
-  %.not.i.i.i127 = icmp eq i64 %351, 0
-  br i1 %.not.i.i.i127, label %.thread.i.i.i128, label %355
+351:                                              ; preds = %337
+  store ptr %349, ptr %59, align 8, !tbaa !66
+  store ptr %349, ptr %60, align 8, !tbaa !67
+  %.not.i.i.i127 = icmp eq i64 %348, 0
+  br i1 %.not.i.i.i127, label %.thread.i.i.i128, label %352
 
-355:                                              ; preds = %354
-  store ptr %352, ptr %343, align 8, !tbaa !68
+352:                                              ; preds = %351
+  store ptr %349, ptr %340, align 8, !tbaa !68
   br label %.thread.i.i.i128
 
-.thread.i.i.i128:                                 ; preds = %355, %354
+.thread.i.i.i128:                                 ; preds = %352, %351
   store i32 2, ptr %62, align 8, !tbaa !336
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i122
 
 _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i122: ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit121.thread, %.thread.i.i.i128
-  %356 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %357 = load ptr, ptr %356, align 8, !tbaa !391
-  %358 = getelementptr inbounds i8, ptr %357, i64 -256
-  %359 = load ptr, ptr %60, align 8, !tbaa !67
-  %360 = icmp ult ptr %358, %359
-  br i1 %360, label %361, label %362
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %354 = load ptr, ptr %353, align 8, !tbaa !391
+  %355 = getelementptr inbounds i8, ptr %354, i64 -256
+  %356 = load ptr, ptr %60, align 8, !tbaa !67
+  %357 = icmp ult ptr %355, %356
+  br i1 %357, label %358, label %359
 
-361:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i122
+358:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i122
   store i8 1, ptr %146, align 8, !tbaa !65
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit129.thread
 
-362:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i122
-  %363 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %364 = load ptr, ptr %363, align 8, !tbaa !68
-  %365 = icmp ult ptr %358, %364
-  br i1 %365, label %366, label %367
+359:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i122
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %361 = load ptr, ptr %360, align 8, !tbaa !68
+  %362 = icmp ult ptr %355, %361
+  br i1 %362, label %363, label %364
 
-366:                                              ; preds = %362
-  store ptr %358, ptr %363, align 8, !tbaa !68
-  br label %367
+363:                                              ; preds = %359
+  store ptr %355, ptr %360, align 8, !tbaa !68
+  br label %364
 
-367:                                              ; preds = %366, %362
-  store ptr %358, ptr %356, align 8, !tbaa !391
+364:                                              ; preds = %363, %359
+  store ptr %355, ptr %353, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit129.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit129.thread: ; preds = %361, %367
-  %.0.i.i124.ph = phi ptr [ %358, %367 ], [ null, %361 ]
-  %368 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %.0.i.i124.ph, ptr %368, align 8, !tbaa !422
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit129.thread: ; preds = %358, %364
+  %.0.i.i124.ph = phi ptr [ %355, %364 ], [ null, %358 ]
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %.0.i.i124.ph, ptr %365, align 8, !tbaa !422
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i130
 
-369:                                              ; preds = %340
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr null, ptr %370, align 8, !tbaa !422
-  %371 = load ptr, ptr %59, align 8, !tbaa !66
-  %372 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %371, ptr %372, align 8, !tbaa !68
-  %373 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i134 = load ptr, ptr %373, align 8, !tbaa !73
-  %374 = ptrtoint ptr %.val.i.i.i134 to i64
-  %375 = and i64 %374, -64
-  %376 = inttoptr i64 %375 to ptr
-  %377 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %376, ptr %377, align 8, !tbaa !392
-  %378 = ptrtoint ptr %371 to i64
-  %379 = sub i64 0, %378
-  %380 = and i64 %379, 63
-  %381 = getelementptr inbounds nuw i8, ptr %371, i64 %380
-  %382 = icmp ugt ptr %381, %.val.i.i.i134
-  br i1 %382, label %398, label %383
+366:                                              ; preds = %337
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr null, ptr %367, align 8, !tbaa !422
+  %368 = load ptr, ptr %59, align 8, !tbaa !66
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %368, ptr %369, align 8, !tbaa !68
+  %370 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i134 = load ptr, ptr %370, align 8, !tbaa !73
+  %371 = ptrtoint ptr %.val.i.i.i134 to i64
+  %372 = and i64 %371, -64
+  %373 = inttoptr i64 %372 to ptr
+  %374 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %373, ptr %374, align 8, !tbaa !392
+  %375 = ptrtoint ptr %368 to i64
+  %376 = sub i64 0, %375
+  %377 = and i64 %376, 63
+  %378 = getelementptr inbounds nuw i8, ptr %368, i64 %377
+  %379 = icmp ugt ptr %378, %.val.i.i.i134
+  br i1 %379, label %395, label %380
 
-383:                                              ; preds = %369
-  store ptr %381, ptr %59, align 8, !tbaa !66
-  store ptr %381, ptr %60, align 8, !tbaa !67
-  %.not.i.i.i135 = icmp eq i64 %380, 0
-  br i1 %.not.i.i.i135, label %.thread.i.i.i136, label %384
+380:                                              ; preds = %366
+  store ptr %378, ptr %59, align 8, !tbaa !66
+  store ptr %378, ptr %60, align 8, !tbaa !67
+  %.not.i.i.i135 = icmp eq i64 %377, 0
+  br i1 %.not.i.i.i135, label %.thread.i.i.i136, label %381
 
-384:                                              ; preds = %383
-  store ptr %381, ptr %372, align 8, !tbaa !68
+381:                                              ; preds = %380
+  store ptr %378, ptr %369, align 8, !tbaa !68
   br label %.thread.i.i.i136
 
-.thread.i.i.i136:                                 ; preds = %384, %383
+.thread.i.i.i136:                                 ; preds = %381, %380
   store i32 2, ptr %62, align 8, !tbaa !336
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i130
 
 _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i130: ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit129.thread, %.thread.i.i.i136
-  %385 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %386 = load ptr, ptr %385, align 8, !tbaa !391
-  %387 = getelementptr inbounds i8, ptr %386, i64 -128
-  %388 = load ptr, ptr %60, align 8, !tbaa !67
-  %389 = icmp ult ptr %387, %388
-  br i1 %389, label %390, label %391
+  %382 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %383 = load ptr, ptr %382, align 8, !tbaa !391
+  %384 = getelementptr inbounds i8, ptr %383, i64 -128
+  %385 = load ptr, ptr %60, align 8, !tbaa !67
+  %386 = icmp ult ptr %384, %385
+  br i1 %386, label %387, label %388
 
-390:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i130
+387:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i130
   store i8 1, ptr %146, align 8, !tbaa !65
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit137.thread
 
-391:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i130
-  %392 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %393 = load ptr, ptr %392, align 8, !tbaa !68
-  %394 = icmp ult ptr %387, %393
-  br i1 %394, label %395, label %396
+388:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i130
+  %389 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %390 = load ptr, ptr %389, align 8, !tbaa !68
+  %391 = icmp ult ptr %384, %390
+  br i1 %391, label %392, label %393
 
-395:                                              ; preds = %391
-  store ptr %387, ptr %392, align 8, !tbaa !68
-  br label %396
+392:                                              ; preds = %388
+  store ptr %384, ptr %389, align 8, !tbaa !68
+  br label %393
 
-396:                                              ; preds = %395, %391
-  store ptr %387, ptr %385, align 8, !tbaa !391
+393:                                              ; preds = %392, %388
+  store ptr %384, ptr %382, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit137.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit137.thread: ; preds = %390, %396
-  %.0.i.i132.ph = phi ptr [ %387, %396 ], [ null, %390 ]
-  %397 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %.0.i.i132.ph, ptr %397, align 8, !tbaa !423
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit137.thread: ; preds = %387, %393
+  %.0.i.i132.ph = phi ptr [ %384, %393 ], [ null, %387 ]
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr %.0.i.i132.ph, ptr %394, align 8, !tbaa !423
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i138
 
-398:                                              ; preds = %369
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr null, ptr %399, align 8, !tbaa !423
-  %400 = load ptr, ptr %59, align 8, !tbaa !66
-  %401 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %400, ptr %401, align 8, !tbaa !68
-  %402 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i142 = load ptr, ptr %402, align 8, !tbaa !73
-  %403 = ptrtoint ptr %.val.i.i.i142 to i64
-  %404 = and i64 %403, -64
-  %405 = inttoptr i64 %404 to ptr
-  %406 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %405, ptr %406, align 8, !tbaa !392
-  %407 = ptrtoint ptr %400 to i64
-  %408 = sub i64 0, %407
-  %409 = and i64 %408, 63
-  %410 = getelementptr inbounds nuw i8, ptr %400, i64 %409
-  %411 = icmp ugt ptr %410, %.val.i.i.i142
-  br i1 %411, label %427, label %412
+395:                                              ; preds = %366
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr null, ptr %396, align 8, !tbaa !423
+  %397 = load ptr, ptr %59, align 8, !tbaa !66
+  %398 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %397, ptr %398, align 8, !tbaa !68
+  %399 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i142 = load ptr, ptr %399, align 8, !tbaa !73
+  %400 = ptrtoint ptr %.val.i.i.i142 to i64
+  %401 = and i64 %400, -64
+  %402 = inttoptr i64 %401 to ptr
+  %403 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %402, ptr %403, align 8, !tbaa !392
+  %404 = ptrtoint ptr %397 to i64
+  %405 = sub i64 0, %404
+  %406 = and i64 %405, 63
+  %407 = getelementptr inbounds nuw i8, ptr %397, i64 %406
+  %408 = icmp ugt ptr %407, %.val.i.i.i142
+  br i1 %408, label %424, label %409
 
-412:                                              ; preds = %398
-  store ptr %410, ptr %59, align 8, !tbaa !66
-  store ptr %410, ptr %60, align 8, !tbaa !67
-  %.not.i.i.i143 = icmp eq i64 %409, 0
-  br i1 %.not.i.i.i143, label %.thread.i.i.i144, label %413
+409:                                              ; preds = %395
+  store ptr %407, ptr %59, align 8, !tbaa !66
+  store ptr %407, ptr %60, align 8, !tbaa !67
+  %.not.i.i.i143 = icmp eq i64 %406, 0
+  br i1 %.not.i.i.i143, label %.thread.i.i.i144, label %410
 
-413:                                              ; preds = %412
-  store ptr %410, ptr %401, align 8, !tbaa !68
+410:                                              ; preds = %409
+  store ptr %407, ptr %398, align 8, !tbaa !68
   br label %.thread.i.i.i144
 
-.thread.i.i.i144:                                 ; preds = %413, %412
+.thread.i.i.i144:                                 ; preds = %410, %409
   store i32 2, ptr %62, align 8, !tbaa !336
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i138
 
 _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i138: ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit137.thread, %.thread.i.i.i144
-  %414 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %415 = load ptr, ptr %414, align 8, !tbaa !391
-  %416 = getelementptr inbounds i8, ptr %415, i64 -32832
-  %417 = load ptr, ptr %60, align 8, !tbaa !67
-  %418 = icmp ult ptr %416, %417
-  br i1 %418, label %419, label %420
+  %411 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %412 = load ptr, ptr %411, align 8, !tbaa !391
+  %413 = getelementptr inbounds i8, ptr %412, i64 -32832
+  %414 = load ptr, ptr %60, align 8, !tbaa !67
+  %415 = icmp ult ptr %413, %414
+  br i1 %415, label %416, label %417
 
-419:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i138
+416:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i138
   store i8 1, ptr %146, align 8, !tbaa !65
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit145.thread
 
-420:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i138
-  %421 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %422 = load ptr, ptr %421, align 8, !tbaa !68
-  %423 = icmp ult ptr %416, %422
-  br i1 %423, label %424, label %425
+417:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i138
+  %418 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %419 = load ptr, ptr %418, align 8, !tbaa !68
+  %420 = icmp ult ptr %413, %419
+  br i1 %420, label %421, label %422
 
-424:                                              ; preds = %420
-  store ptr %416, ptr %421, align 8, !tbaa !68
-  br label %425
+421:                                              ; preds = %417
+  store ptr %413, ptr %418, align 8, !tbaa !68
+  br label %422
 
-425:                                              ; preds = %424, %420
-  store ptr %416, ptr %414, align 8, !tbaa !391
+422:                                              ; preds = %421, %417
+  store ptr %413, ptr %411, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit145.thread
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit145.thread: ; preds = %419, %425
-  %.0.i.i140.ph = phi ptr [ %416, %425 ], [ null, %419 ]
-  %426 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %.0.i.i140.ph, ptr %426, align 8, !tbaa !424
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit145.thread: ; preds = %416, %422
+  %.0.i.i140.ph = phi ptr [ %413, %422 ], [ null, %416 ]
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %.0.i.i140.ph, ptr %423, align 8, !tbaa !424
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i146
 
-427:                                              ; preds = %398
-  %428 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr null, ptr %428, align 8, !tbaa !424
-  %429 = load ptr, ptr %59, align 8, !tbaa !66
-  %430 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %429, ptr %430, align 8, !tbaa !68
-  %431 = getelementptr i8, ptr %1, i64 8
-  %.val.i.i.i150 = load ptr, ptr %431, align 8, !tbaa !73
-  %432 = ptrtoint ptr %.val.i.i.i150 to i64
-  %433 = and i64 %432, -64
-  %434 = inttoptr i64 %433 to ptr
-  %435 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %434, ptr %435, align 8, !tbaa !392
-  %436 = ptrtoint ptr %429 to i64
-  %437 = sub i64 0, %436
-  %438 = and i64 %437, 63
-  %439 = getelementptr inbounds nuw i8, ptr %429, i64 %438
-  %440 = icmp ugt ptr %439, %.val.i.i.i150
-  br i1 %440, label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153, label %441
+424:                                              ; preds = %395
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr null, ptr %425, align 8, !tbaa !424
+  %426 = load ptr, ptr %59, align 8, !tbaa !66
+  %427 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %426, ptr %427, align 8, !tbaa !68
+  %428 = getelementptr i8, ptr %1, i64 8
+  %.val.i.i.i150 = load ptr, ptr %428, align 8, !tbaa !73
+  %429 = ptrtoint ptr %.val.i.i.i150 to i64
+  %430 = and i64 %429, -64
+  %431 = inttoptr i64 %430 to ptr
+  %432 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %431, ptr %432, align 8, !tbaa !392
+  %433 = ptrtoint ptr %426 to i64
+  %434 = sub i64 0, %433
+  %435 = and i64 %434, 63
+  %436 = getelementptr inbounds nuw i8, ptr %426, i64 %435
+  %437 = icmp ugt ptr %436, %.val.i.i.i150
+  br i1 %437, label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153, label %438
 
-441:                                              ; preds = %427
-  store ptr %439, ptr %59, align 8, !tbaa !66
-  store ptr %439, ptr %60, align 8, !tbaa !67
-  %.not.i.i.i151 = icmp eq i64 %438, 0
-  br i1 %.not.i.i.i151, label %.thread.i.i.i152, label %442
+438:                                              ; preds = %424
+  store ptr %436, ptr %59, align 8, !tbaa !66
+  store ptr %436, ptr %60, align 8, !tbaa !67
+  %.not.i.i.i151 = icmp eq i64 %435, 0
+  br i1 %.not.i.i.i151, label %.thread.i.i.i152, label %439
 
-442:                                              ; preds = %441
-  store ptr %439, ptr %430, align 8, !tbaa !68
+439:                                              ; preds = %438
+  store ptr %436, ptr %427, align 8, !tbaa !68
   br label %.thread.i.i.i152
 
-.thread.i.i.i152:                                 ; preds = %442, %441
+.thread.i.i.i152:                                 ; preds = %439, %438
   store i32 2, ptr %62, align 8, !tbaa !336
   br label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i146
 
 _ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i146: ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit145.thread, %.thread.i.i.i152
-  %443 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %444 = load ptr, ptr %443, align 8, !tbaa !391
-  %445 = getelementptr inbounds i8, ptr %444, i64 -114816
-  %446 = load ptr, ptr %60, align 8, !tbaa !67
-  %447 = icmp ult ptr %445, %446
-  br i1 %447, label %448, label %449
+  %440 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %441 = load ptr, ptr %440, align 8, !tbaa !391
+  %442 = getelementptr inbounds i8, ptr %441, i64 -114816
+  %443 = load ptr, ptr %60, align 8, !tbaa !67
+  %444 = icmp ult ptr %442, %443
+  br i1 %444, label %445, label %446
 
-448:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i146
+445:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i146
   store i8 1, ptr %146, align 8, !tbaa !65
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153
 
-449:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i146
-  %450 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %451 = load ptr, ptr %450, align 8, !tbaa !68
-  %452 = icmp ult ptr %445, %451
-  br i1 %452, label %453, label %454
+446:                                              ; preds = %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i146
+  %447 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %448 = load ptr, ptr %447, align 8, !tbaa !68
+  %449 = icmp ult ptr %442, %448
+  br i1 %449, label %450, label %451
 
-453:                                              ; preds = %449
-  store ptr %445, ptr %450, align 8, !tbaa !68
-  br label %454
+450:                                              ; preds = %446
+  store ptr %442, ptr %447, align 8, !tbaa !68
+  br label %451
 
-454:                                              ; preds = %453, %449
-  store ptr %445, ptr %443, align 8, !tbaa !391
+451:                                              ; preds = %450, %446
+  store ptr %442, ptr %440, align 8, !tbaa !391
   br label %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153
 
-_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153: ; preds = %427, %448, %454
-  %.0.i.i148 = phi ptr [ null, %448 ], [ %445, %454 ], [ null, %427 ]
-  %455 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.0.i.i148, ptr %455, align 8, !tbaa !425
-  br label %456
+_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153: ; preds = %424, %445, %451
+  %.0.i.i148 = phi ptr [ null, %445 ], [ %442, %451 ], [ null, %424 ]
+  %452 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr %.0.i.i148, ptr %452, align 8, !tbaa !425
+  br label %453
 
-456:                                              ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153, %276, %275
-  %457 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %457, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !86
+453:                                              ; preds = %_ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit153, %273, %272
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %454, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !86
   %.val82 = load i8, ptr %146, align 8, !tbaa !65
   %.not79 = icmp eq i8 %.val82, 0
   %. = select i1 %.not79, i64 0, i64 -64
-  br label %458
+  br label %455
 
-458:                                              ; preds = %456, %_ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98
-  %.0 = phi i64 [ -64, %_ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98 ], [ %., %456 ]
+455:                                              ; preds = %453, %_ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98
+  %.0 = phi i64 [ -64, %_ZN11duckdb_zstdL24ZSTD_cwksp_reserve_tableEPNS_10ZSTD_cwkspEm.exit98 ], [ %., %453 ]
   ret i64 %.0
 }
 

@@ -459,7 +459,7 @@ define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %10, %4
   %.0139 = phi ptr [ %14, %10 ], [ null, %4 ]
-  switch i32 %3, label %.thread [
+  switch i32 %3, label %.critedge.thread [
     i32 3, label %69
     i32 1, label %16
     i32 2, label %36
@@ -469,7 +469,7 @@ define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, 
   %17 = load ptr, ptr %7, align 8
   tail call void @col_append_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str)
   %18 = icmp eq ptr %.0139, null
-  br i1 %18, label %.thread, label %19
+  br i1 %18, label %.critedge.thread, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr @hf_smb_direct_negotiate_request, align 4
@@ -488,7 +488,7 @@ define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, 
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %32, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648)
   %34 = load i32, ptr @hf_smb_direct_max_fragmented_size, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
-  br label %.thread
+  br label %.critedge.thread
 
 36:                                               ; preds = %15
   %37 = load ptr, ptr %7, align 8
@@ -505,7 +505,7 @@ define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, 
 
 42:                                               ; preds = %39, %36
   %43 = icmp eq ptr %.0139, null
-  br i1 %43, label %.thread, label %44
+  br i1 %43, label %.critedge.thread, label %44
 
 44:                                               ; preds = %42
   %45 = load i32, ptr @hf_smb_direct_negotiate_response, align 4
@@ -532,7 +532,7 @@ define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, 
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %65, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648)
   %67 = load i32, ptr @hf_smb_direct_max_fragmented_size, align 4
   %68 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %67, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef -2147483648)
-  br label %.thread
+  br label %.critedge.thread
 
 69:                                               ; preds = %15
   %70 = load ptr, ptr %7, align 8
@@ -558,26 +558,24 @@ define internal fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, 
   %89 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
   %90 = load i32, ptr @hf_smb_direct_data_length, align 4
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %90, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
-  %.not145 = icmp ne i32 %89, 0
-  %92 = icmp ugt i32 %86, 20
-  %or.cond = select i1 %.not145, i1 %92, i1 false
-  br i1 %or.cond, label %93, label %95
+  %.not145 = icmp eq i32 %89, 0
+  br i1 %.not145, label %.critedge, label %92
 
-93:                                               ; preds = %69
-  %94 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %86)
-  br label %95
+92:                                               ; preds = %69
+  %93 = icmp ugt i32 %86, 20
+  br i1 %93, label %94, label %.critedge.thread
 
-95:                                               ; preds = %93, %69
-  %.0138 = phi i32 [ %94, %93 ], [ 0, %69 ]
-  %.not146 = icmp ugt i32 %89, %.0138
-  br i1 %.not146, label %.thread, label %96
+94:                                               ; preds = %92
+  %95 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %86)
+  %96 = icmp ugt i32 %89, %95
+  br i1 %96, label %.critedge.thread, label %.critedge
 
-96:                                               ; preds = %95
+.critedge:                                        ; preds = %94, %69
   %97 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %86, i32 noundef %89)
   %.not147 = icmp eq ptr %97, null
-  br i1 %.not147, label %.thread, label %98
+  br i1 %.not147, label %.critedge.thread, label %98
 
-98:                                               ; preds = %96
+98:                                               ; preds = %.critedge
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %100 = load i8, ptr %99, align 8, !range !6, !noundef !7
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -651,9 +649,9 @@ dissect_smb_direct_payload.exit:                  ; preds = %123, %129, %132, %1
   %142 = or disjoint i16 %141, %137
   store i16 %142, ptr %139, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  br label %.thread
+  br label %.critedge.thread
 
-.thread:                                          ; preds = %95, %96, %dissect_smb_direct_payload.exit, %42, %16, %44, %19, %15
+.critedge.thread:                                 ; preds = %92, %94, %.critedge, %dissect_smb_direct_payload.exit, %42, %16, %44, %19, %15
   ret void
 }
 

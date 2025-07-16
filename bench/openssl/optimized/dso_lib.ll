@@ -587,52 +587,48 @@ DSO_pathbyaddr.exit.thread:                       ; preds = %2
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 296, ptr noundef nonnull @__func__.DSO_pathbyaddr) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 108, ptr noundef null) #3
-  br label %24
+  br label %22
 
 DSO_pathbyaddr.exit:                              ; preds = %2
   %7 = tail call i32 %5(ptr noundef %0, ptr noundef null, i32 noundef 0) #3
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %24, label %9
+  br i1 %8, label %22, label %9
 
 9:                                                ; preds = %DSO_pathbyaddr.exit
   %10 = zext nneg i32 %7 to i64
   %11 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 311) #3
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %23, label %12
+  br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %9
   %13 = tail call ptr @DSO_METHOD_openssl() #3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
+  br i1 %16, label %.critedge, label %DSO_pathbyaddr.exit16
 
-17:                                               ; preds = %12
+.critedge:                                        ; preds = %12
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 296, ptr noundef nonnull @__func__.DSO_pathbyaddr) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 108, ptr noundef null) #3
-  br label %DSO_pathbyaddr.exit16
+  br label %21
 
-18:                                               ; preds = %12
-  %19 = tail call i32 %15(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %7) #3
-  br label %DSO_pathbyaddr.exit16
+DSO_pathbyaddr.exit16:                            ; preds = %12
+  %17 = tail call i32 %15(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %7) #3
+  %18 = icmp eq i32 %17, %7
+  br i1 %18, label %19, label %21
 
-DSO_pathbyaddr.exit16:                            ; preds = %17, %18
-  %.0.i15 = phi i32 [ -1, %17 ], [ %19, %18 ]
-  %20 = icmp eq i32 %.0.i15, %7
-  br i1 %20, label %21, label %23
+19:                                               ; preds = %DSO_pathbyaddr.exit16
+  %20 = tail call ptr @DSO_load(ptr noundef null, ptr noundef nonnull %11, ptr poison, i32 noundef %1)
+  br label %21
 
-21:                                               ; preds = %DSO_pathbyaddr.exit16
-  %22 = tail call ptr @DSO_load(ptr noundef null, ptr noundef nonnull %11, ptr poison, i32 noundef %1)
-  br label %23
-
-23:                                               ; preds = %21, %DSO_pathbyaddr.exit16, %9
-  %.012 = phi ptr [ %22, %21 ], [ null, %DSO_pathbyaddr.exit16 ], [ null, %9 ]
+21:                                               ; preds = %.critedge, %19, %DSO_pathbyaddr.exit16, %9
+  %.012 = phi ptr [ %20, %19 ], [ null, %DSO_pathbyaddr.exit16 ], [ null, %9 ], [ null, %.critedge ]
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 316) #3
-  br label %24
+  br label %22
 
-24:                                               ; preds = %DSO_pathbyaddr.exit.thread, %DSO_pathbyaddr.exit, %23
-  %.0 = phi ptr [ %.012, %23 ], [ null, %DSO_pathbyaddr.exit ], [ null, %DSO_pathbyaddr.exit.thread ]
+22:                                               ; preds = %DSO_pathbyaddr.exit.thread, %DSO_pathbyaddr.exit, %21
+  %.0 = phi ptr [ %.012, %21 ], [ null, %DSO_pathbyaddr.exit ], [ null, %DSO_pathbyaddr.exit.thread ]
   ret ptr %.0
 }
 

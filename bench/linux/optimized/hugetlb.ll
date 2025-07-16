@@ -257,7 +257,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @hugetlb_acct_memory(ptr no
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.list_head, align 8
   %6 = icmp eq i64 %1, 0
-  br i1 %6, label %240, label %7
+  br i1 %6, label %238, label %7
 
 7:                                                ; preds = %2
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #22
@@ -453,7 +453,7 @@ alloc_surplus_hugetlb_folio.exit.thread:          ; preds = %45, %38, %54, %41, 
 .loopexit27:                                      ; preds = %.preheader, %.loopexit28
   call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
-  br i1 %76, label %238, label %115
+  br i1 %76, label %236, label %115
 
 115:                                              ; preds = %.loopexit27, %23
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 1656
@@ -505,13 +505,13 @@ alloc_surplus_hugetlb_folio.exit.thread:          ; preds = %45, %38, %54, %41, 
   %145 = getelementptr inbounds nuw i8, ptr %129, i64 2248
   %146 = load i64, ptr %145, align 8
   %147 = icmp eq i64 %146, 0
-  br i1 %147, label %.thread, label %148
+  br i1 %147, label %.critedge, label %148
 
 148:                                              ; preds = %143
   %149 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %146) #24, !srcloc !14
   %150 = trunc i64 %149 to i32
   %151 = icmp ult i32 %150, 64
-  br i1 %151, label %152, label %.thread
+  br i1 %151, label %152, label %.critedge
 
 152:                                              ; preds = %148
   %153 = icmp eq ptr %144, null
@@ -580,108 +580,104 @@ alloc_surplus_hugetlb_folio.exit.thread:          ; preds = %45, %38, %54, %41, 
 .thread23:                                        ; preds = %191, %181, %184, %.split.us, %161, %167
   %.us-phi = phi i32 [ %159, %167 ], [ %159, %161 ], [ %159, %.split.us ], [ %182, %184 ], [ %182, %181 ], [ %182, %191 ]
   %195 = zext i32 %.us-phi to i64
-  br label %.thread
+  %196 = icmp sgt i64 %1, %195
+  br i1 %196, label %.critedge, label %236
 
-.thread:                                          ; preds = %143, %.thread23, %148
-  %196 = phi i64 [ 0, %148 ], [ %195, %.thread23 ], [ 0, %143 ]
-  %197 = icmp slt i64 %196, %1
-  br i1 %197, label %198, label %238
-
-198:                                              ; preds = %.thread
+.critedge:                                        ; preds = %143, %148, %.thread23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
   store ptr %4, ptr %4, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %4, ptr %199, align 8
-  %200 = load i64, ptr %9, align 8
-  %201 = sub i64 %200, %1
-  store i64 %201, ptr %9, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %203 = load i64, ptr %202, align 8
-  %204 = icmp eq i64 %203, 0
-  br i1 %204, label %.loopexit, label %205
+  %197 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %4, ptr %197, align 8
+  %198 = load i64, ptr %9, align 8
+  %199 = sub i64 %198, %1
+  store i64 %199, ptr %9, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %201 = load i64, ptr %200, align 8
+  %202 = icmp eq i64 %201, 0
+  br i1 %202, label %.loopexit, label %203
 
-205:                                              ; preds = %198
-  %206 = call i64 @llvm.umin.i64(i64 %203, i64 %1)
-  br label %207
+203:                                              ; preds = %.critedge
+  %204 = call i64 @llvm.umin.i64(i64 %201, i64 %1)
+  br label %205
 
-207:                                              ; preds = %211, %205
-  %208 = phi i64 [ %212, %211 ], [ %206, %205 ]
-  %209 = call fastcc ptr @remove_pool_hugetlb_folio(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @node_states, i64 24), i1 noundef zeroext true)
-  %210 = icmp eq ptr %209, null
-  br i1 %210, label %.loopexit, label %211
+205:                                              ; preds = %209, %203
+  %206 = phi i64 [ %210, %209 ], [ %204, %203 ]
+  %207 = call fastcc ptr @remove_pool_hugetlb_folio(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @node_states, i64 24), i1 noundef zeroext true)
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %.loopexit, label %209
 
-211:                                              ; preds = %207
-  %212 = add nsw i64 %208, -1
-  %213 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %214 = load ptr, ptr %4, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  store ptr %213, ptr %215, align 8
-  store ptr %214, ptr %213, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  store ptr %4, ptr %216, align 8
-  store volatile ptr %213, ptr %4, align 8
-  %217 = icmp eq i64 %212, 0
-  br i1 %217, label %.loopexit, label %207
+209:                                              ; preds = %205
+  %210 = add nsw i64 %206, -1
+  %211 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %212 = load ptr, ptr %4, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  store ptr %211, ptr %213, align 8
+  store ptr %212, ptr %211, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %207, i64 16
+  store ptr %4, ptr %214, align 8
+  store volatile ptr %211, ptr %4, align 8
+  %215 = icmp eq i64 %210, 0
+  br i1 %215, label %.loopexit, label %205
 
-.loopexit:                                        ; preds = %211, %207, %198
+.loopexit:                                        ; preds = %209, %205, %.critedge
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   call fastcc void @update_and_free_pages_bulk(ptr noundef %0, ptr noundef nonnull %4)
   call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
-  br label %238
+  br label %236
 
 .thread24:                                        ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
   store ptr %3, ptr %3, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %3, ptr %218, align 8
-  %219 = load i64, ptr %9, align 8
-  %220 = add i64 %219, %1
-  store i64 %220, ptr %9, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %222 = load i64, ptr %221, align 8
-  %223 = icmp eq i64 %222, 0
-  br i1 %223, label %.loopexit31, label %224
+  %216 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %3, ptr %216, align 8
+  %217 = load i64, ptr %9, align 8
+  %218 = add i64 %217, %1
+  store i64 %218, ptr %9, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %220 = load i64, ptr %219, align 8
+  %221 = icmp eq i64 %220, 0
+  br i1 %221, label %.loopexit31, label %222
 
-224:                                              ; preds = %.thread24
-  %225 = sub i64 0, %1
-  %226 = call i64 @llvm.umin.i64(i64 %222, i64 %225)
-  br label %227
+222:                                              ; preds = %.thread24
+  %223 = sub i64 0, %1
+  %224 = call i64 @llvm.umin.i64(i64 %220, i64 %223)
+  br label %225
 
-227:                                              ; preds = %231, %224
-  %228 = phi i64 [ %232, %231 ], [ %226, %224 ]
-  %229 = call fastcc ptr @remove_pool_hugetlb_folio(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @node_states, i64 24), i1 noundef zeroext true)
-  %230 = icmp eq ptr %229, null
-  br i1 %230, label %.loopexit31, label %231
+225:                                              ; preds = %229, %222
+  %226 = phi i64 [ %230, %229 ], [ %224, %222 ]
+  %227 = call fastcc ptr @remove_pool_hugetlb_folio(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @node_states, i64 24), i1 noundef zeroext true)
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %.loopexit31, label %229
 
-231:                                              ; preds = %227
-  %232 = add i64 %228, -1
-  %233 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  %234 = load ptr, ptr %3, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  store ptr %233, ptr %235, align 8
-  store ptr %234, ptr %233, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  store ptr %3, ptr %236, align 8
-  store volatile ptr %233, ptr %3, align 8
-  %237 = icmp eq i64 %232, 0
-  br i1 %237, label %.loopexit31, label %227
+229:                                              ; preds = %225
+  %230 = add i64 %226, -1
+  %231 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  %232 = load ptr, ptr %3, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  store ptr %231, ptr %233, align 8
+  store ptr %232, ptr %231, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %227, i64 16
+  store ptr %3, ptr %234, align 8
+  store volatile ptr %231, ptr %3, align 8
+  %235 = icmp eq i64 %230, 0
+  br i1 %235, label %.loopexit31, label %225
 
-.loopexit31:                                      ; preds = %231, %227, %.thread24
+.loopexit31:                                      ; preds = %229, %225, %.thread24
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   call fastcc void @update_and_free_pages_bulk(ptr noundef %0, ptr noundef nonnull %3)
   call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  br label %236
+
+236:                                              ; preds = %.thread23, %.loopexit31, %.loopexit, %.loopexit27
+  %237 = phi i32 [ -12, %.loopexit27 ], [ -12, %.loopexit ], [ 0, %.loopexit31 ], [ 0, %.thread23 ]
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
   br label %238
 
-238:                                              ; preds = %.thread, %.loopexit31, %.loopexit, %.loopexit27
-  %239 = phi i32 [ -12, %.loopexit27 ], [ -12, %.loopexit ], [ 0, %.loopexit31 ], [ 0, %.thread ]
-  call void @_raw_spin_unlock_irq(ptr noundef nonnull @hugetlb_lock) #22
-  br label %240
-
-240:                                              ; preds = %238, %2
-  %241 = phi i32 [ %239, %238 ], [ 0, %2 ]
-  ret i32 %241
+238:                                              ; preds = %236, %2
+  %239 = phi i32 [ %237, %236 ], [ 0, %2 ]
+  ret i32 %239
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -9034,7 +9034,7 @@ define internal fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 
 ._crit_edge:                                      ; preds = %5
   %.pre = add i32 %1, 1
   %.pre69 = add i32 %1, 2
-  br label %17
+  br label %18
 
 8:                                                ; preds = %5, %5, %5
   %9 = add i32 %1, 1
@@ -9046,20 +9046,20 @@ define internal fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 
   %14 = lshr i16 %12, 3
   %spec.select = select i1 %or.cond8, i16 %14, i16 %12
   %15 = and i16 %spec.select, 1
-  %spec.select68 = add i16 %15, %spec.select
-  %16 = zext i8 %10 to i32
-  br label %17
+  %.not = icmp eq i16 %15, 0
+  %16 = zext i16 %spec.select to i32
+  %17 = zext i8 %10 to i32
+  br label %18
 
-17:                                               ; preds = %._crit_edge, %8
+18:                                               ; preds = %._crit_edge, %8
   %.pre-phi70 = phi i32 [ %.pre69, %._crit_edge ], [ %11, %8 ]
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %9, %8 ]
-  %.066 = phi i16 [ 0, %._crit_edge ], [ %spec.select, %8 ]
-  %.065 = phi i16 [ 0, %._crit_edge ], [ %spec.select68, %8 ]
-  %.064 = phi i32 [ 0, %._crit_edge ], [ %16, %8 ]
-  %18 = load i32, ptr @hf_s7comm_data_item, align 4
-  %19 = zext i16 %.066 to i32
-  %20 = add nuw nsw i32 %19, 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %1, i32 noundef %20, i32 noundef 0)
+  %.066 = phi i32 [ 0, %._crit_edge ], [ %16, %8 ]
+  %.065 = phi i1 [ true, %._crit_edge ], [ %.not, %8 ]
+  %.064 = phi i32 [ 0, %._crit_edge ], [ %17, %8 ]
+  %19 = load i32, ptr @hf_s7comm_data_item, align 4
+  %20 = add nuw nsw i32 %.066, 4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %1, i32 noundef %20, i32 noundef 0)
   %22 = load i32, ptr @ett_s7comm_data_item, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = zext i16 %3 to i32
@@ -9071,18 +9071,17 @@ define internal fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 
   %29 = load i32, ptr @hf_s7comm_data_transport_size, align 4
   %30 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %29, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 1, i32 noundef %.064)
   %31 = load i32, ptr @hf_s7comm_data_length, align 4
-  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %31, ptr noundef %0, i32 noundef %.pre-phi70, i32 noundef 2, i32 noundef %19)
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %31, ptr noundef %0, i32 noundef %.pre-phi70, i32 noundef 2, i32 noundef %.066)
   %33 = add i32 %1, 4
   %34 = add i8 %6, 1
   %or.cond11 = icmp ult i8 %34, 2
   br i1 %or.cond11, label %35, label %43
 
-35:                                               ; preds = %17
+35:                                               ; preds = %18
   %36 = load i32, ptr @hf_s7comm_readresponse_data, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %36, ptr noundef %0, i32 noundef %33, i32 noundef %19, i32 noundef 0)
-  %38 = add i32 %33, %19
-  %.not67 = icmp eq i16 %.066, %.065
-  br i1 %.not67, label %43, label %39
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %36, ptr noundef %0, i32 noundef %33, i32 noundef %.066, i32 noundef 0)
+  %38 = add i32 %.066, %33
+  br i1 %.065, label %43, label %39
 
 39:                                               ; preds = %35
   %40 = load i32, ptr @hf_s7comm_data_fillbyte, align 4
@@ -9090,8 +9089,8 @@ define internal fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 
   %42 = add i32 %38, 1
   br label %43
 
-43:                                               ; preds = %35, %39, %17
-  %.0 = phi i32 [ %42, %39 ], [ %38, %35 ], [ %33, %17 ]
+43:                                               ; preds = %35, %39, %18
+  %.0 = phi i32 [ %42, %39 ], [ %38, %35 ], [ %33, %18 ]
   ret i32 %.0
 }
 

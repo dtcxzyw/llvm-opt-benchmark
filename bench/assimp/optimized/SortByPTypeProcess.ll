@@ -1773,14 +1773,13 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE12emplace_backIJRjRKfEEERS0_DpOT_.exit: ; p
 
 ._crit_edge916.loopexit:                          ; preds = %617
   %630 = trunc nuw i64 %indvars.iv.next1230 to i32
+  %631 = icmp eq i32 %618, %630
+  %632 = zext i1 %631 to i32
   br label %._crit_edge916
 
 ._crit_edge916:                                   ; preds = %._crit_edge916.loopexit, %562
-  %.0267.lcssa = phi i32 [ 0, %562 ], [ %630, %._crit_edge916.loopexit ]
-  %.lcssa596 = phi i32 [ 0, %562 ], [ %618, %._crit_edge916.loopexit ]
-  %631 = icmp eq i32 %.0267.lcssa, %.lcssa596
-  %632 = zext i1 %631 to i32
-  %spec.select422 = add i32 %.2291925, %632
+  %.0267.lcssa = phi i32 [ 1, %562 ], [ %632, %._crit_edge916.loopexit ]
+  %spec.select422 = add i32 %.2291925, %.0267.lcssa
   %633 = add i32 %.2919, 1
   %634 = load ptr, ptr %474, align 8
   %635 = getelementptr inbounds nuw i32, ptr %634, i64 %indvars.iv1232

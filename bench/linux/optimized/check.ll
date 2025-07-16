@@ -112,7 +112,7 @@ define internal range(i32 -22, 1) i32 @set_corruption_check_size(ptr noundef %0)
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #8
-  br label %17
+  br label %15
 
 6:                                                ; preds = %1
   store ptr null, ptr %2, align 8, !annotation !5
@@ -121,26 +121,22 @@ define internal range(i32 -22, 1) i32 @set_corruption_check_size(ptr noundef %0)
   %9 = load ptr, ptr %2, align 8
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %12, label %._crit_edge
+  br i1 %11, label %14, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
   %.pre = load i32, ptr @corruption_check_size, align 4
-  br label %13
+  %12 = icmp eq i32 %.pre, %8
+  %13 = select i1 %12, i32 0, i32 -22
+  br label %15
 
-12:                                               ; preds = %6
+14:                                               ; preds = %6
   store i32 %8, ptr @corruption_check_size, align 4
-  br label %13
+  br label %15
 
-13:                                               ; preds = %._crit_edge, %12
-  %14 = phi i32 [ %.pre, %._crit_edge ], [ %8, %12 ]
-  %15 = icmp eq i32 %14, %8
-  %16 = select i1 %15, i32 0, i32 -22
-  br label %17
-
-17:                                               ; preds = %13, %4
-  %18 = phi i32 [ %16, %13 ], [ -22, %4 ]
+15:                                               ; preds = %14, %._crit_edge, %4
+  %16 = phi i32 [ -22, %4 ], [ %13, %._crit_edge ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
-  ret i32 %18
+  ret i32 %16
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

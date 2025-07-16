@@ -669,7 +669,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %7 = icmp eq ptr %0, null
   %8 = icmp eq i64 %1, 0
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %52, label %9
+  br i1 %or.cond, label %53, label %9
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %0, align 1, !tbaa !50
@@ -680,7 +680,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %12 = sext i8 %10 to i32
   %13 = load ptr, ptr @stderr, align 8, !tbaa !26
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.10, i32 noundef %12) #19
-  br label %52
+  br label %53
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -709,7 +709,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %25 = sext i8 %23 to i32
   %26 = load ptr, ptr @stderr, align 8, !tbaa !26
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.10, i32 noundef %25) #19
-  br label %52
+  br label %53
 
 28:                                               ; preds = %.critedge
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 1
@@ -722,7 +722,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
 
 .preheader.i:                                     ; preds = %28
   %.not44.i = icmp eq i64 %sext, 0
-  br i1 %.not44.i, label %.critedge.i, label %.lr.ph.i
+  br i1 %.not44.i, label %HexStringToBytes.exit.thread24, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -774,27 +774,27 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %49 = icmp ult i64 %.235.i, %30
   br i1 %49, label %35, label %.critedge.i, !llvm.loop !52
 
-.critedge.i:                                      ; preds = %47, %39, %35, %.preheader.i
-  %.121.i = phi i64 [ 0, %.preheader.i ], [ %.02038.i, %35 ], [ %.235.i, %47 ], [ %spec.select.i, %39 ]
-  %.not26.i = icmp eq i64 %.121.i, %30
-  br i1 %.not26.i, label %HexStringToBytes.exit, label %50
+.critedge.i:                                      ; preds = %47, %39, %35
+  %.121.ph.i = phi i64 [ %.02038.i, %35 ], [ %.235.i, %47 ], [ %spec.select.i, %39 ]
+  %50 = icmp eq i64 %.121.ph.i, %30
+  br i1 %50, label %HexStringToBytes.exit.thread24, label %51
 
-50:                                               ; preds = %.critedge.i
+51:                                               ; preds = %.critedge.i
   call void @free(ptr noundef %31) #15
   br label %HexStringToBytes.exit.thread
 
-HexStringToBytes.exit.thread:                     ; preds = %50, %28
+HexStringToBytes.exit.thread:                     ; preds = %51, %28
   store ptr null, ptr %2, align 8, !tbaa !42
-  br label %52
+  br label %53
 
-HexStringToBytes.exit:                            ; preds = %.critedge.i
+HexStringToBytes.exit.thread24:                   ; preds = %.critedge.i, %.preheader.i
   store ptr %31, ptr %2, align 8, !tbaa !42
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %30, ptr %51, align 8, !tbaa !53
-  br label %52
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %30, ptr %52, align 8, !tbaa !53
+  br label %53
 
-52:                                               ; preds = %HexStringToBytes.exit.thread, %3, %HexStringToBytes.exit, %24, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %24 ], [ 1, %HexStringToBytes.exit ], [ 0, %3 ], [ 0, %HexStringToBytes.exit.thread ]
+53:                                               ; preds = %HexStringToBytes.exit.thread, %3, %HexStringToBytes.exit.thread24, %24, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %24 ], [ 1, %HexStringToBytes.exit.thread24 ], [ 0, %3 ], [ 0, %HexStringToBytes.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   ret i32 %.0
 }

@@ -3531,7 +3531,7 @@ _ZN6Assimp3MDL22IntSplitGroupData_MDL7D2Ev.exit:  ; preds = %_ZN6Assimp3MDL17Int
 
 .preheader262:                                    ; preds = %531, %._crit_edge312.thread
   %indvars.iv354 = phi i64 [ %indvars.iv.next355, %._crit_edge312.thread ], [ 0, %531 ]
-  %.0134316 = phi i32 [ %.1135.lcssa391, %._crit_edge312.thread ], [ 0, %531 ]
+  %.0134316 = phi i32 [ %.1135.lcssa390, %._crit_edge312.thread ], [ 0, %531 ]
   %534 = getelementptr inbounds nuw %"class.std::vector.52", ptr %.ptr, i64 %indvars.iv354
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 8
   %536 = load ptr, ptr %535, align 8
@@ -3584,7 +3584,7 @@ _ZN6Assimp3MDL22IntSplitGroupData_MDL7D2Ev.exit:  ; preds = %_ZN6Assimp3MDL17Int
   br label %._crit_edge312.thread
 
 ._crit_edge312.thread:                            ; preds = %.preheader262, %._crit_edge312, %559
-  %.1135.lcssa391 = phi i32 [ %547, %._crit_edge312 ], [ %547, %559 ], [ %.0134316, %.preheader262 ]
+  %.1135.lcssa390 = phi i32 [ %547, %._crit_edge312 ], [ %547, %559 ], [ %.0134316, %.preheader262 ]
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %566 = load i32, ptr %39, align 1
   %567 = zext i32 %566 to i64

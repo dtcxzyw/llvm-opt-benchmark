@@ -1586,7 +1586,7 @@ define linkonce_odr void @_ZN6gmxapi13SignalManager10LogicalAND4callEv(ptr nound
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.not4.i.i.i.i = icmp eq ptr %9, %10
-  br i1 %.not4.i.i.i.i, label %_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %14
   %.sroa.02.05.i.i.i.i = phi ptr [ %15, %14 ], [ %9, %1 ]
@@ -1600,12 +1600,11 @@ define linkonce_odr void @_ZN6gmxapi13SignalManager10LogicalAND4callEv(ptr nound
   %.not.i.i.i.i = icmp eq ptr %15, %10
   br i1 %.not.i.i.i.i, label %_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !48
 
-_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %1
-  %.sroa.02.0.lcssa.i.i.i.i = phi ptr [ %9, %1 ], [ %.sroa.02.05.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %16 = icmp eq ptr %10, %.sroa.02.0.lcssa.i.i.i.i
+_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit: ; preds = %.lr.ph.i.i.i.i
+  %16 = icmp eq ptr %10, %.sroa.02.05.i.i.i.i
   br i1 %16, label %_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit.thread, label %20
 
-_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit.thread: ; preds = %14, %_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit
+_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit.thread: ; preds = %14, %1, %_ZSt6all_ofISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6atomicIbEEEZN6gmxapi13SignalManager10LogicalAND4callEvEUlRKSB_E_EbT_SJ_T0_.exit
   %17 = load ptr, ptr %2, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !49

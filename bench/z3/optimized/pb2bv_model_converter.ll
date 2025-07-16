@@ -1154,18 +1154,18 @@ _ZN15ast_translationclI9func_declEEPT_PKS2_.exit: ; preds = %.lr.ph
   %25 = tail call noundef ptr @_ZN15ast_translation7processEPK3ast(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %19)
   %.pre = load ptr, ptr %1, align 8, !tbaa !169
   %.pre27 = load ptr, ptr %3, align 8, !tbaa !158
-  %26 = getelementptr inbounds nuw i8, ptr %.026, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !55
-  %28 = icmp eq ptr %.pre, %.pre27
-  br i1 %28, label %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit19, label %29
+  %26 = icmp eq ptr %.pre, %.pre27
+  %27 = getelementptr inbounds nuw i8, ptr %.026, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !55
+  br i1 %26, label %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit19, label %29
 
 29:                                               ; preds = %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit
-  %30 = tail call noundef ptr @_ZN15ast_translation7processEPK3ast(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %27)
+  %30 = tail call noundef ptr @_ZN15ast_translation7processEPK3ast(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %28)
   br label %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit19
 
 _ZN15ast_translationclI9func_declEEPT_PKS2_.exit19: ; preds = %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit.thread, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit, %29
   %.0.i.i1731 = phi ptr [ %25, %29 ], [ %25, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit ], [ %19, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit.thread ]
-  %.0.i.i18 = phi ptr [ %30, %29 ], [ %27, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit ], [ %24, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit.thread ]
+  %.0.i.i18 = phi ptr [ %30, %29 ], [ %28, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit ], [ %24, %_ZN15ast_translationclI9func_declEEPT_PKS2_.exit.thread ]
   %31 = load ptr, ptr %10, align 8, !tbaa !18
   %32 = icmp eq ptr %31, null
   br i1 %32, label %39, label %33

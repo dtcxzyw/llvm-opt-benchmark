@@ -1370,7 +1370,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
 58:                                               ; preds = %51, %50
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 272
   %60 = load i16, ptr %59, align 8, !tbaa !50
-  %61 = zext i16 %60 to i32
+  %61 = zext i16 %60 to i64
   %.not177 = icmp eq i16 %60, 0
   br i1 %.not177, label %.loopexit, label %.lr.ph
 
@@ -1380,14 +1380,14 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   %wide.trip.count = zext i16 %60 to i64
   br label %64
 
-64:                                               ; preds = %.lr.ph, %114
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %.3167 = phi i64 [ %.199173, %.lr.ph ], [ %115, %114 ]
+64:                                               ; preds = %.lr.ph, %115
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
+  %.3167 = phi i64 [ %.199173, %.lr.ph ], [ %116, %115 ]
   %65 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %63, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i64, ptr %66, align 8, !tbaa !60
   %68 = icmp ugt i64 %67, %.3167
-  br i1 %68, label %69, label %85
+  br i1 %68, label %69, label %86
 
 69:                                               ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false), !tbaa.struct !41
@@ -1407,80 +1407,79 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   br label %.thread127
 
 81:                                               ; preds = %69
-  %82 = trunc nuw nsw i64 %indvars.iv to i32
-  %83 = load i8, ptr %39, align 8, !tbaa !49, !range !7, !noundef !8
-  %84 = trunc nuw i8 %83 to i1
-  %spec.select123 = select i1 %84, ptr %44, ptr null
+  %82 = load i8, ptr %39, align 8, !tbaa !49, !range !7, !noundef !8
+  %83 = trunc nuw i8 %82 to i1
+  %spec.select123 = select i1 %83, ptr %44, ptr null
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !41
   %.pre = load i16, ptr %59, align 8, !tbaa !50
-  %.pre203 = zext i16 %.pre to i32
+  %84 = zext i16 %.pre to i64
+  %85 = icmp eq i64 %indvars.iv, %84
   br label %.loopexit
 
-85:                                               ; preds = %64
-  %86 = icmp eq i64 %67, %.3167
-  br i1 %86, label %87, label %114
+86:                                               ; preds = %64
+  %87 = icmp eq i64 %67, %.3167
+  br i1 %87, label %88, label %115
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %44, i64 256
-  %89 = load ptr, ptr %88, align 8, !tbaa !53
-  %90 = getelementptr inbounds nuw i8, ptr %19, i64 360
-  %91 = load ptr, ptr %90, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv
-  %93 = load i64, ptr %92, align 8, !tbaa !11
-  %94 = getelementptr inbounds nuw i8, ptr %89, i64 %93
-  %95 = call i32 %3(ptr noundef %94, ptr noundef %4) #7
-  %96 = icmp slt i32 %95, 0
-  %97 = load ptr, ptr %20, align 8, !tbaa !19
-  %98 = load i64, ptr %6, align 8, !tbaa !54
-  %99 = call i32 @H5AC_unprotect(ptr noundef %97, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %98, ptr noundef nonnull %44, i32 noundef 0) #7
-  %100 = icmp slt i32 %99, 0
-  br i1 %96, label %101, label %109
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %44, i64 256
+  %90 = load ptr, ptr %89, align 8, !tbaa !53
+  %91 = getelementptr inbounds nuw i8, ptr %19, i64 360
+  %92 = load ptr, ptr %91, align 8, !tbaa !52
+  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %indvars.iv
+  %94 = load i64, ptr %93, align 8, !tbaa !11
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 %94
+  %96 = call i32 %3(ptr noundef %95, ptr noundef %4) #7
+  %97 = icmp slt i32 %96, 0
+  %98 = load ptr, ptr %20, align 8, !tbaa !19
+  %99 = load i64, ptr %6, align 8, !tbaa !54
+  %100 = call i32 @H5AC_unprotect(ptr noundef %98, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %99, ptr noundef nonnull %44, i32 noundef 0) #7
+  %101 = icmp slt i32 %100, 0
+  br i1 %97, label %102, label %110
 
-101:                                              ; preds = %87
-  %102 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
-  br i1 %100, label %103, label %106
+102:                                              ; preds = %88
+  %103 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
+  br i1 %101, label %104, label %107
 
-103:                                              ; preds = %101
-  %104 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
-  %105 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_index, i32 noundef 784, i64 noundef %102, i64 noundef %104, ptr noundef nonnull @.str.19) #7
+104:                                              ; preds = %102
+  %105 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
+  %106 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_index, i32 noundef 784, i64 noundef %103, i64 noundef %105, ptr noundef nonnull @.str.19) #7
   br label %.thread127
 
-106:                                              ; preds = %101
-  %107 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !11
-  %108 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_index, i32 noundef 787, i64 noundef %102, i64 noundef %107, ptr noundef nonnull @.str.16) #7
+107:                                              ; preds = %102
+  %108 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !11
+  %109 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_index, i32 noundef 787, i64 noundef %103, i64 noundef %108, ptr noundef nonnull @.str.16) #7
   br label %.thread127
 
-109:                                              ; preds = %87
-  br i1 %100, label %110, label %.thread127
+110:                                              ; preds = %88
+  br i1 %101, label %111, label %.thread127
 
-110:                                              ; preds = %109
-  %111 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
-  %112 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
-  %113 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_index, i32 noundef 793, i64 noundef %111, i64 noundef %112, ptr noundef nonnull @.str.19) #7
+111:                                              ; preds = %110
+  %112 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
+  %113 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
+  %114 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_index, i32 noundef 793, i64 noundef %112, i64 noundef %113, ptr noundef nonnull @.str.19) #7
   br label %.thread127
 
-114:                                              ; preds = %85
+115:                                              ; preds = %86
   %.neg120 = xor i64 %67, -1
-  %115 = add i64 %.3167, %.neg120
+  %116 = add i64 %.3167, %.neg120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.thread, label %64, !llvm.loop !61
 
 .loopexit:                                        ; preds = %58, %81
-  %.pre-phi = phi i32 [ %.pre203, %81 ], [ 0, %58 ]
+  %.pre-phi = phi i1 [ %85, %81 ], [ true, %58 ]
   %.3147 = phi i64 [ %.3167, %81 ], [ %.199173, %58 ]
-  %.097144 = phi i32 [ %82, %81 ], [ 0, %58 ]
+  %.097144 = phi i64 [ %indvars.iv, %81 ], [ 0, %58 ]
   %.5 = phi ptr [ %spec.select123, %81 ], [ null, %58 ]
-  %116 = icmp eq i32 %.097144, %.pre-phi
-  br i1 %116, label %.loopexit.thread, label %139
+  br i1 %.pre-phi, label %.loopexit.thread, label %139
 
-.loopexit.thread:                                 ; preds = %114, %.loopexit
-  %.5211 = phi ptr [ %.5, %.loopexit ], [ null, %114 ]
-  %.097144210 = phi i32 [ %.097144, %.loopexit ], [ %61, %114 ]
-  %.3147208 = phi i64 [ %.3147, %.loopexit ], [ %115, %114 ]
+.loopexit.thread:                                 ; preds = %115, %.loopexit
+  %.5211 = phi ptr [ %.5, %.loopexit ], [ null, %115 ]
+  %.097144210 = phi i64 [ %.097144, %.loopexit ], [ %61, %115 ]
+  %.3147208 = phi i64 [ %.3147, %.loopexit ], [ %116, %115 ]
   %117 = getelementptr inbounds nuw i8, ptr %44, i64 264
   %118 = load ptr, ptr %117, align 8, !tbaa !55
-  %119 = zext nneg i32 %.097144210 to i64
+  %119 = and i64 %.097144210, 4294967295
   %120 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %118, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i64, ptr %121, align 8, !tbaa !60
@@ -1511,9 +1510,9 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !41
   br label %139
 
-.thread127:                                       ; preds = %46, %54, %77, %132, %103, %106, %110, %109
-  %.3109.ph = phi ptr [ null, %109 ], [ null, %110 ], [ null, %106 ], [ null, %103 ], [ %.5211, %132 ], [ null, %77 ], [ %.2108171, %54 ], [ %.2108171, %46 ]
-  %.3103.ph = phi i32 [ 0, %109 ], [ -1, %110 ], [ -1, %106 ], [ -1, %103 ], [ -1, %132 ], [ -1, %77 ], [ -1, %54 ], [ -1, %46 ]
+.thread127:                                       ; preds = %46, %54, %77, %132, %104, %107, %111, %110
+  %.3109.ph = phi ptr [ null, %110 ], [ null, %111 ], [ null, %107 ], [ null, %104 ], [ %.5211, %132 ], [ null, %77 ], [ %.2108171, %54 ], [ %.2108171, %46 ]
+  %.3103.ph = phi i32 [ 0, %110 ], [ -1, %111 ], [ -1, %107 ], [ -1, %104 ], [ -1, %132 ], [ -1, %77 ], [ -1, %54 ], [ -1, %46 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %182
 

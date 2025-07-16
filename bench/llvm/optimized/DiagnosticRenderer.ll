@@ -2316,18 +2316,18 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit76: ; preds = %_ZNK
   %.lcssa178 = phi i8 [ %45, %.preheader ], [ %243, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit76 ]
   %.sroa.0127.1.lcssa = phi i32 [ %41, %.preheader ], [ %.sroa.0116.4.extract.trunc, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit76 ]
   store i8 %.lcssa178, ptr %9, align 1
+  %338 = icmp ne i32 %.sroa.0119.0.lcssa, %337
   br label %.critedge2.thread156
 
 .critedge2.thread156:                             ; preds = %.critedge2.thread156.loopexit, %.critedge2.thread, %.critedge
-  %338 = phi i32 [ %336, %.critedge2.thread ], [ %220, %.critedge ], [ %337, %.critedge2.thread156.loopexit ]
-  %.sroa.0119.1 = phi i32 [ %336, %.critedge2.thread ], [ %220, %.critedge ], [ %.sroa.0119.0.lcssa, %.critedge2.thread156.loopexit ]
+  %339 = phi i32 [ %336, %.critedge2.thread ], [ %220, %.critedge ], [ %337, %.critedge2.thread156.loopexit ]
+  %.sroa.0119.1 = phi i1 [ false, %.critedge2.thread ], [ false, %.critedge ], [ %338, %.critedge2.thread156.loopexit ]
   %.sroa.0127.0 = phi i32 [ %.sroa.0127.1181, %.critedge2.thread ], [ %41, %.critedge ], [ %.sroa.0127.1.lcssa, %.critedge2.thread156.loopexit ]
   %.sroa.0136.1 = phi i32 [ %335, %.critedge2.thread ], [ %.sroa.0136.0.lcssa, %.critedge ], [ %.sroa.0136.0.lcssa, %.critedge2.thread156.loopexit ]
-  %339 = icmp eq i32 %.sroa.0136.1, 0
-  %340 = icmp eq i32 %.sroa.0127.0, 0
-  %or.cond158 = select i1 %339, i1 true, i1 %340
-  %341 = icmp ne i32 %.sroa.0119.1, %338
-  %or.cond160 = select i1 %or.cond158, i1 true, i1 %341
+  %340 = icmp eq i32 %.sroa.0136.1, 0
+  %341 = icmp eq i32 %.sroa.0127.0, 0
+  %or.cond158 = select i1 %340, i1 true, i1 %341
+  %or.cond160 = select i1 %or.cond158, i1 true, i1 %.sroa.0119.1
   br i1 %or.cond160, label %424, label %342
 
 342:                                              ; preds = %.critedge2.thread156
@@ -2462,8 +2462,8 @@ _ZN4llvm11SmallVectorIN5clang6FileIDELj4EED2Ev.exit.i: ; preds = %393, %_ZSt16se
 
 _ZL37computeCommonMacroArgExpansionFileIDsN5clang14SourceLocationES0_PKNS_13SourceManagerERN4llvm15SmallVectorImplINS_6FileIDEEE.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang6FileIDELj4EED2Ev.exit.i, %396
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
-  %397 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %.sroa.0136.1, i32 %338, i32 %14, ptr noundef nonnull align 8 dereferenceable(16) %12, i1 noundef zeroext true, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  %398 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %.sroa.0127.0, i32 %338, i32 %14, ptr noundef nonnull align 8 dereferenceable(16) %12, i1 noundef zeroext false, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %397 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %.sroa.0136.1, i32 %339, i32 %14, ptr noundef nonnull align 8 dereferenceable(16) %12, i1 noundef zeroext true, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %398 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %.sroa.0127.0, i32 %339, i32 %14, ptr noundef nonnull align 8 dereferenceable(16) %12, i1 noundef zeroext false, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %9)
   %399 = icmp eq i32 %397, 0
   %400 = icmp eq i32 %398, 0
   %or.cond161 = select i1 %399, i1 true, i1 %400

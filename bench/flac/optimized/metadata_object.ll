@@ -1001,7 +1001,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_streaminfo_(ptr n
 define internal fastcc range(i32 0, 2) i32 @compare_block_data_application_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #8 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) %1, i64 4)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %4, label %14
+  br i1 %.not, label %4, label %13
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1009,26 +1009,25 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_application_(ptr 
   %.not11 = icmp eq ptr %6, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !38
-  br i1 %.not11, label %._crit_edge, label %7
+  br i1 %.not11, label %._crit_edge, label %8
 
-7:                                                ; preds = %4
+._crit_edge:                                      ; preds = %4
+  %7 = icmp eq ptr %6, %.pre
+  br label %13
+
+8:                                                ; preds = %4
   %.not12 = icmp eq ptr %.pre, null
-  br i1 %.not12, label %._crit_edge, label %8
+  br i1 %.not12, label %13, label %9
 
-8:                                                ; preds = %7
-  %9 = zext i32 %2 to i64
-  %10 = add nsw i64 %9, -4
-  %bcmp13 = tail call i32 @bcmp(ptr nonnull %6, ptr nonnull %.pre, i64 %10)
-  %11 = icmp eq i32 %bcmp13, 0
-  br label %14
+9:                                                ; preds = %8
+  %10 = zext i32 %2 to i64
+  %11 = add nsw i64 %10, -4
+  %bcmp13 = tail call i32 @bcmp(ptr nonnull %6, ptr nonnull %.pre, i64 %11)
+  %12 = icmp eq i32 %bcmp13, 0
+  br label %13
 
-._crit_edge:                                      ; preds = %4, %7
-  %12 = phi ptr [ null, %7 ], [ %.pre, %4 ]
-  %13 = icmp eq ptr %6, %12
-  br label %14
-
-14:                                               ; preds = %3, %._crit_edge, %8
-  %.0.shrunk = phi i1 [ %11, %8 ], [ %13, %._crit_edge ], [ false, %3 ]
+13:                                               ; preds = %8, %._crit_edge, %3, %9
+  %.0.shrunk = phi i1 [ %12, %9 ], [ false, %3 ], [ %7, %._crit_edge ], [ false, %8 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1046,13 +1045,18 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_seektable_(ptr no
   %.not22 = icmp eq ptr %7, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !42
-  br i1 %.not22, label %._crit_edge, label %8
+  br i1 %.not22, label %._crit_edge, label %10
 
-8:                                                ; preds = %5
+._crit_edge:                                      ; preds = %5
+  %8 = icmp eq ptr %7, %.pre
+  %9 = zext i1 %8 to i32
+  br label %.loopexit
+
+10:                                               ; preds = %5
   %.not23 = icmp eq ptr %.pre, null
-  br i1 %.not23, label %._crit_edge, label %.preheader
+  br i1 %.not23, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %8
+.preheader:                                       ; preds = %10
   %.not34 = icmp eq i32 %3, 0
   br i1 %.not34, label %.loopexit, label %.lr.ph.preheader
 
@@ -1060,44 +1064,38 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_seektable_(ptr no
   %wide.trip.count = zext i32 %3 to i64
   br label %.lr.ph
 
-9:                                                ; preds = %19
+11:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %7, i64 %indvars.iv
-  %11 = load i64, ptr %10, align 8, !tbaa !44
-  %12 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %.pre, i64 %indvars.iv
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
+  %12 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %7, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !44
-  %.not24 = icmp eq i64 %11, %13
-  br i1 %.not24, label %14, label %.loopexit
+  %14 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %.pre, i64 %indvars.iv
+  %15 = load i64, ptr %14, align 8, !tbaa !44
+  %.not24 = icmp eq i64 %13, %15
+  br i1 %.not24, label %16, label %.loopexit
 
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !46
+16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !46
-  %.not25 = icmp eq i64 %16, %18
-  br i1 %.not25, label %19, label %.loopexit
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !46
+  %.not25 = icmp eq i64 %18, %20
+  br i1 %.not25, label %21, label %.loopexit
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !47
+21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !47
-  %.not26 = icmp eq i32 %21, %23
-  br i1 %.not26, label %9, label %.loopexit
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %25 = load i32, ptr %24, align 8, !tbaa !47
+  %.not26 = icmp eq i32 %23, %25
+  br i1 %.not26, label %11, label %.loopexit
 
-._crit_edge:                                      ; preds = %5, %8
-  %24 = phi ptr [ null, %8 ], [ %.pre, %5 ]
-  %25 = icmp eq ptr %7, %24
-  %26 = zext i1 %25 to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph, %14, %19, %9, %.preheader, %2, %._crit_edge
-  %.021 = phi i32 [ %26, %._crit_edge ], [ 0, %2 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 0, %14 ], [ 0, %19 ], [ 1, %9 ]
+.loopexit:                                        ; preds = %.lr.ph, %16, %21, %11, %10, %._crit_edge, %.preheader, %2
+  %.021 = phi i32 [ 0, %2 ], [ 1, %.preheader ], [ %9, %._crit_edge ], [ 0, %10 ], [ 0, %.lr.ph ], [ 0, %16 ], [ 0, %21 ], [ 1, %11 ]
   ret i32 %.021
 }
 
@@ -1124,64 +1122,64 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_vorbiscomment_(pt
   %10 = zext i32 %3 to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %7, ptr nonnull %.pre, i64 %10)
   %.not37 = icmp eq i32 %bcmp, 0
-  br i1 %.not37, label %12, label %.loopexit
+  br i1 %.not37, label %13, label %.loopexit
 
 11:                                               ; preds = %5
-  %.not36 = icmp eq ptr %7, %.pre
-  br i1 %.not36, label %12, label %.loopexit
+  %12 = icmp eq ptr %7, %.pre
+  br i1 %12, label %13, label %.loopexit
 
-12:                                               ; preds = %11, %9
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !51
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !51
-  %.not38 = icmp eq i32 %14, %16
+13:                                               ; preds = %11, %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !51
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load i32, ptr %16, align 8, !tbaa !51
+  %.not38 = icmp eq i32 %15, %17
   br i1 %.not38, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %12
-  %.not49 = icmp eq i32 %14, 0
+.preheader:                                       ; preds = %13
+  %.not49 = icmp eq i32 %15, 0
   br i1 %.not49, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !52
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %wide.trip.count = zext i32 %14 to i64
-  %.pre51.pre = load ptr, ptr %19, align 8, !tbaa !52
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %wide.trip.count = zext i32 %15 to i64
+  %.pre51.pre = load ptr, ptr %20, align 8, !tbaa !52
+  br label %21
 
-20:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %21 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %18, i64 %indvars.iv
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !17
-  %.not39 = icmp eq ptr %23, null
+21:                                               ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
+  %22 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %19, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
+  %.not39 = icmp eq ptr %24, null
   %.phi.trans.insert53 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %.pre51.pre, i64 %indvars.iv, i32 1
   %.pre54 = load ptr, ptr %.phi.trans.insert53, align 8, !tbaa !17
-  br i1 %.not39, label %28, label %24
+  br i1 %.not39, label %29, label %25
 
-24:                                               ; preds = %20
+25:                                               ; preds = %21
   %.not40 = icmp eq ptr %.pre54, null
-  br i1 %.not40, label %.loopexit, label %25
+  br i1 %.not40, label %.loopexit, label %26
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %21, align 8, !tbaa !15
-  %27 = zext i32 %26 to i64
-  %bcmp42 = tail call i32 @bcmp(ptr nonnull %23, ptr nonnull %.pre54, i64 %27)
+26:                                               ; preds = %25
+  %27 = load i32, ptr %22, align 8, !tbaa !15
+  %28 = zext i32 %27 to i64
+  %bcmp42 = tail call i32 @bcmp(ptr nonnull %24, ptr nonnull %.pre54, i64 %28)
   %.not43 = icmp eq i32 %bcmp42, 0
-  br i1 %.not43, label %29, label %.loopexit
+  br i1 %.not43, label %31, label %.loopexit
 
-28:                                               ; preds = %20
-  %.not41 = icmp eq ptr %23, %.pre54
-  br i1 %.not41, label %29, label %.loopexit
+29:                                               ; preds = %21
+  %30 = icmp eq ptr %24, %.pre54
+  br i1 %30, label %31, label %.loopexit
 
-29:                                               ; preds = %25, %28
+31:                                               ; preds = %26, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !53
 
-.loopexit:                                        ; preds = %24, %25, %28, %29, %8, %.preheader, %12, %11, %9, %2
-  %.028 = phi i32 [ 0, %2 ], [ 0, %9 ], [ 0, %11 ], [ 0, %12 ], [ 1, %.preheader ], [ 0, %8 ], [ 0, %24 ], [ 0, %25 ], [ 0, %28 ], [ 1, %29 ]
+.loopexit:                                        ; preds = %25, %26, %29, %31, %8, %.preheader, %13, %11, %9, %2
+  %.028 = phi i32 [ 0, %2 ], [ 0, %9 ], [ 0, %11 ], [ 0, %13 ], [ 1, %.preheader ], [ 0, %8 ], [ 0, %25 ], [ 0, %26 ], [ 0, %29 ], [ 1, %31 ]
   ret i32 %.028
 }
 
@@ -1221,7 +1219,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr nou
   %.not68 = icmp eq ptr %21, null
   %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.pre96 = load ptr, ptr %.phi.trans.insert95, align 8, !tbaa !58
-  br i1 %.not68, label %67, label %22
+  br i1 %.not68, label %68, label %22
 
 22:                                               ; preds = %19
   %.not69 = icmp eq ptr %.pre96, null
@@ -1232,7 +1230,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr nou
   br i1 %.not89, label %.loopexit84, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.preheader83, %.loopexit
-  %.06387 = phi i32 [ %66, %.loopexit ], [ 0, %.preheader83 ]
+  %.06387 = phi i32 [ %67, %.loopexit ], [ 0, %.preheader83 ]
   %23 = zext i32 %.06387 to i64
   %24 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %21, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !59
@@ -1319,23 +1317,23 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr nou
 65:                                               ; preds = %48
   %.phi.trans.insert = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre96, i64 %23, i32 5
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !21
-  %.not79 = icmp eq ptr %50, %.pre
-  br i1 %.not79, label %.loopexit, label %.loopexit82
+  %66 = icmp eq ptr %50, %.pre
+  br i1 %66, label %.loopexit, label %.loopexit82
 
 .loopexit:                                        ; preds = %54, %.preheader, %65
-  %66 = add nuw i32 %.06387, 1
-  %exitcond93.not = icmp eq i32 %66, %16
+  %67 = add nuw i32 %.06387, 1
+  %exitcond93.not = icmp eq i32 %67, %16
   br i1 %exitcond93.not, label %.loopexit84, label %.lr.ph88, !llvm.loop !65
 
-67:                                               ; preds = %19
-  %.not70 = icmp eq ptr %21, %.pre96
-  br i1 %.not70, label %.loopexit84, label %.loopexit82
+68:                                               ; preds = %19
+  %69 = icmp eq ptr %21, %.pre96
+  br i1 %69, label %.loopexit84, label %.loopexit82
 
-.loopexit84:                                      ; preds = %.loopexit, %.preheader83, %67
+.loopexit84:                                      ; preds = %.loopexit, %.preheader83, %68
   br label %.loopexit82
 
-.loopexit82:                                      ; preds = %51, %65, %43, %36, %33, %28, %.lr.ph88, %60, %55, %22, %67, %14, %9, %4, %2, %.loopexit84
-  %.064 = phi i32 [ 1, %.loopexit84 ], [ 0, %2 ], [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %67 ], [ 0, %22 ], [ 0, %55 ], [ 0, %60 ], [ 0, %.lr.ph88 ], [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %43 ], [ 0, %65 ], [ 0, %51 ]
+.loopexit82:                                      ; preds = %51, %65, %43, %36, %33, %28, %.lr.ph88, %60, %55, %22, %68, %14, %9, %4, %2, %.loopexit84
+  %.064 = phi i32 [ 1, %.loopexit84 ], [ 0, %2 ], [ 0, %4 ], [ 0, %9 ], [ 0, %14 ], [ 0, %68 ], [ 0, %22 ], [ 0, %55 ], [ 0, %60 ], [ 0, %.lr.ph88 ], [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %43 ], [ 0, %65 ], [ 0, %51 ]
   ret i32 %.064
 }
 

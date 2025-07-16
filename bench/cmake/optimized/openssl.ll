@@ -408,8 +408,8 @@ cached_x509_store_expired.exit.i:                 ; preds = %34
   %45 = load i32, ptr %6, align 8, !tbaa !86
   %46 = sext i32 %45 to i64
   %47 = mul nsw i64 %46, 1000
-  %.not18.i = icmp slt i64 %44, %47
-  br i1 %.not18.i, label %cached_x509_store_expired.exit.thread.i, label %get_cached_x509_store.exit.thread
+  %.not19.i = icmp slt i64 %44, %47
+  br i1 %.not19.i, label %cached_x509_store_expired.exit.thread.i, label %get_cached_x509_store.exit.thread
 
 cached_x509_store_expired.exit.thread.i:          ; preds = %cached_x509_store_expired.exit.i, %34
   %48 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #13
@@ -417,19 +417,19 @@ cached_x509_store_expired.exit.thread.i:          ; preds = %cached_x509_store_e
   %.not.i.i = icmp eq ptr %49, null
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !88
-  %.not20.i = icmp eq ptr %.pre.i.i, null
+  %.not21.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i, label %cached_x509_store_different.exit.i, label %50
 
 50:                                               ; preds = %cached_x509_store_expired.exit.thread.i
-  br i1 %.not20.i, label %get_cached_x509_store.exit.thread, label %51
+  br i1 %.not21.i, label %get_cached_x509_store.exit.thread, label %51
 
 51:                                               ; preds = %50
   %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %.pre.i.i) #14
-  %.not19.i = icmp eq i32 %52, 0
-  br i1 %.not19.i, label %get_cached_x509_store.exit, label %get_cached_x509_store.exit.thread
+  %.not20.i = icmp eq i32 %52, 0
+  br i1 %.not20.i, label %get_cached_x509_store.exit, label %get_cached_x509_store.exit.thread
 
 cached_x509_store_different.exit.i:               ; preds = %cached_x509_store_expired.exit.thread.i
-  br i1 %.not20.i, label %get_cached_x509_store.exit, label %get_cached_x509_store.exit.thread
+  br i1 %.not21.i, label %get_cached_x509_store.exit, label %get_cached_x509_store.exit.thread
 
 get_cached_x509_store.exit:                       ; preds = %51, %cached_x509_store_different.exit.i
   %53 = load ptr, ptr %32, align 8, !tbaa !83

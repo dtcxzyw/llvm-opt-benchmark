@@ -2283,13 +2283,13 @@ define internal fastcc void @jq_yy_init_buffer(ptr noundef captures(address) %0,
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %jq_yy_flush_buffer.exit.thread21, label %19
+  br i1 %.not15.i, label %jq_yy_flush_buffer.exit.thread20, label %19
 
-jq_yy_flush_buffer.exit.thread21:                 ; preds = %6
+jq_yy_flush_buffer.exit.thread20:                 ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !55
-  br label %.thread
+  br label %.critedge
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2331,7 +2331,7 @@ jq_yy_flush_buffer.exit:                          ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %38, align 4, !tbaa !55
   %.not = icmp eq ptr %.pre, null
-  br i1 %.not, label %.thread, label %39
+  br i1 %.not, label %.critedge, label %39
 
 39:                                               ; preds = %jq_yy_flush_buffer.exit.thread, %jq_yy_flush_buffer.exit
   %40 = phi ptr [ %17, %jq_yy_flush_buffer.exit.thread ], [ %.pre, %jq_yy_flush_buffer.exit ]
@@ -2339,31 +2339,31 @@ jq_yy_flush_buffer.exit:                          ; preds = %3
   %42 = load i64, ptr %41, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !24
-  %.not17 = icmp eq ptr %0, %44
-  br i1 %.not17, label %47, label %.thread
+  %45 = icmp eq ptr %0, %44
+  br i1 %45, label %48, label %.critedge
 
-.thread:                                          ; preds = %jq_yy_flush_buffer.exit.thread21, %jq_yy_flush_buffer.exit, %39
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 1, ptr %45, align 4, !tbaa !67
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %46, align 8, !tbaa !68
-  br label %47
+.critedge:                                        ; preds = %jq_yy_flush_buffer.exit.thread20, %jq_yy_flush_buffer.exit, %39
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 1, ptr %46, align 4, !tbaa !67
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %47, align 8, !tbaa !68
+  br label %48
 
-47:                                               ; preds = %.thread, %39
+48:                                               ; preds = %.critedge, %39
   %.not18 = icmp eq ptr %1, null
-  br i1 %.not18, label %53, label %48
+  br i1 %.not18, label %54, label %49
 
-48:                                               ; preds = %47
-  %49 = tail call i32 @fileno(ptr noundef nonnull %1) #17
-  %50 = tail call i32 @isatty(i32 noundef %49) #17
-  %51 = icmp sgt i32 %50, 0
-  %52 = zext i1 %51 to i32
-  br label %53
+49:                                               ; preds = %48
+  %50 = tail call i32 @fileno(ptr noundef nonnull %1) #17
+  %51 = tail call i32 @isatty(i32 noundef %50) #17
+  %52 = icmp sgt i32 %51, 0
+  %53 = zext i1 %52 to i32
+  br label %54
 
-53:                                               ; preds = %47, %48
-  %54 = phi i32 [ %52, %48 ], [ 0, %47 ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %54, ptr %55, align 4, !tbaa !58
+54:                                               ; preds = %48, %49
+  %55 = phi i32 [ %53, %49 ], [ 0, %48 ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %55, ptr %56, align 4, !tbaa !58
   store i32 %5, ptr %4, align 4, !tbaa !60
   ret void
 }
@@ -2506,7 +2506,7 @@ define dso_local void @jq_yy_delete_buffer(ptr noundef %0, ptr noundef readonly 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %.not14 = icmp eq ptr %5, null
-  br i1 %.not14, label %.thread, label %6
+  br i1 %.not14, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2514,25 +2514,25 @@ define dso_local void @jq_yy_delete_buffer(ptr noundef %0, ptr noundef readonly 
   %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = icmp eq ptr %0, %10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %6
   store ptr null, ptr %9, align 8, !tbaa !24
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %12, %6
+.critedge:                                        ; preds = %3, %12, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !30
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %18, label %15
 
-15:                                               ; preds = %.thread
+15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   tail call void @jv_mem_free(ptr noundef %17) #17
   br label %18
 
-18:                                               ; preds = %15, %.thread
+18:                                               ; preds = %15, %.critedge
   tail call void @jv_mem_free(ptr noundef nonnull %0) #17
   br label %19
 
@@ -2549,7 +2549,7 @@ define dso_local void @jq_yyfree(ptr noundef %0, ptr noundef readnone captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @jq_yy_flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2570,7 +2570,7 @@ define dso_local void @jq_yy_flush_buffer(ptr noundef captures(address) %0, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %.thread, label %15
+  br i1 %.not15, label %.critedge, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2578,7 +2578,7 @@ define dso_local void @jq_yy_flush_buffer(ptr noundef captures(address) %0, ptr 
   %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -2597,9 +2597,9 @@ define dso_local void @jq_yy_flush_buffer(ptr noundef captures(address) %0, ptr 
   %31 = load i8, ptr %26, align 1, !tbaa !37
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %31, ptr %32, align 8, !tbaa !38
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %15, %21, %2
+.critedge:                                        ; preds = %15, %21, %3, %2
   ret void
 }
 
@@ -2733,22 +2733,22 @@ define dso_local void @jq_yypop_buffer_state(ptr noundef captures(none) %0) loca
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %.not20 = icmp eq ptr %8, null
-  br i1 %.not20, label %.thread, label %.thread.i
+  br i1 %.not20, label %.thread, label %.critedge.i
 
-.thread.i:                                        ; preds = %4
+.critedge.i:                                      ; preds = %4
   store ptr null, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8, !tbaa !30
   %.not15.i = icmp eq i32 %10, 0
   br i1 %.not15.i, label %jq_yy_delete_buffer.exit, label %11
 
-11:                                               ; preds = %.thread.i
+11:                                               ; preds = %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   tail call void @jv_mem_free(ptr noundef %13) #17
   br label %jq_yy_delete_buffer.exit
 
-jq_yy_delete_buffer.exit:                         ; preds = %.thread.i, %11
+jq_yy_delete_buffer.exit:                         ; preds = %.critedge.i, %11
   tail call void @jv_mem_free(ptr noundef nonnull %8) #17
   %14 = load ptr, ptr %2, align 8, !tbaa !22
   %15 = load i64, ptr %5, align 8, !tbaa !23
@@ -3221,32 +3221,32 @@ define dso_local noundef i32 @jq_yylex_destroy(ptr noundef %0) local_unnamed_add
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %.not26 = icmp eq ptr %4, null
-  br i1 %.not26, label %.critedge, label %.lr.ph.preheader
+  %.not25 = icmp eq ptr %4, null
+  br i1 %.not25, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %.pre = load i64, ptr %2, align 8, !tbaa !23
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %4, i64 %.pre
-  %.pre31 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24
-  %5 = icmp eq ptr %.pre31, null
-  br i1 %5, label %.critedge, label %.thread.i
+  %.pre30 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24
+  %5 = icmp eq ptr %.pre30, null
+  br i1 %5, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph.preheader
+.critedge.i:                                      ; preds = %.lr.ph.preheader
   %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.pre
   store ptr null, ptr %6, align 8, !tbaa !24
-  %7 = getelementptr inbounds nuw i8, ptr %.pre31, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.pre30, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !30
   %.not15.i = icmp eq i32 %8, 0
   br i1 %.not15.i, label %jq_yypop_buffer_state.exit, label %9
 
-9:                                                ; preds = %.thread.i
-  %10 = getelementptr inbounds nuw i8, ptr %.pre31, i64 8
+9:                                                ; preds = %.critedge.i
+  %10 = getelementptr inbounds nuw i8, ptr %.pre30, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   tail call void @jv_mem_free(ptr noundef %11) #17
   br label %jq_yypop_buffer_state.exit
 
-jq_yypop_buffer_state.exit:                       ; preds = %.thread.i, %9
-  tail call void @jv_mem_free(ptr noundef nonnull %.pre31) #17
+jq_yypop_buffer_state.exit:                       ; preds = %.critedge.i, %9
+  tail call void @jv_mem_free(ptr noundef nonnull %.pre30) #17
   %12 = load ptr, ptr %3, align 8, !tbaa !22
   %13 = load i64, ptr %2, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13

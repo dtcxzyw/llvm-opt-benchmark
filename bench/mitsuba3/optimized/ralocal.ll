@@ -200,8 +200,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   br i1 %11, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.loopexit8
-  %19 = phi ptr [ %.us-phi16, %.loopexit8 ], [ %2, %1 ]
-  %20 = phi ptr [ %.us-phi17, %.loopexit8 ], [ %2, %1 ]
+  %19 = phi ptr [ %121, %.loopexit8 ], [ %2, %1 ]
+  %20 = phi ptr [ %122, %.loopexit8 ], [ %2, %1 ]
   %21 = phi i32 [ 2, %.loopexit8 ], [ 1, %1 ]
   %22 = phi i1 [ false, %.loopexit8 ], [ true, %1 ]
   br i1 %22, label %.split.us.us, label %.split
@@ -510,17 +510,14 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
 .split13:                                         ; preds = %252
   %257 = add nuw nsw i64 %130, 1
   %258 = icmp eq i64 %257, %18
-  br i1 %258, label %.loopexit8, label %.split, !llvm.loop !98
+  br i1 %258, label %.loopexit, label %.split, !llvm.loop !98
 
-.loopexit8:                                       ; preds = %.split13, %.split13.us.us
-  %.us-phi16 = phi ptr [ %121, %.split13.us.us ], [ %253, %.split13 ]
-  %.us-phi17 = phi ptr [ %122, %.split13.us.us ], [ %254, %.split13 ]
-  %.us-phi18 = phi i32 [ %123, %.split13.us.us ], [ %21, %.split13 ]
-  %259 = icmp ult i32 %21, %.us-phi18
+.loopexit8:                                       ; preds = %.split13.us.us
+  %259 = icmp ult i32 %21, %123
   br i1 %259, label %.preheader, label %.loopexit, !llvm.loop !107
 
-.loopexit:                                        ; preds = %.loopexit8, %226, %1
-  %260 = phi i32 [ 0, %1 ], [ 1, %226 ], [ 0, %.loopexit8 ]
+.loopexit:                                        ; preds = %.loopexit8, %.split13, %226, %1
+  %260 = phi i32 [ 0, %1 ], [ 1, %226 ], [ 0, %.split13 ], [ 0, %.loopexit8 ]
   ret i32 %260
 }
 

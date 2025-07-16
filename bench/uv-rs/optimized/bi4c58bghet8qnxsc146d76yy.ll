@@ -3242,7 +3242,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hc73e83e5ff524879E.llvm.16679439562553428002.exit": ; preds = %3
   %11 = load ptr, ptr %8, align 8, !noalias !664, !nonnull !11, !noundef !11
-  %12 = icmp uge i64 %7, %2
+  %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !664
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %1, i64 %2, i1 false)
@@ -3824,22 +3824,22 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !range !65, !noundef !11
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %trunc, label %17, label %10
+  br i1 %trunc, label %16, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %9, align 8, !nonnull !11, !noundef !11
   %12 = icmp eq i64 %2, 0
-  %13 = icmp uge i64 %8, %0
-  %14 = or i1 %12, %13
-  tail call void @llvm.assume(i1 %14)
+  %13 = icmp ule i64 %0, %8
+  %.sroa.03.0 = or i1 %12, %13
+  tail call void @llvm.assume(i1 %.sroa.03.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %15 = insertvalue { i64, ptr } poison, i64 %8, 0
-  %16 = insertvalue { i64, ptr } %15, ptr %11, 1
-  ret { i64, ptr } %16
+  %14 = insertvalue { i64, ptr } poison, i64 %8, 0
+  %15 = insertvalue { i64, ptr } %14, ptr %11, 1
+  ret { i64, ptr } %15
 
-17:                                               ; preds = %4
-  %18 = load i64, ptr %9, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #45
+16:                                               ; preds = %4
+  %17 = load i64, ptr %9, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #45
   unreachable
 }
 
@@ -4180,7 +4180,7 @@ define internal fastcc void @"_ZN77_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9b31003e83b43390E.llvm.16679439562553428002.exit": ; preds = %1
   %10 = load ptr, ptr %7, align 8, !noalias !763, !nonnull !11, !noundef !11
-  %11 = icmp uge i64 %6, %.16.val
+  %11 = icmp ule i64 %.16.val, %6
   tail call void @llvm.assume(i1 %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !763
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %.8.val, i64 %.16.val, i1 false), !noalias !770
@@ -4712,7 +4712,7 @@ define hidden void @_ZN8bitflags6parser8from_str17h77ecae47418b78d0E(ptr dead_on
 
 "_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17hdb8716ba82225a75E.exit": ; preds = %.noexc.i
   %67 = load ptr, ptr %60, align 8, !noalias !818, !nonnull !11, !noundef !11
-  %68 = icmp uge i64 %59, %45
+  %68 = icmp ule i64 %45, %59
   tail call void @llvm.assume(i1 %68)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !818
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull readonly align 1 %44, i64 %45, i1 false), !noalias !836
@@ -4757,7 +4757,7 @@ define hidden void @_ZN8bitflags6parser8from_str17h77ecae47418b78d0E(ptr dead_on
 
 _ZN8bitflags6parser10ParseError18invalid_named_flag17h1fcb7987c1a6eaa7E.exit: ; preds = %73
   %80 = load ptr, ptr %77, align 8, !noalias !839, !nonnull !11, !noundef !11
-  %81 = icmp uge i64 %76, %38
+  %81 = icmp ule i64 %38, %76
   tail call void @llvm.assume(i1 %81)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !839
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %80, ptr noundef nonnull readonly align 1 dereferenceable(1) %37, i64 range(i64 1, 0) %38, i1 false), !noalias !853
@@ -6096,7 +6096,7 @@ _ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit: ; preds = %._cri
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9b31003e83b43390E.llvm.16679439562553428002.exit": ; preds = %64
   %71 = load ptr, ptr %68, align 8, !noalias !1044, !nonnull !11, !noundef !11
-  %72 = icmp uge i64 %67, %2
+  %72 = icmp ule i64 %2, %67
   tail call void @llvm.assume(i1 %72)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1044
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1051
@@ -6128,7 +6128,7 @@ _ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit: ; preds = %._cri
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9b31003e83b43390E.llvm.16679439562553428002.exit29": ; preds = %73
   %80 = load ptr, ptr %77, align 8, !noalias !1052, !nonnull !11, !noundef !11
-  %81 = icmp uge i64 %76, %2
+  %81 = icmp ule i64 %2, %76
   tail call void @llvm.assume(i1 %81)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1052
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1059
@@ -8227,7 +8227,7 @@ define void @_ZN21uv_distribution_types4Dist13from_http_url17hfd1dcd1a7d689226E(
 
 110:                                              ; preds = %.noexc92
   %111 = load ptr, ptr %105, align 8, !noalias !1401, !nonnull !11, !noundef !11
-  %112 = icmp uge i64 %104, %.val84
+  %112 = icmp ule i64 %.val84, %104
   call void @llvm.assume(i1 %112)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1401
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull readonly align 1 %.val83, i64 %.val84, i1 false), !noalias !1409
@@ -12168,7 +12168,7 @@ define void @"_ZN100_$LT$uv_distribution_types..GitSourceDist$u20$as$u20$uv_dist
 
 51:                                               ; preds = %.noexc57
   %52 = load ptr, ptr %47, align 8, !noalias !2179, !nonnull !11, !noundef !11
-  %53 = icmp uge i64 %46, %42
+  %53 = icmp ule i64 %42, %46
   tail call void @llvm.assume(i1 %53)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2179
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull readonly align 1 %43, i64 %42, i1 false), !noalias !2185

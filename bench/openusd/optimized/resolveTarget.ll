@@ -351,7 +351,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.ex
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %1, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex12GetNodeRangeENS_12PcpRangeTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef 6)
-          to label %23 unwind label %53
+          to label %23 unwind label %48
 
 23:                                               ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -371,89 +371,84 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.ex
   %32 = load i64, ptr %31, align 8
   %.not1.i = icmp eq i64 %32, -1
   %33 = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %33, label %40, label %34
+  br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %23
   %35 = load ptr, ptr %1, align 8
   %36 = invoke { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex21GetNodeIteratorAtNodeERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %37 unwind label %53
+          to label %38 unwind label %48
 
-37:                                               ; preds = %34
-  %38 = extractvalue { ptr, i64 } %36, 0
-  %39 = extractvalue { ptr, i64 } %36, 1
+.thread:                                          ; preds = %23
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.03.0.copyload = load ptr, ptr %37, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
+  store ptr %.sroa.03.0.copyload, ptr %27, align 8
+  store i64 %.sroa.3.0.copyload, ptr %28, align 8
+  br label %50
+
+38:                                               ; preds = %34
+  %39 = extractvalue { ptr, i64 } %36, 0
+  %40 = extractvalue { ptr, i64 } %36, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre21 = load i64, ptr %.phi.trans.insert20, align 8
-  br label %42
+  %41 = icmp ne ptr %39, %.pre
+  %42 = icmp ne i64 %40, %.pre21
+  %43 = or i1 %41, %42
+  store ptr %39, ptr %27, align 8
+  store i64 %40, ptr %28, align 8
+  br i1 %43, label %44, label %50
 
-40:                                               ; preds = %23
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.03.0.copyload = load ptr, ptr %41, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %42
+44:                                               ; preds = %38
+  store ptr %39, ptr %7, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %40, ptr %45, align 8
+  %46 = invoke fastcc ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetLayerIteratorInNodeERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %47 unwind label %48
 
-42:                                               ; preds = %37, %40
-  %43 = phi i64 [ %.pre21, %37 ], [ %.sroa.3.0.copyload, %40 ]
-  %44 = phi ptr [ %.pre, %37 ], [ %.sroa.03.0.copyload, %40 ]
-  %.sroa.03.0 = phi ptr [ %38, %37 ], [ %.sroa.03.0.copyload, %40 ]
-  %.sroa.3.0 = phi i64 [ %39, %37 ], [ %.sroa.3.0.copyload, %40 ]
-  store ptr %.sroa.03.0, ptr %27, align 8
-  store i64 %.sroa.3.0, ptr %28, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %46 = icmp ne ptr %.sroa.03.0, %44
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = icmp ne i64 %.sroa.3.0, %43
-  %.not3.i = or i1 %46, %48
-  br i1 %.not3.i, label %49, label %55
+47:                                               ; preds = %44
+  store ptr %46, ptr %29, align 8
+  br label %50
 
-49:                                               ; preds = %42
-  store ptr %.sroa.03.0, ptr %7, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.3.0, ptr %50, align 8
-  %51 = invoke fastcc ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetLayerIteratorInNodeERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %52 unwind label %53
-
-52:                                               ; preds = %49
-  store ptr %51, ptr %29, align 8
-  br label %55
-
-53:                                               ; preds = %65, %55, %49, %34, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.exit
-  %54 = landingpad { ptr, i32 }
+48:                                               ; preds = %62, %50, %44, %34, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.exit
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %49
 
-55:                                               ; preds = %52, %42
-  %56 = load ptr, ptr %1, align 8
-  %57 = invoke { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex21GetNodeIteratorAtNodeERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %58 unwind label %53
+50:                                               ; preds = %.thread, %47, %38
+  %51 = load ptr, ptr %1, align 8
+  %52 = invoke { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex21GetNodeIteratorAtNodeERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %53 unwind label %48
 
-58:                                               ; preds = %55
-  %59 = extractvalue { ptr, i64 } %57, 0
-  %60 = extractvalue { ptr, i64 } %57, 1
-  store ptr %59, ptr %24, align 8
-  store i64 %60, ptr %25, align 8
-  %61 = load ptr, ptr %45, align 8
-  %62 = icmp ne ptr %59, %61
-  %63 = load i64, ptr %47, align 8
-  %64 = icmp ne i64 %60, %63
-  %.not3.i17 = or i1 %62, %64
-  br i1 %.not3.i17, label %65, label %69
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %56 = extractvalue { ptr, i64 } %52, 0
+  %57 = extractvalue { ptr, i64 } %52, 1
+  store ptr %56, ptr %24, align 8
+  store i64 %57, ptr %25, align 8
+  %58 = load ptr, ptr %54, align 8
+  %59 = icmp ne ptr %56, %58
+  %60 = load i64, ptr %55, align 8
+  %61 = icmp ne i64 %57, %60
+  %.not3.i17 = or i1 %59, %61
+  br i1 %.not3.i17, label %62, label %66
 
-65:                                               ; preds = %58
-  store ptr %59, ptr %8, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %60, ptr %66, align 8
-  %67 = invoke fastcc ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetLayerIteratorInNodeERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %68 unwind label %53
+62:                                               ; preds = %53
+  store ptr %56, ptr %8, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %57, ptr %63, align 8
+  %64 = invoke fastcc ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetLayerIteratorInNodeERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %65 unwind label %48
 
-68:                                               ; preds = %65
-  store ptr %67, ptr %26, align 8
-  br label %69
+65:                                               ; preds = %62
+  store ptr %64, ptr %26, align 8
+  br label %66
 
-69:                                               ; preds = %68, %58
+66:                                               ; preds = %65, %53
   ret void
 }
 

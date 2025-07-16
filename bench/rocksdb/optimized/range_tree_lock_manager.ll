@@ -6216,49 +6216,50 @@ _ZNSt18unordered_multimapIjN7rocksdb13RangeLockInfoESt4hashIjESt8equal_toIjESaIS
   %97 = sub i64 %95, %96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %93, %94
-  br i1 %.not.i.i.i.i, label %.noexc13, label %98
+  br i1 %.not.i.i.i.i, label %.noexc13.thread, label %99
 
-98:                                               ; preds = %87
-  %99 = icmp ugt i64 %97, 9223372036854775800
-  br i1 %99, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i, !prof !31
+.noexc13.thread:                                  ; preds = %87
+  %98 = getelementptr inbounds nuw i8, ptr null, i64 %97
+  store i64 0, ptr %22, align 8
+  store ptr %98, ptr %24, align 8, !tbaa !200
+  br label %105
 
-.noexc.i.i:                                       ; preds = %98
+99:                                               ; preds = %87
+  %100 = icmp ugt i64 %97, 9223372036854775800
+  br i1 %100, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i, !prof !31
+
+.noexc.i.i:                                       ; preds = %99
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
           to label %.noexc12 unwind label %.loopexit.split-lp
 
 .noexc12:                                         ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i: ; preds = %98
-  %100 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %97) #27
-          to label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge unwind label %.loopexit
+_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i: ; preds = %99
+  %101 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %97) #27
+          to label %.noexc13 unwind label %.loopexit
 
-_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i
+.noexc13:                                         ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i
   %.pre = load ptr, ptr %91, align 8, !tbaa !199
   %.pre66 = load ptr, ptr %92, align 8, !tbaa !199
+  %102 = icmp eq ptr %.pre66, %.pre
+  store ptr %101, ptr %22, align 8, !tbaa !130
+  store ptr %101, ptr %23, align 8, !tbaa !131
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 %97
+  store ptr %103, ptr %24, align 8, !tbaa !200
+  br i1 %102, label %105, label %104
+
+104:                                              ; preds = %.noexc13
   %.pre68 = ptrtoint ptr %.pre66 to i64
   %.pre69 = ptrtoint ptr %.pre to i64
   %.pre71 = sub i64 %.pre68, %.pre69
-  br label %.noexc13
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %101, ptr align 8 %.pre, i64 %.pre71, i1 false)
+  br label %105
 
-.noexc13:                                         ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge, %87
-  %.pre-phi72 = phi i64 [ %.pre71, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge ], [ 0, %87 ]
-  %101 = phi ptr [ %.pre66, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge ], [ %93, %87 ]
-  %102 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge ], [ %94, %87 ]
-  %103 = phi ptr [ %100, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge ], [ null, %87 ]
-  store ptr %103, ptr %22, align 8, !tbaa !130
-  store ptr %103, ptr %23, align 8, !tbaa !131
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %97
-  store ptr %104, ptr %24, align 8, !tbaa !200
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %101, %102
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %106, label %105
-
-105:                                              ; preds = %.noexc13
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %103, ptr align 8 %102, i64 %.pre-phi72, i1 false)
-  br label %106
-
-106:                                              ; preds = %105, %.noexc13
-  %107 = getelementptr inbounds i8, ptr %103, i64 %.pre-phi72
+105:                                              ; preds = %.noexc13.thread, %104, %.noexc13
+  %106 = phi ptr [ null, %.noexc13.thread ], [ %101, %104 ], [ %101, %.noexc13 ]
+  %.pre-phi7276 = phi i64 [ 0, %.noexc13.thread ], [ %.pre71, %104 ], [ 0, %.noexc13 ]
+  %107 = getelementptr inbounds i8, ptr %106, i64 %.pre-phi7276
   store ptr %107, ptr %23, align 8, !tbaa !131
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.027.065, i64 120
   %109 = load i8, ptr %108, align 8, !tbaa !312, !range !40, !noundef !41
@@ -6273,7 +6274,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge: ;
   %113 = icmp ugt i64 %112, 15
   br i1 %113, label %.noexc.i.i22, label %._crit_edge.i.i.i
 
-.noexc.i.i22:                                     ; preds = %106
+.noexc.i.i22:                                     ; preds = %105
   %114 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(57) %26, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
           to label %.noexc23 unwind label %206
 
@@ -6283,8 +6284,8 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i..noexc13_crit_edge: ;
   store i64 %115, ptr %27, align 8, !tbaa !17
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.noexc23, %106
-  %116 = phi ptr [ %114, %.noexc23 ], [ %27, %106 ]
+._crit_edge.i.i.i:                                ; preds = %.noexc23, %105
+  %116 = phi ptr [ %114, %.noexc23 ], [ %27, %105 ]
   switch i64 %112, label %119 [
     i64 1, label %117
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i

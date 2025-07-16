@@ -322,11 +322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   %81 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 254), align 2
   %.not.i = icmp eq i16 %81, 0
-  br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130.thread
-
-_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180
+  br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120
   %82 = call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef 1065353216)
@@ -334,6 +330,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123: ; preds = %_ZN3
   %84 = icmp eq i16 %82, %83
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   br i1 %84, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130, label %85
+
+_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180
 
 85:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123
   store ptr @.str, ptr %7, align 8
@@ -373,7 +373,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130: ; preds = %_ZN3
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.41) #8
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130.thread, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
+_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   %92 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 292), align 4
   %.not.i.i = icmp eq i16 %92, 0

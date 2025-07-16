@@ -1087,12 +1087,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %.06195, i64 4
   %.pre124 = load i32, ptr %.phi.trans.insert123, align 4, !tbaa !16
   %.pre125 = load i32, ptr %.06195, align 8, !tbaa !18
-  %109 = getelementptr inbounds nuw i8, ptr %.06195, i64 4
-  %110 = icmp eq i32 %.pre124, %.pre125
-  br i1 %110, label %112, label %.Vec_PtrGrow.exit11_crit_edge.i
+  %109 = icmp eq i32 %.pre124, %.pre125
+  %110 = getelementptr inbounds nuw i8, ptr %.06195, i64 4
+  br i1 %109, label %112, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %.thread, %108
-  %111 = phi ptr [ %107, %.thread ], [ %109, %108 ]
+  %111 = phi ptr [ %107, %.thread ], [ %110, %108 ]
   %.263129 = phi ptr [ %103, %.thread ], [ %.06195, %108 ]
   %.phi.trans.insert.i83 = getelementptr inbounds nuw i8, ptr %.263129, i64 8
   %.pre.i84 = load ptr, ptr %.phi.trans.insert.i83, align 8, !tbaa !19
@@ -1146,7 +1146,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %119, %117
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %132
-  %134 = phi ptr [ %111, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %109, %132 ], [ %109, %Vec_PtrGrow.exit.i ]
+  %134 = phi ptr [ %111, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %110, %132 ], [ %110, %Vec_PtrGrow.exit.i ]
   %.263130 = phi ptr [ %.263129, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %.06195, %132 ], [ %.06195, %Vec_PtrGrow.exit.i ]
   %135 = phi ptr [ %.pre.i84, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %133, %132 ], [ %121, %Vec_PtrGrow.exit.i ]
   %136 = load i32, ptr %134, align 4, !tbaa !16

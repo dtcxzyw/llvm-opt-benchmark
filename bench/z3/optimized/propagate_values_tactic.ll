@@ -2090,8 +2090,8 @@ default.unreachable:                              ; preds = %.preheader.i.i.i.i,
           cleanup
   br label %.body
 
-.body:                                            ; preds = %353, %52
-  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %.pn.pn.i, %353 ]
+.body:                                            ; preds = %361, %52
+  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %.pn.pn.i, %361 ]
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
@@ -2320,10 +2320,10 @@ _ZNK4goal2prEj.exit.i:                            ; preds = %_ZNK11ast_manager3g
   br label %168
 
 153:                                              ; preds = %167, %142
-  %.024.in.i.i.i28.i = phi ptr [ %145, %142 ], [ %.1.in.i.i.i32.i, %167 ]
-  %.01623.i.i.i29.i = phi i32 [ 0, %142 ], [ %.117.i.i.i33.i, %167 ]
-  %.024.i.i.i30.i = load ptr, ptr %.024.in.i.i.i28.i, align 8, !tbaa !44
-  %154 = load i32, ptr %.024.i.i.i30.i, align 8
+  %.024.in.i.i.i27.i = phi ptr [ %145, %142 ], [ %.1.in.i.i.i31.i, %167 ]
+  %.01623.i.i.i28.i = phi i32 [ 0, %142 ], [ %.117.i.i.i32.i, %167 ]
+  %.024.i.i.i29.i = load ptr, ptr %.024.in.i.i.i27.i, align 8, !tbaa !44
+  %154 = load i32, ptr %.024.i.i.i29.i, align 8
   %155 = lshr i32 %154, 30
   switch i32 %155, label %default.unreachable [
     i32 0, label %156
@@ -2333,33 +2333,33 @@ _ZNK4goal2prEj.exit.i:                            ; preds = %_ZNK11ast_manager3g
   ]
 
 156:                                              ; preds = %153, %153
-  %157 = getelementptr inbounds nuw i8, ptr %.024.i.i.i30.i, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.024.i.i.i29.i, i64 4
   %158 = load i32, ptr %157, align 4, !tbaa !44
   %159 = icmp eq i32 %143, %158
   br i1 %159, label %160, label %167
 
 160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %.024.i.i.i30.i, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.024.i.i.i29.i, i64 8
   br label %168
 
 162:                                              ; preds = %153
-  %163 = getelementptr inbounds nuw i8, ptr %.024.i.i.i30.i, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.024.i.i.i29.i, i64 16
   %164 = load ptr, ptr %163, align 8, !tbaa !44
   %165 = zext i32 %143 to i64
   %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %165
   br label %168
 
 167:                                              ; preds = %156, %153
-  %.1.in.i.i.i32.i = getelementptr inbounds nuw i8, ptr %.024.i.i.i30.i, i64 16
-  %.117.i.i.i33.i = add nuw nsw i32 %.01623.i.i.i29.i, 1
-  %exitcond.i.i.i34.i = icmp eq i32 %.117.i.i.i33.i, 17
-  br i1 %exitcond.i.i.i34.i, label %147, label %153, !llvm.loop !188
+  %.1.in.i.i.i31.i = getelementptr inbounds nuw i8, ptr %.024.i.i.i29.i, i64 16
+  %.117.i.i.i32.i = add nuw nsw i32 %.01623.i.i.i28.i, 1
+  %exitcond.i.i.i33.i = icmp eq i32 %.117.i.i.i32.i, 17
+  br i1 %exitcond.i.i.i33.i, label %147, label %153, !llvm.loop !188
 
 168:                                              ; preds = %162, %160, %.noexc.i
-  %.018.i.i.i31.i = phi ptr [ %152, %.noexc.i ], [ %161, %160 ], [ %166, %162 ]
-  %169 = load ptr, ptr %.018.i.i.i31.i, align 8, !tbaa !189
-  %.not.i36.i = icmp eq ptr %169, null
-  br i1 %.not.i36.i, label %175, label %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i
+  %.018.i.i.i30.i = phi ptr [ %152, %.noexc.i ], [ %161, %160 ], [ %166, %162 ]
+  %169 = load ptr, ptr %.018.i.i.i30.i, align 8, !tbaa !189
+  %.not.i35.i = icmp eq ptr %169, null
+  br i1 %.not.i35.i, label %175, label %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i
 
 _ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit.i.i: ; preds = %168
   %170 = load i32, ptr %169, align 4
@@ -2403,7 +2403,7 @@ _ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10d
 
 191:                                              ; preds = %190
   %192 = load ptr, ptr %41, align 8, !tbaa !54
-  br i1 %.not.i36.i, label %210, label %193
+  br i1 %.not.i35.i, label %210, label %193
 
 193:                                              ; preds = %191
   %194 = icmp eq ptr %169, %189
@@ -2417,9 +2417,9 @@ _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7inc_refEPNS2_10
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 656
   %196 = load ptr, ptr %195, align 8, !tbaa !190
   %197 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %196, i64 noundef 24)
-          to label %.noexc38.i unwind label %234
+          to label %.noexc37.i unwind label %234
 
-.noexc38.i:                                       ; preds = %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7inc_refEPNS2_10dependencyE.exit17.i.i.i
+.noexc37.i:                                       ; preds = %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7inc_refEPNS2_10dependencyE.exit17.i.i.i
   %198 = load i32, ptr %169, align 4
   %199 = add i32 %198, 1
   %200 = and i32 %199, 1073741823
@@ -2448,9 +2448,9 @@ _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7inc_refEPNS2_10
   store i32 %215, ptr %189, align 4
   br label %231
 
-216:                                              ; preds = %._crit_edge, %.noexc38.i
-  %217 = phi i32 [ %.pre, %._crit_edge ], [ 0, %.noexc38.i ]
-  %.0.i.i.ph.i = phi ptr [ %169, %._crit_edge ], [ %197, %.noexc38.i ]
+216:                                              ; preds = %._crit_edge, %.noexc37.i
+  %217 = phi i32 [ %.pre, %._crit_edge ], [ 0, %.noexc37.i ]
+  %.0.i.i.ph.i = phi ptr [ %169, %._crit_edge ], [ %197, %.noexc37.i ]
   %218 = add i32 %217, 1
   %219 = and i32 %218, 1073741823
   %220 = and i32 %217, -1073741824
@@ -2477,15 +2477,15 @@ _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7inc_refEPNS2_10
   invoke void @_ZN11th_rewriter23reset_used_dependenciesEv(ptr noundef nonnull align 8 dereferenceable(16) %188)
           to label %236 unwind label %234
 
-232:                                              ; preds = %253, %247, %236, %185, %147
+232:                                              ; preds = %255, %249, %236, %185, %147
   %233 = landingpad { ptr, i32 }
           cleanup
-  br label %353
+  br label %361
 
 234:                                              ; preds = %231, %229, %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7inc_refEPNS2_10dependencyE.exit17.i.i.i, %187
   %235 = landingpad { ptr, i32 }
           cleanup
-  br label %353
+  br label %361
 
 236:                                              ; preds = %231, %190, %136
   %237 = phi ptr [ %169, %190 ], [ %.0.i.i98.i, %231 ], [ null, %136 ]
@@ -2497,311 +2497,315 @@ _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7inc_refEPNS2_10
 240:                                              ; preds = %236
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load ptr, ptr %241, align 8
-  %.val25.i = load i32, ptr %77, align 4, !tbaa !191
   %242 = icmp eq ptr %.val.i, null
-  br i1 %242, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i
+  br i1 %242, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i
 
-_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i: ; preds = %240
-  %243 = getelementptr inbounds i8, ptr %.val.i, i64 -4
-  %244 = load i32, ptr %243, align 4, !tbaa !192
-  %.not.i.i.i.i.i.i = icmp ult i32 %.val25.i, %244
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i: ; preds = %240
+  %243 = load i32, ptr %77, align 4, !tbaa !191
+  %244 = getelementptr inbounds i8, ptr %.val.i, i64 -4
+  %245 = load i32, ptr %244, align 4, !tbaa !192
+  %.fr.i.i.i.i.i.i = freeze i32 %245
+  %246 = icmp ult i32 %243, %.fr.i.i.i.i.i.i
+  br i1 %246, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i
 
-_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i
-  %245 = zext i32 %.val25.i to i64
-  %246 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %245
-  %.then.val.i.i.i.i.i = load ptr, ptr %246, align 8, !tbaa !183
-  %.not72.i = icmp eq ptr %.then.val.i.i.i.i.i, null
-  br i1 %.not72.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i, label %247
+_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i
+  %247 = zext i32 %243 to i64
+  %248 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %247
+  %.pre.i.then.val.i.i.i.i = load ptr, ptr %248, align 8, !tbaa !183
+  %.not72.i = icmp eq ptr %.pre.i.then.val.i.i.i.i, null
+  br i1 %.not72.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i, label %249
 
-247:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i
-  %248 = load ptr, ptr %45, align 8, !tbaa !43
-  %249 = load ptr, ptr %41, align 8, !tbaa !54
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 856
-  %251 = load ptr, ptr %250, align 8, !tbaa !193
-  %252 = invoke noundef ptr @_ZN11ast_manager11mk_iff_trueEP3app(ptr noundef nonnull align 8 dereferenceable(976) %249, ptr noundef %.0.i)
-          to label %253 unwind label %232
+249:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i
+  %250 = load ptr, ptr %45, align 8, !tbaa !43
+  %251 = load ptr, ptr %41, align 8, !tbaa !54
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 856
+  %253 = load ptr, ptr %252, align 8, !tbaa !193
+  %254 = invoke noundef ptr @_ZN11ast_manager11mk_iff_trueEP3app(ptr noundef nonnull align 8 dereferenceable(976) %251, ptr noundef %.0.i)
+          to label %255 unwind label %232
 
-253:                                              ; preds = %247
-  %254 = load ptr, ptr %2, align 8, !tbaa !184
-  invoke void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %248, ptr noundef nonnull %77, ptr noundef %251, ptr noundef %252, ptr noundef %254)
+255:                                              ; preds = %249
+  %256 = load ptr, ptr %2, align 8, !tbaa !184
+  invoke void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %250, ptr noundef nonnull %77, ptr noundef %253, ptr noundef %254, ptr noundef %256)
           to label %._ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.threadthread-pre-split_crit_edge.i unwind label %232
 
-._ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.threadthread-pre-split_crit_edge.i: ; preds = %253
-  %.val27.pr.pre.i = load ptr, ptr %241, align 8
+._ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.threadthread-pre-split_crit_edge.i: ; preds = %255
+  %.val26.pr.pre.i = load ptr, ptr %241, align 8
   br label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i
 
-_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i: ; preds = %._ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.threadthread-pre-split_crit_edge.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i, %240
-  %.val27.i = phi ptr [ null, %240 ], [ %.val27.pr.pre.i, %._ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.threadthread-pre-split_crit_edge.i ], [ %.val.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i ], [ %.val.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i ]
-  %255 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %256 = load i32, ptr %255, align 4
-  %257 = and i32 %256, 65535
-  %258 = icmp eq i32 %257, 0
-  br i1 %258, label %259, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
+_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i: ; preds = %._ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.threadthread-pre-split_crit_edge.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i, %240
+  %.val26.i = phi ptr [ null, %240 ], [ %.val26.pr.pre.i, %._ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.threadthread-pre-split_crit_edge.i ], [ %.val.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i ], [ %.val.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i ]
+  %257 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %258 = load i32, ptr %257, align 4
+  %259 = and i32 %258, 65535
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %261, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
 
-259:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i
-  %260 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %261 = load ptr, ptr %260, align 8, !tbaa !194
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 24
-  %263 = load ptr, ptr %262, align 8, !tbaa !199
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %263, null
+261:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i
+  %262 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %263 = load ptr, ptr %262, align 8, !tbaa !194
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
+  %265 = load ptr, ptr %264, align 8, !tbaa !199
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %265, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i, label %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i
 
-_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i:      ; preds = %259
-  %264 = load i32, ptr %263, align 8, !tbaa !202
-  %265 = icmp eq i32 %264, 0
-  %266 = getelementptr inbounds nuw i8, ptr %263, i64 4
-  %267 = load i32, ptr %266, align 4
-  %268 = icmp eq i32 %267, 8
-  %269 = select i1 %265, i1 %268, i1 false
-  br i1 %269, label %270, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
+_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i:      ; preds = %261
+  %266 = load i32, ptr %265, align 8, !tbaa !202
+  %267 = icmp eq i32 %266, 0
+  %268 = getelementptr inbounds nuw i8, ptr %265, i64 4
+  %269 = load i32, ptr %268, align 4
+  %270 = icmp eq i32 %269, 8
+  %271 = select i1 %267, i1 %270, i1 false
+  br i1 %271, label %272, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
 
-270:                                              ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i
-  %271 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %272 = load i32, ptr %271, align 8, !tbaa !206
-  %273 = icmp eq i32 %272, 1
-  br i1 %273, label %274, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
+272:                                              ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i
+  %273 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %274 = load i32, ptr %273, align 8, !tbaa !206
+  %275 = icmp eq i32 %274, 1
+  br i1 %275, label %276, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
 
-274:                                              ; preds = %270
-  %275 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %276 = load ptr, ptr %275, align 8, !tbaa !183
-  %.val5.i.i = load i32, ptr %276, align 4, !tbaa !191
-  %277 = icmp eq ptr %.val27.i, null
-  br i1 %277, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i.i
+276:                                              ; preds = %272
+  %277 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %278 = load ptr, ptr %277, align 8, !tbaa !183
+  %279 = icmp eq ptr %.val26.i, null
+  br i1 %279, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i.i
 
-_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i.i: ; preds = %274
-  %278 = getelementptr inbounds i8, ptr %.val27.i, i64 -4
-  %279 = load i32, ptr %278, align 4, !tbaa !192
-  %.not.i.i.i.i.i6.i.i = icmp ult i32 %.val5.i.i, %279
-  br i1 %.not.i.i.i.i.i6.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i.i: ; preds = %276
+  %280 = load i32, ptr %278, align 4, !tbaa !191
+  %281 = getelementptr inbounds i8, ptr %.val26.i, i64 -4
+  %282 = load i32, ptr %281, align 4, !tbaa !192
+  %.fr.i.i.i.i.i.i.i = freeze i32 %282
+  %283 = icmp ult i32 %280, %.fr.i.i.i.i.i.i.i
+  br i1 %283, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
 
-_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i.i
-  %280 = zext i32 %.val5.i.i to i64
-  %281 = getelementptr inbounds nuw ptr, ptr %.val27.i, i64 %280
-  %.then.val.i.i.i.i.i.i = load ptr, ptr %281, align 8, !tbaa !183
-  %.not73.i = icmp eq ptr %.then.val.i.i.i.i.i.i, null
-  br i1 %.not73.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i, label %282
+_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i.i
+  %284 = zext i32 %280 to i64
+  %285 = getelementptr inbounds nuw ptr, ptr %.val26.i, i64 %284
+  %.pre.i.then.val.i.i.i.i.i = load ptr, ptr %285, align 8, !tbaa !183
+  %.not73.i = icmp eq ptr %.pre.i.then.val.i.i.i.i.i, null
+  br i1 %.not73.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i, label %286
 
-282:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i
-  %283 = load ptr, ptr %45, align 8, !tbaa !43
-  %284 = load ptr, ptr %41, align 8, !tbaa !54
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 864
-  %286 = load ptr, ptr %285, align 8, !tbaa !207
-  %287 = invoke noundef ptr @_ZN11ast_manager12mk_iff_falseEP3app(ptr noundef nonnull align 8 dereferenceable(976) %284, ptr noundef %.0.i)
-          to label %288 unwind label %290
+286:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i
+  %287 = load ptr, ptr %45, align 8, !tbaa !43
+  %288 = load ptr, ptr %41, align 8, !tbaa !54
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 864
+  %290 = load ptr, ptr %289, align 8, !tbaa !207
+  %291 = invoke noundef ptr @_ZN11ast_manager12mk_iff_falseEP3app(ptr noundef nonnull align 8 dereferenceable(976) %288, ptr noundef %.0.i)
+          to label %292 unwind label %294
 
-288:                                              ; preds = %282
-  %289 = load ptr, ptr %2, align 8, !tbaa !184
-  invoke void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %283, ptr noundef nonnull %276, ptr noundef %286, ptr noundef %287, ptr noundef %289)
-          to label %._ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread_crit_edge.i unwind label %290
+292:                                              ; preds = %286
+  %293 = load ptr, ptr %2, align 8, !tbaa !184
+  invoke void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %287, ptr noundef nonnull %278, ptr noundef %290, ptr noundef %291, ptr noundef %293)
+          to label %._ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread_crit_edge.i unwind label %294
 
-._ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread_crit_edge.i: ; preds = %288
-  %.pre95.i = load i32, ptr %255, align 4
+._ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread_crit_edge.i: ; preds = %292
+  %.pre95.i = load i32, ptr %257, align 4
   br label %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
 
-290:                                              ; preds = %288, %282
-  %291 = landingpad { ptr, i32 }
+294:                                              ; preds = %292, %286
+  %295 = landingpad { ptr, i32 }
           cleanup
-  br label %353
+  br label %361
 
-_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i: ; preds = %._ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread_crit_edge.i, %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i.i, %274, %270, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i, %259, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i
-  %292 = phi i32 [ %.pre95.i, %._ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread_crit_edge.i ], [ %256, %259 ], [ %256, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i ], [ %256, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i ], [ %256, %270 ], [ %256, %274 ], [ %256, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i.i ], [ %256, %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i ]
-  %293 = and i32 %292, 65535
-  %294 = icmp eq i32 %293, 0
-  br i1 %294, label %295, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
+_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i: ; preds = %._ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread_crit_edge.i, %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i.i, %276, %272, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i, %261, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i
+  %296 = phi i32 [ %.pre95.i, %._ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread_crit_edge.i ], [ %258, %261 ], [ %258, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i ], [ %258, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i ], [ %258, %272 ], [ %258, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i.i ], [ %258, %276 ], [ %258, %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.i ]
+  %297 = and i32 %296, 65535
+  %298 = icmp eq i32 %297, 0
+  br i1 %298, label %299, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
 
-295:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
-  %296 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %297 = load ptr, ptr %296, align 8, !tbaa !194
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
-  %299 = load ptr, ptr %298, align 8, !tbaa !199
-  %.not.i.i.i.i.i.i45.i = icmp eq ptr %299, null
-  br i1 %.not.i.i.i.i.i.i45.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i
+299:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
+  %300 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %301 = load ptr, ptr %300, align 8, !tbaa !194
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 24
+  %303 = load ptr, ptr %302, align 8, !tbaa !199
+  %.not.i.i.i.i.i.i44.i = icmp eq ptr %303, null
+  br i1 %.not.i.i.i.i.i.i44.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i
 
-_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i:       ; preds = %295
-  %300 = load i32, ptr %299, align 8, !tbaa !202
-  %301 = icmp eq i32 %300, 0
-  %302 = getelementptr inbounds nuw i8, ptr %299, i64 4
-  %303 = load i32, ptr %302, align 4
-  %304 = icmp eq i32 %303, 2
-  %305 = select i1 %301, i1 %304, i1 false
-  br i1 %305, label %306, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
-
-306:                                              ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i
-  %307 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %308 = load i32, ptr %307, align 8, !tbaa !206
-  %309 = icmp eq i32 %308, 2
+_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i:       ; preds = %299
+  %304 = load i32, ptr %303, align 8, !tbaa !202
+  %305 = icmp eq i32 %304, 0
+  %306 = getelementptr inbounds nuw i8, ptr %303, i64 4
+  %307 = load i32, ptr %306, align 4
+  %308 = icmp eq i32 %307, 2
+  %309 = select i1 %305, i1 %308, i1 false
   br i1 %309, label %310, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
 
-310:                                              ; preds = %306
-  %311 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %312 = load ptr, ptr %311, align 8, !tbaa !183
-  %313 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %314 = load ptr, ptr %313, align 8, !tbaa !183
-  %315 = load ptr, ptr %41, align 8, !tbaa !54
-  %316 = invoke noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %315, ptr noundef %312)
-          to label %.noexc49.i unwind label %334
+310:                                              ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i
+  %311 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %312 = load i32, ptr %311, align 8, !tbaa !206
+  %313 = icmp eq i32 %312, 2
+  br i1 %313, label %314, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
 
-.noexc49.i:                                       ; preds = %310
-  br i1 %316, label %317, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i
+314:                                              ; preds = %310
+  %315 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %316 = load ptr, ptr %315, align 8, !tbaa !183
+  %317 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  %318 = load ptr, ptr %317, align 8, !tbaa !183
+  %319 = load ptr, ptr %41, align 8, !tbaa !54
+  %320 = invoke noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %319, ptr noundef %316)
+          to label %.noexc49.i unwind label %342
 
-317:                                              ; preds = %.noexc49.i
-  %.val10.i.i = load ptr, ptr %241, align 8, !tbaa !208
-  %.val11.i.i = load i32, ptr %314, align 4, !tbaa !191
-  %318 = icmp eq ptr %.val10.i.i, null
-  br i1 %318, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i46.i
+.noexc49.i:                                       ; preds = %314
+  br i1 %320, label %321, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i
 
-_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i46.i: ; preds = %317
-  %319 = getelementptr inbounds i8, ptr %.val10.i.i, i64 -4
-  %320 = load i32, ptr %319, align 4, !tbaa !192
-  %.not.i.i.i.i.i12.i.i = icmp ult i32 %.val11.i.i, %320
-  br i1 %.not.i.i.i.i.i12.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i
+321:                                              ; preds = %.noexc49.i
+  %.val9.i.i = load ptr, ptr %241, align 8, !tbaa !208
+  %322 = icmp eq ptr %.val9.i.i, null
+  br i1 %322, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i45.i
 
-_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i46.i
-  %321 = zext i32 %.val11.i.i to i64
-  %322 = getelementptr inbounds nuw ptr, ptr %.val10.i.i, i64 %321
-  %.then.val.i.i.i.i.i47.i = load ptr, ptr %322, align 8, !tbaa !183
-  %.not.i48.i = icmp eq ptr %.then.val.i.i.i.i.i47.i, null
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i45.i: ; preds = %321
+  %323 = load i32, ptr %318, align 4, !tbaa !191
+  %324 = getelementptr inbounds i8, ptr %.val9.i.i, i64 -4
+  %325 = load i32, ptr %324, align 4, !tbaa !192
+  %.fr.i.i.i.i.i.i46.i = freeze i32 %325
+  %326 = icmp ult i32 %323, %.fr.i.i.i.i.i.i46.i
+  br i1 %326, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i
+
+_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i45.i
+  %327 = zext i32 %323 to i64
+  %328 = getelementptr inbounds nuw ptr, ptr %.val9.i.i, i64 %327
+  %.pre.i.then.val.i.i.i.i47.i = load ptr, ptr %328, align 8, !tbaa !183
+  %.not.i48.i = icmp eq ptr %.pre.i.then.val.i.i.i.i47.i, null
   br i1 %.not.i48.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i
 
-_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i46.i, %317, %.noexc49.i
-  %323 = load ptr, ptr %41, align 8, !tbaa !54
-  %324 = invoke noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %323, ptr noundef %314)
-          to label %.noexc50.i unwind label %334
+_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i.i45.i, %321, %.noexc49.i
+  %329 = load ptr, ptr %41, align 8, !tbaa !54
+  %330 = invoke noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %329, ptr noundef %318)
+          to label %.noexc50.i unwind label %342
 
 .noexc50.i:                                       ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i
-  br i1 %324, label %325, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
+  br i1 %330, label %331, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
 
-325:                                              ; preds = %.noexc50.i
+331:                                              ; preds = %.noexc50.i
   %.val.i.i = load ptr, ptr %241, align 8, !tbaa !208
-  %.val9.i.i = load i32, ptr %312, align 4, !tbaa !191
-  %326 = icmp eq ptr %.val.i.i, null
-  br i1 %326, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i13.i.i
+  %332 = icmp eq ptr %.val.i.i, null
+  br i1 %332, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i10.i.i
 
-_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i13.i.i: ; preds = %325
-  %327 = getelementptr inbounds i8, ptr %.val.i.i, i64 -4
-  %328 = load i32, ptr %327, align 4, !tbaa !192
-  %.not.i.i.i.i.i14.i.i = icmp ult i32 %.val9.i.i, %328
-  br i1 %.not.i.i.i.i.i14.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i10.i.i: ; preds = %331
+  %333 = load i32, ptr %316, align 4, !tbaa !191
+  %334 = getelementptr inbounds i8, ptr %.val.i.i, i64 -4
+  %335 = load i32, ptr %334, align 4, !tbaa !192
+  %.fr.i.i.i.i.i11.i.i = freeze i32 %335
+  %336 = icmp ult i32 %333, %.fr.i.i.i.i.i11.i.i
+  br i1 %336, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit14.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
 
-_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i13.i.i
-  %329 = zext i32 %.val9.i.i to i64
-  %330 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %329
-  %.then.val.i.i.i.i16.i.i = load ptr, ptr %330, align 8, !tbaa !183
-  %.not30.i.i = icmp eq ptr %.then.val.i.i.i.i16.i.i, null
-  br i1 %.not30.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i
+_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit14.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i10.i.i
+  %337 = zext i32 %333 to i64
+  %338 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %337
+  %.pre.i.then.val.i.i.i13.i.i = load ptr, ptr %338, align 8, !tbaa !183
+  %.not27.i.i = icmp eq ptr %.pre.i.then.val.i.i.i13.i.i, null
+  br i1 %.not27.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i
 
 _ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i: ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i
   %.not74.i = icmp eq ptr %.0.i, null
-  br i1 %.not74.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i, label %331
+  br i1 %.not74.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i, label %339
 
-331:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i
-  %332 = load ptr, ptr %41, align 8, !tbaa !54
-  %333 = invoke noundef ptr @_ZN11ast_manager11mk_symmetryEP3app(ptr noundef nonnull align 8 dereferenceable(976) %332, ptr noundef nonnull %.0.i)
-          to label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i unwind label %334
+339:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i
+  %340 = load ptr, ptr %41, align 8, !tbaa !54
+  %341 = invoke noundef ptr @_ZN11ast_manager11mk_symmetryEP3app(ptr noundef nonnull align 8 dereferenceable(976) %340, ptr noundef nonnull %.0.i)
+          to label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i unwind label %342
 
-334:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i, %331, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i, %310
-  %335 = landingpad { ptr, i32 }
+342:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i, %339, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.thread.i.i, %314
+  %343 = landingpad { ptr, i32 }
           cleanup
-  br label %353
+  br label %361
 
-_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i: ; preds = %331, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i
-  %.05469.i = phi ptr [ %312, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i ], [ %312, %331 ], [ %314, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i ]
-  %.05568.i = phi ptr [ %314, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i ], [ %314, %331 ], [ %312, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i ]
-  %.1.i = phi ptr [ null, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i ], [ %333, %331 ], [ %.0.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i ]
-  %336 = load ptr, ptr %45, align 8, !tbaa !43
-  %337 = load ptr, ptr %2, align 8, !tbaa !184
-  invoke void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %336, ptr noundef nonnull %.05568.i, ptr noundef %.05469.i, ptr noundef %.1.i, ptr noundef %337)
-          to label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i unwind label %334
+_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i: ; preds = %339, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit14.i.i
+  %.05469.i = phi ptr [ %316, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i ], [ %316, %339 ], [ %318, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit14.i.i ]
+  %.05568.i = phi ptr [ %318, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i ], [ %318, %339 ], [ %316, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit14.i.i ]
+  %.1.i = phi ptr [ null, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.i ], [ %341, %339 ], [ %.0.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit14.i.i ]
+  %344 = load ptr, ptr %45, align 8, !tbaa !43
+  %345 = load ptr, ptr %2, align 8, !tbaa !184
+  invoke void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %344, ptr noundef nonnull %.05568.i, ptr noundef %.05469.i, ptr noundef %.1.i, ptr noundef %345)
+          to label %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i unwind label %342
 
-_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i13.i.i, %325, %.noexc50.i, %306, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i, %295, %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
-  %338 = load ptr, ptr %2, align 8, !tbaa !184
-  %.not.i.i.i = icmp eq ptr %338, null
-  br i1 %.not.i.i.i, label %354, label %339
+_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread63.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit14.i.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i.i10.i.i, %331, %.noexc50.i, %310, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i, %299, %_ZN12_GLOBAL__N_123propagate_values_tactic13is_shared_negEP4exprRS2_.exit.thread.i
+  %346 = load ptr, ptr %2, align 8, !tbaa !184
+  %.not.i.i.i = icmp eq ptr %346, null
+  br i1 %.not.i.i.i, label %362, label %347
 
-339:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
-  %340 = load ptr, ptr %140, align 8, !tbaa !209
-  %341 = load i32, ptr %338, align 4
-  %342 = add i32 %341, 1073741823
-  %343 = and i32 %342, 1073741823
-  %344 = and i32 %341, -1073741824
-  %345 = or disjoint i32 %343, %344
-  store i32 %345, ptr %338, align 4
-  %346 = and i32 %341, 1073741823
-  %347 = icmp eq i32 %346, 1
-  br i1 %347, label %348, label %354
+347:                                              ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
+  %348 = load ptr, ptr %140, align 8, !tbaa !209
+  %349 = load i32, ptr %346, align 4
+  %350 = add i32 %349, 1073741823
+  %351 = and i32 %350, 1073741823
+  %352 = and i32 %349, -1073741824
+  %353 = or disjoint i32 %351, %352
+  store i32 %353, ptr %346, align 4
+  %354 = and i32 %349, 1073741823
+  %355 = icmp eq i32 %354, 1
+  br i1 %355, label %356, label %362
 
-348:                                              ; preds = %339
-  %349 = getelementptr inbounds nuw i8, ptr %340, i64 648
-  invoke void @_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE3delEPNS2_10dependencyE(ptr noundef nonnull align 8 dereferenceable(24) %349, ptr noundef nonnull %338)
-          to label %354 unwind label %350
+356:                                              ; preds = %347
+  %357 = getelementptr inbounds nuw i8, ptr %348, i64 648
+  invoke void @_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE3delEPNS2_10dependencyE(ptr noundef nonnull align 8 dereferenceable(24) %357, ptr noundef nonnull %346)
+          to label %362 unwind label %358
 
-350:                                              ; preds = %348
-  %351 = landingpad { ptr, i32 }
+358:                                              ; preds = %356
+  %359 = landingpad { ptr, i32 }
           catch ptr null
-  %352 = extractvalue { ptr, i32 } %351, 0
-  call void @__clang_call_terminate(ptr %352) #21
+  %360 = extractvalue { ptr, i32 } %359, 0
+  call void @__clang_call_terminate(ptr %360) #21
   unreachable
 
-353:                                              ; preds = %334, %290, %234, %232
-  %.pn.pn.i = phi { ptr, i32 } [ %233, %232 ], [ %235, %234 ], [ %335, %334 ], [ %291, %290 ]
+361:                                              ; preds = %342, %294, %234, %232
+  %.pn.pn.i = phi { ptr, i32 } [ %233, %232 ], [ %235, %234 ], [ %343, %342 ], [ %295, %294 ]
   call void @_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #20
   br label %.body
 
-354:                                              ; preds = %348, %339, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
+362:                                              ; preds = %356, %347, %_ZN12_GLOBAL__N_123propagate_values_tactic12is_shared_eqEP4exprRS2_S3_Rb.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #20
-  %355 = load ptr, ptr %4, align 8, !tbaa !58
-  %.not.i.i = icmp eq ptr %355, null
-  br i1 %.not.i.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %356
+  %363 = load ptr, ptr %4, align 8, !tbaa !58
+  %.not.i.i = icmp eq ptr %363, null
+  br i1 %.not.i.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %364
 
-356:                                              ; preds = %354
-  %357 = load ptr, ptr %44, align 8, !tbaa !182
-  %358 = getelementptr inbounds nuw i8, ptr %355, i64 8
-  %359 = load i32, ptr %358, align 4, !tbaa !119
-  %360 = add i32 %359, -1
-  store i32 %360, ptr %358, align 4, !tbaa !119
-  %361 = icmp eq i32 %360, 0
-  br i1 %361, label %362, label %_ZN7obj_refI3app11ast_managerED2Ev.exit
+364:                                              ; preds = %362
+  %365 = load ptr, ptr %44, align 8, !tbaa !182
+  %366 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  %367 = load i32, ptr %366, align 4, !tbaa !119
+  %368 = add i32 %367, -1
+  store i32 %368, ptr %366, align 4, !tbaa !119
+  %369 = icmp eq i32 %368, 0
+  br i1 %369, label %370, label %_ZN7obj_refI3app11ast_managerED2Ev.exit
 
-362:                                              ; preds = %356
-  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %357, ptr noundef nonnull %355)
-          to label %_ZN7obj_refI3app11ast_managerED2Ev.exit unwind label %363
+370:                                              ; preds = %364
+  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %365, ptr noundef nonnull %363)
+          to label %_ZN7obj_refI3app11ast_managerED2Ev.exit unwind label %371
 
-363:                                              ; preds = %362
-  %364 = landingpad { ptr, i32 }
+371:                                              ; preds = %370
+  %372 = landingpad { ptr, i32 }
           catch ptr null
-  %365 = extractvalue { ptr, i32 } %364, 0
-  call void @__clang_call_terminate(ptr %365) #21
+  %373 = extractvalue { ptr, i32 } %372, 0
+  call void @__clang_call_terminate(ptr %373) #21
   unreachable
 
-_ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %354, %356, %362
+_ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %362, %364, %370
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  %366 = load ptr, ptr %3, align 8, !tbaa !55
-  %.not.i.i15 = icmp eq ptr %366, null
-  br i1 %.not.i.i15, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %367
+  %374 = load ptr, ptr %3, align 8, !tbaa !55
+  %.not.i.i15 = icmp eq ptr %374, null
+  br i1 %.not.i.i15, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %375
 
-367:                                              ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit
-  %368 = load ptr, ptr %43, align 8, !tbaa !210
-  %369 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  %370 = load i32, ptr %369, align 4, !tbaa !119
-  %371 = add i32 %370, -1
-  store i32 %371, ptr %369, align 4, !tbaa !119
-  %372 = icmp eq i32 %371, 0
-  br i1 %372, label %373, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+375:                                              ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit
+  %376 = load ptr, ptr %43, align 8, !tbaa !210
+  %377 = getelementptr inbounds nuw i8, ptr %374, i64 8
+  %378 = load i32, ptr %377, align 4, !tbaa !119
+  %379 = add i32 %378, -1
+  store i32 %379, ptr %377, align 4, !tbaa !119
+  %380 = icmp eq i32 %379, 0
+  br i1 %380, label %381, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
-373:                                              ; preds = %367
-  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %368, ptr noundef nonnull %366)
-          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %374
+381:                                              ; preds = %375
+  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %376, ptr noundef nonnull %374)
+          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %382
 
-374:                                              ; preds = %373
-  %375 = landingpad { ptr, i32 }
+382:                                              ; preds = %381
+  %383 = landingpad { ptr, i32 }
           catch ptr null
-  %376 = extractvalue { ptr, i32 } %375, 0
-  call void @__clang_call_terminate(ptr %376) #21
+  %384 = extractvalue { ptr, i32 } %383, 0
+  call void @__clang_call_terminate(ptr %384) #21
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %367, %373
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit, %375, %381
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
   ret void
 }

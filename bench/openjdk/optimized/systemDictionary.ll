@@ -779,7 +779,7 @@ define hidden void @_ZN16SystemDictionary19set_platform_loaderEP15ClassLoaderDat
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %29, label %3
+  br i1 %2, label %_ZNK9OopHandle4peekEv.exit, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -807,7 +807,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %17
   %.0.i = phi ptr [ %16, %7 ], [ %18, %17 ]
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 704), align 8
   %20 = icmp eq ptr %.0.i, %19
-  br i1 %20, label %29, label %21
+  br i1 %20, label %_ZNK9OopHandle4peekEv.exit, label %21
 
 21:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   %22 = load ptr, ptr @_ZN16SystemDictionary19_java_system_loaderE, align 8
@@ -817,15 +817,11 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %17
 24:                                               ; preds = %21
   %25 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull %22) #14
+  %27 = icmp eq ptr %0, %26
   br label %_ZNK9OopHandle4peekEv.exit
 
-_ZNK9OopHandle4peekEv.exit:                       ; preds = %21, %24
-  %27 = phi ptr [ %26, %24 ], [ null, %21 ]
-  %28 = icmp eq ptr %0, %27
-  br label %29
-
-29:                                               ; preds = %_ZNK7oopDesc5klassEv.exit, %_ZNK9OopHandle4peekEv.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %_ZNK7oopDesc5klassEv.exit ], [ %28, %_ZNK9OopHandle4peekEv.exit ]
+_ZNK9OopHandle4peekEv.exit:                       ; preds = %24, %21, %_ZNK7oopDesc5klassEv.exit, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %_ZNK7oopDesc5klassEv.exit ], [ %27, %24 ], [ false, %21 ]
   ret i1 %.0
 }
 
@@ -3520,103 +3516,99 @@ _ZNK6HandleclEv.exit.i.i:                         ; preds = %19, %15
 _ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i: ; preds = %26, %24
   %.0.i.i.i = phi ptr [ %25, %24 ], [ %27, %26 ]
   %28 = icmp eq ptr %.0.i.i.i, null
-  br i1 %28, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i, label %29
+  br i1 %28, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i
 
-29:                                               ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef %3, ptr noundef %17, ptr %2) #14
-  br label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i
+_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i: ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef %3, ptr noundef %17, ptr %2) #14
+  %32 = icmp eq ptr %31, %6
+  br i1 %32, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit
 
-_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i: ; preds = %29, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
-  %.0.i.i = phi ptr [ %32, %29 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i ]
-  %33 = icmp eq ptr %.0.i.i, %6
-  br i1 %33, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit
-
-_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit: ; preds = %7, %12, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %35, ptr noundef %37, ptr %.fr35, ptr %2, i1 noundef zeroext true, ptr noundef %3)
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %.not19.i = icmp eq ptr %40, null
-  %41 = icmp eq ptr %38, %6
-  %spec.select.i = and i1 %41, %.not19.i
+_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit: ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i, %7, %12, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %34, ptr noundef %36, ptr %.fr35, ptr %2, i1 noundef zeroext true, ptr noundef %3)
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %.not19.i = icmp eq ptr %39, null
+  %40 = icmp eq ptr %37, %6
+  %spec.select.i = and i1 %40, %.not19.i
   br i1 %spec.select.i, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread, label %.loopexit
 
 _ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread: ; preds = %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit, %4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph, label %.loopexit
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %wide.trip.count = zext nneg i32 %44 to i64
-  %47 = icmp eq ptr %.fr35, null
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %47, label %.lr.ph.split.us, label %.lr.ph.split
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %wide.trip.count = zext nneg i32 %43 to i64
+  %46 = icmp eq ptr %.fr35, null
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br i1 %46, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread.us
   %indvars.iv.us = phi i64 [ %indvars.iv.next.us, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread.us ], [ 0, %.lr.ph ]
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.us
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 308
-  %53 = load i16, ptr %52, align 2
-  %54 = and i16 %53, 896
-  %55 = icmp eq i16 %54, 0
-  br i1 %55, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us, label %56
+  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.us
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 308
+  %52 = load i16, ptr %51, align 2
+  %53 = and i16 %52, 896
+  %54 = icmp eq i16 %53, 0
+  br i1 %54, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us, label %55
 
-56:                                               ; preds = %.lr.ph.split.us
-  %57 = getelementptr inbounds nuw i8, ptr %51, i64 152
-  %58 = load ptr, ptr %57, align 8
-  %.not.i23.us = icmp eq ptr %58, null
+55:                                               ; preds = %.lr.ph.split.us
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 152
+  %57 = load ptr, ptr %56, align 8
+  %.not.i23.us = icmp eq ptr %57, null
   br i1 %.not.i23.us, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us, label %_ZNK6HandleclEv.exit.i.i24.us
 
-_ZNK6HandleclEv.exit.i.i24.us:                    ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef null) #14
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %65, label %63
+_ZNK6HandleclEv.exit.i.i24.us:                    ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef null) #14
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %64, label %62
 
-63:                                               ; preds = %_ZNK6HandleclEv.exit.i.i24.us
-  %64 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %61) #14
+62:                                               ; preds = %_ZNK6HandleclEv.exit.i.i24.us
+  %63 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %60) #14
   br label %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us
 
-65:                                               ; preds = %_ZNK6HandleclEv.exit.i.i24.us
-  %66 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+64:                                               ; preds = %_ZNK6HandleclEv.exit.i.i24.us
+  %65 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   br label %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us
 
-_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us: ; preds = %65, %63
-  %.0.i.i.i26.us = phi ptr [ %66, %65 ], [ %64, %63 ]
-  %67 = icmp eq ptr %.0.i.i.i26.us, null
-  br i1 %67, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27.us, label %68
+_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us: ; preds = %64, %62
+  %.0.i.i.i26.us = phi ptr [ %65, %64 ], [ %63, %62 ]
+  %66 = icmp eq ptr %.0.i.i.i26.us, null
+  br i1 %66, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27.us, label %67
 
-68:                                               ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us
-  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.us, i64 88
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef %3, ptr noundef %60, ptr %2) #14
+67:                                               ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.us, i64 88
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef %3, ptr noundef %59, ptr %2) #14
   br label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27.us
 
-_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27.us: ; preds = %68, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us
-  %.0.i.i28.us = phi ptr [ %71, %68 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us ]
-  %72 = icmp eq ptr %.0.i.i28.us, %51
-  br i1 %72, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread.us, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us
+_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27.us: ; preds = %67, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us
+  %.0.i.i28.us = phi ptr [ %70, %67 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25.us ]
+  %71 = icmp eq ptr %.0.i.i28.us, %50
+  br i1 %71, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread.us, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us
 
-_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us: ; preds = %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27.us, %56, %.lr.ph.split.us
-  %73 = load ptr, ptr %48, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %73, ptr noundef %75, ptr null, ptr %2, i1 noundef zeroext false, ptr noundef %3)
-  %77 = load ptr, ptr %49, align 8
-  %.not19.i29.us = icmp eq ptr %77, null
-  %78 = icmp eq ptr %76, %51
-  %spec.select.i30.us = and i1 %78, %.not19.i29.us
+_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us: ; preds = %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27.us, %55, %.lr.ph.split.us
+  %72 = load ptr, ptr %47, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %72, ptr noundef %74, ptr null, ptr %2, i1 noundef zeroext false, ptr noundef %3)
+  %76 = load ptr, ptr %48, align 8
+  %.not19.i29.us = icmp eq ptr %76, null
+  %77 = icmp eq ptr %75, %50
+  %spec.select.i30.us = and i1 %77, %.not19.i29.us
   br i1 %spec.select.i30.us, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread.us, label %.loopexit
 
 _ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread.us: ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27.us
@@ -3631,61 +3623,61 @@ _ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread ], [ 0, %.lr.ph ]
-  %79 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 308
-  %82 = load i16, ptr %81, align 2
-  %83 = and i16 %82, 896
-  %84 = icmp eq i16 %83, 0
-  br i1 %84, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32, label %85
+  %78 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 308
+  %81 = load i16, ptr %80, align 2
+  %82 = and i16 %81, 896
+  %83 = icmp eq i16 %82, 0
+  br i1 %83, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32, label %84
 
-85:                                               ; preds = %.lr.ph.split
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 152
-  %87 = load ptr, ptr %86, align 8
-  %.not.i23 = icmp eq ptr %87, null
+84:                                               ; preds = %.lr.ph.split
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 152
+  %86 = load ptr, ptr %85, align 8
+  %.not.i23 = icmp eq ptr %86, null
   br i1 %.not.i23, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32, label %_ZNK6HandleclEv.exit.i.i24
 
-_ZNK6HandleclEv.exit.i.i24:                       ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %.fr35, align 8
-  %91 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef %90) #14
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %95
+_ZNK6HandleclEv.exit.i.i24:                       ; preds = %84
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %89 = load ptr, ptr %.fr35, align 8
+  %90 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef %89) #14
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %94
 
-93:                                               ; preds = %_ZNK6HandleclEv.exit.i.i24
-  %94 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+92:                                               ; preds = %_ZNK6HandleclEv.exit.i.i24
+  %93 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   br label %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25
 
-95:                                               ; preds = %_ZNK6HandleclEv.exit.i.i24
-  %96 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %91) #14
+94:                                               ; preds = %_ZNK6HandleclEv.exit.i.i24
+  %95 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %90) #14
   br label %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25
 
-_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25: ; preds = %95, %93
-  %.0.i.i.i26 = phi ptr [ %94, %93 ], [ %96, %95 ]
-  %97 = icmp eq ptr %.0.i.i.i26, null
-  br i1 %97, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27, label %98
+_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25: ; preds = %94, %92
+  %.0.i.i.i26 = phi ptr [ %93, %92 ], [ %95, %94 ]
+  %96 = icmp eq ptr %.0.i.i.i26, null
+  br i1 %96, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27, label %97
 
-98:                                               ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 88
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef %3, ptr noundef %89, ptr %2) #14
+97:                                               ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 88
+  %99 = load ptr, ptr %98, align 8
+  %100 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef %3, ptr noundef %88, ptr %2) #14
   br label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27
 
-_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27: ; preds = %98, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25
-  %.0.i.i28 = phi ptr [ %101, %98 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25 ]
-  %102 = icmp eq ptr %.0.i.i28, %80
-  br i1 %102, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32
+_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27: ; preds = %97, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25
+  %.0.i.i28 = phi ptr [ %100, %97 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i25 ]
+  %101 = icmp eq ptr %.0.i.i28, %79
+  br i1 %101, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32
 
-_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32: ; preds = %.lr.ph.split, %85, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27
-  %103 = load ptr, ptr %48, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %103, ptr noundef %105, ptr nonnull %.fr35, ptr %2, i1 noundef zeroext false, ptr noundef %3)
-  %107 = load ptr, ptr %49, align 8
-  %.not19.i29 = icmp eq ptr %107, null
-  %108 = icmp eq ptr %106, %80
-  %spec.select.i30 = and i1 %108, %.not19.i29
+_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32: ; preds = %.lr.ph.split, %84, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i27
+  %102 = load ptr, ptr %47, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %102, ptr noundef %104, ptr nonnull %.fr35, ptr %2, i1 noundef zeroext false, ptr noundef %3)
+  %106 = load ptr, ptr %48, align 8
+  %.not19.i29 = icmp eq ptr %106, null
+  %107 = icmp eq ptr %105, %79
+  %spec.select.i30 = and i1 %107, %.not19.i29
   br i1 %spec.select.i30, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.thread.us, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit32.us, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit
@@ -3793,101 +3785,97 @@ _ZNK6HandleclEv.exit.i.i50:                       ; preds = %27, %23
 _ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i51: ; preds = %34, %32
   %.0.i.i.i52 = phi ptr [ %33, %32 ], [ %35, %34 ]
   %36 = icmp eq ptr %.0.i.i.i52, null
-  br i1 %36, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i53, label %37
+  br i1 %36, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i53
 
-37:                                               ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i51
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i52, i64 88
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef %5, ptr noundef %25, ptr %2) #14
-  br label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i53
+_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i53: ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i51
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i52, i64 88
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef %5, ptr noundef %25, ptr %2) #14
+  %40 = icmp eq ptr %39, %14
+  br i1 %40, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58.thread, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58
 
-_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i53: ; preds = %37, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i51
-  %.0.i.i54 = phi ptr [ %40, %37 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i51 ]
-  %41 = icmp eq ptr %.0.i.i54, %14
-  br i1 %41, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58.thread, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58
-
-_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58: ; preds = %15, %20, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i53
-  %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %42, ptr noundef %44, ptr %.fr62, ptr %2, i1 noundef zeroext true, ptr noundef %5)
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %.not19.i55 = icmp eq ptr %47, null
-  %48 = icmp eq ptr %45, %14
-  %spec.select.i56 = and i1 %48, %.not19.i55
+_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58: ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i51, %15, %20, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i53
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %41, ptr noundef %43, ptr %.fr62, ptr %2, i1 noundef zeroext true, ptr noundef %5)
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %.not19.i55 = icmp eq ptr %46, null
+  %47 = icmp eq ptr %44, %14
+  %spec.select.i56 = and i1 %47, %.not19.i55
   br i1 %spec.select.i56, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58.thread, label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
 
 _ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58.thread: ; preds = %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i53, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58, %12
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph.i, label %.loopexit
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58.thread
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %wide.trip.count.i = zext nneg i32 %51 to i64
-  %54 = icmp eq ptr %.fr62, null
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %54, label %.lr.ph.i.split.us, label %.lr.ph.i.split
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %wide.trip.count.i = zext nneg i32 %50 to i64
+  %53 = icmp eq ptr %.fr62, null
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br i1 %53, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread.us ], [ 0, %.lr.ph.i ]
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i.us
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 308
-  %59 = load i16, ptr %58, align 2
-  %60 = and i16 %59, 896
-  %61 = icmp eq i16 %60, 0
-  br i1 %61, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us, label %62
+  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i.us
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 308
+  %58 = load i16, ptr %57, align 2
+  %59 = and i16 %58, 896
+  %60 = icmp eq i16 %59, 0
+  br i1 %60, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us, label %61
 
-62:                                               ; preds = %.lr.ph.i.split.us
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 152
-  %64 = load ptr, ptr %63, align 8
-  %.not.i46.us = icmp eq ptr %64, null
+61:                                               ; preds = %.lr.ph.i.split.us
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 152
+  %63 = load ptr, ptr %62, align 8
+  %.not.i46.us = icmp eq ptr %63, null
   br i1 %.not.i46.us, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us, label %_ZNK6HandleclEv.exit.i.i.us
 
-_ZNK6HandleclEv.exit.i.i.us:                      ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef null) #14
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %71, label %69
+_ZNK6HandleclEv.exit.i.i.us:                      ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef null) #14
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %70, label %68
 
-69:                                               ; preds = %_ZNK6HandleclEv.exit.i.i.us
-  %70 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %67) #14
+68:                                               ; preds = %_ZNK6HandleclEv.exit.i.i.us
+  %69 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %66) #14
   br label %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us
 
-71:                                               ; preds = %_ZNK6HandleclEv.exit.i.i.us
-  %72 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+70:                                               ; preds = %_ZNK6HandleclEv.exit.i.i.us
+  %71 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   br label %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us
 
-_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us: ; preds = %71, %69
-  %.0.i.i.i.us = phi ptr [ %72, %71 ], [ %70, %69 ]
-  %73 = icmp eq ptr %.0.i.i.i.us, null
-  br i1 %73, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i.us, label %74
+_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us: ; preds = %70, %68
+  %.0.i.i.i.us = phi ptr [ %71, %70 ], [ %69, %68 ]
+  %72 = icmp eq ptr %.0.i.i.i.us, null
+  br i1 %72, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i.us, label %73
 
-74:                                               ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.us, i64 88
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef %5, ptr noundef %66, ptr %2) #14
+73:                                               ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.us, i64 88
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef %5, ptr noundef %65, ptr %2) #14
   br label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i.us
 
-_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i.us: ; preds = %74, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us
-  %.0.i.i.us = phi ptr [ %77, %74 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us ]
-  %78 = icmp eq ptr %.0.i.i.us, %57
-  br i1 %78, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread.us, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us
+_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i.us: ; preds = %73, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us
+  %.0.i.i.us = phi ptr [ %76, %73 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i.us ]
+  %77 = icmp eq ptr %.0.i.i.us, %56
+  br i1 %77, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread.us, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us
 
-_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us: ; preds = %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i.us, %62, %.lr.ph.i.split.us
-  %79 = load ptr, ptr %9, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %79, ptr noundef %81, ptr null, ptr %2, i1 noundef zeroext false, ptr noundef %5)
-  %83 = load ptr, ptr %55, align 8
-  %.not19.i.us = icmp eq ptr %83, null
-  %84 = icmp eq ptr %82, %57
-  %spec.select.i47.us = and i1 %84, %.not19.i.us
+_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us: ; preds = %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i.us, %61, %.lr.ph.i.split.us
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %78, ptr noundef %80, ptr null, ptr %2, i1 noundef zeroext false, ptr noundef %5)
+  %82 = load ptr, ptr %54, align 8
+  %.not19.i.us = icmp eq ptr %82, null
+  %83 = icmp eq ptr %81, %56
+  %spec.select.i47.us = and i1 %83, %.not19.i.us
   br i1 %spec.select.i47.us, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread.us, label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
 
 _ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread.us: ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i.us
@@ -3902,138 +3890,138 @@ _ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread ], [ 0, %.lr.ph.i ]
-  %85 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 308
-  %88 = load i16, ptr %87, align 2
-  %89 = and i16 %88, 896
-  %90 = icmp eq i16 %89, 0
-  br i1 %90, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit, label %91
+  %84 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 308
+  %87 = load i16, ptr %86, align 2
+  %88 = and i16 %87, 896
+  %89 = icmp eq i16 %88, 0
+  br i1 %89, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit, label %90
 
-91:                                               ; preds = %.lr.ph.i.split
-  %92 = getelementptr inbounds nuw i8, ptr %86, i64 152
-  %93 = load ptr, ptr %92, align 8
-  %.not.i46 = icmp eq ptr %93, null
+90:                                               ; preds = %.lr.ph.i.split
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 152
+  %92 = load ptr, ptr %91, align 8
+  %.not.i46 = icmp eq ptr %92, null
   br i1 %.not.i46, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit, label %_ZNK6HandleclEv.exit.i.i
 
-_ZNK6HandleclEv.exit.i.i:                         ; preds = %91
-  %94 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %.fr62, align 8
-  %97 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef %96) #14
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %101
+_ZNK6HandleclEv.exit.i.i:                         ; preds = %90
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %.fr62, align 8
+  %96 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef %95) #14
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %98, label %100
 
-99:                                               ; preds = %_ZNK6HandleclEv.exit.i.i
-  %100 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+98:                                               ; preds = %_ZNK6HandleclEv.exit.i.i
+  %99 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   br label %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
 
-101:                                              ; preds = %_ZNK6HandleclEv.exit.i.i
-  %102 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %97) #14
+100:                                              ; preds = %_ZNK6HandleclEv.exit.i.i
+  %101 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %96) #14
   br label %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
 
-_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i: ; preds = %101, %99
-  %.0.i.i.i = phi ptr [ %100, %99 ], [ %102, %101 ]
-  %103 = icmp eq ptr %.0.i.i.i, null
-  br i1 %103, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i, label %104
+_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i: ; preds = %100, %98
+  %.0.i.i.i = phi ptr [ %99, %98 ], [ %101, %100 ]
+  %102 = icmp eq ptr %.0.i.i.i, null
+  br i1 %102, label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i, label %103
 
-104:                                              ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef %5, ptr noundef %95, ptr %2) #14
+103:                                              ; preds = %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
+  %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
+  %105 = load ptr, ptr %104, align 8
+  %106 = tail call noundef ptr @_ZN10Dictionary4findEP6ThreadP6Symbol6Handle(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef %5, ptr noundef %94, ptr %2) #14
   br label %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i
 
-_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i: ; preds = %104, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
-  %.0.i.i = phi ptr [ %107, %104 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i ]
-  %108 = icmp eq ptr %.0.i.i, %86
-  br i1 %108, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit
+_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i: ; preds = %103, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i
+  %.0.i.i = phi ptr [ %106, %103 ], [ null, %_ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit.i.i ]
+  %107 = icmp eq ptr %.0.i.i, %85
+  br i1 %107, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit
 
-_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit: ; preds = %.lr.ph.i.split, %91, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i
-  %109 = load ptr, ptr %9, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %109, ptr noundef %111, ptr nonnull %.fr62, ptr %2, i1 noundef zeroext false, ptr noundef %5)
-  %113 = load ptr, ptr %55, align 8
-  %.not19.i = icmp eq ptr %113, null
-  %114 = icmp eq ptr %112, %86
-  %spec.select.i47 = and i1 %114, %.not19.i
+_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit: ; preds = %.lr.ph.i.split, %90, %_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol6HandleS4_.exit.i
+  %108 = load ptr, ptr %9, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call noundef ptr @_ZN16SystemDictionary21resolve_super_or_failEP6SymbolS1_6HandleS2_bP10JavaThread(ptr noundef %108, ptr noundef %110, ptr nonnull %.fr62, ptr %2, i1 noundef zeroext false, ptr noundef %5)
+  %112 = load ptr, ptr %54, align 8
+  %.not19.i = icmp eq ptr %112, null
+  %113 = icmp eq ptr %111, %85
+  %spec.select.i47 = and i1 %113, %.not19.i
   br i1 %spec.select.i47, label %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread, label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
 
 .loopexit:                                        ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.thread.us, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58.thread
-  %115 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared22is_hidden_lambda_proxyEP13InstanceKlass(ptr noundef nonnull %0) #14
-  br i1 %115, label %.thread, label %116
+  %114 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared22is_hidden_lambda_proxyEP13InstanceKlass(ptr noundef nonnull %0) #14
+  br i1 %114, label %.thread, label %115
 
-116:                                              ; preds = %.loopexit
-  %117 = tail call noundef ptr @_ZN12KlassFactory33check_shared_class_file_load_hookEP13InstanceKlassP6Symbol6HandleS4_PK15ClassFileStreamP10JavaThread(ptr noundef nonnull %0, ptr noundef %10, ptr %.fr62, ptr %2, ptr noundef %3, ptr noundef %5) #14
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %.not44 = icmp eq ptr %119, null
-  br i1 %.not44, label %120, label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
+115:                                              ; preds = %.loopexit
+  %116 = tail call noundef ptr @_ZN12KlassFactory33check_shared_class_file_load_hookEP13InstanceKlassP6Symbol6HandleS4_PK15ClassFileStreamP10JavaThread(ptr noundef nonnull %0, ptr noundef %10, ptr %.fr62, ptr %2, ptr noundef %3, ptr noundef %5) #14
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %.not44 = icmp eq ptr %118, null
+  br i1 %.not44, label %119, label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
 
-120:                                              ; preds = %116
-  %.not = icmp eq ptr %117, null
+119:                                              ; preds = %115
+  %.not = icmp eq ptr %116, null
   br i1 %.not, label %.thread, label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
 
-.thread:                                          ; preds = %.loopexit, %120
-  %121 = icmp eq ptr %.fr62, null
-  br i1 %121, label %_Z17class_loader_data6Handle.exit.thread43, label %_ZNK6HandleclEv.exit.i
+.thread:                                          ; preds = %.loopexit, %119
+  %120 = icmp eq ptr %.fr62, null
+  br i1 %120, label %_Z17class_loader_data6Handle.exit.thread43, label %_ZNK6HandleclEv.exit.i
 
 _Z17class_loader_data6Handle.exit.thread43:       ; preds = %.thread
-  %122 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  %121 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %5) #14
   br label %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit
 
 _ZNK6HandleclEv.exit.i:                           ; preds = %.thread
-  %123 = load ptr, ptr %.fr62, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %_Z17class_loader_data6Handle.exit, label %_Z17class_loader_data6Handle.exit.thread
+  %122 = load ptr, ptr %.fr62, align 8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %_Z17class_loader_data6Handle.exit, label %_Z17class_loader_data6Handle.exit.thread
 
 _Z17class_loader_data6Handle.exit.thread:         ; preds = %_ZNK6HandleclEv.exit.i
-  %125 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %123) #14
+  %124 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %122) #14
   br label %_ZL18is_parallelCapable6Handle.exit.i
 
 _Z17class_loader_data6Handle.exit:                ; preds = %_ZNK6HandleclEv.exit.i
-  %126 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  %125 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   br label %_ZL18is_parallelCapable6Handle.exit.i
 
 _ZL18is_parallelCapable6Handle.exit.i:            ; preds = %_Z17class_loader_data6Handle.exit, %_Z17class_loader_data6Handle.exit.thread
-  %.0.i.i.i41 = phi ptr [ %125, %_Z17class_loader_data6Handle.exit.thread ], [ %126, %_Z17class_loader_data6Handle.exit ]
+  %.0.i.i.i41 = phi ptr [ %124, %_Z17class_loader_data6Handle.exit.thread ], [ %125, %_Z17class_loader_data6Handle.exit ]
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %5) #14
-  %127 = load ptr, ptr %.fr62, align 8
-  %128 = call noundef zeroext i1 @_ZN21java_lang_ClassLoader15parallelCapableEP7oopDesc(ptr noundef %127) #14
-  %spec.select.i = select i1 %128, ptr null, ptr %.fr62
+  %126 = load ptr, ptr %.fr62, align 8
+  %127 = call noundef zeroext i1 @_ZN21java_lang_ClassLoader15parallelCapableEP7oopDesc(ptr noundef %126) #14
+  %spec.select.i = select i1 %127, ptr null, ptr %.fr62
   br label %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit
 
 _ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit: ; preds = %_Z17class_loader_data6Handle.exit.thread43, %_ZL18is_parallelCapable6Handle.exit.i
-  %.0.i.i.i42 = phi ptr [ %.0.i.i.i41, %_ZL18is_parallelCapable6Handle.exit.i ], [ %122, %_Z17class_loader_data6Handle.exit.thread43 ]
+  %.0.i.i.i42 = phi ptr [ %.0.i.i.i41, %_ZL18is_parallelCapable6Handle.exit.i ], [ %121, %_Z17class_loader_data6Handle.exit.thread43 ]
   %.sroa.0.0.i = phi ptr [ %spec.select.i, %_ZL18is_parallelCapable6Handle.exit.i ], [ null, %_Z17class_loader_data6Handle.exit.thread43 ]
   call void @_ZN12ObjectLockerC1E6HandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %.sroa.0.0.i, ptr noundef %5) #14
   call void @_ZN13InstanceKlass24restore_unshareable_infoEP15ClassLoaderData6HandleP12PackageEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %.0.i.i.i42, ptr %2, ptr noundef %4, ptr noundef %5) #14
-  %129 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %.not45 = icmp eq ptr %130, null
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %.not45 = icmp eq ptr %129, null
   call void @_ZN12ObjectLockerD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #14
-  br i1 %.not45, label %131, label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
+  br i1 %.not45, label %130, label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
 
-131:                                              ; preds = %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit
+130:                                              ; preds = %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit
   call void @_ZNK13InstanceKlass24print_class_load_loggingEP15ClassLoaderDataPK11ModuleEntryPK15ClassFileStream(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %.0.i.i.i42, ptr noundef null, ptr noundef null) #14
-  %132 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %133 = icmp eq ptr %.0.i.i.i42, %132
-  br i1 %133, label %134, label %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit
+  %131 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  %132 = icmp eq ptr %.0.i.i.i42, %131
+  br i1 %132, label %133, label %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  %136 = load i16, ptr %135, align 2
-  call void @_ZN13InstanceKlass19set_classpath_indexEs(ptr noundef nonnull align 8 dereferenceable(464) %0, i16 noundef signext %136) #14
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  %135 = load i16, ptr %134, align 2
+  call void @_ZN13InstanceKlass19set_classpath_indexEs(ptr noundef nonnull align 8 dereferenceable(464) %0, i16 noundef signext %135) #14
   br label %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit
 
-_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit: ; preds = %131, %134
+_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit: ; preds = %130, %133
   call void @_ZN19ClassLoadingService19notify_class_loadedEP13InstanceKlassb(ptr noundef nonnull %0, i1 noundef zeroext true) #14
   br label %_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit
 
-_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit: ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58, %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit, %120, %116, %6, %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit
-  %.036 = phi ptr [ %0, %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit ], [ null, %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit ], [ null, %6 ], [ null, %116 ], [ %117, %120 ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58 ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit ]
+_ZN16SystemDictionary30check_shared_class_super_typesEP13InstanceKlass6HandleS2_P10JavaThread.exit: ; preds = %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58, %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit, %119, %115, %6, %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit
+  %.036 = phi ptr [ %0, %_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData.exit ], [ null, %_ZN16SystemDictionary23get_loader_lock_or_nullE6Handle.exit ], [ null, %6 ], [ null, %115 ], [ %116, %119 ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit58 ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit.us ], [ null, %_ZN16SystemDictionary29check_shared_class_super_typeEP13InstanceKlassS1_6HandleS2_bP10JavaThread.exit ]
   ret ptr %.036
 }
 

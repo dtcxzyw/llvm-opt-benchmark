@@ -1235,7 +1235,7 @@ dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_
   %.046 = phi i64 [ %66, %65 ], [ 0, %63 ], [ 0, %60 ]
   %.045 = phi i64 [ %2, %65 ], [ %2, %63 ], [ %61, %60 ]
   %.not35.i = icmp eq i64 %.045, 0
-  br i1 %.not35.i, label %dgram_pair_read_inner.exit80, label %.lr.ph.i
+  br i1 %.not35.i, label %dgram_pair_read_inner.exit80.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %71, %95
   %72 = phi i64 [ %96, %95 ], [ %.pre41.i64, %71 ]
@@ -1301,68 +1301,70 @@ ring_buf_push_pop.exit.i74:                       ; preds = %86, %84, %80
   %.not.i76 = icmp eq i64 %99, 0
   br i1 %.not.i76, label %dgram_pair_read_inner.exit80, label %.lr.ph.i
 
-dgram_pair_read_inner.exit80:                     ; preds = %.lr.ph.i, %95, %71
-  %.pre41.i84 = phi i64 [ %.pre41.i64, %71 ], [ %96, %95 ], [ %72, %.lr.ph.i ]
-  %.pre.i83 = phi i64 [ %.pre.i63, %71 ], [ %97, %95 ], [ %73, %.lr.ph.i ]
-  %.012.lcssa.i77 = phi i64 [ 0, %71 ], [ %98, %95 ], [ %.01238.i65, %.lr.ph.i ]
-  %100 = icmp eq i64 %.012.lcssa.i77, %.045
-  br i1 %100, label %101, label %.critedge, !prof !25
+dgram_pair_read_inner.exit80:                     ; preds = %.lr.ph.i, %95
+  %.pre41.i84110 = phi i64 [ %72, %.lr.ph.i ], [ %96, %95 ]
+  %.pre.i83108 = phi i64 [ %73, %.lr.ph.i ], [ %97, %95 ]
+  %.012.lcssa.i77.ph = phi i64 [ %.01238.i65, %.lr.ph.i ], [ %98, %95 ]
+  %100 = icmp eq i64 %.012.lcssa.i77.ph, %.045
+  br i1 %100, label %dgram_pair_read_inner.exit80.thread, label %.critedge, !prof !54
 
-101:                                              ; preds = %dgram_pair_read_inner.exit80
+dgram_pair_read_inner.exit80.thread:              ; preds = %71, %dgram_pair_read_inner.exit80
+  %.pre.i83115 = phi i64 [ %.pre.i83108, %dgram_pair_read_inner.exit80 ], [ %.pre.i63, %71 ]
+  %.pre41.i84114 = phi i64 [ %.pre41.i84110, %dgram_pair_read_inner.exit80 ], [ %.pre41.i64, %71 ]
   %.not61 = icmp eq i64 %.046, 0
-  br i1 %.not61, label %114, label %.lr.ph.i82
+  br i1 %.not61, label %113, label %.lr.ph.i82
 
-.lr.ph.i82:                                       ; preds = %101
-  %.promoted111 = load i64, ptr %34, align 8, !tbaa !51
-  br label %102
+.lr.ph.i82:                                       ; preds = %dgram_pair_read_inner.exit80.thread
+  %.promoted116 = load i64, ptr %34, align 8, !tbaa !51
+  br label %101
 
-102:                                              ; preds = %107, %.lr.ph.i82
-  %103 = phi i64 [ %.promoted111, %.lr.ph.i82 ], [ %110, %107 ]
-  %104 = phi i64 [ %.pre41.i84, %.lr.ph.i82 ], [ %spec.store.select.i22.i99, %107 ]
-  %.01238.i85 = phi i64 [ 0, %.lr.ph.i82 ], [ %111, %107 ]
-  %.01337.i86 = phi i64 [ %.046, %.lr.ph.i82 ], [ %112, %107 ]
-  %105 = sub i64 %.pre.i83, %104
-  %spec.select.i.i88 = tail call i64 @llvm.umin.i64(i64 %105, i64 %103)
-  %106 = icmp eq i64 %spec.select.i.i88, 0
-  br i1 %106, label %dgram_pair_read_inner.exit100, label %107
+101:                                              ; preds = %106, %.lr.ph.i82
+  %102 = phi i64 [ %.promoted116, %.lr.ph.i82 ], [ %109, %106 ]
+  %103 = phi i64 [ %.pre41.i84114, %.lr.ph.i82 ], [ %spec.store.select.i22.i99, %106 ]
+  %.01238.i85 = phi i64 [ 0, %.lr.ph.i82 ], [ %110, %106 ]
+  %.01337.i86 = phi i64 [ %.046, %.lr.ph.i82 ], [ %111, %106 ]
+  %104 = sub i64 %.pre.i83115, %103
+  %spec.select.i.i88 = tail call i64 @llvm.umin.i64(i64 %104, i64 %102)
+  %105 = icmp eq i64 %spec.select.i.i88, 0
+  br i1 %105, label %dgram_pair_read_inner.exit100, label %106
 
-107:                                              ; preds = %102
+106:                                              ; preds = %101
   %spec.select.i89 = tail call i64 @llvm.umin.i64(i64 %spec.select.i.i88, i64 %.01337.i86)
-  %108 = add i64 %spec.select.i89, %104
-  %109 = icmp eq i64 %108, %.pre.i83
-  %spec.store.select.i22.i99 = select i1 %109, i64 0, i64 %108
+  %107 = add i64 %spec.select.i89, %103
+  %108 = icmp eq i64 %107, %.pre.i83115
+  %spec.store.select.i22.i99 = select i1 %108, i64 0, i64 %107
   store i64 %spec.store.select.i22.i99, ptr %32, align 8, !tbaa !35
-  %110 = sub nuw i64 %103, %spec.select.i89
-  store i64 %110, ptr %34, align 8, !tbaa !51
-  %111 = add i64 %spec.select.i89, %.01238.i85
-  %112 = sub i64 %.01337.i86, %spec.select.i89
-  %.not.i96 = icmp eq i64 %112, 0
-  br i1 %.not.i96, label %dgram_pair_read_inner.exit100, label %102
+  %109 = sub nuw i64 %102, %spec.select.i89
+  store i64 %109, ptr %34, align 8, !tbaa !51
+  %110 = add i64 %spec.select.i89, %.01238.i85
+  %111 = sub i64 %.01337.i86, %spec.select.i89
+  %.not.i96 = icmp eq i64 %111, 0
+  br i1 %.not.i96, label %dgram_pair_read_inner.exit100, label %101
 
-dgram_pair_read_inner.exit100:                    ; preds = %102, %107
-  %.012.lcssa.i97 = phi i64 [ %.01238.i85, %102 ], [ %111, %107 ]
-  %113 = icmp eq i64 %.012.lcssa.i97, %.046
-  br i1 %113, label %114, label %.critedge, !prof !25
+dgram_pair_read_inner.exit100:                    ; preds = %101, %106
+  %.012.lcssa.i97 = phi i64 [ %.01238.i85, %101 ], [ %110, %106 ]
+  %112 = icmp eq i64 %.012.lcssa.i97, %.046
+  br i1 %112, label %113, label %.critedge, !prof !25
 
-114:                                              ; preds = %dgram_pair_read_inner.exit100, %101
-  br i1 %.not59, label %117, label %115
+113:                                              ; preds = %dgram_pair_read_inner.exit100, %dgram_pair_read_inner.exit80.thread
+  br i1 %.not59, label %116, label %114
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %116, i64 112, i1 false), !tbaa.struct !48
-  br label %117
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %115, i64 112, i1 false), !tbaa.struct !48
+  br label %116
 
-117:                                              ; preds = %115, %114
+116:                                              ; preds = %114, %113
   %.not62 = icmp eq ptr %4, null
-  br i1 %.not62, label %.critedge, label %118
+  br i1 %.not62, label %.critedge, label %117
 
-118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %119, i64 112, i1 false), !tbaa.struct !48
+117:                                              ; preds = %116
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %118, i64 112, i1 false), !tbaa.struct !48
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %117, %118, %dgram_pair_read_inner.exit100, %dgram_pair_read_inner.exit80, %dgram_pair_read_inner.exit, %58, %59, %26, %22, %.thread, %14, %11, %70
-  %.044 = phi i64 [ -112, %70 ], [ -120, %11 ], [ -104, %14 ], [ -104, %.thread ], [ -125, %22 ], [ -111, %26 ], [ -112, %59 ], [ -112, %58 ], [ -124, %dgram_pair_read_inner.exit ], [ -104, %dgram_pair_read_inner.exit80 ], [ -104, %dgram_pair_read_inner.exit100 ], [ %.045, %118 ], [ %.045, %117 ], [ -104, %17 ]
+.critedge:                                        ; preds = %17, %116, %117, %dgram_pair_read_inner.exit100, %dgram_pair_read_inner.exit80, %dgram_pair_read_inner.exit, %58, %59, %26, %22, %.thread, %14, %11, %70
+  %.044 = phi i64 [ -112, %70 ], [ -120, %11 ], [ -104, %14 ], [ -104, %.thread ], [ -125, %22 ], [ -111, %26 ], [ -112, %59 ], [ -112, %58 ], [ -124, %dgram_pair_read_inner.exit ], [ -104, %dgram_pair_read_inner.exit80 ], [ -104, %dgram_pair_read_inner.exit100 ], [ %.045, %117 ], [ %.045, %116 ], [ -104, %17 ]
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7) #7
   ret i64 %.044
 }
@@ -1619,7 +1621,7 @@ dgram_pair_ctrl_pending.exit:                     ; preds = %70, %77, %dgram_pai
   %121 = lshr i8 %.val33.val, 1
   %122 = and i8 %121, 1
   %123 = zext nneg i8 %122 to i32
-  store i32 %123, ptr %3, align 4, !tbaa !54
+  store i32 %123, ptr %3, align 4, !tbaa !55
   br label %dgram_pair_ctrl_get_write_guarantee.exit
 
 124:                                              ; preds = %8
@@ -1945,4 +1947,5 @@ attributes #7 = { nounwind }
 !51 = !{!20, !15, i64 16}
 !52 = distinct !{!52, !43}
 !53 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!54 = !{!13, !13, i64 0}
+!54 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
+!55 = !{!13, !13, i64 0}

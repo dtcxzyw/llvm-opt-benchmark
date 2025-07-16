@@ -38840,12 +38840,10 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS
   %172 = load i64, ptr %171, align 8
   %173 = and i64 %172, 1099511627775
   %174 = icmp samesign ult i64 %161, %173
-  %spec.select.i.i81 = select i1 %174, ptr %16, ptr %.19.i.i.i75
   br label %175
 
 175:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit70, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i80, %169
-  %.sroa.0.0.i.i82 = phi ptr [ %16, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i80 ], [ %16, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit70 ], [ %spec.select.i.i81, %169 ]
-  %.not122 = icmp eq ptr %.sroa.0.0.i.i82, %16
+  %.sroa.0.0.i.i82 = phi i1 [ true, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i80 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit70 ], [ %174, %169 ]
   %176 = and i64 %.pre, 1152920405095219200
   %.not.i.i84 = icmp eq i64 %176, 1152920405095219200
   br i1 %.not.i.i84, label %.critedge, label %177, !prof !79
@@ -38871,7 +38869,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS
   unreachable
 
 .critedge:                                        ; preds = %183, %177, %175
-  br i1 %.not122, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit66.backedge, label %187
+  br i1 %.sroa.0.0.i.i82, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit66.backedge, label %187
 
 187:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26

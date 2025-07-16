@@ -10418,73 +10418,78 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
   %394 = phi i64 [ %344, %.lr.ph74 ], [ %344, %361 ], [ %389, %388 ], [ %389, %392 ]
   %395 = load i64, ptr %333, align 8
   %396 = icmp ult i64 %342, %395
-  br i1 %396, label %.loopexit53, label %.preheader52
+  br i1 %396, label %.loopexit53, label %.preheader52.preheader
 
-.preheader52:                                     ; preds = %393, %424
+.preheader52.preheader:                           ; preds = %393
   %397 = load volatile i64, ptr %14, align 8
   %398 = and i64 %397, 8
   %399 = icmp eq i64 %398, 0
-  br i1 %399, label %400, label %.loopexit53
+  br i1 %399, label %.lr.ph106.preheader, label %.loopexit53
 
-400:                                              ; preds = %.preheader52
-  %401 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #34, !srcloc !15
-  %402 = inttoptr i64 %401 to ptr
-  call void @flush_signals(ptr noundef %402) #32
-  %403 = call i32 @__SCT__might_resched() #32
-  %404 = load i64, ptr %333, align 8
-  %405 = icmp ugt i64 %404, %342
-  br i1 %405, label %424, label %406
+.lr.ph106.preheader:                              ; preds = %.preheader52.preheader
+  %400 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #34, !srcloc !15
+  %401 = inttoptr i64 %400 to ptr
+  br label %.lr.ph106
 
-406:                                              ; preds = %400
-  %407 = load volatile i64, ptr %14, align 8
-  %408 = and i64 %407, 8
-  %409 = icmp eq i64 %408, 0
-  br i1 %409, label %410, label %424
+.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.preheader52.backedge
+  call void @flush_signals(ptr noundef %401) #32
+  %402 = call i32 @__SCT__might_resched() #32
+  %403 = load i64, ptr %333, align 8
+  %404 = icmp ugt i64 %403, %342
+  br i1 %404, label %.loopexit53, label %405
 
-410:                                              ; preds = %406
+405:                                              ; preds = %.lr.ph106
+  %406 = load volatile i64, ptr %14, align 8
+  %407 = and i64 %406, 8
+  %408 = icmp eq i64 %407, 0
+  br i1 %408, label %409, label %.preheader52.backedge
+
+409:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !26
   call void @init_wait_entry(ptr noundef nonnull %9, i32 noundef 0) #32
-  %411 = call i64 @prepare_to_wait_event(ptr noundef nonnull %334, ptr noundef nonnull %9, i32 noundef 1) #32
-  %412 = load i64, ptr %333, align 8
-  %413 = icmp ugt i64 %412, %342
-  br i1 %413, label %._crit_edge, label %.lr.ph71
+  %410 = call i64 @prepare_to_wait_event(ptr noundef nonnull %334, ptr noundef nonnull %9, i32 noundef 1) #32
+  %411 = load i64, ptr %333, align 8
+  %412 = icmp ugt i64 %411, %342
+  br i1 %412, label %._crit_edge, label %.lr.ph71
 
-.lr.ph71:                                         ; preds = %410, %420
-  %.pre86 = phi i64 [ %422, %420 ], [ %412, %410 ]
-  %414 = phi i64 [ %421, %420 ], [ %411, %410 ]
-  %415 = load volatile i64, ptr %14, align 8
-  %416 = and i64 %415, 8
-  %417 = icmp eq i64 %416, 0
-  br i1 %417, label %418, label %._crit_edge
+.lr.ph71:                                         ; preds = %409, %419
+  %.pre86 = phi i64 [ %421, %419 ], [ %411, %409 ]
+  %413 = phi i64 [ %420, %419 ], [ %410, %409 ]
+  %414 = load volatile i64, ptr %14, align 8
+  %415 = and i64 %414, 8
+  %416 = icmp eq i64 %415, 0
+  br i1 %416, label %417, label %._crit_edge
 
-418:                                              ; preds = %.lr.ph71
-  %419 = icmp eq i64 %414, 0
-  br i1 %419, label %420, label %.thread35
+417:                                              ; preds = %.lr.ph71
+  %418 = icmp eq i64 %413, 0
+  br i1 %418, label %419, label %.thread35
 
-420:                                              ; preds = %418
+419:                                              ; preds = %417
   call void @schedule() #32
-  %421 = call i64 @prepare_to_wait_event(ptr noundef nonnull %334, ptr noundef nonnull %9, i32 noundef 1) #32
-  %422 = load i64, ptr %333, align 8
-  %423 = icmp ugt i64 %422, %342
-  br i1 %423, label %._crit_edge, label %.lr.ph71
+  %420 = call i64 @prepare_to_wait_event(ptr noundef nonnull %334, ptr noundef nonnull %9, i32 noundef 1) #32
+  %421 = load i64, ptr %333, align 8
+  %422 = icmp ugt i64 %421, %342
+  br i1 %422, label %._crit_edge, label %.lr.ph71
 
-._crit_edge:                                      ; preds = %420, %.lr.ph71, %410
+._crit_edge:                                      ; preds = %419, %.lr.ph71, %409
   call void @finish_wait(ptr noundef nonnull %334, ptr noundef nonnull %9) #32
   %.pre.pre = load i64, ptr %333, align 8
   br label %.thread35
 
-.thread35:                                        ; preds = %418, %._crit_edge
-  %.pre = phi i64 [ %.pre.pre, %._crit_edge ], [ %.pre86, %418 ]
+.thread35:                                        ; preds = %417, %._crit_edge
+  %.pre = phi i64 [ %.pre.pre, %._crit_edge ], [ %.pre86, %417 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #32
-  br label %424
+  %423 = icmp ult i64 %342, %.pre
+  br i1 %423, label %.loopexit53, label %.preheader52.backedge
 
-424:                                              ; preds = %.thread35, %406, %400
-  %425 = phi i64 [ %.pre, %.thread35 ], [ %404, %406 ], [ %404, %400 ]
-  %426 = icmp ult i64 %342, %425
-  br i1 %426, label %.loopexit53, label %.preheader52, !llvm.loop !127
+.preheader52.backedge:                            ; preds = %405, %.thread35
+  %424 = load volatile i64, ptr %14, align 8
+  %425 = and i64 %424, 8
+  %426 = icmp eq i64 %425, 0
+  br i1 %426, label %.lr.ph106, label %.loopexit53, !llvm.loop !127
 
-.loopexit53:                                      ; preds = %424, %.preheader52, %393
+.loopexit53:                                      ; preds = %.thread35, %.preheader52.backedge, %.lr.ph106, %.preheader52.preheader, %393
   %427 = load volatile i64, ptr %14, align 8
   %428 = and i64 %427, 8
   %429 = icmp eq i64 %428, 0

@@ -1064,15 +1064,15 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %.lr.ph, %._crit_edg
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %75, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !12
   %.pre110 = load i32, ptr %75, align 8, !tbaa !15
-  %95 = load ptr, ptr %69, align 8, !tbaa !17
-  %96 = getelementptr i8, ptr %95, i64 4
-  %.val69 = load i32, ptr %96, align 4, !tbaa !12
-  %97 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %98 = icmp eq i32 %.pre, %.pre110
-  br i1 %98, label %100, label %.Vec_IntGrow.exit10_crit_edge.i77
+  %95 = icmp eq i32 %.pre, %.pre110
+  %96 = load ptr, ptr %69, align 8, !tbaa !17
+  %97 = getelementptr i8, ptr %96, i64 4
+  %.val69 = load i32, ptr %97, align 4, !tbaa !12
+  %98 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  br i1 %95, label %100, label %.Vec_IntGrow.exit10_crit_edge.i77
 
 .Vec_IntGrow.exit10_crit_edge.i77:                ; preds = %.thread114, %94
-  %99 = phi ptr [ %93, %.thread114 ], [ %97, %94 ]
+  %99 = phi ptr [ %93, %.thread114 ], [ %98, %94 ]
   %.val69119 = phi i32 [ %.val69116, %.thread114 ], [ %.val69, %94 ]
   %.0117 = phi ptr [ %78, %.thread114 ], [ %75, %94 ]
   %.phi.trans.insert.i78 = getelementptr inbounds nuw i8, ptr %.0117, i64 8
@@ -1127,7 +1127,7 @@ Vec_IntGrow.exit.i82:                             ; preds = %107, %105
   br label %Vec_IntPush.exit83
 
 Vec_IntPush.exit83:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i77, %Vec_IntGrow.exit.i82, %120
-  %122 = phi ptr [ %99, %.Vec_IntGrow.exit10_crit_edge.i77 ], [ %97, %120 ], [ %97, %Vec_IntGrow.exit.i82 ]
+  %122 = phi ptr [ %99, %.Vec_IntGrow.exit10_crit_edge.i77 ], [ %98, %120 ], [ %98, %Vec_IntGrow.exit.i82 ]
   %.val69118 = phi i32 [ %.val69119, %.Vec_IntGrow.exit10_crit_edge.i77 ], [ %.val69, %120 ], [ %.val69, %Vec_IntGrow.exit.i82 ]
   %123 = phi ptr [ %.pre.i79, %.Vec_IntGrow.exit10_crit_edge.i77 ], [ %121, %120 ], [ %109, %Vec_IntGrow.exit.i82 ]
   %124 = load i32, ptr %122, align 4, !tbaa !12
@@ -1592,15 +1592,15 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %5, %._crit_edge.i.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %72, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !12
   %.pre88 = load i32, ptr %72, align 8, !tbaa !15
-  %93 = load ptr, ptr %66, align 8, !tbaa !17
-  %94 = getelementptr i8, ptr %93, i64 4
-  %.val56 = load i32, ptr %94, align 4, !tbaa !12
-  %95 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %96 = icmp eq i32 %.pre, %.pre88
-  br i1 %96, label %98, label %.Vec_IntGrow.exit10_crit_edge.i64
+  %93 = icmp eq i32 %.pre, %.pre88
+  %94 = load ptr, ptr %66, align 8, !tbaa !17
+  %95 = getelementptr i8, ptr %94, i64 4
+  %.val56 = load i32, ptr %95, align 4, !tbaa !12
+  %96 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  br i1 %93, label %98, label %.Vec_IntGrow.exit10_crit_edge.i64
 
 .Vec_IntGrow.exit10_crit_edge.i64:                ; preds = %.thread92, %92
-  %97 = phi ptr [ %91, %.thread92 ], [ %95, %92 ]
+  %97 = phi ptr [ %91, %.thread92 ], [ %96, %92 ]
   %.val5697 = phi i32 [ %.val5694, %.thread92 ], [ %.val56, %92 ]
   %.095 = phi ptr [ %75, %.thread92 ], [ %72, %92 ]
   %.phi.trans.insert.i65 = getelementptr inbounds nuw i8, ptr %.095, i64 8
@@ -1655,7 +1655,7 @@ Vec_IntGrow.exit.i69:                             ; preds = %105, %103
   br label %Vec_IntPush.exit70
 
 Vec_IntPush.exit70:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i64, %Vec_IntGrow.exit.i69, %118
-  %120 = phi ptr [ %97, %.Vec_IntGrow.exit10_crit_edge.i64 ], [ %95, %118 ], [ %95, %Vec_IntGrow.exit.i69 ]
+  %120 = phi ptr [ %97, %.Vec_IntGrow.exit10_crit_edge.i64 ], [ %96, %118 ], [ %96, %Vec_IntGrow.exit.i69 ]
   %.val5696 = phi i32 [ %.val5697, %.Vec_IntGrow.exit10_crit_edge.i64 ], [ %.val56, %118 ], [ %.val56, %Vec_IntGrow.exit.i69 ]
   %121 = phi ptr [ %.pre.i66, %.Vec_IntGrow.exit10_crit_edge.i64 ], [ %119, %118 ], [ %107, %Vec_IntGrow.exit.i69 ]
   %122 = load i32, ptr %120, align 4, !tbaa !12

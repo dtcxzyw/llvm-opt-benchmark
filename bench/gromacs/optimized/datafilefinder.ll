@@ -941,18 +941,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, %88
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25 ], [ %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
-  br label %114
+  br label %113
 
 98:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %99 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %112
 
 .lr.ph:                                           ; preds = %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit, %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29
-  %.sroa.032.044 = phi ptr [ %112, %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29 ], [ %47, %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit ]
+  %.sroa.032.044 = phi ptr [ %111, %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29 ], [ %47, %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit ]
   %100 = load ptr, ptr %42, align 8, !tbaa !58
   %.not10.i.i.i = icmp eq ptr %100, null
-  br i1 %.not10.i.i.i, label %.thread, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %100, %.lr.ph ]
@@ -969,42 +969,42 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 _ZNKSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %104 = icmp eq ptr %.19.i.i.i, %41
-  br i1 %104, label %.thread, label %105
+  br i1 %104, label %_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread, label %_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit
 
-105:                                              ; preds = %_ZNKSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i
+_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit: ; preds = %_ZNKSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i
   %.0811.i.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %.0811.i.i.i, i64 32
   %.19.i.i.i.sroa.sel = select i1 %103, ptr %.0811.i.i.i.sroa.gep, ptr %101
-  %106 = call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.032.044, ptr noundef nonnull align 8 dereferenceable(40) %.19.i.i.i.sroa.sel) #23
-  %107 = icmp slt i32 %106, 0
-  br i1 %107, label %.thread, label %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29
+  %105 = call noundef i32 @_ZNKSt10filesystem7__cxx114path7compareERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.032.044, ptr noundef nonnull align 8 dereferenceable(40) %.19.i.i.i.sroa.sel) #23
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread, label %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29
 
-.thread:                                          ; preds = %.lr.ph, %_ZNKSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i, %105
+_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread: ; preds = %.lr.ph, %_ZNKSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i, %_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit
   invoke void @_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.032.044)
-          to label %108 unwind label %110
+          to label %107 unwind label %109
 
-108:                                              ; preds = %.thread
-  %109 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.032.044)
-          to label %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29 unwind label %110
+107:                                              ; preds = %_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread
+  %108 = invoke { ptr, i8 } @_ZNSt8_Rb_treeINSt10filesystem7__cxx114pathES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.032.044)
+          to label %_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29 unwind label %109
 
-110:                                              ; preds = %108, %.thread
-  %111 = landingpad { ptr, i32 }
+109:                                              ; preds = %107, %_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread
+  %110 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %112
 
-_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29: ; preds = %108, %105
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.032.044, i64 40
-  %.not41 = icmp eq ptr %112, %49
+_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE6insertERKS2_.exit29: ; preds = %107, %_ZNKSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EE5countERKS2_.exit
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.032.044, i64 40
+  %.not41 = icmp eq ptr %111, %49
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
-113:                                              ; preds = %110, %98
-  %.pn18 = phi { ptr, i32 } [ %111, %110 ], [ %99, %98 ]
+112:                                              ; preds = %109, %98
+  %.pn18 = phi { ptr, i32 } [ %110, %109 ], [ %99, %98 ]
   call void @_ZNSt3setINSt10filesystem7__cxx114pathESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #23
   call void @_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
-  br label %114
+  br label %113
 
-114:                                              ; preds = %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
-  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %113 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26 ]
+113:                                              ; preds = %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
+  %.pn18.pn = phi { ptr, i32 } [ %.pn18, %112 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #23
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #23

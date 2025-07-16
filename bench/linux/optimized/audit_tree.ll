@@ -156,13 +156,13 @@ define dso_local zeroext i1 @audit_tree_match(ptr noundef readonly captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %6, label %18
+  br i1 %5, label %6, label %.split.loop.exit4
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
-  br i1 %9, label %18, label %.preheader.preheader
+  br i1 %9, label %.split.loop.exit4, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %6
   %10 = zext nneg i32 %4 to i64
@@ -183,16 +183,12 @@ define dso_local zeroext i1 @audit_tree_match(ptr noundef readonly captures(none
 
 .split.loop.exit:                                 ; preds = %12
   %16 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %17 = icmp sgt i32 %4, %16
   br label %.split.loop.exit4
 
-.split.loop.exit4:                                ; preds = %.preheader, %.split.loop.exit
-  %.lcssa = phi i32 [ %16, %.split.loop.exit ], [ %4, %.preheader ]
-  %17 = icmp slt i32 %.lcssa, %4
-  br label %18
-
-18:                                               ; preds = %.split.loop.exit4, %6, %2
-  %19 = phi i1 [ false, %2 ], [ true, %6 ], [ %17, %.split.loop.exit4 ]
-  ret i1 %19
+.split.loop.exit4:                                ; preds = %.preheader, %.split.loop.exit, %6, %2
+  %18 = phi i1 [ false, %2 ], [ true, %6 ], [ %17, %.split.loop.exit ], [ false, %.preheader ]
+  ret i1 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1785,7 +1785,7 @@ virtio_device_disabled.exit:                      ; preds = %virtqueue_unmap_sg.
   %.val20 = load i64, ptr %64, align 8
   %65 = and i64 %.val20, 34359738368
   %.not = icmp eq i64 %65, 0
-  br i1 %.not, label %106, label %66
+  br i1 %.not, label %105, label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1803,144 +1803,140 @@ virtio_device_disabled.exit:                      ; preds = %virtqueue_unmap_sg.
   %79 = load i32, ptr %1, align 8
   br label %80
 
-80:                                               ; preds = %89, %66
-  %.040.i = phi i32 [ 0, %66 ], [ %96, %89 ]
-  %.02839.i = phi i32 [ %71, %66 ], [ %spec.select.i, %89 ]
+80:                                               ; preds = %85, %66
+  %.040.i = phi i32 [ 0, %66 ], [ %92, %85 ]
+  %.02839.i = phi i32 [ %71, %66 ], [ %spec.select.i, %85 ]
   %81 = zext i32 %.02839.i to i64
   %82 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %78, i64 %81
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, %79
-  br i1 %84, label %85, label %89
+  br i1 %84, label %.loopexit.i, label %85
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store i32 %2, ptr %86, align 4
-  %87 = load ptr, ptr %77, align 8
-  %88 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %87, i64 %81, i32 5
-  store i8 1, ptr %88, align 4
-  br label %.loopexit.i
-
-89:                                               ; preds = %80
-  %90 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %87 = load i32, ptr %86, align 8
+  %88 = add i32 %87, %.02839.i
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %78, i64 %89, i32 2
   %91 = load i32, ptr %90, align 8
-  %92 = add i32 %91, %.02839.i
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %78, i64 %93, i32 2
-  %95 = load i32, ptr %94, align 8
-  %96 = add i32 %95, %.040.i
-  %.not32.i = icmp ult i32 %92, %70
-  %97 = select i1 %.not32.i, i32 0, i32 %70
-  %spec.select.i = sub nuw i32 %92, %97
-  %.not.i22 = icmp ugt i32 %96, %76
-  br i1 %.not.i22, label %.loopexit.i, label %80, !llvm.loop !20
+  %92 = add i32 %91, %.040.i
+  %.not32.i = icmp ult i32 %88, %70
+  %93 = select i1 %.not32.i, i32 0, i32 %70
+  %spec.select.i = sub nuw i32 %88, %93
+  %.not.i22 = icmp ugt i32 %92, %76
+  br i1 %.not.i22, label %.loopexit.thread.i, label %80, !llvm.loop !20
 
-.loopexit.i:                                      ; preds = %89, %85
-  %.036.i = phi i32 [ %.040.i, %85 ], [ %96, %89 ]
-  %.not33.i = icmp ult i32 %.036.i, %76
-  br i1 %.not33.i, label %virtqueue_ordered_fill.exit, label %98
+.loopexit.i:                                      ; preds = %80
+  %94 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  store i32 %2, ptr %94, align 4
+  %95 = load ptr, ptr %77, align 8
+  %96 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %95, i64 %81, i32 5
+  store i8 1, ptr %96, align 4
+  %97 = icmp ult i32 %.040.i, %76
+  br i1 %97, label %virtqueue_ordered_fill.exit, label %.loopexit.thread.i
 
-98:                                               ; preds = %.loopexit.i
-  %99 = load i32, ptr @qemu_loglevel, align 4
-  %100 = and i32 %99, 2048
-  %.not34.i = icmp eq i32 %100, 0
-  br i1 %.not34.i, label %virtqueue_ordered_fill.exit, label %101, !prof !19
+.loopexit.thread.i:                               ; preds = %85, %.loopexit.i
+  %98 = load i32, ptr @qemu_loglevel, align 4
+  %99 = and i32 %98, 2048
+  %.not34.i = icmp eq i32 %99, 0
+  br i1 %.not34.i, label %virtqueue_ordered_fill.exit, label %100, !prof !19
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %23, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 152
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %1, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, ptr noundef nonnull @__func__.virtqueue_ordered_fill, ptr noundef %104, i32 noundef %105) #24
+100:                                              ; preds = %.loopexit.thread.i
+  %101 = load ptr, ptr %23, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 152
+  %103 = load ptr, ptr %102, align 8
+  %104 = load i32, ptr %1, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, ptr noundef nonnull @__func__.virtqueue_ordered_fill, ptr noundef %103, i32 noundef %104) #24
   br label %virtqueue_ordered_fill.exit
 
-106:                                              ; preds = %63
-  %107 = and i64 %.val20, 17179869184
-  %.not25 = icmp eq i64 %107, 0
-  br i1 %.not25, label %120, label %108
+105:                                              ; preds = %63
+  %106 = and i64 %.val20, 17179869184
+  %.not25 = icmp eq i64 %106, 0
+  br i1 %.not25, label %119, label %107
 
-108:                                              ; preds = %106
-  %109 = load i32, ptr %1, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %111 = load ptr, ptr %110, align 8
-  %112 = zext i32 %3 to i64
-  %113 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %111, i64 %112
-  store i32 %109, ptr %113, align 8
-  %114 = load ptr, ptr %110, align 8
-  %115 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %114, i64 %112, i32 1
-  store i32 %2, ptr %115, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %117 = load i32, ptr %116, align 8
-  %118 = load ptr, ptr %110, align 8
-  %119 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %118, i64 %112, i32 2
-  store i32 %117, ptr %119, align 8
+107:                                              ; preds = %105
+  %108 = load i32, ptr %1, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %110 = load ptr, ptr %109, align 8
+  %111 = zext i32 %3 to i64
+  %112 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %110, i64 %111
+  store i32 %108, ptr %112, align 8
+  %113 = load ptr, ptr %109, align 8
+  %114 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %113, i64 %111, i32 1
+  store i32 %2, ptr %114, align 4
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %116 = load i32, ptr %115, align 8
+  %117 = load ptr, ptr %109, align 8
+  %118 = getelementptr inbounds nuw %struct.VirtQueueElement, ptr %117, i64 %111, i32 2
+  store i32 %116, ptr %118, align 8
   br label %virtqueue_ordered_fill.exit
 
-120:                                              ; preds = %106
+119:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %122 = load i64, ptr %121, align 8
-  %.not.i23 = icmp eq i64 %122, 0
-  br i1 %.not.i23, label %virtqueue_split_fill.exit, label %123, !prof !9
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %121 = load i64, ptr %120, align 8
+  %.not.i23 = icmp eq i64 %121, 0
+  br i1 %.not.i23, label %virtqueue_split_fill.exit, label %122, !prof !9
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %125 = load i16, ptr %124, align 8
-  %126 = load i32, ptr %0, align 8
-  %127 = load i32, ptr %1, align 8
-  store i32 %127, ptr %5, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %2, ptr %128, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %130 = load atomic i64, ptr %129 monotonic, align 8
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %124 = load i16, ptr %123, align 8
+  %125 = load i32, ptr %0, align 8
+  %126 = load i32, ptr %1, align 8
+  store i32 %126, ptr %5, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %2, ptr %127, align 4
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %129 = load atomic i64, ptr %128 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !8
-  %.not.i.i24 = icmp eq i64 %130, 0
-  br i1 %.not.i.i24, label %virtqueue_split_fill.exit, label %131
+  %.not.i.i24 = icmp eq i64 %129, 0
+  br i1 %.not.i.i24, label %virtqueue_split_fill.exit, label %130
 
-131:                                              ; preds = %123
-  %132 = zext i16 %125 to i32
-  %133 = add i32 %3, %132
-  %134 = urem i32 %133, %126
-  %135 = inttoptr i64 %130 to ptr
-  %136 = sext i32 %134 to i64
-  %137 = shl nsw i64 %136, 3
-  %138 = or disjoint i64 %137, 4
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 240
-  %140 = getelementptr inbounds nuw i8, ptr %135, i64 256
-  %141 = load i64, ptr %140, align 16
-  %142 = icmp uge i64 %138, %141
-  %143 = sub nuw i64 %141, %138
-  %.not.i.i.i = icmp ult i64 %143, 8
-  %or.cond.i.i.i = select i1 %142, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %144, label %145
+130:                                              ; preds = %122
+  %131 = zext i16 %124 to i32
+  %132 = add i32 %3, %131
+  %133 = urem i32 %132, %125
+  %134 = inttoptr i64 %129 to ptr
+  %135 = sext i32 %133 to i64
+  %136 = shl nsw i64 %135, 3
+  %137 = or disjoint i64 %136, 4
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 240
+  %139 = getelementptr inbounds nuw i8, ptr %134, i64 256
+  %140 = load i64, ptr %139, align 16
+  %141 = icmp uge i64 %137, %140
+  %142 = sub nuw i64 %140, %137
+  %.not.i.i.i = icmp ult i64 %142, 8
+  %or.cond.i.i.i = select i1 %141, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i.i, label %143, label %144
 
-144:                                              ; preds = %131
+143:                                              ; preds = %130
   tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef 3087, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_write_cached) #25
   unreachable
 
-145:                                              ; preds = %131
-  %146 = load ptr, ptr %139, align 16
-  %.not18.i.i.i = icmp eq ptr %146, null
-  br i1 %.not18.i.i.i, label %150, label %147, !prof !9
+144:                                              ; preds = %130
+  %145 = load ptr, ptr %138, align 16
+  %.not18.i.i.i = icmp eq ptr %145, null
+  br i1 %.not18.i.i.i, label %149, label %146, !prof !9
 
-147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 %138
-  %149 = load i64, ptr %5, align 8
-  store i64 %149, ptr %148, align 1
+146:                                              ; preds = %144
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 %137
+  %148 = load i64, ptr %5, align 8
+  store i64 %148, ptr %147, align 1
   br label %address_space_write_cached.exit.i.i
 
-150:                                              ; preds = %145
-  %151 = call i32 @address_space_write_cached_slow(ptr noundef nonnull %139, i64 noundef range(i64 -17179869180, 17179869181) %138, ptr noundef nonnull %5, i64 noundef 8) #24
+149:                                              ; preds = %144
+  %150 = call i32 @address_space_write_cached_slow(ptr noundef nonnull %138, i64 noundef range(i64 -17179869180, 17179869181) %137, ptr noundef nonnull %5, i64 noundef 8) #24
   br label %address_space_write_cached.exit.i.i
 
-address_space_write_cached.exit.i.i:              ; preds = %150, %147
-  call void @address_space_cache_invalidate(ptr noundef nonnull %139, i64 noundef %138, i64 noundef 8) #24
+address_space_write_cached.exit.i.i:              ; preds = %149, %146
+  call void @address_space_cache_invalidate(ptr noundef nonnull %138, i64 noundef %137, i64 noundef 8) #24
   br label %virtqueue_split_fill.exit
 
-virtqueue_split_fill.exit:                        ; preds = %120, %123, %address_space_write_cached.exit.i.i
+virtqueue_split_fill.exit:                        ; preds = %119, %122, %address_space_write_cached.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   br label %virtqueue_ordered_fill.exit
 
-virtqueue_ordered_fill.exit:                      ; preds = %virtqueue_unmap_sg.exit, %101, %98, %.loopexit.i, %108, %virtqueue_split_fill.exit, %virtio_device_disabled.exit
+virtqueue_ordered_fill.exit:                      ; preds = %virtqueue_unmap_sg.exit, %100, %.loopexit.thread.i, %.loopexit.i, %107, %virtqueue_split_fill.exit, %virtio_device_disabled.exit
   ret void
 }
 

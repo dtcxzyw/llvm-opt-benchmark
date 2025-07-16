@@ -3464,7 +3464,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i4 = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i.i.i4, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_22Pcp_LayerStackRegistryEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i5
+  br i1 %.not.i.i.i.i.i.i4, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_13PcpLayerStackEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i5
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i5: ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 104
@@ -3472,17 +3472,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %14 = load i8, ptr %13, align 2
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %12, align 8
-  %spec.select.i.i.i.i.i6 = select i1 %15, ptr %16, ptr null
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_22Pcp_LayerStackRegistryEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_22Pcp_LayerStackRegistryEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit: ; preds = %9, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i5
-  %.0.i.i.i.i.i7 = phi ptr [ null, %9 ], [ %spec.select.i.i.i.i.i6, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i5 ]
-  %17 = icmp eq ptr %.0.i.i.i.i.i7, %0
+  %17 = icmp eq ptr %16, %0
+  %18 = select i1 %15, i1 %17, i1 false
   br label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_13PcpLayerStackEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_13PcpLayerStackEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i, %2, %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_22Pcp_LayerStackRegistryEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit
-  %18 = phi i1 [ %17, %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_22Pcp_LayerStackRegistryEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit ], [ false, %2 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i ]
-  ret i1 %18
+_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_13PcpLayerStackEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i5, %9, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i, %2
+  %19 = phi i1 [ false, %2 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i ], [ false, %9 ], [ %18, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i5 ]
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress uwtable

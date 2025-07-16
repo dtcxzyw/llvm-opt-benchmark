@@ -1167,18 +1167,18 @@ define internal fastcc range(i32 -22, 1) i32 @tty_change_softcar(ptr noundef %0,
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %18, label %16
+  br i1 %15, label %20, label %16
 
 16:                                               ; preds = %2
   call void %14(ptr noundef %0, ptr noundef nonnull %3) #12
   %.pre = load i32, ptr %7, align 8
   %17 = and i32 %.pre, 2048
-  br label %18
+  %18 = icmp eq i32 %17, %4
+  %19 = select i1 %18, i32 0, i32 -22
+  br label %20
 
-18:                                               ; preds = %16, %2
-  %19 = phi i32 [ %17, %16 ], [ %4, %2 ]
-  %20 = icmp eq i32 %19, %4
-  %21 = select i1 %20, i32 0, i32 -22
+20:                                               ; preds = %16, %2
+  %21 = phi i32 [ %19, %16 ], [ 0, %2 ]
   call void @up_write(ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3) #12
   ret i32 %21

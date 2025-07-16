@@ -1389,30 +1389,24 @@ define i32 @Sim_UtilCountPairsOne(ptr noundef %0, ptr noundef readonly captures(
   %5 = getelementptr i8, ptr %1, i64 8
   br label %7
 
-.critedge2.loopexit.loopexit:                     ; preds = %.lr.ph
+.critedge2.loopexit:                              ; preds = %.lr.ph
   %.pre = sext i32 %.val19 to i64
-  br label %.critedge2.loopexit
-
-.critedge2.loopexit:                              ; preds = %.critedge2.loopexit.loopexit, %7
-  %.pre-phi = phi i64 [ %.pre, %.critedge2.loopexit.loopexit ], [ %10, %7 ]
-  %.val = phi i32 [ %.val19, %.critedge2.loopexit.loopexit ], [ %.val37, %7 ]
-  %.1.lcssa = phi i32 [ %15, %.critedge2.loopexit.loopexit ], [ %.027, %7 ]
-  %6 = icmp slt i64 %indvars.iv.next34, %.pre-phi
+  %6 = icmp slt i64 %indvars.iv.next34, %.pre
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %6, label %7, label %.critedge, !llvm.loop !86
 
 7:                                                ; preds = %.lr.ph28, %.critedge2.loopexit
-  %.val37 = phi i32 [ %.val25, %.lr.ph28 ], [ %.val, %.critedge2.loopexit ]
+  %.val37 = phi i32 [ %.val25, %.lr.ph28 ], [ %.val19, %.critedge2.loopexit ]
   %indvars.iv33 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next34, %.critedge2.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph28 ], [ %indvars.iv.next, %.critedge2.loopexit ]
-  %.027 = phi i32 [ 0, %.lr.ph28 ], [ %.1.lcssa, %.critedge2.loopexit ]
+  %.027 = phi i32 [ 0, %.lr.ph28 ], [ %15, %.critedge2.loopexit ]
   %.val20 = load ptr, ptr %5, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv33
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %10 = sext i32 %.val37 to i64
   %11 = icmp slt i64 %indvars.iv.next34, %10
-  br i1 %11, label %.lr.ph, label %.critedge2.loopexit
+  br i1 %11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph ], [ %indvars.iv, %7 ]
@@ -1426,10 +1420,10 @@ define i32 @Sim_UtilCountPairsOne(ptr noundef %0, ptr noundef readonly captures(
   %.val19 = load i32, ptr %3, align 4, !tbaa !16
   %16 = trunc nuw i64 %indvars.iv.next31 to i32
   %17 = icmp sgt i32 %.val19, %16
-  br i1 %17, label %.lr.ph, label %.critedge2.loopexit.loopexit, !llvm.loop !87
+  br i1 %17, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !87
 
-.critedge:                                        ; preds = %.critedge2.loopexit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1.lcssa, %.critedge2.loopexit ]
+.critedge:                                        ; preds = %.critedge2.loopexit, %7, %2
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.027, %7 ], [ %15, %.critedge2.loopexit ]
   ret i32 %.0.lcssa
 }
 
@@ -1446,19 +1440,14 @@ define noundef i32 @Sim_UtilCountPairsOnePrint(ptr noundef %0, ptr noundef reado
   %5 = getelementptr i8, ptr %1, i64 8
   br label %7
 
-.critedge2.loopexit.loopexit:                     ; preds = %17
+.critedge2.loopexit:                              ; preds = %17
   %.pre = sext i32 %.val to i64
-  br label %.critedge2.loopexit
-
-.critedge2.loopexit:                              ; preds = %.critedge2.loopexit.loopexit, %7
-  %.pre-phi = phi i64 [ %.pre, %.critedge2.loopexit.loopexit ], [ %10, %7 ]
-  %.val18 = phi i32 [ %.val, %.critedge2.loopexit.loopexit ], [ %.val1834, %7 ]
-  %6 = icmp slt i64 %indvars.iv.next30, %.pre-phi
+  %6 = icmp slt i64 %indvars.iv.next30, %.pre
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %6, label %7, label %.critedge, !llvm.loop !88
 
 7:                                                ; preds = %.lr.ph25, %.critedge2.loopexit
-  %.val1834 = phi i32 [ %.val1823, %.lr.ph25 ], [ %.val18, %.critedge2.loopexit ]
+  %.val1834 = phi i32 [ %.val1823, %.lr.ph25 ], [ %.val, %.critedge2.loopexit ]
   %indvars.iv29 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next30, %.critedge2.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph25 ], [ %indvars.iv.next, %.critedge2.loopexit ]
   %.val20 = load ptr, ptr %5, align 8, !tbaa !20
@@ -1467,7 +1456,7 @@ define noundef i32 @Sim_UtilCountPairsOnePrint(ptr noundef %0, ptr noundef reado
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %10 = sext i32 %.val1834 to i64
   %11 = icmp slt i64 %indvars.iv.next30, %10
-  br i1 %11, label %.lr.ph, label %.critedge2.loopexit
+  br i1 %11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %7, %17
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %17 ], [ %indvars.iv, %7 ]
@@ -1487,9 +1476,9 @@ define noundef i32 @Sim_UtilCountPairsOnePrint(ptr noundef %0, ptr noundef reado
   %.val = load i32, ptr %3, align 4, !tbaa !16
   %18 = trunc nuw i64 %indvars.iv.next27 to i32
   %19 = icmp sgt i32 %.val, %18
-  br i1 %19, label %.lr.ph, label %.critedge2.loopexit.loopexit, !llvm.loop !89
+  br i1 %19, label %.lr.ph, label %.critedge2.loopexit, !llvm.loop !89
 
-.critedge:                                        ; preds = %.critedge2.loopexit, %2
+.critedge:                                        ; preds = %.critedge2.loopexit, %7, %2
   ret i32 0
 }
 
@@ -1550,19 +1539,14 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %28 = getelementptr i8, ptr %25, i64 8
   br label %30
 
-.critedge2.loopexit.loopexit.i:                   ; preds = %40
+.critedge2.loopexit.i:                            ; preds = %40
   %.pre.i = sext i32 %.val.i to i64
-  br label %.critedge2.loopexit.i
-
-.critedge2.loopexit.i:                            ; preds = %30, %.critedge2.loopexit.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %.critedge2.loopexit.loopexit.i ], [ %33, %30 ]
-  %.val18.i = phi i32 [ %.val.i, %.critedge2.loopexit.loopexit.i ], [ %.val1834.i, %30 ]
-  %29 = icmp slt i64 %indvars.iv.next30.i, %.pre-phi.i
+  %29 = icmp slt i64 %indvars.iv.next30.i, %.pre.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %29, label %30, label %Sim_UtilCountPairsOnePrint.exit, !llvm.loop !88
 
 30:                                               ; preds = %.critedge2.loopexit.i, %.lr.ph25.i
-  %.val1834.i = phi i32 [ %.val1823.i, %.lr.ph25.i ], [ %.val18.i, %.critedge2.loopexit.i ]
+  %.val1834.i = phi i32 [ %.val1823.i, %.lr.ph25.i ], [ %.val.i, %.critedge2.loopexit.i ]
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph25.i ], [ %indvars.iv.next30.i, %.critedge2.loopexit.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph25.i ], [ %indvars.iv.next.i, %.critedge2.loopexit.i ]
   %.val20.i = load ptr, ptr %28, align 8, !tbaa !20
@@ -1571,7 +1555,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %33 = sext i32 %.val1834.i to i64
   %34 = icmp slt i64 %indvars.iv.next30.i, %33
-  br i1 %34, label %.lr.ph.i, label %.critedge2.loopexit.i
+  br i1 %34, label %.lr.ph.i, label %Sim_UtilCountPairsOnePrint.exit
 
 .lr.ph.i:                                         ; preds = %30, %40
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %40 ], [ %indvars.iv.i, %30 ]
@@ -1591,9 +1575,9 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.val.i = load i32, ptr %26, align 4, !tbaa !16
   %41 = trunc nuw i64 %indvars.iv.next27.i to i32
   %42 = icmp sgt i32 %.val.i, %41
-  br i1 %42, label %.lr.ph.i, label %.critedge2.loopexit.loopexit.i, !llvm.loop !89
+  br i1 %42, label %.lr.ph.i, label %.critedge2.loopexit.i, !llvm.loop !89
 
-Sim_UtilCountPairsOnePrint.exit:                  ; preds = %.critedge2.loopexit.i, %15
+Sim_UtilCountPairsOnePrint.exit:                  ; preds = %.critedge2.loopexit.i, %30, %15
   %putchar = call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %10, align 4, !tbaa !93
@@ -1638,15 +1622,15 @@ define void @Sim_UtilCountPairsAll(ptr noundef captures(none) initializes((168, 
 
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8, !tbaa !90
-  %.neg74 = mul i64 %7, -1000000
+  %.neg70 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !92
   %.neg = sdiv i64 %9, -1000
-  %.neg75 = add i64 %.neg, %.neg74
+  %.neg71 = add i64 %.neg, %.neg70
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %1, %6
-  %.0.i.neg = phi i64 [ %.neg75, %6 ], [ 1, %1 ]
+  %.0.i.neg = phi i64 [ %.neg71, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %10, align 8, !tbaa !101
@@ -1665,14 +1649,14 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load ptr, ptr %16, align 8, !tbaa !103
-  %.pre83 = load ptr, ptr %17, align 8, !tbaa !104
+  %.pre79 = load ptr, ptr %17, align 8, !tbaa !104
   br label %21
 
 21:                                               ; preds = %.lr.ph, %95
   %22 = phi i32 [ %13, %.lr.ph ], [ %96, %95 ]
   %23 = phi i32 [ 0, %.lr.ph ], [ %storemerge, %95 ]
   %24 = phi i32 [ 0, %.lr.ph ], [ %97, %95 ]
-  %25 = phi ptr [ %.pre83, %.lr.ph ], [ %98, %95 ]
+  %25 = phi ptr [ %.pre79, %.lr.ph ], [ %98, %95 ]
   %26 = phi ptr [ %.pre, %.lr.ph ], [ %99, %95 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %27 = load ptr, ptr %15, align 8, !tbaa !105
@@ -1712,36 +1696,30 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %51 = getelementptr i8, ptr %50, i64 4
   %.val25.i = load i32, ptr %51, align 4, !tbaa !16
   %52 = icmp sgt i32 %.val25.i, 0
-  br i1 %52, label %.lr.ph28.i, label %Sim_UtilCountPairsOne.exit71
+  br i1 %52, label %.lr.ph28.i, label %Sim_UtilCountPairsOne.exit67
 
 .lr.ph28.i:                                       ; preds = %42
   %53 = getelementptr i8, ptr %50, i64 8
   br label %55
 
-.critedge2.loopexit.loopexit.i:                   ; preds = %.lr.ph.i
+.critedge2.loopexit.i:                            ; preds = %.lr.ph.i
   %.pre.i = sext i32 %.val19.i to i64
-  br label %.critedge2.loopexit.i
-
-.critedge2.loopexit.i:                            ; preds = %55, %.critedge2.loopexit.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %.critedge2.loopexit.loopexit.i ], [ %58, %55 ]
-  %.val.i = phi i32 [ %.val19.i, %.critedge2.loopexit.loopexit.i ], [ %.val37.i, %55 ]
-  %.1.lcssa.i = phi i32 [ %63, %.critedge2.loopexit.loopexit.i ], [ %.027.i, %55 ]
-  %54 = icmp slt i64 %indvars.iv.next34.i, %.pre-phi.i
+  %54 = icmp slt i64 %indvars.iv.next34.i, %.pre.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %54, label %55, label %Sim_UtilCountPairsOne.exit, !llvm.loop !86
 
 55:                                               ; preds = %.critedge2.loopexit.i, %.lr.ph28.i
-  %.val37.i = phi i32 [ %.val25.i, %.lr.ph28.i ], [ %.val.i, %.critedge2.loopexit.i ]
+  %.val37.i = phi i32 [ %.val25.i, %.lr.ph28.i ], [ %.val19.i, %.critedge2.loopexit.i ]
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph28.i ], [ %indvars.iv.next34.i, %.critedge2.loopexit.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph28.i ], [ %indvars.iv.next.i, %.critedge2.loopexit.i ]
-  %.027.i = phi i32 [ 0, %.lr.ph28.i ], [ %.1.lcssa.i, %.critedge2.loopexit.i ]
+  %.027.i = phi i32 [ 0, %.lr.ph28.i ], [ %63, %.critedge2.loopexit.i ]
   %.val20.i = load ptr, ptr %53, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i32, ptr %.val20.i, i64 %indvars.iv33.i
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %58 = sext i32 %.val37.i to i64
   %59 = icmp slt i64 %indvars.iv.next34.i, %58
-  br i1 %59, label %.lr.ph.i, label %.critedge2.loopexit.i
+  br i1 %59, label %.lr.ph.i, label %Sim_UtilCountPairsOne.exit
 
 .lr.ph.i:                                         ; preds = %55, %.lr.ph.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.i ], [ %indvars.iv.i, %55 ]
@@ -1755,95 +1733,90 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.val19.i = load i32, ptr %51, align 4, !tbaa !16
   %64 = trunc nuw i64 %indvars.iv.next31.i to i32
   %65 = icmp sgt i32 %.val19.i, %64
-  br i1 %65, label %.lr.ph.i, label %.critedge2.loopexit.loopexit.i, !llvm.loop !87
+  br i1 %65, label %.lr.ph.i, label %.critedge2.loopexit.i, !llvm.loop !87
 
-Sim_UtilCountPairsOne.exit:                       ; preds = %.critedge2.loopexit.i
-  %.pre84 = load ptr, ptr %19, align 8, !tbaa !96
-  %.phi.trans.insert = getelementptr i8, ptr %.pre84, i64 8
+Sim_UtilCountPairsOne.exit:                       ; preds = %.critedge2.loopexit.i, %55
+  %.0.lcssa.i.ph = phi i32 [ %.027.i, %55 ], [ %63, %.critedge2.loopexit.i ]
+  %.pre80 = load ptr, ptr %19, align 8, !tbaa !96
+  %.phi.trans.insert = getelementptr i8, ptr %.pre80, i64 8
   %.val47.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !97
-  %.phi.trans.insert86 = getelementptr inbounds nuw ptr, ptr %.val47.pre, i64 %indvars.iv
-  %.pre87 = load ptr, ptr %.phi.trans.insert86, align 8, !tbaa !10
-  %.phi.trans.insert88 = getelementptr i8, ptr %.pre87, i64 4
-  %.val25.i49.pre = load i32, ptr %.phi.trans.insert88, align 4, !tbaa !16
+  %.phi.trans.insert82 = getelementptr inbounds nuw ptr, ptr %.val47.pre, i64 %indvars.iv
+  %.pre83 = load ptr, ptr %.phi.trans.insert82, align 8, !tbaa !10
+  %.phi.trans.insert84 = getelementptr i8, ptr %.pre83, i64 4
+  %.val25.i49.pre = load i32, ptr %.phi.trans.insert84, align 4, !tbaa !16
   %66 = load ptr, ptr %20, align 8, !tbaa !106
   %67 = getelementptr i8, ptr %66, i64 8
   %.val = load ptr, ptr %67, align 8, !tbaa !9
   %68 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !10
-  %70 = getelementptr i8, ptr %.pre87, i64 4
+  %70 = getelementptr i8, ptr %.pre83, i64 4
   %71 = icmp sgt i32 %.val25.i49.pre, 0
-  br i1 %71, label %.lr.ph28.i51, label %Sim_UtilCountPairsOne.exit71
+  br i1 %71, label %.lr.ph28.i51, label %Sim_UtilCountPairsOne.exit67
 
 .lr.ph28.i51:                                     ; preds = %Sim_UtilCountPairsOne.exit
-  %72 = getelementptr i8, ptr %.pre87, i64 8
+  %72 = getelementptr i8, ptr %.pre83, i64 8
   br label %74
 
-.critedge2.loopexit.loopexit.i69:                 ; preds = %.lr.ph.i63
-  %.pre.i70 = sext i32 %.val19.i68 to i64
-  br label %.critedge2.loopexit.i58
+.critedge2.loopexit.i64:                          ; preds = %.lr.ph.i58
+  %.pre.i65 = sext i32 %.val19.i63 to i64
+  %73 = icmp slt i64 %indvars.iv.next34.i57, %.pre.i65
+  %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i54, 1
+  br i1 %73, label %74, label %Sim_UtilCountPairsOne.exit67, !llvm.loop !86
 
-.critedge2.loopexit.i58:                          ; preds = %74, %.critedge2.loopexit.loopexit.i69
-  %.pre-phi.i59 = phi i64 [ %.pre.i70, %.critedge2.loopexit.loopexit.i69 ], [ %77, %74 ]
-  %.val.i60 = phi i32 [ %.val19.i68, %.critedge2.loopexit.loopexit.i69 ], [ %.val37.i52, %74 ]
-  %.1.lcssa.i61 = phi i32 [ %82, %.critedge2.loopexit.loopexit.i69 ], [ %.027.i55, %74 ]
-  %73 = icmp slt i64 %indvars.iv.next34.i57, %.pre-phi.i59
-  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i54, 1
-  br i1 %73, label %74, label %Sim_UtilCountPairsOne.exit71, !llvm.loop !86
-
-74:                                               ; preds = %.critedge2.loopexit.i58, %.lr.ph28.i51
-  %.val37.i52 = phi i32 [ %.val25.i49.pre, %.lr.ph28.i51 ], [ %.val.i60, %.critedge2.loopexit.i58 ]
-  %indvars.iv33.i53 = phi i64 [ 0, %.lr.ph28.i51 ], [ %indvars.iv.next34.i57, %.critedge2.loopexit.i58 ]
-  %indvars.iv.i54 = phi i64 [ 1, %.lr.ph28.i51 ], [ %indvars.iv.next.i62, %.critedge2.loopexit.i58 ]
-  %.027.i55 = phi i32 [ 0, %.lr.ph28.i51 ], [ %.1.lcssa.i61, %.critedge2.loopexit.i58 ]
+74:                                               ; preds = %.critedge2.loopexit.i64, %.lr.ph28.i51
+  %.val37.i52 = phi i32 [ %.val25.i49.pre, %.lr.ph28.i51 ], [ %.val19.i63, %.critedge2.loopexit.i64 ]
+  %indvars.iv33.i53 = phi i64 [ 0, %.lr.ph28.i51 ], [ %indvars.iv.next34.i57, %.critedge2.loopexit.i64 ]
+  %indvars.iv.i54 = phi i64 [ 1, %.lr.ph28.i51 ], [ %indvars.iv.next.i66, %.critedge2.loopexit.i64 ]
+  %.027.i55 = phi i32 [ 0, %.lr.ph28.i51 ], [ %82, %.critedge2.loopexit.i64 ]
   %.val20.i56 = load ptr, ptr %72, align 8, !tbaa !20
   %75 = getelementptr inbounds nuw i32, ptr %.val20.i56, i64 %indvars.iv33.i53
   %76 = load i32, ptr %75, align 4, !tbaa !14
   %indvars.iv.next34.i57 = add nuw nsw i64 %indvars.iv33.i53, 1
   %77 = sext i32 %.val37.i52 to i64
   %78 = icmp slt i64 %indvars.iv.next34.i57, %77
-  br i1 %78, label %.lr.ph.i63, label %.critedge2.loopexit.i58
+  br i1 %78, label %.lr.ph.i58, label %Sim_UtilCountPairsOne.exit67
 
-.lr.ph.i63:                                       ; preds = %74, %.lr.ph.i63
-  %indvars.iv30.i64 = phi i64 [ %indvars.iv.next31.i67, %.lr.ph.i63 ], [ %indvars.iv.i54, %74 ]
-  %.124.i65 = phi i32 [ %82, %.lr.ph.i63 ], [ %.027.i55, %74 ]
-  %.val21.i66 = load ptr, ptr %72, align 8, !tbaa !20
-  %79 = getelementptr inbounds nuw i32, ptr %.val21.i66, i64 %indvars.iv30.i64
+.lr.ph.i58:                                       ; preds = %74, %.lr.ph.i58
+  %indvars.iv30.i59 = phi i64 [ %indvars.iv.next31.i62, %.lr.ph.i58 ], [ %indvars.iv.i54, %74 ]
+  %.124.i60 = phi i32 [ %82, %.lr.ph.i58 ], [ %.027.i55, %74 ]
+  %.val21.i61 = load ptr, ptr %72, align 8, !tbaa !20
+  %79 = getelementptr inbounds nuw i32, ptr %.val21.i61, i64 %indvars.iv30.i59
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = call i32 @Extra_BitMatrixLookup1(ptr noundef %69, i32 noundef %76, i32 noundef %80) #18
-  %82 = add nsw i32 %81, %.124.i65
-  %indvars.iv.next31.i67 = add nuw nsw i64 %indvars.iv30.i64, 1
-  %.val19.i68 = load i32, ptr %70, align 4, !tbaa !16
-  %83 = trunc nuw i64 %indvars.iv.next31.i67 to i32
-  %84 = icmp sgt i32 %.val19.i68, %83
-  br i1 %84, label %.lr.ph.i63, label %.critedge2.loopexit.loopexit.i69, !llvm.loop !87
+  %82 = add nsw i32 %81, %.124.i60
+  %indvars.iv.next31.i62 = add nuw nsw i64 %indvars.iv30.i59, 1
+  %.val19.i63 = load i32, ptr %70, align 4, !tbaa !16
+  %83 = trunc nuw i64 %indvars.iv.next31.i62 to i32
+  %84 = icmp sgt i32 %.val19.i63, %83
+  br i1 %84, label %.lr.ph.i58, label %.critedge2.loopexit.i64, !llvm.loop !87
 
-Sim_UtilCountPairsOne.exit71:                     ; preds = %.critedge2.loopexit.i58, %42, %Sim_UtilCountPairsOne.exit
-  %.0.lcssa.i94 = phi i32 [ %.1.lcssa.i, %Sim_UtilCountPairsOne.exit ], [ 0, %42 ], [ %.1.lcssa.i, %.critedge2.loopexit.i58 ]
-  %.0.lcssa.i50 = phi i32 [ 0, %Sim_UtilCountPairsOne.exit ], [ 0, %42 ], [ %.1.lcssa.i61, %.critedge2.loopexit.i58 ]
+Sim_UtilCountPairsOne.exit67:                     ; preds = %.critedge2.loopexit.i64, %74, %42, %Sim_UtilCountPairsOne.exit
+  %.0.lcssa.i90 = phi i32 [ %.0.lcssa.i.ph, %Sim_UtilCountPairsOne.exit ], [ 0, %42 ], [ %.0.lcssa.i.ph, %74 ], [ %.0.lcssa.i.ph, %.critedge2.loopexit.i64 ]
+  %.0.lcssa.i50 = phi i32 [ 0, %Sim_UtilCountPairsOne.exit ], [ 0, %42 ], [ %82, %.critedge2.loopexit.i64 ], [ %.027.i55, %74 ]
   %85 = load ptr, ptr %16, align 8, !tbaa !103
   %86 = getelementptr i8, ptr %85, i64 8
   %.val43 = load ptr, ptr %86, align 8, !tbaa !20
   %87 = getelementptr inbounds nuw i32, ptr %.val43, i64 %indvars.iv
-  store i32 %.0.lcssa.i94, ptr %87, align 4, !tbaa !14
+  store i32 %.0.lcssa.i90, ptr %87, align 4, !tbaa !14
   %88 = load ptr, ptr %17, align 8, !tbaa !104
   %89 = getelementptr i8, ptr %88, i64 8
   %.val42 = load ptr, ptr %89, align 8, !tbaa !20
   %90 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv
   store i32 %.0.lcssa.i50, ptr %90, align 4, !tbaa !14
   %91 = load i32, ptr %10, align 8, !tbaa !101
-  %92 = add nsw i32 %91, %.0.lcssa.i94
+  %92 = add nsw i32 %91, %.0.lcssa.i90
   store i32 %92, ptr %10, align 8, !tbaa !101
   %93 = load i32, ptr %11, align 8, !tbaa !102
   %94 = add nsw i32 %93, %.0.lcssa.i50
-  %.pre90 = load i32, ptr %12, align 4, !tbaa !93
+  %.pre86 = load i32, ptr %12, align 4, !tbaa !93
   br label %95
 
-95:                                               ; preds = %Sim_UtilCountPairsOne.exit71, %39
-  %96 = phi i32 [ %.pre90, %Sim_UtilCountPairsOne.exit71 ], [ %22, %39 ]
-  %97 = phi i32 [ %92, %Sim_UtilCountPairsOne.exit71 ], [ %40, %39 ]
-  %98 = phi ptr [ %88, %Sim_UtilCountPairsOne.exit71 ], [ %25, %39 ]
-  %99 = phi ptr [ %85, %Sim_UtilCountPairsOne.exit71 ], [ %26, %39 ]
-  %storemerge = phi i32 [ %94, %Sim_UtilCountPairsOne.exit71 ], [ %41, %39 ]
+95:                                               ; preds = %Sim_UtilCountPairsOne.exit67, %39
+  %96 = phi i32 [ %.pre86, %Sim_UtilCountPairsOne.exit67 ], [ %22, %39 ]
+  %97 = phi i32 [ %92, %Sim_UtilCountPairsOne.exit67 ], [ %40, %39 ]
+  %98 = phi ptr [ %88, %Sim_UtilCountPairsOne.exit67 ], [ %25, %39 ]
+  %99 = phi ptr [ %85, %Sim_UtilCountPairsOne.exit67 ], [ %26, %39 ]
+  %storemerge = phi i32 [ %94, %Sim_UtilCountPairsOne.exit67 ], [ %41, %39 ]
   store i32 %storemerge, ptr %11, align 8, !tbaa !102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = sext i32 %96 to i64
@@ -1864,7 +1837,7 @@ Sim_UtilCountPairsOne.exit71:                     ; preds = %.critedge2.loopexit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   %108 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #18
   %109 = icmp slt i32 %108, 0
-  br i1 %109, label %Abc_Clock.exit73, label %110
+  br i1 %109, label %Abc_Clock.exit69, label %110
 
 110:                                              ; preds = %._crit_edge
   %111 = load i64, ptr %2, align 8, !tbaa !90
@@ -1873,12 +1846,12 @@ Sim_UtilCountPairsOne.exit71:                     ; preds = %.critedge2.loopexit
   %114 = load i64, ptr %113, align 8, !tbaa !92
   %115 = sdiv i64 %114, 1000
   %116 = add nsw i64 %115, %112
-  br label %Abc_Clock.exit73
+  br label %Abc_Clock.exit69
 
-Abc_Clock.exit73:                                 ; preds = %._crit_edge, %110
-  %.0.i72 = phi i64 [ %116, %110 ], [ -1, %._crit_edge ]
+Abc_Clock.exit69:                                 ; preds = %._crit_edge, %110
+  %.0.i68 = phi i64 [ %116, %110 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
-  %117 = add i64 %.0.i72, %.0.i.neg
+  %117 = add i64 %.0.i68, %.0.i.neg
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %119 = load i64, ptr %118, align 8, !tbaa !100
   %120 = add nsw i64 %117, %119

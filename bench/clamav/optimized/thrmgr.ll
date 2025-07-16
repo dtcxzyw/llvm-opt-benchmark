@@ -184,7 +184,7 @@ switch.lookup:                                    ; preds = %13
 
 .preheader:                                       ; preds = %.lr.ph231
   %.not253 = icmp eq i64 %.2124224, 0
-  br i1 %.not253, label %._crit_edge218, label %.lr.ph217
+  br i1 %.not253, label %._crit_edge218.thread, label %.lr.ph217
 
 .lr.ph217:                                        ; preds = %.preheader, %69
   %.084216 = phi i64 [ %70, %69 ], [ 0, %.preheader ]
@@ -198,12 +198,11 @@ switch.lookup:                                    ; preds = %13
   %exitcond.not = icmp eq i64 %70, %.2124224
   br i1 %exitcond.not, label %._crit_edge218.thread, label %.lr.ph217
 
-._crit_edge218:                                   ; preds = %.lr.ph217, %.preheader
-  %.084.lcssa = phi i64 [ 0, %.preheader ], [ %.084216, %.lr.ph217 ]
-  %71 = icmp eq i64 %.084.lcssa, %.2124224
+._crit_edge218:                                   ; preds = %.lr.ph217
+  %71 = icmp eq i64 %.084216, %.2124224
   br i1 %71, label %._crit_edge218.thread, label %.thread
 
-._crit_edge218.thread:                            ; preds = %69, %._crit_edge218
+._crit_edge218.thread:                            ; preds = %69, %.preheader, %._crit_edge218
   %72 = add i64 %.2124224, 1
   %73 = shl i64 %72, 3
   %74 = call ptr @realloc(ptr noundef %.295227, i64 noundef %73) #14
@@ -273,10 +272,10 @@ switch.lookup:                                    ; preds = %13
   br label %97
 
 ._crit_edge246.thread:                            ; preds = %._crit_edge, %._crit_edge246
-  %.090.lcssa267 = phi i32 [ %.191, %._crit_edge246 ], [ 0, %._crit_edge ]
-  %.0102.lcssa266 = phi double [ %91, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge ]
-  %.0112.lcssa265 = phi double [ %93, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge ]
-  %96 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.090.lcssa267, double noundef %.0102.lcssa266, double noundef %.0112.lcssa265) #13
+  %.090.lcssa269 = phi i32 [ %.191, %._crit_edge246 ], [ 0, %._crit_edge ]
+  %.0102.lcssa268 = phi double [ %91, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge ]
+  %.0112.lcssa267 = phi double [ %93, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge ]
+  %96 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.090.lcssa269, double noundef %.0102.lcssa268, double noundef %.0112.lcssa267) #13
   br label %97
 
 97:                                               ; preds = %._crit_edge246.thread, %94

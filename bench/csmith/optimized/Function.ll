@@ -8858,48 +8858,48 @@ _ZN8Function14deleteFunctionEPS_.exit:            ; preds = %.lr.ph.i, %5
 _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt25pointer_to_unary_functionIS3_iEET0_T_SC_SB_.exit: ; preds = %_ZN8Function14deleteFunctionEPS_.exit
   %.pre = load ptr, ptr @_ZL8FuncList, align 8, !tbaa !11
   %.pre12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL8FuncList, i64 8), align 8, !tbaa !39
-  %.not.i.i = icmp eq ptr %.pre12, %.pre
-  br i1 %.not.i.i, label %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, label %7
+  %7 = icmp eq ptr %.pre12, %.pre
+  br i1 %7, label %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, label %8
 
-7:                                                ; preds = %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt25pointer_to_unary_functionIS3_iEET0_T_SC_SB_.exit
+8:                                                ; preds = %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt25pointer_to_unary_functionIS3_iEET0_T_SC_SB_.exit
   store ptr %.pre, ptr getelementptr inbounds nuw (i8, ptr @_ZL8FuncList, i64 8), align 8, !tbaa !39
   br label %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit:     ; preds = %0, %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt25pointer_to_unary_functionIS3_iEET0_T_SC_SB_.exit, %7
-  %8 = load ptr, ptr @_ZL6FMList, align 8, !tbaa !256
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL6FMList, i64 8), align 8, !tbaa !256
-  %.not9 = icmp eq ptr %8, %9
+_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit:     ; preds = %0, %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPP8FunctionSt6vectorIS3_SaIS3_EEEESt25pointer_to_unary_functionIS3_iEET0_T_SC_SB_.exit, %8
+  %9 = load ptr, ptr @_ZL6FMList, align 8, !tbaa !256
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL6FMList, i64 8), align 8, !tbaa !256
+  %.not9 = icmp eq ptr %9, %10
   br i1 %.not9, label %_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, %14
-  %10 = phi ptr [ %15, %14 ], [ %9, %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit ]
-  %.sroa.06.010 = phi ptr [ %16, %14 ], [ %8, %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit ]
-  %11 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !42
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13
+.lr.ph:                                           ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, %15
+  %11 = phi ptr [ %16, %15 ], [ %10, %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit ]
+  %.sroa.06.010 = phi ptr [ %17, %15 ], [ %9, %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit ]
+  %12 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !42
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %.lr.ph
-  tail call void @_ZN7FactMgrD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %11) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 392) #25
+14:                                               ; preds = %.lr.ph
+  tail call void @_ZN7FactMgrD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %12) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 392) #25
   %.pre13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL6FMList, i64 8), align 8, !tbaa !256
-  br label %14
+  br label %15
 
-14:                                               ; preds = %.lr.ph, %13
-  %15 = phi ptr [ %10, %.lr.ph ], [ %.pre13, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
-  %.not = icmp eq ptr %16, %15
+15:                                               ; preds = %.lr.ph, %14
+  %16 = phi ptr [ %11, %.lr.ph ], [ %.pre13, %14 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
+  %.not = icmp eq ptr %17, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !257
 
-._crit_edge:                                      ; preds = %14
+._crit_edge:                                      ; preds = %15
   %.pre14 = load ptr, ptr @_ZL6FMList, align 8, !tbaa !15
-  %.not.i.i5 = icmp eq ptr %15, %.pre14
-  br i1 %.not.i.i5, label %_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit, label %17
+  %18 = icmp eq ptr %16, %.pre14
+  br i1 %18, label %_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit, label %19
 
-17:                                               ; preds = %._crit_edge
+19:                                               ; preds = %._crit_edge
   store ptr %.pre14, ptr getelementptr inbounds nuw (i8, ptr @_ZL6FMList, i64 8), align 8, !tbaa !134
   br label %_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, %._crit_edge, %17
+_ZNSt6vectorIP7FactMgrSaIS1_EE5clearEv.exit:      ; preds = %_ZNSt6vectorIP8FunctionSaIS1_EE5clearEv.exit, %._crit_edge, %19
   tail call void @_ZN7FactMgr14doFinalizationEv()
   ret void
 }

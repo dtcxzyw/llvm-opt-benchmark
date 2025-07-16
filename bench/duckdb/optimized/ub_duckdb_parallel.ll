@@ -20954,7 +20954,7 @@ define noundef range(i32 0, 3) i32 @_ZN6duckdb16PipelineExecutor7ExecuteEm(ptr n
   %41 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr nonnull %38) #35
-  br label %126
+  br label %125
 
 42:                                               ; preds = %.lr.ph, %_ZN6duckdb15ExecutionBudget4NextEv.exit
   %43 = load i8, ptr %26, align 8, !tbaa !772, !range !156, !noundef !157
@@ -20978,205 +20978,204 @@ define noundef range(i32 0, 3) i32 @_ZN6duckdb16PipelineExecutor7ExecuteEm(ptr n
   br i1 %54, label %.thread71.loopexit, label %.thread
 
 55:                                               ; preds = %42
-  br i1 %48, label %56, label %..thread_crit_edge
+  br i1 %48, label %57, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %55
   %.pre = load ptr, ptr %30, align 8, !tbaa !773
   %.pre112 = load ptr, ptr %31, align 8, !tbaa !773
+  %56 = icmp eq ptr %.pre, %.pre112
   br label %.thread
 
-56:                                               ; preds = %55
-  %57 = call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor19ExecutePushInternalERNS_9DataChunkERNS_15ExecutionBudgetEm(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0)
+57:                                               ; preds = %55
+  %58 = call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor19ExecutePushInternalERNS_9DataChunkERNS_15ExecutionBudgetEm(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0)
   store i8 0, ptr %28, align 1, !tbaa !693
-  br label %108
+  br label %107
 
 .thread:                                          ; preds = %..thread_crit_edge, %51
-  %58 = phi ptr [ %.pre112, %..thread_crit_edge ], [ %53, %51 ]
-  %59 = phi ptr [ %.pre, %..thread_crit_edge ], [ %52, %51 ]
-  %60 = icmp eq ptr %59, %58
-  %61 = load i8, ptr %32, align 1, !range !156
-  %62 = trunc nuw i8 %61 to i1
-  %or.cond49 = select i1 %60, i1 true, i1 %62
-  br i1 %or.cond49, label %65, label %63
+  %59 = phi i1 [ %56, %..thread_crit_edge ], [ false, %51 ]
+  %60 = load i8, ptr %32, align 1, !range !156
+  %61 = trunc nuw i8 %60 to i1
+  %or.cond49 = select i1 %59, i1 true, i1 %61
+  br i1 %or.cond49, label %64, label %62
 
-63:                                               ; preds = %.thread
-  %64 = call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor19ExecutePushInternalERNS_9DataChunkERNS_15ExecutionBudgetEm(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0)
-  br label %108
+62:                                               ; preds = %.thread
+  %63 = call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor19ExecutePushInternalERNS_9DataChunkERNS_15ExecutionBudgetEm(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0)
+  br label %107
 
-65:                                               ; preds = %.thread
+64:                                               ; preds = %.thread
   %.not50 = xor i1 %44, true
   %or.cond53 = select i1 %.not50, i1 true, i1 %50
-  br i1 %or.cond53, label %73, label %66
+  br i1 %or.cond53, label %72, label %65
+
+65:                                               ; preds = %64
+  br i1 %46, label %93, label %66
 
 66:                                               ; preds = %65
-  br i1 %46, label %94, label %67
+  %67 = call noundef zeroext i1 @_ZN6duckdb16PipelineExecutor24TryFlushCachingOperatorsERNS_15ExecutionBudgetE(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %66
-  %68 = call noundef zeroext i1 @_ZN6duckdb16PipelineExecutor24TryFlushCachingOperatorsERNS_15ExecutionBudgetE(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %68, label %69, label %70
-
-69:                                               ; preds = %67
+68:                                               ; preds = %66
   store i8 1, ptr %27, align 2, !tbaa !774
   br label %.thread71
 
-70:                                               ; preds = %67
-  %71 = load i8, ptr %28, align 1, !tbaa !693, !range !156, !noundef !157
-  %72 = trunc nuw i8 %71 to i1
-  %. = select i1 %72, i32 2, i32 1
+69:                                               ; preds = %66
+  %70 = load i8, ptr %28, align 1, !tbaa !693, !range !156, !noundef !157
+  %71 = trunc nuw i8 %70 to i1
+  %. = select i1 %71, i32 2, i32 1
   br label %.thread76
 
-73:                                               ; preds = %65
-  br i1 %50, label %77, label %74
+72:                                               ; preds = %64
+  br i1 %50, label %76, label %73
 
-74:                                               ; preds = %73
+73:                                               ; preds = %72
   tail call void @_ZN6duckdb9DataChunk5ResetEv(ptr noundef nonnull align 8 dereferenceable(64) %19)
-  %75 = tail call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor15FetchFromSourceERNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %19)
-  switch i8 %75, label %77 [
+  %74 = tail call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor15FetchFromSourceERNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %19)
+  switch i8 %74, label %76 [
     i8 2, label %.thread76
-    i8 1, label %76
+    i8 1, label %75
   ]
 
-76:                                               ; preds = %74
+75:                                               ; preds = %73
   store i8 1, ptr %26, align 8, !tbaa !772
-  br label %77
+  br label %76
 
-77:                                               ; preds = %74, %76, %73
-  %78 = load ptr, ptr %34, align 8, !tbaa !775
-  %79 = load ptr, ptr %35, align 8, !tbaa !775
-  %80 = icmp ne ptr %78, %79
-  %81 = load i8, ptr %33, align 8, !range !156
-  %82 = trunc nuw i8 %81 to i1
-  %83 = select i1 %80, i1 true, i1 %82
-  br i1 %83, label %84, label %86
+76:                                               ; preds = %73, %75, %72
+  %77 = load ptr, ptr %34, align 8, !tbaa !775
+  %78 = load ptr, ptr %35, align 8, !tbaa !775
+  %79 = icmp ne ptr %77, %78
+  %80 = load i8, ptr %33, align 8, !range !156
+  %81 = trunc nuw i8 %80 to i1
+  %82 = select i1 %79, i1 true, i1 %81
+  br i1 %82, label %83, label %85
 
-84:                                               ; preds = %77
-  %85 = tail call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor9NextBatchERNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %19)
-  %.not = icmp eq i8 %85, 0
-  store i8 %85, ptr %29, align 4, !tbaa !776
-  br i1 %.not, label %86, label %.thread76
+83:                                               ; preds = %76
+  %84 = tail call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor9NextBatchERNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %19)
+  %.not = icmp eq i8 %84, 0
+  store i8 %84, ptr %29, align 4, !tbaa !776
+  br i1 %.not, label %85, label %.thread76
 
-86:                                               ; preds = %84, %77
-  %87 = load i8, ptr %26, align 8, !tbaa !772, !range !156, !noundef !157
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %92
+85:                                               ; preds = %83, %76
+  %86 = load i8, ptr %26, align 8, !tbaa !772, !range !156, !noundef !157
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %88, label %91
 
-89:                                               ; preds = %86
-  %90 = load i64, ptr %36, align 8, !tbaa !777
-  %91 = icmp eq i64 %90, 0
-  br i1 %91, label %.thread80, label %92
+88:                                               ; preds = %85
+  %89 = load i64, ptr %36, align 8, !tbaa !777
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %.thread80, label %91
 
-92:                                               ; preds = %86, %89
-  %93 = call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor19ExecutePushInternalERNS_9DataChunkERNS_15ExecutionBudgetEm(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0)
-  br label %108
+91:                                               ; preds = %85, %88
+  %92 = call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor19ExecutePushInternalERNS_9DataChunkERNS_15ExecutionBudgetEm(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0)
+  br label %107
 
-94:                                               ; preds = %66
-  %95 = tail call ptr @__cxa_allocate_exception(i64 16) #35
+93:                                               ; preds = %65
+  %94 = tail call ptr @__cxa_allocate_exception(i64 16) #35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #35
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %96 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+          to label %95 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
-96:                                               ; preds = %94
-  invoke void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %97 unwind label %99
+95:                                               ; preds = %93
+  invoke void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %96 unwind label %98
 
-97:                                               ; preds = %96
-  invoke void @__cxa_throw(ptr nonnull %95, ptr nonnull @_ZTIN6duckdb17InternalExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #36
-          to label %127 unwind label %99
+96:                                               ; preds = %95
+  invoke void @__cxa_throw(ptr nonnull %94, ptr nonnull @_ZTIN6duckdb17InternalExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #36
+          to label %126 unwind label %98
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %94
-  %98 = landingpad { ptr, i32 }
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %93
+  %97 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #35
-  br label %107
+  br label %106
 
-99:                                               ; preds = %97, %96
-  %.0 = phi i1 [ false, %97 ], [ true, %96 ]
-  %100 = landingpad { ptr, i32 }
+98:                                               ; preds = %96, %95
+  %.0 = phi i1 [ false, %96 ], [ true, %95 ]
+  %99 = landingpad { ptr, i32 }
           cleanup
-  %101 = load ptr, ptr %4, align 8, !tbaa !61
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %103 = icmp eq ptr %101, %102
-  br i1 %103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %100 = load ptr, ptr %4, align 8, !tbaa !61
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %102 = icmp eq ptr %100, %101
+  br i1 %102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %99
-  %104 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !65
-  %106 = icmp ult i64 %105, 16
-  call void @llvm.assume(i1 %106)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %104 = load i64, ptr %103, align 8, !tbaa !65
+  %105 = icmp ult i64 %104, 16
+  call void @llvm.assume(i1 %105)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #35
-  br i1 %.0, label %107, label %126
+  br i1 %.0, label %106, label %125
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %99
-  call void @_ZdlPv(ptr noundef %101) #37
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %98
+  call void @_ZdlPv(ptr noundef %100) #37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #35
-  br i1 %.0, label %107, label %126
+  br i1 %.0, label %106, label %125
 
-107:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn69 = phi { ptr, i32 } [ %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %95) #35
-  br label %126
+106:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn69 = phi { ptr, i32 } [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  call void @__cxa_free_exception(ptr %94) #35
+  br label %125
 
-108:                                              ; preds = %92, %56, %63
-  %.334 = phi i8 [ %57, %56 ], [ %93, %92 ], [ %64, %63 ]
+107:                                              ; preds = %91, %57, %62
+  %.334 = phi i8 [ %58, %57 ], [ %92, %91 ], [ %63, %62 ]
   switch i8 %.334, label %.thread80 [
-    i8 3, label %109
+    i8 3, label %108
     i8 2, label %.thread71.loopexit
   ]
 
-109:                                              ; preds = %108
+108:                                              ; preds = %107
   store i8 1, ptr %28, align 1, !tbaa !693
   br label %.thread76
 
-.thread80:                                        ; preds = %108, %89
-  %110 = load i64, ptr %3, align 8, !tbaa !768
-  %111 = load i64, ptr %20, align 8, !tbaa !770
-  %.not.i = icmp ult i64 %110, %111
+.thread80:                                        ; preds = %107, %88
+  %109 = load i64, ptr %3, align 8, !tbaa !768
+  %110 = load i64, ptr %20, align 8, !tbaa !770
+  %.not.i = icmp ult i64 %109, %110
   br i1 %.not.i, label %_ZN6duckdb15ExecutionBudget4NextEv.exit, label %.thread71.loopexit
 
 _ZN6duckdb15ExecutionBudget4NextEv.exit:          ; preds = %.thread80
-  %112 = add nuw i64 %110, 1
-  store i64 %112, ptr %3, align 8, !tbaa !768
-  %113 = load ptr, ptr %21, align 8, !tbaa !771
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %115 = load atomic i8, ptr %114 seq_cst, align 1
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %._crit_edge, label %42
+  %111 = add nuw i64 %109, 1
+  store i64 %111, ptr %3, align 8, !tbaa !768
+  %112 = load ptr, ptr %21, align 8, !tbaa !771
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %114 = load atomic i8, ptr %113 seq_cst, align 1
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %._crit_edge, label %42
 
-.thread71.loopexit:                               ; preds = %51, %108, %.thread80
+.thread71.loopexit:                               ; preds = %51, %107, %.thread80
   %.pre113 = load i8, ptr %27, align 2, !range !156
-  %117 = trunc nuw i8 %.pre113 to i1
+  %116 = trunc nuw i8 %.pre113 to i1
   br label %.thread71
 
-.thread71:                                        ; preds = %.thread71.loopexit, %69
-  %118 = phi i1 [ %117, %.thread71.loopexit ], [ true, %69 ]
-  %119 = load i8, ptr %26, align 8, !tbaa !772, !range !156, !noundef !157
-  %120 = trunc nuw i8 %119 to i1
-  %or.cond60 = select i1 %120, i1 %118, i1 false
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp sgt i32 %122, -1
-  %or.cond92 = select i1 %or.cond60, i1 true, i1 %123
-  br i1 %or.cond92, label %124, label %.thread76
+.thread71:                                        ; preds = %.thread71.loopexit, %68
+  %117 = phi i1 [ %116, %.thread71.loopexit ], [ true, %68 ]
+  %118 = load i8, ptr %26, align 8, !tbaa !772, !range !156, !noundef !157
+  %119 = trunc nuw i8 %118 to i1
+  %or.cond60 = select i1 %119, i1 %117, i1 false
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 452
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp sgt i32 %121, -1
+  %or.cond92 = select i1 %or.cond60, i1 true, i1 %122
+  br i1 %or.cond92, label %123, label %.thread76
 
-124:                                              ; preds = %.thread71
-  %125 = tail call noundef i32 @_ZN6duckdb16PipelineExecutor12PushFinalizeEv(ptr noundef nonnull align 8 dereferenceable(505) %0)
+123:                                              ; preds = %.thread71
+  %124 = tail call noundef i32 @_ZN6duckdb16PipelineExecutor12PushFinalizeEv(ptr noundef nonnull align 8 dereferenceable(505) %0)
   br label %.thread76
 
-.thread76:                                        ; preds = %84, %74, %.thread71, %70, %109, %124
-  %.7 = phi i32 [ %125, %124 ], [ %., %70 ], [ 2, %109 ], [ 1, %.thread71 ], [ 2, %74 ], [ 2, %84 ]
+.thread76:                                        ; preds = %83, %73, %.thread71, %69, %108, %123
+  %.7 = phi i32 [ %124, %123 ], [ %., %69 ], [ 2, %108 ], [ 1, %.thread71 ], [ 2, %73 ], [ 2, %83 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
   ret i32 %.7
 
-126:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %107, %40
-  %.pn37 = phi { ptr, i32 } [ %41, %40 ], [ %.pn69, %107 ], [ %100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+125:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %106, %40
+  %.pn37 = phi { ptr, i32 } [ %41, %40 ], [ %.pn69, %106 ], [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
   resume { ptr, i32 } %.pn37
 
-127:                                              ; preds = %97
+126:                                              ; preds = %96
   unreachable
 }
 

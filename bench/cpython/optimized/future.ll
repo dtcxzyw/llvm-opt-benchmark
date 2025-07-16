@@ -48,19 +48,19 @@ define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr noundef readonly captur
   %.not.i = icmp ne ptr %14, null
   %spec.select.i = zext i1 %.not.i to i64
   %15 = icmp sgt i64 %11, %spec.select.i
-  br i1 %15, label %.lr.ph.i, label %future_parse.exit
+  br i1 %15, label %.lr.ph50.i, label %future_parse.exit
 
-.lr.ph.i:                                         ; preds = %13, %98
-  %.13148.i = phi i64 [ %107, %98 ], [ %spec.select.i, %13 ]
+.lr.ph50.i:                                       ; preds = %13, %.loopexit.i
+  %.13149.i = phi i64 [ %103, %.loopexit.i ], [ %spec.select.i, %13 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = getelementptr [1 x ptr], ptr %17, i64 0, i64 %.13148.i
+  %18 = getelementptr [1 x ptr], ptr %17, i64 0, i64 %.13149.i
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = load i32, ptr %19, align 8, !tbaa !19
   %21 = icmp eq i32 %20, 22
   br i1 %21, label %22, label %future_parse.exit
 
-22:                                               ; preds = %.lr.ph.i
+22:                                               ; preds = %.lr.ph50.i
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !12
   %25 = icmp eq i32 %24, 0
@@ -81,139 +81,134 @@ define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr noundef readonly captur
   %32 = getelementptr i8, ptr %19, i64 16
   %.val.i = load ptr, ptr %32, align 8, !tbaa !12
   %33 = icmp eq ptr %.val.i, null
+  br i1 %33, label %.loopexit.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  br label %35
+  %35 = load i64, ptr %.val.i, align 8, !tbaa !13
+  %36 = icmp sgt i64 %35, 0
+  br i1 %36, label %.lr.ph.i, label %.loopexit.i
 
-35:                                               ; preds = %90, %31
-  %.035.i.i = phi i64 [ 0, %31 ], [ %91, %90 ]
-  br i1 %33, label %38, label %36
+.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %85
+  %.0353.i48.i = phi i64 [ %86, %85 ], [ 0, %.lr.ph.i.i ]
+  %37 = getelementptr [1 x ptr], ptr %34, i64 0, i64 %.0353.i48.i
+  %38 = load ptr, ptr %37, align 8, !tbaa !21
+  %39 = load ptr, ptr %38, align 8, !tbaa !23
+  %40 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %39) #4
+  %.not.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i, label %future_parse.exit, label %41
 
-36:                                               ; preds = %35
-  %37 = load i64, ptr %.val.i, align 8, !tbaa !13
-  br label %38
+41:                                               ; preds = %.lr.ph.i
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(14) @.str.1) #5
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %85, label %44
 
-38:                                               ; preds = %36, %35
-  %39 = phi i64 [ %37, %36 ], [ 0, %35 ]
-  %40 = icmp slt i64 %.035.i.i, %39
-  br i1 %40, label %41, label %98
+44:                                               ; preds = %41
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(11) @.str.2) #5
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %85, label %47
 
-41:                                               ; preds = %38
-  %42 = getelementptr [1 x ptr], ptr %34, i64 0, i64 %.035.i.i
-  %43 = load ptr, ptr %42, align 8, !tbaa !21
-  %44 = load ptr, ptr %43, align 8, !tbaa !23
-  %45 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %44) #4
-  %.not.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i, label %future_parse.exit, label %46
+47:                                               ; preds = %44
+  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(9) @.str.3) #5
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %85, label %50
 
-46:                                               ; preds = %41
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(14) @.str.1) #5
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %90, label %49
+50:                                               ; preds = %47
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(16) @.str.4) #5
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %85, label %53
 
-49:                                               ; preds = %46
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(11) @.str.2) #5
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %90, label %52
+53:                                               ; preds = %50
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(15) @.str.5) #5
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %85, label %56
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(9) @.str.3) #5
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %90, label %55
+56:                                               ; preds = %53
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(15) @.str.6) #5
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %85, label %59
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(16) @.str.4) #5
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %90, label %58
+59:                                               ; preds = %56
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(17) @.str.7) #5
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %85, label %62
 
-58:                                               ; preds = %55
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(15) @.str.5) #5
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %90, label %61
+62:                                               ; preds = %59
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(15) @.str.8) #5
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %82, label %65
 
-61:                                               ; preds = %58
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(15) @.str.6) #5
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %90, label %64
+65:                                               ; preds = %62
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(15) @.str.9) #5
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %85, label %68
 
-64:                                               ; preds = %61
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(17) @.str.7) #5
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %90, label %67
+68:                                               ; preds = %65
+  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(12) @.str.10) #5
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %82, label %71
 
-67:                                               ; preds = %64
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(15) @.str.8) #5
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %87, label %70
+71:                                               ; preds = %68
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(7) @.str.11) #5
+  %73 = icmp eq i32 %72, 0
+  %74 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !26
+  %75 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %38, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %38, i64 28
+  br i1 %73, label %79, label %80
 
-70:                                               ; preds = %67
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(15) @.str.9) #5
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %90, label %73
+79:                                               ; preds = %71
+  tail call void @PyErr_SetString(ptr noundef %74, ptr noundef nonnull @.str.12) #4
+  br label %.critedge.sink.split.i.i
 
-73:                                               ; preds = %70
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(12) @.str.10) #5
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %87, label %76
+80:                                               ; preds = %71
+  %81 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %74, ptr noundef nonnull @.str.13, ptr noundef nonnull %40) #4
+  br label %.critedge.sink.split.i.i
 
-76:                                               ; preds = %73
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(7) @.str.11) #5
-  %78 = icmp eq i32 %77, 0
-  %79 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !26
-  %80 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %81 = getelementptr inbounds nuw i8, ptr %43, i64 20
-  %82 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %83 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  br i1 %78, label %84, label %85
+82:                                               ; preds = %68, %62
+  %.sink10.i.i = phi i32 [ 4194304, %62 ], [ 16777216, %68 ]
+  %83 = load i32, ptr %2, align 4, !tbaa !4
+  %84 = or i32 %83, %.sink10.i.i
+  store i32 %84, ptr %2, align 4, !tbaa !4
+  br label %85
 
-84:                                               ; preds = %76
-  tail call void @PyErr_SetString(ptr noundef %79, ptr noundef nonnull @.str.12) #4
-  br label %.loopexit.sink.split.i.i
+85:                                               ; preds = %82, %65, %59, %56, %53, %50, %47, %44, %41
+  %86 = add nuw nsw i64 %.0353.i48.i, 1
+  %87 = load i64, ptr %.val.i, align 8, !tbaa !13
+  %88 = icmp slt i64 %86, %87
+  br i1 %88, label %.lr.ph.i, label %.loopexit.i
 
-85:                                               ; preds = %76
-  %86 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %79, ptr noundef nonnull @.str.13, ptr noundef nonnull %45) #4
-  br label %.loopexit.sink.split.i.i
-
-87:                                               ; preds = %73, %67
-  %.sink5.i.i = phi i32 [ 4194304, %67 ], [ 16777216, %73 ]
-  %88 = load i32, ptr %2, align 4, !tbaa !4
-  %89 = or i32 %88, %.sink5.i.i
-  store i32 %89, ptr %2, align 4, !tbaa !4
-  br label %90
-
-90:                                               ; preds = %87, %70, %64, %61, %58, %55, %52, %49, %46
-  %91 = add nuw nsw i64 %.035.i.i, 1
-  br label %35, !llvm.loop !27
-
-.loopexit.sink.split.i.i:                         ; preds = %85, %84
-  %92 = load i32, ptr %80, align 8, !tbaa !29
-  %93 = load i32, ptr %81, align 4, !tbaa !30
+.critedge.sink.split.i.i:                         ; preds = %80, %79
+  %89 = load i32, ptr %75, align 8, !tbaa !27
+  %90 = load i32, ptr %76, align 4, !tbaa !28
+  %91 = add i32 %90, 1
+  %92 = load i32, ptr %77, align 8, !tbaa !29
+  %93 = load i32, ptr %78, align 4, !tbaa !30
   %94 = add i32 %93, 1
-  %95 = load i32, ptr %82, align 8, !tbaa !31
-  %96 = load i32, ptr %83, align 4, !tbaa !32
-  %97 = add i32 %96, 1
-  tail call void @PyErr_RangedSyntaxLocationObject(ptr noundef %1, i32 noundef %92, i32 noundef %94, i32 noundef %95, i32 noundef %97) #4
+  tail call void @PyErr_RangedSyntaxLocationObject(ptr noundef %1, i32 noundef %89, i32 noundef %91, i32 noundef %92, i32 noundef %94) #4
   br label %future_parse.exit
 
-98:                                               ; preds = %38
-  %99 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %100 = load i32, ptr %99, align 8, !tbaa !33
-  %101 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %102 = load i32, ptr %101, align 8, !tbaa !34
-  %103 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  %104 = load i32, ptr %103, align 4, !tbaa !35
-  %105 = getelementptr inbounds nuw i8, ptr %19, i64 76
-  %106 = load i32, ptr %105, align 4, !tbaa !36
-  store i32 %100, ptr %4, align 4, !tbaa !37
-  store i32 %102, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !37
-  store i32 %104, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !37
-  store i32 %106, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !37
-  %107 = add nuw i64 %.13148.i, 1
-  %exitcond.not.i = icmp eq i64 %107, %11
-  br i1 %exitcond.not.i, label %future_parse.exit, label %.lr.ph.i, !llvm.loop !38
+.loopexit.i:                                      ; preds = %85, %.lr.ph.i.i, %31
+  %95 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %96 = load i32, ptr %95, align 8, !tbaa !31
+  %97 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %98 = load i32, ptr %97, align 8, !tbaa !32
+  %99 = getelementptr inbounds nuw i8, ptr %19, i64 68
+  %100 = load i32, ptr %99, align 4, !tbaa !33
+  %101 = getelementptr inbounds nuw i8, ptr %19, i64 76
+  %102 = load i32, ptr %101, align 4, !tbaa !34
+  store i32 %96, ptr %4, align 4, !tbaa !35
+  store i32 %98, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !35
+  store i32 %100, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !35
+  store i32 %102, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !35
+  %103 = add nuw i64 %.13149.i, 1
+  %exitcond.not.i = icmp eq i64 %103, %11
+  br i1 %exitcond.not.i, label %future_parse.exit, label %.lr.ph50.i, !llvm.loop !36
 
-future_parse.exit:                                ; preds = %98, %29, %26, %22, %.lr.ph.i, %41, %13, %6, %10, %3, %.loopexit.sink.split.i.i
-  %108 = phi i32 [ 0, %.loopexit.sink.split.i.i ], [ 1, %3 ], [ 1, %10 ], [ 1, %6 ], [ 1, %13 ], [ 0, %41 ], [ 1, %.lr.ph.i ], [ 1, %22 ], [ 1, %26 ], [ 1, %29 ], [ 1, %98 ]
-  ret i32 %108
+future_parse.exit:                                ; preds = %.loopexit.i, %29, %26, %22, %.lr.ph50.i, %.lr.ph.i, %13, %6, %10, %3, %.critedge.sink.split.i.i
+  %104 = phi i32 [ 0, %.critedge.sink.split.i.i ], [ 1, %3 ], [ 1, %10 ], [ 1, %6 ], [ 1, %13 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph50.i ], [ 1, %22 ], [ 1, %26 ], [ 1, %29 ], [ 1, %.loopexit.i ]
+  ret i32 %104
 }
 
 declare ptr @_PyAST_GetDocString(ptr noundef) local_unnamed_addr #1
@@ -270,15 +265,14 @@ attributes #5 = { nounwind willreturn memory(read) }
 !24 = !{!"_alias", !25, i64 0, !25, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28}
 !25 = !{!"p1 _ZTS7_object", !16, i64 0}
 !26 = !{!25, !25, i64 0}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!24, !6, i64 16}
-!30 = !{!24, !6, i64 20}
-!31 = !{!24, !6, i64 24}
-!32 = !{!24, !6, i64 28}
-!33 = !{!20, !6, i64 64}
-!34 = !{!20, !6, i64 72}
-!35 = !{!20, !6, i64 68}
-!36 = !{!20, !6, i64 76}
-!37 = !{!6, !6, i64 0}
-!38 = distinct !{!38, !28}
+!27 = !{!24, !6, i64 16}
+!28 = !{!24, !6, i64 20}
+!29 = !{!24, !6, i64 24}
+!30 = !{!24, !6, i64 28}
+!31 = !{!20, !6, i64 64}
+!32 = !{!20, !6, i64 72}
+!33 = !{!20, !6, i64 68}
+!34 = !{!20, !6, i64 76}
+!35 = !{!6, !6, i64 0}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.mustprogress"}

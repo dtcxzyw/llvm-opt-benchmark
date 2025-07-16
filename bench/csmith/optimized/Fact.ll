@@ -658,14 +658,14 @@ define dso_local void @_ZN4Fact14doFinalizationEv() local_unnamed_addr #3 align 
 
 ._crit_edge:                                      ; preds = %10
   %.pre7 = load ptr, ptr @_ZN4Fact6facts_E, align 8, !tbaa !4
-  %.not.i.i = icmp eq ptr %11, %.pre7
-  br i1 %.not.i.i, label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit, label %13
+  %13 = icmp eq ptr %11, %.pre7
+  br i1 %13, label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit, label %14
 
-13:                                               ; preds = %._crit_edge
+14:                                               ; preds = %._crit_edge
   store ptr %.pre7, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Fact6facts_E, i64 8), align 8, !tbaa !120
   br label %_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit:         ; preds = %0, %._crit_edge, %13
+_ZNSt6vectorIP4FactSaIS1_EE5clearEv.exit:         ; preds = %0, %._crit_edge, %14
   ret void
 }
 

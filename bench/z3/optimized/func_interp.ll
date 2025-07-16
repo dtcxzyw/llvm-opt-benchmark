@@ -2113,9 +2113,9 @@ _Z9is_groundPK4expr.exit:                         ; preds = %13
 ._crit_edge:                                      ; preds = %66
   %.pre73 = load ptr, ptr %7, align 8, !tbaa !26
   %25 = icmp eq ptr %.pre73, null
-  br i1 %25, label %_ZNK6vectorIP10func_entryLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP10func_entryLb0EjE4sizeEv.exit.thread
+  br i1 %25, label %_ZNK6vectorIP10func_entryLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP10func_entryLb0EjE4sizeEv.exit
 
-_ZNK6vectorIP10func_entryLb0EjE4sizeEv.exit.thread: ; preds = %._crit_edge
+_ZNK6vectorIP10func_entryLb0EjE4sizeEv.exit:      ; preds = %._crit_edge
   %26 = getelementptr inbounds i8, ptr %.pre73, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !27
   %28 = icmp ult i32 %.1, %27
@@ -2215,7 +2215,7 @@ _ZN10func_entry10deallocateER11ast_managerj.exit: ; preds = %._crit_edge.i, %47,
   %.not = icmp eq ptr %67, %23
   br i1 %.not, label %._crit_edge, label %29
 
-68:                                               ; preds = %_ZNK6vectorIP10func_entryLb0EjE4sizeEv.exit.thread
+68:                                               ; preds = %_ZNK6vectorIP10func_entryLb0EjE4sizeEv.exit
   %69 = load ptr, ptr %0, align 8, !tbaa !28
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %71 = load ptr, ptr %70, align 8, !tbaa !32
@@ -2265,7 +2265,7 @@ _ZN6vectorIP10func_entryLb0EjE6shrinkEj.exit.thread59: ; preds = %_ZN11func_inte
   store i32 %.1, ptr %88, align 4, !tbaa !27
   br label %_ZNK6vectorIP10func_entryLb0EjE5emptyEv.exit28
 
-_ZN6vectorIP10func_entryLb0EjE6shrinkEj.exit._ZNK6vectorIP10func_entryLb0EjE5emptyEv.exit28_crit_edge: ; preds = %_ZNK6vectorIP10func_entryLb0EjE4sizeEv.exit.thread
+_ZN6vectorIP10func_entryLb0EjE6shrinkEj.exit._ZNK6vectorIP10func_entryLb0EjE5emptyEv.exit28_crit_edge: ; preds = %_ZNK6vectorIP10func_entryLb0EjE4sizeEv.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre73, i64 -4
   %.pre74 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !27
   br label %_ZNK6vectorIP10func_entryLb0EjE5emptyEv.exit28
@@ -2363,20 +2363,20 @@ _ZN6vectorIP10func_entryLb0EjE3endEv.exit36:      ; preds = %_ZNK11func_interp11
   %140 = shl nuw nsw i64 %139, 3
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 %140
   %.not2468 = icmp eq i32 %138, 0
-  br i1 %.not2468, label %._crit_edge71.thread81, label %.lr.ph70
+  br i1 %.not2468, label %._crit_edge71.thread80, label %.lr.ph70
 
 ._crit_edge71:                                    ; preds = %_ZN10func_entry10deallocateER11ast_managerj.exit56
   %.pre75 = load ptr, ptr %7, align 8, !tbaa !26
   %.not.i37 = icmp eq ptr %.pre75, null
-  br i1 %.not.i37, label %_ZN6vectorIP10func_entryLb0EjE5resetEv.exit, label %._crit_edge71.thread81
+  br i1 %.not.i37, label %_ZN6vectorIP10func_entryLb0EjE5resetEv.exit, label %._crit_edge71.thread80
 
-._crit_edge71.thread81:                           ; preds = %_ZN6vectorIP10func_entryLb0EjE3endEv.exit36, %._crit_edge71
+._crit_edge71.thread80:                           ; preds = %_ZN6vectorIP10func_entryLb0EjE3endEv.exit36, %._crit_edge71
   %142 = phi ptr [ %.pre75, %._crit_edge71 ], [ %135, %_ZN6vectorIP10func_entryLb0EjE3endEv.exit36 ]
   %143 = getelementptr inbounds i8, ptr %142, i64 -4
   store i32 0, ptr %143, align 4, !tbaa !27
   br label %_ZN6vectorIP10func_entryLb0EjE5resetEv.exit
 
-_ZN6vectorIP10func_entryLb0EjE5resetEv.exit:      ; preds = %_ZNK11func_interp11is_identityEv.exit.thread62, %._crit_edge71, %._crit_edge71.thread81
+_ZN6vectorIP10func_entryLb0EjE5resetEv.exit:      ; preds = %_ZNK11func_interp11is_identityEv.exit.thread62, %._crit_edge71, %._crit_edge71.thread80
   %144 = load ptr, ptr %0, align 8, !tbaa !28
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = load ptr, ptr %145, align 8, !tbaa !32

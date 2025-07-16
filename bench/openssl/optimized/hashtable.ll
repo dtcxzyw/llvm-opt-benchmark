@@ -140,9 +140,9 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef readonly c
     i8 0, label %20
     i8 1, label %50
     i8 2, label %69
-    i8 3, label %96
-    i8 4, label %118
-    i8 5, label %129
+    i8 3, label %97
+    i8 4, label %119
+    i8 5, label %130
   ]
 
 20:                                               ; preds = %12
@@ -289,136 +289,139 @@ ossl_ht_fz_FUZZER_VALUE_insert.exit50:            ; preds = %20
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr %80, align 8, !tbaa !17
-  br label %ossl_ht_fz_FUZZER_VALUE_get.exit
-
-ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %69, %79, %82, %85
-  %.055 = phi ptr [ null, %69 ], [ null, %79 ], [ %80, %85 ], [ %80, %82 ]
-  %.0.i = phi ptr [ null, %69 ], [ null, %79 ], [ %86, %85 ], [ null, %82 ]
+  %87 = icmp eq ptr %86, %spec.store.select
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  %87 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
-  call void @ossl_ht_read_unlock(ptr noundef %87) #8
-  %88 = icmp eq ptr %.0.i, %spec.store.select
-  br i1 %88, label %90, label %89
+  %88 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
+  call void @ossl_ht_read_unlock(ptr noundef %88) #8
+  br i1 %87, label %91, label %90
 
-89:                                               ; preds = %ossl_ht_fz_FUZZER_VALUE_get.exit
+ossl_ht_fz_FUZZER_VALUE_get.exit:                 ; preds = %69, %79, %82
+  %.055 = phi ptr [ null, %69 ], [ null, %79 ], [ %80, %82 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  %89 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
+  call void @ossl_ht_read_unlock(ptr noundef %89) #8
+  br i1 %.not40, label %91, label %90
+
+90:                                               ; preds = %85, %ossl_ht_fz_FUZZER_VALUE_get.exit
   call void @OPENSSL_die(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 303) #9
   unreachable
 
-90:                                               ; preds = %ossl_ht_fz_FUZZER_VALUE_get.exit
-  br i1 %.not40, label %.critedge, label %91
+91:                                               ; preds = %85, %ossl_ht_fz_FUZZER_VALUE_get.exit
+  %.05559 = phi ptr [ %80, %85 ], [ %.055, %ossl_ht_fz_FUZZER_VALUE_get.exit ]
+  br i1 %.not40, label %.critedge, label %92
 
-91:                                               ; preds = %90
-  %92 = getelementptr i8, ptr %.055, i64 8
-  %.val = load ptr, ptr %92, align 8, !tbaa !11
+92:                                               ; preds = %91
+  %93 = getelementptr i8, ptr %.05559, i64 8
+  %.val = load ptr, ptr %93, align 8, !tbaa !11
   %.not56 = icmp eq ptr %.val, @fz_FUZZER_VALUE_id
-  br i1 %.not56, label %94, label %93
+  br i1 %.not56, label %95, label %94
 
-93:                                               ; preds = %91
+94:                                               ; preds = %92
   call void @OPENSSL_die(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 310) #9
   unreachable
 
-94:                                               ; preds = %91
-  %95 = load i64, ptr @lookups, align 8, !tbaa !20
+95:                                               ; preds = %92
+  %96 = load i64, ptr @lookups, align 8, !tbaa !20
   br label %.critedge.sink.split
 
-96:                                               ; preds = %12
-  %97 = load i64, ptr @flushes, align 8, !tbaa !20
-  %98 = urem i64 %97, 100000
-  %.not = icmp eq i64 %98, 1
-  br i1 %.not, label %102, label %99
+97:                                               ; preds = %12
+  %98 = load i64, ptr @flushes, align 8, !tbaa !20
+  %99 = urem i64 %98, 100000
+  %.not = icmp eq i64 %99, 1
+  br i1 %.not, label %103, label %100
 
-99:                                               ; preds = %96
-  %100 = load i64, ptr @skipped_values, align 8, !tbaa !20
-  %101 = add i64 %100, 1
-  store i64 %101, ptr @skipped_values, align 8, !tbaa !20
+100:                                              ; preds = %97
+  %101 = load i64, ptr @skipped_values, align 8, !tbaa !20
+  %102 = add i64 %101, 1
+  store i64 %102, ptr @skipped_values, align 8, !tbaa !20
   br label %.critedge.sink.split
 
-102:                                              ; preds = %96
-  %103 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
-  call void @ossl_ht_write_lock(ptr noundef %103) #8
+103:                                              ; preds = %97
   %104 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
-  %105 = call i32 @ossl_ht_flush(ptr noundef %104) #8
-  %106 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
-  call void @ossl_ht_write_unlock(ptr noundef %106) #8
-  %107 = load ptr, ptr @prediction_table, align 8, !tbaa !4
-  br label %110
+  call void @ossl_ht_write_lock(ptr noundef %104) #8
+  %105 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
+  %106 = call i32 @ossl_ht_flush(ptr noundef %105) #8
+  %107 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
+  call void @ossl_ht_write_unlock(ptr noundef %107) #8
+  %108 = load ptr, ptr @prediction_table, align 8, !tbaa !4
+  br label %111
 
-108:                                              ; preds = %110
-  %109 = add nuw nsw i64 %.03757, 1
-  %exitcond.not = icmp eq i64 %109, 65535
-  br i1 %exitcond.not, label %116, label %110, !llvm.loop !30
+109:                                              ; preds = %111
+  %110 = add nuw nsw i64 %.03757, 1
+  %exitcond.not = icmp eq i64 %110, 65535
+  br i1 %exitcond.not, label %117, label %111, !llvm.loop !30
 
-110:                                              ; preds = %102, %108
-  %.03757 = phi i64 [ 0, %102 ], [ %109, %108 ]
-  %111 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %107, i64 %.03757
-  %112 = load i64, ptr %111, align 8, !tbaa !18
-  %113 = and i64 %112, 1
-  %114 = icmp eq i64 %113, 0
-  br i1 %114, label %108, label %115
+111:                                              ; preds = %103, %109
+  %.03757 = phi i64 [ 0, %103 ], [ %110, %109 ]
+  %112 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %108, i64 %.03757
+  %113 = load i64, ptr %112, align 8, !tbaa !18
+  %114 = and i64 %113, 1
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %109, label %116
 
-115:                                              ; preds = %110
+116:                                              ; preds = %111
   call void @OPENSSL_die(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 345) #9
   unreachable
 
-116:                                              ; preds = %108
-  %117 = load i64, ptr @flushes, align 8, !tbaa !20
+117:                                              ; preds = %109
+  %118 = load i64, ptr @flushes, align 8, !tbaa !20
   br label %.critedge.sink.split
 
-118:                                              ; preds = %12
+119:                                              ; preds = %12
   store i1 false, ptr @valfound, align 4
-  %119 = load ptr, ptr @prediction_table, align 8, !tbaa !4
-  %120 = zext i16 %15 to i64
-  %121 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %119, i64 %120
-  %122 = load i64, ptr %121, align 8, !tbaa !18
-  %123 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
-  call void @ossl_ht_foreach_until(ptr noundef %123, ptr noundef nonnull @table_iterator, ptr noundef nonnull %7) #8
+  %120 = load ptr, ptr @prediction_table, align 8, !tbaa !4
+  %121 = zext i16 %15 to i64
+  %122 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %120, i64 %121
+  %123 = load i64, ptr %122, align 8, !tbaa !18
+  %124 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
+  call void @ossl_ht_foreach_until(ptr noundef %124, ptr noundef nonnull @table_iterator, ptr noundef nonnull %7) #8
   %.b = load i1, ptr @valfound, align 4
-  %124 = trunc i64 %122 to i1
-  %125 = xor i1 %.b, %124
-  br i1 %125, label %126, label %127
+  %125 = trunc i64 %123 to i1
+  %126 = xor i1 %.b, %125
+  br i1 %126, label %127, label %128
 
-126:                                              ; preds = %118
+127:                                              ; preds = %119
   call void @OPENSSL_die(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 361) #9
   unreachable
 
-127:                                              ; preds = %118
-  %128 = load i64, ptr @foreaches, align 8, !tbaa !20
+128:                                              ; preds = %119
+  %129 = load i64, ptr @foreaches, align 8, !tbaa !20
   br label %.critedge.sink.split
 
-129:                                              ; preds = %12
-  %130 = load ptr, ptr @prediction_table, align 8, !tbaa !4
-  %131 = zext i16 %15 to i64
-  %132 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %130, i64 %131
-  %133 = load i64, ptr %132, align 8, !tbaa !18
-  %spec.store.select2 = and i64 %133, 1
-  %134 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
-  %135 = call ptr @ossl_ht_filter(ptr noundef %134, i64 noundef 1, ptr noundef nonnull @filter_iterator, ptr noundef nonnull %7) #8
-  %136 = load i64, ptr %135, align 8, !tbaa !32
-  %137 = icmp eq i64 %136, %spec.store.select2
-  br i1 %137, label %139, label %138
+130:                                              ; preds = %12
+  %131 = load ptr, ptr @prediction_table, align 8, !tbaa !4
+  %132 = zext i16 %15 to i64
+  %133 = getelementptr inbounds nuw %struct.fuzzer_value_st, ptr %131, i64 %132
+  %134 = load i64, ptr %133, align 8, !tbaa !18
+  %spec.store.select2 = and i64 %134, 1
+  %135 = load ptr, ptr @fuzzer_table, align 8, !tbaa !9
+  %136 = call ptr @ossl_ht_filter(ptr noundef %135, i64 noundef 1, ptr noundef nonnull @filter_iterator, ptr noundef nonnull %7) #8
+  %137 = load i64, ptr %136, align 8, !tbaa !32
+  %138 = icmp eq i64 %137, %spec.store.select2
+  br i1 %138, label %140, label %139
 
-138:                                              ; preds = %129
+139:                                              ; preds = %130
   call void @OPENSSL_die(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 375) #9
   unreachable
 
-139:                                              ; preds = %129
-  call void @ossl_ht_value_list_free(ptr noundef nonnull %135) #8
-  %140 = load i64, ptr @filters, align 8, !tbaa !20
+140:                                              ; preds = %130
+  call void @ossl_ht_value_list_free(ptr noundef nonnull %136) #8
+  %141 = load i64, ptr @filters, align 8, !tbaa !20
   br label %.critedge.sink.split
 
 default.unreachable58:                            ; preds = %12
   unreachable
 
-.critedge.sink.split:                             ; preds = %10, %99, %94, %67, %48, %46, %139, %127, %116
-  %.sink59 = phi i64 [ %117, %116 ], [ %128, %127 ], [ %140, %139 ], [ %47, %46 ], [ %49, %48 ], [ %68, %67 ], [ %95, %94 ], [ %97, %99 ], [ %11, %10 ]
-  %flushes.sink = phi ptr [ @flushes, %116 ], [ @foreaches, %127 ], [ @filters, %139 ], [ @replacements, %46 ], [ @inserts, %48 ], [ @deletes, %67 ], [ @lookups, %94 ], [ @flushes, %99 ], [ @skipped_values, %10 ]
-  %.0.ph = phi i32 [ 0, %116 ], [ 0, %127 ], [ 0, %139 ], [ 0, %46 ], [ 0, %48 ], [ 0, %67 ], [ 0, %94 ], [ 0, %99 ], [ -1, %10 ]
-  %141 = add i64 %.sink59, 1
-  store i64 %141, ptr %flushes.sink, align 8, !tbaa !20
+.critedge.sink.split:                             ; preds = %10, %100, %95, %67, %48, %46, %140, %128, %117
+  %.sink60 = phi i64 [ %118, %117 ], [ %129, %128 ], [ %141, %140 ], [ %47, %46 ], [ %49, %48 ], [ %68, %67 ], [ %96, %95 ], [ %98, %100 ], [ %11, %10 ]
+  %flushes.sink = phi ptr [ @flushes, %117 ], [ @foreaches, %128 ], [ @filters, %140 ], [ @replacements, %46 ], [ @inserts, %48 ], [ @deletes, %67 ], [ @lookups, %95 ], [ @flushes, %100 ], [ @skipped_values, %10 ]
+  %.0.ph = phi i32 [ 0, %117 ], [ 0, %128 ], [ 0, %140 ], [ 0, %46 ], [ 0, %48 ], [ 0, %67 ], [ 0, %95 ], [ 0, %100 ], [ -1, %10 ]
+  %142 = add i64 %.sink60, 1
+  store i64 %142, ptr %flushes.sink, align 8, !tbaa !20
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %36, %44, %66, %90
-  %.0 = phi i32 [ 0, %90 ], [ 0, %66 ], [ 0, %44 ], [ 0, %36 ], [ %.0.ph, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %36, %44, %66, %91
+  %.0 = phi i32 [ 0, %91 ], [ 0, %66 ], [ 0, %44 ], [ 0, %36 ], [ %.0.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #8
   ret i32 %.0

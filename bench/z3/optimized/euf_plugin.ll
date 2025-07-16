@@ -199,28 +199,29 @@ define hidden noundef ptr @_ZN3euf6plugin2mkEP4exprjPKPNS_5enodeE(ptr noundef no
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8, !tbaa !30
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %_ZNK3euf6egraph4findEP4expr.exit.thread, label %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i
+  br i1 %9, label %_ZNK3euf6egraph4findEP4expr.exit.thread, label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i
 
-_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %4
+_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i:  ; preds = %4
   %10 = load i32, ptr %1, align 4, !tbaa !34
   %11 = getelementptr inbounds i8, ptr %8, i64 -4
   %12 = load i32, ptr %11, align 4, !tbaa !12
-  %.not.i.i = icmp ult i32 %10, %12
-  br i1 %.not.i.i, label %_ZNK3euf6egraph4findEP4expr.exit, label %_ZNK3euf6egraph4findEP4expr.exit.thread
+  %.fr.i.i = freeze i32 %12
+  %13 = icmp ult i32 %10, %.fr.i.i
+  br i1 %13, label %_ZNK3euf6egraph4findEP4expr.exit, label %_ZNK3euf6egraph4findEP4expr.exit.thread
 
-_ZNK3euf6egraph4findEP4expr.exit:                 ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i
-  %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %13
-  %.then.val.i = load ptr, ptr %14, align 8, !tbaa !17
-  %.not = icmp eq ptr %.then.val.i, null
-  br i1 %.not, label %_ZNK3euf6egraph4findEP4expr.exit.thread, label %16
+_ZNK3euf6egraph4findEP4expr.exit:                 ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i
+  %14 = zext i32 %10 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %14
+  %.pre.i.then.val = load ptr, ptr %15, align 8, !tbaa !17
+  %.not = icmp eq ptr %.pre.i.then.val, null
+  br i1 %.not, label %_ZNK3euf6egraph4findEP4expr.exit.thread, label %17
 
-_ZNK3euf6egraph4findEP4expr.exit.thread:          ; preds = %4, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i, %_ZNK3euf6egraph4findEP4expr.exit
-  %15 = tail call noundef ptr @_ZN3euf6egraph2mkEP4exprjjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %6, ptr noundef %1, i32 noundef 0, i32 noundef %2, ptr noundef %3)
-  br label %16
+_ZNK3euf6egraph4findEP4expr.exit.thread:          ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i.i, %4, %_ZNK3euf6egraph4findEP4expr.exit
+  %16 = tail call noundef ptr @_ZN3euf6egraph2mkEP4exprjjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %6, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %2, ptr noundef %3)
+  br label %17
 
-16:                                               ; preds = %_ZNK3euf6egraph4findEP4expr.exit.thread, %_ZNK3euf6egraph4findEP4expr.exit
-  %.0 = phi ptr [ %.then.val.i, %_ZNK3euf6egraph4findEP4expr.exit ], [ %15, %_ZNK3euf6egraph4findEP4expr.exit.thread ]
+17:                                               ; preds = %_ZNK3euf6egraph4findEP4expr.exit.thread, %_ZNK3euf6egraph4findEP4expr.exit
+  %.0 = phi ptr [ %.pre.i.then.val, %_ZNK3euf6egraph4findEP4expr.exit ], [ %16, %_ZNK3euf6egraph4findEP4expr.exit.thread ]
   ret ptr %.0
 }
 

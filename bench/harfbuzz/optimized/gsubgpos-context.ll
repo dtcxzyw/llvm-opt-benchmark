@@ -125,8 +125,8 @@ _ZN5graph5GSTAR8sanitizeERKNS_7graph_t8vertex_tE.exit.i: ; preds = %34
   %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
   %38 = icmp ugt i32 %37, 65536
   %39 = select i1 %38, i64 14, i64 10
-  %.not12.i = icmp samesign ult i64 %32, %39
-  br i1 %.not12.i, label %_ZN5graph5GSTAR14graph_to_gstarERNS_7graph_tE.exit.thread, label %40
+  %.not11.i = icmp samesign ult i64 %32, %39
+  br i1 %.not11.i, label %_ZN5graph5GSTAR14graph_to_gstarERNS_7graph_tE.exit.thread, label %40
 
 40:                                               ; preds = %_ZN5graph5GSTAR8sanitizeERKNS_7graph_t8vertex_tE.exit.i, %34
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !47

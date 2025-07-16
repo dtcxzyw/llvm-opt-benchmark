@@ -597,12 +597,12 @@ define i32 @sq_receive(ptr noundef captures(none) %0, i32 noundef %1, ptr %2) lo
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8, !tbaa !4
   %.not33.not.i = icmp eq i32 %9, 0
-  br i1 %.not33.not.i, label %receive_internal.exit23, label %.lr.ph.i
+  br i1 %.not33.not.i, label %receive_internal.exit22, label %.lr.ph.i
 
 10:                                               ; preds = %3
   %11 = tail call fastcc i32 @receive_for_stream(ptr noundef readonly %0, i32 noundef %1, ptr %2)
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %receive_internal.exit, label %receive_internal.exit23
+  br i1 %12, label %receive_internal.exit, label %receive_internal.exit22
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
   %.035.i = phi i32 [ %18, %14 ], [ 0, %.preheader.i ]
@@ -620,30 +620,30 @@ define i32 @sq_receive(ptr noundef captures(none) %0, i32 noundef %1, ptr %2) lo
   %18 = add nuw i32 %.035.i, 1
   %19 = load i32, ptr %8, align 8, !tbaa !4
   %.not.i = icmp ult i32 %18, %19
-  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !51
+  br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !51
 
 .thread.i:                                        ; preds = %.lr.ph.i
   %20 = icmp slt i32 %13, 0
   %21 = select i1 %20, i32 %13, i32 %.035.i
   br label %receive_internal.exit
 
-._crit_edge.i:                                    ; preds = %14
+._crit_edge.loopexit.i:                           ; preds = %14
   %22 = icmp eq i32 %17, %19
-  br i1 %22, label %receive_internal.exit23, label %receive_internal.exit.thread26
+  br i1 %22, label %receive_internal.exit22, label %receive_internal.exit.thread25
 
 receive_internal.exit:                            ; preds = %10, %.thread.i
   %.025.i = phi i32 [ %21, %.thread.i ], [ %11, %10 ]
   %23 = icmp eq i32 %.025.i, -11
-  br i1 %23, label %receive_internal.exit.thread26, label %receive_internal.exit23
+  br i1 %23, label %receive_internal.exit.thread25, label %receive_internal.exit22
 
-receive_internal.exit.thread26:                   ; preds = %._crit_edge.i, %receive_internal.exit
+receive_internal.exit.thread25:                   ; preds = %._crit_edge.loopexit.i, %receive_internal.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %24 = icmp slt i32 %1, 0
   br i1 %24, label %.preheader.i10, label %51
 
-.preheader.i10:                                   ; preds = %receive_internal.exit.thread26
+.preheader.i10:                                   ; preds = %receive_internal.exit.thread25
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i32, ptr %25, align 8, !tbaa !4
   %.not97.i = icmp eq i32 %26, 0
@@ -653,7 +653,7 @@ receive_internal.exit.thread26:                   ; preds = %._crit_edge.i, %rec
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %29
 
-._crit_edge.i12:                                  ; preds = %47
+._crit_edge.i:                                    ; preds = %47
   %28 = icmp sgt i32 %.2.i, -1
   br i1 %28, label %51, label %overflow_heartbeat.exit.thread
 
@@ -698,10 +698,10 @@ receive_internal.exit.thread26:                   ; preds = %._crit_edge.i, %rec
   %48 = load i32, ptr %25, align 8, !tbaa !4
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next.i, %49
-  br i1 %50, label %29, label %._crit_edge.i12, !llvm.loop !52
+  br i1 %50, label %29, label %._crit_edge.i, !llvm.loop !52
 
-51:                                               ; preds = %._crit_edge.i12, %receive_internal.exit.thread26
-  %.064.i = phi i32 [ %.2.i, %._crit_edge.i12 ], [ %1, %receive_internal.exit.thread26 ]
+51:                                               ; preds = %._crit_edge.i, %receive_internal.exit.thread25
+  %.064.i = phi i32 [ %.2.i, %._crit_edge.i ], [ %1, %receive_internal.exit.thread25 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !12
   %54 = zext nneg i32 %.064.i to i64
@@ -820,66 +820,64 @@ frame_end.exit.i:                                 ; preds = %56
   %114 = icmp samesign ult i64 %indvars.iv.next102.i, %113
   br i1 %114, label %83, label %.loopexit, !llvm.loop !55
 
-overflow_heartbeat.exit.thread:                   ; preds = %56, %._crit_edge.i12, %70, %.critedge86.i, %.preheader.i10
+overflow_heartbeat.exit.thread:                   ; preds = %56, %._crit_edge.i, %70, %.critedge86.i, %.preheader.i10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %receive_internal.exit23
+  br label %receive_internal.exit22
 
 .loopexit:                                        ; preds = %111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %7, label %116, label %.preheader.i13
+  br i1 %7, label %116, label %.preheader.i12
 
 .loopexit.thread:                                 ; preds = %78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %7, label %116, label %._crit_edge.i19
+  br i1 %7, label %116, label %receive_internal.exit22
 
-.preheader.i13:                                   ; preds = %.loopexit
+.preheader.i12:                                   ; preds = %.loopexit
   %115 = icmp eq i32 %112, 0
-  br i1 %115, label %._crit_edge.i19, label %.lr.ph.i15
+  br i1 %115, label %receive_internal.exit22, label %.lr.ph.i14
 
 116:                                              ; preds = %.loopexit.thread, %.loopexit
   %117 = call fastcc i32 @receive_for_stream(ptr noundef nonnull readonly %0, i32 noundef %1, ptr %2)
   %118 = icmp slt i32 %117, 0
   %119 = select i1 %118, i32 %117, i32 %1
-  br label %receive_internal.exit23
+  br label %receive_internal.exit22
 
-.lr.ph.i15:                                       ; preds = %.preheader.i13, %121
-  %.035.i16 = phi i32 [ %125, %121 ], [ 0, %.preheader.i13 ]
-  %.02434.i17 = phi i32 [ %124, %121 ], [ 0, %.preheader.i13 ]
-  %120 = call fastcc i32 @receive_for_stream(ptr noundef nonnull readonly %0, i32 noundef %.035.i16, ptr %2)
-  switch i32 %120, label %.thread.i22 [
+.lr.ph.i14:                                       ; preds = %.preheader.i12, %121
+  %.035.i15 = phi i32 [ %125, %121 ], [ 0, %.preheader.i12 ]
+  %.02434.i16 = phi i32 [ %124, %121 ], [ 0, %.preheader.i12 ]
+  %120 = call fastcc i32 @receive_for_stream(ptr noundef nonnull readonly %0, i32 noundef %.035.i15, ptr %2)
+  switch i32 %120, label %.thread.i21 [
     i32 -11, label %121
     i32 -541478725, label %121
   ]
 
-121:                                              ; preds = %.lr.ph.i15, %.lr.ph.i15
+121:                                              ; preds = %.lr.ph.i14, %.lr.ph.i14
   %122 = icmp eq i32 %120, -541478725
   %123 = zext i1 %122 to i32
-  %124 = add nuw nsw i32 %.02434.i17, %123
-  %125 = add nuw i32 %.035.i16, 1
+  %124 = add nuw nsw i32 %.02434.i16, %123
+  %125 = add nuw i32 %.035.i15, 1
   %126 = load i32, ptr %80, align 8, !tbaa !4
-  %.not.i18 = icmp ult i32 %125, %126
-  br i1 %.not.i18, label %.lr.ph.i15, label %._crit_edge.i19, !llvm.loop !51
+  %.not.i17 = icmp ult i32 %125, %126
+  br i1 %.not.i17, label %.lr.ph.i14, label %._crit_edge.loopexit.i18, !llvm.loop !51
 
-.thread.i22:                                      ; preds = %.lr.ph.i15
+.thread.i21:                                      ; preds = %.lr.ph.i14
   %127 = icmp slt i32 %120, 0
-  %128 = select i1 %127, i32 %120, i32 %.035.i16
-  br label %receive_internal.exit23
+  %128 = select i1 %127, i32 %120, i32 %.035.i15
+  br label %receive_internal.exit22
 
-._crit_edge.i19:                                  ; preds = %121, %.loopexit.thread, %.preheader.i13
-  %129 = phi i32 [ 0, %.preheader.i13 ], [ 0, %.loopexit.thread ], [ %126, %121 ]
-  %.024.lcssa.i20 = phi i32 [ 0, %.preheader.i13 ], [ 0, %.loopexit.thread ], [ %124, %121 ]
-  %130 = icmp eq i32 %.024.lcssa.i20, %129
-  %131 = select i1 %130, i32 -541478725, i32 -11
-  br label %receive_internal.exit23
+._crit_edge.loopexit.i18:                         ; preds = %121
+  %129 = icmp eq i32 %124, %126
+  %130 = select i1 %129, i32 -541478725, i32 -11
+  br label %receive_internal.exit22
 
-receive_internal.exit23:                          ; preds = %.preheader.i, %._crit_edge.i, %10, %._crit_edge.i19, %.thread.i22, %116, %overflow_heartbeat.exit.thread, %receive_internal.exit
-  %.0 = phi i32 [ %.025.i, %receive_internal.exit ], [ -11, %overflow_heartbeat.exit.thread ], [ %119, %116 ], [ %131, %._crit_edge.i19 ], [ %128, %.thread.i22 ], [ %1, %10 ], [ -541478725, %._crit_edge.i ], [ -541478725, %.preheader.i ]
+receive_internal.exit22:                          ; preds = %.loopexit.thread, %._crit_edge.loopexit.i, %.preheader.i, %10, %._crit_edge.loopexit.i18, %.thread.i21, %116, %.preheader.i12, %overflow_heartbeat.exit.thread, %receive_internal.exit
+  %.0 = phi i32 [ %.025.i, %receive_internal.exit ], [ -11, %overflow_heartbeat.exit.thread ], [ %119, %116 ], [ %128, %.thread.i21 ], [ -541478725, %.preheader.i12 ], [ %130, %._crit_edge.loopexit.i18 ], [ -541478725, %.preheader.i ], [ %1, %10 ], [ -541478725, %._crit_edge.loopexit.i ], [ -541478725, %.loopexit.thread ]
   ret i32 %.0
 }
 

@@ -743,17 +743,21 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i: ; preds = %_ZN9QtPrivat
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i": ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i, %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %7, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit", label %12
+  br i1 %7, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit", label %12
 
 12:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
   %13 = load ptr, ptr %.sroa.03.06.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit", label %.lr.ph.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit", label %.lr.ph.i.i.i, !llvm.loop !8
 
-"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i", %12, %2
-  %.sroa.03.0.lcssa.i.i.i = phi ptr [ %4, %2 ], [ %.sroa.03.06.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i" ], [ %4, %12 ]
-  %14 = icmp ne ptr %.sroa.03.0.lcssa.i.i.i, %4
-  ret i1 %14
+"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit": ; preds = %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i"
+  %.sroa.03.0.lcssa.i.i.i.ph = phi ptr [ %4, %12 ], [ %.sroa.03.06.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK9pymeshlab8Function8containsERK7QStringE3$_0EclISt20_List_const_iteratorINS2_17FunctionParameterEEEEbT_.exit.i.i.i" ]
+  %14 = icmp ne ptr %.sroa.03.0.lcssa.i.i.i.ph, %4
+  br label %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit"
+
+"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit": ; preds = %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit", %2
+  %.sroa.03.0.lcssa.i.i.i = phi i1 [ false, %2 ], [ %14, %"_ZSt7find_ifISt20_List_const_iteratorIN9pymeshlab17FunctionParameterEEZNKS1_8Function8containsERK7QStringE3$_0ET_S9_S9_T0_.exit.loopexit" ]
+  ret i1 %.sroa.03.0.lcssa.i.i.i
 }
 
 ; Function Attrs: nounwind

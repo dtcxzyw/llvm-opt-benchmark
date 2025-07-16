@@ -1978,10 +1978,10 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   br i1 %920, label %.lr.ph.i707, label %._crit_edge.i712, !llvm.loop !117
 
 ._crit_edge.i712:                                 ; preds = %917
-  %921 = load ptr, ptr %21, align 8, !tbaa !29
-  %922 = call i64 @avio_seek(ptr noundef %921, i64 noundef %862, i32 noundef 0) #14
-  %923 = icmp sgt i64 %.1.i, %.140.i
-  br i1 %923, label %1006, label %924
+  %921 = icmp sgt i64 %.1.i, %.140.i
+  %922 = load ptr, ptr %21, align 8, !tbaa !29
+  %923 = call i64 @avio_seek(ptr noundef %922, i64 noundef %862, i32 noundef 0) #14
+  br i1 %921, label %1006, label %924
 
 924:                                              ; preds = %._crit_edge.i712, %._crit_edge.thread.i
   %925 = load i32, ptr %54, align 4, !tbaa !54
@@ -2235,11 +2235,11 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
 
 ._crit_edge830.loopexit.split.loop.exit:          ; preds = %1031
   %1037 = trunc nuw nsw i64 %indvars.iv886 to i32
+  %1038 = icmp eq i32 %1029, %1037
   br label %._crit_edge830
 
 ._crit_edge830:                                   ; preds = %1036, %._crit_edge830.loopexit.split.loop.exit, %.preheader, %.loopexit
-  %1038 = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ %1029, %._crit_edge830.loopexit.split.loop.exit ], [ %1029, %1036 ]
-  %.2573.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ %1037, %._crit_edge830.loopexit.split.loop.exit ], [ %1029, %1036 ]
+  %.2573.lcssa = phi i1 [ true, %.loopexit ], [ true, %.preheader ], [ %1038, %._crit_edge830.loopexit.split.loop.exit ], [ true, %1036 ]
   %1039 = load ptr, ptr %61, align 8, !tbaa !58
   %.not685 = icmp eq ptr %1039, null
   br i1 %.not685, label %1041, label %1040
@@ -2249,28 +2249,27 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   br label %1041
 
 1041:                                             ; preds = %1040, %._crit_edge830
-  %1042 = icmp eq i32 %.2573.lcssa, %1038
-  %1043 = load i32, ptr %63, align 8, !tbaa !45
-  %.not686 = icmp eq i32 %1043, 0
-  br i1 %1042, label %1044, label %1046
+  %1042 = load i32, ptr %63, align 8, !tbaa !45
+  %.not686 = icmp eq i32 %1042, 0
+  br i1 %.2573.lcssa, label %1043, label %1045
 
-1044:                                             ; preds = %1041
-  br i1 %.not686, label %.thread750, label %1045
+1043:                                             ; preds = %1041
+  br i1 %.not686, label %.thread750, label %1044
 
-1045:                                             ; preds = %1044
+1044:                                             ; preds = %1043
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.37) #14
   store i32 0, ptr %63, align 8, !tbaa !45
   br label %.thread750
 
-1046:                                             ; preds = %1041
-  br i1 %.not686, label %.thread750, label %1047
+1045:                                             ; preds = %1041
+  br i1 %.not686, label %.thread750, label %1046
 
-1047:                                             ; preds = %1046
+1046:                                             ; preds = %1045
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.38) #14
   call fastcc void @clean_index(ptr noundef nonnull %0)
   br label %.thread750
 
-.thread750:                                       ; preds = %1044, %1045, %1047, %1046
+.thread750:                                       ; preds = %1043, %1044, %1046, %1045
   call void @ff_metadata_conv_ctx(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @avi_metadata_conv) #14
   call void @ff_metadata_conv_ctx(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @ff_riff_info_conv) #14
   br label %guess_ni_flag.exit

@@ -16902,63 +16902,64 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher9lookingAtElR10UErrorCode(ptr
   %40 = load i32, ptr %39, align 4, !tbaa !87
   %41 = sext i32 %40 to i64
   %.not.i = icmp eq i64 %38, %41
-  br i1 %.not.i, label %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge, label %42
+  br i1 %.not.i, label %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge, label %43
 
 ._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge: ; preds = %35
   %.pre = load i64, ptr %16, align 8, !tbaa !68
   %.pre22 = load i64, ptr %17, align 8
+  %42 = icmp slt i64 %1, %.pre
   br label %_ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %44 = load ptr, ptr %43, align 8, !tbaa !155
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i16, ptr %45, align 8, !tbaa !100
-  %47 = icmp slt i16 %46, 0
-  %48 = ashr i16 %46, 5
-  %49 = sext i16 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %51 = load i32, ptr %50, align 4
-  %52 = select i1 %47, i32 %51, i32 %49
-  %53 = and i16 %46, 17
-  %.not.i.i = icmp eq i16 %53, 0
-  br i1 %.not.i.i, label %54, label %61
+43:                                               ; preds = %35
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  %45 = load ptr, ptr %44, align 8, !tbaa !155
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i16, ptr %46, align 8, !tbaa !100
+  %48 = icmp slt i16 %47, 0
+  %49 = ashr i16 %47, 5
+  %50 = sext i16 %49 to i32
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %52 = load i32, ptr %51, align 4
+  %53 = select i1 %48, i32 %52, i32 %50
+  %54 = and i16 %47, 17
+  %.not.i.i = icmp eq i16 %54, 0
+  br i1 %.not.i.i, label %55, label %62
 
-54:                                               ; preds = %42
-  %55 = and i16 %46, 2
-  %.not2.i.i = icmp eq i16 %55, 0
-  br i1 %.not2.i.i, label %58, label %56
+55:                                               ; preds = %43
+  %56 = and i16 %47, 2
+  %.not2.i.i = icmp eq i16 %56, 0
+  br i1 %.not2.i.i, label %59, label %57
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %44, i64 10
-  br label %61
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 10
+  br label %62
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !100
-  br label %61
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %61 = load ptr, ptr %60, align 8, !tbaa !100
+  br label %62
 
-61:                                               ; preds = %58, %56, %42
-  %.0.i.i = phi ptr [ %57, %56 ], [ %60, %58 ], [ null, %42 ]
-  %62 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  store ptr %.0.i.i, ptr %62, align 8, !tbaa !88
-  %63 = getelementptr inbounds nuw i8, ptr %37, i64 44
-  store i32 %52, ptr %63, align 4, !tbaa !96
-  %64 = sext i32 %52 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i64 %64, ptr %65, align 8, !tbaa !86
-  store i32 %52, ptr %39, align 4, !tbaa !87
-  %66 = load ptr, ptr %36, align 8, !tbaa !77
-  %67 = tail call i64 @utext_nativeLength_77(ptr noundef %66)
-  store i64 %67, ptr %13, align 8, !tbaa !66
+62:                                               ; preds = %59, %57, %43
+  %.0.i.i = phi ptr [ %58, %57 ], [ %61, %59 ], [ null, %43 ]
+  %63 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  store ptr %.0.i.i, ptr %63, align 8, !tbaa !88
+  %64 = getelementptr inbounds nuw i8, ptr %37, i64 44
+  store i32 %53, ptr %64, align 4, !tbaa !96
+  %65 = sext i32 %53 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i64 %65, ptr %66, align 8, !tbaa !86
+  store i32 %53, ptr %39, align 4, !tbaa !87
+  %67 = load ptr, ptr %36, align 8, !tbaa !77
+  %68 = tail call i64 @utext_nativeLength_77(ptr noundef %67)
+  store i64 %68, ptr %13, align 8, !tbaa !66
   store i64 0, ptr %12, align 8, !tbaa !65
-  store i64 %67, ptr %15, align 8, !tbaa !67
+  store i64 %68, ptr %15, align 8, !tbaa !67
   store i64 0, ptr %16, align 8, !tbaa !68
-  store i64 %67, ptr %17, align 8, !tbaa !69
+  store i64 %68, ptr %17, align 8, !tbaa !69
   store i64 0, ptr %18, align 8, !tbaa !70
-  store i64 %67, ptr %19, align 8, !tbaa !71
+  store i64 %68, ptr %19, align 8, !tbaa !71
   store i64 0, ptr %20, align 8, !tbaa !72
-  store i64 %67, ptr %21, align 8, !tbaa !73
+  store i64 %68, ptr %21, align 8, !tbaa !73
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store i64 -1, ptr %23, align 8, !tbaa !30
   store i64 0, ptr %24, align 8, !tbaa !31
@@ -16969,11 +16970,10 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher9lookingAtElR10UErrorCode(ptr
   store i32 10000, ptr %29, align 8, !tbaa !36
   br label %_ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread
 
-_ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread: ; preds = %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge, %61, %32
-  %68 = phi i64 [ %.pre22, %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge ], [ %67, %61 ], [ %14, %32 ]
-  %69 = phi i64 [ %.pre, %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge ], [ 0, %61 ], [ 0, %32 ]
-  %70 = icmp slt i64 %1, %69
-  %71 = icmp sgt i64 %1, %68
+_ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread: ; preds = %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge, %62, %32
+  %69 = phi i64 [ %.pre22, %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge ], [ %68, %62 ], [ %14, %32 ]
+  %70 = phi i1 [ %42, %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge ], [ false, %62 ], [ false, %32 ]
+  %71 = icmp sgt i64 %1, %69
   %or.cond = select i1 %70, i1 true, i1 %71
   br i1 %or.cond, label %72, label %73
 
@@ -17251,63 +17251,64 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher7matchesElR10UErrorCode(ptr n
   %40 = load i32, ptr %39, align 4, !tbaa !87
   %41 = sext i32 %40 to i64
   %.not.i = icmp eq i64 %38, %41
-  br i1 %.not.i, label %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge, label %42
+  br i1 %.not.i, label %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge, label %43
 
 ._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge: ; preds = %35
   %.pre = load i64, ptr %16, align 8, !tbaa !68
   %.pre22 = load i64, ptr %17, align 8
+  %42 = icmp slt i64 %1, %.pre
   br label %_ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %44 = load ptr, ptr %43, align 8, !tbaa !155
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i16, ptr %45, align 8, !tbaa !100
-  %47 = icmp slt i16 %46, 0
-  %48 = ashr i16 %46, 5
-  %49 = sext i16 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %51 = load i32, ptr %50, align 4
-  %52 = select i1 %47, i32 %51, i32 %49
-  %53 = and i16 %46, 17
-  %.not.i.i = icmp eq i16 %53, 0
-  br i1 %.not.i.i, label %54, label %61
+43:                                               ; preds = %35
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  %45 = load ptr, ptr %44, align 8, !tbaa !155
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i16, ptr %46, align 8, !tbaa !100
+  %48 = icmp slt i16 %47, 0
+  %49 = ashr i16 %47, 5
+  %50 = sext i16 %49 to i32
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %52 = load i32, ptr %51, align 4
+  %53 = select i1 %48, i32 %52, i32 %50
+  %54 = and i16 %47, 17
+  %.not.i.i = icmp eq i16 %54, 0
+  br i1 %.not.i.i, label %55, label %62
 
-54:                                               ; preds = %42
-  %55 = and i16 %46, 2
-  %.not2.i.i = icmp eq i16 %55, 0
-  br i1 %.not2.i.i, label %58, label %56
+55:                                               ; preds = %43
+  %56 = and i16 %47, 2
+  %.not2.i.i = icmp eq i16 %56, 0
+  br i1 %.not2.i.i, label %59, label %57
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %44, i64 10
-  br label %61
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 10
+  br label %62
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !100
-  br label %61
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %61 = load ptr, ptr %60, align 8, !tbaa !100
+  br label %62
 
-61:                                               ; preds = %58, %56, %42
-  %.0.i.i = phi ptr [ %57, %56 ], [ %60, %58 ], [ null, %42 ]
-  %62 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  store ptr %.0.i.i, ptr %62, align 8, !tbaa !88
-  %63 = getelementptr inbounds nuw i8, ptr %37, i64 44
-  store i32 %52, ptr %63, align 4, !tbaa !96
-  %64 = sext i32 %52 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i64 %64, ptr %65, align 8, !tbaa !86
-  store i32 %52, ptr %39, align 4, !tbaa !87
-  %66 = load ptr, ptr %36, align 8, !tbaa !77
-  %67 = tail call i64 @utext_nativeLength_77(ptr noundef %66)
-  store i64 %67, ptr %13, align 8, !tbaa !66
+62:                                               ; preds = %59, %57, %43
+  %.0.i.i = phi ptr [ %58, %57 ], [ %61, %59 ], [ null, %43 ]
+  %63 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  store ptr %.0.i.i, ptr %63, align 8, !tbaa !88
+  %64 = getelementptr inbounds nuw i8, ptr %37, i64 44
+  store i32 %53, ptr %64, align 4, !tbaa !96
+  %65 = sext i32 %53 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i64 %65, ptr %66, align 8, !tbaa !86
+  store i32 %53, ptr %39, align 4, !tbaa !87
+  %67 = load ptr, ptr %36, align 8, !tbaa !77
+  %68 = tail call i64 @utext_nativeLength_77(ptr noundef %67)
+  store i64 %68, ptr %13, align 8, !tbaa !66
   store i64 0, ptr %12, align 8, !tbaa !65
-  store i64 %67, ptr %15, align 8, !tbaa !67
+  store i64 %68, ptr %15, align 8, !tbaa !67
   store i64 0, ptr %16, align 8, !tbaa !68
-  store i64 %67, ptr %17, align 8, !tbaa !69
+  store i64 %68, ptr %17, align 8, !tbaa !69
   store i64 0, ptr %18, align 8, !tbaa !70
-  store i64 %67, ptr %19, align 8, !tbaa !71
+  store i64 %68, ptr %19, align 8, !tbaa !71
   store i64 0, ptr %20, align 8, !tbaa !72
-  store i64 %67, ptr %21, align 8, !tbaa !73
+  store i64 %68, ptr %21, align 8, !tbaa !73
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store i64 -1, ptr %23, align 8, !tbaa !30
   store i64 0, ptr %24, align 8, !tbaa !31
@@ -17318,11 +17319,10 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher7matchesElR10UErrorCode(ptr n
   store i32 10000, ptr %29, align 8, !tbaa !36
   br label %_ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread
 
-_ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread: ; preds = %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge, %61, %32
-  %68 = phi i64 [ %.pre22, %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge ], [ %67, %61 ], [ %14, %32 ]
-  %69 = phi i64 [ %.pre, %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge ], [ 0, %61 ], [ 0, %32 ]
-  %70 = icmp slt i64 %1, %69
-  %71 = icmp sgt i64 %1, %68
+_ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread: ; preds = %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge, %62, %32
+  %69 = phi i64 [ %.pre22, %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge ], [ %68, %62 ], [ %14, %32 ]
+  %70 = phi i1 [ %42, %._ZN6icu_77L31compat_SyncMutableUTextContentsEP5UText.exit.thread_crit_edge ], [ false, %62 ], [ false, %32 ]
+  %71 = icmp sgt i64 %1, %69
   %or.cond = select i1 %70, i1 true, i1 %71
   br i1 %or.cond, label %72, label %73
 

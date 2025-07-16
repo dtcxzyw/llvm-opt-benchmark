@@ -5106,9 +5106,9 @@ _ZN4llvm8CallBase18bundle_op_info_endEv.exit61:   ; preds = %_ZN4llvm8CallBase20
   %.not76 = icmp eq ptr %39, %.0.i60
   br i1 %.not76, label %.thread70, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61, %.lr.ph._crit_edge
-  %.04078 = phi ptr [ %.242, %.lr.ph._crit_edge ], [ %.0.i60, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ]
-  %.04377 = phi ptr [ %.245, %.lr.ph._crit_edge ], [ %39, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ]
+.lr.ph:                                           ; preds = %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61, %72
+  %.04078 = phi ptr [ %74, %72 ], [ %.0.i60, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ]
+  %.04377 = phi ptr [ %73, %72 ], [ %39, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ]
   %46 = getelementptr inbounds i8, ptr %.04078, i64 -16
   %47 = getelementptr inbounds i8, ptr %.04078, i64 -4
   %48 = load i32, ptr %47, align 4, !tbaa !140
@@ -5132,23 +5132,34 @@ _ZN4llvm8CallBase18bundle_op_info_endEv.exit61:   ; preds = %_ZN4llvm8CallBase20
   %spec.select = select i1 %.not52, ptr %64, ptr %46
   %65 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !137
-  %.not53 = icmp uge i32 %1, %66
+  %.not53 = icmp ult i32 %1, %66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %spec.select, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !140
-  %67 = icmp ult i32 %1, %.pre
-  %or.cond = select i1 %.not53, i1 %67, i1 false
-  br i1 %or.cond, label %.thread70, label %.lr.ph._crit_edge
+  %.pre.fr = freeze i32 %.pre
+  %67 = icmp ult i32 %1, %.pre.fr
+  br i1 %.not53, label %70, label %68
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.not54 = icmp ult i32 %1, %.pre
-  %68 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
-  %.245 = select i1 %.not54, ptr %.04377, ptr %68
-  %.242 = select i1 %.not54, ptr %spec.select, ptr %.04078
-  %.not = icmp eq ptr %.245, %.242
+68:                                               ; preds = %.lr.ph
+  br i1 %67, label %.thread70, label %.thread89
+
+.thread89:                                        ; preds = %68
+  %69 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
+  br label %72
+
+70:                                               ; preds = %.lr.ph
+  %71 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
+  %spec.select96 = select i1 %67, ptr %.04377, ptr %71
+  %spec.select97 = select i1 %67, ptr %spec.select, ptr %.04078
+  br label %72
+
+72:                                               ; preds = %70, %.thread89
+  %73 = phi ptr [ %69, %.thread89 ], [ %spec.select96, %70 ]
+  %74 = phi ptr [ %.04078, %.thread89 ], [ %spec.select97, %70 ]
+  %.not = icmp eq ptr %73, %74
   br i1 %.not, label %.thread70, label %.lr.ph
 
-.thread70:                                        ; preds = %.lr.ph._crit_edge, %.lr.ph, %32, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61
-  %.3 = phi ptr [ %39, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ], [ %.046, %32 ], [ %spec.select, %.lr.ph ], [ %spec.select, %.lr.ph._crit_edge ]
+.thread70:                                        ; preds = %72, %68, %32, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61
+  %.3 = phi ptr [ %39, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ], [ %.046, %32 ], [ %spec.select, %68 ], [ %spec.select, %72 ]
   ret ptr %.3
 }
 

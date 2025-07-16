@@ -3752,7 +3752,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %136 = lshr i64 %.val12.i, 2
   %137 = load i64, ptr %1, align 8, !alias.scope !1002, !noalias !999, !noundef !7
   %138 = icmp ugt i64 %136, %137
-  br i1 %138, label %139, label %143
+  br i1 %138, label %139, label %144
 
 139:                                              ; preds = %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i"
   %140 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6afeffcf01c06ee6E.llvm.1834434321281747785"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef 0, i64 noundef %136)
@@ -3765,16 +3765,16 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc56
   %.pre.i.i.i = load i64, ptr %1, align 8, !alias.scope !1002, !noalias !999
-  br label %143
+  %143 = icmp ule i64 %136, %.pre.i.i.i
+  br label %144
 
-143:                                              ; preds = %._crit_edge.i.i.i, %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i"
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %137, %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i" ]
-  %144 = icmp ule i64 %136, %.pre-phi.i.i.i
-  call void @llvm.assume(i1 %144)
+144:                                              ; preds = %._crit_edge.i.i.i, %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i"
+  %.pre-phi.i.i.i = phi i1 [ %143, %._crit_edge.i.i.i ], [ true, %"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17hf7ee3e4288505973E.exit.i" ]
+  call void @llvm.assume(i1 %.pre-phi.i.i.i)
   invoke void @_ZN3gif7encoder10lzw_encode17h2bdf4e1df65a748cE(ptr noalias noundef nonnull readonly align 1 %.pn3.i.i, i64 noundef %.val12.i, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
           to label %.noexc57 unwind label %.loopexit.split-lp
 
-.noexc57:                                         ; preds = %143
+.noexc57:                                         ; preds = %144
   %145 = load ptr, ptr %96, align 8, !alias.scope !998, !noalias !999, !noundef !7
   %146 = icmp eq ptr %145, null
   br i1 %146, label %397, label %147
@@ -4375,7 +4375,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %290, %389, %34, %66, %71, %99, %101, %113, %127, %132, %139, %143, %147, %149, %165, %214, %236, %256, %397
+.loopexit.split-lp:                               ; preds = %290, %389, %34, %66, %71, %99, %101, %113, %127, %132, %139, %144, %147, %149, %165, %214, %236, %256, %397
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

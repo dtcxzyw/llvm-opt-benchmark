@@ -4399,14 +4399,14 @@ define internal fastcc i64 @write_data_block(ptr noundef %0, ptr noundef %1, i64
 .lr.ph112.split.us.preheader:                     ; preds = %.lr.ph112
   %.pre121 = load i64, ptr %47, align 8, !tbaa !98
   %.pre122 = load i64, ptr %48, align 8, !tbaa !92
+  %50 = icmp eq i64 %.pre121, %.pre122
   br label %.lr.ph112.split.us
 
 .lr.ph112.split.us:                               ; preds = %.lr.ph112.split.us.preheader, %61
-  %50 = phi i64 [ %67, %61 ], [ %.pre122, %.lr.ph112.split.us.preheader ]
+  %.not92.us = phi i1 [ true, %61 ], [ %50, %.lr.ph112.split.us.preheader ]
   %51 = phi i64 [ %67, %61 ], [ %.pre121, %.lr.ph112.split.us.preheader ]
   %.068110.us = phi ptr [ %62, %61 ], [ %1, %.lr.ph112.split.us.preheader ]
   %.172109.us = phi i64 [ %63, %61 ], [ %.071128, %.lr.ph112.split.us.preheader ]
-  %.not92.us = icmp eq i64 %51, %50
   %.pre124 = load i32, ptr %10, align 4, !tbaa !72
   br i1 %.not92.us, label %57, label %52
 

@@ -18400,9 +18400,9 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit339:           ; preds = %_ZN4cvc58internal8T
 ._crit_edge762:                                   ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit350
   %.pre764 = load ptr, ptr %23, align 8, !tbaa !53
   %.pre765 = load ptr, ptr %484, align 8, !tbaa !53
-  %486 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %487 = icmp eq ptr %.pre764, %.pre765
-  br i1 %487, label %._crit_edge762.thread, label %533
+  %486 = icmp eq ptr %.pre764, %.pre765
+  %487 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  br i1 %486, label %._crit_edge762.thread, label %533
 
 488:                                              ; preds = %936, %476
   %489 = landingpad { ptr, i32 }
@@ -18618,7 +18618,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit359:           ; preds = %_ZN4cvc58internal8T
   br label %646
 
 ._crit_edge762.thread:                            ; preds = %480, %_ZN4cvc58internal8TypeNodeD2Ev.exit359, %._crit_edge762
-  %583 = phi ptr [ %486, %_ZN4cvc58internal8TypeNodeD2Ev.exit359 ], [ %486, %._crit_edge762 ], [ %484, %480 ]
+  %583 = phi ptr [ %487, %_ZN4cvc58internal8TypeNodeD2Ev.exit359 ], [ %487, %._crit_edge762 ], [ %484, %480 ]
   %584 = and i32 %57, 1022
   %or.cond3 = icmp eq i32 %584, 226
   %or.cond746.not = select i1 %3, i1 true, i1 %or.cond3

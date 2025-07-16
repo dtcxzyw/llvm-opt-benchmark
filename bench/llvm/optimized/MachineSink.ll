@@ -13470,7 +13470,7 @@ _ZNK4llvm19MachineRegisterInfo18use_nodbg_operandsENS_8RegisterE.exit: ; preds =
 .lr.ph:                                           ; preds = %_ZNK4llvm19MachineRegisterInfo18use_nodbg_operandsENS_8RegisterE.exit, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.i.i.i.i.i
   %34 = phi i32 [ %49, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %30, %_ZNK4llvm19MachineRegisterInfo18use_nodbg_operandsENS_8RegisterE.exit ]
   %35 = phi ptr [ %48, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %29, %_ZNK4llvm19MachineRegisterInfo18use_nodbg_operandsENS_8RegisterE.exit ]
-  %.sroa.04.08.i.i.i.i.i75 = phi ptr [ %storemerge.i.i.i.i.i.i.i, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %.sroa.0.0.i.i41, %_ZNK4llvm19MachineRegisterInfo18use_nodbg_operandsENS_8RegisterE.exit ]
+  %.sroa.04.08.i.i.i.i.i77 = phi ptr [ %storemerge.i.i.i.i.i.i.i, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.i.i.i.i.i ], [ %.sroa.0.0.i.i41, %_ZNK4llvm19MachineRegisterInfo18use_nodbg_operandsENS_8RegisterE.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 68
   %37 = load i16, ptr %36, align 4, !tbaa !436
   switch i16 %37, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEEEZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockENS_8RegisterEPNS_17MachineBasicBlockESA_RbSB_E3$_0EEbOT_T0_.exit" [
@@ -13489,7 +13489,7 @@ _ZNK4llvm19MachineRegisterInfo18use_nodbg_operandsENS_8RegisterE.exit: ; preds =
   br i1 %.not6.i.i.i.i.i, label %.critedge2.i.i.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEEEZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockENS_8RegisterEPNS_17MachineBasicBlockESA_RbSB_E3$_0EEbOT_T0_.exit"
 
 .critedge2.i.i.i.i.i.i.i:                         ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockEN4llvm8RegisterEPNS4_17MachineBasicBlockES7_RbS8_E3$_0EclINS4_19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEEEbT_.exit.i.i.i.i.i", %44
-  %.pn.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i, %44 ], [ %.sroa.04.08.i.i.i.i.i75, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockEN4llvm8RegisterEPNS4_17MachineBasicBlockES7_RbS8_E3$_0EclINS4_19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEEEbT_.exit.i.i.i.i.i" ]
+  %.pn.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i, %44 ], [ %.sroa.04.08.i.i.i.i.i77, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_114MachineSinking23AllUsesDominatedByBlockEN4llvm8RegisterEPNS4_17MachineBasicBlockES7_RbS8_E3$_0EclINS4_19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEEEEbT_.exit.i.i.i.i.i" ]
   %storemerge.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i, align 8, !tbaa !472
   %.not.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
@@ -13527,7 +13527,7 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppE
   %61 = load i32, ptr %.0.i.i.i43, align 8
   %62 = and i32 %61, -2130706432
   %or.cond.not.i.i.i45 = icmp eq i32 %62, 0
-  br i1 %or.cond.not.i.i.i45, label %.lr.ph78, label %.critedge2.i.i.i.i46
+  br i1 %or.cond.not.i.i.i45, label %.lr.ph80, label %.critedge2.i.i.i.i46
 
 .critedge2.i.i.i.i46:                             ; preds = %60, %63
   %.pn.i.i.i.i47 = phi ptr [ %storemerge.i.i.i.i49, %63 ], [ %.0.i.i.i43, %60 ]
@@ -13540,9 +13540,9 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppE
   %64 = load i32, ptr %storemerge.i.i.i.i49, align 8
   %65 = and i32 %64, -2130706432
   %or.cond.not.i.i.i.i51 = icmp eq i32 %65, 0
-  br i1 %or.cond.not.i.i.i.i51, label %.lr.ph78, label %.critedge2.i.i.i.i46, !llvm.loop !490
+  br i1 %or.cond.not.i.i.i.i51, label %.lr.ph80, label %.critedge2.i.i.i.i46, !llvm.loop !490
 
-.lr.ph78:                                         ; preds = %63, %60
+.lr.ph80:                                         ; preds = %63, %60
   %.sroa.0.0.i.i52 = phi ptr [ %.0.i.i.i43, %60 ], [ %storemerge.i.i.i.i49, %63 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit
@@ -13550,9 +13550,9 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppE
 _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.loopexit: ; preds = %89
   br label %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit, !llvm.loop !490
 
-_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit: ; preds = %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.loopexit, %.lr.ph78
-  %.sroa.057.077 = phi ptr [ %.sroa.0.0.i.i52, %.lr.ph78 ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.loopexit ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.057.077, i64 8
+_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit: ; preds = %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.loopexit, %.lr.ph80
+  %.sroa.057.079 = phi ptr [ %.sroa.0.0.i.i52, %.lr.ph80 ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit.loopexit ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.057.079, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !491
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 68
   %70 = load i16, ptr %69, align 4, !tbaa !436
@@ -13564,7 +13564,7 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppE
 71:                                               ; preds = %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit, %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppEv.exit
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !485
-  %74 = ptrtoint ptr %.sroa.057.077 to i64
+  %74 = ptrtoint ptr %.sroa.057.079 to i64
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
   %77 = lshr exact i64 %76, 5
@@ -13587,7 +13587,7 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb0ELb1ELb1ELb0ELb0EEppE
   br i1 %88, label %.critedge2.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread
 
 .critedge2.i.i:                                   ; preds = %86, %89
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %89 ], [ %.sroa.057.077, %86 ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %89 ], [ %.sroa.057.079, %86 ]
   %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8, !tbaa !472
   %.not.i.i = icmp eq ptr %storemerge.i.i, null

@@ -284,7 +284,7 @@ define void @lv_group_remove_obj(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %4
   %8 = load ptr, ptr %6, align 8, !tbaa !13
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %10, label %.thread40
+  br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -378,51 +378,47 @@ lv_group_refocus.exit:                            ; preds = %39, %43, %44, %48
 53:                                               ; preds = %get_indev.exit, %lv_group_refocus.exit
   %.pr = load ptr, ptr %5, align 8, !tbaa !3
   %.not36 = icmp eq ptr %.pr, null
-  br i1 %.not36, label %.thread, label %..thread40_crit_edge
+  br i1 %.not36, label %.thread, label %.thread40
 
-..thread40_crit_edge:                             ; preds = %53
+.thread40:                                        ; preds = %53
   %.pre = load ptr, ptr %.pr, align 8, !tbaa !13
-  br label %.thread40
+  %54 = icmp eq ptr %.pre, %0
+  br i1 %54, label %55, label %.thread
 
-.thread40:                                        ; preds = %..thread40_crit_edge, %7
-  %54 = phi ptr [ %.pre, %..thread40_crit_edge ], [ %8, %7 ]
-  %55 = icmp eq ptr %54, %0
-  br i1 %55, label %56, label %.thread
-
-56:                                               ; preds = %.thread40
+55:                                               ; preds = %.thread40
   store ptr null, ptr %5, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %4, %56, %.thread40, %53
-  %57 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %2) #10
-  %.not3743 = icmp eq ptr %57, null
+.thread:                                          ; preds = %7, %4, %55, %.thread40, %53
+  %56 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %2) #10
+  %.not3743 = icmp eq ptr %56, null
   br i1 %.not3743, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread, %65
-  %.044 = phi ptr [ %66, %65 ], [ %57, %.thread ]
-  %58 = load ptr, ptr %.044, align 8, !tbaa !13
-  %59 = icmp eq ptr %58, %0
-  br i1 %59, label %60, label %65
+.lr.ph:                                           ; preds = %.thread, %64
+  %.044 = phi ptr [ %65, %64 ], [ %56, %.thread ]
+  %57 = load ptr, ptr %.044, align 8, !tbaa !13
+  %58 = icmp eq ptr %57, %0
+  br i1 %58, label %59, label %64
 
-60:                                               ; preds = %.lr.ph
+59:                                               ; preds = %.lr.ph
   tail call void @lv_ll_remove(ptr noundef nonnull %2, ptr noundef nonnull %.044) #10
   tail call void @lv_free(ptr noundef nonnull %.044) #10
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !17
-  %.not38 = icmp eq ptr %62, null
-  br i1 %.not38, label %.loopexit, label %63
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8, !tbaa !17
+  %.not38 = icmp eq ptr %61, null
+  br i1 %.not38, label %.loopexit, label %62
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr null, ptr %64, align 8, !tbaa !24
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr null, ptr %63, align 8, !tbaa !24
   br label %.loopexit
 
-65:                                               ; preds = %.lr.ph
-  %66 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %2, ptr noundef nonnull %.044) #10
-  %.not37 = icmp eq ptr %66, null
+64:                                               ; preds = %.lr.ph
+  %65 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %2, ptr noundef nonnull %.044) #10
+  %.not37 = icmp eq ptr %65, null
   br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
-.loopexit:                                        ; preds = %65, %.thread, %60, %63, %1
+.loopexit:                                        ; preds = %64, %.thread, %59, %62, %1
   ret void
 }
 

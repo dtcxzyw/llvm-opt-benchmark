@@ -9115,7 +9115,7 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   %.not13 = icmp eq i8 %119, 2
   br i1 %.not13, label %238, label %121
 
-.thread63.loopexit:                               ; preds = %163, %187, %190, %193, %204, %206, %212, %222, %224
+.thread63.loopexit:                               ; preds = %163, %187, %191, %194, %204, %206, %212, %222, %224
   %lpad.loopexit78 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -9336,42 +9336,38 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   %185 = load i64, ptr %174, align 8, !noundef !3
   %186 = add i64 %184, %185
   %.not17 = icmp ult i64 %169, %186
-  br i1 %.not17, label %189, label %187
+  br i1 %.not17, label %.thread107, label %187
 
 187:                                              ; preds = %181
   %188 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16)
-          to label %190 unwind label %.thread63.loopexit
+          to label %191 unwind label %.thread63.loopexit
 
-189:                                              ; preds = %._crit_edge, %181
-  %.pre-phi105 = phi i64 [ %.pre104, %._crit_edge ], [ %186, %181 ]
-  %.not19 = icmp ult i64 %169, %.pre-phi105
-  br i1 %.not19, label %195, label %193
-
-190:                                              ; preds = %187
-  %191 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %162)
-          to label %192 unwind label %.thread63.loopexit
-
-192:                                              ; preds = %190
-  %.not18 = icmp ugt i64 %188, %191
-  br i1 %.not18, label %._crit_edge, label %.invoke
-
-._crit_edge:                                      ; preds = %192
+189:                                              ; preds = %193
   %.pre96 = load i64, ptr %170, align 8
   %.pre97 = load i64, ptr %172, align 8
   %.pre98 = load i64, ptr %174, align 8
   %.pre102 = sub i64 %.pre96, %.pre97
   %.pre104 = add i64 %.pre102, %.pre98
-  br label %189
+  %190 = icmp ult i64 %169, %.pre104
+  br i1 %190, label %.thread107, label %194
 
-.invoke:                                          ; preds = %192, %226
+191:                                              ; preds = %187
+  %192 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %162)
+          to label %193 unwind label %.thread63.loopexit
+
+193:                                              ; preds = %191
+  %.not18 = icmp ugt i64 %188, %192
+  br i1 %.not18, label %189, label %.invoke
+
+.invoke:                                          ; preds = %193, %226
   invoke void @"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %16)
           to label %.backedge unwind label %.loopexit81
 
-193:                                              ; preds = %189
-  %194 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %162)
+194:                                              ; preds = %189
+  %195 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %162)
           to label %202 unwind label %.thread63.loopexit
 
-195:                                              ; preds = %202, %189, %211
+.thread107:                                       ; preds = %181, %202, %189, %211
   %196 = load i64, ptr %170, align 8, !noundef !3
   %197 = load i64, ptr %172, align 8, !noundef !3
   %198 = sub i64 %196, %197
@@ -9380,9 +9376,9 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
   %201 = icmp ult i64 %169, %200
   br i1 %201, label %212, label %214
 
-202:                                              ; preds = %193
-  %203 = icmp ult i64 %169, %194
-  br i1 %203, label %204, label %195
+202:                                              ; preds = %194
+  %203 = icmp ult i64 %169, %195
+  br i1 %203, label %204, label %.thread107
 
 204:                                              ; preds = %202
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
@@ -9407,13 +9403,13 @@ _ZN6quiche6stream8recv_buf7RecvBuf8max_data17h9df9b38f22cee639E.exit: ; preds = 
 211:                                              ; preds = %208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
-  br label %195
+  br label %.thread107
 
-212:                                              ; preds = %195
+212:                                              ; preds = %.thread107
   %213 = invoke noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16)
           to label %215 unwind label %.thread63.loopexit
 
-214:                                              ; preds = %215, %195, %225
+214:                                              ; preds = %215, %.thread107, %225
   %.not.i.i = icmp eq ptr %.sroa.041.0.copyload, null
   br i1 %.not.i.i, label %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$8is_empty17h12e55267c40c993eE.exit.i", label %.lr.ph
 

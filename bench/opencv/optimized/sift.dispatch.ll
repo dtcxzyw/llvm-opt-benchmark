@@ -7689,77 +7689,77 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1
 
 ._crit_edge.i:                                    ; preds = %.noexc
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !144
-  %.not.i.i.i = icmp eq ptr %15, %.pre.i
-  br i1 %.not.i.i.i, label %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit, label %10
+  %10 = icmp eq ptr %16, %.pre.i
+  br i1 %10, label %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit, label %11
 
-10:                                               ; preds = %._crit_edge.i
+11:                                               ; preds = %._crit_edge.i
   store ptr %.pre.i, ptr %8, align 8, !tbaa !140
   br label %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit
 
 .lr.ph.i:                                         ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %.noexc
-  %.sroa.01.06.i = phi ptr [ %15, %.noexc ], [ %7, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit ]
-  %11 = load ptr, ptr %.sroa.01.06.i, align 8, !tbaa !162
-  %12 = load ptr, ptr %0, align 8, !tbaa !94
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %11)
+  %.sroa.01.06.i = phi ptr [ %16, %.noexc ], [ %7, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit ]
+  %12 = load ptr, ptr %.sroa.01.06.i, align 8, !tbaa !162
+  %13 = load ptr, ptr %0, align 8, !tbaa !94
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %15 = load ptr, ptr %14, align 8
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %12)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 8
-  %16 = load ptr, ptr %8, align 8, !tbaa !174
-  %.not.i = icmp eq ptr %15, %16
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 8
+  %17 = load ptr, ptr %8, align 8, !tbaa !174
+  %.not.i = icmp eq ptr %16, %17
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !260
 
-_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit: ; preds = %10, %._crit_edge.i, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !174
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load ptr, ptr %19, align 8, !tbaa !174
-  %.not5.i2 = icmp eq ptr %18, %20
+_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit: ; preds = %11, %._crit_edge.i, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %19 = load ptr, ptr %18, align 8, !tbaa !174
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %21 = load ptr, ptr %20, align 8, !tbaa !174
+  %.not5.i2 = icmp eq ptr %19, %21
   br i1 %.not5.i2, label %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE22_cleanupTerminatedDataEv.exit, label %.lr.ph.i3
 
-._crit_edge.i6:                                   ; preds = %.noexc9
-  %.pre.i7 = load ptr, ptr %17, align 8, !tbaa !144
-  %.not.i.i.i8 = icmp eq ptr %26, %.pre.i7
-  br i1 %.not.i.i.i8, label %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE22_cleanupTerminatedDataEv.exit, label %21
+._crit_edge.i6:                                   ; preds = %.noexc8
+  %.pre.i7 = load ptr, ptr %18, align 8, !tbaa !144
+  %22 = icmp eq ptr %28, %.pre.i7
+  br i1 %22, label %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE22_cleanupTerminatedDataEv.exit, label %23
 
-21:                                               ; preds = %._crit_edge.i6
-  store ptr %.pre.i7, ptr %19, align 8, !tbaa !140
+23:                                               ; preds = %._crit_edge.i6
+  store ptr %.pre.i7, ptr %20, align 8, !tbaa !140
   br label %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE22_cleanupTerminatedDataEv.exit
 
-.lr.ph.i3:                                        ; preds = %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit, %.noexc9
-  %.sroa.01.06.i4 = phi ptr [ %26, %.noexc9 ], [ %18, %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit ]
-  %22 = load ptr, ptr %.sroa.01.06.i4, align 8, !tbaa !162
-  %23 = load ptr, ptr %0, align 8, !tbaa !94
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %22)
-          to label %.noexc9 unwind label %.loopexit
+.lr.ph.i3:                                        ; preds = %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit, %.noexc8
+  %.sroa.01.06.i4 = phi ptr [ %28, %.noexc8 ], [ %19, %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit ]
+  %24 = load ptr, ptr %.sroa.01.06.i4, align 8, !tbaa !162
+  %25 = load ptr, ptr %0, align 8, !tbaa !94
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load ptr, ptr %26, align 8
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %24)
+          to label %.noexc8 unwind label %.loopexit
 
-.noexc9:                                          ; preds = %.lr.ph.i3
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i4, i64 8
-  %27 = load ptr, ptr %19, align 8, !tbaa !174
-  %.not.i5 = icmp eq ptr %26, %27
+.noexc8:                                          ; preds = %.lr.ph.i3
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i4, i64 8
+  %29 = load ptr, ptr %20, align 8, !tbaa !174
+  %.not.i5 = icmp eq ptr %28, %29
   br i1 %.not.i5, label %._crit_edge.i6, label %.lr.ph.i3, !llvm.loop !261
 
-_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE22_cleanupTerminatedDataEv.exit: ; preds = %21, %._crit_edge.i6, %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit
-  %28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #27
+_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE22_cleanupTerminatedDataEv.exit: ; preds = %23, %._crit_edge.i6, %_ZN2cv18TLSDataAccumulatorISt6vectorINS_8KeyPointESaIS2_EEE20_cleanupDetachedDataEv.exit
+  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #27
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i3
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %29
+  br label %31
 
 .loopexit.split-lp:                               ; preds = %.lr.ph.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %29
+  br label %31
 
-29:                                               ; preds = %.loopexit.split-lp, %.loopexit
+31:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #27
+  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #27
   resume { ptr, i32 } %lpad.phi
 }
 

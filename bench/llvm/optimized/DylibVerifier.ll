@@ -13028,13 +13028,13 @@ define linkonce_odr void @_ZSt9__find_ifIN4llvm16SmallSetIteratorINS0_5MachO12Pl
   %7 = load i8, ptr %6, align 8, !tbaa !461, !range !63, !noundef !64
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i8, ptr %8, align 8, !tbaa !461, !range !63, !noundef !64
-  %.not.i.i12 = icmp ne i8 %7, %9
+  %.not.i.i13 = icmp ne i8 %7, %9
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %2, align 8
   %12 = icmp ne ptr %10, %11
-  %.0.i.not.i13 = select i1 %.not.i.i12, i1 true, i1 %12
+  %.0.i.not.i14 = select i1 %.not.i.i13, i1 true, i1 %12
   %13 = ptrtoint ptr %10 to i64
-  br i1 %.0.i.not.i13, label %.lr.ph, label %.thread9
+  br i1 %.0.i.not.i14, label %.lr.ph, label %.thread9
 
 .lr.ph:                                           ; preds = %4
   %14 = trunc nuw i8 %7 to i1
@@ -13045,13 +13045,13 @@ define linkonce_odr void @_ZSt9__find_ifIN4llvm16SmallSetIteratorINS0_5MachO12Pl
   br i1 %14, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us
-  %18 = phi i64 [ %52, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us ], [ %13, %.lr.ph ]
-  %19 = phi ptr [ %48, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us ], [ %10, %.lr.ph ]
+  %18 = phi i64 [ %51, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us ], [ %13, %.lr.ph ]
+  %19 = phi ptr [ %47, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us ], [ %10, %.lr.ph ]
   %20 = inttoptr i64 %18 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
   %22 = load i64, ptr %15, align 8, !tbaa !415
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %35, label %24
+  br i1 %23, label %34, label %24
 
 24:                                               ; preds = %.lr.ph.split.us
   %25 = load ptr, ptr %5, align 8, !tbaa !466
@@ -13082,137 +13082,137 @@ _ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2
 .thread2.us:                                      ; preds = %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us
   %32 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i.i.us, i64 32
   %33 = load i32, ptr %32, align 4, !tbaa !140
-  %34 = icmp slt i32 %26, %33
-  br i1 %34, label %.thread9, label %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us
-
-35:                                               ; preds = %.lr.ph.split.us
-  %36 = load ptr, ptr %3, align 8, !tbaa !142
-  %37 = load i32, ptr %17, align 8, !tbaa !137
-  %38 = zext i32 %37 to i64
-  %.idx.i.i.i.i.i.us = shl nuw nsw i64 %38, 2
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i.i.i.us
-  %.not13.i.i.i.i.i.us = icmp eq i32 %37, 0
-  br i1 %.not13.i.i.i.i.i.us, label %.thread9, label %.lr.ph.i.i.i.i.i.us
-
-.lr.ph.i.i.i.i.i.us:                              ; preds = %35
-  %40 = load i32, ptr %21, align 4, !tbaa !140
-  br label %41
-
-41:                                               ; preds = %44, %.lr.ph.i.i.i.i.i.us
-  %.0914.i.i.i.i.i.us = phi ptr [ %36, %.lr.ph.i.i.i.i.i.us ], [ %45, %44 ]
-  %42 = load i32, ptr %.0914.i.i.i.i.i.us, align 4, !tbaa !140
-  %43 = icmp eq i32 %42, %40
-  br i1 %43, label %46, label %44
-
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i.i.i.us, i64 4
-  %.not.i.i.i.i.i.us = icmp eq ptr %45, %39
-  br i1 %.not.i.i.i.i.i.us, label %46, label %41, !llvm.loop !577
-
-46:                                               ; preds = %44, %41
-  %.1.i.i.i.i.i.us = phi ptr [ %.0914.i.i.i.i.i.us, %41 ], [ %39, %44 ]
-  %47 = getelementptr inbounds nuw i32, ptr %36, i64 %38
-  %.not.us = icmp eq ptr %.1.i.i.i.i.i.us, %47
+  %.not.us = icmp slt i32 %26, %33
   br i1 %.not.us, label %.thread9, label %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us
 
-_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us: ; preds = %46, %.thread2.us
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store ptr %48, ptr %1, align 8, !tbaa !73
-  %49 = load i8, ptr %8, align 8, !tbaa !461, !range !63, !noundef !64
-  %.not.i.i.us = icmp eq i8 %49, 0
-  %50 = load ptr, ptr %2, align 8
-  %51 = icmp ne ptr %48, %50
-  %.0.i.not.i.us = select i1 %.not.i.i.us, i1 true, i1 %51
-  %52 = ptrtoint ptr %48 to i64
+34:                                               ; preds = %.lr.ph.split.us
+  %35 = load ptr, ptr %3, align 8, !tbaa !142
+  %36 = load i32, ptr %17, align 8, !tbaa !137
+  %37 = zext i32 %36 to i64
+  %.idx.i.i.i.i.i.us = shl nuw nsw i64 %37, 2
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i.i.i.us
+  %.not13.i.i.i.i.i.us = icmp eq i32 %36, 0
+  br i1 %.not13.i.i.i.i.i.us, label %.thread9, label %.lr.ph.i.i.i.i.i.us
+
+.lr.ph.i.i.i.i.i.us:                              ; preds = %34
+  %39 = load i32, ptr %21, align 4, !tbaa !140
+  br label %40
+
+40:                                               ; preds = %43, %.lr.ph.i.i.i.i.i.us
+  %.0914.i.i.i.i.i.us = phi ptr [ %35, %.lr.ph.i.i.i.i.i.us ], [ %44, %43 ]
+  %41 = load i32, ptr %.0914.i.i.i.i.i.us, align 4, !tbaa !140
+  %42 = icmp eq i32 %41, %39
+  br i1 %42, label %45, label %43
+
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i.i.i.us, i64 4
+  %.not.i.i.i.i.i.us = icmp eq ptr %44, %38
+  br i1 %.not.i.i.i.i.i.us, label %45, label %40, !llvm.loop !577
+
+45:                                               ; preds = %43, %40
+  %.1.i.i.i.i.i.us = phi ptr [ %.0914.i.i.i.i.i.us, %40 ], [ %38, %43 ]
+  %46 = getelementptr inbounds nuw i32, ptr %35, i64 %37
+  %.not11.us = icmp eq ptr %.1.i.i.i.i.i.us, %46
+  br i1 %.not11.us, label %.thread9, label %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us
+
+_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us: ; preds = %45, %.thread2.us
+  %47 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store ptr %47, ptr %1, align 8, !tbaa !73
+  %48 = load i8, ptr %8, align 8, !tbaa !461, !range !63, !noundef !64
+  %.not.i.i.us = icmp eq i8 %48, 0
+  %49 = load ptr, ptr %2, align 8
+  %50 = icmp ne ptr %47, %49
+  %.0.i.not.i.us = select i1 %.not.i.i.us, i1 true, i1 %50
+  %51 = ptrtoint ptr %47 to i64
   br i1 %.0.i.not.i.us, label %.lr.ph.split.us, label %.thread9, !llvm.loop !578
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
-  %53 = phi i64 [ %87, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ], [ %13, %.lr.ph ]
-  %54 = phi ptr [ %83, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ], [ %10, %.lr.ph ]
-  %55 = inttoptr i64 %53 to ptr
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i
-  %57 = load i64, ptr %15, align 8, !tbaa !415
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %59, label %70
+  %52 = phi i64 [ %85, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ], [ %13, %.lr.ph ]
+  %53 = phi ptr [ %81, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ], [ %10, %.lr.ph ]
+  %54 = inttoptr i64 %52 to ptr
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i
+  %56 = load i64, ptr %15, align 8, !tbaa !415
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %58, label %69
 
-59:                                               ; preds = %.lr.ph.split
-  %60 = load ptr, ptr %3, align 8, !tbaa !142
-  %61 = load i32, ptr %17, align 8, !tbaa !137
-  %62 = zext i32 %61 to i64
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %62, 2
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i.i.i
-  %.not13.i.i.i.i.i = icmp eq i32 %61, 0
+58:                                               ; preds = %.lr.ph.split
+  %59 = load ptr, ptr %3, align 8, !tbaa !142
+  %60 = load i32, ptr %17, align 8, !tbaa !137
+  %61 = zext i32 %60 to i64
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %61, 2
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i.i.i.i.i
+  %.not13.i.i.i.i.i = icmp eq i32 %60, 0
   br i1 %.not13.i.i.i.i.i, label %.thread9, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %59
-  %64 = load i32, ptr %56, align 4, !tbaa !140
-  br label %65
+.lr.ph.i.i.i.i.i:                                 ; preds = %58
+  %63 = load i32, ptr %55, align 4, !tbaa !140
+  br label %64
 
-65:                                               ; preds = %68, %.lr.ph.i.i.i.i.i
-  %.0914.i.i.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i ], [ %69, %68 ]
-  %66 = load i32, ptr %.0914.i.i.i.i.i, align 4, !tbaa !140
-  %67 = icmp eq i32 %66, %64
-  br i1 %67, label %81, label %68
+64:                                               ; preds = %67, %.lr.ph.i.i.i.i.i
+  %.0914.i.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i.i ], [ %68, %67 ]
+  %65 = load i32, ptr %.0914.i.i.i.i.i, align 4, !tbaa !140
+  %66 = icmp eq i32 %65, %63
+  br i1 %66, label %79, label %67
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i = icmp eq ptr %69, %63
-  br i1 %.not.i.i.i.i.i, label %81, label %65, !llvm.loop !577
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i = icmp eq ptr %68, %62
+  br i1 %.not.i.i.i.i.i, label %79, label %64, !llvm.loop !577
 
-70:                                               ; preds = %.lr.ph.split
-  %71 = load ptr, ptr %5, align 8, !tbaa !466
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %71, null
+69:                                               ; preds = %.lr.ph.split
+  %70 = load ptr, ptr %5, align 8, !tbaa !466
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not10.i.i.i.i.i.i.i, label %.thread9, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %70
-  %72 = load i32, ptr %56, align 4, !tbaa !140
-  br label %73
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %69
+  %71 = load i32, ptr %55, align 4, !tbaa !140
+  br label %72
 
-73:                                               ; preds = %73, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %73 ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i.i ], [ %.19.i.i.i.i.i.i.i, %73 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 32
-  %75 = load i32, ptr %74, align 4, !tbaa !140
-  %76 = icmp slt i32 %75, %72
-  %.19.i.i.i.i.i.i.i = select i1 %76, ptr %.0811.i.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i.i
-  %.1.in.v.i.i.i.i.i.i.i = select i1 %76, i64 24, i64 16
+72:                                               ; preds = %72, %.lr.ph.i.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i.i = phi ptr [ %70, %.lr.ph.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %72 ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i.i ], [ %.19.i.i.i.i.i.i.i, %72 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 32
+  %74 = load i32, ptr %73, align 4, !tbaa !140
+  %75 = icmp slt i32 %74, %71
+  %.19.i.i.i.i.i.i.i = select i1 %75, ptr %.0811.i.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i.i
+  %.1.in.v.i.i.i.i.i.i.i = select i1 %75, i64 24, i64 16
   %.1.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i.i.i
   %.1.i.i.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i.i.i, align 8, !tbaa !555
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i, label %73, !llvm.loop !576
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i, label %72, !llvm.loop !576
 
-_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i: ; preds = %73
-  %77 = icmp eq ptr %.19.i.i.i.i.i.i.i, %16
-  br i1 %77, label %.thread9, label %.thread2
+_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i: ; preds = %72
+  %76 = icmp eq ptr %.19.i.i.i.i.i.i.i, %16
+  br i1 %76, label %.thread9, label %.thread2
 
 .thread2:                                         ; preds = %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i.i, i64 32
-  %79 = load i32, ptr %78, align 4, !tbaa !140
-  %80 = icmp slt i32 %72, %79
-  br i1 %80, label %.thread9, label %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
-
-81:                                               ; preds = %65, %68
-  %.1.i.i.i.i.i = phi ptr [ %.0914.i.i.i.i.i, %65 ], [ %63, %68 ]
-  %82 = getelementptr inbounds nuw i32, ptr %60, i64 %62
-  %.not = icmp eq ptr %.1.i.i.i.i.i, %82
+  %77 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i.i, i64 32
+  %78 = load i32, ptr %77, align 4, !tbaa !140
+  %.not = icmp slt i32 %71, %78
   br i1 %.not, label %.thread9, label %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
 
-_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit: ; preds = %.thread2, %81
-  %83 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %54) #25
-  store ptr %83, ptr %1, align 8, !tbaa !73
-  %84 = load i8, ptr %8, align 8, !tbaa !461, !range !63, !noundef !64
-  %.not.i.i = icmp ne i8 %84, 0
-  %85 = load ptr, ptr %2, align 8
-  %86 = icmp ne ptr %83, %85
-  %.0.i.not.i = select i1 %.not.i.i, i1 true, i1 %86
-  %87 = ptrtoint ptr %83 to i64
+79:                                               ; preds = %64, %67
+  %.1.i.i.i.i.i = phi ptr [ %.0914.i.i.i.i.i, %64 ], [ %62, %67 ]
+  %80 = getelementptr inbounds nuw i32, ptr %59, i64 %61
+  %.not11 = icmp eq ptr %.1.i.i.i.i.i, %80
+  br i1 %.not11, label %.thread9, label %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit
+
+_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit: ; preds = %.thread2, %79
+  %81 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %53) #25
+  store ptr %81, ptr %1, align 8, !tbaa !73
+  %82 = load i8, ptr %8, align 8, !tbaa !461, !range !63, !noundef !64
+  %.not.i.i = icmp ne i8 %82, 0
+  %83 = load ptr, ptr %2, align 8
+  %84 = icmp ne ptr %81, %83
+  %.0.i.not.i = select i1 %.not.i.i, i1 true, i1 %84
+  %85 = ptrtoint ptr %81 to i64
   br i1 %.0.i.not.i, label %.lr.ph.split, label %.thread9, !llvm.loop !578
 
-.thread9:                                         ; preds = %81, %.thread2, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i, %70, %59, %46, %.thread2.us, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us, %24, %35, %4
-  %88 = phi i64 [ %13, %4 ], [ %18, %46 ], [ %18, %.thread2.us ], [ %52, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us ], [ %18, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us ], [ %18, %24 ], [ %18, %35 ], [ %53, %81 ], [ %53, %.thread2 ], [ %87, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ], [ %53, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i ], [ %53, %70 ], [ %53, %59 ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %7, ptr %89, align 8, !tbaa !461
-  store i64 %88, ptr %0, align 8, !tbaa !73
+.thread9:                                         ; preds = %79, %.thread2, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit, %69, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i, %58, %45, %.thread2.us, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us, %24, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us, %34, %4
+  %86 = phi i64 [ %13, %4 ], [ %18, %45 ], [ %18, %.thread2.us ], [ %51, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit.us ], [ %18, %24 ], [ %18, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i.us ], [ %18, %34 ], [ %52, %79 ], [ %52, %.thread2 ], [ %85, %_ZN4llvm16SmallSetIteratorINS_5MachO12PlatformTypeELj3ESt4lessIS2_EEppEv.exit ], [ %52, %69 ], [ %52, %_ZNKSt8_Rb_treeIN4llvm5MachO12PlatformTypeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i.i ], [ %52, %58 ]
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %7, ptr %87, align 8, !tbaa !461
+  store i64 %86, ptr %0, align 8, !tbaa !73
   ret void
 }
 

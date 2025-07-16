@@ -1187,12 +1187,15 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr5error17hbfd0fd7560cda079E(ptr
   %.022.i.i = select i1 %21, i64 %22, i64 %.01926.i.i
   %23 = sub i64 %.021.i.i, %.022.i.i
   %24 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %24, label %.lr.ph.i.i, label %.loopexit
+  br i1 %24, label %.lr.ph.i.i, label %.loopexit.loopexit
 
-.loopexit:                                        ; preds = %19, %8
-  %.019.lcssa.i.i = phi i64 [ 0, %8 ], [ %.022.i.i, %19 ]
-  %25 = icmp ule i64 %.019.lcssa.i.i, %12
-  tail call void @llvm.assume(i1 %25)
+.loopexit.loopexit:                               ; preds = %19
+  %25 = icmp ule i64 %.022.i.i, %12
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %8
+  %.019.lcssa.i.i = phi i1 [ true, %8 ], [ %25, %.loopexit.loopexit ]
+  tail call void @llvm.assume(i1 %.019.lcssa.i.i)
   br label %32
 
 26:                                               ; preds = %.lr.ph.i.i

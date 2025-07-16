@@ -5581,7 +5581,7 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr noundef re
   %13 = load i32, ptr %12, align 8, !tbaa !93
   %14 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %13) #11
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.critedge213, label %15
+  br i1 %.not, label %.critedge215, label %15
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 208
@@ -5593,7 +5593,7 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr noundef re
 
 20:                                               ; preds = %15
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %14, ptr noundef nonnull @.str.58) #11
-  br label %.critedge213
+  br label %.critedge215
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5615,12 +5615,12 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr noundef re
   %33 = load i32, ptr %32, align 8, !tbaa !194
   %34 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.76, ptr noundef %31, i32 noundef %33) #11
   %.not197 = icmp eq ptr %34, null
-  br i1 %.not197, label %.critedge213, label %35
+  br i1 %.not197, label %.critedge215, label %35
 
 35:                                               ; preds = %27
   %36 = tail call i32 @curl_strequal(ptr noundef nonnull %34, ptr noundef %4) #11
   %.not198 = icmp eq i32 %36, 0
-  br i1 %.not198, label %37, label %.thread216
+  br i1 %.not198, label %37, label %.thread220
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %28, align 8, !tbaa !160
@@ -5638,9 +5638,9 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr noundef re
   %47 = load ptr, ptr %46, align 8, !tbaa !193
   %48 = tail call i32 @curl_strequal(ptr noundef %47, ptr noundef %4) #11
   %.not200 = icmp eq i32 %48, 0
-  br i1 %.not200, label %50, label %.thread216
+  br i1 %.not200, label %50, label %.thread220
 
-.thread216:                                       ; preds = %35, %45
+.thread220:                                       ; preds = %35, %45
   %49 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %49(ptr noundef nonnull %34) #11
   br label %53
@@ -5649,9 +5649,9 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr noundef re
   %51 = tail call i32 @nghttp2_submit_rst_stream(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %13, i32 noundef 1) #11
   %52 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %52(ptr noundef nonnull %34) #11
-  br label %.critedge213
+  br label %.critedge215
 
-53:                                               ; preds = %.thread216, %25
+53:                                               ; preds = %.thread220, %25
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 280
   %55 = load ptr, ptr %54, align 8, !tbaa !91
   %.not202 = icmp eq ptr %55, null
@@ -5664,7 +5664,7 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr noundef re
   %59 = tail call ptr %58(i64 noundef 80) #11
   store ptr %59, ptr %54, align 8, !tbaa !91
   %.not203 = icmp eq ptr %59, null
-  br i1 %.not203, label %.critedge213, label %60
+  br i1 %.not203, label %.critedge215, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 288
@@ -5706,7 +5706,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   %80 = load ptr, ptr %54, align 8, !tbaa !91
   tail call void %79(ptr noundef %80) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  br label %.critedge213
+  br label %.critedge215
 
 81:                                               ; preds = %68
   %82 = shl nuw nsw i64 %64, 1
@@ -5719,7 +5719,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
 
 86:                                               ; preds = %81
   tail call fastcc void @free_push_headers(ptr noundef nonnull %19)
-  br label %.critedge213
+  br label %.critedge215
 
 87:                                               ; preds = %81
   store ptr %85, ptr %54, align 8, !tbaa !91
@@ -5728,7 +5728,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
 88:                                               ; preds = %87, %62, %60
   %89 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.78, ptr noundef nonnull %2, ptr noundef %4) #11
   %.not205 = icmp eq ptr %89, null
-  br i1 %.not205, label %.critedge213, label %90
+  br i1 %.not205, label %.critedge215, label %90
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %54, align 8, !tbaa !91
@@ -5738,7 +5738,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   store i64 %94, ptr %92, align 8, !tbaa !83
   %95 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
   store ptr %89, ptr %95, align 8, !tbaa !92
-  br label %.critedge213
+  br label %.critedge215
 
 96:                                               ; preds = %21
   %97 = getelementptr inbounds nuw i8, ptr %19, i64 324
@@ -5786,7 +5786,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   %123 = tail call i32 @Curl_dynhds_add(ptr noundef nonnull %122, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #11
   %.not195 = icmp eq i32 %123, 0
   %.206 = select i1 %.not195, i32 0, i32 -902
-  br label %.critedge213
+  br label %.critedge215
 
 124:                                              ; preds = %96
   %125 = icmp eq i64 %3, 7
@@ -5835,14 +5835,14 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   %146 = load ptr, ptr %10, align 8, !tbaa !107
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !116
-  %.not190 = icmp eq ptr %148, %14
-  br i1 %.not190, label %150, label %149
+  %149 = icmp eq ptr %148, %14
+  br i1 %149, label %150, label %.critedge210
 
-149:                                              ; preds = %143
+.critedge210:                                     ; preds = %143
   call void @Curl_expire(ptr noundef nonnull %14, i64 noundef 0, i32 noundef 8) #11
   br label %150
 
-150:                                              ; preds = %149, %143
+150:                                              ; preds = %.critedge210, %143
   %151 = getelementptr inbounds nuw i8, ptr %14, i64 2562
   %152 = load i64, ptr %151, align 2
   %153 = and i64 %152, 134217728
@@ -5878,50 +5878,50 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
 .critedge208:                                     ; preds = %138, %135, %.critedge, %150, %157, %161, %166, %131, %128
   %.5 = phi i32 [ -902, %128 ], [ -902, %131 ], [ 0, %166 ], [ 0, %161 ], [ 0, %157 ], [ 0, %150 ], [ -902, %.critedge ], [ -902, %135 ], [ -902, %138 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
-  br label %.critedge213
+  br label %.critedge215
 
 170:                                              ; preds = %126, %124
   %171 = getelementptr inbounds nuw i8, ptr %11, i64 176
   tail call void @Curl_dyn_reset(ptr noundef nonnull %171) #11
   %172 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %171, ptr noundef %2, i64 noundef %3) #11
   %.not178 = icmp eq i32 %172, 0
-  br i1 %.not178, label %173, label %.critedge213
+  br i1 %.not178, label %173, label %.critedge215
 
 173:                                              ; preds = %170
   %174 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %171, ptr noundef nonnull @.str.85, i64 noundef 2) #11
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %.critedge210, label %.critedge213
+  br i1 %175, label %.critedge212, label %.critedge215
 
-.critedge210:                                     ; preds = %173
+.critedge212:                                     ; preds = %173
   %176 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %171, ptr noundef %4, i64 noundef %5) #11
   %177 = icmp eq i32 %176, 0
-  br i1 %177, label %.critedge211, label %.critedge213
+  br i1 %177, label %.critedge213, label %.critedge215
 
-.critedge211:                                     ; preds = %.critedge210
+.critedge213:                                     ; preds = %.critedge212
   %178 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %171, ptr noundef nonnull @.str.47, i64 noundef 2) #11
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %.critedge213
+  br i1 %179, label %180, label %.critedge215
 
-180:                                              ; preds = %.critedge211
+180:                                              ; preds = %.critedge213
   %181 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %171) #11
   %182 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %171) #11
   tail call fastcc void @h2_xfer_write_resp_hd(ptr noundef nonnull %7, ptr noundef %14, ptr noundef %19, ptr noundef %181, i64 noundef %182, i1 noundef zeroext false)
   %183 = load ptr, ptr %10, align 8, !tbaa !107
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !116
-  %.not182 = icmp eq ptr %185, %14
-  br i1 %.not182, label %187, label %186
+  %186 = icmp eq ptr %185, %14
+  br i1 %186, label %187, label %.critedge217
 
-186:                                              ; preds = %180
+.critedge217:                                     ; preds = %180
   tail call void @Curl_expire(ptr noundef nonnull %14, i64 noundef 0, i32 noundef 8) #11
   br label %187
 
-187:                                              ; preds = %186, %180
+187:                                              ; preds = %.critedge217, %180
   %188 = getelementptr inbounds nuw i8, ptr %14, i64 2562
   %189 = load i64, ptr %188, align 2
   %190 = and i64 %189, 134217728
   %.not183 = icmp eq i64 %190, 0
-  br i1 %.not183, label %.critedge213, label %191
+  br i1 %.not183, label %.critedge215, label %191
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds nuw i8, ptr %14, i64 4712
@@ -5933,14 +5933,14 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %196 = load i32, ptr %195, align 8, !tbaa !131
   %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %198, label %.critedge213
+  br i1 %197, label %198, label %.critedge215
 
 198:                                              ; preds = %191, %194
   %199 = load ptr, ptr %7, align 8, !tbaa !133
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 12
   %201 = load i32, ptr %200, align 4, !tbaa !134
   %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %203, label %.critedge213
+  br i1 %202, label %203, label %.critedge215
 
 203:                                              ; preds = %198
   %204 = getelementptr inbounds nuw i8, ptr %19, i64 320
@@ -5948,10 +5948,10 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   %206 = trunc i64 %3 to i32
   %207 = trunc i64 %5 to i32
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %14, ptr noundef nonnull %7, ptr noundef nonnull @.str.86, i32 noundef %205, i32 noundef %206, ptr noundef %2, i32 noundef %207, ptr noundef %4) #11
-  br label %.critedge213
+  br label %.critedge215
 
-.critedge213:                                     ; preds = %86, %free_push_headers.exit, %27, %50, %.critedge210, %170, %173, %.critedge211, %187, %194, %198, %203, %121, %56, %90, %88, %8, %.critedge208, %20
-  %.0 = phi i32 [ %.5, %.critedge208 ], [ -902, %20 ], [ -902, %8 ], [ -902, %50 ], [ -902, %56 ], [ 0, %90 ], [ 0, %88 ], [ %.206, %121 ], [ 0, %203 ], [ 0, %198 ], [ 0, %194 ], [ 0, %187 ], [ -902, %.critedge211 ], [ -902, %173 ], [ -902, %170 ], [ -902, %.critedge210 ], [ -902, %27 ], [ -902, %free_push_headers.exit ], [ -902, %86 ]
+.critedge215:                                     ; preds = %86, %free_push_headers.exit, %27, %50, %.critedge212, %170, %173, %.critedge213, %187, %194, %198, %203, %121, %56, %90, %88, %8, %.critedge208, %20
+  %.0 = phi i32 [ %.5, %.critedge208 ], [ -902, %20 ], [ -902, %8 ], [ -902, %50 ], [ -902, %56 ], [ 0, %90 ], [ 0, %88 ], [ %.206, %121 ], [ 0, %203 ], [ 0, %198 ], [ 0, %194 ], [ 0, %187 ], [ -902, %.critedge213 ], [ -902, %173 ], [ -902, %170 ], [ -902, %.critedge212 ], [ -902, %27 ], [ -902, %free_push_headers.exit ], [ -902, %86 ]
   ret i32 %.0
 }
 

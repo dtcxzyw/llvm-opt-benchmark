@@ -2232,8 +2232,8 @@ define internal fastcc void @node_induce(ptr noundef readonly captures(none) %0,
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
-5:                                                ; preds = %.lr.ph46, %35
-  %.03444 = phi ptr [ %3, %.lr.ph46 ], [ %6, %35 ]
+5:                                                ; preds = %.lr.ph46, %33
+  %.03444 = phi ptr [ %3, %.lr.ph46 ], [ %6, %33 ]
   %6 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.03444) #15
   %7 = getelementptr inbounds nuw i8, ptr %.03444, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !3
@@ -2247,11 +2247,11 @@ define internal fastcc void @node_induce(ptr noundef readonly captures(none) %0,
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 236
   %13 = load i32, ptr %12, align 4, !tbaa !47
   %14 = icmp sgt i32 %13, 1
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge.thread
 
 15:                                               ; preds = %5
   %16 = tail call i32 @agdelete(ptr noundef %1, ptr noundef nonnull %.03444) #15
-  br label %35
+  br label %33
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 1, %.preheader ]
@@ -2268,7 +2268,7 @@ define internal fastcc void @node_induce(ptr noundef readonly captures(none) %0,
 .lr.ph.._crit_edge.loopexit_crit_edge:            ; preds = %.lr.ph
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 236
   %.pre59.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 4, !tbaa !47
-  br label %._crit_edge.loopexit
+  br label %._crit_edge
 
 23:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2276,72 +2276,67 @@ define internal fastcc void @node_induce(ptr noundef readonly captures(none) %0,
   %25 = load i32, ptr %24, align 4, !tbaa !47
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !134
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !134
 
-._crit_edge.loopexit:                             ; preds = %23, %.lr.ph.._crit_edge.loopexit_crit_edge
+._crit_edge:                                      ; preds = %23, %.lr.ph.._crit_edge.loopexit_crit_edge
   %.pre59 = phi i32 [ %.pre59.pre, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %25, %23 ]
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %indvars.iv.next, %23 ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
-  br label %._crit_edge
+  %28 = icmp sgt i32 %.pre59, %.0.lcssa.ph
+  br i1 %28, label %29, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %28 = phi i32 [ %13, %.preheader ], [ %.pre59, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
-  %29 = icmp slt i32 %.0.lcssa, %28
-  br i1 %29, label %30, label %32
+29:                                               ; preds = %._crit_edge
+  %30 = tail call i32 @agdelete(ptr noundef %1, ptr noundef nonnull %.03444) #15
+  br label %._crit_edge.thread
 
-30:                                               ; preds = %._crit_edge
-  %31 = tail call i32 @agdelete(ptr noundef %1, ptr noundef nonnull %.03444) #15
-  br label %32
+._crit_edge.thread:                               ; preds = %.preheader, %29, %._crit_edge
+  %31 = load ptr, ptr %7, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 336
+  store ptr null, ptr %32, align 8, !tbaa !70
+  br label %33
 
-32:                                               ; preds = %30, %._crit_edge
-  %33 = load ptr, ptr %7, align 8, !tbaa !3
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 336
-  store ptr null, ptr %34, align 8, !tbaa !70
-  br label %35
-
-35:                                               ; preds = %32, %15
+33:                                               ; preds = %._crit_edge.thread, %15
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge47, label %5, !llvm.loop !135
 
-._crit_edge47:                                    ; preds = %35, %2
-  %36 = tail call ptr @agfstnode(ptr noundef %1) #15
-  %.not3553 = icmp eq ptr %36, null
+._crit_edge47:                                    ; preds = %33, %2
+  %34 = tail call ptr @agfstnode(ptr noundef %1) #15
+  %.not3553 = icmp eq ptr %34, null
   br i1 %.not3553, label %._crit_edge57, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %._crit_edge47, %._crit_edge52
-  %.154 = phi ptr [ %51, %._crit_edge52 ], [ %36, %._crit_edge47 ]
-  %37 = tail call ptr @dot_root(ptr noundef %1) #15
-  %38 = tail call ptr @agfstout(ptr noundef %37, ptr noundef nonnull %.154) #15
-  %.not3648 = icmp eq ptr %38, null
+  %.154 = phi ptr [ %49, %._crit_edge52 ], [ %34, %._crit_edge47 ]
+  %35 = tail call ptr @dot_root(ptr noundef %1) #15
+  %36 = tail call ptr @agfstout(ptr noundef %35, ptr noundef nonnull %.154) #15
+  %.not3648 = icmp eq ptr %36, null
   br i1 %.not3648, label %._crit_edge52, label %.lr.ph51
 
-.lr.ph51:                                         ; preds = %.lr.ph56, %48
-  %.03349 = phi ptr [ %50, %48 ], [ %38, %.lr.ph56 ]
-  %39 = load i32, ptr %.03349, align 8
-  %40 = and i32 %39, 3
-  %41 = icmp eq i32 %40, 2
-  %.idx = select i1 %41, i64 0, i64 -64
-  %42 = getelementptr inbounds i8, ptr %.03349, i64 %.idx
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
-  %44 = load ptr, ptr %43, align 8, !tbaa !66
-  %45 = tail call i32 @agcontains(ptr noundef %1, ptr noundef %44) #15
-  %.not37 = icmp eq i32 %45, 0
-  br i1 %.not37, label %48, label %46
+.lr.ph51:                                         ; preds = %.lr.ph56, %46
+  %.03349 = phi ptr [ %48, %46 ], [ %36, %.lr.ph56 ]
+  %37 = load i32, ptr %.03349, align 8
+  %38 = and i32 %37, 3
+  %39 = icmp eq i32 %38, 2
+  %.idx = select i1 %39, i64 0, i64 -64
+  %40 = getelementptr inbounds i8, ptr %.03349, i64 %.idx
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %42 = load ptr, ptr %41, align 8, !tbaa !66
+  %43 = tail call i32 @agcontains(ptr noundef %1, ptr noundef %42) #15
+  %.not37 = icmp eq i32 %43, 0
+  br i1 %.not37, label %46, label %44
 
-46:                                               ; preds = %.lr.ph51
-  %47 = tail call ptr @agsubedge(ptr noundef %1, ptr noundef nonnull %.03349, i32 noundef 1) #15
-  br label %48
+44:                                               ; preds = %.lr.ph51
+  %45 = tail call ptr @agsubedge(ptr noundef %1, ptr noundef nonnull %.03349, i32 noundef 1) #15
+  br label %46
 
-48:                                               ; preds = %.lr.ph51, %46
-  %49 = tail call ptr @dot_root(ptr noundef %1) #15
-  %50 = tail call ptr @agnxtout(ptr noundef %49, ptr noundef nonnull %.03349) #15
-  %.not36 = icmp eq ptr %50, null
+46:                                               ; preds = %.lr.ph51, %44
+  %47 = tail call ptr @dot_root(ptr noundef %1) #15
+  %48 = tail call ptr @agnxtout(ptr noundef %47, ptr noundef nonnull %.03349) #15
+  %.not36 = icmp eq ptr %48, null
   br i1 %.not36, label %._crit_edge52, label %.lr.ph51, !llvm.loop !136
 
-._crit_edge52:                                    ; preds = %48, %.lr.ph56
-  %51 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.154) #15
-  %.not35 = icmp eq ptr %51, null
+._crit_edge52:                                    ; preds = %46, %.lr.ph56
+  %49 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.154) #15
+  %.not35 = icmp eq ptr %49, null
   br i1 %.not35, label %._crit_edge57, label %.lr.ph56, !llvm.loop !137
 
 ._crit_edge57:                                    ; preds = %._crit_edge52, %._crit_edge47

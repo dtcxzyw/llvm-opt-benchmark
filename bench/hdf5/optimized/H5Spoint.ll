@@ -1611,7 +1611,7 @@ define internal range(i32 0, 2) i32 @H5S__point_intersect_block(ptr noundef read
   %16 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %17 = load i32, ptr %14, align 8, !tbaa !11
   %.not36 = icmp eq i32 %17, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not36, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %17 to i64
@@ -1624,30 +1624,26 @@ define internal range(i32 0, 2) i32 @H5S__point_intersect_block(ptr noundef read
   %20 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !21
   %22 = icmp ult i64 %19, %21
-  br i1 %22, label %._crit_edge.loopexit, label %23
+  br i1 %22, label %._crit_edge, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !21
   %26 = icmp ugt i64 %19, %25
-  br i1 %26, label %._crit_edge.loopexit, label %27
+  br i1 %26, label %._crit_edge, label %27
 
 27:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !57
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %23
+._crit_edge:                                      ; preds = %23, %.lr.ph
   %28 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.018.lcssa = phi i32 [ 0, %.preheader ], [ %28, %._crit_edge.loopexit ]
-  %29 = icmp eq i32 %.018.lcssa, %17
+  %29 = icmp eq i32 %17, %28
   br i1 %29, label %.thread, label %15
 
-.thread:                                          ; preds = %._crit_edge, %15, %27, %3
-  %.022 = phi i32 [ 0, %3 ], [ 1, %27 ], [ 1, %._crit_edge ], [ 0, %15 ]
+.thread:                                          ; preds = %.preheader, %._crit_edge, %15, %27, %3
+  %.022 = phi i32 [ 0, %3 ], [ 1, %27 ], [ 1, %.preheader ], [ 1, %._crit_edge ], [ 0, %15 ]
   ret i32 %.022
 }
 

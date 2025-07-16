@@ -519,7 +519,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 
 72:                                               ; preds = %71, %54, %44
   %73 = icmp eq i32 %0, %42
-  br i1 %73, label %.critedge, label %74
+  br i1 %73, label %.critedge24, label %74
 
 74:                                               ; preds = %72
   br i1 %3, label %75, label %.thread14
@@ -628,7 +628,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
 140:                                              ; preds = %125
   br i1 %128, label %146, label %.thread16
 
-.critedge:                                        ; preds = %72
+.critedge24:                                      ; preds = %72
   %141 = add i64 %47, ptrtoint (ptr @cpu_sibling_map to i64)
   %142 = inttoptr i64 %141 to ptr
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %142, i64 %12) #23, !srcloc !15
@@ -638,7 +638,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %145, i64 %45) #23, !srcloc !15
   br label %146
 
-146:                                              ; preds = %.critedge, %140
+146:                                              ; preds = %.critedge24, %140
   %147 = load i64, ptr %46, align 8
   %148 = add i64 %147, ptrtoint (ptr @cpu_llc_shared_map to i64)
   %149 = inttoptr i64 %148 to ptr
@@ -647,7 +647,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %151 = add i64 %150, ptrtoint (ptr @cpu_llc_shared_map to i64)
   %152 = inttoptr i64 %151 to ptr
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %152, i64 %45) #23, !srcloc !15
-  br i1 %73, label %.critedge26, label %.thread16
+  br i1 %73, label %.critedge28, label %.thread16
 
 .thread16:                                        ; preds = %95, %104, %118, %131, %140, %146
   %153 = load i16, ptr %15, align 2
@@ -735,7 +735,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %209 = icmp eq i32 %206, %208
   br i1 %209, label %216, label %223
 
-.critedge26:                                      ; preds = %146
+.critedge28:                                      ; preds = %146
   %210 = load i64, ptr %46, align 8
   %211 = add i64 %210, ptrtoint (ptr @cpu_l2c_shared_map to i64)
   %212 = inttoptr i64 %211 to ptr
@@ -746,7 +746,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %215, i64 %45) #23, !srcloc !15
   br label %216
 
-216:                                              ; preds = %.critedge26, %205
+216:                                              ; preds = %.critedge28, %205
   %217 = load i64, ptr %46, align 8
   %218 = add i64 %217, ptrtoint (ptr @cpu_die_map to i64)
   %219 = inttoptr i64 %218 to ptr
@@ -784,8 +784,8 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %238 = zext i1 %237 to i8
   br label %239
 
-239:                                              ; preds = %236, %308
-  %240 = phi i64 [ 0, %236 ], [ %316, %308 ]
+239:                                              ; preds = %236, %305
+  %240 = phi i64 [ 0, %236 ], [ %313, %305 ]
   %241 = load i64, ptr %8, align 8
   %242 = add i64 %241, ptrtoint (ptr @cpu_sibling_map to i64)
   %243 = inttoptr i64 %242 to ptr
@@ -799,9 +799,9 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %249 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %246) #21, !srcloc !9
   %250 = and i64 %249, 4294967232
   %251 = icmp eq i64 %250, 0
-  br i1 %251, label %308, label %.thread20
+  br i1 %251, label %305, label %.thread20
 
-.thread20:                                        ; preds = %239, %308, %248
+.thread20:                                        ; preds = %239, %305, %248
   %252 = icmp eq i32 %232, 1
   %253 = getelementptr inbounds nuw i8, ptr %11, i64 300
   br i1 %252, label %.thread20.split.us.preheader, label %.thread20.split
@@ -810,9 +810,9 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %.pre31 = load i64, ptr @cpu_sibling_setup_mask, align 8
   br label %.thread20.split.us
 
-.thread20.split.us:                               ; preds = %.thread20.split.us.preheader, %303
-  %254 = phi i64 [ %304, %303 ], [ %.pre31, %.thread20.split.us.preheader ]
-  %255 = phi i64 [ %306, %303 ], [ 0, %.thread20.split.us.preheader ]
+.thread20.split.us:                               ; preds = %.thread20.split.us.preheader, %300
+  %254 = phi i64 [ %301, %300 ], [ %.pre31, %.thread20.split.us.preheader ]
+  %255 = phi i64 [ %303, %300 ], [ 0, %.thread20.split.us.preheader ]
   %256 = shl nsw i64 -1, %255
   %257 = and i64 %254, %256
   %258 = icmp eq i64 %257, 0
@@ -838,7 +838,7 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 224
   %273 = load i32, ptr %272, align 8
   %274 = icmp eq i32 %271, %273
-  br i1 %274, label %275, label %303
+  br i1 %274, label %275, label %300
 
 275:                                              ; preds = %268, %263
   %276 = add i64 %266, ptrtoint (ptr @cpu_core_map to i64)
@@ -854,125 +854,121 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %284 = load i64, ptr %283, align 8
   %285 = icmp eq i64 %284, 0
   %.pre = load i64, ptr @cpu_sibling_setup_mask, align 8
-  br i1 %285, label %289, label %286
+  br i1 %285, label %.critedge.us, label %286
 
 286:                                              ; preds = %275
   %287 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %284) #21, !srcloc !9
   %288 = trunc i64 %287 to i32
-  br label %289
+  %289 = icmp eq i32 %288, %261
+  br i1 %289, label %290, label %.critedge.us
 
-289:                                              ; preds = %286, %275
-  %290 = phi i32 [ %288, %286 ], [ 64, %275 ]
-  %291 = icmp eq i32 %290, %261
-  br i1 %291, label %292, label %295
+290:                                              ; preds = %286
+  %291 = load i16, ptr %253, align 4
+  %292 = add i16 %291, 1
+  store i16 %292, ptr %253, align 4
+  br label %.critedge.us
 
-292:                                              ; preds = %289
-  %293 = load i16, ptr %253, align 4
-  %294 = add i16 %293, 1
-  store i16 %294, ptr %253, align 4
-  br label %295
+.critedge.us:                                     ; preds = %290, %286, %275
+  br i1 %267, label %300, label %293
 
-295:                                              ; preds = %292, %289
-  br i1 %267, label %303, label %296
+293:                                              ; preds = %.critedge.us
+  %294 = load i64, ptr %265, align 8
+  %295 = add i64 %294, ptrtoint (ptr @cpu_info to i64)
+  %296 = inttoptr i64 %295 to ptr
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 300
+  %298 = load i16, ptr %297, align 4
+  %299 = add i16 %298, 1
+  store i16 %299, ptr %297, align 4
+  br label %300
 
-296:                                              ; preds = %295
-  %297 = load i64, ptr %265, align 8
-  %298 = add i64 %297, ptrtoint (ptr @cpu_info to i64)
-  %299 = inttoptr i64 %298 to ptr
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 300
-  %301 = load i16, ptr %300, align 4
-  %302 = add i16 %301, 1
-  store i16 %302, ptr %300, align 4
-  br label %303
+300:                                              ; preds = %293, %.critedge.us, %268
+  %301 = phi i64 [ %.pre, %293 ], [ %.pre, %.critedge.us ], [ %254, %268 ]
+  %302 = add nuw nsw i64 %260, 1
+  %303 = and i64 %302, 127
+  %304 = icmp samesign ugt i64 %303, 63
+  br i1 %304, label %.thread22, label %.thread20.split.us, !prof !13, !llvm.loop !24
 
-303:                                              ; preds = %296, %295, %268
-  %304 = phi i64 [ %.pre, %296 ], [ %.pre, %295 ], [ %254, %268 ]
-  %305 = add nuw nsw i64 %260, 1
-  %306 = and i64 %305, 127
-  %307 = icmp samesign ugt i64 %306, 63
-  br i1 %307, label %.thread22, label %.thread20.split.us, !prof !13, !llvm.loop !24
+305:                                              ; preds = %248
+  %306 = and i64 %249, 63
+  %307 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %306
+  %308 = load i64, ptr %307, align 8
+  %309 = add i64 %308, ptrtoint (ptr @cpu_info to i64)
+  %310 = inttoptr i64 %309 to ptr
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 304
+  store i8 %238, ptr %311, align 8
+  %312 = add nuw nsw i64 %249, 1
+  %313 = and i64 %312, 127
+  %314 = icmp samesign ugt i64 %313, 63
+  br i1 %314, label %.thread20, label %239, !prof !13, !llvm.loop !25
 
-308:                                              ; preds = %248
-  %309 = and i64 %249, 63
-  %310 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %309
-  %311 = load i64, ptr %310, align 8
-  %312 = add i64 %311, ptrtoint (ptr @cpu_info to i64)
-  %313 = inttoptr i64 %312 to ptr
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 304
-  store i8 %238, ptr %314, align 8
-  %315 = add nuw nsw i64 %249, 1
-  %316 = and i64 %315, 127
-  %317 = icmp samesign ugt i64 %316, 63
-  br i1 %317, label %.thread20, label %239, !prof !13, !llvm.loop !25
+.thread20.split:                                  ; preds = %.thread20, %355
+  %315 = phi i64 [ %357, %355 ], [ 0, %.thread20 ]
+  %316 = load i64, ptr @cpu_sibling_setup_mask, align 8
+  %317 = shl nsw i64 -1, %315
+  %318 = and i64 %316, %317
+  %319 = icmp eq i64 %318, 0
+  br i1 %319, label %.thread22, label %320
 
-.thread20.split:                                  ; preds = %.thread20, %358
-  %318 = phi i64 [ %360, %358 ], [ 0, %.thread20 ]
-  %319 = load i64, ptr @cpu_sibling_setup_mask, align 8
-  %320 = shl nsw i64 -1, %318
-  %321 = and i64 %319, %320
-  %322 = icmp eq i64 %321, 0
-  br i1 %322, label %.thread22, label %323
+320:                                              ; preds = %.thread20.split
+  %321 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %318) #21, !srcloc !9
+  %322 = trunc i64 %321 to i32
+  %323 = icmp ult i32 %322, 64
+  br i1 %323, label %324, label %.thread22
 
-323:                                              ; preds = %.thread20.split
-  %324 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %321) #21, !srcloc !9
-  %325 = trunc i64 %324 to i32
-  %326 = icmp ult i32 %325, 64
-  br i1 %326, label %327, label %.thread22
+324:                                              ; preds = %320
+  %325 = and i64 %321, 63
+  %326 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %325
+  %327 = load i64, ptr %326, align 8
+  %328 = icmp eq i32 %0, %322
+  br i1 %328, label %.critedge, label %329
 
-327:                                              ; preds = %323
-  %328 = and i64 %324, 63
-  %329 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %328
-  %330 = load i64, ptr %329, align 8
-  %331 = icmp eq i32 %0, %325
-  br i1 %331, label %.critedge28, label %332
+329:                                              ; preds = %324
+  %330 = add i64 %327, ptrtoint (ptr @cpu_info to i64)
+  %331 = inttoptr i64 %330 to ptr
+  %332 = load i32, ptr %14, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %331, i64 224
+  %334 = load i32, ptr %333, align 8
+  %335 = icmp eq i32 %332, %334
+  br i1 %335, label %336, label %355
 
-332:                                              ; preds = %327
-  %333 = add i64 %330, ptrtoint (ptr @cpu_info to i64)
-  %334 = inttoptr i64 %333 to ptr
-  %335 = load i32, ptr %14, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %334, i64 224
-  %337 = load i32, ptr %336, align 8
-  %338 = icmp eq i32 %335, %337
-  br i1 %338, label %339, label %358
-
-339:                                              ; preds = %332
-  %340 = add i64 %330, ptrtoint (ptr @cpu_core_map to i64)
+336:                                              ; preds = %329
+  %337 = add i64 %327, ptrtoint (ptr @cpu_core_map to i64)
+  %338 = inttoptr i64 %337 to ptr
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %338, i64 %12) #23, !srcloc !15
+  %339 = load i64, ptr %8, align 8
+  %340 = add i64 %339, ptrtoint (ptr @cpu_core_map to i64)
   %341 = inttoptr i64 %340 to ptr
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %341, i64 %12) #23, !srcloc !15
-  %342 = load i64, ptr %8, align 8
-  %343 = add i64 %342, ptrtoint (ptr @cpu_core_map to i64)
-  %344 = inttoptr i64 %343 to ptr
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %344, i64 %328) #23, !srcloc !15
-  %345 = load i16, ptr %253, align 4
-  %346 = icmp eq i16 %345, 0
-  br i1 %346, label %347, label %358
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %341, i64 %325) #23, !srcloc !15
+  %342 = load i16, ptr %253, align 4
+  %343 = icmp eq i16 %342, 0
+  br i1 %343, label %344, label %355
 
-347:                                              ; preds = %339
-  %348 = load i64, ptr %329, align 8
-  %349 = add i64 %348, ptrtoint (ptr @cpu_info to i64)
-  %350 = inttoptr i64 %349 to ptr
-  %351 = getelementptr inbounds nuw i8, ptr %350, i64 300
-  %352 = load i16, ptr %351, align 4
-  store i16 %352, ptr %253, align 4
-  br label %358
+344:                                              ; preds = %336
+  %345 = load i64, ptr %326, align 8
+  %346 = add i64 %345, ptrtoint (ptr @cpu_info to i64)
+  %347 = inttoptr i64 %346 to ptr
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 300
+  %349 = load i16, ptr %348, align 4
+  store i16 %349, ptr %253, align 4
+  br label %355
 
-.critedge28:                                      ; preds = %327
-  %353 = add i64 %330, ptrtoint (ptr @cpu_core_map to i64)
+.critedge:                                        ; preds = %324
+  %350 = add i64 %327, ptrtoint (ptr @cpu_core_map to i64)
+  %351 = inttoptr i64 %350 to ptr
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %351, i64 %12) #23, !srcloc !15
+  %352 = load i64, ptr %8, align 8
+  %353 = add i64 %352, ptrtoint (ptr @cpu_core_map to i64)
   %354 = inttoptr i64 %353 to ptr
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %354, i64 %12) #23, !srcloc !15
-  %355 = load i64, ptr %8, align 8
-  %356 = add i64 %355, ptrtoint (ptr @cpu_core_map to i64)
-  %357 = inttoptr i64 %356 to ptr
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %357, i64 %328) #23, !srcloc !15
-  br label %358
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %354, i64 %325) #23, !srcloc !15
+  br label %355
 
-358:                                              ; preds = %.critedge28, %347, %339, %332
-  %359 = add nuw nsw i64 %324, 1
-  %360 = and i64 %359, 127
-  %361 = icmp samesign ugt i64 %360, 63
-  br i1 %361, label %.thread22, label %.thread20.split, !prof !13, !llvm.loop !24
+355:                                              ; preds = %.critedge, %344, %336, %329
+  %356 = add nuw nsw i64 %321, 1
+  %357 = and i64 %356, 127
+  %358 = icmp samesign ugt i64 %357, 63
+  br i1 %358, label %.thread22, label %.thread20.split, !prof !13, !llvm.loop !24
 
-.thread22:                                        ; preds = %323, %358, %.thread20.split, %303, %259, %.thread20.split.us, %17
+.thread22:                                        ; preds = %320, %355, %.thread20.split, %300, %259, %.thread20.split.us, %17
   ret void
 }
 

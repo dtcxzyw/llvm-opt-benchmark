@@ -209,30 +209,30 @@ define void @_ZNK6icu_7723TitlecaseTransliterator19handleTransliterateERNS_11Rep
   %.056.ph = phi i8 [ 0, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ 1, %24 ], [ 1, %22 ]
   %.pre82 = load i32, ptr %9, align 4, !tbaa !12
   %.pre83 = load i32, ptr %11, align 4, !tbaa !15
+  %27 = icmp slt i32 %.pre82, %.pre83
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
-  %27 = phi i32 [ %12, %13 ], [ %.pre83, %._crit_edge.loopexit ]
-  %28 = phi i32 [ %10, %13 ], [ %.pre82, %._crit_edge.loopexit ]
-  %29 = phi i32 [ %14, %13 ], [ %.pre, %._crit_edge.loopexit ]
+  %28 = phi i1 [ true, %13 ], [ %27, %._crit_edge.loopexit ]
+  %29 = phi i32 [ %10, %13 ], [ %.pre82, %._crit_edge.loopexit ]
+  %30 = phi i32 [ %14, %13 ], [ %.pre, %._crit_edge.loopexit ]
   %.056 = phi i8 [ 1, %13 ], [ %.056.ph, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  store ptr %1, ptr %5, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %29, ptr %31, align 8, !tbaa !21
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !22
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %33, ptr %34, align 8, !tbaa !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %30, ptr %32, align 8, !tbaa !21
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %34 = load i32, ptr %33, align 4, !tbaa !22
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %34, ptr %35, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 2, ptr %35, align 8, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i16 2, ptr %36, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  %36 = icmp slt i32 %28, %27
-  br i1 %36, label %.lr.ph80, label %.loopexit
+  br i1 %28, label %.lr.ph80, label %.loopexit
 
 .lr.ph80:                                         ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -243,7 +243,7 @@ define void @_ZNK6icu_7723TitlecaseTransliterator19handleTransliterateERNS_11Rep
   br label %42
 
 42:                                               ; preds = %.lr.ph80, %105
-  %.05478 = phi i32 [ %28, %.lr.ph80 ], [ %.1, %105 ]
+  %.05478 = phi i32 [ %29, %.lr.ph80 ], [ %.1, %105 ]
   %.15777 = phi i8 [ %.056, %.lr.ph80 ], [ %.2, %105 ]
   store i32 %.05478, ptr %37, align 4, !tbaa !25
   %43 = load ptr, ptr %1, align 8, !tbaa !10
@@ -325,7 +325,7 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit:         ; preds = %42
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %79
-  %80 = load i16, ptr %35, align 8, !tbaa !24
+  %80 = load i16, ptr %36, align 8, !tbaa !24
   %81 = icmp slt i16 %80, 0
   %82 = ashr i16 %80, 5
   %83 = sext i16 %82 to i32
@@ -335,7 +335,7 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit:         ; preds = %42
           to label %_ZN6icu_7713UnicodeString5setToEi.exit unwind label %56
 
 _ZN6icu_7713UnicodeString5setToEi.exit:           ; preds = %.noexc
-  %87 = load i16, ptr %35, align 8, !tbaa !24
+  %87 = load i16, ptr %36, align 8, !tbaa !24
   %88 = icmp slt i16 %87, 0
   %89 = ashr i16 %87, 5
   %90 = sext i16 %89 to i32
@@ -359,10 +359,10 @@ _ZN6icu_7713UnicodeString5setToEi.exit:           ; preds = %.noexc
 
 99:                                               ; preds = %98
   %100 = add i32 %.052.pn, %.05478
-  %101 = load i32, ptr %32, align 4, !tbaa !22
+  %101 = load i32, ptr %33, align 4, !tbaa !22
   %102 = add nsw i32 %101, %.053
-  store i32 %102, ptr %32, align 4, !tbaa !22
-  store i32 %102, ptr %34, align 8, !tbaa !23
+  store i32 %102, ptr %33, align 4, !tbaa !22
+  store i32 %102, ptr %35, align 8, !tbaa !23
   %103 = load i32, ptr %11, align 4, !tbaa !15
   %104 = add nsw i32 %103, %.053
   store i32 %104, ptr %11, align 4, !tbaa !15
@@ -376,7 +376,7 @@ _ZN6icu_7713UnicodeString5setToEi.exit:           ; preds = %.noexc
   br i1 %107, label %42, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %105, %._crit_edge, %65
-  %storemerge = phi i32 [ %66, %65 ], [ %28, %._crit_edge ], [ %.1, %105 ]
+  %storemerge = phi i32 [ %66, %65 ], [ %29, %._crit_edge ], [ %.1, %105 ]
   store i32 %storemerge, ptr %9, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #7

@@ -5956,7 +5956,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann24json_abi_diag_dp_v3_11_36detai
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %.not.i.i.not.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.not.i, label %22, label %18
+  br i1 %.not.i.i.not.i, label %23, label %18
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5968,11 +5968,12 @@ define linkonce_odr dso_local void @_ZN8nlohmann24json_abi_diag_dp_v3_11_36detai
   %.pre = load ptr, ptr %9, align 8, !tbaa !144
   %.pre8 = load ptr, ptr %19, align 8, !tbaa !145
   %.sroa.2.0.copyload.i11.i.pre = load i32, ptr %10, align 8
-  br label %22
+  %22 = icmp eq ptr %.pre, %.pre8
+  br label %23
 
-22:                                               ; preds = %5, %18
+23:                                               ; preds = %5, %18
   %.sroa.2.0.copyload.i11.i = phi i32 [ 0, %5 ], [ %.sroa.2.0.copyload.i11.i.pre, %18 ]
-  %23 = phi ptr [ null, %5 ], [ %.pre8, %18 ]
+  %.not.i = phi i1 [ true, %5 ], [ %22, %18 ]
   %24 = phi ptr [ null, %5 ], [ %.pre, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 %6, ptr %25, align 8, !tbaa !94
@@ -5984,10 +5985,9 @@ define linkonce_odr dso_local void @_ZN8nlohmann24json_abi_diag_dp_v3_11_36detai
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 -1, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %4, ptr %29, align 8, !tbaa !146
-  %.not.i = icmp eq ptr %24, %23
   br i1 %.not.i, label %39, label %30
 
-30:                                               ; preds = %22
+30:                                               ; preds = %23
   %31 = add i32 %.sroa.2.0.copyload.i11.i, 1
   store i32 %31, ptr %10, align 8, !tbaa !147
   %32 = icmp eq i32 %.sroa.2.0.copyload.i11.i, 63
@@ -6007,7 +6007,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %33, %30
   store i64 %38, ptr %24, align 8, !tbaa !10
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
-39:                                               ; preds = %22
+39:                                               ; preds = %23
   invoke void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr %24, i32 %.sroa.2.0.copyload.i11.i, i1 noundef zeroext true)
           to label %_ZNSt6vectorIbSaIbEE9push_backEb.exit unwind label %40
 

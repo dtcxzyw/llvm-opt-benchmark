@@ -16105,9 +16105,9 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers11SygusUni
 ._crit_edge3120:                                  ; preds = %_ZN4cvc58internal6theory11quantifiers13UnifContextIo14isStringSolvedEPNS2_11SygusUnifIoERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EESC_.exit
   %.pre = load ptr, ptr %54, align 8, !tbaa !69
   %.pre3187 = load ptr, ptr %567, align 8, !tbaa !69
-  %569 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %570 = icmp eq ptr %.pre, %.pre3187
-  br i1 %570, label %728, label %643
+  %569 = icmp eq ptr %.pre, %.pre3187
+  %570 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  br i1 %569, label %728, label %643
 
 571:                                              ; preds = %471
   %572 = landingpad { ptr, i32 }
@@ -16450,12 +16450,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1121: ; preds = %_ZN4cvc58internal
   br label %791
 
 728:                                              ; preds = %._crit_edge3120.thread, %._crit_edge3120
-  %729 = phi ptr [ %562, %._crit_edge3120.thread ], [ %569, %._crit_edge3120 ]
+  %729 = phi ptr [ %562, %._crit_edge3120.thread ], [ %570, %._crit_edge3120 ]
   invoke void @_ZN4cvc58internal6theory11quantifiers9SygusUnif6indentEPKci(ptr noundef nonnull @.str.54, i32 noundef %5)
           to label %.critedge776 unwind label %726
 
 .critedge776:                                     ; preds = %728, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1121
-  %730 = phi ptr [ %729, %728 ], [ %569, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1121 ]
+  %730 = phi ptr [ %729, %728 ], [ %570, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1121 ]
   %731 = load ptr, ptr %54, align 8, !tbaa !50
   %732 = load ptr, ptr %730, align 8, !tbaa !51
   %.not4.i.i.i.i1128 = icmp eq ptr %731, %732

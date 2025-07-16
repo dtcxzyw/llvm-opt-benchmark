@@ -4796,7 +4796,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPro
 
 15:                                               ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #21
-          to label %.noexc unwind label %33
+          to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %15
   unreachable
@@ -4808,7 +4808,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPro
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %16
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #23
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i unwind label %33
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i unwind label %32
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4822,363 +4822,359 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_
   %21 = phi ptr [ null, %16 ], [ %20, %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i ]
   %22 = phi ptr [ null, %16 ], [ %18, %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i ]
   %.not = icmp eq ptr %9, %10
-  br i1 %.not, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, label %.lr.ph
+  br i1 %.not, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %35
+  br label %34
 
-_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
-  %24 = phi ptr [ %21, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %76, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %25 = phi ptr [ %22, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %77, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %.pr.i = phi ptr [ %22, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %75, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %.lcssa87 = phi ptr [ %9, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %78, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %.lcssa82 = phi ptr [ %10, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %79, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %.lcssa77 = phi i64 [ 0, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %82, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %.lcssa72 = phi i64 [ 0, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %83, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %.not.i.i.i.i34 = icmp eq ptr %.lcssa87, %.lcssa82
-  br i1 %.not.i.i.i.i34, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %26
+_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit
+  %24 = icmp eq ptr %77, %78
+  br i1 %24, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %25
 
-26:                                               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %27 = ashr exact i64 %.lcssa77, 1
-  %28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #23
-          to label %.noexc36 unwind label %112
+25:                                               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
+  %26 = ashr exact i64 %81, 1
+  %27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #23
+          to label %.noexc36 unwind label %113
 
-.noexc36:                                         ; preds = %26
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %.lcssa72
-  store float 0.000000e+00, ptr %28, align 4, !tbaa !134
-  %30 = icmp eq i64 %.lcssa77, 8
-  br i1 %30, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+.noexc36:                                         ; preds = %25
+  %28 = getelementptr inbounds nuw float, ptr %27, i64 %82
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !134
+  %29 = icmp eq i64 %81, 8
+  br i1 %29, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
-  %31 = getelementptr i8, ptr %28, i64 4
-  %32 = add nsw i64 %27, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 0, i64 %32, i1 false), !tbaa !134
+  %30 = getelementptr i8, ptr %27, i64 4
+  %31 = add nsw i64 %26, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false), !tbaa !134
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
-33:                                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %15
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %15
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit46
 
-35:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit
-  %36 = phi ptr [ %22, %.lr.ph ], [ %75, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %37 = phi ptr [ %21, %.lr.ph ], [ %76, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %38 = phi ptr [ %22, %.lr.ph ], [ %77, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
+34:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit
+  %35 = phi ptr [ %22, %.lr.ph ], [ %74, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
+  %36 = phi ptr [ %21, %.lr.ph ], [ %75, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
+  %37 = phi ptr [ %22, %.lr.ph ], [ %76, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
-  %39 = phi ptr [ %10, %.lr.ph ], [ %79, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
+  %38 = phi ptr [ %10, %.lr.ph ], [ %78, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
-  %40 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-          to label %41 unwind label %85
+  %39 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+          to label %40 unwind label %84
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8, !tbaa !123
-  tail call void @_ZN5draco17PlyPropertyReaderIfEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef %43)
-  store ptr %40, ptr %7, align 8, !tbaa !170
-  %.not.i.i = icmp eq ptr %38, %37
-  %44 = ptrtoint ptr %40 to i64
-  br i1 %.not.i.i, label %46, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8, !tbaa !123
+  tail call void @_ZN5draco17PlyPropertyReaderIfEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %42)
+  store ptr %39, ptr %7, align 8, !tbaa !170
+  %.not.i.i = icmp eq ptr %37, %36
+  %43 = ptrtoint ptr %39 to i64
+  br i1 %.not.i.i, label %45, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
 
-_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread: ; preds = %41
-  store i64 %44, ptr %38, align 8, !tbaa !170
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %45, ptr %23, align 8, !tbaa !168
+_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread: ; preds = %40
+  store i64 %43, ptr %37, align 8, !tbaa !170
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %44, ptr %23, align 8, !tbaa !168
   br label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit
 
-46:                                               ; preds = %41
-  %47 = ptrtoint ptr %37 to i64
-  %48 = ptrtoint ptr %36 to i64
-  %49 = sub i64 %47, %48
-  %50 = icmp eq i64 %49, 9223372036854775800
-  br i1 %50, label %51, label %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+45:                                               ; preds = %40
+  %46 = ptrtoint ptr %36 to i64
+  %47 = ptrtoint ptr %35 to i64
+  %48 = sub i64 %46, %47
+  %49 = icmp eq i64 %48, 9223372036854775800
+  br i1 %49, label %50, label %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
 
-51:                                               ; preds = %46
+50:                                               ; preds = %45
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #21
           to label %.noexc55 unwind label %.loopexit.split-lp68
 
-.noexc55:                                         ; preds = %51
+.noexc55:                                         ; preds = %50
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %46
-  %52 = ashr exact i64 %49, 3
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %52, i64 1)
-  %53 = add nsw i64 %.sroa.speculated.i.i, %52
-  %54 = icmp ult i64 %53, %52
-  %55 = tail call i64 @llvm.umin.i64(i64 %53, i64 1152921504606846975)
-  %56 = select i1 %54, i64 1152921504606846975, i64 %55
-  %.not.i.i47 = icmp ne i64 %56, 0
+_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %45
+  %51 = ashr exact i64 %48, 3
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
+  %52 = add nsw i64 %.sroa.speculated.i.i, %51
+  %53 = icmp ult i64 %52, %51
+  %54 = tail call i64 @llvm.umin.i64(i64 %52, i64 1152921504606846975)
+  %55 = select i1 %53, i64 1152921504606846975, i64 %54
+  %.not.i.i47 = icmp ne i64 %55, 0
   tail call void @llvm.assume(i1 %.not.i.i47)
-  %57 = shl nuw nsw i64 %56, 3
-  %58 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #23
+  %56 = shl nuw nsw i64 %55, 3
+  %57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #23
           to label %.noexc56 unwind label %.loopexit67
 
 .noexc56:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %49
-  store i64 %44, ptr %59, align 8, !tbaa !170
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %48
+  store i64 %43, ptr %58, align 8, !tbaa !170
   store ptr null, ptr %7, align 8, !tbaa !170
-  %.not10.i.i.i.i48 = icmp eq ptr %36, %37
+  %.not10.i.i.i.i48 = icmp eq ptr %35, %36
   br i1 %.not10.i.i.i.i48, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49
 
 .lr.ph.i.i.i.i49:                                 ; preds = %.noexc56, %.lr.ph.i.i.i.i49
-  %.012.i.i.i.i50 = phi ptr [ %62, %.lr.ph.i.i.i.i49 ], [ %58, %.noexc56 ]
-  %.0911.i.i.i.i51 = phi ptr [ %61, %.lr.ph.i.i.i.i49 ], [ %36, %.noexc56 ]
+  %.012.i.i.i.i50 = phi ptr [ %61, %.lr.ph.i.i.i.i49 ], [ %57, %.noexc56 ]
+  %.0911.i.i.i.i51 = phi ptr [ %60, %.lr.ph.i.i.i.i49 ], [ %35, %.noexc56 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
-  %60 = load i64, ptr %.0911.i.i.i.i51, align 8, !tbaa !170, !alias.scope !175, !noalias !172
-  store i64 %60, ptr %.012.i.i.i.i50, align 8, !tbaa !170, !alias.scope !172, !noalias !175
+  %59 = load i64, ptr %.0911.i.i.i.i51, align 8, !tbaa !170, !alias.scope !175, !noalias !172
+  store i64 %59, ptr %.012.i.i.i.i50, align 8, !tbaa !170, !alias.scope !172, !noalias !175
   store ptr null, ptr %.0911.i.i.i.i51, align 8, !tbaa !170, !alias.scope !175, !noalias !172
-  %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i51, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i50, i64 8
-  %.not.i.i.i.i52 = icmp eq ptr %61, %37
+  %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i51, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i50, i64 8
+  %.not.i.i.i.i52 = icmp eq ptr %60, %36
   br i1 %.not.i.i.i.i52, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49, !llvm.loop !177
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i49, %.noexc56
-  %.0.lcssa.i.i.i.i = phi ptr [ %58, %.noexc56 ], [ %62, %.lr.ph.i.i.i.i49 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %36, null
-  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %64
+  %.0.lcssa.i.i.i.i = phi ptr [ %57, %.noexc56 ], [ %61, %.lr.ph.i.i.i.i49 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not.i23.i = icmp eq ptr %35, null
+  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %63
 
-64:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %49) #20
+63:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %48) #20
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
-_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %64
-  store ptr %58, ptr %6, align 8, !tbaa !165
-  store ptr %63, ptr %23, align 8, !tbaa !168
-  %65 = getelementptr inbounds nuw %"class.std::unique_ptr.120", ptr %58, i64 %56
-  store ptr %65, ptr %17, align 8, !tbaa !169
+_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %63
+  store ptr %57, ptr %6, align 8, !tbaa !165
+  store ptr %62, ptr %23, align 8, !tbaa !168
+  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.120", ptr %57, i64 %55
+  store ptr %64, ptr %17, align 8, !tbaa !169
   %.pr = load ptr, ptr %7, align 8, !tbaa !170
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit, label %66
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit, label %65
 
-66:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
-  %67 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !95
-  %.not.i.i.i.i38 = icmp eq ptr %68, null
-  br i1 %.not.i.i.i.i38, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i, label %69
+65:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
+  %66 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
+  %67 = load ptr, ptr %66, align 8, !tbaa !95
+  %.not.i.i.i.i38 = icmp eq ptr %67, null
+  br i1 %.not.i.i.i.i38, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i, label %68
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %71 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %70, i32 noundef 3)
-          to label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i unwind label %72
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %70 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3)
+          to label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i unwind label %71
 
-72:                                               ; preds = %69
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %68
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #22
+  %73 = extractvalue { ptr, i32 } %72, 0
+  tail call void @__clang_call_terminate(ptr %73) #22
   unreachable
 
-_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i: ; preds = %69, %66
+_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i: ; preds = %68, %65
   tail call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i
-  %75 = phi ptr [ %36, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %58, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %58, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i ]
-  %76 = phi ptr [ %37, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %65, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %65, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i ]
-  %77 = phi ptr [ %45, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %63, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %63, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i ]
+  %74 = phi ptr [ %35, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %57, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %57, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i ]
+  %75 = phi ptr [ %36, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %64, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %64, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i ]
+  %76 = phi ptr [ %44, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %62, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %62, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = load ptr, ptr %8, align 8, !tbaa !127
-  %79 = load ptr, ptr %1, align 8, !tbaa !124
+  %77 = load ptr, ptr %8, align 8, !tbaa !127
+  %78 = load ptr, ptr %1, align 8, !tbaa !124
+  %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = ashr exact i64 %82, 3
-  %84 = icmp ugt i64 %83, %indvars.iv.next
-  br i1 %84, label %35, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !178
+  %81 = sub i64 %79, %80
+  %82 = ashr exact i64 %81, 3
+  %83 = icmp ugt i64 %82, %indvars.iv.next
+  br i1 %83, label %34, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !178
 
-85:                                               ; preds = %35
-  %86 = landingpad { ptr, i32 }
+84:                                               ; preds = %34
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
 .loopexit67:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %lpad.loopexit69 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
-.loopexit.split-lp68:                             ; preds = %51
+.loopexit.split-lp68:                             ; preds = %50
   %lpad.loopexit.split-lp70 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
-87:                                               ; preds = %.loopexit.split-lp68, %.loopexit67
+86:                                               ; preds = %.loopexit.split-lp68, %.loopexit67
   %lpad.phi71 = phi { ptr, i32 } [ %lpad.loopexit69, %.loopexit67 ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp68 ]
   call void @_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
-  br label %88
+  br label %87
 
-88:                                               ; preds = %87, %85
-  %.pn30 = phi { ptr, i32 } [ %lpad.phi71, %87 ], [ %86, %85 ]
+87:                                               ; preds = %86, %84
+  %.pn30 = phi { ptr, i32 } [ %lpad.phi71, %86 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit46
 
-_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc36, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %29, %.noexc36 ], [ %29, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.058.0 = phi ptr [ %28, %.noexc36 ], [ %28, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc36, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
+  %.pr.i118 = phi ptr [ %74, %.noexc36 ], [ %74, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %74, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %22, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
+  %88 = phi ptr [ %76, %.noexc36 ], [ %76, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %76, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %22, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
+  %89 = phi ptr [ %75, %.noexc36 ], [ %75, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %75, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %21, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
+  %.sroa.11.0 = phi ptr [ %28, %.noexc36 ], [ %28, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
+  %.sroa.058.0 = phi ptr [ %27, %.noexc36 ], [ %27, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
   %.not100 = icmp eq i32 %3, 0
   br i1 %.not100, label %._crit_edge99, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %89 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %wide.trip.count = zext i32 %3 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %indvars.iv110 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next111, %._crit_edge ]
-  %90 = load ptr, ptr %8, align 8, !tbaa !127
-  %91 = load ptr, ptr %1, align 8, !tbaa !124
-  %.not101 = icmp eq ptr %90, %91
+  %91 = load ptr, ptr %8, align 8, !tbaa !127
+  %92 = load ptr, ptr %1, align 8, !tbaa !124
+  %.not101 = icmp eq ptr %91, %92
   br i1 %.not101, label %._crit_edge, label %.lr.ph97.preheader
 
 .lr.ph97.preheader:                               ; preds = %.preheader
-  %92 = trunc nuw i64 %indvars.iv110 to i32
+  %93 = trunc nuw i64 %indvars.iv110 to i32
   br label %.lr.ph97
 
 ._crit_edge99:                                    ; preds = %._crit_edge, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %.not.i.i.i = icmp eq ptr %.sroa.058.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %93
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %94
 
-93:                                               ; preds = %._crit_edge99
-  %94 = ptrtoint ptr %.sroa.11.0 to i64
-  %95 = ptrtoint ptr %.sroa.058.0 to i64
-  %96 = sub i64 %94, %95
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.058.0, i64 noundef %96) #20
+94:                                               ; preds = %._crit_edge99
+  %95 = ptrtoint ptr %.sroa.11.0 to i64
+  %96 = ptrtoint ptr %.sroa.058.0 to i64
+  %97 = sub i64 %95, %96
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.058.0, i64 noundef %97) #20
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge99, %93
-  %.not4.i.i.i.i = icmp eq ptr %.pr.i, %25
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge99, %94
+  %.not4.i.i.i.i = icmp eq ptr %.pr.i118, %88
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39
 
 .lr.ph.i.i.i.i39:                                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %.pr.i, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
-  %97 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !170
-  %.not.i.i.i.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %98
+  %.05.i.i.i.i = phi ptr [ %108, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %.pr.i118, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
+  %98 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !170
+  %.not.i.i.i.i.i.i = icmp eq ptr %98, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %99
 
-98:                                               ; preds = %.lr.ph.i.i.i.i39
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %100 = load ptr, ptr %99, align 8, !tbaa !95
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %100, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i, label %101
+99:                                               ; preds = %.lr.ph.i.i.i.i39
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  %101 = load ptr, ptr %100, align 8, !tbaa !95
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %101, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i, label %102
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %103 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %102, i32 noundef 3)
-          to label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i unwind label %104
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %104 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %103, i32 noundef 3)
+          to label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i unwind label %105
 
-104:                                              ; preds = %101
-  %105 = landingpad { ptr, i32 }
+105:                                              ; preds = %102
+  %106 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #22
+  %107 = extractvalue { ptr, i32 } %106, 0
+  call void @__clang_call_terminate(ptr %107) #22
   unreachable
 
-_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %101, %98
-  call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef 40) #20
+_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %102, %99
+  call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef 40) #20
   br label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIfEEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i39
   store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !170
-  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %.not.i.i.i.i40 = icmp eq ptr %107, %25
+  %108 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %.not.i.i.i.i40 = icmp eq ptr %108, %88
   br i1 %.not.i.i.i.i40, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39, !llvm.loop !179
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.not.i.i.i41 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %108
+  %.not.i.i.i41 = icmp eq ptr %.pr.i118, null
+  br i1 %.not.i.i.i41, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %109
 
-108:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %109 = ptrtoint ptr %24 to i64
-  %110 = ptrtoint ptr %.pr.i to i64
-  %111 = sub i64 %109, %110
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %111) #20
+109:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
+  %110 = ptrtoint ptr %89 to i64
+  %111 = ptrtoint ptr %.pr.i118 to i64
+  %112 = sub i64 %110, %111
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i118, i64 noundef %112) #20
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %108
+_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %109
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
   ret i1 true
 
-112:                                              ; preds = %26
-  %113 = landingpad { ptr, i32 }
+113:                                              ; preds = %25
+  %114 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit46
 
-.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %123
-  %indvars.iv107 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next108, %123 ]
-  %114 = getelementptr inbounds nuw %"class.std::unique_ptr.120", ptr %.pr.i, i64 %indvars.iv107
-  %115 = load ptr, ptr %114, align 8, !tbaa !170
+.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %124
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next108, %124 ]
+  %115 = getelementptr inbounds nuw %"class.std::unique_ptr.120", ptr %.pr.i118, i64 %indvars.iv107
+  %116 = load ptr, ptr %115, align 8, !tbaa !170
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %92, ptr %5, align 4, !tbaa !94
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %117 = load ptr, ptr %116, align 8, !tbaa !95
-  %.not.i.i.i42 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i42, label %118, label %_ZNKSt8functionIFfiEEclEi.exit.i
+  store i32 %93, ptr %5, align 4, !tbaa !94
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %118 = load ptr, ptr %117, align 8, !tbaa !95
+  %.not.i.i.i42 = icmp eq ptr %118, null
+  br i1 %.not.i.i.i42, label %119, label %_ZNKSt8functionIFfiEEclEi.exit.i
 
-118:                                              ; preds = %.lr.ph97
+119:                                              ; preds = %.lr.ph97
   invoke void @_ZSt25__throw_bad_function_callv() #21
           to label %.noexc43 unwind label %.loopexit.split-lp
 
-.noexc43:                                         ; preds = %118
+.noexc43:                                         ; preds = %119
   unreachable
 
 _ZNKSt8functionIFfiEEclEi.exit.i:                 ; preds = %.lr.ph97
-  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %120 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %121 = load ptr, ptr %120, align 8, !tbaa !132
-  %122 = invoke noundef float %121(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %123 unwind label %.loopexit
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  %122 = load ptr, ptr %121, align 8, !tbaa !132
+  %123 = invoke noundef float %122(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %124 unwind label %.loopexit
 
-123:                                              ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i
+124:                                              ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %124 = getelementptr inbounds nuw float, ptr %.sroa.058.0, i64 %indvars.iv107
-  store float %122, ptr %124, align 4, !tbaa !134
+  %125 = getelementptr inbounds nuw float, ptr %.sroa.058.0, i64 %indvars.iv107
+  store float %123, ptr %125, align 4, !tbaa !134
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %125 = load ptr, ptr %8, align 8, !tbaa !127
-  %126 = load ptr, ptr %1, align 8, !tbaa !124
-  %127 = ptrtoint ptr %125 to i64
+  %126 = load ptr, ptr %8, align 8, !tbaa !127
+  %127 = load ptr, ptr %1, align 8, !tbaa !124
   %128 = ptrtoint ptr %126 to i64
-  %129 = sub i64 %127, %128
-  %130 = ashr exact i64 %129, 3
-  %131 = icmp ugt i64 %130, %indvars.iv.next108
-  br i1 %131, label %.lr.ph97, label %._crit_edge, !llvm.loop !180
+  %129 = ptrtoint ptr %127 to i64
+  %130 = sub i64 %128, %129
+  %131 = ashr exact i64 %130, 3
+  %132 = icmp ugt i64 %131, %indvars.iv.next108
+  br i1 %132, label %.lr.ph97, label %._crit_edge, !llvm.loop !180
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFfiEEclEi.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %133
 
-.loopexit.split-lp:                               ; preds = %118
+.loopexit.split-lp:                               ; preds = %119
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %133
 
-132:                                              ; preds = %.loopexit.split-lp, %.loopexit
+133:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i45 = icmp eq ptr %.sroa.058.0, null
-  br i1 %.not.i.i.i45, label %_ZNSt6vectorIfSaIfEED2Ev.exit46, label %138
+  br i1 %.not.i.i.i45, label %_ZNSt6vectorIfSaIfEED2Ev.exit46, label %139
 
-._crit_edge:                                      ; preds = %123, %.preheader
-  %133 = load i64, ptr %89, align 8, !tbaa !136
-  %134 = mul nsw i64 %133, %indvars.iv110
-  %135 = load ptr, ptr %2, align 8, !tbaa !141
-  %136 = load ptr, ptr %135, align 8, !tbaa !142
-  %137 = getelementptr inbounds i8, ptr %136, i64 %134
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr align 1 %.sroa.058.0, i64 %133, i1 false)
+._crit_edge:                                      ; preds = %124, %.preheader
+  %134 = load i64, ptr %90, align 8, !tbaa !136
+  %135 = mul nsw i64 %134, %indvars.iv110
+  %136 = load ptr, ptr %2, align 8, !tbaa !141
+  %137 = load ptr, ptr %136, align 8, !tbaa !142
+  %138 = getelementptr inbounds i8, ptr %137, i64 %135
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr align 1 %.sroa.058.0, i64 %134, i1 false)
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge99, label %.preheader, !llvm.loop !181
 
-138:                                              ; preds = %132
-  %139 = ptrtoint ptr %.sroa.11.0 to i64
-  %140 = ptrtoint ptr %.sroa.058.0 to i64
-  %141 = sub i64 %139, %140
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.058.0, i64 noundef %141) #20
+139:                                              ; preds = %133
+  %140 = ptrtoint ptr %.sroa.11.0 to i64
+  %141 = ptrtoint ptr %.sroa.058.0 to i64
+  %142 = sub i64 %140, %141
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.058.0, i64 noundef %142) #20
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit46
 
-_ZNSt6vectorIfSaIfEED2Ev.exit46:                  ; preds = %112, %132, %138, %88, %33
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %88 ], [ %34, %33 ], [ %113, %112 ], [ %lpad.phi, %132 ], [ %lpad.phi, %138 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit46:                  ; preds = %113, %133, %139, %87, %32
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %87 ], [ %33, %32 ], [ %114, %113 ], [ %lpad.phi, %133 ], [ %lpad.phi, %139 ]
   call void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIfEESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
   resume { ptr, i32 } %.pn30.pn
@@ -5202,7 +5198,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPro
 
 15:                                               ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #21
-          to label %.noexc unwind label %33
+          to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %15
   unreachable
@@ -5214,7 +5210,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5draco10PlyDecoder25ReadPro
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %16
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #23
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i unwind label %33
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i unwind label %32
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5228,363 +5224,359 @@ _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_
   %21 = phi ptr [ null, %16 ], [ %20, %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i ]
   %22 = phi ptr [ null, %16 ], [ %18, %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i ]
   %.not = icmp eq ptr %9, %10
-  br i1 %.not, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, label %.lr.ph
+  br i1 %.not, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %35
+  br label %34
 
-_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
-  %24 = phi ptr [ %21, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %76, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %25 = phi ptr [ %22, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %77, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %.pr.i = phi ptr [ %22, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %75, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %.lcssa87 = phi ptr [ %9, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %78, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %.lcssa82 = phi ptr [ %10, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %79, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %.lcssa77 = phi i64 [ 0, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %82, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %.lcssa72 = phi i64 [ 0, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ], [ %83, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %.not.i.i.i.i34 = icmp eq ptr %.lcssa87, %.lcssa82
-  br i1 %.not.i.i.i.i34, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %26
+_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit
+  %24 = icmp eq ptr %77, %78
+  br i1 %24, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %25
 
-26:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %27 = ashr exact i64 %.lcssa77, 1
-  %28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #23
-          to label %.noexc36 unwind label %112
+25:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %26 = ashr exact i64 %81, 1
+  %27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #23
+          to label %.noexc36 unwind label %113
 
-.noexc36:                                         ; preds = %26
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %.lcssa72
-  store i32 0, ptr %28, align 4, !tbaa !94
-  %30 = icmp eq i64 %.lcssa77, 8
-  br i1 %30, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+.noexc36:                                         ; preds = %25
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %82
+  store i32 0, ptr %27, align 4, !tbaa !94
+  %29 = icmp eq i64 %81, 8
+  br i1 %29, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc36
-  %31 = getelementptr i8, ptr %28, i64 4
-  %32 = add nsw i64 %27, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 0, i64 %32, i1 false), !tbaa !94
+  %30 = getelementptr i8, ptr %27, i64 4
+  %31 = add nsw i64 %26, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false), !tbaa !94
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
-33:                                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %15
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %15
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit46
 
-35:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit
-  %36 = phi ptr [ %22, %.lr.ph ], [ %75, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %37 = phi ptr [ %21, %.lr.ph ], [ %76, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %38 = phi ptr [ %22, %.lr.ph ], [ %77, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
+34:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit
+  %35 = phi ptr [ %22, %.lr.ph ], [ %74, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
+  %36 = phi ptr [ %21, %.lr.ph ], [ %75, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
+  %37 = phi ptr [ %22, %.lr.ph ], [ %76, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
-  %39 = phi ptr [ %10, %.lr.ph ], [ %79, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
+  %38 = phi ptr [ %10, %.lr.ph ], [ %78, %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
-  %40 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-          to label %41 unwind label %85
+  %39 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
+          to label %40 unwind label %84
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8, !tbaa !123
-  tail call void @_ZN5draco17PlyPropertyReaderIiEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef %43)
-  store ptr %40, ptr %7, align 8, !tbaa !187
-  %.not.i.i = icmp eq ptr %38, %37
-  %44 = ptrtoint ptr %40 to i64
-  br i1 %.not.i.i, label %46, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8, !tbaa !123
+  tail call void @_ZN5draco17PlyPropertyReaderIiEC2EPKNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %42)
+  store ptr %39, ptr %7, align 8, !tbaa !187
+  %.not.i.i = icmp eq ptr %37, %36
+  %43 = ptrtoint ptr %39 to i64
+  br i1 %.not.i.i, label %45, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
 
-_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread: ; preds = %41
-  store i64 %44, ptr %38, align 8, !tbaa !187
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %45, ptr %23, align 8, !tbaa !185
+_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread: ; preds = %40
+  store i64 %43, ptr %37, align 8, !tbaa !187
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %44, ptr %23, align 8, !tbaa !185
   br label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit
 
-46:                                               ; preds = %41
-  %47 = ptrtoint ptr %37 to i64
-  %48 = ptrtoint ptr %36 to i64
-  %49 = sub i64 %47, %48
-  %50 = icmp eq i64 %49, 9223372036854775800
-  br i1 %50, label %51, label %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+45:                                               ; preds = %40
+  %46 = ptrtoint ptr %36 to i64
+  %47 = ptrtoint ptr %35 to i64
+  %48 = sub i64 %46, %47
+  %49 = icmp eq i64 %48, 9223372036854775800
+  br i1 %49, label %50, label %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
 
-51:                                               ; preds = %46
+50:                                               ; preds = %45
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.27) #21
           to label %.noexc55 unwind label %.loopexit.split-lp68
 
-.noexc55:                                         ; preds = %51
+.noexc55:                                         ; preds = %50
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %46
-  %52 = ashr exact i64 %49, 3
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %52, i64 1)
-  %53 = add nsw i64 %.sroa.speculated.i.i, %52
-  %54 = icmp ult i64 %53, %52
-  %55 = tail call i64 @llvm.umin.i64(i64 %53, i64 1152921504606846975)
-  %56 = select i1 %54, i64 1152921504606846975, i64 %55
-  %.not.i.i47 = icmp ne i64 %56, 0
+_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %45
+  %51 = ashr exact i64 %48, 3
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
+  %52 = add nsw i64 %.sroa.speculated.i.i, %51
+  %53 = icmp ult i64 %52, %51
+  %54 = tail call i64 @llvm.umin.i64(i64 %52, i64 1152921504606846975)
+  %55 = select i1 %53, i64 1152921504606846975, i64 %54
+  %.not.i.i47 = icmp ne i64 %55, 0
   tail call void @llvm.assume(i1 %.not.i.i47)
-  %57 = shl nuw nsw i64 %56, 3
-  %58 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #23
+  %56 = shl nuw nsw i64 %55, 3
+  %57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #23
           to label %.noexc56 unwind label %.loopexit67
 
 .noexc56:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %49
-  store i64 %44, ptr %59, align 8, !tbaa !187
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %48
+  store i64 %43, ptr %58, align 8, !tbaa !187
   store ptr null, ptr %7, align 8, !tbaa !187
-  %.not10.i.i.i.i48 = icmp eq ptr %36, %37
+  %.not10.i.i.i.i48 = icmp eq ptr %35, %36
   br i1 %.not10.i.i.i.i48, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49
 
 .lr.ph.i.i.i.i49:                                 ; preds = %.noexc56, %.lr.ph.i.i.i.i49
-  %.012.i.i.i.i50 = phi ptr [ %62, %.lr.ph.i.i.i.i49 ], [ %58, %.noexc56 ]
-  %.0911.i.i.i.i51 = phi ptr [ %61, %.lr.ph.i.i.i.i49 ], [ %36, %.noexc56 ]
+  %.012.i.i.i.i50 = phi ptr [ %61, %.lr.ph.i.i.i.i49 ], [ %57, %.noexc56 ]
+  %.0911.i.i.i.i51 = phi ptr [ %60, %.lr.ph.i.i.i.i49 ], [ %35, %.noexc56 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
-  %60 = load i64, ptr %.0911.i.i.i.i51, align 8, !tbaa !187, !alias.scope !192, !noalias !189
-  store i64 %60, ptr %.012.i.i.i.i50, align 8, !tbaa !187, !alias.scope !189, !noalias !192
+  %59 = load i64, ptr %.0911.i.i.i.i51, align 8, !tbaa !187, !alias.scope !192, !noalias !189
+  store i64 %59, ptr %.012.i.i.i.i50, align 8, !tbaa !187, !alias.scope !189, !noalias !192
   store ptr null, ptr %.0911.i.i.i.i51, align 8, !tbaa !187, !alias.scope !192, !noalias !189
-  %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i51, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i50, i64 8
-  %.not.i.i.i.i52 = icmp eq ptr %61, %37
+  %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i51, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i50, i64 8
+  %.not.i.i.i.i52 = icmp eq ptr %60, %36
   br i1 %.not.i.i.i.i52, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i49, !llvm.loop !194
 
 _ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i49, %.noexc56
-  %.0.lcssa.i.i.i.i = phi ptr [ %58, %.noexc56 ], [ %62, %.lr.ph.i.i.i.i49 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %36, null
-  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %64
+  %.0.lcssa.i.i.i.i = phi ptr [ %57, %.noexc56 ], [ %61, %.lr.ph.i.i.i.i49 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not.i23.i = icmp eq ptr %35, null
+  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %63
 
-64:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %49) #20
+63:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %48) #20
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
-_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %64
-  store ptr %58, ptr %6, align 8, !tbaa !182
-  store ptr %63, ptr %23, align 8, !tbaa !185
-  %65 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %58, i64 %56
-  store ptr %65, ptr %17, align 8, !tbaa !186
+_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %63
+  store ptr %57, ptr %6, align 8, !tbaa !182
+  store ptr %62, ptr %23, align 8, !tbaa !185
+  %64 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %57, i64 %55
+  store ptr %64, ptr %17, align 8, !tbaa !186
   %.pr = load ptr, ptr %7, align 8, !tbaa !187
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit, label %66
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit, label %65
 
-66:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
-  %67 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !95
-  %.not.i.i.i.i38 = icmp eq ptr %68, null
-  br i1 %.not.i.i.i.i38, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i, label %69
+65:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
+  %66 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
+  %67 = load ptr, ptr %66, align 8, !tbaa !95
+  %.not.i.i.i.i38 = icmp eq ptr %67, null
+  br i1 %.not.i.i.i.i38, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i, label %68
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %71 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %70, i32 noundef 3)
-          to label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i unwind label %72
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %70 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3)
+          to label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i unwind label %71
 
-72:                                               ; preds = %69
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %68
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #22
+  %73 = extractvalue { ptr, i32 } %72, 0
+  tail call void @__clang_call_terminate(ptr %73) #22
   unreachable
 
-_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i: ; preds = %69, %66
+_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i: ; preds = %68, %65
   tail call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 40) #20
   br label %_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i
-  %75 = phi ptr [ %36, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %58, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %58, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i ]
-  %76 = phi ptr [ %37, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %65, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %65, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i ]
-  %77 = phi ptr [ %45, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %63, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %63, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i ]
+  %74 = phi ptr [ %35, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %57, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %57, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i ]
+  %75 = phi ptr [ %36, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %64, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %64, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i ]
+  %76 = phi ptr [ %44, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread ], [ %62, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit ], [ %62, %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = load ptr, ptr %8, align 8, !tbaa !127
-  %79 = load ptr, ptr %1, align 8, !tbaa !124
+  %77 = load ptr, ptr %8, align 8, !tbaa !127
+  %78 = load ptr, ptr %1, align 8, !tbaa !124
+  %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = ashr exact i64 %82, 3
-  %84 = icmp ugt i64 %83, %indvars.iv.next
-  br i1 %84, label %35, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !195
+  %81 = sub i64 %79, %80
+  %82 = ashr exact i64 %81, 3
+  %83 = icmp ugt i64 %82, %indvars.iv.next
+  br i1 %83, label %34, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, !llvm.loop !195
 
-85:                                               ; preds = %35
-  %86 = landingpad { ptr, i32 }
+84:                                               ; preds = %34
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
 .loopexit67:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %lpad.loopexit69 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
-.loopexit.split-lp68:                             ; preds = %51
+.loopexit.split-lp68:                             ; preds = %50
   %lpad.loopexit.split-lp70 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %86
 
-87:                                               ; preds = %.loopexit.split-lp68, %.loopexit67
+86:                                               ; preds = %.loopexit.split-lp68, %.loopexit67
   %lpad.phi71 = phi { ptr, i32 } [ %lpad.loopexit69, %.loopexit67 ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp68 ]
   call void @_ZNSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
-  br label %88
+  br label %87
 
-88:                                               ; preds = %87, %85
-  %.pn30 = phi { ptr, i32 } [ %lpad.phi71, %87 ], [ %86, %85 ]
+87:                                               ; preds = %86, %84
+  %.pn30 = phi { ptr, i32 } [ %lpad.phi71, %86 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit46
 
-_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc36, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %29, %.noexc36 ], [ %29, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.058.0 = phi ptr [ %28, %.noexc36 ], [ %28, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc36, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %.pr.i118 = phi ptr [ %74, %.noexc36 ], [ %74, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %74, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %22, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
+  %88 = phi ptr [ %76, %.noexc36 ], [ %76, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %76, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %22, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
+  %89 = phi ptr [ %75, %.noexc36 ], [ %75, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %75, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %21, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
+  %.sroa.11.0 = phi ptr [ %28, %.noexc36 ], [ %28, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
+  %.sroa.058.0 = phi ptr [ %27, %.noexc36 ], [ %27, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit ]
   %.not100 = icmp eq i32 %3, 0
   br i1 %.not100, label %._crit_edge99, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %89 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %wide.trip.count = zext i32 %3 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %indvars.iv110 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next111, %._crit_edge ]
-  %90 = load ptr, ptr %8, align 8, !tbaa !127
-  %91 = load ptr, ptr %1, align 8, !tbaa !124
-  %.not101 = icmp eq ptr %90, %91
+  %91 = load ptr, ptr %8, align 8, !tbaa !127
+  %92 = load ptr, ptr %1, align 8, !tbaa !124
+  %.not101 = icmp eq ptr %91, %92
   br i1 %.not101, label %._crit_edge, label %.lr.ph97.preheader
 
 .lr.ph97.preheader:                               ; preds = %.preheader
-  %92 = trunc nuw i64 %indvars.iv110 to i32
+  %93 = trunc nuw i64 %indvars.iv110 to i32
   br label %.lr.ph97
 
 ._crit_edge99:                                    ; preds = %._crit_edge, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %.not.i.i.i = icmp eq ptr %.sroa.058.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %93
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %94
 
-93:                                               ; preds = %._crit_edge99
-  %94 = ptrtoint ptr %.sroa.11.0 to i64
-  %95 = ptrtoint ptr %.sroa.058.0 to i64
-  %96 = sub i64 %94, %95
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.058.0, i64 noundef %96) #20
+94:                                               ; preds = %._crit_edge99
+  %95 = ptrtoint ptr %.sroa.11.0 to i64
+  %96 = ptrtoint ptr %.sroa.058.0 to i64
+  %97 = sub i64 %95, %96
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.058.0, i64 noundef %97) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge99, %93
-  %.not4.i.i.i.i = icmp eq ptr %.pr.i, %25
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge99, %94
+  %.not4.i.i.i.i = icmp eq ptr %.pr.i118, %88
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39
 
 .lr.ph.i.i.i.i39:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %107, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %.pr.i, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %97 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !187
-  %.not.i.i.i.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %98
+  %.05.i.i.i.i = phi ptr [ %108, %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i ], [ %.pr.i118, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %98 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !187
+  %.not.i.i.i.i.i.i = icmp eq ptr %98, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, label %99
 
-98:                                               ; preds = %.lr.ph.i.i.i.i39
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %100 = load ptr, ptr %99, align 8, !tbaa !95
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %100, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i, label %101
+99:                                               ; preds = %.lr.ph.i.i.i.i39
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  %101 = load ptr, ptr %100, align 8, !tbaa !95
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %101, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i, label %102
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %103 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %102, i32 noundef 3)
-          to label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i unwind label %104
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %104 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %103, i32 noundef 3)
+          to label %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i unwind label %105
 
-104:                                              ; preds = %101
-  %105 = landingpad { ptr, i32 }
+105:                                              ; preds = %102
+  %106 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #22
+  %107 = extractvalue { ptr, i32 } %106, 0
+  call void @__clang_call_terminate(ptr %107) #22
   unreachable
 
-_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %101, %98
-  call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef 40) #20
+_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %102, %99
+  call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef 40) #20
   br label %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5draco17PlyPropertyReaderIiEEEclEPS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i39
   store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !187
-  %107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %.not.i.i.i.i40 = icmp eq ptr %107, %25
+  %108 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %.not.i.i.i.i40 = icmp eq ptr %108, %88
   br i1 %.not.i.i.i.i40, label %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39, !llvm.loop !196
 
 _ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.not.i.i.i41 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %108
+  %.not.i.i.i41 = icmp eq ptr %.pr.i118, null
+  br i1 %.not.i.i.i41, label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %109
 
-108:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %109 = ptrtoint ptr %24 to i64
-  %110 = ptrtoint ptr %.pr.i to i64
-  %111 = sub i64 %109, %110
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %111) #20
+109:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
+  %110 = ptrtoint ptr %89 to i64
+  %111 = ptrtoint ptr %.pr.i118 to i64
+  %112 = sub i64 %110, %111
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i118, i64 noundef %112) #20
   br label %_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %108
+_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %109
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
   ret i1 true
 
-112:                                              ; preds = %26
-  %113 = landingpad { ptr, i32 }
+113:                                              ; preds = %25
+  %114 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit46
 
-.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %123
-  %indvars.iv107 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next108, %123 ]
-  %114 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %.pr.i, i64 %indvars.iv107
-  %115 = load ptr, ptr %114, align 8, !tbaa !187
+.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %124
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next108, %124 ]
+  %115 = getelementptr inbounds nuw %"class.std::unique_ptr.139", ptr %.pr.i118, i64 %indvars.iv107
+  %116 = load ptr, ptr %115, align 8, !tbaa !187
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %92, ptr %5, align 4, !tbaa !94
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %117 = load ptr, ptr %116, align 8, !tbaa !95
-  %.not.i.i.i42 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i42, label %118, label %_ZNKSt8functionIFiiEEclEi.exit.i
+  store i32 %93, ptr %5, align 4, !tbaa !94
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %118 = load ptr, ptr %117, align 8, !tbaa !95
+  %.not.i.i.i42 = icmp eq ptr %118, null
+  br i1 %.not.i.i.i42, label %119, label %_ZNKSt8functionIFiiEEclEi.exit.i
 
-118:                                              ; preds = %.lr.ph97
+119:                                              ; preds = %.lr.ph97
   invoke void @_ZSt25__throw_bad_function_callv() #21
           to label %.noexc43 unwind label %.loopexit.split-lp
 
-.noexc43:                                         ; preds = %118
+.noexc43:                                         ; preds = %119
   unreachable
 
 _ZNKSt8functionIFiiEEclEi.exit.i:                 ; preds = %.lr.ph97
-  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %120 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %121 = load ptr, ptr %120, align 8, !tbaa !197
-  %122 = invoke noundef i32 %121(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %123 unwind label %.loopexit
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  %122 = load ptr, ptr %121, align 8, !tbaa !197
+  %123 = invoke noundef i32 %122(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %124 unwind label %.loopexit
 
-123:                                              ; preds = %_ZNKSt8functionIFiiEEclEi.exit.i
+124:                                              ; preds = %_ZNKSt8functionIFiiEEclEi.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %124 = getelementptr inbounds nuw i32, ptr %.sroa.058.0, i64 %indvars.iv107
-  store i32 %122, ptr %124, align 4, !tbaa !94
+  %125 = getelementptr inbounds nuw i32, ptr %.sroa.058.0, i64 %indvars.iv107
+  store i32 %123, ptr %125, align 4, !tbaa !94
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %125 = load ptr, ptr %8, align 8, !tbaa !127
-  %126 = load ptr, ptr %1, align 8, !tbaa !124
-  %127 = ptrtoint ptr %125 to i64
+  %126 = load ptr, ptr %8, align 8, !tbaa !127
+  %127 = load ptr, ptr %1, align 8, !tbaa !124
   %128 = ptrtoint ptr %126 to i64
-  %129 = sub i64 %127, %128
-  %130 = ashr exact i64 %129, 3
-  %131 = icmp ugt i64 %130, %indvars.iv.next108
-  br i1 %131, label %.lr.ph97, label %._crit_edge, !llvm.loop !199
+  %129 = ptrtoint ptr %127 to i64
+  %130 = sub i64 %128, %129
+  %131 = ashr exact i64 %130, 3
+  %132 = icmp ugt i64 %131, %indvars.iv.next108
+  br i1 %132, label %.lr.ph97, label %._crit_edge, !llvm.loop !199
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFiiEEclEi.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %133
 
-.loopexit.split-lp:                               ; preds = %118
+.loopexit.split-lp:                               ; preds = %119
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %133
 
-132:                                              ; preds = %.loopexit.split-lp, %.loopexit
+133:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i45 = icmp eq ptr %.sroa.058.0, null
-  br i1 %.not.i.i.i45, label %_ZNSt6vectorIiSaIiEED2Ev.exit46, label %138
+  br i1 %.not.i.i.i45, label %_ZNSt6vectorIiSaIiEED2Ev.exit46, label %139
 
-._crit_edge:                                      ; preds = %123, %.preheader
-  %133 = load i64, ptr %89, align 8, !tbaa !136
-  %134 = mul nsw i64 %133, %indvars.iv110
-  %135 = load ptr, ptr %2, align 8, !tbaa !141
-  %136 = load ptr, ptr %135, align 8, !tbaa !142
-  %137 = getelementptr inbounds i8, ptr %136, i64 %134
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr align 1 %.sroa.058.0, i64 %133, i1 false)
+._crit_edge:                                      ; preds = %124, %.preheader
+  %134 = load i64, ptr %90, align 8, !tbaa !136
+  %135 = mul nsw i64 %134, %indvars.iv110
+  %136 = load ptr, ptr %2, align 8, !tbaa !141
+  %137 = load ptr, ptr %136, align 8, !tbaa !142
+  %138 = getelementptr inbounds i8, ptr %137, i64 %135
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr align 1 %.sroa.058.0, i64 %134, i1 false)
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge99, label %.preheader, !llvm.loop !200
 
-138:                                              ; preds = %132
-  %139 = ptrtoint ptr %.sroa.11.0 to i64
-  %140 = ptrtoint ptr %.sroa.058.0 to i64
-  %141 = sub i64 %139, %140
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.058.0, i64 noundef %141) #20
+139:                                              ; preds = %133
+  %140 = ptrtoint ptr %.sroa.11.0 to i64
+  %141 = ptrtoint ptr %.sroa.058.0 to i64
+  %142 = sub i64 %140, %141
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.058.0, i64 noundef %142) #20
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit46
 
-_ZNSt6vectorIiSaIiEED2Ev.exit46:                  ; preds = %112, %132, %138, %88, %33
-  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %88 ], [ %34, %33 ], [ %113, %112 ], [ %lpad.phi, %132 ], [ %lpad.phi, %138 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit46:                  ; preds = %113, %133, %139, %87, %32
+  %.pn30.pn = phi { ptr, i32 } [ %.pn30, %87 ], [ %33, %32 ], [ %114, %113 ], [ %lpad.phi, %133 ], [ %lpad.phi, %139 ]
   call void @_ZNSt6vectorISt10unique_ptrIN5draco17PlyPropertyReaderIiEESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
   resume { ptr, i32 } %.pn30.pn

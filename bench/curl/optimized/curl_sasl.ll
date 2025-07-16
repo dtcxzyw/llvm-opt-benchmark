@@ -206,7 +206,7 @@ define hidden range(i32 0, 4) i32 @Curl_sasl_parse_url_auth_option(ptr noundef c
   br i1 %or.cond43.i, label %switch.early.test.i, label %27
 
 switch.early.test.i:                              ; preds = %22
-  switch i8 %.fr42.i, label %Curl_sasl_decode_mech.exit [
+  switch i8 %.fr42.i, label %Curl_sasl_decode_mech.exit.thread [
     i8 95, label %27
     i8 45, label %27
   ]
@@ -218,24 +218,21 @@ switch.early.test.i:                              ; preds = %22
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond.i, label %Curl_sasl_decode_mech.exit.thread, label %.split.i, !llvm.loop !13
 
-Curl_sasl_decode_mech.exit:                       ; preds = %20, %switch.early.test.i
-  %.lcssa = phi i64 [ %2, %20 ], [ %18, %switch.early.test.i ]
+Curl_sasl_decode_mech.exit:                       ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %31 = load i16, ptr %30, align 8, !tbaa !16
-  %.not19 = icmp ne i16 %31, 0
-  %32 = icmp eq i64 %.lcssa, %2
-  %or.cond = and i1 %32, %.not19
-  br i1 %or.cond, label %33, label %Curl_sasl_decode_mech.exit.thread
+  %.not19.not = icmp eq i16 %31, 0
+  br i1 %.not19.not, label %Curl_sasl_decode_mech.exit.thread, label %32
 
-33:                                               ; preds = %Curl_sasl_decode_mech.exit
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %35 = load i16, ptr %34, align 2, !tbaa !17
-  %36 = or i16 %35, %31
-  store i16 %36, ptr %34, align 2, !tbaa !17
+32:                                               ; preds = %Curl_sasl_decode_mech.exit
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %34 = load i16, ptr %33, align 2, !tbaa !17
+  %35 = or i16 %34, %31
+  store i16 %35, ptr %33, align 2, !tbaa !17
   br label %Curl_sasl_decode_mech.exit.thread
 
-Curl_sasl_decode_mech.exit.thread:                ; preds = %27, %13, %Curl_sasl_decode_mech.exit, %33, %3
-  %.0 = phi i32 [ 3, %3 ], [ 0, %13 ], [ 0, %33 ], [ 3, %Curl_sasl_decode_mech.exit ], [ 3, %27 ]
+Curl_sasl_decode_mech.exit.thread:                ; preds = %switch.early.test.i, %27, %13, %Curl_sasl_decode_mech.exit, %32, %3
+  %.0 = phi i32 [ 3, %3 ], [ 0, %13 ], [ 0, %32 ], [ 3, %Curl_sasl_decode_mech.exit ], [ 3, %27 ], [ 3, %switch.early.test.i ]
   ret i32 %.0
 }
 

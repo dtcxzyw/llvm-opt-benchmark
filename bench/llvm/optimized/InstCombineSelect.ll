@@ -30800,7 +30800,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL27foldOverflowingAddSubSelectRN4
   store i64 %25, ptr %24, align 8, !tbaa !98, !alias.scope !719
   %26 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14ThreeOps_matchINS0_14CmpClass_matchINS0_7bind_tyINS_5ValueEEENS0_11apint_matchENS_8ICmpInstELb0EEES5_S5_Lj57ELb0EE5matchIS4_EEbPT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #19
-  br i1 %26, label %27, label %197
+  br i1 %26, label %27, label %198
 
 27:                                               ; preds = %2
   %28 = load ptr, ptr %7, align 8, !tbaa !45
@@ -30811,95 +30811,99 @@ define internal fastcc noundef zeroext i1 @"_ZZL27foldOverflowingAddSubSelectRN4
 30:                                               ; preds = %27
   %31 = load ptr, ptr %.8.val, align 8, !tbaa !45
   %.not29 = icmp eq ptr %28, %31
-  br i1 %.not29, label %.thread9, label %197
+  br i1 %.not29, label %.thread9, label %198
 
 32:                                               ; preds = %27
-  br i1 %1, label %33, label %81
+  br i1 %1, label %34, label %82
 
 .thread9:                                         ; preds = %30
-  br i1 %1, label %33, label %.critedge33.thread
+  br i1 %1, label %34, label %.critedge33.thread.thread
 
-33:                                               ; preds = %.thread9, %32
-  %34 = load i32, ptr %4, align 4, !tbaa !238
-  %35 = icmp eq i32 %34, 40
-  br i1 %35, label %36, label %thread-pre-split
+.critedge33.thread.thread:                        ; preds = %.thread9
+  %33 = load i32, ptr %4, align 4
+  br label %.critedge36.thread
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %8, align 8, !tbaa !273
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !197
-  %40 = icmp ult i32 %39, 65
-  br i1 %40, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit", label %_ZNK4llvm5APInt6isZeroEv.exit.i
+34:                                               ; preds = %.thread9, %32
+  %35 = load i32, ptr %4, align 4, !tbaa !238
+  %36 = icmp eq i32 %35, 40
+  br i1 %36, label %37, label %thread-pre-split
 
-_ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %36
-  %41 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %37) #20
-  %42 = icmp eq i32 %41, %39
-  %43 = add i32 %39, -1
-  %44 = icmp eq i32 %41, %43
-  %or.cond = or i1 %42, %44
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %8, align 8, !tbaa !273
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load i32, ptr %39, align 8, !tbaa !197
+  %41 = icmp ult i32 %40, 65
+  br i1 %41, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit", label %_ZNK4llvm5APInt6isZeroEv.exit.i
+
+_ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %37
+  %42 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %38) #20
+  %43 = icmp eq i32 %42, %40
+  %44 = add i32 %40, -1
+  %45 = icmp eq i32 %42, %44
+  %or.cond = or i1 %43, %45
   br i1 %or.cond, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread", label %.critedge30.thread
 
-"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit": ; preds = %36
-  %45 = load i64, ptr %37, align 8, !tbaa !97
-  %spec.select.i = icmp ult i64 %45, 2
+"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit": ; preds = %37
+  %46 = load i64, ptr %38, align 8, !tbaa !97
+  %spec.select.i = icmp ult i64 %46, 2
   br i1 %spec.select.i, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread", label %.critedge30.thread
 
 "_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread": ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit"
-  %46 = load ptr, ptr %5, align 8, !tbaa !45
-  %47 = load ptr, ptr %6, align 8, !tbaa !45
-  %48 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %46, ptr noundef %47)
-  br i1 %48, label %197, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge"
+  %47 = load ptr, ptr %5, align 8, !tbaa !45
+  %48 = load ptr, ptr %6, align 8, !tbaa !45
+  %49 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %47, ptr noundef %48)
+  br i1 %49, label %198, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge"
 
 "_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge": ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread"
   %.pr.pre = load i32, ptr %4, align 4, !tbaa !238
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge", %33
-  %49 = phi i32 [ %34, %33 ], [ %.pr.pre, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge" ]
-  %50 = icmp eq i32 %49, 38
-  br i1 %50, label %51, label %.critedge30.thread
+thread-pre-split:                                 ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge", %34
+  %50 = phi i32 [ %35, %34 ], [ %.pr.pre, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread.thread-pre-split_crit_edge" ]
+  %51 = icmp eq i32 %50, 38
+  br i1 %51, label %52, label %.critedge30.thread
 
-51:                                               ; preds = %thread-pre-split
+52:                                               ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #19
-  %52 = load ptr, ptr %8, align 8, !tbaa !273
-  %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %55 = load i32, ptr %54, align 8, !tbaa !197
-  store i32 %55, ptr %53, align 8, !tbaa !197
-  %56 = icmp ult i32 %55, 65
-  br i1 %56, label %57, label %59
+  %53 = load ptr, ptr %8, align 8, !tbaa !273
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %56 = load i32, ptr %55, align 8, !tbaa !197
+  store i32 %56, ptr %54, align 8, !tbaa !197
+  %57 = icmp ult i32 %56, 65
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %51
-  %58 = load i64, ptr %52, align 8, !tbaa !97
-  store i64 %58, ptr %11, align 8, !tbaa !97
+58:                                               ; preds = %52
+  %59 = load i64, ptr %53, align 8, !tbaa !97
+  store i64 %59, ptr %11, align 8, !tbaa !97
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
-59:                                               ; preds = %51
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %52) #19
+60:                                               ; preds = %52
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %53) #19
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
-_ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %57, %59
+_ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %58, %60
   call void @llvm.experimental.noalias.scope.decl(metadata !722)
-  %60 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %11, i64 noundef 1) #19, !noalias !722
-  %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %62 = load i32, ptr %53, align 8, !tbaa !197, !noalias !722
-  store i32 %62, ptr %61, align 8, !tbaa !197, !alias.scope !722
-  %63 = load i64, ptr %11, align 8, !noalias !722
-  store i64 %63, ptr %10, align 8, !alias.scope !722
-  store i32 0, ptr %53, align 8, !tbaa !197, !noalias !722
-  %64 = icmp ult i32 %62, 65
-  br i1 %64, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit47", label %_ZNK4llvm5APInt6isZeroEv.exit.i45
+  %61 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %11, i64 noundef 1) #19, !noalias !722
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %63 = load i32, ptr %54, align 8, !tbaa !197, !noalias !722
+  store i32 %63, ptr %62, align 8, !tbaa !197, !alias.scope !722
+  %64 = load i64, ptr %11, align 8, !noalias !722
+  store i64 %64, ptr %10, align 8, !alias.scope !722
+  store i32 0, ptr %54, align 8, !tbaa !197, !noalias !722
+  %65 = icmp ult i32 %63, 65
+  br i1 %65, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit47", label %_ZNK4llvm5APInt6isZeroEv.exit.i45
 
 _ZNK4llvm5APInt6isZeroEv.exit.i45:                ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  %65 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %10) #20
-  %66 = icmp eq i32 %65, %62
-  %67 = add i32 %62, -1
-  %68 = icmp eq i32 %65, %67
-  %or.cond25 = or i1 %66, %68
+  %66 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %10) #20
+  %67 = icmp eq i32 %66, %63
+  %68 = add i32 %63, -1
+  %69 = icmp eq i32 %66, %68
+  %or.cond25 = or i1 %67, %69
   br i1 %or.cond25, label %.critedge, label %.critedge.thread
 
 "_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit47": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit
-  %spec.select.i46 = icmp ult i64 %63, 2
+  %spec.select.i46 = icmp ult i64 %64, 2
   br i1 %spec.select.i46, label %.critedge, label %.critedge30.thread52
 
 .critedge30.thread52:                             ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit47"
@@ -30907,89 +30911,89 @@ _ZNK4llvm5APInt6isZeroEv.exit.i45:                ; preds = %_ZN4llvm5APIntC2ERK
   br label %.critedge30.thread
 
 .critedge:                                        ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit47", %_ZNK4llvm5APInt6isZeroEv.exit.i45
-  %69 = load ptr, ptr %6, align 8, !tbaa !45
-  %70 = load ptr, ptr %5, align 8, !tbaa !45
-  %71 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %69, ptr noundef %70)
-  %.pre44 = load i32, ptr %61, align 8, !tbaa !197
-  %72 = icmp ugt i32 %.pre44, 64
-  br i1 %72, label %.critedge.thread, label %_ZN4llvm5APIntD2Ev.exit
+  %70 = load ptr, ptr %6, align 8, !tbaa !45
+  %71 = load ptr, ptr %5, align 8, !tbaa !45
+  %72 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %70, ptr noundef %71)
+  %.pre44 = load i32, ptr %62, align 8, !tbaa !197
+  %73 = icmp ugt i32 %.pre44, 64
+  br i1 %73, label %.critedge.thread, label %_ZN4llvm5APIntD2Ev.exit
 
 .critedge.thread:                                 ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i45, %.critedge
-  %.ph47 = phi i1 [ %71, %.critedge ], [ false, %_ZNK4llvm5APInt6isZeroEv.exit.i45 ]
-  %73 = load ptr, ptr %10, align 8, !tbaa !97
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %_ZN4llvm5APIntD2Ev.exit, label %75
+  %.ph47 = phi i1 [ %72, %.critedge ], [ false, %_ZNK4llvm5APInt6isZeroEv.exit.i45 ]
+  %74 = load ptr, ptr %10, align 8, !tbaa !97
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %_ZN4llvm5APIntD2Ev.exit, label %76
 
-75:                                               ; preds = %.critedge.thread
-  call void @_ZdaPv(ptr noundef nonnull %73) #21
+76:                                               ; preds = %.critedge.thread
+  call void @_ZdaPv(ptr noundef nonnull %74) #21
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge, %.critedge.thread, %75
-  %.ph46.ph = phi i1 [ %.ph47, %75 ], [ %.ph47, %.critedge.thread ], [ %71, %.critedge ]
-  %.pr = load i32, ptr %53, align 8, !tbaa !197
-  %76 = icmp ugt i32 %.pr, 64
-  br i1 %76, label %77, label %.critedge30
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge, %.critedge.thread, %76
+  %.ph46.ph = phi i1 [ %.ph47, %76 ], [ %.ph47, %.critedge.thread ], [ %72, %.critedge ]
+  %.pr = load i32, ptr %54, align 8, !tbaa !197
+  %77 = icmp ugt i32 %.pr, 64
+  br i1 %77, label %78, label %.critedge30
 
-77:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
-  %78 = load ptr, ptr %11, align 8, !tbaa !97
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %.critedge30, label %80
+78:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
+  %79 = load ptr, ptr %11, align 8, !tbaa !97
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %.critedge30, label %81
 
-80:                                               ; preds = %77
-  call void @_ZdaPv(ptr noundef nonnull %78) #21
+81:                                               ; preds = %78
+  call void @_ZdaPv(ptr noundef nonnull %79) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
-  br i1 %.ph46.ph, label %197, label %.critedge30.thread
+  br i1 %.ph46.ph, label %198, label %.critedge30.thread
 
-.critedge30:                                      ; preds = %77, %_ZN4llvm5APIntD2Ev.exit
+.critedge30:                                      ; preds = %78, %_ZN4llvm5APIntD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
-  br i1 %.ph46.ph, label %197, label %.critedge30.thread
+  br i1 %.ph46.ph, label %198, label %.critedge30.thread
 
-81:                                               ; preds = %32
-  %82 = load i32, ptr %4, align 4, !tbaa !238
-  %83 = icmp eq i32 %82, 40
-  br i1 %83, label %84, label %.critedge33.thread
+82:                                               ; preds = %32
+  %83 = load i32, ptr %4, align 4, !tbaa !238
+  %84 = icmp eq i32 %83, 40
+  br i1 %84, label %85, label %.critedge33.thread
 
-84:                                               ; preds = %81
+85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #19
-  %85 = load ptr, ptr %8, align 8, !tbaa !273
-  %86 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %88 = load i32, ptr %87, align 8, !tbaa !197
-  store i32 %88, ptr %86, align 8, !tbaa !197
-  %89 = icmp ult i32 %88, 65
-  br i1 %89, label %90, label %92
+  %86 = load ptr, ptr %8, align 8, !tbaa !273
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %89 = load i32, ptr %88, align 8, !tbaa !197
+  store i32 %89, ptr %87, align 8, !tbaa !197
+  %90 = icmp ult i32 %89, 65
+  br i1 %90, label %91, label %93
 
-90:                                               ; preds = %84
-  %91 = load i64, ptr %85, align 8, !tbaa !97
-  store i64 %91, ptr %13, align 8, !tbaa !97
+91:                                               ; preds = %85
+  %92 = load i64, ptr %86, align 8, !tbaa !97
+  store i64 %92, ptr %13, align 8, !tbaa !97
   br label %_ZN4llvm5APIntC2ERKS0_.exit49
 
-92:                                               ; preds = %84
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %85) #19
+93:                                               ; preds = %85
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %86) #19
   br label %_ZN4llvm5APIntC2ERKS0_.exit49
 
-_ZN4llvm5APIntC2ERKS0_.exit49:                    ; preds = %90, %92
+_ZN4llvm5APIntC2ERKS0_.exit49:                    ; preds = %91, %93
   call void @llvm.experimental.noalias.scope.decl(metadata !725)
-  %93 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %13, i64 noundef 1) #19, !noalias !725
-  %94 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %95 = load i32, ptr %86, align 8, !tbaa !197, !noalias !725
-  store i32 %95, ptr %94, align 8, !tbaa !197, !alias.scope !725
-  %96 = load i64, ptr %13, align 8, !noalias !725
-  store i64 %96, ptr %12, align 8, !alias.scope !725
-  store i32 0, ptr %86, align 8, !tbaa !197, !noalias !725
-  %97 = icmp ult i32 %95, 65
-  br i1 %97, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit52", label %_ZNK4llvm5APInt6isZeroEv.exit.i50
+  %94 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %13, i64 noundef 1) #19, !noalias !725
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %96 = load i32, ptr %87, align 8, !tbaa !197, !noalias !725
+  store i32 %96, ptr %95, align 8, !tbaa !197, !alias.scope !725
+  %97 = load i64, ptr %13, align 8, !noalias !725
+  store i64 %97, ptr %12, align 8, !alias.scope !725
+  store i32 0, ptr %87, align 8, !tbaa !197, !noalias !725
+  %98 = icmp ult i32 %96, 65
+  br i1 %98, label %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit52", label %_ZNK4llvm5APInt6isZeroEv.exit.i50
 
 _ZNK4llvm5APInt6isZeroEv.exit.i50:                ; preds = %_ZN4llvm5APIntC2ERKS0_.exit49
-  %98 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %12) #20
-  %99 = icmp eq i32 %98, %95
-  %100 = add i32 %95, -1
-  %101 = icmp eq i32 %98, %100
-  %or.cond27 = or i1 %99, %101
+  %99 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %12) #20
+  %100 = icmp eq i32 %99, %96
+  %101 = add i32 %96, -1
+  %102 = icmp eq i32 %99, %101
+  %or.cond27 = or i1 %100, %102
   br i1 %or.cond27, label %.critedge32, label %.critedge32.thread
 
 "_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit52": ; preds = %_ZN4llvm5APIntC2ERKS0_.exit49
-  %spec.select.i51 = icmp ult i64 %96, 2
+  %spec.select.i51 = icmp ult i64 %97, 2
   br i1 %spec.select.i51, label %.critedge32, label %.critedge33.thread62
 
 .critedge33.thread62:                             ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit52"
@@ -30997,244 +31001,244 @@ _ZNK4llvm5APInt6isZeroEv.exit.i50:                ; preds = %_ZN4llvm5APIntC2ERK
   br label %.critedge33..critedge33.thread_crit_edge
 
 .critedge32:                                      ; preds = %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit52", %_ZNK4llvm5APInt6isZeroEv.exit.i50
-  %102 = load ptr, ptr %5, align 8, !tbaa !45
-  %103 = load ptr, ptr %6, align 8, !tbaa !45
-  %104 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %102, ptr noundef %103)
-  %.pre = load i32, ptr %94, align 8, !tbaa !197
-  %105 = icmp ugt i32 %.pre, 64
-  br i1 %105, label %.critedge32.thread, label %_ZN4llvm5APIntD2Ev.exit53
+  %103 = load ptr, ptr %5, align 8, !tbaa !45
+  %104 = load ptr, ptr %6, align 8, !tbaa !45
+  %105 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %103, ptr noundef %104)
+  %.pre = load i32, ptr %95, align 8, !tbaa !197
+  %106 = icmp ugt i32 %.pre, 64
+  br i1 %106, label %.critedge32.thread, label %_ZN4llvm5APIntD2Ev.exit53
 
 .critedge32.thread:                               ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i50, %.critedge32
-  %.ph1256 = phi i1 [ %104, %.critedge32 ], [ false, %_ZNK4llvm5APInt6isZeroEv.exit.i50 ]
-  %106 = load ptr, ptr %12, align 8, !tbaa !97
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %_ZN4llvm5APIntD2Ev.exit53, label %108
+  %.ph1256 = phi i1 [ %105, %.critedge32 ], [ false, %_ZNK4llvm5APInt6isZeroEv.exit.i50 ]
+  %107 = load ptr, ptr %12, align 8, !tbaa !97
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %_ZN4llvm5APIntD2Ev.exit53, label %109
 
-108:                                              ; preds = %.critedge32.thread
-  call void @_ZdaPv(ptr noundef nonnull %106) #21
+109:                                              ; preds = %.critedge32.thread
+  call void @_ZdaPv(ptr noundef nonnull %107) #21
   br label %_ZN4llvm5APIntD2Ev.exit53
 
-_ZN4llvm5APIntD2Ev.exit53:                        ; preds = %.critedge32, %.critedge32.thread, %108
-  %.ph1255.ph = phi i1 [ %.ph1256, %108 ], [ %.ph1256, %.critedge32.thread ], [ %104, %.critedge32 ]
-  %.pr59 = load i32, ptr %86, align 8, !tbaa !197
-  %109 = icmp ugt i32 %.pr59, 64
-  br i1 %109, label %110, label %.critedge33
+_ZN4llvm5APIntD2Ev.exit53:                        ; preds = %.critedge32, %.critedge32.thread, %109
+  %.ph1255.ph = phi i1 [ %.ph1256, %109 ], [ %.ph1256, %.critedge32.thread ], [ %105, %.critedge32 ]
+  %.pr59 = load i32, ptr %87, align 8, !tbaa !197
+  %110 = icmp ugt i32 %.pr59, 64
+  br i1 %110, label %111, label %.critedge33
 
-110:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit53
-  %111 = load ptr, ptr %13, align 8, !tbaa !97
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %.critedge33, label %113
+111:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit53
+  %112 = load ptr, ptr %13, align 8, !tbaa !97
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %.critedge33, label %114
 
-113:                                              ; preds = %110
-  call void @_ZdaPv(ptr noundef nonnull %111) #21
+114:                                              ; preds = %111
+  call void @_ZdaPv(ptr noundef nonnull %112) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #19
-  br i1 %.ph1255.ph, label %197, label %.critedge33..critedge33.thread_crit_edge
+  br i1 %.ph1255.ph, label %198, label %.critedge33..critedge33.thread_crit_edge
 
-.critedge33:                                      ; preds = %110, %_ZN4llvm5APIntD2Ev.exit53
+.critedge33:                                      ; preds = %111, %_ZN4llvm5APIntD2Ev.exit53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #19
-  br i1 %.ph1255.ph, label %197, label %.critedge33..critedge33.thread_crit_edge
+  br i1 %.ph1255.ph, label %198, label %.critedge33..critedge33.thread_crit_edge
 
-.critedge33..critedge33.thread_crit_edge:         ; preds = %113, %.critedge33.thread62, %.critedge33
+.critedge33..critedge33.thread_crit_edge:         ; preds = %114, %.critedge33.thread62, %.critedge33
   %.pre34 = load ptr, ptr %7, align 8, !tbaa !45
   %.pre35 = load ptr, ptr %.0.val, align 8, !tbaa !45
+  %115 = icmp eq ptr %.pre34, %.pre35
   br label %.critedge33.thread
 
-.critedge33.thread:                               ; preds = %.critedge33..critedge33.thread_crit_edge, %.thread9, %81
-  %114 = phi ptr [ %.pre35, %.critedge33..critedge33.thread_crit_edge ], [ %29, %.thread9 ], [ %28, %81 ]
-  %115 = phi ptr [ %.pre34, %.critedge33..critedge33.thread_crit_edge ], [ %28, %.thread9 ], [ %28, %81 ]
-  %116 = icmp eq ptr %115, %114
-  %117 = load i32, ptr %4, align 4
-  %118 = icmp eq i32 %117, 38
-  %or.cond29 = select i1 %116, i1 %118, i1 false
-  br i1 %or.cond29, label %119, label %.critedge36.thread
+.critedge33.thread:                               ; preds = %.critedge33..critedge33.thread_crit_edge, %82
+  %116 = phi i1 [ %115, %.critedge33..critedge33.thread_crit_edge ], [ true, %82 ]
+  %117 = phi ptr [ %.pre34, %.critedge33..critedge33.thread_crit_edge ], [ %28, %82 ]
+  %118 = load i32, ptr %4, align 4
+  %119 = icmp eq i32 %118, 38
+  %or.cond29 = select i1 %116, i1 %119, i1 false
+  br i1 %or.cond29, label %120, label %.critedge36.thread
 
-119:                                              ; preds = %.critedge33.thread
+120:                                              ; preds = %.critedge33.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #19
-  %120 = load ptr, ptr %8, align 8, !tbaa !273
-  %121 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %123 = load i32, ptr %122, align 8, !tbaa !197
-  store i32 %123, ptr %121, align 8, !tbaa !197
-  %124 = icmp ult i32 %123, 65
-  br i1 %124, label %125, label %127
+  %121 = load ptr, ptr %8, align 8, !tbaa !273
+  %122 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %124 = load i32, ptr %123, align 8, !tbaa !197
+  store i32 %124, ptr %122, align 8, !tbaa !197
+  %125 = icmp ult i32 %124, 65
+  br i1 %125, label %126, label %128
 
-125:                                              ; preds = %119
-  %126 = load i64, ptr %120, align 8, !tbaa !97
-  store i64 %126, ptr %15, align 8, !tbaa !97
+126:                                              ; preds = %120
+  %127 = load i64, ptr %121, align 8, !tbaa !97
+  store i64 %127, ptr %15, align 8, !tbaa !97
   br label %_ZN4llvm5APIntC2ERKS0_.exit55
 
-127:                                              ; preds = %119
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(12) %120) #19
+128:                                              ; preds = %120
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(12) %121) #19
   br label %_ZN4llvm5APIntC2ERKS0_.exit55
 
-_ZN4llvm5APIntC2ERKS0_.exit55:                    ; preds = %125, %127
+_ZN4llvm5APIntC2ERKS0_.exit55:                    ; preds = %126, %128
   call void @llvm.experimental.noalias.scope.decl(metadata !728)
-  %128 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %15, i64 noundef 2) #19, !noalias !728
-  %129 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %130 = load i32, ptr %121, align 8, !tbaa !197, !noalias !728
-  store i32 %130, ptr %129, align 8, !tbaa !197, !alias.scope !728
-  %131 = load i64, ptr %15, align 8, !noalias !728
-  store i64 %131, ptr %14, align 8, !alias.scope !728
-  store i32 0, ptr %121, align 8, !tbaa !197, !noalias !728
-  %132 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull align 8 dereferenceable(12) %14)
-  br i1 %132, label %133, label %.critedge35
+  %129 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %15, i64 noundef 2) #19, !noalias !728
+  %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %131 = load i32, ptr %122, align 8, !tbaa !197, !noalias !728
+  store i32 %131, ptr %130, align 8, !tbaa !197, !alias.scope !728
+  %132 = load i64, ptr %15, align 8, !noalias !728
+  store i64 %132, ptr %14, align 8, !alias.scope !728
+  store i32 0, ptr %122, align 8, !tbaa !197, !noalias !728
+  %133 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull align 8 dereferenceable(12) %14)
+  br i1 %133, label %134, label %.critedge35
 
-133:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit55
-  %134 = load ptr, ptr %6, align 8, !tbaa !45
-  %135 = load ptr, ptr %5, align 8, !tbaa !45
-  %136 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %134, ptr noundef %135)
-  %.pre36 = load i32, ptr %129, align 8, !tbaa !197
+134:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit55
+  %135 = load ptr, ptr %6, align 8, !tbaa !45
+  %136 = load ptr, ptr %5, align 8, !tbaa !45
+  %137 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %135, ptr noundef %136)
+  %.pre36 = load i32, ptr %130, align 8, !tbaa !197
   br label %.critedge35
 
-.critedge35:                                      ; preds = %133, %_ZN4llvm5APIntC2ERKS0_.exit55
-  %137 = phi i32 [ %130, %_ZN4llvm5APIntC2ERKS0_.exit55 ], [ %.pre36, %133 ]
-  %.ph16 = phi i1 [ false, %_ZN4llvm5APIntC2ERKS0_.exit55 ], [ %136, %133 ]
-  %138 = icmp ugt i32 %137, 64
-  br i1 %138, label %139, label %_ZN4llvm5APIntD2Ev.exit56
+.critedge35:                                      ; preds = %134, %_ZN4llvm5APIntC2ERKS0_.exit55
+  %138 = phi i32 [ %131, %_ZN4llvm5APIntC2ERKS0_.exit55 ], [ %.pre36, %134 ]
+  %.ph16 = phi i1 [ false, %_ZN4llvm5APIntC2ERKS0_.exit55 ], [ %137, %134 ]
+  %139 = icmp ugt i32 %138, 64
+  br i1 %139, label %140, label %_ZN4llvm5APIntD2Ev.exit56
 
-139:                                              ; preds = %.critedge35
-  %140 = load ptr, ptr %14, align 8, !tbaa !97
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %_ZN4llvm5APIntD2Ev.exit56, label %142
+140:                                              ; preds = %.critedge35
+  %141 = load ptr, ptr %14, align 8, !tbaa !97
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %_ZN4llvm5APIntD2Ev.exit56, label %143
 
-142:                                              ; preds = %139
-  call void @_ZdaPv(ptr noundef nonnull %140) #21
+143:                                              ; preds = %140
+  call void @_ZdaPv(ptr noundef nonnull %141) #21
   br label %_ZN4llvm5APIntD2Ev.exit56
 
-_ZN4llvm5APIntD2Ev.exit56:                        ; preds = %.critedge35, %139, %142
-  %143 = load i32, ptr %121, align 8, !tbaa !197
-  %144 = icmp ugt i32 %143, 64
-  br i1 %144, label %145, label %.critedge36
+_ZN4llvm5APIntD2Ev.exit56:                        ; preds = %.critedge35, %140, %143
+  %144 = load i32, ptr %122, align 8, !tbaa !197
+  %145 = icmp ugt i32 %144, 64
+  br i1 %145, label %146, label %.critedge36
 
-145:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit56
-  %146 = load ptr, ptr %15, align 8, !tbaa !97
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %.critedge36, label %148
+146:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit56
+  %147 = load ptr, ptr %15, align 8, !tbaa !97
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %.critedge36, label %149
 
-148:                                              ; preds = %145
-  call void @_ZdaPv(ptr noundef nonnull %146) #21
+149:                                              ; preds = %146
+  call void @_ZdaPv(ptr noundef nonnull %147) #21
   br label %.critedge36
 
-.critedge36:                                      ; preds = %148, %145, %_ZN4llvm5APIntD2Ev.exit56
+.critedge36:                                      ; preds = %149, %146, %_ZN4llvm5APIntD2Ev.exit56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #19
-  br i1 %.ph16, label %197, label %.critedge36..critedge36.thread_crit_edge
+  br i1 %.ph16, label %198, label %.critedge36..critedge36.thread_crit_edge
 
 .critedge36..critedge36.thread_crit_edge:         ; preds = %.critedge36
   %.pre37 = load ptr, ptr %7, align 8, !tbaa !45
   %.pre38 = load i32, ptr %4, align 4
   br label %.critedge36.thread
 
-.critedge36.thread:                               ; preds = %.critedge36..critedge36.thread_crit_edge, %.critedge33.thread
-  %149 = phi i32 [ %.pre38, %.critedge36..critedge36.thread_crit_edge ], [ %117, %.critedge33.thread ]
-  %150 = phi ptr [ %.pre37, %.critedge36..critedge36.thread_crit_edge ], [ %115, %.critedge33.thread ]
-  %151 = load ptr, ptr %.8.val, align 8, !tbaa !45
-  %152 = icmp eq ptr %150, %151
-  %153 = icmp eq i32 %149, 40
-  %or.cond31 = select i1 %152, i1 %153, i1 false
-  br i1 %or.cond31, label %154, label %161
+.critedge36.thread:                               ; preds = %.critedge33.thread.thread, %.critedge36..critedge36.thread_crit_edge, %.critedge33.thread
+  %150 = phi i32 [ %.pre38, %.critedge36..critedge36.thread_crit_edge ], [ %118, %.critedge33.thread ], [ %33, %.critedge33.thread.thread ]
+  %151 = phi ptr [ %.pre37, %.critedge36..critedge36.thread_crit_edge ], [ %117, %.critedge33.thread ], [ %28, %.critedge33.thread.thread ]
+  %152 = load ptr, ptr %.8.val, align 8, !tbaa !45
+  %153 = icmp eq ptr %151, %152
+  %154 = icmp eq i32 %150, 40
+  %or.cond31 = select i1 %153, i1 %154, i1 false
+  br i1 %or.cond31, label %155, label %162
 
-154:                                              ; preds = %.critedge36.thread
-  %155 = load ptr, ptr %8, align 8, !tbaa !273
-  %156 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull align 8 dereferenceable(12) %155)
-  br i1 %156, label %157, label %.critedge30.thread
+155:                                              ; preds = %.critedge36.thread
+  %156 = load ptr, ptr %8, align 8, !tbaa !273
+  %157 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull align 8 dereferenceable(12) %156)
+  br i1 %157, label %158, label %.critedge30.thread
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr %6, align 8, !tbaa !45
-  %159 = load ptr, ptr %5, align 8, !tbaa !45
-  %160 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %158, ptr noundef %159)
-  br i1 %160, label %197, label %._crit_edge
+158:                                              ; preds = %155
+  %159 = load ptr, ptr %6, align 8, !tbaa !45
+  %160 = load ptr, ptr %5, align 8, !tbaa !45
+  %161 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %159, ptr noundef %160)
+  br i1 %161, label %198, label %._crit_edge
 
-._crit_edge:                                      ; preds = %157
+._crit_edge:                                      ; preds = %158
   %.pre39 = load ptr, ptr %7, align 8, !tbaa !45
   %.pre40 = load ptr, ptr %.8.val, align 8, !tbaa !45
   %.pre41 = load i32, ptr %4, align 4
-  br label %161
+  br label %162
 
-161:                                              ; preds = %._crit_edge, %.critedge36.thread
-  %162 = phi i32 [ %.pre41, %._crit_edge ], [ %149, %.critedge36.thread ]
-  %163 = phi ptr [ %.pre40, %._crit_edge ], [ %151, %.critedge36.thread ]
-  %164 = phi ptr [ %.pre39, %._crit_edge ], [ %150, %.critedge36.thread ]
-  %165 = icmp eq ptr %164, %163
-  %166 = icmp eq i32 %162, 38
-  %or.cond33 = select i1 %165, i1 %166, i1 false
-  br i1 %or.cond33, label %167, label %.critedge30.thread
+162:                                              ; preds = %._crit_edge, %.critedge36.thread
+  %163 = phi i32 [ %.pre41, %._crit_edge ], [ %150, %.critedge36.thread ]
+  %164 = phi ptr [ %.pre40, %._crit_edge ], [ %152, %.critedge36.thread ]
+  %165 = phi ptr [ %.pre39, %._crit_edge ], [ %151, %.critedge36.thread ]
+  %166 = icmp eq ptr %165, %164
+  %167 = icmp eq i32 %163, 38
+  %or.cond33 = select i1 %166, i1 %167, i1 false
+  br i1 %or.cond33, label %168, label %.critedge30.thread
 
-167:                                              ; preds = %161
+168:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #19
-  %168 = load ptr, ptr %8, align 8, !tbaa !273
-  %169 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %171 = load i32, ptr %170, align 8, !tbaa !197
-  store i32 %171, ptr %169, align 8, !tbaa !197
-  %172 = icmp ult i32 %171, 65
-  br i1 %172, label %173, label %175
+  %169 = load ptr, ptr %8, align 8, !tbaa !273
+  %170 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  %172 = load i32, ptr %171, align 8, !tbaa !197
+  store i32 %172, ptr %170, align 8, !tbaa !197
+  %173 = icmp ult i32 %172, 65
+  br i1 %173, label %174, label %176
 
-173:                                              ; preds = %167
-  %174 = load i64, ptr %168, align 8, !tbaa !97
-  store i64 %174, ptr %17, align 8, !tbaa !97
+174:                                              ; preds = %168
+  %175 = load i64, ptr %169, align 8, !tbaa !97
+  store i64 %175, ptr %17, align 8, !tbaa !97
   br label %_ZN4llvm5APIntC2ERKS0_.exit58
 
-175:                                              ; preds = %167
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(12) %168) #19
+176:                                              ; preds = %168
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(12) %169) #19
   br label %_ZN4llvm5APIntC2ERKS0_.exit58
 
-_ZN4llvm5APIntC2ERKS0_.exit58:                    ; preds = %173, %175
+_ZN4llvm5APIntC2ERKS0_.exit58:                    ; preds = %174, %176
   call void @llvm.experimental.noalias.scope.decl(metadata !731)
-  %176 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %17, i64 noundef 1) #19, !noalias !731
-  %177 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %178 = load i32, ptr %169, align 8, !tbaa !197, !noalias !731
-  store i32 %178, ptr %177, align 8, !tbaa !197, !alias.scope !731
-  %179 = load i64, ptr %17, align 8, !noalias !731
-  store i64 %179, ptr %16, align 8, !alias.scope !731
-  store i32 0, ptr %169, align 8, !tbaa !197, !noalias !731
-  %180 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull align 8 dereferenceable(12) %16)
-  br i1 %180, label %181, label %.critedge38
+  %177 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %17, i64 noundef 1) #19, !noalias !731
+  %178 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %179 = load i32, ptr %170, align 8, !tbaa !197, !noalias !731
+  store i32 %179, ptr %178, align 8, !tbaa !197, !alias.scope !731
+  %180 = load i64, ptr %17, align 8, !noalias !731
+  store i64 %180, ptr %16, align 8, !alias.scope !731
+  store i32 0, ptr %170, align 8, !tbaa !197, !noalias !731
+  %181 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_"(ptr noundef nonnull align 8 dereferenceable(12) %16)
+  br i1 %181, label %182, label %.critedge38
 
-181:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit58
-  %182 = load ptr, ptr %5, align 8, !tbaa !45
-  %183 = load ptr, ptr %6, align 8, !tbaa !45
-  %184 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %182, ptr noundef %183)
-  %.pre42 = load i32, ptr %177, align 8, !tbaa !197
+182:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit58
+  %183 = load ptr, ptr %5, align 8, !tbaa !45
+  %184 = load ptr, ptr %6, align 8, !tbaa !45
+  %185 = call fastcc noundef zeroext i1 @"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlS9_S9_E_clES9_S9_"(ptr nonnull %3, ptr noundef %183, ptr noundef %184)
+  %.pre42 = load i32, ptr %178, align 8, !tbaa !197
   br label %.critedge38
 
-.critedge38:                                      ; preds = %181, %_ZN4llvm5APIntC2ERKS0_.exit58
-  %185 = phi i32 [ %178, %_ZN4llvm5APIntC2ERKS0_.exit58 ], [ %.pre42, %181 ]
-  %.ph20 = phi i1 [ false, %_ZN4llvm5APIntC2ERKS0_.exit58 ], [ %184, %181 ]
-  %186 = icmp ugt i32 %185, 64
-  br i1 %186, label %187, label %_ZN4llvm5APIntD2Ev.exit59
+.critedge38:                                      ; preds = %182, %_ZN4llvm5APIntC2ERKS0_.exit58
+  %186 = phi i32 [ %179, %_ZN4llvm5APIntC2ERKS0_.exit58 ], [ %.pre42, %182 ]
+  %.ph20 = phi i1 [ false, %_ZN4llvm5APIntC2ERKS0_.exit58 ], [ %185, %182 ]
+  %187 = icmp ugt i32 %186, 64
+  br i1 %187, label %188, label %_ZN4llvm5APIntD2Ev.exit59
 
-187:                                              ; preds = %.critedge38
-  %188 = load ptr, ptr %16, align 8, !tbaa !97
-  %189 = icmp eq ptr %188, null
-  br i1 %189, label %_ZN4llvm5APIntD2Ev.exit59, label %190
+188:                                              ; preds = %.critedge38
+  %189 = load ptr, ptr %16, align 8, !tbaa !97
+  %190 = icmp eq ptr %189, null
+  br i1 %190, label %_ZN4llvm5APIntD2Ev.exit59, label %191
 
-190:                                              ; preds = %187
-  call void @_ZdaPv(ptr noundef nonnull %188) #21
+191:                                              ; preds = %188
+  call void @_ZdaPv(ptr noundef nonnull %189) #21
   br label %_ZN4llvm5APIntD2Ev.exit59
 
-_ZN4llvm5APIntD2Ev.exit59:                        ; preds = %.critedge38, %187, %190
-  %191 = load i32, ptr %169, align 8, !tbaa !197
-  %192 = icmp ugt i32 %191, 64
-  br i1 %192, label %193, label %.critedge39
+_ZN4llvm5APIntD2Ev.exit59:                        ; preds = %.critedge38, %188, %191
+  %192 = load i32, ptr %170, align 8, !tbaa !197
+  %193 = icmp ugt i32 %192, 64
+  br i1 %193, label %194, label %.critedge39
 
-193:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit59
-  %194 = load ptr, ptr %17, align 8, !tbaa !97
-  %195 = icmp eq ptr %194, null
-  br i1 %195, label %.critedge39, label %196
+194:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit59
+  %195 = load ptr, ptr %17, align 8, !tbaa !97
+  %196 = icmp eq ptr %195, null
+  br i1 %196, label %.critedge39, label %197
 
-196:                                              ; preds = %193
-  call void @_ZdaPv(ptr noundef nonnull %194) #21
+197:                                              ; preds = %194
+  call void @_ZdaPv(ptr noundef nonnull %195) #21
   br label %.critedge39
 
-.critedge39:                                      ; preds = %196, %193, %_ZN4llvm5APIntD2Ev.exit59
+.critedge39:                                      ; preds = %197, %194, %_ZN4llvm5APIntD2Ev.exit59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #19
-  br i1 %.ph20, label %197, label %.critedge30.thread
+  br i1 %.ph20, label %198, label %.critedge30.thread
 
-.critedge30.thread:                               ; preds = %154, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit", %_ZNK4llvm5APInt6isZeroEv.exit.i, %80, %.critedge30.thread52, %161, %thread-pre-split, %.critedge39, %.critedge30
-  br label %197
+.critedge30.thread:                               ; preds = %155, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit", %_ZNK4llvm5APInt6isZeroEv.exit.i, %81, %.critedge30.thread52, %162, %thread-pre-split, %.critedge39, %.critedge30
+  br label %198
 
-197:                                              ; preds = %113, %80, %.critedge30.thread, %30, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread", %.critedge30, %.critedge33, %.critedge36, %157, %.critedge39, %2
-  %.027 = phi i1 [ false, %2 ], [ false, %.critedge30.thread ], [ false, %30 ], [ true, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread" ], [ true, %.critedge30 ], [ true, %.critedge33 ], [ true, %.critedge36 ], [ true, %157 ], [ true, %.critedge39 ], [ true, %80 ], [ true, %113 ]
+198:                                              ; preds = %114, %81, %.critedge30.thread, %30, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread", %.critedge30, %.critedge33, %.critedge36, %158, %.critedge39, %2
+  %.027 = phi i1 [ false, %2 ], [ false, %.critedge30.thread ], [ false, %30 ], [ true, %"_ZZZL27foldOverflowingAddSubSelectRN4llvm10SelectInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clEPNS_5ValueEbENKUlRKNS_5APIntEE_clESC_.exit.thread" ], [ true, %.critedge30 ], [ true, %.critedge33 ], [ true, %.critedge36 ], [ true, %158 ], [ true, %.critedge39 ], [ true, %81 ], [ true, %114 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19

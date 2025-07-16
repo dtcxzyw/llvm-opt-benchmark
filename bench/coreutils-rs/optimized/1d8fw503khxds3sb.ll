@@ -2194,8 +2194,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %120
 
 .lr.ph.preheader.lr.ph:                           ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hdba7b44b84261a02E.exit"
   %199 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
-  %.idx451544 = mul nsw i64 %197, 48
-  %200 = getelementptr inbounds i8, ptr %199, i64 %.idx451544
+  %.idx451543 = mul nsw i64 %197, 48
+  %200 = getelementptr inbounds i8, ptr %199, i64 %.idx451543
   br label %.lr.ph.preheader
 
 .body229:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %468, %.body244, %.body201

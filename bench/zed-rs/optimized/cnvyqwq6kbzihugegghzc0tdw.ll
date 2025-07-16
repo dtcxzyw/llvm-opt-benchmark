@@ -94915,12 +94915,15 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h68
   %.sroa.013.0.i.i.i = select i1 %34, i64 %35, i64 %.sroa.03.019.i.i.i
   %36 = sub i64 %.sroa.014.0.i.i.i, %.sroa.013.0.i.i.i
   %37 = icmp ult i64 %.sroa.013.0.i.i.i, %.sroa.014.0.i.i.i
-  br i1 %37, label %.lr.ph.i.i.i, label %"_ZN7project9lsp_store8LspStore26stop_local_language_server28_$u7b$$u7b$closure$u7d$$u7d$17ha61590733afb5310E.llvm.10723454985916948783.exit.thread"
+  br i1 %37, label %.lr.ph.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit.loopexit.i"
 
-"_ZN7project9lsp_store8LspStore26stop_local_language_server28_$u7b$$u7b$closure$u7d$$u7d$17ha61590733afb5310E.llvm.10723454985916948783.exit.thread": ; preds = %32, %22
-  %.sroa.03.0.lcssa.i.i.i = phi i64 [ 0, %22 ], [ %.sroa.013.0.i.i.i, %32 ]
-  %38 = icmp ule i64 %.sroa.03.0.lcssa.i.i.i, %26
-  call void @llvm.assume(i1 %38)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit.loopexit.i": ; preds = %32
+  %38 = icmp ule i64 %.sroa.013.0.i.i.i, %26
+  br label %"_ZN7project9lsp_store8LspStore26stop_local_language_server28_$u7b$$u7b$closure$u7d$$u7d$17ha61590733afb5310E.llvm.10723454985916948783.exit.thread"
+
+"_ZN7project9lsp_store8LspStore26stop_local_language_server28_$u7b$$u7b$closure$u7d$$u7d$17ha61590733afb5310E.llvm.10723454985916948783.exit.thread": ; preds = %22, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit.loopexit.i"
+  %.sroa.03.0.lcssa.i.i.i = phi i1 [ true, %22 ], [ %38, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit.loopexit.i" ]
+  call void @llvm.assume(i1 %.sroa.03.0.lcssa.i.i.i)
   br label %59
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hd5fb8b7bac0ffc83E.exit.i": ; preds = %.lr.ph.i.i.i
@@ -124701,12 +124704,15 @@ define hidden noundef zeroext i1 @"_ZN7project9lsp_store8LspStore26stop_local_la
   %.sroa.013.0.i.i = select i1 %17, i64 %18, i64 %.sroa.03.019.i.i
   %19 = sub i64 %.sroa.014.0.i.i, %.sroa.013.0.i.i
   %20 = icmp ult i64 %.sroa.013.0.i.i, %.sroa.014.0.i.i
-  br i1 %20, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit"
+  br i1 %20, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit.loopexit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit": ; preds = %15, %3
-  %.sroa.03.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %.sroa.013.0.i.i, %15 ]
-  %21 = icmp ule i64 %.sroa.03.0.lcssa.i.i, %7
-  tail call void @llvm.assume(i1 %21)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit.loopexit": ; preds = %15
+  %21 = icmp ule i64 %.sroa.013.0.i.i, %7
+  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit"
+
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit.loopexit", %3
+  %.sroa.03.0.lcssa.i.i = phi i1 [ true, %3 ], [ %21, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hc74d3bcf562a2fa2E.llvm.10723454985916948783.exit.loopexit" ]
+  tail call void @llvm.assume(i1 %.sroa.03.0.lcssa.i.i)
   br label %36
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hd5fb8b7bac0ffc83E.exit": ; preds = %9

@@ -271,19 +271,19 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
 45:                                               ; preds = %42
   %46 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.thread, label %48
+  br i1 %47, label %.critedge, label %48
 
 48:                                               ; preds = %45
   %49 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %50 = icmp slt i32 %43, %49
-  br i1 %50, label %55, label %.thread
+  br i1 %50, label %55, label %.critedge
 
-.thread:                                          ; preds = %45, %48
+.critedge:                                        ; preds = %45, %48
   %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %52 = icmp slt i32 %51, 0
-  br i1 %52, label %.thread83, label %53
+  br i1 %52, label %.thread82, label %53
 
-53:                                               ; preds = %.thread
+53:                                               ; preds = %.critedge
   %54 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   br label %55
 
@@ -291,12 +291,12 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %56 = phi i32 [ %54, %53 ], [ %43, %48 ]
   %57 = icmp sgt i32 %56, 0
   %or.cond = select i1 %35, i1 %57, i1 false
-  br i1 %or.cond, label %58, label %.thread83
+  br i1 %or.cond, label %58, label %.thread82
 
 58:                                               ; preds = %55
   %59 = load i32, ptr @hf_beep_payload, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %59, ptr noundef %0, i32 noundef 0, i32 noundef %56, i32 noundef 0)
-  br label %.thread83
+  br label %.thread82
 
 61:                                               ; preds = %42, %41
   %.not80 = icmp eq ptr %.069, null
@@ -325,7 +325,7 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
 73:                                               ; preds = %61, %62, %66
   %.070 = phi ptr [ %68, %66 ], [ %8, %62 ], [ %8, %61 ]
   %74 = icmp eq ptr %.070, null
-  br i1 %74, label %75, label %.thread83
+  br i1 %74, label %75, label %.thread82
 
 75:                                               ; preds = %73
   %76 = call ptr @wmem_file_scope()
@@ -338,20 +338,20 @@ define internal i32 @dissect_beep(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %80 = call ptr @wmem_file_scope()
   %81 = load i32, ptr @proto_beep, align 4
   call void @p_add_proto_data(ptr noundef %80, ptr noundef %1, i32 noundef %81, i32 noundef 0, ptr noundef %77)
-  br label %.thread83
+  br label %.thread82
 
-.thread83:                                        ; preds = %.thread, %55, %58, %75, %73
-  %.086 = phi i32 [ 0, %75 ], [ 0, %73 ], [ %56, %55 ], [ %56, %58 ], [ 0, %.thread ]
-  %.1 = phi ptr [ %77, %75 ], [ %.070, %73 ], [ %8, %55 ], [ %8, %58 ], [ %8, %.thread ]
-  %82 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.086)
+.thread82:                                        ; preds = %.critedge, %55, %58, %75, %73
+  %.085 = phi i32 [ 0, %75 ], [ 0, %73 ], [ %56, %55 ], [ %56, %58 ], [ 0, %.critedge ]
+  %.1 = phi ptr [ %77, %75 ], [ %.070, %73 ], [ %8, %55 ], [ %8, %58 ], [ %8, %.critedge ]
+  %82 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.085)
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %86
 
-84:                                               ; preds = %.thread83
-  %85 = call fastcc i32 @dissect_beep_tree(ptr noundef %0, i32 noundef %.086, ptr noundef %1, ptr noundef %.071, ptr noundef %.069, ptr noundef %.1)
+84:                                               ; preds = %.thread82
+  %85 = call fastcc i32 @dissect_beep_tree(ptr noundef %0, i32 noundef %.085, ptr noundef %1, ptr noundef %.071, ptr noundef %.069, ptr noundef %.1)
   br label %86
 
-86:                                               ; preds = %84, %.thread83
+86:                                               ; preds = %84, %.thread82
   %87 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret i32 %87

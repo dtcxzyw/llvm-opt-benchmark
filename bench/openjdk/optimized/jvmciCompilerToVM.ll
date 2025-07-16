@@ -20576,7 +20576,7 @@ _ZL16requireInHotSpotPKcP8JVMCIEnv.exit:          ; preds = %61, %65
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 5016
   %.old = load i8, ptr %75, align 8
   %.old215 = trunc i8 %.old to i1
-  br i1 %.old215, label %.critedge, label %.preheader220
+  br i1 %.old215, label %.critedge.thread245, label %.preheader220
 
 .preheader220:                                    ; preds = %.lr.ph, %_ZN16StackFrameStream4nextEv.exit
   %82 = load ptr, ptr %76, align 8
@@ -20652,12 +20652,12 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %95, %_ZNK11Register
   %or.cond = select i1 %.not148, i1 true, i1 %104
   br i1 %or.cond, label %.critedge, label %.preheader220, !llvm.loop !45
 
-.critedge:                                        ; preds = %_ZN16StackFrameStream4nextEv.exit, %_ZN16StackFrameStream4nextEv.exit.thread, %.lr.ph
-  %106 = phi ptr [ %74, %.lr.ph ], [ %103, %_ZN16StackFrameStream4nextEv.exit.thread ], [ %105, %_ZN16StackFrameStream4nextEv.exit ]
-  %.not149 = icmp eq ptr %106, %72
-  br i1 %.not149, label %.critedge.thread, label %107
+.critedge:                                        ; preds = %_ZN16StackFrameStream4nextEv.exit, %_ZN16StackFrameStream4nextEv.exit.thread
+  %106 = phi ptr [ %103, %_ZN16StackFrameStream4nextEv.exit.thread ], [ %105, %_ZN16StackFrameStream4nextEv.exit ]
+  %107 = icmp eq ptr %106, %72
+  br i1 %107, label %.critedge.thread, label %.critedge.thread245
 
-107:                                              ; preds = %.critedge
+.critedge.thread245:                              ; preds = %.lr.ph, %.critedge
   call void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull @.str.114) #16
   br label %363
 
@@ -20715,7 +20715,7 @@ _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_ja
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 5016
   %.old216 = load i8, ptr %125, align 8
   %.old217 = trunc i8 %.old216 to i1
-  br i1 %.old217, label %.critedge2, label %.preheader219
+  br i1 %.old217, label %.critedge2.thread253, label %.preheader219
 
 .preheader219:                                    ; preds = %.lr.ph201, %_ZN16StackFrameStream4nextEv.exit166
   %132 = load ptr, ptr %126, align 8
@@ -20725,9 +20725,9 @@ _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_ja
 
 135:                                              ; preds = %.preheader219
   %136 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %12) #16
-  br i1 %136, label %.thread247, label %137
+  br i1 %136, label %.thread249, label %137
 
-.thread247:                                       ; preds = %135
+.thread249:                                       ; preds = %135
   store i8 1, ptr %125, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   br label %_ZN16StackFrameStream4nextEv.exit166.thread
@@ -20735,15 +20735,15 @@ _ZNK5frame17is_compiled_frameEv.exit:             ; preds = %_ZNK7nmethod14is_ja
 137:                                              ; preds = %135, %.preheader219
   %138 = load ptr, ptr %127, align 8
   %.not.i.i.i158 = icmp eq ptr %138, null
-  br i1 %.not.i.i.i158, label %.thread246, label %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i159
+  br i1 %.not.i.i.i158, label %.thread248, label %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i159
 
 _ZNK5frame20is_upcall_stub_frameEv.exit.i.i159:   ; preds = %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 52
   %140 = load i8, ptr %139, align 4
   %141 = icmp eq i8 %140, 11
-  br i1 %141, label %142, label %.thread246
+  br i1 %141, label %142, label %.thread248
 
-.thread246:                                       ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i159, %137
+.thread248:                                       ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i159, %137
   store i8 0, ptr %125, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   br label %145
@@ -20755,7 +20755,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i159:   ; preds = %137
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   br i1 %143, label %_ZN16StackFrameStream4nextEv.exit166.thread, label %145
 
-145:                                              ; preds = %.thread246, %142
+145:                                              ; preds = %.thread248, %142
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %5, ptr noundef nonnull align 8 dereferenceable(5041) %12, ptr noundef nonnull %128)
   %146 = load i8, ptr %129, align 1, !noalias !46
   %147 = trunc i8 %146 to i1
@@ -20776,7 +20776,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i165:   ; preds = %_ZNK11RegisterMap7i
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %152, ptr noundef nonnull align 8 dereferenceable(56) %5) #16
   br label %_ZN16StackFrameStream4nextEv.exit166
 
-_ZN16StackFrameStream4nextEv.exit166.thread:      ; preds = %142, %.thread247
+_ZN16StackFrameStream4nextEv.exit166.thread:      ; preds = %142, %.thread249
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %153 = load ptr, ptr %123, align 8
   br label %.critedge2
@@ -20791,12 +20791,12 @@ _ZN16StackFrameStream4nextEv.exit166:             ; preds = %145, %_ZNK11Registe
   %or.cond218 = select i1 %.not150, i1 true, i1 %154
   br i1 %or.cond218, label %.critedge2, label %.preheader219, !llvm.loop !49
 
-.critedge2:                                       ; preds = %_ZN16StackFrameStream4nextEv.exit166, %_ZN16StackFrameStream4nextEv.exit166.thread, %.lr.ph201
-  %156 = phi ptr [ %124, %.lr.ph201 ], [ %153, %_ZN16StackFrameStream4nextEv.exit166.thread ], [ %155, %_ZN16StackFrameStream4nextEv.exit166 ]
-  %.not151 = icmp eq ptr %156, %72
-  br i1 %.not151, label %.critedge2.thread, label %157
+.critedge2:                                       ; preds = %_ZN16StackFrameStream4nextEv.exit166, %_ZN16StackFrameStream4nextEv.exit166.thread
+  %156 = phi ptr [ %153, %_ZN16StackFrameStream4nextEv.exit166.thread ], [ %155, %_ZN16StackFrameStream4nextEv.exit166 ]
+  %157 = icmp eq ptr %156, %72
+  br i1 %157, label %.critedge2.thread, label %.critedge2.thread253
 
-157:                                              ; preds = %.critedge2
+.critedge2.thread253:                             ; preds = %.lr.ph201, %.critedge2
   call void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull @.str.116) #16
   br label %363
 
@@ -21152,7 +21152,7 @@ _ZNK6HandleclEv.exit170:                          ; preds = %347, %350
   call void @_ZN12HotSpotJVMCI26HotSpotStackFrameReference23set_objectsMaterializedEP8JVMCIEnvP7oopDesch(ptr noundef nonnull %10, ptr noundef %362, i8 noundef zeroext 1) #16
   br label %363
 
-363:                                              ; preds = %209, %200, %68, %_ZL16requireInHotSpotPKcP8JVMCIEnv.exit, %._crit_edge214, %199, %164, %157, %_ZNK5frame17is_compiled_frameEv.exit, %107, %60
+363:                                              ; preds = %209, %200, %68, %_ZL16requireInHotSpotPKcP8JVMCIEnv.exit, %._crit_edge214, %199, %164, %.critedge2.thread253, %_ZNK5frame17is_compiled_frameEv.exit, %.critedge.thread245, %60
   %364 = load i64, ptr @JVMCITraceLevel, align 8
   %365 = icmp slt i64 %364, 2
   %366 = load i64, ptr @JVMCIEventLogLevel, align 8

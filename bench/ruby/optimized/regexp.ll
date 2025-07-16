@@ -1005,7 +1005,7 @@ pm_regexp_parse_posix_class.exit:                 ; preds = %58
 pm_regexp_char_accept.exit:                       ; preds = %63, %64, %67
   %.val9.i35 = phi ptr [ %13, %63 ], [ %13, %64 ], [ %68, %67 ]
   %.not37 = icmp ult ptr %.val9.i35, %.val10.i36
-  br i1 %.not37, label %.lr.ph, label %pm_regexp_parse_character_set.exit
+  br i1 %.not37, label %.lr.ph, label %pm_regexp_char_expect.exit
 
 .lr.ph:                                           ; preds = %pm_regexp_char_accept.exit
   %69 = add nuw nsw i16 %1, 1
@@ -1048,24 +1048,24 @@ pm_regexp_char_accept.exit:                       ; preds = %63, %64, %67
   %.not = icmp ult ptr %.val9.i, %.val10.i
   br i1 %.not, label %70, label %pm_regexp_parse_character_set.exit, !llvm.loop !59
 
-pm_regexp_parse_character_set.exit:               ; preds = %70, %80, %pm_regexp_char_accept.exit
-  %.val9.i.lcssa = phi ptr [ %.val9.i35, %pm_regexp_char_accept.exit ], [ %.val9.i, %80 ], [ %.val9.i38, %70 ]
-  %.val10.i.lcssa = phi ptr [ %.val10.i36, %pm_regexp_char_accept.exit ], [ %.val10.i, %80 ], [ %.val10.i47, %70 ]
-  %.not.i27 = icmp ult ptr %.val9.i.lcssa, %.val10.i.lcssa
-  br i1 %.not.i27, label %81, label %pm_regexp_char_expect.exit
+pm_regexp_parse_character_set.exit:               ; preds = %70, %80
+  %.val9.i.lcssa.ph = phi ptr [ %.val9.i38, %70 ], [ %.val9.i, %80 ]
+  %.val10.i.lcssa.ph = phi ptr [ %.val10.i47, %70 ], [ %.val10.i, %80 ]
+  %81 = icmp ult ptr %.val9.i.lcssa.ph, %.val10.i.lcssa.ph
+  br i1 %81, label %82, label %pm_regexp_char_expect.exit
 
-81:                                               ; preds = %pm_regexp_parse_character_set.exit
-  %82 = load i8, ptr %.val9.i.lcssa, align 1, !tbaa !46
-  %83 = icmp eq i8 %82, 93
-  br i1 %83, label %84, label %pm_regexp_char_expect.exit
+82:                                               ; preds = %pm_regexp_parse_character_set.exit
+  %83 = load i8, ptr %.val9.i.lcssa.ph, align 1, !tbaa !46
+  %84 = icmp eq i8 %83, 93
+  br i1 %84, label %85, label %pm_regexp_char_expect.exit
 
-84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %.val9.i.lcssa, i64 1
-  store ptr %85, ptr %12, align 8, !tbaa !16
+85:                                               ; preds = %82
+  %86 = getelementptr i8, ptr %.val9.i.lcssa.ph, i64 1
+  store ptr %86, ptr %12, align 8, !tbaa !16
   br label %pm_regexp_char_expect.exit
 
-pm_regexp_char_expect.exit:                       ; preds = %84, %81, %pm_regexp_parse_character_set.exit, %pm_regexp_parse_posix_class.exit, %18, %6
-  %.0 = phi i1 [ false, %6 ], [ true, %18 ], [ true, %pm_regexp_parse_posix_class.exit ], [ true, %84 ], [ false, %81 ], [ false, %pm_regexp_parse_character_set.exit ]
+pm_regexp_char_expect.exit:                       ; preds = %pm_regexp_char_accept.exit, %85, %82, %pm_regexp_parse_character_set.exit, %pm_regexp_parse_posix_class.exit, %18, %6
+  %.0 = phi i1 [ false, %6 ], [ true, %18 ], [ true, %pm_regexp_parse_posix_class.exit ], [ true, %85 ], [ false, %82 ], [ false, %pm_regexp_parse_character_set.exit ], [ false, %pm_regexp_char_accept.exit ]
   ret i1 %.0
 }
 

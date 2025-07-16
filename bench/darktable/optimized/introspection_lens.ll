@@ -9273,16 +9273,16 @@ define internal fastcc noundef ptr @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %13
 
-.preheader:                                       ; preds = %88, %2
+.preheader:                                       ; preds = %91, %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !535
   %.not64 = icmp eq i32 %12, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph63
 
-13:                                               ; preds = %.lr.ph, %88
-  %14 = phi ptr [ %8, %.lr.ph ], [ %98, %88 ]
-  %15 = phi ptr [ %1, %.lr.ph ], [ %97, %88 ]
-  %.061 = phi i32 [ 0, %.lr.ph ], [ %95, %88 ]
+13:                                               ; preds = %.lr.ph, %91
+  %14 = phi ptr [ %8, %.lr.ph ], [ %101, %91 ]
+  %15 = phi ptr [ %1, %.lr.ph ], [ %100, %91 ]
+  %.061 = phi i32 [ 0, %.lr.ph ], [ %98, %91 ]
   %16 = load ptr, ptr %14, align 8, !tbaa !510
   %17 = tail call ptr @lf_mlstr_get(ptr noundef %16)
   %.val = load ptr, ptr %6, align 8, !tbaa !537
@@ -9311,7 +9311,7 @@ define internal fastcc noundef ptr @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8
   %28 = load ptr, ptr %27, align 8, !tbaa !53
   %29 = tail call noundef i32 @g_utf8_collate(ptr noundef %28, ptr noundef readonly %17)
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit, label %31
+  br i1 %30, label %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph.i
   %32 = icmp slt i32 %29, 0
@@ -9323,155 +9323,158 @@ define internal fastcc noundef ptr @_ZL16camera_menu_fillP15dt_iop_module_tPKPK8
   br i1 %.not25.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !538
 
 .loopexit:                                        ; preds = %31, %13, %18
-  %.pre-phi69 = phi i32 [ %19, %18 ], [ -1, %13 ], [ %19, %31 ]
   %35 = add nsw i32 %.val53, 1
   tail call void @g_ptr_array_set_size(ptr noundef nonnull %6, i32 noundef %35)
   %36 = load ptr, ptr %6, align 8, !tbaa !537
   %37 = icmp sgt i32 %.val53, 0
-  br i1 %37, label %38, label %._crit_edge.i
+  br i1 %37, label %38, label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
 
 38:                                               ; preds = %.loopexit
-  %39 = zext nneg i32 %.pre-phi69 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !53
-  %.not.i54 = icmp eq ptr %41, null
-  br i1 %.not.i54, label %42, label %.lr.ph.i55.preheader
+  %39 = add nsw i32 %.val53, -1
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !53
+  %.not.i54 = icmp eq ptr %42, null
+  br i1 %.not.i54, label %43, label %.lr.ph.i55.preheader
 
-42:                                               ; preds = %38
-  %43 = add nsw i32 %.val53, -2
+43:                                               ; preds = %38
+  %44 = add nsw i32 %.val53, -2
   %.not488.i = icmp eq i32 %.val53, 1
-  br i1 %.not488.i, label %._crit_edge.i, label %.lr.ph.i55.preheader
+  br i1 %.not488.i, label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit, label %.lr.ph.i55.preheader
 
-.lr.ph.i55.preheader:                             ; preds = %42, %38
-  %.110.i.ph = phi i32 [ %.pre-phi69, %38 ], [ %43, %42 ]
+.lr.ph.i55.preheader:                             ; preds = %43, %38
+  %.110.i.ph = phi i32 [ %39, %38 ], [ %44, %43 ]
   br label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %.lr.ph.i55.preheader, %52
-  %.110.i = phi i32 [ %.3.i, %52 ], [ %.110.i.ph, %.lr.ph.i55.preheader ]
-  %.0399.i = phi i32 [ %.241.i, %52 ], [ 0, %.lr.ph.i55.preheader ]
-  %44 = add nuw nsw i32 %.0399.i, %.110.i
-  %45 = lshr i32 %44, 1
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %36, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !53
-  %49 = tail call noundef i32 @g_utf8_collate(ptr noundef %48, ptr noundef %17)
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.thread.i, label %52
+.lr.ph.i55:                                       ; preds = %.lr.ph.i55.preheader, %53
+  %.110.i = phi i32 [ %.3.i, %53 ], [ %.110.i.ph, %.lr.ph.i55.preheader ]
+  %.0399.i = phi i32 [ %.241.i, %53 ], [ 0, %.lr.ph.i55.preheader ]
+  %45 = add nuw nsw i32 %.0399.i, %.110.i
+  %46 = lshr i32 %45, 1
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %36, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !53
+  %50 = tail call noundef i32 @g_utf8_collate(ptr noundef %49, ptr noundef %17)
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %.thread.i, label %53
 
 .thread.i:                                        ; preds = %.lr.ph.i55
-  %51 = add nuw nsw i32 %45, 1
+  %52 = add nuw nsw i32 %46, 1
   br label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
 
-52:                                               ; preds = %.lr.ph.i55
-  %53 = icmp slt i32 %49, 0
-  %54 = add nuw nsw i32 %45, 1
-  %55 = add nsw i32 %45, -1
-  %.241.i = select i1 %53, i32 %54, i32 %.0399.i
-  %.3.i = select i1 %53, i32 %.110.i, i32 %55
+53:                                               ; preds = %.lr.ph.i55
+  %54 = icmp slt i32 %50, 0
+  %55 = add nuw nsw i32 %46, 1
+  %56 = add nsw i32 %46, -1
+  %.241.i = select i1 %54, i32 %55, i32 %.0399.i
+  %.3.i = select i1 %54, i32 %.110.i, i32 %56
   %.not48.i = icmp sgt i32 %.241.i, %.3.i
-  br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i55
+  br i1 %.not48.i, label %._crit_edge.loopexit.i, label %.lr.ph.i55
 
-._crit_edge.i:                                    ; preds = %52, %42, %.loopexit
-  %.042.lcssa.i = phi i32 [ 0, %42 ], [ 0, %.loopexit ], [ %45, %52 ]
-  %.1.lcssa.i = phi i32 [ -1, %42 ], [ %.pre-phi69, %.loopexit ], [ %.3.i, %52 ]
-  %56 = icmp eq i32 %.1.lcssa.i, %.042.lcssa.i
-  %57 = zext i1 %56 to i32
-  %spec.select50.i = add nuw nsw i32 %.042.lcssa.i, %57
+._crit_edge.loopexit.i:                           ; preds = %53
+  %57 = icmp eq i32 %.3.i, %46
+  %58 = zext i1 %57 to i32
+  %59 = add nuw nsw i32 %46, %58
   br label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
 
-_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit: ; preds = %.thread.i, %._crit_edge.i
-  %.244.i = phi i32 [ %spec.select50.i, %._crit_edge.i ], [ %51, %.thread.i ]
-  %58 = zext nneg i32 %.244.i to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %36, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = sub nsw i32 %.val53, %.244.i
-  %62 = sext i32 %61 to i64
-  %63 = shl nsw i64 %62, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %60, ptr align 8 %59, i64 %63, i1 false)
-  store ptr %17, ptr %59, align 8, !tbaa !53
-  %64 = tail call ptr @gtk_menu_new()
-  %65 = load i32, ptr %10, align 8, !tbaa !535
-  %66 = add nsw i32 %65, 1
-  tail call void @g_ptr_array_set_size(ptr noundef %7, i32 noundef %66)
-  %67 = load ptr, ptr %7, align 8, !tbaa !537
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %58
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = sub nsw i32 %65, %.244.i
-  %71 = sext i32 %70 to i64
-  %72 = shl nsw i64 %71, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr align 8 %68, i64 %72, i1 false)
-  store ptr %64, ptr %68, align 8, !tbaa !53
+_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit: ; preds = %.loopexit, %43, %.thread.i, %._crit_edge.loopexit.i
+  %.244.i = phi i32 [ %52, %.thread.i ], [ 0, %43 ], [ %59, %._crit_edge.loopexit.i ], [ 0, %.loopexit ]
+  %60 = zext nneg i32 %.244.i to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %36, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = sub nsw i32 %.val53, %.244.i
+  %64 = sext i32 %63 to i64
+  %65 = shl nsw i64 %64, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %61, i64 %65, i1 false)
+  store ptr %17, ptr %61, align 8, !tbaa !53
+  %66 = tail call ptr @gtk_menu_new()
+  %67 = load i32, ptr %10, align 8, !tbaa !535
+  %68 = add nsw i32 %67, 1
+  tail call void @g_ptr_array_set_size(ptr noundef %7, i32 noundef %68)
+  %69 = load ptr, ptr %7, align 8, !tbaa !537
+  %70 = zext nneg i32 %.244.i to i64
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = sub nsw i32 %67, %.244.i
+  %74 = sext i32 %73 to i64
+  %75 = shl nsw i64 %74, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %72, ptr align 8 %71, i64 %75, i1 false)
+  store ptr %66, ptr %71, align 8, !tbaa !53
   br label %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
 
-_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit: ; preds = %.lr.ph.i, %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
-  %.pre-phi = phi i64 [ %58, %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit ], [ %26, %.lr.ph.i ]
-  %73 = load ptr, ptr %7, align 8, !tbaa !537
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.pre-phi
-  %75 = load ptr, ptr %74, align 8, !tbaa !53
-  %76 = load ptr, ptr %15, align 8, !tbaa !353
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !509
-  %79 = tail call ptr @lf_mlstr_get(ptr noundef %78)
-  %80 = load ptr, ptr %15, align 8, !tbaa !353
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !511
-  %.not52 = icmp eq ptr %82, null
-  br i1 %.not52, label %83, label %85
+_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit.loopexit: ; preds = %.lr.ph.i
+  %.pre = zext nneg i32 %25 to i64
+  br label %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
 
-83:                                               ; preds = %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
-  %84 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %79)
-  br label %88
+_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit: ; preds = %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit.loopexit, %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
+  %.pre-phi = phi i64 [ %.pre, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit.loopexit ], [ %70, %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit ]
+  %76 = load ptr, ptr %7, align 8, !tbaa !537
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi
+  %78 = load ptr, ptr %77, align 8, !tbaa !53
+  %79 = load ptr, ptr %15, align 8, !tbaa !353
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !509
+  %82 = tail call ptr @lf_mlstr_get(ptr noundef %81)
+  %83 = load ptr, ptr %15, align 8, !tbaa !353
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !511
+  %.not52 = icmp eq ptr %85, null
+  br i1 %.not52, label %86, label %88
 
-85:                                               ; preds = %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
-  %86 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.142, ptr noundef %79, ptr noundef nonnull %82)
-  %87 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %86)
-  tail call void @g_free(ptr noundef %86)
-  br label %88
+86:                                               ; preds = %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
+  %87 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %82)
+  br label %91
 
-88:                                               ; preds = %85, %83
-  %.048 = phi ptr [ %87, %85 ], [ %84, %83 ]
+88:                                               ; preds = %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
+  %89 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.142, ptr noundef %82, ptr noundef nonnull %85)
+  %90 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %89)
+  tail call void @g_free(ptr noundef %89)
+  br label %91
+
+91:                                               ; preds = %88, %86
+  %.048 = phi ptr [ %90, %88 ], [ %87, %86 ]
   tail call void @gtk_widget_show(ptr noundef %.048)
-  %89 = tail call ptr @g_type_check_instance_cast(ptr noundef %.048, i64 noundef 80)
-  %90 = load ptr, ptr %15, align 8, !tbaa !353
-  tail call void @g_object_set_data(ptr noundef %89, ptr noundef nonnull @.str.143, ptr noundef %90)
-  %91 = tail call ptr @g_type_check_instance_cast(ptr noundef %.048, i64 noundef 80)
-  %92 = tail call i64 @g_signal_connect_data(ptr noundef %91, ptr noundef nonnull @.str.144, ptr noundef nonnull @_ZL19_camera_menu_selectP12_GtkMenuItemP15dt_iop_module_t, ptr noundef %0, ptr noundef null, i32 noundef 0)
-  %93 = tail call i64 @gtk_menu_shell_get_type() #35
-  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %75, i64 noundef %93)
-  tail call void @gtk_menu_shell_append(ptr noundef %94, ptr noundef %.048)
-  %95 = add i32 %.061, 1
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %1, i64 %96
-  %98 = load ptr, ptr %97, align 8, !tbaa !353
-  %.not = icmp eq ptr %98, null
+  %92 = tail call ptr @g_type_check_instance_cast(ptr noundef %.048, i64 noundef 80)
+  %93 = load ptr, ptr %15, align 8, !tbaa !353
+  tail call void @g_object_set_data(ptr noundef %92, ptr noundef nonnull @.str.143, ptr noundef %93)
+  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %.048, i64 noundef 80)
+  %95 = tail call i64 @g_signal_connect_data(ptr noundef %94, ptr noundef nonnull @.str.144, ptr noundef nonnull @_ZL19_camera_menu_selectP12_GtkMenuItemP15dt_iop_module_t, ptr noundef %0, ptr noundef null, i32 noundef 0)
+  %96 = tail call i64 @gtk_menu_shell_get_type() #35
+  %97 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %96)
+  tail call void @gtk_menu_shell_append(ptr noundef %97, ptr noundef %.048)
+  %98 = add i32 %.061, 1
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds nuw ptr, ptr %1, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !353
+  %.not = icmp eq ptr %101, null
   br i1 %.not, label %.preheader, label %13, !llvm.loop !539
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %.preheader
-  %99 = tail call ptr @g_ptr_array_free(ptr noundef %7, i32 noundef 1)
-  %100 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %6, i32 noundef 1)
+  %102 = tail call ptr @g_ptr_array_free(ptr noundef %7, i32 noundef 1)
+  %103 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %6, i32 noundef 1)
   ret ptr %5
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph63 ], [ 0, %.preheader ]
-  %101 = load ptr, ptr %6, align 8, !tbaa !537
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
-  %103 = load ptr, ptr %102, align 8, !tbaa !53
-  %104 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %103)
-  tail call void @gtk_widget_show(ptr noundef %104)
-  %105 = tail call i64 @gtk_menu_shell_get_type() #35
-  %106 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %105)
-  tail call void @gtk_menu_shell_append(ptr noundef %106, ptr noundef %104)
-  %107 = tail call i64 @gtk_menu_item_get_type() #35
-  %108 = tail call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef %107)
-  %109 = load ptr, ptr %7, align 8, !tbaa !537
-  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv
-  %111 = load ptr, ptr %110, align 8, !tbaa !53
-  tail call void @gtk_menu_item_set_submenu(ptr noundef %108, ptr noundef %111)
+  %104 = load ptr, ptr %6, align 8, !tbaa !537
+  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %106 = load ptr, ptr %105, align 8, !tbaa !53
+  %107 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %106)
+  tail call void @gtk_widget_show(ptr noundef %107)
+  %108 = tail call i64 @gtk_menu_shell_get_type() #35
+  %109 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %108)
+  tail call void @gtk_menu_shell_append(ptr noundef %109, ptr noundef %107)
+  %110 = tail call i64 @gtk_menu_item_get_type() #35
+  %111 = tail call ptr @g_type_check_instance_cast(ptr noundef %107, i64 noundef %110)
+  %112 = load ptr, ptr %7, align 8, !tbaa !537
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
+  %114 = load ptr, ptr %113, align 8, !tbaa !53
+  tail call void @gtk_menu_item_set_submenu(ptr noundef %111, ptr noundef %114)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %112 = load i32, ptr %11, align 8, !tbaa !535
-  %113 = zext i32 %112 to i64
-  %114 = icmp samesign ult i64 %indvars.iv.next, %113
-  br i1 %114, label %.lr.ph63, label %._crit_edge, !llvm.loop !540
+  %115 = load i32, ptr %11, align 8, !tbaa !535
+  %116 = zext i32 %115 to i64
+  %117 = icmp samesign ult i64 %indvars.iv.next, %116
+  br i1 %117, label %.lr.ph63, label %._crit_edge, !llvm.loop !540
 }
 
 declare void @dt_gui_menu_popup(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
@@ -9567,9 +9570,9 @@ define internal fastcc noundef ptr @_ZL15_lens_menu_fillP15dt_iop_module_tPKPK6l
   br i1 %.not53, label %._crit_edge, label %.lr.ph52
 
 13:                                               ; preds = %.lr.ph, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
-  %14 = phi ptr [ %8, %.lr.ph ], [ %90, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit ]
-  %15 = phi ptr [ %1, %.lr.ph ], [ %89, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit ]
-  %.050 = phi i32 [ 0, %.lr.ph ], [ %87, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit ]
+  %14 = phi ptr [ %8, %.lr.ph ], [ %93, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit ]
+  %15 = phi ptr [ %1, %.lr.ph ], [ %92, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit ]
+  %.050 = phi i32 [ 0, %.lr.ph ], [ %90, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit ]
   %16 = load ptr, ptr %14, align 8, !tbaa !244
   %17 = tail call ptr @lf_mlstr_get(ptr noundef %16)
   %.val = load ptr, ptr %6, align 8, !tbaa !537
@@ -9598,7 +9601,7 @@ define internal fastcc noundef ptr @_ZL15_lens_menu_fillP15dt_iop_module_tPKPK6l
   %28 = load ptr, ptr %27, align 8, !tbaa !53
   %29 = tail call noundef i32 @g_utf8_collate(ptr noundef %28, ptr noundef readonly %17)
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit, label %31
+  br i1 %30, label %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph.i
   %32 = icmp slt i32 %29, 0
@@ -9610,138 +9613,141 @@ define internal fastcc noundef ptr @_ZL15_lens_menu_fillP15dt_iop_module_tPKPK6l
   br i1 %.not25.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !538
 
 .loopexit:                                        ; preds = %31, %13, %18
-  %.pre-phi58 = phi i32 [ %19, %18 ], [ -1, %13 ], [ %19, %31 ]
   %35 = add nsw i32 %.val42, 1
   tail call void @g_ptr_array_set_size(ptr noundef nonnull %6, i32 noundef %35)
   %36 = load ptr, ptr %6, align 8, !tbaa !537
   %37 = icmp sgt i32 %.val42, 0
-  br i1 %37, label %38, label %._crit_edge.i
+  br i1 %37, label %38, label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
 
 38:                                               ; preds = %.loopexit
-  %39 = zext nneg i32 %.pre-phi58 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !53
-  %.not.i43 = icmp eq ptr %41, null
-  br i1 %.not.i43, label %42, label %.lr.ph.i44.preheader
+  %39 = add nsw i32 %.val42, -1
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !53
+  %.not.i43 = icmp eq ptr %42, null
+  br i1 %.not.i43, label %43, label %.lr.ph.i44.preheader
 
-42:                                               ; preds = %38
-  %43 = add nsw i32 %.val42, -2
+43:                                               ; preds = %38
+  %44 = add nsw i32 %.val42, -2
   %.not488.i = icmp eq i32 %.val42, 1
-  br i1 %.not488.i, label %._crit_edge.i, label %.lr.ph.i44.preheader
+  br i1 %.not488.i, label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit, label %.lr.ph.i44.preheader
 
-.lr.ph.i44.preheader:                             ; preds = %42, %38
-  %.110.i.ph = phi i32 [ %.pre-phi58, %38 ], [ %43, %42 ]
+.lr.ph.i44.preheader:                             ; preds = %43, %38
+  %.110.i.ph = phi i32 [ %39, %38 ], [ %44, %43 ]
   br label %.lr.ph.i44
 
-.lr.ph.i44:                                       ; preds = %.lr.ph.i44.preheader, %52
-  %.110.i = phi i32 [ %.3.i, %52 ], [ %.110.i.ph, %.lr.ph.i44.preheader ]
-  %.0399.i = phi i32 [ %.241.i, %52 ], [ 0, %.lr.ph.i44.preheader ]
-  %44 = add nuw nsw i32 %.0399.i, %.110.i
-  %45 = lshr i32 %44, 1
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %36, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !53
-  %49 = tail call noundef i32 @g_utf8_collate(ptr noundef %48, ptr noundef %17)
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.thread.i, label %52
+.lr.ph.i44:                                       ; preds = %.lr.ph.i44.preheader, %53
+  %.110.i = phi i32 [ %.3.i, %53 ], [ %.110.i.ph, %.lr.ph.i44.preheader ]
+  %.0399.i = phi i32 [ %.241.i, %53 ], [ 0, %.lr.ph.i44.preheader ]
+  %45 = add nuw nsw i32 %.0399.i, %.110.i
+  %46 = lshr i32 %45, 1
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %36, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !53
+  %50 = tail call noundef i32 @g_utf8_collate(ptr noundef %49, ptr noundef %17)
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %.thread.i, label %53
 
 .thread.i:                                        ; preds = %.lr.ph.i44
-  %51 = add nuw nsw i32 %45, 1
+  %52 = add nuw nsw i32 %46, 1
   br label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
 
-52:                                               ; preds = %.lr.ph.i44
-  %53 = icmp slt i32 %49, 0
-  %54 = add nuw nsw i32 %45, 1
-  %55 = add nsw i32 %45, -1
-  %.241.i = select i1 %53, i32 %54, i32 %.0399.i
-  %.3.i = select i1 %53, i32 %.110.i, i32 %55
+53:                                               ; preds = %.lr.ph.i44
+  %54 = icmp slt i32 %50, 0
+  %55 = add nuw nsw i32 %46, 1
+  %56 = add nsw i32 %46, -1
+  %.241.i = select i1 %54, i32 %55, i32 %.0399.i
+  %.3.i = select i1 %54, i32 %.110.i, i32 %56
   %.not48.i = icmp sgt i32 %.241.i, %.3.i
-  br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i44
+  br i1 %.not48.i, label %._crit_edge.loopexit.i, label %.lr.ph.i44
 
-._crit_edge.i:                                    ; preds = %52, %42, %.loopexit
-  %.042.lcssa.i = phi i32 [ 0, %42 ], [ 0, %.loopexit ], [ %45, %52 ]
-  %.1.lcssa.i = phi i32 [ -1, %42 ], [ %.pre-phi58, %.loopexit ], [ %.3.i, %52 ]
-  %56 = icmp eq i32 %.1.lcssa.i, %.042.lcssa.i
-  %57 = zext i1 %56 to i32
-  %spec.select50.i = add nuw nsw i32 %.042.lcssa.i, %57
+._crit_edge.loopexit.i:                           ; preds = %53
+  %57 = icmp eq i32 %.3.i, %46
+  %58 = zext i1 %57 to i32
+  %59 = add nuw nsw i32 %46, %58
   br label %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
 
-_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit: ; preds = %.thread.i, %._crit_edge.i
-  %.244.i = phi i32 [ %spec.select50.i, %._crit_edge.i ], [ %51, %.thread.i ]
-  %58 = zext nneg i32 %.244.i to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %36, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = sub nsw i32 %.val42, %.244.i
-  %62 = sext i32 %61 to i64
-  %63 = shl nsw i64 %62, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %60, ptr align 8 %59, i64 %63, i1 false)
-  store ptr %17, ptr %59, align 8, !tbaa !53
-  %64 = tail call ptr @gtk_menu_new()
-  %65 = load i32, ptr %10, align 8, !tbaa !535
-  %66 = add nsw i32 %65, 1
-  tail call void @g_ptr_array_set_size(ptr noundef %7, i32 noundef %66)
-  %67 = load ptr, ptr %7, align 8, !tbaa !537
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %58
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = sub nsw i32 %65, %.244.i
-  %71 = sext i32 %70 to i64
-  %72 = shl nsw i64 %71, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr align 8 %68, i64 %72, i1 false)
-  store ptr %64, ptr %68, align 8, !tbaa !53
+_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit: ; preds = %.loopexit, %43, %.thread.i, %._crit_edge.loopexit.i
+  %.244.i = phi i32 [ %52, %.thread.i ], [ 0, %43 ], [ %59, %._crit_edge.loopexit.i ], [ 0, %.loopexit ]
+  %60 = zext nneg i32 %.244.i to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %36, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = sub nsw i32 %.val42, %.244.i
+  %64 = sext i32 %63 to i64
+  %65 = shl nsw i64 %64, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %61, i64 %65, i1 false)
+  store ptr %17, ptr %61, align 8, !tbaa !53
+  %66 = tail call ptr @gtk_menu_new()
+  %67 = load i32, ptr %10, align 8, !tbaa !535
+  %68 = add nsw i32 %67, 1
+  tail call void @g_ptr_array_set_size(ptr noundef %7, i32 noundef %68)
+  %69 = load ptr, ptr %7, align 8, !tbaa !537
+  %70 = zext nneg i32 %.244.i to i64
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = sub nsw i32 %67, %.244.i
+  %74 = sext i32 %73 to i64
+  %75 = shl nsw i64 %74, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %72, ptr align 8 %71, i64 %75, i1 false)
+  store ptr %66, ptr %71, align 8, !tbaa !53
   br label %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
 
-_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit: ; preds = %.lr.ph.i, %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
-  %.pre-phi = phi i64 [ %58, %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit ], [ %26, %.lr.ph.i ]
-  %73 = load ptr, ptr %7, align 8, !tbaa !537
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.pre-phi
-  %75 = load ptr, ptr %74, align 8, !tbaa !53
-  %76 = load ptr, ptr %15, align 8, !tbaa !356
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !419
-  %79 = tail call ptr @lf_mlstr_get(ptr noundef %78)
-  %80 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %79)
-  tail call void @gtk_widget_show(ptr noundef %80)
-  %81 = tail call ptr @g_type_check_instance_cast(ptr noundef %80, i64 noundef 80)
-  %82 = load ptr, ptr %15, align 8, !tbaa !356
-  tail call void @g_object_set_data(ptr noundef %81, ptr noundef nonnull @.str.145, ptr noundef %82)
-  %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %80, i64 noundef 80)
-  %84 = tail call i64 @g_signal_connect_data(ptr noundef %83, ptr noundef nonnull @.str.144, ptr noundef nonnull @_ZL17_lens_menu_selectP12_GtkMenuItemP15dt_iop_module_t, ptr noundef %0, ptr noundef null, i32 noundef 0)
-  %85 = tail call i64 @gtk_menu_shell_get_type() #35
-  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %75, i64 noundef %85)
-  tail call void @gtk_menu_shell_append(ptr noundef %86, ptr noundef %80)
-  %87 = add i32 %.050, 1
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %1, i64 %88
-  %90 = load ptr, ptr %89, align 8, !tbaa !356
-  %.not = icmp eq ptr %90, null
+_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit.loopexit: ; preds = %.lr.ph.i
+  %.pre = zext nneg i32 %25 to i64
+  br label %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit
+
+_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit: ; preds = %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit.loopexit, %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit
+  %.pre-phi = phi i64 [ %.pre, %_ZL22_ptr_array_find_sortedPK10_GPtrArrayPKvPFiS3_S3_E.exit.loopexit ], [ %70, %_ZL24_ptr_array_insert_sortedP10_GPtrArrayPKvPFiS2_S2_E.exit ]
+  %76 = load ptr, ptr %7, align 8, !tbaa !537
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi
+  %78 = load ptr, ptr %77, align 8, !tbaa !53
+  %79 = load ptr, ptr %15, align 8, !tbaa !356
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !419
+  %82 = tail call ptr @lf_mlstr_get(ptr noundef %81)
+  %83 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %82)
+  tail call void @gtk_widget_show(ptr noundef %83)
+  %84 = tail call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef 80)
+  %85 = load ptr, ptr %15, align 8, !tbaa !356
+  tail call void @g_object_set_data(ptr noundef %84, ptr noundef nonnull @.str.145, ptr noundef %85)
+  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef 80)
+  %87 = tail call i64 @g_signal_connect_data(ptr noundef %86, ptr noundef nonnull @.str.144, ptr noundef nonnull @_ZL17_lens_menu_selectP12_GtkMenuItemP15dt_iop_module_t, ptr noundef %0, ptr noundef null, i32 noundef 0)
+  %88 = tail call i64 @gtk_menu_shell_get_type() #35
+  %89 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %88)
+  tail call void @gtk_menu_shell_append(ptr noundef %89, ptr noundef %83)
+  %90 = add i32 %.050, 1
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw ptr, ptr %1, i64 %91
+  %93 = load ptr, ptr %92, align 8, !tbaa !356
+  %.not = icmp eq ptr %93, null
   br i1 %.not, label %.preheader, label %13, !llvm.loop !541
 
 ._crit_edge:                                      ; preds = %.lr.ph52, %.preheader
-  %91 = tail call ptr @g_ptr_array_free(ptr noundef %7, i32 noundef 1)
-  %92 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %6, i32 noundef 1)
+  %94 = tail call ptr @g_ptr_array_free(ptr noundef %7, i32 noundef 1)
+  %95 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %6, i32 noundef 1)
   ret ptr %5
 
 .lr.ph52:                                         ; preds = %.preheader, %.lr.ph52
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph52 ], [ 0, %.preheader ]
-  %93 = load ptr, ptr %6, align 8, !tbaa !537
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv
-  %95 = load ptr, ptr %94, align 8, !tbaa !53
-  %96 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %95)
-  tail call void @gtk_widget_show(ptr noundef %96)
-  %97 = tail call i64 @gtk_menu_shell_get_type() #35
-  %98 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %97)
-  tail call void @gtk_menu_shell_append(ptr noundef %98, ptr noundef %96)
-  %99 = tail call i64 @gtk_menu_item_get_type() #35
-  %100 = tail call ptr @g_type_check_instance_cast(ptr noundef %96, i64 noundef %99)
-  %101 = load ptr, ptr %7, align 8, !tbaa !537
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
-  %103 = load ptr, ptr %102, align 8, !tbaa !53
-  tail call void @gtk_menu_item_set_submenu(ptr noundef %100, ptr noundef %103)
+  %96 = load ptr, ptr %6, align 8, !tbaa !537
+  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
+  %98 = load ptr, ptr %97, align 8, !tbaa !53
+  %99 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %98)
+  tail call void @gtk_widget_show(ptr noundef %99)
+  %100 = tail call i64 @gtk_menu_shell_get_type() #35
+  %101 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %100)
+  tail call void @gtk_menu_shell_append(ptr noundef %101, ptr noundef %99)
+  %102 = tail call i64 @gtk_menu_item_get_type() #35
+  %103 = tail call ptr @g_type_check_instance_cast(ptr noundef %99, i64 noundef %102)
+  %104 = load ptr, ptr %7, align 8, !tbaa !537
+  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %106 = load ptr, ptr %105, align 8, !tbaa !53
+  tail call void @gtk_menu_item_set_submenu(ptr noundef %103, ptr noundef %106)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %104 = load i32, ptr %11, align 8, !tbaa !535
-  %105 = zext i32 %104 to i64
-  %106 = icmp samesign ult i64 %indvars.iv.next, %105
-  br i1 %106, label %.lr.ph52, label %._crit_edge, !llvm.loop !542
+  %107 = load i32, ptr %11, align 8, !tbaa !535
+  %108 = zext i32 %107 to i64
+  %109 = icmp samesign ult i64 %indvars.iv.next, %108
+  br i1 %109, label %.lr.ph52, label %._crit_edge, !llvm.loop !542
 }
 
 ; Function Attrs: mustprogress uwtable

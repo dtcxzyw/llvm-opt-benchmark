@@ -23846,7 +23846,7 @@ define void @"_ZN88_$LT$language_tools..lsp_log..LspLogToolbarItemView$u20$as$u2
   %.sroa.013.0.i.i.i = select i1 %72, i64 %73, i64 %.sroa.03.019.i.i.i
   %74 = sub i64 %.sroa.014.0.i.i.i, %.sroa.013.0.i.i.i
   %75 = icmp ult i64 %.sroa.013.0.i.i.i, %.sroa.014.0.i.i.i
-  br i1 %75, label %.lr.ph.i.i.i, label %.loopexit.i
+  br i1 %75, label %.lr.ph.i.i.i, label %.loopexit.loopexit.i
 
 76:                                               ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.01.i)
@@ -23862,10 +23862,13 @@ define void @"_ZN88_$LT$language_tools..lsp_log..LspLogToolbarItemView$u20$as$u2
   %82 = load i64, ptr %81, align 8, !alias.scope !5513, !noalias !5514, !noundef !4
   br i1 %trunc.i.i.i, label %84, label %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h345c484302af7346E.exit.i.i"
 
-.loopexit.i:                                      ; preds = %70, %62
-  %.sroa.03.0.lcssa.i.i.i = phi i64 [ 0, %62 ], [ %.sroa.013.0.i.i.i, %70 ]
-  %83 = icmp ule i64 %.sroa.03.0.lcssa.i.i.i, %.val32
-  call void @llvm.assume(i1 %83)
+.loopexit.loopexit.i:                             ; preds = %70
+  %83 = icmp ule i64 %.sroa.013.0.i.i.i, %.val32
+  br label %.loopexit.i
+
+.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %62
+  %.sroa.03.0.lcssa.i.i.i = phi i1 [ true, %62 ], [ %83, %.loopexit.loopexit.i ]
+  call void @llvm.assume(i1 %.sroa.03.0.lcssa.i.i.i)
   store i64 2, ptr %44, align 8, !alias.scope !5495
   br label %"_ZN88_$LT$language_tools..lsp_log..LspLogToolbarItemView$u20$as$u20$gpui..element..Render$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17h8c51371e89ecc0e5E.exit"
 

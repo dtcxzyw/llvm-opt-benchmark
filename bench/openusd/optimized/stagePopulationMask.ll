@@ -1224,8 +1224,8 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrRese
   br i1 %31, label %35, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.thread
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.thread: ; preds = %7, %29, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit
-  %32 = phi i1 [ %28, %29 ], [ %28, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit ], [ false, %7 ]
   %.sroa.011.0.lcssa.i.i21 = phi ptr [ %.sroa.011.1.i.i, %29 ], [ %.sroa.011.1.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit ], [ %3, %7 ]
+  %32 = phi i1 [ %28, %29 ], [ %28, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit ], [ false, %7 ]
   %.not1218 = icmp eq ptr %.sroa.011.0.lcssa.i.i21, null
   %.not12 = or i1 %.not1218, %32
   br i1 %.not12, label %35, label %33
@@ -1253,7 +1253,7 @@ define internal fastcc { i8, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %36, label %7
+  br i1 %6, label %.thread.thread, label %7
 
 7:                                                ; preds = %2
   %8 = ptrtoint ptr %5 to i64
@@ -1261,7 +1261,7 @@ define internal fastcc { i8, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %12 = icmp sgt i64 %11, 0
-  br i1 %12, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit
+  br i1 %12, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.thread
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i: ; preds = %7, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEES6_EEbT_RT0_.exit.thread.i.i
   %.014.i.i = phi i64 [ %.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEES6_EEbT_RT0_.exit.thread.i.i ], [ %11, %7 ]
@@ -1300,41 +1300,45 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN32pxrInternal_v
   %.sroa.011.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.011.013.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEES6_EEbT_RT0_.exit.i.i ], [ %.sroa.011.013.i.i, %20 ], [ %.sroa.011.013.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i ], [ %.sroa.011.013.i.i, %19 ]
   %.1.i.i = phi i64 [ %25, %22 ], [ %13, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEES6_EEbT_RT0_.exit.i.i ], [ %13, %20 ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i ], [ %13, %19 ]
   %26 = icmp sgt i64 %.1.i.i, 0
-  br i1 %26, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit, !llvm.loop !13
+  br i1 %26, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit, !llvm.loop !13
 
-_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEES6_EEbT_RT0_.exit.thread.i.i
+_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEES6_EEbT_RT0_.exit.thread.i.i
   %.pre = load ptr, ptr %0, align 8
   %.pre25 = load ptr, ptr %4, align 8
-  br label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit
+  %27 = icmp eq ptr %.sroa.011.1.i.i, %.pre
+  %28 = icmp eq ptr %.sroa.011.1.i.i, %.pre25
+  %29 = getelementptr inbounds i8, ptr %.sroa.011.1.i.i, i64 -8
+  %.not = icmp eq ptr %.sroa.011.1.i.i, null
+  %or.cond = or i1 %.not, %28
+  br i1 %or.cond, label %.thread, label %31
 
-_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit, %7
-  %27 = phi ptr [ %5, %7 ], [ %.pre25, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit ]
-  %28 = phi ptr [ %3, %7 ], [ %.pre, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit ]
-  %.sroa.011.0.lcssa.i.i = phi ptr [ %3, %7 ], [ %.sroa.011.1.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.loopexit ]
-  %29 = icmp eq ptr %.sroa.011.0.lcssa.i.i, %28
-  %30 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i, i64 -8
-  %31 = icmp eq ptr %.sroa.011.0.lcssa.i.i, %27
-  %.not = icmp eq ptr %.sroa.011.0.lcssa.i.i, null
-  %or.cond = or i1 %.not, %31
-  br i1 %or.cond, label %.thread, label %32
+_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.thread: ; preds = %7
+  %.not27 = icmp eq ptr %3, null
+  br i1 %.not27, label %.thread.thread, label %.thread33
 
-32:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit
-  %.0.copyload.i.i = load i64, ptr %.sroa.011.0.lcssa.i.i, align 4
+.thread33:                                        ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.thread
+  %.0.copyload.i.i35 = load i64, ptr %3, align 4
+  %.0.copyload.i2.i36 = load i64, ptr %1, align 4
+  %30 = icmp eq i64 %.0.copyload.i.i35, %.0.copyload.i2.i36
+  br label %.thread.thread
+
+31:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit
+  %.0.copyload.i.i = load i64, ptr %.sroa.011.1.i.i, align 4
   %.0.copyload.i2.i = load i64, ptr %1, align 4
-  %33 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  %brmerge = select i1 %33, i1 true, i1 %29
-  br i1 %brmerge, label %36, label %34
+  %32 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
+  %brmerge = select i1 %32, i1 true, i1 %27
+  br i1 %brmerge, label %.thread.thread, label %33
 
 .thread:                                          ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit
-  br i1 %29, label %36, label %34
+  br i1 %27, label %.thread.thread, label %33
 
-34:                                               ; preds = %32, %.thread
-  %35 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %30)
-  br label %36
+33:                                               ; preds = %31, %.thread
+  %34 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %29)
+  br label %.thread.thread
 
-36:                                               ; preds = %34, %.thread, %32, %2
-  %.sroa.023.0.shrunk = phi i1 [ false, %2 ], [ %33, %32 ], [ false, %.thread ], [ %35, %34 ]
-  %.sroa.3.0 = phi ptr [ %5, %2 ], [ %.sroa.011.0.lcssa.i.i, %32 ], [ %.sroa.011.0.lcssa.i.i, %.thread ], [ %.sroa.011.0.lcssa.i.i, %34 ]
+.thread.thread:                                   ; preds = %.thread33, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.thread, %33, %.thread, %31, %2
+  %.sroa.023.0.shrunk = phi i1 [ false, %2 ], [ %32, %31 ], [ false, %.thread ], [ %34, %33 ], [ false, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.thread ], [ %30, %.thread33 ]
+  %.sroa.3.0 = phi ptr [ %5, %2 ], [ %.sroa.011.1.i.i, %31 ], [ %.sroa.011.1.i.i, %.thread ], [ %.sroa.011.1.i.i, %33 ], [ null, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEES3_ET_SA_SA_RKT0_.exit.thread ], [ %3, %.thread33 ]
   %.sroa.023.0 = zext i1 %.sroa.023.0.shrunk to i8
   %.fca.0.insert = insertvalue { i8, ptr } poison, i8 %.sroa.023.0, 0
   %.fca.1.insert = insertvalue { i8, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1

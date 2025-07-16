@@ -569,6 +569,8 @@ dt_ioppr_get_iop_order.exit:                      ; preds = %dt_ioppr_get_iop_or
 dt_ioppr_get_iop_order_entry.exit.i10:            ; preds = %25, %.lr.ph.split.us.i.i.i11
   %.0.i.i = phi ptr [ %14, %.lr.ph.split.us.i.i.i11 ], [ %21, %25 ]
   %32 = load i32, ptr %.0.i.i, align 8, !tbaa !59
+  %33 = icmp slt i32 %32, %.0.i
+  %34 = zext i1 %33 to i32
   br label %dt_ioppr_get_iop_order.exit14
 
 .loopexit.i8:                                     ; preds = %29, %18, %dt_ioppr_get_iop_order.exit
@@ -576,10 +578,8 @@ dt_ioppr_get_iop_order_entry.exit.i10:            ; preds = %25, %.lr.ph.split.u
   br label %dt_ioppr_get_iop_order.exit14
 
 dt_ioppr_get_iop_order.exit14:                    ; preds = %dt_ioppr_get_iop_order_entry.exit.i10, %.loopexit.i8
-  %.0.i9 = phi i32 [ %32, %dt_ioppr_get_iop_order_entry.exit.i10 ], [ 2147483647, %.loopexit.i8 ]
-  %33 = icmp slt i32 %.0.i9, %.0.i
-  %34 = zext i1 %33 to i32
-  ret i32 %34
+  %.0.i9 = phi i32 [ %34, %dt_ioppr_get_iop_order_entry.exit.i10 ], [ 0, %.loopexit.i8 ]
+  ret i32 %.0.i9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

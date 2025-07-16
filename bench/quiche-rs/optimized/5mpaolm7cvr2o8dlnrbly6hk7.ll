@@ -4662,23 +4662,23 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 186
   store i16 0, ptr %82, align 2
   %.not = icmp eq i64 %79, 0
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %_ZN5alloc11collections5btree3mem7replace17h2f65608b926f52d8E.exit25, %81
-  %.sroa.037.0.lcssa68 = phi ptr [ %80, %81 ], [ %111, %_ZN5alloc11collections5btree3mem7replace17h2f65608b926f52d8E.exit25 ]
+._crit_edge:                                      ; preds = %_ZN5alloc11collections5btree3mem7replace17h2f65608b926f52d8E.exit25, %81
+  %.sroa.037.0.lcssa = phi ptr [ %80, %81 ], [ %111, %_ZN5alloc11collections5btree3mem7replace17h2f65608b926f52d8E.exit25 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 186
   %84 = load i16, ptr %83, align 2, !noalias !979, !noundef !3
   %85 = icmp ult i16 %84, 11
   br i1 %85, label %87, label %86, !prof !4
 
-86:                                               ; preds = %._crit_edge.thread
+86:                                               ; preds = %._crit_edge
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.dbc93ba20e8a388679d74382c6042b56.15, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbc93ba20e8a388679d74382c6042b56.19) #20
           to label %.noexc17 unwind label %.loopexit.split-lp
 
 .noexc17:                                         ; preds = %86
   unreachable
 
-87:                                               ; preds = %._crit_edge.thread
+87:                                               ; preds = %._crit_edge
   %88 = zext nneg i16 %84 to i64
   %89 = add nuw nsw i16 %84, 1
   store i16 %89, ptr %83, align 2, !noalias !979
@@ -4691,10 +4691,10 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   %94 = add nuw nsw i64 %88, 1
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 192
   %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %94
-  store ptr %.sroa.037.0.lcssa68, ptr %96, align 8, !noalias !979
-  store ptr %.sroa.030.0, ptr %.sroa.037.0.lcssa68, align 8, !noalias !982
+  store ptr %.sroa.037.0.lcssa, ptr %96, align 8, !noalias !979
+  store ptr %.sroa.030.0, ptr %.sroa.037.0.lcssa, align 8, !noalias !982
   %97 = trunc nuw nsw i64 %94 to i16
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.lcssa68, i64 184
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.lcssa, i64 184
   store i16 %97, ptr %98, align 8, !noalias !982
   %99 = icmp eq i64 %.sroa.632.0, 0
   br i1 %99, label %.loopexit, label %.lr.ph.i18
@@ -4753,7 +4753,7 @@ _ZN5alloc11collections5btree3mem7replace17h2f65608b926f52d8E.exit25: ; preds = %
   store i16 0, ptr %119, align 8, !noalias !1001
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %exitcond.not = icmp eq i64 %116, %79
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 120:                                              ; preds = %29
   %121 = zext nneg i16 %33 to i64

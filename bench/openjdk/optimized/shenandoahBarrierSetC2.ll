@@ -1738,7 +1738,7 @@ define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC216load_at_resolvedER8C2Ac
   %6 = and i8 %5, -2
   %or.cond.i.i = icmp eq i8 %6, 12
   %7 = tail call noundef ptr @_ZNK12BarrierSetC216load_at_resolvedER8C2AccessPK4Type(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %2) #15
-  br i1 %or.cond.i.i, label %8, label %94
+  br i1 %or.cond.i.i, label %8, label %93
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1815,7 +1815,7 @@ _ZN4NodenwEm.exit:                                ; preds = %29, %31
 53:                                               ; preds = %.sink.split, %8
   %.059 = phi ptr [ %7, %8 ], [ %52, %.sink.split ]
   %54 = tail call noundef zeroext i1 @_ZN20ShenandoahBarrierSet23need_keep_alive_barrierEm9BasicType(i64 noundef %10, i8 noundef zeroext %11) #15
-  br i1 %54, label %55, label %94
+  br i1 %54, label %55, label %93
 
 55:                                               ; preds = %53
   %56 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1833,49 +1833,49 @@ _ZN4NodenwEm.exit:                                ; preds = %29, %31
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 1023
   %70 = icmp eq i32 %69, 512
-  br i1 %70, label %71, label %76
+  br i1 %70, label %71, label %77
 
 71:                                               ; preds = %55
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
-  br label %76
+  %76 = icmp ne ptr %75, %63
+  br label %77
 
-76:                                               ; preds = %55, %71
-  %77 = phi ptr [ %75, %71 ], [ %63, %55 ]
+77:                                               ; preds = %55, %71
+  %.not = phi i1 [ %76, %71 ], [ false, %55 ]
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = and i64 %10, 98304
   %.not64 = icmp eq i64 %80, 0
   %81 = and i64 %10, 4096
   %82 = icmp eq i64 %81, 0
-  br i1 %.not64, label %94, label %83
+  br i1 %.not64, label %93, label %83
 
-83:                                               ; preds = %76
+83:                                               ; preds = %77
   %84 = and i64 %10, 131072
   %.not63 = icmp eq i64 %84, 0
-  br i1 %.not63, label %89, label %85
+  br i1 %.not63, label %88, label %85
 
 85:                                               ; preds = %83
-  %86 = icmp ne ptr %77, %63
-  %87 = icmp ne ptr %79, %63
-  %88 = and i1 %86, %87
-  %or.cond66 = and i1 %82, %88
-  br i1 %or.cond66, label %90, label %94
+  %86 = icmp ne ptr %79, %63
+  %87 = and i1 %.not, %86
+  %or.cond66 = and i1 %82, %87
+  br i1 %or.cond66, label %89, label %93
 
-89:                                               ; preds = %83
-  br i1 %82, label %90, label %94
+88:                                               ; preds = %83
+  br i1 %82, label %89, label %93
 
-90:                                               ; preds = %85, %89
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %92 = load ptr, ptr %91, align 8
-  tail call void @_ZNK22ShenandoahBarrierSetC222satb_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nonnull align 8 poison, ptr noundef %92, i1 noundef zeroext false, ptr poison, ptr noundef null, i32 noundef -1, ptr poison, ptr noundef null, ptr noundef %.059, i8 noundef zeroext 12)
-  %93 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %92, i32 noundef 216, ptr noundef null) #15
-  br label %94
+89:                                               ; preds = %85, %88
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %91 = load ptr, ptr %90, align 8
+  tail call void @_ZNK22ShenandoahBarrierSetC222satb_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nonnull align 8 poison, ptr noundef %91, i1 noundef zeroext false, ptr poison, ptr noundef null, i32 noundef -1, ptr poison, ptr noundef null, ptr noundef %.059, i8 noundef zeroext 12)
+  %92 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %91, i32 noundef 216, ptr noundef null) #15
+  br label %93
 
-94:                                               ; preds = %3, %53, %90, %76, %85, %89
-  %.0 = phi ptr [ %.059, %89 ], [ %.059, %85 ], [ %.059, %76 ], [ %.059, %90 ], [ %.059, %53 ], [ %7, %3 ]
+93:                                               ; preds = %3, %53, %89, %77, %85, %88
+  %.0 = phi ptr [ %.059, %88 ], [ %.059, %85 ], [ %.059, %77 ], [ %.059, %89 ], [ %.059, %53 ], [ %7, %3 ]
   ret ptr %.0
 }
 

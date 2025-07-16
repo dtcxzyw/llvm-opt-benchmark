@@ -700,18 +700,22 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   %42 = zext nneg i32 %11 to i64
   %43 = add nsw i32 %11, -1
   %wide.trip.count = zext nneg i32 %11 to i64
-  %invariant.gep112 = getelementptr i32, ptr %27, i64 %42
+  %invariant.gep116 = getelementptr i32, ptr %27, i64 %42
   br label %44
 
 44:                                               ; preds = %23, %.critedge4
-  %indvars.iv108 = phi i64 [ 0, %23 ], [ %indvars.iv.next109, %.critedge4 ]
+  %indvars.iv108 = phi i64 [ 0, %23 ], [ %indvars.iv.next109115, %.critedge4 ]
   %.1101 = phi i32 [ 1, %23 ], [ %.3.lcssa, %.critedge4 ]
   %45 = trunc nuw nsw i64 %indvars.iv108 to i32
   %46 = uitofp nneg i32 %45 to float
   %47 = fdiv float %46, %41
   %48 = add nsw i32 %.1101, 1
   %49 = icmp slt i32 %48, %11
-  br i1 %49, label %.lr.ph.preheader, label %.critedge
+  br i1 %49, label %.lr.ph.preheader, label %.critedge.thread
+
+.critedge.thread:                                 ; preds = %44
+  %indvars.iv.next109114 = add nuw nsw i64 %indvars.iv108, 1
+  br label %.critedge4
 
 .lr.ph.preheader:                                 ; preds = %44
   %50 = sext i32 %.1101 to i64
@@ -733,48 +737,43 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   %58 = load float, ptr %gep88, align 4, !tbaa !109
   %59 = fadd float %58, %40
   %60 = fcmp ogt float %59, %47
-  br i1 %60, label %.critedge2, label %.critedge.loopexit
+  br i1 %60, label %.critedge2, label %.critedge
 
 61:                                               ; preds = %.lr.ph
-  %gep113 = getelementptr i32, ptr %invariant.gep112, i64 %52
-  %62 = load i32, ptr %gep113, align 4, !tbaa !119
+  %gep117 = getelementptr i32, ptr %invariant.gep116, i64 %52
+  %62 = load i32, ptr %gep117, align 4, !tbaa !119
   %63 = sext i32 %62 to i64
   %gep = getelementptr float, ptr %invariant.gep, i64 %63
   %64 = load float, ptr %gep, align 4, !tbaa !109
   %65 = fadd float %64, -1.000000e+00
   %66 = fadd float %65, %40
   %67 = fcmp ogt float %66, %47
-  br i1 %67, label %.critedge2, label %.critedge.loopexit
+  br i1 %67, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %54, %61
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %68 = trunc nsw i64 %indvars.iv to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %42
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !235
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !235
 
-.critedge.loopexit:                               ; preds = %54, %.critedge2, %61
+.critedge:                                        ; preds = %61, %.critedge2, %54
   %.2.lcssa.ph = phi i32 [ %.289, %61 ], [ %43, %.critedge2 ], [ %.289, %54 ]
   %.pre = add nsw i32 %.2.lcssa.ph, 1
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.loopexit, %44
-  %.pre-phi = phi i32 [ %.pre, %.critedge.loopexit ], [ %48, %44 ]
-  %.2.lcssa = phi i32 [ %.2.lcssa.ph, %.critedge.loopexit ], [ %.1101, %44 ]
+  %69 = icmp slt i32 %.pre, %11
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %69 = trunc nuw nsw i64 %indvars.iv.next109 to i32
-  %70 = uitofp nneg i32 %69 to float
-  %71 = fdiv float %70, %41
-  %72 = icmp slt i32 %.pre-phi, %11
-  br i1 %72, label %.lr.ph95.preheader, label %.critedge4
+  %70 = trunc nuw nsw i64 %indvars.iv.next109 to i32
+  %71 = uitofp nneg i32 %70 to float
+  %72 = fdiv float %71, %41
+  br i1 %69, label %.lr.ph95.preheader, label %.critedge4
 
 .lr.ph95.preheader:                               ; preds = %.critedge
-  %73 = sext i32 %.2.lcssa to i64
+  %73 = sext i32 %.2.lcssa.ph to i64
   %74 = add nsw i64 %73, 1
   br label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.critedge6
   %indvars.iv104 = phi i64 [ %74, %.lr.ph95.preheader ], [ %indvars.iv.next105, %.critedge6 ]
-  %.394 = phi i32 [ %.2.lcssa, %.lr.ph95.preheader ], [ %95, %.critedge6 ]
+  %.394 = phi i32 [ %.2.lcssa.ph, %.lr.ph95.preheader ], [ %95, %.critedge6 ]
   %75 = add nsw i64 %indvars.iv104, %indvars.iv108
   %76 = icmp slt i64 %75, %42
   br i1 %76, label %77, label %85
@@ -786,7 +785,7 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   %81 = getelementptr inbounds float, ptr %4, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !109
   %83 = fsub float %82, %40
-  %84 = fcmp olt float %83, %71
+  %84 = fcmp olt float %83, %72
   br i1 %84, label %.critedge6, label %.critedge4
 
 85:                                               ; preds = %.lr.ph95
@@ -798,7 +797,7 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   %91 = load float, ptr %90, align 4, !tbaa !109
   %92 = fadd float %91, 1.000000e+00
   %93 = fsub float %92, %40
-  %94 = fcmp olt float %93, %71
+  %94 = fcmp olt float %93, %72
   br i1 %94, label %.critedge6, label %.critedge4
 
 .critedge6:                                       ; preds = %77, %85
@@ -807,9 +806,10 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, %42
   br i1 %exitcond107.not, label %.critedge4, label %.lr.ph95, !llvm.loop !236
 
-.critedge4:                                       ; preds = %85, %.critedge6, %77, %.critedge
-  %.3.lcssa = phi i32 [ %.2.lcssa, %.critedge ], [ %.394, %77 ], [ %43, %.critedge6 ], [ %.394, %85 ]
-  %exitcond111.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
+.critedge4:                                       ; preds = %85, %.critedge6, %77, %.critedge.thread, %.critedge
+  %indvars.iv.next109115 = phi i64 [ %indvars.iv.next109, %.critedge ], [ %indvars.iv.next109114, %.critedge.thread ], [ %indvars.iv.next109, %77 ], [ %indvars.iv.next109, %.critedge6 ], [ %indvars.iv.next109, %85 ]
+  %.3.lcssa = phi i32 [ %.2.lcssa.ph, %.critedge ], [ %.1101, %.critedge.thread ], [ %.394, %85 ], [ %43, %.critedge6 ], [ %.394, %77 ]
+  %exitcond111.not = icmp eq i64 %indvars.iv.next109115, %wide.trip.count
   br i1 %exitcond111.not, label %.loopexit, label %44, !llvm.loop !237
 
 .loopexit:                                        ; preds = %.critedge4, %17, %15

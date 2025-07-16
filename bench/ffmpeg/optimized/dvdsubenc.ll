@@ -1236,41 +1236,41 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
 
 ._crit_edge.us.split.loop.exit213:                ; preds = %.lr.ph.us
   %28 = trunc nuw nsw i64 %indvars.iv to i32
+  %29 = icmp eq i32 %24, %3
   br label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %140, %._crit_edge.us.split.loop.exit213
   %.0.lcssa.us = phi i32 [ %28, %._crit_edge.us.split.loop.exit213 ], [ %23, %140 ]
-  %.lcssa.us = phi i32 [ %24, %._crit_edge.us.split.loop.exit213 ], [ %3, %140 ]
-  %29 = zext i8 %20 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !31
-  %32 = icmp slt i32 %31, 4
-  br i1 %32, label %37, label %.split.us
+  %.lcssa.us = phi i1 [ %29, %._crit_edge.us.split.loop.exit213 ], [ true, %140 ]
+  %30 = zext i8 %20 to i64
+  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !31
+  %33 = icmp slt i32 %32, 4
+  br i1 %33, label %38, label %.split.us
 
 ._crit_edge.us.thread:                            ; preds = %17
-  %33 = zext i8 %20 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !31
-  %36 = icmp slt i32 %35, 4
-  br i1 %36, label %.thread, label %.split.us
+  %34 = zext i8 %20 to i64
+  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !31
+  %37 = icmp slt i32 %36, 4
+  br i1 %37, label %.thread, label %.split.us
 
-37:                                               ; preds = %._crit_edge.us
-  %38 = icmp samesign ult i32 %.0.lcssa.us, 4
-  br i1 %38, label %.thread, label %39
+38:                                               ; preds = %._crit_edge.us
+  %39 = icmp samesign ult i32 %.0.lcssa.us, 4
+  br i1 %39, label %.thread, label %40
 
-39:                                               ; preds = %37
-  %40 = icmp samesign ult i32 %.0.lcssa.us, 16
-  br i1 %40, label %104, label %41
+40:                                               ; preds = %38
+  %41 = icmp samesign ult i32 %.0.lcssa.us, 16
+  br i1 %41, label %104, label %42
 
-41:                                               ; preds = %39
-  %42 = icmp samesign ult i32 %.0.lcssa.us, 64
-  br i1 %42, label %83, label %43
+42:                                               ; preds = %40
+  %43 = icmp samesign ult i32 %.0.lcssa.us, 64
+  br i1 %43, label %83, label %44
 
-43:                                               ; preds = %41
-  %44 = icmp eq i32 %.lcssa.us, %3
-  br i1 %44, label %69, label %45
+44:                                               ; preds = %42
+  br i1 %.lcssa.us, label %69, label %45
 
-45:                                               ; preds = %43
+45:                                               ; preds = %44
   %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %.0.lcssa.us, i32 255)
   %46 = and i32 %.0105190.us, 1
   %.not127.us = icmp eq i32 %46, 0
@@ -1286,7 +1286,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   store i8 %51, ptr %49, align 1, !tbaa !58
   %53 = add nsw i32 %.0105190.us, 4
   %54 = shl nuw nsw i32 %spec.store.select.us, 6
-  %55 = shl i32 %31, 4
+  %55 = shl i32 %32, 4
   %56 = or i32 %55, %54
   br label %137
 
@@ -1298,7 +1298,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   %61 = shl nuw nsw i32 %spec.store.select.us, 2
   %62 = and i32 %61, 1008
   %63 = add nsw i32 %.0105190.us, 4
-  %64 = or i32 %31, %61
+  %64 = or i32 %32, %61
   %65 = and i32 %64, 15
   %66 = or disjoint i32 %65, %62
   %67 = trunc i32 %66 to i8
@@ -1306,7 +1306,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   store i8 %67, ptr %60, align 1, !tbaa !58
   br label %137
 
-69:                                               ; preds = %43
+69:                                               ; preds = %44
   %70 = and i32 %.0105190.us, 1
   %.not131.us = icmp eq i32 %70, 0
   br i1 %.not131.us, label %77, label %71
@@ -1318,20 +1318,20 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   %74 = getelementptr inbounds nuw i8, ptr %.1110188.us, i64 2
   store i8 0, ptr %73, align 1, !tbaa !58
   %75 = add nsw i32 %.0105190.us, 4
-  %76 = shl i32 %31, 4
+  %76 = shl i32 %32, 4
   br label %137
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %.1110188.us, i64 1
   store i8 0, ptr %.1110188.us, align 1, !tbaa !58
   %79 = add nsw i32 %.0105190.us, 4
-  %80 = trunc i32 %31 to i8
+  %80 = trunc i32 %32 to i8
   %81 = and i8 %80, 15
   %82 = getelementptr inbounds nuw i8, ptr %.1110188.us, i64 2
   store i8 %81, ptr %78, align 1, !tbaa !58
   br label %137
 
-83:                                               ; preds = %41
+83:                                               ; preds = %42
   %84 = and i32 %.0105190.us, 1
   %.not135.us = icmp eq i32 %84, 0
   br i1 %.not135.us, label %96, label %85
@@ -1343,7 +1343,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   %88 = shl nuw nsw i32 %.0.lcssa.us, 2
   %89 = and i32 %88, 240
   %90 = add nsw i32 %.0105190.us, 3
-  %91 = or i32 %31, %88
+  %91 = or i32 %32, %88
   %92 = and i32 %91, 15
   %93 = or disjoint i32 %92, %89
   %94 = trunc nuw i32 %93 to i8
@@ -1358,11 +1358,11 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   store i8 %98, ptr %.1110188.us, align 1, !tbaa !58
   %100 = add nsw i32 %.0105190.us, 3
   %101 = shl nuw nsw i32 %.0.lcssa.us, 6
-  %102 = shl i32 %31, 4
+  %102 = shl i32 %32, 4
   %103 = or i32 %102, %101
   br label %137
 
-104:                                              ; preds = %39
+104:                                              ; preds = %40
   %105 = and i32 %.0105190.us, 1
   %.not138.us = icmp eq i32 %105, 0
   br i1 %.not138.us, label %115, label %106
@@ -1375,7 +1375,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   store i8 %109, ptr %.1110188.us, align 1, !tbaa !58
   %111 = add nsw i32 %.0105190.us, 2
   %112 = shl nuw nsw i32 %.0.lcssa.us, 6
-  %113 = shl i32 %31, 4
+  %113 = shl i32 %32, 4
   %114 = or i32 %113, %112
   br label %137
 
@@ -1383,7 +1383,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   %116 = shl nuw nsw i32 %.0.lcssa.us, 2
   %117 = and i32 %116, 48
   %118 = add nsw i32 %.0105190.us, 2
-  %119 = or i32 %31, %116
+  %119 = or i32 %32, %116
   %120 = and i32 %119, 15
   %121 = or disjoint i32 %120, %117
   %122 = trunc nuw nsw i32 %121 to i8
@@ -1391,9 +1391,9 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   store i8 %122, ptr %.1110188.us, align 1, !tbaa !58
   br label %137
 
-.thread:                                          ; preds = %._crit_edge.us.thread, %37
-  %.0.lcssa.us208212 = phi i32 [ %.0.lcssa.us, %37 ], [ 1, %._crit_edge.us.thread ]
-  %124 = phi i32 [ %31, %37 ], [ %35, %._crit_edge.us.thread ]
+.thread:                                          ; preds = %._crit_edge.us.thread, %38
+  %.0.lcssa.us208212 = phi i32 [ %.0.lcssa.us, %38 ], [ 1, %._crit_edge.us.thread ]
+  %124 = phi i32 [ %32, %38 ], [ %36, %._crit_edge.us.thread ]
   %125 = add nsw i32 %.0105190.us, 1
   %126 = and i32 %.0105190.us, 1
   %.not140.us = icmp eq i32 %126, 0

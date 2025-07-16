@@ -3075,33 +3075,33 @@ define dso_local i64 @bit_nth_set(ptr noundef readonly captures(none) %0, i64 no
 ._crit_edge:                                      ; preds = %23, %14
   %.039.lcssa.ph = phi i64 [ %25, %23 ], [ %.03946, %14 ]
   %.032.lcssa.ph = phi i64 [ %24, %23 ], [ %.03249, %14 ]
-  %27 = icmp slt i64 %.238, 0
-  br i1 %27, label %._crit_edge.thread, label %28
+  %27 = icmp eq i64 %.238, %.039.lcssa.ph
+  %28 = zext i32 %.2 to i64
+  %29 = select i1 %27, i64 %.032.lcssa.ph, i64 %28
+  %30 = icmp slt i64 %.238, 0
+  br i1 %30, label %._crit_edge.thread, label %31
 
-28:                                               ; preds = %._crit_edge
-  %29 = zext i32 %.2 to i64
-  %30 = lshr i64 %.238, 6
-  %31 = add nuw nsw i64 %30, 2
-  %32 = zext i32 %9 to i64
-  %33 = icmp eq i64 %31, %32
-  %34 = and i64 %6, 63
-  %notmask45 = shl nsw i64 -1, %34
-  %35 = xor i64 %notmask45, -1
-  %.033 = select i1 %33, i64 %35, i64 -1
-  %36 = getelementptr inbounds nuw i64, ptr %0, i64 %31
-  %37 = load i64, ptr %36, align 8
-  %38 = and i64 %37, %.033
-  %39 = icmp eq i64 %.238, %.039.lcssa.ph
-  %40 = select i1 %39, i64 %.032.lcssa.ph, i64 %29
+31:                                               ; preds = %._crit_edge
+  %32 = lshr i64 %.238, 6
+  %33 = add nuw nsw i64 %32, 2
+  %34 = zext i32 %9 to i64
+  %35 = icmp eq i64 %33, %34
+  %36 = and i64 %6, 63
+  %notmask45 = shl nsw i64 -1, %36
+  %37 = xor i64 %notmask45, -1
+  %.033 = select i1 %35, i64 %37, i64 -1
+  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %33
+  %39 = load i64, ptr %38, align 8
+  %40 = and i64 %39, %.033
   br label %41
 
-41:                                               ; preds = %56, %28
-  %.020.i = phi i64 [ 0, %28 ], [ %.1.i, %56 ]
-  %.01419.i = phi i32 [ 32, %28 ], [ %.115.i, %56 ]
-  %.01618.i = phi i64 [ 4294967295, %28 ], [ %.117.i, %56 ]
-  %42 = and i64 %38, %.01618.i
+41:                                               ; preds = %56, %31
+  %.020.i = phi i64 [ 0, %31 ], [ %.1.i, %56 ]
+  %.01419.i = phi i32 [ 32, %31 ], [ %.115.i, %56 ]
+  %.01618.i = phi i64 [ 4294967295, %31 ], [ %.117.i, %56 ]
+  %42 = and i64 %40, %.01618.i
   %43 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
-  %44 = icmp sgt i64 %40, %43
+  %44 = icmp sgt i64 %29, %43
   br i1 %44, label %45, label %52
 
 45:                                               ; preds = %41
@@ -3185,29 +3185,29 @@ define dso_local void @bit_pick_firstn(ptr noundef captures(none) %0, i64 nounde
 ._crit_edge.i:                                    ; preds = %22, %13
   %.039.lcssa.ph.i = phi i64 [ %24, %22 ], [ %.03946.i, %13 ]
   %.032.lcssa.ph.i = phi i64 [ %23, %22 ], [ %.03249.i, %13 ]
-  %26 = icmp slt i64 %.238.i, 0
-  br i1 %26, label %bit_nclear.exit, label %27
+  %26 = icmp eq i64 %.238.i, %.039.lcssa.ph.i
+  %27 = zext i32 %.2.i to i64
+  %28 = select i1 %26, i64 %.032.lcssa.ph.i, i64 %27
+  %29 = icmp slt i64 %.238.i, 0
+  br i1 %29, label %bit_nclear.exit, label %30
 
-27:                                               ; preds = %._crit_edge.i
-  %28 = zext i32 %.2.i to i64
-  %29 = lshr i64 %.238.i, 6
-  %30 = add nuw nsw i64 %29, 2
-  %31 = icmp eq i64 %30, %10
-  %.033.i = select i1 %31, i64 %12, i64 -1
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %30
-  %33 = load i64, ptr %32, align 8
-  %34 = and i64 %33, %.033.i
-  %35 = icmp eq i64 %.238.i, %.039.lcssa.ph.i
-  %36 = select i1 %35, i64 %.032.lcssa.ph.i, i64 %28
+30:                                               ; preds = %._crit_edge.i
+  %31 = lshr i64 %.238.i, 6
+  %32 = add nuw nsw i64 %31, 2
+  %33 = icmp eq i64 %32, %10
+  %.033.i = select i1 %33, i64 %12, i64 -1
+  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %32
+  %35 = load i64, ptr %34, align 8
+  %36 = and i64 %35, %.033.i
   br label %37
 
-37:                                               ; preds = %52, %27
-  %.020.i.i = phi i64 [ 0, %27 ], [ %.1.i.i, %52 ]
-  %.01419.i.i = phi i32 [ 32, %27 ], [ %.115.i.i, %52 ]
-  %.01618.i.i = phi i64 [ 4294967295, %27 ], [ %.117.i.i, %52 ]
-  %38 = and i64 %34, %.01618.i.i
+37:                                               ; preds = %52, %30
+  %.020.i.i = phi i64 [ 0, %30 ], [ %.1.i.i, %52 ]
+  %.01419.i.i = phi i32 [ 32, %30 ], [ %.115.i.i, %52 ]
+  %.01618.i.i = phi i64 [ 4294967295, %30 ], [ %.117.i.i, %52 ]
+  %38 = and i64 %36, %.01618.i.i
   %39 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
-  %40 = icmp sgt i64 %36, %39
+  %40 = icmp sgt i64 %28, %39
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %37

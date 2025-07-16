@@ -885,78 +885,78 @@ define void @_ZN3tbb6detail2r18pipeline10add_filterERNS0_2d111base_filterE(ptr n
 
 7:                                                ; preds = %2
   store ptr %1, ptr %4, align 8, !tbaa !51
-  br label %12
+  br label %13
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !70
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %11, align 8, !tbaa !50
-  br label %12
+  %12 = icmp eq ptr %5, %1
+  br label %13
 
-12:                                               ; preds = %8, %7
-  %13 = phi ptr [ %5, %8 ], [ %1, %7 ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr null, ptr %14, align 8, !tbaa !50
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %15, align 8, !tbaa !70
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i32, ptr %16, align 8, !tbaa !39
-  %18 = and i32 %17, 1
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %36, label %19
+13:                                               ; preds = %8, %7
+  %14 = phi i1 [ %12, %8 ], [ true, %7 ]
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr null, ptr %15, align 8, !tbaa !50
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %16, align 8, !tbaa !70
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %18 = load i32, ptr %17, align 8, !tbaa !39
+  %19 = and i32 %18, 1
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %37, label %20
 
-19:                                               ; preds = %12
-  %20 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 56)
-  %21 = load i32, ptr %16, align 8, !tbaa !39
-  %22 = and i32 %21, 3
-  %23 = icmp eq i32 %22, 1
-  %24 = zext i1 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i64 0, ptr %25, align 8, !tbaa !47
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %20, i8 0, i64 25, i1 false)
-  store i8 %24, ptr %26, align 8, !tbaa !66
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 44
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  store i8 0, ptr %28, align 8, !tbaa !67
-  %29 = tail call noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 96)
-  %30 = load ptr, ptr %20, align 8, !tbaa !18
+20:                                               ; preds = %13
+  %21 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 56)
+  %22 = load i32, ptr %17, align 8, !tbaa !39
+  %23 = and i32 %22, 3
+  %24 = icmp eq i32 %23, 1
+  %25 = zext i1 %24 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i64 0, ptr %26, align 8, !tbaa !47
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %21, i8 0, i64 25, i1 false)
+  store i8 %25, ptr %27, align 8, !tbaa !66
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 44
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  store i8 0, ptr %29, align 8, !tbaa !67
+  %30 = tail call noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 96)
+  %31 = load ptr, ptr %21, align 8, !tbaa !18
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %19
-  %.02733.i.i = phi i64 [ %32, %.lr.ph.i.i ], [ 0, %19 ]
-  %31 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %29, i64 %.02733.i.i, i32 3
-  store i8 0, ptr %31, align 1, !tbaa !20
-  %32 = add nuw nsw i64 %.02733.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %32, 4
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %20
+  %.02733.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %20 ]
+  %32 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %30, i64 %.02733.i.i, i32 3
+  store i8 0, ptr %32, align 1, !tbaa !20
+  %33 = add nuw nsw i64 %.02733.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %33, 4
   br i1 %exitcond.not.i.i, label %._crit_edge38.i.i, label %.lr.ph.i.i, !llvm.loop !22
 
 ._crit_edge38.i.i:                                ; preds = %.lr.ph.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %29, ptr %20, align 8, !tbaa !18
-  store i64 4, ptr %33, align 8, !tbaa !3
-  %.not31.i.i = icmp eq ptr %30, null
-  br i1 %.not31.i.i, label %_ZN3tbb6detail2r112input_bufferC2Eb.exit, label %34
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %30, ptr %21, align 8, !tbaa !18
+  store i64 4, ptr %34, align 8, !tbaa !3
+  %.not31.i.i = icmp eq ptr %31, null
+  br i1 %.not31.i.i, label %_ZN3tbb6detail2r112input_bufferC2Eb.exit, label %35
 
-34:                                               ; preds = %._crit_edge38.i.i
-  tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %30)
+35:                                               ; preds = %._crit_edge38.i.i
+  tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %31)
   br label %_ZN3tbb6detail2r112input_bufferC2Eb.exit
 
-_ZN3tbb6detail2r112input_bufferC2Eb.exit:         ; preds = %._crit_edge38.i.i, %34
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %20, ptr %35, align 8, !tbaa !46
+_ZN3tbb6detail2r112input_bufferC2Eb.exit:         ; preds = %._crit_edge38.i.i, %35
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %21, ptr %36, align 8, !tbaa !46
   br label %55
 
-36:                                               ; preds = %12
-  %37 = icmp eq ptr %13, %1
-  %38 = and i32 %17, 4
+37:                                               ; preds = %13
+  %38 = and i32 %18, 4
   %39 = icmp ne i32 %38, 0
-  %or.cond = and i1 %39, %37
+  %or.cond = and i1 %39, %14
   br i1 %or.cond, label %40, label %55
 
-40:                                               ; preds = %36
+40:                                               ; preds = %37
   %41 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 56)
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store i64 0, ptr %42, align 8, !tbaa !47
@@ -1005,7 +1005,7 @@ _ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit: ; preds = %_ZN3tbb6detail
   store i8 1, ptr %45, align 8, !tbaa !67
   br label %55
 
-55:                                               ; preds = %36, %_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit, %_ZN3tbb6detail2r112input_bufferC2Eb.exit
+55:                                               ; preds = %37, %_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit, %_ZN3tbb6detail2r112input_bufferC2Eb.exit
   ret void
 }
 

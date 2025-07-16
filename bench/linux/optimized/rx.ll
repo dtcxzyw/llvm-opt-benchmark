@@ -8427,7 +8427,7 @@ define internal fastcc void @ieee80211_rx_check_bss_color_collision(ptr noundef 
   %40 = getelementptr i8, ptr %33, i64 3
   %41 = icmp eq ptr %40, null
   %.pre = load i32, ptr %40, align 1
-  br i1 %41, label %.thread, label %42
+  br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %39
   %43 = and i32 %.pre, 16384
@@ -8442,14 +8442,14 @@ define internal fastcc void @ieee80211_rx_check_bss_color_collision(ptr noundef 
   %52 = add nuw nsw i8 %49, 5
   %53 = select i1 %51, i8 %49, i8 %52
   %.not = icmp ugt i8 %37, %53
-  br i1 %.not, label %.thread, label %67
+  br i1 %.not, label %.critedge, label %67
 
-.thread:                                          ; preds = %39, %42
+.critedge:                                        ; preds = %39, %42
   %54 = load ptr, ptr %21, align 8
   %55 = icmp sgt i32 %.pre, -1
   br i1 %55, label %56, label %67
 
-56:                                               ; preds = %.thread
+56:                                               ; preds = %.critedge
   %57 = lshr i32 %.pre, 24
   %58 = and i32 %57, 63
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 4449
@@ -8465,7 +8465,7 @@ define internal fastcc void @ieee80211_rx_check_bss_color_collision(ptr noundef 
   call void @ieee80211_obss_color_collision_notify(ptr noundef nonnull %64, i64 noundef %66, i32 noundef 2080) #18
   br label %67
 
-67:                                               ; preds = %63, %56, %.thread, %42, %35, %30, %26, %20, %15, %1
+67:                                               ; preds = %63, %56, %.critedge, %42, %35, %30, %26, %20, %15, %1
   ret void
 }
 

@@ -35079,7 +35079,7 @@ _ZN3std7process7Command3arg17hfb07b352f4867c91E.exit22: ; preds = %98
 
 383:                                              ; preds = %.noexc87
   %384 = load ptr, ptr %380, align 8, !noalias !5845, !nonnull !4, !noundef !4
-  %385 = icmp uge i64 %379, %376
+  %385 = icmp ule i64 %376, %379
   call void @llvm.assume(i1 %385)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !5845
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %384, ptr nonnull readonly align 1 %375, i64 %376, i1 false), !noalias !5851
@@ -35393,7 +35393,7 @@ _ZN3std7process7Command3arg17hfb07b352f4867c91E.exit111: ; preds = %_ZN3std7proc
 
 484:                                              ; preds = %.noexc117
   %485 = load ptr, ptr %481, align 8, !noalias !5963, !nonnull !4, !noundef !4
-  %486 = icmp uge i64 %480, %477
+  %486 = icmp ule i64 %477, %480
   call void @llvm.assume(i1 %486)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !5963
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %485, ptr nonnull readonly align 1 %476, i64 %477, i1 false), !noalias !5969

@@ -1069,26 +1069,22 @@ Ssw_SmlSavePatternAig.exit:                       ; preds = %246, %219
   %260 = getelementptr i8, ptr %259, i64 256
   %.val83 = load ptr, ptr %260, align 8, !tbaa !79
   %.not.i112 = icmp eq ptr %.val83, null
-  br i1 %.not.i112, label %Aig_ObjRepr.exit113, label %261
+  br i1 %.not.i112, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit113
 
-261:                                              ; preds = %258
-  %262 = load i32, ptr %11, align 4, !tbaa !20
-  %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds ptr, ptr %.val83, i64 %263
-  %265 = load ptr, ptr %264, align 8, !tbaa !23
-  br label %Aig_ObjRepr.exit113
+Aig_ObjRepr.exit113:                              ; preds = %258
+  %261 = load i32, ptr %11, align 4, !tbaa !20
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr inbounds ptr, ptr %.val83, i64 %262
+  %264 = load ptr, ptr %263, align 8, !tbaa !23
+  %265 = icmp eq ptr %264, %15
+  br i1 %265, label %266, label %Aig_ObjRepr.exit.thread
 
-Aig_ObjRepr.exit113:                              ; preds = %258, %261
-  %266 = phi ptr [ %265, %261 ], [ null, %258 ]
-  %267 = icmp eq ptr %266, %15
-  br i1 %267, label %268, label %Aig_ObjRepr.exit.thread
-
-268:                                              ; preds = %Aig_ObjRepr.exit113
+266:                                              ; preds = %Aig_ObjRepr.exit113
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1)
   br label %Aig_ObjRepr.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %5, %Aig_ObjRepr.exit113, %268, %76, %Vec_IntPush.exit96, %17, %Aig_ObjRepr.exit, %215, %207
-  %.0 = phi i32 [ 1, %207 ], [ 1, %215 ], [ 0, %Aig_ObjRepr.exit ], [ 0, %17 ], [ 0, %Vec_IntPush.exit96 ], [ 0, %76 ], [ 1, %268 ], [ 1, %Aig_ObjRepr.exit113 ], [ 0, %5 ]
+Aig_ObjRepr.exit.thread:                          ; preds = %258, %5, %Aig_ObjRepr.exit113, %266, %76, %Vec_IntPush.exit96, %17, %Aig_ObjRepr.exit, %215, %207
+  %.0 = phi i32 [ 1, %207 ], [ 1, %215 ], [ 0, %Aig_ObjRepr.exit ], [ 0, %17 ], [ 0, %Vec_IntPush.exit96 ], [ 0, %76 ], [ 1, %266 ], [ 1, %Aig_ObjRepr.exit113 ], [ 0, %5 ], [ 1, %258 ]
   ret i32 %.0
 }
 

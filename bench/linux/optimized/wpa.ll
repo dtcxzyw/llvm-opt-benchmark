@@ -50,9 +50,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   %30 = and i32 %29, 67108864
   %31 = icmp eq i32 %30, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 72
-  br i1 %31, label %32, label %.thread3, !prof !5
+  br i1 %31, label %32, label %.thread, !prof !5
 
-.thread3:                                         ; preds = %24
+.thread:                                          ; preds = %24
   store ptr null, ptr %.phi.trans.insert, align 8
   br label %50
 
@@ -83,12 +83,12 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %103, label %50
 
-50:                                               ; preds = %.thread3, %44, %37, %32
-  %51 = phi i32 [ 8, %44 ], [ 8, %37 ], [ 12, %32 ], [ 12, %.thread3 ]
+50:                                               ; preds = %.thread, %44, %37, %32
+  %51 = phi i32 [ 8, %44 ], [ 8, %37 ], [ 12, %32 ], [ 12, %.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %.thread
+  br i1 %54, label %55, label %.critedge
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 188
@@ -97,7 +97,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   %59 = load i32, ptr %58, align 8
   %60 = sub i32 %57, %59
   %61 = icmp slt i32 %60, %51
-  br i1 %61, label %.thread, label %62
+  br i1 %61, label %.critedge, label %62
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 192
@@ -107,9 +107,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   %67 = sub i64 %65, %66
   %68 = and i64 %67, 4294967288
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %.thread, label %87, !prof !6
+  br i1 %69, label %.critedge, label %87, !prof !6
 
-.thread:                                          ; preds = %50, %62, %55
+.critedge:                                        ; preds = %50, %62, %55
   tail call void asm sideeffect "797: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 797b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 797) #10, !srcloc !7
   %70 = load ptr, ptr %4, align 8
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 192
@@ -122,7 +122,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %85
 
-79:                                               ; preds = %.thread
+79:                                               ; preds = %.critedge
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %81 = load i32, ptr %80, align 4
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 184
@@ -130,8 +130,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   %84 = sub i32 %81, %83
   br label %85
 
-85:                                               ; preds = %79, %.thread
-  %86 = phi i32 [ %84, %79 ], [ 0, %.thread ]
+85:                                               ; preds = %79, %.critedge
+  %86 = phi i32 [ %84, %79 ], [ 0, %.critedge ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %76, i32 noundef 8, i32 noundef %86, i32 noundef %51) #10
   tail call void asm sideeffect "798: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 798b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 798) #10, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 74, i32 2313, i64 12) #10, !srcloc !9

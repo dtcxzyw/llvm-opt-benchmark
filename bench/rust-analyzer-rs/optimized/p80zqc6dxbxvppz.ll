@@ -76449,8 +76449,8 @@ define internal fastcc noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$
   br label %17
 
 17:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit", %5
-  %.017 = phi i64 [ 0, %5 ], [ %41, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
-  %.016 = phi i64 [ 0, %5 ], [ %42, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
+  %.017 = phi i64 [ 0, %5 ], [ %40, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
+  %.016 = phi i64 [ 0, %5 ], [ %41, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
   %18 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %0, i64 %.016
   %.val = load i64, ptr %18, align 8, !range !1732, !alias.scope !14934, !noalias !14937, !noundef !26
   %19 = icmp eq i64 %.val, 2
@@ -76476,28 +76476,24 @@ define internal fastcc noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$
   %32 = tail call { i32, i32 } %31(ptr noundef nonnull align 1 %29, i32 noundef %23, i8 noundef 0), !noalias !14955
   %33 = extractvalue { i32, i32 } %32, 0
   %34 = icmp eq i32 %33, 9
-  br i1 %34, label %38, label %35
+  br i1 %34, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit", label %35
 
 35:                                               ; preds = %27
   %36 = extractvalue { i32, i32 } %32, 1
   %37 = tail call noundef i32 @_ZN7hir_def9lang_item14LangItemTarget8as_trait17hcf0eb5e49f1b417aE(i32 noundef %33, i32 noundef %36), !noalias !14955
-  br label %38
-
-38:                                               ; preds = %35, %27
-  %.0.i.i.i.i = phi i32 [ %37, %35 ], [ 0, %27 ]
-  %39 = icmp eq i32 %24, %.0.i.i.i.i
-  %40 = zext i1 %39 to i64
+  %38 = icmp eq i32 %24, %37
+  %39 = zext i1 %38 to i64
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit": ; preds = %17, %20, %38
-  %.0.i.i.i = phi i64 [ 0, %17 ], [ 0, %20 ], [ %40, %38 ]
-  %41 = add i64 %.0.i.i.i, %.017
-  %42 = add nuw i64 %.016, 1
-  %43 = icmp eq i64 %42, %9
-  br i1 %43, label %.loopexit, label %17
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit": ; preds = %17, %20, %27, %35
+  %.0.i.i.i = phi i64 [ 0, %17 ], [ 0, %20 ], [ %39, %35 ], [ 0, %27 ]
+  %40 = add i64 %.0.i.i.i, %.017
+  %41 = add nuw i64 %.016, 1
+  %42 = icmp eq i64 %41, %9
+  br i1 %42, label %.loopexit, label %17
 
 .loopexit:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit", %3
-  %.0 = phi i64 [ 0, %3 ], [ %41, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
+  %.0 = phi i64 [ 0, %3 ], [ %40, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
   ret i64 %.0
 }
 

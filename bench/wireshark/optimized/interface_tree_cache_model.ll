@@ -378,18 +378,18 @@ define void @_ZNK23InterfaceTreeCacheModel4dataERK11QModelIndexi(ptr dead_on_unw
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, -1
-  %or.cond77 = select i1 %9, i1 %12, i1 false
+  %or.cond74 = select i1 %9, i1 %12, i1 false
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
-  %or.cond80 = select i1 %or.cond77, i1 %15, i1 false
-  br i1 %or.cond80, label %17, label %_ZNK11QModelIndex7isValidEv.exit.thread
+  %or.cond77 = select i1 %or.cond74, i1 %15, i1 false
+  br i1 %or.cond77, label %17, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(32) %0, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %16, align 8
-  br label %162
+  br label %161
 
 17:                                               ; preds = %4
   %18 = and i32 %3, -3
@@ -459,8 +459,8 @@ _ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24
   %51 = ptrtoint ptr %47 to i64
   %52 = ptrtoint ptr %43 to i64
   %53 = sub i64 %51, %52
-  %.not81 = icmp eq i64 %53, -4
-  br i1 %.not81, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread, label %54
+  %.not78 = icmp eq i64 %53, -4
+  br i1 %.not78, label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread, label %54
 
 54:                                               ; preds = %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
@@ -562,8 +562,8 @@ _ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exitthread-pre-s
 _ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit31: ; preds = %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit, %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exitthread-pre-split, %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread
   %90 = phi ptr [ %78, %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exitthread-pre-split ], [ %78, %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit ], [ %74, %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread ]
   %91 = phi ptr [ %.pr, %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exitthread-pre-split ], [ %71, %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit ], [ %.sroa.0.1.ph, %_ZNK4QMapIi14QSharedPointerIS_I20InterfaceTreeColumns8QVariantEEE5valueERKiRKS4_.exit.thread ]
-  %.not82 = icmp eq ptr %91, null
-  br i1 %.not82, label %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread, label %92
+  %.not79 = icmp eq ptr %91, null
+  br i1 %.not79, label %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread, label %92
 
 92:                                               ; preds = %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit31
   %93 = load ptr, ptr %91, align 8
@@ -597,172 +597,172 @@ _ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ES
 _ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i
   %102 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i37, i64 32
   %103 = load i32, ptr %102, align 4
-  %104 = icmp slt i32 %11, %103
-  br i1 %104, label %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread, label %105
+  %.not80 = icmp slt i32 %11, %103
+  br i1 %.not80, label %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread, label %104
 
-105:                                              ; preds = %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit
+104:                                              ; preds = %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %106, align 8
-  %107 = load ptr, ptr %91, align 8, !noalias !13
-  %.not.i42 = icmp eq ptr %107, null
-  br i1 %.not.i42, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i, label %108
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 2, ptr %105, align 8
+  %106 = load ptr, ptr %91, align 8, !noalias !13
+  %.not.i42 = icmp eq ptr %106, null
+  br i1 %.not.i42, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i, label %107
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %110 = load ptr, ptr %109, align 8, !noalias !13
-  %111 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %.not10.i.i.i.i43 = icmp eq ptr %110, null
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %109 = load ptr, ptr %108, align 8, !noalias !13
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %.not10.i.i.i.i43 = icmp eq ptr %109, null
   br i1 %.not10.i.i.i.i43, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i, label %.lr.ph.i.i.i.i44
 
-.lr.ph.i.i.i.i44:                                 ; preds = %108, %.lr.ph.i.i.i.i44
-  %.012.i.i.i.i45 = phi ptr [ %.1.i.i.i.i50, %.lr.ph.i.i.i.i44 ], [ %110, %108 ]
-  %.0811.i.i.i.i46 = phi ptr [ %.19.i.i.i.i47, %.lr.ph.i.i.i.i44 ], [ %111, %108 ]
-  %112 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i45, i64 32
-  %113 = load i32, ptr %112, align 4, !noalias !13
-  %114 = icmp slt i32 %113, %11
-  %.19.i.i.i.i47 = select i1 %114, ptr %.0811.i.i.i.i46, ptr %.012.i.i.i.i45
-  %.1.in.v.i.i.i.i48 = select i1 %114, i64 24, i64 16
+.lr.ph.i.i.i.i44:                                 ; preds = %107, %.lr.ph.i.i.i.i44
+  %.012.i.i.i.i45 = phi ptr [ %.1.i.i.i.i50, %.lr.ph.i.i.i.i44 ], [ %109, %107 ]
+  %.0811.i.i.i.i46 = phi ptr [ %.19.i.i.i.i47, %.lr.ph.i.i.i.i44 ], [ %110, %107 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i45, i64 32
+  %112 = load i32, ptr %111, align 4, !noalias !13
+  %113 = icmp slt i32 %112, %11
+  %.19.i.i.i.i47 = select i1 %113, ptr %.0811.i.i.i.i46, ptr %.012.i.i.i.i45
+  %.1.in.v.i.i.i.i48 = select i1 %113, i64 24, i64 16
   %.1.in.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i45, i64 %.1.in.v.i.i.i.i48
   %.1.i.i.i.i50 = load ptr, ptr %.1.in.i.i.i.i49, align 8, !noalias !13
   %.not.i.i.i.i51 = icmp eq ptr %.1.i.i.i.i50, null
   br i1 %.not.i.i.i.i51, label %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52, label %.lr.ph.i.i.i.i44, !llvm.loop !12
 
 _ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52: ; preds = %.lr.ph.i.i.i.i44
-  %115 = icmp eq ptr %.19.i.i.i.i47, %111
-  br i1 %115, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i53
+  %114 = icmp eq ptr %.19.i.i.i.i47, %110
+  br i1 %114, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i, label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i
 
-_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i53: ; preds = %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52
-  %116 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i47, i64 32
-  %117 = load i32, ptr %116, align 4, !noalias !13
-  %118 = icmp slt i32 %11, %117
-  %119 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i47, i64 40
-  %spec.select.i = select i1 %118, ptr %6, ptr %119
+_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i: ; preds = %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52
+  %115 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i47, i64 32
+  %116 = load i32, ptr %115, align 4, !noalias !13
+  %117 = icmp slt i32 %11, %116
+  %118 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i47, i64 40
+  %spec.select.i = select i1 %117, ptr %6, ptr %118
   br label %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i
 
-_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i: ; preds = %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i53, %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52, %108, %105
-  %.sink.i = phi ptr [ %6, %105 ], [ %6, %108 ], [ %6, %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52 ], [ %spec.select.i, %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i53 ]
+_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i: ; preds = %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i, %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52, %107, %104
+  %.sink.i = phi ptr [ %6, %104 ], [ %6, %107 ], [ %6, %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i52 ], [ %spec.select.i, %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.i ]
   invoke void @_ZN8QVariantC1ERKS_(ptr noundef align 8 dereferenceable_or_null(32) %0, ptr noundef align 8 dereferenceable(32) %.sink.i)
-          to label %.critedge unwind label %132
+          to label %.critedge unwind label %131
 
 .critedge:                                        ; preds = %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
-  %120 = load ptr, ptr %90, align 8
-  %.not.i.i.i54 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i54, label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit58, label %121
+  %119 = load ptr, ptr %90, align 8
+  %.not.i.i.i53 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i53, label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit57, label %120
 
-121:                                              ; preds = %.critedge
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  %123 = atomicrmw sub ptr %122, i32 1 seq_cst, align 4
-  %.not5.i.i.i55 = icmp eq i32 %123, 1
-  br i1 %.not5.i.i.i55, label %124, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i56
+120:                                              ; preds = %.critedge
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 4
+  %122 = atomicrmw sub ptr %121, i32 1 seq_cst, align 4
+  %.not5.i.i.i54 = icmp eq i32 %122, 1
+  br i1 %.not5.i.i.i54, label %123, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i55
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %126 = load ptr, ptr %125, align 8
-  invoke void %126(ptr noundef nonnull align 8 dereferenceable_or_null(16) %120)
-          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i56 unwind label %129
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %125 = load ptr, ptr %124, align 8
+  invoke void %125(ptr noundef nonnull align 8 dereferenceable_or_null(16) %119)
+          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i55 unwind label %128
 
-_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i56: ; preds = %124, %121
-  %127 = atomicrmw sub ptr %120, i32 1 seq_cst, align 4
-  %.not6.i.i.i57 = icmp eq i32 %127, 1
-  br i1 %.not6.i.i.i57, label %128, label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit58
+_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i55: ; preds = %123, %120
+  %126 = atomicrmw sub ptr %119, i32 1 seq_cst, align 4
+  %.not6.i.i.i56 = icmp eq i32 %126, 1
+  br i1 %.not6.i.i.i56, label %127, label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit57
 
-128:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i56
-  call void @_ZdlPv(ptr noundef nonnull %120) #22
-  br label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit58
+127:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i55
+  call void @_ZdlPv(ptr noundef nonnull %119) #22
+  br label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit57
 
-129:                                              ; preds = %124
-  %130 = landingpad { ptr, i32 }
+128:                                              ; preds = %123
+  %129 = landingpad { ptr, i32 }
           catch ptr null
-  %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #23
+  %130 = extractvalue { ptr, i32 } %129, 0
+  call void @__clang_call_terminate(ptr %130) #23
   unreachable
 
-_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit58: ; preds = %.critedge, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i56, %128
+_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit57: ; preds = %.critedge, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i55, %127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
-  br label %162
+  br label %161
 
-132:                                              ; preds = %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i
-  %133 = landingpad { ptr, i32 }
+131:                                              ; preds = %_ZNKSt3mapI20InterfaceTreeColumns8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread.i
+  %132 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
   call void @_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %5) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
-  resume { ptr, i32 } %133
+  resume { ptr, i32 } %132
 
 _ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread: ; preds = %94, %_ZNKSt8_Rb_treeI20InterfaceTreeColumnsSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %92, %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit31, %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit
-  %134 = load ptr, ptr %90, align 8
-  %.not.i.i.i59 = icmp eq ptr %134, null
-  br i1 %.not.i.i.i59, label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit63, label %135
+  %133 = load ptr, ptr %90, align 8
+  %.not.i.i.i58 = icmp eq ptr %133, null
+  br i1 %.not.i.i.i58, label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit62, label %134
 
-135:                                              ; preds = %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  %137 = atomicrmw sub ptr %136, i32 1 seq_cst, align 4
-  %.not5.i.i.i60 = icmp eq i32 %137, 1
-  br i1 %.not5.i.i.i60, label %138, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i61
+134:                                              ; preds = %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %136 = atomicrmw sub ptr %135, i32 1 seq_cst, align 4
+  %.not5.i.i.i59 = icmp eq i32 %136, 1
+  br i1 %.not5.i.i.i59, label %137, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i60
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %140 = load ptr, ptr %139, align 8
-  invoke void %140(ptr noundef nonnull align 8 dereferenceable_or_null(16) %134)
-          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i61 unwind label %143
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %139 = load ptr, ptr %138, align 8
+  invoke void %139(ptr noundef nonnull align 8 dereferenceable_or_null(16) %133)
+          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i60 unwind label %142
 
-_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i61: ; preds = %138, %135
-  %141 = atomicrmw sub ptr %134, i32 1 seq_cst, align 4
-  %.not6.i.i.i62 = icmp eq i32 %141, 1
-  br i1 %.not6.i.i.i62, label %142, label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit63
+_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i60: ; preds = %137, %134
+  %140 = atomicrmw sub ptr %133, i32 1 seq_cst, align 4
+  %.not6.i.i.i61 = icmp eq i32 %140, 1
+  br i1 %.not6.i.i.i61, label %141, label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit62
 
-142:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i61
-  tail call void @_ZdlPv(ptr noundef nonnull %134) #22
-  br label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit63
+141:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i60
+  tail call void @_ZdlPv(ptr noundef nonnull %133) #22
+  br label %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit62
 
-143:                                              ; preds = %138
-  %144 = landingpad { ptr, i32 }
+142:                                              ; preds = %137
+  %143 = landingpad { ptr, i32 }
           catch ptr null
-  %145 = extractvalue { ptr, i32 } %144, 0
-  tail call void @__clang_call_terminate(ptr %145) #23
+  %144 = extractvalue { ptr, i32 } %143, 0
+  tail call void @__clang_call_terminate(ptr %144) #23
   unreachable
 
-_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit63: ; preds = %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i61, %142
+_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit62: ; preds = %_ZNK4QMapI20InterfaceTreeColumns8QVariantE8containsERKS0_.exit.thread, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i60, %141
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
   br label %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread
 
-_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread: ; preds = %46, %19, %37, %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit63, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %147 = load ptr, ptr %146, align 8
+_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread: ; preds = %46, %19, %37, %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit62, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit.thread, %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %146 = load ptr, ptr %145, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
   store i32 -1, ptr %7, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 -1, ptr %148, align 4
-  %149 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
-  %150 = load ptr, ptr %147, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 120
-  %152 = load ptr, ptr %151, align 8
-  %153 = call noundef i32 %152(ptr noundef align 8 dereferenceable_or_null(32) %147, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %154 = icmp slt i32 %8, %153
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 -1, ptr %147, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, i8 0, i64 16, i1 false)
+  %149 = load ptr, ptr %146, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 120
+  %151 = load ptr, ptr %150, align 8
+  %152 = call noundef i32 %151(ptr noundef align 8 dereferenceable_or_null(32) %146, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %153 = icmp slt i32 %8, %152
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
-  br i1 %154, label %155, label %160
+  br i1 %153, label %154, label %159
 
-155:                                              ; preds = %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread
-  %156 = load ptr, ptr %146, align 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 144
-  %159 = load ptr, ptr %158, align 8
-  call void %159(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(32) %156, ptr noundef align 8 dereferenceable(24) %2, i32 noundef %3)
-  br label %162
+154:                                              ; preds = %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread
+  %155 = load ptr, ptr %145, align 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 144
+  %158 = load ptr, ptr %157, align 8
+  call void %158(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(32) %155, ptr noundef align 8 dereferenceable(24) %2, i32 noundef %3)
+  br label %161
 
-160:                                              ; preds = %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread
+159:                                              ; preds = %_ZNK23QListSpecialMethodsBaseI20InterfaceTreeColumnsE8containsIS0_EEbRKT_.exit24.thread
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(32) %0, i8 0, i64 24, i1 false)
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 2, ptr %161, align 8
-  br label %162
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 2, ptr %160, align 8
+  br label %161
 
-162:                                              ; preds = %155, %160, %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit58, %_ZNK11QModelIndex7isValidEv.exit.thread
+161:                                              ; preds = %154, %159, %_ZN14QSharedPointerI4QMapI20InterfaceTreeColumns8QVariantEED2Ev.exit57, %_ZNK11QModelIndex7isValidEv.exit.thread
   ret void
 }
 

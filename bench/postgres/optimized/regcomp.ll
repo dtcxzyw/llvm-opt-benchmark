@@ -1655,7 +1655,7 @@ pg_wc_isalpha.exit.i:                             ; preds = %105, %94, %87, %84,
   store ptr %114, ptr %8, align 8
   %115 = load ptr, ptr %6, align 8
   %.not7595.i = icmp ult ptr %114, %115
-  br i1 %.not7595.i, label %.lr.ph.i, label %.critedge.i
+  br i1 %.not7595.i, label %.lr.ph.i, label %.critedge.thread.i
 
 .lr.ph.i:                                         ; preds = %108, %193
   %.pre99103.i = phi ptr [ %195, %193 ], [ %115, %108 ]
@@ -1826,78 +1826,78 @@ pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i: ; preds = %pg_wc_isalpha.ex
   %.not75.i = icmp ult ptr %194, %195
   br i1 %.not75.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !16
 
-.critedge.i:                                      ; preds = %193, %134, %118, %pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i, %108
-  %196 = phi ptr [ %115, %108 ], [ %.pre99.pre.i, %pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i ], [ %195, %193 ], [ %.pre99103.i, %118 ], [ %.pre99103.i, %134 ]
-  %197 = phi ptr [ %114, %108 ], [ %.pre.pre.i, %pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i ], [ %194, %193 ], [ %storemerge96.i, %118 ], [ %storemerge96.i, %134 ]
-  %.not78.i = icmp ult ptr %197, %196
-  br i1 %.not78.i, label %198, label %201
+.critedge.i:                                      ; preds = %193, %134, %118, %pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i
+  %.pre99.i = phi ptr [ %.pre99.pre.i, %pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i ], [ %195, %193 ], [ %.pre99103.i, %118 ], [ %.pre99103.i, %134 ]
+  %.pre.i = phi ptr [ %.pre.pre.i, %pg_wc_isalpha.exit90..critedge.loopexit_crit_edge.i ], [ %194, %193 ], [ %storemerge96.i, %118 ], [ %storemerge96.i, %134 ]
+  %196 = icmp ult ptr %.pre.i, %.pre99.i
+  br i1 %196, label %197, label %.critedge.thread.i
 
-198:                                              ; preds = %.critedge.i
-  %199 = load i32, ptr %197, align 4
-  %200 = icmp eq i32 %199, 41
-  br i1 %200, label %205, label %201
+197:                                              ; preds = %.critedge.i
+  %198 = load i32, ptr %.pre.i, align 4
+  %199 = icmp eq i32 %198, 41
+  br i1 %199, label %203, label %.critedge.thread.i
 
-201:                                              ; preds = %198, %.critedge.i
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 101, ptr %202, align 4
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %204 = load i32, ptr %203, align 8
-  %.not80.i = icmp eq i32 %204, 0
-  %spec.select85.i = select i1 %.not80.i, i32 18, i32 %204
-  store i32 %spec.select85.i, ptr %203, align 8
+.critedge.thread.i:                               ; preds = %197, %.critedge.i, %108
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 101, ptr %200, align 4
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %202 = load i32, ptr %201, align 8
+  %.not80.i = icmp eq i32 %202, 0
+  %spec.select85.i = select i1 %.not80.i, i32 18, i32 %202
+  store i32 %spec.select85.i, ptr %201, align 8
   br label %prefixes.exit
 
-205:                                              ; preds = %198
-  %206 = getelementptr inbounds nuw i8, ptr %197, i64 4
-  store ptr %206, ptr %8, align 8
-  %207 = load i32, ptr %2, align 4
-  %208 = and i32 %207, 4
-  %.not79.i = icmp eq i32 %208, 0
-  br i1 %.not79.i, label %prefixes.exit, label %209
+203:                                              ; preds = %197
+  %204 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
+  store ptr %204, ptr %8, align 8
+  %205 = load i32, ptr %2, align 4
+  %206 = and i32 %205, 4
+  %.not79.i = icmp eq i32 %206, 0
+  br i1 %.not79.i, label %prefixes.exit, label %207
 
-209:                                              ; preds = %205
-  %210 = and i32 %207, -225
-  store i32 %210, ptr %2, align 4
+207:                                              ; preds = %203
+  %208 = and i32 %205, -225
+  store i32 %208, ptr %2, align 4
   br label %prefixes.exit
 
-prefixes.exit:                                    ; preds = %1, %28, %32, %51, %55, %59, %65, %68, %76, %92, %pg_wc_isalpha.exit.i, %189, %201, %205, %209
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %212 = load i32, ptr %211, align 8
-  %.not = icmp eq i32 %212, 0
-  br i1 %.not, label %213, label %226
+prefixes.exit:                                    ; preds = %1, %28, %32, %51, %55, %59, %65, %68, %76, %92, %pg_wc_isalpha.exit.i, %189, %.critedge.thread.i, %203, %207
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %210 = load i32, ptr %209, align 8
+  %.not = icmp eq i32 %210, 0
+  br i1 %.not, label %211, label %224
 
-213:                                              ; preds = %prefixes.exit
-  %214 = load i32, ptr %2, align 4
-  %215 = and i32 %214, 4
-  %.not9 = icmp eq i32 %215, 0
-  br i1 %.not9, label %218, label %216
+211:                                              ; preds = %prefixes.exit
+  %212 = load i32, ptr %2, align 4
+  %213 = and i32 %212, 4
+  %.not9 = icmp eq i32 %213, 0
+  br i1 %.not9, label %216, label %214
 
-216:                                              ; preds = %213
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 3, ptr %217, align 4
-  br label %223
+214:                                              ; preds = %211
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 3, ptr %215, align 4
+  br label %221
 
-218:                                              ; preds = %213
-  %219 = and i32 %214, 1
-  %.not10 = icmp eq i32 %219, 0
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  br i1 %.not10, label %222, label %221
+216:                                              ; preds = %211
+  %217 = and i32 %212, 1
+  %.not10 = icmp eq i32 %217, 0
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  br i1 %.not10, label %220, label %219
 
-221:                                              ; preds = %218
-  store i32 1, ptr %220, align 4
-  br label %223
+219:                                              ; preds = %216
+  store i32 1, ptr %218, align 4
+  br label %221
 
-222:                                              ; preds = %218
-  store i32 2, ptr %220, align 4
-  br label %223
+220:                                              ; preds = %216
+  store i32 2, ptr %218, align 4
+  br label %221
 
-223:                                              ; preds = %221, %222, %216
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 110, ptr %224, align 4
-  %225 = tail call fastcc i32 @next(ptr noundef %0)
-  br label %226
+221:                                              ; preds = %219, %220, %214
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 110, ptr %222, align 4
+  %223 = tail call fastcc i32 @next(ptr noundef %0)
+  br label %224
 
-226:                                              ; preds = %prefixes.exit, %223
+224:                                              ; preds = %prefixes.exit, %221
   ret void
 }
 

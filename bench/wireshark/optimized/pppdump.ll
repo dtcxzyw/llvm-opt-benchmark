@@ -373,39 +373,33 @@ define internal void @pppdump_close(ptr noundef readonly captures(none) %0) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16512
   %9 = load ptr, ptr %8, align 8
   %.not12 = icmp eq ptr %9, null
-  br i1 %.not12, label %24, label %.preheader
+  br i1 %.not12, label %20, label %.preheader
 
-.preheader:                                       ; preds = %7, %18
-  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %7 ]
-  %10 = phi ptr [ %.pr, %18 ], [ %9, %7 ]
-  %.not13 = icmp eq ptr %10, null
-  br i1 %.not13, label %15, label %11
+.preheader:                                       ; preds = %7, %15
+  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %7 ]
+  %10 = phi ptr [ %.pr, %15 ], [ %9, %7 ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 8
+  %13 = zext i32 %12 to i64
+  %14 = icmp samesign ult i64 %indvars.iv, %13
+  br i1 %14, label %15, label %.critedge
 
-11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = zext i32 %13 to i64
-  br label %15
-
-15:                                               ; preds = %.preheader, %11
-  %16 = phi i64 [ %14, %11 ], [ 0, %.preheader ]
-  %17 = icmp samesign ult i64 %indvars.iv, %16
-  br i1 %17, label %18, label %22
-
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr ptr, ptr %19, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8
-  tail call void @g_free(ptr noundef %21)
+15:                                               ; preds = %.preheader
+  %16 = load ptr, ptr %10, align 8
+  %17 = getelementptr ptr, ptr %16, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8
+  tail call void @g_free(ptr noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.pr = load ptr, ptr %8, align 8
-  br label %.preheader, !llvm.loop !8
+  %.not13 = icmp eq ptr %.pr, null
+  br i1 %.not13, label %.critedge, label %.preheader, !llvm.loop !8
 
-22:                                               ; preds = %15
-  %23 = tail call ptr @g_ptr_array_free(ptr noundef %10, i32 noundef 1)
-  br label %24
+.critedge:                                        ; preds = %15, %.preheader
+  %.lcssa = phi ptr [ null, %15 ], [ %10, %.preheader ]
+  %19 = tail call ptr @g_ptr_array_free(ptr noundef %.lcssa, i32 noundef 1)
+  br label %20
 
-24:                                               ; preds = %22, %7
+20:                                               ; preds = %.critedge, %7
   ret void
 }
 

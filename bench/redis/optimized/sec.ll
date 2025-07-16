@@ -283,10 +283,10 @@ malloc_mutex_lock.exit:                           ; preds = %74, %80
   %90 = getelementptr inbounds nuw i8, ptr %.val15.i, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !47
   store ptr %91, ptr %88, align 8, !tbaa !57
-  %.not.i.i55 = icmp eq ptr %91, %.val15.i
-  br i1 %.not.i.i55, label %109, label %92
+  %92 = icmp eq ptr %91, %.val15.i
+  br i1 %92, label %109, label %.thread.i.i
 
-92:                                               ; preds = %89
+.thread.i.i:                                      ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %94 = load ptr, ptr %93, align 8, !tbaa !47
   %95 = getelementptr inbounds nuw i8, ptr %.val15.i, i64 48
@@ -325,7 +325,7 @@ malloc_mutex_lock.exit:                           ; preds = %74, %80
   %.not = icmp eq i64 %115, 0
   br i1 %.not, label %211, label %128
 
-116:                                              ; preds = %109, %92
+116:                                              ; preds = %109, %.thread.i.i
   %117 = getelementptr i8, ptr %.val15.i, i64 16
   %.val.i = load i64, ptr %117, align 8, !tbaa !47
   %118 = and i64 %.val.i, -4096
@@ -360,21 +360,21 @@ malloc_mutex_lock.exit:                           ; preds = %74, %80
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !61
   %137 = call i64 %136(ptr noundef %0, ptr noundef %132, i64 noundef %2, i64 noundef %134, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
-  %.val.i56 = load ptr, ptr %9, align 8, !tbaa !57
-  %.not.i57 = icmp eq ptr %.val.i56, null
-  br i1 %.not.i57, label %edata_list_active_remove.exit.i59, label %138
+  %.val.i55 = load ptr, ptr %9, align 8, !tbaa !57
+  %.not.i56 = icmp eq ptr %.val.i55, null
+  br i1 %.not.i56, label %edata_list_active_remove.exit.i58, label %138
 
 138:                                              ; preds = %128
-  %139 = getelementptr inbounds nuw i8, ptr %.val.i56, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %.val.i55, i64 40
   %140 = load ptr, ptr %139, align 8, !tbaa !47
   store ptr %140, ptr %9, align 8, !tbaa !57
-  %.not.i.i58 = icmp eq ptr %140, %.val.i56
-  br i1 %.not.i.i58, label %158, label %141
+  %141 = icmp eq ptr %140, %.val.i55
+  br i1 %141, label %158, label %.thread.i.i57
 
-141:                                              ; preds = %138
+.thread.i.i57:                                    ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %143 = load ptr, ptr %142, align 8, !tbaa !47
-  %144 = getelementptr inbounds nuw i8, ptr %.val.i56, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %.val.i55, i64 48
   %145 = load ptr, ptr %144, align 8, !tbaa !47
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 40
   store ptr %143, ptr %146, align 8, !tbaa !47
@@ -392,24 +392,24 @@ malloc_mutex_lock.exit:                           ; preds = %74, %80
   store ptr %152, ptr %155, align 8, !tbaa !47
   %156 = load ptr, ptr %144, align 8, !tbaa !47
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 40
-  store ptr %.val.i56, ptr %157, align 8, !tbaa !47
-  br label %edata_list_active_remove.exit.i59
+  store ptr %.val.i55, ptr %157, align 8, !tbaa !47
+  br label %edata_list_active_remove.exit.i58
 
 158:                                              ; preds = %138
   store ptr null, ptr %9, align 8, !tbaa !57
-  br label %edata_list_active_remove.exit.i59
+  br label %edata_list_active_remove.exit.i58
 
-edata_list_active_remove.exit.i59:                ; preds = %158, %141, %128
+edata_list_active_remove.exit.i58:                ; preds = %158, %.thread.i.i57, %128
   %159 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %70) #9
-  %.not.i31.i = icmp eq i32 %159, 0
-  br i1 %.not.i31.i, label %161, label %160
+  %.not.i.i59 = icmp eq i32 %159, 0
+  br i1 %.not.i.i59, label %161, label %160
 
-160:                                              ; preds = %edata_list_active_remove.exit.i59
+160:                                              ; preds = %edata_list_active_remove.exit.i58
   call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i52) #9
   store atomic i8 1, ptr %129 monotonic, align 1
   br label %161
 
-161:                                              ; preds = %160, %edata_list_active_remove.exit.i59
+161:                                              ; preds = %160, %edata_list_active_remove.exit.i58
   %162 = load i64, ptr %75, align 8, !tbaa !48
   %163 = add i64 %162, 1
   store i64 %163, ptr %75, align 8, !tbaa !48
@@ -519,7 +519,7 @@ sec_batch_fill_and_alloc.exit:                    ; preds = %170, %208, %209
   br label %218
 
 218:                                              ; preds = %116, %211, %sec_batch_fill_and_alloc.exit, %20
-  %.047 = phi ptr [ %24, %20 ], [ %.val.i56, %sec_batch_fill_and_alloc.exit ], [ %217, %211 ], [ %.val15.i, %116 ]
+  %.047 = phi ptr [ %24, %20 ], [ %.val.i55, %sec_batch_fill_and_alloc.exit ], [ %217, %211 ], [ %.val15.i, %116 ]
   ret ptr %.047
 }
 

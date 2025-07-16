@@ -3880,7 +3880,7 @@ select.unfold.i:                                  ; preds = %86, %82, %80
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i32, ptr %106, align 8, !tbaa !119
   %.not4569.not.i = icmp eq i32 %107, 0
-  br i1 %.not4569.not.i, label %._crit_edge.i27, label %.lr.ph.i23
+  br i1 %.not4569.not.i, label %demux_flush.exit, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %101
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -3999,17 +3999,15 @@ demux_stream_send_to_dst.exit.i:                  ; preds = %155, %124
   %160 = load i32, ptr %106, align 8, !tbaa !119
   %161 = zext i32 %160 to i64
   %.not45.i = icmp samesign ult i64 %indvars.iv.next.i26, %161
-  br i1 %.not45.i, label %113, label %._crit_edge.i27, !llvm.loop !209
+  br i1 %.not45.i, label %113, label %._crit_edge.loopexit.i27, !llvm.loop !209
 
-._crit_edge.i27:                                  ; preds = %159, %101
-  %162 = phi i32 [ 0, %101 ], [ %160, %159 ]
-  %.031.lcssa.i = phi i32 [ 0, %101 ], [ %.23358.i, %159 ]
-  %163 = icmp eq i32 %.031.lcssa.i, %162
-  %164 = select i1 %163, i32 -541478725, i32 0
+._crit_edge.loopexit.i27:                         ; preds = %159
+  %162 = icmp eq i32 %.23358.i, %160
+  %163 = select i1 %162, i32 -541478725, i32 0
   br label %demux_flush.exit
 
-demux_flush.exit:                                 ; preds = %157, %120, %62, %._crit_edge.i27, %.thread70.i, %87, %waiter_wait.exit
-  %.0 = phi i32 [ -1414092869, %waiter_wait.exit ], [ 0, %.thread70.i ], [ %76, %87 ], [ %164, %._crit_edge.i27 ], [ %70, %62 ], [ %144, %157 ], [ %122, %120 ]
+demux_flush.exit:                                 ; preds = %157, %120, %62, %._crit_edge.loopexit.i27, %101, %.thread70.i, %87, %waiter_wait.exit
+  %.0 = phi i32 [ -1414092869, %waiter_wait.exit ], [ 0, %.thread70.i ], [ %76, %87 ], [ -541478725, %101 ], [ %163, %._crit_edge.loopexit.i27 ], [ %70, %62 ], [ %144, %157 ], [ %122, %120 ]
   ret i32 %.0
 }
 
@@ -4294,7 +4292,7 @@ define range(i32 -2147483648, 1) i32 @sch_dec_send(ptr noundef %0, i32 noundef %
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !124
   %.not5067.not = icmp eq i32 %24, 0
-  br i1 %.not5067.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not5067.not, label %.thread58, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -4435,17 +4433,15 @@ dec_send_to_dst.exit:                             ; preds = %62
   %94 = load i32, ptr %23, align 8, !tbaa !124
   %95 = zext i32 %94 to i64
   %.not50 = icmp samesign ult i64 %indvars.iv.next, %95
-  br i1 %.not50, label %30, label %._crit_edge, !llvm.loop !216
+  br i1 %.not50, label %30, label %._crit_edge.loopexit, !llvm.loop !216
 
-._crit_edge:                                      ; preds = %93, %18
-  %96 = phi i32 [ 0, %18 ], [ %94, %93 ]
-  %.039.lcssa = phi i32 [ 0, %18 ], [ %.241, %93 ]
-  %97 = icmp eq i32 %.039.lcssa, %96
-  %98 = select i1 %97, i32 -541478725, i32 0
+._crit_edge.loopexit:                             ; preds = %93
+  %96 = icmp eq i32 %.241, %94
+  %97 = select i1 %96, i32 -541478725, i32 0
   br label %.thread58
 
-.thread58:                                        ; preds = %44, %92, %._crit_edge
-  %.3 = phi i32 [ %98, %._crit_edge ], [ %63, %92 ], [ %45, %44 ]
+.thread58:                                        ; preds = %44, %18, %._crit_edge.loopexit, %92
+  %.3 = phi i32 [ %63, %92 ], [ -541478725, %18 ], [ %97, %._crit_edge.loopexit ], [ %45, %44 ]
   ret i32 %.3
 }
 
@@ -5498,8 +5494,8 @@ define internal fastcc i32 @task_cleanup(ptr noundef %0, i64 %1) unnamed_addr #0
   %6 = getelementptr inbounds nuw %struct.SchDemux, ptr %5, i64 %.sroa.26.0.extract.shift
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !22
-  %.not22.i = icmp eq i32 %8, 0
-  br i1 %.not22.i, label %demux_done.exit, label %.lr.ph.i
+  %.not23.i = icmp eq i32 %8, 0
+  br i1 %.not23.i, label %demux_done.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8

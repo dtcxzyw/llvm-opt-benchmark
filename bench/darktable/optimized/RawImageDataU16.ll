@@ -534,13 +534,13 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %21 = load i8, ptr %20, align 4, !range !113
   %22 = trunc nuw i8 %21 to i1
   %or.cond38 = select i1 %or.cond.not46, i1 %22, i1 false
-  br i1 %or.cond38, label %105, label %24
+  br i1 %or.cond38, label %106, label %24
 
 23:                                               ; preds = %1
   %.old35 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %.old36 = load i8, ptr %.old35, align 4, !tbaa !79, !range !113, !noundef !99
   %.old37 = trunc nuw i8 %.old36 to i1
-  br i1 %.old37, label %105, label %24
+  br i1 %.old37, label %.thread, label %24
 
 24:                                               ; preds = %13, %23
   %25 = phi i8 [ %21, %13 ], [ 0, %23 ]
@@ -695,60 +695,59 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 4096, ptr noundef nonnull @.str.2, i32 noundef %104, i32 noundef %96, i32 noundef %102)
   %.pre66 = load ptr, ptr %8, align 8, !tbaa !103
   %.pre67 = load ptr, ptr %10, align 8, !tbaa !103
-  br label %105
+  %105 = icmp eq ptr %.pre66, %.pre67
+  br label %106
 
-105:                                              ; preds = %13, %101, %23
-  %106 = phi ptr [ %9, %13 ], [ %.pre67, %101 ], [ %11, %23 ]
-  %107 = phi ptr [ %9, %13 ], [ %.pre66, %101 ], [ %9, %23 ]
-  %108 = icmp eq ptr %107, %106
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %110 = load i32, ptr %109, align 8
-  %111 = icmp eq i32 %110, 0
-  %or.cond14 = select i1 %108, i1 %111, i1 false
-  br i1 %or.cond14, label %112, label %123
+106:                                              ; preds = %13, %101
+  %107 = phi i1 [ true, %13 ], [ %105, %101 ]
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %109 = load i32, ptr %108, align 8
+  %110 = icmp eq i32 %109, 0
+  %or.cond14 = select i1 %107, i1 %110, i1 false
+  br i1 %or.cond14, label %111, label %.thread
 
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %115 = load i8, ptr %114, align 4, !tbaa !79, !range !113, !noundef !99
-  %116 = trunc nuw i8 %115 to i1
-  %117 = load i32, ptr %113, align 8
-  %118 = icmp ne i32 %117, 65535
-  %not. = xor i1 %116, true
-  %119 = select i1 %not., i1 true, i1 %118
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %121 = load i8, ptr %120, align 8, !range !113
-  %122 = trunc nuw i8 %121 to i1
-  %or.cond44 = select i1 %119, i1 true, i1 %122
-  br i1 %or.cond44, label %123, label %.critedge
+111:                                              ; preds = %106
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %114 = load i8, ptr %113, align 4, !tbaa !79, !range !113, !noundef !99
+  %115 = trunc nuw i8 %114 to i1
+  %116 = load i32, ptr %112, align 8
+  %117 = icmp ne i32 %116, 65535
+  %not. = xor i1 %115, true
+  %118 = select i1 %not., i1 true, i1 %117
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %120 = load i8, ptr %119, align 8, !range !113
+  %121 = trunc nuw i8 %120 to i1
+  %or.cond44 = select i1 %118, i1 true, i1 %121
+  br i1 %or.cond44, label %.thread, label %.critedge
 
-123:                                              ; preds = %112, %105
-  %124 = load i32, ptr %2, align 8, !tbaa !84
-  %125 = tail call i32 @llvm.abs.i32(i32 %124, i1 false)
-  %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %128 = load i32, ptr %127, align 4, !tbaa !85
-  %129 = tail call i32 @llvm.abs.i32(i32 %128, i1 false)
-  %130 = zext i32 %129 to i64
-  %131 = mul nuw nsw i64 %130, %126
-  %132 = icmp eq i64 %131, 0
-  br i1 %132, label %.critedge, label %133
+.thread:                                          ; preds = %23, %111, %106
+  %122 = load i32, ptr %2, align 8, !tbaa !84
+  %123 = tail call i32 @llvm.abs.i32(i32 %122, i1 false)
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %126 = load i32, ptr %125, align 4, !tbaa !85
+  %127 = tail call i32 @llvm.abs.i32(i32 %126, i1 false)
+  %128 = zext i32 %127 to i64
+  %129 = mul nuw nsw i64 %128, %124
+  %130 = icmp eq i64 %129, 0
+  br i1 %130, label %.critedge, label %131
 
-133:                                              ; preds = %123
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %135 = load i8, ptr %134, align 8, !tbaa !78, !range !113, !noundef !99
-  %136 = trunc nuw i8 %135 to i1
-  br i1 %136, label %138, label %137
+131:                                              ; preds = %.thread
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %133 = load i8, ptr %132, align 8, !tbaa !78, !range !113, !noundef !99
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %136, label %135
 
-137:                                              ; preds = %133
+135:                                              ; preds = %131
   tail call void @_ZN8rawspeed15RawImageDataU1619calculateBlackAreasEv(ptr noundef nonnull align 8 dereferenceable(616) %0)
-  br label %138
+  br label %136
 
-138:                                              ; preds = %137, %133
+136:                                              ; preds = %135, %131
   tail call void @_ZN8rawspeed12RawImageData11startWorkerENS_14RawImageWorker18RawImageWorkerTaskEb(ptr noundef nonnull align 8 dereferenceable(616) %0, i16 noundef zeroext 1, i1 noundef zeroext true)
   br label %.critedge
 
-.critedge:                                        ; preds = %112, %123, %138
+.critedge:                                        ; preds = %111, %.thread, %136
   ret void
 }
 

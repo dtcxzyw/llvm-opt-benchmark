@@ -1294,10 +1294,10 @@ define noundef double @_ZN3gmx9BiasState29calculateAverageNonZeroMetricEv(ptr no
   ret double %14
 
 15:                                               ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %16 = phi ptr [ %5, %.lr.ph ], [ %67, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %16 = phi ptr [ %5, %.lr.ph ], [ %68, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %.01334 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %.01433 = phi double [ 0.000000e+00, %.lr.ph ], [ %.115, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
-  %.01632 = phi i64 [ 0, %.lr.ph ], [ %65, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %.01632 = phi i64 [ 0, %.lr.ph ], [ %66, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %sext = shl i64 %.01632, 32
   %17 = ashr exact i64 %sext, 32
   %18 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %16, i64 %17
@@ -1376,59 +1376,59 @@ _ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit: ; preds = %36, %..
   %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #31
   %.pre42 = load ptr, ptr %45, align 8, !tbaa !92
   %.pre43 = load ptr, ptr %46, align 8, !tbaa !92
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre43, %.pre42
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit, label %54
+  %54 = icmp eq ptr %.pre43, %.pre42
+  br i1 %54, label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit, label %55
 
-54:                                               ; preds = %52
+55:                                               ; preds = %52
   %.pre44 = ptrtoint ptr %.pre43 to i64
   %.pre45 = ptrtoint ptr %.pre42 to i64
-  %55 = sub i64 %.pre44, %.pre45
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.pre42, i64 %55, i1 false)
+  %56 = sub i64 %.pre44, %.pre45
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.pre42, i64 %56, i1 false)
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
-_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit, %52, %54
-  %56 = phi i64 [ 0, %52 ], [ %55, %54 ], [ 0, %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit ]
-  %57 = phi ptr [ %53, %52 ], [ %53, %54 ], [ null, %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 %56
-  %59 = invoke noundef double @_ZN3gmx18getSqrtDeterminantENS_8ArrayRefIKdEE(ptr %57, ptr %58)
-          to label %60 unwind label %73
+_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit, %52, %55
+  %57 = phi i64 [ 0, %52 ], [ %56, %55 ], [ 0, %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit ]
+  %58 = phi ptr [ %53, %52 ], [ %53, %55 ], [ null, %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit ]
+  %59 = getelementptr inbounds i8, ptr %58, i64 %57
+  %60 = invoke noundef double @_ZN3gmx18getSqrtDeterminantENS_8ArrayRefIKdEE(ptr %58, ptr %59)
+          to label %61 unwind label %74
 
-60:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
-  %61 = fcmp ogt double %59, 0.000000e+00
-  %62 = fadd double %.01433, %59
-  %.115 = select i1 %61, double %62, double %.01433
-  %63 = zext i1 %61 to i32
-  %.1 = add i32 %.01334, %63
-  %.not.i.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %64
+61:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
+  %62 = fcmp ogt double %60, 0.000000e+00
+  %63 = fadd double %.01433, %60
+  %.115 = select i1 %62, double %63, double %.01433
+  %64 = zext i1 %62 to i32
+  %.1 = add i32 %.01334, %64
+  %.not.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %65
 
-64:                                               ; preds = %60
-  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %49) #32
+65:                                               ; preds = %61
+  tail call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %49) #32
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %60, %64
-  %65 = add nuw nsw i64 %.01632, 1
-  %66 = load ptr, ptr %3, align 8, !tbaa !4
-  %67 = load ptr, ptr %2, align 8, !tbaa !10
-  %68 = ptrtoint ptr %66 to i64
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %61, %65
+  %66 = add nuw nsw i64 %.01632, 1
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = load ptr, ptr %2, align 8, !tbaa !10
   %69 = ptrtoint ptr %67 to i64
-  %70 = sub i64 %68, %69
-  %71 = sdiv exact i64 %70, 96
-  %72 = icmp slt i64 %65, %71
-  br i1 %72, label %15, label %._crit_edge, !llvm.loop !93
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = sdiv exact i64 %71, 96
+  %73 = icmp slt i64 %66, %72
+  br i1 %73, label %15, label %._crit_edge, !llvm.loop !93
 
-73:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
+  %75 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i18 = icmp eq ptr %57, null
-  br i1 %.not.i.i.i18, label %_ZNSt6vectorIdSaIdEED2Ev.exit19, label %75
+  %.not.i.i.i18 = icmp eq ptr %58, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIdSaIdEED2Ev.exit19, label %76
 
-75:                                               ; preds = %73
-  tail call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %49) #32
+76:                                               ; preds = %74
+  tail call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %49) #32
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit19
 
-_ZNSt6vectorIdSaIdEED2Ev.exit19:                  ; preds = %73, %75
-  resume { ptr, i32 } %74
+_ZNSt6vectorIdSaIdEED2Ev.exit19:                  ; preds = %74, %76
+  resume { ptr, i32 } %75
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1524,13 +1524,13 @@ define noundef double @_ZN3gmx9BiasState19scaleTargetByMetricEd(ptr noundef nonn
   br label %19
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %5
-  %.024.lcssa = phi double [ 0.000000e+00, %5 ], [ %84, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %.024.lcssa = phi double [ 0.000000e+00, %5 ], [ %85, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   ret double %.024.lcssa
 
 19:                                               ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %20 = phi ptr [ %13, %.lr.ph ], [ %86, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
-  %.02451 = phi double [ 0.000000e+00, %.lr.ph ], [ %84, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
-  %.02750 = phi i64 [ 0, %.lr.ph ], [ %87, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %20 = phi ptr [ %13, %.lr.ph ], [ %87, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %.02451 = phi double [ 0.000000e+00, %.lr.ph ], [ %85, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %.02750 = phi i64 [ 0, %.lr.ph ], [ %88, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %sext = shl i64 %.02750, 32
   %21 = ashr exact i64 %sext, 32
   %22 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %20, i64 %21
@@ -1609,81 +1609,81 @@ _ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit: ; preds = %40, %..
   %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %53) #31
   %.pre59 = load ptr, ptr %49, align 8, !tbaa !92
   %.pre60 = load ptr, ptr %50, align 8, !tbaa !92
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre60, %.pre59
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit, label %58
+  %58 = icmp eq ptr %.pre60, %.pre59
+  br i1 %58, label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit, label %59
 
-58:                                               ; preds = %56
+59:                                               ; preds = %56
   %.pre62 = ptrtoint ptr %.pre60 to i64
   %.pre63 = ptrtoint ptr %.pre59 to i64
-  %59 = sub i64 %.pre62, %.pre63
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr align 8 %.pre59, i64 %59, i1 false)
+  %60 = sub i64 %.pre62, %.pre63
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr align 8 %.pre59, i64 %60, i1 false)
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
-_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit, %56, %58
-  %60 = phi i64 [ 0, %56 ], [ %59, %58 ], [ 0, %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit ]
-  %61 = phi ptr [ %57, %56 ], [ %57, %58 ], [ null, %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 %60
-  %63 = invoke noundef double @_ZN3gmx18getSqrtDeterminantENS_8ArrayRefIKdEE(ptr %61, ptr %62)
-          to label %64 unwind label %67
+_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit, %56, %59
+  %61 = phi i64 [ 0, %56 ], [ %60, %59 ], [ 0, %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit ]
+  %62 = phi ptr [ %57, %56 ], [ %57, %59 ], [ null, %_ZNK3gmx9BiasState33getSharedPointCorrelationIntegralEi.exit ]
+  %63 = getelementptr inbounds i8, ptr %62, i64 %61
+  %64 = invoke noundef double @_ZN3gmx18getSqrtDeterminantENS_8ArrayRefIKdEE(ptr %62, ptr %63)
+          to label %65 unwind label %68
 
-64:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
-  %65 = load ptr, ptr %10, align 8, !tbaa !10
-  %66 = fcmp oeq double %63, 0.000000e+00
-  br i1 %66, label %79, label %69
+65:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
+  %66 = load ptr, ptr %10, align 8, !tbaa !10
+  %67 = fcmp oeq double %64, 0.000000e+00
+  br i1 %67, label %80, label %70
 
-67:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i30 = icmp eq ptr %61, null
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIdSaIdEED2Ev.exit31, label %94
+  %.not.i.i.i30 = icmp eq ptr %62, null
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIdSaIdEED2Ev.exit31, label %95
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %65, i64 %.02750, i32 5
-  %71 = load double, ptr %70, align 8, !tbaa !82
-  %72 = fcmp ogt double %71, 1.000000e+00
-  %73 = fdiv double %.0, %71
-  %74 = select i1 %72, double %73, double %.0
-  %75 = fcmp olt double %9, %74
-  %.sroa.speculated = select i1 %75, double %74, double %9
-  %76 = fcmp olt double %63, %.sroa.speculated
-  %77 = select i1 %76, double %.sroa.speculated, double %63
-  %78 = fcmp olt double %8, %77
-  %.sroa.speculated42 = select i1 %78, double %8, double %77
-  br label %79
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %66, i64 %.02750, i32 5
+  %72 = load double, ptr %71, align 8, !tbaa !82
+  %73 = fcmp ogt double %72, 1.000000e+00
+  %74 = fdiv double %.0, %72
+  %75 = select i1 %73, double %74, double %.0
+  %76 = fcmp olt double %9, %75
+  %.sroa.speculated = select i1 %76, double %75, double %9
+  %77 = fcmp olt double %64, %.sroa.speculated
+  %78 = select i1 %77, double %.sroa.speculated, double %64
+  %79 = fcmp olt double %8, %78
+  %.sroa.speculated42 = select i1 %79, double %8, double %78
+  br label %80
 
-79:                                               ; preds = %64, %69
-  %storemerge = phi double [ %.sroa.speculated42, %69 ], [ %.0, %64 ]
-  %80 = fdiv double %storemerge, %.0
-  %81 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %20, i64 %.02750, i32 2
-  %82 = load double, ptr %81, align 8, !tbaa !11
-  %83 = fmul double %80, %82
-  store double %83, ptr %81, align 8, !tbaa !11
-  %84 = fadd double %.02451, %83
-  %.not.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %85
+80:                                               ; preds = %65, %70
+  %storemerge = phi double [ %.sroa.speculated42, %70 ], [ %.0, %65 ]
+  %81 = fdiv double %storemerge, %.0
+  %82 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %20, i64 %.02750, i32 2
+  %83 = load double, ptr %82, align 8, !tbaa !11
+  %84 = fmul double %81, %83
+  store double %84, ptr %82, align 8, !tbaa !11
+  %85 = fadd double %.02451, %84
+  %.not.i.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %86
 
-85:                                               ; preds = %79
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %53) #32
+86:                                               ; preds = %80
+  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %53) #32
   %.pre61 = load ptr, ptr %10, align 8, !tbaa !10
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %79, %85
-  %86 = phi ptr [ %65, %79 ], [ %.pre61, %85 ]
-  %87 = add nuw nsw i64 %.02750, 1
-  %88 = load ptr, ptr %11, align 8, !tbaa !4
-  %89 = ptrtoint ptr %88 to i64
-  %90 = ptrtoint ptr %86 to i64
-  %91 = sub i64 %89, %90
-  %92 = sdiv exact i64 %91, 96
-  %93 = icmp slt i64 %87, %92
-  br i1 %93, label %19, label %._crit_edge, !llvm.loop !94
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %80, %86
+  %87 = phi ptr [ %66, %80 ], [ %.pre61, %86 ]
+  %88 = add nuw nsw i64 %.02750, 1
+  %89 = load ptr, ptr %11, align 8, !tbaa !4
+  %90 = ptrtoint ptr %89 to i64
+  %91 = ptrtoint ptr %87 to i64
+  %92 = sub i64 %90, %91
+  %93 = sdiv exact i64 %92, 96
+  %94 = icmp slt i64 %88, %93
+  br i1 %94, label %19, label %._crit_edge, !llvm.loop !94
 
-94:                                               ; preds = %67
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %53) #32
+95:                                               ; preds = %68
+  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %53) #32
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit31
 
-_ZNSt6vectorIdSaIdEED2Ev.exit31:                  ; preds = %67, %94
-  resume { ptr, i32 } %68
+_ZNSt6vectorIdSaIdEED2Ev.exit31:                  ; preds = %68, %95
+  resume { ptr, i32 } %69
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6783,10 +6783,14 @@ _ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   %.not94 = icmp eq i64 %.082, -4
   br i1 %.not94, label %._crit_edge, label %.lr.ph
 
-._crit_edge83:                                    ; preds = %._crit_edge, %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
-  %55 = phi ptr [ %41, %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %99, %._crit_edge ]
-  %56 = phi ptr [ %41, %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %98, %._crit_edge ]
-  %.sroa.066.0.lcssa = phi <4 x double> [ zeroinitializer, %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %97, %._crit_edge ]
+._crit_edge83.loopexit:                           ; preds = %._crit_edge
+  %55 = icmp eq ptr %98, %99
+  br label %._crit_edge83
+
+._crit_edge83:                                    ; preds = %._crit_edge83.loopexit, %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
+  %56 = phi ptr [ %41, %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %99, %._crit_edge83.loopexit ]
+  %.not95 = phi i1 [ true, %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %55, %._crit_edge83.loopexit ]
+  %.sroa.066.0.lcssa = phi <4 x double> [ zeroinitializer, %_ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %97, %._crit_edge83.loopexit ]
   %57 = shufflevector <4 x double> %.sroa.066.0.lcssa, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
   %58 = fadd <4 x double> %.sroa.066.0.lcssa, %57
   %shift = shufflevector <4 x double> %58, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -6841,7 +6845,7 @@ _ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   %102 = sub i64 %100, %101
   %103 = ashr exact i64 %102, 2
   %104 = icmp ult i64 %54, %103
-  br i1 %104, label %.preheader75, label %._crit_edge83, !llvm.loop !241
+  br i1 %104, label %.preheader75, label %._crit_edge83.loopexit, !llvm.loop !241
 
 .lr.ph:                                           ; preds = %.preheader75, %121
   %.05280 = phi i64 [ %124, %121 ], [ %.082, %.preheader75 ]
@@ -6997,7 +7001,6 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %180, label %181, label %.preheader
 
 .preheader:                                       ; preds = %179
-  %.not95 = icmp eq ptr %56, %55
   br i1 %.not95, label %._crit_edge87, label %.lr.ph86
 
 181:                                              ; preds = %179
@@ -7017,7 +7020,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
   br label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit.thread
 
 .lr.ph86:                                         ; preds = %.preheader, %199
-  %190 = phi ptr [ %202, %199 ], [ %55, %.preheader ]
+  %190 = phi ptr [ %202, %199 ], [ %56, %.preheader ]
   %.05385 = phi i64 [ %200, %199 ], [ 0, %.preheader ]
   %.184 = phi double [ %.2, %199 ], [ %60, %.preheader ]
   %191 = getelementptr inbounds nuw i32, ptr %190, i64 %.05385

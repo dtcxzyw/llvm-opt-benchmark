@@ -545,69 +545,68 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %24
+  %24 = icmp eq i32 %10, %9
+  br i1 %24, label %.split.us.preheader, label %.split
 
-24:                                               ; preds = %43, %17
-  %25 = phi i32 [ %10, %17 ], [ %9, %43 ]
-  %26 = icmp eq i32 %25, %9
-  br i1 %26, label %.split.us, label %.split
+.split.us.preheader:                              ; preds = %41, %17
+  br label %.split.us
 
-.split.us:                                        ; preds = %24, %31
-  %27 = call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %28 = load i32, ptr %18, align 8
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %.split12.us, !prof !5
+.split.us:                                        ; preds = %.split.us.preheader, %29
+  %25 = call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
+  %26 = load i32, ptr %18, align 8
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %.split12.us, !prof !5
 
-30:                                               ; preds = %.split.us
-  br i1 %5, label %.split14.us, label %31
+28:                                               ; preds = %.split.us
+  br i1 %5, label %.split14.us, label %29
 
-31:                                               ; preds = %30
-  %32 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !20
-  %33 = inttoptr i64 %32 to ptr
-  store ptr %33, ptr %19, align 8
+29:                                               ; preds = %28
+  %30 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !20
+  %31 = inttoptr i64 %30 to ptr
+  store ptr %31, ptr %19, align 8
   store ptr @autoremove_wake_function, ptr %20, align 8
   store volatile ptr %21, ptr %21, align 8
   store volatile ptr %21, ptr %22, align 8
   store i32 0, ptr %3, align 8
   call void @prepare_to_wait(ptr noundef nonnull %23, ptr noundef nonnull %3, i32 noundef 2) #7
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %27) #7
-  %34 = call i64 @io_schedule_timeout(i64 noundef 5000) #7
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %25) #7
+  %32 = call i64 @io_schedule_timeout(i64 noundef 5000) #7
   call void @finish_wait(ptr noundef nonnull %23, ptr noundef nonnull %3) #7
-  %35 = load ptr, ptr %11, align 8
-  %36 = load ptr, ptr %12, align 8
-  %37 = call ptr %35(i32 noundef %9, ptr noundef %36) #7
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.split.us, label %.loopexit, !prof !21
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %12, align 8
+  %35 = call ptr %33(i32 noundef %9, ptr noundef %34) #7
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %.split.us, label %.loopexit, !prof !21
 
-.split:                                           ; preds = %24
-  %39 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %40 = load i32, ptr %18, align 8
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %43, label %.split12.us, !prof !5
+.split:                                           ; preds = %17
+  %37 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
+  %38 = load i32, ptr %18, align 8
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %41, label %.split12.us, !prof !5
 
-.split12.us:                                      ; preds = %.split, %.split.us
-  %.us-phi = phi i64 [ %27, %.split.us ], [ %39, %.split ]
-  %42 = call fastcc ptr @remove_element(ptr noundef %0)
+.split12.us:                                      ; preds = %.split.us, %.split
+  %.us-phi = phi i64 [ %37, %.split ], [ %25, %.split.us ]
+  %40 = call fastcc ptr @remove_element(ptr noundef %0)
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %.us-phi) #7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   br label %.loopexit
 
-43:                                               ; preds = %.split
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %39) #7
-  %44 = load ptr, ptr %11, align 8
-  %45 = load ptr, ptr %12, align 8
-  %46 = tail call ptr %44(i32 noundef %9, ptr noundef %45) #7
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %24, label %.loopexit, !prof !21
+41:                                               ; preds = %.split
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %37) #7
+  %42 = load ptr, ptr %11, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = tail call ptr %42(i32 noundef %9, ptr noundef %43) #7
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.split.us.preheader, label %.loopexit, !prof !21
 
-.split14.us:                                      ; preds = %30
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %27) #7
+.split14.us:                                      ; preds = %28
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %25) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %31, %.split14.us, %.split12.us, %8
-  %48 = phi ptr [ %42, %.split12.us ], [ null, %.split14.us ], [ %15, %8 ], [ %37, %31 ], [ %46, %43 ]
+.loopexit:                                        ; preds = %29, %41, %.split14.us, %.split12.us, %8
+  %46 = phi ptr [ %40, %.split12.us ], [ null, %.split14.us ], [ %15, %8 ], [ %44, %41 ], [ %35, %29 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #7
-  ret ptr %48
+  ret ptr %46
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

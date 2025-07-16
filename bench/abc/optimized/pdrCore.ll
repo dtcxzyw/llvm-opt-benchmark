@@ -560,18 +560,13 @@ Vec_PtrSort.exit148:                              ; preds = %.critedge, %127
   %132 = getelementptr i8, ptr %123, i64 8
   br label %134
 
-.critedge10.loopexit.loopexit:                    ; preds = %152
+.critedge10.loopexit:                             ; preds = %152
   %.pre199 = sext i32 %.val132 to i64
-  br label %.critedge10.loopexit
-
-.critedge10.loopexit:                             ; preds = %.critedge10.loopexit.loopexit, %134
-  %.pre-phi200 = phi i64 [ %.pre199, %.critedge10.loopexit.loopexit ], [ %137, %134 ]
-  %.val131 = phi i32 [ %.val132, %.critedge10.loopexit.loopexit ], [ %.val131197, %134 ]
-  %133 = icmp slt i64 %indvars.iv.next185, %.pre-phi200
+  %133 = icmp slt i64 %indvars.iv.next185, %.pre199
   br i1 %133, label %134, label %.critedge8, !llvm.loop !74
 
 134:                                              ; preds = %.lr.ph179, %.critedge10.loopexit
-  %.val131197 = phi i32 [ %.val131177, %.lr.ph179 ], [ %.val131, %.critedge10.loopexit ]
+  %.val131197 = phi i32 [ %.val131177, %.lr.ph179 ], [ %.val132, %.critedge10.loopexit ]
   %indvars.iv184 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next185, %.critedge10.loopexit ]
   %.val124 = load ptr, ptr %132, align 8, !tbaa !35
   %135 = getelementptr inbounds nuw ptr, ptr %.val124, i64 %indvars.iv184
@@ -579,7 +574,7 @@ Vec_PtrSort.exit148:                              ; preds = %.critedge, %127
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %137 = sext i32 %.val131197 to i64
   %138 = icmp slt i64 %indvars.iv.next185, %137
-  br i1 %138, label %.lr.ph176.preheader, label %.critedge10.loopexit
+  br i1 %138, label %.lr.ph176.preheader, label %.critedge8
 
 .lr.ph176.preheader:                              ; preds = %134
   %139 = trunc nuw nsw i64 %indvars.iv.next185 to i32
@@ -618,9 +613,9 @@ Vec_PtrSort.exit148:                              ; preds = %.critedge, %127
   %.val132 = phi i32 [ %151, %145 ], [ %.val132.pre, %.lr.ph176._crit_edge ]
   %.3 = phi i32 [ %.2175, %145 ], [ %144, %.lr.ph176._crit_edge ]
   %153 = icmp slt i32 %.3, %.val132
-  br i1 %153, label %.lr.ph176, label %.critedge10.loopexit.loopexit, !llvm.loop !75
+  br i1 %153, label %.lr.ph176, label %.critedge10.loopexit, !llvm.loop !75
 
-.critedge8:                                       ; preds = %.critedge10.loopexit, %Vec_PtrSort.exit148
+.critedge8:                                       ; preds = %.critedge10.loopexit, %134, %Vec_PtrSort.exit148
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
   %154 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #19
   %155 = icmp slt i32 %154, 0

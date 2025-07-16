@@ -20723,7 +20723,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %9
   %11 = phi i64 [ %10, %9 ], [ 0, %2 ]
   %12 = tail call noundef ptr @_ZNK4llvm6Module11getFunctionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %.0.val, ptr %0, i64 %11) #21
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %138, label %13
+  br i1 %.not, label %137, label %13
 
 13:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %14 = tail call noundef ptr @_ZN4llvm9Intrinsic22getOrInsertDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef nonnull %.0.val, i32 noundef %1, ptr null, i64 0) #21
@@ -20745,31 +20745,31 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %9
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %28
 
-._crit_edge25:                                    ; preds = %137
+._crit_edge25:                                    ; preds = %.critedge
   %.pre27 = load ptr, ptr %15, align 8, !tbaa !336
   %27 = icmp eq ptr %.pre27, null
-  br i1 %27, label %._crit_edge25.thread, label %138
+  br i1 %27, label %._crit_edge25.thread, label %137
 
-28:                                               ; preds = %.lr.ph24, %137
-  %.sroa.02.022 = phi ptr [ %16, %.lr.ph24 ], [ %30, %137 ]
+28:                                               ; preds = %.lr.ph24, %.critedge
+  %.sroa.02.022 = phi ptr [ %16, %.lr.ph24 ], [ %30, %.critedge ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.02.022, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !326
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.02.022, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !337
   %33 = load i8, ptr %32, align 8, !tbaa !236
   %.not18 = icmp eq i8 %33, 85
-  br i1 %.not18, label %34, label %137
+  br i1 %.not18, label %34, label %.critedge
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %32, i64 -32
   %36 = load ptr, ptr %35, align 8, !tbaa !223
   %.not.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, label %37
+  br i1 %.not.i.i.i, label %.critedge, label %37
 
 37:                                               ; preds = %34
   %38 = load i8, ptr %36, align 8, !tbaa !236
   %39 = icmp eq i8 %38, 0
-  br i1 %39, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
+  br i1 %39, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, label %.critedge
 
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -20778,14 +20778,10 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %37
   %43 = load ptr, ptr %42, align 8, !tbaa !312
   %44 = icmp eq ptr %41, %43
   %spec.select.i = select i1 %44, ptr %36, ptr null
-  br label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
+  %45 = icmp eq ptr %spec.select.i, %12
+  br i1 %45, label %46, label %.critedge
 
-_ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %34, %37, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i
-  %45 = phi ptr [ null, %37 ], [ null, %34 ], [ %spec.select.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ]
-  %.not61 = icmp eq ptr %45, %12
-  br i1 %.not61, label %46, label %137
-
-46:                                               ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
+46:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #21
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -20955,17 +20951,17 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit:  ; preds = %.thread14, %133
 
 _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit, %136
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #21
-  br label %137
+  br label %.critedge
 
-137:                                              ; preds = %28, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit
+.critedge:                                        ; preds = %37, %34, %28, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit
   %.not16 = icmp eq ptr %30, null
   br i1 %.not16, label %._crit_edge25, label %28
 
 ._crit_edge25.thread:                             ; preds = %13, %._crit_edge25
   call void @_ZN4llvm8Function15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(136) %12) #21
-  br label %138
+  br label %137
 
-138:                                              ; preds = %._crit_edge25, %._crit_edge25.thread, %_ZN4llvm9StringRefC2EPKc.exit
+137:                                              ; preds = %._crit_edge25, %._crit_edge25.thread, %_ZN4llvm9StringRefC2EPKc.exit
   ret void
 }
 

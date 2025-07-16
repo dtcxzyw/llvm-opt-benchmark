@@ -1816,17 +1816,17 @@ define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(addres
 
 3:                                                ; preds = %2
   %4 = icmp eq i32 %1, 65535
-  br i1 %4, label %27, label %5
+  br i1 %4, label %25, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8, !tbaa !3
   %.not21 = icmp ult i32 %1, %7
-  br i1 %.not21, label %.preheader23, label %27
+  br i1 %.not21, label %.preheader23, label %25
 
 .preheader23:                                     ; preds = %5
   %.not2224 = icmp eq i32 %1, 0
-  br i1 %.not2224, label %._crit_edge, label %.lr.ph
+  br i1 %.not2224, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1846,28 +1846,24 @@ define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(addres
   %18 = add i32 %.01625, 2
   %spec.select = select i1 %17, i32 %18, i32 %11
   %.not22 = icmp eq i32 %10, %1
-  br i1 %.not22, label %._crit_edge.loopexit, label %9, !llvm.loop !47
+  br i1 %.not22, label %._crit_edge, label %9, !llvm.loop !47
 
-._crit_edge.loopexit:                             ; preds = %9
+._crit_edge:                                      ; preds = %9
   %.pre = load i32, ptr %6, align 8, !tbaa !3
-  %19 = zext i32 %spec.select to i64
-  br label %._crit_edge
+  %19 = icmp eq i32 %1, %.pre
+  %20 = zext i32 %spec.select to i64
+  br i1 %19, label %25, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader23
-  %20 = phi i32 [ %7, %.preheader23 ], [ %.pre, %._crit_edge.loopexit ]
-  %.016.lcssa = phi i64 [ 0, %.preheader23 ], [ %19, %._crit_edge.loopexit ]
-  %21 = icmp eq i32 %1, %20
-  br i1 %21, label %27, label %22
+._crit_edge.thread:                               ; preds = %.preheader23, %._crit_edge
+  %.016.lcssa30 = phi i64 [ %20, %._crit_edge ], [ 0, %.preheader23 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = load ptr, ptr %21, align 8, !tbaa !21
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.016.lcssa30
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  br label %25
 
-22:                                               ; preds = %._crit_edge
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load ptr, ptr %23, align 8, !tbaa !21
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.016.lcssa
-  %26 = load ptr, ptr %25, align 8, !tbaa !22
-  br label %27
-
-27:                                               ; preds = %5, %._crit_edge, %22, %3
-  %.017 = phi ptr [ null, %3 ], [ null, %5 ], [ %26, %22 ], [ null, %._crit_edge ]
+25:                                               ; preds = %5, %._crit_edge, %._crit_edge.thread, %3
+  %.017 = phi ptr [ null, %3 ], [ null, %5 ], [ %24, %._crit_edge.thread ], [ null, %._crit_edge ]
   ret ptr %.017
 }
 
@@ -2042,13 +2038,12 @@ define internal fastcc i32 @get_button_from_point(ptr noundef %0, ptr noundef no
 ._crit_edge.loopexit:                             ; preds = %42, %55
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next, %55 ], [ %indvars.iv, %42 ]
   %.0.lcssa.ph = trunc nuw i64 %.0.lcssa.ph.in to i32
+  %58 = icmp eq i32 %.pre.pre, %.0.lcssa.ph
+  %59 = select i1 %58, i32 65535, i32 %.0.lcssa.ph
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %58 = phi i32 [ 0, %2 ], [ %.pre.pre, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.0.lcssa.ph, %._crit_edge.loopexit ]
-  %59 = icmp eq i32 %.0.lcssa, %58
-  %spec.store.select = select i1 %59, i32 65535, i32 %.0.lcssa
+  %spec.store.select = phi i32 [ 65535, %2 ], [ %59, %._crit_edge.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   ret i32 %spec.store.select

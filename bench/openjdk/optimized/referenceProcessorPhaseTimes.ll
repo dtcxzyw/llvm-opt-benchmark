@@ -1209,57 +1209,56 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
 
 .lr.ph50.preheader:                               ; preds = %.critedge
   %17 = load ptr, ptr %0, align 8
-  %18 = and i64 %.0.lcssa.ph.in, 4294967295
-  %19 = getelementptr inbounds nuw double, ptr %17, i64 %18
-  %20 = load double, ptr %19, align 8
+  %18 = getelementptr inbounds nuw double, ptr %17, i64 %.0.lcssa.ph.in
+  %19 = load double, ptr %18, align 8
   br label %.lr.ph50
 
-.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %33
-  %indvars.iv56 = phi i64 [ %18, %.lr.ph50.preheader ], [ %indvars.iv.next57, %33 ]
-  %.03349 = phi double [ %20, %.lr.ph50.preheader ], [ %.1, %33 ]
-  %.03448 = phi double [ %20, %.lr.ph50.preheader ], [ %.135, %33 ]
-  %.03746 = phi i32 [ 0, %.lr.ph50.preheader ], [ %.138, %33 ]
-  %.03945 = phi double [ 0.000000e+00, %.lr.ph50.preheader ], [ %.140, %33 ]
-  %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv56
-  %23 = load double, ptr %22, align 8
-  %24 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #11
-  %25 = fcmp une double %23, %24
-  br i1 %25, label %26, label %33
+.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %32
+  %indvars.iv56 = phi i64 [ %.0.lcssa.ph.in, %.lr.ph50.preheader ], [ %indvars.iv.next57, %32 ]
+  %.03349 = phi double [ %19, %.lr.ph50.preheader ], [ %.1, %32 ]
+  %.03448 = phi double [ %19, %.lr.ph50.preheader ], [ %.135, %32 ]
+  %.03746 = phi i32 [ 0, %.lr.ph50.preheader ], [ %.138, %32 ]
+  %.03945 = phi double [ 0.000000e+00, %.lr.ph50.preheader ], [ %.140, %32 ]
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv56
+  %22 = load double, ptr %21, align 8
+  %23 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #11
+  %24 = fcmp une double %22, %23
+  br i1 %24, label %25, label %32
 
-26:                                               ; preds = %.lr.ph50
-  %27 = fcmp ogt double %.03448, %23
-  %28 = select i1 %27, double %.03448, double %23
-  %29 = fcmp olt double %.03349, %23
-  %30 = select i1 %29, double %.03349, double %23
-  %31 = fadd double %.03945, %23
-  %32 = add i32 %.03746, 1
-  br label %33
+25:                                               ; preds = %.lr.ph50
+  %26 = fcmp ogt double %.03448, %22
+  %27 = select i1 %26, double %.03448, double %22
+  %28 = fcmp olt double %.03349, %22
+  %29 = select i1 %28, double %.03349, double %22
+  %30 = fadd double %.03945, %22
+  %31 = add i32 %.03746, 1
+  br label %32
 
-33:                                               ; preds = %.lr.ph50, %26
-  %.140 = phi double [ %31, %26 ], [ %.03945, %.lr.ph50 ]
-  %.138 = phi i32 [ %32, %26 ], [ %.03746, %.lr.ph50 ]
-  %.135 = phi double [ %28, %26 ], [ %.03448, %.lr.ph50 ]
-  %.1 = phi double [ %30, %26 ], [ %.03349, %.lr.ph50 ]
+32:                                               ; preds = %.lr.ph50, %25
+  %.140 = phi double [ %30, %25 ], [ %.03945, %.lr.ph50 ]
+  %.138 = phi i32 [ %31, %25 ], [ %.03746, %.lr.ph50 ]
+  %.135 = phi double [ %27, %25 ], [ %.03448, %.lr.ph50 ]
+  %.1 = phi double [ %29, %25 ], [ %.03349, %.lr.ph50 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %34 = load i32, ptr %6, align 8
-  %35 = zext i32 %34 to i64
-  %36 = icmp samesign ult i64 %indvars.iv.next57, %35
-  br i1 %36, label %.lr.ph50, label %._crit_edge, !llvm.loop !16
+  %33 = load i32, ptr %6, align 8
+  %34 = zext i32 %33 to i64
+  %35 = icmp samesign ult i64 %indvars.iv.next57, %34
+  br i1 %35, label %.lr.ph50, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %33
-  %37 = fsub double %.135, %.1
-  %38 = uitofp i32 %.138 to double
-  %39 = fdiv double %.140, %38
-  tail call void @_ZN15WorkerDataArrayIdE10WDAPrinter7summaryEP12outputStreamdddddb(ptr noundef nonnull %1, double noundef %.1, double noundef %39, double noundef %.135, double noundef %37, double noundef %.140, i1 noundef zeroext %2) #11
+._crit_edge:                                      ; preds = %32
+  %36 = fsub double %.135, %.1
+  %37 = uitofp i32 %.138 to double
+  %38 = fdiv double %.140, %37
+  tail call void @_ZN15WorkerDataArrayIdE10WDAPrinter7summaryEP12outputStreamdddddb(ptr noundef nonnull %1, double noundef %.1, double noundef %38, double noundef %.135, double noundef %36, double noundef %.140, i1 noundef zeroext %2) #11
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.42, i32 noundef %.138) #11
-  br label %40
+  br label %39
 
 .critedge.thread:                                 ; preds = %3, %.critedge
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.43) #11
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.critedge.thread, %._crit_edge
+39:                                               ; preds = %.critedge.thread, %._crit_edge
   ret void
 }
 

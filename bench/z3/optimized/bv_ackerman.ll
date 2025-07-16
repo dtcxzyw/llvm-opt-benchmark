@@ -1117,7 +1117,7 @@ define hidden void @_ZN2bv8ackerman2gcEv(ptr noundef nonnull align 8 dereference
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 92
   %9 = load i32, ptr %8, align 4, !tbaa !233
   %.not = icmp ugt i32 %5, %9
-  br i1 %.not, label %10, label %46
+  br i1 %.not, label %10, label %43
 
 10:                                               ; preds = %1
   store i32 0, ptr %3, align 4, !tbaa !30
@@ -1127,81 +1127,76 @@ define hidden void @_ZN2bv8ackerman2gcEv(ptr noundef nonnull align 8 dereference
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !22
   %16 = icmp ugt i32 %13, %15
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %._crit_edge
 
 17:                                               ; preds = %10
   tail call void @_ZN2bv8ackerman9propagateEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   %.pre = load i32, ptr %12, align 4, !tbaa !20
   %.pre2 = load i32, ptr %14, align 8, !tbaa !22
-  br label %18
+  %18 = icmp ugt i32 %.pre, %.pre2
+  br i1 %18, label %.lr.ph, label %._crit_edge
 
-18:                                               ; preds = %17, %10
-  %19 = phi i32 [ %.pre2, %17 ], [ %15, %10 ]
-  %20 = phi i32 [ %.pre, %17 ], [ %13, %10 ]
-  %21 = icmp ugt i32 %20, %19
-  br i1 %21, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %20
 
-.lr.ph:                                           ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %23
-
-23:                                               ; preds = %.lr.ph, %_ZN2bv8ackerman6removeEPNS0_2vvE.exit
-  %24 = load ptr, ptr %22, align 8, !tbaa !46
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !38
+20:                                               ; preds = %.lr.ph, %_ZN2bv8ackerman6removeEPNS0_2vvE.exit
+  %21 = load ptr, ptr %19, align 8, !tbaa !46
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %26, ptr %2, align 8, !tbaa !47
-  %27 = load ptr, ptr %24, align 8, !tbaa !37
-  %28 = icmp eq ptr %27, %24
+  store ptr %23, ptr %2, align 8, !tbaa !47
+  %24 = load ptr, ptr %21, align 8, !tbaa !37
+  %25 = icmp eq ptr %24, %21
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %20
+  store ptr null, ptr %19, align 8, !tbaa !47
+  br label %_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i
+
+27:                                               ; preds = %20
+  %28 = icmp eq ptr %21, %23
+  %.pre.i.i = load ptr, ptr %23, align 8, !tbaa !37
   br i1 %28, label %29, label %30
 
-29:                                               ; preds = %23
-  store ptr null, ptr %22, align 8, !tbaa !47
+29:                                               ; preds = %27
+  store ptr %.pre.i.i, ptr %19, align 8, !tbaa !47
+  br label %30
+
+30:                                               ; preds = %29, %27
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !38
+  store ptr %.pre.i.i, ptr %32, align 8, !tbaa !37
+  %33 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
+  store ptr %32, ptr %33, align 8, !tbaa !38
   br label %_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i
 
-30:                                               ; preds = %23
-  %31 = icmp eq ptr %24, %26
-  %.pre.i.i = load ptr, ptr %26, align 8, !tbaa !37
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %30
-  store ptr %.pre.i.i, ptr %22, align 8, !tbaa !47
-  br label %33
-
-33:                                               ; preds = %32, %30
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !38
-  store ptr %.pre.i.i, ptr %35, align 8, !tbaa !37
-  %36 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
-  store ptr %35, ptr %36, align 8, !tbaa !38
-  br label %_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i
-
-_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i: ; preds = %33, %29
+_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i: ; preds = %30, %26
   call void @_ZN14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6removeERKS4_(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %37 = load ptr, ptr %2, align 8, !tbaa !47
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZN2bv8ackerman6removeEPNS0_2vvE.exit, label %39
+  %34 = load ptr, ptr %2, align 8, !tbaa !47
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %_ZN2bv8ackerman6removeEPNS0_2vvE.exit, label %36
 
-39:                                               ; preds = %_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i
-  call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %37)
+36:                                               ; preds = %_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i
+  call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %34)
   br label %_ZN2bv8ackerman6removeEPNS0_2vvE.exit
 
-_ZN2bv8ackerman6removeEPNS0_2vvE.exit:            ; preds = %_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i, %39
+_ZN2bv8ackerman6removeEPNS0_2vvE.exit:            ; preds = %_ZN8dll_baseIN2bv8ackerman2vvEE11remove_fromERPS2_S4_.exit.i, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %40 = load i32, ptr %12, align 4, !tbaa !20
-  %41 = load i32, ptr %14, align 8, !tbaa !22
-  %42 = icmp ugt i32 %40, %41
-  br i1 %42, label %23, label %._crit_edge, !llvm.loop !234
+  %37 = load i32, ptr %12, align 4, !tbaa !20
+  %38 = load i32, ptr %14, align 8, !tbaa !22
+  %39 = icmp ugt i32 %37, %38
+  br i1 %39, label %20, label %._crit_edge, !llvm.loop !234
 
-._crit_edge:                                      ; preds = %_ZN2bv8ackerman6removeEPNS0_2vvE.exit, %18
-  %.lcssa = phi i32 [ %19, %18 ], [ %41, %_ZN2bv8ackerman6removeEPNS0_2vvE.exit ]
-  %43 = mul i32 %.lcssa, 110
-  %44 = udiv i32 %43, 100
-  %45 = add nuw nsw i32 %44, 1
-  store i32 %45, ptr %14, align 8, !tbaa !22
-  br label %46
+._crit_edge:                                      ; preds = %_ZN2bv8ackerman6removeEPNS0_2vvE.exit, %10, %17
+  %.lcssa = phi i32 [ %.pre2, %17 ], [ %15, %10 ], [ %38, %_ZN2bv8ackerman6removeEPNS0_2vvE.exit ]
+  %40 = mul i32 %.lcssa, 110
+  %41 = udiv i32 %40, 100
+  %42 = add nuw nsw i32 %41, 1
+  store i32 %42, ptr %14, align 8, !tbaa !22
+  br label %43
 
-46:                                               ; preds = %1, %._crit_edge
+43:                                               ; preds = %1, %._crit_edge
   ret void
 }
 

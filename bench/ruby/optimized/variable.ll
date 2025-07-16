@@ -1504,24 +1504,24 @@ define dso_local i64 @rb_f_untrace_var(i32 noundef %0, ptr noundef readonly capt
   %8 = load i64, ptr %1, align 8, !tbaa !14
   store i64 %8, ptr %6, align 8, !tbaa !14
   %.not52 = icmp eq i32 %0, 1
-  br i1 %.not52, label %12, label %9
+  br i1 %.not52, label %13, label %9
 
 9:                                                ; preds = %.preheader40
   %10 = getelementptr i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !14
-  br label %12
+  %12 = icmp eq i32 %0, 2
+  br label %13
 
-12:                                               ; preds = %.preheader40, %9
-  %13 = phi i64 [ %11, %9 ], [ 4, %.preheader40 ]
-  %.185.i.lcssa = phi i32 [ 2, %9 ], [ 1, %.preheader40 ]
-  %14 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %14, label %rb_scan_args_set.exit, label %15
+13:                                               ; preds = %.preheader40, %9
+  %14 = phi i64 [ %11, %9 ], [ 4, %.preheader40 ]
+  %.185.i.lcssa = phi i1 [ %12, %9 ], [ true, %.preheader40 ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %15
 
-15:                                               ; preds = %12, %2
+15:                                               ; preds = %13, %2
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #28
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %12
+rb_scan_args_set.exit:                            ; preds = %13
   %16 = call i64 @rb_check_id(ptr noundef nonnull %6) #27
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %17, label %20
@@ -1582,7 +1582,7 @@ rb_find_global_entry.exit:                        ; preds = %20, %rb_ractor_main
   %39 = load ptr, ptr %24, align 8, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !64
-  %42 = icmp eq i64 %13, 4
+  %42 = icmp eq i64 %14, 4
   br i1 %42, label %43, label %.preheader
 
 .preheader:                                       ; preds = %38
@@ -1657,7 +1657,7 @@ remove_trace.exit:                                ; preds = %53, %._crit_edge.lo
   %.148 = phi ptr [ %87, %85 ], [ %41, %.preheader ]
   %67 = getelementptr inbounds nuw i8, ptr %.148, i64 16
   %68 = load i64, ptr %67, align 8, !tbaa !81
-  %69 = icmp eq i64 %68, %13
+  %69 = icmp eq i64 %68, %14
   br i1 %69, label %70, label %85
 
 70:                                               ; preds = %.lr.ph
@@ -1702,7 +1702,7 @@ remove_trace.exit39:                              ; preds = %80
   br label %83
 
 83:                                               ; preds = %remove_trace.exit39, %70
-  %84 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %13) #27
+  %84 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %14) #27
   br label %.loopexit
 
 85:                                               ; preds = %.lr.ph
@@ -9527,103 +9527,106 @@ define internal fastcc i64 @rb_const_search_from(i64 noundef %0, i64 noundef %1,
   %21 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !142
   %.not.i76 = icmp eq ptr %22, null
-  br i1 %.not.i76, label %rb_const_lookup.exit.thread, label %.lr.ph
+  br i1 %.not.i76, label %rb_const_lookup.exit.thread, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %20, %63
-  %23 = phi ptr [ %65, %63 ], [ %22, %20 ]
-  %.03777 = phi i64 [ %.039, %63 ], [ 0, %20 ]
+.lr.ph.preheader:                                 ; preds = %20
+  %23 = icmp eq i64 %.039, 0
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %63
+  %24 = phi ptr [ %65, %63 ], [ %22, %.lr.ph.preheader ]
+  %.03777 = phi i1 [ true, %63 ], [ %23, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #27
-  %24 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i, label %25, label %rb_vm_lock_enter.exit.i
+  %25 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
+  %.not.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i, label %26, label %rb_vm_lock_enter.exit.i
 
-25:                                               ; preds = %.lr.ph
+26:                                               ; preds = %.lr.ph
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %8) #27
   br label %rb_vm_lock_enter.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %25, %.lr.ph
-  %26 = call i32 @rb_id_table_lookup(ptr noundef nonnull %23, i64 noundef %1, ptr noundef nonnull %7) #27
-  %.not8.i = icmp eq i32 %26, 0
-  %27 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i9.i = icmp eq ptr %27, null
-  br i1 %.not.i.i9.i, label %28, label %rb_vm_lock_leave.exit.i
+rb_vm_lock_enter.exit.i:                          ; preds = %26, %.lr.ph
+  %27 = call i32 @rb_id_table_lookup(ptr noundef nonnull %24, i64 noundef %1, ptr noundef nonnull %7) #27
+  %.not8.i = icmp eq i32 %27, 0
+  %28 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
+  %.not.i.i9.i = icmp eq ptr %28, null
+  br i1 %.not.i.i9.i, label %29, label %rb_vm_lock_leave.exit.i
 
-28:                                               ; preds = %rb_vm_lock_enter.exit.i
+29:                                               ; preds = %rb_vm_lock_enter.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %8) #27
   br label %rb_vm_lock_leave.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %28, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.exit.i:                          ; preds = %29, %rb_vm_lock_enter.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #27
-  %29 = load i64, ptr %7, align 8
-  %30 = inttoptr i64 %29 to ptr
+  %30 = load i64, ptr %7, align 8
+  %31 = inttoptr i64 %30 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
-  %.not43 = icmp eq i64 %29, 0
+  %.not43 = icmp eq i64 %30, 0
   %or.cond70 = select i1 %.not8.i, i1 true, i1 %.not43
-  br i1 %or.cond70, label %rb_const_lookup.exit.thread, label %31
+  br i1 %or.cond70, label %rb_const_lookup.exit.thread, label %32
 
-31:                                               ; preds = %rb_vm_lock_leave.exit.i
-  %.pre = load i32, ptr %30, align 8, !tbaa !187
-  %32 = and i32 %.pre, 255
-  %33 = icmp eq i32 %32, 1
-  %or.cond96 = select i1 %.not44, i1 %33, i1 false
-  br i1 %or.cond96, label %34, label %38
+32:                                               ; preds = %rb_vm_lock_leave.exit.i
+  %.pre = load i32, ptr %31, align 8, !tbaa !187
+  %33 = and i32 %.pre, 255
+  %34 = icmp eq i32 %33, 1
+  %or.cond96 = select i1 %.not44, i1 %34, i1 false
+  br i1 %or.cond96, label %35, label %39
 
-34:                                               ; preds = %31
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %36 = load ptr, ptr %35, align 8, !tbaa !125
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
-  store i64 %.039, ptr %37, align 8, !tbaa !127
+35:                                               ; preds = %32
+  %36 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %37 = load ptr, ptr %36, align 8, !tbaa !125
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 136
+  store i64 %.039, ptr %38, align 8, !tbaa !127
   br label %.thread61
 
-38:                                               ; preds = %31
-  %39 = and i32 %.pre, 256
-  %.not.i50 = icmp eq i32 %39, 0
-  br i1 %.not.i50, label %rb_const_warn_if_deprecated.exit, label %40
+39:                                               ; preds = %32
+  %40 = and i32 %.pre, 256
+  %.not.i50 = icmp eq i32 %40, 0
+  br i1 %.not.i50, label %rb_const_warn_if_deprecated.exit, label %41
 
-40:                                               ; preds = %38
-  %41 = call zeroext i1 @rb_warning_category_enabled_p(i32 noundef 1) #27
-  br i1 %41, label %42, label %rb_const_warn_if_deprecated.exit
+41:                                               ; preds = %39
+  %42 = call zeroext i1 @rb_warning_category_enabled_p(i32 noundef 1) #27
+  br i1 %42, label %43, label %rb_const_warn_if_deprecated.exit
 
-42:                                               ; preds = %40
-  %43 = load i64, ptr @rb_cObject, align 8, !tbaa !14
-  %44 = icmp eq i64 %.039, %43
-  br i1 %44, label %45, label %47
+43:                                               ; preds = %41
+  %44 = load i64, ptr @rb_cObject, align 8, !tbaa !14
+  %45 = icmp eq i64 %.039, %44
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %42
-  %46 = call i64 @rb_id_quote_unprintable(i64 noundef %1) #27
-  call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.24, i64 noundef %46) #37
+46:                                               ; preds = %43
+  %47 = call i64 @rb_id_quote_unprintable(i64 noundef %1) #27
+  call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.24, i64 noundef %47) #37
   br label %rb_const_warn_if_deprecated.exit
 
-47:                                               ; preds = %42
-  %48 = call i64 @rb_class_real(i64 noundef %.039) #29
+48:                                               ; preds = %43
+  %49 = call i64 @rb_class_real(i64 noundef %.039) #29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #27
-  %49 = call fastcc i64 @rb_tmp_class_path(i64 noundef %48, ptr noundef %6, ptr noundef nonnull @make_temporary_path)
-  %50 = icmp eq i64 %49, 4
-  br i1 %50, label %rb_class_name.exit, label %51
+  %50 = call fastcc i64 @rb_tmp_class_path(i64 noundef %49, ptr noundef %6, ptr noundef nonnull @make_temporary_path)
+  %51 = icmp eq i64 %50, 4
+  br i1 %51, label %rb_class_name.exit, label %52
 
-51:                                               ; preds = %47
-  %52 = call i64 @rb_str_dup(i64 noundef %49) #27
+52:                                               ; preds = %48
+  %53 = call i64 @rb_str_dup(i64 noundef %50) #27
   br label %rb_class_name.exit
 
-rb_class_name.exit:                               ; preds = %47, %51
-  %.0.i.i = phi i64 [ 4, %47 ], [ %52, %51 ]
+rb_class_name.exit:                               ; preds = %48, %52
+  %.0.i.i = phi i64 [ 4, %48 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #27
-  %53 = call i64 @rb_id_quote_unprintable(i64 noundef %1) #27
-  call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.25, i64 noundef %.0.i.i, i64 noundef %53) #37
+  %54 = call i64 @rb_id_quote_unprintable(i64 noundef %1) #27
+  call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.25, i64 noundef %.0.i.i, i64 noundef %54) #37
   br label %rb_const_warn_if_deprecated.exit
 
-rb_const_warn_if_deprecated.exit:                 ; preds = %38, %40, %45, %rb_class_name.exit
-  %54 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %55 = load i64, ptr %54, align 8, !tbaa !143
-  %56 = icmp eq i64 %55, 36
-  br i1 %56, label %57, label %66
+rb_const_warn_if_deprecated.exit:                 ; preds = %39, %41, %46, %rb_class_name.exit
+  %55 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %56 = load i64, ptr %55, align 8, !tbaa !143
+  %57 = icmp eq i64 %56, 36
+  br i1 %57, label %58, label %66
 
-57:                                               ; preds = %rb_const_warn_if_deprecated.exit
-  %58 = icmp eq i64 %.03777, %.039
-  br i1 %58, label %rb_const_lookup.exit.thread, label %59
+58:                                               ; preds = %rb_const_warn_if_deprecated.exit
+  br i1 %.03777, label %rb_const_lookup.exit.thread, label %59
 
-59:                                               ; preds = %57
+59:                                               ; preds = %58
   %60 = call fastcc ptr @autoloading_const_entry(i64 noundef %.039, i64 noundef %1)
   %.not46 = icmp eq ptr %60, null
   br i1 %.not46, label %63, label %.thread
@@ -9646,7 +9649,7 @@ rb_const_warn_if_deprecated.exit:                 ; preds = %38, %40, %45, %rb_c
   %or.cond = select i1 %.not45, i1 %68, i1 false
   br i1 %or.cond, label %select.unfold, label %.thread61
 
-rb_const_lookup.exit.thread:                      ; preds = %63, %rb_vm_lock_leave.exit.i, %57, %20
+rb_const_lookup.exit.thread:                      ; preds = %63, %rb_vm_lock_leave.exit.i, %58, %20
   br i1 %.not47, label %select.unfold, label %69
 
 69:                                               ; preds = %11, %rb_const_lookup.exit.thread
@@ -9663,8 +9666,8 @@ select.unfold:                                    ; preds = %69, %rb_const_looku
   store i64 0, ptr %75, align 8, !tbaa !127
   br label %.thread61
 
-.thread61:                                        ; preds = %.thread, %66, %34, %select.unfold
-  %.5 = phi i64 [ 36, %select.unfold ], [ %62, %.thread ], [ %55, %66 ], [ 36, %34 ]
+.thread61:                                        ; preds = %.thread, %66, %35, %select.unfold
+  %.5 = phi i64 [ 36, %select.unfold ], [ %62, %.thread ], [ %56, %66 ], [ 36, %35 ]
   ret i64 %.5
 }
 

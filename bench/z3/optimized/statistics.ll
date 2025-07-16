@@ -192,85 +192,75 @@ _ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit: ; preds = %9, %15
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN10statistics4copyERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
-  br label %3
+  %3 = load ptr, ptr %1, align 8, !tbaa !3
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit, label %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i
 
-3:                                                ; preds = %_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i, %2
+_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i:    ; preds = %2, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i ], [ 0, %2 ]
-  %4 = load ptr, ptr %1, align 8, !tbaa !3
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i, label %6
+  %5 = phi ptr [ %29, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i ], [ %3, %2 ]
+  %6 = getelementptr inbounds i8, ptr %5, i64 -4
+  %7 = load i32, ptr %6, align 4, !tbaa !9
+  %8 = zext i32 %7 to i64
+  %9 = icmp samesign ult i64 %indvars.iv.i, %8
+  br i1 %9, label %10, label %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 -4
-  %8 = load i32, ptr %7, align 4, !tbaa !9
-  %9 = zext i32 %8 to i64
-  br label %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i
+10:                                               ; preds = %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i
+  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i64 %indvars.iv.i
+  %12 = load ptr, ptr %0, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %20, label %14
 
-_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i:    ; preds = %6, %3
-  %.0.i.i = phi i64 [ %9, %6 ], [ 0, %3 ]
-  %10 = icmp samesign ult i64 %indvars.iv.i, %.0.i.i
-  br i1 %10, label %11, label %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %12, i64 -4
+  %16 = load i32, ptr %15, align 4, !tbaa !9
+  %17 = getelementptr inbounds i8, ptr %12, i64 -8
+  %18 = load i32, ptr %17, align 4, !tbaa !9
+  %19 = icmp eq i32 %16, %18
+  br i1 %19, label %20, label %_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i
 
-11:                                               ; preds = %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %indvars.iv.i
-  %13 = load ptr, ptr %0, align 8, !tbaa !3
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %21, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 -4
-  %17 = load i32, ptr %16, align 4, !tbaa !9
-  %18 = getelementptr inbounds i8, ptr %13, i64 -8
-  %19 = load i32, ptr %18, align 4, !tbaa !9
-  %20 = icmp eq i32 %17, %19
-  br i1 %20, label %21, label %_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i
-
-21:                                               ; preds = %15, %11
+20:                                               ; preds = %14, %10
   tail call void @_ZN6vectorISt4pairIPKcjELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !9
   br label %_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i
 
-_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i: ; preds = %21, %15
-  %22 = phi i32 [ %.pre2.i.i, %21 ], [ %17, %15 ]
-  %23 = phi ptr [ %.pre.i.i, %21 ], [ %13, %15 ]
-  %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
-  %26 = load ptr, ptr %0, align 8, !tbaa !3
-  %27 = getelementptr inbounds i8, ptr %26, i64 -4
-  %28 = load i32, ptr %27, align 4, !tbaa !9
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 4, !tbaa !9
+_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i: ; preds = %20, %14
+  %21 = phi i32 [ %.pre2.i.i, %20 ], [ %16, %14 ]
+  %22 = phi ptr [ %.pre.i.i, %20 ], [ %12, %14 ]
+  %23 = zext i32 %21 to i64
+  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
+  %25 = load ptr, ptr %0, align 8, !tbaa !3
+  %26 = getelementptr inbounds i8, ptr %25, i64 -4
+  %27 = load i32, ptr %26, align 4, !tbaa !9
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %26, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %3, !llvm.loop !14
+  %29 = load ptr, ptr %1, align 8, !tbaa !3
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit, label %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i, !llvm.loop !14
 
-_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit: ; preds = %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %32
-
-32:                                               ; preds = %_ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i, %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit
-  %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i5, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i ], [ 0, %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit ]
-  %33 = load ptr, ptr %31, align 8, !tbaa !11
+_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit: ; preds = %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit.i, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backERKS3_.exit.i, %2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !11
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i, label %35
+  br i1 %34, label %_ZN6vectorISt4pairIPKcdELb0EjE6appendERKS4_.exit, label %_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %33, i64 -4
+_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i:    ; preds = %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i
+  %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i4, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i ], [ 0, %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit ]
+  %35 = phi ptr [ %59, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i ], [ %33, %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit ]
+  %36 = getelementptr inbounds i8, ptr %35, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !9
   %38 = zext i32 %37 to i64
-  br label %_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i
-
-_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i:    ; preds = %35, %32
-  %.0.i.i4 = phi i64 [ %38, %35 ], [ 0, %32 ]
-  %39 = icmp samesign ult i64 %indvars.iv.i3, %.0.i.i4
+  %39 = icmp samesign ult i64 %indvars.iv.i3, %38
   br i1 %39, label %40, label %_ZN6vectorISt4pairIPKcdELb0EjE6appendERKS4_.exit
 
 40:                                               ; preds = %_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i
-  %41 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %33, i64 %indvars.iv.i3
-  %42 = load ptr, ptr %30, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %35, i64 %indvars.iv.i3
+  %42 = load ptr, ptr %31, align 8, !tbaa !11
   %43 = icmp eq ptr %42, null
   br i1 %43, label %50, label %44
 
@@ -283,27 +273,29 @@ _ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i:    ; preds = %35, %32
   br i1 %49, label %50, label %_ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i
 
 50:                                               ; preds = %44, %40
-  tail call void @_ZN6vectorISt4pairIPKcdELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %30)
-  %.pre.i.i6 = load ptr, ptr %30, align 8, !tbaa !11
-  %.phi.trans.insert.i.i7 = getelementptr inbounds i8, ptr %.pre.i.i6, i64 -4
-  %.pre2.i.i8 = load i32, ptr %.phi.trans.insert.i.i7, align 4, !tbaa !9
+  tail call void @_ZN6vectorISt4pairIPKcdELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
+  %.pre.i.i5 = load ptr, ptr %31, align 8, !tbaa !11
+  %.phi.trans.insert.i.i6 = getelementptr inbounds i8, ptr %.pre.i.i5, i64 -4
+  %.pre2.i.i7 = load i32, ptr %.phi.trans.insert.i.i6, align 4, !tbaa !9
   br label %_ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i
 
 _ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i: ; preds = %50, %44
-  %51 = phi i32 [ %.pre2.i.i8, %50 ], [ %46, %44 ]
-  %52 = phi ptr [ %.pre.i.i6, %50 ], [ %42, %44 ]
+  %51 = phi i32 [ %.pre2.i.i7, %50 ], [ %46, %44 ]
+  %52 = phi ptr [ %.pre.i.i5, %50 ], [ %42, %44 ]
   %53 = zext i32 %51 to i64
   %54 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %52, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
-  %55 = load ptr, ptr %30, align 8, !tbaa !11
+  %55 = load ptr, ptr %31, align 8, !tbaa !11
   %56 = getelementptr inbounds i8, ptr %55, i64 -4
   %57 = load i32, ptr %56, align 4, !tbaa !9
   %58 = add i32 %57, 1
   store i32 %58, ptr %56, align 4, !tbaa !9
-  %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i3, 1
-  br label %32, !llvm.loop !16
+  %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
+  %59 = load ptr, ptr %32, align 8, !tbaa !11
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %_ZN6vectorISt4pairIPKcdELb0EjE6appendERKS4_.exit, label %_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i, !llvm.loop !16
 
-_ZN6vectorISt4pairIPKcdELb0EjE6appendERKS4_.exit: ; preds = %_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i
+_ZN6vectorISt4pairIPKcdELb0EjE6appendERKS4_.exit: ; preds = %_ZNK6vectorISt4pairIPKcdELb0EjE4sizeEv.exit.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backERKS3_.exit.i, %_ZN6vectorISt4pairIPKcjELb0EjE6appendERKS4_.exit
   ret void
 }
 
@@ -2588,12 +2580,12 @@ define hidden noundef zeroext i1 @_ZNK10statistics7is_uintEj(ptr noundef nonnull
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 -4
   %7 = load i32, ptr %6, align 4, !tbaa !9
+  %8 = icmp ult i32 %1, %7
   br label %_ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit
 
 _ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit:      ; preds = %2, %5
-  %.0.i = phi i32 [ %7, %5 ], [ 0, %2 ]
-  %8 = icmp ult i32 %1, %.0.i
-  ret i1 %8
+  %.0.i = phi i1 [ %8, %5 ], [ false, %2 ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

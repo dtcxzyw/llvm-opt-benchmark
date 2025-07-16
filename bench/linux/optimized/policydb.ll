@@ -8349,9 +8349,9 @@ define internal noundef range(i32 -22, 1) i32 @filename_write_helper_compat(ptr 
   %27 = add i32 %26, %24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %29 = icmp ult i32 %27, %.pre
-  br i1 %29, label %30, label %.loopexit
+  %28 = icmp ult i32 %27, %.pre
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  br i1 %28, label %30, label %.loopexit
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -8444,13 +8444,13 @@ define internal noundef range(i32 -22, 1) i32 @filename_write_helper_compat(ptr 
   br label %91
 
 89:                                               ; preds = %.preheader
-  %90 = load i32, ptr %28, align 8
+  %90 = load i32, ptr %29, align 8
   br label %91
 
 91:                                               ; preds = %89, %84, %72
   %92 = phi ptr [ %34, %72 ], [ null, %89 ], [ %77, %84 ]
   %93 = phi i32 [ %75, %72 ], [ %90, %89 ], [ %88, %84 ]
-  %94 = load i32, ptr %28, align 8
+  %94 = load i32, ptr %29, align 8
   %95 = icmp ult i32 %93, %94
   br i1 %95, label %32, label %.loopexit, !llvm.loop !77
 

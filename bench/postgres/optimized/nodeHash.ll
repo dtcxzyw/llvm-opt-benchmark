@@ -1903,7 +1903,7 @@ define internal fastcc void @ExecHashIncreaseNumBatches(ptr noundef %0) unnamed_
   %8 = trunc nuw i8 %7 to i1
   %9 = icmp ult i32 %3, 67108864
   %or.cond81.not = select i1 %8, i1 %9, i1 false
-  br i1 %or.cond81.not, label %10, label %154
+  br i1 %or.cond81.not, label %10, label %155
 
 10:                                               ; preds = %1
   %11 = shl nuw nsw i32 %3, 1
@@ -2167,16 +2167,16 @@ dense_alloc.exit:                                 ; preds = %104, %116, %124
   br i1 %.not78, label %._crit_edge94, label %57, !llvm.loop !23
 
 ._crit_edge94:                                    ; preds = %._crit_edge
-  %152 = icmp eq i64 %.171.lcssa, 0
-  %153 = icmp eq i64 %.171.lcssa, %.1.lcssa
-  %or.cond = select i1 %152, i1 true, i1 %153
-  br i1 %or.cond, label %._crit_edge94.thread, label %154
+  %152 = icmp eq i64 %.171.lcssa, %.1.lcssa
+  %153 = icmp eq i64 %.171.lcssa, 0
+  %154 = select i1 %153, i1 true, i1 %152
+  br i1 %154, label %._crit_edge94.thread, label %155
 
 ._crit_edge94.thread:                             ; preds = %46, %._crit_edge94
   store i8 0, ptr %6, align 8
-  br label %154
+  br label %155
 
-154:                                              ; preds = %._crit_edge94.thread, %._crit_edge94, %1
+155:                                              ; preds = %._crit_edge94.thread, %._crit_edge94, %1
   ret void
 }
 

@@ -6435,15 +6435,14 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit48:        ; preds = %._ZN5Gluco3vecINS_3
 154:                                              ; preds = %97, %94
   %155 = load i32, ptr %35, align 8, !tbaa !99
   %156 = icmp slt i32 %36, %155
-  br i1 %156, label %.lr.ph73.preheader, label %.critedge40
+  br i1 %156, label %.lr.ph73.preheader, label %_ZN5Gluco3vecINS_3LitEE6shrinkEi.exit
 
 .lr.ph73.preheader:                               ; preds = %154
   %157 = sext i32 %36 to i64
   br label %.lr.ph73
 
-.critedge40:                                      ; preds = %.lr.ph73, %154
-  %.lcssa = phi i32 [ %155, %154 ], [ %165, %.lr.ph73 ]
-  %158 = icmp sgt i32 %.lcssa, %36
+.critedge40:                                      ; preds = %.lr.ph73
+  %158 = icmp sgt i32 %165, %36
   br i1 %158, label %.lr.ph.i, label %_ZN5Gluco3vecINS_3LitEE6shrinkEi.exit, !llvm.loop !194
 
 .lr.ph.i:                                         ; preds = %.critedge40
@@ -6473,8 +6472,8 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit48:        ; preds = %._ZN5Gluco3vecINS_3
   %.not38 = icmp slt i64 %indvars.iv.next, %170
   br i1 %.not38, label %80, label %.critedge42.loopexit, !llvm.loop !196
 
-_ZN5Gluco3vecINS_3LitEE6shrinkEi.exit:            ; preds = %.critedge42.loopexit, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit, %.lr.ph.i, %.critedge40
-  %171 = phi i1 [ false, %.lr.ph.i ], [ false, %.critedge40 ], [ true, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ], [ true, %.critedge42.loopexit ]
+_ZN5Gluco3vecINS_3LitEE6shrinkEi.exit:            ; preds = %.critedge42.loopexit, %154, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit, %.lr.ph.i, %.critedge40
+  %171 = phi i1 [ false, %.lr.ph.i ], [ false, %.critedge40 ], [ true, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ], [ false, %154 ], [ true, %.critedge42.loopexit ]
   ret i1 %171
 }
 

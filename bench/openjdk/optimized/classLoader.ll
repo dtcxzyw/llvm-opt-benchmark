@@ -3890,260 +3890,242 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit: ; preds = %25
 52:                                               ; preds = %.preheader.i
   %53 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv.i
   %54 = getelementptr inbounds i8, ptr %53, i64 -1
-  br label %_ZN11ClassLoader17skip_uri_protocolEPc.exit
+  br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph
 
 55:                                               ; preds = %46
   %56 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(6) @.str.43, i64 noundef 5) #22
   %57 = icmp eq i32 %56, 0
   %spec.select.idx.i = select i1 %57, i64 5, i64 0
   %spec.select.i = getelementptr inbounds nuw i8, ptr %26, i64 %spec.select.idx.i
-  br label %_ZN11ClassLoader17skip_uri_protocolEPc.exit
+  br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph
 
-_ZN11ClassLoader17skip_uri_protocolEPc.exit:      ; preds = %52, %55
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph: ; preds = %55, %52
   %.09.i = phi ptr [ %54, %52 ], [ %spec.select.i, %55 ]
   %58 = icmp eq ptr %41, null
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 41
-  br i1 %58, label %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us, label %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split
+  br i1 %58, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51
 
-_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us: ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit, %_ZL18string_starts_withPKcS0_.exit.thread.us
-  %61 = phi ptr [ %.pre75, %_ZL18string_starts_withPKcS0_.exit.thread.us ], [ %42, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZL18string_starts_withPKcS0_.exit.thread.us ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us, label %63
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph, %_ZL18string_starts_withPKcS0_.exit.thread.us
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %_ZL18string_starts_withPKcS0_.exit.thread.us ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph ]
+  %61 = phi ptr [ %89, %_ZL18string_starts_withPKcS0_.exit.thread.us ], [ %42, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph ]
+  %62 = load i32, ptr %61, align 8
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv75, %63
+  br i1 %64, label %65, label %.critedge
 
-63:                                               ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us
-  %64 = load i32, ptr %61, align 8
-  %65 = sext i32 %64 to i64
-  br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us
+65:                                               ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv75
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call noundef ptr @_ZNK20SharedClassPathEntry4nameEv(ptr noundef nonnull align 8 dereferenceable(40) %68) #21
+  %70 = tail call noundef zeroext i1 @_ZN2os10same_filesEPKcS1_(ptr noundef %69, ptr noundef %.09.i) #21
+  br i1 %70, label %71, label %.critedge68.us
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us: ; preds = %63, %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us
-  %66 = phi i64 [ %65, %63 ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us ]
-  %67 = icmp slt i64 %indvars.iv72, %66
-  br i1 %67, label %68, label %.split.us
+71:                                               ; preds = %65
+  %72 = tail call noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef %27) #21
+  %73 = load i16, ptr @_ZN14ClassLoaderExt28_app_class_paths_start_indexE, align 2
+  %74 = sext i16 %73 to i64
+  %.not49.us = icmp sge i64 %indvars.iv75, %74
+  %or.cond.not67.us = select i1 %72, i1 %.not49.us, i1 false
+  %75 = load i16, ptr @_ZN14ClassLoaderExt29_app_module_paths_start_indexE, align 2
+  %76 = sext i16 %75 to i64
+  %77 = icmp slt i64 %indvars.iv75, %76
+  %or.cond65.us = select i1 %or.cond.not67.us, i1 %77, i1 false
+  br i1 %or.cond65.us, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, label %78
 
-68:                                               ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv72
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call noundef ptr @_ZNK20SharedClassPathEntry4nameEv(ptr noundef nonnull align 8 dereferenceable(40) %71) #21
-  %73 = tail call noundef zeroext i1 @_ZN2os10same_filesEPKcS1_(ptr noundef %72, ptr noundef %.09.i) #21
-  br i1 %73, label %74, label %84
+78:                                               ; preds = %71
+  %cond.us = icmp eq i64 %indvars.iv75, 0
+  br i1 %cond.us, label %.thread57.us, label %79
 
-74:                                               ; preds = %68
-  %75 = tail call noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef %27) #21
-  %76 = load i16, ptr @_ZN14ClassLoaderExt28_app_class_paths_start_indexE, align 2
-  %77 = sext i16 %76 to i64
-  %.not49.us = icmp sge i64 %indvars.iv72, %77
-  %or.cond.not67.us = select i1 %75, i1 %.not49.us, i1 false
-  %78 = load i16, ptr @_ZN14ClassLoaderExt29_app_module_paths_start_indexE, align 2
-  %79 = sext i16 %78 to i64
-  %80 = icmp slt i64 %indvars.iv72, %79
-  %or.cond65.us = select i1 %or.cond.not67.us, i1 %80, i1 false
-  br i1 %or.cond65.us, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, label %81
+79:                                               ; preds = %78
+  %80 = icmp slt i64 %indvars.iv75, %74
+  br i1 %80, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit91, label %.critedge68.us
 
-81:                                               ; preds = %74
-  %cond.us = icmp eq i64 %indvars.iv72, 0
-  br i1 %cond.us, label %.thread57.us, label %82
+.critedge68.us:                                   ; preds = %79, %65
+  %81 = icmp eq i64 %indvars.iv75, 0
+  br i1 %81, label %.thread57.us, label %_ZL18string_starts_withPKcS0_.exit.thread.us
 
-82:                                               ; preds = %81
-  %83 = icmp slt i64 %indvars.iv72, %77
-  br i1 %83, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit89, label %84
+.thread57.us:                                     ; preds = %.critedge68.us, %78
+  %82 = load i8, ptr %60, align 1
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %84
 
-84:                                               ; preds = %82, %68
-  %85 = icmp eq i64 %indvars.iv72, 0
-  br i1 %85, label %.thread57.us, label %_ZL18string_starts_withPKcS0_.exit.thread.us
+84:                                               ; preds = %.thread57.us
+  %85 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #22
+  %86 = icmp ult i64 %85, 4
+  br i1 %86, label %_ZL18string_starts_withPKcS0_.exit.thread.us, label %_ZL18string_starts_withPKcS0_.exit.us
 
-.thread57.us:                                     ; preds = %84, %81
-  %86 = load i8, ptr %60, align 1
-  %87 = trunc i8 %86 to i1
-  br i1 %87, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %88
+_ZL18string_starts_withPKcS0_.exit.us:            ; preds = %84
+  %87 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.44, i64 noundef 4) #22
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %_ZL18string_starts_withPKcS0_.exit.thread.us
 
-88:                                               ; preds = %.thread57.us
-  %89 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #22
-  %90 = icmp ult i64 %89, 4
-  br i1 %90, label %_ZL18string_starts_withPKcS0_.exit.thread.us, label %_ZL18string_starts_withPKcS0_.exit.us
+_ZL18string_starts_withPKcS0_.exit.thread.us:     ; preds = %_ZL18string_starts_withPKcS0_.exit.us, %84, %.critedge68.us
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %89 = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %.critedge, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us, !llvm.loop !26
 
-_ZL18string_starts_withPKcS0_.exit.us:            ; preds = %88
-  %91 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.44, i64 noundef 4) #22
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %_ZL18string_starts_withPKcS0_.exit.thread.us
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph, %_ZL18string_starts_withPKcS0_.exit.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL18string_starts_withPKcS0_.exit.thread ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph ]
+  %91 = phi ptr [ %134, %_ZL18string_starts_withPKcS0_.exit.thread ], [ %42, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.lr.ph ]
+  %92 = load i32, ptr %91, align 8
+  %93 = sext i32 %92 to i64
+  %94 = icmp slt i64 %indvars.iv, %93
+  br i1 %94, label %95, label %.critedge
 
-_ZL18string_starts_withPKcS0_.exit.thread.us:     ; preds = %_ZL18string_starts_withPKcS0_.exit.us, %88, %84
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %.pre75 = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
-  br label %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us, !llvm.loop !26
+95:                                               ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
+  %98 = load ptr, ptr %97, align 8
+  %99 = tail call noundef ptr @_ZNK20SharedClassPathEntry4nameEv(ptr noundef nonnull align 8 dereferenceable(40) %98) #21
+  %100 = tail call noundef zeroext i1 @_ZN2os10same_filesEPKcS1_(ptr noundef %99, ptr noundef %.09.i) #21
+  br i1 %100, label %101, label %.critedge68
 
-_ZN11ClassLoader17skip_uri_protocolEPc.exit.split: ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit, %_ZL18string_starts_withPKcS0_.exit.thread
-  %93 = phi ptr [ %.pre, %_ZL18string_starts_withPKcS0_.exit.thread ], [ %42, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL18string_starts_withPKcS0_.exit.thread ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit ]
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51, label %95
+101:                                              ; preds = %95
+  %102 = load ptr, ptr %59, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %104 = load ptr, ptr %103, align 8
+  %.not.i = icmp eq ptr %104, null
+  br i1 %.not.i, label %105, label %115
 
-95:                                               ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split
-  %96 = load i32, ptr %93, align 8
-  %97 = sext i32 %96 to i64
-  br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51
+105:                                              ; preds = %101
+  %106 = tail call noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef %27) #21
+  %107 = load i16, ptr @_ZN14ClassLoaderExt28_app_class_paths_start_indexE, align 2
+  %108 = sext i16 %107 to i64
+  %.not49 = icmp sge i64 %indvars.iv, %108
+  %or.cond.not67 = select i1 %106, i1 %.not49, i1 false
+  %109 = load i16, ptr @_ZN14ClassLoaderExt29_app_module_paths_start_indexE, align 2
+  %110 = sext i16 %109 to i64
+  %111 = icmp slt i64 %indvars.iv, %110
+  %or.cond65 = select i1 %or.cond.not67, i1 %111, i1 false
+  br i1 %or.cond65, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit, label %112
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51: ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split, %95
-  %98 = phi i64 [ %97, %95 ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split ]
-  %99 = icmp slt i64 %indvars.iv, %98
-  br i1 %99, label %100, label %.split.us
-
-100:                                              ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51
-  %101 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call noundef ptr @_ZNK20SharedClassPathEntry4nameEv(ptr noundef nonnull align 8 dereferenceable(40) %103) #21
-  %105 = tail call noundef zeroext i1 @_ZN2os10same_filesEPKcS1_(ptr noundef %104, ptr noundef %.09.i) #21
-  br i1 %105, label %106, label %133
-
-106:                                              ; preds = %100
-  %107 = load ptr, ptr %59, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = load ptr, ptr %108, align 8
-  %.not.i = icmp eq ptr %109, null
-  br i1 %.not.i, label %110, label %120
-
-110:                                              ; preds = %106
-  %111 = tail call noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef %27) #21
-  %112 = load i16, ptr @_ZN14ClassLoaderExt28_app_class_paths_start_indexE, align 2
-  %113 = sext i16 %112 to i64
-  %.not49 = icmp sge i64 %indvars.iv, %113
-  %or.cond.not67 = select i1 %111, i1 %.not49, i1 false
-  %114 = load i16, ptr @_ZN14ClassLoaderExt29_app_module_paths_start_indexE, align 2
-  %115 = sext i16 %114 to i64
-  %116 = icmp slt i64 %indvars.iv, %115
-  %or.cond65 = select i1 %or.cond.not67, i1 %116, i1 false
-  br i1 %or.cond65, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit, label %117
-
-117:                                              ; preds = %110
+112:                                              ; preds = %105
   %cond = icmp eq i64 %indvars.iv, 0
-  br i1 %cond, label %.thread57, label %118
+  br i1 %cond, label %.thread57, label %113
 
-118:                                              ; preds = %117
-  %119 = icmp slt i64 %indvars.iv, %113
-  br i1 %119, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit85, label %133
+113:                                              ; preds = %112
+  %114 = icmp slt i64 %indvars.iv, %108
+  br i1 %114, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit87, label %.critedge68
 
-120:                                              ; preds = %106
-  %121 = icmp eq i64 %indvars.iv, 0
-  br i1 %121, label %.thread57, label %122
+115:                                              ; preds = %101
+  %116 = icmp eq i64 %indvars.iv, 0
+  br i1 %116, label %.thread57, label %117
 
-122:                                              ; preds = %120
-  %123 = load i16, ptr @_ZN14ClassLoaderExt29_app_module_paths_start_indexE, align 2
-  %124 = sext i16 %123 to i64
-  %.not = icmp slt i64 %indvars.iv, %124
-  br i1 %.not, label %133, label %125
+117:                                              ; preds = %115
+  %118 = load i16, ptr @_ZN14ClassLoaderExt29_app_module_paths_start_indexE, align 2
+  %119 = sext i16 %118 to i64
+  %.not = icmp slt i64 %indvars.iv, %119
+  br i1 %.not, label %.critedge68, label %120
 
-125:                                              ; preds = %122
-  %126 = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53, label %128
+120:                                              ; preds = %117
+  %121 = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %.critedge68, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
 
-128:                                              ; preds = %125
-  %129 = load i32, ptr %126, align 8
-  %130 = sext i32 %129 to i64
-  br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53: ; preds = %120
+  %123 = load i32, ptr %121, align 8
+  %124 = sext i32 %123 to i64
+  %125 = icmp slt i64 %indvars.iv, %124
+  br i1 %125, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit85, label %.critedge68
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53: ; preds = %125, %128
-  %131 = phi i64 [ %130, %128 ], [ 0, %125 ]
-  %132 = icmp slt i64 %indvars.iv, %131
-  br i1 %132, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83, label %133
+.critedge68:                                      ; preds = %120, %113, %117, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53, %95
+  %126 = icmp eq i64 %indvars.iv, 0
+  br i1 %126, label %.thread57, label %_ZL18string_starts_withPKcS0_.exit.thread
 
-133:                                              ; preds = %118, %122, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53, %100
-  %134 = icmp eq i64 %indvars.iv, 0
-  br i1 %134, label %.thread57, label %_ZL18string_starts_withPKcS0_.exit.thread
+.thread57:                                        ; preds = %115, %112, %.critedge68
+  %127 = load i8, ptr %60, align 1
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %129
 
-.thread57:                                        ; preds = %120, %117, %133
-  %135 = load i8, ptr %60, align 1
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %137
+129:                                              ; preds = %.thread57
+  %130 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #22
+  %131 = icmp ult i64 %130, 4
+  br i1 %131, label %_ZL18string_starts_withPKcS0_.exit.thread, label %_ZL18string_starts_withPKcS0_.exit
 
-137:                                              ; preds = %.thread57
-  %138 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %26) #22
-  %139 = icmp ult i64 %138, 4
-  br i1 %139, label %_ZL18string_starts_withPKcS0_.exit.thread, label %_ZL18string_starts_withPKcS0_.exit
+_ZL18string_starts_withPKcS0_.exit:               ; preds = %129
+  %132 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.44, i64 noundef 4) #22
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %_ZL18string_starts_withPKcS0_.exit.thread
 
-_ZL18string_starts_withPKcS0_.exit:               ; preds = %137
-  %140 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.44, i64 noundef 4) #22
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %_ZL18string_starts_withPKcS0_.exit.thread
-
-_ZL18string_starts_withPKcS0_.exit.thread:        ; preds = %137, %133, %_ZL18string_starts_withPKcS0_.exit
+_ZL18string_starts_withPKcS0_.exit.thread:        ; preds = %129, %.critedge68, %_ZL18string_starts_withPKcS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.pre = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
-  br label %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split, !llvm.loop !26
+  %134 = load ptr, ptr @_ZN11FileMapInfo18_shared_path_tableE, align 8
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %.critedge, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51, !llvm.loop !26
 
-.split.us:                                        ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us
-  %142 = load ptr, ptr %8, align 8
-  %143 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared17is_builtin_loaderEP15ClassLoaderData(ptr noundef %142) #21
-  br i1 %143, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %144
+.critedge:                                        ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51, %_ZL18string_starts_withPKcS0_.exit.thread, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us, %_ZL18string_starts_withPKcS0_.exit.thread.us
+  %136 = load ptr, ptr %8, align 8
+  %137 = tail call noundef zeroext i1 @_ZN22SystemDictionaryShared17is_builtin_loaderEP15ClassLoaderData(ptr noundef %136) #21
+  br i1 %137, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, label %138
 
-144:                                              ; preds = %.split.us
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 186
-  store i16 -9999, ptr %145, align 2
+138:                                              ; preds = %.critedge
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 186
+  store i16 -9999, ptr %139, align 2
   tail call void @_ZN22SystemDictionaryShared26set_shared_class_misc_infoEP13InstanceKlassP15ClassFileStream(ptr noundef nonnull %1, ptr noundef nonnull %2) #21
-  br label %162
+  br label %156
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit: ; preds = %74
-  %146 = trunc i64 %indvars.iv72 to i16
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit: ; preds = %71
+  %140 = trunc i64 %indvars.iv75 to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit89: ; preds = %82
-  %147 = trunc i64 %indvars.iv72 to i16
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit91: ; preds = %79
+  %141 = trunc i64 %indvars.iv75 to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit: ; preds = %110
-  %148 = trunc i64 %indvars.iv to i16
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit: ; preds = %105
+  %142 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
-  %149 = trunc i64 %indvars.iv to i16
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit85: ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
+  %143 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit85: ; preds = %118
-  %150 = trunc i64 %indvars.iv to i16
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit87: ; preds = %113
+  %144 = trunc i64 %indvars.iv to i16
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
-_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread: ; preds = %.thread57, %_ZL18string_starts_withPKcS0_.exit, %.thread57.us, %_ZL18string_starts_withPKcS0_.exit.us, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit85, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit89, %25, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit, %.split.us
-  %.1 = phi i16 [ -1, %.split.us ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ 0, %25 ], [ %146, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %147, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit89 ], [ %148, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit ], [ %149, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83 ], [ %150, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit85 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %.thread57.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %152 = load ptr, ptr %151, align 8
-  %153 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %152) #21
-  %154 = load ptr, ptr %151, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %156 = load i16, ptr %155, align 4
-  %157 = zext i16 %156 to i64
-  %158 = add nuw nsw i64 %157, 7
-  %159 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %158, i32 noundef 0) #21
-  %160 = tail call ptr @strncpy(ptr noundef %159, ptr noundef readonly %153, i64 noundef %157) #21
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 %157
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %161, ptr noundef nonnull align 1 dereferenceable(7) @_ZZN11ClassLoader24file_name_for_class_nameEPKciE12class_suffix, i64 noundef 7, i1 false) #21
+_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread: ; preds = %.thread57, %_ZL18string_starts_withPKcS0_.exit, %.thread57.us, %_ZL18string_starts_withPKcS0_.exit.us, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit85, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit87, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit91, %25, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit, %.critedge
+  %.1 = phi i16 [ -1, %.critedge ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ 0, %25 ], [ %140, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %141, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit91 ], [ %142, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit ], [ %143, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit85 ], [ %144, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit79.split.loop.exit87 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %.thread57.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %146 = load ptr, ptr %145, align 8
+  %147 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %146) #21
+  %148 = load ptr, ptr %145, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %150 = load i16, ptr %149, align 4
+  %151 = zext i16 %150 to i64
+  %152 = add nuw nsw i64 %151, 7
+  %153 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %152, i32 noundef 0) #21
+  %154 = tail call ptr @strncpy(ptr noundef %153, ptr noundef readonly %147, i64 noundef %151) #21
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 %151
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %155, ptr noundef nonnull align 1 dereferenceable(7) @_ZZN11ClassLoader24file_name_for_class_nameEPKciE12class_suffix, i64 noundef 7, i1 false) #21
   tail call void @_ZN14ClassLoaderExt13record_resultEsP13InstanceKlassb(i16 noundef signext %.1, ptr noundef nonnull %1, i1 noundef zeroext %3) #21
-  br label %162
+  br label %156
 
-162:                                              ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, %144
-  %163 = load ptr, ptr %31, align 8
-  %.not.i.i.i.i = icmp eq ptr %163, null
-  br i1 %.not.i.i.i.i, label %165, label %164
+156:                                              ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread, %138
+  %157 = load ptr, ptr %31, align 8
+  %.not.i.i.i.i = icmp eq ptr %157, null
+  br i1 %.not.i.i.i.i, label %159, label %158
 
-164:                                              ; preds = %162
+158:                                              ; preds = %156
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %29, i64 noundef %37) #21
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %31) #21
-  br label %165
+  br label %159
 
-165:                                              ; preds = %164, %162
-  %166 = load ptr, ptr %32, align 8
-  %.not8.i.i.i.i = icmp eq ptr %166, %33
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %167
+159:                                              ; preds = %158, %156
+  %160 = load ptr, ptr %32, align 8
+  %.not8.i.i.i.i = icmp eq ptr %160, %33
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %161
 
-167:                                              ; preds = %165
+161:                                              ; preds = %159
   store ptr %31, ptr %30, align 8
   store ptr %33, ptr %32, align 8
   store ptr %35, ptr %34, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %167, %165, %21, %.thread, %4
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %161, %159, %21, %.thread, %4
   ret void
 }
 

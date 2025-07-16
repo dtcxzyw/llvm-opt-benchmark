@@ -10440,8 +10440,8 @@ _ZNK5Ipopt6Vector3DotERKS0_.exit:                 ; preds = %20, %23
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !247
   %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.pre19 = load i32, ptr %.phi.trans.insert18, align 8, !tbaa !102
-  %.not.i = icmp eq i32 %.pre, %.pre19
-  br i1 %.not.i, label %._crit_edge.i, label %29
+  %29 = icmp eq i32 %.pre, %.pre19
+  br i1 %29, label %._crit_edge.i, label %30
 
 ._crit_edge.i:                                    ; preds = %_ZNK5Ipopt6Vector3DotERKS0_.exit.thread, %_ZNK5Ipopt6Vector3DotERKS0_.exit
   %.0.i23 = phi double [ %19, %_ZNK5Ipopt6Vector3DotERKS0_.exit.thread ], [ %28, %_ZNK5Ipopt6Vector3DotERKS0_.exit ]
@@ -10449,68 +10449,68 @@ _ZNK5Ipopt6Vector3DotERKS0_.exit:                 ; preds = %20, %23
   %.pre.i = load double, ptr %.phi.trans.insert.i, align 8, !tbaa !248
   br label %_ZNK5Ipopt6Vector4Nrm2Ev.exit
 
-29:                                               ; preds = %_ZNK5Ipopt6Vector3DotERKS0_.exit
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %32 = load ptr, ptr %1, align 8, !tbaa !8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %34 = load ptr, ptr %33, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(205) %1)
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store double %35, ptr %36, align 8, !tbaa !248
-  %37 = load i32, ptr %30, align 8, !tbaa !102
-  store i32 %37, ptr %31, align 8, !tbaa !247
+30:                                               ; preds = %_ZNK5Ipopt6Vector3DotERKS0_.exit
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %33 = load ptr, ptr %1, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %35 = load ptr, ptr %34, align 8
+  %36 = call noundef double %35(ptr noundef nonnull align 8 dereferenceable(205) %1)
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store double %36, ptr %37, align 8, !tbaa !248
+  %38 = load i32, ptr %31, align 8, !tbaa !102
+  store i32 %38, ptr %32, align 8, !tbaa !247
   br label %_ZNK5Ipopt6Vector4Nrm2Ev.exit
 
-_ZNK5Ipopt6Vector4Nrm2Ev.exit:                    ; preds = %._crit_edge.i, %29
-  %.0.i22 = phi double [ %.0.i23, %._crit_edge.i ], [ %28, %29 ]
-  %38 = phi double [ %.pre.i, %._crit_edge.i ], [ %35, %29 ]
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %40 = load i32, ptr %39, align 8, !tbaa !247
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %42 = load i32, ptr %41, align 8, !tbaa !102
-  %.not.i13 = icmp eq i32 %40, %42
-  br i1 %.not.i13, label %._crit_edge.i14, label %43
+_ZNK5Ipopt6Vector4Nrm2Ev.exit:                    ; preds = %._crit_edge.i, %30
+  %.0.i22 = phi double [ %.0.i23, %._crit_edge.i ], [ %28, %30 ]
+  %39 = phi double [ %.pre.i, %._crit_edge.i ], [ %36, %30 ]
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %41 = load i32, ptr %40, align 8, !tbaa !247
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %43 = load i32, ptr %42, align 8, !tbaa !102
+  %.not.i13 = icmp eq i32 %41, %43
+  br i1 %.not.i13, label %._crit_edge.i14, label %44
 
 ._crit_edge.i14:                                  ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit
   %.phi.trans.insert.i15 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.pre.i16 = load double, ptr %.phi.trans.insert.i15, align 8, !tbaa !248
   br label %_ZNK5Ipopt6Vector4Nrm2Ev.exit17
 
-43:                                               ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit
-  %44 = load ptr, ptr %2, align 8, !tbaa !8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %46 = load ptr, ptr %45, align 8
-  %47 = call noundef double %46(ptr noundef nonnull align 8 dereferenceable(205) %2)
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store double %47, ptr %48, align 8, !tbaa !248
-  %49 = load i32, ptr %41, align 8, !tbaa !102
-  store i32 %49, ptr %39, align 8, !tbaa !247
+44:                                               ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit
+  %45 = load ptr, ptr %2, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  %47 = load ptr, ptr %46, align 8
+  %48 = call noundef double %47(ptr noundef nonnull align 8 dereferenceable(205) %2)
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store double %48, ptr %49, align 8, !tbaa !248
+  %50 = load i32, ptr %42, align 8, !tbaa !102
+  store i32 %50, ptr %40, align 8, !tbaa !247
   br label %_ZNK5Ipopt6Vector4Nrm2Ev.exit17
 
-_ZNK5Ipopt6Vector4Nrm2Ev.exit17:                  ; preds = %._crit_edge.i14, %43
-  %50 = phi double [ %.pre.i16, %._crit_edge.i14 ], [ %47, %43 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !128
-  %53 = load ptr, ptr %52, align 8, !tbaa !8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  call void (ptr, i32, i32, ptr, ...) %55(ptr noundef nonnull align 8 dereferenceable(40) %52, i32 noundef 6, i32 noundef 9, ptr noundef nonnull @.str.59)
-  %56 = load ptr, ptr %51, align 8, !tbaa !128
-  %57 = load ptr, ptr %56, align 8, !tbaa !8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  call void (ptr, i32, i32, ptr, ...) %59(ptr noundef nonnull align 8 dereferenceable(40) %56, i32 noundef 6, i32 noundef 9, ptr noundef nonnull @.str.60, double noundef %.0.i22, double noundef %38, double noundef %50)
-  %60 = fmul double %38, 0x3E50000000000000
-  %61 = fmul double %60, %50
-  %62 = fcmp ole double %.0.i22, %61
-  %63 = load ptr, ptr %51, align 8, !tbaa !128
-  %64 = load ptr, ptr %63, align 8, !tbaa !8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %.str.61..str.62 = select i1 %62, ptr @.str.61, ptr @.str.62
-  call void (ptr, i32, i32, ptr, ...) %66(ptr noundef nonnull align 8 dereferenceable(40) %63, i32 noundef 6, i32 noundef 9, ptr noundef nonnull %.str.61..str.62)
-  ret i1 %62
+_ZNK5Ipopt6Vector4Nrm2Ev.exit17:                  ; preds = %._crit_edge.i14, %44
+  %51 = phi double [ %.pre.i16, %._crit_edge.i14 ], [ %48, %44 ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !128
+  %54 = load ptr, ptr %53, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  call void (ptr, i32, i32, ptr, ...) %56(ptr noundef nonnull align 8 dereferenceable(40) %53, i32 noundef 6, i32 noundef 9, ptr noundef nonnull @.str.59)
+  %57 = load ptr, ptr %52, align 8, !tbaa !128
+  %58 = load ptr, ptr %57, align 8, !tbaa !8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %60 = load ptr, ptr %59, align 8
+  call void (ptr, i32, i32, ptr, ...) %60(ptr noundef nonnull align 8 dereferenceable(40) %57, i32 noundef 6, i32 noundef 9, ptr noundef nonnull @.str.60, double noundef %.0.i22, double noundef %39, double noundef %51)
+  %61 = fmul double %39, 0x3E50000000000000
+  %62 = fmul double %61, %51
+  %63 = fcmp ole double %.0.i22, %62
+  %64 = load ptr, ptr %52, align 8, !tbaa !128
+  %65 = load ptr, ptr %64, align 8, !tbaa !8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %.str.61..str.62 = select i1 %63, ptr @.str.61, ptr @.str.62
+  call void (ptr, i32, i32, ptr, ...) %67(ptr noundef nonnull align 8 dereferenceable(40) %64, i32 noundef 6, i32 noundef 9, ptr noundef nonnull %.str.61..str.62)
+  ret i1 %63
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -21755,7 +21755,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   %7 = icmp eq ptr %6, %.sroa.2.0.copyload
   %8 = icmp eq ptr %6, %.sroa.3.0.copyload
   %or.cond.i.i.i.i.i = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond.i.i.i.i.i, label %"_ZSt6any_ofIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0EbT_SF_T0_.exit", label %.critedge2.i.i.i.i.i.i.i.preheader
+  br i1 %or.cond.i.i.i.i.i, label %"_ZSt7find_ifIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0ET_SF_SF_T0_.exit.loopexit.i.i", label %.critedge2.i.i.i.i.i.i.i.preheader
 
 .critedge2.i.i.i.i.i.i.i.preheader:               ; preds = %.lr.ph.i.i.i.i.i, %4
   br label %.critedge2.i.i.i.i.i.i.i
@@ -21784,12 +21784,16 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
 
 _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i: ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i, %.critedge2.i.i.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, %.8.val
-  br i1 %.not.i.i.i.i.i, label %"_ZSt6any_ofIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !1303
+  br i1 %.not.i.i.i.i.i, label %"_ZSt7find_ifIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0ET_SF_SF_T0_.exit.loopexit.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !1303
 
-"_ZSt6any_ofIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0EbT_SF_T0_.exit": ; preds = %4, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i, %1
-  %.sroa.03.0.lcssa.i.i.i.i.i = phi ptr [ %.0.val, %1 ], [ %.8.val, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i ], [ %.sroa.03.012.i.i.i.i.i, %4 ]
-  %15 = icmp ne ptr %.8.val, %.sroa.03.0.lcssa.i.i.i.i.i
-  ret i1 %15
+"_ZSt7find_ifIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0ET_SF_SF_T0_.exit.loopexit.i.i": ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i, %4
+  %.sroa.03.0.lcssa.i.i.i.ph.i.i = phi ptr [ %.sroa.03.012.i.i.i.i.i, %4 ], [ %.8.val, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i ]
+  %15 = icmp ne ptr %.8.val, %.sroa.03.0.lcssa.i.i.i.ph.i.i
+  br label %"_ZSt6any_ofIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0EbT_SF_T0_.exit"
+
+"_ZSt6any_ofIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0EbT_SF_T0_.exit": ; preds = %1, %"_ZSt7find_ifIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0ET_SF_SF_T0_.exit.loopexit.i.i"
+  %.sroa.03.0.lcssa.i.i.i.i.i = phi i1 [ false, %1 ], [ %15, %"_ZSt7find_ifIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEZN12_GLOBAL__N_118tryToSimplifyUADDOERNS0_12MachineInstrERNS0_16MachineIRBuilderERKNS0_14CombinerHelperERNS0_19GISelChangeObserverEE3$_0ET_SF_SF_T0_.exit.loopexit.i.i" ]
+  ret i1 %.sroa.03.0.lcssa.i.i.i.i.i
 }
 
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildICmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #7

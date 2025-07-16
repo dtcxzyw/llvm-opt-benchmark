@@ -167,19 +167,18 @@ define hidden noundef zeroext i1 @_ZN22SequentialSubTasksDone14try_claim_taskERj
   store i32 %4, ptr %1, align 4
   %5 = load i32, ptr %0, align 4
   %6 = icmp ult i32 %4, %5
-  br i1 %6, label %7, label %9
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #4, !srcloc !10
   store i32 %8, ptr %1, align 4
   %.pre = load i32, ptr %0, align 4
-  br label %9
+  %9 = icmp ult i32 %8, %.pre
+  br label %10
 
-9:                                                ; preds = %7, %2
-  %10 = phi i32 [ %.pre, %7 ], [ %5, %2 ]
-  %11 = phi i32 [ %8, %7 ], [ %4, %2 ]
-  %12 = icmp ult i32 %11, %10
-  ret i1 %12
+10:                                               ; preds = %7, %2
+  %11 = phi i1 [ %9, %7 ], [ false, %2 ]
+  ret i1 %11
 }
 
 declare void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #2

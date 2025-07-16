@@ -921,9 +921,9 @@ define dso_local void @_ZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesE
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104
   %.pre402 = load ptr, ptr %14, align 8, !tbaa !95
   %.pre403 = load ptr, ptr %53, align 8, !tbaa !95
-  %69 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %70 = icmp eq ptr %.pre402, %.pre403
-  br i1 %70, label %424, label %.noexc.i
+  %69 = icmp eq ptr %.pre402, %.pre403
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  br i1 %69, label %424, label %.noexc.i
 
 71:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104
   %.sroa.0324.0396 = phi ptr [ %35, %.lr.ph ], [ %320, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104 ]
@@ -1874,7 +1874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %_Z
   %.sroa.0.0.copyload.i124 = load i64, ptr @_ZN6cmList17element_separatorE, align 8, !tbaa !10, !noalias !130
   %.sroa.2.0.copyload.i125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6cmList17element_separatorE, i64 8), align 8, !tbaa !125, !noalias !130
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  %383 = load ptr, ptr %69, align 8, !tbaa !83, !noalias !136
+  %383 = load ptr, ptr %70, align 8, !tbaa !83, !noalias !136
   %384 = load ptr, ptr %14, align 8, !tbaa !82, !noalias !136
   %385 = icmp eq ptr %383, %384
   br i1 %385, label %386, label %389
@@ -1992,7 +1992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %_Z
   br label %636
 
 424:                                              ; preds = %._crit_edge.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135, %._crit_edge
-  %425 = phi ptr [ %37, %._crit_edge.thread ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %69, %._crit_edge ]
+  %425 = phi ptr [ %37, %._crit_edge.thread ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %70, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 256

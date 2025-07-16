@@ -1096,12 +1096,12 @@ arena_bind.exit89:                                ; preds = %arena_bind.exit, %4
   tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i88, i1 noundef zeroext true) #20
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.0.i.i88, ptr %42, align 8, !tbaa !50
-  br label %173
+  br label %171
 
 43:                                               ; preds = %2
   %44 = load i32, ptr @je_narenas_auto, align 4, !tbaa !4
   %45 = icmp ugt i32 %44, 1
-  br i1 %45, label %46, label %151
+  br i1 %45, label %46, label %149
 
 46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0169)
@@ -1152,7 +1152,7 @@ malloc_mutex_lock.exit:                           ; preds = %49, %53
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 169
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %64 = zext i1 %1 to i64
+  %64 = xor i1 %1, true
   br label %90
 
 .lr.ph:                                           ; preds = %malloc_mutex_lock.exit, %.loopexit139
@@ -1229,7 +1229,7 @@ arena_get.exit92.thread:                          ; preds = %.lr.ph
   %91 = phi i1 [ false, %.preheader ], [ true, %arena_bind.exit114 ]
   %indvars.iv154.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.5, %arena_bind.exit114 ]
   %indvars.iv154.sroa.phi165 = phi ptr [ %.sroa.0169, %.preheader ], [ %.sroa.6, %arena_bind.exit114 ]
-  %indvars.iv154 = phi i64 [ 0, %.preheader ], [ 1, %arena_bind.exit114 ]
+  %indvars.iv154 = phi i1 [ %64, %.preheader ], [ %1, %arena_bind.exit114 ]
   %.073145 = phi ptr [ null, %.preheader ], [ %.174, %arena_bind.exit114 ]
   %92 = load i32, ptr %indvars.iv154.sroa.phi165, align 4, !tbaa !4
   %93 = zext i32 %92 to i64
@@ -1249,133 +1249,131 @@ arena_get.exit101:                                ; preds = %90, %97
   %100 = load i32, ptr @je_narenas_auto, align 4
   %101 = icmp eq i32 %.064.lcssa, %100
   %or.cond = select i1 %99, i1 true, i1 %101
-  br i1 %or.cond, label %102, label %111
+  br i1 %or.cond, label %102, label %110
 
 102:                                              ; preds = %arena_get.exit101
-  %103 = icmp eq i64 %indvars.iv154, %64
-  br i1 %103, label %104, label %arena_get.exit104
+  br i1 %indvars.iv154, label %103, label %arena_get.exit104
 
-104:                                              ; preds = %102
-  %105 = load i32, ptr %indvars.iv154.sroa.phi165, align 4, !tbaa !4
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %106
-  %108 = load atomic i64, ptr %107 acquire, align 8
-  %.0.i.i102 = inttoptr i64 %108 to ptr
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %110, label %arena_get.exit104, !prof !8
+103:                                              ; preds = %102
+  %104 = load i32, ptr %indvars.iv154.sroa.phi165, align 4, !tbaa !4
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %105
+  %107 = load atomic i64, ptr %106 acquire, align 8
+  %.0.i.i102 = inttoptr i64 %107 to ptr
+  %108 = icmp eq i64 %107, 0
+  br i1 %108, label %109, label %arena_get.exit104, !prof !8
 
-110:                                              ; preds = %104
+109:                                              ; preds = %103
   br label %arena_get.exit104
 
-111:                                              ; preds = %arena_get.exit101
+110:                                              ; preds = %arena_get.exit101
   store i32 %.064.lcssa, ptr %indvars.iv154.sroa.phi165, align 4, !tbaa !4
-  br i1 %58, label %.thread, label %112
+  br i1 %58, label %.thread, label %111
 
-112:                                              ; preds = %111
-  %113 = load atomic i32, ptr @narenas_total acquire, align 4
-  %114 = icmp eq i32 %.064.lcssa, %113
-  br i1 %114, label %115, label %117
+111:                                              ; preds = %110
+  %112 = load atomic i32, ptr @narenas_total acquire, align 4
+  %113 = icmp eq i32 %.064.lcssa, %112
+  br i1 %113, label %114, label %116
 
-115:                                              ; preds = %112
-  %116 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
-  br label %117
+114:                                              ; preds = %111
+  %115 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  br label %116
 
-117:                                              ; preds = %115, %112
-  %118 = load atomic i64, ptr %60 acquire, align 8
-  %.0.i.i.i105 = inttoptr i64 %118 to ptr
-  %.not.i106 = icmp eq i64 %118, 0
+116:                                              ; preds = %114, %111
+  %117 = load atomic i64, ptr %60 acquire, align 8
+  %.0.i.i.i105 = inttoptr i64 %117 to ptr
+  %.not.i106 = icmp eq i64 %117, 0
   br i1 %.not.i106, label %arena_get.exit.thread.i, label %arena_init_locked.exit, !prof !105
 
-arena_get.exit.thread.i:                          ; preds = %117
-  %119 = tail call ptr @je_arena_new(ptr noundef %0, i32 noundef %.064.lcssa, ptr noundef nonnull @je_arena_config_default) #20
+arena_get.exit.thread.i:                          ; preds = %116
+  %118 = tail call ptr @je_arena_new(ptr noundef %0, i32 noundef %.064.lcssa, ptr noundef nonnull @je_arena_config_default) #20
   br label %arena_init_locked.exit
 
-arena_init_locked.exit:                           ; preds = %117, %arena_get.exit.thread.i
-  %.0.i107 = phi ptr [ %119, %arena_get.exit.thread.i ], [ %.0.i.i.i105, %117 ]
+arena_init_locked.exit:                           ; preds = %116, %arena_get.exit.thread.i
+  %.0.i107 = phi ptr [ %118, %arena_get.exit.thread.i ], [ %.0.i.i.i105, %116 ]
   %.not = icmp eq ptr %.0.i107, null
-  br i1 %.not, label %.thread, label %121
+  br i1 %.not, label %.thread, label %120
 
-.thread:                                          ; preds = %arena_init_locked.exit, %111
+.thread:                                          ; preds = %arena_init_locked.exit, %110
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 64) monotonic, align 8
-  %120 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
+  %119 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
   br label %.loopexit
 
-121:                                              ; preds = %arena_init_locked.exit
+120:                                              ; preds = %arena_init_locked.exit
   store i8 1, ptr %indvars.iv154.sroa.phi, align 1, !tbaa !108
-  %122 = icmp eq i64 %indvars.iv154, %64
-  %spec.select81 = select i1 %122, ptr %.0.i107, ptr %.073145
+  %spec.select81 = select i1 %indvars.iv154, ptr %.0.i107, ptr %.073145
   br label %arena_get.exit104
 
-arena_get.exit104:                                ; preds = %121, %110, %104, %102
-  %.174 = phi ptr [ %.073145, %102 ], [ %spec.select81, %121 ], [ null, %110 ], [ %.0.i.i102, %104 ]
-  %123 = load i32, ptr %indvars.iv154.sroa.phi165, align 4, !tbaa !4
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %124
-  %126 = load atomic i64, ptr %125 acquire, align 8
-  %.0.i.i.i108 = inttoptr i64 %126 to ptr
-  %127 = icmp eq i64 %126, 0
-  br i1 %127, label %128, label %arena_get.exit.i109, !prof !8
+arena_get.exit104:                                ; preds = %120, %109, %103, %102
+  %.174 = phi ptr [ %.073145, %102 ], [ %spec.select81, %120 ], [ null, %109 ], [ %.0.i.i102, %103 ]
+  %121 = load i32, ptr %indvars.iv154.sroa.phi165, align 4, !tbaa !4
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %122
+  %124 = load atomic i64, ptr %123 acquire, align 8
+  %.0.i.i.i108 = inttoptr i64 %124 to ptr
+  %125 = icmp eq i64 %124, 0
+  br i1 %125, label %126, label %arena_get.exit.i109, !prof !8
 
-128:                                              ; preds = %arena_get.exit104
+126:                                              ; preds = %arena_get.exit104
   br label %arena_get.exit.i109
 
-arena_get.exit.i109:                              ; preds = %128, %arena_get.exit104
-  %.0.i.i110 = phi ptr [ null, %128 ], [ %.0.i.i.i108, %arena_get.exit104 ]
+arena_get.exit.i109:                              ; preds = %126, %arena_get.exit104
+  %.0.i.i110 = phi ptr [ null, %126 ], [ %.0.i.i.i108, %arena_get.exit104 ]
   tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i110, i1 noundef zeroext %91) #20
-  br i1 %91, label %139, label %129
+  br i1 %91, label %137, label %127
 
-129:                                              ; preds = %arena_get.exit.i109
+127:                                              ; preds = %arena_get.exit.i109
   store ptr %.0.i.i110, ptr %61, align 8, !tbaa !50
-  %130 = getelementptr inbounds nuw i8, ptr %.0.i.i110, i64 8
-  %131 = atomicrmw add ptr %130, i32 1 monotonic, align 4
-  %132 = and i32 %131, 255
-  br label %133
+  %128 = getelementptr inbounds nuw i8, ptr %.0.i.i110, i64 8
+  %129 = atomicrmw add ptr %128, i32 1 monotonic, align 4
+  %130 = and i32 %129, 255
+  br label %131
 
-133:                                              ; preds = %133, %129
-  %indvars.iv.i111 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i112, %133 ]
-  %134 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv.i111, i32 3
-  %135 = load i32, ptr %134, align 4, !tbaa !101
-  %136 = urem i32 %132, %135
-  %137 = trunc nuw i32 %136 to i8
-  %138 = getelementptr inbounds nuw [36 x i8], ptr %62, i64 0, i64 %indvars.iv.i111
-  store i8 %137, ptr %138, align 1, !tbaa !11
+131:                                              ; preds = %131, %127
+  %indvars.iv.i111 = phi i64 [ 0, %127 ], [ %indvars.iv.next.i112, %131 ]
+  %132 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv.i111, i32 3
+  %133 = load i32, ptr %132, align 4, !tbaa !101
+  %134 = urem i32 %130, %133
+  %135 = trunc nuw i32 %134 to i8
+  %136 = getelementptr inbounds nuw [36 x i8], ptr %62, i64 0, i64 %indvars.iv.i111
+  store i8 %135, ptr %136, align 1, !tbaa !11
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, 36
-  br i1 %exitcond.not.i113, label %arena_bind.exit114, label %133, !llvm.loop !104
+  br i1 %exitcond.not.i113, label %arena_bind.exit114, label %131, !llvm.loop !104
 
-arena_bind.exit114:                               ; preds = %133
+arena_bind.exit114:                               ; preds = %131
   br label %90, !llvm.loop !109
 
-139:                                              ; preds = %arena_get.exit.i109
+137:                                              ; preds = %arena_get.exit.i109
   store ptr %.0.i.i110, ptr %63, align 8, !tbaa !50
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 64) monotonic, align 8
-  %140 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
-  br label %141
+  %138 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arenas_lock, i64 72)) #20
+  br label %139
 
-141:                                              ; preds = %139, %arena_new_create_background_thread.exit
-  %142 = phi i1 [ true, %139 ], [ false, %arena_new_create_background_thread.exit ]
-  %indvars.iv157.sroa.phi = phi ptr [ %.sroa.0, %139 ], [ %.sroa.5, %arena_new_create_background_thread.exit ]
-  %indvars.iv157.sroa.phi167 = phi ptr [ %.sroa.0169, %139 ], [ %.sroa.6, %arena_new_create_background_thread.exit ]
-  %143 = load i8, ptr %indvars.iv157.sroa.phi, align 1, !tbaa !108, !range !110, !noundef !111
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %145, label %arena_new_create_background_thread.exit
+139:                                              ; preds = %137, %arena_new_create_background_thread.exit
+  %140 = phi i1 [ true, %137 ], [ false, %arena_new_create_background_thread.exit ]
+  %indvars.iv157.sroa.phi = phi ptr [ %.sroa.0, %137 ], [ %.sroa.5, %arena_new_create_background_thread.exit ]
+  %indvars.iv157.sroa.phi167 = phi ptr [ %.sroa.0169, %137 ], [ %.sroa.6, %arena_new_create_background_thread.exit ]
+  %141 = load i8, ptr %indvars.iv157.sroa.phi, align 1, !tbaa !108, !range !110, !noundef !111
+  %142 = trunc nuw i8 %141 to i1
+  br i1 %142, label %143, label %arena_new_create_background_thread.exit
 
-145:                                              ; preds = %141
-  %146 = load i32, ptr %indvars.iv157.sroa.phi167, align 4, !tbaa !4
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %arena_new_create_background_thread.exit, label %148
+143:                                              ; preds = %139
+  %144 = load i32, ptr %indvars.iv157.sroa.phi167, align 4, !tbaa !4
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %arena_new_create_background_thread.exit, label %146
 
-148:                                              ; preds = %145
-  %149 = tail call zeroext i1 @je_background_thread_create(ptr noundef %0, i32 noundef %146) #20
-  br i1 %149, label %150, label %arena_new_create_background_thread.exit
+146:                                              ; preds = %143
+  %147 = tail call zeroext i1 @je_background_thread_create(ptr noundef %0, i32 noundef %144) #20
+  br i1 %147, label %148, label %arena_new_create_background_thread.exit
 
-150:                                              ; preds = %148
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.181, i32 noundef %146) #20
+148:                                              ; preds = %146
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.181, i32 noundef %144) #20
   tail call void @abort() #22
   unreachable
 
-arena_new_create_background_thread.exit:          ; preds = %148, %145, %141
-  br i1 %142, label %141, label %.loopexit, !llvm.loop !112
+arena_new_create_background_thread.exit:          ; preds = %146, %143, %139
+  br i1 %140, label %139, label %.loopexit, !llvm.loop !112
 
 .loopexit:                                        ; preds = %arena_new_create_background_thread.exit, %.thread
   %spec.select82 = phi ptr [ null, %.thread ], [ %.174, %arena_new_create_background_thread.exit ]
@@ -1383,67 +1381,67 @@ arena_new_create_background_thread.exit:          ; preds = %148, %145, %141
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0169)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
-  br label %173
+  br label %171
 
-151:                                              ; preds = %43
-  %152 = load atomic i64, ptr @je_arenas acquire, align 64
-  %.0.i.i115 = inttoptr i64 %152 to ptr
-  %153 = icmp eq i64 %152, 0
-  br i1 %153, label %154, label %arena_get.exit117, !prof !8
+149:                                              ; preds = %43
+  %150 = load atomic i64, ptr @je_arenas acquire, align 64
+  %.0.i.i115 = inttoptr i64 %150 to ptr
+  %151 = icmp eq i64 %150, 0
+  br i1 %151, label %152, label %arena_get.exit117, !prof !8
 
-154:                                              ; preds = %151
+152:                                              ; preds = %149
   br label %arena_get.exit117
 
-arena_get.exit117:                                ; preds = %151, %154
-  %.0.i116 = phi ptr [ null, %154 ], [ %.0.i.i115, %151 ]
-  %155 = load atomic i64, ptr @je_arenas acquire, align 64
-  %.0.i.i.i118 = inttoptr i64 %155 to ptr
-  %156 = icmp eq i64 %155, 0
-  br i1 %156, label %157, label %arena_get.exit.i119, !prof !8
+arena_get.exit117:                                ; preds = %149, %152
+  %.0.i116 = phi ptr [ null, %152 ], [ %.0.i.i115, %149 ]
+  %153 = load atomic i64, ptr @je_arenas acquire, align 64
+  %.0.i.i.i118 = inttoptr i64 %153 to ptr
+  %154 = icmp eq i64 %153, 0
+  br i1 %154, label %155, label %arena_get.exit.i119, !prof !8
 
-157:                                              ; preds = %arena_get.exit117
+155:                                              ; preds = %arena_get.exit117
   br label %arena_get.exit.i119
 
-arena_get.exit.i119:                              ; preds = %157, %arena_get.exit117
-  %.0.i.i120 = phi ptr [ null, %157 ], [ %.0.i.i.i118, %arena_get.exit117 ]
+arena_get.exit.i119:                              ; preds = %155, %arena_get.exit117
+  %.0.i.i120 = phi ptr [ null, %155 ], [ %.0.i.i.i118, %arena_get.exit117 ]
   tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i120, i1 noundef zeroext false) #20
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %.0.i.i120, ptr %158, align 8, !tbaa !50
-  %159 = getelementptr inbounds nuw i8, ptr %.0.i.i120, i64 8
-  %160 = atomicrmw add ptr %159, i32 1 monotonic, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  %162 = and i32 %160, 255
-  br label %163
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %.0.i.i120, ptr %156, align 8, !tbaa !50
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i.i120, i64 8
+  %158 = atomicrmw add ptr %157, i32 1 monotonic, align 4
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 169
+  %160 = and i32 %158, 255
+  br label %161
 
-163:                                              ; preds = %163, %arena_get.exit.i119
-  %indvars.iv.i121 = phi i64 [ 0, %arena_get.exit.i119 ], [ %indvars.iv.next.i122, %163 ]
-  %164 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv.i121, i32 3
-  %165 = load i32, ptr %164, align 4, !tbaa !101
-  %166 = urem i32 %162, %165
-  %167 = trunc nuw i32 %166 to i8
-  %168 = getelementptr inbounds nuw [36 x i8], ptr %161, i64 0, i64 %indvars.iv.i121
-  store i8 %167, ptr %168, align 1, !tbaa !11
+161:                                              ; preds = %161, %arena_get.exit.i119
+  %indvars.iv.i121 = phi i64 [ 0, %arena_get.exit.i119 ], [ %indvars.iv.next.i122, %161 ]
+  %162 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv.i121, i32 3
+  %163 = load i32, ptr %162, align 4, !tbaa !101
+  %164 = urem i32 %160, %163
+  %165 = trunc nuw i32 %164 to i8
+  %166 = getelementptr inbounds nuw [36 x i8], ptr %159, i64 0, i64 %indvars.iv.i121
+  store i8 %165, ptr %166, align 1, !tbaa !11
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i121, 1
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, 36
-  br i1 %exitcond.not.i123, label %arena_bind.exit124, label %163, !llvm.loop !104
+  br i1 %exitcond.not.i123, label %arena_bind.exit124, label %161, !llvm.loop !104
 
-arena_bind.exit124:                               ; preds = %163
-  %169 = load atomic i64, ptr @je_arenas acquire, align 64
-  %.0.i.i.i125 = inttoptr i64 %169 to ptr
-  %170 = icmp eq i64 %169, 0
-  br i1 %170, label %171, label %arena_bind.exit128, !prof !8
+arena_bind.exit124:                               ; preds = %161
+  %167 = load atomic i64, ptr @je_arenas acquire, align 64
+  %.0.i.i.i125 = inttoptr i64 %167 to ptr
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %169, label %arena_bind.exit128, !prof !8
 
-171:                                              ; preds = %arena_bind.exit124
+169:                                              ; preds = %arena_bind.exit124
   br label %arena_bind.exit128
 
-arena_bind.exit128:                               ; preds = %arena_bind.exit124, %171
-  %.0.i.i127 = phi ptr [ null, %171 ], [ %.0.i.i.i125, %arena_bind.exit124 ]
+arena_bind.exit128:                               ; preds = %arena_bind.exit124, %169
+  %.0.i.i127 = phi ptr [ null, %169 ], [ %.0.i.i.i125, %arena_bind.exit124 ]
   tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i127, i1 noundef zeroext true) #20
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %.0.i.i127, ptr %172, align 8, !tbaa !50
-  br label %173
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %.0.i.i127, ptr %170, align 8, !tbaa !50
+  br label %171
 
-173:                                              ; preds = %.loopexit, %arena_bind.exit128, %arena_bind.exit89
+171:                                              ; preds = %.loopexit, %arena_bind.exit128, %arena_bind.exit89
   %.0 = phi ptr [ %.0.i84, %arena_bind.exit89 ], [ %.0.i116, %arena_bind.exit128 ], [ %spec.select82, %.loopexit ]
   ret ptr %.0
 }

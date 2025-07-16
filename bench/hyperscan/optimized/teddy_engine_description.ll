@@ -274,26 +274,26 @@ _ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit: ; preds = 
 
 ._crit_edge:                                      ; preds = %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread
   %.not = icmp eq ptr %.143, null
-  br i1 %.not, label %._crit_edge.thread, label %111
+  br i1 %.not, label %._crit_edge.thread, label %112
 
 49:                                               ; preds = %29, %9
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %125
 
 51:                                               ; preds = %_ZN3ue220getTeddyDescriptionsEPSt6vectorINS_22TeddyEngineDescriptionESaIS1_EE.exit
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %125
 
 .lr.ph:                                           ; preds = %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread
-  %53 = phi ptr [ %105, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ %48, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
-  %.03468 = phi i64 [ %103, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ 0, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %53 = phi ptr [ %106, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ %48, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %.03468 = phi i64 [ %104, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ 0, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   %.03567 = phi i32 [ %.136, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ 0, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   %.04266 = phi ptr [ %.143, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ null, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   %54 = getelementptr inbounds nuw %"class.ue2::TeddyEngineDescription", ptr %53, i64 %.03468
   %55 = invoke noundef zeroext i1 @_ZNK3ue217EngineDescription15isValidOnTargetERKNS_8target_tE(ptr noundef nonnull align 8 dereferenceable(41) %54, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %.noexc58 unwind label %87
+          to label %.noexc58 unwind label %88
 
 .noexc58:                                         ; preds = %.lr.ph
   br i1 %55, label %56, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread
@@ -329,104 +329,104 @@ _ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit: ; preds = 
 78:                                               ; preds = %73
   %79 = icmp samesign ult i64 %65, 41
   %.not31.i = icmp eq ptr %61, %60
-  %or.cond36.i = or i1 %.not31.i, %79
-  br i1 %or.cond36.i, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit, label %.lr.ph.i55
+  %or.cond35.i = or i1 %.not31.i, %79
+  br i1 %or.cond35.i, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit, label %.lr.ph.i55
 
 ._crit_edge.i57:                                  ; preds = %.lr.ph.i55
   %80 = mul i32 %spec.select.i, 5
   %81 = zext i32 %80 to i64
-  %.not30.i = icmp samesign ult i64 %65, %81
-  br i1 %.not30.i, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit
+  %82 = icmp samesign ult i64 %65, %81
+  br i1 %82, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit
 
 .lr.ph.i55:                                       ; preds = %78, %.lr.ph.i55
   %.02033.i = phi i32 [ %spec.select.i, %.lr.ph.i55 ], [ 0, %78 ]
-  %.sroa.024.032.i = phi ptr [ %86, %.lr.ph.i55 ], [ %61, %78 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.024.032.i, i64 8
-  %83 = load i64, ptr %82, align 8
-  %84 = icmp ult i64 %83, %76
-  %85 = zext i1 %84 to i32
-  %spec.select.i = add i32 %.02033.i, %85
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.024.032.i, i64 104
-  %.not.i56 = icmp eq ptr %86, %60
+  %.sroa.024.032.i = phi ptr [ %87, %.lr.ph.i55 ], [ %61, %78 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.024.032.i, i64 8
+  %84 = load i64, ptr %83, align 8
+  %85 = icmp ult i64 %84, %76
+  %86 = zext i1 %85 to i32
+  %spec.select.i = add i32 %.02033.i, %86
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.024.032.i, i64 104
+  %.not.i56 = icmp eq ptr %87, %60
   br i1 %.not.i56, label %._crit_edge.i57, label %.lr.ph.i55
 
-87:                                               ; preds = %.lr.ph
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %.lr.ph
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %125
 
 _ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit: ; preds = %._crit_edge.i57, %78
   %spec.select = select i1 %69, i32 0, i32 100
-  %89 = shl i32 %58, 2
-  %90 = zext i32 %89 to i64
-  %91 = icmp samesign ugt i64 %65, %90
-  %92 = shl i32 %75, 2
-  %spec.select81 = select i1 %91, i32 %92, i32 100
+  %90 = shl i32 %58, 2
+  %91 = zext i32 %90 to i64
+  %92 = icmp samesign ugt i64 %65, %91
+  %93 = shl i32 %75, 2
+  %spec.select81 = select i1 %92, i32 %93, i32 100
   %.1 = add i32 %spec.select81, %spec.select
-  %93 = icmp ult i64 %.0.lcssa.i, %76
-  %94 = add i32 %.1, 50
-  %spec.select51 = select i1 %93, i32 %94, i32 %.1
-  %95 = sub nsw i32 3, %75
-  %96 = call i32 @llvm.abs.i32(i32 %95, i1 true)
-  %97 = add nuw nsw i32 %96, 1
-  %98 = udiv i32 6, %97
-  %99 = udiv i32 16, %58
-  %100 = add nuw nsw i32 %99, %98
-  %101 = add i32 %100, %spec.select51
+  %94 = icmp ult i64 %.0.lcssa.i, %76
+  %95 = add i32 %.1, 50
+  %spec.select51 = select i1 %94, i32 %95, i32 %.1
+  %96 = sub nsw i32 3, %75
+  %97 = call i32 @llvm.abs.i32(i32 %96, i1 true)
+  %98 = add nuw nsw i32 %97, 1
+  %99 = udiv i32 6, %98
+  %100 = udiv i32 16, %58
+  %101 = add nuw nsw i32 %100, %99
+  %102 = add i32 %101, %spec.select51
   %.not50 = icmp eq ptr %.04266, null
-  %102 = icmp ugt i32 %101, %.03567
-  %or.cond = select i1 %.not50, i1 true, i1 %102
+  %103 = icmp ugt i32 %102, %.03567
+  %or.cond = select i1 %.not50, i1 true, i1 %103
   %.244 = select i1 %or.cond, ptr %54, ptr %.04266
-  %.237 = select i1 %or.cond, i32 %101, i32 %.03567
+  %.237 = select i1 %or.cond, i32 %102, i32 %.03567
   br label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread
 
 _ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread: ; preds = %73, %56, %.noexc58, %._crit_edge.i57, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit
   %.143 = phi ptr [ %.244, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit ], [ %.04266, %._crit_edge.i57 ], [ %.04266, %.noexc58 ], [ %.04266, %56 ], [ %.04266, %73 ]
   %.136 = phi i32 [ %.237, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit ], [ %.03567, %._crit_edge.i57 ], [ %.03567, %.noexc58 ], [ %.03567, %56 ], [ %.03567, %73 ]
-  %103 = add nuw i64 %.03468, 1
-  %104 = load ptr, ptr %4, align 8
-  %105 = load ptr, ptr %3, align 8
-  %106 = ptrtoint ptr %104 to i64
+  %104 = add nuw i64 %.03468, 1
+  %105 = load ptr, ptr %4, align 8
+  %106 = load ptr, ptr %3, align 8
   %107 = ptrtoint ptr %105 to i64
-  %108 = sub i64 %106, %107
-  %109 = sdiv exact i64 %108, 48
-  %110 = icmp ult i64 %103, %109
-  br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %108 = ptrtoint ptr %106 to i64
+  %109 = sub i64 %107, %108
+  %110 = sdiv exact i64 %109, 48
+  %111 = icmp ult i64 %104, %110
+  br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-111:                                              ; preds = %._crit_edge
-  %112 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
-          to label %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit unwind label %117
+112:                                              ; preds = %._crit_edge
+  %113 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
+          to label %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit unwind label %118
 
-_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit: ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr %.143, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %113, ptr noundef nonnull align 8 dereferenceable(28) %114, i64 28, i1 false), !noalias !11
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i64 16), ptr %112, align 8, !noalias !11
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 36
-  %116 = getelementptr inbounds nuw i8, ptr %.143, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %115, ptr noundef nonnull align 4 dereferenceable(5) %116, i64 5, i1 false), !noalias !11
+_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit: ; preds = %112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.143, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %114, ptr noundef nonnull align 8 dereferenceable(28) %115, i64 28, i1 false), !noalias !11
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ue222TeddyEngineDescriptionE, i64 16), ptr %113, align 8, !noalias !11
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 36
+  %117 = getelementptr inbounds nuw i8, ptr %.143, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %116, ptr noundef nonnull align 4 dereferenceable(5) %117, i64 5, i1 false), !noalias !11
   br label %._crit_edge.thread
 
-117:                                              ; preds = %111
-  %118 = landingpad { ptr, i32 }
+118:                                              ; preds = %112
+  %119 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %125
 
 ._crit_edge.thread:                               ; preds = %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit, %._crit_edge, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit
-  %.lcssa79 = phi ptr [ %105, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %105, %._crit_edge ], [ %48, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
-  %.lcssa6378 = phi ptr [ %104, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %104, %._crit_edge ], [ %47, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
-  %storemerge = phi ptr [ %112, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ null, %._crit_edge ], [ null, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %.lcssa79 = phi ptr [ %106, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %106, %._crit_edge ], [ %48, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %.lcssa6378 = phi ptr [ %105, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %105, %._crit_edge ], [ %47, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %storemerge = phi ptr [ %113, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ null, %._crit_edge ], [ null, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   store ptr %storemerge, ptr %0, align 8
   %.not4.i.i.i.i = icmp eq ptr %.lcssa79, %.lcssa6378
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i.i ], [ %.lcssa79, %._crit_edge.thread ]
-  %119 = load ptr, ptr %.05.i.i.i.i, align 8
-  %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(41) %.05.i.i.i.i) #17
-  %121 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
-  %.not.i.i.i.i = icmp eq ptr %121, %.lcssa6378
+  %.05.i.i.i.i = phi ptr [ %122, %.lr.ph.i.i.i.i ], [ %.lcssa79, %._crit_edge.thread ]
+  %120 = load ptr, ptr %.05.i.i.i.i, align 8
+  %121 = load ptr, ptr %120, align 8
+  call void %121(ptr noundef nonnull align 8 dereferenceable(41) %.05.i.i.i.i) #17
+  %122 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
+  %.not.i.i.i.i = icmp eq ptr %122, %.lcssa6378
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
@@ -434,20 +434,20 @@ _ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-s
   br label %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %._crit_edge.thread
-  %122 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.lcssa79, %._crit_edge.thread ]
-  %.not.i.i.i60 = icmp eq ptr %122, null
-  br i1 %.not.i.i.i60, label %_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit, label %123
+  %123 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.lcssa79, %._crit_edge.thread ]
+  %.not.i.i.i60 = icmp eq ptr %123, null
+  br i1 %.not.i.i.i60, label %_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit, label %124
 
-123:                                              ; preds = %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %122) #19
+124:                                              ; preds = %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %123) #19
   br label %_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i, %123
+_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i, %124
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   ret void
 
-124:                                              ; preds = %51, %87, %117, %49
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %88, %87 ], [ %118, %117 ]
+125:                                              ; preds = %51, %88, %118, %49
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %89, %88 ], [ %119, %118 ]
   call void @_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   resume { ptr, i32 } %.pn.pn.pn.pn

@@ -8252,7 +8252,7 @@ define hidden noundef ptr @_ZN4Node12find_similarEi(ptr noundef nonnull readonly
 
 .preheader:                                       ; preds = %25
   %.not37 = icmp eq i32 %27, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -8268,20 +8268,16 @@ define hidden noundef ptr @_ZN4Node12find_similarEi(ptr noundef nonnull readonly
   %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %.not27 = icmp eq ptr %35, %37
-  br i1 %.not27, label %38, label %._crit_edge.loopexit
+  br i1 %.not27, label %38, label %._crit_edge
 
 38:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !44
 
-._crit_edge.loopexit:                             ; preds = %33
+._crit_edge:                                      ; preds = %33
   %39 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %39, %._crit_edge.loopexit ]
-  %40 = icmp eq i32 %.0.lcssa, %27
+  %40 = icmp eq i32 %27, %39
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %.lr.ph33, %20, %25, %._crit_edge
@@ -8289,8 +8285,8 @@ define hidden noundef ptr @_ZN4Node12find_similarEi(ptr noundef nonnull readonly
   %43 = icmp ult ptr %42, %18
   br i1 %43, label %.lr.ph33, label %.loopexit, !llvm.loop !45
 
-.loopexit:                                        ; preds = %._crit_edge, %41, %38, %2, %11, %6
-  %.021 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %2 ], [ %19, %38 ], [ %19, %._crit_edge ], [ null, %41 ]
+.loopexit:                                        ; preds = %.preheader, %._crit_edge, %41, %38, %2, %11, %6
+  %.021 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %2 ], [ %19, %38 ], [ %19, %.preheader ], [ %19, %._crit_edge ], [ null, %41 ]
   ret ptr %.021
 }
 

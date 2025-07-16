@@ -431,73 +431,71 @@ define noundef i32 @_ZN19colvarproxy_volmaps5resetEv(ptr noundef nonnull align 8
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = load ptr, ptr %2, align 8, !tbaa !19
   %.not = icmp eq ptr %4, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.lcssa7 = phi ptr [ %4, %1 ], [ %27, %.lr.ph ]
-  %.lcssa = phi ptr [ %5, %1 ], [ %28, %.lr.ph ]
-  %.not.i.i = icmp eq ptr %.lcssa7, %.lcssa
-  br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %6
+._crit_edge:                                      ; preds = %.lr.ph
+  %6 = icmp eq ptr %28, %29
+  br i1 %6, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %7
 
-6:                                                ; preds = %._crit_edge
-  store ptr %.lcssa, ptr %3, align 8, !tbaa !16
+7:                                                ; preds = %._crit_edge
+  store ptr %29, ptr %3, align 8, !tbaa !16
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
-_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %._crit_edge, %6
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !31
-  %.not.i.i3 = icmp eq ptr %10, %8
-  br i1 %.not.i.i3, label %_ZNSt6vectorImSaImEE5clearEv.exit, label %11
+_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %._crit_edge, %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = load ptr, ptr %10, align 8, !tbaa !31
+  %.not.i.i3 = icmp eq ptr %11, %9
+  br i1 %.not.i.i3, label %_ZNSt6vectorImSaImEE5clearEv.exit, label %12
 
-11:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  store ptr %8, ptr %9, align 8, !tbaa !31
+12:                                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
+  store ptr %9, ptr %10, align 8, !tbaa !31
   br label %_ZNSt6vectorImSaImEE5clearEv.exit
 
-_ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit, %11
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !32
-  %.not.i.i4 = icmp eq ptr %15, %13
-  br i1 %.not.i.i4, label %_ZNSt6vectorIdSaIdEE5clearEv.exit, label %16
+_ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit, %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %.not.i.i4 = icmp eq ptr %16, %14
+  br i1 %.not.i.i4, label %_ZNSt6vectorIdSaIdEE5clearEv.exit, label %17
 
-16:                                               ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
-  store ptr %13, ptr %14, align 8, !tbaa !32
+17:                                               ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
+  store ptr %14, ptr %15, align 8, !tbaa !32
   br label %_ZNSt6vectorIdSaIdEE5clearEv.exit
 
-_ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit, %16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %20 = load ptr, ptr %19, align 8, !tbaa !32
-  %.not.i.i5 = icmp eq ptr %20, %18
-  br i1 %.not.i.i5, label %_ZNSt6vectorIdSaIdEE5clearEv.exit6, label %21
+_ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit, %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = load ptr, ptr %20, align 8, !tbaa !32
+  %.not.i.i5 = icmp eq ptr %21, %19
+  br i1 %.not.i.i5, label %_ZNSt6vectorIdSaIdEE5clearEv.exit6, label %22
 
-21:                                               ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit
-  store ptr %18, ptr %19, align 8, !tbaa !32
+22:                                               ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit
+  store ptr %19, ptr %20, align 8, !tbaa !32
   br label %_ZNSt6vectorIdSaIdEE5clearEv.exit6
 
-_ZNSt6vectorIdSaIdEE5clearEv.exit6:               ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit, %21
+_ZNSt6vectorIdSaIdEE5clearEv.exit6:               ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit, %22
   ret i32 0
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.09 = phi i64 [ %26, %.lr.ph ], [ 0, %1 ]
-  %22 = trunc i64 %.09 to i32
-  %23 = load ptr, ptr %0, align 8, !tbaa !23
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %22)
-  %26 = add nuw i64 %.09, 1
-  %27 = load ptr, ptr %3, align 8, !tbaa !16
-  %28 = load ptr, ptr %2, align 8, !tbaa !19
-  %29 = ptrtoint ptr %27 to i64
+  %.09 = phi i64 [ %27, %.lr.ph ], [ 0, %1 ]
+  %23 = trunc i64 %.09 to i32
+  %24 = load ptr, ptr %0, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %23)
+  %27 = add nuw i64 %.09, 1
+  %28 = load ptr, ptr %3, align 8, !tbaa !16
+  %29 = load ptr, ptr %2, align 8, !tbaa !19
   %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = ashr exact i64 %31, 2
-  %33 = icmp ult i64 %26, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = ashr exact i64 %32, 2
+  %34 = icmp ult i64 %27, %33
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

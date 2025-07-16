@@ -24688,7 +24688,7 @@ get_current_frag_stream_info.exit:                ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 44
   %29 = load i32, ptr %28, align 4, !tbaa !25
   %.not54 = icmp eq i32 %29, 0
-  br i1 %.not54, label %43, label %.lr.ph
+  br i1 %.not54, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 48
@@ -24706,30 +24706,25 @@ get_current_frag_stream_info.exit:                ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i32, ptr %38, align 8, !tbaa !230
   %40 = icmp eq i32 %39, %32
-  br i1 %40, label %._crit_edge, label %41
+  br i1 %40, label %42, label %41
 
 41:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %33, !llvm.loop !757
+  br i1 %exitcond.not, label %._crit_edge48, label %33, !llvm.loop !757
 
-._crit_edge:                                      ; preds = %33
-  %42 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge48:                                    ; preds = %41
   store ptr %37, ptr %2, align 8, !tbaa !570
-  br label %43
+  br label %.thread
 
-.thread:                                          ; preds = %41
+42:                                               ; preds = %33
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
   store ptr %37, ptr %2, align 8, !tbaa !570
-  br label %82
+  %44 = icmp eq i32 %29, %43
+  br i1 %44, label %.thread, label %45
 
-43:                                               ; preds = %._crit_edge, %.preheader
-  %.0.lcssa = phi i32 [ %42, %._crit_edge ], [ 0, %.preheader ]
-  %.033 = phi ptr [ %35, %._crit_edge ], [ undef, %.preheader ]
-  %44 = icmp eq i32 %.0.lcssa, %29
-  br i1 %44, label %82, label %45
-
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %.033, i64 24
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !40
   store ptr %47, ptr %2, align 8, !tbaa !570
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 48
@@ -24741,18 +24736,18 @@ get_current_frag_stream_info.exit:                ; preds = %18
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 1624
   %52 = load ptr, ptr %51, align 8, !tbaa !355
   %.not41 = icmp eq ptr %52, null
-  br i1 %.not41, label %82, label %53
+  br i1 %.not41, label %.thread, label %53
 
 53:                                               ; preds = %50
   %54 = tail call noalias ptr @av_mallocz(i64 noundef 56) #16
   store ptr %54, ptr %48, align 8, !tbaa !345
   %.not42 = icmp eq ptr %54, null
-  br i1 %.not42, label %82, label %55
+  br i1 %.not42, label %.thread, label %55
 
 55:                                               ; preds = %53, %45
   %56 = phi ptr [ %54, %53 ], [ %49, %45 ]
   store ptr %56, ptr %1, align 8, !tbaa !380
-  br label %82
+  br label %.thread
 
 get_current_frag_stream_info.exit.thread:         ; preds = %10, %18, %3, %7, %get_current_frag_stream_info.exit
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24760,7 +24755,7 @@ get_current_frag_stream_info.exit.thread:         ; preds = %10, %18, %3, %7, %g
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 44
   %60 = load i32, ptr %59, align 4, !tbaa !25
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %82, label %62
+  br i1 %61, label %.thread, label %62
 
 62:                                               ; preds = %get_current_frag_stream_info.exit.thread
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 48
@@ -24781,7 +24776,7 @@ get_current_frag_stream_info.exit.thread:         ; preds = %10, %18, %3, %7, %g
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 1624
   %75 = load ptr, ptr %74, align 8, !tbaa !355
   %.not38 = icmp eq ptr %75, null
-  br i1 %.not38, label %82, label %76
+  br i1 %.not38, label %.thread, label %76
 
 76:                                               ; preds = %73
   %77 = tail call noalias ptr @av_mallocz(i64 noundef 56) #16
@@ -24789,15 +24784,15 @@ get_current_frag_stream_info.exit.thread:         ; preds = %10, %18, %3, %7, %g
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1632
   store ptr %77, ptr %79, align 8, !tbaa !347
   %.not39 = icmp eq ptr %77, null
-  br i1 %.not39, label %82, label %80
+  br i1 %.not39, label %.thread, label %80
 
 80:                                               ; preds = %76, %62
   %81 = phi ptr [ %77, %76 ], [ %72, %62 ]
   store ptr %81, ptr %1, align 8, !tbaa !380
-  br label %82
+  br label %.thread
 
-82:                                               ; preds = %.thread, %76, %73, %get_current_frag_stream_info.exit.thread, %53, %50, %43, %80, %55
-  %.034 = phi i32 [ 1, %55 ], [ 1, %80 ], [ 0, %43 ], [ 0, %50 ], [ -12, %53 ], [ 0, %get_current_frag_stream_info.exit.thread ], [ 0, %73 ], [ -12, %76 ], [ 0, %.thread ]
+.thread:                                          ; preds = %.preheader, %._crit_edge48, %76, %73, %get_current_frag_stream_info.exit.thread, %53, %50, %42, %80, %55
+  %.034 = phi i32 [ 1, %55 ], [ 1, %80 ], [ 0, %42 ], [ 0, %50 ], [ -12, %53 ], [ 0, %get_current_frag_stream_info.exit.thread ], [ 0, %73 ], [ -12, %76 ], [ 0, %._crit_edge48 ], [ 0, %.preheader ]
   ret i32 %.034
 }
 

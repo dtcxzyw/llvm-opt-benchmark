@@ -483,23 +483,18 @@ define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %0, ptr noundef readon
   %47 = load i64, ptr %.12643.i, align 8, !tbaa !38
   br label %48
 
-48:                                               ; preds = %81, %.lr.ph.i
-  %.140.i = phi i64 [ %.045.i, %.lr.ph.i ], [ %82, %81 ]
+48:                                               ; preds = %80, %.lr.ph.i
+  %.140.i = phi i64 [ %.045.i, %.lr.ph.i ], [ %81, %80 ]
   %49 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %46, i64 %.140.i
   %50 = load i64, ptr %49, align 8, !tbaa !63
   %.not.i.i = icmp ult i64 %47, %50
-  br i1 %.not.i.i, label %.range_contains.exit.thread_crit_edge.i, label %range_contains.exit.i
-
-.range_contains.exit.thread_crit_edge.i:          ; preds = %48
-  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %46, i64 %.140.i, i32 1
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !59
-  br label %range_contains.exit.thread.i
+  br i1 %.not.i.i, label %range_contains.exit.thread.i, label %range_contains.exit.i
 
 range_contains.exit.i:                            ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !59
   %.not32.i = icmp ugt i64 %47, %52
-  br i1 %.not32.i, label %range_contains.exit.thread.i, label %53
+  br i1 %.not32.i, label %.loopexit33.i, label %53
 
 53:                                               ; preds = %range_contains.exit.i
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14) #12
@@ -570,515 +565,516 @@ tx_pkt_history_remove.exit.i:                     ; preds = %ossl_list_tx_histor
   store ptr null, ptr %78, align 8, !tbaa !61
   br label %.loopexit33.i
 
-range_contains.exit.thread.i:                     ; preds = %range_contains.exit.i, %.range_contains.exit.thread_crit_edge.i
-  %79 = phi i64 [ %.pre.i, %.range_contains.exit.thread_crit_edge.i ], [ %52, %range_contains.exit.i ]
-  %80 = icmp ugt i64 %47, %79
-  br i1 %80, label %.loopexit33.i, label %81
+range_contains.exit.thread.i:                     ; preds = %48
+  %.phi.trans.insert.i = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %46, i64 %.140.i, i32 1
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !59
+  %79 = icmp ugt i64 %47, %.pre.i
+  br i1 %79, label %.loopexit33.i, label %80
 
-81:                                               ; preds = %range_contains.exit.thread.i
-  %82 = add i64 %.140.i, 1
-  %exitcond.not.i = icmp eq i64 %82, %45
+80:                                               ; preds = %range_contains.exit.thread.i
+  %81 = add i64 %.140.i, 1
+  %exitcond.not.i = icmp eq i64 %81, %45
   br i1 %exitcond.not.i, label %ackm_detect_and_remove_newly_acked_pkts.exit, label %48
 
-.loopexit33.i:                                    ; preds = %range_contains.exit.thread.i, %tx_pkt_history_remove.exit.i
-  %.124.i = phi ptr [ %78, %tx_pkt_history_remove.exit.i ], [ %.02344.i, %range_contains.exit.thread.i ]
+.loopexit33.i:                                    ; preds = %range_contains.exit.thread.i, %tx_pkt_history_remove.exit.i, %range_contains.exit.i
+  %.124.i = phi ptr [ %78, %tx_pkt_history_remove.exit.i ], [ %.02344.i, %range_contains.exit.i ], [ %.02344.i, %range_contains.exit.thread.i ]
   %.not.i = icmp eq ptr %.126.val.i, null
   br i1 %.not.i, label %ackm_detect_and_remove_newly_acked_pkts.exit, label %43, !llvm.loop !64
 
-ackm_detect_and_remove_newly_acked_pkts.exit:     ; preds = %43, %.loopexit33.i, %81, %38
+ackm_detect_and_remove_newly_acked_pkts.exit:     ; preds = %43, %.loopexit33.i, %80, %38
   %.0..0..0..0..0..0..i = load ptr, ptr %16, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %83 = icmp eq ptr %.0..0..0..0..0..0..i, null
-  br i1 %83, label %84, label %121
+  %82 = icmp eq ptr %.0..0..0..0..0..0..i, null
+  br i1 %82, label %83, label %120
 
-84:                                               ; preds = %ackm_detect_and_remove_newly_acked_pkts.exit
-  br i1 %or.cond.not, label %320, label %85
+83:                                               ; preds = %ackm_detect_and_remove_newly_acked_pkts.exit
+  br i1 %or.cond.not, label %319, label %84
 
-85:                                               ; preds = %84
+84:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %.sroa.0.0.copyload.i.i = load i64, ptr %86, align 8, !tbaa !3
-  br label %87
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %.sroa.0.0.copyload.i.i = load i64, ptr %85, align 8, !tbaa !3
+  br label %86
 
-87:                                               ; preds = %87, %85
-  %indvars.iv.i.i = phi i64 [ 1, %85 ], [ %indvars.iv.next.i.i, %87 ]
-  %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %85 ], [ %.sroa.0.1.i.i, %87 ]
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %86, i64 0, i64 %indvars.iv.i.i
+86:                                               ; preds = %86, %84
+  %indvars.iv.i.i = phi i64 [ 1, %84 ], [ %indvars.iv.next.i.i, %86 ]
+  %.sroa.0.014.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %84 ], [ %.sroa.0.1.i.i, %86 ]
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %85, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload11.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  %88 = freeze i64 %.sroa.0.0.copyload11.pre.i.i
-  %89 = add i64 %.sroa.0.014.i.i, -1
-  %or.cond.not.i.i = icmp ult i64 %89, %88
-  %.sroa.0.1.i.i = select i1 %or.cond.not.i.i, i64 %.sroa.0.014.i.i, i64 %88
+  %87 = freeze i64 %.sroa.0.0.copyload11.pre.i.i
+  %88 = add i64 %.sroa.0.014.i.i, -1
+  %or.cond.not.i.i = icmp ult i64 %88, %87
+  %.sroa.0.1.i.i = select i1 %or.cond.not.i.i, i64 %.sroa.0.014.i.i, i64 %87
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %ackm_get_loss_time_and_space.exit.i, label %87, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %ackm_get_loss_time_and_space.exit.i, label %86, !llvm.loop !51
 
-ackm_get_loss_time_and_space.exit.i:              ; preds = %87
+ackm_get_loss_time_and_space.exit.i:              ; preds = %86
   %.not.i63 = icmp eq i64 %.sroa.0.1.i.i, 0
-  br i1 %.not.i63, label %97, label %90
+  br i1 %.not.i63, label %96, label %89
 
-90:                                               ; preds = %ackm_get_loss_time_and_space.exit.i
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i64 %.sroa.0.1.i.i, ptr %91, align 8, !tbaa !3
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %93 = load ptr, ptr %92, align 8, !tbaa !52
-  %.not.i.i64 = icmp eq ptr %93, null
-  br i1 %.not.i.i64, label %ackm_set_loss_detection_timer.exit, label %94
+89:                                               ; preds = %ackm_get_loss_time_and_space.exit.i
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store i64 %.sroa.0.1.i.i, ptr %90, align 8, !tbaa !3
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %92 = load ptr, ptr %91, align 8, !tbaa !52
+  %.not.i.i64 = icmp eq ptr %92, null
+  br i1 %.not.i.i64, label %ackm_set_loss_detection_timer.exit, label %93
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2376
-  %96 = load ptr, ptr %95, align 8, !tbaa !53
-  call void %93(i64 %.sroa.0.1.i.i, ptr noundef %96) #12
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 2376
+  %95 = load ptr, ptr %94, align 8, !tbaa !53
+  call void %92(i64 %.sroa.0.1.i.i, ptr noundef %95) #12
   br label %ackm_set_loss_detection_timer.exit
 
-97:                                               ; preds = %ackm_get_loss_time_and_space.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  br label %99
+96:                                               ; preds = %ackm_get_loss_time_and_space.exit.i
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  br label %98
 
-99:                                               ; preds = %99, %97
-  %indvars.iv.i13.i = phi i64 [ 0, %97 ], [ %indvars.iv.next.i14.i, %99 ]
-  %.07.i.i = phi i64 [ 0, %97 ], [ %102, %99 ]
-  %100 = getelementptr inbounds nuw [3 x i64], ptr %98, i64 0, i64 %indvars.iv.i13.i
-  %101 = load i64, ptr %100, align 8, !tbaa !3
-  %102 = add i64 %101, %.07.i.i
+98:                                               ; preds = %98, %96
+  %indvars.iv.i13.i = phi i64 [ 0, %96 ], [ %indvars.iv.next.i14.i, %98 ]
+  %.07.i.i = phi i64 [ 0, %96 ], [ %101, %98 ]
+  %99 = getelementptr inbounds nuw [3 x i64], ptr %97, i64 0, i64 %indvars.iv.i13.i
+  %100 = load i64, ptr %99, align 8, !tbaa !3
+  %101 = add i64 %100, %.07.i.i
   %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i13.i, 1
   %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, 3
-  br i1 %exitcond.not.i15.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %99, !llvm.loop !54
+  br i1 %exitcond.not.i15.i, label %ackm_ack_eliciting_bytes_in_flight.exit.i, label %98, !llvm.loop !54
 
-ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %99
-  %103 = icmp eq i64 %102, 0
-  br i1 %103, label %104, label %113
+ackm_ack_eliciting_bytes_in_flight.exit.i:        ; preds = %98
+  %102 = icmp eq i64 %101, 0
+  br i1 %102, label %103, label %112
 
-104:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i
-  %105 = load i8, ptr %26, align 1, !tbaa !55
-  %.not12.i = icmp eq i8 %105, 0
-  br i1 %.not12.i, label %113, label %106
+103:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i
+  %104 = load i8, ptr %26, align 1, !tbaa !55
+  %.not12.i = icmp eq i8 %104, 0
+  br i1 %.not12.i, label %112, label %105
 
-106:                                              ; preds = %104
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i64 0, ptr %107, align 8, !tbaa !3
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %109 = load ptr, ptr %108, align 8, !tbaa !52
-  %.not.i16.i = icmp eq ptr %109, null
-  br i1 %.not.i16.i, label %ackm_set_loss_detection_timer.exit, label %110
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store i64 0, ptr %106, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %108 = load ptr, ptr %107, align 8, !tbaa !52
+  %.not.i16.i = icmp eq ptr %108, null
+  br i1 %.not.i16.i, label %ackm_set_loss_detection_timer.exit, label %109
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 2376
-  %112 = load ptr, ptr %111, align 8, !tbaa !53
-  call void %109(i64 0, ptr noundef %112) #12
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 2376
+  %111 = load ptr, ptr %110, align 8, !tbaa !53
+  call void %108(i64 0, ptr noundef %111) #12
   br label %ackm_set_loss_detection_timer.exit
 
-113:                                              ; preds = %104, %ackm_ack_eliciting_bytes_in_flight.exit.i
-  %114 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %0, ptr noundef %12)
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i64 %114, ptr %115, align 8, !tbaa !3
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %117 = load ptr, ptr %116, align 8, !tbaa !52
-  %.not.i18.i = icmp eq ptr %117, null
-  br i1 %.not.i18.i, label %ackm_set_loss_detection_timer.exit, label %118
+112:                                              ; preds = %103, %ackm_ack_eliciting_bytes_in_flight.exit.i
+  %113 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %0, ptr noundef %12)
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store i64 %113, ptr %114, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %116 = load ptr, ptr %115, align 8, !tbaa !52
+  %.not.i18.i = icmp eq ptr %116, null
+  br i1 %.not.i18.i, label %ackm_set_loss_detection_timer.exit, label %117
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 2376
-  %120 = load ptr, ptr %119, align 8, !tbaa !53
-  call void %117(i64 %114, ptr noundef %120) #12
+117:                                              ; preds = %112
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 2376
+  %119 = load ptr, ptr %118, align 8, !tbaa !53
+  call void %116(i64 %113, ptr noundef %119) #12
   br label %ackm_set_loss_detection_timer.exit
 
-ackm_set_loss_detection_timer.exit:               ; preds = %90, %94, %106, %110, %113, %118
+ackm_set_loss_detection_timer.exit:               ; preds = %89, %93, %105, %109, %112, %117
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  br label %320
+  br label %319
 
-121:                                              ; preds = %ackm_detect_and_remove_newly_acked_pkts.exit
-  %122 = load i64, ptr %.0..0..0..0..0..0..i, align 8, !tbaa !38
-  %123 = load ptr, ptr %1, align 8, !tbaa !56
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %125 = load i64, ptr %124, align 8, !tbaa !59
-  %126 = icmp eq i64 %122, %125
-  br i1 %126, label %.preheader96, label %ack_includes_ack_eliciting.exit.thread
+120:                                              ; preds = %ackm_detect_and_remove_newly_acked_pkts.exit
+  %121 = load i64, ptr %.0..0..0..0..0..0..i, align 8, !tbaa !38
+  %122 = load ptr, ptr %1, align 8, !tbaa !56
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load i64, ptr %123, align 8, !tbaa !59
+  %125 = icmp eq i64 %121, %124
+  br i1 %125, label %.preheader96, label %ack_includes_ack_eliciting.exit.thread
 
-.preheader96:                                     ; preds = %121, %130
-  %.05.i = phi ptr [ %132, %130 ], [ %.0..0..0..0..0..0..i, %121 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
-  %128 = load i8, ptr %127, align 8
-  %129 = and i8 %128, 8
-  %.not4.i = icmp eq i8 %129, 0
-  br i1 %.not4.i, label %130, label %ack_includes_ack_eliciting.exit
+.preheader96:                                     ; preds = %120, %129
+  %.05.i = phi ptr [ %131, %129 ], [ %.0..0..0..0..0..0..i, %120 ]
+  %126 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
+  %127 = load i8, ptr %126, align 8
+  %128 = and i8 %127, 8
+  %.not4.i = icmp eq i8 %128, 0
+  br i1 %.not4.i, label %129, label %ack_includes_ack_eliciting.exit
 
-130:                                              ; preds = %.preheader96
-  %131 = getelementptr inbounds nuw i8, ptr %.05.i, i64 88
-  %132 = load ptr, ptr %131, align 8, !tbaa !65
-  %.not.i65 = icmp eq ptr %132, null
+129:                                              ; preds = %.preheader96
+  %130 = getelementptr inbounds nuw i8, ptr %.05.i, i64 88
+  %131 = load ptr, ptr %130, align 8, !tbaa !65
+  %.not.i65 = icmp eq ptr %131, null
   br i1 %.not.i65, label %ack_includes_ack_eliciting.exit.thread, label %.preheader96, !llvm.loop !66
 
 ack_includes_ack_eliciting.exit:                  ; preds = %.preheader96
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %134 = load ptr, ptr %133, align 8, !tbaa !20
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %136 = load ptr, ptr %135, align 8, !tbaa !28
-  %137 = call i64 %134(ptr noundef %136) #12
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %139 = load i64, ptr %138, align 8
-  %.not95 = icmp eq i64 %139, 0
-  br i1 %.not95, label %140, label %141
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %133 = load ptr, ptr %132, align 8, !tbaa !20
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %135 = load ptr, ptr %134, align 8, !tbaa !28
+  %136 = call i64 %133(ptr noundef %135) #12
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %138 = load i64, ptr %137, align 8
+  %.not95 = icmp eq i64 %138, 0
+  br i1 %.not95, label %139, label %140
 
-140:                                              ; preds = %ack_includes_ack_eliciting.exit
-  store i64 %137, ptr %138, align 8, !tbaa !3
-  br label %141
+139:                                              ; preds = %ack_includes_ack_eliciting.exit
+  store i64 %136, ptr %137, align 8, !tbaa !3
+  br label %140
 
-141:                                              ; preds = %140, %ack_includes_ack_eliciting.exit
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.03.0.copyload = load i64, ptr %142, align 8, !tbaa !3
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %144 = load i8, ptr %143, align 8, !tbaa !67
-  %.not56 = icmp eq i8 %144, 0
-  br i1 %.not56, label %148, label %145
+140:                                              ; preds = %139, %ack_includes_ack_eliciting.exit
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.03.0.copyload = load i64, ptr %141, align 8, !tbaa !3
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %143 = load i8, ptr %142, align 8, !tbaa !67
+  %.not56 = icmp eq i8 %143, 0
+  br i1 %.not56, label %147, label %144
 
-145:                                              ; preds = %141
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %147 = load i64, ptr %146, align 8
-  %..i = call i64 @llvm.umin.i64(i64 %.sroa.03.0.copyload, i64 %147)
-  br label %148
+144:                                              ; preds = %140
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %146 = load i64, ptr %145, align 8
+  %..i = call i64 @llvm.umin.i64(i64 %.sroa.03.0.copyload, i64 %146)
+  br label %147
 
-148:                                              ; preds = %145, %141
-  %.sroa.03.0 = phi i64 [ %..i, %145 ], [ %.sroa.03.0.copyload, %141 ]
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %150 = load ptr, ptr %149, align 8, !tbaa !29
-  %151 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..i, i64 16
-  %152 = load i64, ptr %151, align 8
-  %..i66 = call i64 @llvm.usub.sat.i64(i64 %137, i64 %152)
-  call void @ossl_statm_update_rtt(ptr noundef %150, i64 %.sroa.03.0, i64 %..i66) #12
+147:                                              ; preds = %144, %140
+  %.sroa.03.0 = phi i64 [ %..i, %144 ], [ %.sroa.03.0.copyload, %140 ]
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %149 = load ptr, ptr %148, align 8, !tbaa !29
+  %150 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..i, i64 16
+  %151 = load i64, ptr %150, align 8
+  %..i66 = call i64 @llvm.usub.sat.i64(i64 %136, i64 %151)
+  call void @ossl_statm_update_rtt(ptr noundef %149, i64 %.sroa.03.0, i64 %..i66) #12
   br label %ack_includes_ack_eliciting.exit.thread
 
-ack_includes_ack_eliciting.exit.thread:           ; preds = %130, %148, %121
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %154 = load i8, ptr %153, align 8
-  %155 = and i8 %154, 1
-  %.not57 = icmp eq i8 %155, 0
-  br i1 %.not57, label %180, label %156
+ack_includes_ack_eliciting.exit.thread:           ; preds = %129, %147, %120
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %153 = load i8, ptr %152, align 8
+  %154 = and i8 %153, 1
+  %.not57 = icmp eq i8 %154, 0
+  br i1 %.not57, label %179, label %155
 
-156:                                              ; preds = %ack_includes_ack_eliciting.exit.thread
+155:                                              ; preds = %ack_includes_ack_eliciting.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %158 = load i64, ptr %157, align 8, !tbaa !68
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %160 = getelementptr inbounds [3 x i64], ptr %159, i64 0, i64 %18
-  %161 = load i64, ptr %160, align 8, !tbaa !3
-  %162 = icmp ugt i64 %158, %161
-  br i1 %162, label %163, label %ackm_process_ecn.exit
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %157 = load i64, ptr %156, align 8, !tbaa !68
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %159 = getelementptr inbounds [3 x i64], ptr %158, i64 0, i64 %18
+  %160 = load i64, ptr %159, align 8, !tbaa !3
+  %161 = icmp ugt i64 %157, %160
+  br i1 %161, label %162, label %ackm_process_ecn.exit
 
-163:                                              ; preds = %156
-  store i64 %158, ptr %160, align 8, !tbaa !3
-  %164 = load ptr, ptr %1, align 8, !tbaa !56
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = load i64, ptr %165, align 8, !tbaa !59
-  %167 = getelementptr [3 x %struct.tx_pkt_history_st], ptr %0, i64 0, i64 %18, i32 1
-  %.val.i67 = load ptr, ptr %167, align 8, !tbaa !7
+162:                                              ; preds = %155
+  store i64 %157, ptr %159, align 8, !tbaa !3
+  %163 = load ptr, ptr %1, align 8, !tbaa !56
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %165 = load i64, ptr %164, align 8, !tbaa !59
+  %166 = getelementptr [3 x %struct.tx_pkt_history_st], ptr %0, i64 0, i64 %18, i32 1
+  %.val.i67 = load ptr, ptr %166, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #12
-  store i64 %166, ptr %10, align 8, !tbaa !38
-  %168 = call ptr @OPENSSL_LH_retrieve(ptr noundef %.val.i67, ptr noundef nonnull %10) #12
+  store i64 %165, ptr %10, align 8, !tbaa !38
+  %167 = call ptr @OPENSSL_LH_retrieve(ptr noundef %.val.i67, ptr noundef nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #12
-  %169 = icmp eq ptr %168, null
-  br i1 %169, label %ackm_process_ecn.exit, label %170
+  %168 = icmp eq ptr %167, null
+  br i1 %168, label %ackm_process_ecn.exit, label %169
 
-170:                                              ; preds = %163
-  %171 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %172 = load i64, ptr %171, align 8, !tbaa !3
-  store i64 %172, ptr %11, align 8, !tbaa !3
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %174 = load ptr, ptr %173, align 8, !tbaa !30
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 104
-  %176 = load ptr, ptr %175, align 8, !tbaa !69
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %178 = load ptr, ptr %177, align 8, !tbaa !31
-  %179 = call i32 %176(ptr noundef %178, ptr noundef nonnull %11) #12
+169:                                              ; preds = %162
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %171 = load i64, ptr %170, align 8, !tbaa !3
+  store i64 %171, ptr %11, align 8, !tbaa !3
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %173 = load ptr, ptr %172, align 8, !tbaa !30
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 104
+  %175 = load ptr, ptr %174, align 8, !tbaa !69
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %177 = load ptr, ptr %176, align 8, !tbaa !31
+  %178 = call i32 %175(ptr noundef %177, ptr noundef nonnull %11) #12
   br label %ackm_process_ecn.exit
 
-ackm_process_ecn.exit:                            ; preds = %156, %163, %170
+ackm_process_ecn.exit:                            ; preds = %155, %162, %169
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #12
-  br label %180
+  br label %179
 
-180:                                              ; preds = %ackm_process_ecn.exit, %ack_includes_ack_eliciting.exit.thread
-  %181 = call fastcc ptr @ackm_detect_and_remove_lost_pkts(ptr noundef %0, i32 noundef %2)
-  %.not58 = icmp eq ptr %181, null
-  br i1 %.not58, label %227, label %182
+179:                                              ; preds = %ackm_process_ecn.exit, %ack_includes_ack_eliciting.exit.thread
+  %180 = call fastcc ptr @ackm_detect_and_remove_lost_pkts(ptr noundef %0, i32 noundef %2)
+  %.not58 = icmp eq ptr %180, null
+  br i1 %.not58, label %226, label %181
 
-182:                                              ; preds = %180
+181:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %185 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %184 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %.split.us.i
 
-.split.us.i:                                      ; preds = %215, %182
-  %.02935.us.i = phi ptr [ %189, %215 ], [ %181, %182 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 96
-  %189 = load ptr, ptr %188, align 8, !tbaa !70
-  %190 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 32
-  %191 = load i8, ptr %190, align 8
-  %192 = and i8 %191, 4
-  %.not32.us.i = icmp eq i8 %192, 0
-  br i1 %.not32.us.i, label %215, label %193
+.split.us.i:                                      ; preds = %214, %181
+  %.02935.us.i = phi ptr [ %188, %214 ], [ %180, %181 ]
+  %187 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 96
+  %188 = load ptr, ptr %187, align 8, !tbaa !70
+  %189 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 32
+  %190 = load i8, ptr %189, align 8
+  %191 = and i8 %190, 4
+  %.not32.us.i = icmp eq i8 %191, 0
+  br i1 %.not32.us.i, label %214, label %192
 
-193:                                              ; preds = %.split.us.i
-  %194 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 8
-  %195 = load i64, ptr %194, align 8, !tbaa !35
-  %196 = load i64, ptr %183, align 8, !tbaa !48
-  %197 = sub i64 %196, %195
-  store i64 %197, ptr %183, align 8, !tbaa !48
-  %198 = load i8, ptr %190, align 8
-  %199 = and i8 %198, 8
-  %.not33.us.i = icmp eq i8 %199, 0
-  br i1 %.not33.us.i, label %206, label %200
+192:                                              ; preds = %.split.us.i
+  %193 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 8
+  %194 = load i64, ptr %193, align 8, !tbaa !35
+  %195 = load i64, ptr %182, align 8, !tbaa !48
+  %196 = sub i64 %195, %194
+  store i64 %196, ptr %182, align 8, !tbaa !48
+  %197 = load i8, ptr %189, align 8
+  %198 = and i8 %197, 8
+  %.not33.us.i = icmp eq i8 %198, 0
+  br i1 %.not33.us.i, label %205, label %199
 
-200:                                              ; preds = %193
-  %201 = and i8 %198, 3
-  %202 = zext nneg i8 %201 to i64
-  %203 = getelementptr inbounds nuw [3 x i64], ptr %184, i64 0, i64 %202
-  %204 = load i64, ptr %203, align 8, !tbaa !3
-  %205 = sub i64 %204, %195
-  store i64 %205, ptr %203, align 8, !tbaa !3
-  %.pre.i68 = load i64, ptr %194, align 8, !tbaa !35
-  br label %206
+199:                                              ; preds = %192
+  %200 = and i8 %197, 3
+  %201 = zext nneg i8 %200 to i64
+  %202 = getelementptr inbounds nuw [3 x i64], ptr %183, i64 0, i64 %201
+  %203 = load i64, ptr %202, align 8, !tbaa !3
+  %204 = sub i64 %203, %194
+  store i64 %204, ptr %202, align 8, !tbaa !3
+  %.pre.i68 = load i64, ptr %193, align 8, !tbaa !35
+  br label %205
 
-206:                                              ; preds = %200, %193
-  %207 = phi i64 [ %.pre.i68, %200 ], [ %195, %193 ]
-  %208 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 16
-  %209 = load i64, ptr %208, align 8, !tbaa !3
-  store i64 %209, ptr %9, align 8, !tbaa !3
-  store i64 %207, ptr %185, align 8, !tbaa !71
-  %210 = load ptr, ptr %186, align 8, !tbaa !30
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 80
-  %212 = load ptr, ptr %211, align 8, !tbaa !73
-  %213 = load ptr, ptr %187, align 8, !tbaa !31
-  %214 = call i32 %212(ptr noundef %213, ptr noundef nonnull %9) #12
-  br label %215
+205:                                              ; preds = %199, %192
+  %206 = phi i64 [ %.pre.i68, %199 ], [ %194, %192 ]
+  %207 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 16
+  %208 = load i64, ptr %207, align 8, !tbaa !3
+  store i64 %208, ptr %9, align 8, !tbaa !3
+  store i64 %206, ptr %184, align 8, !tbaa !71
+  %209 = load ptr, ptr %185, align 8, !tbaa !30
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 80
+  %211 = load ptr, ptr %210, align 8, !tbaa !73
+  %212 = load ptr, ptr %186, align 8, !tbaa !31
+  %213 = call i32 %211(ptr noundef %212, ptr noundef nonnull %9) #12
+  br label %214
 
-215:                                              ; preds = %206, %.split.us.i
-  %216 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 40
-  %217 = load ptr, ptr %216, align 8, !tbaa !74
-  %218 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 64
-  %219 = load ptr, ptr %218, align 8, !tbaa !75
-  call void %217(ptr noundef %219) #12
-  %.not.us.i = icmp eq ptr %189, null
+214:                                              ; preds = %205, %.split.us.i
+  %215 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 40
+  %216 = load ptr, ptr %215, align 8, !tbaa !74
+  %217 = getelementptr inbounds nuw i8, ptr %.02935.us.i, i64 64
+  %218 = load ptr, ptr %217, align 8, !tbaa !75
+  call void %216(ptr noundef %218) #12
+  %.not.us.i = icmp eq ptr %188, null
   br i1 %.not.us.i, label %ackm_on_pkts_lost.exit, label %.split.us.i, !llvm.loop !76
 
-ackm_on_pkts_lost.exit:                           ; preds = %215
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %221 = load ptr, ptr %220, align 8, !tbaa !29
-  call void @ossl_statm_get_rtt_info(ptr noundef %221, ptr noundef nonnull %8) #12
-  %222 = load ptr, ptr %186, align 8, !tbaa !30
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 88
-  %224 = load ptr, ptr %223, align 8, !tbaa !77
-  %225 = load ptr, ptr %187, align 8, !tbaa !31
-  %226 = call i32 %224(ptr noundef %225, i32 noundef 0) #12
+ackm_on_pkts_lost.exit:                           ; preds = %214
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %220 = load ptr, ptr %219, align 8, !tbaa !29
+  call void @ossl_statm_get_rtt_info(ptr noundef %220, ptr noundef nonnull %8) #12
+  %221 = load ptr, ptr %185, align 8, !tbaa !30
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 88
+  %223 = load ptr, ptr %222, align 8, !tbaa !77
+  %224 = load ptr, ptr %186, align 8, !tbaa !31
+  %225 = call i32 %223(ptr noundef %224, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
-  br label %227
+  br label %226
 
-227:                                              ; preds = %ackm_on_pkts_lost.exit, %180
+226:                                              ; preds = %ackm_on_pkts_lost.exit, %179
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %231 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %232 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  br label %235
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %230 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  br label %234
 
-235:                                              ; preds = %285, %227
-  %.02329.i = phi ptr [ %.0..0..0..0..0..0..i, %227 ], [ %272, %285 ]
-  %236 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 32
-  %237 = load i8, ptr %236, align 8
-  %238 = and i8 %237, 4
-  %.not25.i = icmp eq i8 %238, 0
-  br i1 %.not25.i, label %266, label %239
+234:                                              ; preds = %284, %226
+  %.02329.i = phi ptr [ %.0..0..0..0..0..0..i, %226 ], [ %271, %284 ]
+  %235 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 32
+  %236 = load i8, ptr %235, align 8
+  %237 = and i8 %236, 4
+  %.not25.i = icmp eq i8 %237, 0
+  br i1 %.not25.i, label %265, label %238
 
-239:                                              ; preds = %235
-  %240 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 8
-  %241 = load i64, ptr %240, align 8, !tbaa !35
-  %242 = load i64, ptr %228, align 8, !tbaa !48
-  %243 = sub i64 %242, %241
-  store i64 %243, ptr %228, align 8, !tbaa !48
-  %244 = load i8, ptr %236, align 8
-  %245 = and i8 %244, 8
-  %.not26.i = icmp eq i8 %245, 0
-  br i1 %.not26.i, label %252, label %246
+238:                                              ; preds = %234
+  %239 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 8
+  %240 = load i64, ptr %239, align 8, !tbaa !35
+  %241 = load i64, ptr %227, align 8, !tbaa !48
+  %242 = sub i64 %241, %240
+  store i64 %242, ptr %227, align 8, !tbaa !48
+  %243 = load i8, ptr %235, align 8
+  %244 = and i8 %243, 8
+  %.not26.i = icmp eq i8 %244, 0
+  br i1 %.not26.i, label %251, label %245
 
-246:                                              ; preds = %239
-  %247 = and i8 %244, 3
-  %248 = zext nneg i8 %247 to i64
-  %249 = getelementptr inbounds nuw [3 x i64], ptr %229, i64 0, i64 %248
-  %250 = load i64, ptr %249, align 8, !tbaa !3
-  %251 = sub i64 %250, %241
-  store i64 %251, ptr %249, align 8, !tbaa !3
-  br label %252
+245:                                              ; preds = %238
+  %246 = and i8 %243, 3
+  %247 = zext nneg i8 %246 to i64
+  %248 = getelementptr inbounds nuw [3 x i64], ptr %228, i64 0, i64 %247
+  %249 = load i64, ptr %248, align 8, !tbaa !3
+  %250 = sub i64 %249, %240
+  store i64 %250, ptr %248, align 8, !tbaa !3
+  br label %251
 
-252:                                              ; preds = %246, %239
-  %253 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 24
-  %254 = load i64, ptr %253, align 8, !tbaa !78
-  %.not27.i = icmp eq i64 %254, -1
-  br i1 %.not27.i, label %266, label %255
+251:                                              ; preds = %245, %238
+  %252 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 24
+  %253 = load i64, ptr %252, align 8, !tbaa !78
+  %.not27.i = icmp eq i64 %253, -1
+  br i1 %.not27.i, label %265, label %254
 
-255:                                              ; preds = %252
-  %256 = load i8, ptr %236, align 8
-  %257 = and i8 %256, 3
-  %258 = zext nneg i8 %257 to i64
-  %259 = getelementptr inbounds nuw [3 x %struct.rx_pkt_history_st], ptr %230, i64 0, i64 %258
-  %260 = add nuw i64 %254, 1
+254:                                              ; preds = %251
+  %255 = load i8, ptr %235, align 8
+  %256 = and i8 %255, 3
+  %257 = zext nneg i8 %256 to i64
+  %258 = getelementptr inbounds nuw [3 x %struct.rx_pkt_history_st], ptr %229, i64 0, i64 %257
+  %259 = add nuw i64 %253, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
-  %261 = getelementptr inbounds nuw i8, ptr %259, i64 24
-  %262 = load i64, ptr %261, align 8, !tbaa !15
-  %.not.i.not.i = icmp ult i64 %254, %262
-  br i1 %.not.i.not.i, label %rx_pkt_history_bump_watermark.exit.i, label %263
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 24
+  %261 = load i64, ptr %260, align 8, !tbaa !15
+  %.not.i.not.i = icmp ult i64 %253, %261
+  br i1 %.not.i.not.i, label %rx_pkt_history_bump_watermark.exit.i, label %262
 
-263:                                              ; preds = %255
+262:                                              ; preds = %254
   store i64 0, ptr %6, align 8, !tbaa !79
-  store i64 %254, ptr %231, align 8, !tbaa !81
-  %264 = call i32 @ossl_uint_set_remove(ptr noundef nonnull %259, ptr noundef nonnull %6) #12
-  %.not7.i.i = icmp eq i32 %264, 1
-  br i1 %.not7.i.i, label %265, label %rx_pkt_history_bump_watermark.exit.i
+  store i64 %253, ptr %230, align 8, !tbaa !81
+  %263 = call i32 @ossl_uint_set_remove(ptr noundef nonnull %258, ptr noundef nonnull %6) #12
+  %.not7.i.i = icmp eq i32 %263, 1
+  br i1 %.not7.i.i, label %264, label %rx_pkt_history_bump_watermark.exit.i
 
-265:                                              ; preds = %263
-  store i64 %260, ptr %261, align 8, !tbaa !15
+264:                                              ; preds = %262
+  store i64 %259, ptr %260, align 8, !tbaa !15
   br label %rx_pkt_history_bump_watermark.exit.i
 
-rx_pkt_history_bump_watermark.exit.i:             ; preds = %265, %263, %255
+rx_pkt_history_bump_watermark.exit.i:             ; preds = %264, %262, %254
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  br label %266
+  br label %265
 
-266:                                              ; preds = %rx_pkt_history_bump_watermark.exit.i, %252, %235
-  %267 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 16
-  %268 = load i64, ptr %267, align 8, !tbaa !3
-  store i64 %268, ptr %7, align 8, !tbaa !3
-  %269 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 8
-  %270 = load i64, ptr %269, align 8, !tbaa !35
-  store i64 %270, ptr %232, align 8, !tbaa !82
-  %271 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 88
-  %272 = load ptr, ptr %271, align 8, !tbaa !65
-  %273 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 48
-  %274 = load ptr, ptr %273, align 8, !tbaa !84
-  %275 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 64
-  %276 = load ptr, ptr %275, align 8, !tbaa !75
-  call void %274(ptr noundef %276) #12
-  %277 = load i8, ptr %236, align 8
-  %278 = and i8 %277, 4
-  %.not28.i = icmp eq i8 %278, 0
-  br i1 %.not28.i, label %285, label %279
+265:                                              ; preds = %rx_pkt_history_bump_watermark.exit.i, %251, %234
+  %266 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 16
+  %267 = load i64, ptr %266, align 8, !tbaa !3
+  store i64 %267, ptr %7, align 8, !tbaa !3
+  %268 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 8
+  %269 = load i64, ptr %268, align 8, !tbaa !35
+  store i64 %269, ptr %231, align 8, !tbaa !82
+  %270 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 88
+  %271 = load ptr, ptr %270, align 8, !tbaa !65
+  %272 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 48
+  %273 = load ptr, ptr %272, align 8, !tbaa !84
+  %274 = getelementptr inbounds nuw i8, ptr %.02329.i, i64 64
+  %275 = load ptr, ptr %274, align 8, !tbaa !75
+  call void %273(ptr noundef %275) #12
+  %276 = load i8, ptr %235, align 8
+  %277 = and i8 %276, 4
+  %.not28.i = icmp eq i8 %277, 0
+  br i1 %.not28.i, label %284, label %278
 
-279:                                              ; preds = %266
-  %280 = load ptr, ptr %233, align 8, !tbaa !30
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 72
-  %282 = load ptr, ptr %281, align 8, !tbaa !85
-  %283 = load ptr, ptr %234, align 8, !tbaa !31
-  %284 = call i32 %282(ptr noundef %283, ptr noundef nonnull %7) #12
-  br label %285
+278:                                              ; preds = %265
+  %279 = load ptr, ptr %232, align 8, !tbaa !30
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 72
+  %281 = load ptr, ptr %280, align 8, !tbaa !85
+  %282 = load ptr, ptr %233, align 8, !tbaa !31
+  %283 = call i32 %281(ptr noundef %282, ptr noundef nonnull %7) #12
+  br label %284
 
-285:                                              ; preds = %279, %266
-  %.not.i69 = icmp eq ptr %272, null
-  br i1 %.not.i69, label %ackm_on_pkts_acked.exit, label %235, !llvm.loop !86
+284:                                              ; preds = %278, %265
+  %.not.i69 = icmp eq ptr %271, null
+  br i1 %.not.i69, label %ackm_on_pkts_acked.exit, label %234, !llvm.loop !86
 
-ackm_on_pkts_acked.exit:                          ; preds = %285
+ackm_on_pkts_acked.exit:                          ; preds = %284
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
-  %286 = load i8, ptr %26, align 1, !tbaa !55
-  %.not59 = icmp eq i8 %286, 0
-  br i1 %.not59, label %289, label %287
+  %285 = load i8, ptr %26, align 1, !tbaa !55
+  %.not59 = icmp eq i8 %285, 0
+  br i1 %.not59, label %288, label %286
 
-287:                                              ; preds = %ackm_on_pkts_acked.exit
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i32 0, ptr %288, align 8, !tbaa !87
-  br label %289
+286:                                              ; preds = %ackm_on_pkts_acked.exit
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i32 0, ptr %287, align 8, !tbaa !87
+  br label %288
 
-289:                                              ; preds = %287, %ackm_on_pkts_acked.exit
+288:                                              ; preds = %286, %ackm_on_pkts_acked.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %.sroa.0.0.copyload.i.i70 = load i64, ptr %290, align 8, !tbaa !3
-  br label %291
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %.sroa.0.0.copyload.i.i70 = load i64, ptr %289, align 8, !tbaa !3
+  br label %290
 
-291:                                              ; preds = %291, %289
-  %indvars.iv.i.i71 = phi i64 [ 1, %289 ], [ %indvars.iv.next.i.i79, %291 ]
-  %.sroa.0.014.i.i73 = phi i64 [ %.sroa.0.0.copyload.i.i70, %289 ], [ %.sroa.0.1.i.i77, %291 ]
-  %.phi.trans.insert.i.i74 = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %290, i64 0, i64 %indvars.iv.i.i71
+290:                                              ; preds = %290, %288
+  %indvars.iv.i.i71 = phi i64 [ 1, %288 ], [ %indvars.iv.next.i.i79, %290 ]
+  %.sroa.0.014.i.i73 = phi i64 [ %.sroa.0.0.copyload.i.i70, %288 ], [ %.sroa.0.1.i.i77, %290 ]
+  %.phi.trans.insert.i.i74 = getelementptr inbounds nuw [3 x %struct.OSSL_TIME], ptr %289, i64 0, i64 %indvars.iv.i.i71
   %.sroa.0.0.copyload11.pre.i.i75 = load i64, ptr %.phi.trans.insert.i.i74, align 8
-  %292 = freeze i64 %.sroa.0.0.copyload11.pre.i.i75
-  %293 = add i64 %.sroa.0.014.i.i73, -1
-  %or.cond.not.i.i76 = icmp ult i64 %293, %292
-  %.sroa.0.1.i.i77 = select i1 %or.cond.not.i.i76, i64 %.sroa.0.014.i.i73, i64 %292
+  %291 = freeze i64 %.sroa.0.0.copyload11.pre.i.i75
+  %292 = add i64 %.sroa.0.014.i.i73, -1
+  %or.cond.not.i.i76 = icmp ult i64 %292, %291
+  %.sroa.0.1.i.i77 = select i1 %or.cond.not.i.i76, i64 %.sroa.0.014.i.i73, i64 %291
   %indvars.iv.next.i.i79 = add nuw nsw i64 %indvars.iv.i.i71, 1
   %exitcond.not.i.i80 = icmp eq i64 %indvars.iv.next.i.i79, 3
-  br i1 %exitcond.not.i.i80, label %ackm_get_loss_time_and_space.exit.i81, label %291, !llvm.loop !51
+  br i1 %exitcond.not.i.i80, label %ackm_get_loss_time_and_space.exit.i81, label %290, !llvm.loop !51
 
-ackm_get_loss_time_and_space.exit.i81:            ; preds = %291
+ackm_get_loss_time_and_space.exit.i81:            ; preds = %290
   %.not.i82 = icmp eq i64 %.sroa.0.1.i.i77, 0
-  br i1 %.not.i82, label %.preheader, label %294
+  br i1 %.not.i82, label %.preheader, label %293
 
-294:                                              ; preds = %ackm_get_loss_time_and_space.exit.i81
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i64 %.sroa.0.1.i.i77, ptr %295, align 8, !tbaa !3
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %297 = load ptr, ptr %296, align 8, !tbaa !52
-  %.not.i.i83 = icmp eq ptr %297, null
-  br i1 %.not.i.i83, label %ackm_set_loss_detection_timer.exit92, label %298
+293:                                              ; preds = %ackm_get_loss_time_and_space.exit.i81
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store i64 %.sroa.0.1.i.i77, ptr %294, align 8, !tbaa !3
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %296 = load ptr, ptr %295, align 8, !tbaa !52
+  %.not.i.i83 = icmp eq ptr %296, null
+  br i1 %.not.i.i83, label %ackm_set_loss_detection_timer.exit92, label %297
 
-298:                                              ; preds = %294
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 2376
-  %300 = load ptr, ptr %299, align 8, !tbaa !53
-  call void %297(i64 %.sroa.0.1.i.i77, ptr noundef %300) #12
+297:                                              ; preds = %293
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 2376
+  %299 = load ptr, ptr %298, align 8, !tbaa !53
+  call void %296(i64 %.sroa.0.1.i.i77, ptr noundef %299) #12
   br label %ackm_set_loss_detection_timer.exit92
 
 .preheader:                                       ; preds = %ackm_get_loss_time_and_space.exit.i81, %.preheader
   %indvars.iv.i13.i84 = phi i64 [ %indvars.iv.next.i14.i86, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i81 ]
-  %.07.i.i85 = phi i64 [ %303, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i81 ]
-  %301 = getelementptr inbounds nuw [3 x i64], ptr %229, i64 0, i64 %indvars.iv.i13.i84
-  %302 = load i64, ptr %301, align 8, !tbaa !3
-  %303 = add i64 %302, %.07.i.i85
+  %.07.i.i85 = phi i64 [ %302, %.preheader ], [ 0, %ackm_get_loss_time_and_space.exit.i81 ]
+  %300 = getelementptr inbounds nuw [3 x i64], ptr %228, i64 0, i64 %indvars.iv.i13.i84
+  %301 = load i64, ptr %300, align 8, !tbaa !3
+  %302 = add i64 %301, %.07.i.i85
   %indvars.iv.next.i14.i86 = add nuw nsw i64 %indvars.iv.i13.i84, 1
   %exitcond.not.i15.i87 = icmp eq i64 %indvars.iv.next.i14.i86, 3
   br i1 %exitcond.not.i15.i87, label %ackm_ack_eliciting_bytes_in_flight.exit.i88, label %.preheader, !llvm.loop !54
 
 ackm_ack_eliciting_bytes_in_flight.exit.i88:      ; preds = %.preheader
-  %304 = icmp ne i64 %303, 0
-  %brmerge = or i1 %.not59, %304
-  br i1 %brmerge, label %312, label %305
+  %303 = icmp ne i64 %302, 0
+  %brmerge = or i1 %.not59, %303
+  br i1 %brmerge, label %311, label %304
 
-305:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i88
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i64 0, ptr %306, align 8, !tbaa !3
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %308 = load ptr, ptr %307, align 8, !tbaa !52
-  %.not.i16.i91 = icmp eq ptr %308, null
-  br i1 %.not.i16.i91, label %ackm_set_loss_detection_timer.exit92, label %309
+304:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i88
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store i64 0, ptr %305, align 8, !tbaa !3
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %307 = load ptr, ptr %306, align 8, !tbaa !52
+  %.not.i16.i91 = icmp eq ptr %307, null
+  br i1 %.not.i16.i91, label %ackm_set_loss_detection_timer.exit92, label %308
 
-309:                                              ; preds = %305
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 2376
-  %311 = load ptr, ptr %310, align 8, !tbaa !53
-  call void %308(i64 0, ptr noundef %311) #12
+308:                                              ; preds = %304
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 2376
+  %310 = load ptr, ptr %309, align 8, !tbaa !53
+  call void %307(i64 0, ptr noundef %310) #12
   br label %ackm_set_loss_detection_timer.exit92
 
-312:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i88
-  %313 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %0, ptr noundef %5)
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store i64 %313, ptr %314, align 8, !tbaa !3
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 2368
-  %316 = load ptr, ptr %315, align 8, !tbaa !52
-  %.not.i18.i89 = icmp eq ptr %316, null
-  br i1 %.not.i18.i89, label %ackm_set_loss_detection_timer.exit92, label %317
+311:                                              ; preds = %ackm_ack_eliciting_bytes_in_flight.exit.i88
+  %312 = call fastcc i64 @ackm_get_pto_time_and_space(ptr noundef nonnull %0, ptr noundef %5)
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store i64 %312, ptr %313, align 8, !tbaa !3
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 2368
+  %315 = load ptr, ptr %314, align 8, !tbaa !52
+  %.not.i18.i89 = icmp eq ptr %315, null
+  br i1 %.not.i18.i89, label %ackm_set_loss_detection_timer.exit92, label %316
 
-317:                                              ; preds = %312
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 2376
-  %319 = load ptr, ptr %318, align 8, !tbaa !53
-  call void %316(i64 %313, ptr noundef %319) #12
+316:                                              ; preds = %311
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 2376
+  %318 = load ptr, ptr %317, align 8, !tbaa !53
+  call void %315(i64 %312, ptr noundef %318) #12
   br label %ackm_set_loss_detection_timer.exit92
 
-ackm_set_loss_detection_timer.exit92:             ; preds = %294, %298, %305, %309, %312, %317
+ackm_set_loss_detection_timer.exit92:             ; preds = %293, %297, %304, %308, %311, %316
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  br label %320
+  br label %319
 
-320:                                              ; preds = %84, %ackm_set_loss_detection_timer.exit, %ackm_set_loss_detection_timer.exit92
+319:                                              ; preds = %83, %ackm_set_loss_detection_timer.exit, %ackm_set_loss_detection_timer.exit92
   ret i32 1
 }
 

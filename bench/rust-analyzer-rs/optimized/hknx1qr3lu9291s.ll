@@ -28851,12 +28851,15 @@ define void @_ZN6ide_db13documentation12DocsRangeMap3map17h789a2f9e742e69deE(ptr
   %.022.i = select i1 %.not.i, i64 %.01927.i, i64 %23
   %24 = sub i64 %.021.i, %.022.i
   %25 = icmp ult i64 %.022.i, %.021.i
-  br i1 %25, label %.lr.ph.i, label %.loopexit
+  br i1 %25, label %.lr.ph.i, label %.loopexit.loopexit
 
-.loopexit:                                        ; preds = %21, %4
-  %.019.lcssa.i = phi i64 [ 0, %4 ], [ %.022.i, %21 ]
-  %26 = icmp ule i64 %.019.lcssa.i, %13
-  tail call void @llvm.assume(i1 %26)
+.loopexit.loopexit:                               ; preds = %21
+  %26 = icmp ule i64 %.022.i, %13
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %4
+  %.019.lcssa.i = phi i1 [ true, %4 ], [ %26, %.loopexit.loopexit ]
+  tail call void @llvm.assume(i1 %.019.lcssa.i)
   store i32 0, ptr %0, align 4
   br label %32
 

@@ -1750,7 +1750,7 @@ define range(i32 0, 2) i32 @Ivy_CutFindOrAddFilter(ptr noundef captures(none) %0
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = sext i16 %12 to i32
   %24 = icmp sgt i16 %12, 0
-  br i1 %24, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %24, label %.lr.ph.preheader, label %Ivy_CutCheckDominance.exit60
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %23 to i64
@@ -1763,20 +1763,16 @@ define range(i32 0, 2) i32 @Ivy_CutFindOrAddFilter(ptr noundef captures(none) %0
   %27 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !43
   %.not44 = icmp eq i32 %26, %28
-  br i1 %.not44, label %29, label %._crit_edge.loopexit
+  br i1 %.not44, label %29, label %._crit_edge
 
 29:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %Ivy_CutCheckDominance.exit.thread64, label %.lr.ph, !llvm.loop !105
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %30 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %30, %._crit_edge.loopexit ]
-  %31 = icmp eq i32 %.0.lcssa, %23
+  %31 = icmp eq i32 %30, %23
   br i1 %31, label %Ivy_CutCheckDominance.exit.thread64, label %Ivy_CutCheckDominance.exit60
 
 32:                                               ; preds = %14
@@ -1877,7 +1873,7 @@ define range(i32 0, 2) i32 @Ivy_CutFindOrAddFilter(ptr noundef captures(none) %0
   store i16 0, ptr %11, align 4, !tbaa !40
   br label %Ivy_CutCheckDominance.exit60
 
-Ivy_CutCheckDominance.exit60:                     ; preds = %._crit_edge.us.i57, %._crit_edge.us.i, %64, %49, %.loopexit, %53, %38, %17, %._crit_edge, %9
+Ivy_CutCheckDominance.exit60:                     ; preds = %._crit_edge.us.i57, %._crit_edge.us.i, %64, %49, %.preheader, %.loopexit, %53, %38, %17, %._crit_edge, %9
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %._crit_edge87, label %9, !llvm.loop !108

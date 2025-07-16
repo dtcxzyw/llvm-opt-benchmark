@@ -240,7 +240,7 @@ define dso_local zeroext i1 @acpi_duplicate_processor_id(i32 noundef %0) local_u
   %4 = load i32, ptr @duplicate_processor_ids, align 16
   %5 = icmp ne i32 %4, %0
   %6 = select i1 %3, i1 %5, i1 false
-  br i1 %6, label %.preheader.preheader, label %15
+  br i1 %6, label %.preheader.preheader, label %.split.loop.exit2
 
 .preheader.preheader:                             ; preds = %1
   %7 = zext nneg i32 %2 to i64
@@ -260,16 +260,12 @@ define dso_local zeroext i1 @acpi_duplicate_processor_id(i32 noundef %0) local_u
 
 .split.loop.exit:                                 ; preds = %9
   %13 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %14 = icmp sgt i32 %2, %13
   br label %.split.loop.exit2
 
-.split.loop.exit2:                                ; preds = %.preheader, %.split.loop.exit
-  %.lcssa = phi i32 [ %13, %.split.loop.exit ], [ %2, %.preheader ]
-  %14 = icmp slt i32 %.lcssa, %2
-  br label %15
-
-15:                                               ; preds = %.split.loop.exit2, %1
-  %16 = phi i1 [ %3, %1 ], [ %14, %.split.loop.exit2 ]
-  ret i1 %16
+.split.loop.exit2:                                ; preds = %.preheader, %.split.loop.exit, %1
+  %15 = phi i1 [ %3, %1 ], [ %14, %.split.loop.exit ], [ false, %.preheader ]
+  ret i1 %15
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

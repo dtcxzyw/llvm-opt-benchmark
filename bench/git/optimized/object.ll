@@ -166,7 +166,7 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %bcmp.i50 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %16, i64 32)
   %.not.i.not51 = icmp eq i32 %bcmp.i50, 0
-  br i1 %.not.i.not51, label %24, label %.lr.ph53
+  br i1 %.not.i.not51, label %25, label %.lr.ph53
 
 .lr.ph:                                           ; preds = %.lr.ph53
   %17 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -187,24 +187,24 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
   %23 = ptrtoint ptr %22 to i64
-  br label %24
+  %24 = icmp eq i32 %spec.store.select, %11
+  br label %25
 
-24:                                               ; preds = %.lr.ph._crit_edge, %.lr.ph.preheader
+25:                                               ; preds = %.lr.ph._crit_edge, %.lr.ph.preheader
   %.sroa.0.0.copyload.lcssa = phi i64 [ %23, %.lr.ph._crit_edge ], [ %15, %.lr.ph.preheader ]
   %.lcssa47 = phi ptr [ %22, %.lr.ph._crit_edge ], [ %14, %.lr.ph.preheader ]
   %.lcssa = phi i64 [ %20, %.lr.ph._crit_edge ], [ %12, %.lr.ph.preheader ]
-  %.02334.lcssa = phi i32 [ %spec.store.select, %.lr.ph._crit_edge ], [ %11, %.lr.ph.preheader ]
-  %.not28 = icmp eq i32 %.02334.lcssa, %11
-  br i1 %.not28, label %.critedge, label %25
+  %.02334.lcssa = phi i1 [ %24, %.lr.ph._crit_edge ], [ true, %.lr.ph.preheader ]
+  br i1 %.02334.lcssa, label %.critedge, label %26
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw ptr, ptr %6, i64 %.lcssa
-  store i64 %15, ptr %26, align 1
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds nuw ptr, ptr %6, i64 %.lcssa
+  store i64 %15, ptr %27, align 1
   store i64 %.sroa.0.0.copyload.lcssa, ptr %13, align 1
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph53, %7, %24, %25, %2
-  %.0 = phi ptr [ null, %2 ], [ %.lcssa47, %25 ], [ %.lcssa47, %24 ], [ null, %7 ], [ null, %.lr.ph53 ]
+.critedge:                                        ; preds = %.lr.ph53, %7, %25, %26, %2
+  %.0 = phi ptr [ null, %2 ], [ %.lcssa47, %26 ], [ %.lcssa47, %25 ], [ null, %7 ], [ null, %.lr.ph53 ]
   ret ptr %.0
 }
 
@@ -470,23 +470,23 @@ define dso_local ptr @lookup_unknown_object(ptr noundef %0, ptr noundef readonly
   br i1 %.not26.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !45
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i
-  %.not28.i = icmp eq i32 %spec.store.select.i, %11
-  br i1 %.not28.i, label %lookup_object.exit, label %23
+  %23 = icmp eq i32 %spec.store.select.i, %11
+  br i1 %23, label %lookup_object.exit, label %24
 
-23:                                               ; preds = %.lr.ph.i._crit_edge
-  %24 = ptrtoint ptr %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %6, i64 %20
-  store i64 %15, ptr %25, align 1
-  store i64 %24, ptr %13, align 1
+24:                                               ; preds = %.lr.ph.i._crit_edge
+  %25 = ptrtoint ptr %22 to i64
+  %26 = getelementptr inbounds nuw ptr, ptr %6, i64 %20
+  store i64 %15, ptr %26, align 1
+  store i64 %25, ptr %13, align 1
   br label %lookup_object.exit
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %7
-  %26 = tail call ptr @alloc_object_node(ptr noundef %0) #20
-  %27 = tail call ptr @create_object(ptr noundef %0, ptr noundef %1, ptr noundef %26)
+  %27 = tail call ptr @alloc_object_node(ptr noundef %0) #20
+  %28 = tail call ptr @create_object(ptr noundef %0, ptr noundef %1, ptr noundef %27)
   br label %lookup_object.exit
 
-lookup_object.exit:                               ; preds = %.lr.ph.i.preheader, %23, %.lr.ph.i._crit_edge, %.loopexit
-  %.0 = phi ptr [ %26, %.loopexit ], [ %22, %23 ], [ %22, %.lr.ph.i._crit_edge ], [ %14, %.lr.ph.i.preheader ]
+lookup_object.exit:                               ; preds = %.lr.ph.i.preheader, %24, %.lr.ph.i._crit_edge, %.loopexit
+  %.0 = phi ptr [ %27, %.loopexit ], [ %22, %24 ], [ %22, %.lr.ph.i._crit_edge ], [ %14, %.lr.ph.i.preheader ]
   ret ptr %.0
 }
 
@@ -832,213 +832,213 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
   br i1 %.not26.i, label %lookup_object.exit.thread, label %.lr.ph.i, !llvm.loop !45
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i
-  %.not28.i = icmp eq i32 %spec.store.select.i, %33
-  br i1 %.not28.i, label %lookup_object.exit, label %45
+  %45 = icmp eq i32 %spec.store.select.i, %33
+  br i1 %45, label %lookup_object.exit, label %46
 
-45:                                               ; preds = %.lr.ph.i._crit_edge
-  %46 = ptrtoint ptr %44 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %28, i64 %42
-  store i64 %37, ptr %47, align 1
-  store i64 %46, ptr %35, align 1
+46:                                               ; preds = %.lr.ph.i._crit_edge
+  %47 = ptrtoint ptr %44 to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %28, i64 %42
+  store i64 %37, ptr %48, align 1
+  store i64 %47, ptr %35, align 1
   br label %lookup_object.exit
 
-lookup_object.exit:                               ; preds = %.lr.ph.i.preheader, %45, %.lr.ph.i._crit_edge
-  %.lcssa95130 = phi ptr [ %44, %45 ], [ %44, %.lr.ph.i._crit_edge ], [ %36, %.lr.ph.i.preheader ]
-  %48 = load i32, ptr %.lcssa95130, align 4
-  %49 = and i32 %48, 1
-  %.not57 = icmp eq i32 %49, 0
+lookup_object.exit:                               ; preds = %.lr.ph.i.preheader, %46, %.lr.ph.i._crit_edge
+  %.lcssa95129 = phi ptr [ %44, %46 ], [ %44, %.lr.ph.i._crit_edge ], [ %36, %.lr.ph.i.preheader ]
+  %49 = load i32, ptr %.lcssa95129, align 4
+  %50 = and i32 %49, 1
+  %.not57 = icmp eq i32 %50, 0
   br i1 %.not57, label %lookup_object.exit.thread, label %lookup_object.exit77
 
 lookup_object.exit.thread:                        ; preds = %.lr.ph, %29, %lookup_replace_object.exit, %lookup_object.exit
   %.not84 = phi i1 [ false, %lookup_object.exit ], [ true, %lookup_replace_object.exit ], [ true, %29 ], [ true, %.lr.ph ]
-  %.0.i6383 = phi ptr [ %.lcssa95130, %lookup_object.exit ], [ null, %lookup_replace_object.exit ], [ null, %29 ], [ null, %.lr.ph ]
-  br i1 %.not59, label %52, label %50
+  %.0.i6383 = phi ptr [ %.lcssa95129, %lookup_object.exit ], [ null, %lookup_replace_object.exit ], [ null, %29 ], [ null, %.lr.ph ]
+  br i1 %.not59, label %53, label %51
 
-50:                                               ; preds = %lookup_object.exit.thread
-  %51 = tail call ptr @lookup_commit_in_graph(ptr noundef %0, ptr noundef %.0.i) #20
-  %.not58 = icmp eq ptr %51, null
-  br i1 %.not58, label %52, label %lookup_object.exit77
+51:                                               ; preds = %lookup_object.exit.thread
+  %52 = tail call ptr @lookup_commit_in_graph(ptr noundef %0, ptr noundef %.0.i) #20
+  %.not58 = icmp eq ptr %52, null
+  br i1 %.not58, label %53, label %lookup_object.exit77
 
-52:                                               ; preds = %50, %lookup_object.exit.thread
-  br i1 %.not84, label %57, label %53
+53:                                               ; preds = %51, %lookup_object.exit.thread
+  br i1 %.not84, label %58, label %54
 
-53:                                               ; preds = %52
-  %54 = load i32, ptr %.0.i6383, align 4
-  %55 = and i32 %54, 14
-  %56 = icmp eq i32 %55, 6
-  br i1 %56, label %57, label %.thread
+54:                                               ; preds = %53
+  %55 = load i32, ptr %.0.i6383, align 4
+  %56 = and i32 %55, 14
+  %57 = icmp eq i32 %56, 6
+  br i1 %57, label %58, label %.thread
 
-57:                                               ; preds = %53, %52
-  %58 = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef %1, ptr noundef null) #20
-  %59 = icmp eq i32 %58, 3
-  br i1 %59, label %60, label %94
+58:                                               ; preds = %54, %53
+  %59 = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef %1, ptr noundef null) #20
+  %60 = icmp eq i32 %59, 3
+  br i1 %60, label %61, label %96
 
-60:                                               ; preds = %57
-  br i1 %.not59, label %61, label %70
+61:                                               ; preds = %58
+  br i1 %.not59, label %62, label %71
 
-61:                                               ; preds = %60
-  %62 = tail call i32 @stream_object_signature(ptr noundef %0, ptr noundef %.0.i) #20
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %64, label %70
+62:                                               ; preds = %61
+  %63 = tail call i32 @stream_object_signature(ptr noundef %0, ptr noundef %.0.i) #20
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %65, label %71
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
-  %.not4.i = icmp eq i32 %65, 0
-  br i1 %.not4.i, label %_.exit, label %66
+65:                                               ; preds = %62
+  %66 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
+  %.not4.i = icmp eq i32 %66, 0
+  br i1 %.not4.i, label %_.exit, label %67
 
-66:                                               ; preds = %64
-  %67 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #20
+67:                                               ; preds = %65
+  %68 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #20
   br label %_.exit
 
-_.exit:                                           ; preds = %64, %66
-  %.0.i64 = phi ptr [ %67, %66 ], [ @.str.6, %64 ]
-  %68 = tail call ptr @oid_to_hex(ptr noundef %1) #20
-  %69 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i64, ptr noundef %68) #20
+_.exit:                                           ; preds = %65, %67
+  %.0.i64 = phi ptr [ %68, %67 ], [ @.str.6, %65 ]
+  %69 = tail call ptr @oid_to_hex(ptr noundef %1) #20
+  %70 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i64, ptr noundef %69) #20
   br label %lookup_object.exit77
 
-70:                                               ; preds = %61, %60
-  %71 = tail call ptr @lookup_blob(ptr noundef %0, ptr noundef %1) #20
-  tail call void @parse_blob_buffer(ptr noundef %71) #20
-  %72 = load ptr, ptr %25, align 8, !tbaa !9
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !37
-  %.not.i65 = icmp eq ptr %74, null
-  br i1 %.not.i65, label %lookup_object.exit77, label %75
+71:                                               ; preds = %62, %61
+  %72 = tail call ptr @lookup_blob(ptr noundef %0, ptr noundef %1) #20
+  tail call void @parse_blob_buffer(ptr noundef %72) #20
+  %73 = load ptr, ptr %25, align 8, !tbaa !9
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !37
+  %.not.i65 = icmp eq ptr %75, null
+  br i1 %.not.i65, label %lookup_object.exit77, label %76
 
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 20
-  %77 = load i32, ptr %76, align 4, !tbaa !30
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 20
+  %78 = load i32, ptr %77, align 4, !tbaa !30
   %.val.i66 = load i32, ptr %1, align 4
-  %78 = add i32 %77, -1
-  %79 = and i32 %78, %.val.i66
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %74, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  %.not2633.i67 = icmp eq ptr %82, null
-  %83 = ptrtoint ptr %82 to i64
+  %79 = add i32 %78, -1
+  %80 = and i32 %79, %.val.i66
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr inbounds nuw ptr, ptr %75, i64 %81
+  %83 = load ptr, ptr %82, align 8
+  %.not2633.i67 = icmp eq ptr %83, null
+  %84 = ptrtoint ptr %83 to i64
   br i1 %.not2633.i67, label %lookup_object.exit77, label %.lr.ph.i68.preheader
 
-.lr.ph.i68.preheader:                             ; preds = %75
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %bcmp.i.i71104 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %84, i64 32)
+.lr.ph.i68.preheader:                             ; preds = %76
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %bcmp.i.i71104 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %85, i64 32)
   %.not.i.not.i72105 = icmp eq i32 %bcmp.i.i71104, 0
   br i1 %.not.i.not.i72105, label %lookup_object.exit77, label %.lr.ph107
 
 .lr.ph.i68:                                       ; preds = %.lr.ph107
-  %85 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %bcmp.i.i71 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %85, i64 32)
+  %86 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %bcmp.i.i71 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %86, i64 32)
   %.not.i.not.i72 = icmp eq i32 %bcmp.i.i71, 0
   br i1 %.not.i.not.i72, label %.lr.ph.i68._crit_edge, label %.lr.ph107, !llvm.loop !45
 
 .lr.ph107:                                        ; preds = %.lr.ph.i68.preheader, %.lr.ph.i68
-  %.02334.i70106 = phi i32 [ %spec.store.select.i73, %.lr.ph.i68 ], [ %79, %.lr.ph.i68.preheader ]
-  %86 = add i32 %.02334.i70106, 1
-  %87 = icmp eq i32 %86, %77
-  %spec.store.select.i73 = select i1 %87, i32 0, i32 %86
-  %88 = zext i32 %spec.store.select.i73 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %74, i64 %88
-  %90 = load ptr, ptr %89, align 8
-  %.not26.i74 = icmp eq ptr %90, null
+  %.02334.i70106 = phi i32 [ %spec.store.select.i73, %.lr.ph.i68 ], [ %80, %.lr.ph.i68.preheader ]
+  %87 = add i32 %.02334.i70106, 1
+  %88 = icmp eq i32 %87, %78
+  %spec.store.select.i73 = select i1 %88, i32 0, i32 %87
+  %89 = zext i32 %spec.store.select.i73 to i64
+  %90 = getelementptr inbounds nuw ptr, ptr %75, i64 %89
+  %91 = load ptr, ptr %90, align 8
+  %.not26.i74 = icmp eq ptr %91, null
   br i1 %.not26.i74, label %lookup_object.exit77, label %.lr.ph.i68, !llvm.loop !45
 
 .lr.ph.i68._crit_edge:                            ; preds = %.lr.ph.i68
-  %.not28.i76 = icmp eq i32 %spec.store.select.i73, %79
-  br i1 %.not28.i76, label %lookup_object.exit77, label %91
+  %92 = icmp eq i32 %spec.store.select.i73, %80
+  br i1 %92, label %lookup_object.exit77, label %93
 
-91:                                               ; preds = %.lr.ph.i68._crit_edge
-  %92 = ptrtoint ptr %90 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %74, i64 %88
-  store i64 %83, ptr %93, align 1
-  store i64 %92, ptr %81, align 1
+93:                                               ; preds = %.lr.ph.i68._crit_edge
+  %94 = ptrtoint ptr %91 to i64
+  %95 = getelementptr inbounds nuw ptr, ptr %75, i64 %89
+  store i64 %84, ptr %95, align 1
+  store i64 %94, ptr %82, align 1
   br label %lookup_object.exit77
 
-94:                                               ; preds = %57
-  %95 = and i32 %2, 3
-  %or.cond = icmp eq i32 %95, 3
-  br i1 %or.cond, label %97, label %104
+96:                                               ; preds = %58
+  %97 = and i32 %2, 3
+  %or.cond = icmp eq i32 %97, 3
+  br i1 %or.cond, label %99, label %106
 
-.thread:                                          ; preds = %53
-  %96 = and i32 %2, 3
-  %or.cond85 = icmp eq i32 %96, 3
-  br i1 %or.cond85, label %.thread86, label %104
+.thread:                                          ; preds = %54
+  %98 = and i32 %2, 3
+  %or.cond85 = icmp eq i32 %98, 3
+  br i1 %or.cond85, label %.thread86, label %106
 
-97:                                               ; preds = %94
-  br i1 %.not84, label %99, label %..thread86_crit_edge
+99:                                               ; preds = %96
+  br i1 %.not84, label %101, label %..thread86_crit_edge
 
-..thread86_crit_edge:                             ; preds = %97
+..thread86_crit_edge:                             ; preds = %99
   %.pre = load i32, ptr %.0.i6383, align 4
   %.pre124 = and i32 %.pre, 14
   br label %.thread86
 
 .thread86:                                        ; preds = %..thread86_crit_edge, %.thread
-  %.pre-phi = phi i32 [ %.pre124, %..thread86_crit_edge ], [ %55, %.thread ]
-  %98 = icmp eq i32 %.pre-phi, 4
-  br i1 %98, label %99, label %104
+  %.pre-phi = phi i32 [ %.pre124, %..thread86_crit_edge ], [ %56, %.thread ]
+  %100 = icmp eq i32 %.pre-phi, 4
+  br i1 %100, label %101, label %106
 
-99:                                               ; preds = %.thread86, %97
-  %100 = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef %1, ptr noundef null) #20
-  %101 = icmp eq i32 %100, 2
-  br i1 %101, label %102, label %104
+101:                                              ; preds = %.thread86, %99
+  %102 = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef %1, ptr noundef null) #20
+  %103 = icmp eq i32 %102, 2
+  br i1 %103, label %104, label %106
 
-102:                                              ; preds = %99
-  %103 = tail call ptr @lookup_tree(ptr noundef %0, ptr noundef %1) #20
+104:                                              ; preds = %101
+  %105 = tail call ptr @lookup_tree(ptr noundef %0, ptr noundef %1) #20
   br label %lookup_object.exit77
 
-104:                                              ; preds = %.thread, %99, %.thread86, %94
-  %105 = call ptr @repo_read_object_file(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %4) #20
-  %.not60 = icmp eq ptr %105, null
-  br i1 %.not60, label %lookup_object.exit77, label %106
+106:                                              ; preds = %.thread, %101, %.thread86, %96
+  %107 = call ptr @repo_read_object_file(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %4) #20
+  %.not60 = icmp eq ptr %107, null
+  br i1 %.not60, label %lookup_object.exit77, label %108
 
-106:                                              ; preds = %104
-  br i1 %.not59, label %107, label %118
+108:                                              ; preds = %106
+  br i1 %.not59, label %109, label %120
 
-107:                                              ; preds = %106
-  %108 = load i64, ptr %4, align 8, !tbaa !70
-  %109 = load i32, ptr %5, align 4, !tbaa !44
-  %110 = call i32 @check_object_signature(ptr noundef %0, ptr noundef %.0.i, ptr noundef nonnull %105, i64 noundef %108, i32 noundef %109) #20
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %112, label %118
+109:                                              ; preds = %108
+  %110 = load i64, ptr %4, align 8, !tbaa !70
+  %111 = load i32, ptr %5, align 4, !tbaa !44
+  %112 = call i32 @check_object_signature(ptr noundef %0, ptr noundef %.0.i, ptr noundef nonnull %107, i64 noundef %110, i32 noundef %111) #20
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %114, label %120
 
-112:                                              ; preds = %107
-  call void @free(ptr noundef nonnull %105) #20
-  %113 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
-  %.not4.i78 = icmp eq i32 %113, 0
-  br i1 %.not4.i78, label %_.exit80, label %114
+114:                                              ; preds = %109
+  call void @free(ptr noundef nonnull %107) #20
+  %115 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
+  %.not4.i78 = icmp eq i32 %115, 0
+  br i1 %.not4.i78, label %_.exit80, label %116
 
-114:                                              ; preds = %112
-  %115 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #20
+116:                                              ; preds = %114
+  %117 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #20
   br label %_.exit80
 
-_.exit80:                                         ; preds = %112, %114
-  %.0.i79 = phi ptr [ %115, %114 ], [ @.str.6, %112 ]
-  %116 = call ptr @oid_to_hex(ptr noundef %.0.i) #20
-  %117 = call i32 (ptr, ...) @error(ptr noundef %.0.i79, ptr noundef %116) #20
+_.exit80:                                         ; preds = %114, %116
+  %.0.i79 = phi ptr [ %117, %116 ], [ @.str.6, %114 ]
+  %118 = call ptr @oid_to_hex(ptr noundef %.0.i) #20
+  %119 = call i32 (ptr, ...) @error(ptr noundef %.0.i79, ptr noundef %118) #20
   br label %lookup_object.exit77
 
-118:                                              ; preds = %107, %106
-  %119 = load i32, ptr %5, align 4, !tbaa !44
-  %120 = load i64, ptr %4, align 8, !tbaa !70
-  %121 = call ptr @parse_object_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %119, i64 noundef %120, ptr noundef nonnull %105, ptr noundef nonnull %6)
-  %122 = load i32, ptr %6, align 4, !tbaa !44
-  %.not61 = icmp eq i32 %122, 0
-  br i1 %.not61, label %123, label %124
+120:                                              ; preds = %109, %108
+  %121 = load i32, ptr %5, align 4, !tbaa !44
+  %122 = load i64, ptr %4, align 8, !tbaa !70
+  %123 = call ptr @parse_object_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %121, i64 noundef %122, ptr noundef nonnull %107, ptr noundef nonnull %6)
+  %124 = load i32, ptr %6, align 4, !tbaa !44
+  %.not61 = icmp eq i32 %124, 0
+  br i1 %.not61, label %125, label %126
 
-123:                                              ; preds = %118
-  call void @free(ptr noundef nonnull %105) #20
-  br label %124
+125:                                              ; preds = %120
+  call void @free(ptr noundef nonnull %107) #20
+  br label %126
 
-124:                                              ; preds = %123, %118
-  %125 = load i32, ptr %5, align 4
-  %126 = icmp eq i32 %125, 2
-  %or.cond3 = select i1 %9, i1 %126, i1 false
-  br i1 %or.cond3, label %127, label %lookup_object.exit77
+126:                                              ; preds = %125, %120
+  %127 = load i32, ptr %5, align 4
+  %128 = icmp eq i32 %127, 2
+  %or.cond3 = select i1 %9, i1 %128, i1 false
+  br i1 %or.cond3, label %129, label %lookup_object.exit77
 
-127:                                              ; preds = %124
-  call void @free_tree_buffer(ptr noundef %121) #20
+129:                                              ; preds = %126
+  call void @free_tree_buffer(ptr noundef %123) #20
   br label %lookup_object.exit77
 
-lookup_object.exit77:                             ; preds = %.lr.ph107, %.lr.ph.i68.preheader, %91, %.lr.ph.i68._crit_edge, %75, %70, %104, %124, %127, %lookup_object.exit, %50, %_.exit80, %102, %_.exit
-  %.0 = phi ptr [ null, %_.exit ], [ %103, %102 ], [ null, %_.exit80 ], [ %51, %50 ], [ %.lcssa95130, %lookup_object.exit ], [ %121, %127 ], [ %121, %124 ], [ null, %104 ], [ null, %70 ], [ %90, %91 ], [ %90, %.lr.ph.i68._crit_edge ], [ null, %75 ], [ %82, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
+lookup_object.exit77:                             ; preds = %.lr.ph107, %.lr.ph.i68.preheader, %93, %.lr.ph.i68._crit_edge, %76, %71, %106, %126, %129, %lookup_object.exit, %51, %_.exit80, %104, %_.exit
+  %.0 = phi ptr [ null, %_.exit ], [ %105, %104 ], [ null, %_.exit80 ], [ %52, %51 ], [ %.lcssa95129, %lookup_object.exit ], [ %123, %129 ], [ %123, %126 ], [ null, %106 ], [ null, %71 ], [ %91, %93 ], [ %91, %.lr.ph.i68._crit_edge ], [ null, %76 ], [ %83, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20

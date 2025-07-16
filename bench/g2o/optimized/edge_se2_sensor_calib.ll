@@ -312,122 +312,122 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
 
 _ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i22: ; preds = %.lr.ph.i.i.i14
   %23 = icmp eq ptr %.19.i.i.i17, %13
-  br i1 %23, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25.thread, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25
+  br i1 %23, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24.thread, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24
 
-_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i22
+_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i22
   %24 = getelementptr inbounds nuw i8, ptr %.19.i.i.i17, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !46
-  %26 = icmp ult ptr %6, %25
-  br i1 %26, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25.thread, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.sink.split
+  %.not90 = icmp ult ptr %6, %25
+  br i1 %.not90, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24.thread, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.sink.split
 
-_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25.thread: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i22, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25
+_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24.thread: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i22, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24
   br label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.sink.split
 
-_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.sink.split: ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25.thread
-  %.sink202 = phi ptr [ %8, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25.thread ], [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25 ]
-  %.sink175 = phi i64 [ 464, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25.thread ], [ 176, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25 ]
-  %.sink174 = phi i64 [ 480, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25.thread ], [ 192, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25 ]
-  %.sink106 = phi ptr [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25.thread ], [ %8, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit25 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sink202, i64 176
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 176
-  %29 = load double, ptr %27, align 16, !noalias !59
-  %30 = getelementptr inbounds nuw i8, ptr %.sink202, i64 192
-  %.sroa.479.16.copyload = load <2 x double>, ptr %30, align 16, !tbaa !60
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  %32 = tail call double @sin(double noundef %29) #20, !tbaa !61, !noalias !59
-  %33 = tail call double @cos(double noundef %29) #20, !tbaa !61, !noalias !59
-  %34 = fneg double %32
-  %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x double> poison, double %33, i64 0
-  %.sroa.0.8.vec.insert.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i, double %32, i64 1
-  %.sroa.5.16.vec.insert.i.i.i = insertelement <2 x double> poison, double %34, i64 0
-  %.sroa.5.24.vec.insert.i.i.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i, double %33, i64 1
-  %35 = load <2 x double>, ptr %31, align 16
-  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> zeroinitializer
-  %37 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i, %36
-  %38 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %39 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i, %38
-  %40 = fadd <2 x double> %37, %39
-  %41 = fadd <2 x double> %.sroa.479.16.copyload, %40
-  %42 = load double, ptr %28, align 8, !tbaa !3, !noalias !59
-  %43 = fadd double %29, %42
-  %44 = fadd double %43, 0x400921FB54442D18
-  %45 = tail call double @fmod(double noundef %44, double noundef 0x401921FB54442D18) #20, !tbaa !61, !noalias !59
-  %46 = fcmp ugt double %45, 0.000000e+00
-  %.0.v.i.i.i = select i1 %46, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %.0.i.i.i = fadd double %45, %.0.v.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink175
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink174
-  %49 = tail call double @sin(double noundef %.0.i.i.i) #20, !tbaa !61, !noalias !59
-  %50 = tail call double @cos(double noundef %.0.i.i.i) #20, !tbaa !61, !noalias !59
-  %51 = fneg double %49
-  %.sroa.0.0.vec.insert.i.i.i26 = insertelement <2 x double> poison, double %50, i64 0
-  %.sroa.0.8.vec.insert.i.i.i27 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i26, double %49, i64 1
-  %.sroa.5.16.vec.insert.i.i.i28 = insertelement <2 x double> poison, double %51, i64 0
-  %.sroa.5.24.vec.insert.i.i.i29 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i28, double %50, i64 1
-  %52 = load <2 x double>, ptr %48, align 16, !noalias !59
-  %53 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
-  %54 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i27, %53
-  %55 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %56 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i29, %55
-  %57 = fadd <2 x double> %54, %56
-  %58 = fadd <2 x double> %41, %57
-  %59 = load double, ptr %47, align 16, !tbaa !3, !noalias !59
-  %60 = fadd double %.0.i.i.i, %59
-  %61 = fadd double %60, 0x400921FB54442D18
-  %62 = tail call double @fmod(double noundef %61, double noundef 0x401921FB54442D18) #20, !tbaa !61, !noalias !59
-  %63 = fcmp ugt double %62, 0.000000e+00
-  %.0.v.i.i.i30 = select i1 %63, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %.0.i.i.i31 = fadd double %62, %.0.v.i.i.i30
-  %64 = fsub double 0x400921FB54442D18, %42
-  %65 = tail call double @fmod(double noundef %64, double noundef 0x401921FB54442D18) #20, !tbaa !61, !noalias !59
-  %66 = fcmp ugt double %65, 0.000000e+00
-  %.0.v.i.i = select i1 %66, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %.0.i.i = fadd double %65, %.0.v.i.i
-  %67 = tail call double @sin(double noundef %.0.i.i) #20, !tbaa !61, !noalias !59
-  %68 = tail call double @cos(double noundef %.0.i.i) #20, !tbaa !61, !noalias !59
-  %69 = fneg double %67
-  %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %68, i64 0
-  %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %67, i64 1
-  %.sroa.5.16.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %69, i64 0
-  %.sroa.5.24.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i, double %68, i64 1
-  %70 = extractelement <2 x double> %35, i64 0
-  %71 = fneg double %70
-  %72 = insertelement <2 x double> poison, double %71, i64 0
-  %73 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> zeroinitializer
-  %74 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i, %73
-  %75 = extractelement <2 x double> %35, i64 1
-  %76 = fneg double %75
-  %77 = insertelement <2 x double> poison, double %76, i64 0
-  %78 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> zeroinitializer
-  %79 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i, %78
-  %80 = fadd <2 x double> %74, %79
-  %81 = tail call double @sin(double noundef %.0.i.i.i31) #20, !tbaa !61, !noalias !59
-  %82 = tail call double @cos(double noundef %.0.i.i.i31) #20, !tbaa !61, !noalias !59
-  %83 = fneg double %81
-  %.sroa.0.0.vec.insert.i.i.i32 = insertelement <2 x double> poison, double %82, i64 0
-  %.sroa.0.8.vec.insert.i.i.i33 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i32, double %81, i64 1
-  %.sroa.5.16.vec.insert.i.i.i34 = insertelement <2 x double> poison, double %83, i64 0
-  %.sroa.5.24.vec.insert.i.i.i35 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i34, double %82, i64 1
-  %84 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> zeroinitializer
-  %85 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i33, %84
-  %86 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %87 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i35, %86
-  %88 = fadd <2 x double> %85, %87
-  %89 = fadd <2 x double> %58, %88
-  %90 = fadd double %.0.i.i.i31, %.0.i.i
-  %91 = fadd double %90, 0x400921FB54442D18
-  %92 = tail call double @fmod(double noundef %91, double noundef 0x401921FB54442D18) #20, !tbaa !61, !noalias !59
-  %93 = fcmp ugt double %92, 0.000000e+00
-  %.0.v.i.i.i36 = select i1 %93, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %.0.i.i.i37 = fadd double %92, %.0.v.i.i.i36
-  %94 = getelementptr inbounds nuw i8, ptr %.sink106, i64 176
-  store double %.0.i.i.i37, ptr %94, align 16
-  %95 = getelementptr inbounds nuw i8, ptr %.sink106, i64 192
-  store <2 x double> %89, ptr %95, align 16, !tbaa !60
-  %96 = load ptr, ptr %.sink106, align 16, !tbaa !38
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 216
-  %98 = load ptr, ptr %97, align 8
-  tail call void %98(ptr noundef nonnull align 16 dereferenceable(232) %.sink106)
+_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.sink.split: ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24.thread
+  %.sink201 = phi ptr [ %8, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24.thread ], [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24 ]
+  %.sink174 = phi i64 [ 464, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24.thread ], [ 176, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24 ]
+  %.sink173 = phi i64 [ 480, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24.thread ], [ 192, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24 ]
+  %.sink105 = phi ptr [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24.thread ], [ %8, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit24 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sink201, i64 176
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 176
+  %28 = load double, ptr %26, align 16, !noalias !59
+  %29 = getelementptr inbounds nuw i8, ptr %.sink201, i64 192
+  %.sroa.478.16.copyload = load <2 x double>, ptr %29, align 16, !tbaa !60
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  %31 = tail call double @sin(double noundef %28) #20, !tbaa !61, !noalias !59
+  %32 = tail call double @cos(double noundef %28) #20, !tbaa !61, !noalias !59
+  %33 = fneg double %31
+  %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x double> poison, double %32, i64 0
+  %.sroa.0.8.vec.insert.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i, double %31, i64 1
+  %.sroa.5.16.vec.insert.i.i.i = insertelement <2 x double> poison, double %33, i64 0
+  %.sroa.5.24.vec.insert.i.i.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i, double %32, i64 1
+  %34 = load <2 x double>, ptr %30, align 16
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
+  %36 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i, %35
+  %37 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %38 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i, %37
+  %39 = fadd <2 x double> %36, %38
+  %40 = fadd <2 x double> %.sroa.478.16.copyload, %39
+  %41 = load double, ptr %27, align 8, !tbaa !3, !noalias !59
+  %42 = fadd double %28, %41
+  %43 = fadd double %42, 0x400921FB54442D18
+  %44 = tail call double @fmod(double noundef %43, double noundef 0x401921FB54442D18) #20, !tbaa !61, !noalias !59
+  %45 = fcmp ugt double %44, 0.000000e+00
+  %.0.v.i.i.i = select i1 %45, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %.0.i.i.i = fadd double %44, %.0.v.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink174
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink173
+  %48 = tail call double @sin(double noundef %.0.i.i.i) #20, !tbaa !61, !noalias !59
+  %49 = tail call double @cos(double noundef %.0.i.i.i) #20, !tbaa !61, !noalias !59
+  %50 = fneg double %48
+  %.sroa.0.0.vec.insert.i.i.i25 = insertelement <2 x double> poison, double %49, i64 0
+  %.sroa.0.8.vec.insert.i.i.i26 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i25, double %48, i64 1
+  %.sroa.5.16.vec.insert.i.i.i27 = insertelement <2 x double> poison, double %50, i64 0
+  %.sroa.5.24.vec.insert.i.i.i28 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i27, double %49, i64 1
+  %51 = load <2 x double>, ptr %47, align 16, !noalias !59
+  %52 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> zeroinitializer
+  %53 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i26, %52
+  %54 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %55 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i28, %54
+  %56 = fadd <2 x double> %53, %55
+  %57 = fadd <2 x double> %40, %56
+  %58 = load double, ptr %46, align 16, !tbaa !3, !noalias !59
+  %59 = fadd double %.0.i.i.i, %58
+  %60 = fadd double %59, 0x400921FB54442D18
+  %61 = tail call double @fmod(double noundef %60, double noundef 0x401921FB54442D18) #20, !tbaa !61, !noalias !59
+  %62 = fcmp ugt double %61, 0.000000e+00
+  %.0.v.i.i.i29 = select i1 %62, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %.0.i.i.i30 = fadd double %61, %.0.v.i.i.i29
+  %63 = fsub double 0x400921FB54442D18, %41
+  %64 = tail call double @fmod(double noundef %63, double noundef 0x401921FB54442D18) #20, !tbaa !61, !noalias !59
+  %65 = fcmp ugt double %64, 0.000000e+00
+  %.0.v.i.i = select i1 %65, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %.0.i.i = fadd double %64, %.0.v.i.i
+  %66 = tail call double @sin(double noundef %.0.i.i) #20, !tbaa !61, !noalias !59
+  %67 = tail call double @cos(double noundef %.0.i.i) #20, !tbaa !61, !noalias !59
+  %68 = fneg double %66
+  %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %67, i64 0
+  %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %66, i64 1
+  %.sroa.5.16.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %68, i64 0
+  %.sroa.5.24.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i, double %67, i64 1
+  %69 = extractelement <2 x double> %34, i64 0
+  %70 = fneg double %69
+  %71 = insertelement <2 x double> poison, double %70, i64 0
+  %72 = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> zeroinitializer
+  %73 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i, %72
+  %74 = extractelement <2 x double> %34, i64 1
+  %75 = fneg double %74
+  %76 = insertelement <2 x double> poison, double %75, i64 0
+  %77 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> zeroinitializer
+  %78 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i, %77
+  %79 = fadd <2 x double> %73, %78
+  %80 = tail call double @sin(double noundef %.0.i.i.i30) #20, !tbaa !61, !noalias !59
+  %81 = tail call double @cos(double noundef %.0.i.i.i30) #20, !tbaa !61, !noalias !59
+  %82 = fneg double %80
+  %.sroa.0.0.vec.insert.i.i.i31 = insertelement <2 x double> poison, double %81, i64 0
+  %.sroa.0.8.vec.insert.i.i.i32 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i31, double %80, i64 1
+  %.sroa.5.16.vec.insert.i.i.i33 = insertelement <2 x double> poison, double %82, i64 0
+  %.sroa.5.24.vec.insert.i.i.i34 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i33, double %81, i64 1
+  %83 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> zeroinitializer
+  %84 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i32, %83
+  %85 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %86 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i34, %85
+  %87 = fadd <2 x double> %84, %86
+  %88 = fadd <2 x double> %57, %87
+  %89 = fadd double %.0.i.i.i30, %.0.i.i
+  %90 = fadd double %89, 0x400921FB54442D18
+  %91 = tail call double @fmod(double noundef %90, double noundef 0x401921FB54442D18) #20, !tbaa !61, !noalias !59
+  %92 = fcmp ugt double %91, 0.000000e+00
+  %.0.v.i.i.i35 = select i1 %92, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %.0.i.i.i36 = fadd double %91, %.0.v.i.i.i35
+  %93 = getelementptr inbounds nuw i8, ptr %.sink105, i64 176
+  store double %.0.i.i.i36, ptr %93, align 16
+  %94 = getelementptr inbounds nuw i8, ptr %.sink105, i64 192
+  store <2 x double> %88, ptr %94, align 16, !tbaa !60
+  %95 = load ptr, ptr %.sink105, align 16, !tbaa !38
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 216
+  %97 = load ptr, ptr %96, align 8
+  tail call void %97(ptr noundef nonnull align 16 dereferenceable(232) %.sink105)
   br label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread
 
 _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.sink.split, %3, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
@@ -1127,77 +1127,77 @@ _ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_
 _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !46
-  %18 = icmp ult ptr %10, %17
-  br i1 %18, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread, label %.lr.ph.i.i.i8
+  %.not = icmp ult ptr %10, %17
+  br i1 %.not, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread, label %.lr.ph.i.i.i8
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
-  %19 = load ptr, ptr %5, align 8, !tbaa !46
-  br label %20
+  %18 = load ptr, ptr %5, align 8, !tbaa !46
+  br label %19
 
-20:                                               ; preds = %20, %.lr.ph.i.i.i8
-  %.012.i.i.i9 = phi ptr [ %7, %.lr.ph.i.i.i8 ], [ %.1.i.i.i14, %20 ]
-  %.0811.i.i.i10 = phi ptr [ %8, %.lr.ph.i.i.i8 ], [ %.19.i.i.i11, %20 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.012.i.i.i9, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !46
-  %23 = icmp ult ptr %22, %19
-  %.19.i.i.i11 = select i1 %23, ptr %.0811.i.i.i10, ptr %.012.i.i.i9
-  %.1.in.v.i.i.i12 = select i1 %23, i64 24, i64 16
+19:                                               ; preds = %19, %.lr.ph.i.i.i8
+  %.012.i.i.i9 = phi ptr [ %7, %.lr.ph.i.i.i8 ], [ %.1.i.i.i14, %19 ]
+  %.0811.i.i.i10 = phi ptr [ %8, %.lr.ph.i.i.i8 ], [ %.19.i.i.i11, %19 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.012.i.i.i9, i64 32
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
+  %22 = icmp ult ptr %21, %18
+  %.19.i.i.i11 = select i1 %22, ptr %.0811.i.i.i10, ptr %.012.i.i.i9
+  %.1.in.v.i.i.i12 = select i1 %22, i64 24, i64 16
   %.1.in.i.i.i13 = getelementptr inbounds nuw i8, ptr %.012.i.i.i9, i64 %.1.in.v.i.i.i12
   %.1.i.i.i14 = load ptr, ptr %.1.in.i.i.i13, align 8, !tbaa !56
   %.not.i.i.i15 = icmp eq ptr %.1.i.i.i14, null
-  br i1 %.not.i.i.i15, label %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i16, label %20, !llvm.loop !57
+  br i1 %.not.i.i.i15, label %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i16, label %19, !llvm.loop !57
 
-_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i16: ; preds = %20
-  %24 = icmp eq ptr %.19.i.i.i11, %8
-  br i1 %24, label %.lr.ph.i.i.i21, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit19
+_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i16: ; preds = %19
+  %23 = icmp eq ptr %.19.i.i.i11, %8
+  br i1 %23, label %.lr.ph.i.i.i20, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit18
 
-_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit19: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i16
-  %25 = getelementptr inbounds nuw i8, ptr %.19.i.i.i11, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !46
-  %27 = icmp ult ptr %19, %26
-  br i1 %27, label %.lr.ph.i.i.i21, label %28
+_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit18: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i16
+  %24 = getelementptr inbounds nuw i8, ptr %.19.i.i.i11, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
+  %.not34 = icmp ult ptr %18, %25
+  br i1 %.not34, label %.lr.ph.i.i.i20, label %26
 
-28:                                               ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit19
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !46
-  %31 = icmp eq ptr %2, %30
-  br i1 %31, label %43, label %.lr.ph.i.i.i21
+26:                                               ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit18
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !46
+  %29 = icmp eq ptr %2, %28
+  br i1 %29, label %40, label %.lr.ph.i.i.i20
 
-.lr.ph.i.i.i21:                                   ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i16, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit19, %28
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !46
-  br label %34
+.lr.ph.i.i.i20:                                   ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i16, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit18, %26
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !46
+  br label %32
 
-34:                                               ; preds = %34, %.lr.ph.i.i.i21
-  %.012.i.i.i22 = phi ptr [ %7, %.lr.ph.i.i.i21 ], [ %.1.i.i.i27, %34 ]
-  %.0811.i.i.i23 = phi ptr [ %8, %.lr.ph.i.i.i21 ], [ %.19.i.i.i24, %34 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i22, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !46
-  %37 = icmp ult ptr %36, %33
-  %.19.i.i.i24 = select i1 %37, ptr %.0811.i.i.i23, ptr %.012.i.i.i22
-  %.1.in.v.i.i.i25 = select i1 %37, i64 24, i64 16
-  %.1.in.i.i.i26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i22, i64 %.1.in.v.i.i.i25
-  %.1.i.i.i27 = load ptr, ptr %.1.in.i.i.i26, align 8, !tbaa !56
-  %.not.i.i.i28 = icmp eq ptr %.1.i.i.i27, null
-  br i1 %.not.i.i.i28, label %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i29, label %34, !llvm.loop !57
+32:                                               ; preds = %32, %.lr.ph.i.i.i20
+  %.012.i.i.i21 = phi ptr [ %7, %.lr.ph.i.i.i20 ], [ %.1.i.i.i26, %32 ]
+  %.0811.i.i.i22 = phi ptr [ %8, %.lr.ph.i.i.i20 ], [ %.19.i.i.i23, %32 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i21, i64 32
+  %34 = load ptr, ptr %33, align 8, !tbaa !46
+  %35 = icmp ult ptr %34, %31
+  %.19.i.i.i23 = select i1 %35, ptr %.0811.i.i.i22, ptr %.012.i.i.i21
+  %.1.in.v.i.i.i24 = select i1 %35, i64 24, i64 16
+  %.1.in.i.i.i25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i21, i64 %.1.in.v.i.i.i24
+  %.1.i.i.i26 = load ptr, ptr %.1.in.i.i.i25, align 8, !tbaa !56
+  %.not.i.i.i27 = icmp eq ptr %.1.i.i.i26, null
+  br i1 %.not.i.i.i27, label %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i28, label %32, !llvm.loop !57
 
-_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i29: ; preds = %34
-  %38 = icmp eq ptr %.19.i.i.i24, %8
-  br i1 %38, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit32
+_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i28: ; preds = %32
+  %36 = icmp eq ptr %.19.i.i.i23, %8
+  br i1 %36, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit30
 
-_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit32: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i29
-  %39 = getelementptr inbounds nuw i8, ptr %.19.i.i.i24, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !46
-  %41 = icmp uge ptr %33, %40
-  %42 = icmp eq ptr %2, %19
-  %or.cond = and i1 %41, %42
-  br i1 %or.cond, label %43, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread
+_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit30: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i28
+  %37 = getelementptr inbounds nuw i8, ptr %.19.i.i.i23, i64 32
+  %38 = load ptr, ptr %37, align 8, !tbaa !46
+  %.not35 = icmp uge ptr %31, %38
+  %39 = icmp eq ptr %2, %18
+  %or.cond = and i1 %.not35, %39
+  br i1 %or.cond, label %40, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread
 
-_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i29, %3, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit32, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
-  br label %43
+_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i28, %3, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit30, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
+  br label %40
 
-43:                                               ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit32, %28, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread
-  %.0 = phi double [ -1.000000e+00, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ 1.000000e+00, %28 ], [ 1.000000e+00, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit32 ]
+40:                                               ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit30, %26, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread
+  %.0 = phi double [ -1.000000e+00, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ 1.000000e+00, %26 ], [ 1.000000e+00, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit30 ]
   ret double %.0
 }
 

@@ -13770,52 +13770,46 @@ _Z38_mi_prim_thread_associate_default_heapP9mi_heap_s.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define zeroext i1 @mi_heap_contains_block(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #24 {
-  %3 = icmp ne ptr %0, null
-  %4 = icmp ne ptr %0, @_mi_heap_empty
-  %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %33
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %0, @_mi_heap_empty
+  %or.cond.not8 = or i1 %3, %4
+  %5 = icmp eq ptr %1, null
+  %or.cond6 = or i1 %or.cond.not8, %5
+  br i1 %or.cond6, label %_ZL16mi_heap_of_blockPKv.exit, label %6
 
-5:                                                ; preds = %2
-  %6 = icmp eq ptr %1, null
-  br i1 %6, label %_ZL16mi_heap_of_blockPKv.exit, label %7
+6:                                                ; preds = %2
+  %7 = ptrtoint ptr %1 to i64
+  %8 = add i64 %7, -1
+  %9 = and i64 %8, -33554432
+  %10 = inttoptr i64 %9 to ptr
+  %11 = icmp slt i64 %8, 33554432
+  %12 = select i1 %11, ptr null, ptr %10
+  %13 = ptrtoint ptr %12 to i64
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 32, !tbaa !212
+  %15 = xor i64 %14, %13
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 224
+  %17 = load i64, ptr %16, align 32, !tbaa !222
+  %.not.i = icmp eq i64 %15, %17
+  br i1 %.not.i, label %18, label %_ZL16mi_heap_of_blockPKv.exit, !prof !23
 
-7:                                                ; preds = %5
-  %8 = ptrtoint ptr %1 to i64
-  %9 = add i64 %8, -1
-  %10 = and i64 %9, -33554432
-  %11 = inttoptr i64 %10 to ptr
-  %12 = icmp slt i64 %9, 33554432
-  %13 = select i1 %12, ptr null, ptr %11
-  %14 = ptrtoint ptr %13 to i64
-  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 32, !tbaa !212
-  %16 = xor i64 %15, %14
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 224
-  %18 = load i64, ptr %17, align 32, !tbaa !222
-  %.not.i = icmp eq i64 %16, %18
-  br i1 %.not.i, label %19, label %_ZL16mi_heap_of_blockPKv.exit, !prof !23
-
-19:                                               ; preds = %7
-  %20 = sub i64 %8, %14
-  %21 = lshr i64 %20, 16
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 288
-  %23 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %22, i64 0, i64 %21
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !24
-  %26 = zext i32 %25 to i64
-  %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds i8, ptr %23, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %30 = load atomic i64, ptr %29 monotonic, align 8
-  %31 = inttoptr i64 %30 to ptr
+18:                                               ; preds = %6
+  %19 = sub i64 %7, %13
+  %20 = lshr i64 %19, 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 288
+  %22 = getelementptr inbounds nuw [513 x %struct.mi_page_s], ptr %21, i64 0, i64 %20
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !24
+  %25 = zext i32 %24 to i64
+  %26 = sub nsw i64 0, %25
+  %27 = getelementptr inbounds i8, ptr %22, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %29 = load atomic i64, ptr %28 monotonic, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = icmp eq ptr %0, %30
   br label %_ZL16mi_heap_of_blockPKv.exit
 
-_ZL16mi_heap_of_blockPKv.exit:                    ; preds = %5, %7, %19
-  %.0.i = phi ptr [ null, %5 ], [ %31, %19 ], [ null, %7 ]
-  %32 = icmp eq ptr %0, %.0.i
-  br label %33
-
-33:                                               ; preds = %2, %_ZL16mi_heap_of_blockPKv.exit
-  %.0 = phi i1 [ %32, %_ZL16mi_heap_of_blockPKv.exit ], [ false, %2 ]
+_ZL16mi_heap_of_blockPKv.exit:                    ; preds = %18, %6, %2
+  %.0 = phi i1 [ false, %2 ], [ %31, %18 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -31162,7 +31156,7 @@ define hidden noundef zeroext i1 @_Z19_mi_prim_random_bufPvm(ptr noundef %0, i64
 22:                                               ; preds = %.lr.ph
   %23 = tail call ptr @__errno_location() #59
   %24 = load i32, ptr %23, align 4, !tbaa !66
-  switch i32 %24, label %.thread40 [
+  switch i32 %24, label %.thread40.loopexit [
     i32 11, label %27
     i32 4, label %27
   ]
@@ -31174,16 +31168,20 @@ define hidden noundef zeroext i1 @_Z19_mi_prim_random_bufPvm(ptr noundef %0, i64
 27:                                               ; preds = %22, %22, %25
   %.225 = phi i64 [ %26, %25 ], [ %.02344, %22 ], [ %.02344, %22 ]
   %28 = icmp ult i64 %.225, %1
-  br i1 %28, label %.lr.ph, label %.thread40
+  br i1 %28, label %.lr.ph, label %.thread40.loopexit
 
-.thread40:                                        ; preds = %27, %22, %.preheader
-  %.023.lcssa = phi i64 [ 0, %.preheader ], [ %.02344, %22 ], [ %.225, %27 ]
-  %29 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %16) #55
-  %30 = icmp eq i64 %.023.lcssa, %1
+.thread40.loopexit:                               ; preds = %22, %27
+  %.023.lcssa.ph = phi i64 [ %.225, %27 ], [ %.02344, %22 ]
+  %29 = icmp eq i64 %.023.lcssa.ph, %1
+  br label %.thread40
+
+.thread40:                                        ; preds = %.thread40.loopexit, %.preheader
+  %.023.lcssa = phi i1 [ true, %.preheader ], [ %29, %.thread40.loopexit ]
+  %30 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %16) #55
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %.thread40, %14
-  %.1 = phi i1 [ %30, %.thread40 ], [ false, %14 ], [ false, %10 ], [ %9, %8 ]
+  %.1 = phi i1 [ %.023.lcssa, %.thread40 ], [ false, %14 ], [ false, %10 ], [ %9, %8 ]
   ret i1 %.1
 }
 

@@ -7332,9 +7332,9 @@ _ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_de
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %58
 
-58:                                               ; preds = %178, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit
-  %59 = phi ptr [ %.pre42, %178 ], [ %52, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit ]
-  %60 = phi ptr [ %.pre, %178 ], [ %.0.lcssa.i.i.i.i.i.i.i16, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit ]
+58:                                               ; preds = %177, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit
+  %59 = phi ptr [ %.pre48, %177 ], [ %52, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit ]
+  %60 = phi ptr [ %.pre, %177 ], [ %.0.lcssa.i.i.i.i.i.i.i16, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEEEE3endEv.exit ]
   %61 = load ptr, ptr %54, align 8, !tbaa !168
   %62 = load ptr, ptr %7, align 8, !tbaa !171
   %63 = ptrtoint ptr %61 to i64
@@ -7514,7 +7514,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_def
 
 147:                                              ; preds = %.loopexit
   call void @_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE11verifyBBMapEPKNS_6RegionE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %145)
-  br label %178
+  br label %177
 
 148:                                              ; preds = %.loopexit
   %149 = and i64 %.0.copyload.i.i.i.i, -8
@@ -7522,7 +7522,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_def
   %151 = load ptr, ptr %56, align 8, !tbaa !101
   %152 = load i32, ptr %57, align 8, !tbaa !104
   %153 = icmp eq i32 %152, 0
-  br i1 %153, label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE12getRegionForEPNS_10BasicBlockE.exit, label %154
+  br i1 %153, label %.critedge, label %154
 
 154:                                              ; preds = %148
   %155 = trunc i64 %149 to i32
@@ -7542,7 +7542,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_def
   %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %166 ], [ %.01826.i.i.i.i, %154 ]
   %.01627.i.i.i.i = phi i32 [ %167, %166 ], [ 1, %154 ]
   %165 = icmp eq ptr %164, inttoptr (i64 -4096 to ptr)
-  br i1 %165, label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE12getRegionForEPNS_10BasicBlockE.exit, label %166, !prof !109
+  br i1 %165, label %.critedge, label %166, !prof !109
 
 166:                                              ; preds = %.lr.ph.i.i.i.i
   %167 = add i32 %.01627.i.i.i.i, 1
@@ -7558,21 +7558,17 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_6RegionENS_12DenseMapI
   %173 = phi i64 [ %160, %154 ], [ %169, %166 ]
   %174 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.175", ptr %151, i64 %173, i32 0, i32 1
   %175 = load ptr, ptr %174, align 8, !tbaa !91
-  br label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE12getRegionForEPNS_10BasicBlockE.exit
+  %176 = icmp eq ptr %175, %1
+  br i1 %176, label %177, label %.critedge
 
-_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE12getRegionForEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i.i, %148, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_6RegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIPKS2_EEPKSA_RKT_.exit.i.i
-  %176 = phi ptr [ %175, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_6RegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIPKS2_EEPKSA_RKT_.exit.i.i ], [ null, %148 ], [ null, %.lr.ph.i.i.i.i ]
-  %.not = icmp eq ptr %176, %1
-  br i1 %.not, label %178, label %177
-
-177:                                              ; preds = %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE12getRegionForEPNS_10BasicBlockE.exit
+.critedge:                                        ; preds = %148, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_6RegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIPKS2_EEPKSA_RKT_.exit.i.i, %.lr.ph.i.i.i.i
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.9, i1 noundef zeroext true) #23
   unreachable
 
-178:                                              ; preds = %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE12getRegionForEPNS_10BasicBlockE.exit, %147
+177:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_6RegionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6doFindIPKS2_EEPKSA_RKT_.exit.i.i, %147
   call void @_ZN4llvm11df_iteratorIPKNS_10RegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(112) %4)
   %.pre = load ptr, ptr %55, align 8, !tbaa !168
-  %.pre42 = load ptr, ptr %31, align 8, !tbaa !171
+  %.pre48 = load ptr, ptr %31, align 8, !tbaa !171
   br label %58
 }
 

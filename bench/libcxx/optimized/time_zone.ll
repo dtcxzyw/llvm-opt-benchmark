@@ -26549,13 +26549,13 @@ _ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointI
   store ptr %132, ptr %161, align 8, !tbaa !800
   %.pre80.i = load ptr, ptr %152, align 8, !tbaa !800
   %.pre81.i = load ptr, ptr %.pre80.i, align 8, !tbaa !790
-  %162 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  store ptr %.pre80.i, ptr %162, align 8, !tbaa !800
-  %163 = icmp eq ptr %132, %.pre81.i
-  br i1 %163, label %164, label %167
+  %162 = icmp eq ptr %132, %.pre81.i
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  store ptr %.pre80.i, ptr %163, align 8, !tbaa !800
+  br i1 %162, label %164, label %167
 
 164:                                              ; preds = %160, %.thread84.i
-  %165 = phi ptr [ %159, %.thread84.i ], [ %162, %160 ]
+  %165 = phi ptr [ %159, %.thread84.i ], [ %163, %160 ]
   %166 = phi ptr [ %138, %.thread84.i ], [ %.pre80.i, %160 ]
   store ptr %157, ptr %166, align 8, !tbaa !790
   br label %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i
@@ -26566,7 +26566,7 @@ _ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointI
   br label %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i
 
 _ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i: ; preds = %167, %164
-  %169 = phi ptr [ %165, %164 ], [ %162, %167 ]
+  %169 = phi ptr [ %165, %164 ], [ %163, %167 ]
   store ptr %132, ptr %157, align 8, !tbaa !790
   store ptr %157, ptr %152, align 8, !tbaa !800
   %.pre82.i = load ptr, ptr %169, align 8, !tbaa !800

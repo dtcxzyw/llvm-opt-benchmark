@@ -17861,13 +17861,13 @@ define range(i32 0, 2) i32 @SSL_is_connection(ptr noundef %0) local_unnamed_addr
 
 5:                                                ; preds = %2
   %6 = tail call ptr @ossl_quic_get0_connection(ptr noundef nonnull %0) #20
+  %7 = icmp eq ptr %6, %0
+  %8 = zext i1 %7 to i32
   br label %SSL_get0_connection.exit
 
 SSL_get0_connection.exit:                         ; preds = %1, %2, %5
-  %.0.i = phi ptr [ %6, %5 ], [ %0, %2 ], [ null, %1 ]
-  %7 = icmp eq ptr %.0.i, %0
-  %8 = zext i1 %7 to i32
-  ret i32 %8
+  %.0.i = phi i32 [ %8, %5 ], [ 1, %2 ], [ 1, %1 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17927,13 +17927,13 @@ define range(i32 0, 2) i32 @SSL_is_listener(ptr noundef %0) local_unnamed_addr #
 
 5:                                                ; preds = %2
   %6 = tail call ptr @ossl_quic_get0_listener(ptr noundef nonnull %0) #20
+  %7 = icmp eq ptr %6, %0
+  %8 = zext i1 %7 to i32
   br label %SSL_get0_listener.exit
 
 SSL_get0_listener.exit:                           ; preds = %1, %2, %5
-  %.0.i = phi ptr [ %6, %5 ], [ null, %2 ], [ null, %1 ]
-  %7 = icmp eq ptr %.0.i, %0
-  %8 = zext i1 %7 to i32
-  ret i32 %8
+  %.0.i = phi i32 [ %8, %5 ], [ 0, %2 ], [ 1, %1 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17949,13 +17949,13 @@ define range(i32 0, 2) i32 @SSL_is_domain(ptr noundef %0) local_unnamed_addr #0 
 
 5:                                                ; preds = %2
   %6 = tail call ptr @ossl_quic_get0_domain(ptr noundef nonnull %0) #20
+  %7 = icmp eq ptr %6, %0
+  %8 = zext i1 %7 to i32
   br label %SSL_get0_domain.exit
 
 SSL_get0_domain.exit:                             ; preds = %1, %2, %5
-  %.0.i = phi ptr [ %6, %5 ], [ null, %2 ], [ null, %1 ]
-  %7 = icmp eq ptr %.0.i, %0
-  %8 = zext i1 %7 to i32
-  ret i32 %8
+  %.0.i = phi i32 [ %8, %5 ], [ 0, %2 ], [ 1, %1 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable

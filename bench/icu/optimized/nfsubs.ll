@@ -726,22 +726,22 @@ define void @_ZN6icu_7714NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringE
   br i1 %19, label %_ZNK6icu_7713UnicodeString6charAtEi.exit46, label %38
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit46:       ; preds = %10
-  %20 = and i16 %12, 2
-  %.not.i.i.i = icmp eq i16 %20, 0
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %20 = add nsw i32 %18, -1
+  %21 = and i16 %12, 2
+  %.not.i.i.i = icmp eq i16 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = select i1 %.not.i.i.i, ptr %23, ptr %21
-  %25 = load i16, ptr %24, align 2, !tbaa !15
-  %26 = add nsw i32 %18, -1
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %27
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %25 = select i1 %.not.i.i.i, ptr %23, ptr %24
+  %26 = load i16, ptr %25, align 2, !tbaa !15
+  %27 = zext nneg i32 %20 to i64
+  %28 = getelementptr inbounds nuw i16, ptr %25, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !15
-  %30 = icmp eq i16 %25, %29
+  %30 = icmp eq i16 %26, %29
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit46
-  %32 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %26, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  %32 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %20, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0)
           to label %_ZN6icu_7713UnicodeString6removeEii.exit unwind label %36
 
 _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %31

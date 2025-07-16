@@ -369,115 +369,109 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
 define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8EPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %.b3 = load i1, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119module_initialized_E, align 1
-  br i1 %.b3, label %4, label %57
+  %4 = icmp ne i32 %1, 0
+  %or.cond.not = and i1 %4, %.b3
+  br i1 %or.cond.not, label %5, label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
 
-4:                                                ; preds = %2
-  %5 = icmp eq i32 %1, 0
-  br i1 %5, label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit, label %6
-
-6:                                                ; preds = %4
-  %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
-  %9 = icmp slt i32 %1, 7
-  %10 = getelementptr inbounds i8, ptr %8, i64 -7
-  %11 = select i1 %9, ptr %0, ptr %10
+5:                                                ; preds = %2
+  %6 = sext i32 %1 to i64
+  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+  %8 = icmp slt i32 %1, 7
+  %9 = getelementptr inbounds i8, ptr %7, i64 -7
+  %10 = select i1 %8, ptr %0, ptr %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  %12 = ptrtoint ptr %0 to i64
-  br label %13
+  %11 = ptrtoint ptr %0 to i64
+  br label %12
 
-13:                                               ; preds = %.critedge4.i, %6
-  %.041.i = phi ptr [ %0, %6 ], [ %50, %.critedge4.i ]
-  %14 = ptrtoint ptr %.041.i to i64
-  %15 = and i64 %14, 7
-  %.not50.i = icmp ne i64 %15, 0
-  %16 = icmp ult ptr %.041.i, %8
-  %or.cond51.i = select i1 %.not50.i, i1 %16, i1 false
+12:                                               ; preds = %.critedge4.i, %5
+  %.041.i = phi ptr [ %0, %5 ], [ %49, %.critedge4.i ]
+  %13 = ptrtoint ptr %.041.i to i64
+  %14 = and i64 %13, 7
+  %.not50.i = icmp ne i64 %14, 0
+  %15 = icmp ult ptr %.041.i, %7
+  %or.cond51.i = select i1 %.not50.i, i1 %15, i1 false
   br i1 %or.cond51.i, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %13, %19
-  %.152.i = phi ptr [ %20, %19 ], [ %.041.i, %13 ]
-  %17 = load i8, ptr %.152.i, align 1, !tbaa !17
-  %18 = icmp sgt i8 %17, -1
-  br i1 %18, label %19, label %.critedge2.i
+.lr.ph.i:                                         ; preds = %12, %18
+  %.152.i = phi ptr [ %19, %18 ], [ %.041.i, %12 ]
+  %16 = load i8, ptr %.152.i, align 1, !tbaa !17
+  %17 = icmp sgt i8 %16, -1
+  br i1 %17, label %18, label %.critedge2.i
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %.152.i, i64 1
-  %21 = ptrtoint ptr %20 to i64
-  %22 = and i64 %21, 7
-  %.not.i = icmp ne i64 %22, 0
-  %23 = icmp ult ptr %20, %8
-  %or.cond.i = select i1 %.not.i, i1 %23, i1 false
+18:                                               ; preds = %.lr.ph.i
+  %19 = getelementptr inbounds nuw i8, ptr %.152.i, i64 1
+  %20 = ptrtoint ptr %19 to i64
+  %21 = and i64 %20, 7
+  %.not.i = icmp ne i64 %21, 0
+  %22 = icmp ult ptr %19, %7
+  %or.cond.i = select i1 %.not.i, i1 %22, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !24
 
-.critedge.i:                                      ; preds = %19, %13
-  %.1.lcssa.i = phi ptr [ %.041.i, %13 ], [ %20, %19 ]
-  %.lcssa.i = phi i64 [ %15, %13 ], [ %22, %19 ]
-  %24 = icmp eq i64 %.lcssa.i, 0
-  %25 = icmp ult ptr %.1.lcssa.i, %11
-  %or.cond64.i = select i1 %24, i1 %25, i1 false
+.critedge.i:                                      ; preds = %18, %12
+  %.1.lcssa.i = phi ptr [ %.041.i, %12 ], [ %19, %18 ]
+  %.lcssa.i = phi i64 [ %14, %12 ], [ %21, %18 ]
+  %23 = icmp eq i64 %.lcssa.i, 0
+  %24 = icmp ult ptr %.1.lcssa.i, %10
+  %or.cond64.i = select i1 %23, i1 %24, i1 false
   br i1 %or.cond64.i, label %.lr.ph55.i, label %.critedge2.i
 
-.lr.ph55.i:                                       ; preds = %.critedge.i, %32
-  %.354.i = phi ptr [ %33, %32 ], [ %.1.lcssa.i, %.critedge.i ]
-  %26 = load i32, ptr %.354.i, align 4, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %.354.i, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !3
-  %29 = or i32 %28, %26
-  %30 = and i32 %29, -2139062144
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %.critedge2.i
+.lr.ph55.i:                                       ; preds = %.critedge.i, %31
+  %.354.i = phi ptr [ %32, %31 ], [ %.1.lcssa.i, %.critedge.i ]
+  %25 = load i32, ptr %.354.i, align 4, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %.354.i, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !3
+  %28 = or i32 %27, %25
+  %29 = and i32 %28, -2139062144
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %.critedge2.i
 
-32:                                               ; preds = %.lr.ph55.i
-  %33 = getelementptr inbounds nuw i8, ptr %.354.i, i64 8
-  %34 = icmp ult ptr %33, %11
-  br i1 %34, label %.lr.ph55.i, label %.critedge2.i, !llvm.loop !25
+31:                                               ; preds = %.lr.ph55.i
+  %32 = getelementptr inbounds nuw i8, ptr %.354.i, i64 8
+  %33 = icmp ult ptr %32, %10
+  br i1 %33, label %.lr.ph55.i, label %.critedge2.i, !llvm.loop !25
 
-.critedge2.i:                                     ; preds = %.lr.ph.i, %32, %.lr.ph55.i, %.critedge.i
-  %.2.i = phi ptr [ %.1.lcssa.i, %.critedge.i ], [ %.354.i, %.lr.ph55.i ], [ %33, %32 ], [ %.152.i, %.lr.ph.i ]
-  %35 = icmp ult ptr %.2.i, %8
-  br i1 %35, label %.lr.ph60.i, label %.critedge4.i
+.critedge2.i:                                     ; preds = %.lr.ph.i, %31, %.lr.ph55.i, %.critedge.i
+  %.2.i = phi ptr [ %.1.lcssa.i, %.critedge.i ], [ %.354.i, %.lr.ph55.i ], [ %32, %31 ], [ %.152.i, %.lr.ph.i ]
+  %34 = icmp ult ptr %.2.i, %7
+  br i1 %34, label %.lr.ph60.i, label %.critedge4.i
 
-.lr.ph60.i:                                       ; preds = %.critedge2.i, %38
-  %.459.i = phi ptr [ %39, %38 ], [ %.2.i, %.critedge2.i ]
-  %36 = load i8, ptr %.459.i, align 1, !tbaa !17
-  %37 = icmp sgt i8 %36, -1
-  br i1 %37, label %38, label %.critedge4.i
+.lr.ph60.i:                                       ; preds = %.critedge2.i, %37
+  %.459.i = phi ptr [ %38, %37 ], [ %.2.i, %.critedge2.i ]
+  %35 = load i8, ptr %.459.i, align 1, !tbaa !17
+  %36 = icmp sgt i8 %35, -1
+  br i1 %36, label %37, label %.critedge4.i
 
-38:                                               ; preds = %.lr.ph60.i
-  %39 = getelementptr inbounds nuw i8, ptr %.459.i, i64 1
-  %40 = icmp ult ptr %39, %8
-  br i1 %40, label %.lr.ph60.i, label %.critedge4.i, !llvm.loop !26
+37:                                               ; preds = %.lr.ph60.i
+  %38 = getelementptr inbounds nuw i8, ptr %.459.i, i64 1
+  %39 = icmp ult ptr %38, %7
+  br i1 %39, label %.lr.ph60.i, label %.critedge4.i, !llvm.loop !26
 
-.critedge4.i:                                     ; preds = %38, %.lr.ph60.i, %.critedge2.i
-  %.4.lcssa.i = phi ptr [ %.2.i, %.critedge2.i ], [ %.459.i, %.lr.ph60.i ], [ %39, %38 ]
-  %41 = ptrtoint ptr %.4.lcssa.i to i64
-  %42 = sub i64 %41, %12
-  %43 = trunc i64 %42 to i32
-  %sext.i = shl i64 %42, 32
-  %44 = ashr exact i64 %sext.i, 32
-  %45 = getelementptr inbounds i8, ptr %0, i64 %44
-  %46 = sub nsw i32 %1, %43
-  %47 = call noundef i32 @_ZN6google8protobuf8internal15UTF8GenericScanEPKNS1_19UTF8StateMachineObjEPKciPi(ptr noundef nonnull @_ZN6google8protobuf8internalL27utf8acceptnonsurrogates_objE, ptr noundef %45, i32 noundef %46, ptr noundef nonnull %3)
-  %48 = load i32, ptr %3, align 4, !tbaa !3
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %.4.lcssa.i, i64 %49
-  %51 = icmp eq i32 %47, 253
-  br i1 %51, label %13, label %52, !llvm.loop !27
+.critedge4.i:                                     ; preds = %37, %.lr.ph60.i, %.critedge2.i
+  %.4.lcssa.i = phi ptr [ %.2.i, %.critedge2.i ], [ %.459.i, %.lr.ph60.i ], [ %38, %37 ]
+  %40 = ptrtoint ptr %.4.lcssa.i to i64
+  %41 = sub i64 %40, %11
+  %42 = trunc i64 %41 to i32
+  %sext.i = shl i64 %41, 32
+  %43 = ashr exact i64 %sext.i, 32
+  %44 = getelementptr inbounds i8, ptr %0, i64 %43
+  %45 = sub nsw i32 %1, %42
+  %46 = call noundef i32 @_ZN6google8protobuf8internal15UTF8GenericScanEPKNS1_19UTF8StateMachineObjEPKciPi(ptr noundef nonnull @_ZN6google8protobuf8internalL27utf8acceptnonsurrogates_objE, ptr noundef %44, i32 noundef %45, ptr noundef nonnull %3)
+  %47 = load i32, ptr %3, align 4, !tbaa !3
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i8, ptr %.4.lcssa.i, i64 %48
+  %50 = icmp eq i32 %46, 253
+  br i1 %50, label %12, label %51, !llvm.loop !27
 
-52:                                               ; preds = %.critedge4.i
-  %53 = ptrtoint ptr %50 to i64
-  %54 = sub i64 %53, %12
-  %55 = trunc i64 %54 to i32
+51:                                               ; preds = %.critedge4.i
+  %52 = ptrtoint ptr %49 to i64
+  %53 = sub i64 %52, %11
+  %54 = trunc i64 %53 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  %55 = icmp eq i32 %1, %54
   br label %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
 
-_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit: ; preds = %4, %52
-  %.04 = phi i32 [ 0, %4 ], [ %55, %52 ]
-  %56 = icmp eq i32 %.04, %1
-  br label %57
-
-57:                                               ; preds = %2, %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit
-  %.0 = phi i1 [ %56, %_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit ], [ true, %2 ]
+_ZN6google8protobuf8internal24UTF8GenericScanFastAsciiEPKNS1_19UTF8StateMachineObjEPKciPi.exit: ; preds = %51, %2
+  %.0 = phi i1 [ true, %2 ], [ %55, %51 ]
   ret i1 %.0
 }
 

@@ -202,16 +202,16 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %21 = icmp eq i8 %20, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !18
-  br i1 %21, label %._crit_edge.us, label %.lr.ph17
+  br i1 %21, label %._crit_edge.us.loopexit, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %16
   %.sroa.01.17.us16 = phi i64 [ %17, %16 ], [ 1, %.lr.ph17.preheader ]
   %exitcond29.not = icmp eq i64 %.sroa.01.17.us16, %25
-  br i1 %exitcond29.not, label %._crit_edge.us, label %16
+  br i1 %exitcond29.not, label %._crit_edge.us.loopexit, label %16
 
-._crit_edge.us:                                   ; preds = %.lr.ph17, %16, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph17 ], [ %17, %16 ]
-  %22 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %16, %.lr.ph17
+  %.lcssa20 = phi i64 [ %17, %16 ], [ %1, %.lr.ph17 ]
+  %22 = icmp eq i64 %.lcssa20, %1
   br label %.split15
 
 .lr.ph.us:                                        ; preds = %2
@@ -223,7 +223,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %24 = icmp eq i8 %23, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !18
-  br i1 %24, label %._crit_edge.us, label %.lr.ph17.preheader
+  br i1 %24, label %.split15, label %.lr.ph17.preheader
 
 .lr.ph17.preheader:                               ; preds = %.lr.ph.us
   %25 = add nsw i64 %1, -1
@@ -236,8 +236,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %27 = icmp ult i64 %.sroa.01.013, %1
   br i1 %27, label %.lr.ph, label %._crit_edge
 
-.split15:                                         ; preds = %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit, %._crit_edge, %35, %._crit_edge.us
-  %.us-phi = phi i1 [ %22, %._crit_edge.us ], [ true, %35 ], [ %34, %._crit_edge ], [ %34, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit ]
+.split15:                                         ; preds = %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit, %._crit_edge, %35, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %22, %._crit_edge.us.loopexit ], [ true, %35 ], [ %34, %._crit_edge ], [ %34, %_ZN4core5slice4sort26insertion_sort_shift_right17hf4359f47e6db1b69E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %35

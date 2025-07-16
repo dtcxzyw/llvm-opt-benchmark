@@ -4098,7 +4098,7 @@ define noundef zeroext i1 @_ZN3net22QuicCryptoClientConfig27PopulateFromCanonica
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 5
   %40 = icmp eq i64 %.017.lcssa, %39
-  br i1 %40, label %116, label %41
+  br i1 %40, label %115, label %41
 
 41:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #25
@@ -4132,75 +4132,75 @@ define noundef zeroext i1 @_ZN3net22QuicCryptoClientConfig27PopulateFromCanonica
 
 _ZNKSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.noexc
   %53 = icmp eq ptr %.19.i.i.i.i, %50
-  br i1 %53, label %.thread, label %54
+  br i1 %53, label %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit.thread, label %54
 
 54:                                               ; preds = %_ZNKSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %56 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %55)
-          to label %57 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-57:                                               ; preds = %54
-  br i1 %56, label %.thread, label %71
+_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit: ; preds = %54
+  br i1 %56, label %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit.thread, label %70
 
-.thread:                                          ; preds = %_ZNKSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %57
+_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit
   %.pr = load ptr, ptr %48, align 8, !tbaa !12
   %.not10.i.i.i.i25 = icmp eq ptr %.pr, null
   br i1 %.not10.i.i.i.i25, label %.critedge.i, label %.lr.ph.i.i.i.i26
 
-.lr.ph.i.i.i.i26:                                 ; preds = %.thread, %.noexc34
-  %.012.i.i.i.i27 = phi ptr [ %.1.i.i.i.i32, %.noexc34 ], [ %.pr, %.thread ]
-  %.0811.i.i.i.i28 = phi ptr [ %.19.i.i.i.i29, %.noexc34 ], [ %50, %.thread ]
-  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i27, i64 32
-  %59 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %58, ptr noundef nonnull align 8 dereferenceable(44) %12)
+.lr.ph.i.i.i.i26:                                 ; preds = %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit.thread, %.noexc34
+  %.012.i.i.i.i27 = phi ptr [ %.1.i.i.i.i32, %.noexc34 ], [ %.pr, %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit.thread ]
+  %.0811.i.i.i.i28 = phi ptr [ %.19.i.i.i.i29, %.noexc34 ], [ %50, %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit.thread ]
+  %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i27, i64 32
+  %58 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %57, ptr noundef nonnull align 8 dereferenceable(44) %12)
           to label %.noexc34 unwind label %.loopexit
 
 .noexc34:                                         ; preds = %.lr.ph.i.i.i.i26
-  %.19.i.i.i.i29 = select i1 %59, ptr %.0811.i.i.i.i28, ptr %.012.i.i.i.i27
-  %.1.in.v.i.i.i.i30 = select i1 %59, i64 24, i64 16
+  %.19.i.i.i.i29 = select i1 %58, ptr %.0811.i.i.i.i28, ptr %.012.i.i.i.i27
+  %.1.in.v.i.i.i.i30 = select i1 %58, i64 24, i64 16
   %.1.in.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i27, i64 %.1.in.v.i.i.i.i30
   %.1.i.i.i.i32 = load ptr, ptr %.1.in.i.i.i.i31, align 8, !tbaa !150
   %.not.i.i.i.i33 = icmp eq ptr %.1.i.i.i.i32, null
   br i1 %.not.i.i.i.i33, label %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i, label %.lr.ph.i.i.i.i26, !llvm.loop !161
 
 _ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i: ; preds = %.noexc34
-  %60 = icmp eq ptr %.19.i.i.i.i29, %50
-  br i1 %60, label %.critedge.i, label %61
+  %59 = icmp eq ptr %.19.i.i.i.i29, %50
+  br i1 %59, label %.critedge.i, label %60
 
-61:                                               ; preds = %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i
-  %62 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i29, i64 32
-  %63 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %62)
+60:                                               ; preds = %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i
+  %61 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i29, i64 32
+  %62 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %61)
           to label %.noexc35 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc35:                                         ; preds = %61
-  br i1 %63, label %.critedge.i, label %65
+.noexc35:                                         ; preds = %60
+  br i1 %62, label %.critedge.i, label %64
 
-.critedge.i:                                      ; preds = %41, %.noexc35, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i, %.thread
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i29, %.noexc35 ], [ %.19.i.i.i.i29, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i ], [ %50, %.thread ], [ %50, %41 ]
+.critedge.i:                                      ; preds = %41, %.noexc35, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i, %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit.thread
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i29, %.noexc35 ], [ %.19.i.i.i.i29, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i ], [ %50, %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit.thread ], [ %50, %41 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
   store ptr %12, ptr %10, align 8, !tbaa !162
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #25
-  %64 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %63 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc36 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc36:                                         ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  br label %65
+  br label %64
 
-65:                                               ; preds = %.noexc36, %.noexc35
-  %.sroa.06.0.i = phi ptr [ %64, %.noexc36 ], [ %.19.i.i.i.i29, %.noexc35 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 80
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %66, ptr noundef nonnull align 8 dereferenceable(44) %1)
+64:                                               ; preds = %.noexc36, %.noexc35
+  %.sroa.06.0.i = phi ptr [ %63, %.noexc36 ], [ %.19.i.i.i.i29, %.noexc35 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 80
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %65, ptr noundef nonnull align 8 dereferenceable(44) %1)
           to label %_ZN3net12QuicServerIdaSERKS0_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZN3net12QuicServerIdaSERKS0_.exit:               ; preds = %65
-  %67 = load i16, ptr %43, align 8, !tbaa !155
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 112
-  store i16 %67, ptr %68, align 8, !tbaa !155
-  %69 = load i32, ptr %45, align 8, !tbaa !156
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 120
-  store i32 %69, ptr %70, align 8, !tbaa !156
-  br label %115
+_ZN3net12QuicServerIdaSERKS0_.exit:               ; preds = %64
+  %66 = load i16, ptr %43, align 8, !tbaa !155
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 112
+  store i16 %66, ptr %67, align 8, !tbaa !155
+  %68 = load i32, ptr %45, align 8, !tbaa !156
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 120
+  store i32 %68, ptr %69, align 8, !tbaa !156
+  br label %114
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i26
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -4212,121 +4212,121 @@ _ZN3net12QuicServerIdaSERKS0_.exit:               ; preds = %65
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %65, %.critedge.i, %61, %54
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %64, %.critedge.i, %60, %54
   %lpad.loopexit.split-lp107 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-71:                                               ; preds = %57
-  %72 = load ptr, ptr %48, align 8, !tbaa !12
-  %.not10.i.i.i.i38 = icmp eq ptr %72, null
+70:                                               ; preds = %_ZN4base11ContainsKeyISt3mapIN3net12QuicServerIdES3_St4lessIS3_ESaISt4pairIKS3_S3_EEES3_EEbRKT_RKT0_.exit
+  %71 = load ptr, ptr %48, align 8, !tbaa !12
+  %.not10.i.i.i.i38 = icmp eq ptr %71, null
   br i1 %.not10.i.i.i.i38, label %.critedge.i49, label %.lr.ph.i.i.i.i39
 
-.lr.ph.i.i.i.i39:                                 ; preds = %71, %.noexc51
-  %.012.i.i.i.i40 = phi ptr [ %.1.i.i.i.i45, %.noexc51 ], [ %72, %71 ]
-  %.0811.i.i.i.i41 = phi ptr [ %.19.i.i.i.i42, %.noexc51 ], [ %50, %71 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i40, i64 32
-  %74 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %73, ptr noundef nonnull align 8 dereferenceable(44) %12)
+.lr.ph.i.i.i.i39:                                 ; preds = %70, %.noexc51
+  %.012.i.i.i.i40 = phi ptr [ %.1.i.i.i.i45, %.noexc51 ], [ %71, %70 ]
+  %.0811.i.i.i.i41 = phi ptr [ %.19.i.i.i.i42, %.noexc51 ], [ %50, %70 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i40, i64 32
+  %73 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %72, ptr noundef nonnull align 8 dereferenceable(44) %12)
           to label %.noexc51 unwind label %.loopexit101
 
 .noexc51:                                         ; preds = %.lr.ph.i.i.i.i39
-  %.19.i.i.i.i42 = select i1 %74, ptr %.0811.i.i.i.i41, ptr %.012.i.i.i.i40
-  %.1.in.v.i.i.i.i43 = select i1 %74, i64 24, i64 16
+  %.19.i.i.i.i42 = select i1 %73, ptr %.0811.i.i.i.i41, ptr %.012.i.i.i.i40
+  %.1.in.v.i.i.i.i43 = select i1 %73, i64 24, i64 16
   %.1.in.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i40, i64 %.1.in.v.i.i.i.i43
   %.1.i.i.i.i45 = load ptr, ptr %.1.in.i.i.i.i44, align 8, !tbaa !150
   %.not.i.i.i.i46 = icmp eq ptr %.1.i.i.i.i45, null
   br i1 %.not.i.i.i.i46, label %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i47, label %.lr.ph.i.i.i.i39, !llvm.loop !161
 
 _ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i47: ; preds = %.noexc51
-  %75 = icmp eq ptr %.19.i.i.i.i42, %50
-  br i1 %75, label %.critedge.i49, label %76
+  %74 = icmp eq ptr %.19.i.i.i.i42, %50
+  br i1 %74, label %.critedge.i49, label %75
 
-76:                                               ; preds = %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i47
-  %77 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i42, i64 32
-  %78 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %77)
+75:                                               ; preds = %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i47
+  %76 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i42, i64 32
+  %77 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %76)
           to label %.noexc52 unwind label %.loopexit.split-lp102
 
-.noexc52:                                         ; preds = %76
-  br i1 %78, label %.critedge.i49, label %80
+.noexc52:                                         ; preds = %75
+  br i1 %77, label %.critedge.i49, label %79
 
-.critedge.i49:                                    ; preds = %.noexc52, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i47, %71
-  %.08.lcssa.i.i.i11.i50 = phi ptr [ %.19.i.i.i.i42, %.noexc52 ], [ %.19.i.i.i.i42, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i47 ], [ %50, %71 ]
+.critedge.i49:                                    ; preds = %.noexc52, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i47, %70
+  %.08.lcssa.i.i.i11.i50 = phi ptr [ %.19.i.i.i.i42, %.noexc52 ], [ %.19.i.i.i.i42, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i47 ], [ %50, %70 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
   store ptr %12, ptr %8, align 8, !tbaa !162
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #25
-  %79 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr %.08.lcssa.i.i.i11.i50, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %78 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr %.08.lcssa.i.i.i11.i50, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc53 unwind label %.loopexit.split-lp102
 
 .noexc53:                                         ; preds = %.critedge.i49
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  br label %80
+  br label %79
 
-80:                                               ; preds = %.noexc53, %.noexc52
-  %.sroa.06.0.i48 = phi ptr [ %79, %.noexc53 ], [ %.19.i.i.i.i42, %.noexc52 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i48, i64 80
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %84 = load ptr, ptr %83, align 8, !tbaa !12
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.not10.i.i.i.i55 = icmp eq ptr %84, null
+79:                                               ; preds = %.noexc53, %.noexc52
+  %.sroa.06.0.i48 = phi ptr [ %78, %.noexc53 ], [ %.19.i.i.i.i42, %.noexc52 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i48, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %83 = load ptr, ptr %82, align 8, !tbaa !12
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.not10.i.i.i.i55 = icmp eq ptr %83, null
   br i1 %.not10.i.i.i.i55, label %.critedge.i65, label %.lr.ph.i.i.i.i56
 
-.lr.ph.i.i.i.i56:                                 ; preds = %80, %.noexc67
-  %.012.i.i.i.i57 = phi ptr [ %.1.i.i.i.i62, %.noexc67 ], [ %84, %80 ]
-  %.0811.i.i.i.i58 = phi ptr [ %.19.i.i.i.i59, %.noexc67 ], [ %85, %80 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i57, i64 32
-  %87 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %86, ptr noundef nonnull align 8 dereferenceable(44) %81)
+.lr.ph.i.i.i.i56:                                 ; preds = %79, %.noexc67
+  %.012.i.i.i.i57 = phi ptr [ %.1.i.i.i.i62, %.noexc67 ], [ %83, %79 ]
+  %.0811.i.i.i.i58 = phi ptr [ %.19.i.i.i.i59, %.noexc67 ], [ %84, %79 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i57, i64 32
+  %86 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %85, ptr noundef nonnull align 8 dereferenceable(44) %80)
           to label %.noexc67 unwind label %.loopexit.split-lp94.loopexit
 
 .noexc67:                                         ; preds = %.lr.ph.i.i.i.i56
-  %.19.i.i.i.i59 = select i1 %87, ptr %.0811.i.i.i.i58, ptr %.012.i.i.i.i57
-  %.1.in.v.i.i.i.i60 = select i1 %87, i64 24, i64 16
+  %.19.i.i.i.i59 = select i1 %86, ptr %.0811.i.i.i.i58, ptr %.012.i.i.i.i57
+  %.1.in.v.i.i.i.i60 = select i1 %86, i64 24, i64 16
   %.1.in.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i57, i64 %.1.in.v.i.i.i.i60
   %.1.i.i.i.i62 = load ptr, ptr %.1.in.i.i.i.i61, align 8, !tbaa !150
   %.not.i.i.i.i63 = icmp eq ptr %.1.i.i.i.i62, null
   br i1 %.not.i.i.i.i63, label %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i, label %.lr.ph.i.i.i.i56, !llvm.loop !151
 
 _ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i: ; preds = %.noexc67
-  %88 = icmp eq ptr %.19.i.i.i.i59, %85
-  br i1 %88, label %.critedge.i65, label %89
+  %87 = icmp eq ptr %.19.i.i.i.i59, %84
+  br i1 %87, label %.critedge.i65, label %88
 
-89:                                               ; preds = %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i
-  %90 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i59, i64 32
-  %91 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %81, ptr noundef nonnull align 8 dereferenceable(44) %90)
+88:                                               ; preds = %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i
+  %89 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i59, i64 32
+  %90 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %80, ptr noundef nonnull align 8 dereferenceable(44) %89)
           to label %.noexc68 unwind label %.loopexit.split-lp94.loopexit.split-lp
 
-.noexc68:                                         ; preds = %89
-  br i1 %91, label %.critedge.i65, label %93
+.noexc68:                                         ; preds = %88
+  br i1 %90, label %.critedge.i65, label %92
 
-.critedge.i65:                                    ; preds = %.noexc68, %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i, %80
-  %.08.lcssa.i.i.i11.i66 = phi ptr [ %.19.i.i.i.i59, %.noexc68 ], [ %.19.i.i.i.i59, %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i ], [ %85, %80 ]
+.critedge.i65:                                    ; preds = %.noexc68, %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i, %79
+  %.08.lcssa.i.i.i11.i66 = phi ptr [ %.19.i.i.i.i59, %.noexc68 ], [ %.19.i.i.i.i59, %_ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i ], [ %84, %79 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
-  store ptr %81, ptr %6, align 8, !tbaa !162
+  store ptr %80, ptr %6, align 8, !tbaa !162
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #25
-  %92 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr %.08.lcssa.i.i.i11.i66, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %91 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr %.08.lcssa.i.i.i11.i66, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc69 unwind label %.loopexit.split-lp94.loopexit.split-lp
 
 .noexc69:                                         ; preds = %.critedge.i65
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  br label %93
+  br label %92
 
-93:                                               ; preds = %.noexc69, %.noexc68
-  %.sroa.06.0.i64 = phi ptr [ %92, %.noexc69 ], [ %.19.i.i.i.i59, %.noexc68 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i64, i64 80
-  %95 = load ptr, ptr %94, align 8, !tbaa !164
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 184
-  %97 = load i8, ptr %96, align 8, !tbaa !52, !range !95, !noundef !96
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %115
+92:                                               ; preds = %.noexc69, %.noexc68
+  %.sroa.06.0.i64 = phi ptr [ %91, %.noexc69 ], [ %.19.i.i.i.i59, %.noexc68 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i64, i64 80
+  %94 = load ptr, ptr %93, align 8, !tbaa !164
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 184
+  %96 = load i8, ptr %95, align 8, !tbaa !52, !range !95, !noundef !96
+  %97 = trunc nuw i8 %96 to i1
+  br i1 %97, label %98, label %114
 
 .loopexit101:                                     ; preds = %.lr.ph.i.i.i.i39
   %lpad.loopexit103 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp102:                            ; preds = %76, %.critedge.i49
+.loopexit.split-lp102:                            ; preds = %75, %.critedge.i49
   %lpad.loopexit.split-lp104 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -4341,77 +4341,77 @@ _ZNSt3mapIN3net12QuicServerIdEPNS0_22QuicCryptoClientConfig11CachedStateESt4less
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp94.loopexit.split-lp:           ; preds = %108, %.critedge.i81, %104, %.critedge.i65, %89, %110
+.loopexit.split-lp94.loopexit.split-lp:           ; preds = %107, %.critedge.i81, %103, %.critedge.i65, %88, %109
   %lpad.loopexit.split-lp99 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-99:                                               ; preds = %93
-  %100 = load ptr, ptr %48, align 8, !tbaa !12
-  %.not10.i.i.i.i70 = icmp eq ptr %100, null
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %48, align 8, !tbaa !12
+  %.not10.i.i.i.i70 = icmp eq ptr %99, null
   br i1 %.not10.i.i.i.i70, label %.critedge.i81, label %.lr.ph.i.i.i.i71
 
-.lr.ph.i.i.i.i71:                                 ; preds = %99, %.noexc83
-  %.012.i.i.i.i72 = phi ptr [ %.1.i.i.i.i77, %.noexc83 ], [ %100, %99 ]
-  %.0811.i.i.i.i73 = phi ptr [ %.19.i.i.i.i74, %.noexc83 ], [ %50, %99 ]
-  %101 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i72, i64 32
-  %102 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %101, ptr noundef nonnull align 8 dereferenceable(44) %12)
+.lr.ph.i.i.i.i71:                                 ; preds = %98, %.noexc83
+  %.012.i.i.i.i72 = phi ptr [ %.1.i.i.i.i77, %.noexc83 ], [ %99, %98 ]
+  %.0811.i.i.i.i73 = phi ptr [ %.19.i.i.i.i74, %.noexc83 ], [ %50, %98 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i72, i64 32
+  %101 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %100, ptr noundef nonnull align 8 dereferenceable(44) %12)
           to label %.noexc83 unwind label %.loopexit93
 
 .noexc83:                                         ; preds = %.lr.ph.i.i.i.i71
-  %.19.i.i.i.i74 = select i1 %102, ptr %.0811.i.i.i.i73, ptr %.012.i.i.i.i72
-  %.1.in.v.i.i.i.i75 = select i1 %102, i64 24, i64 16
+  %.19.i.i.i.i74 = select i1 %101, ptr %.0811.i.i.i.i73, ptr %.012.i.i.i.i72
+  %.1.in.v.i.i.i.i75 = select i1 %101, i64 24, i64 16
   %.1.in.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i72, i64 %.1.in.v.i.i.i.i75
   %.1.i.i.i.i77 = load ptr, ptr %.1.in.i.i.i.i76, align 8, !tbaa !150
   %.not.i.i.i.i78 = icmp eq ptr %.1.i.i.i.i77, null
   br i1 %.not.i.i.i.i78, label %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i79, label %.lr.ph.i.i.i.i71, !llvm.loop !161
 
 _ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i79: ; preds = %.noexc83
-  %103 = icmp eq ptr %.19.i.i.i.i74, %50
-  br i1 %103, label %.critedge.i81, label %104
+  %102 = icmp eq ptr %.19.i.i.i.i74, %50
+  br i1 %102, label %.critedge.i81, label %103
 
-104:                                              ; preds = %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i79
-  %105 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i74, i64 32
-  %106 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %105)
+103:                                              ; preds = %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i79
+  %104 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i74, i64 32
+  %105 = invoke noundef zeroext i1 @_ZNK3net12QuicServerIdltERKS0_(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull align 8 dereferenceable(44) %104)
           to label %.noexc84 unwind label %.loopexit.split-lp94.loopexit.split-lp
 
-.noexc84:                                         ; preds = %104
-  br i1 %106, label %.critedge.i81, label %108
+.noexc84:                                         ; preds = %103
+  br i1 %105, label %.critedge.i81, label %107
 
-.critedge.i81:                                    ; preds = %.noexc84, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i79, %99
-  %.08.lcssa.i.i.i11.i82 = phi ptr [ %.19.i.i.i.i74, %.noexc84 ], [ %.19.i.i.i.i74, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i79 ], [ %50, %99 ]
+.critedge.i81:                                    ; preds = %.noexc84, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i79, %98
+  %.08.lcssa.i.i.i11.i82 = phi ptr [ %.19.i.i.i.i74, %.noexc84 ], [ %.19.i.i.i.i74, %_ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_.exit.i79 ], [ %50, %98 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   store ptr %12, ptr %4, align 8, !tbaa !162
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #25
-  %107 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr %.08.lcssa.i.i.i11.i82, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %106 = invoke ptr @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr %.08.lcssa.i.i.i11.i82, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc85 unwind label %.loopexit.split-lp94.loopexit.split-lp
 
 .noexc85:                                         ; preds = %.critedge.i81
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  br label %108
+  br label %107
 
-108:                                              ; preds = %.noexc85, %.noexc84
-  %.sroa.06.0.i80 = phi ptr [ %107, %.noexc85 ], [ %.19.i.i.i.i74, %.noexc84 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i80, i64 80
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %109, ptr noundef nonnull align 8 dereferenceable(44) %1)
-          to label %110 unwind label %.loopexit.split-lp94.loopexit.split-lp
+107:                                              ; preds = %.noexc85, %.noexc84
+  %.sroa.06.0.i80 = phi ptr [ %106, %.noexc85 ], [ %.19.i.i.i.i74, %.noexc84 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i80, i64 80
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %108, ptr noundef nonnull align 8 dereferenceable(44) %1)
+          to label %109 unwind label %.loopexit.split-lp94.loopexit.split-lp
 
-110:                                              ; preds = %108
-  %111 = load i16, ptr %43, align 8, !tbaa !155
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i80, i64 112
-  store i16 %111, ptr %112, align 8, !tbaa !155
-  %113 = load i32, ptr %45, align 8, !tbaa !156
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i80, i64 120
-  store i32 %113, ptr %114, align 8, !tbaa !156
-  invoke void @_ZN3net22QuicCryptoClientConfig11CachedState14InitializeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull align 8 dereferenceable(384) %95)
-          to label %115 unwind label %.loopexit.split-lp94.loopexit.split-lp
+109:                                              ; preds = %107
+  %110 = load i16, ptr %43, align 8, !tbaa !155
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i80, i64 112
+  store i16 %110, ptr %111, align 8, !tbaa !155
+  %112 = load i32, ptr %45, align 8, !tbaa !156
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i80, i64 120
+  store i32 %112, ptr %113, align 8, !tbaa !156
+  invoke void @_ZN3net22QuicCryptoClientConfig11CachedState14InitializeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef nonnull align 8 dereferenceable(384) %94)
+          to label %114 unwind label %.loopexit.split-lp94.loopexit.split-lp
 
-115:                                              ; preds = %_ZN3net12QuicServerIdaSERKS0_.exit, %93, %110
-  %.1 = phi i1 [ false, %_ZN3net12QuicServerIdaSERKS0_.exit ], [ true, %110 ], [ false, %93 ]
+114:                                              ; preds = %_ZN3net12QuicServerIdaSERKS0_.exit, %92, %109
+  %.1 = phi i1 [ false, %_ZN3net12QuicServerIdaSERKS0_.exit ], [ true, %109 ], [ false, %92 ]
   call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %12) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #25
-  br label %116
+  br label %115
 
 .loopexit.split-lp:                               ; preds = %.loopexit93, %.loopexit.split-lp94.loopexit.split-lp, %.loopexit.split-lp94.loopexit, %.loopexit101, %.loopexit.split-lp102, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
   %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit106, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp107, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit103, %.loopexit101 ], [ %lpad.loopexit.split-lp104, %.loopexit.split-lp102 ], [ %lpad.loopexit95, %.loopexit93 ], [ %lpad.loopexit98, %.loopexit.split-lp94.loopexit ], [ %lpad.loopexit.split-lp99, %.loopexit.split-lp94.loopexit.split-lp ]
@@ -4419,8 +4419,8 @@ _ZNSt3mapIN3net12QuicServerIdES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundE
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #25
   resume { ptr, i32 } %.pn.pn
 
-116:                                              ; preds = %._crit_edge, %115
-  %.0 = phi i1 [ %.1, %115 ], [ false, %._crit_edge ]
+115:                                              ; preds = %._crit_edge, %114
+  %.0 = phi i1 [ %.1, %114 ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 

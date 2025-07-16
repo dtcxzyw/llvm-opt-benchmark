@@ -4840,18 +4840,18 @@ _ZN15ast_translationclI3appEEPT_PKS2_.exit:       ; preds = %2
   %12 = tail call noundef ptr @_ZN15ast_translation7processEPK3ast(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %7)
   %.pre = load ptr, ptr %1, align 8, !tbaa !166
   %.pre6 = load ptr, ptr %4, align 8, !tbaa !155
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
-  %15 = icmp eq ptr %.pre, %.pre6
-  br i1 %15, label %_ZN15ast_translationclI3appEEPT_PKS2_.exit5, label %16
+  %13 = icmp eq ptr %.pre, %.pre6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
+  br i1 %13, label %_ZN15ast_translationclI3appEEPT_PKS2_.exit5, label %16
 
 16:                                               ; preds = %_ZN15ast_translationclI3appEEPT_PKS2_.exit
-  %17 = tail call noundef ptr @_ZN15ast_translation7processEPK3ast(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %14)
+  %17 = tail call noundef ptr @_ZN15ast_translation7processEPK3ast(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %15)
   br label %_ZN15ast_translationclI3appEEPT_PKS2_.exit5
 
 _ZN15ast_translationclI3appEEPT_PKS2_.exit5:      ; preds = %_ZN15ast_translationclI3appEEPT_PKS2_.exit.thread, %_ZN15ast_translationclI3appEEPT_PKS2_.exit, %16
   %.0.i.i8 = phi ptr [ %12, %16 ], [ %12, %_ZN15ast_translationclI3appEEPT_PKS2_.exit ], [ %7, %_ZN15ast_translationclI3appEEPT_PKS2_.exit.thread ]
-  %.0.i.i4 = phi ptr [ %17, %16 ], [ %14, %_ZN15ast_translationclI3appEEPT_PKS2_.exit ], [ %11, %_ZN15ast_translationclI3appEEPT_PKS2_.exit.thread ]
+  %.0.i.i4 = phi ptr [ %17, %16 ], [ %15, %_ZN15ast_translationclI3appEEPT_PKS2_.exit ], [ %11, %_ZN15ast_translationclI3appEEPT_PKS2_.exit.thread ]
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %18, align 8, !tbaa !50
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19split_clause_tactic8split_pcE, i64 16), ptr %3, align 8, !tbaa !9

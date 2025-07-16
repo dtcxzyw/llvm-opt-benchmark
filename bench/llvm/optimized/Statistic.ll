@@ -1589,26 +1589,26 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i: ; preds = %_ZN4l
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %.0.i.i2.i.i, align 8, !tbaa !68
   %.pre11.i = load ptr, ptr %10, align 8, !tbaa !62
-  %.not.i.i.i = icmp eq ptr %.pre11.i, %.pre.i
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_113StatisticInfo5resetEv.exit, label %12
+  %12 = icmp eq ptr %.pre11.i, %.pre.i
+  br i1 %12, label %_ZN12_GLOBAL__N_113StatisticInfo5resetEv.exit, label %13
 
-12:                                               ; preds = %._crit_edge.i
+13:                                               ; preds = %._crit_edge.i
   store ptr %.pre.i, ptr %10, align 8, !tbaa !62
   br label %_ZN12_GLOBAL__N_113StatisticInfo5resetEv.exit
 
 .lr.ph.i:                                         ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i, %.lr.ph.i
-  %.sroa.05.010.i = phi ptr [ %16, %.lr.ph.i ], [ %9, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i ]
-  %13 = load ptr, ptr %.sroa.05.010.i, align 8, !tbaa !66
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store atomic i8 0, ptr %14 seq_cst, align 1
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store atomic i64 0, ptr %15 seq_cst, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i, i64 8
-  %.not.i = icmp eq ptr %16, %11
+  %.sroa.05.010.i = phi ptr [ %17, %.lr.ph.i ], [ %9, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i ]
+  %14 = load ptr, ptr %.sroa.05.010.i, align 8, !tbaa !66
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store atomic i8 0, ptr %15 seq_cst, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store atomic i64 0, ptr %16 seq_cst, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i, i64 8
+  %.not.i = icmp eq ptr %17, %11
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-_ZN12_GLOBAL__N_113StatisticInfo5resetEv.exit:    ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i, %._crit_edge.i, %12
-  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i2.i.i2) #21
+_ZN12_GLOBAL__N_113StatisticInfo5resetEv.exit:    ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i, %._crit_edge.i, %13
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i2.i.i2) #21
   ret void
 }
 

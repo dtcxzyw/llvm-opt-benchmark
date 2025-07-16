@@ -122,42 +122,38 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7715PersianCalendar10isLeapYea
   %.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
   %2 = select i1 %.b, i32 1502, i32 0
   %.not = icmp slt i32 %0, %2
-  br i1 %.not, label %6, label %3
+  br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %1
   %4 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
   %5 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %4, i32 noundef %0)
   %.not9 = icmp eq i8 %5, 0
-  br i1 %.not9, label %._crit_edge, label %20
+  br i1 %.not9, label %6, label %18
 
-._crit_edge:                                      ; preds = %3
+6:                                                ; preds = %3
   %.pre.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
   %.pre = select i1 %.pre.b, i32 1502, i32 0
-  br label %6
+  %7 = icmp sgt i32 %0, %.pre
+  br i1 %7, label %8, label %.thread
 
-6:                                                ; preds = %._crit_edge, %1
-  %7 = phi i32 [ %.pre, %._crit_edge ], [ %2, %1 ]
-  %8 = icmp sgt i32 %0, %7
-  br i1 %8, label %9, label %13
+8:                                                ; preds = %6
+  %9 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %10 = add nsw i32 %0, -1
+  %11 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %9, i32 noundef %10)
+  %.not10 = icmp eq i8 %11, 0
+  br i1 %.not10, label %.thread, label %18
 
-9:                                                ; preds = %6
-  %10 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
-  %11 = add nsw i32 %0, -1
-  %12 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %10, i32 noundef %11)
-  %.not10 = icmp eq i8 %12, 0
-  br i1 %.not10, label %13, label %20
+.thread:                                          ; preds = %1, %8, %6
+  %12 = sext i32 %0 to i64
+  %13 = mul nsw i64 %12, 25
+  %14 = add nsw i64 %13, 11
+  %15 = srem i64 %14, 33
+  %16 = icmp slt i64 %15, 8
+  %17 = zext i1 %16 to i8
+  br label %18
 
-13:                                               ; preds = %9, %6
-  %14 = sext i32 %0 to i64
-  %15 = mul nsw i64 %14, 25
-  %16 = add nsw i64 %15, 11
-  %17 = srem i64 %16, 33
-  %18 = icmp slt i64 %17, 8
-  %19 = zext i1 %18 to i8
-  br label %20
-
-20:                                               ; preds = %9, %3, %13
-  %.0 = phi i8 [ %19, %13 ], [ 0, %3 ], [ 1, %9 ]
+18:                                               ; preds = %8, %3, %.thread
+  %.0 = phi i8 [ %17, %.thread ], [ 0, %3 ], [ 1, %8 ]
   ret i8 %.0
 }
 
@@ -277,13 +273,13 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_7715PersianCalendar20handleGet
   %.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
   %10 = select i1 %.b, i32 1502, i32 0
   %.not.i = icmp slt i32 %.0, %10
-  br i1 %.not.i, label %17, label %11
+  br i1 %.not.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, label %11
 
 11:                                               ; preds = %9
   %12 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
   %13 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %12, i32 noundef %.0)
   %.not9.i = icmp eq i8 %13, 0
-  br i1 %.not9.i, label %._crit_edge.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread
+  br i1 %.not9.i, label %17, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread
 
 _ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread: ; preds = %11
   %14 = load i32, ptr %5, align 4
@@ -291,44 +287,36 @@ _ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread: ; preds = %11
   %16 = getelementptr inbounds [12 x i8], ptr @_ZL19kPersianMonthLength, i64 0, i64 %15
   br label %35
 
-._crit_edge.i:                                    ; preds = %11
+17:                                               ; preds = %11
   %.pre.i.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
   %.pre.i = select i1 %.pre.i.b, i32 1502, i32 0
-  br label %17
+  %18 = icmp sgt i32 %.0, %.pre.i
+  br i1 %18, label %19, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit
 
-17:                                               ; preds = %._crit_edge.i, %9
-  %18 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %10, %9 ]
-  %19 = icmp sgt i32 %.0, %18
-  br i1 %19, label %20, label %._ZN6icu_7715PersianCalendar10isLeapYearEi.exit_crit_edge
-
-._ZN6icu_7715PersianCalendar10isLeapYearEi.exit_crit_edge: ; preds = %17
-  %.pre = load i32, ptr %5, align 4
-  br label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit
-
-20:                                               ; preds = %17
-  %21 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
-  %22 = add nsw i32 %.0, -1
-  %23 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %21, i32 noundef %22)
-  %.not10.i = icmp eq i8 %23, 0
-  %.pre12 = load i32, ptr %5, align 4
+19:                                               ; preds = %17
+  %20 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %21 = add nsw i32 %.0, -1
+  %22 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %20, i32 noundef %21)
+  %.not10.i = icmp eq i8 %22, 0
   br i1 %.not10.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
 
-_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6: ; preds = %20
-  %24 = sext i32 %.pre12 to i64
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6: ; preds = %19
+  %23 = load i32, ptr %5, align 4
+  %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds [12 x i8], ptr @_ZL23kPersianLeapMonthLength, i64 0, i64 %24
   br label %35
 
-_ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %._ZN6icu_7715PersianCalendar10isLeapYearEi.exit_crit_edge, %20
-  %26 = phi i32 [ %.pre, %._ZN6icu_7715PersianCalendar10isLeapYearEi.exit_crit_edge ], [ %.pre12, %20 ]
-  %27 = sext i32 %.0 to i64
-  %28 = mul nsw i64 %27, 25
-  %29 = add nsw i64 %28, 11
-  %30 = srem i64 %29, 33
-  %31 = icmp sgt i64 %30, 7
-  %32 = sext i32 %26 to i64
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %9, %17, %19
+  %26 = sext i32 %.0 to i64
+  %27 = mul nsw i64 %26, 25
+  %28 = add nsw i64 %27, 11
+  %29 = srem i64 %28, 33
+  %30 = icmp sgt i64 %29, 7
+  %31 = load i32, ptr %5, align 4
+  %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [12 x i8], ptr @_ZL23kPersianLeapMonthLength, i64 0, i64 %32
   %34 = getelementptr inbounds [12 x i8], ptr @_ZL19kPersianMonthLength, i64 0, i64 %32
-  %spec.select = select i1 %31, ptr %34, ptr %33
+  %spec.select = select i1 %30, ptr %34, ptr %33
   br label %35
 
 35:                                               ; preds = %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
@@ -350,44 +338,40 @@ define noundef range(i32 0, 367) i32 @_ZNK6icu_7715PersianCalendar19handleGetYea
   %.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
   %7 = select i1 %.b, i32 1502, i32 0
   %.not.i = icmp slt i32 %1, %7
-  br i1 %.not.i, label %11, label %8
+  br i1 %.not.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, label %8
 
 8:                                                ; preds = %6
   %9 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
   %10 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %9, i32 noundef %1)
   %.not9.i = icmp eq i8 %10, 0
-  br i1 %.not9.i, label %._crit_edge.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread
+  br i1 %.not9.i, label %11, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread
 
-._crit_edge.i:                                    ; preds = %8
+11:                                               ; preds = %8
   %.pre.i.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
   %.pre.i = select i1 %.pre.i.b, i32 1502, i32 0
-  br label %11
+  %12 = icmp sgt i32 %1, %.pre.i
+  br i1 %12, label %13, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit
 
-11:                                               ; preds = %._crit_edge.i, %6
-  %12 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %7, %6 ]
-  %13 = icmp sgt i32 %1, %12
-  br i1 %13, label %14, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit
-
-14:                                               ; preds = %11
-  %15 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
-  %16 = add nsw i32 %1, -1
-  %17 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %15, i32 noundef %16)
-  %.not10.i = icmp eq i8 %17, 0
+13:                                               ; preds = %11
+  %14 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %15 = add nsw i32 %1, -1
+  %16 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %14, i32 noundef %15)
+  %.not10.i = icmp eq i8 %16, 0
   br i1 %.not10.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
 
-_ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %11, %14
-  %18 = sext i32 %1 to i64
-  %19 = mul nsw i64 %18, 25
-  %20 = add nsw i64 %19, 11
-  %21 = srem i64 %20, 33
-  %22 = icmp sgt i64 %21, 7
-  br i1 %22, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %6, %11, %13
+  %17 = sext i32 %1 to i64
+  %18 = mul nsw i64 %17, 25
+  %19 = add nsw i64 %18, 11
+  %20 = srem i64 %19, 33
+  %21 = icmp sgt i64 %20, 7
+  br i1 %21, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
 
 _ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread: ; preds = %8, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit
   br label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
 
-_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6: ; preds = %14, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ 365, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread ], [ 366, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit ], [ 366, %14 ]
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6: ; preds = %13, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, %3
+  %.0 = phi i32 [ 0, %3 ], [ 365, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread ], [ 366, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit ], [ 366, %13 ]
   ret i32 %.0
 }
 

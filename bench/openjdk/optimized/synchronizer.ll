@@ -1620,13 +1620,13 @@ define hidden void @_ZN18ObjectSynchronizer4exitEP7oopDescP9BasicLockP10JavaThre
   tail call void @_ZN10JavaThread22dec_held_monitor_countElb(ptr noundef nonnull align 8 dereferenceable(1800) %2, i64 noundef 1, i1 noundef zeroext false) #18
   %4 = load i32, ptr @LockingMode, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread42, label %6
+  br i1 %5, label %.thread40, label %6
 
 6:                                                ; preds = %3
   %7 = load volatile i64, ptr %0, align 8
-  switch i32 %4, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread42 [
+  switch i32 %4, label %.thread40 [
     i32 2, label %8
-    i32 1, label %68
+    i32 1, label %67
   ]
 
 8:                                                ; preds = %6
@@ -1663,141 +1663,140 @@ define hidden void @_ZN18ObjectSynchronizer4exitEP7oopDescP9BasicLockP10JavaThre
 _ZN9LockStack18try_recursive_exitEP7oopDesc.exit: ; preds = %24
   %29 = add i32 %13, -8
   store i32 %29, ptr %9, align 8
-  br label %84
+  br label %83
 
 30:                                               ; preds = %24, %18, %12
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 1736
   %32 = zext nneg i32 %16 to i64
-  br label %33
+  br label %.backedge.i
 
-33:                                               ; preds = %._crit_edge.i, %30
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ %32, %30 ]
+.backedge.i:                                      ; preds = %34, %30
+  %indvars.iv.i = phi i64 [ %32, %30 ], [ %indvars.iv.next.i, %34 ]
+  %33 = icmp sgt i64 %indvars.iv.i, 1
+  br i1 %33, label %34, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader
+
+34:                                               ; preds = %.backedge.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %34 = icmp sgt i64 %indvars.iv.i, 1
-  br i1 %34, label %35, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader
+  %35 = getelementptr inbounds nuw [8 x ptr], ptr %31, i64 0, i64 %indvars.iv.next.i
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, %0
+  br i1 %37, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit, label %.backedge.i, !llvm.loop !28
 
-35:                                               ; preds = %33
-  %36 = add nsw i64 %indvars.iv.i, -2
-  %37 = getelementptr inbounds nuw [8 x ptr], ptr %31, i64 0, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, %0
-  %40 = getelementptr inbounds nuw [8 x ptr], ptr %31, i64 0, i64 %indvars.iv.next.i
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, %0
-  %or.cond.i = select i1 %39, i1 %42, i1 false
-  br i1 %or.cond.i, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit, label %._crit_edge.i
+_ZNK9LockStack12is_recursiveEP7oopDesc.exit:      ; preds = %34
+  %38 = add nsw i64 %indvars.iv.i, -2
+  %39 = getelementptr inbounds nuw [8 x ptr], ptr %31, i64 0, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, %0
+  br i1 %41, label %.loopexit, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader
 
-._crit_edge.i:                                    ; preds = %35
-  br i1 %42, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader, label %33, !llvm.loop !28
-
-_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader: ; preds = %33, %._crit_edge.i, %8
+_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader: ; preds = %.backedge.i, %8, %_ZNK9LockStack12is_recursiveEP7oopDesc.exit
   br label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread
 
-_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread: ; preds = %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader, %45
-  %.sroa.030.0 = phi i64 [ %47, %45 ], [ %7, %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader ]
-  %43 = and i64 %.sroa.030.0, 3
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit
+_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread: ; preds = %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader, %44
+  %.sroa.029.0 = phi i64 [ %46, %44 ], [ %7, %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread.preheader ]
+  %42 = and i64 %.sroa.029.0, 3
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %.loopexit
 
-45:                                               ; preds = %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread
-  %46 = or disjoint i64 %.sroa.030.0, 1
-  %47 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %46, i64 %.sroa.030.0, ptr nonnull align 8 dereferenceable(16) %0) #18, !srcloc !6
-  %48 = icmp eq i64 %47, %.sroa.030.0
-  br i1 %48, label %49, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread, !llvm.loop !29
+44:                                               ; preds = %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread
+  %45 = or disjoint i64 %.sroa.029.0, 1
+  %46 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %45, i64 %.sroa.029.0, ptr nonnull align 8 dereferenceable(16) %0) #18, !srcloc !6
+  %47 = icmp eq i64 %46, %.sroa.029.0
+  br i1 %47, label %48, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread, !llvm.loop !29
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %9, align 8
-  %51 = load i32, ptr @_ZN9LockStack22lock_stack_base_offsetE, align 4
-  %52 = sub i32 %50, %51
-  %53 = lshr i32 %52, 3
-  %.not20.i = icmp ult i32 %52, 8
+48:                                               ; preds = %44
+  %49 = load i32, ptr %9, align 8
+  %50 = load i32, ptr @_ZN9LockStack22lock_stack_base_offsetE, align 4
+  %51 = sub i32 %49, %50
+  %52 = lshr i32 %51, 3
+  %.not20.i = icmp ult i32 %51, 8
   br i1 %.not20.i, label %_ZN9LockStack6removeEP7oopDesc.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 1736
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %53, i32 1)
+.lr.ph.i:                                         ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 1736
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %52, i32 1)
   %wide.trip.count.i = zext nneg i32 %umax.i to i64
-  br label %55
+  br label %54
 
-55:                                               ; preds = %65, %.lr.ph.i
-  %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i23, %65 ]
-  %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %65 ]
-  %56 = getelementptr inbounds nuw [8 x ptr], ptr %54, i64 0, i64 %indvars.iv.i21
-  %57 = load ptr, ptr %56, align 8
-  %.not.i22 = icmp eq ptr %57, %0
-  br i1 %.not.i22, label %65, label %58
+54:                                               ; preds = %64, %.lr.ph.i
+  %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i23, %64 ]
+  %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %64 ]
+  %55 = getelementptr inbounds nuw [8 x ptr], ptr %53, i64 0, i64 %indvars.iv.i21
+  %56 = load ptr, ptr %55, align 8
+  %.not.i22 = icmp eq ptr %56, %0
+  br i1 %.not.i22, label %64, label %57
 
-58:                                               ; preds = %55
-  %59 = zext i32 %.019.i to i64
-  %.not17.i = icmp eq i64 %indvars.iv.i21, %59
-  br i1 %.not17.i, label %63, label %60
+57:                                               ; preds = %54
+  %58 = zext i32 %.019.i to i64
+  %.not17.i = icmp eq i64 %indvars.iv.i21, %58
+  br i1 %.not17.i, label %62, label %59
 
-60:                                               ; preds = %58
-  %61 = sext i32 %.019.i to i64
-  %62 = getelementptr inbounds [8 x ptr], ptr %54, i64 0, i64 %61
-  store ptr %57, ptr %62, align 8
-  br label %63
+59:                                               ; preds = %57
+  %60 = sext i32 %.019.i to i64
+  %61 = getelementptr inbounds [8 x ptr], ptr %53, i64 0, i64 %60
+  store ptr %56, ptr %61, align 8
+  br label %62
 
-63:                                               ; preds = %60, %58
-  %64 = add nsw i32 %.019.i, 1
-  br label %65
+62:                                               ; preds = %59, %57
+  %63 = add nsw i32 %.019.i, 1
+  br label %64
 
-65:                                               ; preds = %63, %55
-  %.1.i = phi i32 [ %64, %63 ], [ %.019.i, %55 ]
+64:                                               ; preds = %62, %54
+  %.1.i = phi i32 [ %63, %62 ], [ %.019.i, %54 ]
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %55, !llvm.loop !30
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %54, !llvm.loop !30
 
-._crit_edge.loopexit.i:                           ; preds = %65
+._crit_edge.loopexit.i:                           ; preds = %64
   %.pre.i = load i32, ptr %9, align 8
   br label %_ZN9LockStack6removeEP7oopDesc.exit
 
-_ZN9LockStack6removeEP7oopDesc.exit:              ; preds = %49, %._crit_edge.loopexit.i
-  %66 = phi i32 [ %50, %49 ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ 0, %49 ], [ %.1.i, %._crit_edge.loopexit.i ]
-  %.neg = sub i32 %.0.lcssa.i, %53
-  %.neg43 = shl i32 %.neg, 3
-  %67 = add i32 %.neg43, %66
-  store i32 %67, ptr %9, align 8
-  br label %84
+_ZN9LockStack6removeEP7oopDesc.exit:              ; preds = %48, %._crit_edge.loopexit.i
+  %65 = phi i32 [ %49, %48 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ 0, %48 ], [ %.1.i, %._crit_edge.loopexit.i ]
+  %.neg = sub i32 %.0.lcssa.i, %52
+  %.neg41 = shl i32 %.neg, 3
+  %66 = add i32 %.neg41, %65
+  store i32 %66, ptr %9, align 8
+  br label %83
 
-68:                                               ; preds = %6
-  %69 = load volatile i64, ptr %1, align 8
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %84, label %71
+67:                                               ; preds = %6
+  %68 = load volatile i64, ptr %1, align 8
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %83, label %70
 
-71:                                               ; preds = %68
-  %72 = ptrtoint ptr %1 to i64
-  %73 = icmp eq i64 %7, %72
-  br i1 %73, label %74, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit
+70:                                               ; preds = %67
+  %71 = ptrtoint ptr %1 to i64
+  %72 = icmp eq i64 %7, %71
+  br i1 %72, label %73, label %.loopexit
 
-74:                                               ; preds = %71
-  %75 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %7, ptr nonnull align 8 dereferenceable(16) %0) #18, !srcloc !6
-  %76 = icmp eq i64 %75, %7
-  br i1 %76, label %84, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit
+73:                                               ; preds = %70
+  %74 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %68, i64 %7, ptr nonnull align 8 dereferenceable(16) %0) #18, !srcloc !6
+  %75 = icmp eq i64 %74, %7
+  br i1 %75, label %83, label %.loopexit
 
-_ZNK9LockStack12is_recursiveEP7oopDesc.exit:      ; preds = %35, %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread, %71, %74
+.loopexit:                                        ; preds = %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread, %_ZNK9LockStack12is_recursiveEP7oopDesc.exit, %70, %73
   %.pr = load i32, ptr @LockingMode, align 4
-  %77 = icmp eq i32 %.pr, 2
-  br i1 %77, label %78, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread42
+  %76 = icmp eq i32 %.pr, 2
+  br i1 %76, label %77, label %.thread40
 
-78:                                               ; preds = %_ZNK9LockStack12is_recursiveEP7oopDesc.exit
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(888) %2) #18
-  br i1 %82, label %_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread42
+77:                                               ; preds = %.loopexit
+  %78 = load ptr, ptr %2, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 56
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(888) %2) #18
+  br i1 %81, label %_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit, label %.thread40
 
-_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread42: ; preds = %3, %6, %78, %_ZNK9LockStack12is_recursiveEP7oopDesc.exit
+.thread40:                                        ; preds = %3, %6, %77, %.loopexit
   br label %_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit
 
-_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit: ; preds = %78, %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread42
-  %.sink.i = phi ptr [ null, %_ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread42 ], [ %2, %78 ]
-  %83 = tail call noundef ptr @_ZN18ObjectSynchronizer12inflate_implEP10JavaThreadP7oopDescNS_12InflateCauseE(ptr noundef %.sink.i, ptr noundef %0, i32 noundef 0)
-  tail call void @_ZN13ObjectMonitor4exitEP10JavaThreadb(ptr noundef nonnull align 8 dereferenceable(200) %83, ptr noundef nonnull %2, i1 noundef zeroext true) #18
-  br label %84
+_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit: ; preds = %77, %.thread40
+  %.sink.i = phi ptr [ null, %.thread40 ], [ %2, %77 ]
+  %82 = tail call noundef ptr @_ZN18ObjectSynchronizer12inflate_implEP10JavaThreadP7oopDescNS_12InflateCauseE(ptr noundef %.sink.i, ptr noundef %0, i32 noundef 0)
+  tail call void @_ZN13ObjectMonitor4exitEP10JavaThreadb(ptr noundef nonnull align 8 dereferenceable(200) %82, ptr noundef nonnull %2, i1 noundef zeroext true) #18
+  br label %83
 
-84:                                               ; preds = %_ZN9LockStack18try_recursive_exitEP7oopDesc.exit, %74, %68, %_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit, %_ZN9LockStack6removeEP7oopDesc.exit
+83:                                               ; preds = %_ZN9LockStack18try_recursive_exitEP7oopDesc.exit, %73, %67, %_ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit, %_ZN9LockStack6removeEP7oopDesc.exit
   ret void
 }
 

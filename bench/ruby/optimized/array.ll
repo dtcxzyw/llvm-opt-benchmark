@@ -10051,24 +10051,24 @@ define internal i64 @rb_ary_fetch(i32 noundef %0, ptr noundef readonly captures(
 .preheader:                                       ; preds = %3
   %5 = load i64, ptr %1, align 8, !tbaa !13
   %.not44 = icmp eq i32 %0, 1
-  br i1 %.not44, label %9, label %6
+  br i1 %.not44, label %10, label %6
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !13
-  br label %9
+  %9 = icmp eq i32 %0, 2
+  br label %10
 
-9:                                                ; preds = %.preheader, %6
-  %10 = phi i64 [ %8, %6 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %6 ], [ 1, %.preheader ]
-  %11 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %11, label %rb_scan_args_set.exit, label %12
+10:                                               ; preds = %.preheader, %6
+  %11 = phi i64 [ %8, %6 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i1 [ %9, %6 ], [ true, %.preheader ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %12
 
-12:                                               ; preds = %9, %3
+12:                                               ; preds = %10, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #23
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %9
+rb_scan_args_set.exit:                            ; preds = %10
   %13 = tail call i32 @rb_block_given_p() #24
   %14 = icmp ne i32 %13, 0
   %15 = icmp eq i32 %0, 2
@@ -10196,7 +10196,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread38, %65
   br label %70
 
 70:                                               ; preds = %47, %RARRAY_AREF.exit, %45
-  %.020 = phi i64 [ %46, %45 ], [ %69, %RARRAY_AREF.exit ], [ %10, %47 ]
+  %.020 = phi i64 [ %46, %45 ], [ %69, %RARRAY_AREF.exit ], [ %11, %47 ]
   ret i64 %.020
 }
 

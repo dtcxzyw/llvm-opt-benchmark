@@ -1125,14 +1125,14 @@ put_bits.exit167:                                 ; preds = %353, %358, %344
 385:                                              ; preds = %379
   %386 = add nsw i32 %spec.select158, -1
   %387 = add nsw i32 %386, %377
+  %388 = icmp eq i32 %387, %378
   br label %get_rl_index.exit170
 
 get_rl_index.exit170:                             ; preds = %371, %379, %385
-  %.0.i169 = phi i32 [ %387, %385 ], [ %378, %371 ], [ %378, %379 ]
-  %388 = load i32, ptr %212, align 4, !tbaa !73
-  %389 = icmp eq i32 %388, 4
-  %390 = icmp eq i32 %.0.i169, %378
-  %or.cond240 = select i1 %389, i1 %390, i1 false
+  %.0.i169 = phi i1 [ %388, %385 ], [ true, %371 ], [ true, %379 ]
+  %389 = load i32, ptr %212, align 4, !tbaa !73
+  %390 = icmp eq i32 %389, 4
+  %or.cond240 = select i1 %390, i1 %.0.i169, i1 false
   br i1 %or.cond240, label %get_rl_index.exit173.thread, label %391
 
 391:                                              ; preds = %get_rl_index.exit170

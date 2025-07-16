@@ -526,7 +526,7 @@ tsdn_witness_tsdp_get.exit:
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp eq i64 %7, 0
   %or.cond = or i1 %11, %10
-  br i1 %or.cond, label %128, label %12
+  br i1 %or.cond, label %124, label %12
 
 12:                                               ; preds = %tsdn_witness_tsdp_get.exit
   store i8 1, ptr %8, align 8, !tbaa !61
@@ -583,10 +583,10 @@ tsdn_witness_tsdp_get.exit:
 
 pac_stash_decayed.exit:                           ; preds = %18
   %.not = icmp eq i64 %.01521.i, 0
-  br i1 %.not, label %115, label %pac_stash_decayed.exit.thread
+  br i1 %.not, label %111, label %pac_stash_decayed.exit.thread
 
 pac_stash_decayed.exit.thread:                    ; preds = %35, %pac_stash_decayed.exit
-  %.sroa.0.129 = phi ptr [ %.sroa.0.0, %pac_stash_decayed.exit ], [ %36, %35 ]
+  %.sroa.0.128 = phi ptr [ %.sroa.0.0, %pac_stash_decayed.exit ], [ %36, %35 ]
   %.val.i21 = load ptr, ptr %16, align 8, !tbaa !15
   %41 = tail call ptr @je_base_ehooks_get(ptr noundef %.val.i21) #9
   br i1 %5, label %.thread.i, label %42
@@ -594,12 +594,12 @@ pac_stash_decayed.exit.thread:                    ; preds = %35, %pac_stash_deca
 42:                                               ; preds = %pac_stash_decayed.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 60552
   %44 = load atomic i64, ptr %43 monotonic, align 8
-  %.not2.i = icmp eq ptr %.sroa.0.129, null
+  %.not2.i = icmp eq ptr %.sroa.0.128, null
   br i1 %.not2.i, label %pac_decay_stashed.exit, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %pac_stash_decayed.exit.thread
-  %.not218.i = icmp eq ptr %.sroa.0.129, null
-  br i1 %.not218.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i.preheader
+  %.not224.i = icmp eq ptr %.sroa.0.128, null
+  br i1 %.not224.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i.preheader
 
 .lr.ph.i:                                         ; preds = %42
   %.fr.i = freeze i64 %44
@@ -612,164 +612,164 @@ pac_stash_decayed.exit.thread:                    ; preds = %35, %pac_stash_deca
   br label %.lr.ph.split.us.preheader.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.split.us.preheader.i.preheader, %edata_list_inactive_remove.exit.us.i
-  %48 = phi ptr [ %.sroa.0.3, %edata_list_inactive_remove.exit.us.i ], [ %.sroa.0.129, %.lr.ph.split.us.preheader.i.preheader ]
-  %.05.us.i = phi i64 [ %70, %edata_list_inactive_remove.exit.us.i ], [ 0, %.lr.ph.split.us.preheader.i.preheader ]
-  %.0414.us.i = phi i64 [ %72, %edata_list_inactive_remove.exit.us.i ], [ 0, %.lr.ph.split.us.preheader.i.preheader ]
-  %.0433.us.i = phi i64 [ %71, %edata_list_inactive_remove.exit.us.i ], [ 0, %.lr.ph.split.us.preheader.i.preheader ]
+  %48 = phi ptr [ %.sroa.0.3, %edata_list_inactive_remove.exit.us.i ], [ %.sroa.0.128, %.lr.ph.split.us.preheader.i.preheader ]
+  %.05.us.i = phi i64 [ %68, %edata_list_inactive_remove.exit.us.i ], [ 0, %.lr.ph.split.us.preheader.i.preheader ]
+  %.0414.us.i = phi i64 [ %70, %edata_list_inactive_remove.exit.us.i ], [ 0, %.lr.ph.split.us.preheader.i.preheader ]
+  %.0433.us.i = phi i64 [ %69, %edata_list_inactive_remove.exit.us.i ], [ 0, %.lr.ph.split.us.preheader.i.preheader ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !62
-  %.not.i.us.i = icmp eq ptr %50, %48
-  br i1 %.not.i.us.i, label %edata_list_inactive_remove.exit.us.i, label %51
+  %51 = icmp eq ptr %50, %48
+  br i1 %51, label %edata_list_inactive_remove.exit.us.i, label %.thread.i.us.i
 
-51:                                               ; preds = %.lr.ph.split.us.preheader.i
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 72
+.thread.i.us.i:                                   ; preds = %.lr.ph.split.us.preheader.i
+  %.phi.trans.insert20.i = getelementptr inbounds nuw i8, ptr %50, i64 72
+  %.pre21.i = load ptr, ptr %.phi.trans.insert20.i, align 8, !tbaa !62
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !62
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 72
-  %55 = load ptr, ptr %54, align 8, !tbaa !62
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  store ptr %53, ptr %56, align 8, !tbaa !62
-  %57 = load ptr, ptr %54, align 8, !tbaa !62
-  %58 = load ptr, ptr %49, align 8, !tbaa !62
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 72
-  store ptr %57, ptr %59, align 8, !tbaa !62
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %61 = load ptr, ptr %60, align 8, !tbaa !62
-  store ptr %61, ptr %54, align 8, !tbaa !62
-  %62 = load ptr, ptr %49, align 8, !tbaa !62
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
-  %64 = load ptr, ptr %63, align 8, !tbaa !62
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  store ptr %.pre21.i, ptr %54, align 8, !tbaa !62
+  %55 = load ptr, ptr %52, align 8, !tbaa !62
+  %56 = load ptr, ptr %49, align 8, !tbaa !62
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
+  store ptr %55, ptr %57, align 8, !tbaa !62
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  %59 = load ptr, ptr %58, align 8, !tbaa !62
+  store ptr %59, ptr %52, align 8, !tbaa !62
+  %60 = load ptr, ptr %49, align 8, !tbaa !62
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
+  %62 = load ptr, ptr %61, align 8, !tbaa !62
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  store ptr %60, ptr %63, align 8, !tbaa !62
+  %64 = load ptr, ptr %52, align 8, !tbaa !62
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  store ptr %62, ptr %65, align 8, !tbaa !62
-  %66 = load ptr, ptr %54, align 8, !tbaa !62
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
-  store ptr %48, ptr %67, align 8, !tbaa !62
+  store ptr %48, ptr %65, align 8, !tbaa !62
   br label %edata_list_inactive_remove.exit.us.i
 
-edata_list_inactive_remove.exit.us.i:             ; preds = %.lr.ph.split.us.preheader.i, %51
-  %.sroa.0.3 = phi ptr [ %50, %51 ], [ null, %.lr.ph.split.us.preheader.i ]
-  %68 = getelementptr i8, ptr %48, i64 16
-  %.042.val.us.i = load i64, ptr %68, align 8, !tbaa !62
-  %69 = lshr i64 %.042.val.us.i, 12
-  %70 = add i64 %.05.us.i, 1
-  %71 = add i64 %69, %.0433.us.i
+edata_list_inactive_remove.exit.us.i:             ; preds = %.lr.ph.split.us.preheader.i, %.thread.i.us.i
+  %.sroa.0.3 = phi ptr [ %50, %.thread.i.us.i ], [ null, %.lr.ph.split.us.preheader.i ]
+  %66 = getelementptr i8, ptr %48, i64 16
+  %.042.val.us.i = load i64, ptr %66, align 8, !tbaa !62
+  %67 = lshr i64 %.042.val.us.i, 12
+  %68 = add i64 %.05.us.i, 1
+  %69 = add i64 %67, %.0433.us.i
   tail call void @je_extent_dalloc_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %48) #9
-  %72 = add i64 %69, %.0414.us.i
+  %70 = add i64 %67, %.0414.us.i
   %.not.us.i = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.us.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i, !llvm.loop !63
 
-.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i, %104
-  %73 = phi ptr [ %.sroa.0.2, %104 ], [ %.sroa.0.129, %.lr.ph.i ]
-  %.05.i = phi i64 [ %95, %104 ], [ 0, %.lr.ph.i ]
-  %.0414.i = phi i64 [ %.1.i, %104 ], [ 0, %.lr.ph.i ]
-  %.0433.i = phi i64 [ %96, %104 ], [ 0, %.lr.ph.i ]
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
-  %75 = load ptr, ptr %74, align 8, !tbaa !62
-  %.not.i.i = icmp eq ptr %75, %73
-  br i1 %.not.i.i, label %edata_list_inactive_remove.exit.i, label %76
+.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i, %100
+  %71 = phi ptr [ %.sroa.0.2, %100 ], [ %.sroa.0.128, %.lr.ph.i ]
+  %.05.i = phi i64 [ %91, %100 ], [ 0, %.lr.ph.i ]
+  %.0414.i = phi i64 [ %.1.i, %100 ], [ 0, %.lr.ph.i ]
+  %.0433.i = phi i64 [ %92, %100 ], [ 0, %.lr.ph.i ]
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  %73 = load ptr, ptr %72, align 8, !tbaa !62
+  %74 = icmp eq ptr %73, %71
+  br i1 %74, label %edata_list_inactive_remove.exit.i, label %.thread.i.i
 
-76:                                               ; preds = %.lr.ph.split.preheader.i
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 72
-  %78 = load ptr, ptr %77, align 8, !tbaa !62
-  %79 = getelementptr inbounds nuw i8, ptr %73, i64 72
-  %80 = load ptr, ptr %79, align 8, !tbaa !62
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
-  store ptr %78, ptr %81, align 8, !tbaa !62
-  %82 = load ptr, ptr %79, align 8, !tbaa !62
-  %83 = load ptr, ptr %74, align 8, !tbaa !62
+.thread.i.i:                                      ; preds = %.lr.ph.split.preheader.i
+  %.phi.trans.insert16.i = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %.pre17.i = load ptr, ptr %.phi.trans.insert16.i, align 8, !tbaa !62
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 72
+  %76 = load ptr, ptr %75, align 8, !tbaa !62
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
+  store ptr %.pre17.i, ptr %77, align 8, !tbaa !62
+  %78 = load ptr, ptr %75, align 8, !tbaa !62
+  %79 = load ptr, ptr %72, align 8, !tbaa !62
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
+  store ptr %78, ptr %80, align 8, !tbaa !62
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 64
+  %82 = load ptr, ptr %81, align 8, !tbaa !62
+  store ptr %82, ptr %75, align 8, !tbaa !62
+  %83 = load ptr, ptr %72, align 8, !tbaa !62
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 72
-  store ptr %82, ptr %84, align 8, !tbaa !62
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 64
-  %86 = load ptr, ptr %85, align 8, !tbaa !62
-  store ptr %86, ptr %79, align 8, !tbaa !62
-  %87 = load ptr, ptr %74, align 8, !tbaa !62
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
-  %89 = load ptr, ptr %88, align 8, !tbaa !62
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  store ptr %87, ptr %90, align 8, !tbaa !62
-  %91 = load ptr, ptr %79, align 8, !tbaa !62
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
-  store ptr %73, ptr %92, align 8, !tbaa !62
+  %85 = load ptr, ptr %84, align 8, !tbaa !62
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 64
+  store ptr %83, ptr %86, align 8, !tbaa !62
+  %87 = load ptr, ptr %75, align 8, !tbaa !62
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  store ptr %71, ptr %88, align 8, !tbaa !62
   br label %edata_list_inactive_remove.exit.i
 
-edata_list_inactive_remove.exit.i:                ; preds = %.lr.ph.split.preheader.i, %76
-  %.sroa.0.2 = phi ptr [ %75, %76 ], [ null, %.lr.ph.split.preheader.i ]
-  %93 = getelementptr i8, ptr %73, i64 16
-  %.042.val.i = load i64, ptr %93, align 8, !tbaa !62
-  %94 = lshr i64 %.042.val.i, 12
-  %95 = add i64 %.05.i, 1
-  %96 = add i64 %94, %.0433.i
-  %97 = load i32, ptr %46, align 8, !tbaa !65
-  %switch.i = icmp eq i32 %97, 2
-  br i1 %switch.i, label %102, label %98
+edata_list_inactive_remove.exit.i:                ; preds = %.lr.ph.split.preheader.i, %.thread.i.i
+  %.sroa.0.2 = phi ptr [ %73, %.thread.i.i ], [ null, %.lr.ph.split.preheader.i ]
+  %89 = getelementptr i8, ptr %71, i64 16
+  %.042.val.i = load i64, ptr %89, align 8, !tbaa !62
+  %90 = lshr i64 %.042.val.i, 12
+  %91 = add i64 %.05.i, 1
+  %92 = add i64 %90, %.0433.i
+  %93 = load i32, ptr %46, align 8, !tbaa !65
+  %switch.i = icmp eq i32 %93, 2
+  br i1 %switch.i, label %98, label %94
 
-98:                                               ; preds = %edata_list_inactive_remove.exit.i
-  %99 = and i64 %.042.val.i, -4096
-  %100 = tail call zeroext i1 @je_extent_purge_lazy_wrapper(ptr noundef %0, ptr noundef %41, ptr noundef nonnull %73, i64 noundef 0, i64 noundef %99) #9
-  br i1 %100, label %102, label %101
+94:                                               ; preds = %edata_list_inactive_remove.exit.i
+  %95 = and i64 %.042.val.i, -4096
+  %96 = tail call zeroext i1 @je_extent_purge_lazy_wrapper(ptr noundef %0, ptr noundef %41, ptr noundef nonnull %71, i64 noundef 0, i64 noundef %95) #9
+  br i1 %96, label %98, label %97
 
-101:                                              ; preds = %98
-  tail call void @je_ecache_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %47, ptr noundef nonnull %73) #9
-  br label %104
+97:                                               ; preds = %94
+  tail call void @je_ecache_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %47, ptr noundef nonnull %71) #9
+  br label %100
 
-102:                                              ; preds = %98, %edata_list_inactive_remove.exit.i
-  tail call void @je_extent_dalloc_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %73) #9
-  %103 = add i64 %94, %.0414.i
-  br label %104
+98:                                               ; preds = %94, %edata_list_inactive_remove.exit.i
+  tail call void @je_extent_dalloc_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %71) #9
+  %99 = add i64 %90, %.0414.i
+  br label %100
 
-104:                                              ; preds = %102, %101
-  %.1.i = phi i64 [ %103, %102 ], [ %.0414.i, %101 ]
+100:                                              ; preds = %98, %97
+  %.1.i = phi i64 [ %99, %98 ], [ %.0414.i, %97 ]
   %.not.i = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i, label %pac_decay_stashed.exit, label %.lr.ph.split.preheader.i, !llvm.loop !63
 
-pac_decay_stashed.exit:                           ; preds = %104, %edata_list_inactive_remove.exit.us.i, %42, %.thread.i
-  %.043.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %71, %edata_list_inactive_remove.exit.us.i ], [ %96, %104 ]
-  %.041.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %72, %edata_list_inactive_remove.exit.us.i ], [ %.1.i, %104 ]
-  %.0.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %70, %edata_list_inactive_remove.exit.us.i ], [ %95, %104 ]
-  %105 = atomicrmw add ptr %3, i64 1 monotonic, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %107 = atomicrmw add ptr %106, i64 %.0.lcssa.i monotonic, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %109 = atomicrmw add ptr %108, i64 %.043.lcssa.i monotonic, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 62224
-  %111 = load ptr, ptr %110, align 8, !tbaa !34
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
-  %113 = shl i64 %.041.lcssa.i, 12
-  %114 = atomicrmw sub ptr %112, i64 %113 monotonic, align 8
-  br label %115
+pac_decay_stashed.exit:                           ; preds = %100, %edata_list_inactive_remove.exit.us.i, %42, %.thread.i
+  %.043.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %69, %edata_list_inactive_remove.exit.us.i ], [ %92, %100 ]
+  %.041.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %70, %edata_list_inactive_remove.exit.us.i ], [ %.1.i, %100 ]
+  %.0.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %68, %edata_list_inactive_remove.exit.us.i ], [ %91, %100 ]
+  %101 = atomicrmw add ptr %3, i64 1 monotonic, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %103 = atomicrmw add ptr %102, i64 %.0.lcssa.i monotonic, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %105 = atomicrmw add ptr %104, i64 %.043.lcssa.i monotonic, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 62224
+  %107 = load ptr, ptr %106, align 8, !tbaa !34
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 56
+  %109 = shl i64 %.041.lcssa.i, 12
+  %110 = atomicrmw sub ptr %108, i64 %109 monotonic, align 8
+  br label %111
 
-115:                                              ; preds = %pac_decay_stashed.exit, %pac_stash_decayed.exit
-  %116 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %14) #9
-  %.not.i22 = icmp eq i32 %116, 0
-  br i1 %.not.i22, label %118, label %117
+111:                                              ; preds = %pac_decay_stashed.exit, %pac_stash_decayed.exit
+  %112 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %14) #9
+  %.not.i22 = icmp eq i32 %112, 0
+  br i1 %.not.i22, label %114, label %113
 
-117:                                              ; preds = %115
+113:                                              ; preds = %111
   tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %2) #9
   store atomic i8 1, ptr %13 monotonic, align 1
-  br label %118
+  br label %114
 
-118:                                              ; preds = %117, %115
-  %119 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %120 = load i64, ptr %119, align 8, !tbaa !52
-  %121 = add i64 %120, 1
-  store i64 %121, ptr %119, align 8, !tbaa !52
-  %122 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %123 = load ptr, ptr %122, align 8, !tbaa !56
-  %.not.i.i23 = icmp eq ptr %123, %0
-  br i1 %.not.i.i23, label %malloc_mutex_lock.exit, label %124
+114:                                              ; preds = %113, %111
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %116 = load i64, ptr %115, align 8, !tbaa !52
+  %117 = add i64 %116, 1
+  store i64 %117, ptr %115, align 8, !tbaa !52
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %119 = load ptr, ptr %118, align 8, !tbaa !56
+  %.not.i.i = icmp eq ptr %119, %0
+  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %120
 
-124:                                              ; preds = %118
-  store ptr %0, ptr %122, align 8, !tbaa !56
-  %125 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %126 = load i64, ptr %125, align 8, !tbaa !57
-  %127 = add i64 %126, 1
-  store i64 %127, ptr %125, align 8, !tbaa !57
+120:                                              ; preds = %114
+  store ptr %0, ptr %118, align 8, !tbaa !56
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %122 = load i64, ptr %121, align 8, !tbaa !57
+  %123 = add i64 %122, 1
+  store i64 %123, ptr %121, align 8, !tbaa !57
   br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.exit:                           ; preds = %118, %124
+malloc_mutex_lock.exit:                           ; preds = %114, %120
   store i8 0, ptr %8, align 8, !tbaa !61
-  br label %128
+  br label %124
 
-128:                                              ; preds = %tsdn_witness_tsdp_get.exit, %malloc_mutex_lock.exit
+124:                                              ; preds = %tsdn_witness_tsdp_get.exit, %malloc_mutex_lock.exit
   ret void
 }
 

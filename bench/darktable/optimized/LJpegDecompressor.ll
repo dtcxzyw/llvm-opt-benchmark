@@ -135,7 +135,7 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
 33:                                               ; preds = %.thread52.invoke, %.invoke, %101
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %166
+  br label %163
 
 35:                                               ; preds = %9
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 584
@@ -276,7 +276,7 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
   br i1 %112, label %._crit_edge, label %.lr.ph
 
 113:                                              ; preds = %.lr.ph
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.039.061, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.039.062, i64 16
   %115 = icmp eq ptr %114, %103
   br i1 %115, label %._crit_edge, label %.lr.ph
 
@@ -285,8 +285,8 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
   br i1 %116, label %.invoke, label %124
 
 .lr.ph:                                           ; preds = %.preheader, %113
-  %.sroa.039.061 = phi ptr [ %114, %113 ], [ %104, %.preheader ]
-  %117 = load ptr, ptr %.sroa.039.061, align 8, !tbaa !109
+  %.sroa.039.062 = phi ptr [ %114, %113 ], [ %104, %.preheader ]
+  %117 = load ptr, ptr %.sroa.039.062, align 8, !tbaa !109
   %118 = load i8, ptr %117, align 8, !tbaa !113, !range !126, !noundef !127
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %113, label %120
@@ -301,7 +301,7 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
 122:                                              ; preds = %120
   %123 = landingpad { ptr, i32 }
           cleanup
-  br label %166
+  br label %163
 
 124:                                              ; preds = %._crit_edge
   %125 = sext i32 %87 to i64
@@ -312,8 +312,8 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
   %130 = zext nneg i32 %83 to i64
   %131 = mul nsw i64 %130, %129
   %132 = icmp sgt i64 %131, 2147483647
-  %or.cond67 = select i1 %128, i1 true, i1 %132
-  br i1 %or.cond67, label %.invoke, label %133
+  %or.cond68 = select i1 %128, i1 true, i1 %132
+  br i1 %or.cond68, label %.invoke, label %133
 
 133:                                              ; preds = %124
   %134 = zext i32 %37 to i64
@@ -344,70 +344,66 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
 144:                                              ; preds = %141
   %145 = mul nsw i32 %58, %37
   %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %_ZN8rawspeed19roundUpDivisionSafeEmm.exit, label %146
+  br i1 %.not.i, label %.critedge61, label %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
 
-146:                                              ; preds = %144
-  %147 = sext i32 %145 to i64
-  %148 = add nsw i64 %147, -1
-  %149 = udiv i64 %148, %125
-  %150 = trunc i64 %149 to i32
-  %151 = add i32 %150, 1
-  br label %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
-
-_ZN8rawspeed19roundUpDivisionSafeEmm.exit:        ; preds = %144, %146
-  %152 = phi i32 [ %151, %146 ], [ 0, %144 ]
-  %153 = icmp slt i32 %80, %152
-  br i1 %153, label %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge, label %154
+_ZN8rawspeed19roundUpDivisionSafeEmm.exit:        ; preds = %144
+  %146 = sext i32 %145 to i64
+  %147 = add nsw i64 %146, -1
+  %148 = udiv i64 %147, %125
+  %149 = trunc i64 %148 to i32
+  %150 = add i32 %149, 1
+  %151 = icmp slt i32 %80, %150
+  br i1 %151, label %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge, label %.critedge61
 
 _ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge: ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
   %.pre = mul nsw i32 %87, %80
-  %.pre62 = mul nsw i32 %83, %90
-  br label %159
+  %.pre63 = mul nsw i32 %83, %90
+  br label %156
 
-154:                                              ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
-  %155 = mul nsw i32 %83, %90
-  %156 = icmp slt i32 %155, %61
-  %157 = mul nsw i32 %87, %80
-  %158 = icmp slt i32 %157, %145
-  %or.cond = select i1 %156, i1 true, i1 %158
-  br i1 %or.cond, label %159, label %163
+.critedge61:                                      ; preds = %144, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
+  %152 = mul nsw i32 %83, %90
+  %153 = icmp slt i32 %152, %61
+  %154 = mul nsw i32 %87, %80
+  %155 = icmp slt i32 %154, %145
+  %or.cond = select i1 %153, i1 true, i1 %155
+  br i1 %or.cond, label %156, label %160
 
-159:                                              ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge, %154
-  %.pre-phi63 = phi i32 [ %.pre62, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge ], [ %155, %154 ]
-  %.pre-phi = phi i32 [ %.pre, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge ], [ %157, %154 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectangle2DENS0_5FrameESt6vectorINS0_18PerComponentRecipeESaIS5_EEiNS_10Array1DRefIKhEE, i32 noundef %.pre-phi, i32 noundef %.pre-phi63, i32 noundef %145, i32 noundef %61) #13
-          to label %160 unwind label %161
+156:                                              ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge, %.critedge61
+  %.pre-phi64 = phi i32 [ %.pre63, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge ], [ %152, %.critedge61 ]
+  %.pre-phi = phi i32 [ %.pre, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge ], [ %154, %.critedge61 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectangle2DENS0_5FrameESt6vectorINS0_18PerComponentRecipeESaIS5_EEiNS_10Array1DRefIKhEE, i32 noundef %.pre-phi, i32 noundef %.pre-phi64, i32 noundef %145, i32 noundef %61) #13
+          to label %157 unwind label %158
 
-160:                                              ; preds = %159
+157:                                              ; preds = %156
   unreachable
 
-161:                                              ; preds = %159
-  %162 = landingpad { ptr, i32 }
+158:                                              ; preds = %156
+  %159 = landingpad { ptr, i32 }
           cleanup
-  br label %166
+  br label %163
 
-163:                                              ; preds = %154
-  %164 = sdiv i32 %145, %87
-  store i32 %164, ptr %26, align 4, !tbaa !36
-  %165 = srem i32 %145, %87
-  store i32 %165, ptr %27, align 8, !tbaa !37
+160:                                              ; preds = %.critedge61
+  %161 = sdiv i32 %145, %87
+  store i32 %161, ptr %26, align 4, !tbaa !36
+  %162 = srem i32 %145, %87
+  store i32 %162, ptr %27, align 8, !tbaa !37
   ret void
 
-166:                                              ; preds = %161, %122, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %123, %122 ], [ %162, %161 ]
-  %167 = load ptr, ptr %17, align 8, !tbaa !20
-  %.not.i.i.i = icmp eq ptr %167, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit, label %168
+163:                                              ; preds = %158, %122, %33
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %123, %122 ], [ %159, %158 ]
+  %164 = load ptr, ptr %17, align 8, !tbaa !20
+  %.not.i.i.i = icmp eq ptr %164, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit, label %165
 
-168:                                              ; preds = %166
-  %169 = load ptr, ptr %22, align 8, !tbaa !24
-  %170 = ptrtoint ptr %169 to i64
-  %171 = ptrtoint ptr %167 to i64
-  %172 = sub i64 %170, %171
-  tail call void @_ZdlPvm(ptr noundef nonnull %167, i64 noundef %172) #19
+165:                                              ; preds = %163
+  %166 = load ptr, ptr %22, align 8, !tbaa !24
+  %167 = ptrtoint ptr %166 to i64
+  %168 = ptrtoint ptr %164 to i64
+  %169 = sub i64 %167, %168
+  tail call void @_ZdlPvm(ptr noundef nonnull %164, i64 noundef %169) #19
   br label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit: ; preds = %166, %168
+_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit: ; preds = %163, %165
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   resume { ptr, i32 } %.pn
 }

@@ -1716,9 +1716,9 @@ define dso_local noundef zeroext i1 @_ZN11flatbuffers15GenerateCppGRPCERKNS_6Par
   %.pre = load i64, ptr %70, align 8, !tbaa !12
   %.pre487 = load i64, ptr %49, align 8, !tbaa !12
   %73 = sub i64 4611686018427387903, %.pre487
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %75 = icmp ult i64 %73, %.pre
-  br i1 %75, label %76, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i
+  %74 = icmp ult i64 %73, %.pre
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %74, label %76, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i
 
 76:                                               ; preds = %68
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #24
@@ -1728,7 +1728,7 @@ define dso_local noundef zeroext i1 @_ZN11flatbuffers15GenerateCppGRPCERKNS_6Par
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; preds = %.thread, %68
-  %77 = phi ptr [ %56, %.thread ], [ %74, %68 ]
+  %77 = phi ptr [ %56, %.thread ], [ %75, %68 ]
   %78 = phi i64 [ 10, %.thread ], [ %.pre, %68 ]
   %79 = load ptr, ptr %7, align 8, !tbaa !4
   %80 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %79, i64 noundef %78)
@@ -2210,7 +2210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %_Z
   br label %.critedge140
 
 258:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i, %76
-  %259 = phi ptr [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i ], [ %74, %76 ]
+  %259 = phi ptr [ %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i ], [ %75, %76 ]
   %260 = landingpad { ptr, i32 }
           cleanup
   %261 = load ptr, ptr %7, align 8, !tbaa !4

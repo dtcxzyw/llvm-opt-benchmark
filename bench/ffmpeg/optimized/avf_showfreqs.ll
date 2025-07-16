@@ -2240,7 +2240,7 @@ get_sx.exit:                                      ; preds = %8, %get_bsize.exit.
   %179 = fcmp nsz ogt float %177, %178
   %180 = icmp slt i32 %.0128186, %10
   %181 = select i1 %179, i1 %180, i1 false
-  br i1 %181, label %.lr.ph188, label %.preheader174
+  br i1 %181, label %.lr.ph188, label %.lr.ph191
 
 .lr.ph188:                                        ; preds = %.preheader176
   %182 = getelementptr i8, ptr %6, i64 64
@@ -2254,16 +2254,12 @@ get_sx.exit:                                      ; preds = %8, %get_bsize.exit.
   %187 = sext i32 %186 to i64
   br label %226
 
-.preheader174.loopexit:                           ; preds = %192
+.preheader174:                                    ; preds = %192
   %.pre = load i32, ptr %5, align 4, !tbaa !80
-  br label %.preheader174
+  %188 = icmp sgt i32 %.1127, %.pre
+  br i1 %188, label %.loopexit, label %.lr.ph191
 
-.preheader174:                                    ; preds = %.preheader174.loopexit, %.preheader176
-  %188 = phi i32 [ %.pre, %.preheader174.loopexit ], [ %175, %.preheader176 ]
-  %.not139189 = icmp sgt i32 %.1127, %188
-  br i1 %.not139189, label %.loopexit, label %.lr.ph191
-
-.lr.ph191:                                        ; preds = %.preheader174
+.lr.ph191:                                        ; preds = %.preheader176, %.preheader174
   %189 = getelementptr i8, ptr %6, i64 64
   %190 = shl nsw i32 %.0.i153, 2
   %191 = sext i32 %190 to i64
@@ -2291,7 +2287,7 @@ get_sx.exit:                                      ; preds = %8, %get_bsize.exit.
   %204 = fcmp nsz ogt float %177, %203
   %205 = icmp slt i64 %indvars.iv.next204, %184
   %206 = select i1 %204, i1 %205, i1 false
-  br i1 %206, label %192, label %.preheader174.loopexit, !llvm.loop !139
+  br i1 %206, label %192, label %.preheader174, !llvm.loop !139
 
 207:                                              ; preds = %.lr.ph191, %207
   %.0190 = phi i32 [ %.1127, %.lr.ph191 ], [ %216, %207 ]

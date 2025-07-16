@@ -3666,26 +3666,26 @@ Abc_TtElemInit2.exit:                             ; preds = %..loopexit22_crit_e
   %.pre283 = lshr i64 %.pre, %71
   %.pre284 = trunc i64 %.pre283 to i32
   %.pre286 = and i32 %.pre284, 1
+  %118 = icmp eq i32 %.pre286, %27
   br label %.thread198
 
 .thread202:                                       ; preds = %107
-  %118 = sext i32 %.2161 to i64
-  %119 = getelementptr inbounds [8 x i32], ptr %11, i64 0, i64 %118
-  store i32 %77, ptr %119, align 4, !tbaa !18
-  %120 = getelementptr inbounds [8 x i32], ptr %12, i64 0, i64 %118
-  store i32 %79, ptr %120, align 4, !tbaa !18
-  %121 = add nsw i32 %.2161, 1
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i32, ptr %12, i64 %122
-  %124 = call i32 @sat_solver_addclause(ptr noundef %48, ptr noundef nonnull %12, ptr noundef nonnull %123) #20
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %Abc_TtFindFirstDiffBit.exit.thread, label %128
+  %119 = sext i32 %.2161 to i64
+  %120 = getelementptr inbounds [8 x i32], ptr %11, i64 0, i64 %119
+  store i32 %77, ptr %120, align 4, !tbaa !18
+  %121 = getelementptr inbounds [8 x i32], ptr %12, i64 0, i64 %119
+  store i32 %79, ptr %121, align 4, !tbaa !18
+  %122 = add nsw i32 %.2161, 1
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds i32, ptr %12, i64 %123
+  %125 = call i32 @sat_solver_addclause(ptr noundef %48, ptr noundef nonnull %12, ptr noundef nonnull %124) #20
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %Abc_TtFindFirstDiffBit.exit.thread, label %128
 
 .thread198:                                       ; preds = %..thread198_crit_edge, %108
-  %.pre-phi287 = phi i32 [ %.pre286, %..thread198_crit_edge ], [ %112, %108 ]
-  %126 = icmp eq i32 %.pre-phi287, %27
+  %.pre-phi287 = phi i1 [ %118, %..thread198_crit_edge ], [ true, %108 ]
   %127 = icmp ne i32 %.0154239, 0
-  %or.cond = and i1 %127, %126
+  %or.cond = and i1 %127, %.pre-phi287
   br i1 %or.cond, label %.thread198._crit_edge, label %.loopexit
 
 .thread198._crit_edge:                            ; preds = %.thread198
@@ -3696,7 +3696,7 @@ Abc_TtElemInit2.exit:                             ; preds = %..loopexit22_crit_e
   br i1 %.not176, label %.loopexit, label %129
 
 129:                                              ; preds = %.thread198._crit_edge, %128
-  %.pre-phi289 = phi i64 [ %.pre288, %.thread198._crit_edge ], [ %122, %128 ]
+  %.pre-phi289 = phi i64 [ %.pre288, %.thread198._crit_edge ], [ %123, %128 ]
   %130 = getelementptr inbounds i32, ptr %11, i64 %.pre-phi289
   %131 = call i32 @sat_solver_addclause(ptr noundef %48, ptr noundef nonnull %11, ptr noundef nonnull %130) #20
   %132 = icmp eq i32 %131, 0

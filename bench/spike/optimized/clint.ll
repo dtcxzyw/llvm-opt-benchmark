@@ -367,7 +367,7 @@ _ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit.thread: 
   %86 = load ptr, ptr %85, align 8, !tbaa !27
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %.not10.i.i.i38 = icmp eq ptr %86, null
-  br i1 %.not10.i.i.i38, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50.thread, label %.lr.ph.i.i.i39
+  br i1 %.not10.i.i.i38, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49.thread, label %.lr.ph.i.i.i39
 
 .lr.ph.i.i.i39:                                   ; preds = %76, %.lr.ph.i.i.i39
   %.012.i.i.i40 = phi ptr [ %.1.i.i.i45, %.lr.ph.i.i.i39 ], [ %86, %76 ]
@@ -384,39 +384,39 @@ _ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit.thread: 
 
 _ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i47: ; preds = %.lr.ph.i.i.i39
   %91 = icmp eq ptr %.19.i.i.i42, %87
-  br i1 %91, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50.thread, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50
+  br i1 %91, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49.thread, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49
 
-_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i47
+_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i47
   %92 = getelementptr inbounds nuw i8, ptr %.19.i.i.i42, i64 32
   %93 = load i64, ptr %92, align 8, !tbaa !36
-  %.not65 = icmp ult i64 %78, %93
-  br i1 %.not65, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50.thread, label %94
+  %.not64 = icmp ult i64 %78, %93
+  br i1 %.not64, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49.thread, label %94
 
-94:                                               ; preds = %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50
+94:                                               ; preds = %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %96 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %97 = load i64, ptr %96, align 8, !tbaa !36
-  br label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50.thread
+  br label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49.thread
 
-_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50.thread: ; preds = %76, %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i47, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50, %94
-  %98 = phi i64 [ %97, %94 ], [ 0, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50 ], [ 0, %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i47 ], [ 0, %76 ]
-  %.not.i51 = icmp eq i64 %2, 0
-  br i1 %.not.i51, label %_Z22read_little_endian_regImEvT_mmPh.exit, label %.lr.ph.i52
+_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49.thread: ; preds = %76, %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i47, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49, %94
+  %98 = phi i64 [ %97, %94 ], [ 0, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49 ], [ 0, %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i47 ], [ 0, %76 ]
+  %.not.i50 = icmp eq i64 %2, 0
+  br i1 %.not.i50, label %_Z22read_little_endian_regImEvT_mmPh.exit, label %.lr.ph.i51
 
-.lr.ph.i52:                                       ; preds = %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50.thread, %.lr.ph.i52
-  %.08.i53 = phi i64 [ %105, %.lr.ph.i52 ], [ 0, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50.thread ]
-  %99 = add i64 %.08.i53, %1
+.lr.ph.i51:                                       ; preds = %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49.thread, %.lr.ph.i51
+  %.08.i52 = phi i64 [ %105, %.lr.ph.i51 ], [ 0, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49.thread ]
+  %99 = add i64 %.08.i52, %1
   %100 = shl i64 %99, 3
   %101 = and i64 %100, 56
   %102 = lshr i64 %98, %101
   %103 = trunc i64 %102 to i8
-  %104 = getelementptr inbounds nuw i8, ptr %3, i64 %.08.i53
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 %.08.i52
   store i8 %103, ptr %104, align 1, !tbaa !47
-  %105 = add nuw i64 %.08.i53, 1
-  %exitcond.not.i54 = icmp eq i64 %105, %2
-  br i1 %exitcond.not.i54, label %_Z22read_little_endian_regImEvT_mmPh.exit, label %.lr.ph.i52, !llvm.loop !49
+  %105 = add nuw i64 %.08.i52, 1
+  %exitcond.not.i53 = icmp eq i64 %105, %2
+  br i1 %exitcond.not.i53, label %_Z22read_little_endian_regImEvT_mmPh.exit, label %.lr.ph.i51, !llvm.loop !49
 
-_Z22read_little_endian_regImEvT_mmPh.exit:        ; preds = %.lr.ph.i52, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit50.thread
+_Z22read_little_endian_regImEvT_mmPh.exit:        ; preds = %.lr.ph.i51, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit49.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   br label %_Z22read_little_endian_regIjEvT_mmPh.exit
 
@@ -427,21 +427,21 @@ _Z22read_little_endian_regImEvT_mmPh.exit:        ; preds = %.lr.ph.i52, %_ZNKSt
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %110 = load i64, ptr %109, align 8, !tbaa !25
-  %.not.i55 = icmp eq i64 %2, 0
-  br i1 %.not.i55, label %_Z22read_little_endian_regIjEvT_mmPh.exit, label %.lr.ph.i56
+  %.not.i54 = icmp eq i64 %2, 0
+  br i1 %.not.i54, label %_Z22read_little_endian_regIjEvT_mmPh.exit, label %.lr.ph.i55
 
-.lr.ph.i56:                                       ; preds = %108, %.lr.ph.i56
-  %.08.i57 = phi i64 [ %117, %.lr.ph.i56 ], [ 0, %108 ]
-  %111 = add nuw i64 %.08.i57, %1
+.lr.ph.i55:                                       ; preds = %108, %.lr.ph.i55
+  %.08.i56 = phi i64 [ %117, %.lr.ph.i55 ], [ 0, %108 ]
+  %111 = add nuw i64 %.08.i56, %1
   %112 = shl i64 %111, 3
   %113 = and i64 %112, 56
   %114 = lshr i64 %110, %113
   %115 = trunc i64 %114 to i8
-  %116 = getelementptr inbounds nuw i8, ptr %3, i64 %.08.i57
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 %.08.i56
   store i8 %115, ptr %116, align 1, !tbaa !47
-  %117 = add nuw nsw i64 %.08.i57, 1
-  %exitcond.not.i58 = icmp eq i64 %117, %2
-  br i1 %exitcond.not.i58, label %_Z22read_little_endian_regIjEvT_mmPh.exit, label %.lr.ph.i56, !llvm.loop !49
+  %117 = add nuw nsw i64 %.08.i56, 1
+  %exitcond.not.i57 = icmp eq i64 %117, %2
+  br i1 %exitcond.not.i57, label %_Z22read_little_endian_regIjEvT_mmPh.exit, label %.lr.ph.i55, !llvm.loop !49
 
 118:                                              ; preds = %106
   %119 = add i64 %2, %1
@@ -452,8 +452,8 @@ _Z22read_little_endian_regImEvT_mmPh.exit:        ; preds = %.lr.ph.i52, %_ZNKSt
   tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %2, i1 false)
   br label %_Z22read_little_endian_regIjEvT_mmPh.exit
 
-_Z22read_little_endian_regIjEvT_mmPh.exit:        ; preds = %.lr.ph.i56, %.lr.ph.i, %108, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit.thread, %121, %_Z22read_little_endian_regImEvT_mmPh.exit, %118, %14, %18, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %14 ], [ %23, %18 ], [ false, %118 ], [ true, %_Z22read_little_endian_regImEvT_mmPh.exit ], [ true, %121 ], [ true, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit.thread ], [ true, %108 ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i56 ]
+_Z22read_little_endian_regIjEvT_mmPh.exit:        ; preds = %.lr.ph.i55, %.lr.ph.i, %108, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit.thread, %121, %_Z22read_little_endian_regImEvT_mmPh.exit, %118, %14, %18, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %14 ], [ %23, %18 ], [ false, %118 ], [ true, %_Z22read_little_endian_regImEvT_mmPh.exit ], [ true, %121 ], [ true, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit.thread ], [ true, %108 ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i55 ]
   ret i1 %.0
 }
 
@@ -582,7 +582,7 @@ define noundef zeroext i1 @_ZN7clint_t5storeEmmPKh(ptr noundef nonnull align 8 d
 23:                                               ; preds = %9
   %24 = and i64 %1, 3
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %_Z23write_little_endian_regImEvPT_mmPKh.exit59
+  br i1 %25, label %26, label %_Z23write_little_endian_regImEvPT_mmPKh.exit58
 
 26:                                               ; preds = %23
   %.not.i = icmp eq i64 %2, 0
@@ -613,7 +613,7 @@ _Z23write_little_endian_regIjEvPT_mmPKh.exit.loopexit: ; preds = %.lr.ph.i
   br label %_Z23write_little_endian_regIjEvPT_mmPKh.exit
 
 _Z23write_little_endian_regIjEvPT_mmPKh.exit:     ; preds = %_Z23write_little_endian_regIjEvPT_mmPKh.exit.loopexit, %26
-  %.063 = phi i64 [ 0, %26 ], [ %41, %_Z23write_little_endian_regIjEvPT_mmPKh.exit.loopexit ]
+  %.062 = phi i64 [ 0, %26 ], [ %41, %_Z23write_little_endian_regIjEvPT_mmPKh.exit.loopexit ]
   %42 = lshr exact i64 %1, 2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !6
@@ -625,7 +625,7 @@ _Z23write_little_endian_regIjEvPT_mmPKh.exit:     ; preds = %_Z23write_little_en
   %50 = load ptr, ptr %49, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.not10.i.i.i = icmp eq ptr %50, null
-  br i1 %.not10.i.i.i, label %_Z23write_little_endian_regImEvPT_mmPKh.exit59, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %_Z23write_little_endian_regImEvPT_mmPKh.exit58, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_Z23write_little_endian_regIjEvPT_mmPKh.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %50, %_Z23write_little_endian_regIjEvPT_mmPKh.exit ]
@@ -642,13 +642,13 @@ _Z23write_little_endian_regIjEvPT_mmPKh.exit:     ; preds = %_Z23write_little_en
 
 _ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %55 = icmp eq ptr %.19.i.i.i, %51
-  br i1 %55, label %_Z23write_little_endian_regImEvPT_mmPKh.exit59, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit
+  br i1 %55, label %_Z23write_little_endian_regImEvPT_mmPKh.exit58, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit
 
 _ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %56 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %57 = load i64, ptr %56, align 8, !tbaa !36
   %.not = icmp ult i64 %42, %57
-  br i1 %.not, label %_Z23write_little_endian_regImEvPT_mmPKh.exit59, label %58
+  br i1 %.not, label %_Z23write_little_endian_regImEvPT_mmPKh.exit58, label %58
 
 58:                                               ; preds = %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit
   %59 = load ptr, ptr %43, align 8, !tbaa !6
@@ -694,8 +694,8 @@ _ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE2atERS5_.exit: ; preds = 
   %76 = load ptr, ptr %75, align 8, !tbaa !40
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1264
   %78 = load ptr, ptr %77, align 8, !tbaa !42
-  tail call void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48) %78, i64 noundef 8, i64 noundef %.063) #23
-  br label %_Z23write_little_endian_regImEvPT_mmPKh.exit59
+  tail call void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48) %78, i64 noundef 8, i64 noundef %.062) #23
+  br label %_Z23write_little_endian_regImEvPT_mmPKh.exit58
 
 79:                                               ; preds = %7
   %80 = icmp ult i64 %1, 49144
@@ -733,46 +733,46 @@ _ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE2atERS5_.exit: ; preds = 
 
 _ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i45: ; preds = %.lr.ph.i.i.i37
   %96 = icmp eq ptr %.19.i.i.i40, %92
-  br i1 %96, label %_Z23write_little_endian_regImEvPT_mmPKh.exit, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit48
+  br i1 %96, label %_Z23write_little_endian_regImEvPT_mmPKh.exit, label %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit47
 
-_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit48: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i45
+_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit47: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i45
   %97 = getelementptr inbounds nuw i8, ptr %.19.i.i.i40, i64 32
   %98 = load i64, ptr %97, align 8, !tbaa !36
-  %.not68 = icmp ult i64 %83, %98
-  br i1 %.not68, label %_Z23write_little_endian_regImEvPT_mmPKh.exit, label %99
+  %.not67 = icmp ult i64 %83, %98
+  br i1 %.not67, label %_Z23write_little_endian_regImEvPT_mmPKh.exit, label %99
 
-99:                                               ; preds = %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit48
+99:                                               ; preds = %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit47
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %101 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %.not.i49 = icmp eq i64 %2, 0
-  br i1 %.not.i49, label %_Z23write_little_endian_regImEvPT_mmPKh.exit, label %.lr.ph.i50
+  %.not.i48 = icmp eq i64 %2, 0
+  br i1 %.not.i48, label %_Z23write_little_endian_regImEvPT_mmPKh.exit, label %.lr.ph.i49
 
-.lr.ph.i50:                                       ; preds = %99
-  %.promoted.i51 = load i64, ptr %101, align 8, !tbaa !36
+.lr.ph.i49:                                       ; preds = %99
+  %.promoted.i50 = load i64, ptr %101, align 8, !tbaa !36
   br label %102
 
-102:                                              ; preds = %102, %.lr.ph.i50
-  %103 = phi i64 [ %.promoted.i51, %.lr.ph.i50 ], [ %114, %102 ]
-  %.010.i52 = phi i64 [ 0, %.lr.ph.i50 ], [ %115, %102 ]
-  %104 = add nuw i64 %.010.i52, %1
+102:                                              ; preds = %102, %.lr.ph.i49
+  %103 = phi i64 [ %.promoted.i50, %.lr.ph.i49 ], [ %114, %102 ]
+  %.010.i51 = phi i64 [ 0, %.lr.ph.i49 ], [ %115, %102 ]
+  %104 = add nuw i64 %.010.i51, %1
   %105 = shl i64 %104, 3
   %106 = and i64 %105, 56
   %107 = shl nuw i64 255, %106
   %108 = xor i64 %107, -1
   %109 = and i64 %103, %108
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 %.010.i52
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 %.010.i51
   %111 = load i8, ptr %110, align 1, !tbaa !47
   %112 = zext i8 %111 to i64
   %113 = shl nuw i64 %112, %106
   %114 = or i64 %109, %113
   store i64 %114, ptr %101, align 8, !tbaa !36
-  %115 = add nuw nsw i64 %.010.i52, 1
-  %exitcond.not.i53 = icmp eq i64 %115, %2
-  br i1 %exitcond.not.i53, label %_Z23write_little_endian_regImEvPT_mmPKh.exit, label %102, !llvm.loop !55
+  %115 = add nuw nsw i64 %.010.i51, 1
+  %exitcond.not.i52 = icmp eq i64 %115, %2
+  br i1 %exitcond.not.i52, label %_Z23write_little_endian_regImEvPT_mmPKh.exit, label %102, !llvm.loop !55
 
-_Z23write_little_endian_regImEvPT_mmPKh.exit:     ; preds = %102, %81, %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i45, %99, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit48
+_Z23write_little_endian_regImEvPT_mmPKh.exit:     ; preds = %102, %81, %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i45, %99, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  br label %_Z23write_little_endian_regImEvPT_mmPKh.exit59
+  br label %_Z23write_little_endian_regImEvPT_mmPKh.exit58
 
 116:                                              ; preds = %79
   %117 = icmp ult i64 %1, 49152
@@ -780,46 +780,46 @@ _Z23write_little_endian_regImEvPT_mmPKh.exit:     ; preds = %102, %81, %_ZNKSt8_
 
 118:                                              ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.not.i54 = icmp eq i64 %2, 0
-  br i1 %.not.i54, label %_Z23write_little_endian_regImEvPT_mmPKh.exit59, label %.lr.ph.i55
+  %.not.i53 = icmp eq i64 %2, 0
+  br i1 %.not.i53, label %_Z23write_little_endian_regImEvPT_mmPKh.exit58, label %.lr.ph.i54
 
-.lr.ph.i55:                                       ; preds = %118
-  %.promoted.i56 = load i64, ptr %119, align 8, !tbaa !36
+.lr.ph.i54:                                       ; preds = %118
+  %.promoted.i55 = load i64, ptr %119, align 8, !tbaa !36
   br label %120
 
-120:                                              ; preds = %120, %.lr.ph.i55
-  %121 = phi i64 [ %.promoted.i56, %.lr.ph.i55 ], [ %132, %120 ]
-  %.010.i57 = phi i64 [ 0, %.lr.ph.i55 ], [ %133, %120 ]
-  %122 = add nuw i64 %.010.i57, %1
+120:                                              ; preds = %120, %.lr.ph.i54
+  %121 = phi i64 [ %.promoted.i55, %.lr.ph.i54 ], [ %132, %120 ]
+  %.010.i56 = phi i64 [ 0, %.lr.ph.i54 ], [ %133, %120 ]
+  %122 = add nuw i64 %.010.i56, %1
   %123 = shl i64 %122, 3
   %124 = and i64 %123, 56
   %125 = shl nuw i64 255, %124
   %126 = xor i64 %125, -1
   %127 = and i64 %121, %126
-  %128 = getelementptr inbounds nuw i8, ptr %3, i64 %.010.i57
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 %.010.i56
   %129 = load i8, ptr %128, align 1, !tbaa !47
   %130 = zext i8 %129 to i64
   %131 = shl nuw i64 %130, %124
   %132 = or i64 %127, %131
   store i64 %132, ptr %119, align 8, !tbaa !36
-  %133 = add nuw nsw i64 %.010.i57, 1
-  %exitcond.not.i58 = icmp eq i64 %133, %2
-  br i1 %exitcond.not.i58, label %_Z23write_little_endian_regImEvPT_mmPKh.exit59, label %120, !llvm.loop !55
+  %133 = add nuw nsw i64 %.010.i56, 1
+  %exitcond.not.i57 = icmp eq i64 %133, %2
+  br i1 %exitcond.not.i57, label %_Z23write_little_endian_regImEvPT_mmPKh.exit58, label %120, !llvm.loop !55
 
 134:                                              ; preds = %116
   %135 = add i64 %2, %1
   %136 = icmp ult i64 %135, 786433
-  br i1 %136, label %_Z23write_little_endian_regImEvPT_mmPKh.exit59, label %140
+  br i1 %136, label %_Z23write_little_endian_regImEvPT_mmPKh.exit58, label %140
 
-_Z23write_little_endian_regImEvPT_mmPKh.exit59:   ; preds = %120, %_Z23write_little_endian_regIjEvPT_mmPKh.exit, %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %118, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE2atERS5_.exit, %_Z23write_little_endian_regImEvPT_mmPKh.exit, %134, %23
+_Z23write_little_endian_regImEvPT_mmPKh.exit58:   ; preds = %120, %_Z23write_little_endian_regIjEvPT_mmPKh.exit, %_ZNKSt8_Rb_treeImSt4pairIKmP11processor_tESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %118, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE5countERS5_.exit, %_ZNKSt3mapImP11processor_tSt4lessImESaISt4pairIKmS1_EEE2atERS5_.exit, %_Z23write_little_endian_regImEvPT_mmPKh.exit, %134, %23
   %137 = load ptr, ptr %0, align 8, !tbaa !3
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %139 = load ptr, ptr %138, align 8
   call void %139(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef 0)
   br label %140
 
-140:                                              ; preds = %134, %11, %16, %4, %_Z23write_little_endian_regImEvPT_mmPKh.exit59
-  %.0 = phi i1 [ true, %_Z23write_little_endian_regImEvPT_mmPKh.exit59 ], [ false, %4 ], [ false, %11 ], [ %22, %16 ], [ false, %134 ]
+140:                                              ; preds = %134, %11, %16, %4, %_Z23write_little_endian_regImEvPT_mmPKh.exit58
+  %.0 = phi i1 [ true, %_Z23write_little_endian_regImEvPT_mmPKh.exit58 ], [ false, %4 ], [ false, %11 ], [ %22, %16 ], [ false, %134 ]
   ret i1 %.0
 }
 

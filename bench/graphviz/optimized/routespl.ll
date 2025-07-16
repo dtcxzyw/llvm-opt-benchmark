@@ -786,8 +786,8 @@ overlap.exit239.thread.i:                         ; preds = %207, %206, %204, %2
   %.phi.trans.insert442 = getelementptr i8, ptr %240, i64 -24
   %.pre443 = load double, ptr %.phi.trans.insert442, align 8, !tbaa !47
   %245 = fcmp olt double %.pre, %.pre443
-  %or.cond463 = select i1 %or.cond265.i, i1 true, i1 %245
-  br i1 %or.cond463, label %._crit_edge261.i, label %246
+  %or.cond466 = select i1 %or.cond265.i, i1 true, i1 %245
+  br i1 %or.cond466, label %._crit_edge261.i, label %246
 
 246:                                              ; preds = %234
   %247 = getelementptr i8, ptr %240, i64 -8
@@ -888,7 +888,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i356, %266
   br i1 %.not254.i, label %._crit_edge403, label %.lr.ph386.preheader
 
 .lr.ph386.preheader:                              ; preds = %.preheader370
-  %invariant.gep485 = getelementptr i8, ptr %273, i64 24
+  %invariant.gep490 = getelementptr i8, ptr %273, i64 24
   br label %.lr.ph386
 
 .lr.ph394.preheader:                              ; preds = %349
@@ -990,11 +990,11 @@ gv_calloc.exit:                                   ; preds = %.thread.i356, %266
   br label %checkpath.exit
 
 .sink.split:                                      ; preds = %338, %320, %328
-  %.sink464.in = phi ptr [ %336, %328 ], [ %327, %320 ], [ %346, %338 ]
-  %.sink464 = load double, ptr %.sink464.in, align 8, !tbaa !18
+  %.sink467.in = phi ptr [ %336, %328 ], [ %327, %320 ], [ %346, %338 ]
+  %.sink467 = load double, ptr %.sink467.in, align 8, !tbaa !18
   %348 = add i64 %.0327384, 2
-  %gep486 = getelementptr %struct.pointf_s, ptr %invariant.gep485, i64 %.0327384
-  store double %.sink464, ptr %gep486, align 8, !tbaa !8
+  %gep491 = getelementptr %struct.pointf_s, ptr %invariant.gep490, i64 %.0327384
+  store double %.sink467, ptr %gep491, align 8, !tbaa !8
   br label %349
 
 349:                                              ; preds = %.sink.split, %337
@@ -1332,77 +1332,72 @@ gv_calloc.exit:                                   ; preds = %.thread.i356, %266
   br label %checkpath.exit
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
-  %.0313417 = phi double [ %.1, %.loopexit ], [ 1.000000e+01, %.preheader.preheader ]
-  %.0335416 = phi i32 [ %521, %.loopexit ], [ 0, %.preheader.preheader ]
+  %.0313417 = phi double [ %518, %.loopexit ], [ 1.000000e+01, %.preheader.preheader ]
+  %.0335416 = phi i32 [ %520, %.loopexit ], [ 0, %.preheader.preheader ]
   %510 = load i64, ptr %503, align 8, !tbaa !9
   call fastcc void @limitBoxes(ptr noundef nonnull %24, i64 noundef %13, ptr noundef nonnull %505, i64 noundef %510, double noundef %.0313417)
-  br i1 %.not254.i, label %.loopexit, label %.lr.ph413
+  br i1 %.not254.i, label %.thread, label %.lr.ph413
 
-.lr.ph413:                                        ; preds = %.preheader, %518
-  %.0411 = phi i64 [ %519, %518 ], [ 0, %.preheader ]
+.lr.ph413:                                        ; preds = %.preheader, %516
+  %.0411 = phi i64 [ %517, %516 ], [ 0, %.preheader ]
   %511 = getelementptr inbounds nuw %struct.boxf, ptr %24, i64 %.0411
   %512 = load i64, ptr %511, align 8, !tbaa !44
   %.not.i357 = icmp eq i64 %512, 9218868437227405311
-  br i1 %.not.i357, label %516, label %513
+  br i1 %.not.i357, label %.loopexit, label %513
 
 513:                                              ; preds = %.lr.ph413
   %514 = getelementptr inbounds nuw i8, ptr %511, i64 16
   %515 = load i64, ptr %514, align 8, !tbaa !46
   %.not.i359 = icmp eq i64 %515, -4503599627370497
-  br i1 %.not.i359, label %516, label %518
+  br i1 %.not.i359, label %.loopexit, label %516
 
-516:                                              ; preds = %513, %.lr.ph413
-  %517 = fmul double %.0313417, 2.000000e+00
-  br label %.loopexit
-
-518:                                              ; preds = %513
-  %519 = add nuw i64 %.0411, 1
-  %exitcond438.not = icmp eq i64 %519, %13
+516:                                              ; preds = %513
+  %517 = add nuw i64 %.0411, 1
+  %exitcond438.not = icmp eq i64 %517, %13
   br i1 %exitcond438.not, label %.thread, label %.lr.ph413, !llvm.loop !75
 
-.loopexit:                                        ; preds = %.preheader, %516
-  %.0374 = phi i64 [ %.0411, %516 ], [ 0, %.preheader ]
-  %.1 = phi double [ %517, %516 ], [ %.0313417, %.preheader ]
-  %520 = icmp ne i64 %.0374, %13
-  %521 = add nuw nsw i32 %.0335416, 1
-  %522 = icmp samesign ult i32 %.0335416, 14
-  %523 = select i1 %520, i1 %522, i1 false
-  br i1 %523, label %.preheader, label %524, !llvm.loop !76
+.loopexit:                                        ; preds = %.lr.ph413, %513
+  %518 = fmul double %.0313417, 2.000000e+00
+  %519 = icmp ne i64 %.0411, %13
+  %520 = add nuw nsw i32 %.0335416, 1
+  %521 = icmp samesign ult i32 %.0335416, 14
+  %522 = select i1 %519, i1 %521, i1 false
+  br i1 %522, label %.preheader, label %523, !llvm.loop !76
 
-524:                                              ; preds = %.loopexit
-  br i1 %520, label %525, label %.thread
+523:                                              ; preds = %.loopexit
+  br i1 %519, label %524, label %.thread
 
-525:                                              ; preds = %524
+524:                                              ; preds = %523
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #19
-  %526 = load i32, ptr %.0332382, align 8
-  %527 = and i32 %526, 3
-  %528 = icmp eq i32 %527, 3
-  %529 = select i1 %528, ptr %.0332382, ptr %290
-  %530 = getelementptr inbounds nuw i8, ptr %529, i64 56
-  %531 = load ptr, ptr %530, align 8, !tbaa !58
-  %532 = call ptr @agnameof(ptr noundef %531) #19
-  %533 = load i32, ptr %.0332382, align 8
-  %534 = and i32 %533, 3
-  %535 = icmp eq i32 %534, 2
-  %536 = select i1 %535, ptr %.0332382, ptr %295
-  %537 = getelementptr inbounds nuw i8, ptr %536, i64 56
-  %538 = load ptr, ptr %537, align 8, !tbaa !58
-  %539 = call ptr @agnameof(ptr noundef %538) #19
-  call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.9, ptr noundef %532, ptr noundef %539) #19
-  %540 = load ptr, ptr %5, align 8
-  %541 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %542 = load i64, ptr %541, align 8
-  call void @make_polyline(ptr %540, i64 %542, ptr noundef nonnull %9) #19
-  %543 = load ptr, ptr %9, align 8, !tbaa !16
-  %544 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %545 = load i64, ptr %544, align 8, !tbaa !9
-  call fastcc void @limitBoxes(ptr noundef nonnull %24, i64 noundef %13, ptr noundef %543, i64 noundef %545, double noundef 1.000000e+01)
+  %525 = load i32, ptr %.0332382, align 8
+  %526 = and i32 %525, 3
+  %527 = icmp eq i32 %526, 3
+  %528 = select i1 %527, ptr %.0332382, ptr %290
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 56
+  %530 = load ptr, ptr %529, align 8, !tbaa !58
+  %531 = call ptr @agnameof(ptr noundef %530) #19
+  %532 = load i32, ptr %.0332382, align 8
+  %533 = and i32 %532, 3
+  %534 = icmp eq i32 %533, 2
+  %535 = select i1 %534, ptr %.0332382, ptr %295
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 56
+  %537 = load ptr, ptr %536, align 8, !tbaa !58
+  %538 = call ptr @agnameof(ptr noundef %537) #19
+  call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.9, ptr noundef %531, ptr noundef %538) #19
+  %539 = load ptr, ptr %5, align 8
+  %540 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %541 = load i64, ptr %540, align 8
+  call void @make_polyline(ptr %539, i64 %541, ptr noundef nonnull %9) #19
+  %542 = load ptr, ptr %9, align 8, !tbaa !16
+  %543 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %544 = load i64, ptr %543, align 8, !tbaa !9
+  call fastcc void @limitBoxes(ptr noundef nonnull %24, i64 noundef %13, ptr noundef %542, i64 noundef %544, double noundef 1.000000e+01)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
   br label %.thread
 
-.thread:                                          ; preds = %518, %525, %524
-  %546 = load i64, ptr %503, align 8, !tbaa !9
-  store i64 %546, ptr %1, align 8, !tbaa !21
+.thread:                                          ; preds = %.preheader, %516, %524, %523
+  %545 = load i64, ptr %503, align 8, !tbaa !9
+  store i64 %545, ptr %1, align 8, !tbaa !21
   call void @free(ptr noundef %273) #19
   br label %checkpath.exit
 

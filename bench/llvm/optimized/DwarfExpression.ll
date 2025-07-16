@@ -1862,8 +1862,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExp
 21:                                               ; preds = %5
   %22 = load ptr, ptr %2, align 8, !tbaa !171
   %23 = load ptr, ptr %9, align 8, !tbaa !171
-  %.not121 = icmp eq ptr %22, %23
-  br i1 %.not121, label %26, label %24
+  %.not123 = icmp eq ptr %22, %23
+  br i1 %.not123, label %26, label %24
 
 24:                                               ; preds = %21
   %25 = load i64, ptr %22, align 8, !tbaa !87
@@ -1914,8 +1914,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExp
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %46 = load i16, ptr %45, align 4
   %47 = and i16 %46, 256
-  %.not122 = icmp eq i16 %47, 0
-  br i1 %.not122, label %48, label %53
+  %.not124 = icmp eq i16 %47, 0
+  br i1 %.not124, label %48, label %53
 
 48:                                               ; preds = %44
   %49 = and i16 %46, 7
@@ -1923,13 +1923,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExp
   %or.cond = or i1 %.051, %50
   %51 = and i16 %46, 64
   %52 = icmp eq i16 %51, 0
-  %or.cond111.not = and i1 %52, %or.cond
-  br i1 %or.cond111.not, label %162, label %54
+  %or.cond113.not = and i1 %52, %or.cond
+  br i1 %or.cond113.not, label %162, label %54
 
 53:                                               ; preds = %44
   %.old = and i16 %46, 64
-  %.old110.not = icmp eq i16 %.old, 0
-  br i1 %.old110.not, label %162, label %54
+  %.old112.not = icmp eq i16 %.old, 0
+  br i1 %.old112.not, label %162, label %54
 
 54:                                               ; preds = %48, %53
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
@@ -1941,8 +1941,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExp
   %59 = zext i32 %58 to i64
   %.idx = mul nuw nsw i64 %59, 24
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx
-  %.not66131 = icmp eq i32 %58, 0
-  br i1 %.not66131, label %_ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge, label %.lr.ph
+  %.not66133 = icmp eq i32 %58, 0
+  br i1 %.not66133, label %_ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1950,17 +1950,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExp
   br label %63
 
 63:                                               ; preds = %.lr.ph, %_ZN4llvm15DwarfExpression10addOpPieceEjj.exit
-  %.052133 = phi i32 [ 0, %.lr.ph ], [ %66, %_ZN4llvm15DwarfExpression10addOpPieceEjj.exit ]
-  %.053132 = phi ptr [ %56, %.lr.ph ], [ %114, %_ZN4llvm15DwarfExpression10addOpPieceEjj.exit ]
-  %64 = getelementptr inbounds nuw i8, ptr %.053132, i64 8
+  %.052135 = phi i32 [ 0, %.lr.ph ], [ %66, %_ZN4llvm15DwarfExpression10addOpPieceEjj.exit ]
+  %.053134 = phi ptr [ %56, %.lr.ph ], [ %114, %_ZN4llvm15DwarfExpression10addOpPieceEjj.exit ]
+  %64 = getelementptr inbounds nuw i8, ptr %.053134, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !30
-  %66 = add i32 %65, %.052133
-  %67 = load i64, ptr %.053132, align 8, !tbaa !24
+  %66 = add i32 %65, %.052135
+  %67 = load i64, ptr %.053134, align 8, !tbaa !24
   %68 = icmp sgt i64 %67, -1
   br i1 %68, label %69, label %_ZN4llvm15DwarfExpression6addRegElPKc.exit
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds nuw i8, ptr %.053132, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.053134, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !31
   %72 = load i16, ptr %45, align 4
   %73 = and i16 %72, -8
@@ -1993,8 +1993,8 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit:       ; preds = %81, %76, %63
   %89 = zext i32 %66 to i64
   %90 = load i64, ptr %8, align 8
   %91 = icmp ult i64 %90, %89
-  %or.cond115 = select i1 %88, i1 %91, i1 false
-  br i1 %or.cond115, label %_ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge, label %.critedge
+  %or.cond117 = select i1 %88, i1 %91, i1 false
+  br i1 %or.cond117, label %_ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm15DwarfExpression6addRegElPKc.exit
   %92 = load i32, ptr %64, align 8, !tbaa !30
@@ -2040,15 +2040,15 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit:       ; preds = %81, %76, %63
   br label %_ZN4llvm15DwarfExpression10addOpPieceEjj.exit
 
 _ZN4llvm15DwarfExpression10addOpPieceEjj.exit:    ; preds = %.critedge, %111
-  %114 = getelementptr inbounds nuw i8, ptr %.053132, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.053134, i64 24
   %.not66 = icmp eq ptr %114, %60
   br i1 %.not66, label %_ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge, label %63
 
 _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15DwarfExpression10addOpPieceEjj.exit, %_ZN4llvm15DwarfExpression6addRegElPKc.exit, %54
   %115 = load i16, ptr %45, align 4
   %116 = and i16 %115, 64
-  %.not126 = icmp eq i16 %116, 0
-  br i1 %.not126, label %152, label %117
+  %.not128 = icmp eq i16 %116, 0
+  br i1 %.not128, label %152, label %117
 
 117:                                              ; preds = %_ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge
   %118 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2083,8 +2083,8 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   store i16 %142, ptr %45, align 4
   store i8 0, ptr %27, align 8, !tbaa !173
   %143 = and i16 %138, 128
-  %.not127 = icmp eq i16 %143, 0
-  br i1 %.not127, label %144, label %152
+  %.not129 = icmp eq i16 %143, 0
+  br i1 %.not129, label %144, label %152
 
 144:                                              ; preds = %117
   %145 = and i16 %138, 256
@@ -2092,8 +2092,8 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   %147 = and i16 %138, 6144
   %.not67 = icmp eq i16 %147, 0
   %148 = or i1 %146, %.not67
-  %or.cond117 = or i1 %.051, %148
-  br i1 %or.cond117, label %152, label %149
+  %or.cond119 = or i1 %.051, %148
+  br i1 %or.cond119, label %152, label %149
 
 149:                                              ; preds = %144
   %150 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2105,12 +2105,12 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   store i32 0, ptr %57, align 8, !tbaa !32
   %153 = load ptr, ptr %2, align 8, !tbaa !171
   %154 = load ptr, ptr %9, align 8, !tbaa !171
-  %.not128 = icmp eq ptr %153, %154
+  %.not130 = icmp eq ptr %153, %154
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %156 = load i32, ptr %155, align 8
   %157 = and i32 %156, 65535
   %.not68 = icmp eq i32 %157, 0
-  %brmerge = select i1 %.not68, i1 true, i1 %.not128
+  %brmerge = select i1 %.not68, i1 true, i1 %.not130
   br i1 %brmerge, label %161, label %158
 
 158:                                              ; preds = %152
@@ -2134,7 +2134,7 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
 165:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %22, ptr %6, align 8
-  br i1 %.not121, label %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not123, label %.sink.split, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %165, %168
   %storemerge3.i.i.i.i.i.i = phi ptr [ %171, %168 ], [ %22, %165 ]
@@ -2148,17 +2148,12 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   %171 = getelementptr inbounds nuw i64, ptr %storemerge3.i.i.i.i.i.i, i64 %170
   store ptr %171, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %171, %23
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !175
+  br i1 %.not.i.i.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !175
 
-"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit.thread": ; preds = %168
+"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i
+  %.not126 = icmp eq ptr %23, %storemerge3.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %176
-
-"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %165
-  %storemerge.lcssa.i.i.i.i.i.i = phi ptr [ %22, %165 ], [ %storemerge3.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.not124 = icmp eq ptr %23, %storemerge.lcssa.i.i.i.i.i.i
-  br i1 %.not124, label %176, label %172
+  br i1 %.not126, label %176, label %172
 
 172:                                              ; preds = %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit"
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2168,7 +2163,11 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   store i16 %175, ptr %45, align 4
   br label %269
 
-176:                                              ; preds = %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit.thread", %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit", %162
+.sink.split:                                      ; preds = %168, %165
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  br label %176
+
+176:                                              ; preds = %.sink.split, %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit", %162
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %178 = load i32, ptr %177, align 8, !tbaa !32
   %179 = icmp ugt i32 %178, 1
@@ -2189,7 +2188,7 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 72
   %188 = load ptr, ptr %187, align 8
   %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(308) %1, i32 %3) #15
-  br i1 %.not121, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit, label %190
+  br i1 %.not123, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit, label %190
 
 190:                                              ; preds = %183
   %191 = load i64, ptr %22, align 8, !tbaa !87
@@ -2254,7 +2253,7 @@ thread-pre-split:                                 ; preds = %201, %190
   %224 = ptrtoint ptr %223 to i64
   store i64 %224, ptr %2, align 8, !tbaa !164
   %.not.i.i.i = icmp eq i64 %220, 0
-  br i1 %.not.i.i.i, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit134, label %.lr.ph.i.i.i, !llvm.loop !176
+  br i1 %.not.i.i.i, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit136, label %.lr.ph.i.i.i, !llvm.loop !176
 
 225:                                              ; preds = %214
   %226 = icmp eq i64 %216, 28
@@ -2290,12 +2289,12 @@ _ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit: ; preds = %.lr.ph.i.i.i85
   %239 = sub i32 0, %238
   br label %_ZN4llvm18DIExpressionCursor7consumeEj.exit
 
-_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit134: ; preds = %.lr.ph.i.i.i
+_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit136: ; preds = %.lr.ph.i.i.i
   %240 = trunc nuw nsw i64 %210 to i32
   br label %_ZN4llvm18DIExpressionCursor7consumeEj.exit
 
-_ZN4llvm18DIExpressionCursor7consumeEj.exit:      ; preds = %196, %193, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit134, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit, %227, %225, %208, %183, %thread-pre-split
-  %.2 = phi i32 [ %.054.ph, %thread-pre-split ], [ 0, %183 ], [ %.054.ph, %227 ], [ %.054.ph, %225 ], [ %.054.ph, %208 ], [ %239, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit ], [ %240, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit134 ], [ %197, %196 ], [ 0, %193 ]
+_ZN4llvm18DIExpressionCursor7consumeEj.exit:      ; preds = %196, %193, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit136, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit, %227, %225, %208, %183, %thread-pre-split
+  %.2 = phi i32 [ %.054.ph, %thread-pre-split ], [ 0, %183 ], [ %.054.ph, %227 ], [ %.054.ph, %225 ], [ %.054.ph, %208 ], [ %239, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit ], [ %240, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit136 ], [ %197, %196 ], [ 0, %193 ]
   %241 = sext i32 %.2 to i64
   br i1 %189, label %242, label %245
 
@@ -2335,13 +2334,13 @@ _ZN4llvm15DwarfExpression7addBRegEll.exit:        ; preds = %252, %247, %242
   store i32 0, ptr %177, align 8, !tbaa !32
   %261 = load ptr, ptr %2, align 8, !tbaa !171
   %262 = load ptr, ptr %9, align 8, !tbaa !171
-  %.not125 = icmp eq ptr %261, %262
+  %.not127 = icmp eq ptr %261, %262
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %264 = load i32, ptr %263, align 8
   %265 = and i32 %264, 65535
   %.not64 = icmp eq i32 %265, 0
-  %brmerge120 = select i1 %.not64, i1 true, i1 %.not125
-  br i1 %brmerge120, label %269, label %266
+  %brmerge122 = select i1 %.not64, i1 true, i1 %.not127
+  br i1 %brmerge122, label %269, label %266
 
 266:                                              ; preds = %_ZN4llvm15DwarfExpression7addBRegEll.exit
   %267 = load i64, ptr %261, align 8, !tbaa !87

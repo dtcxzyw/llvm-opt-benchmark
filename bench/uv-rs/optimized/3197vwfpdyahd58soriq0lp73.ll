@@ -1566,7 +1566,7 @@ default.unreachable115:                           ; preds = %359, %337, %"_ZN67_
 
 245:                                              ; preds = %.noexc98
   %246 = load ptr, ptr %239, align 8, !noalias !168, !nonnull !4, !noundef !4
-  %247 = icmp uge i64 %238, %235
+  %247 = icmp ule i64 %235, %238
   tail call void @llvm.assume(i1 %247)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !168
   %248 = shl i64 %235, 3
@@ -2035,7 +2035,7 @@ default.unreachable115:                           ; preds = %359, %337, %"_ZN67_
 
 "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6977051ac121ea1bE.exit.i": ; preds = %.noexc109
   %417 = load ptr, ptr %414, align 8, !noalias !224, !nonnull !4, !noundef !4
-  %418 = icmp uge i64 %413, %410
+  %418 = icmp ule i64 %410, %413
   tail call void @llvm.assume(i1 %418)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !224
   %419 = shl i64 %410, 4
@@ -7588,7 +7588,7 @@ default.unreachable:                              ; preds = %.noexc358
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h65cbf4751fb6a35fE.llvm.12155701864670673089.exit.i": ; preds = %.noexc550
   %1248 = load ptr, ptr %1037, align 8, !noalias !1360, !nonnull !4, !noundef !4
-  %1249 = icmp uge i64 %1245, %1237
+  %1249 = icmp ule i64 %1237, %1245
   call void @llvm.assume(i1 %1249)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74), !noalias !1360
   store i64 %1245, ptr %75, align 8, !noalias !1356
@@ -8012,7 +8012,7 @@ default.unreachable:                              ; preds = %.noexc358
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h65cbf4751fb6a35fE.llvm.12155701864670673089.exit.i571": ; preds = %.noexc572
   %1375 = load ptr, ptr %1062, align 8, !noalias !1491, !nonnull !4, !noundef !4
-  %1376 = icmp uge i64 %1370, %1362
+  %1376 = icmp ule i64 %1362, %1370
   call void @llvm.assume(i1 %1376)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69), !noalias !1491
   store i64 %1370, ptr %70, align 8, !noalias !1487

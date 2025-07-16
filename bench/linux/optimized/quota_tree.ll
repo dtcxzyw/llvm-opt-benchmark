@@ -270,18 +270,18 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %42 = xor i32 %3, -1
   %43 = add i32 %41, %42
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.loopexit38, label %.preheader37
+  br i1 %44, label %.loopexit37, label %.preheader36
 
-.preheader37:                                     ; preds = %34, %.preheader37
-  %45 = phi i32 [ %47, %.preheader37 ], [ %43, %34 ]
-  %46 = phi i32 [ %48, %.preheader37 ], [ %37, %34 ]
+.preheader36:                                     ; preds = %34, %.preheader36
+  %45 = phi i32 [ %47, %.preheader36 ], [ %43, %34 ]
+  %46 = phi i32 [ %48, %.preheader36 ], [ %37, %34 ]
   %47 = add i32 %45, -1
   %48 = udiv i32 %46, %39
   %49 = icmp eq i32 %47, 0
-  br i1 %49, label %.loopexit38, label %.preheader37, !llvm.loop !8
+  br i1 %49, label %.loopexit37, label %.preheader36, !llvm.loop !8
 
-.loopexit38:                                      ; preds = %.preheader37, %34
-  %50 = phi i32 [ %37, %34 ], [ %48, %.preheader37 ]
+.loopexit37:                                      ; preds = %.preheader36, %34
+  %50 = phi i32 [ %37, %34 ], [ %48, %.preheader36 ]
   %51 = urem i32 %50, %39
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr i32, ptr %9, i64 %52
@@ -295,12 +295,12 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %60 = icmp ult i32 %59, %58
   br i1 %60, label %63, label %61
 
-61:                                               ; preds = %.loopexit38
+61:                                               ; preds = %.loopexit37
   %62 = load ptr, ptr %55, align 8
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %62, ptr noundef nonnull @__func__.do_check_range, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, i32 noundef %54, i32 noundef 1, i32 noundef %58) #7
   br label %335
 
-63:                                               ; preds = %.loopexit38
+63:                                               ; preds = %.loopexit37
   %64 = add i32 %41, -1
   %65 = icmp eq i32 %64, %3
   br i1 %65, label %66, label %239
@@ -610,24 +610,24 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 271:                                              ; preds = %266
   %272 = add nuw nsw i64 %267, 1
   %273 = icmp eq i64 %272, %265
-  br i1 %273, label %.thread36, label %266, !llvm.loop !11
+  br i1 %273, label %.critedge, label %266, !llvm.loop !11
 
 274:                                              ; preds = %266
   %275 = trunc i64 %267 to i32
   %276 = icmp eq i32 %252, %275
-  br i1 %276, label %.thread36, label %._crit_edge
+  br i1 %276, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %274
-  %.pre45 = load i32, ptr %2, align 4
-  %277 = zext i32 %.pre45 to i64
+  %.pre44 = load i32, ptr %2, align 4
+  %277 = zext i32 %.pre44 to i64
   br label %309
 
-.thread36:                                        ; preds = %271, %274
+.critedge:                                        ; preds = %271, %274
   %278 = load i32, ptr %2, align 4
   %279 = icmp eq i32 %278, 1
   br i1 %279, label %309, label %280
 
-280:                                              ; preds = %.thread36
+280:                                              ; preds = %.critedge
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %282 = load i32, ptr %281, align 8
   store i32 %282, ptr %9, align 8
@@ -675,8 +675,8 @@ put_free_dqblk.exit:                              ; preds = %303, %306
   store i32 0, ptr %2, align 4
   br label %335
 
-309:                                              ; preds = %._crit_edge, %.thread36
-  %310 = phi i64 [ %277, %._crit_edge ], [ 1, %.thread36 ]
+309:                                              ; preds = %._crit_edge, %.critedge
+  %310 = phi i64 [ %277, %._crit_edge ], [ 1, %.critedge ]
   %311 = load ptr, ptr %0, align 8
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 48
   %313 = load ptr, ptr %312, align 16

@@ -1880,11 +1880,12 @@ invoke.cont290.loopexit:                          ; preds = %_ZN5eastl20back_ins
   %.pre1375 = ptrtoint ptr %.pre1364 to i64
   %.pre1376 = ptrtoint ptr %.pre1365 to i64
   %.pre1377 = sub i64 %.pre1375, %.pre1376
+  %117 = icmp eq i64 %.pre1366, %105
   br label %invoke.cont290
 
 invoke.cont290:                                   ; preds = %invoke.cont290.loopexit, %invoke.cont286
   %sub.ptr.sub.i360.pre-phi = phi i64 [ %.pre1377, %invoke.cont290.loopexit ], [ %sub.ptr.sub.i.i.i.i331, %invoke.cont286 ]
-  %117 = phi i64 [ %.pre1366, %invoke.cont290.loopexit ], [ %105, %invoke.cont286 ]
+  %cmp298 = phi i1 [ %117, %invoke.cont290.loopexit ], [ true, %invoke.cont286 ]
   %mpEnd.i362 = getelementptr inbounds nuw i8, ptr %v3, i64 8
   %118 = load ptr, ptr %mpEnd.i362, align 8
   %119 = load ptr, ptr %v3, align 8
@@ -1892,7 +1893,6 @@ invoke.cont290:                                   ; preds = %invoke.cont290.loop
   %sub.ptr.rhs.cast.i364 = ptrtoint ptr %119 to i64
   %sub.ptr.sub.i365 = sub i64 %sub.ptr.lhs.cast.i363, %sub.ptr.rhs.cast.i364
   %cmp296 = icmp eq i64 %sub.ptr.sub.i360.pre-phi, %sub.ptr.sub.i365
-  %cmp298 = icmp eq i64 %117, %105
   %or.cond = select i1 %cmp296, i1 %cmp298, i1 false
   br i1 %or.cond, label %land.rhs299, label %land.end302
 

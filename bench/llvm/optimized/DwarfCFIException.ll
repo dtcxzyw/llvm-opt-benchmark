@@ -298,34 +298,34 @@ _ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread:  ; preds = %_ZNK4llvm9MCAsmInfo
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load ptr, ptr %15, align 8, !tbaa !6
   %.pre14 = load ptr, ptr %17, align 8, !tbaa !17
-  %.not.i.i7 = icmp eq ptr %.pre14, %.pre
-  br i1 %.not.i.i7, label %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE5clearEv.exit, label %19
+  %19 = icmp eq ptr %.pre14, %.pre
+  br i1 %19, label %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE5clearEv.exit, label %20
 
-19:                                               ; preds = %._crit_edge
+20:                                               ; preds = %._crit_edge
   store ptr %.pre, ptr %17, align 8, !tbaa !17
   br label %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE5clearEv.exit
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
-  %.sroa.08.013 = phi ptr [ %33, %.lr.ph ], [ %16, %14 ]
-  %20 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !13
-  %21 = load ptr, ptr %2, align 8, !tbaa !18
-  %22 = tail call noundef ptr @_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(777) %21, ptr noundef %20) #10
-  %23 = load ptr, ptr %2, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  %25 = load ptr, ptr %24, align 8, !tbaa !160
-  %26 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm10AsmPrinter13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(777) %23) #10
-  %27 = load ptr, ptr %2, align 8, !tbaa !18
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  %29 = load ptr, ptr %28, align 8, !tbaa !161
-  %30 = load ptr, ptr %10, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef nonnull align 8 dereferenceable(296) %25, ptr noundef nonnull align 8 dereferenceable(496) %26, ptr noundef %22, ptr noundef %29) #10
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
-  %.not = icmp eq ptr %33, %18
+  %.sroa.08.013 = phi ptr [ %34, %.lr.ph ], [ %16, %14 ]
+  %21 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !13
+  %22 = load ptr, ptr %2, align 8, !tbaa !18
+  %23 = tail call noundef ptr @_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(777) %22, ptr noundef %21) #10
+  %24 = load ptr, ptr %2, align 8, !tbaa !18
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  %26 = load ptr, ptr %25, align 8, !tbaa !160
+  %27 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm10AsmPrinter13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(777) %24) #10
+  %28 = load ptr, ptr %2, align 8, !tbaa !18
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
+  %30 = load ptr, ptr %29, align 8, !tbaa !161
+  %31 = load ptr, ptr %10, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef nonnull align 8 dereferenceable(296) %26, ptr noundef nonnull align 8 dereferenceable(496) %27, ptr noundef %23, ptr noundef %30) #10
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
+  %.not = icmp eq ptr %34, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE5clearEv.exit: ; preds = %14, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit, %1, %19, %._crit_edge, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread
+_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE5clearEv.exit: ; preds = %14, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit, %1, %20, %._crit_edge, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread
   ret void
 }
 

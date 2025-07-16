@@ -13143,7 +13143,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE12cac
   store ptr null, ptr %265, align 8, !tbaa !253
   %1491 = load ptr, ptr %263, align 8, !tbaa !254
   %.not.i4.i212.i.i.i = icmp eq ptr %1491, null
-  br i1 %.not.i4.i212.i.i.i, label %1499, label %1492
+  br i1 %.not.i4.i212.i.i.i, label %1500, label %1492
 
 1492:                                             ; preds = %1490
   %1493 = load ptr, ptr %264, align 8, !tbaa !324
@@ -13152,7 +13152,7 @@ _ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE12cac
   %1496 = add i32 %1495, -1
   store i32 %1496, ptr %1494, align 4, !tbaa !23
   %1497 = icmp eq i32 %1496, 0
-  br i1 %1497, label %1498, label %1499
+  br i1 %1497, label %1498, label %1500
 
 1498:                                             ; preds = %1492
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %1493, ptr noundef nonnull %1491)
@@ -13160,10 +13160,11 @@ _ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE12cac
 
 ._crit_edge278.i.i.i:                             ; preds = %1498
   %.pre279.i.i.i = load ptr, ptr %265, align 8, !tbaa !253
-  br label %1499
+  %1499 = icmp eq ptr %322, %.pre279.i.i.i
+  br label %1500
 
-1499:                                             ; preds = %._crit_edge278.i.i.i, %1492, %1490
-  %1500 = phi ptr [ %.pre279.i.i.i, %._crit_edge278.i.i.i ], [ null, %1492 ], [ null, %1490 ]
+1500:                                             ; preds = %._crit_edge278.i.i.i, %1492, %1490
+  %.not.i215.i.i.i = phi i1 [ %1499, %._crit_edge278.i.i.i ], [ false, %1492 ], [ false, %1490 ]
   store ptr null, ptr %263, align 8, !tbaa !254
   %1501 = load ptr, ptr %24, align 8, !tbaa !395
   %1502 = getelementptr inbounds i8, ptr %1501, i64 -4
@@ -13171,12 +13172,11 @@ _ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE12cac
   %1504 = add i32 %1503, -1
   store i32 %1504, ptr %1502, align 4, !tbaa !18
   %.val101.i.i.i = load ptr, ptr %24, align 8
-  %.not.i215.i.i.i = icmp eq ptr %322, %1500
   %1505 = icmp eq ptr %.val101.i.i.i, null
   %or.cond.i.i65.i.i = select i1 %.not.i215.i.i.i, i1 true, i1 %1505
   br i1 %or.cond.i.i65.i.i, label %_ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE18set_new_child_flagEP4exprS5_.exit.i68.i.i, label %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i.i66.i.i
 
-_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i.i66.i.i: ; preds = %1499
+_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i.i66.i.i: ; preds = %1500
   %1506 = getelementptr inbounds i8, ptr %.val101.i.i.i, i64 -4
   %1507 = load i32, ptr %1506, align 4, !tbaa !18
   %1508 = icmp eq i32 %1507, 0
@@ -13191,7 +13191,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i67.i.i: ; preds = %_ZN
   store i32 %1513, ptr %1511, align 8
   br label %_ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE18set_new_child_flagEP4exprS5_.exit.i68.i.i
 
-_ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE18set_new_child_flagEP4exprS5_.exit.i68.i.i: ; preds = %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i67.i.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i.i66.i.i, %1499
+_ZN12rewriter_tplIN12_GLOBAL__N_118reduce_args_tactic18reduce_args_rw_cfgEE18set_new_child_flagEP4exprS5_.exit.i68.i.i: ; preds = %_ZN6vectorIN13rewriter_core5frameELb0EjE4backEv.exit.i.i.i67.i.i, %_ZNK6vectorIN13rewriter_core5frameELb0EjE5emptyEv.exit.i.i.i66.i.i, %1500
   %1514 = load ptr, ptr %261, align 8, !tbaa !14
   %1515 = icmp eq ptr %1514, null
   br i1 %1515, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit.i.i.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i.i

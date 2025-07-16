@@ -34227,108 +34227,108 @@ define dso_local void @_ZN5clang6Parser15PopParsingClassENS_4Sema23DelayedDiagno
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   %12 = load ptr, ptr %11, align 8, !tbaa !1381, !noalias !1659
   %13 = icmp eq ptr %10, %12
-  br i1 %13, label %17, label %14
+  br i1 %13, label %18, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %10, i64 -8
   %16 = load ptr, ptr %15, align 8, !tbaa !1372
+  %17 = icmp eq ptr %15, %12
   br label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2848
-  %19 = load ptr, ptr %18, align 8, !tbaa !1385, !noalias !1659
-  %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  %21 = load ptr, ptr %20, align 8, !tbaa !1386
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 504
-  %23 = load ptr, ptr %22, align 8, !tbaa !1372
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2848
+  %20 = load ptr, ptr %19, align 8, !tbaa !1385, !noalias !1659
+  %21 = getelementptr inbounds i8, ptr %20, i64 -8
+  %22 = load ptr, ptr %21, align 8, !tbaa !1386
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 504
+  %24 = load ptr, ptr %23, align 8, !tbaa !1372
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef 512) #24
-  %24 = load ptr, ptr %18, align 8, !tbaa !1662
-  %25 = getelementptr inbounds i8, ptr %24, i64 -8
-  store ptr %25, ptr %18, align 8, !tbaa !1385
-  %26 = load ptr, ptr %25, align 8, !tbaa !1386
-  store ptr %26, ptr %11, align 8, !tbaa !1381
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 512
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2840
-  store ptr %27, ptr %28, align 8, !tbaa !1663
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 504
+  %25 = load ptr, ptr %19, align 8, !tbaa !1662
+  %26 = getelementptr inbounds i8, ptr %25, i64 -8
+  store ptr %26, ptr %19, align 8, !tbaa !1385
+  %27 = load ptr, ptr %26, align 8, !tbaa !1386
+  store ptr %27, ptr %11, align 8, !tbaa !1381
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 512
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  store ptr %28, ptr %29, align 8, !tbaa !1663
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 504
   br label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit
 
-_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %14, %17
-  %30 = phi ptr [ %12, %14 ], [ %26, %17 ]
-  %31 = phi ptr [ %16, %14 ], [ %23, %17 ]
-  %storemerge.i.i = phi ptr [ %15, %14 ], [ %29, %17 ]
+_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit: ; preds = %14, %18
+  %31 = phi i1 [ %17, %14 ], [ false, %18 ]
+  %32 = phi ptr [ %16, %14 ], [ %24, %18 ]
+  %storemerge.i.i = phi ptr [ %15, %14 ], [ %30, %18 ]
   store ptr %storemerge.i.i, ptr %9, align 8, !tbaa !1374
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !978
-  %.not8.i = icmp eq i32 %36, 0
-  br i1 %33, label %37, label %52
+  %33 = load i8, ptr %32, align 8
+  %34 = trunc i8 %33 to i1
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %37 = load i32, ptr %36, align 8, !tbaa !978
+  %.not8.i = icmp eq i32 %37, 0
+  br i1 %34, label %38, label %53
 
-37:                                               ; preds = %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit
+38:                                               ; preds = %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %37
-  %38 = zext i32 %36 to i64
+.lr.ph.preheader.i:                               ; preds = %38
+  %39 = zext i32 %37 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %47, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %47 ]
-  %39 = load ptr, ptr %34, align 8, !tbaa !977
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i
-  %41 = load ptr, ptr %40, align 8, !tbaa !1656
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %47, label %43
+.lr.ph.i:                                         ; preds = %48, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %48 ]
+  %40 = load ptr, ptr %35, align 8, !tbaa !977
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %42 = load ptr, ptr %41, align 8, !tbaa !1656
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %48, label %44
 
-43:                                               ; preds = %.lr.ph.i
-  %44 = load ptr, ptr %41, align 8, !tbaa !1089
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %41) #22
-  br label %47
+44:                                               ; preds = %.lr.ph.i
+  %45 = load ptr, ptr %42, align 8, !tbaa !1089
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %42) #22
+  br label %48
 
-47:                                               ; preds = %43, %.lr.ph.i
+48:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp eq i64 %indvars.iv.next.i, %38
+  %.not.i = icmp eq i64 %indvars.iv.next.i, %39
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !1658
 
-._crit_edge.i:                                    ; preds = %47, %37
-  %48 = load ptr, ptr %34, align 8, !tbaa !977
-  %49 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %50 = icmp eq ptr %48, %49
-  br i1 %50, label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit, label %51
+._crit_edge.i:                                    ; preds = %48, %38
+  %49 = load ptr, ptr %35, align 8, !tbaa !977
+  %50 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %51 = icmp eq ptr %49, %50
+  br i1 %51, label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit, label %52
 
-51:                                               ; preds = %._crit_edge.i
-  tail call void @free(ptr noundef %48) #22
+52:                                               ; preds = %._crit_edge.i
+  tail call void @free(ptr noundef %49) #22
   br label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit
 
-_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit: ; preds = %._crit_edge.i, %51
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 48) #24
+_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit: ; preds = %._crit_edge.i, %52
+  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef 48) #24
   br label %84
 
-52:                                               ; preds = %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit
-  br i1 %.not8.i, label %._crit_edge.i14, label %56
+53:                                               ; preds = %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3popEv.exit
+  br i1 %.not8.i, label %._crit_edge.i14, label %57
 
-._crit_edge.i14:                                  ; preds = %52
-  %.pre = load ptr, ptr %34, align 8, !tbaa !977
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %54 = icmp eq ptr %.pre, %53
-  br i1 %54, label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit15, label %55
+._crit_edge.i14:                                  ; preds = %53
+  %.pre = load ptr, ptr %35, align 8, !tbaa !977
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %55 = icmp eq ptr %.pre, %54
+  br i1 %55, label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit15, label %56
 
-55:                                               ; preds = %._crit_edge.i14
+56:                                               ; preds = %._crit_edge.i14
   tail call void @free(ptr noundef %.pre) #22
   br label %_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit15
 
-_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit15: ; preds = %._crit_edge.i14, %55
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 48) #24
+_ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit15: ; preds = %._crit_edge.i14, %56
+  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef 48) #24
   br label %84
 
-56:                                               ; preds = %52
-  %57 = icmp eq ptr %storemerge.i.i, %30
-  br i1 %57, label %58, label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit16
+57:                                               ; preds = %53
+  br i1 %31, label %58, label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit16
 
-58:                                               ; preds = %56
+58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2848
   %60 = load ptr, ptr %59, align 8, !tbaa !1385, !noalias !1664
   %61 = getelementptr inbounds i8, ptr %60, i64 -8
@@ -34336,13 +34336,13 @@ _ZN5clang6Parser23DeallocateParsedClassesEPNS0_12ParsingClassE.exit15: ; preds =
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 512
   br label %_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit16
 
-_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit16: ; preds = %56, %58
-  %64 = phi ptr [ %63, %58 ], [ %storemerge.i.i, %56 ]
+_ZNSt5stackIPN5clang6Parser12ParsingClassESt5dequeIS3_SaIS3_EEE3topEv.exit16: ; preds = %57, %58
+  %64 = phi ptr [ %63, %58 ], [ %storemerge.i.i, %57 ]
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   %66 = load ptr, ptr %65, align 8, !tbaa !1372
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  tail call void @_ZN5clang6Parser15LateParsedClassC1EPS0_PNS0_12ParsingClassE(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull %0, ptr noundef nonnull %31) #22
+  tail call void @_ZN5clang6Parser15LateParsedClassC1EPS0_PNS0_12ParsingClassE(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull %0, ptr noundef nonnull %32) #22
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %70 = load i32, ptr %69, align 8, !tbaa !978
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 28

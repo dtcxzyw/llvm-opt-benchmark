@@ -573,16 +573,16 @@ define void @Gia_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !40
   %.phi.trans.insert21 = getelementptr i8, ptr %0, i64 24
   %.val1819.pre = load i32, ptr %.phi.trans.insert21, align 8, !tbaa !39
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %13 = getelementptr i8, ptr %0, i64 24
-  %14 = icmp slt i32 %.pre, %.val1819.pre
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  %12 = icmp slt i32 %.pre, %.val1819.pre
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %14 = getelementptr i8, ptr %0, i64 24
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %24
   %15 = phi ptr [ %26, %24 ], [ %3, %11 ]
   %16 = phi i32 [ %25, %24 ], [ %.pre, %11 ]
   %17 = shl nsw i32 %16, 1
-  store i32 %17, ptr %12, align 8, !tbaa !40
+  store i32 %17, ptr %13, align 8, !tbaa !40
   %.not = icmp eq ptr %15, null
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 2
@@ -590,7 +590,7 @@ define void @Gia_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed
 
 20:                                               ; preds = %.lr.ph
   %21 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %19) #42
-  %.pre23 = load i32, ptr %12, align 8, !tbaa !40
+  %.pre23 = load i32, ptr %13, align 8, !tbaa !40
   %.pre24 = sext i32 %.pre23 to i64
   br label %24
 
@@ -609,7 +609,7 @@ define void @Gia_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed
   %30 = shl nsw i64 %.pre-phi, 1
   %31 = and i64 %30, 9223372036854775806
   tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %31, i1 false)
-  %.val18 = load i32, ptr %13, align 8, !tbaa !39
+  %.val18 = load i32, ptr %14, align 8, !tbaa !39
   %32 = icmp slt i32 %25, %.val18
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
@@ -11284,7 +11284,7 @@ Vec_PtrPush.exit106:                              ; preds = %.Vec_PtrGrow.exit11
   %.pre161 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !7
   %227 = sitofp i64 %89 to double
   %228 = icmp sgt i32 %.pre161, 0
-  br i1 %228, label %.lr.ph.i107, label %Vec_PtrCountZero.exit
+  br i1 %228, label %.lr.ph.i107, label %Vec_PtrCountZero.exit.thread
 
 .lr.ph.i107:                                      ; preds = %._crit_edge
   %229 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
@@ -11304,18 +11304,17 @@ Vec_PtrPush.exit106:                              ; preds = %.Vec_PtrGrow.exit11
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, %wide.trip.count.i108
   br i1 %exitcond.not.i111, label %Vec_PtrCountZero.exit, label %231, !llvm.loop !142
 
-Vec_PtrCountZero.exit:                            ; preds = %231, %._crit_edge
-  %.0.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %236, %231 ]
-  %237 = icmp slt i32 %.0.lcssa.i, %.pre161
+Vec_PtrCountZero.exit:                            ; preds = %231
+  %237 = icmp slt i32 %236, %.pre161
   br i1 %237, label %238, label %Vec_PtrCountZero.exit.thread
 
 238:                                              ; preds = %Vec_PtrCountZero.exit
   call void @Abc_FrameReplaceCexVec(ptr noundef %10, ptr noundef nonnull %9) #39
   br label %243
 
-Vec_PtrCountZero.exit.thread:                     ; preds = %Vec_PtrAlloc.exit, %Vec_PtrCountZero.exit
-  %239 = phi ptr [ %.pre, %Vec_PtrCountZero.exit ], [ %42, %Vec_PtrAlloc.exit ]
-  %.062.lcssa166170 = phi double [ %227, %Vec_PtrCountZero.exit ], [ 0.000000e+00, %Vec_PtrAlloc.exit ]
+Vec_PtrCountZero.exit.thread:                     ; preds = %Vec_PtrAlloc.exit, %._crit_edge, %Vec_PtrCountZero.exit
+  %239 = phi ptr [ %.pre, %Vec_PtrCountZero.exit ], [ %.pre, %._crit_edge ], [ %42, %Vec_PtrAlloc.exit ]
+  %.062.lcssa166170 = phi double [ %227, %Vec_PtrCountZero.exit ], [ %227, %._crit_edge ], [ 0.000000e+00, %Vec_PtrAlloc.exit ]
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %241 = load ptr, ptr %240, align 8, !tbaa !10
   %.not.i112 = icmp eq ptr %241, null

@@ -102,49 +102,52 @@ define internal range(i32 0, 51) i32 @mpeg4video_probe(ptr noundef readonly capt
   %.1 = phi i32 [ %.06797, %7 ], [ %.06797, %16 ], [ %.06797, %18 ], [ %.06797, %23 ], [ %.06797, %27 ], [ %32, %31 ], [ %.06797, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %7, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %36, %1
-  %.076.lcssa = phi i32 [ 0, %1 ], [ %.177, %36 ]
-  %.074.lcssa = phi i32 [ 0, %1 ], [ %.175, %36 ]
-  %.072.lcssa = phi i32 [ 0, %1 ], [ %.173, %36 ]
-  %.070.lcssa = phi i32 [ 0, %1 ], [ %.171, %36 ]
-  %.068.lcssa = phi i32 [ 0, %1 ], [ %.169, %36 ]
-  %.067.lcssa = phi i32 [ 0, %1 ], [ %.1, %36 ]
-  %.not81 = icmp slt i32 %.072.lcssa, %.070.lcssa
+._crit_edge.loopexit:                             ; preds = %36
+  %37 = icmp slt i32 %.173, %.171
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.076.lcssa = phi i32 [ 0, %1 ], [ %.177, %._crit_edge.loopexit ]
+  %.074.lcssa = phi i32 [ 0, %1 ], [ %.175, %._crit_edge.loopexit ]
+  %.072.lcssa = phi i32 [ 0, %1 ], [ %.173, %._crit_edge.loopexit ]
+  %.070.lcssa = phi i1 [ false, %1 ], [ %37, %._crit_edge.loopexit ]
+  %.068.lcssa = phi i32 [ 0, %1 ], [ %.169, %._crit_edge.loopexit ]
+  %.067.lcssa = phi i32 [ 0, %1 ], [ %.1, %._crit_edge.loopexit ]
   %.not82 = icmp slt i32 %.072.lcssa, %.074.lcssa
-  %or.cond87 = select i1 %.not81, i1 true, i1 %.not82
-  br i1 %or.cond87, label %.thread, label %37
+  %or.cond87 = select i1 %.070.lcssa, i1 true, i1 %.not82
+  br i1 %or.cond87, label %.thread, label %38
 
-37:                                               ; preds = %._crit_edge
+38:                                               ; preds = %._crit_edge
   %.not = icmp ne i32 %.067.lcssa, 0
-  %38 = shl nsw i32 %.067.lcssa, 1
-  %39 = icmp slt i32 %38, %.072.lcssa
-  %or.cond86 = select i1 %.not, i1 %39, i1 false
-  %40 = select i1 %or.cond86, i32 %.067.lcssa, i32 0
-  %41 = icmp sge i32 %.076.lcssa, %.074.lcssa
-  %42 = icmp sgt i32 %.074.lcssa, 0
-  %or.cond11 = and i1 %41, %42
-  %.2 = sub i32 0, %40
-  %43 = icmp eq i32 %.068.lcssa, %.2
-  %or.cond13 = select i1 %or.cond11, i1 %43, i1 false
-  %44 = add nsw i32 %.072.lcssa, %.076.lcssa
-  %45 = icmp sgt i32 %44, 4
-  br i1 %or.cond13, label %46, label %48
+  %39 = shl nsw i32 %.067.lcssa, 1
+  %40 = icmp slt i32 %39, %.072.lcssa
+  %or.cond86 = select i1 %.not, i1 %40, i1 false
+  %41 = select i1 %or.cond86, i32 %.067.lcssa, i32 0
+  %42 = icmp sge i32 %.076.lcssa, %.074.lcssa
+  %43 = icmp sgt i32 %.074.lcssa, 0
+  %or.cond11 = and i1 %42, %43
+  %.2 = sub i32 0, %41
+  %44 = icmp eq i32 %.068.lcssa, %.2
+  %or.cond13 = select i1 %or.cond11, i1 %44, i1 false
+  %45 = add nsw i32 %.072.lcssa, %.076.lcssa
+  %46 = icmp sgt i32 %45, 4
+  br i1 %or.cond13, label %47, label %49
 
-46:                                               ; preds = %37
-  %47 = select i1 %45, i32 50, i32 25
-  br label %49
+47:                                               ; preds = %38
+  %48 = select i1 %46, i32 50, i32 25
+  br label %50
 
-48:                                               ; preds = %37
-  %or.cond90 = select i1 %or.cond11, i1 %45, i1 false
-  br i1 %or.cond90, label %49, label %.thread
+49:                                               ; preds = %38
+  %or.cond90 = select i1 %or.cond11, i1 %46, i1 false
+  br i1 %or.cond90, label %50, label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %48
-  br label %49
+.thread:                                          ; preds = %._crit_edge, %49
+  br label %50
 
-49:                                               ; preds = %48, %.thread, %46
-  %.079 = phi i32 [ %47, %46 ], [ 0, %.thread ], [ 5, %48 ]
+50:                                               ; preds = %49, %.thread, %47
+  %.079 = phi i32 [ %48, %47 ], [ 0, %.thread ], [ 5, %49 ]
   ret i32 %.079
 }
 

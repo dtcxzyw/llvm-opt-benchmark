@@ -1098,7 +1098,11 @@ _ZN4llvm5ErrorD2Ev.exit137:                       ; preds = %250
   %283 = add nuw i32 %.039581, 1
   %284 = load i32, ptr %103, align 4, !tbaa !14
   %.not49577 = icmp ult i32 %283, %284
-  br i1 %.not49577, label %.lr.ph579, label %.critedge52
+  br i1 %.not49577, label %.lr.ph579, label %.critedge52.thread
+
+.critedge52.thread:                               ; preds = %282
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %75) #16
+  br label %_ZN4llvm5ErrorD2Ev.exit488
 
 .lr.ph579:                                        ; preds = %282, %403
   %.0578 = phi i32 [ %404, %403 ], [ %283, %282 ]
@@ -1416,18 +1420,17 @@ _ZN4llvm5ErrorD2Ev.exit487:                       ; preds = %321, %333, %340
   %.not49 = icmp ult i32 %404, %405
   br i1 %.not49, label %.lr.ph579, label %.critedge52, !llvm.loop !152
 
-.critedge52:                                      ; preds = %403, %282
-  %406 = phi i32 [ %284, %282 ], [ %405, %403 ]
+.critedge52:                                      ; preds = %403
+  %406 = icmp ult i32 %283, %405
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %75) #16
-  %.not50 = icmp ult i32 %283, %406
-  br i1 %.not50, label %282, label %_ZN4llvm5ErrorD2Ev.exit488, !llvm.loop !153
+  br i1 %406, label %282, label %_ZN4llvm5ErrorD2Ev.exit488, !llvm.loop !153
 
 407:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit219, %_ZN4llvm5ErrorD2Ev.exit487
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %76) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %75) #16
   br label %408
 
-_ZN4llvm5ErrorD2Ev.exit488:                       ; preds = %.critedge52, %.critedge52.preheader
+_ZN4llvm5ErrorD2Ev.exit488:                       ; preds = %.critedge52, %.critedge52.thread, %.critedge52.preheader
   store ptr null, ptr %2, align 8, !tbaa !24
   br label %408
 

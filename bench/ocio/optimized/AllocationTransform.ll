@@ -934,7 +934,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17BuildAllocationOpERNS_10OpRcPtrVec
 
 27:                                               ; preds = %24
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.13) #23
-          to label %.noexc10 unwind label %36
+          to label %.noexc10 unwind label %37
 
 .noexc10:                                         ; preds = %27
   unreachable
@@ -942,71 +942,71 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17BuildAllocationOpERNS_10OpRcPtrVec
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %24
   %28 = shl nuw nsw i64 %22, 2
   %29 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #21
-          to label %.noexc11 unwind label %36
+          to label %.noexc11 unwind label %37
 
 .noexc11:                                         ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
   store float 0.000000e+00, ptr %29, align 4, !tbaa !52
   %30 = icmp eq i64 %22, 1
-  br i1 %30, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+  br i1 %30, label %33, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc11
   %31 = getelementptr i8, ptr %29, i64 4
   %32 = add nsw i64 %28, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 0, i64 %32, i1 false), !tbaa !52
-  br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  br label %33
 
-_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc11, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
+33:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc11
   store ptr %29, ptr %10, align 8, !tbaa !42
   %.idx = shl nuw nsw i64 %22, 2
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
-  store ptr %33, ptr %23, align 8, !tbaa !50
-  store ptr %33, ptr %25, align 8, !tbaa !43
-  %34 = icmp eq ptr %18, %17
-  br i1 %34, label %_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit, label %35
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
+  store ptr %34, ptr %23, align 8, !tbaa !50
+  store ptr %34, ptr %25, align 8, !tbaa !43
+  %35 = icmp eq ptr %18, %17
+  br i1 %35, label %_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit, label %36
 
-35:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+36:                                               ; preds = %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr nonnull align 4 %18, i64 %21, i1 false)
   br label %_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit
 
-36:                                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %27, %_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %27, %_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %10, align 8, !tbaa !42
-  %.not.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit, label %39
+  %39 = load ptr, ptr %10, align 8, !tbaa !42
+  %.not.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit, label %40
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !43
-  %42 = ptrtoint ptr %41 to i64
-  %43 = ptrtoint ptr %38 to i64
-  %44 = sub i64 %42, %43
-  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #25
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !43
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %39 to i64
+  %45 = sub i64 %43, %44
+  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #25
   br label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit
 
-_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit: ; preds = %36, %39
+_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit: ; preds = %37, %40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
-  resume { ptr, i32 } %37
+  resume { ptr, i32 } %38
 
-_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit: ; preds = %3, %35, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit: ; preds = %3, %36, %33
   invoke void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrVecERKNS_14AllocationDataENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %9)
-          to label %45 unwind label %36
+          to label %46 unwind label %37
 
-45:                                               ; preds = %_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit
-  %46 = load ptr, ptr %10, align 8, !tbaa !42
-  %.not.i.i.i.i8 = icmp eq ptr %46, null
-  br i1 %.not.i.i.i.i8, label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit9, label %47
+46:                                               ; preds = %_ZNK19OpenColorIO_v2_5dev19AllocationTransform7getVarsEPf.exit
+  %47 = load ptr, ptr %10, align 8, !tbaa !42
+  %.not.i.i.i.i8 = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i8, label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit9, label %48
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !43
-  %50 = ptrtoint ptr %49 to i64
-  %51 = ptrtoint ptr %46 to i64
-  %52 = sub i64 %50, %51
-  call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %52) #25
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %50 = load ptr, ptr %49, align 8, !tbaa !43
+  %51 = ptrtoint ptr %50 to i64
+  %52 = ptrtoint ptr %47 to i64
+  %53 = sub i64 %51, %52
+  call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %53) #25
   br label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit9
 
-_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit9: ; preds = %45, %47
+_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit9: ; preds = %46, %48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   ret void
 }

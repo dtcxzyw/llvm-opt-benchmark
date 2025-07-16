@@ -1746,82 +1746,74 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 10392
   %21 = load ptr, ptr %20, align 8, !tbaa !133
   %22 = icmp eq ptr %21, %1
-  br i1 %22, label %23, label %25
+  br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %malloc_mutex_lock.exit
   %24 = load ptr, ptr %21, align 8, !tbaa !131
   store ptr %24, ptr %20, align 8, !tbaa !133
-  br label %25
+  %25 = icmp eq ptr %24, %1
+  br i1 %25, label %34, label %.thread
 
-25:                                               ; preds = %23, %malloc_mutex_lock.exit
-  %26 = phi ptr [ %24, %23 ], [ %21, %malloc_mutex_lock.exit ]
-  %.not = icmp eq ptr %26, %1
-  br i1 %.not, label %36, label %27
-
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %1, align 8, !tbaa !131
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+.thread:                                          ; preds = %malloc_mutex_lock.exit, %23
+  %26 = load ptr, ptr %1, align 8, !tbaa !131
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !132
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !132
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !132
-  store ptr %30, ptr %32, align 8, !tbaa !131
-  %33 = load ptr, ptr %1, align 8, !tbaa !131
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %32, ptr %34, align 8, !tbaa !132
-  store ptr %30, ptr %31, align 8, !tbaa !132
-  %35 = load ptr, ptr %34, align 8, !tbaa !132
-  store ptr %33, ptr %35, align 8, !tbaa !131
-  store ptr %1, ptr %30, align 8, !tbaa !131
-  br label %37
+  store ptr %28, ptr %30, align 8, !tbaa !131
+  %31 = load ptr, ptr %1, align 8, !tbaa !131
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %30, ptr %32, align 8, !tbaa !132
+  store ptr %28, ptr %29, align 8, !tbaa !132
+  %33 = load ptr, ptr %32, align 8, !tbaa !132
+  store ptr %31, ptr %33, align 8, !tbaa !131
+  store ptr %1, ptr %28, align 8, !tbaa !131
+  br label %35
 
-36:                                               ; preds = %25
+34:                                               ; preds = %23
   store ptr null, ptr %20, align 8, !tbaa !133
-  br label %37
+  br label %35
 
-37:                                               ; preds = %27, %36
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 10400
-  %39 = load ptr, ptr %38, align 8, !tbaa !137
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = icmp eq ptr %39, %40
-  br i1 %41, label %42, label %44
+35:                                               ; preds = %.thread, %34
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 10400
+  %37 = load ptr, ptr %36, align 8, !tbaa !137
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %39 = icmp eq ptr %37, %38
+  br i1 %39, label %40, label %.thread2
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %39, align 8, !tbaa !134
-  store ptr %43, ptr %38, align 8, !tbaa !137
-  br label %44
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %37, align 8, !tbaa !134
+  store ptr %41, ptr %36, align 8, !tbaa !137
+  %42 = icmp eq ptr %41, %38
+  br i1 %42, label %51, label %.thread2
 
-44:                                               ; preds = %42, %37
-  %45 = phi ptr [ %43, %42 ], [ %39, %37 ]
-  %.not46 = icmp eq ptr %45, %40
-  br i1 %.not46, label %55, label %46
+.thread2:                                         ; preds = %35, %40
+  %43 = load ptr, ptr %38, align 8, !tbaa !139
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !135
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !138
+  store ptr %45, ptr %47, align 8, !tbaa !134
+  %48 = load ptr, ptr %38, align 8, !tbaa !139
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %47, ptr %49, align 8, !tbaa !135
+  store ptr %45, ptr %46, align 8, !tbaa !138
+  %50 = load ptr, ptr %49, align 8, !tbaa !135
+  store ptr %48, ptr %50, align 8, !tbaa !134
+  store ptr %38, ptr %45, align 8, !tbaa !134
+  br label %52
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %40, align 8, !tbaa !139
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !135
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !138
-  store ptr %49, ptr %51, align 8, !tbaa !134
-  %52 = load ptr, ptr %40, align 8, !tbaa !139
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %51, ptr %53, align 8, !tbaa !135
-  store ptr %49, ptr %50, align 8, !tbaa !138
-  %54 = load ptr, ptr %53, align 8, !tbaa !135
-  store ptr %52, ptr %54, align 8, !tbaa !134
-  store ptr %40, ptr %49, align 8, !tbaa !134
-  br label %56
+51:                                               ; preds = %40
+  store ptr null, ptr %36, align 8, !tbaa !137
+  br label %52
 
-55:                                               ; preds = %44
-  store ptr null, ptr %38, align 8, !tbaa !137
-  br label %56
-
-56:                                               ; preds = %55, %46
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %58 = load ptr, ptr %57, align 8, !tbaa !140
-  tail call void @je_tcache_stats_merge(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %4)
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 10512
-  store atomic i8 0, ptr %59 monotonic, align 1
-  %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #14
+52:                                               ; preds = %51, %.thread2
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %54 = load ptr, ptr %53, align 8, !tbaa !140
+  tail call void @je_tcache_stats_merge(ptr noundef %0, ptr noundef %54, ptr noundef nonnull %4)
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 10512
+  store atomic i8 0, ptr %55 monotonic, align 1
+  %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #14
   store ptr null, ptr %3, align 8, !tbaa !53
   ret void
 }

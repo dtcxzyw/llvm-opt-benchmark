@@ -5250,9 +5250,6 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %17
   unreachable
 
 43:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17hea2af86a021abeb2E.exit.i", %6
-  %.pre-phi.i = phi i64 [ %2, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17hea2af86a021abeb2E.exit.i" ], [ %11, %6 ]
-  %44 = icmp ule i64 %2, %.pre-phi.i
-  tail call void @llvm.assume(i1 %44)
   ret void
 }
 

@@ -3509,7 +3509,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6open3d4core11MemoryCache12IsReleasab
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load i64, ptr %7, align 8, !tbaa !64
   %.not = icmp eq i64 %8, 1
-  br i1 %.not, label %9, label %89
+  br i1 %.not, label %9, label %88
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #31
@@ -3643,62 +3643,61 @@ _ZNK6open3d4core9SizeOrderINS0_12VirtualBlockEEclERKSt10shared_ptrIS2_ES7_.exit.
   br label %_ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_EE4findERKS4_.exit
 
 _ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_EE4findERKS4_.exit: ; preds = %65, %_ZNK6open3d4core9SizeOrderINS0_12VirtualBlockEEclERKSt10shared_ptrIS2_ES7_.exit.i.i, %61, %_ZNSt8_Rb_treeISt10shared_ptrIN6open3d4core12VirtualBlockEES4_St9_IdentityIS4_ENS2_9SizeOrderIS3_EESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i, %40
-  %.sroa.0.0.i.i = phi ptr [ %.19.i.i.i, %65 ], [ %43, %61 ], [ %43, %_ZNK6open3d4core9SizeOrderINS0_12VirtualBlockEEclERKSt10shared_ptrIS2_ES7_.exit.i.i ], [ %43, %_ZNSt8_Rb_treeISt10shared_ptrIN6open3d4core12VirtualBlockEES4_St9_IdentityIS4_ENS2_9SizeOrderIS3_EESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ %43, %40 ]
-  %66 = icmp ne ptr %.sroa.0.0.i.i, %43
-  %67 = load ptr, ptr %14, align 8, !tbaa !7
-  %.not.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %68
+  %.sroa.0.0.i.i = phi i1 [ true, %65 ], [ false, %61 ], [ false, %_ZNK6open3d4core9SizeOrderINS0_12VirtualBlockEEclERKSt10shared_ptrIS2_ES7_.exit.i.i ], [ false, %_ZNSt8_Rb_treeISt10shared_ptrIN6open3d4core12VirtualBlockEES4_St9_IdentityIS4_ENS2_9SizeOrderIS3_EESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ false, %40 ]
+  %66 = load ptr, ptr %14, align 8, !tbaa !7
+  %.not.i.i = icmp eq ptr %66, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %67
 
-68:                                               ; preds = %_ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_EE4findERKS4_.exit
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %70 = load atomic i64, ptr %69 acquire, align 8
-  %71 = icmp eq i64 %70, 4294967297
-  %72 = trunc i64 %70 to i32
-  br i1 %71, label %73, label %81
+67:                                               ; preds = %_ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_EE4findERKS4_.exit
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %69 = load atomic i64, ptr %68 acquire, align 8
+  %70 = icmp eq i64 %69, 4294967297
+  %71 = trunc i64 %69 to i32
+  br i1 %70, label %72, label %80
 
-73:                                               ; preds = %68
-  store i32 0, ptr %69, align 8, !tbaa !12
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 12
-  store i32 0, ptr %74, align 4, !tbaa !15
-  %75 = load ptr, ptr %67, align 8, !tbaa !4
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(16) %67) #31
-  %78 = load ptr, ptr %67, align 8, !tbaa !4
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  %80 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %67) #31
+72:                                               ; preds = %67
+  store i32 0, ptr %68, align 8, !tbaa !12
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  store i32 0, ptr %73, align 4, !tbaa !15
+  %74 = load ptr, ptr %66, align 8, !tbaa !4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(16) %66) #31
+  %77 = load ptr, ptr %66, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %79 = load ptr, ptr %78, align 8
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(16) %66) #31
   br label %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-81:                                               ; preds = %68
-  %82 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
-  %.not.i.i.i18 = icmp eq i8 %82, 0
-  br i1 %.not.i.i.i18, label %85, label %83
+80:                                               ; preds = %67
+  %81 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
+  %.not.i.i.i18 = icmp eq i8 %81, 0
+  br i1 %.not.i.i.i18, label %84, label %82
 
-83:                                               ; preds = %81
-  %84 = add nsw i32 %72, -1
-  store i32 %84, ptr %69, align 4, !tbaa !17
+82:                                               ; preds = %80
+  %83 = add nsw i32 %71, -1
+  store i32 %83, ptr %68, align 4, !tbaa !17
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-85:                                               ; preds = %81
-  %86 = atomicrmw volatile add ptr %69, i32 -1 acq_rel, align 4
+84:                                               ; preds = %80
+  %85 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %85, %83
-  %.0.i.i.i.i = phi i32 [ %72, %83 ], [ %86, %85 ]
-  %87 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %87, label %88, label %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !18
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %84, %82
+  %.0.i.i.i.i = phi i32 [ %71, %82 ], [ %85, %84 ]
+  %86 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %86, label %87, label %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !18
 
-88:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #31
+87:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #31
   br label %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_EE4findERKS4_.exit, %73, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %88
+_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt3setISt10shared_ptrIN6open3d4core12VirtualBlockEENS2_9SizeOrderIS3_EESaIS4_EE4findERKS4_.exit, %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #31
-  br label %89
+  br label %88
 
-89:                                               ; preds = %2, %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.011 = phi i1 [ %66, %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ false, %2 ]
+88:                                               ; preds = %2, %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %.011 = phi i1 [ %.sroa.0.0.i.i, %_ZNSt12__shared_ptrIN6open3d4core12VirtualBlockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ false, %2 ]
   ret i1 %.011
 }
 

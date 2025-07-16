@@ -187,89 +187,88 @@ define dso_local noundef ptr @i915_rsgt_from_mm_node(ptr noundef readonly captur
   %44 = shl i64 %43, 12
   br label %45
 
-45:                                               ; preds = %78, %41
-  %46 = phi i64 [ %91, %78 ], [ %39, %41 ]
-  %47 = phi i64 [ %90, %78 ], [ %44, %41 ]
-  %48 = phi i64 [ %90, %78 ], [ -1, %41 ]
-  %49 = phi ptr [ %80, %78 ], [ %36, %41 ]
-  %50 = icmp eq i64 %47, %48
-  br i1 %50, label %51, label %55
+45:                                               ; preds = %77, %41
+  %46 = phi i64 [ %90, %77 ], [ %39, %41 ]
+  %47 = phi i64 [ %89, %77 ], [ %44, %41 ]
+  %48 = phi i1 [ true, %77 ], [ false, %41 ]
+  %49 = phi ptr [ %79, %77 ], [ %36, %41 ]
+  br i1 %48, label %50, label %54
 
-51:                                               ; preds = %45
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp ult i32 %53, %4
-  br i1 %54, label %78, label %55
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 12
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp ult i32 %52, %4
+  br i1 %53, label %77, label %54
 
-55:                                               ; preds = %51, %45
-  %56 = load i32, ptr %37, align 8
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %70, label %58
+54:                                               ; preds = %50, %45
+  %55 = load i32, ptr %37, align 8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %69, label %57
 
-58:                                               ; preds = %55
-  %59 = load i64, ptr %49, align 8
-  %60 = and i64 %59, 2
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %70
+57:                                               ; preds = %54
+  %58 = load i64, ptr %49, align 8
+  %59 = and i64 %58, 2
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %61, label %69
 
-62:                                               ; preds = %58
-  %63 = getelementptr i8, ptr %49, i64 32
-  %64 = load i64, ptr %63, align 8
-  %65 = and i64 %64, 1
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %70, label %67, !prof !14
+61:                                               ; preds = %57
+  %62 = getelementptr i8, ptr %49, i64 32
+  %63 = load i64, ptr %62, align 8
+  %64 = and i64 %63, 1
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %69, label %66, !prof !14
 
-67:                                               ; preds = %62
-  %68 = and i64 %64, -4
-  %69 = inttoptr i64 %68 to ptr
-  br label %70
+66:                                               ; preds = %61
+  %67 = and i64 %63, -4
+  %68 = inttoptr i64 %67 to ptr
+  br label %69
 
-70:                                               ; preds = %67, %62, %58, %55
-  %71 = phi ptr [ %49, %55 ], [ null, %58 ], [ %69, %67 ], [ %63, %62 ]
-  %72 = add i64 %47, %1
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i64 %72, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 12
-  store i32 0, ptr %75, align 4
-  %76 = load i32, ptr %37, align 8
-  %77 = add i32 %76, 1
-  store i32 %77, ptr %37, align 8
-  %.pre = load i32, ptr %75, align 4
-  br label %78
+69:                                               ; preds = %66, %61, %57, %54
+  %70 = phi ptr [ %49, %54 ], [ null, %57 ], [ %68, %66 ], [ %62, %61 ]
+  %71 = add i64 %47, %1
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store i64 %71, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  store i32 0, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  store i32 0, ptr %74, align 4
+  %75 = load i32, ptr %37, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %37, align 8
+  %.pre = load i32, ptr %74, align 4
+  br label %77
 
-78:                                               ; preds = %70, %51
-  %79 = phi i32 [ %.pre, %70 ], [ %53, %51 ]
-  %80 = phi ptr [ %71, %70 ], [ %49, %51 ]
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
-  %82 = sub i32 %4, %79
-  %83 = zext i32 %82 to i64
-  %84 = tail call i64 @llvm.umin.i64(i64 %46, i64 %83)
-  %85 = trunc nuw i64 %84 to i32
-  %86 = add i32 %79, %85
-  store i32 %86, ptr %81, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %88 = load i32, ptr %87, align 8
-  %89 = add i32 %88, %85
-  store i32 %89, ptr %87, align 8
-  %90 = add i64 %84, %47
-  %91 = sub i64 %46, %84
-  %92 = icmp eq i64 %91, 0
-  br i1 %92, label %.loopexit, label %45, !llvm.loop !16
+77:                                               ; preds = %69, %50
+  %78 = phi i32 [ %.pre, %69 ], [ %52, %50 ]
+  %79 = phi ptr [ %70, %69 ], [ %49, %50 ]
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
+  %81 = sub i32 %4, %78
+  %82 = zext i32 %81 to i64
+  %83 = tail call i64 @llvm.umin.i64(i64 %46, i64 %82)
+  %84 = trunc nuw i64 %83 to i32
+  %85 = add i32 %78, %84
+  store i32 %85, ptr %80, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %87 = load i32, ptr %86, align 8
+  %88 = add i32 %87, %84
+  store i32 %88, ptr %86, align 8
+  %89 = add i64 %83, %47
+  %90 = sub i64 %46, %83
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %.loopexit, label %45, !llvm.loop !16
 
-.loopexit:                                        ; preds = %78, %35
-  %93 = phi ptr [ %36, %35 ], [ %80, %78 ]
-  %94 = load i64, ptr %93, align 8
-  %95 = and i64 %94, -4
-  %96 = or disjoint i64 %95, 2
-  store i64 %96, ptr %93, align 8
-  %97 = tail call zeroext i1 @i915_sg_trim(ptr noundef nonnull %13)
+.loopexit:                                        ; preds = %77, %35
+  %92 = phi ptr [ %36, %35 ], [ %79, %77 ]
+  %93 = load i64, ptr %92, align 8
+  %94 = and i64 %93, -4
+  %95 = or disjoint i64 %94, 2
+  store i64 %95, ptr %92, align 8
+  %96 = tail call zeroext i1 @i915_sg_trim(ptr noundef nonnull %13)
   br label %.thread
 
 .thread:                                          ; preds = %31, %33, %.loopexit, %34, %21, %3
-  %98 = phi ptr [ inttoptr (i64 -7 to ptr), %21 ], [ %6, %.loopexit ], [ inttoptr (i64 -12 to ptr), %3 ], [ inttoptr (i64 -12 to ptr), %34 ], [ inttoptr (i64 -12 to ptr), %33 ], [ inttoptr (i64 -12 to ptr), %31 ]
-  ret ptr %98
+  %97 = phi ptr [ inttoptr (i64 -7 to ptr), %21 ], [ %6, %.loopexit ], [ inttoptr (i64 -12 to ptr), %3 ], [ inttoptr (i64 -12 to ptr), %34 ], [ inttoptr (i64 -12 to ptr), %33 ], [ inttoptr (i64 -12 to ptr), %31 ]
+  ret ptr %97
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
@@ -393,35 +392,35 @@ define dso_local noundef ptr @i915_rsgt_from_buddy_resource(ptr noundef readonly
 
 58:                                               ; preds = %47
   %59 = and i64 %53, -4096
-  br label %60
+  %60 = icmp eq i64 %59, %50
+  br label %61
 
-60:                                               ; preds = %93, %58
-  %61 = phi ptr [ %95, %93 ], [ %49, %58 ]
-  %62 = phi i64 [ %105, %93 ], [ %59, %58 ]
-  %63 = phi i64 [ %106, %93 ], [ %56, %58 ]
-  %64 = phi i64 [ %105, %93 ], [ %50, %58 ]
-  %65 = icmp eq i64 %62, %64
+61:                                               ; preds = %93, %58
+  %62 = phi ptr [ %95, %93 ], [ %49, %58 ]
+  %63 = phi i64 [ %105, %93 ], [ %59, %58 ]
+  %64 = phi i64 [ %106, %93 ], [ %56, %58 ]
+  %65 = phi i1 [ true, %93 ], [ %60, %58 ]
   br i1 %65, label %66, label %70
 
-66:                                               ; preds = %60
-  %67 = getelementptr inbounds nuw i8, ptr %61, i64 12
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = icmp ult i32 %68, %6
   br i1 %69, label %93, label %70
 
-70:                                               ; preds = %66, %60
+70:                                               ; preds = %66, %61
   %71 = load i32, ptr %38, align 8
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %85, label %73
 
 73:                                               ; preds = %70
-  %74 = load i64, ptr %61, align 8
+  %74 = load i64, ptr %62, align 8
   %75 = and i64 %74, 2
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %77, label %85
 
 77:                                               ; preds = %73
-  %78 = getelementptr i8, ptr %61, i64 32
+  %78 = getelementptr i8, ptr %62, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = and i64 %79, 1
   %81 = icmp eq i64 %80, 0
@@ -433,8 +432,8 @@ define dso_local noundef ptr @i915_rsgt_from_buddy_resource(ptr noundef readonly
   br label %85
 
 85:                                               ; preds = %82, %77, %73, %70
-  %86 = phi ptr [ %61, %70 ], [ null, %73 ], [ %84, %82 ], [ %78, %77 ]
-  %87 = add i64 %62, %1
+  %86 = phi ptr [ %62, %70 ], [ null, %73 ], [ %84, %82 ], [ %78, %77 ]
+  %87 = add i64 %63, %1
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store i64 %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 24
@@ -449,11 +448,11 @@ define dso_local noundef ptr @i915_rsgt_from_buddy_resource(ptr noundef readonly
 
 93:                                               ; preds = %85, %66
   %94 = phi i32 [ %.pre, %85 ], [ %68, %66 ]
-  %95 = phi ptr [ %86, %85 ], [ %61, %66 ]
+  %95 = phi ptr [ %86, %85 ], [ %62, %66 ]
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %97 = sub i32 %6, %94
   %98 = zext i32 %97 to i64
-  %99 = tail call i64 @llvm.umin.i64(i64 %63, i64 %98)
+  %99 = tail call i64 @llvm.umin.i64(i64 %64, i64 %98)
   %100 = trunc nuw i64 %99 to i32
   %101 = add i32 %94, %100
   store i32 %101, ptr %96, align 4
@@ -461,10 +460,10 @@ define dso_local noundef ptr @i915_rsgt_from_buddy_resource(ptr noundef readonly
   %103 = load i32, ptr %102, align 8
   %104 = add i32 %103, %100
   store i32 %104, ptr %102, align 8
-  %105 = add i64 %99, %62
-  %106 = sub i64 %63, %99
+  %105 = add i64 %99, %63
+  %106 = sub i64 %64, %99
   %107 = icmp eq i64 %106, 0
-  br i1 %107, label %.loopexit, label %60, !llvm.loop !21
+  br i1 %107, label %.loopexit, label %61, !llvm.loop !21
 
 .loopexit7:                                       ; preds = %.loopexit, %36
   %108 = phi ptr [ %37, %36 ], [ %44, %.loopexit ]

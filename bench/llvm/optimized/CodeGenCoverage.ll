@@ -335,7 +335,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split.us.us:    ; preds = %_ZN4llvm9StringRefC
   br i1 %.not62, label %.split.us52, label %22
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split.us
-  %29 = phi ptr [ %47, %.split.us ], [ %8, %.preheader.lr.ph ]
+  %29 = phi ptr [ %48, %.split.us ], [ %8, %.preheader.lr.ph ]
   %.02243 = phi ptr [ %.us-phi, %.split.us ], [ %6, %.preheader.lr.ph ]
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.02243)
   %scevgep = getelementptr i8, ptr %.02243, i64 1
@@ -345,8 +345,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.split.us.us:    ; preds = %_ZN4llvm9StringRefC
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %.preheader
   %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02243) #19
-  %.not.i35 = icmp eq i64 %.fr60, %30
-  br i1 %.not.i35, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
+  %31 = icmp eq i64 %.fr60, %30
+  br i1 %31, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %bcmp.i = tail call i32 @bcmp(ptr %2, ptr nonnull %.02243, i64 %.fr60)
@@ -355,61 +355,61 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC
   br i1 %.not96, label %_ZN4llvmeqENS_9StringRefES0_.exit.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.split.us:       ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %31 = ptrtoint ptr %29 to i64
-  br label %32
+  %32 = ptrtoint ptr %29 to i64
+  br label %33
 
-32:                                               ; preds = %37, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
-  %.325.us = phi ptr [ %scevgep74, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us ], [ %38, %37 ]
+33:                                               ; preds = %38, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us
+  %.325.us = phi ptr [ %scevgep74, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us ], [ %39, %38 ]
   %.not33.us = icmp eq ptr %.325.us, %29
-  br i1 %.not33.us, label %.split.us, label %33
+  br i1 %.not33.us, label %.split.us, label %34
 
-33:                                               ; preds = %32
-  %34 = ptrtoint ptr %.325.us to i64
-  %35 = sub i64 %31, %34
-  %36 = icmp slt i64 %35, 8
-  br i1 %36, label %.thread, label %37
+34:                                               ; preds = %33
+  %35 = ptrtoint ptr %.325.us to i64
+  %36 = sub i64 %32, %35
+  %37 = icmp slt i64 %36, 8
+  br i1 %37, label %.thread, label %38
 
-37:                                               ; preds = %33
+38:                                               ; preds = %34
   call void @llvm.assume(i1 true) [ "align"(ptr %.325.us, i64 1) ]
   %.0.copyload.i.i.us = load i64, ptr %.325.us, align 1
-  %38 = getelementptr inbounds nuw i8, ptr %.325.us, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.325.us, i64 8
   %.not61 = icmp eq i64 %.0.copyload.i.i.us, -1
-  br i1 %.not61, label %.split.us, label %32
+  br i1 %.not61, label %.split.us, label %33
 
-_ZN4llvmeqENS_9StringRefES0_.exit.split:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %46
-  %.325 = phi ptr [ %45, %46 ], [ %scevgep74, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %39 = load ptr, ptr %7, align 8, !tbaa !35
-  %.not33 = icmp eq ptr %.325, %39
-  %40 = ptrtoint ptr %39 to i64
-  %41 = ptrtoint ptr %.325 to i64
-  %42 = sub i64 %40, %41
-  %43 = icmp slt i64 %42, 8
-  %or.cond115 = or i1 %.not33, %43
-  br i1 %or.cond115, label %.thread, label %44
+_ZN4llvmeqENS_9StringRefES0_.exit.split:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %47
+  %.325 = phi ptr [ %46, %47 ], [ %scevgep74, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %40 = load ptr, ptr %7, align 8, !tbaa !35
+  %.not33 = icmp eq ptr %.325, %40
+  %41 = ptrtoint ptr %40 to i64
+  %42 = ptrtoint ptr %.325 to i64
+  %43 = sub i64 %41, %42
+  %44 = icmp slt i64 %43, 8
+  %or.cond115 = or i1 %.not33, %44
+  br i1 %or.cond115, label %.thread, label %45
 
-44:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.split
+45:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.split
   call void @llvm.assume(i1 true) [ "align"(ptr %.325, i64 1) ]
   %.0.copyload.i.i = load i64, ptr %.325, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %.325, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.325, i64 8
   %.not97 = icmp eq i64 %.0.copyload.i.i, -1
-  br i1 %.not97, label %..split.us.loopexit68_crit_edge, label %46
+  br i1 %.not97, label %..split.us.loopexit68_crit_edge, label %47
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   tail call void @_ZN4llvm15CodeGenCoverage10setCoveredEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %.0.copyload.i.i)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.split
 
-..split.us.loopexit68_crit_edge:                  ; preds = %44
+..split.us.loopexit68_crit_edge:                  ; preds = %45
   %.pre.pre = load ptr, ptr %7, align 8, !tbaa !35
   br label %.split.us
 
-.split.us:                                        ; preds = %32, %37, %..split.us.loopexit68_crit_edge
-  %47 = phi ptr [ %.pre.pre, %..split.us.loopexit68_crit_edge ], [ %29, %37 ], [ %29, %32 ]
-  %.us-phi = phi ptr [ %45, %..split.us.loopexit68_crit_edge ], [ %.325.us, %32 ], [ %38, %37 ]
-  %.not = icmp eq ptr %.us-phi, %47
+.split.us:                                        ; preds = %33, %38, %..split.us.loopexit68_crit_edge
+  %48 = phi ptr [ %.pre.pre, %..split.us.loopexit68_crit_edge ], [ %29, %38 ], [ %29, %33 ]
+  %.us-phi = phi ptr [ %46, %..split.us.loopexit68_crit_edge ], [ %.325.us, %33 ], [ %39, %38 ]
+  %.not = icmp eq ptr %.us-phi, %48
   br i1 %.not, label %.thread, label %.preheader, !llvm.loop !36
 
-.thread:                                          ; preds = %.split.us, %.preheader, %33, %_ZN4llvmeqENS_9StringRefES0_.exit.split, %.split.us52, %.preheader.us, %23, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54, %4
-  %.not40 = phi i1 [ true, %4 ], [ %.not33.us48, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54 ], [ false, %23 ], [ %.not98.not, %.preheader.us ], [ %.not98.not, %.split.us52 ], [ %.not33, %_ZN4llvmeqENS_9StringRefES0_.exit.split ], [ false, %33 ], [ %.not95.not, %.preheader ], [ %.not95.not, %.split.us ]
+.thread:                                          ; preds = %.split.us, %.preheader, %34, %_ZN4llvmeqENS_9StringRefES0_.exit.split, %.split.us52, %.preheader.us, %23, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54, %4
+  %.not40 = phi i1 [ true, %4 ], [ %.not33.us48, %_ZN4llvmeqENS_9StringRefES0_.exit.split.us54 ], [ false, %23 ], [ %.not98.not, %.preheader.us ], [ %.not98.not, %.split.us52 ], [ %.not33, %_ZN4llvmeqENS_9StringRefES0_.exit.split ], [ false, %34 ], [ %.not95.not, %.preheader ], [ %.not95.not, %.split.us ]
   ret i1 %.not40
 }
 

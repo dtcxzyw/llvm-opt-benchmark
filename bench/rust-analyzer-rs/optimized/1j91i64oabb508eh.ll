@@ -4627,9 +4627,9 @@ define hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$
 16:                                               ; preds = %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit22.i"
   %.pre42.pre.i = load ptr, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !1372
   %.pre43.pre.i = load ptr, ptr %4, align 8, !alias.scope !1372
+  %17 = icmp eq ptr %.pre43.pre.i, %.pre42.pre.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1369
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !1369
-  %17 = icmp eq ptr %.pre43.pre.i, %.pre42.pre.i
   br i1 %17, label %45, label %"_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.i"
 
 "_ZN138_$LT$triomphe..iterator_as_exact_size_iterator..IteratorAsExactSizeIterator$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc596ec9e01ca4aebE.exit.thread.sink.split.i": ; preds = %.thread46.i, %"_ZN8triomphe3arc63Arc$LT$triomphe..header..HeaderSlice$LT$H$C$$u5b$T$u5d$$GT$$GT$29allocate_for_header_and_slice17h6a297a636b6ae1bbE.exit.i"

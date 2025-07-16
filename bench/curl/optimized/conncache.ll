@@ -926,10 +926,10 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   %brmerge.not = select i1 %.not93, i1 %31, i1 false
   %not..not93 = xor i1 %.not93, true
   %.mux = zext i1 %not..not93 to i32
-  br i1 %brmerge.not, label %101, label %113
+  br i1 %brmerge.not, label %101, label %.thread
 
 100:                                              ; preds = %43
-  br i1 %31, label %101, label %113
+  br i1 %31, label %101, label %.thread
 
 101:                                              ; preds = %.critedge, %100
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 88
@@ -951,50 +951,46 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   br i1 %.not95, label %.lr.ph147..thread.loopexit_crit_edge, label %.lr.ph157
 
 .lr.ph147..thread.loopexit_crit_edge:             ; preds = %.lr.ph147, %.lr.ph147.preheader
-  %.3146.lcssa = phi i64 [ %103, %.lr.ph147.preheader ], [ %110, %.lr.ph147 ]
+  %.3146.lcssa = phi i64 [ %103, %.lr.ph147.preheader ], [ %112, %.lr.ph147 ]
   %.pre.pre = load i64, ptr %104, align 8, !tbaa !109
   %.pre153 = add i64 %.pre.pre, %.3146.lcssa
+  %109 = icmp ult i64 %.pre153, %.072
+  %110 = select i1 %109, i32 0, i32 2
   br label %.thread
 
 .lr.ph157:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
-  %109 = phi ptr [ %108, %.lr.ph147 ], [ %107, %.lr.ph147.preheader ]
-  tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %109, i1 noundef zeroext false)
-  %110 = tail call i64 @Curl_llist_count(ptr noundef nonnull %102) #8
-  %111 = load i64, ptr %104, align 8, !tbaa !109
-  %112 = add i64 %111, %110
-  %.not94 = icmp ult i64 %112, %.072
+  %111 = phi ptr [ %108, %.lr.ph147 ], [ %107, %.lr.ph147.preheader ]
+  tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %111, i1 noundef zeroext false)
+  %112 = tail call i64 @Curl_llist_count(ptr noundef nonnull %102) #8
+  %113 = load i64, ptr %104, align 8, !tbaa !109
+  %114 = add i64 %113, %112
+  %.not94 = icmp ult i64 %114, %.072
   br i1 %.not94, label %.thread, label %.lr.ph147
 
-.thread:                                          ; preds = %.lr.ph157, %.lr.ph147..thread.loopexit_crit_edge, %101
-  %.pre-phi = phi i64 [ %106, %101 ], [ %.pre153, %.lr.ph147..thread.loopexit_crit_edge ], [ %112, %.lr.ph157 ]
-  %.not96 = icmp ult i64 %.pre-phi, %.072
-  %spec.select = select i1 %.not96, i32 0, i32 2
-  br label %113
+.thread:                                          ; preds = %.lr.ph157, %101, %.lr.ph147..thread.loopexit_crit_edge, %.critedge, %100
+  %.268 = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ 0, %101 ], [ %110, %.lr.ph147..thread.loopexit_crit_edge ], [ 0, %.lr.ph157 ]
+  %115 = load i8, ptr %44, align 8
+  %116 = and i8 %115, -2
+  store i8 %116, ptr %44, align 8
+  %117 = load ptr, ptr %33, align 8, !tbaa !81
+  %.not97 = icmp eq ptr %117, null
+  br i1 %.not97, label %cpool_get_instance.exit, label %118
 
-113:                                              ; preds = %.critedge, %.thread, %100
-  %.268 = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ %spec.select, %.thread ]
-  %114 = load i8, ptr %44, align 8
-  %115 = and i8 %114, -2
-  store i8 %115, ptr %44, align 8
-  %116 = load ptr, ptr %33, align 8, !tbaa !81
-  %.not97 = icmp eq ptr %116, null
-  br i1 %.not97, label %cpool_get_instance.exit, label %117
+118:                                              ; preds = %.thread
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  %120 = load i32, ptr %119, align 4, !tbaa !89
+  %121 = and i32 %120, 32
+  %.not98 = icmp eq i32 %121, 0
+  br i1 %.not98, label %cpool_get_instance.exit, label %122
 
-117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %119 = load i32, ptr %118, align 4, !tbaa !89
-  %120 = and i32 %119, 32
-  %.not98 = icmp eq i32 %120, 0
-  br i1 %.not98, label %cpool_get_instance.exit, label %121
-
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
-  %123 = load ptr, ptr %122, align 8, !tbaa !3
-  %124 = tail call i32 @Curl_share_unlock(ptr noundef %123, i32 noundef 5) #8
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
+  %124 = load ptr, ptr %123, align 8, !tbaa !3
+  %125 = tail call i32 @Curl_share_unlock(ptr noundef %124, i32 noundef 5) #8
   br label %cpool_get_instance.exit
 
-cpool_get_instance.exit:                          ; preds = %17, %2, %121, %117, %113, %29
-  %.0 = phi i32 [ 0, %29 ], [ %.268, %113 ], [ %.268, %117 ], [ %.268, %121 ], [ 0, %2 ], [ 0, %17 ]
+cpool_get_instance.exit:                          ; preds = %17, %2, %122, %118, %.thread, %29
+  %.0 = phi i32 [ 0, %29 ], [ %.268, %.thread ], [ %.268, %118 ], [ %.268, %122 ], [ 0, %2 ], [ 0, %17 ]
   ret i32 %.0
 }
 

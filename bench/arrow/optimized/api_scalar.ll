@@ -59422,9 +59422,9 @@ _ZN5arrow6StatusD2Ev.exit41:                      ; preds = %_ZN5arrow6StatusD2E
   br label %53
 
 .thread:                                          ; preds = %74
+  %52 = icmp eq ptr %76, %77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !299
-  %52 = icmp eq ptr %76, %77
   br i1 %52, label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i, label %112
 
 53:                                               ; preds = %.lr.ph, %74
@@ -59545,7 +59545,7 @@ _ZN5arrow6StatusD2Ev.exit41:                      ; preds = %_ZN5arrow6StatusD2E
   br label %_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i
 
 _ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendEPKhl.exit.i: ; preds = %.thread.thread, %112, %.thread
-  %.pre-phi6062 = phi i64 [ 0, %.thread.thread ], [ %81, %112 ], [ %81, %.thread ]
+  %.pre-phi6062 = phi i64 [ 0, %.thread.thread ], [ %81, %112 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %123 = load i64, ptr %122, align 8, !tbaa !1229

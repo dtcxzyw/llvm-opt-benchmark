@@ -3522,11 +3522,11 @@ define hidden void @_ZN4core5slice3raw14from_raw_parts18precondition_check17heed
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %19, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d5a3a45f01bce7917b522397635334d4.73) #40
-          to label %27 unwind label %25
+          to label %28 unwind label %26
 
 20:                                               ; preds = %11
   %21 = icmp eq i64 %1, 0
-  br i1 %21, label %.thread, label %23
+  br i1 %21, label %.critedge, label %23
 
 22:                                               ; preds = %23, %11, %4
   tail call void @_ZN4core9panicking14panic_nounwind17hb98133c151c787e4E(ptr noalias noundef nonnull readonly align 1 @anon.d5a3a45f01bce7917b522397635334d4.70, i64 noundef 162) #45
@@ -3534,19 +3534,19 @@ define hidden void @_ZN4core5slice3raw14from_raw_parts18precondition_check17heed
 
 23:                                               ; preds = %20
   %24 = udiv i64 9223372036854775807, %1
-  %.not = icmp ugt i64 %3, %24
-  br i1 %.not, label %22, label %.thread
+  %25 = icmp ugt i64 %3, %24
+  br i1 %25, label %22, label %.critedge
 
-25:                                               ; preds = %15
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking19panic_cannot_unwind17he9511e6e72319a3eE() #42
   unreachable
 
-27:                                               ; preds = %15
+28:                                               ; preds = %15
   unreachable
 
-.thread:                                          ; preds = %20, %23
+.critedge:                                        ; preds = %20, %23
   ret void
 }
 

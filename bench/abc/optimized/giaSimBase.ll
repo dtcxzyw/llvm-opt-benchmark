@@ -18971,10 +18971,10 @@ Vec_WecStart.exit:                                ; preds = %Vec_IntAlloc.exit, 
 23:                                               ; preds = %Vec_WecStart.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !38
-  %24 = getelementptr i8, ptr %0, i64 32
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = icmp sgt i32 %.pre, 0
-  br i1 %26, label %.lr.ph, label %.critedge.thread
+  %24 = icmp sgt i32 %.pre, 0
+  %25 = getelementptr i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br i1 %24, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %23
   %27 = getelementptr i8, ptr %1, i64 8
@@ -18987,7 +18987,7 @@ Vec_WecStart.exit:                                ; preds = %Vec_IntAlloc.exit, 
   %31 = phi ptr [ %14, %.lr.ph ], [ %.pre.i84129, %Abc_TtNot.exit81 ]
   %32 = phi ptr [ %14, %.lr.ph ], [ %.pre.i126, %Abc_TtNot.exit81 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_TtNot.exit81 ]
-  %.val65 = load ptr, ptr %24, align 8, !tbaa !40
+  %.val65 = load ptr, ptr %25, align 8, !tbaa !40
   %.not56 = icmp eq ptr %.val65, null
   br i1 %.not56, label %.critedge, label %33
 
@@ -19152,7 +19152,7 @@ Abc_TtNot.exit81:                                 ; preds = %.lr.ph.i77, %Vec_In
   %.pre.i84129 = phi ptr [ %.pre.i84127, %Vec_IntPush.exit ], [ %.pre.i84130, %Vec_IntPush.exit88 ], [ %31, %33 ], [ %.pre.i84127, %.lr.ph.i77 ]
   %.pre.i126 = phi ptr [ %.pre.i124, %Vec_IntPush.exit ], [ %.pre.i84130, %Vec_IntPush.exit88 ], [ %32, %33 ], [ %.pre.i124, %.lr.ph.i77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load i32, ptr %25, align 8, !tbaa !38
+  %98 = load i32, ptr %26, align 8, !tbaa !38
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next, %99
   br i1 %100, label %30, label %.critedge, !llvm.loop !354

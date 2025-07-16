@@ -6357,7 +6357,7 @@ _Z13SuperFastHashPKcjj.exit:                      ; preds = %._crit_edge.i, %41,
   %.sroa.027.0.in = phi ptr [ %0, %_Z13SuperFastHashPKcjj.exit ], [ %.sroa.027.0, %84 ]
   %.sroa.027.0 = load ptr, ptr %.sroa.027.0.in, align 8
   %.not47 = icmp eq ptr %.sroa.027.0, %0
-  br i1 %.not47, label %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.thread, label %84
+  br i1 %.not47, label %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit, label %84
 
 84:                                               ; preds = %83
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.027.0, i64 16
@@ -6439,7 +6439,7 @@ _ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cx
   store ptr %118, ptr %92, align 8
   br label %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit25
 
-_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.thread: ; preds = %83
+_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit: ; preds = %83
   %119 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %120, i8 0, i64 40, i1 false)
@@ -6460,7 +6460,7 @@ _ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.t
   %.not.i12 = icmp eq ptr %128, %130
   br i1 %.not.i12, label %135, label %131
 
-131:                                              ; preds = %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.thread
+131:                                              ; preds = %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit
   store ptr %17, ptr %128, align 8
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i32 %.04659, ptr %132, align 8
@@ -6469,7 +6469,7 @@ _ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.t
   store ptr %134, ptr %127, align 8
   br label %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit25
 
-135:                                              ; preds = %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.thread
+135:                                              ; preds = %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit
   %136 = load ptr, ptr %126, align 8
   %137 = ptrtoint ptr %128 to i64
   %138 = ptrtoint ptr %136 to i64

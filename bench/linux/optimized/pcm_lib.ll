@@ -5282,7 +5282,7 @@ define internal range(i32 -14, 1) i32 @default_write_copy(ptr noundef readonly c
   tail call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #20, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 249, i32 2307, i64 12) #20, !srcloc !48
   tail call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #20, !srcloc !49
-  br label %24
+  br label %26
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -5300,12 +5300,12 @@ define internal range(i32 -14, 1) i32 @default_write_copy(ptr noundef readonly c
   %21 = mul i64 %19, %20
   %22 = getelementptr i8, ptr %13, i64 %21
   %23 = tail call i64 @_copy_from_iter(ptr noundef %22, i64 noundef %4, ptr noundef %3) #20
-  br label %24
+  %24 = icmp eq i64 %23, %4
+  %25 = select i1 %24, i32 0, i32 -14
+  br label %26
 
-24:                                               ; preds = %8, %7
-  %25 = phi i64 [ %23, %8 ], [ 0, %7 ]
-  %26 = icmp eq i64 %25, %4
-  %27 = select i1 %26, i32 0, i32 -14
+26:                                               ; preds = %8, %7
+  %27 = phi i32 [ %25, %8 ], [ -14, %7 ]
   ret i32 %27
 }
 
@@ -5318,7 +5318,7 @@ define internal range(i32 -14, 1) i32 @default_read_copy(ptr noundef readonly ca
   tail call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #20, !srcloc !47
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 249, i32 2307, i64 12) #20, !srcloc !48
   tail call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #20, !srcloc !49
-  br label %24
+  br label %26
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -5336,12 +5336,12 @@ define internal range(i32 -14, 1) i32 @default_read_copy(ptr noundef readonly ca
   %21 = mul i64 %19, %20
   %22 = getelementptr i8, ptr %13, i64 %21
   %23 = tail call i64 @_copy_to_iter(ptr noundef %22, i64 noundef %4, ptr noundef %3) #20
-  br label %24
+  %24 = icmp eq i64 %23, %4
+  %25 = select i1 %24, i32 0, i32 -14
+  br label %26
 
-24:                                               ; preds = %8, %7
-  %25 = phi i64 [ %23, %8 ], [ 0, %7 ]
-  %26 = icmp eq i64 %25, %4
-  %27 = select i1 %26, i32 0, i32 -14
+26:                                               ; preds = %8, %7
+  %27 = phi i32 [ %25, %8 ], [ -14, %7 ]
   ret i32 %27
 }
 

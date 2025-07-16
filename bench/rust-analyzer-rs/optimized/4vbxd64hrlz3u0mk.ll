@@ -6515,11 +6515,11 @@ define hidden void @"_ZN3hir9semantics19Semantics$LT$DB$GT$18file_to_module_def1
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !934
   %.pre = load i64, ptr %9, align 8, !alias.scope !935, !noalias !944
   %.pre1 = load i64, ptr %11, align 8, !alias.scope !935, !noalias !944
+  %25 = icmp eq i64 %.pre, %.pre1
   store i32 1, ptr %0, align 4, !alias.scope !915, !noalias !918
   tail call void @llvm.experimental.noalias.scope.decl(metadata !946)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !947)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !948)
-  %25 = icmp eq i64 %.pre, %.pre1
   br i1 %25, label %"_ZN4core3ptr207drop_in_place$LT$core..iter..adapters..map..Map$LT$smallvec..IntoIter$LT$$u5b$hir_def..ModuleId$u3b$$u20$1$u5d$$GT$$C$$LT$hir..Module$u20$as$u20$core..convert..From$LT$hir_def..ModuleId$GT$$GT$..from$GT$$GT$17h84efbae5fb867928E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %23, %.noexc.i.i

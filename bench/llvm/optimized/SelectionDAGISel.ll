@@ -13907,10 +13907,11 @@ define dso_local void @_ZN4llvm16SelectionDAGISel15Select_STACKMAPEPNS_6SDNodeE(
   %15 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(8) %13, i64 1) #30
   %.pre = load i32, ptr %8, align 8, !tbaa !26
   %.pre59 = load i32, ptr %9, align 4, !tbaa !27
+  %16 = icmp ult i32 %.pre, %.pre59
   br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
 
 _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %14
-  %16 = phi i32 [ 32, %2 ], [ %.pre59, %14 ]
+  %.not.i.i.not.i = phi i1 [ true, %2 ], [ %16, %14 ]
   %17 = phi i32 [ 0, %2 ], [ %.pre, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -13928,7 +13929,6 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %14
   %.sroa.019.0.copyload = load ptr, ptr %22, align 8, !tbaa !901
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 88
   %.sroa.420.0.copyload = load i32, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !816
-  %.not.i.i.not.i = icmp ult i32 %17, %16
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit, label %24, !prof !33
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
@@ -14138,10 +14138,11 @@ define dso_local void @_ZN4llvm16SelectionDAGISel17Select_PATCHPOINTEPNS_6SDNode
   %15 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(8) %13, i64 1) #30
   %.pre = load i32, ptr %8, align 8, !tbaa !26
   %.pre119 = load i32, ptr %9, align 4, !tbaa !27
+  %16 = icmp ult i32 %.pre, %.pre119
   br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
 
 _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %14
-  %16 = phi i32 [ 32, %2 ], [ %.pre119, %14 ]
+  %.not.i.i.not.i = phi i1 [ true, %2 ], [ %16, %14 ]
   %17 = phi i32 [ 0, %2 ], [ %.pre, %14 ]
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -14170,7 +14171,6 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %14
   %.sroa.035.0.copyload = load ptr, ptr %30, align 8, !tbaa !901
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %spec.select112, i64 48
   %.sroa.436.0.copyload = load i32, ptr %.sroa.436.0..sroa_idx, align 8, !tbaa !816
-  %.not.i.i.not.i = icmp ult i32 %17, %16
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit, label %32, !prof !33
 
 32:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit

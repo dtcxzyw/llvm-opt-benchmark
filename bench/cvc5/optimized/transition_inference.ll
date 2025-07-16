@@ -4352,7 +4352,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %278, %272, %253, 
   %282 = phi ptr [ %266, %278 ], [ %266, %272 ], [ %248, %253 ], [ %266, %280 ]
   %283 = load ptr, ptr %154, align 8, !tbaa !14
   %.not10.i.i.i274 = icmp eq ptr %283, null
-  br i1 %.not10.i.i.i274, label %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286, label %.lr.ph.i.i.i275
+  br i1 %.not10.i.i.i274, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit319, label %.lr.ph.i.i.i275
 
 .lr.ph.i.i.i275:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %.lr.ph.i.i.i275
   %.012.i.i.i276 = phi ptr [ %.1.i.i.i281, %.lr.ph.i.i.i275 ], [ %283, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
@@ -4367,10 +4367,10 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %278, %272, %253, 
   %.not.i.i.i282 = icmp eq ptr %.1.i.i.i281, null
   br i1 %.not.i.i.i282, label %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286, label %.lr.ph.i.i.i275, !llvm.loop !108
 
-_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286: ; preds = %.lr.ph.i.i.i275, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit
-  %.sroa.0.0.i.i285 = phi ptr [ %153, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %.19.i.i.i278, %.lr.ph.i.i.i275 ]
-  %286 = icmp ne ptr %.sroa.0.0.i.i285, %153
-  %. = select i1 %286, i64 240, i64 160
+_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286: ; preds = %.lr.ph.i.i.i275
+  %286 = icmp ne ptr %.19.i.i.i278, %153
+  %cond.fr = freeze i1 %286
+  %spec.select = select i1 %cond.fr, i64 240, i64 160
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit319
 
 287:                                              ; preds = %280, %265
@@ -4479,10 +4479,10 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293: ; preds = %319, %313, %29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #23
   br label %1326
 
-_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit319: ; preds = %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293
-  %326 = phi ptr [ %323, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ %282, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
-  %.v188 = phi i64 [ 80, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ %., %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
-  %327 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ %286, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
+_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit319: ; preds = %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293
+  %326 = phi ptr [ %323, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ %282, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %282, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
+  %.v188 = phi i64 [ 80, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ 160, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %spec.select, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
+  %327 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit293 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %cond.fr, %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #23

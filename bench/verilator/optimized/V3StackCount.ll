@@ -468,7 +468,7 @@ define linkonce_odr dso_local void @_ZN17StackCountVisitor5visitEP8AstCFunc(ptr 
   %9 = load i16, ptr %8, align 1
   %10 = and i16 %9, 8192
   %.not28 = icmp eq i16 %10, 0
-  br i1 %.not28, label %62, label %11
+  br i1 %.not28, label %63, label %11
 
 11:                                               ; preds = %7, %2
   store i8 0, ptr %4, align 8, !tbaa !26
@@ -476,7 +476,7 @@ define linkonce_odr dso_local void @_ZN17StackCountVisitor5visitEP8AstCFunc(ptr 
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 32
   %.not29 = icmp eq i8 %14, 0
-  br i1 %.not29, label %15, label %62
+  br i1 %.not29, label %15, label %63
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -488,118 +488,120 @@ define linkonce_odr dso_local void @_ZN17StackCountVisitor5visitEP8AstCFunc(ptr 
   %22 = and i64 %21, 4294967295
   %.not30 = icmp eq i64 %22, 0
   %.not = select i1 %19, i1 true, i1 %.not30
-  br i1 %.not, label %23, label %._crit_edge
+  br i1 %.not, label %26, label %.thread
 
-._crit_edge:                                      ; preds = %15
+.thread:                                          ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre33 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !8
-  br label %50
+  %23 = shl i64 %21, 32
+  %24 = add i64 %23, -4294967296
+  %25 = ashr exact i64 %24, 32
+  br label %58
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %25 = load i8, ptr %24, align 1, !tbaa !38, !range !16, !noundef !17
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !39
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %29 = load i8, ptr %28, align 2, !tbaa !38, !range !16, !noundef !17
-  store i64 0, ptr %26, align 8, !tbaa !8
-  store i8 1, ptr %28, align 2, !tbaa !40
+26:                                               ; preds = %15
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %28 = load i8, ptr %27, align 1, !tbaa !38, !range !16, !noundef !17
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load i64, ptr %29, align 8, !tbaa !39
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %32 = load i8, ptr %31, align 2, !tbaa !38, !range !16, !noundef !17
+  store i64 0, ptr %29, align 8, !tbaa !8
+  store i8 1, ptr %31, align 2, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %30, align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %31, align 8, !tbaa !24
-  %32 = trunc nuw i8 %25 to i1
-  br i1 %32, label %33, label %37, !prof !7
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %1, ptr %33, align 8, !tbaa !18
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %0, ptr %34, align 8, !tbaa !24
+  %35 = trunc nuw i8 %28 to i1
+  br i1 %35, label %36, label %40, !prof !7
 
-33:                                               ; preds = %23
-  %34 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.12, i32 noundef 73)
-          to label %.noexc unwind label %45
+36:                                               ; preds = %26
+  %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.12, i32 noundef 73)
+          to label %.noexc unwind label %48
 
-.noexc:                                           ; preds = %33
-  %35 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-          to label %.noexc11 unwind label %45
+.noexc:                                           ; preds = %36
+  %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+          to label %.noexc11 unwind label %48
 
 .noexc11:                                         ; preds = %.noexc
-  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.13, i64 noundef 33)
-          to label %.noexc12 unwind label %45
+  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.13, i64 noundef 33)
+          to label %.noexc12 unwind label %48
 
 .noexc12:                                         ; preds = %.noexc11
-  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %35) #22
-          to label %.noexc13 unwind label %45
+  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %38) #22
+          to label %.noexc13 unwind label %48
 
 .noexc13:                                         ; preds = %.noexc12
   unreachable
 
-37:                                               ; preds = %23
-  store i64 0, ptr %26, align 8, !tbaa !8
+40:                                               ; preds = %26
+  store i64 0, ptr %29, align 8, !tbaa !8
   store i32 0, ptr %3, align 8, !tbaa !25
   invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %38 unwind label %47
+          to label %41 unwind label %50
 
-38:                                               ; preds = %37
-  %39 = load i64, ptr %26, align 8, !tbaa !8
-  %40 = add i64 %39, 1
-  %.sroa.0.0.insert.ext.i = and i64 %40, 4294967295
+41:                                               ; preds = %40
+  %42 = load i64, ptr %29, align 8, !tbaa !8
+  %43 = add i64 %42, 1
+  %.sroa.0.0.insert.ext.i = and i64 %43, 4294967295
   store i64 %.sroa.0.0.insert.ext.i, ptr %20, align 8, !tbaa !41
-  %41 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !37
-  store i32 %41, ptr %16, align 4, !tbaa !27
+  %44 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !37
+  store i32 %44, ptr %16, align 4, !tbaa !27
   invoke void @_ZN17StackCountVisitor12endVisitBaseEjP7AstNode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, ptr noundef nonnull %1)
-          to label %_ZN17StackCountVisitor9VisitBaseD2Ev.exit unwind label %42
+          to label %53 unwind label %45
 
-42:                                               ; preds = %38
-  %43 = landingpad { ptr, i32 }
+45:                                               ; preds = %41
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #20
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #20
   unreachable
 
-_ZN17StackCountVisitor9VisitBaseD2Ev.exit:        ; preds = %38
+48:                                               ; preds = %.noexc11, %.noexc12, %.noexc, %36
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  br label %52
+
+50:                                               ; preds = %40
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN17StackCountVisitor9VisitBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
+  br label %52
+
+52:                                               ; preds = %50, %48
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
-  store i8 %29, ptr %28, align 2, !tbaa !38
-  store i64 %27, ptr %26, align 8, !tbaa !39
-  store i8 0, ptr %24, align 1, !tbaa !38
+  store i8 %32, ptr %31, align 2, !tbaa !38
+  store i64 %30, ptr %29, align 8, !tbaa !39
+  store i8 %28, ptr %27, align 1, !tbaa !38
+  resume { ptr, i32 } %.pn
+
+53:                                               ; preds = %41
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
+  store i8 %32, ptr %31, align 2, !tbaa !38
+  store i64 %30, ptr %29, align 8, !tbaa !39
+  store i8 0, ptr %27, align 1, !tbaa !38
   %.pre = load i32, ptr %16, align 4, !tbaa !27
   %.pre31 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !37
   %.pre32 = load i64, ptr %20, align 8
-  br label %50
+  %54 = icmp eq i32 %.pre, %.pre31
+  %55 = shl i64 %.pre32, 32
+  %56 = add i64 %55, -4294967296
+  %57 = ashr exact i64 %56, 32
+  %cond.fr = freeze i1 %54
+  %spec.select = select i1 %cond.fr, i64 %57, i64 -1
+  br label %58
 
-45:                                               ; preds = %.noexc11, %.noexc12, %.noexc, %33
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  br label %49
-
-47:                                               ; preds = %37
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN17StackCountVisitor9VisitBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
-  br label %49
-
-49:                                               ; preds = %47, %45
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
-  store i8 %29, ptr %28, align 2, !tbaa !38
-  store i64 %27, ptr %26, align 8, !tbaa !39
-  store i8 %25, ptr %24, align 1, !tbaa !38
-  resume { ptr, i32 } %.pn
-
-50:                                               ; preds = %._crit_edge, %_ZN17StackCountVisitor9VisitBaseD2Ev.exit
-  %51 = phi i64 [ %27, %_ZN17StackCountVisitor9VisitBaseD2Ev.exit ], [ %.pre33, %._crit_edge ]
-  %52 = phi i64 [ %.pre32, %_ZN17StackCountVisitor9VisitBaseD2Ev.exit ], [ %21, %._crit_edge ]
-  %53 = phi i32 [ %.pre31, %_ZN17StackCountVisitor9VisitBaseD2Ev.exit ], [ %17, %._crit_edge ]
-  %54 = phi i32 [ %.pre, %_ZN17StackCountVisitor9VisitBaseD2Ev.exit ], [ %17, %._crit_edge ]
-  %55 = icmp eq i32 %54, %53
-  %56 = shl i64 %52, 32
-  %57 = add i64 %56, -4294967296
-  %58 = ashr exact i64 %57, 32
-  %59 = select i1 %55, i64 %58, i64 -1
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = add i64 %59, %51
-  store i64 %61, ptr %60, align 8, !tbaa !8
+58:                                               ; preds = %53, %.thread
+  %59 = phi i64 [ %.pre33, %.thread ], [ %30, %53 ]
+  %60 = phi i64 [ %25, %.thread ], [ %spec.select, %53 ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %62 = add i64 %60, %59
+  store i64 %62, ptr %61, align 8, !tbaa !8
   store i8 0, ptr %4, align 8, !tbaa !26
-  br label %62
+  br label %63
 
-62:                                               ; preds = %11, %7, %50
+63:                                               ; preds = %11, %7, %58
   ret void
 }
 

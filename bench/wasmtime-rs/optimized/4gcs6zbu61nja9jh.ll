@@ -134,50 +134,47 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i": ; preds = %6
   store i64 %9, ptr %10, align 8, !alias.scope !27
-  br label %.thread
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit"
 
 13:                                               ; preds = %6
   %14 = sub nuw nsw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14, i64 noundef 0)
-  br label %.thread
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit"
 
-.thread:                                          ; preds = %13, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i"
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i", %13
   store i64 %7, ptr %4, align 8
-  br label %16
+  br label %15
 
-15:                                               ; preds = %2
+15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit", %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  br label %16
+  %16 = lshr i64 %3, 6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i64, ptr %17, align 8, !alias.scope !30, !noundef !14
+  %19 = icmp ult i64 %16, %18
+  br i1 %19, label %21, label %20, !prof !33
 
-16:                                               ; preds = %15, %.thread
-  %17 = lshr i64 %3, 6
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !alias.scope !30, !noundef !14
-  %20 = icmp ult i64 %17, %19
-  br i1 %20, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17habeb65851d84f8ffE.exit", label %36, !prof !33
-
-"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17habeb65851d84f8ffE.exit": ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !alias.scope !30, !nonnull !14, !noundef !14
-  %23 = getelementptr inbounds nuw [0 x i64], ptr %22, i64 0, i64 %17
-  %24 = load i64, ptr %23, align 8, !noalias !30, !noundef !14
-  %25 = and i64 %3, 63
-  %26 = lshr i64 %24, %25
-  %27 = trunc i64 %26 to i1
-  %28 = xor i1 %27, true
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !nonnull !14, !noundef !14
-  %31 = and i64 %3, 63
-  %32 = shl nuw i64 1, %31
-  %33 = getelementptr inbounds nuw [0 x i64], ptr %30, i64 0, i64 %17
-  %34 = load i64, ptr %33, align 8, !noundef !14
-  %35 = or i64 %34, %32
-  store i64 %35, ptr %33, align 8
-  ret i1 %28
-
-36:                                               ; preds = %16
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.2.llvm.9151662839961121684) #19, !noalias !30
+20:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %16, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.2.llvm.9151662839961121684) #19, !noalias !30
   unreachable
+
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !alias.scope !30, !nonnull !14, !noundef !14
+  %24 = getelementptr inbounds nuw [0 x i64], ptr %23, i64 0, i64 %16
+  %25 = load i64, ptr %24, align 8, !noalias !30, !noundef !14
+  %26 = and i64 %3, 63
+  %27 = lshr i64 %25, %26
+  %28 = trunc i64 %27 to i1
+  %29 = xor i1 %28, true
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !nonnull !14, !noundef !14
+  %32 = and i64 %3, 63
+  %33 = shl nuw i64 1, %32
+  %34 = getelementptr inbounds nuw [0 x i64], ptr %31, i64 0, i64 %16
+  %35 = load i64, ptr %34, align 8, !noundef !14
+  %36 = or i64 %35, %33
+  store i64 %36, ptr %34, align 8
+  ret i1 %29
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -199,50 +196,47 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i": ; preds = %6
   store i64 %9, ptr %10, align 8, !alias.scope !37
-  br label %.thread
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit"
 
 13:                                               ; preds = %6
   %14 = sub nuw nsw i64 %9, %11
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfdae90a3a3b61ee2E.llvm.13048743790017271950"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14, i64 noundef 0)
-  br label %.thread
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit"
 
-.thread:                                          ; preds = %13, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i"
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5e25d69d5842e74aE.llvm.13048743790017271950.exit.i", %13
   store i64 %7, ptr %4, align 8
-  br label %16
+  br label %15
 
-15:                                               ; preds = %2
+15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h96e2b8e230902192E.exit", %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  br label %16
+  %16 = lshr i64 %3, 6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i64, ptr %17, align 8, !alias.scope !40, !noundef !14
+  %19 = icmp ult i64 %16, %18
+  br i1 %19, label %21, label %20, !prof !33
 
-16:                                               ; preds = %15, %.thread
-  %17 = lshr i64 %3, 6
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !alias.scope !40, !noundef !14
-  %20 = icmp ult i64 %17, %19
-  br i1 %20, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit", label %36, !prof !33
-
-"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit": ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !alias.scope !40, !nonnull !14, !noundef !14
-  %23 = getelementptr inbounds nuw [0 x i64], ptr %22, i64 0, i64 %17
-  %24 = load i64, ptr %23, align 8, !noalias !40, !noundef !14
-  %25 = and i64 %3, 63
-  %26 = lshr i64 %24, %25
-  %27 = trunc i64 %26 to i1
-  %28 = xor i1 %27, true
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !nonnull !14, !noundef !14
-  %31 = and i64 %3, 63
-  %32 = shl nuw i64 1, %31
-  %33 = getelementptr inbounds nuw [0 x i64], ptr %30, i64 0, i64 %17
-  %34 = load i64, ptr %33, align 8, !noundef !14
-  %35 = or i64 %34, %32
-  store i64 %35, ptr %33, align 8
-  ret i1 %28
-
-36:                                               ; preds = %16
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.2.llvm.9151662839961121684) #19, !noalias !40
+20:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %16, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.2.llvm.9151662839961121684) #19, !noalias !40
   unreachable
+
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !alias.scope !40, !nonnull !14, !noundef !14
+  %24 = getelementptr inbounds nuw [0 x i64], ptr %23, i64 0, i64 %16
+  %25 = load i64, ptr %24, align 8, !noalias !40, !noundef !14
+  %26 = and i64 %3, 63
+  %27 = lshr i64 %25, %26
+  %28 = trunc i64 %27 to i1
+  %29 = xor i1 %28, true
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !nonnull !14, !noundef !14
+  %32 = and i64 %3, 63
+  %33 = shl nuw i64 1, %32
+  %34 = getelementptr inbounds nuw [0 x i64], ptr %31, i64 0, i64 %16
+  %35 = load i64, ptr %34, align 8, !noundef !14
+  %36 = or i64 %35, %33
+  store i64 %36, ptr %34, align 8
+  ret i1 %29
 }
 
 ; Function Attrs: nonlazybind uwtable

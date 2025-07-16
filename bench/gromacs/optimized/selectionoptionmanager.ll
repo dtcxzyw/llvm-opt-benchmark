@@ -1692,14 +1692,14 @@ _ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit: ; preds = %_ZNSt
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pre = load ptr, ptr %7, align 8, !tbaa !41
   %.pre28 = load ptr, ptr %9, align 8, !tbaa !43
-  %.not.i.i.i17 = icmp eq ptr %.pre28, %.pre
-  br i1 %.not.i.i.i17, label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit18, label %66
+  %66 = icmp eq ptr %.pre28, %.pre
+  br i1 %66, label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit18, label %67
 
-66:                                               ; preds = %._crit_edge
+67:                                               ; preds = %._crit_edge
   store ptr %.pre, ptr %9, align 8, !tbaa !43
   br label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit18
 
-_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit18: ; preds = %2, %._crit_edge, %66
+_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit18: ; preds = %2, %._crit_edge, %67
   ret void
 }
 

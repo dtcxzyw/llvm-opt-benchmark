@@ -70,7 +70,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .body:                                            ; preds = %6, %11
   %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %7, %6 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
-  br label %48
+  br label %47
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %13 = zext nneg i32 %switch.tableidx to i64
@@ -86,12 +86,12 @@ switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basi
 .loopexit:                                        ; preds = %29, %38
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %46
 
 .loopexit.split-lp:                               ; preds = %.invoke, %16, %18, %22, %24, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %46
 
 16:                                               ; preds = %.invoke
   %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6)
@@ -137,41 +137,37 @@ switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basi
   %35 = add nuw i64 %.013, 1
   %36 = load i64, ptr %26, align 8
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %38, label %42
+  br i1 %37, label %38, label %._crit_edge
 
 38:                                               ; preds = %34
   %39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.8)
-          to label %._crit_edge14 unwind label %.loopexit
-
-._crit_edge14:                                    ; preds = %38
-  %.pre = load i64, ptr %26, align 8
-  br label %42
+          to label %42 unwind label %.loopexit
 
 40:                                               ; preds = %32
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
-  br label %47
+  br label %46
 
-42:                                               ; preds = %._crit_edge14, %34
-  %43 = phi i64 [ %.pre, %._crit_edge14 ], [ %36, %34 ]
-  %44 = icmp ult i64 %35, %43
-  br i1 %44, label %29, label %._crit_edge, !llvm.loop !5
+42:                                               ; preds = %38
+  %.pre = load i64, ptr %26, align 8
+  %43 = icmp ult i64 %35, %.pre
+  br i1 %43, label %29, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %42, %.preheader
-  %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9)
-          to label %46 unwind label %.loopexit.split-lp
+._crit_edge:                                      ; preds = %34, %42, %.preheader
+  %44 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9)
+          to label %45 unwind label %.loopexit.split-lp
 
-46:                                               ; preds = %._crit_edge
+45:                                               ; preds = %._crit_edge
   ret void
 
-47:                                               ; preds = %.loopexit, %.loopexit.split-lp, %40
+46:                                               ; preds = %.loopexit, %.loopexit.split-lp, %40
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #6
-  br label %48
+  br label %47
 
-48:                                               ; preds = %47, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %47 ], [ %eh.lpad-body, %.body ]
+47:                                               ; preds = %46, %.body
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn.pn
 }
 

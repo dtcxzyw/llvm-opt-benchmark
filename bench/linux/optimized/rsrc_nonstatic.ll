@@ -1169,7 +1169,7 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
 
 44:                                               ; preds = %43
   %45 = icmp eq ptr %3, null
-  br i1 %45, label %.thread29, label %46
+  br i1 %45, label %.thread31, label %46
 
 46:                                               ; preds = %44
   %47 = call i32 %3(ptr noundef %0, ptr noundef nonnull %26, ptr noundef nonnull %5) #11, !callees !26
@@ -1180,14 +1180,14 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   call void @kfree(ptr noundef nonnull %28) #11
   %52 = call i32 @release_resource(ptr noundef nonnull %26) #11
   call void @kfree(ptr noundef nonnull %26) #11
-  br i1 %50, label %55, label %105
+  br i1 %50, label %55, label %104
 
-.thread29:                                        ; preds = %44
+.thread31:                                        ; preds = %44
   %53 = tail call i32 @release_resource(ptr noundef nonnull %28) #11
   tail call void @kfree(ptr noundef nonnull %28) #11
   %54 = tail call i32 @release_resource(ptr noundef nonnull %26) #11
   tail call void @kfree(ptr noundef nonnull %26) #11
-  br label %105
+  br label %104
 
 55:                                               ; preds = %46
   %.pre = load i32, ptr %5, align 4
@@ -1195,96 +1195,96 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   %56 = icmp ne i32 %.pre, %.pre28
   %57 = icmp eq i32 %.pre, 0
   %58 = or i1 %57, %56
-  %59 = select i1 %58, i32 -22, i32 0
-  br i1 %58, label %105, label %64
+  %. = select i1 %58, i32 -22, i32 0
+  br i1 %58, label %104, label %63
 
 .thread19.thread:                                 ; preds = %43
-  %60 = tail call i32 @release_resource(ptr noundef nonnull %28) #11
+  %59 = tail call i32 @release_resource(ptr noundef nonnull %28) #11
   tail call void @kfree(ptr noundef nonnull %28) #11
-  br label %105
+  br label %104
 
 .thread19:                                        ; preds = %42, %25
-  %61 = icmp eq ptr %26, null
-  br i1 %61, label %105, label %62
+  %60 = icmp eq ptr %26, null
+  br i1 %60, label %104, label %61
 
-62:                                               ; preds = %.thread19
-  %63 = tail call i32 @release_resource(ptr noundef nonnull %26) #11
+61:                                               ; preds = %.thread19
+  %62 = tail call i32 @release_resource(ptr noundef nonnull %26) #11
   tail call void @kfree(ptr noundef nonnull %26) #11
-  br label %105
+  br label %104
 
-64:                                               ; preds = %55
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %105
+63:                                               ; preds = %55
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %104
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %70 = add i64 %2, %1
-  %71 = add i64 %70, -1
-  br label %72
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %69 = add i64 %2, %1
+  %70 = add i64 %69, -1
+  br label %71
 
-72:                                               ; preds = %89, %68
-  %73 = phi ptr [ %69, %68 ], [ %87, %89 ]
-  %74 = icmp eq ptr %73, %69
-  br i1 %74, label %85, label %75
+71:                                               ; preds = %88, %67
+  %72 = phi ptr [ %68, %67 ], [ %86, %88 ]
+  %73 = icmp eq ptr %72, %68
+  br i1 %73, label %84, label %74
 
-75:                                               ; preds = %72
-  %76 = load i64, ptr %73, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %78 = load i64, ptr %77, align 8
-  %79 = add i64 %78, %76
-  %80 = icmp ult i64 %79, %1
-  br i1 %80, label %85, label %81
+74:                                               ; preds = %71
+  %75 = load i64, ptr %72, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %77 = load i64, ptr %76, align 8
+  %78 = add i64 %77, %75
+  %79 = icmp ult i64 %78, %1
+  br i1 %79, label %84, label %80
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %83 = sub i64 %70, %76
-  %84 = call i64 @llvm.umax.i64(i64 %83, i64 %78)
-  store i64 %84, ptr %82, align 8
-  br label %103
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %82 = sub i64 %69, %75
+  %83 = call i64 @llvm.umax.i64(i64 %82, i64 %77)
+  store i64 %83, ptr %81, align 8
+  br label %102
 
-85:                                               ; preds = %75, %72
-  %86 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, %69
-  br i1 %88, label %92, label %89
+84:                                               ; preds = %74, %71
+  %85 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp eq ptr %86, %68
+  br i1 %87, label %91, label %88
 
-89:                                               ; preds = %85
-  %90 = load i64, ptr %87, align 8
-  %91 = icmp ugt i64 %90, %71
-  br i1 %91, label %92, label %72, !llvm.loop !13
+88:                                               ; preds = %84
+  %89 = load i64, ptr %86, align 8
+  %90 = icmp ugt i64 %89, %70
+  br i1 %90, label %91, label %71, !llvm.loop !13
 
-92:                                               ; preds = %89, %85
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
-  %94 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %93, i32 noundef 3264, i64 noundef 24) #12
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %98
+91:                                               ; preds = %88, %84
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
+  %93 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %92, i32 noundef 3264, i64 noundef 24) #12
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %95, label %97
 
-96:                                               ; preds = %92
-  %97 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #13
-  br label %103
+95:                                               ; preds = %91
+  %96 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #13
+  br label %102
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store i64 %1, ptr %94, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i64 %2, ptr %100, align 8
-  %101 = load ptr, ptr %99, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store ptr %101, ptr %102, align 8
-  store ptr %94, ptr %99, align 8
-  br label %103
+97:                                               ; preds = %91
+  %98 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store i64 %1, ptr %93, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  store i64 %2, ptr %99, align 8
+  %100 = load ptr, ptr %98, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  store ptr %100, ptr %101, align 8
+  store ptr %93, ptr %98, align 8
+  br label %102
 
-103:                                              ; preds = %98, %96, %81
-  %104 = call fastcc i32 @sub_interval(ptr noundef %8, i64 noundef %1, i64 noundef %2), !range !20
-  br label %105
+102:                                              ; preds = %97, %95, %80
+  %103 = call fastcc i32 @sub_interval(ptr noundef %8, i64 noundef %1, i64 noundef %2), !range !20
+  br label %104
 
-105:                                              ; preds = %.thread19.thread, %.thread29, %103, %64, %62, %.thread19, %55, %46
-  %106 = phi i32 [ %59, %55 ], [ -22, %46 ], [ 0, %103 ], [ 0, %64 ], [ -22, %.thread19 ], [ -22, %62 ], [ 0, %.thread29 ], [ -22, %.thread19.thread ]
+104:                                              ; preds = %55, %.thread19.thread, %.thread31, %102, %63, %61, %.thread19, %46
+  %105 = phi i32 [ -22, %46 ], [ 0, %102 ], [ 0, %63 ], [ -22, %.thread19 ], [ -22, %61 ], [ 0, %.thread31 ], [ -22, %.thread19.thread ], [ %., %55 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  ret i32 %106
+  ret i32 %105
 }
 
 ; Function Attrs: cold null_pointer_is_valid

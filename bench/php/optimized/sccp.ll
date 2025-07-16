@@ -288,7 +288,11 @@ scp_dump_value.exit:                              ; preds = %93, %96, %99, %106,
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 92
   %124 = load i32, ptr %123, align 4, !tbaa !42
   %.not.not107.i = icmp sgt i32 %122, %124
-  br i1 %.not.not107.i, label %.lr.ph111.i, label %replace_constant_operands.exit
+  br i1 %.not.not107.i, label %.lr.ph111.i, label %replace_constant_operands.exit.thread
+
+replace_constant_operands.exit.thread:            ; preds = %.loopexit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  br label %sccp_context_free.exit
 
 .lr.ph111.i:                                      ; preds = %.loopexit
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 64
@@ -1297,93 +1301,87 @@ try_remove_definition.exit:                       ; preds = %294, %298, %302, %3
   %587 = load i32, ptr %123, align 4, !tbaa !42
   %588 = sext i32 %587 to i64
   %.not.not.i = icmp sgt i64 %indvars.iv.next.i31, %588
-  br i1 %.not.not.i, label %133, label %replace_constant_operands.exit.loopexit
+  br i1 %.not.not.i, label %133, label %replace_constant_operands.exit
 
-replace_constant_operands.exit.loopexit:          ; preds = %586
+replace_constant_operands.exit:                   ; preds = %586
   %.pre64 = load ptr, ptr %8, align 8, !tbaa !66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre64, i64 92
   %.pre65 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !42
   %.pre66 = load ptr, ptr %118, align 8, !tbaa !65
   %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %.pre66, i64 40
   %.pre68 = load i32, ptr %.phi.trans.insert67, align 8, !tbaa !27
-  br label %replace_constant_operands.exit
-
-replace_constant_operands.exit:                   ; preds = %replace_constant_operands.exit.loopexit, %.loopexit
-  %589 = phi i32 [ %122, %.loopexit ], [ %.pre68, %replace_constant_operands.exit.loopexit ]
-  %590 = phi ptr [ %119, %.loopexit ], [ %.pre66, %replace_constant_operands.exit.loopexit ]
-  %591 = phi i32 [ %124, %.loopexit ], [ %.pre65, %replace_constant_operands.exit.loopexit ]
-  %.081.lcssa.i = phi i32 [ 0, %.loopexit ], [ %.2.i, %replace_constant_operands.exit.loopexit ]
+  %589 = icmp slt i32 %.pre65, %.pre68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
-  %592 = icmp slt i32 %591, %589
-  br i1 %592, label %.lr.ph.i38, label %sccp_context_free.exit
+  br i1 %589, label %.lr.ph.i38, label %sccp_context_free.exit
 
 .lr.ph.i38:                                       ; preds = %replace_constant_operands.exit
-  %593 = sext i32 %591 to i64
-  br label %594
+  %590 = sext i32 %.pre65 to i64
+  br label %591
 
-594:                                              ; preds = %zval_ptr_dtor_nogc.exit.i, %.lr.ph.i38
-  %595 = phi ptr [ %590, %.lr.ph.i38 ], [ %607, %zval_ptr_dtor_nogc.exit.i ]
-  %indvars.iv.i39 = phi i64 [ %593, %.lr.ph.i38 ], [ %indvars.iv.next.i41, %zval_ptr_dtor_nogc.exit.i ]
-  %596 = load ptr, ptr %33, align 8, !tbaa !40
-  %597 = getelementptr inbounds %struct._zval_struct, ptr %596, i64 %indvars.iv.i39
-  %598 = getelementptr inbounds nuw i8, ptr %597, i64 9
-  %599 = load i8, ptr %598, align 1, !tbaa !41
-  %.not.i.i40 = icmp eq i8 %599, 0
-  br i1 %.not.i.i40, label %zval_ptr_dtor_nogc.exit.i, label %600
+591:                                              ; preds = %zval_ptr_dtor_nogc.exit.i, %.lr.ph.i38
+  %592 = phi ptr [ %.pre66, %.lr.ph.i38 ], [ %604, %zval_ptr_dtor_nogc.exit.i ]
+  %indvars.iv.i39 = phi i64 [ %590, %.lr.ph.i38 ], [ %indvars.iv.next.i41, %zval_ptr_dtor_nogc.exit.i ]
+  %593 = load ptr, ptr %33, align 8, !tbaa !40
+  %594 = getelementptr inbounds %struct._zval_struct, ptr %593, i64 %indvars.iv.i39
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 9
+  %596 = load i8, ptr %595, align 1, !tbaa !41
+  %.not.i.i40 = icmp eq i8 %596, 0
+  br i1 %.not.i.i40, label %zval_ptr_dtor_nogc.exit.i, label %597
 
-600:                                              ; preds = %594
-  %601 = load ptr, ptr %597, align 8, !tbaa !41
-  %602 = load i32, ptr %601, align 4, !tbaa !67
-  %603 = icmp ne i32 %602, 0
-  call void @llvm.assume(i1 %603)
-  %604 = add i32 %602, -1
-  store i32 %604, ptr %601, align 4, !tbaa !67
-  %.not3.i.i = icmp eq i32 %604, 0
-  br i1 %.not3.i.i, label %605, label %zval_ptr_dtor_nogc.exit.i
+597:                                              ; preds = %591
+  %598 = load ptr, ptr %594, align 8, !tbaa !41
+  %599 = load i32, ptr %598, align 4, !tbaa !67
+  %600 = icmp ne i32 %599, 0
+  call void @llvm.assume(i1 %600)
+  %601 = add i32 %599, -1
+  store i32 %601, ptr %598, align 4, !tbaa !67
+  %.not3.i.i = icmp eq i32 %601, 0
+  br i1 %.not3.i.i, label %602, label %zval_ptr_dtor_nogc.exit.i
 
-605:                                              ; preds = %600
-  %606 = load ptr, ptr %597, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %606) #12
+602:                                              ; preds = %597
+  %603 = load ptr, ptr %594, align 8, !tbaa !41
+  call void @rc_dtor_func(ptr noundef %603) #12
   %.pre.i42 = load ptr, ptr %118, align 8, !tbaa !65
   br label %zval_ptr_dtor_nogc.exit.i
 
-zval_ptr_dtor_nogc.exit.i:                        ; preds = %605, %600, %594
-  %607 = phi ptr [ %595, %594 ], [ %595, %600 ], [ %.pre.i42, %605 ]
+zval_ptr_dtor_nogc.exit.i:                        ; preds = %602, %597, %591
+  %604 = phi ptr [ %592, %591 ], [ %592, %597 ], [ %.pre.i42, %602 ]
   %indvars.iv.next.i41 = add nsw i64 %indvars.iv.i39, 1
-  %608 = getelementptr inbounds nuw i8, ptr %607, i64 40
-  %609 = load i32, ptr %608, align 8, !tbaa !27
-  %610 = sext i32 %609 to i64
-  %611 = icmp slt i64 %indvars.iv.next.i41, %610
-  br i1 %611, label %594, label %sccp_context_free.exit
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 40
+  %606 = load i32, ptr %605, align 8, !tbaa !27
+  %607 = sext i32 %606 to i64
+  %608 = icmp slt i64 %indvars.iv.next.i41, %607
+  br i1 %608, label %591, label %sccp_context_free.exit
 
-sccp_context_free.exit:                           ; preds = %zval_ptr_dtor_nogc.exit.i, %replace_constant_operands.exit
-  %612 = load ptr, ptr %0, align 8, !tbaa !39
-  %613 = getelementptr inbounds nuw i8, ptr %612, i64 8
-  %614 = load ptr, ptr %613, align 8, !tbaa !36
-  %615 = icmp ule ptr %10, %614
-  %.not.i60 = icmp ugt ptr %10, %612
-  %or.cond.i61 = and i1 %.not.i60, %615
+sccp_context_free.exit:                           ; preds = %zval_ptr_dtor_nogc.exit.i, %replace_constant_operands.exit.thread, %replace_constant_operands.exit
+  %.081.lcssa.i71 = phi i32 [ 0, %replace_constant_operands.exit.thread ], [ %.2.i, %replace_constant_operands.exit ], [ %.2.i, %zval_ptr_dtor_nogc.exit.i ]
+  %609 = load ptr, ptr %0, align 8, !tbaa !39
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 8
+  %611 = load ptr, ptr %610, align 8, !tbaa !36
+  %612 = icmp ule ptr %10, %611
+  %.not.i60 = icmp ugt ptr %10, %609
+  %or.cond.i61 = and i1 %.not.i60, %612
   br i1 %or.cond.i61, label %zend_arena_release.exit, label %.critedge.i, !prof !92
 
 .critedge.i:                                      ; preds = %sccp_context_free.exit, %.critedge.i
-  %.0.i62 = phi ptr [ %617, %.critedge.i ], [ %612, %sccp_context_free.exit ]
-  %616 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 16
-  %617 = load ptr, ptr %616, align 8, !tbaa !38
+  %.0.i62 = phi ptr [ %614, %.critedge.i ], [ %609, %sccp_context_free.exit ]
+  %613 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 16
+  %614 = load ptr, ptr %613, align 8, !tbaa !38
   call void @_efree(ptr noundef nonnull %.0.i62) #12
-  store ptr %617, ptr %0, align 8, !tbaa !39
-  %618 = getelementptr inbounds nuw i8, ptr %617, i64 8
-  %619 = load ptr, ptr %618, align 8, !tbaa !36
-  %620 = icmp ule ptr %10, %619
-  %.not.i = icmp ugt ptr %10, %617
-  %or.cond.i = and i1 %.not.i, %620
+  store ptr %614, ptr %0, align 8, !tbaa !39
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 8
+  %616 = load ptr, ptr %615, align 8, !tbaa !36
+  %617 = icmp ule ptr %10, %616
+  %.not.i = icmp ugt ptr %10, %614
+  %or.cond.i = and i1 %.not.i, %617
   br i1 %or.cond.i, label %zend_arena_release.exit, label %.critedge.i, !prof !93
 
 zend_arena_release.exit:                          ; preds = %.critedge.i, %sccp_context_free.exit
-  %.0.i.lcssa = phi ptr [ %612, %sccp_context_free.exit ], [ %617, %.critedge.i ]
-  %621 = add nsw i32 %.081.lcssa.i, %117
+  %.0.i.lcssa = phi ptr [ %609, %sccp_context_free.exit ], [ %614, %.critedge.i ]
+  %618 = add nsw i32 %.081.lcssa.i71, %117
   store ptr %10, ptr %.0.i.lcssa, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #12
-  ret i32 %621
+  ret i32 %618
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

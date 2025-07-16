@@ -155,14 +155,14 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   %34 = getelementptr ptr, ptr %31, i64 %33
   store ptr %30, ptr %34, align 8
   %.pre = load ptr, ptr %21, align 8
-  %.pre1394 = load i64, ptr %32, align 8
-  %.phi.trans.insert1395 = getelementptr ptr, ptr %.pre, i64 %.pre1394
-  %.pre1396 = load ptr, ptr %.phi.trans.insert1395, align 8
+  %.pre1393 = load i64, ptr %32, align 8
+  %.phi.trans.insert1394 = getelementptr ptr, ptr %.pre, i64 %.pre1393
+  %.pre1395 = load ptr, ptr %.phi.trans.insert1394, align 8
   br label %35
 
 35:                                               ; preds = %28, %23
-  %36 = phi ptr [ %.pre1396, %28 ], [ %27, %23 ]
-  %37 = phi i64 [ %.pre1394, %28 ], [ %25, %23 ]
+  %36 = phi ptr [ %.pre1395, %28 ], [ %27, %23 ]
+  %37 = phi i64 [ %.pre1393, %28 ], [ %25, %23 ]
   %38 = phi ptr [ %.pre, %28 ], [ %22, %23 ]
   %39 = getelementptr ptr, ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 28
@@ -207,17 +207,17 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   %69 = load i8, ptr %54, align 8
   store i8 %69, ptr %68, align 1
   %70 = load i32, ptr %55, align 4
-  br label %.loopexit827
+  br label %.loopexit826
 
-.loopexit827:                                     ; preds = %.loopexit827.backedge, %.loopexit
-  %.0506 = phi ptr [ %68, %.loopexit ], [ %.0506.be, %.loopexit827.backedge ]
-  %.0499 = phi ptr [ %68, %.loopexit ], [ %.0499.be, %.loopexit827.backedge ]
-  %.0495 = phi i32 [ %70, %.loopexit ], [ %.0495.be, %.loopexit827.backedge ]
+.loopexit826:                                     ; preds = %.loopexit826.backedge, %.loopexit
+  %.0506 = phi ptr [ %68, %.loopexit ], [ %.0506.be, %.loopexit826.backedge ]
+  %.0499 = phi ptr [ %68, %.loopexit ], [ %.0499.be, %.loopexit826.backedge ]
+  %.0495 = phi i32 [ %70, %.loopexit ], [ %.0495.be, %.loopexit826.backedge ]
   br label %71
 
-71:                                               ; preds = %._crit_edge, %.loopexit827
-  %.1500 = phi ptr [ %.0499, %.loopexit827 ], [ %109, %._crit_edge ]
-  %.1496 = phi i32 [ %.0495, %.loopexit827 ], [ %108, %._crit_edge ]
+71:                                               ; preds = %._crit_edge, %.loopexit826
+  %.1500 = phi ptr [ %.0499, %.loopexit826 ], [ %109, %._crit_edge ]
+  %.1496 = phi i32 [ %.0495, %.loopexit826 ], [ %108, %._crit_edge ]
   %72 = load i8, ptr %.1500, align 1
   %73 = zext i8 %72 to i64
   %74 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %73
@@ -242,13 +242,13 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   %86 = getelementptr [1244 x i16], ptr @yy_chk, i64 0, i64 %85
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i32
-  %.not5391191 = icmp eq i32 %.1496, %88
-  br i1 %.not5391191, label %._crit_edge, label %.lr.ph
+  %.not5391190 = icmp eq i32 %.1496, %88
+  br i1 %.not5391190, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %80, %97
   %89 = phi i64 [ %102, %97 ], [ %84, %80 ]
   %90 = phi i64 [ %98, %97 ], [ %76, %80 ]
-  %.05121192 = phi i8 [ %.1513, %97 ], [ %75, %80 ]
+  %.05121191 = phi i8 [ %.1513, %97 ], [ %75, %80 ]
   %91 = getelementptr [507 x i16], ptr @yy_def, i64 0, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = icmp sgt i16 %92, 481
@@ -260,7 +260,7 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %97
 
 97:                                               ; preds = %94, %.lr.ph
-  %.1513 = phi i8 [ %96, %94 ], [ %.05121192, %.lr.ph ]
+  %.1513 = phi i8 [ %96, %94 ], [ %.05121191, %.lr.ph ]
   %98 = sext i16 %92 to i64
   %99 = getelementptr [507 x i16], ptr @yy_base, i64 0, i64 %98
   %100 = load i16, ptr %99, align 2
@@ -279,18 +279,18 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   %108 = sext i16 %107 to i32
   %109 = getelementptr i8, ptr %.1500, i64 1
   %.not540 = icmp eq i16 %107, 481
-  br i1 %.not540, label %.backedge.sink.split1659, label %71, !llvm.loop !8
+  br i1 %.not540, label %.backedge.sink.split1658, label %71, !llvm.loop !8
 
-.backedge.sink.split1659:                         ; preds = %._crit_edge, %.backedge.sink.split1659.backedge
-  %.1507.ph = phi ptr [ %.1507.ph.be, %.backedge.sink.split1659.backedge ], [ %.0506, %._crit_edge ]
+.backedge.sink.split1658:                         ; preds = %._crit_edge, %.backedge.sink.split1658.backedge
+  %.1507.ph = phi ptr [ %.1507.ph.be, %.backedge.sink.split1658.backedge ], [ %.0506, %._crit_edge ]
   %110 = load ptr, ptr %57, align 8
   %111 = load i32, ptr %56, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1659
-  %.1507 = phi ptr [ %.1507.ph, %.backedge.sink.split1659 ], [ %1741, %.backedge.backedge ]
-  %.2501 = phi ptr [ %110, %.backedge.sink.split1659 ], [ %1743, %.backedge.backedge ]
-  %.3498 = phi i32 [ %111, %.backedge.sink.split1659 ], [ %.3498.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1658
+  %.1507 = phi ptr [ %.1507.ph, %.backedge.sink.split1658 ], [ %1741, %.backedge.backedge ]
+  %.2501 = phi ptr [ %110, %.backedge.sink.split1658 ], [ %1743, %.backedge.backedge ]
+  %.3498 = phi i32 [ %111, %.backedge.sink.split1658 ], [ %.3498.be, %.backedge.backedge ]
   %112 = sext i32 %.3498 to i64
   %113 = getelementptr [482 x i16], ptr @yy_accept, i64 0, i64 %112
   %114 = load i16, ptr %113, align 2
@@ -307,8 +307,8 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %.2501, ptr %53, align 8
   br label %121
 
-121:                                              ; preds = %yy_get_previous_state.exit802, %.backedge
-  %.0510 = phi i32 [ %115, %.backedge ], [ %1791, %yy_get_previous_state.exit802 ]
+121:                                              ; preds = %yy_get_previous_state.exit801, %.backedge
+  %.0510 = phi i32 [ %115, %.backedge ], [ %1791, %yy_get_previous_state.exit801 ]
   switch i32 %.0510, label %1792 [
     i32 0, label %122
     i32 1, label %.loopexit.backedge
@@ -430,7 +430,7 @@ define hidden noundef i32 @DiamDict_lex(ptr noundef %0) local_unnamed_addr #0 {
 122:                                              ; preds = %121
   %123 = load i8, ptr %54, align 8
   store i8 %123, ptr %.2501, align 1
-  br label %.backedge.sink.split1659.backedge
+  br label %.backedge.sink.split1658.backedge
 
 124:                                              ; preds = %121
   store i32 5, ptr %55, align 4
@@ -1031,21 +1031,21 @@ append_to_buffer.exit578:                         ; preds = %433, %440
 
 469:                                              ; preds = %460
   %470 = getelementptr inbounds nuw i8, ptr %462, i64 176
-  %.05191193 = load ptr, ptr %470, align 8
-  %.not5531194 = icmp eq ptr %.05191193, null
-  %.pre1407 = load ptr, ptr %58, align 8
-  br i1 %.not5531194, label %.critedge, label %.lr.ph1197
+  %.05191192 = load ptr, ptr %470, align 8
+  %.not5531193 = icmp eq ptr %.05191192, null
+  %.pre1406 = load ptr, ptr %58, align 8
+  br i1 %.not5531193, label %.critedge, label %.lr.ph1196
 
-.lr.ph1197:                                       ; preds = %469, %549
-  %.05191195 = phi ptr [ %.0519, %549 ], [ %.05191193, %469 ]
-  %471 = load ptr, ptr %.05191195, align 8
-  %472 = tail call i32 @strcmp(ptr noundef %471, ptr noundef %.pre1407) #31
+.lr.ph1196:                                       ; preds = %469, %549
+  %.05191194 = phi ptr [ %.0519, %549 ], [ %.05191192, %469 ]
+  %471 = load ptr, ptr %.05191194, align 8
+  %472 = tail call i32 @strcmp(ptr noundef %471, ptr noundef %.pre1406) #31
   %473 = icmp eq i32 %472, 0
   br i1 %473, label %474, label %549
 
-474:                                              ; preds = %.lr.ph1197
+474:                                              ; preds = %.lr.ph1196
   %475 = load ptr, ptr %462, align 8
-  %476 = getelementptr inbounds nuw i8, ptr %.05191195, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %.05191194, i64 8
   %477 = load ptr, ptr %476, align 8
   %.not.i579 = icmp eq ptr %475, null
   br i1 %.not.i579, label %480, label %478
@@ -1064,7 +1064,7 @@ ddict_open.exit:                                  ; preds = %478, %480
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.79, ptr noundef %.0.i, ptr noundef %482)
   tail call void @g_free(ptr noundef %.0.i)
   store ptr %482, ptr %63, align 8
-  %483 = load ptr, ptr %.05191195, align 8
+  %483 = load ptr, ptr %.05191194, align 8
   %484 = load ptr, ptr %476, align 8
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.8, ptr noundef %483, ptr noundef %484, ptr noundef %482)
   %485 = load ptr, ptr %63, align 8
@@ -1115,11 +1115,11 @@ ddict_open.exit:                                  ; preds = %478, %480
   tail call fastcc void @DiamDict_ensure_buffer_stack(ptr noundef %0)
   %513 = load ptr, ptr %60, align 8
   %.not.i580 = icmp eq ptr %513, null
-  %.pre1406 = load i64, ptr %61, align 8
+  %.pre1405 = load i64, ptr %61, align 8
   br i1 %.not.i580, label %533, label %.thread.i
 
 .thread.i:                                        ; preds = %502
-  %514 = getelementptr ptr, ptr %513, i64 %.pre1406
+  %514 = getelementptr ptr, ptr %513, i64 %.pre1405
   %515 = load ptr, ptr %514, align 8
   %516 = icmp eq ptr %515, %512
   br i1 %516, label %553, label %517
@@ -1147,11 +1147,11 @@ ddict_open.exit:                                  ; preds = %478, %480
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 28
   store i32 %527, ptr %532, align 4
   %.pre.i581 = load ptr, ptr %60, align 8
-  %.pre1405 = load i64, ptr %61, align 8
+  %.pre1404 = load i64, ptr %61, align 8
   br label %533
 
 533:                                              ; preds = %502, %518, %517
-  %534 = phi i64 [ %.pre1405, %518 ], [ %.pre1406, %517 ], [ %.pre1406, %502 ]
+  %534 = phi i64 [ %.pre1404, %518 ], [ %.pre1405, %517 ], [ %.pre1405, %502 ]
   %535 = phi ptr [ %.pre.i581, %518 ], [ %513, %517 ], [ null, %502 ]
   %536 = getelementptr ptr, ptr %535, i64 %534
   store ptr %512, ptr %536, align 8
@@ -1175,22 +1175,22 @@ ddict_open.exit:                                  ; preds = %478, %480
   store i32 1, ptr %64, align 8
   br label %553
 
-549:                                              ; preds = %.lr.ph1197
-  %550 = getelementptr inbounds nuw i8, ptr %.05191195, i64 16
+549:                                              ; preds = %.lr.ph1196
+  %550 = getelementptr inbounds nuw i8, ptr %.05191194, i64 16
   %.0519 = load ptr, ptr %550, align 8
   %.not553 = icmp eq ptr %.0519, null
-  br i1 %.not553, label %.critedge, label %.lr.ph1197, !llvm.loop !10
+  br i1 %.not553, label %.critedge, label %.lr.ph1196, !llvm.loop !10
 
 .critedge:                                        ; preds = %469, %549
   %551 = load ptr, ptr @stderr, align 8
-  %552 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %551, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %.pre1407)
+  %552 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %551, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %.pre1406)
   br label %.thread
 
 553:                                              ; preds = %533, %.thread.i
   store i32 3, ptr %55, align 4
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %121, %121, %121, %121, %121, %121, %121, %121, %121, %553, %yy_push_state.exit771, %1408, %1407, %1406, %1405, %1404, %1403, %1402, %yy_push_state.exit761, %yy_push_state.exit751, %1346, %yy_push_state.exit741, %1290, %yy_push_state.exit731, %1235, %1229, %1228, %1227, %yy_push_state.exit721, %yy_push_state.exit711, %yy_push_state.exit701, %yy_push_state.exit691, %1117, %1069, %yy_push_state.exit681, %yy_push_state.exit671, %1013, %985, %984, %yy_push_state.exit661, %yy_push_state.exit651, %yy_push_state.exit641, %901, %873, %yy_push_state.exit631, %yy_push_state.exit621, %yy_push_state.exit611, %790, %758, %757, %yy_push_state.exit601, %yy_push_state.exit, %701, %674, %673, %yy_pop_state.exit589, %659, %yy_pop_state.exit, %638, %629, %DiamDict__switch_to_buffer.exit588, %append_to_buffer.exit578, %append_to_buffer.exit575, %append_to_buffer.exit572, %append_to_buffer.exit569, %append_to_buffer.exit566, %append_to_buffer.exit563, %append_to_buffer.exit560, %append_to_buffer.exit, %197, %190, %189, %181, %180, %179, %172, %171, %164, %163, %160, %126, %125, %124
+.loopexit.backedge:                               ; preds = %121, %121, %121, %121, %121, %121, %121, %121, %121, %553, %yy_push_state.exit770, %1408, %1407, %1406, %1405, %1404, %1403, %1402, %yy_push_state.exit760, %yy_push_state.exit750, %1346, %yy_push_state.exit740, %1290, %yy_push_state.exit730, %1235, %1229, %1228, %1227, %yy_push_state.exit720, %yy_push_state.exit710, %yy_push_state.exit700, %yy_push_state.exit690, %1117, %1069, %yy_push_state.exit680, %yy_push_state.exit670, %1013, %985, %984, %yy_push_state.exit660, %yy_push_state.exit650, %yy_push_state.exit640, %901, %873, %yy_push_state.exit630, %yy_push_state.exit620, %yy_push_state.exit610, %790, %758, %757, %yy_push_state.exit600, %yy_push_state.exit, %701, %674, %673, %yy_pop_state.exit588, %659, %yy_pop_state.exit, %638, %629, %DiamDict__switch_to_buffer.exit587, %append_to_buffer.exit578, %append_to_buffer.exit575, %append_to_buffer.exit572, %append_to_buffer.exit569, %append_to_buffer.exit566, %append_to_buffer.exit563, %append_to_buffer.exit560, %append_to_buffer.exit, %197, %190, %189, %181, %180, %179, %172, %171, %164, %163, %160, %126, %125, %124
   br label %.loopexit
 
 554:                                              ; preds = %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121, %121
@@ -1231,22 +1231,22 @@ ddict_open.exit:                                  ; preds = %478, %480
   %575 = getelementptr ptr, ptr %572, i64 %574
   %576 = load ptr, ptr %575, align 8
   %.not.i582 = icmp eq ptr %576, null
-  br i1 %.not.i582, label %DiamDict__delete_buffer.exit, label %.thread.i583
+  br i1 %.not.i582, label %DiamDict__delete_buffer.exit, label %.critedge.i
 
-.thread.i583:                                     ; preds = %573
+.critedge.i:                                      ; preds = %573
   store ptr null, ptr %575, align 8
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 32
   %578 = load i32, ptr %577, align 8
   %.not13.i = icmp eq i32 %578, 0
   br i1 %.not13.i, label %582, label %579
 
-579:                                              ; preds = %.thread.i583
+579:                                              ; preds = %.critedge.i
   %580 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %581 = load ptr, ptr %580, align 8
   tail call void @free(ptr noundef %581) #30
   br label %582
 
-582:                                              ; preds = %579, %.thread.i583
+582:                                              ; preds = %579, %.critedge.i
   tail call void @free(ptr noundef nonnull %576) #30
   br label %DiamDict__delete_buffer.exit
 
@@ -1260,23 +1260,23 @@ DiamDict__delete_buffer.exit:                     ; preds = %571, %573, %582
   %589 = load ptr, ptr %588, align 8
   tail call fastcc void @DiamDict_ensure_buffer_stack(ptr noundef %0)
   %590 = load ptr, ptr %60, align 8
-  %.not.i584 = icmp eq ptr %590, null
-  br i1 %.not.i584, label %591, label %.thread.i585
+  %.not.i583 = icmp eq ptr %590, null
+  br i1 %.not.i583, label %591, label %.thread.i584
 
 591:                                              ; preds = %DiamDict__delete_buffer.exit
   %592 = icmp eq ptr %589, null
-  br i1 %592, label %DiamDict__switch_to_buffer.exit588, label %613
+  br i1 %592, label %DiamDict__switch_to_buffer.exit587, label %613
 
-.thread.i585:                                     ; preds = %DiamDict__delete_buffer.exit
+.thread.i584:                                     ; preds = %DiamDict__delete_buffer.exit
   %593 = load i64, ptr %61, align 8
   %594 = getelementptr ptr, ptr %590, i64 %593
   %595 = load ptr, ptr %594, align 8
   %596 = icmp eq ptr %595, %589
-  br i1 %596, label %DiamDict__switch_to_buffer.exit588, label %597
+  br i1 %596, label %DiamDict__switch_to_buffer.exit587, label %597
 
-597:                                              ; preds = %.thread.i585
-  %.not25.i586 = icmp eq ptr %595, null
-  br i1 %.not25.i586, label %613, label %598
+597:                                              ; preds = %.thread.i584
+  %.not25.i585 = icmp eq ptr %595, null
+  br i1 %.not25.i585, label %613, label %598
 
 598:                                              ; preds = %597
   %599 = load i8, ptr %54, align 8
@@ -1296,11 +1296,11 @@ DiamDict__delete_buffer.exit:                     ; preds = %571, %573, %582
   %611 = load ptr, ptr %610, align 8
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 28
   store i32 %607, ptr %612, align 4
-  %.pre.i587 = load ptr, ptr %60, align 8
+  %.pre.i586 = load ptr, ptr %60, align 8
   br label %613
 
 613:                                              ; preds = %598, %597, %591
-  %614 = phi ptr [ null, %591 ], [ %.pre.i587, %598 ], [ %590, %597 ]
+  %614 = phi ptr [ null, %591 ], [ %.pre.i586, %598 ], [ %590, %597 ]
   %615 = load i64, ptr %61, align 8
   %616 = getelementptr ptr, ptr %614, i64 %615
   store ptr %589, ptr %616, align 8
@@ -1322,9 +1322,9 @@ DiamDict__delete_buffer.exit:                     ; preds = %571, %573, %582
   %628 = load i8, ptr %625, align 1
   store i8 %628, ptr %54, align 8
   store i32 1, ptr %64, align 8
-  br label %DiamDict__switch_to_buffer.exit588
+  br label %DiamDict__switch_to_buffer.exit587
 
-DiamDict__switch_to_buffer.exit588:               ; preds = %591, %.thread.i585, %613
+DiamDict__switch_to_buffer.exit587:               ; preds = %591, %.thread.i584, %613
   store i32 3, ptr %55, align 4
   br label %.loopexit.backedge
 
@@ -1392,13 +1392,13 @@ yy_pop_state.exit:                                ; preds = %648
   %664 = add i32 %663, -1
   store i32 %664, ptr %65, align 4
   %665 = icmp slt i32 %664, 0
-  br i1 %665, label %666, label %yy_pop_state.exit589
+  br i1 %665, label %666, label %yy_pop_state.exit588
 
 666:                                              ; preds = %661
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.76) #33
   unreachable
 
-yy_pop_state.exit589:                             ; preds = %661
+yy_pop_state.exit588:                             ; preds = %661
   %667 = load ptr, ptr %67, align 8
   %668 = zext nneg i32 %664 to i64
   %669 = getelementptr i32, ptr %667, i64 %668
@@ -1474,11 +1474,11 @@ yy_pop_state.exit589:                             ; preds = %661
   store ptr %707, ptr %708, align 8
   %709 = load i32, ptr %65, align 4
   %710 = load i32, ptr %66, align 8
-  %.not.i590 = icmp slt i32 %709, %710
-  br i1 %.not.i590, label %._crit_edge.i, label %711
+  %.not.i589 = icmp slt i32 %709, %710
+  br i1 %.not.i589, label %._crit_edge.i, label %711
 
 ._crit_edge.i:                                    ; preds = %704
-  %.pre.i591 = load ptr, ptr %67, align 8
+  %.pre.i590 = load ptr, ptr %67, align 8
   br label %yy_push_state.exit
 
 711:                                              ; preds = %704
@@ -1514,7 +1514,7 @@ yy_pop_state.exit589:                             ; preds = %661
 
 yy_push_state.exit:                               ; preds = %._crit_edge.i, %._crit_edge20.i
   %722 = phi i32 [ %709, %._crit_edge.i ], [ %.pre21.i, %._crit_edge20.i ]
-  %723 = phi ptr [ %.pre.i591, %._crit_edge.i ], [ %storemerge.i, %._crit_edge20.i ]
+  %723 = phi ptr [ %.pre.i590, %._crit_edge.i ], [ %storemerge.i, %._crit_edge20.i ]
   %724 = load i32, ptr %55, align 4
   %725 = add i32 %724, -1
   %726 = sdiv i32 %725, 2
@@ -1536,12 +1536,12 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
   store ptr %734, ptr %735, align 8
   %736 = load i32, ptr %65, align 4
   %737 = load i32, ptr %66, align 8
-  %.not.i592 = icmp slt i32 %736, %737
-  br i1 %.not.i592, label %._crit_edge.i598, label %738
+  %.not.i591 = icmp slt i32 %736, %737
+  br i1 %.not.i591, label %._crit_edge.i597, label %738
 
-._crit_edge.i598:                                 ; preds = %730
-  %.pre.i600 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit601
+._crit_edge.i597:                                 ; preds = %730
+  %.pre.i599 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit600
 
 738:                                              ; preds = %730
   %739 = add i32 %737, 25
@@ -1549,8 +1549,8 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
   %740 = sext i32 %739 to i64
   %741 = shl nsw i64 %740, 2
   %742 = load ptr, ptr %67, align 8
-  %.not18.i593 = icmp eq ptr %742, null
-  br i1 %.not18.i593, label %743, label %745
+  %.not18.i592 = icmp eq ptr %742, null
+  br i1 %.not18.i592, label %743, label %745
 
 743:                                              ; preds = %738
   %744 = tail call noalias ptr @malloc(i64 noundef %741) #34
@@ -1561,22 +1561,22 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
   br label %747
 
 747:                                              ; preds = %745, %743
-  %storemerge.i594 = phi ptr [ %744, %743 ], [ %746, %745 ]
-  store ptr %storemerge.i594, ptr %67, align 8
-  %.not19.i595 = icmp eq ptr %storemerge.i594, null
-  br i1 %.not19.i595, label %748, label %._crit_edge20.i596
+  %storemerge.i593 = phi ptr [ %744, %743 ], [ %746, %745 ]
+  store ptr %storemerge.i593, ptr %67, align 8
+  %.not19.i594 = icmp eq ptr %storemerge.i593, null
+  br i1 %.not19.i594, label %748, label %._crit_edge20.i595
 
-._crit_edge20.i596:                               ; preds = %747
-  %.pre21.i597 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit601
+._crit_edge20.i595:                               ; preds = %747
+  %.pre21.i596 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit600
 
 748:                                              ; preds = %747
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit601:                            ; preds = %._crit_edge.i598, %._crit_edge20.i596
-  %749 = phi i32 [ %736, %._crit_edge.i598 ], [ %.pre21.i597, %._crit_edge20.i596 ]
-  %750 = phi ptr [ %.pre.i600, %._crit_edge.i598 ], [ %storemerge.i594, %._crit_edge20.i596 ]
+yy_push_state.exit600:                            ; preds = %._crit_edge.i597, %._crit_edge20.i595
+  %749 = phi i32 [ %736, %._crit_edge.i597 ], [ %.pre21.i596, %._crit_edge20.i595 ]
+  %750 = phi ptr [ %.pre.i599, %._crit_edge.i597 ], [ %storemerge.i593, %._crit_edge20.i595 ]
   %751 = load i32, ptr %55, align 4
   %752 = add i32 %751, -1
   %753 = sdiv i32 %752, 2
@@ -1658,12 +1658,12 @@ yy_push_state.exit601:                            ; preds = %._crit_edge.i598, %
   store ptr %796, ptr %797, align 8
   %798 = load i32, ptr %65, align 4
   %799 = load i32, ptr %66, align 8
-  %.not.i602 = icmp slt i32 %798, %799
-  br i1 %.not.i602, label %._crit_edge.i608, label %800
+  %.not.i601 = icmp slt i32 %798, %799
+  br i1 %.not.i601, label %._crit_edge.i607, label %800
 
-._crit_edge.i608:                                 ; preds = %793
-  %.pre.i610 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit611
+._crit_edge.i607:                                 ; preds = %793
+  %.pre.i609 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit610
 
 800:                                              ; preds = %793
   %801 = add i32 %799, 25
@@ -1671,8 +1671,8 @@ yy_push_state.exit601:                            ; preds = %._crit_edge.i598, %
   %802 = sext i32 %801 to i64
   %803 = shl nsw i64 %802, 2
   %804 = load ptr, ptr %67, align 8
-  %.not18.i603 = icmp eq ptr %804, null
-  br i1 %.not18.i603, label %805, label %807
+  %.not18.i602 = icmp eq ptr %804, null
+  br i1 %.not18.i602, label %805, label %807
 
 805:                                              ; preds = %800
   %806 = tail call noalias ptr @malloc(i64 noundef %803) #34
@@ -1683,22 +1683,22 @@ yy_push_state.exit601:                            ; preds = %._crit_edge.i598, %
   br label %809
 
 809:                                              ; preds = %807, %805
-  %storemerge.i604 = phi ptr [ %806, %805 ], [ %808, %807 ]
-  store ptr %storemerge.i604, ptr %67, align 8
-  %.not19.i605 = icmp eq ptr %storemerge.i604, null
-  br i1 %.not19.i605, label %810, label %._crit_edge20.i606
+  %storemerge.i603 = phi ptr [ %806, %805 ], [ %808, %807 ]
+  store ptr %storemerge.i603, ptr %67, align 8
+  %.not19.i604 = icmp eq ptr %storemerge.i603, null
+  br i1 %.not19.i604, label %810, label %._crit_edge20.i605
 
-._crit_edge20.i606:                               ; preds = %809
-  %.pre21.i607 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit611
+._crit_edge20.i605:                               ; preds = %809
+  %.pre21.i606 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit610
 
 810:                                              ; preds = %809
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit611:                            ; preds = %._crit_edge.i608, %._crit_edge20.i606
-  %811 = phi i32 [ %798, %._crit_edge.i608 ], [ %.pre21.i607, %._crit_edge20.i606 ]
-  %812 = phi ptr [ %.pre.i610, %._crit_edge.i608 ], [ %storemerge.i604, %._crit_edge20.i606 ]
+yy_push_state.exit610:                            ; preds = %._crit_edge.i607, %._crit_edge20.i605
+  %811 = phi i32 [ %798, %._crit_edge.i607 ], [ %.pre21.i606, %._crit_edge20.i605 ]
+  %812 = phi ptr [ %.pre.i609, %._crit_edge.i607 ], [ %storemerge.i603, %._crit_edge20.i605 ]
   %813 = load i32, ptr %55, align 4
   %814 = add i32 %813, -1
   %815 = sdiv i32 %814, 2
@@ -1720,12 +1720,12 @@ yy_push_state.exit611:                            ; preds = %._crit_edge.i608, %
   store ptr %823, ptr %824, align 8
   %825 = load i32, ptr %65, align 4
   %826 = load i32, ptr %66, align 8
-  %.not.i612 = icmp slt i32 %825, %826
-  br i1 %.not.i612, label %._crit_edge.i618, label %827
+  %.not.i611 = icmp slt i32 %825, %826
+  br i1 %.not.i611, label %._crit_edge.i617, label %827
 
-._crit_edge.i618:                                 ; preds = %819
-  %.pre.i620 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit621
+._crit_edge.i617:                                 ; preds = %819
+  %.pre.i619 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit620
 
 827:                                              ; preds = %819
   %828 = add i32 %826, 25
@@ -1733,8 +1733,8 @@ yy_push_state.exit611:                            ; preds = %._crit_edge.i608, %
   %829 = sext i32 %828 to i64
   %830 = shl nsw i64 %829, 2
   %831 = load ptr, ptr %67, align 8
-  %.not18.i613 = icmp eq ptr %831, null
-  br i1 %.not18.i613, label %832, label %834
+  %.not18.i612 = icmp eq ptr %831, null
+  br i1 %.not18.i612, label %832, label %834
 
 832:                                              ; preds = %827
   %833 = tail call noalias ptr @malloc(i64 noundef %830) #34
@@ -1745,22 +1745,22 @@ yy_push_state.exit611:                            ; preds = %._crit_edge.i608, %
   br label %836
 
 836:                                              ; preds = %834, %832
-  %storemerge.i614 = phi ptr [ %833, %832 ], [ %835, %834 ]
-  store ptr %storemerge.i614, ptr %67, align 8
-  %.not19.i615 = icmp eq ptr %storemerge.i614, null
-  br i1 %.not19.i615, label %837, label %._crit_edge20.i616
+  %storemerge.i613 = phi ptr [ %833, %832 ], [ %835, %834 ]
+  store ptr %storemerge.i613, ptr %67, align 8
+  %.not19.i614 = icmp eq ptr %storemerge.i613, null
+  br i1 %.not19.i614, label %837, label %._crit_edge20.i615
 
-._crit_edge20.i616:                               ; preds = %836
-  %.pre21.i617 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit621
+._crit_edge20.i615:                               ; preds = %836
+  %.pre21.i616 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit620
 
 837:                                              ; preds = %836
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit621:                            ; preds = %._crit_edge.i618, %._crit_edge20.i616
-  %838 = phi i32 [ %825, %._crit_edge.i618 ], [ %.pre21.i617, %._crit_edge20.i616 ]
-  %839 = phi ptr [ %.pre.i620, %._crit_edge.i618 ], [ %storemerge.i614, %._crit_edge20.i616 ]
+yy_push_state.exit620:                            ; preds = %._crit_edge.i617, %._crit_edge20.i615
+  %838 = phi i32 [ %825, %._crit_edge.i617 ], [ %.pre21.i616, %._crit_edge20.i615 ]
+  %839 = phi ptr [ %.pre.i619, %._crit_edge.i617 ], [ %storemerge.i613, %._crit_edge20.i615 ]
   %840 = load i32, ptr %55, align 4
   %841 = add i32 %840, -1
   %842 = sdiv i32 %841, 2
@@ -1782,12 +1782,12 @@ yy_push_state.exit621:                            ; preds = %._crit_edge.i618, %
   store ptr %850, ptr %851, align 8
   %852 = load i32, ptr %65, align 4
   %853 = load i32, ptr %66, align 8
-  %.not.i622 = icmp slt i32 %852, %853
-  br i1 %.not.i622, label %._crit_edge.i628, label %854
+  %.not.i621 = icmp slt i32 %852, %853
+  br i1 %.not.i621, label %._crit_edge.i627, label %854
 
-._crit_edge.i628:                                 ; preds = %846
-  %.pre.i630 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit631
+._crit_edge.i627:                                 ; preds = %846
+  %.pre.i629 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit630
 
 854:                                              ; preds = %846
   %855 = add i32 %853, 25
@@ -1795,8 +1795,8 @@ yy_push_state.exit621:                            ; preds = %._crit_edge.i618, %
   %856 = sext i32 %855 to i64
   %857 = shl nsw i64 %856, 2
   %858 = load ptr, ptr %67, align 8
-  %.not18.i623 = icmp eq ptr %858, null
-  br i1 %.not18.i623, label %859, label %861
+  %.not18.i622 = icmp eq ptr %858, null
+  br i1 %.not18.i622, label %859, label %861
 
 859:                                              ; preds = %854
   %860 = tail call noalias ptr @malloc(i64 noundef %857) #34
@@ -1807,22 +1807,22 @@ yy_push_state.exit621:                            ; preds = %._crit_edge.i618, %
   br label %863
 
 863:                                              ; preds = %861, %859
-  %storemerge.i624 = phi ptr [ %860, %859 ], [ %862, %861 ]
-  store ptr %storemerge.i624, ptr %67, align 8
-  %.not19.i625 = icmp eq ptr %storemerge.i624, null
-  br i1 %.not19.i625, label %864, label %._crit_edge20.i626
+  %storemerge.i623 = phi ptr [ %860, %859 ], [ %862, %861 ]
+  store ptr %storemerge.i623, ptr %67, align 8
+  %.not19.i624 = icmp eq ptr %storemerge.i623, null
+  br i1 %.not19.i624, label %864, label %._crit_edge20.i625
 
-._crit_edge20.i626:                               ; preds = %863
-  %.pre21.i627 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit631
+._crit_edge20.i625:                               ; preds = %863
+  %.pre21.i626 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit630
 
 864:                                              ; preds = %863
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit631:                            ; preds = %._crit_edge.i628, %._crit_edge20.i626
-  %865 = phi i32 [ %852, %._crit_edge.i628 ], [ %.pre21.i627, %._crit_edge20.i626 ]
-  %866 = phi ptr [ %.pre.i630, %._crit_edge.i628 ], [ %storemerge.i624, %._crit_edge20.i626 ]
+yy_push_state.exit630:                            ; preds = %._crit_edge.i627, %._crit_edge20.i625
+  %865 = phi i32 [ %852, %._crit_edge.i627 ], [ %.pre21.i626, %._crit_edge20.i625 ]
+  %866 = phi ptr [ %.pre.i629, %._crit_edge.i627 ], [ %storemerge.i623, %._crit_edge20.i625 ]
   %867 = load i32, ptr %55, align 4
   %868 = add i32 %867, -1
   %869 = sdiv i32 %868, 2
@@ -1896,12 +1896,12 @@ yy_push_state.exit631:                            ; preds = %._crit_edge.i628, %
   store ptr %908, ptr %909, align 8
   %910 = load i32, ptr %65, align 4
   %911 = load i32, ptr %66, align 8
-  %.not.i632 = icmp slt i32 %910, %911
-  br i1 %.not.i632, label %._crit_edge.i638, label %912
+  %.not.i631 = icmp slt i32 %910, %911
+  br i1 %.not.i631, label %._crit_edge.i637, label %912
 
-._crit_edge.i638:                                 ; preds = %904
-  %.pre.i640 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit641
+._crit_edge.i637:                                 ; preds = %904
+  %.pre.i639 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit640
 
 912:                                              ; preds = %904
   %913 = add i32 %911, 25
@@ -1909,8 +1909,8 @@ yy_push_state.exit631:                            ; preds = %._crit_edge.i628, %
   %914 = sext i32 %913 to i64
   %915 = shl nsw i64 %914, 2
   %916 = load ptr, ptr %67, align 8
-  %.not18.i633 = icmp eq ptr %916, null
-  br i1 %.not18.i633, label %917, label %919
+  %.not18.i632 = icmp eq ptr %916, null
+  br i1 %.not18.i632, label %917, label %919
 
 917:                                              ; preds = %912
   %918 = tail call noalias ptr @malloc(i64 noundef %915) #34
@@ -1921,22 +1921,22 @@ yy_push_state.exit631:                            ; preds = %._crit_edge.i628, %
   br label %921
 
 921:                                              ; preds = %919, %917
-  %storemerge.i634 = phi ptr [ %918, %917 ], [ %920, %919 ]
-  store ptr %storemerge.i634, ptr %67, align 8
-  %.not19.i635 = icmp eq ptr %storemerge.i634, null
-  br i1 %.not19.i635, label %922, label %._crit_edge20.i636
+  %storemerge.i633 = phi ptr [ %918, %917 ], [ %920, %919 ]
+  store ptr %storemerge.i633, ptr %67, align 8
+  %.not19.i634 = icmp eq ptr %storemerge.i633, null
+  br i1 %.not19.i634, label %922, label %._crit_edge20.i635
 
-._crit_edge20.i636:                               ; preds = %921
-  %.pre21.i637 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit641
+._crit_edge20.i635:                               ; preds = %921
+  %.pre21.i636 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit640
 
 922:                                              ; preds = %921
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit641:                            ; preds = %._crit_edge.i638, %._crit_edge20.i636
-  %923 = phi i32 [ %910, %._crit_edge.i638 ], [ %.pre21.i637, %._crit_edge20.i636 ]
-  %924 = phi ptr [ %.pre.i640, %._crit_edge.i638 ], [ %storemerge.i634, %._crit_edge20.i636 ]
+yy_push_state.exit640:                            ; preds = %._crit_edge.i637, %._crit_edge20.i635
+  %923 = phi i32 [ %910, %._crit_edge.i637 ], [ %.pre21.i636, %._crit_edge20.i635 ]
+  %924 = phi ptr [ %.pre.i639, %._crit_edge.i637 ], [ %storemerge.i633, %._crit_edge20.i635 ]
   %925 = load i32, ptr %55, align 4
   %926 = add i32 %925, -1
   %927 = sdiv i32 %926, 2
@@ -1957,12 +1957,12 @@ yy_push_state.exit641:                            ; preds = %._crit_edge.i638, %
   store ptr %934, ptr %935, align 8
   %936 = load i32, ptr %65, align 4
   %937 = load i32, ptr %66, align 8
-  %.not.i642 = icmp slt i32 %936, %937
-  br i1 %.not.i642, label %._crit_edge.i648, label %938
+  %.not.i641 = icmp slt i32 %936, %937
+  br i1 %.not.i641, label %._crit_edge.i647, label %938
 
-._crit_edge.i648:                                 ; preds = %931
-  %.pre.i650 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit651
+._crit_edge.i647:                                 ; preds = %931
+  %.pre.i649 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit650
 
 938:                                              ; preds = %931
   %939 = add i32 %937, 25
@@ -1970,8 +1970,8 @@ yy_push_state.exit641:                            ; preds = %._crit_edge.i638, %
   %940 = sext i32 %939 to i64
   %941 = shl nsw i64 %940, 2
   %942 = load ptr, ptr %67, align 8
-  %.not18.i643 = icmp eq ptr %942, null
-  br i1 %.not18.i643, label %943, label %945
+  %.not18.i642 = icmp eq ptr %942, null
+  br i1 %.not18.i642, label %943, label %945
 
 943:                                              ; preds = %938
   %944 = tail call noalias ptr @malloc(i64 noundef %941) #34
@@ -1982,22 +1982,22 @@ yy_push_state.exit641:                            ; preds = %._crit_edge.i638, %
   br label %947
 
 947:                                              ; preds = %945, %943
-  %storemerge.i644 = phi ptr [ %944, %943 ], [ %946, %945 ]
-  store ptr %storemerge.i644, ptr %67, align 8
-  %.not19.i645 = icmp eq ptr %storemerge.i644, null
-  br i1 %.not19.i645, label %948, label %._crit_edge20.i646
+  %storemerge.i643 = phi ptr [ %944, %943 ], [ %946, %945 ]
+  store ptr %storemerge.i643, ptr %67, align 8
+  %.not19.i644 = icmp eq ptr %storemerge.i643, null
+  br i1 %.not19.i644, label %948, label %._crit_edge20.i645
 
-._crit_edge20.i646:                               ; preds = %947
-  %.pre21.i647 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit651
+._crit_edge20.i645:                               ; preds = %947
+  %.pre21.i646 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit650
 
 948:                                              ; preds = %947
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit651:                            ; preds = %._crit_edge.i648, %._crit_edge20.i646
-  %949 = phi i32 [ %936, %._crit_edge.i648 ], [ %.pre21.i647, %._crit_edge20.i646 ]
-  %950 = phi ptr [ %.pre.i650, %._crit_edge.i648 ], [ %storemerge.i644, %._crit_edge20.i646 ]
+yy_push_state.exit650:                            ; preds = %._crit_edge.i647, %._crit_edge20.i645
+  %949 = phi i32 [ %936, %._crit_edge.i647 ], [ %.pre21.i646, %._crit_edge20.i645 ]
+  %950 = phi ptr [ %.pre.i649, %._crit_edge.i647 ], [ %storemerge.i643, %._crit_edge20.i645 ]
   %951 = load i32, ptr %55, align 4
   %952 = add i32 %951, -1
   %953 = sdiv i32 %952, 2
@@ -2019,12 +2019,12 @@ yy_push_state.exit651:                            ; preds = %._crit_edge.i648, %
   store ptr %961, ptr %962, align 8
   %963 = load i32, ptr %65, align 4
   %964 = load i32, ptr %66, align 8
-  %.not.i652 = icmp slt i32 %963, %964
-  br i1 %.not.i652, label %._crit_edge.i658, label %965
+  %.not.i651 = icmp slt i32 %963, %964
+  br i1 %.not.i651, label %._crit_edge.i657, label %965
 
-._crit_edge.i658:                                 ; preds = %957
-  %.pre.i660 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit661
+._crit_edge.i657:                                 ; preds = %957
+  %.pre.i659 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit660
 
 965:                                              ; preds = %957
   %966 = add i32 %964, 25
@@ -2032,8 +2032,8 @@ yy_push_state.exit651:                            ; preds = %._crit_edge.i648, %
   %967 = sext i32 %966 to i64
   %968 = shl nsw i64 %967, 2
   %969 = load ptr, ptr %67, align 8
-  %.not18.i653 = icmp eq ptr %969, null
-  br i1 %.not18.i653, label %970, label %972
+  %.not18.i652 = icmp eq ptr %969, null
+  br i1 %.not18.i652, label %970, label %972
 
 970:                                              ; preds = %965
   %971 = tail call noalias ptr @malloc(i64 noundef %968) #34
@@ -2044,22 +2044,22 @@ yy_push_state.exit651:                            ; preds = %._crit_edge.i648, %
   br label %974
 
 974:                                              ; preds = %972, %970
-  %storemerge.i654 = phi ptr [ %971, %970 ], [ %973, %972 ]
-  store ptr %storemerge.i654, ptr %67, align 8
-  %.not19.i655 = icmp eq ptr %storemerge.i654, null
-  br i1 %.not19.i655, label %975, label %._crit_edge20.i656
+  %storemerge.i653 = phi ptr [ %971, %970 ], [ %973, %972 ]
+  store ptr %storemerge.i653, ptr %67, align 8
+  %.not19.i654 = icmp eq ptr %storemerge.i653, null
+  br i1 %.not19.i654, label %975, label %._crit_edge20.i655
 
-._crit_edge20.i656:                               ; preds = %974
-  %.pre21.i657 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit661
+._crit_edge20.i655:                               ; preds = %974
+  %.pre21.i656 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit660
 
 975:                                              ; preds = %974
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit661:                            ; preds = %._crit_edge.i658, %._crit_edge20.i656
-  %976 = phi i32 [ %963, %._crit_edge.i658 ], [ %.pre21.i657, %._crit_edge20.i656 ]
-  %977 = phi ptr [ %.pre.i660, %._crit_edge.i658 ], [ %storemerge.i654, %._crit_edge20.i656 ]
+yy_push_state.exit660:                            ; preds = %._crit_edge.i657, %._crit_edge20.i655
+  %976 = phi i32 [ %963, %._crit_edge.i657 ], [ %.pre21.i656, %._crit_edge20.i655 ]
+  %977 = phi ptr [ %.pre.i659, %._crit_edge.i657 ], [ %storemerge.i653, %._crit_edge20.i655 ]
   %978 = load i32, ptr %55, align 4
   %979 = add i32 %978, -1
   %980 = sdiv i32 %979, 2
@@ -2136,12 +2136,12 @@ yy_push_state.exit661:                            ; preds = %._crit_edge.i658, %
   store ptr %1019, ptr %1020, align 8
   %1021 = load i32, ptr %65, align 4
   %1022 = load i32, ptr %66, align 8
-  %.not.i662 = icmp slt i32 %1021, %1022
-  br i1 %.not.i662, label %._crit_edge.i668, label %1023
+  %.not.i661 = icmp slt i32 %1021, %1022
+  br i1 %.not.i661, label %._crit_edge.i667, label %1023
 
-._crit_edge.i668:                                 ; preds = %1016
-  %.pre.i670 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit671
+._crit_edge.i667:                                 ; preds = %1016
+  %.pre.i669 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit670
 
 1023:                                             ; preds = %1016
   %1024 = add i32 %1022, 25
@@ -2149,8 +2149,8 @@ yy_push_state.exit661:                            ; preds = %._crit_edge.i658, %
   %1025 = sext i32 %1024 to i64
   %1026 = shl nsw i64 %1025, 2
   %1027 = load ptr, ptr %67, align 8
-  %.not18.i663 = icmp eq ptr %1027, null
-  br i1 %.not18.i663, label %1028, label %1030
+  %.not18.i662 = icmp eq ptr %1027, null
+  br i1 %.not18.i662, label %1028, label %1030
 
 1028:                                             ; preds = %1023
   %1029 = tail call noalias ptr @malloc(i64 noundef %1026) #34
@@ -2161,22 +2161,22 @@ yy_push_state.exit661:                            ; preds = %._crit_edge.i658, %
   br label %1032
 
 1032:                                             ; preds = %1030, %1028
-  %storemerge.i664 = phi ptr [ %1029, %1028 ], [ %1031, %1030 ]
-  store ptr %storemerge.i664, ptr %67, align 8
-  %.not19.i665 = icmp eq ptr %storemerge.i664, null
-  br i1 %.not19.i665, label %1033, label %._crit_edge20.i666
+  %storemerge.i663 = phi ptr [ %1029, %1028 ], [ %1031, %1030 ]
+  store ptr %storemerge.i663, ptr %67, align 8
+  %.not19.i664 = icmp eq ptr %storemerge.i663, null
+  br i1 %.not19.i664, label %1033, label %._crit_edge20.i665
 
-._crit_edge20.i666:                               ; preds = %1032
-  %.pre21.i667 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit671
+._crit_edge20.i665:                               ; preds = %1032
+  %.pre21.i666 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit670
 
 1033:                                             ; preds = %1032
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit671:                            ; preds = %._crit_edge.i668, %._crit_edge20.i666
-  %1034 = phi i32 [ %1021, %._crit_edge.i668 ], [ %.pre21.i667, %._crit_edge20.i666 ]
-  %1035 = phi ptr [ %.pre.i670, %._crit_edge.i668 ], [ %storemerge.i664, %._crit_edge20.i666 ]
+yy_push_state.exit670:                            ; preds = %._crit_edge.i667, %._crit_edge20.i665
+  %1034 = phi i32 [ %1021, %._crit_edge.i667 ], [ %.pre21.i666, %._crit_edge20.i665 ]
+  %1035 = phi ptr [ %.pre.i669, %._crit_edge.i667 ], [ %storemerge.i663, %._crit_edge20.i665 ]
   %1036 = load i32, ptr %55, align 4
   %1037 = add i32 %1036, -1
   %1038 = sdiv i32 %1037, 2
@@ -2198,12 +2198,12 @@ yy_push_state.exit671:                            ; preds = %._crit_edge.i668, %
   store ptr %1046, ptr %1047, align 8
   %1048 = load i32, ptr %65, align 4
   %1049 = load i32, ptr %66, align 8
-  %.not.i672 = icmp slt i32 %1048, %1049
-  br i1 %.not.i672, label %._crit_edge.i678, label %1050
+  %.not.i671 = icmp slt i32 %1048, %1049
+  br i1 %.not.i671, label %._crit_edge.i677, label %1050
 
-._crit_edge.i678:                                 ; preds = %1042
-  %.pre.i680 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit681
+._crit_edge.i677:                                 ; preds = %1042
+  %.pre.i679 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit680
 
 1050:                                             ; preds = %1042
   %1051 = add i32 %1049, 25
@@ -2211,8 +2211,8 @@ yy_push_state.exit671:                            ; preds = %._crit_edge.i668, %
   %1052 = sext i32 %1051 to i64
   %1053 = shl nsw i64 %1052, 2
   %1054 = load ptr, ptr %67, align 8
-  %.not18.i673 = icmp eq ptr %1054, null
-  br i1 %.not18.i673, label %1055, label %1057
+  %.not18.i672 = icmp eq ptr %1054, null
+  br i1 %.not18.i672, label %1055, label %1057
 
 1055:                                             ; preds = %1050
   %1056 = tail call noalias ptr @malloc(i64 noundef %1053) #34
@@ -2223,22 +2223,22 @@ yy_push_state.exit671:                            ; preds = %._crit_edge.i668, %
   br label %1059
 
 1059:                                             ; preds = %1057, %1055
-  %storemerge.i674 = phi ptr [ %1056, %1055 ], [ %1058, %1057 ]
-  store ptr %storemerge.i674, ptr %67, align 8
-  %.not19.i675 = icmp eq ptr %storemerge.i674, null
-  br i1 %.not19.i675, label %1060, label %._crit_edge20.i676
+  %storemerge.i673 = phi ptr [ %1056, %1055 ], [ %1058, %1057 ]
+  store ptr %storemerge.i673, ptr %67, align 8
+  %.not19.i674 = icmp eq ptr %storemerge.i673, null
+  br i1 %.not19.i674, label %1060, label %._crit_edge20.i675
 
-._crit_edge20.i676:                               ; preds = %1059
-  %.pre21.i677 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit681
+._crit_edge20.i675:                               ; preds = %1059
+  %.pre21.i676 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit680
 
 1060:                                             ; preds = %1059
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit681:                            ; preds = %._crit_edge.i678, %._crit_edge20.i676
-  %1061 = phi i32 [ %1048, %._crit_edge.i678 ], [ %.pre21.i677, %._crit_edge20.i676 ]
-  %1062 = phi ptr [ %.pre.i680, %._crit_edge.i678 ], [ %storemerge.i674, %._crit_edge20.i676 ]
+yy_push_state.exit680:                            ; preds = %._crit_edge.i677, %._crit_edge20.i675
+  %1061 = phi i32 [ %1048, %._crit_edge.i677 ], [ %.pre21.i676, %._crit_edge20.i675 ]
+  %1062 = phi ptr [ %.pre.i679, %._crit_edge.i677 ], [ %storemerge.i673, %._crit_edge20.i675 ]
   %1063 = load i32, ptr %55, align 4
   %1064 = add i32 %1063, -1
   %1065 = sdiv i32 %1064, 2
@@ -2336,12 +2336,12 @@ yy_push_state.exit681:                            ; preds = %._crit_edge.i678, %
   store ptr %1123, ptr %1124, align 8
   %1125 = load i32, ptr %65, align 4
   %1126 = load i32, ptr %66, align 8
-  %.not.i682 = icmp slt i32 %1125, %1126
-  br i1 %.not.i682, label %._crit_edge.i688, label %1127
+  %.not.i681 = icmp slt i32 %1125, %1126
+  br i1 %.not.i681, label %._crit_edge.i687, label %1127
 
-._crit_edge.i688:                                 ; preds = %1120
-  %.pre.i690 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit691
+._crit_edge.i687:                                 ; preds = %1120
+  %.pre.i689 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit690
 
 1127:                                             ; preds = %1120
   %1128 = add i32 %1126, 25
@@ -2349,8 +2349,8 @@ yy_push_state.exit681:                            ; preds = %._crit_edge.i678, %
   %1129 = sext i32 %1128 to i64
   %1130 = shl nsw i64 %1129, 2
   %1131 = load ptr, ptr %67, align 8
-  %.not18.i683 = icmp eq ptr %1131, null
-  br i1 %.not18.i683, label %1132, label %1134
+  %.not18.i682 = icmp eq ptr %1131, null
+  br i1 %.not18.i682, label %1132, label %1134
 
 1132:                                             ; preds = %1127
   %1133 = tail call noalias ptr @malloc(i64 noundef %1130) #34
@@ -2361,22 +2361,22 @@ yy_push_state.exit681:                            ; preds = %._crit_edge.i678, %
   br label %1136
 
 1136:                                             ; preds = %1134, %1132
-  %storemerge.i684 = phi ptr [ %1133, %1132 ], [ %1135, %1134 ]
-  store ptr %storemerge.i684, ptr %67, align 8
-  %.not19.i685 = icmp eq ptr %storemerge.i684, null
-  br i1 %.not19.i685, label %1137, label %._crit_edge20.i686
+  %storemerge.i683 = phi ptr [ %1133, %1132 ], [ %1135, %1134 ]
+  store ptr %storemerge.i683, ptr %67, align 8
+  %.not19.i684 = icmp eq ptr %storemerge.i683, null
+  br i1 %.not19.i684, label %1137, label %._crit_edge20.i685
 
-._crit_edge20.i686:                               ; preds = %1136
-  %.pre21.i687 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit691
+._crit_edge20.i685:                               ; preds = %1136
+  %.pre21.i686 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit690
 
 1137:                                             ; preds = %1136
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit691:                            ; preds = %._crit_edge.i688, %._crit_edge20.i686
-  %1138 = phi i32 [ %1125, %._crit_edge.i688 ], [ %.pre21.i687, %._crit_edge20.i686 ]
-  %1139 = phi ptr [ %.pre.i690, %._crit_edge.i688 ], [ %storemerge.i684, %._crit_edge20.i686 ]
+yy_push_state.exit690:                            ; preds = %._crit_edge.i687, %._crit_edge20.i685
+  %1138 = phi i32 [ %1125, %._crit_edge.i687 ], [ %.pre21.i686, %._crit_edge20.i685 ]
+  %1139 = phi ptr [ %.pre.i689, %._crit_edge.i687 ], [ %storemerge.i683, %._crit_edge20.i685 ]
   %1140 = load i32, ptr %55, align 4
   %1141 = add i32 %1140, -1
   %1142 = sdiv i32 %1141, 2
@@ -2398,12 +2398,12 @@ yy_push_state.exit691:                            ; preds = %._crit_edge.i688, %
   store ptr %1150, ptr %1151, align 8
   %1152 = load i32, ptr %65, align 4
   %1153 = load i32, ptr %66, align 8
-  %.not.i692 = icmp slt i32 %1152, %1153
-  br i1 %.not.i692, label %._crit_edge.i698, label %1154
+  %.not.i691 = icmp slt i32 %1152, %1153
+  br i1 %.not.i691, label %._crit_edge.i697, label %1154
 
-._crit_edge.i698:                                 ; preds = %1146
-  %.pre.i700 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit701
+._crit_edge.i697:                                 ; preds = %1146
+  %.pre.i699 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit700
 
 1154:                                             ; preds = %1146
   %1155 = add i32 %1153, 25
@@ -2411,8 +2411,8 @@ yy_push_state.exit691:                            ; preds = %._crit_edge.i688, %
   %1156 = sext i32 %1155 to i64
   %1157 = shl nsw i64 %1156, 2
   %1158 = load ptr, ptr %67, align 8
-  %.not18.i693 = icmp eq ptr %1158, null
-  br i1 %.not18.i693, label %1159, label %1161
+  %.not18.i692 = icmp eq ptr %1158, null
+  br i1 %.not18.i692, label %1159, label %1161
 
 1159:                                             ; preds = %1154
   %1160 = tail call noalias ptr @malloc(i64 noundef %1157) #34
@@ -2423,22 +2423,22 @@ yy_push_state.exit691:                            ; preds = %._crit_edge.i688, %
   br label %1163
 
 1163:                                             ; preds = %1161, %1159
-  %storemerge.i694 = phi ptr [ %1160, %1159 ], [ %1162, %1161 ]
-  store ptr %storemerge.i694, ptr %67, align 8
-  %.not19.i695 = icmp eq ptr %storemerge.i694, null
-  br i1 %.not19.i695, label %1164, label %._crit_edge20.i696
+  %storemerge.i693 = phi ptr [ %1160, %1159 ], [ %1162, %1161 ]
+  store ptr %storemerge.i693, ptr %67, align 8
+  %.not19.i694 = icmp eq ptr %storemerge.i693, null
+  br i1 %.not19.i694, label %1164, label %._crit_edge20.i695
 
-._crit_edge20.i696:                               ; preds = %1163
-  %.pre21.i697 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit701
+._crit_edge20.i695:                               ; preds = %1163
+  %.pre21.i696 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit700
 
 1164:                                             ; preds = %1163
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit701:                            ; preds = %._crit_edge.i698, %._crit_edge20.i696
-  %1165 = phi i32 [ %1152, %._crit_edge.i698 ], [ %.pre21.i697, %._crit_edge20.i696 ]
-  %1166 = phi ptr [ %.pre.i700, %._crit_edge.i698 ], [ %storemerge.i694, %._crit_edge20.i696 ]
+yy_push_state.exit700:                            ; preds = %._crit_edge.i697, %._crit_edge20.i695
+  %1165 = phi i32 [ %1152, %._crit_edge.i697 ], [ %.pre21.i696, %._crit_edge20.i695 ]
+  %1166 = phi ptr [ %.pre.i699, %._crit_edge.i697 ], [ %storemerge.i693, %._crit_edge20.i695 ]
   %1167 = load i32, ptr %55, align 4
   %1168 = add i32 %1167, -1
   %1169 = sdiv i32 %1168, 2
@@ -2460,12 +2460,12 @@ yy_push_state.exit701:                            ; preds = %._crit_edge.i698, %
   store ptr %1177, ptr %1178, align 8
   %1179 = load i32, ptr %65, align 4
   %1180 = load i32, ptr %66, align 8
-  %.not.i702 = icmp slt i32 %1179, %1180
-  br i1 %.not.i702, label %._crit_edge.i708, label %1181
+  %.not.i701 = icmp slt i32 %1179, %1180
+  br i1 %.not.i701, label %._crit_edge.i707, label %1181
 
-._crit_edge.i708:                                 ; preds = %1173
-  %.pre.i710 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit711
+._crit_edge.i707:                                 ; preds = %1173
+  %.pre.i709 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit710
 
 1181:                                             ; preds = %1173
   %1182 = add i32 %1180, 25
@@ -2473,8 +2473,8 @@ yy_push_state.exit701:                            ; preds = %._crit_edge.i698, %
   %1183 = sext i32 %1182 to i64
   %1184 = shl nsw i64 %1183, 2
   %1185 = load ptr, ptr %67, align 8
-  %.not18.i703 = icmp eq ptr %1185, null
-  br i1 %.not18.i703, label %1186, label %1188
+  %.not18.i702 = icmp eq ptr %1185, null
+  br i1 %.not18.i702, label %1186, label %1188
 
 1186:                                             ; preds = %1181
   %1187 = tail call noalias ptr @malloc(i64 noundef %1184) #34
@@ -2485,22 +2485,22 @@ yy_push_state.exit701:                            ; preds = %._crit_edge.i698, %
   br label %1190
 
 1190:                                             ; preds = %1188, %1186
-  %storemerge.i704 = phi ptr [ %1187, %1186 ], [ %1189, %1188 ]
-  store ptr %storemerge.i704, ptr %67, align 8
-  %.not19.i705 = icmp eq ptr %storemerge.i704, null
-  br i1 %.not19.i705, label %1191, label %._crit_edge20.i706
+  %storemerge.i703 = phi ptr [ %1187, %1186 ], [ %1189, %1188 ]
+  store ptr %storemerge.i703, ptr %67, align 8
+  %.not19.i704 = icmp eq ptr %storemerge.i703, null
+  br i1 %.not19.i704, label %1191, label %._crit_edge20.i705
 
-._crit_edge20.i706:                               ; preds = %1190
-  %.pre21.i707 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit711
+._crit_edge20.i705:                               ; preds = %1190
+  %.pre21.i706 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit710
 
 1191:                                             ; preds = %1190
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit711:                            ; preds = %._crit_edge.i708, %._crit_edge20.i706
-  %1192 = phi i32 [ %1179, %._crit_edge.i708 ], [ %.pre21.i707, %._crit_edge20.i706 ]
-  %1193 = phi ptr [ %.pre.i710, %._crit_edge.i708 ], [ %storemerge.i704, %._crit_edge20.i706 ]
+yy_push_state.exit710:                            ; preds = %._crit_edge.i707, %._crit_edge20.i705
+  %1192 = phi i32 [ %1179, %._crit_edge.i707 ], [ %.pre21.i706, %._crit_edge20.i705 ]
+  %1193 = phi ptr [ %.pre.i709, %._crit_edge.i707 ], [ %storemerge.i703, %._crit_edge20.i705 ]
   %1194 = load i32, ptr %55, align 4
   %1195 = add i32 %1194, -1
   %1196 = sdiv i32 %1195, 2
@@ -2522,12 +2522,12 @@ yy_push_state.exit711:                            ; preds = %._crit_edge.i708, %
   store ptr %1204, ptr %1205, align 8
   %1206 = load i32, ptr %65, align 4
   %1207 = load i32, ptr %66, align 8
-  %.not.i712 = icmp slt i32 %1206, %1207
-  br i1 %.not.i712, label %._crit_edge.i718, label %1208
+  %.not.i711 = icmp slt i32 %1206, %1207
+  br i1 %.not.i711, label %._crit_edge.i717, label %1208
 
-._crit_edge.i718:                                 ; preds = %1200
-  %.pre.i720 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit721
+._crit_edge.i717:                                 ; preds = %1200
+  %.pre.i719 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit720
 
 1208:                                             ; preds = %1200
   %1209 = add i32 %1207, 25
@@ -2535,8 +2535,8 @@ yy_push_state.exit711:                            ; preds = %._crit_edge.i708, %
   %1210 = sext i32 %1209 to i64
   %1211 = shl nsw i64 %1210, 2
   %1212 = load ptr, ptr %67, align 8
-  %.not18.i713 = icmp eq ptr %1212, null
-  br i1 %.not18.i713, label %1213, label %1215
+  %.not18.i712 = icmp eq ptr %1212, null
+  br i1 %.not18.i712, label %1213, label %1215
 
 1213:                                             ; preds = %1208
   %1214 = tail call noalias ptr @malloc(i64 noundef %1211) #34
@@ -2547,22 +2547,22 @@ yy_push_state.exit711:                            ; preds = %._crit_edge.i708, %
   br label %1217
 
 1217:                                             ; preds = %1215, %1213
-  %storemerge.i714 = phi ptr [ %1214, %1213 ], [ %1216, %1215 ]
-  store ptr %storemerge.i714, ptr %67, align 8
-  %.not19.i715 = icmp eq ptr %storemerge.i714, null
-  br i1 %.not19.i715, label %1218, label %._crit_edge20.i716
+  %storemerge.i713 = phi ptr [ %1214, %1213 ], [ %1216, %1215 ]
+  store ptr %storemerge.i713, ptr %67, align 8
+  %.not19.i714 = icmp eq ptr %storemerge.i713, null
+  br i1 %.not19.i714, label %1218, label %._crit_edge20.i715
 
-._crit_edge20.i716:                               ; preds = %1217
-  %.pre21.i717 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit721
+._crit_edge20.i715:                               ; preds = %1217
+  %.pre21.i716 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit720
 
 1218:                                             ; preds = %1217
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit721:                            ; preds = %._crit_edge.i718, %._crit_edge20.i716
-  %1219 = phi i32 [ %1206, %._crit_edge.i718 ], [ %.pre21.i717, %._crit_edge20.i716 ]
-  %1220 = phi ptr [ %.pre.i720, %._crit_edge.i718 ], [ %storemerge.i714, %._crit_edge20.i716 ]
+yy_push_state.exit720:                            ; preds = %._crit_edge.i717, %._crit_edge20.i715
+  %1219 = phi i32 [ %1206, %._crit_edge.i717 ], [ %.pre21.i716, %._crit_edge20.i715 ]
+  %1220 = phi ptr [ %.pre.i719, %._crit_edge.i717 ], [ %storemerge.i713, %._crit_edge20.i715 ]
   %1221 = load i32, ptr %55, align 4
   %1222 = add i32 %1221, -1
   %1223 = sdiv i32 %1222, 2
@@ -2605,12 +2605,12 @@ yy_push_state.exit721:                            ; preds = %._crit_edge.i718, %
   store ptr %1240, ptr %1241, align 8
   %1242 = load i32, ptr %65, align 4
   %1243 = load i32, ptr %66, align 8
-  %.not.i722 = icmp slt i32 %1242, %1243
-  br i1 %.not.i722, label %._crit_edge.i728, label %1244
+  %.not.i721 = icmp slt i32 %1242, %1243
+  br i1 %.not.i721, label %._crit_edge.i727, label %1244
 
-._crit_edge.i728:                                 ; preds = %1236
-  %.pre.i730 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit731
+._crit_edge.i727:                                 ; preds = %1236
+  %.pre.i729 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit730
 
 1244:                                             ; preds = %1236
   %1245 = add i32 %1243, 25
@@ -2618,8 +2618,8 @@ yy_push_state.exit721:                            ; preds = %._crit_edge.i718, %
   %1246 = sext i32 %1245 to i64
   %1247 = shl nsw i64 %1246, 2
   %1248 = load ptr, ptr %67, align 8
-  %.not18.i723 = icmp eq ptr %1248, null
-  br i1 %.not18.i723, label %1249, label %1251
+  %.not18.i722 = icmp eq ptr %1248, null
+  br i1 %.not18.i722, label %1249, label %1251
 
 1249:                                             ; preds = %1244
   %1250 = tail call noalias ptr @malloc(i64 noundef %1247) #34
@@ -2630,22 +2630,22 @@ yy_push_state.exit721:                            ; preds = %._crit_edge.i718, %
   br label %1253
 
 1253:                                             ; preds = %1251, %1249
-  %storemerge.i724 = phi ptr [ %1250, %1249 ], [ %1252, %1251 ]
-  store ptr %storemerge.i724, ptr %67, align 8
-  %.not19.i725 = icmp eq ptr %storemerge.i724, null
-  br i1 %.not19.i725, label %1254, label %._crit_edge20.i726
+  %storemerge.i723 = phi ptr [ %1250, %1249 ], [ %1252, %1251 ]
+  store ptr %storemerge.i723, ptr %67, align 8
+  %.not19.i724 = icmp eq ptr %storemerge.i723, null
+  br i1 %.not19.i724, label %1254, label %._crit_edge20.i725
 
-._crit_edge20.i726:                               ; preds = %1253
-  %.pre21.i727 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit731
+._crit_edge20.i725:                               ; preds = %1253
+  %.pre21.i726 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit730
 
 1254:                                             ; preds = %1253
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit731:                            ; preds = %._crit_edge.i728, %._crit_edge20.i726
-  %1255 = phi i32 [ %1242, %._crit_edge.i728 ], [ %.pre21.i727, %._crit_edge20.i726 ]
-  %1256 = phi ptr [ %.pre.i730, %._crit_edge.i728 ], [ %storemerge.i724, %._crit_edge20.i726 ]
+yy_push_state.exit730:                            ; preds = %._crit_edge.i727, %._crit_edge20.i725
+  %1255 = phi i32 [ %1242, %._crit_edge.i727 ], [ %.pre21.i726, %._crit_edge20.i725 ]
+  %1256 = phi ptr [ %.pre.i729, %._crit_edge.i727 ], [ %storemerge.i723, %._crit_edge20.i725 ]
   %1257 = load i32, ptr %55, align 4
   %1258 = add i32 %1257, -1
   %1259 = sdiv i32 %1258, 2
@@ -2714,12 +2714,12 @@ yy_push_state.exit731:                            ; preds = %._crit_edge.i728, %
   store ptr %1296, ptr %1297, align 8
   %1298 = load i32, ptr %65, align 4
   %1299 = load i32, ptr %66, align 8
-  %.not.i732 = icmp slt i32 %1298, %1299
-  br i1 %.not.i732, label %._crit_edge.i738, label %1300
+  %.not.i731 = icmp slt i32 %1298, %1299
+  br i1 %.not.i731, label %._crit_edge.i737, label %1300
 
-._crit_edge.i738:                                 ; preds = %1293
-  %.pre.i740 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit741
+._crit_edge.i737:                                 ; preds = %1293
+  %.pre.i739 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit740
 
 1300:                                             ; preds = %1293
   %1301 = add i32 %1299, 25
@@ -2727,8 +2727,8 @@ yy_push_state.exit731:                            ; preds = %._crit_edge.i728, %
   %1302 = sext i32 %1301 to i64
   %1303 = shl nsw i64 %1302, 2
   %1304 = load ptr, ptr %67, align 8
-  %.not18.i733 = icmp eq ptr %1304, null
-  br i1 %.not18.i733, label %1305, label %1307
+  %.not18.i732 = icmp eq ptr %1304, null
+  br i1 %.not18.i732, label %1305, label %1307
 
 1305:                                             ; preds = %1300
   %1306 = tail call noalias ptr @malloc(i64 noundef %1303) #34
@@ -2739,22 +2739,22 @@ yy_push_state.exit731:                            ; preds = %._crit_edge.i728, %
   br label %1309
 
 1309:                                             ; preds = %1307, %1305
-  %storemerge.i734 = phi ptr [ %1306, %1305 ], [ %1308, %1307 ]
-  store ptr %storemerge.i734, ptr %67, align 8
-  %.not19.i735 = icmp eq ptr %storemerge.i734, null
-  br i1 %.not19.i735, label %1310, label %._crit_edge20.i736
+  %storemerge.i733 = phi ptr [ %1306, %1305 ], [ %1308, %1307 ]
+  store ptr %storemerge.i733, ptr %67, align 8
+  %.not19.i734 = icmp eq ptr %storemerge.i733, null
+  br i1 %.not19.i734, label %1310, label %._crit_edge20.i735
 
-._crit_edge20.i736:                               ; preds = %1309
-  %.pre21.i737 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit741
+._crit_edge20.i735:                               ; preds = %1309
+  %.pre21.i736 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit740
 
 1310:                                             ; preds = %1309
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit741:                            ; preds = %._crit_edge.i738, %._crit_edge20.i736
-  %1311 = phi i32 [ %1298, %._crit_edge.i738 ], [ %.pre21.i737, %._crit_edge20.i736 ]
-  %1312 = phi ptr [ %.pre.i740, %._crit_edge.i738 ], [ %storemerge.i734, %._crit_edge20.i736 ]
+yy_push_state.exit740:                            ; preds = %._crit_edge.i737, %._crit_edge20.i735
+  %1311 = phi i32 [ %1298, %._crit_edge.i737 ], [ %.pre21.i736, %._crit_edge20.i735 ]
+  %1312 = phi ptr [ %.pre.i739, %._crit_edge.i737 ], [ %storemerge.i733, %._crit_edge20.i735 ]
   %1313 = load i32, ptr %55, align 4
   %1314 = add i32 %1313, -1
   %1315 = sdiv i32 %1314, 2
@@ -2823,12 +2823,12 @@ yy_push_state.exit741:                            ; preds = %._crit_edge.i738, %
   store ptr %1352, ptr %1353, align 8
   %1354 = load i32, ptr %65, align 4
   %1355 = load i32, ptr %66, align 8
-  %.not.i742 = icmp slt i32 %1354, %1355
-  br i1 %.not.i742, label %._crit_edge.i748, label %1356
+  %.not.i741 = icmp slt i32 %1354, %1355
+  br i1 %.not.i741, label %._crit_edge.i747, label %1356
 
-._crit_edge.i748:                                 ; preds = %1349
-  %.pre.i750 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit751
+._crit_edge.i747:                                 ; preds = %1349
+  %.pre.i749 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit750
 
 1356:                                             ; preds = %1349
   %1357 = add i32 %1355, 25
@@ -2836,8 +2836,8 @@ yy_push_state.exit741:                            ; preds = %._crit_edge.i738, %
   %1358 = sext i32 %1357 to i64
   %1359 = shl nsw i64 %1358, 2
   %1360 = load ptr, ptr %67, align 8
-  %.not18.i743 = icmp eq ptr %1360, null
-  br i1 %.not18.i743, label %1361, label %1363
+  %.not18.i742 = icmp eq ptr %1360, null
+  br i1 %.not18.i742, label %1361, label %1363
 
 1361:                                             ; preds = %1356
   %1362 = tail call noalias ptr @malloc(i64 noundef %1359) #34
@@ -2848,22 +2848,22 @@ yy_push_state.exit741:                            ; preds = %._crit_edge.i738, %
   br label %1365
 
 1365:                                             ; preds = %1363, %1361
-  %storemerge.i744 = phi ptr [ %1362, %1361 ], [ %1364, %1363 ]
-  store ptr %storemerge.i744, ptr %67, align 8
-  %.not19.i745 = icmp eq ptr %storemerge.i744, null
-  br i1 %.not19.i745, label %1366, label %._crit_edge20.i746
+  %storemerge.i743 = phi ptr [ %1362, %1361 ], [ %1364, %1363 ]
+  store ptr %storemerge.i743, ptr %67, align 8
+  %.not19.i744 = icmp eq ptr %storemerge.i743, null
+  br i1 %.not19.i744, label %1366, label %._crit_edge20.i745
 
-._crit_edge20.i746:                               ; preds = %1365
-  %.pre21.i747 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit751
+._crit_edge20.i745:                               ; preds = %1365
+  %.pre21.i746 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit750
 
 1366:                                             ; preds = %1365
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit751:                            ; preds = %._crit_edge.i748, %._crit_edge20.i746
-  %1367 = phi i32 [ %1354, %._crit_edge.i748 ], [ %.pre21.i747, %._crit_edge20.i746 ]
-  %1368 = phi ptr [ %.pre.i750, %._crit_edge.i748 ], [ %storemerge.i744, %._crit_edge20.i746 ]
+yy_push_state.exit750:                            ; preds = %._crit_edge.i747, %._crit_edge20.i745
+  %1367 = phi i32 [ %1354, %._crit_edge.i747 ], [ %.pre21.i746, %._crit_edge20.i745 ]
+  %1368 = phi ptr [ %.pre.i749, %._crit_edge.i747 ], [ %storemerge.i743, %._crit_edge20.i745 ]
   %1369 = load i32, ptr %55, align 4
   %1370 = add i32 %1369, -1
   %1371 = sdiv i32 %1370, 2
@@ -2885,12 +2885,12 @@ yy_push_state.exit751:                            ; preds = %._crit_edge.i748, %
   store ptr %1379, ptr %1380, align 8
   %1381 = load i32, ptr %65, align 4
   %1382 = load i32, ptr %66, align 8
-  %.not.i752 = icmp slt i32 %1381, %1382
-  br i1 %.not.i752, label %._crit_edge.i758, label %1383
+  %.not.i751 = icmp slt i32 %1381, %1382
+  br i1 %.not.i751, label %._crit_edge.i757, label %1383
 
-._crit_edge.i758:                                 ; preds = %1375
-  %.pre.i760 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit761
+._crit_edge.i757:                                 ; preds = %1375
+  %.pre.i759 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit760
 
 1383:                                             ; preds = %1375
   %1384 = add i32 %1382, 25
@@ -2898,8 +2898,8 @@ yy_push_state.exit751:                            ; preds = %._crit_edge.i748, %
   %1385 = sext i32 %1384 to i64
   %1386 = shl nsw i64 %1385, 2
   %1387 = load ptr, ptr %67, align 8
-  %.not18.i753 = icmp eq ptr %1387, null
-  br i1 %.not18.i753, label %1388, label %1390
+  %.not18.i752 = icmp eq ptr %1387, null
+  br i1 %.not18.i752, label %1388, label %1390
 
 1388:                                             ; preds = %1383
   %1389 = tail call noalias ptr @malloc(i64 noundef %1386) #34
@@ -2910,22 +2910,22 @@ yy_push_state.exit751:                            ; preds = %._crit_edge.i748, %
   br label %1392
 
 1392:                                             ; preds = %1390, %1388
-  %storemerge.i754 = phi ptr [ %1389, %1388 ], [ %1391, %1390 ]
-  store ptr %storemerge.i754, ptr %67, align 8
-  %.not19.i755 = icmp eq ptr %storemerge.i754, null
-  br i1 %.not19.i755, label %1393, label %._crit_edge20.i756
+  %storemerge.i753 = phi ptr [ %1389, %1388 ], [ %1391, %1390 ]
+  store ptr %storemerge.i753, ptr %67, align 8
+  %.not19.i754 = icmp eq ptr %storemerge.i753, null
+  br i1 %.not19.i754, label %1393, label %._crit_edge20.i755
 
-._crit_edge20.i756:                               ; preds = %1392
-  %.pre21.i757 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit761
+._crit_edge20.i755:                               ; preds = %1392
+  %.pre21.i756 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit760
 
 1393:                                             ; preds = %1392
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit761:                            ; preds = %._crit_edge.i758, %._crit_edge20.i756
-  %1394 = phi i32 [ %1381, %._crit_edge.i758 ], [ %.pre21.i757, %._crit_edge20.i756 ]
-  %1395 = phi ptr [ %.pre.i760, %._crit_edge.i758 ], [ %storemerge.i754, %._crit_edge20.i756 ]
+yy_push_state.exit760:                            ; preds = %._crit_edge.i757, %._crit_edge20.i755
+  %1394 = phi i32 [ %1381, %._crit_edge.i757 ], [ %.pre21.i756, %._crit_edge20.i755 ]
+  %1395 = phi ptr [ %.pre.i759, %._crit_edge.i757 ], [ %storemerge.i753, %._crit_edge20.i755 ]
   %1396 = load i32, ptr %55, align 4
   %1397 = add i32 %1396, -1
   %1398 = sdiv i32 %1397, 2
@@ -2975,12 +2975,12 @@ yy_push_state.exit761:                            ; preds = %._crit_edge.i758, %
   tail call void (ptr, ...) @ddict_debug(ptr noundef nonnull @.str.50, ptr noundef %1410)
   %1411 = load i32, ptr %65, align 4
   %1412 = load i32, ptr %66, align 8
-  %.not.i762 = icmp slt i32 %1411, %1412
-  br i1 %.not.i762, label %._crit_edge.i768, label %1413
+  %.not.i761 = icmp slt i32 %1411, %1412
+  br i1 %.not.i761, label %._crit_edge.i767, label %1413
 
-._crit_edge.i768:                                 ; preds = %1409
-  %.pre.i770 = load ptr, ptr %67, align 8
-  br label %yy_push_state.exit771
+._crit_edge.i767:                                 ; preds = %1409
+  %.pre.i769 = load ptr, ptr %67, align 8
+  br label %yy_push_state.exit770
 
 1413:                                             ; preds = %1409
   %1414 = add i32 %1412, 25
@@ -2988,8 +2988,8 @@ yy_push_state.exit761:                            ; preds = %._crit_edge.i758, %
   %1415 = sext i32 %1414 to i64
   %1416 = shl nsw i64 %1415, 2
   %1417 = load ptr, ptr %67, align 8
-  %.not18.i763 = icmp eq ptr %1417, null
-  br i1 %.not18.i763, label %1418, label %1420
+  %.not18.i762 = icmp eq ptr %1417, null
+  br i1 %.not18.i762, label %1418, label %1420
 
 1418:                                             ; preds = %1413
   %1419 = tail call noalias ptr @malloc(i64 noundef %1416) #34
@@ -3000,22 +3000,22 @@ yy_push_state.exit761:                            ; preds = %._crit_edge.i758, %
   br label %1422
 
 1422:                                             ; preds = %1420, %1418
-  %storemerge.i764 = phi ptr [ %1419, %1418 ], [ %1421, %1420 ]
-  store ptr %storemerge.i764, ptr %67, align 8
-  %.not19.i765 = icmp eq ptr %storemerge.i764, null
-  br i1 %.not19.i765, label %1423, label %._crit_edge20.i766
+  %storemerge.i763 = phi ptr [ %1419, %1418 ], [ %1421, %1420 ]
+  store ptr %storemerge.i763, ptr %67, align 8
+  %.not19.i764 = icmp eq ptr %storemerge.i763, null
+  br i1 %.not19.i764, label %1423, label %._crit_edge20.i765
 
-._crit_edge20.i766:                               ; preds = %1422
-  %.pre21.i767 = load i32, ptr %65, align 4
-  br label %yy_push_state.exit771
+._crit_edge20.i765:                               ; preds = %1422
+  %.pre21.i766 = load i32, ptr %65, align 4
+  br label %yy_push_state.exit770
 
 1423:                                             ; preds = %1422
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.75) #33
   unreachable
 
-yy_push_state.exit771:                            ; preds = %._crit_edge.i768, %._crit_edge20.i766
-  %1424 = phi i32 [ %1411, %._crit_edge.i768 ], [ %.pre21.i767, %._crit_edge20.i766 ]
-  %1425 = phi ptr [ %.pre.i770, %._crit_edge.i768 ], [ %storemerge.i764, %._crit_edge20.i766 ]
+yy_push_state.exit770:                            ; preds = %._crit_edge.i767, %._crit_edge20.i765
+  %1424 = phi i32 [ %1411, %._crit_edge.i767 ], [ %.pre21.i766, %._crit_edge20.i765 ]
+  %1425 = phi ptr [ %.pre.i769, %._crit_edge.i767 ], [ %storemerge.i763, %._crit_edge20.i765 ]
   %1426 = load i32, ptr %55, align 4
   %1427 = add i32 %1426, -1
   %1428 = sdiv i32 %1427, 2
@@ -3053,16 +3053,16 @@ yy_push_state.exit771:                            ; preds = %._crit_edge.i768, %
   %1450 = load ptr, ptr %1449, align 8
   %1451 = getelementptr inbounds nuw i8, ptr %1450, i64 56
   store i32 1, ptr %1451, align 8
-  %.pre1397 = load ptr, ptr %60, align 8
-  %.pre1398 = load i64, ptr %61, align 8
-  %.phi.trans.insert1399 = getelementptr ptr, ptr %.pre1397, i64 %.pre1398
-  %.pre1400 = load ptr, ptr %.phi.trans.insert1399, align 8
+  %.pre1396 = load ptr, ptr %60, align 8
+  %.pre1397 = load i64, ptr %61, align 8
+  %.phi.trans.insert1398 = getelementptr ptr, ptr %.pre1396, i64 %.pre1397
+  %.pre1399 = load ptr, ptr %.phi.trans.insert1398, align 8
   br label %1452
 
 1452:                                             ; preds = %1442, %1432
-  %1453 = phi ptr [ %.pre1400, %1442 ], [ %1438, %1432 ]
-  %1454 = phi i64 [ %.pre1398, %1442 ], [ %1436, %1432 ]
-  %1455 = phi ptr [ %.pre1397, %1442 ], [ %1435, %1432 ]
+  %1453 = phi ptr [ %.pre1399, %1442 ], [ %1438, %1432 ]
+  %1454 = phi i64 [ %.pre1397, %1442 ], [ %1436, %1432 ]
+  %1455 = phi ptr [ %.pre1396, %1442 ], [ %1435, %1432 ]
   %1456 = load ptr, ptr %53, align 8
   %1457 = getelementptr inbounds nuw i8, ptr %1453, i64 8
   %1458 = load ptr, ptr %1457, align 8
@@ -3086,12 +3086,12 @@ yy_push_state.exit771:                            ; preds = %._crit_edge.i768, %
   %1471 = icmp ult ptr %1467, %1469
   br i1 %1471, label %.lr.ph31.i, label %yy_get_previous_state.exit
 
-.lr.ph31.i:                                       ; preds = %1462, %._crit_edge.i774
-  %.02129.i = phi i32 [ %1511, %._crit_edge.i774 ], [ %1470, %1462 ]
-  %.02328.i = phi ptr [ %1512, %._crit_edge.i774 ], [ %1467, %1462 ]
+.lr.ph31.i:                                       ; preds = %1462, %._crit_edge.i773
+  %.02129.i = phi i32 [ %1511, %._crit_edge.i773 ], [ %1470, %1462 ]
+  %.02328.i = phi ptr [ %1512, %._crit_edge.i773 ], [ %1467, %1462 ]
   %1472 = load i8, ptr %.02328.i, align 1
-  %.not.i772 = icmp eq i8 %1472, 0
-  br i1 %.not.i772, label %1477, label %1473
+  %.not.i771 = icmp eq i8 %1472, 0
+  br i1 %.not.i771, label %1477, label %1473
 
 1473:                                             ; preds = %.lr.ph31.i
   %1474 = zext i8 %1472 to i64
@@ -3122,7 +3122,7 @@ yy_push_state.exit771:                            ; preds = %._crit_edge.i768, %
   %1490 = load i16, ptr %1489, align 2
   %1491 = sext i16 %1490 to i32
   %.not2526.i = icmp eq i32 %.02129.i, %1491
-  br i1 %.not2526.i, label %._crit_edge.i774, label %.lr.ph.i
+  br i1 %.not2526.i, label %._crit_edge.i773, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1483, %1500
   %1492 = phi i64 [ %1505, %1500 ], [ %1487, %1483 ]
@@ -3148,10 +3148,10 @@ yy_push_state.exit771:                            ; preds = %._crit_edge.i768, %
   %1506 = add nsw i64 %1504, %1505
   %1507 = getelementptr [1244 x i16], ptr @yy_chk, i64 0, i64 %1506
   %1508 = load i16, ptr %1507, align 2
-  %.not25.i773 = icmp eq i16 %1495, %1508
-  br i1 %.not25.i773, label %._crit_edge.i774, label %.lr.ph.i, !llvm.loop !11
+  %.not25.i772 = icmp eq i16 %1495, %1508
+  br i1 %.not25.i772, label %._crit_edge.i773, label %.lr.ph.i, !llvm.loop !11
 
-._crit_edge.i774:                                 ; preds = %1500, %1483
+._crit_edge.i773:                                 ; preds = %1500, %1483
   %.lcssa.i = phi i64 [ %1488, %1483 ], [ %1506, %1500 ]
   %1509 = getelementptr [1244 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i
   %1510 = load i16, ptr %1509, align 2
@@ -3160,13 +3160,13 @@ yy_push_state.exit771:                            ; preds = %._crit_edge.i768, %
   %exitcond.not.i = icmp eq ptr %1512, %1469
   br i1 %exitcond.not.i, label %yy_get_previous_state.exit, label %.lr.ph31.i, !llvm.loop !12
 
-yy_get_previous_state.exit:                       ; preds = %._crit_edge.i774, %1462
-  %.021.lcssa.i = phi i32 [ %1470, %1462 ], [ %1511, %._crit_edge.i774 ]
+yy_get_previous_state.exit:                       ; preds = %._crit_edge.i773, %1462
+  %.021.lcssa.i = phi i32 [ %1470, %1462 ], [ %1511, %._crit_edge.i773 ]
   %1513 = sext i32 %.021.lcssa.i to i64
   %1514 = getelementptr [482 x i16], ptr @yy_accept, i64 0, i64 %1513
   %1515 = load i16, ptr %1514, align 2
-  %.not.i775 = icmp eq i16 %1515, 0
-  br i1 %.not.i775, label %1517, label %1516
+  %.not.i774 = icmp eq i16 %1515, 0
+  br i1 %.not.i774, label %1517, label %1516
 
 1516:                                             ; preds = %yy_get_previous_state.exit
   store i32 %.021.lcssa.i, ptr %56, align 8
@@ -3182,10 +3182,10 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i774, %
   %1523 = load i16, ptr %1522, align 2
   %1524 = sext i16 %1523 to i32
   %.not1819.i = icmp eq i32 %.021.lcssa.i, %1524
-  br i1 %.not1819.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i776
+  br i1 %.not1819.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i775
 
-.lr.ph.i776:                                      ; preds = %1517, %.lr.ph.i776
-  %1525 = phi i64 [ %1528, %.lr.ph.i776 ], [ %1513, %1517 ]
+.lr.ph.i775:                                      ; preds = %1517, %.lr.ph.i775
+  %1525 = phi i64 [ %1528, %.lr.ph.i775 ], [ %1513, %1517 ]
   %1526 = getelementptr [507 x i16], ptr @yy_def, i64 0, i64 %1525
   %1527 = load i16, ptr %1526, align 2
   %1528 = sext i16 %1527 to i64
@@ -3195,33 +3195,33 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i774, %
   %1532 = add nsw i64 %1531, 1
   %1533 = getelementptr [1244 x i16], ptr @yy_chk, i64 0, i64 %1532
   %1534 = load i16, ptr %1533, align 2
-  %.not18.i777 = icmp eq i16 %1527, %1534
-  br i1 %.not18.i777, label %yy_try_NUL_trans.exit, label %.lr.ph.i776, !llvm.loop !13
+  %.not18.i776 = icmp eq i16 %1527, %1534
+  br i1 %.not18.i776, label %yy_try_NUL_trans.exit, label %.lr.ph.i775, !llvm.loop !13
 
-yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i776, %1517
-  %.lcssa.i779 = phi i64 [ %1521, %1517 ], [ %1532, %.lr.ph.i776 ]
-  %1535 = getelementptr [1244 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i779
+yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i775, %1517
+  %.lcssa.i778 = phi i64 [ %1521, %1517 ], [ %1532, %.lr.ph.i775 ]
+  %1535 = getelementptr [1244 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i778
   %1536 = load i16, ptr %1535, align 2
   switch i16 %1536, label %1537 [
-    i16 481, label %.backedge.sink.split1659.backedge
-    i16 0, label %.backedge.sink.split1659.backedge
+    i16 481, label %.backedge.sink.split1658.backedge
+    i16 0, label %.backedge.sink.split1658.backedge
   ]
 
-.backedge.sink.split1659.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %122
+.backedge.sink.split1658.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %122
   %.1507.ph.be = phi ptr [ %.1507, %122 ], [ %1467, %yy_try_NUL_trans.exit ], [ %1467, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split1659
+  br label %.backedge.sink.split1658
 
 1537:                                             ; preds = %yy_try_NUL_trans.exit
   %1538 = sext i16 %1536 to i32
   %1539 = getelementptr i8, ptr %1469, i64 1
   store ptr %1539, ptr %53, align 8
-  br label %.loopexit827.backedge
+  br label %.loopexit826.backedge
 
-.loopexit827.backedge:                            ; preds = %._crit_edge.i799, %1537, %1691
-  %.0506.be = phi ptr [ %1689, %1691 ], [ %1467, %1537 ], [ %1689, %._crit_edge.i799 ]
-  %.0499.be = phi ptr [ %1697, %1691 ], [ %1539, %1537 ], [ %1697, %._crit_edge.i799 ]
-  %.0495.be = phi i32 [ %1698, %1691 ], [ %1538, %1537 ], [ %1739, %._crit_edge.i799 ]
-  br label %.loopexit827
+.loopexit826.backedge:                            ; preds = %._crit_edge.i798, %1537, %1691
+  %.0506.be = phi ptr [ %1689, %1691 ], [ %1467, %1537 ], [ %1689, %._crit_edge.i798 ]
+  %.0499.be = phi ptr [ %1697, %1691 ], [ %1539, %1537 ], [ %1697, %._crit_edge.i798 ]
+  %.0495.be = phi i32 [ %1698, %1691 ], [ %1538, %1537 ], [ %1739, %._crit_edge.i798 ]
+  br label %.loopexit826
 
 1540:                                             ; preds = %1452
   %1541 = load ptr, ptr %58, align 8
@@ -3246,49 +3246,49 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i776, %1517
 1553:                                             ; preds = %1547
   %1554 = sub i64 %1551, %1552
   %1555 = icmp eq i64 %1554, 1
-  br i1 %1555, label %yy_get_previous_state.exit802, label %yy_get_next_buffer.exit.thread823
+  br i1 %1555, label %yy_get_previous_state.exit801, label %yy_get_next_buffer.exit.thread822
 
 1556:                                             ; preds = %1547
   %1557 = xor i64 %1552, -1
   %1558 = add i64 %1557, %1551
   %1559 = trunc i64 %1558 to i32
   %1560 = icmp sgt i32 %1559, 0
-  br i1 %1560, label %.lr.ph.i784, label %._crit_edge.i780
+  br i1 %1560, label %.lr.ph.i783, label %._crit_edge.i779
 
-.lr.ph.i784:                                      ; preds = %1556, %.lr.ph.i784
-  %.098120.i = phi ptr [ %1563, %.lr.ph.i784 ], [ %1458, %1556 ]
-  %.099119.i = phi ptr [ %1561, %.lr.ph.i784 ], [ %1541, %1556 ]
-  %.0100118.i = phi i32 [ %1564, %.lr.ph.i784 ], [ 0, %1556 ]
+.lr.ph.i783:                                      ; preds = %1556, %.lr.ph.i783
+  %.098120.i = phi ptr [ %1563, %.lr.ph.i783 ], [ %1458, %1556 ]
+  %.099119.i = phi ptr [ %1561, %.lr.ph.i783 ], [ %1541, %1556 ]
+  %.0100118.i = phi i32 [ %1564, %.lr.ph.i783 ], [ 0, %1556 ]
   %1561 = getelementptr i8, ptr %.099119.i, i64 1
   %1562 = load i8, ptr %.099119.i, align 1
   %1563 = getelementptr i8, ptr %.098120.i, i64 1
   store i8 %1562, ptr %.098120.i, align 1
   %1564 = add nuw nsw i32 %.0100118.i, 1
-  %exitcond.not.i785 = icmp eq i32 %1564, %1559
-  br i1 %exitcond.not.i785, label %._crit_edge.loopexit.i, label %.lr.ph.i784, !llvm.loop !14
+  %exitcond.not.i784 = icmp eq i32 %1564, %1559
+  br i1 %exitcond.not.i784, label %._crit_edge.loopexit.i, label %.lr.ph.i783, !llvm.loop !14
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i784
-  %.pre.i786 = load ptr, ptr %60, align 8
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i783
+  %.pre.i785 = load ptr, ptr %60, align 8
   %.pre130.i = load i64, ptr %61, align 8
-  %.phi.trans.insert.i787 = getelementptr ptr, ptr %.pre.i786, i64 %.pre130.i
-  %.pre131.i = load ptr, ptr %.phi.trans.insert.i787, align 8
-  br label %._crit_edge.i780
+  %.phi.trans.insert.i786 = getelementptr ptr, ptr %.pre.i785, i64 %.pre130.i
+  %.pre131.i = load ptr, ptr %.phi.trans.insert.i786, align 8
+  br label %._crit_edge.i779
 
-._crit_edge.i780:                                 ; preds = %._crit_edge.loopexit.i, %1556
+._crit_edge.i779:                                 ; preds = %._crit_edge.loopexit.i, %1556
   %1565 = phi ptr [ %.pre131.i, %._crit_edge.loopexit.i ], [ %1453, %1556 ]
   %1566 = phi i64 [ %.pre130.i, %._crit_edge.loopexit.i ], [ %1454, %1556 ]
-  %1567 = phi ptr [ %.pre.i786, %._crit_edge.loopexit.i ], [ %1455, %1556 ]
+  %1567 = phi ptr [ %.pre.i785, %._crit_edge.loopexit.i ], [ %1455, %1556 ]
   %1568 = getelementptr inbounds nuw i8, ptr %1565, i64 56
   %1569 = load i32, ptr %1568, align 8
   %1570 = icmp eq i32 %1569, 2
   br i1 %1570, label %1571, label %1573
 
-1571:                                             ; preds = %._crit_edge.i780
+1571:                                             ; preds = %._crit_edge.i779
   %1572 = getelementptr ptr, ptr %1567, i64 %1566
   store i32 0, ptr %62, align 4
   br label %1620
 
-1573:                                             ; preds = %._crit_edge.i780
+1573:                                             ; preds = %._crit_edge.i779
   %1574 = xor i32 %1559, -1
   %.pn.in121.i = getelementptr inbounds nuw i8, ptr %1565, i64 24
   %.pn122.i = load i32, ptr %.pn.in121.i, align 8
@@ -3311,10 +3311,10 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i776, %1517
   %1583 = sub i64 %1581, %1582
   %1584 = getelementptr inbounds nuw i8, ptr %1578, i64 32
   %1585 = load i32, ptr %1584, align 8
-  %.not.i782 = icmp eq i32 %1585, 0
-  br i1 %.not.i782, label %.thread.i783, label %1586
+  %.not.i781 = icmp eq i32 %1585, 0
+  br i1 %.not.i781, label %.thread.i782, label %1586
 
-.thread.i783:                                     ; preds = %.lr.ph125.i
+.thread.i782:                                     ; preds = %.lr.ph125.i
   store ptr null, ptr %1579, align 8
   br label %.loopexit.i
 
@@ -3339,7 +3339,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i776, %1517
   %.not109.i = icmp eq ptr %1596, null
   br i1 %.not109.i, label %.loopexit.i, label %1597
 
-.loopexit.i:                                      ; preds = %1593, %.thread.i783
+.loopexit.i:                                      ; preds = %1593, %.thread.i782
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.72) #33
   unreachable
 
@@ -3486,58 +3486,58 @@ yy_get_next_buffer.exit:                          ; preds = %1634, %1663
   %1688 = getelementptr inbounds nuw i8, ptr %1687, i64 8
   %1689 = load ptr, ptr %1688, align 8
   store ptr %1689, ptr %58, align 8
-  switch i32 %.0102.i, label %default.unreachable1409 [
-    i32 1, label %yy_get_previous_state.exit802
+  switch i32 %.0102.i, label %default.unreachable1408 [
+    i32 1, label %yy_get_previous_state.exit801
     i32 0, label %1691
-    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread823_crit_edge
+    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread822_crit_edge
   ]
 
-yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread823_crit_edge: ; preds = %yy_get_next_buffer.exit
+yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread822_crit_edge: ; preds = %yy_get_next_buffer.exit
   %1690 = getelementptr ptr, ptr %1684, i64 %1685
-  %.pre1401 = load ptr, ptr %1690, align 8
-  %.phi.trans.insert1402 = getelementptr inbounds nuw i8, ptr %.pre1401, i64 8
-  %.pre1403 = load ptr, ptr %.phi.trans.insert1402, align 8
-  %.pre1404 = load i32, ptr %62, align 4
-  %.pre1408 = sext i32 %.pre1404 to i64
-  br label %yy_get_next_buffer.exit.thread823
+  %.pre1400 = load ptr, ptr %1690, align 8
+  %.phi.trans.insert1401 = getelementptr inbounds nuw i8, ptr %.pre1400, i64 8
+  %.pre1402 = load ptr, ptr %.phi.trans.insert1401, align 8
+  %.pre1403 = load i32, ptr %62, align 4
+  %.pre1407 = sext i32 %.pre1403 to i64
+  br label %yy_get_next_buffer.exit.thread822
 
 1691:                                             ; preds = %yy_get_next_buffer.exit
   %1692 = ptrtoint ptr %.2501 to i64
   %1693 = ptrtoint ptr %1433 to i64
   %1694 = xor i64 %1693, -1
   %1695 = add i64 %1694, %1692
-  %sext1509 = shl i64 %1695, 32
-  %1696 = ashr exact i64 %sext1509, 32
+  %sext1508 = shl i64 %1695, 32
+  %1696 = ashr exact i64 %sext1508, 32
   %1697 = getelementptr i8, ptr %1689, i64 %1696
   store ptr %1697, ptr %53, align 8
   %1698 = load i32, ptr %55, align 4
   %1699 = icmp ult ptr %1689, %1697
-  br i1 %1699, label %.lr.ph31.i789, label %.loopexit827.backedge
+  br i1 %1699, label %.lr.ph31.i788, label %.loopexit826.backedge
 
-.lr.ph31.i789:                                    ; preds = %1691, %._crit_edge.i799
-  %.02129.i790 = phi i32 [ %1739, %._crit_edge.i799 ], [ %1698, %1691 ]
-  %.02328.i791 = phi ptr [ %1740, %._crit_edge.i799 ], [ %1689, %1691 ]
-  %1700 = load i8, ptr %.02328.i791, align 1
-  %.not.i792 = icmp eq i8 %1700, 0
-  br i1 %.not.i792, label %1705, label %1701
+.lr.ph31.i788:                                    ; preds = %1691, %._crit_edge.i798
+  %.02129.i789 = phi i32 [ %1739, %._crit_edge.i798 ], [ %1698, %1691 ]
+  %.02328.i790 = phi ptr [ %1740, %._crit_edge.i798 ], [ %1689, %1691 ]
+  %1700 = load i8, ptr %.02328.i790, align 1
+  %.not.i791 = icmp eq i8 %1700, 0
+  br i1 %.not.i791, label %1705, label %1701
 
-1701:                                             ; preds = %.lr.ph31.i789
+1701:                                             ; preds = %.lr.ph31.i788
   %1702 = zext i8 %1700 to i64
   %1703 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %1702
   %1704 = load i8, ptr %1703, align 1
   br label %1705
 
-1705:                                             ; preds = %1701, %.lr.ph31.i789
-  %1706 = phi i8 [ %1704, %1701 ], [ 1, %.lr.ph31.i789 ]
-  %1707 = sext i32 %.02129.i790 to i64
+1705:                                             ; preds = %1701, %.lr.ph31.i788
+  %1706 = phi i8 [ %1704, %1701 ], [ 1, %.lr.ph31.i788 ]
+  %1707 = sext i32 %.02129.i789 to i64
   %1708 = getelementptr [482 x i16], ptr @yy_accept, i64 0, i64 %1707
   %1709 = load i16, ptr %1708, align 2
-  %.not24.i793 = icmp eq i16 %1709, 0
-  br i1 %.not24.i793, label %1711, label %1710
+  %.not24.i792 = icmp eq i16 %1709, 0
+  br i1 %.not24.i792, label %1711, label %1710
 
 1710:                                             ; preds = %1705
-  store i32 %.02129.i790, ptr %56, align 8
-  store ptr %.02328.i791, ptr %57, align 8
+  store i32 %.02129.i789, ptr %56, align 8
+  store ptr %.02328.i790, ptr %57, align 8
   br label %1711
 
 1711:                                             ; preds = %1710, %1705
@@ -3549,83 +3549,83 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread823_crit_edge: ; preds = %
   %1717 = getelementptr [1244 x i16], ptr @yy_chk, i64 0, i64 %1716
   %1718 = load i16, ptr %1717, align 2
   %1719 = sext i16 %1718 to i32
-  %.not2526.i794 = icmp eq i32 %.02129.i790, %1719
-  br i1 %.not2526.i794, label %._crit_edge.i799, label %.lr.ph.i795
+  %.not2526.i793 = icmp eq i32 %.02129.i789, %1719
+  br i1 %.not2526.i793, label %._crit_edge.i798, label %.lr.ph.i794
 
-.lr.ph.i795:                                      ; preds = %1711, %1728
+.lr.ph.i794:                                      ; preds = %1711, %1728
   %1720 = phi i64 [ %1733, %1728 ], [ %1715, %1711 ]
   %1721 = phi i64 [ %1729, %1728 ], [ %1707, %1711 ]
-  %.027.i796 = phi i8 [ %.1.i797, %1728 ], [ %1706, %1711 ]
+  %.027.i795 = phi i8 [ %.1.i796, %1728 ], [ %1706, %1711 ]
   %1722 = getelementptr [507 x i16], ptr @yy_def, i64 0, i64 %1721
   %1723 = load i16, ptr %1722, align 2
   %1724 = icmp sgt i16 %1723, 481
   br i1 %1724, label %1725, label %1728
 
-1725:                                             ; preds = %.lr.ph.i795
+1725:                                             ; preds = %.lr.ph.i794
   %1726 = getelementptr [59 x i8], ptr @yy_meta, i64 0, i64 %1720
   %1727 = load i8, ptr %1726, align 1
   br label %1728
 
-1728:                                             ; preds = %1725, %.lr.ph.i795
-  %.1.i797 = phi i8 [ %1727, %1725 ], [ %.027.i796, %.lr.ph.i795 ]
+1728:                                             ; preds = %1725, %.lr.ph.i794
+  %.1.i796 = phi i8 [ %1727, %1725 ], [ %.027.i795, %.lr.ph.i794 ]
   %1729 = sext i16 %1723 to i64
   %1730 = getelementptr [507 x i16], ptr @yy_base, i64 0, i64 %1729
   %1731 = load i16, ptr %1730, align 2
   %1732 = sext i16 %1731 to i64
-  %1733 = zext i8 %.1.i797 to i64
+  %1733 = zext i8 %.1.i796 to i64
   %1734 = add nsw i64 %1732, %1733
   %1735 = getelementptr [1244 x i16], ptr @yy_chk, i64 0, i64 %1734
   %1736 = load i16, ptr %1735, align 2
-  %.not25.i798 = icmp eq i16 %1723, %1736
-  br i1 %.not25.i798, label %._crit_edge.i799, label %.lr.ph.i795, !llvm.loop !11
+  %.not25.i797 = icmp eq i16 %1723, %1736
+  br i1 %.not25.i797, label %._crit_edge.i798, label %.lr.ph.i794, !llvm.loop !11
 
-._crit_edge.i799:                                 ; preds = %1728, %1711
-  %.lcssa.i800 = phi i64 [ %1716, %1711 ], [ %1734, %1728 ]
-  %1737 = getelementptr [1244 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i800
+._crit_edge.i798:                                 ; preds = %1728, %1711
+  %.lcssa.i799 = phi i64 [ %1716, %1711 ], [ %1734, %1728 ]
+  %1737 = getelementptr [1244 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i799
   %1738 = load i16, ptr %1737, align 2
   %1739 = sext i16 %1738 to i32
-  %1740 = getelementptr i8, ptr %.02328.i791, i64 1
-  %exitcond.not.i801 = icmp eq ptr %1740, %1697
-  br i1 %exitcond.not.i801, label %.loopexit827.backedge, label %.lr.ph31.i789, !llvm.loop !12
+  %1740 = getelementptr i8, ptr %.02328.i790, i64 1
+  %exitcond.not.i800 = icmp eq ptr %1740, %1697
+  br i1 %exitcond.not.i800, label %.loopexit826.backedge, label %.lr.ph31.i788, !llvm.loop !12
 
-yy_get_next_buffer.exit.thread823:                ; preds = %1553, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread823_crit_edge
-  %.pre-phi = phi i64 [ %.pre1408, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread823_crit_edge ], [ %1460, %1553 ]
-  %1741 = phi ptr [ %1689, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread823_crit_edge ], [ %1541, %1553 ]
-  %1742 = phi ptr [ %.pre1403, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread823_crit_edge ], [ %1458, %1553 ]
+yy_get_next_buffer.exit.thread822:                ; preds = %1553, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread822_crit_edge
+  %.pre-phi = phi i64 [ %.pre1407, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread822_crit_edge ], [ %1460, %1553 ]
+  %1741 = phi ptr [ %1689, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread822_crit_edge ], [ %1541, %1553 ]
+  %1742 = phi ptr [ %.pre1402, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread822_crit_edge ], [ %1458, %1553 ]
   %1743 = getelementptr i8, ptr %1742, i64 %.pre-phi
   store ptr %1743, ptr %53, align 8
   %1744 = load i32, ptr %55, align 4
   %1745 = icmp ult ptr %1741, %1743
-  br i1 %1745, label %.lr.ph31.i804, label %.backedge.backedge
+  br i1 %1745, label %.lr.ph31.i803, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %._crit_edge.i814, %yy_get_next_buffer.exit.thread823
-  %.3498.be = phi i32 [ %1744, %yy_get_next_buffer.exit.thread823 ], [ %1785, %._crit_edge.i814 ]
+.backedge.backedge:                               ; preds = %._crit_edge.i813, %yy_get_next_buffer.exit.thread822
+  %.3498.be = phi i32 [ %1744, %yy_get_next_buffer.exit.thread822 ], [ %1785, %._crit_edge.i813 ]
   br label %.backedge
 
-.lr.ph31.i804:                                    ; preds = %yy_get_next_buffer.exit.thread823, %._crit_edge.i814
-  %.02129.i805 = phi i32 [ %1785, %._crit_edge.i814 ], [ %1744, %yy_get_next_buffer.exit.thread823 ]
-  %.02328.i806 = phi ptr [ %1786, %._crit_edge.i814 ], [ %1741, %yy_get_next_buffer.exit.thread823 ]
-  %1746 = load i8, ptr %.02328.i806, align 1
-  %.not.i807 = icmp eq i8 %1746, 0
-  br i1 %.not.i807, label %1751, label %1747
+.lr.ph31.i803:                                    ; preds = %yy_get_next_buffer.exit.thread822, %._crit_edge.i813
+  %.02129.i804 = phi i32 [ %1785, %._crit_edge.i813 ], [ %1744, %yy_get_next_buffer.exit.thread822 ]
+  %.02328.i805 = phi ptr [ %1786, %._crit_edge.i813 ], [ %1741, %yy_get_next_buffer.exit.thread822 ]
+  %1746 = load i8, ptr %.02328.i805, align 1
+  %.not.i806 = icmp eq i8 %1746, 0
+  br i1 %.not.i806, label %1751, label %1747
 
-1747:                                             ; preds = %.lr.ph31.i804
+1747:                                             ; preds = %.lr.ph31.i803
   %1748 = zext i8 %1746 to i64
   %1749 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %1748
   %1750 = load i8, ptr %1749, align 1
   br label %1751
 
-1751:                                             ; preds = %1747, %.lr.ph31.i804
-  %1752 = phi i8 [ %1750, %1747 ], [ 1, %.lr.ph31.i804 ]
-  %1753 = sext i32 %.02129.i805 to i64
+1751:                                             ; preds = %1747, %.lr.ph31.i803
+  %1752 = phi i8 [ %1750, %1747 ], [ 1, %.lr.ph31.i803 ]
+  %1753 = sext i32 %.02129.i804 to i64
   %1754 = getelementptr [482 x i16], ptr @yy_accept, i64 0, i64 %1753
   %1755 = load i16, ptr %1754, align 2
-  %.not24.i808 = icmp eq i16 %1755, 0
-  br i1 %.not24.i808, label %1757, label %1756
+  %.not24.i807 = icmp eq i16 %1755, 0
+  br i1 %.not24.i807, label %1757, label %1756
 
 1756:                                             ; preds = %1751
-  store i32 %.02129.i805, ptr %56, align 8
-  store ptr %.02328.i806, ptr %57, align 8
+  store i32 %.02129.i804, ptr %56, align 8
+  store ptr %.02328.i805, ptr %57, align 8
   br label %1757
 
 1757:                                             ; preds = %1756, %1751
@@ -3637,49 +3637,49 @@ yy_get_next_buffer.exit.thread823:                ; preds = %1553, %yy_get_next_
   %1763 = getelementptr [1244 x i16], ptr @yy_chk, i64 0, i64 %1762
   %1764 = load i16, ptr %1763, align 2
   %1765 = sext i16 %1764 to i32
-  %.not2526.i809 = icmp eq i32 %.02129.i805, %1765
-  br i1 %.not2526.i809, label %._crit_edge.i814, label %.lr.ph.i810
+  %.not2526.i808 = icmp eq i32 %.02129.i804, %1765
+  br i1 %.not2526.i808, label %._crit_edge.i813, label %.lr.ph.i809
 
-.lr.ph.i810:                                      ; preds = %1757, %1774
+.lr.ph.i809:                                      ; preds = %1757, %1774
   %1766 = phi i64 [ %1779, %1774 ], [ %1761, %1757 ]
   %1767 = phi i64 [ %1775, %1774 ], [ %1753, %1757 ]
-  %.027.i811 = phi i8 [ %.1.i812, %1774 ], [ %1752, %1757 ]
+  %.027.i810 = phi i8 [ %.1.i811, %1774 ], [ %1752, %1757 ]
   %1768 = getelementptr [507 x i16], ptr @yy_def, i64 0, i64 %1767
   %1769 = load i16, ptr %1768, align 2
   %1770 = icmp sgt i16 %1769, 481
   br i1 %1770, label %1771, label %1774
 
-1771:                                             ; preds = %.lr.ph.i810
+1771:                                             ; preds = %.lr.ph.i809
   %1772 = getelementptr [59 x i8], ptr @yy_meta, i64 0, i64 %1766
   %1773 = load i8, ptr %1772, align 1
   br label %1774
 
-1774:                                             ; preds = %1771, %.lr.ph.i810
-  %.1.i812 = phi i8 [ %1773, %1771 ], [ %.027.i811, %.lr.ph.i810 ]
+1774:                                             ; preds = %1771, %.lr.ph.i809
+  %.1.i811 = phi i8 [ %1773, %1771 ], [ %.027.i810, %.lr.ph.i809 ]
   %1775 = sext i16 %1769 to i64
   %1776 = getelementptr [507 x i16], ptr @yy_base, i64 0, i64 %1775
   %1777 = load i16, ptr %1776, align 2
   %1778 = sext i16 %1777 to i64
-  %1779 = zext i8 %.1.i812 to i64
+  %1779 = zext i8 %.1.i811 to i64
   %1780 = add nsw i64 %1778, %1779
   %1781 = getelementptr [1244 x i16], ptr @yy_chk, i64 0, i64 %1780
   %1782 = load i16, ptr %1781, align 2
-  %.not25.i813 = icmp eq i16 %1769, %1782
-  br i1 %.not25.i813, label %._crit_edge.i814, label %.lr.ph.i810, !llvm.loop !11
+  %.not25.i812 = icmp eq i16 %1769, %1782
+  br i1 %.not25.i812, label %._crit_edge.i813, label %.lr.ph.i809, !llvm.loop !11
 
-._crit_edge.i814:                                 ; preds = %1774, %1757
-  %.lcssa.i815 = phi i64 [ %1762, %1757 ], [ %1780, %1774 ]
-  %1783 = getelementptr [1244 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i815
+._crit_edge.i813:                                 ; preds = %1774, %1757
+  %.lcssa.i814 = phi i64 [ %1762, %1757 ], [ %1780, %1774 ]
+  %1783 = getelementptr [1244 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i814
   %1784 = load i16, ptr %1783, align 2
   %1785 = sext i16 %1784 to i32
-  %1786 = getelementptr i8, ptr %.02328.i806, i64 1
-  %exitcond.not.i816 = icmp eq ptr %1786, %1743
-  br i1 %exitcond.not.i816, label %.backedge.backedge, label %.lr.ph31.i804, !llvm.loop !12
+  %1786 = getelementptr i8, ptr %.02328.i805, i64 1
+  %exitcond.not.i815 = icmp eq ptr %1786, %1743
+  br i1 %exitcond.not.i815, label %.backedge.backedge, label %.lr.ph31.i803, !llvm.loop !12
 
-default.unreachable1409:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1408:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
-yy_get_previous_state.exit802:                    ; preds = %yy_get_next_buffer.exit, %1553
+yy_get_previous_state.exit801:                    ; preds = %yy_get_next_buffer.exit, %1553
   %1787 = phi ptr [ %1541, %1553 ], [ %1689, %yy_get_next_buffer.exit ]
   store i32 0, ptr %64, align 8
   store ptr %1787, ptr %53, align 8
@@ -4007,7 +4007,7 @@ define hidden void @DiamDict__delete_buffer(ptr noundef captures(address) %0, pt
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not12 = icmp eq ptr %5, null
-  br i1 %.not12, label %.thread, label %6
+  br i1 %.not12, label %.critedge, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4015,25 +4015,25 @@ define hidden void @DiamDict__delete_buffer(ptr noundef captures(address) %0, pt
   %9 = getelementptr ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %6
   store ptr null, ptr %9, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %12, %6
+.critedge:                                        ; preds = %3, %12, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %18, label %15
 
-15:                                               ; preds = %.thread
+15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #30
   br label %18
 
-18:                                               ; preds = %15, %.thread
+18:                                               ; preds = %15, %.critedge
   tail call void @free(ptr noundef nonnull %0) #30
   br label %19
 
@@ -4214,7 +4214,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @DiamDict__flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %3
+  br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -4235,7 +4235,7 @@ define hidden void @DiamDict__flush_buffer(ptr noundef captures(address) %0, ptr
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %.thread, label %15
+  br i1 %.not15, label %.critedge, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4243,7 +4243,7 @@ define hidden void @DiamDict__flush_buffer(ptr noundef captures(address) %0, ptr
   %18 = getelementptr ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -4264,9 +4264,9 @@ define hidden void @DiamDict__flush_buffer(ptr noundef captures(address) %0, ptr
   %33 = load i8, ptr %27, align 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %33, ptr %34, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %15, %21, %2
+.critedge:                                        ; preds = %15, %21, %3, %2
   ret void
 }
 
@@ -4377,22 +4377,22 @@ define hidden void @DiamDict_pop_buffer_state(ptr noundef captures(none) %0) loc
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
-  br i1 %.not20, label %41, label %.thread.i
+  br i1 %.not20, label %41, label %.critedge.i
 
-.thread.i:                                        ; preds = %4
+.critedge.i:                                      ; preds = %4
   store ptr null, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %.not13.i = icmp eq i32 %10, 0
   br i1 %.not13.i, label %DiamDict__delete_buffer.exit, label %11
 
-11:                                               ; preds = %.thread.i
+11:                                               ; preds = %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #30
   br label %DiamDict__delete_buffer.exit
 
-DiamDict__delete_buffer.exit:                     ; preds = %.thread.i, %11
+DiamDict__delete_buffer.exit:                     ; preds = %.critedge.i, %11
   tail call void @free(ptr noundef nonnull %8) #30
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
@@ -4899,9 +4899,9 @@ define hidden noundef i32 @DiamDict_lex_destroy(ptr noundef captures(none) %0) l
   %12 = getelementptr ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.critedge, label %.thread.i
+  br i1 %14, label %.critedge, label %.critedge.i
 
-.thread.i:                                        ; preds = %.lr.ph, %DiamDict_pop_buffer_state.exit
+.critedge.i:                                      ; preds = %.lr.ph, %DiamDict_pop_buffer_state.exit
   %15 = phi ptr [ %59, %DiamDict_pop_buffer_state.exit ], [ %13, %.lr.ph ]
   %16 = phi ptr [ %58, %DiamDict_pop_buffer_state.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %16, align 8
@@ -4910,13 +4910,13 @@ define hidden noundef i32 @DiamDict_lex_destroy(ptr noundef captures(none) %0) l
   %.not13.i = icmp eq i32 %18, 0
   br i1 %.not13.i, label %DiamDict__delete_buffer.exit, label %19
 
-19:                                               ; preds = %.thread.i
+19:                                               ; preds = %.critedge.i
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #30
   br label %DiamDict__delete_buffer.exit
 
-DiamDict__delete_buffer.exit:                     ; preds = %.thread.i, %19
+DiamDict__delete_buffer.exit:                     ; preds = %.critedge.i, %19
   tail call void @free(ptr noundef nonnull %15) #30
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
@@ -4931,22 +4931,22 @@ DiamDict__delete_buffer.exit:                     ; preds = %.thread.i, %19
   %28 = getelementptr ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
-  br i1 %.not20.i, label %DiamDict_pop_buffer_state.exit, label %.thread.i.i
+  br i1 %.not20.i, label %DiamDict_pop_buffer_state.exit, label %.critedge.i.i
 
-.thread.i.i:                                      ; preds = %26
+.critedge.i.i:                                    ; preds = %26
   store ptr null, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8
   %.not13.i.i = icmp eq i32 %31, 0
   br i1 %.not13.i.i, label %DiamDict__delete_buffer.exit.i, label %32
 
-32:                                               ; preds = %.thread.i.i
+32:                                               ; preds = %.critedge.i.i
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @free(ptr noundef %34) #30
   br label %DiamDict__delete_buffer.exit.i
 
-DiamDict__delete_buffer.exit.i:                   ; preds = %32, %.thread.i.i
+DiamDict__delete_buffer.exit.i:                   ; preds = %32, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %29) #30
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
@@ -4996,7 +4996,7 @@ DiamDict_pop_buffer_state.exit:                   ; preds = %26, %44, %47
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.critedge, label %.thread.i, !llvm.loop !16
+  br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !16
 
 .critedge:                                        ; preds = %DiamDict_pop_buffer_state.exit, %DiamDict__delete_buffer.exit, %41, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %DiamDict__delete_buffer.exit ], [ %56, %DiamDict_pop_buffer_state.exit ]

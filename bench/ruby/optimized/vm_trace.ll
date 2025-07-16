@@ -5813,60 +5813,61 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   store ptr %47, ptr %48, align 8
   %49 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %45)
   %.not = icmp eq i32 %49, 0
-  br i1 %.not, label %51, label %.thread, !prof !75
+  br i1 %.not, label %52, label %.thread, !prof !75
 
 .thread:                                          ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.11 = load volatile ptr, ptr %5, align 8, !tbaa !33
   %50 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.11)
   %.0..0..0..0.13.pre = load ptr, ptr %5, align 8, !tbaa !33
   %.pre = load ptr, ptr %4, align 8, !tbaa !173
+  %51 = icmp eq ptr %.pre, %4
   br label %ccan_list_pop_.exit.thread
 
-51:                                               ; preds = %rb_ec_vm_lock_rec.exit
+52:                                               ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %6, ptr %30, align 8, !tbaa !84
   %.not3948 = icmp eq i32 %26, 0
   br i1 %.not3948, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %51
-  %52 = load ptr, ptr %4, align 8, !tbaa !173
-  %.not.i4350 = icmp eq ptr %52, %4
+.preheader:                                       ; preds = %.lr.ph, %52
+  %53 = load ptr, ptr %4, align 8, !tbaa !173
+  %.not.i4350 = icmp eq ptr %53, %4
   br i1 %.not.i4350, label %ccan_list_pop_.exit.thread, label %ccan_list_pop_.exit
 
-.lr.ph:                                           ; preds = %51, %.lr.ph
-  %.149 = phi i32 [ %57, %.lr.ph ], [ %26, %51 ]
-  %53 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.149, i1 true)
-  %54 = xor i32 %53, 31
-  %55 = zext nneg i32 %54 to i64
-  %56 = shl nuw i32 1, %54
-  %57 = xor i32 %56, %.149
-  %58 = getelementptr [32 x %struct.anon.14], ptr %9, i64 0, i64 %55
-  %59 = load ptr, ptr %58, align 8, !tbaa !174
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !176
-  call void %59(ptr noundef %61) #5
-  %.not39 = icmp eq i32 %56, %.149
+.lr.ph:                                           ; preds = %52, %.lr.ph
+  %.149 = phi i32 [ %58, %.lr.ph ], [ %26, %52 ]
+  %54 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.149, i1 true)
+  %55 = xor i32 %54, 31
+  %56 = zext nneg i32 %55 to i64
+  %57 = shl nuw i32 1, %55
+  %58 = xor i32 %57, %.149
+  %59 = getelementptr [32 x %struct.anon.14], ptr %9, i64 0, i64 %56
+  %60 = load ptr, ptr %59, align 8, !tbaa !174
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !176
+  call void %60(ptr noundef %62) #5
+  %.not39 = icmp eq i32 %57, %.149
   br i1 %.not39, label %.preheader, label %.lr.ph, !llvm.loop !177
 
 ccan_list_pop_.exit:                              ; preds = %.preheader, %ccan_list_pop_.exit
-  %62 = phi ptr [ %71, %ccan_list_pop_.exit ], [ %52, %.preheader ]
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !166
-  %65 = load ptr, ptr %62, align 8, !tbaa !161
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %64, ptr %66, align 8, !tbaa !166
-  store ptr %65, ptr %64, align 8, !tbaa !161
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !163
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !165
-  call void @free(ptr noundef nonnull %62) #5
-  call void %68(ptr noundef %70) #5
-  %71 = load ptr, ptr %4, align 8, !tbaa !173
-  %.not.i43 = icmp eq ptr %71, %4
+  %63 = phi ptr [ %72, %ccan_list_pop_.exit ], [ %53, %.preheader ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !166
+  %66 = load ptr, ptr %63, align 8, !tbaa !161
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %65, ptr %67, align 8, !tbaa !166
+  store ptr %66, ptr %65, align 8, !tbaa !161
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !163
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %71 = load ptr, ptr %70, align 8, !tbaa !165
+  call void @free(ptr noundef nonnull %63) #5
+  call void %69(ptr noundef %71) #5
+  %72 = load ptr, ptr %4, align 8, !tbaa !173
+  %.not.i43 = icmp eq ptr %72, %4
   br i1 %.not.i43, label %ccan_list_pop_.exit.thread, label %ccan_list_pop_.exit, !llvm.loop !178
 
 ccan_list_pop_.exit.thread:                       ; preds = %ccan_list_pop_.exit, %.preheader, %.thread
-  %72 = phi ptr [ %.pre, %.thread ], [ %4, %.preheader ], [ %4, %ccan_list_pop_.exit ]
+  %.not47 = phi i1 [ %51, %.thread ], [ true, %.preheader ], [ true, %ccan_list_pop_.exit ]
   %.0..0..0.13 = phi ptr [ %.0..0..0..0.13.pre, %.thread ], [ %11, %.preheader ], [ %11, %ccan_list_pop_.exit ]
   %.0 = phi i32 [ %26, %.thread ], [ 0, %.preheader ], [ 0, %ccan_list_pop_.exit ]
   %73 = load ptr, ptr %32, align 8, !tbaa !85
@@ -5881,7 +5882,6 @@ ccan_list_pop_.exit.thread:                       ; preds = %ccan_list_pop_.exit
   store i32 %77, ptr %12, align 4, !tbaa !171
   %.0..0..0..0.19 = load volatile i64, ptr %3, align 8, !tbaa !35
   store i64 %.0..0..0..0.19, ptr %15, align 8, !tbaa !77
-  %.not47 = icmp eq ptr %72, %4
   br i1 %.not47, label %88, label %78
 
 78:                                               ; preds = %ccan_list_pop_.exit.thread

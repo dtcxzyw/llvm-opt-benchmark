@@ -11286,8 +11286,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %83
   %.old = load i64, ptr %17, align 8, !tbaa !154
-  %.old122 = icmp eq i64 %.old, 25
-  br i1 %.old122, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread53
+  %.old124 = icmp eq i64 %.old, 25
+  br i1 %.old124, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread53
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %90 = load ptr, ptr %8, align 8, !tbaa !58
@@ -11392,8 +11392,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not123 = icmp eq ptr %.sroa.051.1, %107
-  br i1 %.not123, label %._crit_edge.thread, label %121
+  %.not125 = icmp eq ptr %.sroa.051.1, %107
+  br i1 %.not125, label %._crit_edge.thread, label %121
 
 121:                                              ; preds = %._crit_edge
   %.0.copyload.i42 = load i64, ptr %.sroa.051.1, align 1, !tbaa !70
@@ -11547,8 +11547,8 @@ _ZN3igl13serialization11deserializeINS_6opengl10ViewerCoreEEENSt9enable_ifIXntsr
   br label %188
 
 188:                                              ; preds = %._crit_edge.thread, %_ZN3igl13serialization11deserializeINS_6opengl10ViewerCoreEEENSt9enable_ifIXntsr15is_serializableIT_EE5valueEvE4typeERS5_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit
-  %189 = phi i1 [ false, %._crit_edge.thread ], [ true, %_ZN3igl13serialization11deserializeINS_6opengl10ViewerCoreEEENSt9enable_ifIXntsr15is_serializableIT_EE5valueEvE4typeERS5_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit ]
-  ret i1 %189
+  %.lcssa62114 = phi i1 [ false, %._crit_edge.thread ], [ true, %_ZN3igl13serialization11deserializeINS_6opengl10ViewerCoreEEENSt9enable_ifIXntsr15is_serializableIT_EE5valueEvE4typeERS5_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit ]
+  ret i1 %.lcssa62114
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13700,8 +13700,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %81
   %.old = load i64, ptr %15, align 8, !tbaa !154
-  %.old124 = icmp eq i64 %.old, 38
-  br i1 %.old124, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread55
+  %.old125 = icmp eq i64 %.old, 38
+  br i1 %.old125, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread55
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %88 = load ptr, ptr %7, align 8, !tbaa !58
@@ -13802,8 +13802,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !281
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not125 = icmp eq ptr %.sroa.054.1, %105
-  br i1 %.not125, label %_ZN3igl13serialization11deserializeIfLi4ELi1ELi0ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
+  %.not126 = icmp eq ptr %.sroa.054.1, %105
+  br i1 %.not126, label %_ZN3igl13serialization11deserializeIfLi4ELi1ELi0ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
 
 119:                                              ; preds = %._crit_edge
   %.0.copyload17.i = load i64, ptr %.sroa.054.1, align 1, !tbaa !70
@@ -13831,8 +13831,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %129, label %.lr.ph.i.i.i.i.i.i43, label %_ZN3igl13serialization11deserializeIfLi4ELi1ELi0ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi4ELi1ELi0ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i43, %3, %._crit_edge, %119
-  %130 = phi i1 [ false, %._crit_edge ], [ true, %119 ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
-  ret i1 %130
+  %.lcssa64116 = phi i1 [ false, %._crit_edge ], [ true, %119 ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
+  ret i1 %.lcssa64116
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -14255,8 +14255,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %81
   %.old = load i64, ptr %15, align 8, !tbaa !154
-  %.old124 = icmp eq i64 %.old, 38
-  br i1 %.old124, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread55
+  %.old125 = icmp eq i64 %.old, 38
+  br i1 %.old125, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread55
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %88 = load ptr, ptr %7, align 8, !tbaa !58
@@ -14357,8 +14357,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !282
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not125 = icmp eq ptr %.sroa.054.1, %105
-  br i1 %.not125, label %_ZN3igl13serialization11deserializeIfLi3ELi1ELi0ELi3ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
+  %.not126 = icmp eq ptr %.sroa.054.1, %105
+  br i1 %.not126, label %_ZN3igl13serialization11deserializeIfLi3ELi1ELi0ELi3ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
 
 119:                                              ; preds = %._crit_edge
   %.0.copyload17.i = load i64, ptr %.sroa.054.1, align 1, !tbaa !70
@@ -14386,8 +14386,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %129, label %.lr.ph.i.i.i.i.i.i43, label %_ZN3igl13serialization11deserializeIfLi3ELi1ELi0ELi3ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi3ELi1ELi0ELi3ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i43, %3, %._crit_edge, %119
-  %130 = phi i1 [ false, %._crit_edge ], [ true, %119 ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
-  ret i1 %130
+  %.lcssa64116 = phi i1 [ false, %._crit_edge ], [ true, %119 ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
+  ret i1 %.lcssa64116
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -14948,8 +14948,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !285
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not123 = icmp eq ptr %.sroa.052.1, %112
-  br i1 %.not123, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
+  %.not125 = icmp eq ptr %.sroa.052.1, %112
+  br i1 %.not125, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
 
 .lr.ph.i.i.i.i.i.i42:                             ; preds = %._crit_edge, %.lr.ph.i.i.i.i.i.i42
   %.012.i.i.i.i.i.i43 = phi i64 [ %129, %.lr.ph.i.i.i.i.i.i42 ], [ 4, %._crit_edge ]
@@ -14968,8 +14968,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %_ZN3igl13serialization11deserializeIfEENSt9enable_ifIXsr3std14is_fundamentalIT_EE5valueEvE4typeERS3_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit
 
 _ZN3igl13serialization11deserializeIfEENSt9enable_ifIXsr3std14is_fundamentalIT_EE5valueEvE4typeERS3_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i42, %._crit_edge.thread
-  %131 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
-  ret i1 %131
+  %.lcssa63115 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
+  ret i1 %.lcssa63115
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -15402,8 +15402,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %81
   %.old = load i64, ptr %15, align 8, !tbaa !154
-  %.old123 = icmp eq i64 %.old, 27
-  br i1 %.old123, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread54
+  %.old124 = icmp eq i64 %.old, 27
+  br i1 %.old124, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread54
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %88 = load ptr, ptr %7, align 8, !tbaa !58
@@ -15504,8 +15504,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !286
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not124 = icmp eq ptr %.sroa.049.1, %105
-  br i1 %.not124, label %_ZN3igl13serialization11deserializeIfLi0EEEvRN5Eigen10QuaternionIT_XT0_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
+  %.not125 = icmp eq ptr %.sroa.049.1, %105
+  br i1 %.not125, label %_ZN3igl13serialization11deserializeIfLi0EEEvRN5Eigen10QuaternionIT_XT0_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
 
 119:                                              ; preds = %._crit_edge
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -15574,8 +15574,8 @@ _ZN3igl13serialization11deserializeIfEENSt9enable_ifIXsr3std14is_fundamentalIT_E
   br i1 %145, label %.lr.ph.i.i.i.i.i.i21.i, label %_ZN3igl13serialization11deserializeIfLi0EEEvRN5Eigen10QuaternionIT_XT0_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi0EEEvRN5Eigen10QuaternionIT_XT0_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i21.i, %3, %._crit_edge
-  %146 = phi i1 [ false, %._crit_edge ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i21.i ]
-  ret i1 %146
+  %.lcssa63115 = phi i1 [ false, %._crit_edge ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i21.i ]
+  ret i1 %.lcssa63115
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -15996,8 +15996,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %81
   %.old = load i64, ptr %15, align 8, !tbaa !154
-  %.old123 = icmp eq i64 %.old, 39
-  br i1 %.old123, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread54
+  %.old125 = icmp eq i64 %.old, 39
+  br i1 %.old125, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread54
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %88 = load ptr, ptr %7, align 8, !tbaa !58
@@ -16098,8 +16098,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !287
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not124 = icmp eq ptr %.sroa.052.1, %105
-  br i1 %.not124, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
+  %.not126 = icmp eq ptr %.sroa.052.1, %105
+  br i1 %.not126, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
 
 .lr.ph.i.i.i.i.i.i42:                             ; preds = %._crit_edge, %.lr.ph.i.i.i.i.i.i42
   %.012.i.i.i.i.i.i43 = phi i64 [ %122, %.lr.ph.i.i.i.i.i.i42 ], [ 4, %._crit_edge ]
@@ -16118,8 +16118,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %_ZN3igl13serialization11deserializeINS_6opengl10ViewerCore12RotationTypeEEENSt9enable_ifIXsr3std7is_enumIT_EE5valueEvE4typeERS6_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit
 
 _ZN3igl13serialization11deserializeINS_6opengl10ViewerCore12RotationTypeEEENSt9enable_ifIXsr3std7is_enumIT_EE5valueEvE4typeERS6_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i42, %._crit_edge.thread
-  %124 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
-  ret i1 %124
+  %.lcssa63115 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
+  ret i1 %.lcssa63115
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -16680,18 +16680,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !288
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not120 = icmp eq ptr %.sroa.049.1, %112
-  br i1 %.not120, label %._crit_edge.thread, label %126
+  %.not121 = icmp eq ptr %.sroa.049.1, %112
+  br i1 %.not121, label %._crit_edge.thread, label %126
 
 126:                                              ; preds = %._crit_edge
   %127 = load i8, ptr %.sroa.049.1, align 1, !tbaa !70
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge, %126
-  %128 = phi i1 [ true, %126 ], [ false, %._crit_edge ], [ false, %3 ]
+  %.lcssa60112 = phi i1 [ true, %126 ], [ false, %._crit_edge ], [ false, %3 ]
   %storemerge = phi i8 [ %127, %126 ], [ 0, %._crit_edge ], [ 0, %3 ]
   store i8 %storemerge, ptr %0, align 1, !tbaa !70
-  ret i1 %128
+  ret i1 %.lcssa60112
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -17252,8 +17252,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !289
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not123 = icmp eq ptr %.sroa.052.1, %112
-  br i1 %.not123, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
+  %.not125 = icmp eq ptr %.sroa.052.1, %112
+  br i1 %.not125, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
 
 .lr.ph.i.i.i.i.i.i42:                             ; preds = %._crit_edge, %.lr.ph.i.i.i.i.i.i42
   %.012.i.i.i.i.i.i43 = phi i64 [ %129, %.lr.ph.i.i.i.i.i.i42 ], [ 8, %._crit_edge ]
@@ -17272,8 +17272,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %_ZN3igl13serialization11deserializeIdEENSt9enable_ifIXsr3std14is_fundamentalIT_EE5valueEvE4typeERS3_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit
 
 _ZN3igl13serialization11deserializeIdEENSt9enable_ifIXsr3std14is_fundamentalIT_EE5valueEvE4typeERS3_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i42, %._crit_edge.thread
-  %131 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
-  ret i1 %131
+  %.lcssa63115 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
+  ret i1 %.lcssa63115
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -17696,8 +17696,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %81
   %.old = load i64, ptr %15, align 8, !tbaa !154
-  %.old124 = icmp eq i64 %.old, 38
-  br i1 %.old124, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread55
+  %.old125 = icmp eq i64 %.old, 38
+  br i1 %.old125, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread55
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %88 = load ptr, ptr %7, align 8, !tbaa !58
@@ -17798,8 +17798,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !290
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not125 = icmp eq ptr %.sroa.054.1, %105
-  br i1 %.not125, label %_ZN3igl13serialization11deserializeIfLi4ELi4ELi0ELi4ELi4EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
+  %.not126 = icmp eq ptr %.sroa.054.1, %105
+  br i1 %.not126, label %_ZN3igl13serialization11deserializeIfLi4ELi4ELi0ELi4ELi4EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
 
 119:                                              ; preds = %._crit_edge
   %.0.copyload17.i = load i64, ptr %.sroa.054.1, align 1, !tbaa !70
@@ -17827,8 +17827,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %129, label %.lr.ph.i.i.i.i.i.i43, label %_ZN3igl13serialization11deserializeIfLi4ELi4ELi0ELi4ELi4EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi4ELi4ELi0ELi4ELi4EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i43, %3, %._crit_edge, %119
-  %130 = phi i1 [ false, %._crit_edge ], [ true, %119 ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
-  ret i1 %130
+  %.lcssa64116 = phi i1 [ false, %._crit_edge ], [ true, %119 ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
+  ret i1 %.lcssa64116
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -18090,8 +18090,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %84
   %.old = load i64, ptr %17, align 8, !tbaa !154
-  %.old109 = icmp eq i64 %.old, 25
-  br i1 %.old109, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread47
+  %.old108 = icmp eq i64 %.old, 25
+  br i1 %.old108, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread47
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %91 = load ptr, ptr %8, align 8, !tbaa !58
@@ -18197,8 +18197,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !291
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not110 = icmp eq ptr %108, %110
-  br i1 %.not110, label %._crit_edge.thread, label %124
+  %.not109 = icmp eq ptr %108, %110
+  br i1 %.not109, label %._crit_edge.thread, label %124
 
 124:                                              ; preds = %._crit_edge
   call void @_ZN3igl13serialization11deserializeINS_6opengl10ViewerDataEEENSt9enable_ifIXntsr15is_serializableIT_EE5valueEvE4typeERS5_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE(ptr noundef nonnull align 8 dereferenceable(1488) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -21846,8 +21846,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %81
   %.old = load i64, ptr %15, align 8, !tbaa !154
-  %.old126 = icmp eq i64 %.old, 42
-  br i1 %.old126, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread57
+  %.old128 = icmp eq i64 %.old, 42
+  br i1 %.old128, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread57
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %88 = load ptr, ptr %7, align 8, !tbaa !58
@@ -21948,8 +21948,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !296
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not127 = icmp eq ptr %.sroa.056.1, %105
-  br i1 %.not127, label %._crit_edge.thread, label %119
+  %.not129 = icmp eq ptr %.sroa.056.1, %105
+  br i1 %.not129, label %._crit_edge.thread, label %119
 
 119:                                              ; preds = %._crit_edge
   %.0.copyload17.i = load i64, ptr %.sroa.056.1, align 1, !tbaa !70
@@ -22003,8 +22003,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %_ZN3igl13serialization11deserializeIdLin1ELin1ELi0ELin1ELin1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit
 
 _ZN3igl13serialization11deserializeIdLin1ELin1ELi0ELin1ELin1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i44, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i, %._crit_edge.thread
-  %140 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i ], [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i44 ]
-  ret i1 %140
+  %.lcssa66118 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i ], [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i44 ]
+  ret i1 %.lcssa66118
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -22466,8 +22466,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %81
   %.old = load i64, ptr %15, align 8, !tbaa !154
-  %.old126 = icmp eq i64 %.old, 42
-  br i1 %.old126, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread57
+  %.old128 = icmp eq i64 %.old, 42
+  br i1 %.old128, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread57
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %88 = load ptr, ptr %7, align 8, !tbaa !58
@@ -22568,8 +22568,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !298
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not127 = icmp eq ptr %.sroa.056.1, %105
-  br i1 %.not127, label %._crit_edge.thread, label %119
+  %.not129 = icmp eq ptr %.sroa.056.1, %105
+  br i1 %.not129, label %._crit_edge.thread, label %119
 
 119:                                              ; preds = %._crit_edge
   %.0.copyload17.i = load i64, ptr %.sroa.056.1, align 1, !tbaa !70
@@ -22623,8 +22623,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %_ZN3igl13serialization11deserializeIiLin1ELin1ELi0ELin1ELin1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit
 
 _ZN3igl13serialization11deserializeIiLin1ELin1ELi0ELin1ELin1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i44, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i, %._crit_edge.thread
-  %140 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i ], [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i44 ]
-  ret i1 %140
+  %.lcssa66118 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i ], [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i44 ]
+  ret i1 %.lcssa66118
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23180,8 +23180,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %83
   %.old = load i64, ptr %16, align 8, !tbaa !154
-  %.old111 = icmp eq i64 %.old, 42
-  br i1 %.old111, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread49
+  %.old110 = icmp eq i64 %.old, 42
+  br i1 %.old110, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread49
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %90 = load ptr, ptr %8, align 8, !tbaa !58
@@ -23287,8 +23287,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !300
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not112 = icmp eq ptr %107, %109
-  br i1 %.not112, label %._crit_edge.thread, label %123
+  %.not111 = icmp eq ptr %107, %109
+  br i1 %.not111, label %._crit_edge.thread, label %123
 
 123:                                              ; preds = %._crit_edge
   call void @_ZN3igl13serialization11deserializeIhLin1ELin1ELi0ELin1ELin1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -23921,8 +23921,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %82
   %.old = load i64, ptr %16, align 8, !tbaa !154
-  %.old174 = icmp eq i64 %.old, 70
-  br i1 %.old174, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread90
+  %.old176 = icmp eq i64 %.old, 70
+  br i1 %.old176, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread90
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %89 = load ptr, ptr %8, align 8, !tbaa !58
@@ -24027,8 +24027,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !303
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not175 = icmp eq ptr %.sroa.088.1, %106
-  br i1 %.not175, label %._crit_edge.thread, label %120
+  %.not177 = icmp eq ptr %.sroa.088.1, %106
+  br i1 %.not177, label %._crit_edge.thread, label %120
 
 120:                                              ; preds = %._crit_edge
   %.0.copyload.i42 = load i64, ptr %.sroa.088.1, align 1, !tbaa !70
@@ -24240,8 +24240,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN3igl13serialization11deserializeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEvRSt6vectorIT_T0_ERN9__gnu_cxx17__normal_iteratorIPKcS9_IcS6_EEE.exit
 
 _ZN3igl13serialization11deserializeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEvRSt6vectorIT_T0_ERN9__gnu_cxx17__normal_iteratorIPKcS9_IcS6_EEE.exit: ; preds = %_ZN3igl13serialization11deserializeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcS5_EEE.exit71, %189, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i50, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.i
-  %193 = phi i1 [ false, %189 ], [ false, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i50 ], [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.i ], [ true, %_ZN3igl13serialization11deserializeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcS5_EEE.exit71 ]
-  ret i1 %193
+  %.lcssa106162 = phi i1 [ false, %189 ], [ false, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i50 ], [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.i ], [ true, %_ZN3igl13serialization11deserializeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcS5_EEE.exit71 ]
+  ret i1 %.lcssa106162
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24944,8 +24944,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !312
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not123 = icmp eq ptr %.sroa.052.1, %112
-  br i1 %.not123, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
+  %.not125 = icmp eq ptr %.sroa.052.1, %112
+  br i1 %.not125, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
 
 .lr.ph.i.i.i.i.i.i42:                             ; preds = %._crit_edge, %.lr.ph.i.i.i.i.i.i42
   %.012.i.i.i.i.i.i43 = phi i64 [ %129, %.lr.ph.i.i.i.i.i.i42 ], [ 4, %._crit_edge ]
@@ -24964,8 +24964,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %_ZN3igl13serialization11deserializeIjEENSt9enable_ifIXsr3std14is_fundamentalIT_EE5valueEvE4typeERS3_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit
 
 _ZN3igl13serialization11deserializeIjEENSt9enable_ifIXsr3std14is_fundamentalIT_EE5valueEvE4typeERS3_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i42, %._crit_edge.thread
-  %131 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
-  ret i1 %131
+  %.lcssa63115 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
+  ret i1 %.lcssa63115
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -25388,8 +25388,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %81
   %.old = load i64, ptr %15, align 8, !tbaa !154
-  %.old124 = icmp eq i64 %.old, 38
-  br i1 %.old124, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread55
+  %.old125 = icmp eq i64 %.old, 38
+  br i1 %.old125, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread55
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %88 = load ptr, ptr %7, align 8, !tbaa !58
@@ -25490,8 +25490,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !313
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not125 = icmp eq ptr %.sroa.054.1, %105
-  br i1 %.not125, label %_ZN3igl13serialization11deserializeIfLi4ELi1ELi2ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
+  %.not126 = icmp eq ptr %.sroa.054.1, %105
+  br i1 %.not126, label %_ZN3igl13serialization11deserializeIfLi4ELi1ELi2ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, label %119
 
 119:                                              ; preds = %._crit_edge
   %.0.copyload17.i = load i64, ptr %.sroa.054.1, align 1, !tbaa !70
@@ -25519,8 +25519,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %129, label %.lr.ph.i.i.i.i.i.i43, label %_ZN3igl13serialization11deserializeIfLi4ELi1ELi2ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit, !llvm.loop !278
 
 _ZN3igl13serialization11deserializeIfLi4ELi1ELi2ELi4ELi1EEEvRN5Eigen6MatrixIT_XT0_EXT1_EXT2_EXT3_EXT4_EEERN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i43, %3, %._crit_edge, %119
-  %130 = phi i1 [ false, %._crit_edge ], [ true, %119 ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
-  ret i1 %130
+  %.lcssa64116 = phi i1 [ false, %._crit_edge ], [ true, %119 ], [ false, %3 ], [ true, %.lr.ph.i.i.i.i.i.i43 ]
+  ret i1 %.lcssa64116
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -26081,8 +26081,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !314
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %.not123 = icmp eq ptr %.sroa.052.1, %112
-  br i1 %.not123, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
+  %.not125 = icmp eq ptr %.sroa.052.1, %112
+  br i1 %.not125, label %._crit_edge.thread, label %.lr.ph.i.i.i.i.i.i42
 
 .lr.ph.i.i.i.i.i.i42:                             ; preds = %._crit_edge, %.lr.ph.i.i.i.i.i.i42
   %.012.i.i.i.i.i.i43 = phi i64 [ %129, %.lr.ph.i.i.i.i.i.i42 ], [ 4, %._crit_edge ]
@@ -26101,8 +26101,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %_ZN3igl13serialization11deserializeIiEENSt9enable_ifIXsr3std14is_fundamentalIT_EE5valueEvE4typeERS3_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit
 
 _ZN3igl13serialization11deserializeIiEENSt9enable_ifIXsr3std14is_fundamentalIT_EE5valueEvE4typeERS3_RN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i42, %._crit_edge.thread
-  %131 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
-  ret i1 %131
+  %.lcssa63115 = phi i1 [ false, %._crit_edge.thread ], [ true, %.lr.ph.i.i.i.i.i.i42 ]
+  ret i1 %.lcssa63115
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

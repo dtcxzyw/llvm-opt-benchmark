@@ -847,8 +847,8 @@ Abc_InfoIsOrOne.exit.thread:                      ; preds = %225, %.critedge6.Ab
   %.val294549 = phi i32 [ %.val287, %.critedge.preheader ], [ %.val287513, %Vec_VecClear.exit366 ], [ %.val289, %.critedge ]
   %381 = icmp slt i32 %.val294549, %5
   %382 = icmp sgt i32 %.val294549, 0
-  %or.cond684 = and i1 %381, %382
-  br i1 %or.cond684, label %.lr.ph552, label %.critedge8
+  %or.cond695 = and i1 %381, %382
+  br i1 %or.cond695, label %.lr.ph552, label %.critedge8
 
 .lr.ph552:                                        ; preds = %.critedge4
   %383 = getelementptr i8, ptr %1, i64 48
@@ -956,27 +956,20 @@ Res_FilterCollectFaninInfo.exit451:               ; preds = %Abc_InfoOr.exit.i44
   %435 = add nsw i64 %434, 2
   br label %.lr.ph547
 
-.loopexit489.loopexit:                            ; preds = %Abc_InfoIsOrOne3.exit.thread
+.loopexit489:                                     ; preds = %Abc_InfoIsOrOne3.exit.thread
   %.phi.trans.insert660 = getelementptr i8, ptr %.val346649, i64 4
   %.val346.val.pre = load i32, ptr %.phi.trans.insert660, align 4, !tbaa !33
   %.pre666 = sext i32 %.val346.val.pre to i64
-  br label %.loopexit489
-
-.loopexit489:                                     ; preds = %.loopexit489.loopexit, %.lr.ph547
-  %.pre-phi667 = phi i64 [ %.pre666, %.loopexit489.loopexit ], [ %441, %.lr.ph547 ]
-  %.val346.val = phi i32 [ %.val346.val.pre, %.loopexit489.loopexit ], [ %.val346.val661, %.lr.ph547 ]
-  %.val346 = phi ptr [ %.val346649, %.loopexit489.loopexit ], [ %.val346646, %.lr.ph547 ]
-  %.10.lcssa = phi i32 [ %.11, %.loopexit489.loopexit ], [ %.9545, %.lr.ph547 ]
-  %436 = icmp slt i64 %indvars.iv.next610, %.pre-phi667
+  %436 = icmp slt i64 %indvars.iv.next610, %.pre666
   %indvars.iv.next605 = add nsw i64 %indvars.iv604, 1
   br i1 %436, label %.lr.ph547, label %.loopexit491.loopexit, !llvm.loop !62
 
 .lr.ph547:                                        ; preds = %.lr.ph547.preheader, %.loopexit489
-  %.val346.val661 = phi i32 [ %.val346.val544, %.lr.ph547.preheader ], [ %.val346.val, %.loopexit489 ]
-  %.val346646 = phi ptr [ %.val346543, %.lr.ph547.preheader ], [ %.val346, %.loopexit489 ]
+  %.val346.val661 = phi i32 [ %.val346.val544, %.lr.ph547.preheader ], [ %.val346.val.pre, %.loopexit489 ]
+  %.val346646 = phi ptr [ %.val346543, %.lr.ph547.preheader ], [ %.val346649, %.loopexit489 ]
   %indvars.iv609 = phi i64 [ %435, %.lr.ph547.preheader ], [ %indvars.iv.next610, %.loopexit489 ]
   %indvars.iv604 = phi i64 [ %433, %.lr.ph547.preheader ], [ %indvars.iv.next605, %.loopexit489 ]
-  %.9545 = phi i32 [ %.7550, %.lr.ph547.preheader ], [ %.10.lcssa, %.loopexit489 ]
+  %.9545 = phi i32 [ %.7550, %.lr.ph547.preheader ], [ %.11, %.loopexit489 ]
   %437 = load ptr, ptr %8, align 8, !tbaa !3
   %438 = getelementptr i8, ptr %437, i64 8
   %.val281 = load ptr, ptr %438, align 8, !tbaa !13
@@ -985,7 +978,7 @@ Res_FilterCollectFaninInfo.exit451:               ; preds = %Abc_InfoOr.exit.i44
   %indvars.iv.next610 = add nsw i64 %indvars.iv609, 1
   %441 = sext i32 %.val346.val661 to i64
   %442 = icmp slt i64 %indvars.iv.next610, %441
-  br i1 %442, label %.lr.ph541, label %.loopexit489
+  br i1 %442, label %.lr.ph541, label %.loopexit491.loopexit
 
 .lr.ph541:                                        ; preds = %.lr.ph547
   %443 = load ptr, ptr %0, align 8, !tbaa !20
@@ -1136,15 +1129,16 @@ Abc_InfoIsOrOne3.exit.thread:                     ; preds = %463, %.critedge10.A
   %.val347.val = load i32, ptr %517, align 4, !tbaa !33
   %518 = sext i32 %.val347.val to i64
   %519 = icmp slt i64 %indvars.iv.next607, %518
-  br i1 %519, label %449, label %.loopexit489.loopexit, !llvm.loop !65
+  br i1 %519, label %449, label %.loopexit489, !llvm.loop !65
 
-.loopexit491.loopexit:                            ; preds = %.loopexit489
+.loopexit491.loopexit:                            ; preds = %.lr.ph547, %.loopexit489
+  %.10.lcssa677 = phi i32 [ %.11, %.loopexit489 ], [ %.9545, %.lr.ph547 ]
   %.pre650 = load ptr, ptr %0, align 8, !tbaa !20
   br label %.loopexit491
 
 .loopexit491:                                     ; preds = %.loopexit491.loopexit, %Res_FilterCollectFaninInfo.exit451, %385
   %520 = phi ptr [ %386, %385 ], [ %406, %Res_FilterCollectFaninInfo.exit451 ], [ %.pre650, %.loopexit491.loopexit ]
-  %.8 = phi i32 [ %.7550, %385 ], [ %.7550, %Res_FilterCollectFaninInfo.exit451 ], [ %.10.lcssa, %.loopexit491.loopexit ]
+  %.8 = phi i32 [ %.7550, %385 ], [ %.7550, %Res_FilterCollectFaninInfo.exit451 ], [ %.10.lcssa677, %.loopexit491.loopexit ]
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %521 = getelementptr i8, ptr %520, i64 28
   %.val294 = load i32, ptr %521, align 4, !tbaa !23
@@ -1169,27 +1163,21 @@ Abc_InfoIsOrOne3.exit.thread:                     ; preds = %463, %.critedge10.A
   %528 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %530
 
-.loopexit.loopexit:                               ; preds = %._crit_edge
+.loopexit:                                        ; preds = %._crit_edge
   %.pre665 = sext i32 %.val300 to i64
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %530, %.loopexit.loopexit
-  %.pre-phi = phi i64 [ %.pre665, %.loopexit.loopexit ], [ %531, %530 ]
-  %.val299.pre664 = phi i32 [ %.val300, %.loopexit.loopexit ], [ %.val299.pre, %530 ]
-  %.14.lcssa = phi i32 [ %.15.lcssa, %.loopexit.loopexit ], [ %.13571, %530 ]
-  %529 = icmp slt i64 %indvars.iv.next629, %.pre-phi
+  %529 = icmp slt i64 %indvars.iv.next629, %.pre665
   %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
   br i1 %529, label %530, label %.critedge12, !llvm.loop !67
 
 530:                                              ; preds = %.lr.ph573, %.loopexit
-  %.val299.pre = phi i32 [ %.val299570, %.lr.ph573 ], [ %.val299.pre664, %.loopexit ]
+  %.val299.pre = phi i32 [ %.val299570, %.lr.ph573 ], [ %.val300, %.loopexit ]
   %indvars.iv628 = phi i64 [ 0, %.lr.ph573 ], [ %indvars.iv.next629, %.loopexit ]
   %indvars.iv623 = phi i64 [ 1, %.lr.ph573 ], [ %indvars.iv.next624, %.loopexit ]
-  %.13571 = phi i32 [ %.6, %.lr.ph573 ], [ %.14.lcssa, %.loopexit ]
+  %.13571 = phi i32 [ %.6, %.lr.ph573 ], [ %.15.lcssa, %.loopexit ]
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %531 = sext i32 %.val299.pre to i64
   %532 = icmp slt i64 %indvars.iv.next629, %531
-  br i1 %532, label %.lr.ph568, label %.loopexit
+  br i1 %532, label %.lr.ph568, label %.critedge12
 
 .lr.ph568:                                        ; preds = %530
   %533 = trunc nuw nsw i64 %indvars.iv628 to i32
@@ -1415,10 +1403,10 @@ Abc_InfoIsOrOne.exit474.thread:                   ; preds = %586, %.critedge14.A
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %633 = trunc nuw i64 %indvars.iv.next626 to i32
   %634 = icmp sgt i32 %.val300, %633
-  br i1 %634, label %535, label %.loopexit.loopexit, !llvm.loop !70
+  br i1 %634, label %535, label %.loopexit, !llvm.loop !70
 
-.critedge12:                                      ; preds = %19, %49, %.critedge2, %.critedge6, %.critedge10, %.loopexit, %.critedge14, %.preheader, %.critedge8
-  %.0247 = phi i32 [ %.6, %.critedge8 ], [ %.6, %.preheader ], [ %628, %.critedge14 ], [ %.14.lcssa, %.loopexit ], [ %515, %.critedge10 ], [ %240, %.critedge6 ], [ %156, %.critedge2 ], [ 0, %49 ], [ 0, %19 ]
+.critedge12:                                      ; preds = %19, %49, %.critedge2, %.critedge6, %.critedge10, %.loopexit, %530, %.critedge14, %.preheader, %.critedge8
+  %.0247 = phi i32 [ %.6, %.critedge8 ], [ %.6, %.preheader ], [ %628, %.critedge14 ], [ %.13571, %530 ], [ %.15.lcssa, %.loopexit ], [ %515, %.critedge10 ], [ %240, %.critedge6 ], [ %156, %.critedge2 ], [ 0, %49 ], [ 0, %19 ]
   ret i32 %.0247
 }
 

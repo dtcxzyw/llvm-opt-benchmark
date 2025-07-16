@@ -1893,7 +1893,7 @@ define hidden noalias noundef nonnull ptr @"_ZN5rowan3arc20ThinArc$LT$H$C$T$GT$2
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.523617d5653b534f489668899af306f5.51) #37
   unreachable
 
-43:                                               ; preds = %33, %._crit_edge
+43:                                               ; preds = %._crit_edge, %33
   ret ptr %30
 
 44:                                               ; preds = %.lr.ph

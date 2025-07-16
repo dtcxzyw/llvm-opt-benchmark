@@ -203,7 +203,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   br i1 %or.cond325, label %70, label %289
 
 70:                                               ; preds = %64
-  br i1 %68, label %71, label %244
+  br i1 %68, label %71, label %245
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv426
@@ -609,36 +609,36 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   %239 = load i64, ptr %238, align 8, !tbaa !29
   %240 = icmp eq i64 %239, 0
   %241 = zext i32 %235 to i64
-  %242 = select i1 %240, i64 0, i64 %241
-  %243 = icmp eq i64 %.1283, 0
-  br label %249
+  %242 = icmp eq i64 %.1283, 0
+  %243 = icmp eq i64 %239, %241
+  %244 = or i1 %240, %243
+  br label %250
 
-244:                                              ; preds = %70
-  br i1 %69, label %245, label %249
+245:                                              ; preds = %70
+  br i1 %69, label %246, label %250
 
-245:                                              ; preds = %244
-  %246 = add i64 %indvars.iv426, 1
-  %247 = and i64 %246, 4294967295
-  %248 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %247
-  store i8 0, ptr %248, align 1, !tbaa !8
-  br label %249
+246:                                              ; preds = %245
+  %247 = add i64 %indvars.iv426, 1
+  %248 = and i64 %247, 4294967295
+  %249 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %248
+  store i8 0, ptr %249, align 1, !tbaa !8
+  br label %250
 
-249:                                              ; preds = %244, %245, %.loopexit
-  %250 = phi i64 [ %239, %.loopexit ], [ 0, %245 ], [ 0, %244 ]
-  %.5287 = phi i1 [ %243, %.loopexit ], [ true, %245 ], [ true, %244 ]
-  %.not309 = phi i1 [ true, %.loopexit ], [ false, %245 ], [ true, %244 ]
-  %.10 = phi i64 [ %242, %.loopexit ], [ 0, %245 ], [ 0, %244 ]
+250:                                              ; preds = %245, %246, %.loopexit
+  %.not308 = phi i1 [ %244, %.loopexit ], [ true, %246 ], [ true, %245 ]
+  %.5287 = phi i1 [ %242, %.loopexit ], [ true, %246 ], [ true, %245 ]
+  %.not309 = phi i1 [ true, %.loopexit ], [ false, %246 ], [ true, %245 ]
   %bcmp300 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %7, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
   %251 = icmp eq i32 %bcmp300, 0
   br i1 %251, label %252, label %254
 
-252:                                              ; preds = %249
+252:                                              ; preds = %250
   store i32 0, ptr %2, align 8, !tbaa !26
   %253 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 0, ptr %253, align 8, !tbaa !29
   br label %.thread329
 
-254:                                              ; preds = %249
+254:                                              ; preds = %250
   %bcmp301 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %7, ptr noundef nonnull dereferenceable(5) @.str.16, i64 5)
   %255 = icmp eq i32 %bcmp301, 0
   br i1 %255, label %256, label %259
@@ -746,7 +746,6 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   br i1 %285, label %286, label %288
 
 286:                                              ; preds = %284
-  %.not308 = icmp eq i64 %250, %.10
   br i1 %.not308, label %.loopexit336, label %287
 
 287:                                              ; preds = %286

@@ -373,17 +373,17 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i:  ; preds = %15, %13, %7
   %22 = load i32, ptr %21, align 4
   %23 = select i1 %18, i32 %22, i32 %20
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
+  br i1 %24, label %.critedge.i, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
 
 _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
   %25 = load i16, ptr %.0.i.i.i, align 2, !tbaa !8
   %26 = icmp ugt i16 %25, 1
-  br i1 %26, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i
+  br i1 %26, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %.critedge.i
 
-_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i: ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
+.critedge.i:                                      ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
   br i1 %.not.i.i.i, label %27, label %.preheader75.i
 
-27:                                               ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i
+27:                                               ; preds = %.critedge.i
   %28 = and i16 %9, 2
   %.not2.i.i = icmp eq i16 %28, 0
   br i1 %.not2.i.i, label %31, label %29
@@ -397,8 +397,8 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i: ; preds = %_ZNK6
   %33 = load ptr, ptr %32, align 8, !tbaa !7
   br label %.preheader75.i
 
-.preheader75.i:                                   ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i, %29, %31
-  %.0.i.i = phi ptr [ %30, %29 ], [ %33, %31 ], [ null, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i ]
+.preheader75.i:                                   ; preds = %.critedge.i, %29, %31
+  %.0.i.i = phi ptr [ %30, %29 ], [ %33, %31 ], [ null, %.critedge.i ]
   %.not77.i = icmp sgt i32 %23, 1
   br i1 %.not77.i, label %.lr.ph79.split.i.preheader, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
@@ -514,22 +514,22 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %26, %24, %18
   %33 = load i32, ptr %32, align 4
   %34 = select i1 %29, i32 %33, i32 %31
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit
+  br i1 %35, label %.critedge, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit
 
 _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit: ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
   %36 = load i16, ptr %.0.i.i, align 2, !tbaa !8
   %37 = zext i16 %36 to i32
   %38 = icmp samesign ult i32 %2, %37
-  br i1 %38, label %39, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread
+  br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit, %14, %10
   store i32 1, ptr %6, align 4, !tbaa !3
   br label %48
 
-_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread: ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit
+.critedge:                                        ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit
   br i1 %.not.i.i, label %40, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
-40:                                               ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread
+40:                                               ; preds = %.critedge
   %41 = and i16 %20, 2
   %.not2.i = icmp eq i16 %41, 0
   br i1 %.not2.i, label %44, label %42
@@ -543,8 +543,8 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread: ; preds = %_ZNK6ic
   %46 = load ptr, ptr %45, align 8, !tbaa !7
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
-_ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread, %42, %44
-  %.0.i = phi ptr [ %43, %42 ], [ %46, %44 ], [ null, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread ]
+_ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %.critedge, %42, %44
+  %.0.i = phi ptr [ %43, %42 ], [ %46, %44 ], [ null, %.critedge ]
   %47 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7715SimpleFormatter6formatEPKDsiPKPKNS_13UnicodeStringERS3_S5_aPiiR10UErrorCode(ptr noundef %.0.i, i32 noundef %34, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef null, i8 noundef signext 1, ptr noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %48
 
@@ -593,17 +593,17 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i:  ; preds = %18, %16, %10
   %25 = load i32, ptr %24, align 4
   %26 = select i1 %21, i32 %25, i32 %23
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
+  br i1 %27, label %.critedge.i, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
 
 _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
   %28 = load i16, ptr %.0.i.i.i, align 2, !tbaa !8
   %29 = icmp ugt i16 %28, 2
-  br i1 %29, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i
+  br i1 %29, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %.critedge.i
 
-_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i: ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
+.critedge.i:                                      ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
   br i1 %.not.i.i.i, label %30, label %.preheader75.i
 
-30:                                               ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i
+30:                                               ; preds = %.critedge.i
   %31 = and i16 %12, 2
   %.not2.i.i = icmp eq i16 %31, 0
   br i1 %.not2.i.i, label %34, label %32
@@ -617,8 +617,8 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i: ; preds = %_ZNK6
   %36 = load ptr, ptr %35, align 8, !tbaa !7
   br label %.preheader75.i
 
-.preheader75.i:                                   ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i, %32, %34
-  %.0.i.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i ]
+.preheader75.i:                                   ; preds = %.critedge.i, %32, %34
+  %.0.i.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %.critedge.i ]
   %.not77.i = icmp sgt i32 %26, 1
   br i1 %.not77.i, label %.lr.ph79.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
@@ -728,17 +728,17 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i:  ; preds = %20, %18, %12
   %27 = load i32, ptr %26, align 4
   %28 = select i1 %23, i32 %27, i32 %25
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
+  br i1 %29, label %.critedge.i, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
 
 _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
   %30 = load i16, ptr %.0.i.i.i, align 2, !tbaa !8
   %31 = icmp ugt i16 %30, 3
-  br i1 %31, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i
+  br i1 %31, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %.critedge.i
 
-_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i: ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
+.critedge.i:                                      ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
   br i1 %.not.i.i.i, label %32, label %.preheader75.i
 
-32:                                               ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i
+32:                                               ; preds = %.critedge.i
   %33 = and i16 %14, 2
   %.not2.i.i = icmp eq i16 %33, 0
   br i1 %.not2.i.i, label %36, label %34
@@ -752,8 +752,8 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i: ; preds = %_ZNK6
   %38 = load ptr, ptr %37, align 8, !tbaa !7
   br label %.preheader75.i
 
-.preheader75.i:                                   ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i, %34, %36
-  %.0.i.i = phi ptr [ %35, %34 ], [ %38, %36 ], [ null, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.thread.i ]
+.preheader75.i:                                   ; preds = %.critedge.i, %34, %36
+  %.0.i.i = phi ptr [ %35, %34 ], [ %38, %36 ], [ null, %.critedge.i ]
   %.not77.i = icmp sgt i32 %28, 1
   br i1 %.not77.i, label %.lr.ph79.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 

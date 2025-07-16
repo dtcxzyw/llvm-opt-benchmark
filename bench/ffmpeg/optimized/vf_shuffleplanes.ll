@@ -56,8 +56,8 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 9
   br label %18
 
-18:                                               ; preds = %.preheader, %30
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %30 ]
+18:                                               ; preds = %.preheader, %34
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %34 ]
   %19 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !25
   %.not34 = icmp slt i32 %20, %12
@@ -71,32 +71,38 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 23:                                               ; preds = %21
   %24 = load i8, ptr %17, align 1, !tbaa !27
   %.not36 = icmp eq i8 %24, 0
-  br i1 %.not36, label %30, label %25
+  br i1 %.not36, label %34, label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i32 %20, -1
-  %narrow = icmp ult i32 %26, 2
-  %27 = trunc i64 %indvars.iv to i32
-  %28 = add i32 %27, -3
-  %29 = icmp ult i32 %28, -2
-  %.not37 = xor i1 %29, %narrow
-  br i1 %.not37, label %30, label %.thread
+  %26 = trunc i64 %indvars.iv to i32
+  %27 = add i32 %26, -1
+  %28 = icmp ult i32 %27, 2
+  %29 = icmp eq i32 %20, 1
+  br i1 %29, label %33, label %30
 
-30:                                               ; preds = %23, %25
+30:                                               ; preds = %25
+  %31 = icmp ne i32 %20, 2
+  %32 = xor i1 %28, %31
+  br i1 %32, label %34, label %.thread
+
+33:                                               ; preds = %25
+  br i1 %28, label %34, label %.thread
+
+34:                                               ; preds = %30, %23, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %31, label %18, !llvm.loop !28
+  br i1 %exitcond.not, label %35, label %18, !llvm.loop !28
 
-31:                                               ; preds = %30
-  %32 = call i32 @ff_add_format(ptr noundef nonnull %4, i64 noundef %indvars.iv52) #6
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %.loopexit, label %.thread
+35:                                               ; preds = %34
+  %36 = call i32 @ff_add_format(ptr noundef nonnull %4, i64 noundef %indvars.iv52) #6
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %18, %25, %9, %31
+.thread:                                          ; preds = %18, %33, %30, %9, %35
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %34 = trunc nuw i64 %indvars.iv.next53 to i32
-  %35 = call ptr @av_pix_fmt_desc_get(i32 noundef %34) #6
-  %.not = icmp eq ptr %35, null
+  %38 = trunc nuw i64 %indvars.iv.next53 to i32
+  %39 = call ptr @av_pix_fmt_desc_get(i32 noundef %38) #6
+  %.not = icmp eq ptr %39, null
   br i1 %.not, label %._crit_edge.loopexit, label %9, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %.thread
@@ -104,12 +110,12 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %36 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %3 ]
-  %37 = call i32 @ff_set_common_formats2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %36) #6
+  %40 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %3 ]
+  %41 = call i32 @ff_set_common_formats2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %40) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %31, %._crit_edge
-  %.2 = phi i32 [ %37, %._crit_edge ], [ %32, %31 ]
+.loopexit:                                        ; preds = %35, %._crit_edge
+  %.2 = phi i32 [ %41, %._crit_edge ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   ret i32 %.2
 }

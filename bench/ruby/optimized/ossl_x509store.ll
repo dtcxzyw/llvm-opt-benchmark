@@ -712,24 +712,24 @@ define internal i64 @ossl_x509store_verify(i32 noundef %0, ptr noundef readonly 
 .preheader:                                       ; preds = %3
   %5 = load i64, ptr %1, align 8, !tbaa !20
   %.not32 = icmp eq i32 %0, 1
-  br i1 %.not32, label %9, label %6
+  br i1 %.not32, label %10, label %6
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !20
-  br label %9
+  %9 = icmp eq i32 %0, 2
+  br label %10
 
-9:                                                ; preds = %.preheader, %6
-  %10 = phi i64 [ %8, %6 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %6 ], [ 1, %.preheader ]
-  %11 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %11, label %rb_scan_args_set.exit, label %12
+10:                                               ; preds = %.preheader, %6
+  %11 = phi i64 [ %8, %6 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i1 [ %9, %6 ], [ true, %.preheader ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %12
 
-12:                                               ; preds = %9, %3
+12:                                               ; preds = %10, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #7
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %9
+rb_scan_args_set.exit:                            ; preds = %10
   %13 = load i64, ptr @cX509StoreContext, align 8, !tbaa !20
   %.pr.i = load i64, ptr @ossl_x509store_verify.rbimpl_id, align 8, !tbaa !20
   %.not4.i = icmp eq i64 %.pr.i, 0
@@ -743,7 +743,7 @@ rb_scan_args_set.exit:                            ; preds = %9
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %rb_scan_args_set.exit
   %.lcssa.i = phi i64 [ %.pr.i, %rb_scan_args_set.exit ], [ %14, %.lr.ph.i ]
-  %15 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %13, i64 noundef %.lcssa.i, i32 noundef 3, i64 noundef %2, i64 noundef %5, i64 noundef %10) #5
+  %15 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %13, i64 noundef %.lcssa.i, i32 noundef 3, i64 noundef %2, i64 noundef %5, i64 noundef %11) #5
   %16 = tail call i32 @rb_block_given_p() #5
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %19, label %17

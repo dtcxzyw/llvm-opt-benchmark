@@ -3537,7 +3537,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114PaddingChecker11visitRecordEPKN
 .critedge.i:                                      ; preds = %73, %67
   %74 = tail call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %13) #20
   %.not5.i.i.i.i.i.i = icmp eq ptr %74, null
-  br i1 %.not5.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread53, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not5.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.critedge.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i.i.i.i.i
   %.sroa.03.06.i.i.i.i.i.i = phi ptr [ %.sroa.03.2.i.i.i.i.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i.i.i.i.i ], [ %74, %.critedge.i ]
@@ -3591,14 +3591,14 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDec
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i.i.i.i.i: ; preds = %98, %.lr.ph.i.i.i.i.i.i.i.i, %89
   %.sroa.03.2.i.i.i.i.i.i = phi ptr [ %92, %89 ], [ %101, %98 ], [ %.sroa.03.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.03.2.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread53, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !302
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !302
 
-_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread53: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i.i.i.i.i, %.critedge.i
+_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i.i.i.i.i, %.critedge.i
   %102 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %.tr5864) #20
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread, label %103
 
-103:                                              ; preds = %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread53
+103:                                              ; preds = %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 28
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 127
@@ -4298,7 +4298,7 @@ _ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit: ; preds = %397, %400
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %8) #20
   br label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread
 
-_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread: ; preds = %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread53, %tailrecurse, %12, %15, %24, %73, %67, %58, %49, %37, %.lr.ph.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclEEUlPKNS4_9FieldDeclEE_EclINS4_11DeclContext22specific_decl_iteratorIS8_EEEEbT_.exit.i.i.i.i.i.i, %3, %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit, %_ZN12_GLOBAL__N_114PaddingChecker20calculateBaselinePadEPKN5clang10RecordDeclERKNS1_10ASTContextERKNS1_15ASTRecordLayoutE.exit
+_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread: ; preds = %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit, %tailrecurse, %12, %15, %24, %73, %67, %58, %49, %37, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclEEUlPKNS4_9FieldDeclEE_EclINS4_11DeclContext22specific_decl_iteratorIS8_EEEEbT_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %3, %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit, %_ZN12_GLOBAL__N_114PaddingChecker20calculateBaselinePadEPKN5clang10RecordDeclERKNS1_10ASTContextERKNS1_15ASTRecordLayoutE.exit
   ret void
 }
 

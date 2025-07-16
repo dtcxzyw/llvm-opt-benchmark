@@ -19952,7 +19952,7 @@ define void @_ZN4fish5pager5Pager15set_completions17h769207c423add0a0E(ptr noali
   %122 = icmp ult i64 %121, 2305843009213693952
   call void @llvm.assume(i1 %122)
   %.not61.i.i = icmp eq i64 %121, 0
-  br i1 %.not61.i.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread72.i.i, label %.lr.ph.i.i
+  br i1 %.not61.i.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread71.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %119, %149
   %.sroa.0.041.i.i = phi i64 [ %150, %149 ], [ 0, %119 ]
@@ -19975,7 +19975,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.thre
   %124 = icmp ult i64 %.pre.i.i, 2305843009213693952
   call void @llvm.assume(i1 %124)
   %125 = icmp samesign ult i64 %.sroa.0.0.lcssa.ph.i.i, %.pre.i.i
-  br i1 %125, label %.lr.ph50.i.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread72.i.i
+  br i1 %125, label %.lr.ph50.i.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread71.i.i
 
 .lr.ph50.i.i:                                     ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.thread.i.i
   %126 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -20031,7 +20031,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i.i:
 
 .preheader.i.i:                                   ; preds = %207
   %.not52.i.i = icmp eq i64 %.sroa.011.2.i.i, 0
-  br i1 %.not52.i.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread72.i.i, label %.lr.ph54.i.i
+  br i1 %.not52.i.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread71.i.i, label %.lr.ph54.i.i
 
 151:                                              ; preds = %207, %.lr.ph50.i.i
   %.sroa.0.149.i.i = phi i64 [ %.sroa.0.0.lcssa.ph.i.i, %.lr.ph50.i.i ], [ %208, %207 ]
@@ -20069,7 +20069,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i.i:
 _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.i.i: ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.i.i, %158, %156
   %.pre65.i.i = load i64, ptr %120, align 8, !alias.scope !1825, !noalias !1807
   %155 = icmp ugt i64 %.sroa.011.153.i.i, %.pre65.i.i
-  br i1 %155, label %_ZN4fish5pager31mangle_1_completion_description17h8b2432376ae4e69bE.exit.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread72.i.i
+  br i1 %155, label %_ZN4fish5pager31mangle_1_completion_description17h8b2432376ae4e69bE.exit.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread71.i.i
 
 156:                                              ; preds = %.noexc15.i
   %157 = icmp samesign ugt i32 %154, 127
@@ -20116,11 +20116,11 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.i.
 
 178:                                              ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.i.i, %.noexc15.i, %.noexc15.i, %.noexc15.i, %.noexc15.i, %.noexc15.i, %.noexc15.i
   %.not.i.i = icmp eq i64 %153, 0
-  br i1 %.not.i.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread72.i.i, label %.lr.ph54.i.i
+  br i1 %.not.i.i, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread71.i.i, label %.lr.ph54.i.i
 
-_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread72.i.i: ; preds = %178, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.i.i, %.preheader.i.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.thread.i.i, %119
-  %.sroa.011.1.lcssa71.i.i = phi i64 [ %.sroa.011.153.i.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.i.i ], [ 0, %.preheader.i.i ], [ 0, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.thread.i.i ], [ 0, %119 ], [ 0, %178 ]
-  store i64 %.sroa.011.1.lcssa71.i.i, ptr %120, align 8, !alias.scope !1825, !noalias !1807
+_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread71.i.i: ; preds = %178, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.i.i, %.preheader.i.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.thread.i.i, %119
+  %.sroa.011.1.lcssa70.i.i = phi i64 [ %.sroa.011.153.i.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.i.i ], [ 0, %.preheader.i.i ], [ 0, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.thread.i.i ], [ 0, %119 ], [ 0, %178 ]
+  store i64 %.sroa.011.1.lcssa70.i.i, ptr %120, align 8, !alias.scope !1825, !noalias !1807
   br label %_ZN4fish5pager31mangle_1_completion_description17h8b2432376ae4e69bE.exit.i
 
 179:                                              ; preds = %.noexc14.i
@@ -20208,7 +20208,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit34.th
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-_ZN4fish5pager31mangle_1_completion_description17h8b2432376ae4e69bE.exit.i: ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread72.i.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.i.i
+_ZN4fish5pager31mangle_1_completion_description17h8b2432376ae4e69bE.exit.i: ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.thread71.i.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit32.thread.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.021.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1829)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !1832

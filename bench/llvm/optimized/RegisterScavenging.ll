@@ -1980,11 +1980,11 @@ _ZN4llvm12RegScavenger18enterBasicBlockEndERNS_17MachineBasicBlockE.exit: ; pred
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load i32, ptr %41, align 8, !tbaa !223
+  %48 = icmp ne i32 %.pre, %42
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4llvm12RegScavenger18enterBasicBlockEndERNS_17MachineBasicBlockE.exit
-  %48 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %42, %_ZN4llvm12RegScavenger18enterBasicBlockEndERNS_17MachineBasicBlockE.exit ]
-  %49 = icmp ne i32 %48, %42
+  %49 = phi i1 [ %48, %._crit_edge.loopexit ], [ false, %_ZN4llvm12RegScavenger18enterBasicBlockEndERNS_17MachineBasicBlockE.exit ]
   ret i1 %49
 
 50:                                               ; preds = %.lr.ph117, %.loopexit

@@ -25409,93 +25409,92 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler19compileExprListTempERKNS_
 
 18:                                               ; preds = %5
   %19 = icmp ugt i64 %7, %8
-  br i1 %19, label %.preheader53, label %34
+  br i1 %19, label %.preheader53, label %33
 
 .preheader53:                                     ; preds = %18
   %.not70 = icmp eq i8 %3, 0
-  br i1 %.not70, label %.preheader51, label %.lr.ph63
+  br i1 %.not70, label %.lr.ph65.preheader, label %.lr.ph63
 
-.preheader51.loopexit:                            ; preds = %.lr.ph63
+.preheader51:                                     ; preds = %.lr.ph63
   %.pre = load i64, ptr %6, align 8, !tbaa !759
-  br label %.preheader51
+  %20 = icmp ugt i64 %.pre, %8
+  br i1 %20, label %.lr.ph65.preheader, label %.loopexit
 
-.preheader51:                                     ; preds = %.preheader51.loopexit, %.preheader53
-  %20 = phi i64 [ %.pre, %.preheader51.loopexit ], [ %7, %.preheader53 ]
-  %21 = icmp ugt i64 %20, %8
-  br i1 %21, label %.lr.ph65, label %.loopexit
+.lr.ph65.preheader:                               ; preds = %.preheader53, %.preheader51
+  br label %.lr.ph65
 
 .lr.ph63:                                         ; preds = %.preheader53, %.lr.ph63
-  %.04662 = phi i64 [ %27, %.lr.ph63 ], [ 0, %.preheader53 ]
-  %22 = load ptr, ptr %1, align 8, !tbaa !760
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.04662
-  %24 = load ptr, ptr %23, align 8, !tbaa !476
-  %25 = trunc i64 %.04662 to i8
-  %26 = add i8 %2, %25
-  tail call void @_ZN4Luau8Compiler11compileExprEPNS_7AstExprEhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %24, i8 noundef zeroext %26, i1 noundef zeroext true)
-  %27 = add nuw nsw i64 %.04662, 1
-  %exitcond76.not = icmp eq i64 %27, %8
-  br i1 %exitcond76.not, label %.preheader51.loopexit, label %.lr.ph63, !llvm.loop !762
+  %.04662 = phi i64 [ %26, %.lr.ph63 ], [ 0, %.preheader53 ]
+  %21 = load ptr, ptr %1, align 8, !tbaa !760
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.04662
+  %23 = load ptr, ptr %22, align 8, !tbaa !476
+  %24 = trunc i64 %.04662 to i8
+  %25 = add i8 %2, %24
+  tail call void @_ZN4Luau8Compiler11compileExprEPNS_7AstExprEhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %23, i8 noundef zeroext %25, i1 noundef zeroext true)
+  %26 = add nuw nsw i64 %.04662, 1
+  %exitcond76.not = icmp eq i64 %26, %8
+  br i1 %exitcond76.not, label %.preheader51, label %.lr.ph63, !llvm.loop !762
 
-.lr.ph65:                                         ; preds = %.preheader51, %.lr.ph65
-  %.04564 = phi i64 [ %31, %.lr.ph65 ], [ %8, %.preheader51 ]
-  %28 = load ptr, ptr %1, align 8, !tbaa !760
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.04564
-  %30 = load ptr, ptr %29, align 8, !tbaa !476
-  tail call void @_ZN4Luau8Compiler15compileExprSideEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %30)
-  %31 = add nuw i64 %.04564, 1
-  %32 = load i64, ptr %6, align 8, !tbaa !759
-  %33 = icmp ult i64 %31, %32
-  br i1 %33, label %.lr.ph65, label %.loopexit, !llvm.loop !763
+.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
+  %.04564 = phi i64 [ %30, %.lr.ph65 ], [ %8, %.lr.ph65.preheader ]
+  %27 = load ptr, ptr %1, align 8, !tbaa !760
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.04564
+  %29 = load ptr, ptr %28, align 8, !tbaa !476
+  tail call void @_ZN4Luau8Compiler15compileExprSideEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %29)
+  %30 = add nuw i64 %.04564, 1
+  %31 = load i64, ptr %6, align 8, !tbaa !759
+  %32 = icmp ult i64 %30, %31
+  br i1 %32, label %.lr.ph65, label %.loopexit, !llvm.loop !763
 
-34:                                               ; preds = %18
+33:                                               ; preds = %18
   switch i64 %7, label %.lr.ph [
     i64 0, label %.preheader54
     i64 1, label %._crit_edge
   ]
 
-.preheader54:                                     ; preds = %34
+.preheader54:                                     ; preds = %33
   %.not69 = icmp eq i8 %3, 0
   br i1 %.not69, label %.loopexit, label %.lr.ph61
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %35 = trunc i64 %49 to i8
+  %34 = trunc i64 %48 to i8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %34
-  %.lcssa57 = phi i8 [ 1, %34 ], [ %35, %._crit_edge.loopexit ]
-  %.lcssa = phi i64 [ 0, %34 ], [ %50, %._crit_edge.loopexit ]
-  %36 = load ptr, ptr %1, align 8, !tbaa !760
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.lcssa
-  %38 = load ptr, ptr %37, align 8, !tbaa !476
-  %39 = add i8 %2, -1
-  %40 = add i8 %39, %.lcssa57
-  %41 = trunc i64 %.lcssa to i8
-  %42 = sub i8 %3, %41
-  tail call void @_ZN4Luau8Compiler16compileExprTempNEPNS_7AstExprEhhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %38, i8 noundef zeroext %40, i8 noundef zeroext %42, i1 noundef zeroext %4)
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %33
+  %.lcssa57 = phi i8 [ 1, %33 ], [ %34, %._crit_edge.loopexit ]
+  %.lcssa = phi i64 [ 0, %33 ], [ %49, %._crit_edge.loopexit ]
+  %35 = load ptr, ptr %1, align 8, !tbaa !760
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.lcssa
+  %37 = load ptr, ptr %36, align 8, !tbaa !476
+  %38 = add i8 %2, -1
+  %39 = add i8 %38, %.lcssa57
+  %40 = trunc i64 %.lcssa to i8
+  %41 = sub i8 %3, %40
+  tail call void @_ZN4Luau8Compiler16compileExprTempNEPNS_7AstExprEhhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %37, i8 noundef zeroext %39, i8 noundef zeroext %41, i1 noundef zeroext %4)
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %34, %.lr.ph
-  %.04458 = phi i64 [ %48, %.lr.ph ], [ 0, %34 ]
-  %43 = load ptr, ptr %1, align 8, !tbaa !760
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.04458
-  %45 = load ptr, ptr %44, align 8, !tbaa !476
-  %46 = trunc i64 %.04458 to i8
-  %47 = add i8 %2, %46
-  tail call void @_ZN4Luau8Compiler11compileExprEPNS_7AstExprEhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %45, i8 noundef zeroext %47, i1 noundef zeroext true)
-  %48 = add nuw i64 %.04458, 1
-  %49 = load i64, ptr %6, align 8, !tbaa !759
-  %50 = add i64 %49, -1
-  %51 = icmp ult i64 %48, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !764
+.lr.ph:                                           ; preds = %33, %.lr.ph
+  %.04458 = phi i64 [ %47, %.lr.ph ], [ 0, %33 ]
+  %42 = load ptr, ptr %1, align 8, !tbaa !760
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %.04458
+  %44 = load ptr, ptr %43, align 8, !tbaa !476
+  %45 = trunc i64 %.04458 to i8
+  %46 = add i8 %2, %45
+  tail call void @_ZN4Luau8Compiler11compileExprEPNS_7AstExprEhb(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %44, i8 noundef zeroext %46, i1 noundef zeroext true)
+  %47 = add nuw i64 %.04458, 1
+  %48 = load i64, ptr %6, align 8, !tbaa !759
+  %49 = add i64 %48, -1
+  %50 = icmp ult i64 %47, %49
+  br i1 %50, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !764
 
 .lr.ph61:                                         ; preds = %.preheader54, %.lr.ph61
-  %.060 = phi i64 [ %55, %.lr.ph61 ], [ 0, %.preheader54 ]
-  %52 = load ptr, ptr %0, align 8, !tbaa !232
-  %53 = trunc i64 %.060 to i8
-  %54 = add i8 %2, %53
-  tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %52, i32 noundef 2, i8 noundef zeroext %54, i8 noundef zeroext 0, i8 noundef zeroext 0)
-  %55 = add nuw nsw i64 %.060, 1
-  %exitcond.not = icmp eq i64 %55, %8
+  %.060 = phi i64 [ %54, %.lr.ph61 ], [ 0, %.preheader54 ]
+  %51 = load ptr, ptr %0, align 8, !tbaa !232
+  %52 = trunc i64 %.060 to i8
+  %53 = add i8 %2, %52
+  tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %51, i32 noundef 2, i8 noundef zeroext %53, i8 noundef zeroext 0, i8 noundef zeroext 0)
+  %54 = add nuw nsw i64 %.060, 1
+  %exitcond.not = icmp eq i64 %54, %8
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph61, !llvm.loop !765
 
 .loopexit:                                        ; preds = %.lr.ph61, %.lr.ph65, %.lr.ph67, %.preheader54, %.preheader51, %.preheader, %._crit_edge

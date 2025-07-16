@@ -335,25 +335,25 @@ define internal noundef i64 @strscan_initialize(i32 noundef %0, ptr noundef read
   %9 = load i64, ptr %1, align 8, !tbaa !10
   store i64 %9, ptr %4, align 8, !tbaa !10
   %.not = icmp eq i32 %0, 1
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !10
-  br label %13
+  %13 = icmp eq i32 %0, 2
+  br label %14
 
-13:                                               ; preds = %.preheader, %10
-  %14 = phi i64 [ %12, %10 ], [ 4, %.preheader ]
-  %.185.i.lcssa = phi i32 [ 2, %10 ], [ 1, %.preheader ]
-  %15 = icmp eq i32 %.185.i.lcssa, %0
-  br i1 %15, label %rb_scan_args_set.exit, label %16
+14:                                               ; preds = %.preheader, %10
+  %15 = phi i64 [ %12, %10 ], [ 4, %.preheader ]
+  %.185.i.lcssa = phi i1 [ %13, %10 ], [ true, %.preheader ]
+  br i1 %.185.i.lcssa, label %rb_scan_args_set.exit, label %16
 
-16:                                               ; preds = %13, %3
+16:                                               ; preds = %14, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #14
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %13
-  %17 = tail call i64 @rb_check_hash_type(i64 noundef %14) #12
+rb_scan_args_set.exit:                            ; preds = %14
+  %17 = tail call i64 @rb_check_hash_type(i64 noundef %15) #12
   %18 = icmp eq i64 %17, 4
   br i1 %18, label %27, label %19
 

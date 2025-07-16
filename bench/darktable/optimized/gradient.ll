@@ -2832,13 +2832,13 @@ define internal void @_gradient_events_post_expose(ptr noundef %0, float noundef
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
-  br label %76
+  br label %75
 
 41:                                               ; preds = %5
   %42 = load ptr, ptr %2, align 8, !tbaa !32
   %43 = tail call ptr @g_list_nth_data(ptr noundef %42, i32 noundef %3) #14
   %.not51 = icmp eq ptr %43, null
-  br i1 %.not51, label %76, label %44
+  br i1 %.not51, label %75, label %44
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %43, align 8, !tbaa !33
@@ -2873,9 +2873,9 @@ define internal void @_gradient_events_post_expose(ptr noundef %0, float noundef
 63:                                               ; preds = %57
   %64 = load i32, ptr %46, align 8, !tbaa !176
   %65 = icmp eq i32 %64, %3
-  br i1 %65, label %66, label %73
+  br i1 %65, label %66, label %.thread
 
-66:                                               ; preds = %63, %57
+66:                                               ; preds = %57, %63
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %68 = load i32, ptr %67, align 8, !tbaa !153
   %69 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -2883,15 +2883,15 @@ define internal void @_gradient_events_post_expose(ptr noundef %0, float noundef
   %71 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %72 = load i32, ptr %71, align 8, !tbaa !36
   tail call fastcc void @_gradient_draw_lines(i32 noundef 1, ptr noundef %0, i32 noundef %68, float noundef %1, ptr noundef %70, i32 noundef %72)
-  br label %73
+  br label %.thread
 
-73:                                               ; preds = %66, %63
-  %74 = load ptr, ptr %43, align 8, !tbaa !33
-  %75 = load i32, ptr %59, align 8, !tbaa !38
-  tail call fastcc void @_gradient_draw_arrow(ptr noundef %0, i32 noundef %58, float noundef %1, ptr noundef %74, i32 noundef %75)
-  br label %76
+.thread:                                          ; preds = %66, %63
+  %73 = load ptr, ptr %43, align 8, !tbaa !33
+  %74 = load i32, ptr %59, align 8, !tbaa !38
+  tail call fastcc void @_gradient_draw_arrow(ptr noundef %0, i32 noundef %58, float noundef %1, ptr noundef %73, i32 noundef %74)
+  br label %75
 
-76:                                               ; preds = %73, %41, %40
+75:                                               ; preds = %.thread, %41, %40
   ret void
 }
 

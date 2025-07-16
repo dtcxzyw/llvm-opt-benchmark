@@ -747,18 +747,16 @@ Abc_TtNot.exit68:                                 ; preds = %.lr.ph.i64, %41
   br i1 %56, label %Abc_TtNot.exit61, label %Abc_TtNot.exit75
 
 Abc_TtNot.exit75:                                 ; preds = %.lr.ph.i71, %47, %53, %Abc_TtNot.exit68
-  %.048 = phi i64 [ %24, %Abc_TtNot.exit68 ], [ %55, %53 ], [ %24, %47 ], [ %24, %.lr.ph.i71 ]
+  %.048 = phi i32 [ 0, %Abc_TtNot.exit68 ], [ 0, %53 ], [ 1, %47 ], [ 1, %.lr.ph.i71 ]
   %.047 = phi i64 [ %34, %Abc_TtNot.exit68 ], [ %55, %53 ], [ %34, %47 ], [ %34, %.lr.ph.i71 ]
   %57 = lshr i64 %.047, 32
   %58 = trunc nuw i64 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %58, ptr %59, align 4, !tbaa !26
-  %60 = icmp ne i64 %.047, %.048
-  %61 = zext i1 %60 to i32
   br label %Abc_TtNot.exit61
 
 Abc_TtNot.exit61:                                 ; preds = %.lr.ph.i57, %36, %53, %Abc_TtNot.exit75
-  %.0 = phi i32 [ %61, %Abc_TtNot.exit75 ], [ -1, %53 ], [ -1, %36 ], [ -1, %.lr.ph.i57 ]
+  %.0 = phi i32 [ %.048, %Abc_TtNot.exit75 ], [ -1, %53 ], [ -1, %36 ], [ -1, %.lr.ph.i57 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6) #20
   ret i32 %.0
 }

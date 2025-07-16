@@ -4661,7 +4661,7 @@ define internal fastcc void @utcoff_to_dstoff(ptr noundef nonnull readonly captu
 
 .preheader72:                                     ; preds = %6
   %7 = icmp ult i64 %4, 2
-  br i1 %7, label %._crit_edge, label %.lr.ph78
+  br i1 %7, label %.lr.ph81.preheader, label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %.preheader72
   %8 = add i64 %5, -1
@@ -4731,15 +4731,17 @@ define internal fastcc void @utcoff_to_dstoff(ptr noundef nonnull readonly captu
   %40 = icmp uge i64 %39, %4
   %41 = icmp eq i64 %5, %.152
   %or.cond = select i1 %40, i1 true, i1 %41
-  br i1 %or.cond, label %._crit_edge, label %9, !llvm.loop !125
+  br i1 %or.cond, label %._crit_edge.loopexit, label %9, !llvm.loop !125
 
-._crit_edge:                                      ; preds = %.thread65, %.preheader72
-  %.051.lcssa = phi i64 [ 0, %.preheader72 ], [ %.152, %.thread65 ]
-  %42 = icmp ult i64 %.051.lcssa, %5
-  br i1 %42, label %.lr.ph81, label %.loopexit
+._crit_edge.loopexit:                             ; preds = %.thread65
+  %42 = icmp ult i64 %.152, %5
+  br i1 %42, label %.lr.ph81.preheader, label %.loopexit
 
-.lr.ph81:                                         ; preds = %._crit_edge, %49
-  %.080 = phi i64 [ %50, %49 ], [ 0, %._crit_edge ]
+.lr.ph81.preheader:                               ; preds = %._crit_edge.loopexit, %.preheader72
+  br label %.lr.ph81
+
+.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %49
+  %.080 = phi i64 [ %50, %49 ], [ 0, %.lr.ph81.preheader ]
   %43 = getelementptr i8, ptr %3, i64 %.080
   %44 = load i8, ptr %43, align 1, !tbaa !20
   %.not61 = icmp eq i8 %44, 0
@@ -4760,7 +4762,7 @@ define internal fastcc void @utcoff_to_dstoff(ptr noundef nonnull readonly captu
   %exitcond.not = icmp eq i64 %50, %5
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph81, !llvm.loop !126
 
-.loopexit:                                        ; preds = %49, %6, %._crit_edge
+.loopexit:                                        ; preds = %49, %6, %._crit_edge.loopexit
   ret void
 }
 

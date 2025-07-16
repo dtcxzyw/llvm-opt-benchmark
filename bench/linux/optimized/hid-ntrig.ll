@@ -355,29 +355,29 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %197, label %11
+  br i1 %10, label %198, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %206, label %15
+  br i1 %14, label %207, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %206, label %19
+  br i1 %18, label %207, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 851970
-  br i1 %22, label %206, label %23
+  br i1 %22, label %207, label %23
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %2, align 4
-  switch i32 %24, label %206 [
+  switch i32 %24, label %207 [
     i32 -16777215, label %25
     i32 852034, label %28
     i32 852039, label %32
@@ -395,46 +395,46 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   store i8 1, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %27, align 2
-  br label %197
+  br label %198
 
 28:                                               ; preds = %23
   %29 = icmp ne i32 %3, 0
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %31 = zext i1 %29 to i8
   store i8 %31, ptr %30, align 2
-  br label %206
+  br label %207
 
 32:                                               ; preds = %23
   %33 = icmp ne i32 %3, 0
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 11
   %35 = zext i1 %33 to i8
   store i8 %35, ptr %34, align 1
-  br label %197
+  br label %198
 
 36:                                               ; preds = %23
   %37 = trunc i32 %3 to i16
   store i16 %37, ptr %6, align 2
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i8 0, ptr %38, align 2
-  br label %197
+  br label %198
 
 39:                                               ; preds = %23
   %40 = trunc i32 %3 to i16
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %40, ptr %41, align 2
-  br label %197
+  br label %198
 
 42:                                               ; preds = %23
   %43 = trunc i32 %3 to i16
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %43, ptr %44, align 2
-  br label %197
+  br label %198
 
 45:                                               ; preds = %23
   %46 = trunc i32 %3 to i16
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %46, ptr %47, align 2
-  br label %197
+  br label %198
 
 48:                                               ; preds = %23
   %49 = trunc i32 %3 to i16
@@ -443,7 +443,7 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 13
   %52 = load i8, ptr %51, align 1, !range !6, !noundef !7
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %54, label %197
+  br i1 %53, label %54, label %198
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 10
@@ -460,13 +460,13 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
   tail call void @input_event(ptr noundef nonnull %17, i32 noundef 3, i32 noundef 1, i32 noundef %64) #9
-  br label %197
+  br label %198
 
 65:                                               ; preds = %23
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %67 = load i8, ptr %66, align 2
   %68 = icmp ugt i8 %67, 3
-  br i1 %68, label %197, label %69
+  br i1 %68, label %198, label %69
 
 69:                                               ; preds = %65
   %70 = trunc i32 %3 to i8
@@ -478,7 +478,7 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   store i8 %70, ptr %74, align 1
   %75 = load i8, ptr %66, align 2
   %76 = icmp eq i8 %75, 4
-  br i1 %76, label %77, label %197
+  br i1 %76, label %77, label %198
 
 77:                                               ; preds = %69
   %78 = getelementptr i8, ptr %6, i64 16
@@ -494,12 +494,12 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   store i8 %84, ptr %85, align 1
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 11
   store i8 0, ptr %86, align 1
-  br label %197
+  br label %198
 
 87:                                               ; preds = %77
   %88 = load i8, ptr %71, align 2
   %89 = icmp eq i8 %88, 0
-  br i1 %89, label %197, label %90
+  br i1 %89, label %198, label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -532,7 +532,7 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 26
   %110 = load i16, ptr %109, align 2
   %111 = icmp ult i16 %92, %110
-  br i1 %111, label %197, label %112
+  br i1 %111, label %198, label %112
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 6
@@ -540,7 +540,7 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %116 = load i16, ptr %115, align 2
   %117 = icmp ult i16 %114, %116
-  br i1 %117, label %197, label %118
+  br i1 %117, label %198, label %118
 
 118:                                              ; preds = %112
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -554,13 +554,13 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
 
 123:                                              ; preds = %118
   store i8 1, ptr %105, align 1
-  br label %197
+  br label %198
 
 124:                                              ; preds = %122, %104
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 11
   %126 = load i8, ptr %125, align 1, !range !6, !noundef !7
   %127 = icmp eq i8 %126, 0
-  br i1 %127, label %197, label %128
+  br i1 %127, label %198, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -608,13 +608,13 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load ptr, ptr %159, align 8
   tail call void @input_event(ptr noundef %160, i32 noundef 0, i32 noundef 2, i32 noundef 0) #9
-  br label %197
+  br label %198
 
 161:                                              ; preds = %23
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 13
   %163 = load i8, ptr %162, align 1, !range !6, !noundef !7
   %164 = icmp eq i8 %163, 0
-  br i1 %164, label %197, label %165
+  br i1 %164, label %198, label %165
 
 165:                                              ; preds = %161
   store i8 0, ptr %162, align 1
@@ -634,74 +634,76 @@ define internal noundef range(i32 -22, 2) i32 @ntrig_event(ptr noundef %0, ptr n
   %175 = sub i8 %167, %174
   %176 = select i1 %173, i8 %175, i8 0
   store i8 %176, ptr %166, align 1
-  br label %197
+  br label %198
 
 177:                                              ; preds = %171
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %179 = load i8, ptr %178, align 1
   store i8 %179, ptr %166, align 1
-  br label %197
+  br label %198
 
 180:                                              ; preds = %165
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.pre = load i8, ptr %.phi.trans.insert, align 2
-  %181 = icmp slt i8 %167, %.pre
-  %or.cond = select i1 %170, i1 true, i1 %181
-  br i1 %or.cond, label %._crit_edge, label %188
+  br i1 %170, label %183, label %181
 
-._crit_edge:                                      ; preds = %180
-  %182 = icmp sgt i8 %167, %.pre
-  br i1 %182, label %186, label %183
+181:                                              ; preds = %180
+  %182 = icmp slt i8 %167, %.pre
+  br i1 %182, label %.thread, label %189
 
-183:                                              ; preds = %._crit_edge
-  %184 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  %185 = load i8, ptr %184, align 1
-  br label %188
+183:                                              ; preds = %180
+  %184 = icmp sgt i8 %167, %.pre
+  br i1 %184, label %187, label %.thread
 
-186:                                              ; preds = %._crit_edge
-  %187 = add nsw i8 %167, -1
-  store i8 %187, ptr %166, align 1
-  br label %197
+.thread:                                          ; preds = %181, %183
+  %185 = getelementptr inbounds nuw i8, ptr %6, i64 21
+  %186 = load i8, ptr %185, align 1
+  br label %189
 
-188:                                              ; preds = %180, %183
-  %189 = phi i8 [ %185, %183 ], [ 0, %180 ]
-  store i8 %189, ptr %166, align 1
-  %190 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %191 = load i8, ptr %190, align 2, !range !6, !noundef !7
-  %192 = icmp ne i8 %191, 0
-  %193 = icmp slt i8 %189, 1
-  %194 = select i1 %192, i1 %193, i1 false
-  br i1 %194, label %195, label %196
+187:                                              ; preds = %183
+  %188 = add nsw i8 %167, -1
+  store i8 %188, ptr %166, align 1
+  br label %198
 
-195:                                              ; preds = %188
+189:                                              ; preds = %.thread, %181
+  %190 = phi i8 [ %186, %.thread ], [ 0, %181 ]
+  store i8 %190, ptr %166, align 1
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %192 = load i8, ptr %191, align 2, !range !6, !noundef !7
+  %193 = icmp ne i8 %192, 0
+  %194 = icmp slt i8 %190, 1
+  %195 = select i1 %193, i1 %194, i1 false
+  br i1 %195, label %196, label %197
+
+196:                                              ; preds = %189
   tail call void @input_event(ptr noundef nonnull %17, i32 noundef 1, i32 noundef 333, i32 noundef 1) #9
   tail call void @input_event(ptr noundef nonnull %17, i32 noundef 1, i32 noundef 330, i32 noundef 1) #9
-  br label %197
+  br label %198
 
-196:                                              ; preds = %188
+197:                                              ; preds = %189
   tail call void @input_event(ptr noundef nonnull %17, i32 noundef 1, i32 noundef 333, i32 noundef 0) #9
   tail call void @input_event(ptr noundef nonnull %17, i32 noundef 1, i32 noundef 330, i32 noundef 0) #9
-  br label %197
+  br label %198
 
-197:                                              ; preds = %196, %195, %186, %177, %172, %161, %139, %124, %123, %112, %108, %87, %81, %69, %65, %54, %48, %45, %42, %39, %36, %32, %25, %4
-  %198 = load i32, ptr %7, align 8
-  %199 = and i32 %198, 2
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %206, label %201
+198:                                              ; preds = %197, %196, %187, %177, %172, %161, %139, %124, %123, %112, %108, %87, %81, %69, %65, %54, %48, %45, %42, %39, %36, %32, %25, %4
+  %199 = load i32, ptr %7, align 8
+  %200 = and i32 %199, 2
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %207, label %202
 
-201:                                              ; preds = %197
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 7488
-  %203 = load ptr, ptr %202, align 8
-  %204 = icmp eq ptr %203, null
-  br i1 %204, label %206, label %205
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 7488
+  %204 = load ptr, ptr %203, align 8
+  %205 = icmp eq ptr %204, null
+  br i1 %205, label %207, label %206
 
-205:                                              ; preds = %201
-  tail call void %203(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #9
-  br label %206
+206:                                              ; preds = %202
+  tail call void %204(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #9
+  br label %207
 
-206:                                              ; preds = %205, %201, %197, %28, %23, %19, %15, %11
-  %207 = phi i32 [ 1, %28 ], [ -22, %15 ], [ -22, %11 ], [ 0, %19 ], [ 0, %23 ], [ 1, %205 ], [ 1, %201 ], [ 1, %197 ]
-  ret i32 %207
+207:                                              ; preds = %206, %202, %198, %28, %23, %19, %15, %11
+  %208 = phi i32 [ 1, %28 ], [ -22, %15 ], [ -22, %11 ], [ 0, %19 ], [ 0, %23 ], [ 1, %206 ], [ 1, %202 ], [ 1, %198 ]
+  ret i32 %208
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

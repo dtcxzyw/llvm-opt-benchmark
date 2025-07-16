@@ -74,15 +74,15 @@ _ZNK11inputStream7preloadEv.exit:                 ; preds = %1, %7
   %37 = add i64 %36, 1
   store i64 %37, ptr %2, align 8
   %38 = icmp ugt i64 %36, %9
-  br i1 %38, label %39, label %_ZN11inputStream18set_buffer_contentEmm.exit.thread4
+  br i1 %38, label %39, label %_ZN11inputStream18set_buffer_contentEmm.exit.thread3
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds i8, ptr %25, i64 -1
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 13
-  br i1 %42, label %_ZN11inputStream18set_buffer_contentEmm.exit, label %_ZN11inputStream18set_buffer_contentEmm.exit.thread4
+  br i1 %42, label %_ZN11inputStream18set_buffer_contentEmm.exit, label %_ZN11inputStream18set_buffer_contentEmm.exit.thread3
 
-_ZN11inputStream18set_buffer_contentEmm.exit.thread4: ; preds = %39, %29
+_ZN11inputStream18set_buffer_contentEmm.exit.thread3: ; preds = %39, %29
   store i64 %36, ptr %4, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %43, align 4
@@ -104,8 +104,8 @@ _ZN11inputStream18set_buffer_contentEmm.exit.thread: ; preds = %27, %18, %_ZN11i
   %49 = tail call noundef zeroext i1 @_ZN11inputStream11fill_bufferEv(ptr noundef nonnull align 8 dereferenceable(320) %0)
   br label %50
 
-50:                                               ; preds = %_ZN11inputStream18set_buffer_contentEmm.exit.thread4, %_ZN11inputStream18set_buffer_contentEmm.exit, %_ZNK11inputStream7preloadEv.exit, %_ZN11inputStream18set_buffer_contentEmm.exit.thread
-  %.0 = phi i1 [ %49, %_ZN11inputStream18set_buffer_contentEmm.exit.thread ], [ false, %_ZNK11inputStream7preloadEv.exit ], [ true, %_ZN11inputStream18set_buffer_contentEmm.exit ], [ true, %_ZN11inputStream18set_buffer_contentEmm.exit.thread4 ]
+50:                                               ; preds = %_ZN11inputStream18set_buffer_contentEmm.exit.thread3, %_ZN11inputStream18set_buffer_contentEmm.exit, %_ZNK11inputStream7preloadEv.exit, %_ZN11inputStream18set_buffer_contentEmm.exit.thread
+  %.0 = phi i1 [ %49, %_ZN11inputStream18set_buffer_contentEmm.exit.thread ], [ false, %_ZNK11inputStream7preloadEv.exit ], [ true, %_ZN11inputStream18set_buffer_contentEmm.exit ], [ true, %_ZN11inputStream18set_buffer_contentEmm.exit.thread3 ]
   ret i1 %.0
 }
 
@@ -207,7 +207,7 @@ define hidden noundef zeroext i1 @_ZN11inputStream11fill_bufferEv(ptr noundef no
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %15
 
-15:                                               ; preds = %.lr.ph, %79
+15:                                               ; preds = %.lr.ph, %78
   call void @_ZN11inputStream22prepare_to_fill_bufferERmS0_(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %16 = load i32, ptr %8, align 8
   %.not24.not = icmp ne i32 %16, 2
@@ -324,27 +324,26 @@ define hidden noundef zeroext i1 @_ZN11inputStream11fill_bufferEv(ptr noundef no
   %72 = sub i64 %71, %.0.i
   %73 = trunc i64 %72 to i8
   store i8 %73, ptr %13, align 4
+  %74 = icmp eq i64 %71, %.0.i
   br label %_ZN11inputStream18set_buffer_contentEmm.exit
 
 _ZN11inputStream18set_buffer_contentEmm.exit:     ; preds = %47, %54, %70
-  %74 = phi i64 [ 0, %47 ], [ %45, %54 ], [ %.0.i, %70 ]
-  %75 = phi i64 [ 0, %47 ], [ %45, %54 ], [ %71, %70 ]
-  br i1 %.not912, label %76, label %79
+  %.not23 = phi i1 [ true, %47 ], [ true, %54 ], [ %74, %70 ]
+  br i1 %.not912, label %75, label %78
 
-76:                                               ; preds = %_ZN11inputStream18set_buffer_contentEmm.exit
+75:                                               ; preds = %_ZN11inputStream18set_buffer_contentEmm.exit
   store i8 0, ptr %13, align 4
-  %77 = load i64, ptr %12, align 8
-  %78 = add i64 %77, -1
-  store i64 %78, ptr %12, align 8
-  br label %79
+  %76 = load i64, ptr %12, align 8
+  %77 = add i64 %76, -1
+  store i64 %77, ptr %12, align 8
+  br label %78
 
-79:                                               ; preds = %76, %_ZN11inputStream18set_buffer_contentEmm.exit
-  %.not23 = icmp eq i64 %75, %74
+78:                                               ; preds = %75, %_ZN11inputStream18set_buffer_contentEmm.exit
   br i1 %.not23, label %15, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %15, %79, %1, %36
-  %80 = phi i1 [ false, %36 ], [ true, %1 ], [ %.not24.not, %79 ], [ %.not24.not, %15 ]
-  ret i1 %80
+.loopexit:                                        ; preds = %15, %78, %1, %36
+  %79 = phi i1 [ false, %36 ], [ true, %1 ], [ %.not24.not, %78 ], [ %.not24.not, %15 ]
+  ret i1 %79
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

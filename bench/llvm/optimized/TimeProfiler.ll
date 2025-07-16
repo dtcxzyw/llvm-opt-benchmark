@@ -370,34 +370,34 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN12_GLOBAL__N_129
   %.not12 = icmp eq ptr %14, %15
   br i1 %.not12, label %_ZNSt6vectorIPN4llvm17TimeTraceProfilerESaIS2_EE5clearEv.exit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %21
+._crit_edge:                                      ; preds = %22
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_129getTimeTraceProfilerInstancesEvE9Instances, i64 40), align 8, !tbaa !57
   %.pre14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_129getTimeTraceProfilerInstancesEvE9Instances, i64 48), align 8, !tbaa !59
-  %.not.i.i7 = icmp eq ptr %.pre14, %.pre
-  br i1 %.not.i.i7, label %_ZNSt6vectorIPN4llvm17TimeTraceProfilerESaIS2_EE5clearEv.exit, label %16
+  %16 = icmp eq ptr %.pre14, %.pre
+  br i1 %16, label %_ZNSt6vectorIPN4llvm17TimeTraceProfilerESaIS2_EE5clearEv.exit, label %17
 
-16:                                               ; preds = %._crit_edge
+17:                                               ; preds = %._crit_edge
   store ptr %.pre, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_129getTimeTraceProfilerInstancesEvE9Instances, i64 48), align 8, !tbaa !59
   br label %_ZNSt6vectorIPN4llvm17TimeTraceProfilerESaIS2_EE5clearEv.exit
 
-_ZNSt6vectorIPN4llvm17TimeTraceProfilerESaIS2_EE5clearEv.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %._crit_edge, %16
-  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_129getTimeTraceProfilerInstancesEvE9Instances) #22
+_ZNSt6vectorIPN4llvm17TimeTraceProfilerESaIS2_EE5clearEv.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %._crit_edge, %17
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN12_GLOBAL__N_129getTimeTraceProfilerInstancesEvE9Instances) #22
   ret void
 
-.lr.ph:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %21
-  %.sroa.08.013 = phi ptr [ %22, %21 ], [ %14, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %18 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !3
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %21, label %20
+.lr.ph:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %22
+  %.sroa.08.013 = phi ptr [ %23, %22 ], [ %14, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %19 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !3
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %22, label %21
 
-20:                                               ; preds = %.lr.ph
-  tail call void @_ZN4llvm17TimeTraceProfilerD2Ev(ptr noundef nonnull align 8 dereferenceable(16661) %18) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 16664) #24
-  br label %21
+21:                                               ; preds = %.lr.ph
+  tail call void @_ZN4llvm17TimeTraceProfilerD2Ev(ptr noundef nonnull align 8 dereferenceable(16661) %19) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 16664) #24
+  br label %22
 
-21:                                               ; preds = %20, %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
-  %.not = icmp eq ptr %22, %15
+22:                                               ; preds = %21, %.lr.ph
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
+  %.not = icmp eq ptr %23, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

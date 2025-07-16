@@ -16113,9 +16113,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %33, %37, %43
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12emplace_backIJRKS3_EEERS3_DpOT_.exit
   %.pre = load ptr, ptr %15, align 8, !tbaa !392
   %.pre45 = load ptr, ptr %90, align 8, !tbaa !392
-  %92 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %93 = icmp eq ptr %.pre, %.pre45
-  br i1 %93, label %._crit_edge.thread, label %122
+  %92 = icmp eq ptr %.pre, %.pre45
+  %93 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  br i1 %92, label %._crit_edge.thread, label %122
 
 94:                                               ; preds = %73
   %95 = landingpad { ptr, i32 }
@@ -16285,7 +16285,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit29: ; preds = %139, %143, %149
   br label %214
 
 ._crit_edge.thread:                               ; preds = %86, %._crit_edge
-  %158 = phi ptr [ %92, %._crit_edge ], [ %90, %86 ]
+  %158 = phi ptr [ %93, %._crit_edge ], [ %90, %86 ]
   %159 = load ptr, ptr %14, align 8, !tbaa !38
   store ptr %159, ptr %0, align 8, !tbaa !38
   %160 = load i64, ptr %159, align 8
@@ -16320,7 +16320,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit29: ; preds = %139, %143, %149
   br label %214
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit31: ; preds = %171, %165, %173, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit29
-  %177 = phi ptr [ %158, %171 ], [ %158, %165 ], [ %158, %173 ], [ %92, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit29 ]
+  %177 = phi ptr [ %158, %171 ], [ %158, %165 ], [ %158, %173 ], [ %93, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit29 ]
   %178 = load ptr, ptr %15, align 8, !tbaa !400
   %179 = load ptr, ptr %177, align 8, !tbaa !394
   %.not4.i.i.i.i = icmp eq ptr %178, %179

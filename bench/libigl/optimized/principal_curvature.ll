@@ -2290,9 +2290,9 @@ _ZNSt14priority_queueISt4pairIidESt6vectorIS1_SaIS1_EE8comparerED2Ev.exit.thread
 .preheader:                                       ; preds = %.loopexit236
   %.pre263 = load ptr, ptr %7, align 8, !tbaa !151
   %.pre264 = load ptr, ptr %75, align 8, !tbaa !151
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %80 = icmp eq ptr %.pre263, %.pre264
-  br i1 %80, label %.critedge, label %.lr.ph257
+  %79 = icmp eq ptr %.pre263, %.pre264
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br i1 %79, label %.critedge, label %.lr.ph257
 
 .lr.ph257:                                        ; preds = %.preheader
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2628,7 +2628,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorI
 
 .loopexit228:                                     ; preds = %351, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit74
   %230 = load ptr, ptr %7, align 8, !tbaa !151
-  %231 = load ptr, ptr %79, align 8, !tbaa !151
+  %231 = load ptr, ptr %80, align 8, !tbaa !151
   %232 = icmp eq ptr %230, %231
   br i1 %232, label %.critedge, label %233, !llvm.loop !170
 
@@ -2778,7 +2778,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit74:        ; preds = %247, %_ZNSt6vectorI
   %303 = fmul double %302, %302
   %304 = fadd double %303, %301
   %.scalar.i83 = call noundef double @llvm.sqrt.f64(double %304)
-  %305 = load ptr, ptr %79, align 8, !tbaa !156
+  %305 = load ptr, ptr %80, align 8, !tbaa !156
   %306 = load ptr, ptr %83, align 8, !tbaa !158
   %.not.i.i.i84 = icmp eq ptr %305, %306
   br i1 %.not.i.i.i84, label %310, label %307
@@ -2787,9 +2787,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit74:        ; preds = %247, %_ZNSt6vectorI
   store i32 %279, ptr %305, align 8
   %.sroa.6138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %305, i64 8
   store double %.scalar.i83, ptr %.sroa.6138.0..sroa_idx, align 8
-  %308 = load ptr, ptr %79, align 8, !tbaa !156
+  %308 = load ptr, ptr %80, align 8, !tbaa !156
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 16
-  store ptr %309, ptr %79, align 8, !tbaa !156
+  store ptr %309, ptr %80, align 8, !tbaa !156
   %.pre.i85 = load ptr, ptr %7, align 8, !tbaa !151
   br label %_ZNSt6vectorISt4pairIidESaIS1_EE9push_backEOS1_.exit.i86
 
@@ -2850,7 +2850,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i104: 
 
 _ZNSt6vectorISt4pairIidESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i107: ; preds = %328, %_ZNSt6vectorISt4pairIidESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i104
   store ptr %323, ptr %7, align 8, !tbaa !159
-  store ptr %327, ptr %79, align 8, !tbaa !156
+  store ptr %327, ptr %80, align 8, !tbaa !156
   %329 = getelementptr inbounds nuw %"struct.std::pair.151", ptr %323, i64 %321
   store ptr %329, ptr %83, align 8, !tbaa !158
   br label %_ZNSt6vectorISt4pairIidESaIS1_EE9push_backEOS1_.exit.i86

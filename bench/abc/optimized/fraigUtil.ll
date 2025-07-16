@@ -1838,179 +1838,172 @@ Abc_Clock.exit:                                   ; preds = %29, %1
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %46
+  br label %45
 
-.loopexit76.loopexit:                             ; preds = %Fraig_NodeSimsContained.exit69.thread
-  %.pre102 = sext i32 %107 to i64
-  br label %.loopexit76
-
-.loopexit76:                                      ; preds = %.loopexit76.loopexit, %46
-  %.pre-phi = phi i64 [ %.pre102, %.loopexit76.loopexit ], [ %48, %46 ]
-  %44 = phi i32 [ %107, %.loopexit76.loopexit ], [ %47, %46 ]
-  %.142.lcssa = phi i32 [ %.243, %.loopexit76.loopexit ], [ %.04185, %46 ]
-  %.1.lcssa = phi i32 [ %.4, %.loopexit76.loopexit ], [ %.086, %46 ]
-  %45 = icmp slt i64 %indvars.iv.next100, %.pre-phi
+.loopexit76:                                      ; preds = %Fraig_NodeSimsContained.exit69.thread
+  %.pre102 = sext i32 %106 to i64
+  %44 = icmp slt i64 %indvars.iv.next100, %.pre102
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  br i1 %45, label %46, label %._crit_edge, !llvm.loop !67
+  br i1 %44, label %45, label %._crit_edge, !llvm.loop !67
 
-46:                                               ; preds = %.lr.ph87, %.loopexit76
-  %47 = phi i32 [ %39, %.lr.ph87 ], [ %44, %.loopexit76 ]
+45:                                               ; preds = %.lr.ph87, %.loopexit76
+  %46 = phi i32 [ %39, %.lr.ph87 ], [ %106, %.loopexit76 ]
   %indvars.iv99 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next100, %.loopexit76 ]
   %indvars.iv94 = phi i64 [ 1, %.lr.ph87 ], [ %indvars.iv.next95, %.loopexit76 ]
-  %.086 = phi i32 [ 0, %.lr.ph87 ], [ %.1.lcssa, %.loopexit76 ]
-  %.04185 = phi i32 [ 0, %.lr.ph87 ], [ %.142.lcssa, %.loopexit76 ]
+  %.086 = phi i32 [ 0, %.lr.ph87 ], [ %.4, %.loopexit76 ]
+  %.04185 = phi i32 [ 0, %.lr.ph87 ], [ %.243, %.loopexit76 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %48 = sext i32 %47 to i64
-  %49 = icmp slt i64 %indvars.iv.next100, %48
-  br i1 %49, label %.lr.ph81, label %.loopexit76
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next100, %47
+  br i1 %48, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %46, %Fraig_NodeSimsContained.exit69.thread
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %Fraig_NodeSimsContained.exit69.thread ], [ %indvars.iv94, %46 ]
-  %.180 = phi i32 [ %.4, %Fraig_NodeSimsContained.exit69.thread ], [ %.086, %46 ]
-  %.14279 = phi i32 [ %.243, %Fraig_NodeSimsContained.exit69.thread ], [ %.04185, %46 ]
-  %50 = load ptr, ptr %41, align 8, !tbaa !24
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv99
-  %52 = load ptr, ptr %51, align 8, !tbaa !25
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv96
-  %54 = load ptr, ptr %53, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 104
-  %56 = load ptr, ptr %55, align 8, !tbaa !58
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 104
-  %58 = load ptr, ptr %57, align 8, !tbaa !58
-  %59 = load i32, ptr %42, align 8, !tbaa !59
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph.preheader.i, label %._crit_edge.i
+.lr.ph81:                                         ; preds = %45, %Fraig_NodeSimsContained.exit69.thread
+  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %Fraig_NodeSimsContained.exit69.thread ], [ %indvars.iv94, %45 ]
+  %.180 = phi i32 [ %.4, %Fraig_NodeSimsContained.exit69.thread ], [ %.086, %45 ]
+  %.14279 = phi i32 [ %.243, %Fraig_NodeSimsContained.exit69.thread ], [ %.04185, %45 ]
+  %49 = load ptr, ptr %41, align 8, !tbaa !24
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv99
+  %51 = load ptr, ptr %50, align 8, !tbaa !25
+  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv96
+  %53 = load ptr, ptr %52, align 8, !tbaa !25
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 104
+  %55 = load ptr, ptr %54, align 8, !tbaa !58
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 104
+  %57 = load ptr, ptr %56, align 8, !tbaa !58
+  %58 = load i32, ptr %42, align 8, !tbaa !59
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph81
-  %wide.trip.count.i = zext nneg i32 %59 to i64
+  %wide.trip.count.i = zext nneg i32 %58 to i64
   br label %.lr.ph.i
 
-61:                                               ; preds = %.lr.ph.i
+60:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !60
 
-.lr.ph.i:                                         ; preds = %61, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
-  %63 = load i32, ptr %62, align 4, !tbaa !40
-  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.i
-  %65 = load i32, ptr %64, align 4, !tbaa !40
-  %66 = xor i32 %65, -1
-  %67 = and i32 %63, %66
-  %.not19.i = icmp eq i32 %67, 0
-  br i1 %.not19.i, label %61, label %.loopexit
+.lr.ph.i:                                         ; preds = %60, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %60 ]
+  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i
+  %62 = load i32, ptr %61, align 4, !tbaa !40
+  %63 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i
+  %64 = load i32, ptr %63, align 4, !tbaa !40
+  %65 = xor i32 %64, -1
+  %66 = and i32 %62, %65
+  %.not19.i = icmp eq i32 %66, 0
+  br i1 %.not19.i, label %60, label %.loopexit
 
-._crit_edge.i:                                    ; preds = %61, %.lr.ph81
-  %68 = getelementptr inbounds nuw i8, ptr %52, i64 112
-  %69 = load ptr, ptr %68, align 8, !tbaa !61
-  %70 = getelementptr inbounds nuw i8, ptr %54, i64 112
-  %71 = load ptr, ptr %70, align 8, !tbaa !61
-  %72 = load i32, ptr %43, align 8, !tbaa !62
-  %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph24.preheader.i, label %Fraig_NodeSimsContained.exit
+._crit_edge.i:                                    ; preds = %60, %.lr.ph81
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 112
+  %68 = load ptr, ptr %67, align 8, !tbaa !61
+  %69 = getelementptr inbounds nuw i8, ptr %53, i64 112
+  %70 = load ptr, ptr %69, align 8, !tbaa !61
+  %71 = load i32, ptr %43, align 8, !tbaa !62
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %.lr.ph24.preheader.i, label %Fraig_NodeSimsContained.exit
 
 .lr.ph24.preheader.i:                             ; preds = %._crit_edge.i
-  %wide.trip.count32.i = zext nneg i32 %72 to i64
+  %wide.trip.count32.i = zext nneg i32 %71 to i64
   br label %.lr.ph24.i
 
-74:                                               ; preds = %.lr.ph24.i
+73:                                               ; preds = %.lr.ph24.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
   br i1 %exitcond33.not.i, label %Fraig_NodeSimsContained.exit, label %.lr.ph24.i, !llvm.loop !63
 
-.lr.ph24.i:                                       ; preds = %74, %.lr.ph24.preheader.i
-  %indvars.iv29.i = phi i64 [ 0, %.lr.ph24.preheader.i ], [ %indvars.iv.next30.i, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv29.i
-  %76 = load i32, ptr %75, align 4, !tbaa !40
-  %77 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv29.i
-  %78 = load i32, ptr %77, align 4, !tbaa !40
-  %79 = xor i32 %78, -1
-  %80 = and i32 %76, %79
-  %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %74, label %.loopexit
+.lr.ph24.i:                                       ; preds = %73, %.lr.ph24.preheader.i
+  %indvars.iv29.i = phi i64 [ 0, %.lr.ph24.preheader.i ], [ %indvars.iv.next30.i, %73 ]
+  %74 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv29.i
+  %75 = load i32, ptr %74, align 4, !tbaa !40
+  %76 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv29.i
+  %77 = load i32, ptr %76, align 4, !tbaa !40
+  %78 = xor i32 %77, -1
+  %79 = and i32 %75, %78
+  %.not.i = icmp eq i32 %79, 0
+  br i1 %.not.i, label %73, label %.loopexit
 
-Fraig_NodeSimsContained.exit:                     ; preds = %74, %._crit_edge.i
-  %81 = call i32 @Fraig_NodeIsImplification(ptr noundef %0, ptr noundef %52, ptr noundef %54, i32 noundef -1) #15
-  %.not51 = icmp ne i32 %81, 0
-  %82 = zext i1 %.not51 to i32
-  %spec.select = add nsw i32 %.180, %82
-  %83 = add nsw i32 %.14279, 1
+Fraig_NodeSimsContained.exit:                     ; preds = %73, %._crit_edge.i
+  %80 = call i32 @Fraig_NodeIsImplification(ptr noundef %0, ptr noundef %51, ptr noundef %53, i32 noundef -1) #15
+  %.not51 = icmp ne i32 %80, 0
+  %81 = zext i1 %.not51 to i32
+  %spec.select = add nsw i32 %.180, %81
+  %82 = add nsw i32 %.14279, 1
   br label %Fraig_NodeSimsContained.exit69.thread
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph24.i
-  br i1 %60, label %.lr.ph.preheader.i62, label %._crit_edge.i53
+  br i1 %59, label %.lr.ph.preheader.i62, label %._crit_edge.i53
 
 .lr.ph.preheader.i62:                             ; preds = %.loopexit
-  %wide.trip.count.i63 = zext nneg i32 %59 to i64
+  %wide.trip.count.i63 = zext nneg i32 %58 to i64
   br label %.lr.ph.i64
 
-84:                                               ; preds = %.lr.ph.i64
+83:                                               ; preds = %.lr.ph.i64
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i63
   br i1 %exitcond.not.i68, label %._crit_edge.i53, label %.lr.ph.i64, !llvm.loop !60
 
-.lr.ph.i64:                                       ; preds = %84, %.lr.ph.preheader.i62
-  %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i67, %84 ]
-  %85 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.i65
-  %86 = load i32, ptr %85, align 4, !tbaa !40
-  %87 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i65
-  %88 = load i32, ptr %87, align 4, !tbaa !40
-  %89 = xor i32 %88, -1
-  %90 = and i32 %86, %89
-  %.not19.i66 = icmp eq i32 %90, 0
-  br i1 %.not19.i66, label %84, label %Fraig_NodeSimsContained.exit69.thread
+.lr.ph.i64:                                       ; preds = %83, %.lr.ph.preheader.i62
+  %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i67, %83 ]
+  %84 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i65
+  %85 = load i32, ptr %84, align 4, !tbaa !40
+  %86 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i65
+  %87 = load i32, ptr %86, align 4, !tbaa !40
+  %88 = xor i32 %87, -1
+  %89 = and i32 %85, %88
+  %.not19.i66 = icmp eq i32 %89, 0
+  br i1 %.not19.i66, label %83, label %Fraig_NodeSimsContained.exit69.thread
 
-._crit_edge.i53:                                  ; preds = %84, %.loopexit
-  %91 = getelementptr inbounds nuw i8, ptr %54, i64 112
-  %92 = load ptr, ptr %91, align 8, !tbaa !61
-  %93 = getelementptr inbounds nuw i8, ptr %52, i64 112
-  %94 = load ptr, ptr %93, align 8, !tbaa !61
-  %95 = load i32, ptr %43, align 8, !tbaa !62
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph24.preheader.i55, label %Fraig_NodeSimsContained.exit69
+._crit_edge.i53:                                  ; preds = %83, %.loopexit
+  %90 = getelementptr inbounds nuw i8, ptr %53, i64 112
+  %91 = load ptr, ptr %90, align 8, !tbaa !61
+  %92 = getelementptr inbounds nuw i8, ptr %51, i64 112
+  %93 = load ptr, ptr %92, align 8, !tbaa !61
+  %94 = load i32, ptr %43, align 8, !tbaa !62
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %.lr.ph24.preheader.i55, label %Fraig_NodeSimsContained.exit69
 
 .lr.ph24.preheader.i55:                           ; preds = %._crit_edge.i53
-  %wide.trip.count32.i56 = zext nneg i32 %95 to i64
+  %wide.trip.count32.i56 = zext nneg i32 %94 to i64
   br label %.lr.ph24.i57
 
-97:                                               ; preds = %.lr.ph24.i57
+96:                                               ; preds = %.lr.ph24.i57
   %indvars.iv.next30.i60 = add nuw nsw i64 %indvars.iv29.i58, 1
   %exitcond33.not.i61 = icmp eq i64 %indvars.iv.next30.i60, %wide.trip.count32.i56
   br i1 %exitcond33.not.i61, label %Fraig_NodeSimsContained.exit69, label %.lr.ph24.i57, !llvm.loop !63
 
-.lr.ph24.i57:                                     ; preds = %97, %.lr.ph24.preheader.i55
-  %indvars.iv29.i58 = phi i64 [ 0, %.lr.ph24.preheader.i55 ], [ %indvars.iv.next30.i60, %97 ]
-  %98 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv29.i58
-  %99 = load i32, ptr %98, align 4, !tbaa !40
-  %100 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv29.i58
-  %101 = load i32, ptr %100, align 4, !tbaa !40
-  %102 = xor i32 %101, -1
-  %103 = and i32 %99, %102
-  %.not.i59 = icmp eq i32 %103, 0
-  br i1 %.not.i59, label %97, label %Fraig_NodeSimsContained.exit69.thread
+.lr.ph24.i57:                                     ; preds = %96, %.lr.ph24.preheader.i55
+  %indvars.iv29.i58 = phi i64 [ 0, %.lr.ph24.preheader.i55 ], [ %indvars.iv.next30.i60, %96 ]
+  %97 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv29.i58
+  %98 = load i32, ptr %97, align 4, !tbaa !40
+  %99 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv29.i58
+  %100 = load i32, ptr %99, align 4, !tbaa !40
+  %101 = xor i32 %100, -1
+  %102 = and i32 %98, %101
+  %.not.i59 = icmp eq i32 %102, 0
+  br i1 %.not.i59, label %96, label %Fraig_NodeSimsContained.exit69.thread
 
-Fraig_NodeSimsContained.exit69:                   ; preds = %97, %._crit_edge.i53
-  %104 = call i32 @Fraig_NodeIsImplification(ptr noundef %0, ptr noundef %54, ptr noundef %52, i32 noundef -1) #15
-  %.not50 = icmp ne i32 %104, 0
-  %105 = zext i1 %.not50 to i32
-  %spec.select52 = add nsw i32 %.180, %105
-  %106 = add nsw i32 %.14279, 1
+Fraig_NodeSimsContained.exit69:                   ; preds = %96, %._crit_edge.i53
+  %103 = call i32 @Fraig_NodeIsImplification(ptr noundef %0, ptr noundef %53, ptr noundef %51, i32 noundef -1) #15
+  %.not50 = icmp ne i32 %103, 0
+  %104 = zext i1 %.not50 to i32
+  %spec.select52 = add nsw i32 %.180, %104
+  %105 = add nsw i32 %.14279, 1
   br label %Fraig_NodeSimsContained.exit69.thread
 
 Fraig_NodeSimsContained.exit69.thread:            ; preds = %.lr.ph.i64, %.lr.ph24.i57, %Fraig_NodeSimsContained.exit, %Fraig_NodeSimsContained.exit69
-  %.243 = phi i32 [ %83, %Fraig_NodeSimsContained.exit ], [ %106, %Fraig_NodeSimsContained.exit69 ], [ %.14279, %.lr.ph24.i57 ], [ %.14279, %.lr.ph.i64 ]
+  %.243 = phi i32 [ %82, %Fraig_NodeSimsContained.exit ], [ %105, %Fraig_NodeSimsContained.exit69 ], [ %.14279, %.lr.ph24.i57 ], [ %.14279, %.lr.ph.i64 ]
   %.4 = phi i32 [ %spec.select, %Fraig_NodeSimsContained.exit ], [ %spec.select52, %Fraig_NodeSimsContained.exit69 ], [ %.180, %.lr.ph24.i57 ], [ %.180, %.lr.ph.i64 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %107 = load i32, ptr %35, align 4, !tbaa !21
-  %108 = trunc nuw i64 %indvars.iv.next97 to i32
-  %109 = icmp sgt i32 %107, %108
-  br i1 %109, label %.lr.ph81, label %.loopexit76.loopexit, !llvm.loop !68
+  %106 = load i32, ptr %35, align 4, !tbaa !21
+  %107 = trunc nuw i64 %indvars.iv.next97 to i32
+  %108 = icmp sgt i32 %106, %107
+  br i1 %108, label %.lr.ph81, label %.loopexit76, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %.loopexit76, %Abc_Clock.exit
-  %.041.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.142.lcssa, %.loopexit76 ]
-  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1.lcssa, %.loopexit76 ]
-  %110 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.041.lcssa, i32 noundef %.0.lcssa)
+._crit_edge:                                      ; preds = %.loopexit76, %45, %Abc_Clock.exit
+  %.041.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.04185, %45 ], [ %.243, %.loopexit76 ]
+  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.086, %45 ], [ %.4, %.loopexit76 ]
+  %109 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.041.lcssa, i32 noundef %.0.lcssa)
   ret i32 0
 }
 

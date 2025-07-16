@@ -6447,15 +6447,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit39: ; preds = %._ZN4cvc5
 143:                                              ; preds = %79, %77
   %144 = load i32, ptr %36, align 8, !tbaa !96
   %145 = icmp slt i32 %37, %144
-  br i1 %145, label %.lr.ph62.preheader, label %.critedge
+  br i1 %145, label %.lr.ph62.preheader, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE6shrinkEi.exit
 
 .lr.ph62.preheader:                               ; preds = %143
   %146 = sext i32 %37 to i64
   br label %.lr.ph62
 
-.critedge:                                        ; preds = %.lr.ph62, %143
-  %.lcssa = phi i32 [ %144, %143 ], [ %154, %.lr.ph62 ]
-  %147 = icmp sgt i32 %.lcssa, %37
+.critedge:                                        ; preds = %.lr.ph62
+  %147 = icmp sgt i32 %154, %37
   br i1 %147, label %.lr.ph.i, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE6shrinkEi.exit, !llvm.loop !420
 
 .lr.ph.i:                                         ; preds = %.critedge
@@ -6483,8 +6482,8 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit39: ; preds = %._ZN4cvc5
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge33.loopexit.loopexit, label %.lr.ph, !llvm.loop !422
 
-_ZN4cvc58internal7Minisat3vecINS1_3LitEE6shrinkEi.exit: ; preds = %.critedge33.loopexit, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit, %.lr.ph.i, %.critedge
-  %158 = phi i1 [ false, %.lr.ph.i ], [ false, %.critedge ], [ true, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit ], [ true, %.critedge33.loopexit ]
+_ZN4cvc58internal7Minisat3vecINS1_3LitEE6shrinkEi.exit: ; preds = %.critedge33.loopexit, %143, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit, %.lr.ph.i, %.critedge
+  %158 = phi i1 [ false, %.lr.ph.i ], [ false, %.critedge ], [ true, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit ], [ false, %143 ], [ true, %.critedge33.loopexit ]
   ret i1 %158
 }
 
@@ -6757,583 +6756,573 @@ define hidden noundef i32 @_ZN4cvc58internal7Minisat6Solver12updateLemmasEv(ptr 
   %11 = load i32, ptr %6, align 8, !tbaa !92
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  br label %.preheader
+  br label %.lr.ph.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %14 = phi i32 [ %9, %.preheader.lr.ph ], [ %59, %._crit_edge ]
-  %.0636 = phi i32 [ -1, %.preheader.lr.ph ], [ %.1.lcssa, %._crit_edge ]
-  %.0100635 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1101.lcssa, %._crit_edge ]
-  %.0603634 = phi i32 [ %11, %.preheader.lr.ph ], [ %.1604.lcssa, %._crit_edge ]
-  %15 = icmp slt i32 %.0100635, %14
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %16 = sext i32 %.0100635 to i64
+.lr.ph.preheader:                                 ; preds = %._crit_edge, %.preheader.lr.ph
+  %.0636 = phi i32 [ -1, %.preheader.lr.ph ], [ %.2, %._crit_edge ]
+  %.0100635 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
+  %.0603634 = phi i32 [ %11, %.preheader.lr.ph ], [ %.2605, %._crit_edge ]
+  %sext = shl i64 %.0100635, 32
+  %14 = ashr exact i64 %sext, 32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %54
-  %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
-  %.1631 = phi i32 [ %.0636, %.lr.ph.preheader ], [ %.2, %54 ]
-  %.1604629 = phi i32 [ %.0603634, %.lr.ph.preheader ], [ %.2605, %54 ]
-  %17 = load ptr, ptr %7, align 8, !tbaa !129
-  %18 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.4", ptr %17, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !96
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %54, label %22
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
+  %indvars.iv = phi i64 [ %14, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
+  %.1631 = phi i32 [ %.0636, %.lr.ph.preheader ], [ %.2, %52 ]
+  %.1604629 = phi i32 [ %.0603634, %.lr.ph.preheader ], [ %.2605, %52 ]
+  %15 = load ptr, ptr %7, align 8, !tbaa !129
+  %16 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.4", ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !96
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %52, label %20
 
-22:                                               ; preds = %.lr.ph
-  %23 = load ptr, ptr %18, align 8, !tbaa !97
-  tail call void @_ZN4cvc58internal7Minisat4sortINS1_3LitENS1_6Solver8lemma_ltEEEvPT_iT0_(ptr noundef %23, i32 noundef %20, ptr nonnull %0)
-  %24 = load i32, ptr %19, align 8, !tbaa !96
-  %25 = icmp eq i32 %24, 1
-  %.pre = load ptr, ptr %18, align 8, !tbaa !97
+20:                                               ; preds = %.lr.ph
+  %21 = load ptr, ptr %16, align 8, !tbaa !97
+  tail call void @_ZN4cvc58internal7Minisat4sortINS1_3LitENS1_6Solver8lemma_ltEEEvPT_iT0_(ptr noundef %21, i32 noundef %18, ptr nonnull %0)
+  %22 = load i32, ptr %17, align 8, !tbaa !96
+  %23 = icmp eq i32 %22, 1
+  %.pre = load ptr, ptr %16, align 8, !tbaa !97
   %.pre661 = load ptr, ptr %12, align 8, !tbaa !90
-  br i1 %25, label %.thread, label %26
+  br i1 %23, label %.thread, label %24
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
-  %.sroa.071.0.copyload = load i32, ptr %27, align 4, !tbaa !66
-  %28 = ashr i32 %.sroa.071.0.copyload, 1
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %.pre661, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !373
-  %32 = trunc i32 %.sroa.071.0.copyload to i8
-  %33 = and i8 %32, 1
-  %34 = xor i8 %31, %33
-  %35 = icmp eq i8 %34, 1
-  br i1 %35, label %36, label %54
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
+  %.sroa.071.0.copyload = load i32, ptr %25, align 4, !tbaa !66
+  %26 = ashr i32 %.sroa.071.0.copyload, 1
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %.pre661, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !373
+  %30 = trunc i32 %.sroa.071.0.copyload to i8
+  %31 = and i8 %30, 1
+  %32 = xor i8 %29, %31
+  %33 = icmp eq i8 %32, 1
+  br i1 %33, label %34, label %52
 
-36:                                               ; preds = %26
-  %37 = load ptr, ptr %13, align 8, !tbaa !93
-  %38 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %37, i64 %29, i32 1
-  %39 = load i32, ptr %38, align 4, !tbaa !359
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %13, align 8, !tbaa !93
+  %36 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %35, i64 %27, i32 1
+  %37 = load i32, ptr %36, align 4, !tbaa !359
   br label %.thread
 
-.thread:                                          ; preds = %22, %36
-  %40 = phi i32 [ %39, %36 ], [ 0, %22 ]
+.thread:                                          ; preds = %20, %34
+  %38 = phi i32 [ %37, %34 ], [ 0, %20 ]
   %.sroa.065.0.copyload = load i32, ptr %.pre, align 4, !tbaa !66
-  %41 = ashr i32 %.sroa.065.0.copyload, 1
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %.pre661, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !373
-  %45 = trunc i32 %.sroa.065.0.copyload to i8
-  %46 = and i8 %45, 1
-  %.not613 = icmp eq i8 %44, %46
-  br i1 %.not613, label %47, label %.critedge2
+  %39 = ashr i32 %.sroa.065.0.copyload, 1
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %.pre661, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !373
+  %43 = trunc i32 %.sroa.065.0.copyload to i8
+  %44 = and i8 %43, 1
+  %.not613 = icmp eq i8 %42, %44
+  br i1 %.not613, label %45, label %.critedge2
 
-47:                                               ; preds = %.thread
-  %48 = load ptr, ptr %13, align 8, !tbaa !93
-  %49 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %48, i64 %42, i32 1
-  %50 = load i32, ptr %49, align 4, !tbaa !359
-  %51 = icmp sgt i32 %50, %40
-  %52 = icmp slt i32 %40, %.1604629
-  %or.cond = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond, label %53, label %54
+45:                                               ; preds = %.thread
+  %46 = load ptr, ptr %13, align 8, !tbaa !93
+  %47 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %46, i64 %40, i32 1
+  %48 = load i32, ptr %47, align 4, !tbaa !359
+  %49 = icmp sgt i32 %48, %38
+  %50 = icmp slt i32 %38, %.1604629
+  %or.cond = select i1 %49, i1 %50, i1 false
+  br i1 %or.cond, label %51, label %52
 
 .critedge2:                                       ; preds = %.thread
-  %.old118 = icmp slt i32 %40, %.1604629
-  br i1 %.old118, label %53, label %54
+  %.old118 = icmp slt i32 %38, %.1604629
+  br i1 %.old118, label %51, label %52
 
-53:                                               ; preds = %47, %.critedge2
-  br label %54
+51:                                               ; preds = %45, %.critedge2
+  br label %52
 
-54:                                               ; preds = %.lr.ph, %26, %.critedge2, %53, %47
-  %.2605 = phi i32 [ %40, %53 ], [ %.1604629, %.critedge2 ], [ %.1604629, %47 ], [ %.1604629, %26 ], [ 0, %.lr.ph ]
-  %.2 = phi i32 [ %.1631, %53 ], [ %.1631, %.critedge2 ], [ %.1631, %47 ], [ %.1631, %26 ], [ -2, %.lr.ph ]
+52:                                               ; preds = %.lr.ph, %24, %.critedge2, %51, %45
+  %.2605 = phi i32 [ %38, %51 ], [ %.1604629, %.critedge2 ], [ %.1604629, %45 ], [ %.1604629, %24 ], [ 0, %.lr.ph ]
+  %.2 = phi i32 [ %.1631, %51 ], [ %.1631, %.critedge2 ], [ %.1631, %45 ], [ %.1631, %24 ], [ -2, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %55 = load i32, ptr %8, align 8, !tbaa !130
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !425
+  %53 = load i32, ptr %8, align 8, !tbaa !130
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i64 %indvars.iv.next, %54
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !425
 
-._crit_edge.loopexit:                             ; preds = %54
-  %58 = trunc nsw i64 %indvars.iv.next to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.1604.lcssa = phi i32 [ %.0603634, %.preheader ], [ %.2605, %._crit_edge.loopexit ]
-  %.1101.lcssa = phi i32 [ %.0100635, %.preheader ], [ %58, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.0636, %.preheader ], [ %.2, %._crit_edge.loopexit ]
-  tail call void @_ZN4cvc58internal7Minisat6Solver11cancelUntilEi(ptr noundef nonnull align 8 dereferenceable(850) %0, i32 noundef %.1604.lcssa)
-  %59 = load i32, ptr %8, align 8, !tbaa !130
-  %60 = icmp slt i32 %.1101.lcssa, %59
-  br i1 %60, label %.preheader, label %._crit_edge637, !llvm.loop !426
+._crit_edge:                                      ; preds = %52
+  %56 = trunc nsw i64 %indvars.iv.next to i32
+  tail call void @_ZN4cvc58internal7Minisat6Solver11cancelUntilEi(ptr noundef nonnull align 8 dereferenceable(850) %0, i32 noundef %.2605)
+  %57 = load i32, ptr %8, align 8, !tbaa !130
+  %58 = icmp sgt i32 %57, %56
+  br i1 %58, label %.lr.ph.preheader, label %._crit_edge637, !llvm.loop !426
 
 ._crit_edge637:                                   ; preds = %._crit_edge
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %63 = load i32, ptr %62, align 8, !tbaa !96
-  %64 = icmp sgt i32 %59, 0
-  br i1 %64, label %.lr.ph648, label %._crit_edge649
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %61 = load i32, ptr %60, align 8, !tbaa !96
+  %62 = icmp sgt i32 %57, 0
+  br i1 %62, label %.lr.ph648, label %._crit_edge649
 
 .lr.ph648:                                        ; preds = %._crit_edge637
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  br label %93
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 364
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  br label %91
 
 ._crit_edge649:                                   ; preds = %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, %1, %._crit_edge637
-  %.3.lcssa = phi i32 [ %.1.lcssa, %._crit_edge637 ], [ -1, %1 ], [ %.4, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit ]
-  %.lcssa = phi i32 [ %59, %._crit_edge637 ], [ %9, %1 ], [ %287, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit ]
-  %79 = load ptr, ptr %7, align 8, !tbaa !129
-  %.not.i216 = icmp eq ptr %79, null
+  %.3.lcssa = phi i32 [ %.2, %._crit_edge637 ], [ -1, %1 ], [ %.4, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit ]
+  %.lcssa = phi i32 [ %57, %._crit_edge637 ], [ %9, %1 ], [ %285, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit ]
+  %77 = load ptr, ptr %7, align 8, !tbaa !129
+  %.not.i216 = icmp eq ptr %77, null
   br i1 %.not.i216, label %_ZN4cvc58internal7Minisat3vecINS2_INS1_3LitEEEE5clearEb.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge649
-  %80 = icmp sgt i32 %.lcssa, 0
-  br i1 %80, label %.lr.ph.i217, label %._crit_edge.i
+  %78 = icmp sgt i32 %.lcssa, 0
+  br i1 %78, label %.lr.ph.i217, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit.i, %.preheader.i
   store i32 0, ptr %8, align 8, !tbaa !130
   br label %_ZN4cvc58internal7Minisat3vecINS2_INS1_3LitEEEE5clearEb.exit
 
 .lr.ph.i217:                                      ; preds = %.preheader.i, %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit.i
-  %81 = phi i32 [ %87, %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit.i ], [ %.lcssa, %.preheader.i ]
+  %79 = phi i32 [ %85, %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit.i ], [ %.lcssa, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit.i ], [ 0, %.preheader.i ]
-  %82 = load ptr, ptr %7, align 8, !tbaa !129
-  %83 = getelementptr inbounds nuw %"class.cvc5::internal::Minisat::vec.4", ptr %82, i64 %indvars.iv.i
-  %84 = load ptr, ptr %83, align 8, !tbaa !97
-  %.not.i.i.i = icmp eq ptr %84, null
+  %80 = load ptr, ptr %7, align 8, !tbaa !129
+  %81 = getelementptr inbounds nuw %"class.cvc5::internal::Minisat::vec.4", ptr %80, i64 %indvars.iv.i
+  %82 = load ptr, ptr %81, align 8, !tbaa !97
+  %.not.i.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i.i, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i217
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i32 0, ptr %85, align 8, !tbaa !96
-  call void @free(ptr noundef nonnull %84) #34
-  store ptr null, ptr %83, align 8, !tbaa !97
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 0, ptr %86, align 4, !tbaa !99
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i32 0, ptr %83, align 8, !tbaa !96
+  call void @free(ptr noundef nonnull %82) #34
+  store ptr null, ptr %81, align 8, !tbaa !97
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 12
+  store i32 0, ptr %84, align 4, !tbaa !99
   %.pre.i = load i32, ptr %8, align 8, !tbaa !130
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit.i
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit.i: ; preds = %.preheader.i.i.i, %.lr.ph.i217
-  %87 = phi i32 [ %81, %.lr.ph.i217 ], [ %.pre.i, %.preheader.i.i.i ]
+  %85 = phi i32 [ %79, %.lr.ph.i217 ], [ %.pre.i, %.preheader.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %88 = sext i32 %87 to i64
-  %89 = icmp slt i64 %indvars.iv.next.i, %88
-  br i1 %89, label %.lr.ph.i217, label %._crit_edge.i, !llvm.loop !132
+  %86 = sext i32 %85 to i64
+  %87 = icmp slt i64 %indvars.iv.next.i, %86
+  br i1 %87, label %.lr.ph.i217, label %._crit_edge.i, !llvm.loop !132
 
 _ZN4cvc58internal7Minisat3vecINS2_INS1_3LitEEEE5clearEb.exit: ; preds = %._crit_edge649, %._crit_edge.i
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %91 = load ptr, ptr %90, align 8, !tbaa !98
-  %.not.i218 = icmp eq ptr %91, null
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %89 = load ptr, ptr %88, align 8, !tbaa !98
+  %.not.i218 = icmp eq ptr %89, null
   br i1 %.not.i218, label %_ZN4cvc58internal7Minisat3vecIbE5clearEb.exit, label %.preheader.i219
 
 .preheader.i219:                                  ; preds = %_ZN4cvc58internal7Minisat3vecINS2_INS1_3LitEEEE5clearEb.exit
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %92, align 8, !tbaa !103
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 0, ptr %90, align 8, !tbaa !103
   br label %_ZN4cvc58internal7Minisat3vecIbE5clearEb.exit
 
 _ZN4cvc58internal7Minisat3vecIbE5clearEb.exit:    ; preds = %_ZN4cvc58internal7Minisat3vecINS2_INS1_3LitEEEE5clearEb.exit, %.preheader.i219
   %.not = icmp eq i32 %.3.lcssa, -1
-  br i1 %.not, label %292, label %290
+  br i1 %.not, label %290, label %288
 
-93:                                               ; preds = %.lr.ph648, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
+91:                                               ; preds = %.lr.ph648, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
   %indvars.iv658 = phi i64 [ 0, %.lr.ph648 ], [ %indvars.iv.next659, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit ]
-  %.3646 = phi i32 [ %.1.lcssa, %.lr.ph648 ], [ %.4, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit ]
-  %94 = load ptr, ptr %7, align 8, !tbaa !129
-  %95 = getelementptr inbounds nuw %"class.cvc5::internal::Minisat::vec.4", ptr %94, i64 %indvars.iv658
-  %96 = load ptr, ptr %65, align 8, !tbaa !98
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %indvars.iv658
-  %98 = load i8, ptr %97, align 1, !tbaa !62, !range !63, !noundef !64
-  %99 = trunc nuw i8 %98 to i1
-  %100 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %101 = load i32, ptr %100, align 8, !tbaa !96
-  %102 = icmp sgt i32 %101, 1
-  br i1 %102, label %103, label %222
+  %.3646 = phi i32 [ %.2, %.lr.ph648 ], [ %.4, %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit ]
+  %92 = load ptr, ptr %7, align 8, !tbaa !129
+  %93 = getelementptr inbounds nuw %"class.cvc5::internal::Minisat::vec.4", ptr %92, i64 %indvars.iv658
+  %94 = load ptr, ptr %63, align 8, !tbaa !98
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %indvars.iv658
+  %96 = load i8, ptr %95, align 1, !tbaa !62, !range !63, !noundef !64
+  %97 = trunc nuw i8 %96 to i1
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %99 = load i32, ptr %98, align 8, !tbaa !96
+  %100 = icmp sgt i32 %99, 1
+  br i1 %100, label %101, label %220
 
-103:                                              ; preds = %93
-  %104 = load i32, ptr %66, align 8, !tbaa !53
-  br i1 %99, label %105, label %.loopexit
+101:                                              ; preds = %91
+  %102 = load i32, ptr %64, align 8, !tbaa !53
+  br i1 %97, label %103, label %.loopexit
 
-105:                                              ; preds = %103
-  %106 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 368
-  %108 = load ptr, ptr %107, align 8, !tbaa !136
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 117
-  %110 = load i8, ptr %109, align 1, !tbaa !320, !range !63, !noundef !64
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %112, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread
+103:                                              ; preds = %101
+  %104 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 368
+  %106 = load ptr, ptr %105, align 8, !tbaa !136
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 117
+  %108 = load i8, ptr %107, align 1, !tbaa !320, !range !63, !noundef !64
+  %109 = trunc nuw i8 %108 to i1
+  br i1 %109, label %110, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread
 
-112:                                              ; preds = %105
-  %113 = load ptr, ptr %67, align 8, !tbaa !87
-  %.not.i.i220 = icmp eq ptr %113, null
+110:                                              ; preds = %103
+  %111 = load ptr, ptr %65, align 8, !tbaa !87
+  %.not.i.i220 = icmp eq ptr %111, null
   br i1 %.not.i.i220, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
 
-_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i: ; preds = %112
-  %114 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 368
-  %116 = load ptr, ptr %115, align 8, !tbaa !136
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 120
-  %118 = load i32, ptr %117, align 8, !tbaa !332
-  %.not.i221 = icmp eq i32 %118, 1
+_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i: ; preds = %110
+  %112 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 368
+  %114 = load ptr, ptr %113, align 8, !tbaa !136
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 120
+  %116 = load i32, ptr %115, align 8, !tbaa !332
+  %.not.i221 = icmp eq i32 %116, 1
   br i1 %.not.i221, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread
 
-_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit: ; preds = %112, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
-  %119 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 224
-  %121 = load ptr, ptr %120, align 8, !tbaa !333
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 137
-  %123 = load i8, ptr %122, align 1, !tbaa !334, !range !63, !noundef !64
-  %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %.loopexit, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread
+_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit: ; preds = %110, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i
+  %117 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 224
+  %119 = load ptr, ptr %118, align 8, !tbaa !333
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 137
+  %121 = load i8, ptr %120, align 1, !tbaa !334, !range !63, !noundef !64
+  %122 = trunc nuw i8 %121 to i1
+  br i1 %122, label %.loopexit, label %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread
 
-_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread: ; preds = %105, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit
-  %125 = load i32, ptr %100, align 8, !tbaa !96
-  %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %.lr.ph643, label %.loopexit
+_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread: ; preds = %103, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.i, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit
+  %123 = load i32, ptr %98, align 8, !tbaa !96
+  %124 = icmp sgt i32 %123, 0
+  br i1 %124, label %.lr.ph643, label %.loopexit
 
 .lr.ph643:                                        ; preds = %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread
-  %127 = load ptr, ptr %95, align 8, !tbaa !97
-  %128 = load ptr, ptr %68, align 8, !tbaa !93
-  %wide.trip.count = zext nneg i32 %125 to i64
-  br label %129
+  %125 = load ptr, ptr %93, align 8, !tbaa !97
+  %126 = load ptr, ptr %66, align 8, !tbaa !93
+  %wide.trip.count = zext nneg i32 %123 to i64
+  br label %127
 
-129:                                              ; preds = %.lr.ph643, %129
-  %indvars.iv655 = phi i64 [ 0, %.lr.ph643 ], [ %indvars.iv.next656, %129 ]
-  %.1608641 = phi i32 [ 0, %.lr.ph643 ], [ %.sroa.speculated, %129 ]
-  %130 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %127, i64 %indvars.iv655
-  %.sroa.035.0.copyload = load i32, ptr %130, align 4, !tbaa !66
-  %131 = ashr i32 %.sroa.035.0.copyload, 1
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %128, i64 %132, i32 3
-  %134 = load i32, ptr %133, align 4, !tbaa !94
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.1608641, i32 %134)
+127:                                              ; preds = %.lr.ph643, %127
+  %indvars.iv655 = phi i64 [ 0, %.lr.ph643 ], [ %indvars.iv.next656, %127 ]
+  %.1608641 = phi i32 [ 0, %.lr.ph643 ], [ %.sroa.speculated, %127 ]
+  %128 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %125, i64 %indvars.iv655
+  %.sroa.035.0.copyload = load i32, ptr %128, align 4, !tbaa !66
+  %129 = ashr i32 %.sroa.035.0.copyload, 1
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %126, i64 %130, i32 3
+  %132 = load i32, ptr %131, align 4, !tbaa !94
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.1608641, i32 %132)
   %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %129, !llvm.loop !427
+  br i1 %exitcond.not, label %.loopexit, label %127, !llvm.loop !427
 
-.loopexit:                                        ; preds = %129, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit, %103
-  %.0607 = phi i32 [ %104, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit ], [ %104, %103 ], [ 0, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread ], [ %.sroa.speculated, %129 ]
-  %135 = call noundef i32 @_ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_3vecINS1_3LitEEEEEjiRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %69, i32 noundef %.0607, ptr noundef nonnull align 8 dereferenceable(16) %95, i1 noundef zeroext %99)
-  %136 = load ptr, ptr %67, align 8, !tbaa !87
-  %.not.i222 = icmp eq ptr %136, null
+.loopexit:                                        ; preds = %127, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit, %101
+  %.0607 = phi i32 [ %102, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit ], [ %102, %101 ], [ 0, %_ZNK4cvc58internal7Minisat6Solver18assertionLevelOnlyEv.exit.thread ], [ %.sroa.speculated, %127 ]
+  %133 = call noundef i32 @_ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_3vecINS1_3LitEEEEEjiRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %67, i32 noundef %.0607, ptr noundef nonnull align 8 dereferenceable(16) %93, i1 noundef zeroext %97)
+  %134 = load ptr, ptr %65, align 8, !tbaa !87
+  %.not.i222 = icmp eq ptr %134, null
   br i1 %.not.i222, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit: ; preds = %.loopexit
-  %137 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 368
-  %139 = load ptr, ptr %138, align 8, !tbaa !136
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 120
-  %141 = load i32, ptr %140, align 8, !tbaa !332
-  %142 = icmp ne i32 %141, 1
-  %143 = load i32, ptr %66, align 8
-  %144 = icmp slt i32 %.0607, %143
-  %or.cond610 = select i1 %142, i1 %144, i1 false
-  br i1 %or.cond610, label %145, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread
+  %135 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 368
+  %137 = load ptr, ptr %136, align 8, !tbaa !136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 120
+  %139 = load i32, ptr %138, align 8, !tbaa !332
+  %140 = icmp ne i32 %139, 1
+  %141 = load i32, ptr %64, align 8
+  %142 = icmp slt i32 %.0607, %141
+  %or.cond610 = select i1 %140, i1 %142, i1 false
+  br i1 %or.cond610, label %143, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread
 
-145:                                              ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
+143:                                              ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %146 = load ptr, ptr %69, align 8, !tbaa !105
-  %147 = zext i32 %135 to i64
-  %148 = getelementptr inbounds nuw i32, ptr %146, i64 %147
-  invoke void @_ZN4cvc58internal4prop16MinisatSatSolver11toSatClauseERKNS0_7Minisat6ClauseERSt6vectorINS1_10SatLiteralESaIS8_EE(ptr noundef nonnull align 4 dereferenceable(8) %148, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %149 unwind label %158
+  %144 = load ptr, ptr %67, align 8, !tbaa !105
+  %145 = zext i32 %133 to i64
+  %146 = getelementptr inbounds nuw i32, ptr %144, i64 %145
+  invoke void @_ZN4cvc58internal4prop16MinisatSatSolver11toSatClauseERKNS0_7Minisat6ClauseERSt6vectorINS1_10SatLiteralESaIS8_EE(ptr noundef nonnull align 4 dereferenceable(8) %146, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %147 unwind label %156
 
-149:                                              ; preds = %145
-  %150 = load ptr, ptr %67, align 8, !tbaa !87
-  invoke void @_ZN4cvc58internal4prop15SatProofManager27notifyClauseInsertedAtLevelERKSt6vectorINS1_10SatLiteralESaIS4_EEj(ptr noundef nonnull align 8 dereferenceable(1240) %150, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %.0607)
-          to label %151 unwind label %158
+147:                                              ; preds = %143
+  %148 = load ptr, ptr %65, align 8, !tbaa !87
+  invoke void @_ZN4cvc58internal4prop15SatProofManager27notifyClauseInsertedAtLevelERKSt6vectorINS1_10SatLiteralESaIS4_EEj(ptr noundef nonnull align 8 dereferenceable(1240) %148, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %.0607)
+          to label %149 unwind label %156
+
+149:                                              ; preds = %147
+  %150 = load ptr, ptr %3, align 8, !tbaa !363
+  %.not.i.i.i278 = icmp eq ptr %150, null
+  br i1 %.not.i.i.i278, label %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev.exit, label %151
 
 151:                                              ; preds = %149
-  %152 = load ptr, ptr %3, align 8, !tbaa !363
-  %.not.i.i.i278 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i278, label %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev.exit, label %153
-
-153:                                              ; preds = %151
-  %154 = load ptr, ptr %70, align 8, !tbaa !366
-  %155 = ptrtoint ptr %154 to i64
-  %156 = ptrtoint ptr %152 to i64
-  %157 = sub i64 %155, %156
-  call void @_ZdlPvm(ptr noundef nonnull %152, i64 noundef %157) #35
+  %152 = load ptr, ptr %68, align 8, !tbaa !366
+  %153 = ptrtoint ptr %152 to i64
+  %154 = ptrtoint ptr %150 to i64
+  %155 = sub i64 %153, %154
+  call void @_ZdlPvm(ptr noundef nonnull %150, i64 noundef %155) #35
   br label %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev.exit: ; preds = %151, %153
+_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev.exit: ; preds = %149, %151
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #34
   br label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread
 
-158:                                              ; preds = %149, %145
-  %159 = landingpad { ptr, i32 }
+156:                                              ; preds = %147, %143
+  %157 = landingpad { ptr, i32 }
           cleanup
-  %160 = load ptr, ptr %3, align 8, !tbaa !363
-  %.not.i.i.i279 = icmp eq ptr %160, null
-  br i1 %.not.i.i.i279, label %221, label %161
+  %158 = load ptr, ptr %3, align 8, !tbaa !363
+  %.not.i.i.i279 = icmp eq ptr %158, null
+  br i1 %.not.i.i.i279, label %219, label %159
 
-161:                                              ; preds = %158
-  %162 = load ptr, ptr %70, align 8, !tbaa !366
-  %163 = ptrtoint ptr %162 to i64
-  %164 = ptrtoint ptr %160 to i64
-  %165 = sub i64 %163, %164
-  call void @_ZdlPvm(ptr noundef nonnull %160, i64 noundef %165) #35
-  br label %221
+159:                                              ; preds = %156
+  %160 = load ptr, ptr %68, align 8, !tbaa !366
+  %161 = ptrtoint ptr %160 to i64
+  %162 = ptrtoint ptr %158 to i64
+  %163 = sub i64 %161, %162
+  call void @_ZdlPvm(ptr noundef nonnull %158, i64 noundef %163) #35
+  br label %219
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread: ; preds = %.loopexit, %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EED2Ev.exit, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit
-  br i1 %99, label %166, label %192
+  br i1 %97, label %164, label %190
 
-166:                                              ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread
-  %167 = load i32, ptr %75, align 8, !tbaa !116
-  %168 = load i32, ptr %76, align 4, !tbaa !117
-  %169 = icmp eq i32 %167, %168
-  br i1 %169, label %170, label %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i
+164:                                              ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread
+  %165 = load i32, ptr %73, align 8, !tbaa !116
+  %166 = load i32, ptr %74, align 4, !tbaa !117
+  %167 = icmp eq i32 %165, %166
+  br i1 %167, label %168, label %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i
 
-._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i: ; preds = %166
-  %.pre.i281 = load ptr, ptr %74, align 8, !tbaa !115
+._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i: ; preds = %164
+  %.pre.i281 = load ptr, ptr %72, align 8, !tbaa !115
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
-170:                                              ; preds = %166
-  %171 = ashr i32 %167, 1
-  %172 = and i32 %171, -2
-  %173 = call i32 @llvm.smax.i32(i32 %172, i32 0)
-  %174 = add nuw nsw i32 %173, 2
-  %175 = sub nsw i32 2147483647, %167
-  %176 = icmp samesign ugt i32 %174, %175
-  br i1 %176, label %.loopexit615, label %177
+168:                                              ; preds = %164
+  %169 = ashr i32 %165, 1
+  %170 = and i32 %169, -2
+  %171 = call i32 @llvm.smax.i32(i32 %170, i32 0)
+  %172 = add nuw nsw i32 %171, 2
+  %173 = sub nsw i32 2147483647, %165
+  %174 = icmp samesign ugt i32 %172, %173
+  br i1 %174, label %.loopexit615, label %175
 
-177:                                              ; preds = %170
-  %178 = load ptr, ptr %74, align 8, !tbaa !115
-  %179 = add nsw i32 %174, %167
-  store i32 %179, ptr %76, align 4, !tbaa !117
-  %180 = sext i32 %179 to i64
-  %181 = shl nsw i64 %180, 2
-  %182 = call ptr @realloc(ptr noundef %178, i64 noundef %181) #36
-  store ptr %182, ptr %74, align 8, !tbaa !115
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %184, label %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge
+175:                                              ; preds = %168
+  %176 = load ptr, ptr %72, align 8, !tbaa !115
+  %177 = add nsw i32 %172, %165
+  store i32 %177, ptr %74, align 4, !tbaa !117
+  %178 = sext i32 %177 to i64
+  %179 = shl nsw i64 %178, 2
+  %180 = call ptr @realloc(ptr noundef %176, i64 noundef %179) #36
+  store ptr %180, ptr %72, align 8, !tbaa !115
+  %181 = icmp eq ptr %180, null
+  br i1 %181, label %182, label %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge
 
-._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge: ; preds = %177
-  %.pre663 = load i32, ptr %75, align 8, !tbaa !116
+._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge: ; preds = %175
+  %.pre663 = load i32, ptr %73, align 8, !tbaa !116
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
-184:                                              ; preds = %177
-  %185 = tail call ptr @__errno_location() #37
-  %186 = load i32, ptr %185, align 4, !tbaa !66
-  %187 = icmp eq i32 %186, 12
-  call void @llvm.assume(i1 %187)
+182:                                              ; preds = %175
+  %183 = tail call ptr @__errno_location() #37
+  %184 = load i32, ptr %183, align 4, !tbaa !66
+  %185 = icmp eq i32 %184, 12
+  call void @llvm.assume(i1 %185)
   br label %.loopexit615
 
-.loopexit615:                                     ; preds = %170, %184
-  %188 = call ptr @__cxa_allocate_exception(i64 1) #34
-  call void @__cxa_throw(ptr %188, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #38
+.loopexit615:                                     ; preds = %168, %182
+  %186 = call ptr @__cxa_allocate_exception(i64 1) #34
+  call void @__cxa_throw(ptr %186, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #38
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i
-  %189 = phi i32 [ %167, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i ], [ %.pre663, %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge ]
-  %190 = phi ptr [ %.pre.i281, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i ], [ %182, %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge ]
-  %191 = add nsw i32 %189, 1
-  store i32 %191, ptr %75, align 8, !tbaa !116
-  br label %218
+  %187 = phi i32 [ %165, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i ], [ %.pre663, %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge ]
+  %188 = phi ptr [ %.pre.i281, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i ], [ %180, %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit_crit_edge ]
+  %189 = add nsw i32 %187, 1
+  store i32 %189, ptr %73, align 8, !tbaa !116
+  br label %216
 
-192:                                              ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread
-  %193 = load i32, ptr %72, align 8, !tbaa !116
-  %194 = load i32, ptr %73, align 4, !tbaa !117
-  %195 = icmp eq i32 %193, %194
-  br i1 %195, label %196, label %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282
+190:                                              ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit.thread
+  %191 = load i32, ptr %70, align 8, !tbaa !116
+  %192 = load i32, ptr %71, align 4, !tbaa !117
+  %193 = icmp eq i32 %191, %192
+  br i1 %193, label %194, label %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282
 
-._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282: ; preds = %192
-  %.pre.i283 = load ptr, ptr %71, align 8, !tbaa !115
+._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282: ; preds = %190
+  %.pre.i283 = load ptr, ptr %69, align 8, !tbaa !115
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284
 
-196:                                              ; preds = %192
-  %197 = ashr i32 %193, 1
-  %198 = and i32 %197, -2
-  %199 = call i32 @llvm.smax.i32(i32 %198, i32 0)
-  %200 = add nuw nsw i32 %199, 2
-  %201 = sub nsw i32 2147483647, %193
-  %202 = icmp samesign ugt i32 %200, %201
-  br i1 %202, label %.loopexit614, label %203
+194:                                              ; preds = %190
+  %195 = ashr i32 %191, 1
+  %196 = and i32 %195, -2
+  %197 = call i32 @llvm.smax.i32(i32 %196, i32 0)
+  %198 = add nuw nsw i32 %197, 2
+  %199 = sub nsw i32 2147483647, %191
+  %200 = icmp samesign ugt i32 %198, %199
+  br i1 %200, label %.loopexit614, label %201
 
-203:                                              ; preds = %196
-  %204 = load ptr, ptr %71, align 8, !tbaa !115
-  %205 = add nsw i32 %200, %193
-  store i32 %205, ptr %73, align 4, !tbaa !117
-  %206 = sext i32 %205 to i64
-  %207 = shl nsw i64 %206, 2
-  %208 = call ptr @realloc(ptr noundef %204, i64 noundef %207) #36
-  store ptr %208, ptr %71, align 8, !tbaa !115
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %210, label %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge
+201:                                              ; preds = %194
+  %202 = load ptr, ptr %69, align 8, !tbaa !115
+  %203 = add nsw i32 %198, %191
+  store i32 %203, ptr %71, align 4, !tbaa !117
+  %204 = sext i32 %203 to i64
+  %205 = shl nsw i64 %204, 2
+  %206 = call ptr @realloc(ptr noundef %202, i64 noundef %205) #36
+  store ptr %206, ptr %69, align 8, !tbaa !115
+  %207 = icmp eq ptr %206, null
+  br i1 %207, label %208, label %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge
 
-._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge: ; preds = %203
-  %.pre662 = load i32, ptr %72, align 8, !tbaa !116
+._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge: ; preds = %201
+  %.pre662 = load i32, ptr %70, align 8, !tbaa !116
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284
 
-210:                                              ; preds = %203
-  %211 = tail call ptr @__errno_location() #37
-  %212 = load i32, ptr %211, align 4, !tbaa !66
-  %213 = icmp eq i32 %212, 12
-  call void @llvm.assume(i1 %213)
+208:                                              ; preds = %201
+  %209 = tail call ptr @__errno_location() #37
+  %210 = load i32, ptr %209, align 4, !tbaa !66
+  %211 = icmp eq i32 %210, 12
+  call void @llvm.assume(i1 %211)
   br label %.loopexit614
 
-.loopexit614:                                     ; preds = %196, %210
-  %214 = call ptr @__cxa_allocate_exception(i64 1) #34
-  call void @__cxa_throw(ptr %214, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #38
+.loopexit614:                                     ; preds = %194, %208
+  %212 = call ptr @__cxa_allocate_exception(i64 1) #34
+  call void @__cxa_throw(ptr %212, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #38
   unreachable
 
 _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284: ; preds = %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282
-  %215 = phi i32 [ %193, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282 ], [ %.pre662, %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge ]
-  %216 = phi ptr [ %.pre.i283, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282 ], [ %208, %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge ]
-  %217 = add nsw i32 %215, 1
-  store i32 %217, ptr %72, align 8, !tbaa !116
-  br label %218
+  %213 = phi i32 [ %191, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282 ], [ %.pre662, %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge ]
+  %214 = phi ptr [ %.pre.i283, %._ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit_crit_edge.i282 ], [ %206, %._ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284_crit_edge ]
+  %215 = add nsw i32 %213, 1
+  store i32 %215, ptr %70, align 8, !tbaa !116
+  br label %216
 
-218:                                              ; preds = %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
-  %.sink = phi i32 [ %215, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284 ], [ %189, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit ]
-  %.sink669 = phi ptr [ %216, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284 ], [ %190, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit ]
-  %219 = sext i32 %.sink to i64
-  %220 = getelementptr inbounds i32, ptr %.sink669, i64 %219
-  store i32 %135, ptr %220, align 4, !tbaa !66
-  call void @_ZN4cvc58internal7Minisat6Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(850) %0, i32 noundef %135)
-  br label %222
+216:                                              ; preds = %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
+  %.sink = phi i32 [ %213, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284 ], [ %187, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit ]
+  %.sink669 = phi ptr [ %214, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit284 ], [ %188, %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit ]
+  %217 = sext i32 %.sink to i64
+  %218 = getelementptr inbounds i32, ptr %.sink669, i64 %217
+  store i32 %133, ptr %218, align 4, !tbaa !66
+  call void @_ZN4cvc58internal7Minisat6Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(850) %0, i32 noundef %133)
+  br label %220
 
-221:                                              ; preds = %161, %158
+219:                                              ; preds = %159, %156
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #34
-  resume { ptr, i32 } %159
+  resume { ptr, i32 } %157
 
-222:                                              ; preds = %218, %93
-  %.0606 = phi i32 [ %135, %218 ], [ -1, %93 ]
-  %223 = icmp eq i32 %.3646, -1
-  br i1 %223, label %224, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
+220:                                              ; preds = %216, %91
+  %.0606 = phi i32 [ %133, %216 ], [ -1, %91 ]
+  %221 = icmp eq i32 %.3646, -1
+  br i1 %221, label %222, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
 
-224:                                              ; preds = %222
-  %225 = load ptr, ptr %95, align 8, !tbaa !97
-  %.sroa.018.0.copyload = load i32, ptr %225, align 4, !tbaa !66
-  %226 = ashr i32 %.sroa.018.0.copyload, 1
-  %227 = load ptr, ptr %77, align 8, !tbaa !90
-  %228 = sext i32 %226 to i64
-  %229 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %227, i64 %228
-  %230 = load i8, ptr %229, align 1, !tbaa !373
-  %231 = trunc i32 %.sroa.018.0.copyload to i8
-  %232 = and i8 %231, 1
-  %.not611 = icmp eq i8 %230, %232
-  br i1 %.not611, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, label %233
+222:                                              ; preds = %220
+  %223 = load ptr, ptr %93, align 8, !tbaa !97
+  %.sroa.018.0.copyload = load i32, ptr %223, align 4, !tbaa !66
+  %224 = ashr i32 %.sroa.018.0.copyload, 1
+  %225 = load ptr, ptr %75, align 8, !tbaa !90
+  %226 = sext i32 %224 to i64
+  %227 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %225, i64 %226
+  %228 = load i8, ptr %227, align 1, !tbaa !373
+  %229 = trunc i32 %.sroa.018.0.copyload to i8
+  %230 = and i8 %229, 1
+  %.not611 = icmp eq i8 %228, %230
+  br i1 %.not611, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, label %231
 
-233:                                              ; preds = %224
-  %234 = load i32, ptr %100, align 8, !tbaa !96
-  %235 = icmp eq i32 %234, 1
-  br i1 %235, label %.thread665, label %236
+231:                                              ; preds = %222
+  %232 = load i32, ptr %98, align 8, !tbaa !96
+  %233 = icmp eq i32 %232, 1
+  br i1 %233, label %.thread665, label %234
 
-236:                                              ; preds = %233
-  %237 = getelementptr inbounds nuw i8, ptr %225, i64 4
-  %.sroa.017.0.copyload = load i32, ptr %237, align 4, !tbaa !66
-  %238 = ashr i32 %.sroa.017.0.copyload, 1
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %227, i64 %239
-  %241 = load i8, ptr %240, align 1, !tbaa !373
-  %242 = trunc i32 %.sroa.017.0.copyload to i8
-  %243 = and i8 %242, 1
-  %244 = xor i8 %243, %241
-  %245 = icmp eq i8 %244, 1
-  br i1 %245, label %246, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
+234:                                              ; preds = %231
+  %235 = getelementptr inbounds nuw i8, ptr %223, i64 4
+  %.sroa.017.0.copyload = load i32, ptr %235, align 4, !tbaa !66
+  %236 = ashr i32 %.sroa.017.0.copyload, 1
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %225, i64 %237
+  %239 = load i8, ptr %238, align 1, !tbaa !373
+  %240 = trunc i32 %.sroa.017.0.copyload to i8
+  %241 = and i8 %240, 1
+  %242 = xor i8 %241, %239
+  %243 = icmp eq i8 %242, 1
+  br i1 %243, label %244, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
 
-246:                                              ; preds = %236
-  %247 = load ptr, ptr %68, align 8, !tbaa !93
-  %248 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %247, i64 %239, i32 4
-  %249 = load i32, ptr %248, align 4, !tbaa !362
-  %250 = icmp slt i32 %249, %63
-  br i1 %250, label %251, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
+244:                                              ; preds = %234
+  %245 = load ptr, ptr %66, align 8, !tbaa !93
+  %246 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %245, i64 %237, i32 4
+  %247 = load i32, ptr %246, align 4, !tbaa !362
+  %248 = icmp slt i32 %247, %61
+  br i1 %248, label %249, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
 
-251:                                              ; preds = %246
-  %252 = xor i8 %230, %232
+249:                                              ; preds = %244
+  %250 = xor i8 %228, %230
+  %251 = icmp eq i8 %250, 1
+  br i1 %251, label %254, label %265
+
+.thread665:                                       ; preds = %231
+  %252 = xor i8 %228, %230
   %253 = icmp eq i8 %252, 1
-  br i1 %253, label %256, label %267
+  br i1 %253, label %.thread666, label %265
 
-.thread665:                                       ; preds = %233
-  %254 = xor i8 %230, %232
-  %255 = icmp eq i8 %254, 1
-  br i1 %255, label %.thread666, label %267
+254:                                              ; preds = %249
+  %255 = icmp sgt i32 %232, 1
+  br i1 %255, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, label %.thread666
 
-256:                                              ; preds = %251
-  %257 = icmp sgt i32 %234, 1
-  br i1 %257, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, label %.thread666
-
-.thread666:                                       ; preds = %.thread665, %256
-  %258 = load ptr, ptr %67, align 8, !tbaa !87
-  %.not.i316 = icmp eq ptr %258, null
+.thread666:                                       ; preds = %.thread665, %254
+  %256 = load ptr, ptr %65, align 8, !tbaa !87
+  %.not.i316 = icmp eq ptr %256, null
   br i1 %.not.i316, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, label %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit317
 
 _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit317: ; preds = %.thread666
-  %259 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 368
-  %261 = load ptr, ptr %260, align 8, !tbaa !136
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 120
-  %263 = load i32, ptr %262, align 8, !tbaa !332
-  %.not612 = icmp eq i32 %263, 1
-  br i1 %.not612, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, label %264
+  %257 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(850) %0)
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 368
+  %259 = load ptr, ptr %258, align 8, !tbaa !136
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 120
+  %261 = load i32, ptr %260, align 8, !tbaa !332
+  %.not612 = icmp eq i32 %261, 1
+  br i1 %.not612, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, label %262
 
-264:                                              ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit317
-  %265 = load ptr, ptr %67, align 8, !tbaa !87
-  %266 = load ptr, ptr %95, align 8, !tbaa !97
-  %.sroa.011.0.copyload = load i32, ptr %266, align 4, !tbaa !66
-  call void @_ZN4cvc58internal4prop15SatProofManager17storeUnitConflictENS0_7Minisat3LitE(ptr noundef nonnull align 8 dereferenceable(1240) %265, i32 %.sroa.011.0.copyload)
+262:                                              ; preds = %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit317
+  %263 = load ptr, ptr %65, align 8, !tbaa !87
+  %264 = load ptr, ptr %93, align 8, !tbaa !97
+  %.sroa.011.0.copyload = load i32, ptr %264, align 4, !tbaa !66
+  call void @_ZN4cvc58internal4prop15SatProofManager17storeUnitConflictENS0_7Minisat3LitE(ptr noundef nonnull align 8 dereferenceable(1240) %263, i32 %.sroa.011.0.copyload)
   br label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
 
-267:                                              ; preds = %.thread665, %251
-  store i8 %232, ptr %229, align 1, !tbaa !91
-  %268 = load i32, ptr %6, align 8, !tbaa !92
-  %269 = load i32, ptr %66, align 8, !tbaa !53
-  %270 = load ptr, ptr %68, align 8, !tbaa !93
-  %271 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %270, i64 %228, i32 3
-  %272 = load i32, ptr %271, align 4, !tbaa !94
-  %273 = load i32, ptr %62, align 8, !tbaa !96
-  %274 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %270, i64 %228
-  store i32 %.0606, ptr %274, align 4, !tbaa !66
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 4
-  store i32 %268, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !66
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 8
-  store i32 %269, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !66
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 12
-  store i32 %272, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !66
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 16
-  store i32 %273, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !66
-  %275 = load ptr, ptr %61, align 8, !tbaa !97
-  %276 = load i32, ptr %62, align 8, !tbaa !96
-  %277 = add nsw i32 %276, 1
-  store i32 %277, ptr %62, align 8, !tbaa !96
-  %278 = sext i32 %276 to i64
-  %279 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %275, i64 %278
-  store i32 %.sroa.018.0.copyload, ptr %279, align 4, !tbaa !66
-  %280 = load ptr, ptr %78, align 8, !tbaa !98
-  %281 = getelementptr inbounds i8, ptr %280, i64 %228
-  %282 = load i8, ptr %281, align 1, !tbaa !62, !range !63, !noundef !64
-  %283 = trunc nuw i8 %282 to i1
-  br i1 %283, label %284, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
+265:                                              ; preds = %.thread665, %249
+  store i8 %230, ptr %227, align 1, !tbaa !91
+  %266 = load i32, ptr %6, align 8, !tbaa !92
+  %267 = load i32, ptr %64, align 8, !tbaa !53
+  %268 = load ptr, ptr %66, align 8, !tbaa !93
+  %269 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %268, i64 %226, i32 3
+  %270 = load i32, ptr %269, align 4, !tbaa !94
+  %271 = load i32, ptr %60, align 8, !tbaa !96
+  %272 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %268, i64 %226
+  store i32 %.0606, ptr %272, align 4, !tbaa !66
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %272, i64 4
+  store i32 %266, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !66
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %272, i64 8
+  store i32 %267, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !66
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %272, i64 12
+  store i32 %270, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !66
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %272, i64 16
+  store i32 %271, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !66
+  %273 = load ptr, ptr %59, align 8, !tbaa !97
+  %274 = load i32, ptr %60, align 8, !tbaa !96
+  %275 = add nsw i32 %274, 1
+  store i32 %275, ptr %60, align 8, !tbaa !96
+  %276 = sext i32 %274 to i64
+  %277 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %273, i64 %276
+  store i32 %.sroa.018.0.copyload, ptr %277, align 4, !tbaa !66
+  %278 = load ptr, ptr %76, align 8, !tbaa !98
+  %279 = getelementptr inbounds i8, ptr %278, i64 %226
+  %280 = load i8, ptr %279, align 1, !tbaa !62, !range !63, !noundef !64
+  %281 = trunc nuw i8 %280 to i1
+  br i1 %281, label %282, label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
 
-284:                                              ; preds = %267
-  %285 = load ptr, ptr %4, align 8, !tbaa !6
+282:                                              ; preds = %265
+  %283 = load ptr, ptr %4, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #34
-  %286 = call i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %.sroa.018.0.copyload)
-  store i64 %286, ptr %2, align 8
-  call void @_ZN4cvc58internal4prop11TheoryProxy20enqueueTheoryLiteralERKNS1_10SatLiteralE(ptr noundef nonnull align 8 dereferenceable(521) %285, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %284 = call i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %.sroa.018.0.copyload)
+  store i64 %284, ptr %2, align 8
+  call void @_ZN4cvc58internal4prop11TheoryProxy20enqueueTheoryLiteralERKNS1_10SatLiteralE(ptr noundef nonnull align 8 dereferenceable(521) %283, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #34
   br label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
 
-_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit: ; preds = %256, %.thread666, %222, %236, %284, %267, %246, %264, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit317, %224
-  %.4 = phi i32 [ -2, %264 ], [ -2, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit317 ], [ -1, %246 ], [ -1, %224 ], [ -1, %267 ], [ -1, %284 ], [ -1, %236 ], [ %.3646, %222 ], [ -2, %.thread666 ], [ %.0606, %256 ]
+_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit: ; preds = %254, %.thread666, %220, %234, %282, %265, %244, %262, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit317, %222
+  %.4 = phi i32 [ -2, %262 ], [ -2, %_ZNK4cvc58internal7Minisat6Solver9needProofEv.exit317 ], [ -1, %244 ], [ -1, %222 ], [ -1, %265 ], [ -1, %282 ], [ -1, %234 ], [ %.3646, %220 ], [ -2, %.thread666 ], [ %.0606, %254 ]
   %indvars.iv.next659 = add nuw nsw i64 %indvars.iv658, 1
-  %287 = load i32, ptr %8, align 8, !tbaa !130
-  %288 = sext i32 %287 to i64
-  %289 = icmp slt i64 %indvars.iv.next659, %288
-  br i1 %289, label %93, label %._crit_edge649, !llvm.loop !428
+  %285 = load i32, ptr %8, align 8, !tbaa !130
+  %286 = sext i32 %285 to i64
+  %287 = icmp slt i64 %indvars.iv.next659, %286
+  br i1 %287, label %91, label %._crit_edge649, !llvm.loop !428
 
-290:                                              ; preds = %_ZN4cvc58internal7Minisat3vecIbE5clearEb.exit
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 849
-  store i8 1, ptr %291, align 1, !tbaa !378
-  br label %292
+288:                                              ; preds = %_ZN4cvc58internal7Minisat3vecIbE5clearEb.exit
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 849
+  store i8 1, ptr %289, align 1, !tbaa !378
+  br label %290
 
-292:                                              ; preds = %290, %_ZN4cvc58internal7Minisat3vecIbE5clearEb.exit
+290:                                              ; preds = %288, %_ZN4cvc58internal7Minisat3vecIbE5clearEb.exit
   ret i32 %.3.lcssa
 }
 

@@ -80856,16 +80856,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %8 = fcmp ord float %.val.us, 0.000000e+00
   %9 = fcmp ult float %.val.us, %.val20.us
   %.not2.i.i.i.us = and i1 %8, %9
-  br i1 %.not2.i.i.i.us, label %._crit_edge.us, label %.lr.ph30
+  br i1 %.not2.i.i.i.us, label %._crit_edge.us.loopexit, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %4
   %.sroa.01.14.us29 = phi i64 [ %5, %4 ], [ 1, %.lr.ph30.preheader ]
   %exitcond40.not = icmp eq i64 %.sroa.01.14.us29, %14
-  br i1 %exitcond40.not, label %._crit_edge.us, label %4
+  br i1 %exitcond40.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph30, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph30 ], [ %5, %4 ]
-  %10 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph30
+  %.lcssa33 = phi i64 [ %5, %4 ], [ %1, %.lr.ph30 ]
+  %10 = icmp eq i64 %.lcssa33, %1
   br label %.split25
 
 .lr.ph.us:                                        ; preds = %2
@@ -80875,7 +80875,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %12 = fcmp ord float %.val.us26, 0.000000e+00
   %13 = fcmp ult float %.val.us26, %.val20.us27
   %.not2.i.i.i.us28 = and i1 %12, %13
-  br i1 %.not2.i.i.i.us28, label %._crit_edge.us, label %.lr.ph30.preheader
+  br i1 %.not2.i.i.i.us28, label %.split25, label %.lr.ph30.preheader
 
 .lr.ph30.preheader:                               ; preds = %.lr.ph.us
   %14 = add nsw i64 %1, -1
@@ -80888,8 +80888,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %16 = icmp ult i64 %.sroa.01.023, %1
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-.split25:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h22ea02253a45216aE.exit, %._crit_edge, %24, %._crit_edge.us
-  %.us-phi = phi i1 [ %10, %._crit_edge.us ], [ true, %24 ], [ %23, %._crit_edge ], [ %23, %_ZN5rayon5slice9quicksort10shift_head17h22ea02253a45216aE.exit ]
+.split25:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h22ea02253a45216aE.exit, %._crit_edge, %24, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %10, %._crit_edge.us.loopexit ], [ true, %24 ], [ %23, %._crit_edge ], [ %23, %_ZN5rayon5slice9quicksort10shift_head17h22ea02253a45216aE.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %24
@@ -81058,16 +81058,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i32, ptr %6, align 4, !alias.scope !9938, !noalias !9941, !noundef !3
   %.val20.us = load i32, ptr %7, align 4, !alias.scope !9941, !noalias !9938, !noundef !3
   %8 = icmp ult i32 %.val20.us, %.val.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -81075,7 +81075,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i32, ptr %10, align 4, !alias.scope !9938, !noalias !9941, !noundef !3
   %.val20.us26 = load i32, ptr %0, align 4, !alias.scope !9941, !noalias !9938, !noundef !3
   %11 = icmp ult i32 %.val20.us26, %.val.us25
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -81088,8 +81088,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hd9d46dde43875d10E.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17hd9d46dde43875d10E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hd9d46dde43875d10E.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17hd9d46dde43875d10E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -81249,16 +81249,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %8 = fcmp ord float %.val20.us, 0.000000e+00
   %9 = fcmp ult float %.val20.us, %.val.us
   %.not2.i.i.i.i.us = and i1 %8, %9
-  br i1 %.not2.i.i.i.i.us, label %._crit_edge.us, label %.lr.ph30
+  br i1 %.not2.i.i.i.i.us, label %._crit_edge.us.loopexit, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %4
   %.sroa.01.14.us29 = phi i64 [ %5, %4 ], [ 1, %.lr.ph30.preheader ]
   %exitcond40.not = icmp eq i64 %.sroa.01.14.us29, %14
-  br i1 %exitcond40.not, label %._crit_edge.us, label %4
+  br i1 %exitcond40.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph30, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph30 ], [ %5, %4 ]
-  %10 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph30
+  %.lcssa33 = phi i64 [ %5, %4 ], [ %1, %.lr.ph30 ]
+  %10 = icmp eq i64 %.lcssa33, %1
   br label %.split25
 
 .lr.ph.us:                                        ; preds = %2
@@ -81268,7 +81268,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %12 = fcmp ord float %.val20.us27, 0.000000e+00
   %13 = fcmp ult float %.val20.us27, %.val.us26
   %.not2.i.i.i.i.us28 = and i1 %12, %13
-  br i1 %.not2.i.i.i.i.us28, label %._crit_edge.us, label %.lr.ph30.preheader
+  br i1 %.not2.i.i.i.i.us28, label %.split25, label %.lr.ph30.preheader
 
 .lr.ph30.preheader:                               ; preds = %.lr.ph.us
   %14 = add nsw i64 %1, -1
@@ -81281,8 +81281,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %16 = icmp ult i64 %.sroa.01.023, %1
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-.split25:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hd08e5b1460522772E.exit, %._crit_edge, %24, %._crit_edge.us
-  %.us-phi = phi i1 [ %10, %._crit_edge.us ], [ true, %24 ], [ %23, %._crit_edge ], [ %23, %_ZN5rayon5slice9quicksort10shift_head17hd08e5b1460522772E.exit ]
+.split25:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hd08e5b1460522772E.exit, %._crit_edge, %24, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %10, %._crit_edge.us.loopexit ], [ true, %24 ], [ %23, %._crit_edge ], [ %23, %_ZN5rayon5slice9quicksort10shift_head17hd08e5b1460522772E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %24
@@ -81451,16 +81451,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i64, ptr %6, align 8, !alias.scope !9979, !noalias !9982, !noundef !3
   %.val20.us = load i64, ptr %7, align 8, !alias.scope !9982, !noalias !9979, !noundef !3
   %8 = icmp ult i64 %.val.us, %.val20.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -81468,7 +81468,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i64, ptr %10, align 8, !alias.scope !9979, !noalias !9982, !noundef !3
   %.val20.us26 = load i64, ptr %0, align 8, !alias.scope !9982, !noalias !9979, !noundef !3
   %11 = icmp ult i64 %.val.us25, %.val20.us26
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -81481,8 +81481,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h80dad03a9c5ab5f2E.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h80dad03a9c5ab5f2E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h80dad03a9c5ab5f2E.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h80dad03a9c5ab5f2E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -81641,16 +81641,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i128, ptr %7, align 16, !alias.scope !10002, !noalias !10005, !noundef !3
   %.val20.us = load i128, ptr %8, align 16, !alias.scope !10005, !noalias !10002, !noundef !3
   %9 = icmp slt i128 %.val20.us, %.val.us
-  br i1 %9, label %._crit_edge.us, label %.lr.ph26
+  br i1 %9, label %._crit_edge.us.loopexit, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %5
   %.sroa.01.14.us25 = phi i64 [ %6, %5 ], [ 1, %.lr.ph26.preheader ]
   %exitcond36.not = icmp eq i64 %.sroa.01.14.us25, %13
-  br i1 %exitcond36.not, label %._crit_edge.us, label %5
+  br i1 %exitcond36.not, label %._crit_edge.us.loopexit, label %5
 
-._crit_edge.us:                                   ; preds = %.lr.ph26, %5, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph26 ], [ %6, %5 ]
-  %10 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %5, %.lr.ph26
+  %.lcssa29 = phi i64 [ %6, %5 ], [ %1, %.lr.ph26 ]
+  %10 = icmp eq i64 %.lcssa29, %1
   br label %.split22
 
 .lr.ph.us:                                        ; preds = %2
@@ -81658,7 +81658,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us23 = load i128, ptr %11, align 16, !alias.scope !10002, !noalias !10005, !noundef !3
   %.val20.us24 = load i128, ptr %0, align 16, !alias.scope !10005, !noalias !10002, !noundef !3
   %12 = icmp slt i128 %.val20.us24, %.val.us23
-  br i1 %12, label %._crit_edge.us, label %.lr.ph26.preheader
+  br i1 %12, label %.split22, label %.lr.ph26.preheader
 
 .lr.ph26.preheader:                               ; preds = %.lr.ph.us
   %13 = add nsw i64 %1, -1
@@ -81671,8 +81671,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %15 = icmp ult i64 %.sroa.01.020, %1
   br i1 %15, label %.lr.ph, label %._crit_edge
 
-.split22:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hbb1163129a2a6fb2E.exit, %._crit_edge, %22, %._crit_edge.us
-  %.us-phi = phi i1 [ %10, %._crit_edge.us ], [ true, %22 ], [ %21, %._crit_edge ], [ %21, %_ZN5rayon5slice9quicksort10shift_head17hbb1163129a2a6fb2E.exit ]
+.split22:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hbb1163129a2a6fb2E.exit, %._crit_edge, %22, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %10, %._crit_edge.us.loopexit ], [ true, %22 ], [ %21, %._crit_edge ], [ %21, %_ZN5rayon5slice9quicksort10shift_head17hbb1163129a2a6fb2E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %22
@@ -81826,16 +81826,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i32, ptr %6, align 4, !alias.scope !9941, !noalias !9938, !noundef !3
   %.val20.us = load i32, ptr %7, align 4, !alias.scope !9938, !noalias !9941, !noundef !3
   %8 = icmp ult i32 %.val.us, %.val20.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -81843,7 +81843,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i32, ptr %10, align 4, !alias.scope !9941, !noalias !9938, !noundef !3
   %.val20.us26 = load i32, ptr %0, align 4, !alias.scope !9938, !noalias !9941, !noundef !3
   %11 = icmp ult i32 %.val.us25, %.val20.us26
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -81856,8 +81856,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h0df83d532e76be6fE.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h0df83d532e76be6fE.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h0df83d532e76be6fE.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h0df83d532e76be6fE.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -82015,16 +82015,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i16, ptr %6, align 2, !alias.scope !10045, !noalias !10048, !noundef !3
   %.val20.us = load i16, ptr %7, align 2, !alias.scope !10048, !noalias !10045, !noundef !3
   %8 = icmp ult i16 %.val20.us, %.val.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -82032,7 +82032,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i16, ptr %10, align 2, !alias.scope !10045, !noalias !10048, !noundef !3
   %.val20.us26 = load i16, ptr %0, align 2, !alias.scope !10048, !noalias !10045, !noundef !3
   %11 = icmp ult i16 %.val20.us26, %.val.us25
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -82045,8 +82045,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h706ff31a7c5f3b5aE.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h706ff31a7c5f3b5aE.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h706ff31a7c5f3b5aE.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h706ff31a7c5f3b5aE.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -82202,17 +82202,17 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.val.us = load i8, ptr %6, align 1, !alias.scope !10068, !noalias !10071, !noundef !3
   %7 = icmp ult i8 %.val.us, %.val20.us
-  br i1 %7, label %._crit_edge.us, label %.lr.ph28
+  br i1 %7, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.val20.us = phi i8 [ %.val.us, %4 ], [ %.val.us25, %.lr.ph28.preheader ]
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %11
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %8 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %8 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -82220,7 +82220,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i8, ptr %9, align 1, !alias.scope !10068, !noalias !10071, !noundef !3
   %.val20.us26 = load i8, ptr %0, align 1, !alias.scope !10071, !noalias !10068, !noundef !3
   %10 = icmp ult i8 %.val.us25, %.val20.us26
-  br i1 %10, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %10, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %11 = add nsw i64 %1, -1
@@ -82233,8 +82233,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %13 = icmp ult i64 %.sroa.01.022, %1
   br i1 %13, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h0c4a5d6e5e66d07cE.exit, %._crit_edge, %20, %._crit_edge.us
-  %.us-phi = phi i1 [ %8, %._crit_edge.us ], [ true, %20 ], [ %19, %._crit_edge ], [ %19, %_ZN5rayon5slice9quicksort10shift_head17h0c4a5d6e5e66d07cE.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h0c4a5d6e5e66d07cE.exit, %._crit_edge, %20, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %8, %._crit_edge.us.loopexit ], [ true, %20 ], [ %19, %._crit_edge ], [ %19, %_ZN5rayon5slice9quicksort10shift_head17h0c4a5d6e5e66d07cE.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %20
@@ -82392,16 +82392,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i64, ptr %6, align 8, !alias.scope !10091, !noalias !10094, !noundef !3
   %.val20.us = load i64, ptr %7, align 8, !alias.scope !10094, !noalias !10091, !noundef !3
   %8 = icmp slt i64 %.val.us, %.val20.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -82409,7 +82409,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i64, ptr %10, align 8, !alias.scope !10091, !noalias !10094, !noundef !3
   %.val20.us26 = load i64, ptr %0, align 8, !alias.scope !10094, !noalias !10091, !noundef !3
   %11 = icmp slt i64 %.val.us25, %.val20.us26
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -82422,8 +82422,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h1f5c6e04e0f3e0cbE.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h1f5c6e04e0f3e0cbE.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h1f5c6e04e0f3e0cbE.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h1f5c6e04e0f3e0cbE.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -82583,16 +82583,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %8 = fcmp ord double %.val.us, 0.000000e+00
   %9 = fcmp ult double %.val.us, %.val20.us
   %.not2.i.i.i.us = and i1 %8, %9
-  br i1 %.not2.i.i.i.us, label %._crit_edge.us, label %.lr.ph30
+  br i1 %.not2.i.i.i.us, label %._crit_edge.us.loopexit, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %4
   %.sroa.01.14.us29 = phi i64 [ %5, %4 ], [ 1, %.lr.ph30.preheader ]
   %exitcond40.not = icmp eq i64 %.sroa.01.14.us29, %14
-  br i1 %exitcond40.not, label %._crit_edge.us, label %4
+  br i1 %exitcond40.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph30, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph30 ], [ %5, %4 ]
-  %10 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph30
+  %.lcssa33 = phi i64 [ %5, %4 ], [ %1, %.lr.ph30 ]
+  %10 = icmp eq i64 %.lcssa33, %1
   br label %.split25
 
 .lr.ph.us:                                        ; preds = %2
@@ -82602,7 +82602,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %12 = fcmp ord double %.val.us26, 0.000000e+00
   %13 = fcmp ult double %.val.us26, %.val20.us27
   %.not2.i.i.i.us28 = and i1 %12, %13
-  br i1 %.not2.i.i.i.us28, label %._crit_edge.us, label %.lr.ph30.preheader
+  br i1 %.not2.i.i.i.us28, label %.split25, label %.lr.ph30.preheader
 
 .lr.ph30.preheader:                               ; preds = %.lr.ph.us
   %14 = add nsw i64 %1, -1
@@ -82615,8 +82615,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %16 = icmp ult i64 %.sroa.01.023, %1
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-.split25:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17he2ba177ad3af4b33E.exit, %._crit_edge, %24, %._crit_edge.us
-  %.us-phi = phi i1 [ %10, %._crit_edge.us ], [ true, %24 ], [ %23, %._crit_edge ], [ %23, %_ZN5rayon5slice9quicksort10shift_head17he2ba177ad3af4b33E.exit ]
+.split25:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17he2ba177ad3af4b33E.exit, %._crit_edge, %24, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %10, %._crit_edge.us.loopexit ], [ true, %24 ], [ %23, %._crit_edge ], [ %23, %_ZN5rayon5slice9quicksort10shift_head17he2ba177ad3af4b33E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %24
@@ -82783,17 +82783,17 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.val.us = load i8, ptr %6, align 1, !alias.scope !10071, !noalias !10068, !noundef !3
   %7 = icmp ult i8 %.val20.us, %.val.us
-  br i1 %7, label %._crit_edge.us, label %.lr.ph28
+  br i1 %7, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.val20.us = phi i8 [ %.val.us, %4 ], [ %.val.us25, %.lr.ph28.preheader ]
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %11
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %8 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %8 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -82801,7 +82801,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i8, ptr %9, align 1, !alias.scope !10071, !noalias !10068, !noundef !3
   %.val20.us26 = load i8, ptr %0, align 1, !alias.scope !10068, !noalias !10071, !noundef !3
   %10 = icmp ult i8 %.val20.us26, %.val.us25
-  br i1 %10, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %10, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %11 = add nsw i64 %1, -1
@@ -82814,8 +82814,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %13 = icmp ult i64 %.sroa.01.022, %1
   br i1 %13, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h84e800607cc3bf8fE.exit, %._crit_edge, %20, %._crit_edge.us
-  %.us-phi = phi i1 [ %8, %._crit_edge.us ], [ true, %20 ], [ %19, %._crit_edge ], [ %19, %_ZN5rayon5slice9quicksort10shift_head17h84e800607cc3bf8fE.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h84e800607cc3bf8fE.exit, %._crit_edge, %20, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %8, %._crit_edge.us.loopexit ], [ true, %20 ], [ %19, %._crit_edge ], [ %19, %_ZN5rayon5slice9quicksort10shift_head17h84e800607cc3bf8fE.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %20
@@ -82973,16 +82973,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i16, ptr %6, align 2, !alias.scope !10048, !noalias !10045, !noundef !3
   %.val20.us = load i16, ptr %7, align 2, !alias.scope !10045, !noalias !10048, !noundef !3
   %8 = icmp ult i16 %.val.us, %.val20.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -82990,7 +82990,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i16, ptr %10, align 2, !alias.scope !10048, !noalias !10045, !noundef !3
   %.val20.us26 = load i16, ptr %0, align 2, !alias.scope !10045, !noalias !10048, !noundef !3
   %11 = icmp ult i16 %.val.us25, %.val20.us26
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -83003,8 +83003,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hb8485b40c7f14158E.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17hb8485b40c7f14158E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hb8485b40c7f14158E.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17hb8485b40c7f14158E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -83162,16 +83162,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i64, ptr %6, align 8, !alias.scope !9982, !noalias !9979, !noundef !3
   %.val20.us = load i64, ptr %7, align 8, !alias.scope !9979, !noalias !9982, !noundef !3
   %8 = icmp ult i64 %.val20.us, %.val.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -83179,7 +83179,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i64, ptr %10, align 8, !alias.scope !9982, !noalias !9979, !noundef !3
   %.val20.us26 = load i64, ptr %0, align 8, !alias.scope !9979, !noalias !9982, !noundef !3
   %11 = icmp ult i64 %.val20.us26, %.val.us25
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -83192,8 +83192,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h2869cebc731d9c5cE.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h2869cebc731d9c5cE.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h2869cebc731d9c5cE.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h2869cebc731d9c5cE.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -83349,17 +83349,17 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.val.us = load i8, ptr %6, align 1, !alias.scope !10191, !noalias !10194, !noundef !3
   %7 = icmp slt i8 %.val20.us, %.val.us
-  br i1 %7, label %._crit_edge.us, label %.lr.ph28
+  br i1 %7, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.val20.us = phi i8 [ %.val.us, %4 ], [ %.val.us25, %.lr.ph28.preheader ]
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %11
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %8 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %8 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -83367,7 +83367,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i8, ptr %9, align 1, !alias.scope !10191, !noalias !10194, !noundef !3
   %.val20.us26 = load i8, ptr %0, align 1, !alias.scope !10194, !noalias !10191, !noundef !3
   %10 = icmp slt i8 %.val20.us26, %.val.us25
-  br i1 %10, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %10, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %11 = add nsw i64 %1, -1
@@ -83380,8 +83380,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %13 = icmp ult i64 %.sroa.01.022, %1
   br i1 %13, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h7950f373a6235342E.exit, %._crit_edge, %20, %._crit_edge.us
-  %.us-phi = phi i1 [ %8, %._crit_edge.us ], [ true, %20 ], [ %19, %._crit_edge ], [ %19, %_ZN5rayon5slice9quicksort10shift_head17h7950f373a6235342E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h7950f373a6235342E.exit, %._crit_edge, %20, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %8, %._crit_edge.us.loopexit ], [ true, %20 ], [ %19, %._crit_edge ], [ %19, %_ZN5rayon5slice9quicksort10shift_head17h7950f373a6235342E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %20
@@ -83537,17 +83537,17 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.val.us = load i8, ptr %6, align 1, !alias.scope !10194, !noalias !10191, !noundef !3
   %7 = icmp slt i8 %.val.us, %.val20.us
-  br i1 %7, label %._crit_edge.us, label %.lr.ph28
+  br i1 %7, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.val20.us = phi i8 [ %.val.us, %4 ], [ %.val.us25, %.lr.ph28.preheader ]
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %11
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %8 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %8 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -83555,7 +83555,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i8, ptr %9, align 1, !alias.scope !10194, !noalias !10191, !noundef !3
   %.val20.us26 = load i8, ptr %0, align 1, !alias.scope !10191, !noalias !10194, !noundef !3
   %10 = icmp slt i8 %.val.us25, %.val20.us26
-  br i1 %10, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %10, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %11 = add nsw i64 %1, -1
@@ -83568,8 +83568,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %13 = icmp ult i64 %.sroa.01.022, %1
   br i1 %13, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h582544fab69483a4E.exit, %._crit_edge, %20, %._crit_edge.us
-  %.us-phi = phi i1 [ %8, %._crit_edge.us ], [ true, %20 ], [ %19, %._crit_edge ], [ %19, %_ZN5rayon5slice9quicksort10shift_head17h582544fab69483a4E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h582544fab69483a4E.exit, %._crit_edge, %20, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %8, %._crit_edge.us.loopexit ], [ true, %20 ], [ %19, %._crit_edge ], [ %19, %_ZN5rayon5slice9quicksort10shift_head17h582544fab69483a4E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %20
@@ -83727,16 +83727,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i16, ptr %6, align 2, !alias.scope !10232, !noalias !10235, !noundef !3
   %.val20.us = load i16, ptr %7, align 2, !alias.scope !10235, !noalias !10232, !noundef !3
   %8 = icmp slt i16 %.val.us, %.val20.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -83744,7 +83744,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i16, ptr %10, align 2, !alias.scope !10232, !noalias !10235, !noundef !3
   %.val20.us26 = load i16, ptr %0, align 2, !alias.scope !10235, !noalias !10232, !noundef !3
   %11 = icmp slt i16 %.val.us25, %.val20.us26
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -83757,8 +83757,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17ha3e9f1b81043dc55E.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17ha3e9f1b81043dc55E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17ha3e9f1b81043dc55E.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17ha3e9f1b81043dc55E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -83916,16 +83916,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i16, ptr %6, align 2, !alias.scope !10235, !noalias !10232, !noundef !3
   %.val20.us = load i16, ptr %7, align 2, !alias.scope !10232, !noalias !10235, !noundef !3
   %8 = icmp slt i16 %.val20.us, %.val.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -83933,7 +83933,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i16, ptr %10, align 2, !alias.scope !10235, !noalias !10232, !noundef !3
   %.val20.us26 = load i16, ptr %0, align 2, !alias.scope !10232, !noalias !10235, !noundef !3
   %11 = icmp slt i16 %.val20.us26, %.val.us25
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -83946,8 +83946,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h962f9412466368ebE.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h962f9412466368ebE.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h962f9412466368ebE.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h962f9412466368ebE.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -84105,16 +84105,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i32, ptr %6, align 4, !alias.scope !10273, !noalias !10276, !noundef !3
   %.val20.us = load i32, ptr %7, align 4, !alias.scope !10276, !noalias !10273, !noundef !3
   %8 = icmp slt i32 %.val20.us, %.val.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -84122,7 +84122,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i32, ptr %10, align 4, !alias.scope !10273, !noalias !10276, !noundef !3
   %.val20.us26 = load i32, ptr %0, align 4, !alias.scope !10276, !noalias !10273, !noundef !3
   %11 = icmp slt i32 %.val20.us26, %.val.us25
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -84135,8 +84135,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h430776a8e76f6752E.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h430776a8e76f6752E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h430776a8e76f6752E.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h430776a8e76f6752E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -84295,16 +84295,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i128, ptr %7, align 16, !alias.scope !10005, !noalias !10002, !noundef !3
   %.val20.us = load i128, ptr %8, align 16, !alias.scope !10002, !noalias !10005, !noundef !3
   %9 = icmp slt i128 %.val.us, %.val20.us
-  br i1 %9, label %._crit_edge.us, label %.lr.ph26
+  br i1 %9, label %._crit_edge.us.loopexit, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %5
   %.sroa.01.14.us25 = phi i64 [ %6, %5 ], [ 1, %.lr.ph26.preheader ]
   %exitcond36.not = icmp eq i64 %.sroa.01.14.us25, %13
-  br i1 %exitcond36.not, label %._crit_edge.us, label %5
+  br i1 %exitcond36.not, label %._crit_edge.us.loopexit, label %5
 
-._crit_edge.us:                                   ; preds = %.lr.ph26, %5, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph26 ], [ %6, %5 ]
-  %10 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %5, %.lr.ph26
+  %.lcssa29 = phi i64 [ %6, %5 ], [ %1, %.lr.ph26 ]
+  %10 = icmp eq i64 %.lcssa29, %1
   br label %.split22
 
 .lr.ph.us:                                        ; preds = %2
@@ -84312,7 +84312,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us23 = load i128, ptr %11, align 16, !alias.scope !10005, !noalias !10002, !noundef !3
   %.val20.us24 = load i128, ptr %0, align 16, !alias.scope !10002, !noalias !10005, !noundef !3
   %12 = icmp slt i128 %.val.us23, %.val20.us24
-  br i1 %12, label %._crit_edge.us, label %.lr.ph26.preheader
+  br i1 %12, label %.split22, label %.lr.ph26.preheader
 
 .lr.ph26.preheader:                               ; preds = %.lr.ph.us
   %13 = add nsw i64 %1, -1
@@ -84325,8 +84325,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %15 = icmp ult i64 %.sroa.01.020, %1
   br i1 %15, label %.lr.ph, label %._crit_edge
 
-.split22:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h5513baea66c07913E.exit, %._crit_edge, %22, %._crit_edge.us
-  %.us-phi = phi i1 [ %10, %._crit_edge.us ], [ true, %22 ], [ %21, %._crit_edge ], [ %21, %_ZN5rayon5slice9quicksort10shift_head17h5513baea66c07913E.exit ]
+.split22:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h5513baea66c07913E.exit, %._crit_edge, %22, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %10, %._crit_edge.us.loopexit ], [ true, %22 ], [ %21, %._crit_edge ], [ %21, %_ZN5rayon5slice9quicksort10shift_head17h5513baea66c07913E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %22
@@ -84480,16 +84480,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i32, ptr %6, align 4, !alias.scope !10276, !noalias !10273, !noundef !3
   %.val20.us = load i32, ptr %7, align 4, !alias.scope !10273, !noalias !10276, !noundef !3
   %8 = icmp slt i32 %.val.us, %.val20.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -84497,7 +84497,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i32, ptr %10, align 4, !alias.scope !10276, !noalias !10273, !noundef !3
   %.val20.us26 = load i32, ptr %0, align 4, !alias.scope !10273, !noalias !10276, !noundef !3
   %11 = icmp slt i32 %.val.us25, %.val20.us26
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -84510,8 +84510,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h267cc8275b815b01E.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h267cc8275b815b01E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h267cc8275b815b01E.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h267cc8275b815b01E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21
@@ -84671,16 +84671,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %8 = fcmp ord double %.val20.us, 0.000000e+00
   %9 = fcmp ult double %.val20.us, %.val.us
   %.not2.i.i.i.i.us = and i1 %8, %9
-  br i1 %.not2.i.i.i.i.us, label %._crit_edge.us, label %.lr.ph30
+  br i1 %.not2.i.i.i.i.us, label %._crit_edge.us.loopexit, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %4
   %.sroa.01.14.us29 = phi i64 [ %5, %4 ], [ 1, %.lr.ph30.preheader ]
   %exitcond40.not = icmp eq i64 %.sroa.01.14.us29, %14
-  br i1 %exitcond40.not, label %._crit_edge.us, label %4
+  br i1 %exitcond40.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph30, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph30 ], [ %5, %4 ]
-  %10 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph30
+  %.lcssa33 = phi i64 [ %5, %4 ], [ %1, %.lr.ph30 ]
+  %10 = icmp eq i64 %.lcssa33, %1
   br label %.split25
 
 .lr.ph.us:                                        ; preds = %2
@@ -84690,7 +84690,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %12 = fcmp ord double %.val20.us27, 0.000000e+00
   %13 = fcmp ult double %.val20.us27, %.val.us26
   %.not2.i.i.i.i.us28 = and i1 %12, %13
-  br i1 %.not2.i.i.i.i.us28, label %._crit_edge.us, label %.lr.ph30.preheader
+  br i1 %.not2.i.i.i.i.us28, label %.split25, label %.lr.ph30.preheader
 
 .lr.ph30.preheader:                               ; preds = %.lr.ph.us
   %14 = add nsw i64 %1, -1
@@ -84703,8 +84703,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %16 = icmp ult i64 %.sroa.01.023, %1
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-.split25:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hf3dfaa48e8d32c10E.exit, %._crit_edge, %24, %._crit_edge.us
-  %.us-phi = phi i1 [ %10, %._crit_edge.us ], [ true, %24 ], [ %23, %._crit_edge ], [ %23, %_ZN5rayon5slice9quicksort10shift_head17hf3dfaa48e8d32c10E.exit ]
+.split25:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17hf3dfaa48e8d32c10E.exit, %._crit_edge, %24, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %10, %._crit_edge.us.loopexit ], [ true, %24 ], [ %23, %._crit_edge ], [ %23, %_ZN5rayon5slice9quicksort10shift_head17hf3dfaa48e8d32c10E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %24
@@ -84873,16 +84873,16 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us = load i64, ptr %6, align 8, !alias.scope !10094, !noalias !10091, !noundef !3
   %.val20.us = load i64, ptr %7, align 8, !alias.scope !10091, !noalias !10094, !noundef !3
   %8 = icmp slt i64 %.val20.us, %.val.us
-  br i1 %8, label %._crit_edge.us, label %.lr.ph28
+  br i1 %8, label %._crit_edge.us.loopexit, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %4
   %.sroa.01.14.us27 = phi i64 [ %5, %4 ], [ 1, %.lr.ph28.preheader ]
   %exitcond38.not = icmp eq i64 %.sroa.01.14.us27, %12
-  br i1 %exitcond38.not, label %._crit_edge.us, label %4
+  br i1 %exitcond38.not, label %._crit_edge.us.loopexit, label %4
 
-._crit_edge.us:                                   ; preds = %.lr.ph28, %4, %.lr.ph.us
-  %.sroa.01.1.lcssa.us = phi i64 [ 1, %.lr.ph.us ], [ %1, %.lr.ph28 ], [ %5, %4 ]
-  %9 = icmp eq i64 %.sroa.01.1.lcssa.us, %1
+._crit_edge.us.loopexit:                          ; preds = %4, %.lr.ph28
+  %.lcssa31 = phi i64 [ %5, %4 ], [ %1, %.lr.ph28 ]
+  %9 = icmp eq i64 %.lcssa31, %1
   br label %.split24
 
 .lr.ph.us:                                        ; preds = %2
@@ -84890,7 +84890,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.val.us25 = load i64, ptr %10, align 8, !alias.scope !10094, !noalias !10091, !noundef !3
   %.val20.us26 = load i64, ptr %0, align 8, !alias.scope !10091, !noalias !10094, !noundef !3
   %11 = icmp slt i64 %.val20.us26, %.val.us25
-  br i1 %11, label %._crit_edge.us, label %.lr.ph28.preheader
+  br i1 %11, label %.split24, label %.lr.ph28.preheader
 
 .lr.ph28.preheader:                               ; preds = %.lr.ph.us
   %12 = add nsw i64 %1, -1
@@ -84903,8 +84903,8 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %14 = icmp ult i64 %.sroa.01.022, %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h884dad5c78fafc57E.exit, %._crit_edge, %21, %._crit_edge.us
-  %.us-phi = phi i1 [ %9, %._crit_edge.us ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h884dad5c78fafc57E.exit ]
+.split24:                                         ; preds = %_ZN5rayon5slice9quicksort10shift_head17h884dad5c78fafc57E.exit, %._crit_edge, %21, %.lr.ph.us, %._crit_edge.us.loopexit
+  %.us-phi = phi i1 [ false, %.lr.ph.us ], [ %9, %._crit_edge.us.loopexit ], [ true, %21 ], [ %20, %._crit_edge ], [ %20, %_ZN5rayon5slice9quicksort10shift_head17h884dad5c78fafc57E.exit ]
   ret i1 %.us-phi
 
 .lr.ph:                                           ; preds = %.split, %21

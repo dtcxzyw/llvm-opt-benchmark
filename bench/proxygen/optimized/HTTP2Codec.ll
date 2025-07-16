@@ -1961,14 +1961,14 @@ if.else171:                                       ; preds = %while.body
   %or.cond = select i1 %cmp175, i1 %cmp177, i1 false
   %.pre = load i32, ptr %curHeader_, align 8
   %conv181 = zext i32 %.pre to i64
+  %cmp182 = icmp ult i64 %sub, %conv181
   br i1 %or.cond, label %land.lhs.true178, label %if.else207
 
 land.lhs.true178:                                 ; preds = %if.else171
-  %cmp182 = icmp ult i64 %sub, %conv181
   %32 = load i64, ptr %pendingDataFrameBytes_, align 8
   %cmp188 = icmp ult i64 %32, %conv181
   %or.cond22 = select i1 %cmp182, i1 true, i1 %cmp188
-  br i1 %or.cond22, label %if.then189, label %if.else207
+  br i1 %or.cond22, label %if.then189, label %if.then212
 
 if.then189:                                       ; preds = %land.lhs.true178
   store i64 0, ptr %dataParsed, align 8
@@ -1990,11 +1990,10 @@ if.then200:                                       ; preds = %if.else196
   store i8 %bf.set204, ptr %frameState_, align 8
   br label %if.end226
 
-if.else207:                                       ; preds = %if.else171, %land.lhs.true178
-  %cmp211.not = icmp ult i64 %sub, %conv181
-  br i1 %cmp211.not, label %while.end, label %if.then212
+if.else207:                                       ; preds = %if.else171
+  br i1 %cmp182, label %while.end, label %if.then212
 
-if.then212:                                       ; preds = %if.else207
+if.then212:                                       ; preds = %land.lhs.true178, %if.else207
   %call213 = call noundef zeroext i8 @_ZN8proxygen10HTTP2Codec10parseFrameERN5folly2io6CursorE(ptr noundef nonnull align 8 dereferenceable(1062) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor)
   %35 = load i32, ptr %curHeader_, align 8
   %conv216 = zext i32 %35 to i64

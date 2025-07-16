@@ -4178,105 +4178,103 @@ define range(i32 -22, 1) i32 @ff_formats_check_channel_layouts(ptr noundef %0, p
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph33
 
-.loopexit:                                        ; preds = %layouts_compatible.exit.thread, %.lr.ph33
-  %.pre-phi = phi i64 [ %18, %.lr.ph33 ], [ %48, %layouts_compatible.exit.thread ]
-  %15 = phi i32 [ %17, %.lr.ph33 ], [ %47, %layouts_compatible.exit.thread ]
-  %16 = icmp samesign ult i64 %indvars.iv.next39, %.pre-phi
+.loopexit:                                        ; preds = %layouts_compatible.exit.thread
+  %15 = icmp samesign ult i64 %indvars.iv.next39, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %16, label %.lr.ph33, label %.loopexit30, !llvm.loop !125
+  br i1 %15, label %.lr.ph33, label %.loopexit30, !llvm.loop !125
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.loopexit
-  %17 = phi i32 [ %11, %.lr.ph33.preheader ], [ %15, %.loopexit ]
+  %16 = phi i32 [ %11, %.lr.ph33.preheader ], [ %46, %.loopexit ]
   %indvars.iv38 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next39, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph33.preheader ], [ %indvars.iv.next, %.loopexit ]
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %18 = zext i32 %17 to i64
-  %19 = icmp samesign ult i64 %indvars.iv.next39, %18
-  br i1 %19, label %.lr.ph, label %.loopexit
+  %17 = zext i32 %16 to i64
+  %18 = icmp samesign ult i64 %indvars.iv.next39, %17
+  br i1 %18, label %.lr.ph, label %.loopexit30
 
 .lr.ph:                                           ; preds = %.lr.ph33, %layouts_compatible.exit.thread
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %layouts_compatible.exit.thread ], [ %indvars.iv, %.lr.ph33 ]
-  %20 = load ptr, ptr %1, align 8, !tbaa !38
-  %21 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %20, i64 %indvars.iv38
-  %22 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %20, i64 %indvars.iv35
-  %23 = tail call i32 @av_channel_layout_compare(ptr noundef %21, ptr noundef nonnull %22) #10
-  %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %.loopexit30.sink.split, label %24
+  %19 = load ptr, ptr %1, align 8, !tbaa !38
+  %20 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %19, i64 %indvars.iv38
+  %21 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %19, i64 %indvars.iv35
+  %22 = tail call i32 @av_channel_layout_compare(ptr noundef %20, ptr noundef nonnull %21) #10
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %.loopexit30.sink.split, label %23
 
-24:                                               ; preds = %.lr.ph
-  %25 = load i32, ptr %21, align 8, !tbaa !126
-  %.not20.i = icmp eq i32 %25, 0
-  br i1 %.not20.i, label %26, label %.thread24.i
+23:                                               ; preds = %.lr.ph
+  %24 = load i32, ptr %20, align 8, !tbaa !126
+  %.not20.i = icmp eq i32 %24, 0
+  br i1 %.not20.i, label %25, label %.thread24.i
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !31
-  %.not15.i = icmp eq i32 %28, 0
-  %29 = load i32, ptr %22, align 8, !tbaa !126
-  %30 = icmp eq i32 %29, 0
-  br i1 %.not15.i, label %31, label %41
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !31
+  %.not15.i = icmp eq i32 %27, 0
+  %28 = load i32, ptr %21, align 8, !tbaa !126
+  %29 = icmp eq i32 %28, 0
+  br i1 %.not15.i, label %30, label %40
 
-31:                                               ; preds = %26
-  br i1 %30, label %34, label %layouts_compatible.exit.thread
+30:                                               ; preds = %25
+  br i1 %29, label %33, label %layouts_compatible.exit.thread
 
-.thread24.i:                                      ; preds = %24
-  %32 = load i32, ptr %22, align 8, !tbaa !126
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %layouts_compatible.exit.thread
+.thread24.i:                                      ; preds = %23
+  %31 = load i32, ptr %21, align 8, !tbaa !126
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %layouts_compatible.exit.thread
 
-34:                                               ; preds = %.thread24.i, %31
-  %35 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !31
-  %.not16.i = icmp eq i32 %36, 0
-  br i1 %.not16.i, label %.thread22.i, label %37
+33:                                               ; preds = %.thread24.i, %30
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !31
+  %.not16.i = icmp eq i32 %35, 0
+  br i1 %.not16.i, label %.thread22.i, label %36
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !31
-  %40 = icmp eq i32 %39, %36
-  br i1 %40, label %.loopexit30.sink.split, label %.thread22.i
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !31
+  %39 = icmp eq i32 %38, %35
+  br i1 %39, label %.loopexit30.sink.split, label %.thread22.i
 
-41:                                               ; preds = %26
-  br i1 %30, label %..thread22.i_crit_edge, label %layouts_compatible.exit
+40:                                               ; preds = %25
+  br i1 %29, label %..thread22.i_crit_edge, label %layouts_compatible.exit
 
-..thread22.i_crit_edge:                           ; preds = %41
-  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %22, i64 4
+..thread22.i_crit_edge:                           ; preds = %40
+  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.pre42 = load i32, ptr %.phi.trans.insert41, align 4, !tbaa !31
   br label %.thread22.i
 
-.thread22.i:                                      ; preds = %..thread22.i_crit_edge, %37, %34
-  %42 = phi i32 [ %.pre42, %..thread22.i_crit_edge ], [ 1, %37 ], [ 0, %34 ]
-  %43 = or i32 %42, %25
-  %brmerge.not.i = icmp eq i32 %43, 0
+.thread22.i:                                      ; preds = %..thread22.i_crit_edge, %36, %33
+  %41 = phi i32 [ %.pre42, %..thread22.i_crit_edge ], [ 1, %36 ], [ 0, %33 ]
+  %42 = or i32 %41, %24
+  %brmerge.not.i = icmp eq i32 %42, 0
   br i1 %brmerge.not.i, label %.thread.i, label %layouts_compatible.exit.thread
 
 .thread.i:                                        ; preds = %.thread22.i
-  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.pre44 = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !31
   %.not18.i = icmp eq i32 %.pre44, 0
   br i1 %.not18.i, label %layouts_compatible.exit.thread, label %layouts_compatible.exit
 
-layouts_compatible.exit:                          ; preds = %41, %.thread.i
-  %44 = phi i32 [ %.pre44, %.thread.i ], [ %28, %41 ]
-  %45 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %46 = load i32, ptr %45, align 4, !tbaa !31
-  %.not29 = icmp eq i32 %46, %44
+layouts_compatible.exit:                          ; preds = %40, %.thread.i
+  %43 = phi i32 [ %.pre44, %.thread.i ], [ %27, %40 ]
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %45 = load i32, ptr %44, align 4, !tbaa !31
+  %.not29 = icmp eq i32 %45, %43
   br i1 %.not29, label %.loopexit30.sink.split, label %layouts_compatible.exit.thread
 
-layouts_compatible.exit.thread:                   ; preds = %31, %.thread24.i, %.thread22.i, %.thread.i, %layouts_compatible.exit
+layouts_compatible.exit.thread:                   ; preds = %30, %.thread24.i, %.thread22.i, %.thread.i, %layouts_compatible.exit
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %47 = load i32, ptr %14, align 8, !tbaa !34
-  %48 = zext i32 %47 to i64
-  %49 = icmp samesign ult i64 %indvars.iv.next36, %48
-  br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !127
+  %46 = load i32, ptr %14, align 8, !tbaa !34
+  %47 = zext i32 %46 to i64
+  %48 = icmp samesign ult i64 %indvars.iv.next36, %47
+  br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !127
 
-.loopexit30.sink.split:                           ; preds = %layouts_compatible.exit, %37, %.lr.ph, %12, %3
-  %.str.11.sink = phi ptr [ @.str.9, %3 ], [ @.str.10, %12 ], [ @.str.11, %.lr.ph ], [ @.str.11, %37 ], [ @.str.11, %layouts_compatible.exit ]
+.loopexit30.sink.split:                           ; preds = %layouts_compatible.exit, %36, %.lr.ph, %12, %3
+  %.str.11.sink = phi ptr [ @.str.9, %3 ], [ @.str.10, %12 ], [ @.str.11, %.lr.ph ], [ @.str.11, %36 ], [ @.str.11, %layouts_compatible.exit ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.11.sink) #10
   br label %.loopexit30
 
-.loopexit30:                                      ; preds = %.loopexit, %.loopexit30.sink.split, %13, %2
-  %.020 = phi i32 [ 0, %2 ], [ 0, %13 ], [ -22, %.loopexit30.sink.split ], [ 0, %.loopexit ]
+.loopexit30:                                      ; preds = %.loopexit, %.lr.ph33, %.loopexit30.sink.split, %13, %2
+  %.020 = phi i32 [ 0, %2 ], [ 0, %13 ], [ -22, %.loopexit30.sink.split ], [ 0, %.lr.ph33 ], [ 0, %.loopexit ]
   ret i32 %.020
 }
 
@@ -4313,12 +4311,12 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
 
 7:                                                ; preds = %4
   %8 = icmp eq i32 %2, 0
-  br i1 %8, label %.preheader89, label %.loopexit90
+  br i1 %8, label %.preheader89, label %.preheader88
 
 .preheader89:                                     ; preds = %7
   %9 = load i32, ptr %0, align 8, !tbaa !24
   %.not124 = icmp eq i32 %9, 0
-  br i1 %.not124, label %.loopexit90, label %.lr.ph107
+  br i1 %.not124, label %.thread, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.preheader89
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4407,19 +4405,15 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
   %58 = icmp samesign ult i64 %indvars.iv.next136, %57
   br i1 %58, label %12, label %.loopexit90, !llvm.loop !130
 
-.loopexit90:                                      ; preds = %._crit_edge, %.preheader89, %7
-  %.078 = phi i32 [ 0, %7 ], [ 0, %.preheader89 ], [ %.280.lcssa, %._crit_edge ]
-  %.074 = phi i32 [ 0, %7 ], [ 0, %.preheader89 ], [ %.276.lcssa, %._crit_edge ]
-  %.071 = phi i32 [ 0, %7 ], [ 0, %.preheader89 ], [ %.273.lcssa, %._crit_edge ]
-  %.066 = phi i32 [ 0, %7 ], [ 0, %.preheader89 ], [ %.268.lcssa, %._crit_edge ]
-  %59 = icmp sgt i32 %.078, %.066
-  %60 = icmp sgt i32 %.071, %.074
-  %or.cond = select i1 %59, i1 true, i1 %60
-  br i1 %or.cond, label %.thread, label %.preheader88
+.loopexit90:                                      ; preds = %._crit_edge
+  %59 = icmp sgt i32 %.280.lcssa, %.268.lcssa
+  %60 = icmp sgt i32 %.273.lcssa, %.276.lcssa
+  %61 = select i1 %59, i1 true, i1 %60
+  br i1 %61, label %.thread, label %.preheader88
 
-.preheader88:                                     ; preds = %.loopexit90
-  %61 = load i32, ptr %0, align 8, !tbaa !24
-  %.not126 = icmp eq i32 %61, 0
+.preheader88:                                     ; preds = %7, %.loopexit90
+  %.pr152 = load i32, ptr %0, align 8, !tbaa !24
+  %.not126 = icmp eq i32 %.pr152, 0
   br i1 %.not126, label %.thread, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader88
@@ -4436,7 +4430,7 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
   %65 = phi i32 [ %.pr, %.preheaderthread-pre-split ], [ %64, %.preheader.lr.ph ]
-  %66 = phi i32 [ %81, %.preheaderthread-pre-split ], [ %61, %.preheader.lr.ph ]
+  %66 = phi i32 [ %81, %.preheaderthread-pre-split ], [ %.pr152, %.preheader.lr.ph ]
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
   %.061116 = phi i32 [ %.162, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
   %.not128 = icmp eq i32 %65, 0
@@ -4536,8 +4530,8 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
   call void @av_freep(ptr noundef nonnull %5) #10
   br label %.thread
 
-.thread:                                          ; preds = %76, %.preheader.lr.ph, %.preheader88, %84, %._crit_edge117, %._crit_edge122, %.loopexit90, %4
-  %.059 = phi i32 [ 1, %4 ], [ 0, %.loopexit90 ], [ 1, %._crit_edge122 ], [ -12, %84 ], [ 0, %._crit_edge117 ], [ 0, %.preheader88 ], [ 0, %.preheader.lr.ph ], [ 1, %76 ]
+.thread:                                          ; preds = %76, %.preheader89, %.preheader.lr.ph, %.preheader88, %84, %._crit_edge117, %._crit_edge122, %.loopexit90, %4
+  %.059 = phi i32 [ 1, %4 ], [ 0, %.loopexit90 ], [ 1, %._crit_edge122 ], [ -12, %84 ], [ 0, %._crit_edge117 ], [ 0, %.preheader88 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader89 ], [ 1, %76 ]
   ret i32 %.059
 }
 

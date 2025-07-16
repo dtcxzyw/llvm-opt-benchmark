@@ -86,7 +86,7 @@ define void @_ZN6google8protobuf8internal9ArenaImplC2ERKNS0_12ArenaOptionsE(ptr 
   %19 = load i64, ptr %18, align 8
   %20 = icmp ult i64 %19, 136
   %or.cond = select i1 %17, i1 true, i1 %20
-  br i1 %or.cond, label %21, label %26
+  br i1 %or.cond, label %21, label %28
 
 21:                                               ; preds = %14
   %22 = load i64, ptr %1, align 8, !tbaa !21
@@ -95,14 +95,14 @@ define void @_ZN6google8protobuf8internal9ArenaImplC2ERKNS0_12ArenaOptionsE(ptr 
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   %25 = tail call noundef ptr %24(i64 noundef %.sroa.speculated)
   %.pre = load ptr, ptr %15, align 8, !tbaa !20
-  br label %26
+  %26 = icmp eq ptr %25, %.pre
+  %27 = select i1 %26, i64 3, i64 1
+  br label %28
 
-26:                                               ; preds = %14, %21
-  %27 = phi ptr [ %.pre, %21 ], [ %16, %14 ]
+28:                                               ; preds = %14, %21
+  %29 = phi i64 [ %27, %21 ], [ 3, %14 ]
   %.029 = phi i64 [ %.sroa.speculated, %21 ], [ %19, %14 ]
   %.028 = phi ptr [ %25, %21 ], [ %16, %14 ]
-  %28 = icmp eq ptr %.028, %27
-  %29 = select i1 %28, i64 3, i64 1
   store i64 %29, ptr %.028, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.028, i64 16
@@ -132,12 +132,12 @@ define void @_ZN6google8protobuf8internal9ArenaImplC2ERKNS0_12ArenaOptionsE(ptr 
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit, !prof !39
 
-48:                                               ; preds = %26
+48:                                               ; preds = %28
   %49 = atomicrmw add ptr @_ZN6google8protobuf8internal9ArenaImpl23lifecycle_id_generator_E, i64 512 monotonic, align 8
   br label %_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit
 
-_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit: ; preds = %26, %48
-  %.0.i = phi i64 [ %49, %48 ], [ %45, %26 ]
+_ZN6google8protobuf8internal9ArenaImpl4InitEb.exit: ; preds = %28, %48
+  %.0.i = phi i64 [ %49, %48 ], [ %45, %28 ]
   %50 = add i64 %.0.i, 2
   store i64 %50, ptr %44, align 64, !tbaa !37
   %51 = or i64 %.0.i, %.027

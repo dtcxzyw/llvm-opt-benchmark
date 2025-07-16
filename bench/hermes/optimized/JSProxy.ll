@@ -5911,7 +5911,7 @@ if.else:                                          ; preds = %entry
   %5 = load ptr, ptr %_M_parent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %cmp.not5.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not5.i.i.i, label %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit, label %while.body.lr.ph.i.i.i
+  br i1 %cmp.not5.i.i.i, label %return, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.else
   %6 = load i32, ptr %V, align 4
@@ -5932,23 +5932,17 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i2 = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i.i.i2, label %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i.i2, label %return, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
-  %cmp.i4.i.i = icmp ult i32 %6, %8
-  %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
-  br label %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit
-
-_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit:      ; preds = %if.else, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i, %lor.lhs.false.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %add.ptr.i.i.i, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %add.ptr.i.i.i, %if.else ], [ %spec.select.i.i, %lor.lhs.false.i.i ]
-  %cmp.i.i = icmp ne ptr %retval.sroa.0.0.i.i, %add.ptr.i.i.i
+  %cmp.i4.i.i = icmp uge i32 %6, %8
   br label %return
 
-return:                                           ; preds = %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit, %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit
-  %retval.0.in = phi i1 [ %cmp, %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit ], [ %cmp.i.i, %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit ]
-  %retval.0 = zext i1 %retval.0.in to i64
+return:                                           ; preds = %lor.lhs.false.i.i, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i, %if.else, %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit
+  %retval.0.shrunk = phi i1 [ %cmp, %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit ], [ false, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i ], [ false, %if.else ], [ %cmp.i4.i.i, %lor.lhs.false.i.i ]
+  %retval.0 = zext i1 %retval.0.shrunk to i64
   ret i64 %retval.0
 }
 

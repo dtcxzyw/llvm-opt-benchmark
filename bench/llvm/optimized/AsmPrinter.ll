@@ -7921,7 +7921,7 @@ define dso_local void @_ZN4llvm10AsmPrinter18emitCFIInstructionERKNS_12MachineIn
   %27 = load ptr, ptr %26, align 8, !tbaa !898
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %.not28 = icmp eq ptr %27, %28
-  br i1 %.not28, label %.critedge, label %.lr.ph
+  br i1 %.not28, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.i.i.i, %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
   %.sroa.021.029 = phi ptr [ %37, %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread ], [ %27, %.preheader.i.i.i ]
@@ -7951,12 +7951,11 @@ _ZNK4llvm12MachineInstr11isTransientEv.exit.thread: ; preds = %.lr.ph, %.lr.ph, 
   %.not = icmp eq ptr %37, %28
   br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !903
 
-.critedge:                                        ; preds = %_ZNK4llvm12MachineInstr11isTransientEv.exit, %.preheader.i.i.i
-  %.sroa.021.0.lcssa = phi ptr [ %27, %.preheader.i.i.i ], [ %.sroa.021.029, %_ZNK4llvm12MachineInstr11isTransientEv.exit ]
-  %38 = icmp eq ptr %.sroa.021.0.lcssa, %28
+.critedge:                                        ; preds = %_ZNK4llvm12MachineInstr11isTransientEv.exit
+  %38 = icmp eq ptr %.sroa.021.029, %28
   br i1 %38, label %.critedge.thread, label %.critedge5
 
-.critedge.thread:                                 ; preds = %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread, %.critedge
+.critedge.thread:                                 ; preds = %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread, %.preheader.i.i.i, %.critedge
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !904
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 320
@@ -22107,8 +22106,8 @@ define dso_local void @_ZN4llvm10AsmPrinter18emitXXStructorListERKNS_10DataLayou
   %16 = and i32 %15, 1
   %.not = icmp ne i32 %16, 0
   %.not60 = icmp eq i32 %10, 1
-  %or.cond67 = or i1 %.not, %.not60
-  br i1 %or.cond67, label %_ZSt7reverseIPN4llvm10AsmPrinter8StructorEEvT_S4_.exit, label %.lr.ph.i.i.preheader
+  %or.cond = or i1 %.not, %.not60
+  br i1 %or.cond, label %_ZSt7reverseIPN4llvm10AsmPrinter8StructorEEvT_S4_.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %11
   %17 = load ptr, ptr %6, align 8, !tbaa !25
@@ -22192,33 +22191,26 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit: ; preds = %38
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
   %59 = load i32, ptr %58, align 8, !tbaa !26
   %.not.i.i = icmp eq i32 %59, 0
-  br i1 %.not.i.i, label %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit, label %60
+  br i1 %.not.i.i, label %_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj.exit, label %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit
 
-60:                                               ; preds = %47
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 120
-  %62 = load ptr, ptr %61, align 8, !tbaa !25
-  %63 = zext i32 %59 to i64
-  %64 = getelementptr inbounds nuw %"struct.std::pair.1397", ptr %62, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -32
-  %.sroa.0.0.copyload.i = load ptr, ptr %65, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %64, i64 -24
+_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit: ; preds = %47
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 120
+  %61 = load ptr, ptr %60, align 8, !tbaa !25
+  %62 = zext i32 %59 to i64
+  %63 = getelementptr inbounds nuw %"struct.std::pair.1397", ptr %61, i64 %62
+  %64 = getelementptr inbounds i8, ptr %63, i64 -32
+  %.sroa.0.0.copyload.i = load ptr, ptr %64, align 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %63, i64 -24
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 -16
-  %.sroa.0.0.copyload.i39 = load ptr, ptr %66, align 8
-  %.sroa.3.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %64, i64 -8
+  %65 = getelementptr inbounds i8, ptr %63, i64 -16
+  %.sroa.0.0.copyload.i39 = load ptr, ptr %65, align 8
+  %.sroa.3.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %63, i64 -8
   %.sroa.3.0.copyload.i41 = load i32, ptr %.sroa.3.0..sroa_idx.i40, align 8
-  br label %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit
-
-_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit: ; preds = %47, %60
-  %.sroa.0.0.i59 = phi ptr [ %.sroa.0.0.copyload.i, %60 ], [ null, %47 ]
-  %.sroa.3.0.i58 = phi i32 [ %.sroa.3.0.copyload.i, %60 ], [ 0, %47 ]
-  %.sroa.3.0.i42 = phi i32 [ %.sroa.3.0.copyload.i41, %60 ], [ 0, %47 ]
-  %.sroa.0.0.i43 = phi ptr [ %.sroa.0.0.copyload.i39, %60 ], [ null, %47 ]
-  %67 = icmp eq ptr %.sroa.0.0.i59, %.sroa.0.0.i43
-  %68 = icmp eq i32 %.sroa.3.0.i58, %.sroa.3.0.i42
-  %.not3.i.not63 = select i1 %67, i1 %68, i1 false
-  %or.cond = select i1 %.not3.i.not63, i1 true, i1 %28
-  br i1 %or.cond, label %_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj.exit, label %69
+  %66 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i39
+  %67 = icmp eq i32 %.sroa.3.0.copyload.i, %.sroa.3.0.copyload.i41
+  %.not63 = select i1 %66, i1 %67, i1 false
+  %68 = select i1 %.not63, i1 true, i1 %28
+  br i1 %68, label %_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj.exit, label %69
 
 69:                                               ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 288
@@ -22252,7 +22244,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit: ; preds = %47, %60
   call void %88(ptr noundef nonnull align 8 dereferenceable(296) %57, i8 %22, i64 noundef 0, i32 noundef 1, i32 noundef 0) #34
   br label %_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj.exit
 
-_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj.exit: ; preds = %85, %77, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit
+_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj.exit: ; preds = %47, %85, %77, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit
   %89 = getelementptr inbounds nuw i8, ptr %.03265, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !1532
   %91 = load ptr, ptr %0, align 8, !tbaa !3
