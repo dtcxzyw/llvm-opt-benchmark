@@ -9267,7 +9267,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %45, %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN3nla4core9vars_signERK7svectorIjjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4736) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZN3nla4core9vars_signERK7svectorIjjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4736) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !188
   %4 = icmp eq ptr %3, null
   br i1 %4, label %._crit_edge, label %_ZNK6vectorIjLb0EjE3endEv.exit
@@ -9288,27 +9288,25 @@ _ZNK6vectorIjLb0EjE3endEv.exit:                   ; preds = %2
   %13 = load ptr, ptr %12, align 8, !tbaa !279
   br label %14
 
-14:                                               ; preds = %.lr.ph, %20
-  %.01723 = phi i32 [ 1, %.lr.ph ], [ %21, %20 ]
-  %.01922 = phi ptr [ %3, %.lr.ph ], [ %22, %20 ]
+14:                                               ; preds = %.lr.ph, %19
+  %.01723 = phi i32 [ 1, %.lr.ph ], [ %21, %19 ]
+  %.01922 = phi ptr [ %3, %.lr.ph ], [ %22, %19 ]
   %15 = load i32, ptr %.01922, align 4, !tbaa !249
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %13, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !268
-  %.lobit.i = ashr i32 %18, 31
-  %.inv.i = icmp slt i32 %18, 1
-  %19 = select i1 %.inv.i, i32 %.lobit.i, i32 1
-  %.not20 = icmp eq i32 %19, 0
-  br i1 %.not20, label %._crit_edge, label %20
+  %.not20 = icmp eq i32 %18, 0
+  br i1 %.not20, label %._crit_edge, label %19
 
-20:                                               ; preds = %14
-  %21 = mul nsw i32 %19, %.01723
+19:                                               ; preds = %14
+  %20 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %18, i32 0)
+  %21 = mul nsw i32 %20, %.01723
   %22 = getelementptr inbounds nuw i8, ptr %.01922, i64 4
   %.not = icmp eq ptr %22, %9
   br i1 %.not, label %._crit_edge, label %14
 
-._crit_edge:                                      ; preds = %14, %20, %2, %_ZNK6vectorIjLb0EjE3endEv.exit
-  %spec.select = phi i32 [ 1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ 1, %2 ], [ %21, %20 ], [ 0, %14 ]
+._crit_edge:                                      ; preds = %14, %19, %2, %_ZNK6vectorIjLb0EjE3endEv.exit
+  %spec.select = phi i32 [ 1, %_ZNK6vectorIjLb0EjE3endEv.exit ], [ 1, %2 ], [ %21, %19 ], [ 0, %14 ]
   ret i32 %spec.select
 }
 
@@ -9719,9 +9717,7 @@ define hidden noundef zeroext i1 @_ZNK3nla4core18sign_contradictionERKNS_5monicE
   %8 = zext i32 %5 to i64
   %9 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !268
-  %.lobit.i = ashr i32 %10, 31
-  %.inv.i = icmp slt i32 %10, 1
-  %11 = select i1 %.inv.i, i32 %.lobit.i, i32 1
+  %11 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %10, i32 0)
   %12 = tail call noundef i32 @_ZNK3nla4core8rat_signERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(4736) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
   %13 = icmp ne i32 %11, %12
   ret i1 %13
@@ -45666,6 +45662,9 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #25

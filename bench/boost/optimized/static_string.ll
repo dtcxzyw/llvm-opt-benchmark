@@ -9929,10 +9929,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE16inser
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i32 -1, 2) i32 @_ZN5boost14static_strings4signEi(i32 noundef %0) local_unnamed_addr #11 {
-  %2 = icmp eq i32 %0, 0
-  %.inv = icmp sgt i32 %0, -1
-  %. = select i1 %.inv, i32 1, i32 -1
-  %.0 = select i1 %2, i32 0, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %0, i32 0)
   ret i32 %.0
 }
 
@@ -23979,7 +23976,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings5testCIN
   %7 = load i16, ptr %0, align 2, !tbaa !54
   %8 = zext i16 %7 to i64
   %.not = icmp ugt i64 %1, %8
-  br i1 %.not, label %30, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capped_lengthEmm.exit.i
+  br i1 %.not, label %28, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capped_lengthEmm.exit.i
 
 _ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capped_lengthEmm.exit.i: ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -23991,13 +23988,16 @@ _ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capp
 
 13:                                               ; preds = %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capped_lengthEmm.exit.i
   %14 = icmp eq i64 %.sroa.speculated.i.i, 0
-  br i1 %14, label %.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  br i1 %14, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %13
   %15 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef %3, i64 noundef %.sroa.speculated.i.i) #36
   %.fr24.i.i = freeze i32 %15
   %16 = icmp slt i32 %.fr24.i.i, 1
-  br i1 %16, label %.thread, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread
+  br i1 %16, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %13
+  br label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
 
 17:                                               ; preds = %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capped_lengthEmm.exit.i
   %18 = icmp samesign ugt i64 %.sroa.speculated.i.i, %4
@@ -24005,100 +24005,91 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %13
 
 19:                                               ; preds = %17
   %20 = icmp eq i64 %4, 0
-  br i1 %20, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i
+  br i1 %20, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i: ; preds = %19
   %21 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef %3, i64 noundef %4) #36
   %.fr.i.i = freeze i32 %21
   %22 = icmp sgt i32 %.fr.i.i, -1
-  br i1 %22, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread, label %.thread
+  br i1 %22, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i, %19
+  br label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
 
 23:                                               ; preds = %17
   %24 = icmp eq i64 %.sroa.speculated.i.i, 0
-  br i1 %24, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
+  br i1 %24, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit, label %25
 
-_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i, %19
-  br label %.thread
+25:                                               ; preds = %23
+  %26 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef %3, i64 noundef %.sroa.speculated.i.i) #36
+  br label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
 
-_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit: ; preds = %23
-  %25 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef %3, i64 noundef %.sroa.speculated.i.i) #36
-  %.fr = freeze i32 %25
-  %26 = icmp eq i32 %.fr, 0
-  %.inv.i = icmp sgt i32 %.fr, -1
-  %. = select i1 %.inv.i, i32 1, i32 -1
-  br i1 %26, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread, label %.thread
+_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i, %23, %25
+  %.0.i.i = phi i32 [ -1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i ], [ -1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i ], [ %26, %25 ], [ 0, %23 ]
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %.0.i.i, i32 0)
+  %.0.i22 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
+  %27 = icmp eq i32 %.0.i, %.0.i22
+  br label %45
 
-_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread: ; preds = %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit, %23
-  br label %.thread
-
-.thread:                                          ; preds = %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %13, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread
-  %27 = phi i32 [ 0, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread ], [ 1, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread ], [ -1, %13 ], [ -1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ -1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i ], [ %., %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit ]
-  %28 = icmp eq i32 %5, 0
-  %.inv.i22 = icmp sgt i32 %5, -1
-  %..i23 = select i1 %.inv.i22, i32 1, i32 -1
-  %.0.i24 = select i1 %28, i32 0, i32 %..i23
-  %29 = icmp eq i32 %27, %.0.i24
-  br label %47
-
-30:                                               ; preds = %6
+28:                                               ; preds = %6
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.3) #35
-          to label %.noexc unwind label %31
+          to label %.noexc unwind label %29
 
-.noexc:                                           ; preds = %30
+.noexc:                                           ; preds = %28
   unreachable
 
-31:                                               ; preds = %30
-  %32 = landingpad { ptr, i32 }
+29:                                               ; preds = %28
+  %30 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  %34 = extractvalue { ptr, i32 } %32, 1
-  %35 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #36
-  %36 = icmp eq i32 %34, %35
-  %37 = tail call ptr @__cxa_begin_catch(ptr %33) #36
-  br i1 %36, label %38, label %41
+  %31 = extractvalue { ptr, i32 } %30, 0
+  %32 = extractvalue { ptr, i32 } %30, 1
+  %33 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #36
+  %34 = icmp eq i32 %32, %33
+  %35 = tail call ptr @__cxa_begin_catch(ptr %31) #36
+  br i1 %34, label %36, label %39
 
-38:                                               ; preds = %31
-  %39 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %40 unwind label %45
+36:                                               ; preds = %29
+  %37 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %38 unwind label %43
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @__cxa_end_catch()
-  br label %47
+  br label %45
 
-41:                                               ; preds = %31
+39:                                               ; preds = %29
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6173, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 148, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings5testCINS0_19basic_static_stringILm400EcSt11char_traitsIcEEEEEbRKT_NS6_9size_typeES9_PKNS6_10value_typeES9_i)
-          to label %42 unwind label %43
+          to label %40 unwind label %41
 
-42:                                               ; preds = %41
+40:                                               ; preds = %39
   tail call void @__cxa_end_catch()
-  br label %47
+  br label %45
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %46 unwind label %47
+
+43:                                               ; preds = %36
   %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %48 unwind label %49
+          to label %46 unwind label %47
 
-45:                                               ; preds = %38
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %48 unwind label %49
-
-47:                                               ; preds = %40, %42, %.thread
-  %.0 = phi i1 [ %29, %.thread ], [ true, %42 ], [ true, %40 ]
+45:                                               ; preds = %38, %40, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
+  %.0 = phi i1 [ %27, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit ], [ true, %40 ], [ true, %38 ]
   ret i1 %.0
 
-48:                                               ; preds = %45, %43
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %46, %45 ]
+46:                                               ; preds = %43, %41
+  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %44, %43 ]
   resume { ptr, i32 } %.pn
 
-49:                                               ; preds = %45, %43
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %43, %41
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #37
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #37
   unreachable
 }
 
@@ -104141,6 +104132,9 @@ declare i64 @llvm.umin.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #33

@@ -33456,9 +33456,7 @@ define internal void @_ZN6open3d1t9pipelines6kernel8odometry33ComputeOdometryRes
 
 54:                                               ; preds = %45
   %55 = fptosi float %46 to i32
-  %.lobit.i.i = ashr i32 %55, 31
-  %.inv.i.i = icmp slt i32 %55, 1
-  %56 = select i1 %.inv.i.i, i32 %.lobit.i.i, i32 1
+  %56 = call noundef i32 @llvm.scmp.i32.i32(i32 %55, i32 0)
   %57 = sitofp i32 %56 to float
   %58 = fmul float %47, %57
   %59 = fmul float %47, %48
@@ -34307,8 +34305,8 @@ define internal void @_ZN6open3d1t9pipelines6kernel8odometry30ComputeOdometryRes
   %36 = call i32 @llvm.smin.i32(i32 %35, i32 %33)
   store i32 %36, ptr %20, align 4, !tbaa !18
   %37 = load i32, ptr %19, align 4, !tbaa !18
-  %.not66 = icmp sgt i32 %37, %36
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not64 = icmp sgt i32 %37, %36
+  br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
   %invariant.gep = getelementptr inbounds nuw i8, ptr %23, i64 84
@@ -34318,11 +34316,11 @@ define internal void @_ZN6open3d1t9pipelines6kernel8odometry30ComputeOdometryRes
   br label %41
 
 41:                                               ; preds = %.lr.ph, %121
-  %indvars.iv83 = phi i64 [ %40, %.lr.ph ], [ %indvars.iv.next84, %121 ]
+  %indvars.iv81 = phi i64 [ %40, %.lr.ph ], [ %indvars.iv.next82, %121 ]
   %42 = load i64, ptr %3, align 8, !tbaa !22
-  %43 = sdiv i64 %indvars.iv83, %42
+  %43 = sdiv i64 %indvars.iv81, %42
   %44 = trunc i64 %43 to i32
-  %45 = srem i64 %indvars.iv83, %42
+  %45 = srem i64 %indvars.iv81, %42
   %46 = trunc nsw i64 %45 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #3
@@ -34344,9 +34342,7 @@ define internal void @_ZN6open3d1t9pipelines6kernel8odometry30ComputeOdometryRes
 
 55:                                               ; preds = %50
   %56 = fptosi float %51 to i32
-  %.lobit.i.i = ashr i32 %56, 31
-  %.inv.i.i = icmp slt i32 %56, 1
-  %57 = select i1 %.inv.i.i, i32 %.lobit.i.i, i32 1
+  %57 = call noundef i32 @llvm.scmp.i32.i32(i32 %56, i32 0)
   %58 = sitofp i32 %57 to float
   %59 = fmul float %52, %58
   br label %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit
@@ -34357,28 +34353,26 @@ _ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit: ; preds = %55, %50
   %62 = load float, ptr %16, align 4, !tbaa !4
   %63 = call noundef float @llvm.fabs.f32(float %61)
   %64 = fcmp olt float %63, %62
-  br i1 %64, label %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit60, label %65
+  br i1 %64, label %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit58, label %65
 
 65:                                               ; preds = %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit
   %66 = fptosi float %61 to i32
-  %.lobit.i.i58 = ashr i32 %66, 31
-  %.inv.i.i59 = icmp slt i32 %66, 1
-  %67 = select i1 %.inv.i.i59, i32 %.lobit.i.i58, i32 1
+  %67 = call noundef i32 @llvm.scmp.i32.i32(i32 %66, i32 0)
   %68 = sitofp i32 %67 to float
   %69 = fmul float %62, %68
-  br label %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit60
+  br label %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit58
 
-_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit60: ; preds = %65, %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit
+_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit58: ; preds = %65, %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit
   %70 = phi float [ %69, %65 ], [ %61, %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit ]
   br i1 %54, label %71, label %75
 
-71:                                               ; preds = %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit60
+71:                                               ; preds = %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit58
   %72 = fpext float %51 to double
   %73 = fmul double %72, 5.000000e-01
   %74 = fmul double %73, %72
   br label %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit
 
-75:                                               ; preds = %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit60
+75:                                               ; preds = %_ZN6open3d1t9pipelines6kernel8odometry10HuberDerivEff.exit58
   %76 = fmul float %52, %53
   %77 = fpext float %76 to double
   %78 = fpext float %52 to double
@@ -34395,7 +34389,7 @@ _ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit: ; preds = %71, %75
   %84 = fpext float %61 to double
   %85 = fmul double %84, 5.000000e-01
   %86 = fmul double %85, %84
-  br label %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61
+  br label %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit59
 
 87:                                               ; preds = %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit
   %88 = fmul float %62, %63
@@ -34403,21 +34397,21 @@ _ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit: ; preds = %71, %75
   %90 = fpext float %62 to double
   %91 = fmul double %90, -5.000000e-01
   %92 = call double @llvm.fmuladd.f64(double %91, double %90, double %89)
-  br label %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61
+  br label %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit59
 
-_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61: ; preds = %83, %87
+_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit59: ; preds = %83, %87
   %93 = phi double [ %86, %83 ], [ %92, %87 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61, %106
-  %indvars.iv77 = phi i64 [ 0, %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61 ], [ %indvars.iv.next78, %106 ]
-  %indvars.iv75 = phi i64 [ 1, %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61 ], [ %indvars.iv.next76, %106 ]
-  %.05564 = phi i64 [ 0, %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61 ], [ %indvars.iv.next69, %106 ]
-  %94 = getelementptr inbounds nuw [6 x float], ptr %24, i64 0, i64 %indvars.iv77
+.preheader:                                       ; preds = %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit59, %106
+  %indvars.iv75 = phi i64 [ 0, %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit59 ], [ %indvars.iv.next76, %106 ]
+  %indvars.iv73 = phi i64 [ 1, %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit59 ], [ %indvars.iv.next74, %106 ]
+  %.05562 = phi i64 [ 0, %_ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit59 ], [ %indvars.iv.next67, %106 ]
+  %94 = getelementptr inbounds nuw [6 x float], ptr %24, i64 0, i64 %indvars.iv75
   %95 = load float, ptr %94, align 4, !tbaa !4
-  %96 = getelementptr inbounds nuw [6 x float], ptr %25, i64 0, i64 %indvars.iv77
+  %96 = getelementptr inbounds nuw [6 x float], ptr %25, i64 0, i64 %indvars.iv75
   %97 = load float, ptr %96, align 4, !tbaa !4
-  %sext = shl i64 %.05564, 32
+  %sext = shl i64 %.05562, 32
   %98 = ashr exact i64 %sext, 32
   br label %111
 
@@ -34435,17 +34429,17 @@ _ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61: ; preds = %83, %87
 106:                                              ; preds = %111
   %107 = fmul float %70, %97
   %108 = call float @llvm.fmuladd.f32(float %95, float %60, float %107)
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv77
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv75
   %109 = load float, ptr %gep, align 4, !tbaa !4
   %110 = fadd float %109, %108
   store float %110, ptr %gep, align 4, !tbaa !4
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next78, 6
-  br i1 %exitcond82.not, label %99, label %.preheader, !llvm.loop !703
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next76, 6
+  br i1 %exitcond80.not, label %99, label %.preheader, !llvm.loop !703
 
 111:                                              ; preds = %.preheader, %111
-  %indvars.iv68 = phi i64 [ %98, %.preheader ], [ %indvars.iv.next69, %111 ]
+  %indvars.iv66 = phi i64 [ %98, %.preheader ], [ %indvars.iv.next67, %111 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %111 ]
   %112 = getelementptr inbounds nuw [6 x float], ptr %24, i64 0, i64 %indvars.iv
   %113 = load float, ptr %112, align 4, !tbaa !4
@@ -34453,13 +34447,13 @@ _ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61: ; preds = %83, %87
   %115 = load float, ptr %114, align 4, !tbaa !4
   %116 = fmul float %97, %115
   %117 = call float @llvm.fmuladd.f32(float %95, float %113, float %116)
-  %118 = getelementptr inbounds float, ptr %23, i64 %indvars.iv68
+  %118 = getelementptr inbounds float, ptr %23, i64 %indvars.iv66
   %119 = load float, ptr %118, align 4, !tbaa !4
   %120 = fadd float %119, %117
   store float %120, ptr %118, align 4, !tbaa !4
-  %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
+  %indvars.iv.next67 = add nsw i64 %indvars.iv66, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv75
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv73
   br i1 %exitcond.not, label %106, label %111, !llvm.loop !704
 
 121:                                              ; preds = %99, %49
@@ -34467,10 +34461,10 @@ _ZN6open3d1t9pipelines6kernel8odometry9HuberLossEff.exit61: ; preds = %83, %87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #3
-  %indvars.iv.next84 = add nsw i64 %indvars.iv83, 1
+  %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
   %122 = load i32, ptr %20, align 4, !tbaa !18
   %123 = sext i32 %122 to i64
-  %.not.not = icmp slt i64 %indvars.iv83, %123
+  %.not.not = icmp slt i64 %indvars.iv81, %123
   br i1 %.not.not, label %41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %121, %31
@@ -35326,9 +35320,7 @@ define internal void @_ZN6open3d1t9pipelines6kernel8odometry36ComputeOdometryRes
 
 50:                                               ; preds = %41
   %51 = fptosi float %42 to i32
-  %.lobit.i.i = ashr i32 %51, 31
-  %.inv.i.i = icmp slt i32 %51, 1
-  %52 = select i1 %.inv.i.i, i32 %.lobit.i.i, i32 1
+  %52 = call noundef i32 @llvm.scmp.i32.i32(i32 %51, i32 0)
   %53 = sitofp i32 %52 to float
   %54 = fmul float %43, %53
   %55 = fmul float %43, %44
@@ -35704,6 +35696,9 @@ declare i32 @llvm.umax.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #32

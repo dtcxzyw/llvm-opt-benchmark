@@ -27518,11 +27518,12 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZN4llvmneENS_9
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %844, i64 %861)
   %864 = call i32 @memcmp(ptr noundef %860, ptr noundef %843, i64 noundef %.sroa.speculated.i.i.i) #28
   %.fr.i.i.i = freeze i32 %864
-  %.not.not.i.i.not.i = icmp eq i32 %.fr.i.i.i, 0
+  %.not.not.i.i.i = icmp ne i32 %.fr.i.i.i, 0
+  %brmerge.i = or i1 %.not.i.i.i.i318, %.not.not.i.i.i
   %865 = icmp ult i64 %861, %844
   %866 = icmp slt i32 %.fr.i.i.i, 0
   %.fr = freeze i1 %865
-  %867 = select i1 %.not.not.i.i.not.i, i1 %.fr, i1 %866
+  %867 = select i1 %brmerge.i, i1 %866, i1 %.fr
   %.old.old = getelementptr inbounds nuw i8, ptr %.0107400, i64 32
   %.not117.old.old = icmp eq ptr %.old.old, %705
   %or.cond431 = select i1 %867, i1 true, i1 %.not117.old.old
@@ -36683,10 +36684,11 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZN4llvmneENS_9
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %379, i64 %400)
   %403 = call i32 @memcmp(ptr noundef %399, ptr noundef %383, i64 noundef %.sroa.speculated.i.i.i) #28
   %.fr.i.i.i = freeze i32 %403
-  %.not.not.i.i.not.i = icmp eq i32 %.fr.i.i.i, 0
+  %.not.not.i.i.i = icmp ne i32 %.fr.i.i.i, 0
+  %brmerge.i = or i1 %.not.i.i.i.i182, %.not.not.i.i.i
   %404 = icmp ult i64 %400, %379
   %405 = icmp slt i32 %.fr.i.i.i, 0
-  %406 = select i1 %.not.not.i.i.not.i, i1 %404, i1 %405
+  %406 = select i1 %brmerge.i, i1 %405, i1 %404
   br i1 %406, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread216, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersion11isOlderThanEiiiN4llvm9StringRefE.exit.thread
 
 _ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit: ; preds = %396
@@ -56400,10 +56402,11 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %37)
   %40 = tail call i32 @memcmp(ptr noundef %35, ptr noundef %10, i64 noundef %.sroa.speculated.i.i) #28
   %.fr.i.i = freeze i32 %40
-  %.not.not.i.i.not = icmp eq i32 %.fr.i.i, 0
+  %.not.not.i.i = icmp ne i32 %.fr.i.i, 0
+  %brmerge = or i1 %.not.i.i.i, %.not.not.i.i
   %41 = icmp ult i64 %37, %12
   %42 = icmp slt i32 %.fr.i.i, 0
-  %43 = select i1 %.not.not.i.i.not, i1 %41, i1 %42
+  %43 = select i1 %brmerge, i1 %42, i1 %41
   br label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersion11isOlderThanEiiiN4llvm9StringRefE.exit
 
 _ZNK5clang6driver10toolchains11Generic_GCC10GCCVersion11isOlderThanEiiiN4llvm9StringRefE.exit: ; preds = %15, %20, %22, %28, %30, %39, %_ZN4llvmneENS_9StringRefES0_.exit.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
@@ -63042,7 +63045,7 @@ define linkonce_odr hidden void @_ZSt21__unguarded_partitionISt16reverse_iterato
   br label %5
 
 5:                                                ; preds = %.backedge, %4
-  %6 = phi ptr [ %.pre.pre, %4 ], [ %storemerge107, %.backedge ]
+  %6 = phi ptr [ %.pre.pre, %4 ], [ %storemerge110, %.backedge ]
   %7 = load ptr, ptr %3, align 8, !tbaa !563
   %8 = getelementptr inbounds i8, ptr %7, i64 -144
   %9 = load i32, ptr %8, align 8, !tbaa !396
@@ -63087,7 +63090,7 @@ define linkonce_odr hidden void @_ZSt21__unguarded_partitionISt16reverse_iterato
 
 33:                                               ; preds = %30
   %34 = icmp eq i32 %13, -1
-  br i1 %34, label %.backedge, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit29
+  br i1 %34, label %.backedge, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit30
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %6, i64 -64
@@ -63099,12 +63102,12 @@ define linkonce_odr hidden void @_ZSt21__unguarded_partitionISt16reverse_iterato
   br i1 %.not.i.i.i.i18, label %41, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i19
 
 41:                                               ; preds = %35
-  br i1 %40, label %.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i26
+  br i1 %40, label %.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i27
 
-_ZN4llvmneENS_9StringRefES0_.exit.i.i26:          ; preds = %41
-  %bcmp.i.i.i.i27 = tail call i32 @bcmp(ptr %37, ptr %15, i64 %17)
-  %.not28.i.i28 = icmp eq i32 %bcmp.i.i.i.i27, 0
-  br i1 %.not28.i.i28, label %.thread, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22
+_ZN4llvmneENS_9StringRefES0_.exit.i.i27:          ; preds = %41
+  %bcmp.i.i.i.i28 = tail call i32 @bcmp(ptr %37, ptr %15, i64 %17)
+  %.not28.i.i29 = icmp eq i32 %bcmp.i.i.i.i28, 0
+  br i1 %.not28.i.i29, label %.thread, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.i.i19:   ; preds = %35
   br i1 %40, label %.backedge, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i20
@@ -63113,17 +63116,18 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i20: ; preds = %_ZN4llvmneENS_
   %.old.i.i21 = icmp eq i64 %39, 0
   br i1 %.old.i.i21, label %.thread, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i20, %_ZN4llvmneENS_9StringRefES0_.exit.i.i26
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i20, %_ZN4llvmneENS_9StringRefES0_.exit.i.i27
   %.sroa.speculated.i.i.i23 = tail call i64 @llvm.umin.i64(i64 %17, i64 %39)
   %42 = tail call i32 @memcmp(ptr noundef %37, ptr noundef %15, i64 noundef %.sroa.speculated.i.i.i23) #28
   %.fr.i.i.i24 = freeze i32 %42
-  %.not.not.i.i.not.i25 = icmp eq i32 %.fr.i.i.i24, 0
+  %.not.not.i.i.i25 = icmp ne i32 %.fr.i.i.i24, 0
+  %brmerge.i26 = or i1 %.not.i.i.i.i18, %.not.not.i.i.i25
   %43 = icmp ult i64 %39, %17
   %44 = icmp slt i32 %.fr.i.i.i24, 0
-  %45 = select i1 %.not.not.i.i.not.i25, i1 %43, i1 %44
+  %45 = select i1 %brmerge.i26, i1 %44, i1 %43
   br i1 %45, label %.backedge, label %.thread
 
-_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit29: ; preds = %33
+_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit30: ; preds = %33
   %46 = icmp ne i32 %32, -1
   %47 = icmp slt i32 %32, %13
   %spec.select19.i.i17 = and i1 %46, %47
@@ -63131,15 +63135,15 @@ _ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit29: ; preds =
 
 48:                                               ; preds = %20
   %49 = icmp slt i32 %9, %19
-  br i1 %49, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77
+  br i1 %49, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80
 
 50:                                               ; preds = %27
   %51 = icmp eq i32 %24, -1
   %52 = icmp slt i32 %11, %24
   %or.cond = select i1 %51, i1 true, i1 %52
-  br i1 %or.cond, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77
+  br i1 %or.cond, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80
 
-.thread:                                          ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i20, %_ZN4llvmneENS_9StringRefES0_.exit.i.i26, %41
+.thread:                                          ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i20, %_ZN4llvmneENS_9StringRefES0_.exit.i.i27, %41
   %53 = getelementptr inbounds i8, ptr %6, i64 -64
   %54 = load ptr, ptr %53, align 8, !tbaa !188
   %55 = getelementptr inbounds i8, ptr %6, i64 -56
@@ -63148,38 +63152,39 @@ _ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit29: ; preds =
   %57 = icmp eq i64 %56, 0
   br i1 %.not.i.i.i.i11, label %61, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
 
-58:                                               ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit29
+58:                                               ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit30
   %59 = icmp eq i32 %32, -1
   %60 = icmp slt i32 %13, %32
-  %or.cond104 = select i1 %59, i1 true, i1 %60
-  br i1 %or.cond104, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77
+  %or.cond107 = select i1 %59, i1 true, i1 %60
+  br i1 %or.cond107, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80
 
 61:                                               ; preds = %.thread
-  br i1 %57, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i
+  br i1 %57, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.i.i:            ; preds = %61
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %15, ptr %54, i64 %17)
   %.not28.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not28.i.i, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  br i1 %.not28.i.i, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.i.i:     ; preds = %.thread
-  br i1 %57, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i
+  br i1 %57, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
   %.old.i.i = icmp eq i64 %17, 0
-  br i1 %.old.i.i, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  br i1 %.old.i.i, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %56, i64 %17)
   %62 = tail call i32 @memcmp(ptr noundef %15, ptr noundef %54, i64 noundef %.sroa.speculated.i.i.i) #28
   %.fr.i.i.i = freeze i32 %62
-  %.not.not.i.i.not.i = icmp eq i32 %.fr.i.i.i, 0
+  %.not.not.i.i.i = icmp ne i32 %.fr.i.i.i, 0
+  %brmerge.i = or i1 %.not.i.i.i.i11, %.not.not.i.i.i
   %63 = icmp ult i64 %17, %56
   %64 = icmp slt i32 %.fr.i.i.i, 0
-  %65 = select i1 %.not.not.i.i.not.i, i1 %63, i1 %64
-  br i1 %65, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77
+  %65 = select i1 %brmerge.i, i1 %64, i1 %63
+  br i1 %65, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80
 
-_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77: ; preds = %58, %50, %61, %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %48
+_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80: ; preds = %58, %50, %61, %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %48
   %66 = getelementptr inbounds i8, ptr %6, i64 -24
   %67 = load i64, ptr %66, align 8, !tbaa !131
   %68 = getelementptr inbounds i8, ptr %7, i64 -24
@@ -63188,7 +63193,7 @@ _ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77: ; 
   %70 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %70, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80
   %71 = getelementptr inbounds i8, ptr %7, i64 -32
   %72 = getelementptr inbounds i8, ptr %6, i64 -32
   %73 = load ptr, ptr %71, align 8, !tbaa !188
@@ -63197,7 +63202,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK5clang6driver
   %.not.i.i.i.i = icmp eq i32 %75, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread77
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread80
   %76 = sub i64 %67, %69
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %76, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
@@ -63207,20 +63212,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
   %.0.i.i.i.i = phi i32 [ %75, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
   %77 = icmp slt i32 %.0.i.i.i.i, 0
-  br i1 %77, label %.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80
+  br i1 %77, label %.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83
 
-.backedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit29, %20, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22, %27, %25, %33, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i19, %153
-  %.pn108 = phi ptr [ %157, %153 ], [ %6, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i19 ], [ %6, %33 ], [ %6, %25 ], [ %6, %27 ], [ %6, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22 ], [ %6, %20 ], [ %6, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit29 ], [ %6, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit ]
-  %storemerge107 = getelementptr inbounds i8, ptr %.pn108, i64 -176
-  store ptr %storemerge107, ptr %1, align 8, !tbaa !563
+.backedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit30, %20, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22, %27, %25, %33, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i19, %153
+  %.pn111 = phi ptr [ %157, %153 ], [ %6, %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i19 ], [ %6, %33 ], [ %6, %25 ], [ %6, %27 ], [ %6, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i22 ], [ %6, %20 ], [ %6, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit30 ], [ %6, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit ]
+  %storemerge110 = getelementptr inbounds i8, ptr %.pn111, i64 -176
+  store ptr %storemerge110, ptr %1, align 8, !tbaa !563
   br label %5, !llvm.loop !1332
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i, %58, %50, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %48, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i, %58, %50, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %48, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit
   %78 = load ptr, ptr %2, align 8, !tbaa !563
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80
-  %.pn = phi ptr [ %78, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread80 ], [ %storemerge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83
+  %.pn = phi ptr [ %78, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit.thread83 ], [ %storemerge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 176
   store ptr %storemerge, ptr %2, align 8, !tbaa !563
   %79 = load ptr, ptr %3, align 8, !tbaa !563
@@ -63236,8 +63241,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6dr
   %89 = load i64, ptr %88, align 8, !tbaa !131
   %90 = getelementptr inbounds i8, ptr %79, i64 -144
   %91 = load i32, ptr %90, align 8, !tbaa !396
-  %.not.i.i48 = icmp eq i32 %91, %81
-  br i1 %.not.i.i48, label %94, label %92
+  %.not.i.i50 = icmp eq i32 %91, %81
+  br i1 %.not.i.i50, label %94, label %92
 
 92:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread
   %93 = icmp slt i32 %91, %81
@@ -63246,8 +63251,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6dr
 94:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread
   %95 = getelementptr inbounds i8, ptr %79, i64 -140
   %96 = load i32, ptr %95, align 4, !tbaa !398
-  %.not17.i.i50 = icmp eq i32 %96, %83
-  br i1 %.not17.i.i50, label %102, label %97
+  %.not17.i.i52 = icmp eq i32 %96, %83
+  br i1 %.not17.i.i52, label %102, label %97
 
 97:                                               ; preds = %94
   %98 = icmp eq i32 %83, -1
@@ -63256,113 +63261,115 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6dr
 99:                                               ; preds = %97
   %100 = icmp ne i32 %96, -1
   %101 = icmp slt i32 %96, %83
-  %spec.select.i.i51 = and i1 %100, %101
-  br i1 %spec.select.i.i51, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %122
+  %spec.select.i.i53 = and i1 %100, %101
+  br i1 %spec.select.i.i53, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %122
 
 102:                                              ; preds = %94
   %103 = getelementptr inbounds i8, ptr %79, i64 -136
   %104 = load i32, ptr %103, align 8, !tbaa !399
-  %.not18.i.i52 = icmp eq i32 %104, %85
-  br i1 %.not18.i.i52, label %107, label %105
+  %.not18.i.i54 = icmp eq i32 %104, %85
+  br i1 %.not18.i.i54, label %107, label %105
 
 105:                                              ; preds = %102
   %106 = icmp eq i32 %85, -1
-  br i1 %106, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit65
+  br i1 %106, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit68
 
 107:                                              ; preds = %102
   %108 = getelementptr inbounds i8, ptr %79, i64 -64
   %109 = load ptr, ptr %108, align 8, !tbaa !188
   %110 = getelementptr inbounds i8, ptr %79, i64 -56
   %111 = load i64, ptr %110, align 8, !tbaa !131
-  %.not.i.i.i.i54 = icmp eq i64 %111, %89
+  %.not.i.i.i.i56 = icmp eq i64 %111, %89
   %112 = icmp eq i64 %89, 0
-  br i1 %.not.i.i.i.i54, label %113, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i55
+  br i1 %.not.i.i.i.i56, label %113, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i57
 
 113:                                              ; preds = %107
-  br i1 %112, label %.thread101, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i62
+  br i1 %112, label %.thread104, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i65
 
-_ZN4llvmneENS_9StringRefES0_.exit.i.i62:          ; preds = %113
-  %bcmp.i.i.i.i63 = tail call i32 @bcmp(ptr %109, ptr %87, i64 %89)
-  %.not28.i.i64 = icmp eq i32 %bcmp.i.i.i.i63, 0
-  br i1 %.not28.i.i64, label %.thread101, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i58
+_ZN4llvmneENS_9StringRefES0_.exit.i.i65:          ; preds = %113
+  %bcmp.i.i.i.i66 = tail call i32 @bcmp(ptr %109, ptr %87, i64 %89)
+  %.not28.i.i67 = icmp eq i32 %bcmp.i.i.i.i66, 0
+  br i1 %.not28.i.i67, label %.thread104, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i60
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i55:   ; preds = %107
-  br i1 %112, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i56
+_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i57:   ; preds = %107
+  br i1 %112, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i58
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i55, %105, %97, %99, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i58, %92, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit65, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i57, %105, %97, %99, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i60, %92, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit68, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread, !llvm.loop !1333
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i56: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i55
-  %.old.i.i57 = icmp eq i64 %111, 0
-  br i1 %.old.i.i57, label %.thread101, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i58
+_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i58: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i57
+  %.old.i.i59 = icmp eq i64 %111, 0
+  br i1 %.old.i.i59, label %.thread104, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i60
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i58: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i56, %_ZN4llvmneENS_9StringRefES0_.exit.i.i62
-  %.sroa.speculated.i.i.i59 = tail call i64 @llvm.umin.i64(i64 %89, i64 %111)
-  %114 = tail call i32 @memcmp(ptr noundef %109, ptr noundef %87, i64 noundef %.sroa.speculated.i.i.i59) #28
-  %.fr.i.i.i60 = freeze i32 %114
-  %.not.not.i.i.not.i61 = icmp eq i32 %.fr.i.i.i60, 0
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i60: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i58, %_ZN4llvmneENS_9StringRefES0_.exit.i.i65
+  %.sroa.speculated.i.i.i61 = tail call i64 @llvm.umin.i64(i64 %89, i64 %111)
+  %114 = tail call i32 @memcmp(ptr noundef %109, ptr noundef %87, i64 noundef %.sroa.speculated.i.i.i61) #28
+  %.fr.i.i.i62 = freeze i32 %114
+  %.not.not.i.i.i63 = icmp ne i32 %.fr.i.i.i62, 0
+  %brmerge.i64 = or i1 %.not.i.i.i.i56, %.not.not.i.i.i63
   %115 = icmp ult i64 %111, %89
-  %116 = icmp slt i32 %.fr.i.i.i60, 0
-  %117 = select i1 %.not.not.i.i.not.i61, i1 %115, i1 %116
-  br i1 %117, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %.thread101
+  %116 = icmp slt i32 %.fr.i.i.i62, 0
+  %117 = select i1 %brmerge.i64, i1 %116, i1 %115
+  br i1 %117, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %.thread104
 
-_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit65: ; preds = %105
+_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit68: ; preds = %105
   %118 = icmp ne i32 %104, -1
   %119 = icmp slt i32 %104, %85
-  %spec.select19.i.i53 = and i1 %118, %119
-  br i1 %spec.select19.i.i53, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %130
+  %spec.select19.i.i55 = and i1 %118, %119
+  br i1 %spec.select19.i.i55, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %130
 
 120:                                              ; preds = %92
   %121 = icmp slt i32 %81, %91
-  br i1 %121, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89
+  br i1 %121, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92
 
 122:                                              ; preds = %99
   %123 = icmp eq i32 %96, -1
   %124 = icmp slt i32 %83, %96
-  %or.cond105 = select i1 %123, i1 true, i1 %124
-  br i1 %or.cond105, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89
+  %or.cond108 = select i1 %123, i1 true, i1 %124
+  br i1 %or.cond108, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92
 
-.thread101:                                       ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i58, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i56, %_ZN4llvmneENS_9StringRefES0_.exit.i.i62, %113
+.thread104:                                       ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i60, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i58, %_ZN4llvmneENS_9StringRefES0_.exit.i.i65, %113
   %125 = getelementptr inbounds i8, ptr %79, i64 -64
   %126 = load ptr, ptr %125, align 8, !tbaa !188
   %127 = getelementptr inbounds i8, ptr %79, i64 -56
   %128 = load i64, ptr %127, align 8, !tbaa !131
-  %.not.i.i.i.i36 = icmp eq i64 %89, %128
+  %.not.i.i.i.i37 = icmp eq i64 %89, %128
   %129 = icmp eq i64 %128, 0
-  br i1 %.not.i.i.i.i36, label %133, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i37
+  br i1 %.not.i.i.i.i37, label %133, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i38
 
-130:                                              ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit65
+130:                                              ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit68
   %131 = icmp eq i32 %104, -1
   %132 = icmp slt i32 %85, %104
-  %or.cond106 = select i1 %131, i1 true, i1 %132
-  br i1 %or.cond106, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89
+  %or.cond109 = select i1 %131, i1 true, i1 %132
+  br i1 %or.cond109, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92
 
-133:                                              ; preds = %.thread101
-  br i1 %129, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i44
+133:                                              ; preds = %.thread104
+  br i1 %129, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i46
 
-_ZN4llvmneENS_9StringRefES0_.exit.i.i44:          ; preds = %133
-  %bcmp.i.i.i.i45 = tail call i32 @bcmp(ptr %87, ptr %126, i64 %89)
-  %.not28.i.i46 = icmp eq i32 %bcmp.i.i.i.i45, 0
-  br i1 %.not28.i.i46, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i40
+_ZN4llvmneENS_9StringRefES0_.exit.i.i46:          ; preds = %133
+  %bcmp.i.i.i.i47 = tail call i32 @bcmp(ptr %87, ptr %126, i64 %89)
+  %.not28.i.i48 = icmp eq i32 %bcmp.i.i.i.i47, 0
+  br i1 %.not28.i.i48, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i41
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i37:   ; preds = %.thread101
-  br i1 %129, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i38
+_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i38:   ; preds = %.thread104
+  br i1 %129, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i39
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i38: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i37
-  %.old.i.i39 = icmp eq i64 %89, 0
-  br i1 %.old.i.i39, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i40
+_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i39: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i38
+  %.old.i.i40 = icmp eq i64 %89, 0
+  br i1 %.old.i.i40, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i41
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i40: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i38, %_ZN4llvmneENS_9StringRefES0_.exit.i.i44
-  %.sroa.speculated.i.i.i41 = tail call i64 @llvm.umin.i64(i64 %128, i64 %89)
-  %134 = tail call i32 @memcmp(ptr noundef %87, ptr noundef %126, i64 noundef %.sroa.speculated.i.i.i41) #28
-  %.fr.i.i.i42 = freeze i32 %134
-  %.not.not.i.i.not.i43 = icmp eq i32 %.fr.i.i.i42, 0
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i41: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i39, %_ZN4llvmneENS_9StringRefES0_.exit.i.i46
+  %.sroa.speculated.i.i.i42 = tail call i64 @llvm.umin.i64(i64 %128, i64 %89)
+  %134 = tail call i32 @memcmp(ptr noundef %87, ptr noundef %126, i64 noundef %.sroa.speculated.i.i.i42) #28
+  %.fr.i.i.i43 = freeze i32 %134
+  %.not.not.i.i.i44 = icmp ne i32 %.fr.i.i.i43, 0
+  %brmerge.i45 = or i1 %.not.i.i.i.i37, %.not.not.i.i.i44
   %135 = icmp ult i64 %89, %128
-  %136 = icmp slt i32 %.fr.i.i.i42, 0
-  %137 = select i1 %.not.not.i.i.not.i43, i1 %135, i1 %136
-  br i1 %137, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89
+  %136 = icmp slt i32 %.fr.i.i.i43, 0
+  %137 = select i1 %brmerge.i45, i1 %136, i1 %135
+  br i1 %137, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92
 
-_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89: ; preds = %130, %122, %133, %_ZN4llvmneENS_9StringRefES0_.exit.i.i44, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i38, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i40, %120
+_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92: ; preds = %130, %122, %133, %_ZN4llvmneENS_9StringRefES0_.exit.i.i46, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i39, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i41, %120
   %138 = getelementptr inbounds i8, ptr %79, i64 -24
   %139 = load i64, ptr %138, align 8, !tbaa !131
   %140 = getelementptr inbounds nuw i8, ptr %.pn, i64 152
@@ -63371,7 +63378,7 @@ _ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89: 
   %142 = icmp eq i64 %.sroa.speculated.i.i.i.i1, 0
   br i1 %142, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i2
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i2: ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i2: ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92
   %143 = getelementptr inbounds nuw i8, ptr %.pn, i64 144
   %144 = getelementptr inbounds i8, ptr %79, i64 -32
   %145 = load ptr, ptr %143, align 8, !tbaa !188
@@ -63380,7 +63387,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i2: ; preds = %_ZNK5clang6drive
   %.not.i.i.i.i3 = icmp eq i32 %147, 0
   br i1 %.not.i.i.i.i3, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i6, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i6: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i2, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit47.thread89
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i6: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i2, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit49.thread92
   %148 = sub i64 %139, %141
   %spec.select7.i.i.i.i.i7 = tail call i64 @llvm.smax.i64(i64 %148, i64 -2147483648)
   %.08.i.i.i.i.i8 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i7, i64 2147483647)
@@ -63390,18 +63397,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i6: ; preds = %_ZNSt11ch
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i6
   %.0.i.i.i.i5 = phi i32 [ %147, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i2 ], [ %.0.i6.i.i.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i6 ]
   %149 = icmp slt i32 %.0.i.i.i.i5, 0
-  br i1 %149, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92
+  br i1 %149, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i37, %130, %122, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i40, %120, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i38, %130, %122, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i41, %120, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10
   %150 = load ptr, ptr %1, align 8, !tbaa !563
   %151 = icmp ult ptr %storemerge, %150
   br i1 %151, label %153, label %152
 
-152:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92
+152:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95
   store ptr %150, ptr %0, align 8, !tbaa !563
   ret void
 
-153:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread92
+153:                                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorIPSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESI_EEbT_T0_.exit10.thread95
   %154 = getelementptr inbounds i8, ptr %150, i64 -176
   tail call void @_ZSt4swapIN5clang6driver10toolchains11Generic_GCC10GCCVersionEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_(ptr noundef nonnull align 8 dereferenceable(176) %154, ptr noundef nonnull align 8 dereferenceable(176) %.pn) #24
   %155 = getelementptr inbounds i8, ptr %150, i64 -32
@@ -64343,8 +64350,8 @@ _ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basi
   br label %83
 
 83:                                               ; preds = %_ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOSB_.exit, %_ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOSB_.exit
-  %84 = phi ptr [ %80, %_ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOSB_.exit ], [ %.sroa.032.0, %_ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOSB_.exit ]
-  %.sroa.032.0 = getelementptr inbounds nuw i8, ptr %84, i64 176
+  %84 = phi ptr [ %80, %_ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOSB_.exit ], [ %.sroa.033.0, %_ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOSB_.exit ]
+  %.sroa.033.0 = getelementptr inbounds nuw i8, ptr %84, i64 176
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load i32, ptr %85, align 8, !tbaa !396
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 36
@@ -64385,7 +64392,7 @@ _ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basi
 
 107:                                              ; preds = %105
   %108 = icmp eq i32 %90, -1
-  br i1 %108, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit31
+  br i1 %108, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit32
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %50, align 8, !tbaa !188
@@ -64395,31 +64402,32 @@ _ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basi
   br i1 %.not.i.i.i.i20, label %113, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i21
 
 113:                                              ; preds = %109
-  br i1 %112, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i28
+  br i1 %112, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i29
 
-_ZN4llvmneENS_9StringRefES0_.exit.i.i28:          ; preds = %113
-  %bcmp.i.i.i.i29 = call i32 @bcmp(ptr %110, ptr %92, i64 %94)
-  %.not28.i.i30 = icmp eq i32 %bcmp.i.i.i.i29, 0
-  br i1 %.not28.i.i30, label %.thread53, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24
+_ZN4llvmneENS_9StringRefES0_.exit.i.i29:          ; preds = %113
+  %bcmp.i.i.i.i30 = call i32 @bcmp(ptr %110, ptr %92, i64 %94)
+  %.not28.i.i31 = icmp eq i32 %bcmp.i.i.i.i30, 0
+  br i1 %.not28.i.i31, label %.thread54, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.i.i21:   ; preds = %109
   br i1 %112, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i22
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i22: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i21
   %.old.i.i23 = icmp eq i64 %111, 0
-  br i1 %.old.i.i23, label %.thread53, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24
+  br i1 %.old.i.i23, label %.thread54, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i22, %_ZN4llvmneENS_9StringRefES0_.exit.i.i28
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i22, %_ZN4llvmneENS_9StringRefES0_.exit.i.i29
   %.sroa.speculated.i.i.i25 = call i64 @llvm.umin.i64(i64 %94, i64 %111)
   %114 = call i32 @memcmp(ptr noundef %110, ptr noundef %92, i64 noundef %.sroa.speculated.i.i.i25) #28
   %.fr.i.i.i26 = freeze i32 %114
-  %.not.not.i.i.not.i27 = icmp eq i32 %.fr.i.i.i26, 0
+  %.not.not.i.i.i27 = icmp ne i32 %.fr.i.i.i26, 0
+  %brmerge.i28 = or i1 %.not.i.i.i.i20, %.not.not.i.i.i27
   %115 = icmp ult i64 %111, %94
   %116 = icmp slt i32 %.fr.i.i.i26, 0
-  %117 = select i1 %.not.not.i.i.not.i27, i1 %115, i1 %116
-  br i1 %117, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread, label %.thread53
+  %117 = select i1 %brmerge.i28, i1 %116, i1 %115
+  br i1 %117, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread, label %.thread54
 
-_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit31: ; preds = %107
+_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit32: ; preds = %107
   %118 = icmp ne i32 %106, -1
   %119 = icmp slt i32 %106, %90
   %spec.select19.i.i19 = and i1 %118, %119
@@ -64427,53 +64435,54 @@ _ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit31: ; preds =
 
 120:                                              ; preds = %96
   %121 = icmp slt i32 %86, %95
-  br i1 %121, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42
+  br i1 %121, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43
 
 122:                                              ; preds = %102
   %123 = icmp eq i32 %99, -1
   %124 = icmp slt i32 %88, %99
   %or.cond = select i1 %123, i1 true, i1 %124
-  br i1 %or.cond, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42
+  br i1 %or.cond, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43
 
-.thread53:                                        ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i.i28, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i22, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24
-  %.pr5055 = load i64, ptr %64, align 8, !tbaa !131
-  %.pre465156 = load ptr, ptr %50, align 8, !tbaa !188
-  %.not.i.i.i.i13 = icmp eq i64 %94, %.pr5055
-  %125 = icmp eq i64 %.pr5055, 0
+.thread54:                                        ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.i.i29, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i22, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24
+  %.pr5156 = load i64, ptr %64, align 8, !tbaa !131
+  %.pre475257 = load ptr, ptr %50, align 8, !tbaa !188
+  %.not.i.i.i.i13 = icmp eq i64 %94, %.pr5156
+  %125 = icmp eq i64 %.pr5156, 0
   br i1 %.not.i.i.i.i13, label %129, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
 
-126:                                              ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit31
+126:                                              ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit32
   %127 = icmp eq i32 %106, -1
   %128 = icmp slt i32 %90, %106
-  %or.cond61 = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond61, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42
+  %or.cond65 = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond65, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43
 
-129:                                              ; preds = %.thread53
-  br i1 %125, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i
+129:                                              ; preds = %.thread54
+  br i1 %125, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43, label %_ZN4llvmneENS_9StringRefES0_.exit.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.i.i:            ; preds = %129
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr %92, ptr %.pre465156, i64 %94)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr %92, ptr %.pre475257, i64 %94)
   %.not28.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not28.i.i, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  br i1 %.not28.i.i, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i:     ; preds = %.thread53
-  br i1 %125, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i
+_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i:     ; preds = %.thread54
+  br i1 %125, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46, label %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i
   %.old.i.i = icmp eq i64 %94, 0
-  br i1 %.old.i.i, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  br i1 %.old.i.i, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i
-  %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %.pr5055, i64 %94)
-  %130 = call i32 @memcmp(ptr noundef %92, ptr noundef %.pre465156, i64 noundef %.sroa.speculated.i.i.i) #28
+  %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %.pr5156, i64 %94)
+  %130 = call i32 @memcmp(ptr noundef %92, ptr noundef %.pre475257, i64 noundef %.sroa.speculated.i.i.i) #28
   %.fr.i.i.i = freeze i32 %130
-  %.not.not.i.i.not.i = icmp eq i32 %.fr.i.i.i, 0
-  %131 = icmp ult i64 %94, %.pr5055
+  %.not.not.i.i.i = icmp ne i32 %.fr.i.i.i, 0
+  %brmerge.i = or i1 %.not.i.i.i.i13, %.not.not.i.i.i
+  %131 = icmp ult i64 %94, %.pr5156
   %132 = icmp slt i32 %.fr.i.i.i, 0
-  %133 = select i1 %.not.not.i.i.not.i, i1 %131, i1 %132
-  br i1 %133, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42
+  %133 = select i1 %brmerge.i, i1 %132, i1 %131
+  br i1 %133, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46, label %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43
 
-_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42: ; preds = %126, %122, %113, %129, %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %120
+_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43: ; preds = %126, %122, %113, %129, %_ZN4llvmneENS_9StringRefES0_.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %120
   %134 = load i64, ptr %79, align 8, !tbaa !131
   %135 = getelementptr inbounds nuw i8, ptr %84, i64 152
   %136 = load i64, ptr %135, align 8, !tbaa !131
@@ -64481,7 +64490,7 @@ _ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42: ; 
   %137 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %137, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43
   %138 = getelementptr inbounds nuw i8, ptr %84, i64 144
   %139 = load ptr, ptr %138, align 8, !tbaa !188
   %140 = load ptr, ptr %65, align 8, !tbaa !188
@@ -64489,7 +64498,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK5clang6driver
   %.not.i.i.i.i = icmp eq i32 %141, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread42
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit.thread43
   %142 = sub i64 %134, %136
   %spec.select7.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %142, i64 -2147483648)
   %.08.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
@@ -64499,9 +64508,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
   %.0.i.i.i.i = phi i32 [ %141, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
   %143 = icmp slt i32 %.0.i.i.i.i, 0
-  br i1 %143, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45
+  br i1 %143, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i21, %107, %100, %102, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24, %96, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit31, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i21, %107, %100, %102, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i24, %96, %_ZNK5clang6driver10toolchains11Generic_GCC10GCCVersionltERKS3_.exit32, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit
   %144 = getelementptr inbounds i8, ptr %84, i64 -176
   %145 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN5clang6driver10toolchains11Generic_GCC10GCCVersionaSEOS3_(ptr noundef nonnull align 8 dereferenceable(176) %144, ptr noundef nonnull align 8 dereferenceable(176) %84) #24
   %146 = getelementptr inbounds nuw i8, ptr %84, i64 144
@@ -64593,11 +64602,11 @@ _ZNSt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basi
   %184 = getelementptr inbounds nuw i8, ptr %84, i64 152
   store i64 0, ptr %184, align 8, !tbaa !131
   store i8 0, ptr %183, align 1, !tbaa !124
-  %185 = ptrtoint ptr %.sroa.032.0 to i64
+  %185 = ptrtoint ptr %.sroa.033.0 to i64
   store i64 %185, ptr %0, align 8
   br label %83, !llvm.loop !1347
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i, %126, %122, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %120, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.i.i, %126, %122, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %120, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit
   %186 = getelementptr inbounds i8, ptr %84, i64 -176
   %187 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN5clang6driver10toolchains11Generic_GCC10GCCVersionaSEOS3_(ptr noundef nonnull align 8 dereferenceable(176) %186, ptr noundef nonnull align 8 dereferenceable(176) %2) #24
   %188 = getelementptr inbounds i8, ptr %84, i64 -32
@@ -64606,7 +64615,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Gener
   %191 = icmp eq ptr %189, %190
   br i1 %191, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i2
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46
   %192 = getelementptr inbounds i8, ptr %84, i64 -24
   %193 = load i64, ptr %192, align 8, !tbaa !131
   %194 = icmp ult i64 %193, 16
@@ -64615,7 +64624,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8:
   %196 = icmp eq ptr %195, %67
   br i1 %196, label %199, label %.thread.i.i9
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i2: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread45
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i2: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5clang6driver10toolchains11Generic_GCC10GCCVersionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt16reverse_iteratorIPSF_EEEbRT_T0_.exit.thread46
   %197 = load ptr, ptr %65, align 8, !tbaa !188
   %198 = icmp eq ptr %197, %67
   br i1 %198, label %199, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i3

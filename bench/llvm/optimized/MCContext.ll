@@ -17957,7 +17957,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i: ; preds = %_ZNSt11char_tr
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i
   %.0.i.i = phi i32 [ %15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.0.i6.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ]
   %17 = icmp slt i32 %.0.i.i, 0
-  br label %40
+  br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread21: ; preds = %8, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17995,44 +17995,36 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
   %24 = tail call i32 @memcmp(ptr noundef %.sroa.05.0.copyload, ptr noundef %.sroa.03.0.copyload, i64 noundef %.sroa.speculated.i.i2028) #26
   %.fr.i.i = freeze i32 %24
   %.not.not.i.i = icmp ne i32 %.fr.i.i, 0
-  %.inv.i.i = icmp sgt i32 %.fr.i.i, -1
-  %spec.select.i.i = select i1 %.inv.i.i, i32 1, i32 -1
   %brmerge = or i1 %.not.i.i17, %.not.not.i.i
-  %spec.select.i.i.mux = select i1 %.not.not.i.i, i32 %spec.select.i.i, i32 0
+  %25 = icmp slt i32 %.fr.i.i, 0
   br i1 %brmerge, label %_ZN4llvmltENS_9StringRefES0_.exit, label %.thread.i.i.thread
 
 .thread.i.i.thread:                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
-  %25 = icmp ult i64 %.sroa.26.0.copyload, %.sroa.24.0.copyload
-  %26 = select i1 %25, i32 -1, i32 1
+  %26 = icmp ult i64 %.sroa.26.0.copyload, %.sroa.24.0.copyload
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
-_ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i.thread
-  %.1.i.i = phi i32 [ %26, %.thread.i.i.thread ], [ %spec.select.i.i.mux, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
-  %27 = icmp slt i32 %.1.i.i, 0
-  br label %40
-
 _ZN4llvmneENS_9StringRefES0_.exit.thread23:       ; preds = %20, %_ZN4llvmneENS_9StringRefES0_.exit
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 8, !tbaa !658
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %31 = load i32, ptr %30, align 8, !tbaa !658
-  %.not = icmp eq i32 %29, %31
-  br i1 %.not, label %34, label %32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load i32, ptr %27, align 8, !tbaa !658
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %30 = load i32, ptr %29, align 8, !tbaa !658
+  %.not = icmp eq i32 %28, %30
+  br i1 %.not, label %33, label %31
 
-32:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread23
-  %33 = icmp slt i32 %29, %31
-  br label %40
+31:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread23
+  %32 = icmp slt i32 %28, %30
+  br label %_ZN4llvmltENS_9StringRefES0_.exit
 
-34:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread23
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %36 = load i32, ptr %35, align 4, !tbaa !660
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %38 = load i32, ptr %37, align 4, !tbaa !660
-  %39 = icmp ult i32 %36, %38
-  br label %40
+33:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread23
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %35 = load i32, ptr %34, align 4, !tbaa !660
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %37 = load i32, ptr %36, align 4, !tbaa !660
+  %38 = icmp ult i32 %35, %37
+  br label %_ZN4llvmltENS_9StringRefES0_.exit
 
-40:                                               ; preds = %34, %32, %_ZN4llvmltENS_9StringRefES0_.exit, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %.0 = phi i1 [ %17, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %27, %_ZN4llvmltENS_9StringRefES0_.exit ], [ %33, %32 ], [ %39, %34 ]
+_ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %.thread.i.i.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %33, %31, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+  %.0 = phi i1 [ %17, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %32, %31 ], [ %38, %33 ], [ %26, %.thread.i.i.thread ], [ %25, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   ret i1 %.0
 }
 
@@ -18368,7 +18360,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i: ; preds = %_ZNSt11char_tr
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i
   %.0.i.i = phi i32 [ %15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.0.i6.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ]
   %17 = icmp slt i32 %.0.i.i, 0
-  br label %33
+  br label %_ZN4llvmltENS_9StringRefES0_.exit
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread17: ; preds = %8, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -18406,32 +18398,24 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvmneENS_9St
   %24 = tail call i32 @memcmp(ptr noundef %.sroa.05.0.copyload, ptr noundef %.sroa.03.0.copyload, i64 noundef %.sroa.speculated.i.i1623) #26
   %.fr.i.i = freeze i32 %24
   %.not.not.i.i = icmp ne i32 %.fr.i.i, 0
-  %.inv.i.i = icmp sgt i32 %.fr.i.i, -1
-  %spec.select.i.i = select i1 %.inv.i.i, i32 1, i32 -1
   %brmerge = or i1 %.not.i.i13, %.not.not.i.i
-  %spec.select.i.i.mux = select i1 %.not.not.i.i, i32 %spec.select.i.i, i32 0
+  %25 = icmp slt i32 %.fr.i.i, 0
   br i1 %brmerge, label %_ZN4llvmltENS_9StringRefES0_.exit, label %.thread.i.i.thread
 
 .thread.i.i.thread:                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
-  %25 = icmp ult i64 %.sroa.26.0.copyload, %.sroa.24.0.copyload
-  %26 = select i1 %25, i32 -1, i32 1
+  %26 = icmp ult i64 %.sroa.26.0.copyload, %.sroa.24.0.copyload
   br label %_ZN4llvmltENS_9StringRefES0_.exit
 
-_ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i.thread
-  %.1.i.i = phi i32 [ %26, %.thread.i.i.thread ], [ %spec.select.i.i.mux, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
-  %27 = icmp slt i32 %.1.i.i, 0
-  br label %33
-
 _ZN4llvmneENS_9StringRefES0_.exit.thread19:       ; preds = %20, %_ZN4llvmneENS_9StringRefES0_.exit
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 8, !tbaa !674
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %31 = load i32, ptr %30, align 8, !tbaa !674
-  %32 = icmp ult i32 %29, %31
-  br label %33
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load i32, ptr %27, align 8, !tbaa !674
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %30 = load i32, ptr %29, align 8, !tbaa !674
+  %31 = icmp ult i32 %28, %30
+  br label %_ZN4llvmltENS_9StringRefES0_.exit
 
-33:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread19, %_ZN4llvmltENS_9StringRefES0_.exit, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %.0 = phi i1 [ %17, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %27, %_ZN4llvmltENS_9StringRefES0_.exit ], [ %32, %_ZN4llvmneENS_9StringRefES0_.exit.thread19 ]
+_ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread, %.thread.i.i.thread, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.thread19, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+  %.0 = phi i1 [ %17, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %31, %_ZN4llvmneENS_9StringRefES0_.exit.thread19 ], [ %26, %.thread.i.i.thread ], [ %25, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit.thread ]
   ret i1 %.0
 }
 
