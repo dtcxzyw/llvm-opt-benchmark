@@ -24018,78 +24018,78 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i: ; preds = %_ZNSt11char_
 
 23:                                               ; preds = %17
   %24 = icmp eq i64 %.sroa.speculated.i.i, 0
-  br i1 %24, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit, label %25
+  br i1 %24, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread
 
-25:                                               ; preds = %23
+_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread: ; preds = %23
   %26 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef %3, i64 noundef %.sroa.speculated.i.i) #36
   br label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
 
-_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i, %23, %25
+_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit:; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i, %23, %25
   %.0.i.i = phi i32 [ -1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.thread.i.i ], [ -1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i ], [ %26, %25 ], [ 0, %23 ]
   %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %.0.i.i, i32 0)
   %.0.i22 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
   %27 = icmp eq i32 %.0.i, %.0.i22
-  br label %45
+  br label %47
 
-28:                                               ; preds = %6
+_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread: ; preds = %6
   invoke void @_ZN5boost14static_strings6detail15throw_exceptionISt12out_of_rangeEEvPKc(ptr noundef nonnull @.str.3) #35
-          to label %.noexc unwind label %29
+          to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %28
   unreachable
 
-29:                                               ; preds = %28
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #36
-  %34 = icmp eq i32 %32, %33
-  %35 = tail call ptr @__cxa_begin_catch(ptr %31) #36
-  br i1 %34, label %36, label %39
+  %33 = extractvalue { ptr, i32 } %32, 0
+  %34 = extractvalue { ptr, i32 } %32, 1
+  %35 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #36
+  %36 = icmp eq i32 %34, %35
+  %37 = tail call ptr @__cxa_begin_catch(ptr %33) #36
+  br i1 %36, label %38, label %41
 
-36:                                               ; preds = %29
-  %37 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
-          to label %38 unwind label %43
+38:                                               ; preds = %31
+  %39 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZN5boost6detail12test_resultsEv()
+          to label %38 unwind label %45
 
-38:                                               ; preds = %36
+40:                                               ; preds = %38
   tail call void @__cxa_end_catch()
-  br label %45
+  br label %47
 
-39:                                               ; preds = %29
+41:                                               ; preds = %31
   invoke void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS2_(ptr noundef nonnull @.str.6173, ptr noundef nonnull @.str.1316, ptr noundef nonnull @.str.13, i32 noundef 148, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings5testCINS0_19basic_static_stringILm400EcSt11char_traitsIcEEEEEbRKT_NS6_9size_typeES9_PKNS6_10value_typeES9_i)
-          to label %40 unwind label %41
+          to label %40 unwind label %43
 
-40:                                               ; preds = %39
+42:                                               ; preds = %41
   tail call void @__cxa_end_catch()
-  br label %45
+  br label %47
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %46 unwind label %47
-
-43:                                               ; preds = %36
+43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %46 unwind label %47
+          to label %46 unwind label %49
 
-45:                                               ; preds = %38, %40, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
+45:                                               ; preds = %38
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %46 unwind label %49
+
+47:                                               ; preds = %40, %42, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit
   %.0 = phi i1 [ %27, %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit ], [ true, %40 ], [ true, %38 ]
   ret i1 %.0
 
-46:                                               ; preds = %43, %41
-  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %44, %43 ]
+48:                                               ; preds = %45, %43
+  %.pn = phi { ptr, i32 } [ %44, %41 ], [ %46, %43 ]
   resume { ptr, i32 } %.pn
 
-47:                                               ; preds = %43, %41
-  %48 = landingpad { ptr, i32 }
+49:                                               ; preds = %45, %43
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #37
+  %51 = extractvalue { ptr, i32 } %50, 0
+  tail call void @__clang_call_terminate(ptr %51) #37
   unreachable
 }
 
