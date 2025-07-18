@@ -265,7 +265,7 @@ $_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_
 @.str.83 = private unnamed_addr constant [6 x i8] c"write\00", align 1
 @.str.84 = private unnamed_addr constant [8 x i8] c"capture\00", align 1
 @.str.85 = private unnamed_addr constant [10 x i8] c"<invalid>\00", align 1
-@switch.table._ZN5clang6Parser25ParseOpenACCDirectiveStmtEv = private unnamed_addr constant [19 x i32] [i32 268435462, i32 268435462, i32 268435462, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 268435462, i32 268435462, i32 268435462, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], align 4
+@switch.table._ZN5clang6Parser25ParseOpenACCDirectiveStmtEv = private unnamed_addr constant [12 x i32] [i32 268435462, i32 268435462, i32 268435462, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 268435462, i32 268435462, i32 268435462], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i64 @_ZN5clang6Parser18OpenACCCanContinueEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
@@ -2455,7 +2455,7 @@ define dso_local range(i64 4, 1) i64 @_ZN5clang6Parser24ParseOpenACCClauseParams
 
 _ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit: ; preds = %6
   %51 = icmp eq i8 %3, 17
-  br i1 %51, label %_ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174
+  br i1 %51, label %_ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173
 
 _ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread: ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %_ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
   %52 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker16expectAndConsumeEjPKcNS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef 14, ptr noundef nonnull @.str, i16 noundef zeroext 0) #18
@@ -2536,8 +2536,8 @@ _ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17O
   %.sroa.2155.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.2155.0.copyload = load i16, ptr %.sroa.2155.0..sroa_idx, align 8, !tbaa !754
   %66 = call fastcc noundef zeroext i8 @_ZN12_GLOBAL__N_127getOpenACCDefaultClauseKindEN5clang5TokenE(ptr %.sroa.1.0.copyload, i16 %.sroa.2155.0.copyload)
-  %.not191 = icmp eq i8 %66, 2
-  br i1 %.not191, label %67, label %68
+  %.not190 = icmp eq i8 %66, 2
+  br i1 %.not190, label %67, label %68
 
 67:                                               ; preds = %61
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %16, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %15, i32 noundef 1424) #18
@@ -2938,11 +2938,11 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110: ; preds = %72, %172, %140
 217:                                              ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   switch i8 %4, label %218 [
     i8 10, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
-    i8 46, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174
-    i8 5, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174
-    i8 6, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174
-    i8 48, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174
-    i8 49, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174
+    i8 46, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173
+    i8 5, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173
+    i8 6, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173
+    i8 48, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173
+    i8 49, label %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173
     i8 8, label %.sink.split
     i8 9, label %.sink.split
     i8 33, label %.sink.split
@@ -3001,13 +3001,13 @@ _ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17O
   %or.cond = select i1 %.not, i1 %221, i1 false
   br i1 %or.cond, label %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i, label %.sink.split
 
-_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174: ; preds = %217, %217, %217, %217, %217, %_ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
+_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173: ; preds = %217, %217, %217, %217, %217, %_ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
   %.old = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.old193 = load i16, ptr %.old, align 8, !tbaa !746
-  %.old194 = icmp eq i16 %.old193, 22
-  br i1 %.old194, label %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i, label %.sink.split
+  %.old192 = load i16, ptr %.old, align 8, !tbaa !746
+  %.old193 = icmp eq i16 %.old192, 22
+  br i1 %.old193, label %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i, label %.sink.split
 
-_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit, %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174
+_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit, %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %223 = load i16, ptr %222, align 8, !tbaa !1026
   %224 = zext i16 %223 to i32
@@ -3019,9 +3019,9 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %_ZN12_GLOBAL__
   %230 = load i64, ptr %229, align 8
   %231 = trunc i64 %230 to i32
   %232 = icmp ult i32 %224, %231
-  br i1 %232, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread176, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
+  br i1 %232, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread175, label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
-_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread176: ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
+_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread175: ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
   %233 = tail call i32 @_ZN5clang6Parser12ConsumeParenEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #18
   store i32 %233, ptr %41, align 8, !tbaa !748
   br label %235
@@ -3034,8 +3034,8 @@ _ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit._crit_edge: ; preds = %_
   %.sroa.0.0.copyload.i118.pre = load i32, ptr %41, align 8, !tbaa !748
   br label %235
 
-235:                                              ; preds = %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit._crit_edge, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread176
-  %.sroa.0.0.copyload.i118 = phi i32 [ %.sroa.0.0.copyload.i118.pre, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit._crit_edge ], [ %233, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread176 ]
+235:                                              ; preds = %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit._crit_edge, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread175
+  %.sroa.0.0.copyload.i118 = phi i32 [ %.sroa.0.0.copyload.i118.pre, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit._crit_edge ], [ %233, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit.thread175 ]
   store i32 %.sroa.0.0.copyload.i118, ptr %48, align 4, !tbaa !748
   switch i8 %4, label %375 [
     i8 10, label %236
@@ -3092,7 +3092,7 @@ _ZN5clang6Parser25ParseOpenACCConditionExprEv.exit: ; preds = %246
   br label %_ZN5clang6Parser25ParseOpenACCConditionExprEv.exit.thread
 
 _ZN5clang6Parser25ParseOpenACCConditionExprEv.exit.thread: ; preds = %_ZN5clang6Parser25ParseOpenACCConditionExprEv.exit, %246, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i119, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.thread.i
-  %.sroa.07.0.i179 = phi i64 [ %244, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i119 ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.thread.i ], [ 1, %246 ], [ %258, %_ZN5clang6Parser25ParseOpenACCConditionExprEv.exit ]
+  %.sroa.07.0.i178 = phi i64 [ %244, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i119 ], [ 1, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.thread.i ], [ 1, %246 ], [ %258, %_ZN5clang6Parser25ParseOpenACCConditionExprEv.exit ]
   %261 = phi i64 [ 0, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i119 ], [ 0, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.thread.i ], [ 0, %246 ], [ %spec.select, %_ZN5clang6Parser25ParseOpenACCConditionExprEv.exit ]
   %262 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %263 = load i8, ptr %49, align 8, !tbaa !1024
@@ -3177,10 +3177,10 @@ _ZNSt7variantIJSt9monostateN5clang11SemaOpenACC19OpenACCParsedClause14DefaultDet
   br label %_ZN5clang11SemaOpenACC19OpenACCParsedClause19setConditionDetailsEPNS_4ExprE.exit
 
 _ZN5clang11SemaOpenACC19OpenACCParsedClause19setConditionDetailsEPNS_4ExprE.exit: ; preds = %_ZSt3getILm2EJSt9monostateN5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsENS3_15CollapseDetailsENS3_11GangDetailsEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSH_.exit.i.i, %_ZNSt7variantIJSt9monostateN5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS3_16ConditionDetailsENS3_14IntExprDetailsENS3_14VarListDetailsENS3_11WaitDetailsENS3_17DeviceTypeDetailsENS3_16ReductionDetailsENS3_15CollapseDetailsENS3_11GangDetailsEEE7emplaceILm2EJS5_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_S4_S5_S6_S7_S8_S9_SA_SB_SC_EE4typeEDpT0_EERSI_E4typeEDpOSJ_.exit.i.i
-  %296 = icmp eq i64 %.sroa.07.0.i179, 1
-  br i1 %296, label %.thread180, label %.thread190
+  %296 = icmp eq i64 %.sroa.07.0.i178, 1
+  br i1 %296, label %.thread179, label %.thread189
 
-.thread180:                                       ; preds = %_ZN5clang11SemaOpenACC19OpenACCParsedClause19setConditionDetailsEPNS_4ExprE.exit
+.thread179:                                       ; preds = %_ZN5clang11SemaOpenACC19OpenACCParsedClause19setConditionDetailsEPNS_4ExprE.exit
   call void @_ZN5clang24BalancedDelimiterTracker9skipToEndEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #18
   br label %.thread165
 
@@ -3216,9 +3216,9 @@ _ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_
 _ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit125: ; preds = %297, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i124, %310
   %.sroa.014.0.i120 = phi i64 [ %316, %310 ], [ %301, %297 ], [ %308, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i124 ]
   %317 = icmp eq i64 %.sroa.014.0.i120, 1
-  br i1 %317, label %.thread181, label %318
+  br i1 %317, label %.thread180, label %318
 
-.thread181:                                       ; preds = %_ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit125
+.thread180:                                       ; preds = %_ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit125
   call void @_ZN5clang24BalancedDelimiterTracker9skipToEndEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #18
   br label %.thread165
 
@@ -3229,7 +3229,7 @@ _ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClau
   store ptr %320, ptr %30, align 8, !tbaa !1027
   call void @_ZN5clang11SemaOpenACC19OpenACCParsedClause17setIntExprDetailsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr nonnull %30, i64 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #18
-  br label %.thread190
+  br label %.thread189
 
 321:                                              ; preds = %235
   %322 = call i64 @_ZN5clang6Parser25ParseAssignmentExpressionENS0_13TypeCastStateE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0) #18
@@ -3265,14 +3265,14 @@ _ZN5clang6Parser25ParseOpenACCAsyncArgumentENS_20OpenACCDirectiveKindENS_17OpenA
   br i1 %337, label %340, label %338
 
 338:                                              ; preds = %_ZN5clang6Parser25ParseOpenACCAsyncArgumentENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit.thread, %_ZN5clang6Parser25ParseOpenACCAsyncArgumentENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit
-  %.sroa.014.0.i.i186 = phi i64 [ %336, %_ZN5clang6Parser25ParseOpenACCAsyncArgumentENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit ], [ %.sroa.014.0.i.i.ph, %_ZN5clang6Parser25ParseOpenACCAsyncArgumentENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit.thread ]
+  %.sroa.014.0.i.i185 = phi i64 [ %336, %_ZN5clang6Parser25ParseOpenACCAsyncArgumentENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit ], [ %.sroa.014.0.i.i.ph, %_ZN5clang6Parser25ParseOpenACCAsyncArgumentENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit.thread ]
   store ptr null, ptr %31, align 8, !tbaa !1027
   call void @_ZN5clang11SemaOpenACC19OpenACCParsedClause17setIntExprDetailsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr nonnull %31, i64 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #18
-  %339 = icmp eq i64 %.sroa.014.0.i.i186, 1
-  br i1 %339, label %.thread189, label %.thread190
+  %339 = icmp eq i64 %.sroa.014.0.i.i185, 1
+  br i1 %339, label %.thread188, label %.thread189
 
-.thread189:                                       ; preds = %338
+.thread188:                                       ; preds = %338
   call void @_ZN5clang24BalancedDelimiterTracker9skipToEndEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #18
   br label %.thread165
 
@@ -3282,7 +3282,7 @@ _ZN5clang6Parser25ParseOpenACCAsyncArgumentENS_20OpenACCDirectiveKindENS_17OpenA
   store ptr %342, ptr %31, align 8, !tbaa !1027
   call void @_ZN5clang11SemaOpenACC19OpenACCParsedClause17setIntExprDetailsEN4llvm8ArrayRefIPNS_4ExprEEE(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr nonnull %31, i64 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #18
-  br label %.thread190
+  br label %.thread189
 
 343:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #18
@@ -3331,7 +3331,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit126: ; preds = %353, %356
 
 _ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit126, %359
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #18
-  br i1 %350, label %.thread165, label %.thread190
+  br i1 %350, label %.thread165, label %.thread189
 
 360:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %34) #18
@@ -3366,23 +3366,23 @@ _ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit: ; preds = %_ZN4l
 
 _ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit:  ; preds = %369, %374
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %34) #18
-  br i1 %362, label %.thread165, label %.thread190
+  br i1 %362, label %.thread165, label %.thread189
 
 375:                                              ; preds = %235
   unreachable
 
-.thread190:                                       ; preds = %338, %340, %318, %_ZN5clang11SemaOpenACC19OpenACCParsedClause19setConditionDetailsEPNS_4ExprE.exit, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit
+.thread189:                                       ; preds = %338, %340, %318, %_ZN5clang11SemaOpenACC19OpenACCParsedClause19setConditionDetailsEPNS_4ExprE.exit, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %377 = load i32, ptr %376, align 8, !tbaa !747
   store i32 %377, ptr %47, align 8, !tbaa !748
   %378 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker12consumeCloseEv(ptr noundef nonnull align 8 dereferenceable(56) %13)
   br i1 %378, label %.thread165, label %379
 
-.sink.split:                                      ; preds = %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit, %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread174
+.sink.split:                                      ; preds = %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %217, %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit, %_ZN12_GLOBAL__N_123ClauseHasOptionalParensEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread173
   store i32 %5, ptr %47, align 8, !tbaa !748
   br label %379
 
-379:                                              ; preds = %.sink.split, %.thread190, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110
+379:                                              ; preds = %.sink.split, %.thread189, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %381 = load ptr, ptr %380, align 8, !tbaa !3
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 744
@@ -3392,8 +3392,8 @@ _ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit:  ; preds = %369, %374
   %386 = or i64 %385, 4
   br label %.thread165
 
-.thread165:                                       ; preds = %136, %126, %.thread190, %.thread189, %.thread181, %.thread180, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110, %.thread168, %.thread167, %.thread161, %.thread, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit113, %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj3EED2Ev.exit115, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit116, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit, %379, %53
-  %.sroa.0102.0 = phi i64 [ 4, %53 ], [ %386, %379 ], [ 4, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit113 ], [ 4, %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj3EED2Ev.exit115 ], [ 4, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit116 ], [ 4, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit ], [ 4, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit ], [ 4, %.thread ], [ 4, %.thread161 ], [ 4, %.thread167 ], [ 4, %.thread168 ], [ 0, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110 ], [ 4, %.thread180 ], [ 4, %.thread181 ], [ 4, %.thread189 ], [ 0, %.thread190 ], [ 4, %126 ], [ 4, %136 ]
+.thread165:                                       ; preds = %136, %126, %.thread189, %.thread188, %.thread180, %.thread179, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110, %.thread168, %.thread167, %.thread161, %.thread, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit113, %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj3EED2Ev.exit115, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit116, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit, %379, %53
+  %.sroa.0102.0 = phi i64 [ 4, %53 ], [ %386, %379 ], [ 4, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit113 ], [ 4, %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj3EED2Ev.exit115 ], [ 4, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit116 ], [ 4, %_ZN4llvm11SmallVectorIN5clang15OpenACCGangKindELj40EED2Ev.exit ], [ 4, %_ZN5clang6Parser20OpenACCWaitParseInfoD2Ev.exit ], [ 4, %.thread ], [ 4, %.thread161 ], [ 4, %.thread167 ], [ 4, %.thread168 ], [ 0, %_ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit110 ], [ 4, %.thread179 ], [ 4, %.thread180 ], [ 4, %.thread188 ], [ 0, %.thread189 ], [ 4, %126 ], [ 4, %136 ]
   %387 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %388 = load i8, ptr %49, align 8, !tbaa !1024
   switch i8 %388, label %420 [
@@ -8808,12 +8808,12 @@ define dso_local i64 @_ZN5clang6Parser25ParseOpenACCDirectiveStmtEv(ptr noundef 
   %33 = load i8, ptr %7, align 1, !tbaa !1081, !range !741, !noundef !742
   store i8 0, ptr %7, align 1, !tbaa !1081
   %34 = load i8, ptr %2, align 8, !tbaa !1069
-  %35 = icmp ult i8 %34, 19
+  %35 = icmp ult i8 %34, 12
   br i1 %35, label %switch.lookup, label %_ZN5clang6Parser10ParseScopeD2Ev.exit
 
 switch.lookup:                                    ; preds = %24
   %36 = zext nneg i8 %34 to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @switch.table._ZN5clang6Parser25ParseOpenACCDirectiveStmtEv, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN5clang6Parser25ParseOpenACCDirectiveStmtEv, i64 0, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5clang6Parser10ParseScopeD2Ev.exit
 

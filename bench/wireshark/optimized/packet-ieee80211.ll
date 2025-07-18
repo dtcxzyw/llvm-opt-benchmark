@@ -47828,8 +47828,8 @@ switch.lookup44:                                  ; preds = %49
   %switch.load47 = load i16, ptr %switch.gep46, align 2
   br label %get_mic_len_owe.exit
 
-get_mic_len_owe.exit:                             ; preds = %switch.lookup44, %49, %switch.lookup, %36, %46, %46, %46, %33, %33, %33, %55, %54, %42, %41, %27, %56, %53, %40, %22
-  %.0 = phi i16 [ %24, %22 ], [ 16, %40 ], [ 16, %53 ], [ 16, %56 ], [ %28, %27 ], [ 16, %36 ], [ 16, %42 ], [ 0, %41 ], [ 16, %49 ], [ 16, %55 ], [ 0, %54 ], [ 24, %33 ], [ 24, %33 ], [ 24, %33 ], [ 24, %46 ], [ 24, %46 ], [ 24, %46 ], [ %switch.load, %switch.lookup ], [ %switch.load47, %switch.lookup44 ]
+get_mic_len_owe.exit:                             ; preds = %49, %switch.lookup44, %36, %switch.lookup, %46, %46, %46, %33, %33, %33, %55, %54, %42, %41, %27, %56, %53, %40, %22
+  %.0 = phi i16 [ %24, %22 ], [ 16, %40 ], [ 16, %53 ], [ 16, %56 ], [ %28, %27 ], [ 16, %42 ], [ 0, %41 ], [ 16, %55 ], [ 0, %54 ], [ 24, %33 ], [ 24, %33 ], [ 24, %33 ], [ 24, %46 ], [ 24, %46 ], [ 24, %46 ], [ %switch.load, %switch.lookup ], [ 16, %36 ], [ %switch.load47, %switch.lookup44 ], [ 16, %49 ]
   ret i16 %.0
 }
 

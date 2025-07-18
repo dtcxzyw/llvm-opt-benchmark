@@ -44807,8 +44807,8 @@ switch.lookup:                                    ; preds = %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
-10:                                               ; preds = %switch.lookup, %2
-  %.0 = phi i32 [ 0, %2 ], [ %switch.load, %switch.lookup ]
+10:                                               ; preds = %2, %switch.lookup
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -44828,8 +44828,8 @@ switch.lookup:                                    ; preds = %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK15FilterColorProc16getPreConditionsEPK7QAction.exit
 
-_ZNK15FilterColorProc16getPreConditionsEPK7QAction.exit: ; preds = %switch.lookup, %2
-  %.0.i = phi i32 [ 0, %2 ], [ %switch.load, %switch.lookup ]
+_ZNK15FilterColorProc16getPreConditionsEPK7QAction.exit: ; preds = %2, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
   ret i32 %.0.i
 }
 
@@ -44841,8 +44841,8 @@ define noundef range(i32 1, 4) i32 @_ZNK15FilterColorProc11filterArityEPK7QActio
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
   %cond = icmp eq i32 %7, 12
-  %spec.select = select i1 %cond, i32 3, i32 1
-  ret i32 %spec.select
+  %. = select i1 %cond, i32 3, i32 1
+  ret i32 %.
 }
 
 ; Function Attrs: uwtable
@@ -44852,8 +44852,8 @@ define noundef range(i32 1, 4) i32 @_ZThn16_NK15FilterColorProc11filterArityEPK7
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
   %cond.i = icmp eq i32 %6, 12
-  %spec.select.i = select i1 %cond.i, i32 3, i32 1
-  ret i32 %spec.select.i
+  %..i = select i1 %cond.i, i32 3, i32 1
+  ret i32 %..i
 }
 
 ; Function Attrs: uwtable

@@ -2936,10 +2936,10 @@ _ZNK3ue213RoseBuildImpl9isDelayedEj.exit:         ; preds = %72, %80
   %storemerge.i.i.i.i.i.i = phi ptr [ %85, %80 ], [ %73, %72 ]
   %86 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i.i, i64 80
   %87 = load i32, ptr %86, align 8
-  %.not74 = icmp eq i32 %87, %1
-  br i1 %.not74, label %.lr.ph83, label %.critedge.thread
+  %.not73 = icmp eq i32 %87, %1
+  br i1 %.not73, label %.lr.ph82, label %.critedge.thread
 
-.lr.ph83:                                         ; preds = %_ZNK3ue213RoseBuildImpl9isDelayedEj.exit
+.lr.ph82:                                         ; preds = %_ZNK3ue213RoseBuildImpl9isDelayedEj.exit
   %88 = load ptr, ptr %32, align 8, !noalias !253
   %.idx = shl nuw nsw i64 %34, 4
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx
@@ -2954,9 +2954,9 @@ _ZNK3ue213RoseBuildImpl9isDelayedEj.exit:         ; preds = %72, %80
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %99
 
-99:                                               ; preds = %.lr.ph83, %.critedge
-  %.sroa.066.082 = phi ptr [ %88, %.lr.ph83 ], [ %188, %.critedge ]
-  %.sroa.059.0.copyload = load ptr, ptr %.sroa.066.082, align 8
+99:                                               ; preds = %.lr.ph82, %.critedge
+  %.sroa.066.081 = phi ptr [ %88, %.lr.ph82 ], [ %188, %.critedge ]
+  %.sroa.059.0.copyload = load ptr, ptr %.sroa.066.081, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.059.0.copyload, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.059.0.copyload, i64 64
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.059.0.copyload, i64 72
@@ -2989,15 +2989,15 @@ _ZNK3ue213RoseBuildImpl9isDelayedEj.exit:         ; preds = %72, %80
 117:                                              ; preds = %114
   %118 = load ptr, ptr %101, align 8, !noalias !260
   %119 = load i64, ptr %102, align 8, !noalias !267
-  %.idx100 = shl nuw nsw i64 %119, 2
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx100
-  %.not7679 = icmp eq i64 %119, 0
-  br i1 %.not7679, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %.lr.ph
+  %.idx99 = shl nuw nsw i64 %119, 2
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx99
+  %.not7578 = icmp eq i64 %119, 0
+  br i1 %.not7578, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %117, %125
-  %.sroa.056.080 = phi ptr [ %126, %125 ], [ %118, %117 ]
+  %.sroa.056.079 = phi ptr [ %126, %125 ], [ %118, %117 ]
   %121 = load ptr, ptr %90, align 8
-  %122 = load i32, ptr %.sroa.056.080, align 4
+  %122 = load i32, ptr %.sroa.056.079, align 4
   %123 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %121, i32 noundef %122)
   %.val = load i32, ptr %123, align 8
   %switch.tableidx = add i32 %.val, -2
@@ -3009,9 +3009,9 @@ _ZNK3ue213RoseBuildImpl9isDelayedEj.exit:         ; preds = %72, %80
   br i1 %or.cond, label %.critedge.thread, label %125
 
 125:                                              ; preds = %.lr.ph
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.056.080, i64 4
-  %.not76 = icmp eq ptr %126, %120
-  br i1 %.not76, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %.lr.ph
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 4
+  %.not75 = icmp eq ptr %126, %120
+  br i1 %.not75, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %.lr.ph
 
 _ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %125, %117
   %127 = load ptr, ptr %93, align 8
@@ -3094,8 +3094,8 @@ _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %161, %167
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8
   %.sroa.0.0.copyload.i53 = load ptr, ptr %98, align 8
-  %.not77 = icmp eq ptr %181, %.sroa.0.0.copyload.i53
-  br i1 %.not77, label %182, label %.critedge.thread
+  %.not76 = icmp eq ptr %181, %.sroa.0.0.copyload.i53
+  br i1 %.not76, label %182, label %.critedge.thread
 
 182:                                              ; preds = %177
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 48
@@ -3110,9 +3110,9 @@ _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %161, %167
   br i1 %.not46, label %.critedge, label %.critedge.thread
 
 .critedge:                                        ; preds = %185, %_ZNK3ue214RoseLiteralMap2atEj.exit
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.066.082, i64 16
-  %.not75 = icmp eq ptr %188, %89
-  br i1 %.not75, label %.critedge.thread, label %99
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.066.081, i64 16
+  %.not74 = icmp eq ptr %188, %89
+  br i1 %.not74, label %.critedge.thread, label %99
 
 .critedge.thread:                                 ; preds = %182, %177, %185, %99, %104, %108, %110, %114, %.critedge, %.lr.ph, %_ZNK3ue213RoseBuildImpl9isDelayedEj.exit, %35, %38, %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit
   %.0 = phi i1 [ false, %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit ], [ false, %38 ], [ false, %35 ], [ false, %_ZNK3ue213RoseBuildImpl9isDelayedEj.exit ], [ false, %.lr.ph ], [ false, %182 ], [ false, %177 ], [ false, %185 ], [ false, %99 ], [ false, %104 ], [ false, %108 ], [ false, %110 ], [ false, %114 ], [ true, %.critedge ]

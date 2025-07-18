@@ -976,6 +976,10 @@ zend_ssa_is_no_val_use.exit316.thread:            ; preds = %446, %451, %zend_ss
     i8 -62, label %may_have_side_effects.exit.thread419
     i8 72, label %508
     i8 125, label %700
+    i8 77, label %700
+    i8 49, label %659
+    i8 -73, label %648
+    i8 -121, label %632
     i8 -122, label %632
     i8 -123, label %632
     i8 -124, label %632
@@ -987,11 +991,7 @@ zend_ssa_is_no_val_use.exit316.thread:            ; preds = %446, %451, %zend_ss
     i8 36, label %584
     i8 34, label %584
     i8 -103, label %543
-    i8 -121, label %632
     i8 22, label %516
-    i8 -73, label %648
-    i8 49, label %659
-    i8 77, label %700
   ]
 
 508:                                              ; preds = %504
@@ -1159,8 +1159,8 @@ is_bad_mod.exit122.i:                             ; preds = %588
   %601 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %599, i64 %600, i32 7
   %602 = load i8, ptr %601, align 8
   %603 = and i8 %602, 48
-  %.not462 = icmp eq i8 %603, 16
-  br i1 %.not462, label %may_have_side_effects.exit.thread419, label %may_have_side_effects.exit.thread
+  %.not461 = icmp eq i8 %603, 16
+  br i1 %.not461, label %may_have_side_effects.exit.thread419, label %may_have_side_effects.exit.thread
 
 604:                                              ; preds = %504, %504
   %605 = getelementptr inbounds nuw i8, ptr %507, i64 12
@@ -1330,8 +1330,8 @@ is_bad_mod.exit128.i:                             ; preds = %632
 _ssa_op1_info.exit80.i:                           ; preds = %695, %688, %683, %681
   %.0.i78.i = phi i32 [ %682, %681 ], [ %spec.select.i88.i, %688 ], [ %698, %695 ], [ %685, %683 ]
   %699 = and i32 %.0.i78.i, 1
-  %.not461 = icmp eq i32 %699, 0
-  br i1 %.not461, label %may_have_side_effects.exit.thread419, label %may_have_side_effects.exit.thread
+  %.not462 = icmp eq i32 %699, 0
+  br i1 %.not462, label %may_have_side_effects.exit.thread419, label %may_have_side_effects.exit.thread
 
 700:                                              ; preds = %504, %504
   %701 = getelementptr inbounds nuw i8, ptr %505, i64 29

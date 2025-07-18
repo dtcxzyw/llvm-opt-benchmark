@@ -1014,8 +1014,8 @@ define internal fastcc void @read_number(ptr noundef captures(none) %0, ptr noun
   br label %16
 
 16:                                               ; preds = %5, %13, %14, %15
-  %17 = phi i1 [ false, %15 ], [ true, %14 ], [ false, %13 ], [ false, %5 ]
-  %.0.i.ph = phi i32 [ 8, %15 ], [ 4, %14 ], [ 2, %13 ], [ 1, %5 ]
+  %17 = phi i1 [ false, %5 ], [ false, %15 ], [ true, %14 ], [ false, %13 ]
+  %.0.i.ph = phi i32 [ 1, %5 ], [ 8, %15 ], [ 4, %14 ], [ 2, %13 ]
   %18 = tail call ptr @wmem_packet_scope()
   %19 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %18, ptr noundef nonnull @.str.70)
   store ptr %19, ptr @gbl_symbol_buffer, align 8

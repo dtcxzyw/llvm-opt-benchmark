@@ -648,64 +648,50 @@ declare i32 @lv_anim_path_linear(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @lv_style_prop_get_default(i8 noundef zeroext %0) local_unnamed_addr #4 {
-  switch i8 %0, label %9 [
-    i8 108, label %10
-    i8 109, label %10
+  switch i8 %0, label %7 [
+    i8 108, label %8
+    i8 109, label %8
     i8 28, label %2
-    i8 35, label %3
-    i8 49, label %3
-    i8 61, label %3
-    i8 57, label %3
-    i8 82, label %3
-    i8 76, label %3
-    i8 88, label %3
-    i8 69, label %3
-    i8 95, label %4
-    i8 96, label %4
-    i8 50, label %4
-    i8 89, label %4
-    i8 68, label %4
-    i8 37, label %4
-    i8 36, label %4
-    i8 41, label %4
-    i8 58, label %4
-    i8 62, label %4
-    i8 77, label %4
-    i8 83, label %4
-    i8 34, label %5
-    i8 52, label %6
-    i8 90, label %7
-    i8 5, label %8
-    i8 7, label %8
-    i8 116, label %10
+    i8 116, label %8
+    i8 7, label %6
+    i8 5, label %6
+    i8 90, label %5
+    i8 52, label %4
+    i8 34, label %3
+    i8 83, label %3
+    i8 77, label %3
+    i8 95, label %3
+    i8 96, label %3
+    i8 50, label %3
+    i8 89, label %3
+    i8 68, label %3
+    i8 37, label %3
+    i8 36, label %3
+    i8 41, label %3
+    i8 58, label %3
+    i8 62, label %3
   ]
 
 2:                                                ; preds = %1
-  br label %10
+  br label %8
 
-3:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1
-  br label %10
+3:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %8
 
-4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %10
+4:                                                ; preds = %1
+  br label %8
 
 5:                                                ; preds = %1
-  br label %10
+  br label %8
 
-6:                                                ; preds = %1
-  br label %10
+6:                                                ; preds = %1, %1
+  br label %8
 
 7:                                                ; preds = %1
-  br label %10
+  br label %8
 
-8:                                                ; preds = %1, %1
-  br label %10
-
-9:                                                ; preds = %1
-  br label %10
-
-10:                                               ; preds = %1, %1, %1, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi ptr [ null, %9 ], [ inttoptr (i64 16777215 to ptr), %2 ], [ null, %3 ], [ inttoptr (i64 255 to ptr), %4 ], [ inttoptr (i64 255 to ptr), %5 ], [ inttoptr (i64 15 to ptr), %6 ], [ @lv_font_montserrat_14, %7 ], [ inttoptr (i64 536870911 to ptr), %8 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ]
+8:                                                ; preds = %1, %1, %1, %7, %6, %5, %4, %3, %2
+  %.sroa.0.0 = phi ptr [ null, %7 ], [ inttoptr (i64 16777215 to ptr), %2 ], [ inttoptr (i64 255 to ptr), %3 ], [ inttoptr (i64 15 to ptr), %4 ], [ @lv_font_montserrat_14, %5 ], [ inttoptr (i64 536870911 to ptr), %6 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ]
   ret ptr %.sroa.0.0
 }
 

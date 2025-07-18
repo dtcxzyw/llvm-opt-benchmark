@@ -73,7 +73,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11SemaSystemZ31CheckSystemZBuiltin
   %8 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   switch i32 %1, label %.thread29 [
     i32 1466, label %9
-    i32 1471, label %92
+    i32 1471, label %89
     i32 1732, label %78
     i32 1538, label %78
     i32 1539, label %78
@@ -95,33 +95,33 @@ define dso_local noundef zeroext i1 @_ZN5clang11SemaSystemZ31CheckSystemZBuiltin
     i32 1673, label %80
     i32 1701, label %86
     i32 1679, label %86
-    i32 1472, label %92
-    i32 1476, label %87
-    i32 1604, label %87
-    i32 1658, label %88
-    i32 1660, label %88
-    i32 1662, label %88
-    i32 1664, label %88
-    i32 1666, label %88
-    i32 1668, label %88
-    i32 1659, label %88
-    i32 1661, label %88
-    i32 1663, label %88
-    i32 1665, label %88
-    i32 1667, label %88
-    i32 1669, label %88
-    i32 1683, label %89
-    i32 1693, label %90
-    i32 1692, label %90
-    i32 1685, label %90
-    i32 1684, label %90
-    i32 1702, label %91
-    i32 1703, label %91
-    i32 1714, label %92
-    i32 1715, label %92
-    i32 1717, label %92
-    i32 1718, label %92
-    i32 1716, label %87
+    i32 1472, label %89
+    i32 1476, label %79
+    i32 1604, label %79
+    i32 1658, label %87
+    i32 1660, label %87
+    i32 1662, label %87
+    i32 1664, label %87
+    i32 1666, label %87
+    i32 1668, label %87
+    i32 1659, label %87
+    i32 1661, label %87
+    i32 1663, label %87
+    i32 1665, label %87
+    i32 1667, label %87
+    i32 1669, label %87
+    i32 1683, label %87
+    i32 1693, label %79
+    i32 1692, label %79
+    i32 1685, label %79
+    i32 1684, label %79
+    i32 1702, label %88
+    i32 1703, label %88
+    i32 1714, label %89
+    i32 1715, label %89
+    i32 1717, label %89
+    i32 1718, label %89
+    i32 1716, label %79
   ]
 
 9:                                                ; preds = %3
@@ -267,10 +267,10 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %9, %67, %.thr
   br label %.thread29
 
 78:                                               ; preds = %3, %3, %3, %3, %3
-  br label %92
+  br label %89
 
-79:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %92
+79:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %89
 
 80:                                               ; preds = %3, %3
   %81 = load ptr, ptr %0, align 8, !tbaa !43
@@ -283,32 +283,23 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %9, %67, %.thr
   br label %.thread29
 
 86:                                               ; preds = %3, %3
-  br label %92
+  br label %89
 
-87:                                               ; preds = %3, %3, %3
-  br label %92
+87:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %89
 
-88:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %92
+88:                                               ; preds = %3, %3
+  br label %89
 
-89:                                               ; preds = %3
-  br label %92
-
-90:                                               ; preds = %3, %3, %3, %3
-  br label %92
-
-91:                                               ; preds = %3, %3
-  br label %92
-
-92:                                               ; preds = %3, %3, %3, %3, %3, %3, %91, %90, %89, %88, %87, %86, %79, %78
-  %.016 = phi i32 [ 3, %78 ], [ 2, %79 ], [ 1, %86 ], [ 2, %87 ], [ 3, %88 ], [ 3, %89 ], [ 2, %90 ], [ 2, %91 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
-  %.0 = phi i32 [ 255, %78 ], [ 15, %79 ], [ 4095, %86 ], [ 15, %87 ], [ 15, %88 ], [ 15, %89 ], [ 15, %90 ], [ 7, %91 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ]
-  %93 = load ptr, ptr %0, align 8, !tbaa !43
-  %94 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %93, ptr noundef %2, i32 noundef %.016, i32 noundef 0, i32 noundef %.0, i1 noundef zeroext true) #10
+89:                                               ; preds = %3, %3, %3, %3, %3, %3, %88, %87, %86, %79, %78
+  %.016 = phi i32 [ 3, %78 ], [ 2, %79 ], [ 1, %86 ], [ 3, %87 ], [ 2, %88 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %.0 = phi i32 [ 255, %78 ], [ 15, %79 ], [ 4095, %86 ], [ 15, %87 ], [ 7, %88 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ], [ 15, %3 ]
+  %90 = load ptr, ptr %0, align 8, !tbaa !43
+  %91 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %90, ptr noundef %2, i32 noundef %.016, i32 noundef 0, i32 noundef %.0, i1 noundef zeroext true) #10
   br label %.thread29
 
-.thread29:                                        ; preds = %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit, %3, %92, %83, %80
-  %.1 = phi i1 [ %94, %92 ], [ true, %80 ], [ %85, %83 ], [ %not.switch32, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit ], [ false, %3 ]
+.thread29:                                        ; preds = %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit, %3, %89, %83, %80
+  %.1 = phi i1 [ %91, %89 ], [ true, %80 ], [ %85, %83 ], [ %not.switch32, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit ], [ false, %3 ]
   ret i1 %.1
 }
 

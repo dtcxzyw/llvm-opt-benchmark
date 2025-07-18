@@ -3485,8 +3485,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222: ; preds = %_Z
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit: ; preds = %.sink.split.i, %666, %666, %665, %665, %665, %665, %665, %663
-  %.sroa.7.0.i.ph = phi i64 [ 5, %665 ], [ 6, %666 ], [ 6, %666 ], [ 5, %665 ], [ 5, %665 ], [ 5, %665 ], [ 5, %665 ], [ 5, %663 ], [ %spec.select, %.sink.split.i ]
-  %.sroa.0.0.i.ph = phi ptr [ @.str.90, %665 ], [ @.str.106, %666 ], [ @.str.106, %666 ], [ @.str.90, %665 ], [ @.str.90, %665 ], [ @.str.90, %665 ], [ @.str.90, %665 ], [ @.str.90, %663 ], [ %spec.select349, %.sink.split.i ]
+  %.sroa.7.0.i.ph = phi i64 [ 6, %666 ], [ 6, %666 ], [ 5, %665 ], [ 5, %665 ], [ 5, %665 ], [ 5, %665 ], [ 5, %665 ], [ 5, %663 ], [ %spec.select, %.sink.split.i ]
+  %.sroa.0.0.i.ph = phi ptr [ @.str.106, %666 ], [ @.str.106, %666 ], [ @.str.90, %665 ], [ @.str.90, %665 ], [ @.str.90, %665 ], [ @.str.90, %665 ], [ @.str.90, %665 ], [ @.str.90, %663 ], [ %spec.select349, %.sink.split.i ]
   %669 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %669, ptr %35, align 8, !tbaa !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %669, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.i.ph, i64 %.sroa.7.0.i.ph, i1 false)

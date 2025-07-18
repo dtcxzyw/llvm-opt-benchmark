@@ -48664,11 +48664,11 @@ define internal fastcc noundef zeroext i1 @_ZN4fish6reader19command_ends_paging1
   switch i8 %0, label %6 [
     i8 0, label %3
     i8 1, label %3
+    i8 86, label %3
     i8 85, label %3
     i8 84, label %5
     i8 83, label %5
     i8 82, label %5
-    i8 80, label %5
     i8 7, label %3
     i8 8, label %3
     i8 9, label %3
@@ -48681,15 +48681,15 @@ define internal fastcc noundef zeroext i1 @_ZN4fish6reader19command_ends_paging1
     i8 17, label %5
     i8 18, label %5
     i8 19, label %5
-    i8 64, label %5
+    i8 80, label %5
     i8 22, label %3
     i8 23, label %3
     i8 24, label %3
     i8 25, label %3
     i8 26, label %3
+    i8 64, label %5
     i8 57, label %3
     i8 56, label %3
-    i8 86, label %3
     i8 52, label %3
     i8 32, label %3
     i8 33, label %3

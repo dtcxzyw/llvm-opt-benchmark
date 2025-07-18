@@ -1492,10 +1492,10 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   switch i64 %28, label %93 [
     i64 13, label %85
     i64 1, label %29
+    i64 12, label %77
     i64 14, label %.preheader
     i64 8, label %.preheader154
     i64 10, label %.preheader155
-    i64 12, label %77
     i64 4, label %31
     i64 5, label %31
   ]
@@ -1617,7 +1617,7 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   br label %93
 
 93:                                               ; preds = %40, %37, %29, %31, %52, %._crit_edge, %77, %85, %.loopexit
-  %.1143 = phi ptr [ %.0142169, %.loopexit ], [ %.0142169, %85 ], [ %30, %29 ], [ %54, %._crit_edge ], [ %42, %52 ], [ %.0142169, %77 ], [ %32, %31 ], [ %33, %37 ], [ %33, %40 ]
+  %.1143 = phi ptr [ %.0142169, %.loopexit ], [ %.0142169, %85 ], [ %30, %29 ], [ %.0142169, %77 ], [ %54, %._crit_edge ], [ %42, %52 ], [ %32, %31 ], [ %33, %37 ], [ %33, %40 ]
   %94 = icmp slt i64 %25, %4
   br i1 %94, label %9, label %._crit_edge172
 
@@ -2707,10 +2707,10 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   switch i64 %28, label %99 [
     i64 13, label %91
     i64 1, label %29
+    i64 12, label %83
     i64 14, label %.preheader
     i64 8, label %.preheader154
     i64 10, label %.preheader155
-    i64 12, label %83
     i64 4, label %31
     i64 5, label %31
   ]
@@ -2838,7 +2838,7 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   br label %99
 
 99:                                               ; preds = %40, %37, %29, %31, %52, %._crit_edge, %83, %91, %.loopexit
-  %.1143 = phi ptr [ %.0142169, %.loopexit ], [ %.0142169, %91 ], [ %30, %29 ], [ %54, %._crit_edge ], [ %42, %52 ], [ %.0142169, %83 ], [ %32, %31 ], [ %33, %37 ], [ %33, %40 ]
+  %.1143 = phi ptr [ %.0142169, %.loopexit ], [ %.0142169, %91 ], [ %30, %29 ], [ %.0142169, %83 ], [ %54, %._crit_edge ], [ %42, %52 ], [ %32, %31 ], [ %33, %37 ], [ %33, %40 ]
   %100 = icmp slt i64 %25, %4
   br i1 %100, label %9, label %._crit_edge172
 

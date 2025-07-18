@@ -235,36 +235,36 @@ declare noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_ZN5clang13serialization22isRedeclarableDeclKindEj(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %4 [
-    i32 0, label %5
-    i32 5, label %5
-    i32 22, label %5
-    i32 75, label %5
-    i32 62, label %5
-    i32 63, label %5
-    i32 60, label %5
-    i32 56, label %5
-    i32 57, label %5
-    i32 58, label %5
-    i32 59, label %5
-    i32 39, label %5
-    i32 40, label %5
-    i32 32, label %5
-    i32 37, label %5
-    i32 33, label %5
-    i32 36, label %5
-    i32 34, label %5
-    i32 35, label %5
-    i32 51, label %5
-    i32 52, label %5
-    i32 38, label %5
-    i32 69, label %5
-    i32 70, label %5
-    i32 67, label %5
-    i32 68, label %5
-    i32 17, label %5
-    i32 18, label %5
-    i32 85, label %5
+  switch i32 %0, label %3 [
+    i32 0, label %4
+    i32 5, label %4
+    i32 22, label %4
+    i32 75, label %4
+    i32 62, label %4
+    i32 63, label %4
+    i32 60, label %4
+    i32 56, label %4
+    i32 57, label %4
+    i32 58, label %4
+    i32 59, label %4
+    i32 39, label %4
+    i32 40, label %4
+    i32 32, label %4
+    i32 37, label %4
+    i32 33, label %4
+    i32 36, label %4
+    i32 34, label %4
+    i32 35, label %4
+    i32 51, label %4
+    i32 52, label %4
+    i32 38, label %4
+    i32 69, label %4
+    i32 70, label %4
+    i32 67, label %4
+    i32 68, label %4
+    i32 17, label %4
+    i32 18, label %4
+    i32 85, label %4
     i32 54, label %2
     i32 76, label %2
     i32 61, label %2
@@ -320,22 +320,19 @@ define dso_local noundef zeroext i1 @_ZN5clang13serialization22isRedeclarableDec
     i32 2, label %2
     i32 55, label %2
     i32 23, label %2
-    i32 43, label %3
-    i32 41, label %3
-    i32 64, label %3
+    i32 43, label %2
+    i32 41, label %2
+    i32 64, label %2
   ]
 
-2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %5
+2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %4
 
-3:                                                ; preds = %1, %1, %1
-  br label %5
-
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   unreachable
 
-5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %3, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 

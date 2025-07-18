@@ -18848,7 +18848,7 @@ _ZN5clang4Decl14getDeclContextEv.exit21.i:        ; preds = %1323, %_ZNK5clang17
   unreachable
 
 _ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit: ; preds = %1296, %1296, %1296, %1296, %1296, %1296, %1296, %1296, %1296, %1296, %1296, %1296, %1296, %1296, %1296, %_ZN5clang4Decl14getDeclContextEv.exit.i, %.critedge.i, %_ZN5clang4Decl14getDeclContextEv.exit21.i, %.critedge2.i, %1329, %1330, %1331
-  %.0.i830 = phi i32 [ 1, %.critedge.i ], [ 1, %.critedge2.i ], [ 2, %1329 ], [ 6, %1330 ], [ 3, %1331 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit.i ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit21.i ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ]
+  %.0.i830 = phi i32 [ 1, %.critedge.i ], [ 1, %.critedge2.i ], [ 2, %1329 ], [ 6, %1330 ], [ 3, %1331 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 4, %1296 ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit.i ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit21.i ]
   %1333 = call i64 @_ZN5clang4Sema25PerformImplicitConversionEPNS_4ExprENS_8QualTypeERKNS_26ImplicitConversionSequenceENS_16AssignmentActionENS_21CheckedConversionKindE(ptr noundef nonnull align 8 dereferenceable(17504) %1, ptr noundef nonnull %956, i64 %.sroa.0208.0.copyload, ptr noundef nonnull align 8 dereferenceable(152) %1301, i32 noundef %.0.i830, i32 noundef %1297) #23
   %1334 = icmp eq i64 %1333, 1
   br i1 %1334, label %.critedge669.thread1265, label %1335
@@ -25614,8 +25614,8 @@ _ZN5clang4Decl14getDeclContextEv.exit21:          ; preds = %_ZNK5clang17Initial
 36:                                               ; preds = %2
   unreachable
 
-37:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %_ZN5clang4Decl14getDeclContextEv.exit21, %_ZN5clang4Decl14getDeclContextEv.exit, %2, %2, %2, %2, %2, %35, %34, %33, %.critedge2, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ %32, %.critedge2 ], [ 2, %33 ], [ 6, %34 ], [ 3, %35 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit21 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ]
+37:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit21, %_ZN5clang4Decl14getDeclContextEv.exit, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %35, %34, %33, %.critedge2, %.critedge
+  %.0 = phi i32 [ 1, %.critedge ], [ %32, %.critedge2 ], [ 2, %33 ], [ 6, %34 ], [ 3, %35 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit21 ]
   ret i32 %.0
 }
 

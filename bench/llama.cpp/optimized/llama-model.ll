@@ -4791,69 +4791,69 @@ declare void @_ZNK18llama_model_loader10ftype_nameB5cxx11Ev(ptr dead_on_unwind w
 define range(i32 -1, 9) i32 @llama_model_rope_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !81
-  switch i32 %3, label %8 [
-    i32 57, label %7
-    i32 19, label %6
-    i32 28, label %5
-    i32 50, label %5
-    i32 49, label %5
-    i32 24, label %5
-    i32 7, label %5
-    i32 40, label %5
-    i32 31, label %5
-    i32 30, label %5
-    i32 29, label %5
-    i32 22, label %5
-    i32 21, label %5
-    i32 0, label %4
-    i32 1, label %4
-    i32 3, label %4
-    i32 9, label %4
-    i32 23, label %4
-    i32 25, label %4
-    i32 26, label %4
-    i32 27, label %4
-    i32 33, label %4
-    i32 34, label %4
-    i32 35, label %4
-    i32 37, label %4
-    i32 41, label %4
-    i32 42, label %4
-    i32 43, label %4
-    i32 44, label %4
-    i32 53, label %4
-    i32 54, label %4
-    i32 55, label %4
-    i32 2, label %5
-    i32 4, label %5
-    i32 36, label %5
-    i32 11, label %5
-    i32 12, label %5
-    i32 15, label %5
-    i32 45, label %5
-    i32 16, label %5
-    i32 17, label %5
-    i32 18, label %5
-    i32 38, label %5
-    i32 39, label %5
-    i32 20, label %5
+  switch i32 %3, label %7 [
+    i32 57, label %6
+    i32 19, label %5
+    i32 28, label %4
+    i32 50, label %4
+    i32 49, label %4
+    i32 24, label %4
+    i32 7, label %4
+    i32 40, label %4
+    i32 31, label %4
+    i32 30, label %4
+    i32 29, label %4
+    i32 22, label %4
+    i32 21, label %4
+    i32 0, label %8
+    i32 1, label %8
+    i32 3, label %8
+    i32 9, label %8
+    i32 23, label %8
+    i32 25, label %8
+    i32 26, label %8
+    i32 27, label %8
+    i32 33, label %8
+    i32 34, label %8
+    i32 35, label %8
+    i32 37, label %8
+    i32 41, label %8
+    i32 42, label %8
+    i32 43, label %8
+    i32 44, label %8
+    i32 53, label %8
+    i32 54, label %8
+    i32 55, label %8
+    i32 2, label %4
+    i32 4, label %4
+    i32 36, label %4
+    i32 11, label %4
+    i32 12, label %4
+    i32 15, label %4
+    i32 45, label %4
+    i32 16, label %4
+    i32 17, label %4
+    i32 18, label %4
+    i32 38, label %4
+    i32 39, label %4
+    i32 20, label %4
   ]
 
-4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   br label %8
 
-5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+5:                                                ; preds = %1
   br label %8
 
 6:                                                ; preds = %1
-  br label %8
-
-7:                                                ; preds = %1
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.70, i32 noundef 3933, ptr noundef nonnull @.str.99) #38
   unreachable
 
-8:                                                ; preds = %1, %6, %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ 2, %5 ], [ 8, %6 ], [ -1, %1 ]
+7:                                                ; preds = %1
+  br label %8
+
+8:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %7, %5, %4
+  %.0 = phi i32 [ -1, %7 ], [ 2, %4 ], [ 8, %5 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   ret i32 %.0
 }
 

@@ -320,22 +320,22 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN10duckdb_re217EmptyStringWalker9PostVisitEPNS_6RegexpEbbPbi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i1 zeroext %2, i1 zeroext %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #2 align 2 {
   %7 = load i8, ptr %1, align 8, !tbaa !11
-  switch i8 %7, label %.loopexit [
-    i8 10, label %19
-    i8 11, label %16
-    i8 8, label %16
+  switch i8 %7, label %25 [
+    i8 10, label %18
+    i8 11, label %15
+    i8 8, label %15
     i8 6, label %.preheader
     i8 5, label %.preheader23
-    i8 21, label %9
-    i8 2, label %9
-    i8 14, label %9
-    i8 15, label %9
-    i8 17, label %9
-    i8 16, label %9
-    i8 18, label %9
-    i8 19, label %9
-    i8 7, label %9
-    i8 9, label %9
+    i8 21, label %.loopexit
+    i8 2, label %.loopexit
+    i8 14, label %.loopexit
+    i8 15, label %.loopexit
+    i8 17, label %.loopexit
+    i8 16, label %.loopexit
+    i8 18, label %.loopexit
+    i8 19, label %.loopexit
+    i8 7, label %.loopexit
+    i8 9, label %.loopexit
   ]
 
 .preheader23:                                     ; preds = %6
@@ -354,47 +354,47 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re217EmptyStringWalker9PostVisitEP
   %wide.trip.count42 = zext nneg i32 %5 to i64
   br label %.lr.ph31
 
-9:                                                ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
-  br label %.loopexit
-
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %11 = load i8, ptr %10, align 1, !tbaa !5, !range !9, !noundef !10
-  %12 = trunc nuw i8 %11 to i1
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %10 = load i8, ptr %9, align 1, !tbaa !5, !range !9, !noundef !10
+  %11 = trunc nuw i8 %10 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %12, i1 %exitcond.not, i1 false
+  %or.cond.not = select i1 %11, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 .lr.ph31:                                         ; preds = %.lr.ph31, %.lr.ph31.preheader
   %indvars.iv39 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next40, %.lr.ph31 ]
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv39
-  %14 = load i8, ptr %13, align 1, !tbaa !5, !range !9, !noundef !10
-  %15 = trunc nuw i8 %14 to i1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv39
+  %13 = load i8, ptr %12, align 1, !tbaa !5, !range !9, !noundef !10
+  %14 = trunc nuw i8 %13 to i1
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  %or.cond48 = select i1 %15, i1 true, i1 %exitcond43.not
+  %or.cond48 = select i1 %14, i1 true, i1 %exitcond43.not
   br i1 %or.cond48, label %.loopexit, label %.lr.ph31, !llvm.loop !41
 
-16:                                               ; preds = %6, %6
-  %17 = load i8, ptr %4, align 1, !tbaa !5, !range !9, !noundef !10
-  %18 = trunc nuw i8 %17 to i1
+15:                                               ; preds = %6, %6
+  %16 = load i8, ptr %4, align 1, !tbaa !5, !range !9, !noundef !10
+  %17 = trunc nuw i8 %16 to i1
   br label %.loopexit
 
-19:                                               ; preds = %6
-  %20 = load i8, ptr %4, align 1, !tbaa !5, !range !9, !noundef !10
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %.loopexit, label %22
+18:                                               ; preds = %6
+  %19 = load i8, ptr %4, align 1, !tbaa !5, !range !9, !noundef !10
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %.loopexit, label %21
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %24 = load i32, ptr %23, align 4, !tbaa !18
-  %25 = icmp eq i32 %24, 0
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %23 = load i32, ptr %22, align 4, !tbaa !18
+  %24 = icmp eq i32 %23, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader23, %.preheader, %6, %19, %22, %16, %9
-  %.018 = phi i1 [ true, %9 ], [ %18, %16 ], [ true, %19 ], [ %25, %22 ], [ false, %6 ], [ false, %.preheader ], [ true, %.preheader23 ], [ %15, %.lr.ph31 ], [ %12, %.lr.ph ]
+25:                                               ; preds = %6
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader23, %.preheader, %18, %21, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %25, %15
+  %.018 = phi i1 [ false, %25 ], [ %17, %15 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %18 ], [ %24, %21 ], [ false, %.preheader ], [ true, %.preheader23 ], [ %14, %.lr.ph31 ], [ %11, %.lr.ph ]
   ret i1 %.018
 }
 

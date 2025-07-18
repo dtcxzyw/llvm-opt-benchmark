@@ -1982,8 +1982,8 @@ switch.lookup:                                    ; preds = %output_align_PU_tex
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type_fun.exit
 
-get_type_fun.exit:                                ; preds = %switch.lookup, %output_align_PU_textwidth.exit
-  %.0.i243 = phi ptr [ @normal_draw, %output_align_PU_textwidth.exit ], [ %switch.load, %switch.lookup ]
+get_type_fun.exit:                                ; preds = %output_align_PU_textwidth.exit, %switch.lookup
+  %.0.i243 = phi ptr [ %switch.load, %switch.lookup ], [ @normal_draw, %output_align_PU_textwidth.exit ]
   call void %.0.i243(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 100, i32 noundef 0, i32 noundef 0) #28, !callees !97
   %201 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %202 = load i32, ptr %201, align 8, !tbaa !98
@@ -2037,8 +2037,8 @@ switch.lookup316:                                 ; preds = %224
   %switch.load319 = load ptr, ptr %switch.gep318, align 8
   br label %get_type_fun.exit245
 
-get_type_fun.exit245:                             ; preds = %switch.lookup316, %224
-  %.0.i244 = phi ptr [ @normal_draw, %224 ], [ %switch.load319, %switch.lookup316 ]
+get_type_fun.exit245:                             ; preds = %224, %switch.lookup316
+  %.0.i244 = phi ptr [ %switch.load319, %switch.lookup316 ], [ @normal_draw, %224 ]
   tail call void %.0.i244(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 100, i32 noundef 0, i32 noundef 0) #28, !callees !97
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %231 = load i32, ptr %230, align 8, !tbaa !71
@@ -4523,8 +4523,8 @@ switch.lookup:                                    ; preds = %.lr.ph
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type_fun.exit
 
-get_type_fun.exit:                                ; preds = %switch.lookup, %.lr.ph
-  %.0.i277 = phi ptr [ @normal_draw, %.lr.ph ], [ %switch.load, %switch.lookup ]
+get_type_fun.exit:                                ; preds = %.lr.ph, %switch.lookup
+  %.0.i277 = phi ptr [ %switch.load, %switch.lookup ], [ @normal_draw, %.lr.ph ]
   tail call void %.0.i277(ptr noundef nonnull %0, ptr noundef nonnull %.0197343, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28, !callees !97
   %197 = load i32, ptr %.0197343, align 8, !tbaa !96
   %198 = tail call i32 @hwloc_obj_type_is_normal(i32 noundef %197) #28
@@ -5933,8 +5933,8 @@ switch.lookup:                                    ; preds = %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type_fun.exit
 
-get_type_fun.exit:                                ; preds = %switch.lookup, %25
-  %.0.i = phi ptr [ @normal_draw, %25 ], [ %switch.load, %switch.lookup ]
+get_type_fun.exit:                                ; preds = %25, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @normal_draw, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 208
   %32 = load i32, ptr %31, align 8, !tbaa !183
   %33 = add i32 %32, %4

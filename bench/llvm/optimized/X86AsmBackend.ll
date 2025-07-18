@@ -5820,8 +5820,8 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_119DarwinX86AsmBackend29generateCo
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %49, i64 %.0132177)
   %.off.i = add i32 %.sroa.0.0.extract.trunc, -123
   %switch.i = icmp ult i32 %.off.i, 4
-  %spec.select.i = select i1 %switch.i, i32 2, i32 1
-  %50 = add i32 %spec.select.i, %.086178
+  %..i107 = select i1 %switch.i, i32 2, i32 1
+  %50 = add i32 %..i107, %.086178
   br label %51
 
 51:                                               ; preds = %40, %34
@@ -5877,7 +5877,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_119DarwinX86AsmBackend29generateCo
 .split.us.i:                                      ; preds = %.thread220
   %69 = load i32, ptr %.ptr, align 8, !tbaa !47
   %70 = icmp ne i32 %69, 0
-  %spec.select.i107 = sext i1 %70 to i32
+  %spec.select.i = sext i1 %70 to i32
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit
 
 .split.i:                                         ; preds = %.thread220, %81
@@ -5914,7 +5914,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_119DarwinX86AsmBackend29generateCo
   br i1 %.not.i, label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit, label %.split.i, !llvm.loop !378
 
 _ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit: ; preds = %.split.i, %81, %.split.us.i
-  %86 = phi i32 [ %spec.select.i107, %.split.us.i ], [ %85, %81 ], [ %.01442.i, %.split.i ]
+  %86 = phi i32 [ %spec.select.i, %.split.us.i ], [ %85, %81 ], [ %.01442.i, %.split.i ]
   %.not100 = icmp eq i32 %86, -1
   %87 = shl nuw nsw i32 %66, 16
   %88 = and i32 %86, 32767

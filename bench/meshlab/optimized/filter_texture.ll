@@ -4584,8 +4584,8 @@ define noundef range(i32 0, 262145) i32 @_ZN19FilterTexturePlugin15getRequiremen
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
   %cond = icmp eq i32 %7, 6
-  %spec.select = select i1 %cond, i32 262144, i32 0
-  ret i32 %spec.select
+  %. = select i1 %cond, i32 262144, i32 0
+  ret i32 %.
 }
 
 ; Function Attrs: uwtable
@@ -4595,8 +4595,8 @@ define noundef range(i32 0, 262145) i32 @_ZThn16_N19FilterTexturePlugin15getRequ
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
   %cond.i = icmp eq i32 %6, 6
-  %spec.select.i = select i1 %cond.i, i32 262144, i32 0
-  ret i32 %spec.select.i
+  %..i = select i1 %cond.i, i32 262144, i32 0
+  ret i32 %..i
 }
 
 ; Function Attrs: mustprogress uwtable

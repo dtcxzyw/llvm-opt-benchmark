@@ -927,7 +927,7 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 
 252:                                              ; preds = %249, %proto_item_set_generated.exit.i, %230
   %253 = icmp eq i16 %172, 4
-  br i1 %253, label %.thread388.thread396.i, label %254
+  br i1 %253, label %.thread387.thread395.i, label %254
 
 254:                                              ; preds = %252
   %255 = load i32, ptr @hf_xmcp_attr_error_reason, align 4
@@ -951,7 +951,7 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 266:                                              ; preds = %261
   %267 = call i32 @strncmp(ptr noundef %265, ptr noundef nonnull dereferenceable(6) @.str.227, i64 noundef 5) #10
   %.not381.i = icmp eq i32 %267, 0
-  br i1 %.not381.i, label %.thread391.i, label %268
+  br i1 %.not381.i, label %.thread390.i, label %268
 
 268:                                              ; preds = %266, %261
   %269 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %263, ptr noundef nonnull @ei_xmcp_attr_realm_incorrect)
@@ -1097,13 +1097,13 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 
 355:                                              ; preds = %196
   %356 = icmp eq i16 %172, 0
-  br i1 %356, label %.thread388.thread.i, label %357
+  br i1 %356, label %.thread387.thread.i, label %357
 
 357:                                              ; preds = %355
   %358 = load i32, ptr @hf_xmcp_attr_reserved, align 4
   %359 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %358, ptr noundef %0, i32 noundef %191, i32 noundef 1, i32 noundef 0)
   %360 = icmp eq i16 %172, 1
-  br i1 %360, label %.thread391.i, label %361
+  br i1 %360, label %.thread390.i, label %361
 
 361:                                              ; preds = %357
   %362 = load i32, ptr @hf_xmcp_attr_servtrans_family, align 4
@@ -1137,7 +1137,7 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 
 376:                                              ; preds = %374
   %.not379.i = icmp eq i16 %172, 8
-  br i1 %.not379.i, label %.thread388.thread.sink.split.i, label %377
+  br i1 %.not379.i, label %.thread387.thread.sink.split.i, label %377
 
 377:                                              ; preds = %376
   %378 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %183, ptr noundef nonnull @ei_xmcp_attr_length_bad, ptr noundef nonnull @.str.118)
@@ -1145,7 +1145,7 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 
 379:                                              ; preds = %374
   %.not378.i = icmp eq i16 %172, 20
-  br i1 %.not378.i, label %.thread388.thread.sink.split.i, label %380
+  br i1 %.not378.i, label %.thread387.thread.sink.split.i, label %380
 
 380:                                              ; preds = %379
   %381 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %183, ptr noundef nonnull @ei_xmcp_attr_length_bad, ptr noundef nonnull @.str.236)
@@ -1202,7 +1202,7 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 
 .lr.ph.i:                                         ; preds = %445, %.lr.ph.preheader.i
   %407 = phi i32 [ %447, %445 ], [ %191, %.lr.ph.preheader.i ]
-  %.0397.i = phi i16 [ %446, %445 ], [ %190, %.lr.ph.preheader.i ]
+  %.0396.i = phi i16 [ %446, %445 ], [ %190, %.lr.ph.preheader.i ]
   %408 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %407)
   %409 = add nuw nsw i32 %407, 2
   %410 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %409)
@@ -1257,9 +1257,9 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
   %437 = call ptr @proto_tree_add_item(ptr noundef %416, i32 noundef %436, ptr noundef %0, i32 noundef %419, i32 noundef 2, i32 noundef 0)
   %438 = and i16 %410, 1
   %.not373.i = icmp eq i16 %438, 0
-  br i1 %.not373.i, label %439, label %.thread386.i
+  br i1 %.not373.i, label %439, label %.thread385.i
 
-.thread386.i:                                     ; preds = %433
+.thread385.i:                                     ; preds = %433
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %416, ptr noundef nonnull @.str.244)
   br label %445
 
@@ -1278,8 +1278,8 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %416, ptr noundef nonnull @.str.246, i32 noundef %444)
   br label %445
 
-445:                                              ; preds = %441, %440, %439, %.thread386.i, %428, %427, %426, %.thread.i
-  %446 = add i16 %.0397.i, 4
+445:                                              ; preds = %441, %440, %439, %.thread385.i, %428, %427, %426, %.thread.i
+  %446 = add i16 %.0396.i, 4
   %447 = zext i16 %446 to i32
   %448 = icmp sgt i32 %invariant.op, %447
   br i1 %448, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !8
@@ -1371,65 +1371,62 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 .loopexit.i:                                      ; preds = %445, %494, %490, %488, %483, %481, %475, %473, %470, %467, %451, %449, %405, %400, %386, %384, %382, %380, %377, %361, %341, %336, %332, %330, %326, %324, %316, %312, %310, %302, %298, %296, %295, %285, %283, %275, %270, %268, %254, %216, %214, %208, %204, %197
   %498 = and i32 %180, 3
   %.not382.i = icmp eq i32 %498, 0
-  br i1 %.not382.i, label %.thread388.i, label %.thread391.i
+  br i1 %.not382.i, label %.thread387.i, label %.thread390.i
 
-.thread391.i:                                     ; preds = %266, %357, %.loopexit.i
+.thread390.i:                                     ; preds = %266, %357, %.loopexit.i
   %499 = phi i32 [ %498, %.loopexit.i ], [ 1, %357 ], [ 1, %266 ]
   %500 = load i32, ptr @hf_xmcp_attr_padding, align 4
   %501 = sub nuw nsw i32 4, %499
   %502 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %500, ptr noundef %0, i32 noundef %192, i32 noundef %501, i32 noundef 0)
-  br label %.thread388.i
+  br label %.thread387.i
 
-.thread388.i:                                     ; preds = %.thread391.i, %.loopexit.i
+.thread387.i:                                     ; preds = %.thread390.i, %.loopexit.i
   switch i16 %170, label %decode_xmcp_attr_value.exit [
     i16 6, label %get_xmcp_attr_min_len.exit.i
     i16 21, label %get_xmcp_attr_min_len.exit.i
     i16 4097, label %get_xmcp_attr_min_len.exit.i
     i16 4101, label %get_xmcp_attr_min_len.exit.i
-    i16 9, label %.thread388.thread396.i
-    i16 4104, label %.thread388.thread.i
+    i16 9, label %.thread387.thread395.i
+    i16 4104, label %.thread387.thread.i
     i16 8, label %510
-    i16 4098, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4099, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4100, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4102, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4105, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4107, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4110, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4111, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
-    i16 4113, label %get_xmcp_attr_fixed_len.exit.fold.split.i.i
+    i16 4098, label %.thread387.thread395.i
+    i16 4099, label %.thread387.thread395.i
+    i16 4100, label %.thread387.thread395.i
+    i16 4102, label %.thread387.thread395.i
+    i16 4105, label %.thread387.thread395.i
+    i16 4107, label %.thread387.thread395.i
+    i16 4110, label %.thread387.thread395.i
+    i16 4111, label %.thread387.thread395.i
+    i16 4113, label %.thread387.thread395.i
     i16 4103, label %510
   ]
 
-.thread388.thread396.i:                           ; preds = %.thread388.i, %252
+.thread387.thread395.i:                           ; preds = %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i, %252
   br label %get_xmcp_attr_min_len.exit.i
 
-.thread388.thread.sink.split.i:                   ; preds = %379, %376
+.thread387.thread.sink.split.i:                   ; preds = %379, %376
   %hf_xmcp_attr_servtrans_ipv4.sink.i = phi ptr [ @hf_xmcp_attr_servtrans_ipv4, %376 ], [ @hf_xmcp_attr_servtrans_ipv6, %379 ]
-  %.sink404.i = phi i32 [ 4, %376 ], [ 16, %379 ]
-  %.sink401.i = phi i32 [ 2, %376 ], [ 3, %379 ]
+  %.sink403.i = phi i32 [ 4, %376 ], [ 16, %379 ]
+  %.sink400.i = phi i32 [ 2, %376 ], [ 3, %379 ]
   %.str.235.sink.i = phi ptr [ @.str.235, %376 ], [ @.str.237, %379 ]
   %503 = load i32, ptr %hf_xmcp_attr_servtrans_ipv4.sink.i, align 4
   %504 = add nuw nsw i32 %191, 4
-  %505 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef %.sink404.i, i32 noundef 0)
+  %505 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef %.sink403.i, i32 noundef 0)
   %506 = load ptr, ptr %167, align 8
-  %507 = call ptr @tvb_address_to_str(ptr noundef %506, ptr noundef %0, i32 noundef %.sink401.i, i32 noundef %504)
+  %507 = call ptr @tvb_address_to_str(ptr noundef %506, ptr noundef %0, i32 noundef %.sink400.i, i32 noundef %504)
   %508 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %367)
   %509 = zext i16 %508 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %183, ptr noundef nonnull %.str.235.sink.i, ptr noundef %507, i32 noundef %509)
-  br label %.thread388.thread.i
+  br label %.thread387.thread.i
 
-.thread388.thread.i:                              ; preds = %.thread388.thread.sink.split.i, %.thread388.i, %355
+.thread387.thread.i:                              ; preds = %.thread387.thread.sink.split.i, %.thread387.i, %355
   br label %get_xmcp_attr_min_len.exit.i
 
-510:                                              ; preds = %.thread388.i, %.thread388.i
+510:                                              ; preds = %.thread387.i, %.thread387.i
   br label %get_xmcp_attr_min_len.exit.i
 
-get_xmcp_attr_fixed_len.exit.fold.split.i.i:      ; preds = %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i
-  br label %get_xmcp_attr_min_len.exit.i
-
-get_xmcp_attr_min_len.exit.i:                     ; preds = %get_xmcp_attr_fixed_len.exit.fold.split.i.i, %510, %.thread388.thread.i, %.thread388.thread396.i, %.thread388.i, %.thread388.i, %.thread388.i, %.thread388.i
-  %.0.i.i = phi i16 [ 4, %.thread388.thread396.i ], [ 8, %.thread388.thread.i ], [ 20, %510 ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 1, %.thread388.i ], [ 4, %get_xmcp_attr_fixed_len.exit.fold.split.i.i ]
+get_xmcp_attr_min_len.exit.i:                     ; preds = %510, %.thread387.thread.i, %.thread387.thread395.i, %.thread387.i, %.thread387.i, %.thread387.i, %.thread387.i
+  %.0.i.i = phi i16 [ 4, %.thread387.thread395.i ], [ 8, %.thread387.thread.i ], [ 20, %510 ], [ 1, %.thread387.i ], [ 1, %.thread387.i ], [ 1, %.thread387.i ], [ 1, %.thread387.i ]
   %511 = icmp ult i16 %172, %.0.i.i
   br i1 %511, label %get_xmcp_attr_max_len.exit.thread.sink.split.i, label %get_xmcp_attr_min_len.exit.thread.i
 
@@ -1471,7 +1468,7 @@ get_xmcp_attr_max_len.exit.thread.sink.split.i:   ; preds = %get_xmcp_attr_max_l
   %515 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %183, ptr noundef nonnull @ei_xmcp_attr_length_bad, ptr noundef nonnull %.str.252.sink.i)
   br label %decode_xmcp_attr_value.exit
 
-decode_xmcp_attr_value.exit:                      ; preds = %455, %.thread388.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_max_len.exit.i, %get_xmcp_attr_max_len.exit.thread.sink.split.i
+decode_xmcp_attr_value.exit:                      ; preds = %455, %.thread387.i, %get_xmcp_attr_min_len.exit.thread.i, %get_xmcp_attr_max_len.exit.i, %get_xmcp_attr_max_len.exit.thread.sink.split.i
   %516 = add nuw nsw i32 %176, %191
   %517 = and i32 %516, 65535
   %518 = icmp samesign ult i32 %517, %108

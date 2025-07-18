@@ -4254,8 +4254,8 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
-6:                                                ; preds = %switch.lookup, %1
-  %.0 = phi i32 [ 0, %1 ], [ %switch.load, %switch.lookup ]
+6:                                                ; preds = %1, %switch.lookup
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -4273,8 +4273,8 @@ switch.lookup:                                    ; preds = %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK19OpenColorIO_v2_5dev19FixedFunctionOpData12getDirectionEv.exit
 
-_ZNK19OpenColorIO_v2_5dev19FixedFunctionOpData12getDirectionEv.exit: ; preds = %switch.lookup, %2
-  %.0.i = phi i32 [ 0, %2 ], [ %switch.load, %switch.lookup ]
+_ZNK19OpenColorIO_v2_5dev19FixedFunctionOpData12getDirectionEv.exit: ; preds = %2, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
   %.not = icmp ne i32 %.0.i, %1
   %7 = icmp ult i32 %4, 36
   %or.cond = and i1 %.not, %7

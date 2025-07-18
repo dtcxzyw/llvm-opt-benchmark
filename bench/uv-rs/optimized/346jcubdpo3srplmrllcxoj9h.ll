@@ -7460,7 +7460,7 @@ default.unreachable:                              ; preds = %21, %17, %9
 
 23:                                               ; preds = %9
   %24 = load i8, ptr %11, align 8, !range !322, !alias.scope !1080, !noalias !1077, !noundef !6
-  %switch9.i = icmp samesign ugt i8 %24, 4
+  %switch5.i = icmp samesign ugt i8 %24, 4
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
 25:                                               ; preds = %13
@@ -7498,7 +7498,7 @@ default.unreachable:                              ; preds = %21, %17, %9
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
 _ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit: ; preds = %85, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i", %72, %70, %68, %61, %60, %59, %45, %41, %40, %34, %28, %25, %23, %21, %21, %21, %19, %17, %13, %9, %8, %7
-  %.sroa.0.0.shrunk = phi i1 [ false, %7 ], [ true, %8 ], [ %33, %28 ], [ %39, %34 ], [ true, %40 ], [ %44, %41 ], [ true, %45 ], [ %switch3.i, %19 ], [ false, %9 ], [ true, %13 ], [ false, %25 ], [ false, %17 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ %switch9.i, %23 ], [ %86, %85 ], [ %84, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i" ], [ true, %60 ], [ %83, %72 ], [ %67, %61 ], [ true, %70 ], [ false, %59 ], [ false, %68 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %7 ], [ true, %8 ], [ %33, %28 ], [ %39, %34 ], [ true, %40 ], [ %44, %41 ], [ true, %45 ], [ %switch3.i, %19 ], [ %switch5.i, %23 ], [ false, %9 ], [ true, %13 ], [ false, %25 ], [ false, %17 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ %86, %85 ], [ %84, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i" ], [ true, %60 ], [ %83, %72 ], [ %67, %61 ], [ true, %70 ], [ false, %59 ], [ false, %68 ]
   ret i1 %.sroa.0.0.shrunk
 
 46:                                               ; preds = %8

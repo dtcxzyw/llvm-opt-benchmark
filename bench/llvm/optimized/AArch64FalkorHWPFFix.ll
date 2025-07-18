@@ -6098,9 +6098,9 @@ _ZN4llvm11df_iteratorIPNS_11MachineLoopENS_23df_iterator_default_setIS2_Lj8EEELb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((32, 33)) %0, ptr %.32.val, i16 %.68.val) unnamed_addr #14 {
-  switch i16 %.68.val, label %28 [
-    i16 4359, label %15
-    i16 4407, label %15
+  switch i16 %.68.val, label %27 [
+    i16 4359, label %14
+    i16 4407, label %14
     i16 4361, label %2
     i16 4355, label %2
     i16 4357, label %2
@@ -6363,138 +6363,135 @@ define internal fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on
     i16 5012, label %9
     i16 5013, label %9
     i16 5014, label %9
-    i16 4794, label %10
-    i16 4795, label %10
-    i16 4799, label %10
-    i16 4800, label %10
-    i16 4805, label %10
-    i16 4806, label %10
-    i16 4810, label %10
-    i16 4811, label %10
-    i16 4815, label %10
-    i16 4816, label %10
-    i16 4821, label %10
-    i16 4822, label %10
-    i16 4826, label %10
-    i16 4827, label %10
-    i16 4831, label %10
-    i16 4832, label %10
-    i16 4836, label %10
-    i16 4837, label %10
-    i16 4841, label %10
-    i16 4842, label %10
-    i16 4847, label %10
-    i16 4848, label %10
-    i16 4853, label %10
-    i16 4854, label %10
-    i16 4859, label %10
-    i16 4860, label %10
-    i16 4865, label %10
-    i16 4866, label %10
-    i16 4715, label %11
-    i16 4716, label %11
-    i16 4717, label %11
-    i16 4775, label %11
-    i16 4772, label %11
-    i16 4781, label %11
-    i16 4778, label %12
-    i16 4784, label %12
-    i16 4787, label %12
-    i16 4776, label %13
-    i16 4777, label %13
-    i16 4773, label %13
-    i16 4774, label %13
-    i16 4782, label %13
-    i16 4783, label %13
-    i16 4779, label %14
-    i16 4780, label %14
-    i16 4785, label %14
-    i16 4786, label %14
-    i16 4788, label %14
-    i16 4789, label %14
+    i16 4794, label %7
+    i16 4795, label %7
+    i16 4799, label %7
+    i16 4800, label %7
+    i16 4805, label %7
+    i16 4806, label %7
+    i16 4810, label %7
+    i16 4811, label %7
+    i16 4815, label %7
+    i16 4816, label %7
+    i16 4821, label %7
+    i16 4822, label %7
+    i16 4826, label %7
+    i16 4827, label %7
+    i16 4831, label %7
+    i16 4832, label %7
+    i16 4836, label %7
+    i16 4837, label %7
+    i16 4841, label %7
+    i16 4842, label %7
+    i16 4847, label %7
+    i16 4848, label %7
+    i16 4853, label %7
+    i16 4854, label %7
+    i16 4859, label %7
+    i16 4860, label %7
+    i16 4865, label %7
+    i16 4866, label %7
+    i16 4715, label %10
+    i16 4716, label %10
+    i16 4717, label %10
+    i16 4775, label %10
+    i16 4772, label %10
+    i16 4781, label %10
+    i16 4778, label %11
+    i16 4784, label %11
+    i16 4787, label %11
+    i16 4776, label %12
+    i16 4777, label %12
+    i16 4773, label %12
+    i16 4774, label %12
+    i16 4782, label %12
+    i16 4783, label %12
+    i16 4779, label %13
+    i16 4780, label %13
+    i16 4785, label %13
+    i16 4786, label %13
+    i16 4788, label %13
+    i16 4789, label %13
   ]
 
 2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %15
+  br label %14
 
 3:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %15
+  br label %14
 
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %15
+  br label %14
 
 5:                                                ; preds = %1, %1
-  br label %15
+  br label %14
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %15
+  br label %14
 
-7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %15
+7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %14
 
 8:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %15
+  br label %14
 
 9:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %15
+  br label %14
 
-10:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %15
+10:                                               ; preds = %1, %1, %1, %1, %1, %1
+  br label %14
 
-11:                                               ; preds = %1, %1, %1, %1, %1, %1
-  br label %15
+11:                                               ; preds = %1, %1, %1
+  br label %14
 
-12:                                               ; preds = %1, %1, %1
-  br label %15
+12:                                               ; preds = %1, %1, %1, %1, %1, %1
+  br label %14
 
 13:                                               ; preds = %1, %1, %1, %1, %1, %1
-  br label %15
+  br label %14
 
-14:                                               ; preds = %1, %1, %1, %1, %1, %1
-  br label %15
-
-15:                                               ; preds = %1, %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %16 = phi i1 [ true, %2 ], [ false, %3 ], [ true, %4 ], [ false, %5 ], [ true, %6 ], [ false, %7 ], [ true, %8 ], [ false, %9 ], [ false, %10 ], [ true, %11 ], [ false, %12 ], [ true, %13 ], [ false, %14 ], [ false, %1 ], [ false, %1 ]
-  %.012 = phi i64 [ 4294967295, %2 ], [ 0, %3 ], [ 4294967295, %4 ], [ 1, %5 ], [ 4294967295, %6 ], [ 1, %7 ], [ 4294967295, %8 ], [ 0, %9 ], [ 1, %10 ], [ 4294967295, %11 ], [ 0, %12 ], [ 4294967295, %13 ], [ 1, %14 ], [ 0, %1 ], [ 0, %1 ]
-  %.011 = phi i32 [ 3, %2 ], [ 1, %3 ], [ 1, %4 ], [ 4, %5 ], [ 4, %6 ], [ 2, %7 ], [ 2, %8 ], [ 1, %9 ], [ 2, %10 ], [ 2, %11 ], [ 2, %12 ], [ 3, %13 ], [ 3, %14 ], [ 3, %1 ], [ 3, %1 ]
-  %17 = phi i1 [ true, %2 ], [ true, %3 ], [ true, %4 ], [ false, %5 ], [ false, %6 ], [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ true, %1 ], [ true, %1 ]
-  %.010 = phi i64 [ 4294967295, %2 ], [ 4294967295, %3 ], [ 4294967295, %4 ], [ 5, %5 ], [ 5, %6 ], [ 3, %7 ], [ 3, %8 ], [ 2, %9 ], [ 3, %10 ], [ 3, %11 ], [ 3, %12 ], [ 4, %13 ], [ 4, %14 ], [ 4294967295, %1 ], [ 4294967295, %1 ]
-  %.0 = phi i8 [ 0, %2 ], [ 0, %3 ], [ 0, %4 ], [ 1, %5 ], [ 1, %6 ], [ 1, %7 ], [ 1, %8 ], [ 0, %9 ], [ 1, %10 ], [ 0, %11 ], [ 0, %12 ], [ 1, %13 ], [ 1, %14 ], [ 0, %1 ], [ 0, %1 ]
-  %18 = zext nneg i32 %.011 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %18, i32 1
-  %20 = load i32, ptr %19, align 4, !tbaa !13
-  switch i32 %20, label %21 [
-    i32 8, label %28
-    i32 10, label %28
+14:                                               ; preds = %1, %1, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %15 = phi i1 [ true, %2 ], [ false, %3 ], [ true, %4 ], [ false, %5 ], [ true, %6 ], [ false, %7 ], [ true, %8 ], [ false, %9 ], [ true, %10 ], [ false, %11 ], [ true, %12 ], [ false, %13 ], [ false, %1 ], [ false, %1 ]
+  %.012 = phi i64 [ 4294967295, %2 ], [ 0, %3 ], [ 4294967295, %4 ], [ 1, %5 ], [ 4294967295, %6 ], [ 1, %7 ], [ 4294967295, %8 ], [ 0, %9 ], [ 4294967295, %10 ], [ 0, %11 ], [ 4294967295, %12 ], [ 1, %13 ], [ 0, %1 ], [ 0, %1 ]
+  %.011 = phi i32 [ 3, %2 ], [ 1, %3 ], [ 1, %4 ], [ 4, %5 ], [ 4, %6 ], [ 2, %7 ], [ 2, %8 ], [ 1, %9 ], [ 2, %10 ], [ 2, %11 ], [ 3, %12 ], [ 3, %13 ], [ 3, %1 ], [ 3, %1 ]
+  %16 = phi i1 [ true, %2 ], [ true, %3 ], [ true, %4 ], [ false, %5 ], [ false, %6 ], [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ true, %1 ], [ true, %1 ]
+  %.010 = phi i64 [ 4294967295, %2 ], [ 4294967295, %3 ], [ 4294967295, %4 ], [ 5, %5 ], [ 5, %6 ], [ 3, %7 ], [ 3, %8 ], [ 2, %9 ], [ 3, %10 ], [ 3, %11 ], [ 4, %12 ], [ 4, %13 ], [ 4294967295, %1 ], [ 4294967295, %1 ]
+  %.0 = phi i8 [ 0, %2 ], [ 0, %3 ], [ 0, %4 ], [ 1, %5 ], [ 1, %6 ], [ 1, %7 ], [ 1, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 1, %12 ], [ 1, %13 ], [ 0, %1 ], [ 0, %1 ]
+  %17 = zext nneg i32 %.011 to i64
+  %18 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %17, i32 1
+  %19 = load i32, ptr %18, align 4, !tbaa !13
+  switch i32 %19, label %20 [
+    i32 8, label %27
+    i32 10, label %27
   ]
 
-21:                                               ; preds = %15
-  br i1 %16, label %25, label %22
+20:                                               ; preds = %14
+  br i1 %15, label %24, label %21
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %.012, i32 1
-  %24 = load i32, ptr %23, align 4, !tbaa !13
-  br label %25
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %.012, i32 1
+  %23 = load i32, ptr %22, align 4, !tbaa !13
+  br label %24
 
-25:                                               ; preds = %21, %22
-  %.sroa.0.0 = phi i32 [ %24, %22 ], [ 0, %21 ]
-  %26 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %.010
-  %27 = select i1 %17, ptr null, ptr %26
+24:                                               ; preds = %20, %21
+  %.sroa.0.0 = phi i32 [ %23, %21 ], [ 0, %20 ]
+  %25 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %.010
+  %26 = select i1 %16, ptr null, ptr %25
   store i32 %.sroa.0.0, ptr %0, align 8, !tbaa !34
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %20, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !34
+  store i32 %19, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !34
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.011, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !34
   %.sroa.92.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %27, ptr %.sroa.92.0..sroa_idx, align 8, !tbaa !519
+  store ptr %26, ptr %.sroa.92.0..sroa_idx, align 8, !tbaa !519
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.0, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !520
-  br label %28
+  br label %27
 
-28:                                               ; preds = %15, %15, %1, %25
-  %.sink = phi i8 [ 1, %25 ], [ 0, %1 ], [ 0, %15 ], [ 0, %15 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink, ptr %29, align 8, !tbaa !501
+27:                                               ; preds = %14, %14, %1, %24
+  %.sink = phi i8 [ 1, %24 ], [ 0, %1 ], [ 0, %14 ], [ 0, %14 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sink, ptr %28, align 8, !tbaa !501
   ret void
 }
 

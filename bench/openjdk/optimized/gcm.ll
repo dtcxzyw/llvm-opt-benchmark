@@ -7917,7 +7917,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %2, %25
   %59 = load double, ptr %58, align 8
   %60 = fdiv double %57, %59
   %61 = fptrunc double %60 to float
-  br label %149
+  br label %148
 
 62:                                               ; preds = %41
   %63 = sub i32 1, %1
@@ -7944,7 +7944,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %2, %25
   %80 = fdiv double %77, %79
   %81 = fsub double 1.000000e+00, %80
   %82 = fptrunc double %81 to float
-  br label %149
+  br label %148
 
 83:                                               ; preds = %62
   %84 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -7956,7 +7956,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %2, %25
   %90 = fadd double %89, %87
   %91 = fdiv double %87, %90
   %92 = fptrunc double %91 to float
-  br label %149
+  br label %148
 
 93:                                               ; preds = %38
   %94 = load ptr, ptr %30, align 8
@@ -7967,19 +7967,19 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %2, %25
 
 98:                                               ; preds = %93, %_ZNK5Block8get_nodeEj.exit
   %.026 = phi i32 [ %97, %93 ], [ %33, %_ZNK5Block8get_nodeEj.exit ]
-  switch i32 %.026, label %147 [
+  switch i32 %.026, label %146 [
     i32 142, label %_ZNK5Block8get_nodeEj.exit28
     i32 177, label %_ZNK5Block8get_nodeEj.exit28
     i32 183, label %_ZNK5Block8get_nodeEj.exit29
     i32 61, label %_ZNK5Block8get_nodeEj.exit30
-    i32 291, label %149
-    i32 174, label %149
+    i32 291, label %148
+    i32 174, label %148
     i32 253, label %145
-    i32 344, label %146
-    i32 345, label %146
-    i32 287, label %146
-    i32 175, label %146
-    i32 286, label %146
+    i32 344, label %145
+    i32 345, label %145
+    i32 287, label %145
+    i32 175, label %145
+    i32 286, label %145
   ]
 
 _ZNK5Block8get_nodeEj.exit28:                     ; preds = %98, %98
@@ -7998,11 +7998,11 @@ _ZNK5Block8get_nodeEj.exit28:                     ; preds = %98, %98
   %110 = load ptr, ptr %109, align 8
   %111 = tail call noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(52) %108) #14
   %112 = icmp eq i32 %111, 179
-  br i1 %112, label %113, label %149
+  br i1 %112, label %113, label %148
 
 113:                                              ; preds = %_ZNK5Block8get_nodeEj.exit28
   %114 = fsub float 1.000000e+00, %100
-  br label %149
+  br label %148
 
 _ZNK5Block8get_nodeEj.exit29:                     ; preds = %98
   %115 = getelementptr inbounds nuw i8, ptr %30, i64 104
@@ -8021,7 +8021,7 @@ _ZNK5Block8get_nodeEj.exit29:                     ; preds = %98
   %127 = zext i32 %126 to i64
   %128 = getelementptr inbounds nuw float, ptr %116, i64 %127
   %129 = load float, ptr %128, align 4
-  br label %149
+  br label %148
 
 _ZNK5Block8get_nodeEj.exit30:                     ; preds = %98
   %130 = add i32 %1, 1
@@ -8036,28 +8036,25 @@ _ZNK5Block8get_nodeEj.exit30:                     ; preds = %98
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 52
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %149
+  br i1 %140, label %141, label %148
 
 141:                                              ; preds = %_ZNK5Block8get_nodeEj.exit30
   %142 = load i32, ptr %19, align 8
   %143 = uitofp i32 %142 to float
   %144 = tail call float @llvm.fmuladd.f32(float %143, float 0xBEE4F8B580000000, float 1.000000e+00)
-  br label %149
+  br label %148
 
-145:                                              ; preds = %98
-  br label %149
+145:                                              ; preds = %98, %98, %98, %98, %98, %98
+  br label %148
 
-146:                                              ; preds = %98, %98, %98, %98, %98
-  br label %149
-
-147:                                              ; preds = %98
-  %148 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %148, align 1
+146:                                              ; preds = %98
+  %147 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %147, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 2041) #15
   unreachable
 
-149:                                              ; preds = %98, %98, %_ZNK5Block8get_nodeEj.exit30, %_ZNK5Block8get_nodeEj.exit28, %146, %145, %141, %_ZNK5Block8get_nodeEj.exit29, %113, %83, %75, %55
-  %.0 = phi float [ %61, %55 ], [ %82, %75 ], [ %92, %83 ], [ %114, %113 ], [ %129, %_ZNK5Block8get_nodeEj.exit29 ], [ %144, %141 ], [ 0.000000e+00, %145 ], [ 0.000000e+00, %146 ], [ %100, %_ZNK5Block8get_nodeEj.exit28 ], [ 0x3EE4F8B580000000, %_ZNK5Block8get_nodeEj.exit30 ], [ 1.000000e+00, %98 ], [ 1.000000e+00, %98 ]
+148:                                              ; preds = %98, %98, %_ZNK5Block8get_nodeEj.exit30, %_ZNK5Block8get_nodeEj.exit28, %145, %141, %_ZNK5Block8get_nodeEj.exit29, %113, %83, %75, %55
+  %.0 = phi float [ %61, %55 ], [ %82, %75 ], [ %92, %83 ], [ %114, %113 ], [ %129, %_ZNK5Block8get_nodeEj.exit29 ], [ %144, %141 ], [ 0.000000e+00, %145 ], [ %100, %_ZNK5Block8get_nodeEj.exit28 ], [ 0x3EE4F8B580000000, %_ZNK5Block8get_nodeEj.exit30 ], [ 1.000000e+00, %98 ], [ 1.000000e+00, %98 ]
   ret float %.0
 }
 

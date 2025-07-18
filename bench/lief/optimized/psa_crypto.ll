@@ -61,136 +61,133 @@ define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
   %5 = select i1 %.not, i32 %0, i32 %4
-  switch i32 %5, label %19 [
-    i32 0, label %20
+  switch i32 %5, label %18 [
+    i32 0, label %19
     i32 -32, label %6
     i32 -34, label %6
     i32 -33, label %7
-    i32 -96, label %8
-    i32 -98, label %8
-    i32 -100, label %8
-    i32 -102, label %8
-    i32 -104, label %8
-    i32 -106, label %9
-    i32 -108, label %10
+    i32 -96, label %7
+    i32 -98, label %7
+    i32 -100, label %7
+    i32 -102, label %7
+    i32 -104, label %7
+    i32 -106, label %8
+    i32 -108, label %9
     i32 -36, label %6
     i32 -38, label %6
     i32 -13, label %7
-    i32 -15, label %11
+    i32 -15, label %10
     i32 -81, label %7
-    i32 -84, label %12
-    i32 -86, label %11
+    i32 -84, label %11
+    i32 -86, label %10
     i32 -24704, label %6
     i32 -24832, label %7
-    i32 -24960, label %9
-    i32 -25088, label %13
+    i32 -24960, label %8
+    i32 -25088, label %12
     i32 -25216, label %7
-    i32 -25344, label %11
-    i32 -25472, label %14
-    i32 -52, label %15
+    i32 -25344, label %10
+    i32 -25472, label %13
+    i32 -52, label %14
     i32 -54, label %6
     i32 -56, label %6
-    i32 -58, label %15
+    i32 -58, label %14
     i32 -50, label %6
-    i32 -64, label %15
-    i32 -61, label %15
-    i32 -60, label %15
-    i32 -18, label %11
-    i32 -22, label %10
+    i32 -64, label %14
+    i32 -61, label %14
+    i32 -60, label %14
+    i32 -18, label %10
+    i32 -22, label %9
     i32 -20, label %7
     i32 -20608, label %6
     i32 -20736, label %7
-    i32 -20864, label %9
-    i32 -20992, label %16
-    i32 -2, label %16
+    i32 -20864, label %8
+    i32 -20992, label %15
+    i32 -2, label %15
     i32 -4, label %7
     i32 -6, label %7
-    i32 -8, label %10
+    i32 -8, label %9
     i32 -10, label %7
     i32 -12, label %7
     i32 -14, label %7
-    i32 -16, label %9
-    i32 -16256, label %9
+    i32 -16, label %8
+    i32 -16256, label %8
     i32 -16128, label %7
     i32 -16000, label %7
-    i32 -15872, label %16
+    i32 -15872, label %15
     i32 -15744, label %7
     i32 -15616, label %7
     i32 -15488, label %6
-    i32 -15360, label %17
-    i32 -15232, label %17
+    i32 -15360, label %16
+    i32 -15232, label %16
     i32 -15104, label %7
     i32 -14976, label %6
     i32 -14848, label %6
     i32 -14720, label %6
-    i32 -14592, label %11
-    i32 -14464, label %10
-    i32 -112, label %18
+    i32 -14592, label %10
+    i32 -14464, label %9
+    i32 -112, label %17
     i32 -114, label %6
     i32 -16512, label %7
-    i32 -16640, label %13
-    i32 -16768, label %18
+    i32 -16640, label %12
+    i32 -16768, label %17
     i32 -16896, label %7
-    i32 -17024, label %14
-    i32 -17152, label %14
-    i32 -17280, label %11
-    i32 -17408, label %10
-    i32 -17536, label %15
+    i32 -17024, label %13
+    i32 -17152, label %13
+    i32 -17280, label %10
+    i32 -17408, label %9
+    i32 -17536, label %14
     i32 -20352, label %7
     i32 -19584, label %7
-    i32 -20224, label %10
+    i32 -20224, label %9
     i32 -20096, label %6
-    i32 -19456, label %11
-    i32 -19968, label %11
-    i32 -19840, label %9
-    i32 -19712, label %15
-    i32 -110, label %14
+    i32 -19456, label %10
+    i32 -19968, label %10
+    i32 -19840, label %8
+    i32 -19712, label %14
+    i32 -110, label %13
   ]
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %20
+  br label %19
 
-7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %20
+7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %19
 
-8:                                                ; preds = %1, %1, %1, %1, %1
-  br label %20
+8:                                                ; preds = %1, %1, %1, %1, %1, %1
+  br label %19
 
 9:                                                ; preds = %1, %1, %1, %1, %1, %1
-  br label %20
+  br label %19
 
-10:                                               ; preds = %1, %1, %1, %1, %1, %1
-  br label %20
+10:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1
+  br label %19
 
-11:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1
-  br label %20
+11:                                               ; preds = %1
+  br label %19
 
-12:                                               ; preds = %1
-  br label %20
+12:                                               ; preds = %1, %1
+  br label %19
 
-13:                                               ; preds = %1, %1
-  br label %20
+13:                                               ; preds = %1, %1, %1, %1
+  br label %19
 
-14:                                               ; preds = %1, %1, %1, %1
-  br label %20
+14:                                               ; preds = %1, %1, %1, %1, %1, %1, %1
+  br label %19
 
-15:                                               ; preds = %1, %1, %1, %1, %1, %1, %1
-  br label %20
+15:                                               ; preds = %1, %1, %1
+  br label %19
 
-16:                                               ; preds = %1, %1, %1
-  br label %20
+16:                                               ; preds = %1, %1
+  br label %19
 
 17:                                               ; preds = %1, %1
-  br label %20
+  br label %19
 
-18:                                               ; preds = %1, %1
-  br label %20
+18:                                               ; preds = %1
+  br label %19
 
-19:                                               ; preds = %1
-  br label %20
-
-20:                                               ; preds = %1, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ -132, %19 ], [ -134, %6 ], [ -135, %7 ], [ -135, %8 ], [ -141, %9 ], [ -138, %10 ], [ -149, %11 ], [ -137, %12 ], [ -150, %13 ], [ -151, %14 ], [ -148, %15 ], [ -146, %16 ], [ -133, %17 ], [ -147, %18 ], [ %5, %1 ]
+19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
+  %.0 = phi i32 [ -132, %18 ], [ -134, %6 ], [ -135, %7 ], [ -141, %8 ], [ -138, %9 ], [ -149, %10 ], [ -137, %11 ], [ -150, %12 ], [ -151, %13 ], [ -148, %14 ], [ -146, %15 ], [ -133, %16 ], [ -147, %17 ], [ %5, %1 ]
   ret i32 %.0
 }
 

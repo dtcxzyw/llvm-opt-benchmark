@@ -8859,12 +8859,12 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
 1144:                                             ; preds = %45
   switch i32 %4, label %.loopexit3185 [
     i32 1, label %1145
-    i32 10, label %1204
+    i32 5, label %1170
     i32 3, label %1168
+    i32 10, label %1204
     i32 9, label %1204
     i32 8, label %1204
     i32 7, label %1174
-    i32 5, label %1170
   ]
 
 1145:                                             ; preds = %1144

@@ -5450,8 +5450,8 @@ _ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread: ; preds = %53, %46, %_ZNK
   tail call void @_ZN4llvm6detail9IEEEFloat7makeNaNEbbPKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   br label %_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit
 
-_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit:       ; preds = %83, %79, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread, %69, %65, %2, %101, %104, %2, %2, %2, %2, %106, %93
-  %.0 = phi i32 [ 0, %93 ], [ 1, %106 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 2, %104 ], [ 2, %101 ], [ 0, %2 ], [ 1, %65 ], [ 1, %69 ], [ %92, %83 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %79 ]
+_ZN4llvm6detail9IEEEFloat9makeQuietEv.exit:       ; preds = %83, %79, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread, %69, %65, %101, %104, %2, %2, %2, %2, %2, %106, %93
+  %.0 = phi i32 [ 0, %93 ], [ 1, %106 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 2, %104 ], [ 2, %101 ], [ 1, %65 ], [ 1, %69 ], [ %92, %83 ], [ 0, %_ZNK4llvm6detail9IEEEFloat11isSignalingEv.exit.thread ], [ 0, %79 ]
   ret i32 %.0
 }
 

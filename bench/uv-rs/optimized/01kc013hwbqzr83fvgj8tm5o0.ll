@@ -12212,22 +12212,22 @@ define { ptr, ptr } @"_ZN62_$LT$uv_build_backend..Error$u20$as$u20$core..error..
   %5 = select i1 %4, i64 %3, i64 1
   switch i64 %5, label %6 [
     i64 0, label %7
-    i64 1, label %28
+    i64 1, label %27
     i64 2, label %12
     i64 3, label %14
     i64 4, label %15
     i64 5, label %17
-    i64 6, label %19
-    i64 7, label %20
-    i64 8, label %19
-    i64 9, label %22
-    i64 10, label %24
-    i64 11, label %19
-    i64 12, label %19
-    i64 13, label %19
-    i64 14, label %19
-    i64 15, label %19
-    i64 16, label %26
+    i64 6, label %14
+    i64 7, label %19
+    i64 8, label %14
+    i64 9, label %21
+    i64 10, label %23
+    i64 11, label %14
+    i64 12, label %14
+    i64 13, label %14
+    i64 14, label %14
+    i64 15, label %14
+    i64 16, label %25
   ]
 
 6:                                                ; preds = %1
@@ -12238,48 +12238,45 @@ define { ptr, ptr } @"_ZN62_$LT$uv_build_backend..Error$u20$as$u20$core..error..
   %9 = tail call { ptr, ptr } @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h50268c757257c912E"(ptr noundef nonnull align 1 %8)
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
-  br label %28
+  br label %27
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %28
+  br label %27
 
-14:                                               ; preds = %1
-  br label %28
+14:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1
+  br label %27
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %28
+  br label %27
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %28
+  br label %27
 
-19:                                               ; preds = %1, %1, %1, %1, %1, %1, %1
-  br label %28
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %27
 
-20:                                               ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %28
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %27
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %28
+23:                                               ; preds = %1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %27
 
-24:                                               ; preds = %1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %28
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %27
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %28
-
-28:                                               ; preds = %1, %26, %24, %22, %20, %19, %17, %15, %14, %12, %7
-  %.sroa.18.0 = phi ptr [ %11, %7 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.199, %12 ], [ undef, %14 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.203, %15 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.205, %17 ], [ undef, %19 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.207, %20 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.209, %22 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.211, %24 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.86, %26 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.197, %1 ]
-  %.sroa.0.0 = phi ptr [ %10, %7 ], [ %13, %12 ], [ null, %14 ], [ %16, %15 ], [ %18, %17 ], [ null, %19 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %0, %1 ]
-  %29 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %30 = insertvalue { ptr, ptr } %29, ptr %.sroa.18.0, 1
-  ret { ptr, ptr } %30
+27:                                               ; preds = %1, %25, %23, %21, %19, %17, %15, %14, %12, %7
+  %.sroa.18.0 = phi ptr [ %11, %7 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.199, %12 ], [ undef, %14 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.203, %15 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.205, %17 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.207, %19 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.209, %21 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.211, %23 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.86, %25 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.197, %1 ]
+  %.sroa.0.0 = phi ptr [ %10, %7 ], [ %13, %12 ], [ null, %14 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %0, %1 ]
+  %28 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.18.0, 1
+  ret { ptr, ptr } %29
 }
 
 ; Function Attrs: nonlazybind uwtable

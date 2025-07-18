@@ -65028,12 +65028,12 @@ _ZN12_GLOBAL__N_18Verifier20visitMetadataAsValueERKN4llvm15MetadataAsValueEPNS1_
     i32 71, label %683
     i32 68, label %684
     i32 70, label %685
+    i32 8403, label %2756
+    i32 8402, label %2756
     i32 8400, label %2756
     i32 8401, label %2756
     i32 351, label %2738
     i32 298, label %2681
-    i32 8402, label %2756
-    i32 8403, label %2756
     i32 239, label %686
     i32 242, label %686
     i32 244, label %686

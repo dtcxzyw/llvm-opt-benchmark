@@ -426,14 +426,12 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
 define noundef zeroext i1 @_ZN10serde_json5error5Error7is_data17hb978058e15943e03E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
-switch.lookup:
+_ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %1 = load ptr, ptr %0, align 8, !alias.scope !42, !nonnull !4, !align !34, !noundef !4
   %2 = load i64, ptr %1, align 8, !range !35, !noalias !42, !noundef !4
-  %switch.cast = trunc nuw i64 %2 to i25
-  %switch.downshift = lshr i25 1, %switch.cast
-  %switch.masked = trunc nuw i25 %switch.downshift to i1
-  ret i1 %switch.masked
+  %switch = icmp eq i64 %2, 0
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable

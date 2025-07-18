@@ -100,17 +100,17 @@ define range(i32 0, 17) i32 @ecpg_dynamic_type(i32 noundef %0) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  switch i32 %0, label %15 [
-    i32 20, label %14
-    i32 1186, label %13
-    i32 1184, label %12
-    i32 1114, label %12
-    i32 21, label %3
-    i32 23, label %4
-    i32 701, label %5
-    i32 700, label %6
-    i32 1700, label %7
-    i32 1082, label %11
+  switch i32 %0, label %14 [
+    i32 20, label %13
+    i32 1186, label %12
+    i32 1184, label %11
+    i32 1114, label %11
+    i32 21, label %15
+    i32 23, label %3
+    i32 701, label %4
+    i32 700, label %5
+    i32 1700, label %6
+    i32 1082, label %10
   ]
 
 3:                                                ; preds = %2
@@ -123,18 +123,18 @@ define range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) 
   br label %15
 
 6:                                                ; preds = %2
+  %7 = add i32 %1, -1
+  %8 = icmp ult i32 %7, 2
+  %9 = select i1 %8, i32 17, i32 16
   br label %15
 
-7:                                                ; preds = %2
-  %8 = add i32 %1, -1
-  %9 = icmp ult i32 %8, 2
-  %10 = select i1 %9, i32 17, i32 16
+10:                                               ; preds = %2
   br label %15
 
-11:                                               ; preds = %2
+11:                                               ; preds = %2, %2
   br label %15
 
-12:                                               ; preds = %2, %2
+12:                                               ; preds = %2
   br label %15
 
 13:                                               ; preds = %2
@@ -143,8 +143,8 @@ define range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) 
 14:                                               ; preds = %2
   br label %15
 
-15:                                               ; preds = %2, %14, %13, %12, %11, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ 3, %3 ], [ 5, %4 ], [ 13, %5 ], [ 12, %6 ], [ %10, %7 ], [ 18, %11 ], [ 19, %12 ], [ 20, %13 ], [ 7, %14 ], [ 1, %2 ]
+15:                                               ; preds = %2, %14, %13, %12, %11, %10, %6, %5, %4, %3
+  %.0 = phi i32 [ 1, %14 ], [ 5, %3 ], [ 13, %4 ], [ 12, %5 ], [ %9, %6 ], [ 18, %10 ], [ 19, %11 ], [ 20, %12 ], [ 7, %13 ], [ 3, %2 ]
   ret i32 %.0
 }
 

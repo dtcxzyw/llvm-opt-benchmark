@@ -7123,109 +7123,109 @@ define dso_local noundef ptr @_ZN5clang4Sema28ActOnDecompositionDeclaratorEPNS_5
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %58 = load i32, ptr %57, align 8, !tbaa !1213
   switch i32 %58, label %59 [
-    i32 0, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
-    i32 8, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
-    i32 9, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
-    i32 10, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
-    i32 11, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
-    i32 7, label %60
-    i32 1, label %60
-    i32 12, label %60
-    i32 26, label %60
-    i32 4, label %60
-    i32 5, label %60
-    i32 6, label %60
-    i32 24, label %60
-    i32 25, label %60
-    i32 18, label %60
-    i32 3, label %60
-    i32 2, label %60
-    i32 13, label %60
-    i32 14, label %60
-    i32 15, label %60
-    i32 16, label %60
-    i32 17, label %60
-    i32 19, label %60
-    i32 22, label %60
-    i32 23, label %60
-    i32 20, label %60
-    i32 21, label %60
-    i32 27, label %60
+    i32 0, label %86
+    i32 8, label %86
+    i32 9, label %86
+    i32 10, label %86
+    i32 11, label %86
+    i32 7, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 1, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 12, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 26, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 4, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 5, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 6, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 24, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 25, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 18, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 3, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 2, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 13, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 14, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 15, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 16, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 17, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 19, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 22, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 23, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 20, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 21, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+    i32 27, label %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
   ]
 
 59:                                               ; preds = %5
   unreachable
 
-60:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
+_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit: ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %29) #28
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %56, align 8, !tbaa !51
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %61, i32 %.sroa.0.0.copyload.i, i32 noundef 3307, i1 noundef zeroext false) #28
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %60, i32 %.sroa.0.0.copyload.i, i32 noundef 3307, i1 noundef zeroext false) #28
   %.sroa.01.0.copyload.i = load i64, ptr %56, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %29, i64 120
-  %63 = load i8, ptr %62, align 8, !tbaa !1066, !range !36, !noundef !37
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %65, label %67
+  %61 = getelementptr inbounds nuw i8, ptr %29, i64 120
+  %62 = load i8, ptr %61, align 8, !tbaa !1066, !range !36, !noundef !37
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %64, label %66
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr %29, i64 32
+64:                                               ; preds = %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %29, i64 32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %27) #28
   store i64 %.sroa.01.0.copyload.i, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %66, ptr noundef nonnull align 4 dereferenceable(9) %27)
+  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %65, ptr noundef nonnull align 4 dereferenceable(9) %27)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %27) #28
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-67:                                               ; preds = %60
-  %68 = getelementptr inbounds nuw i8, ptr %29, i64 128
-  %69 = getelementptr inbounds nuw i8, ptr %29, i64 132
-  %70 = load i8, ptr %69, align 4, !tbaa !1068, !range !36, !noundef !37
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
+66:                                               ; preds = %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+  %67 = getelementptr inbounds nuw i8, ptr %29, i64 128
+  %68 = getelementptr inbounds nuw i8, ptr %29, i64 132
+  %69 = load i8, ptr %68, align 4, !tbaa !1068, !range !36, !noundef !37
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %71, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-72:                                               ; preds = %67
-  %73 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %29) #28
+71:                                               ; preds = %66
+  %72 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %29) #28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #28
-  %74 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !1070
-  %.not.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %76
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %74 = load ptr, ptr %73, align 8, !tbaa !1070
+  %.not.i.i = icmp eq ptr %74, null
+  br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %75
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %75, align 8, !tbaa !1079
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %79 = load ptr, ptr %78, align 8
-  %80 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(168) %75) #28
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %74, align 8, !tbaa !1079
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %78 = load ptr, ptr %77, align 8
+  %79 = call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(168) %74) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %76, %72
-  %81 = phi ptr [ %80, %76 ], [ null, %72 ]
-  store ptr %81, ptr %28, align 8, !tbaa !1081
-  %82 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 8 dereferenceable(8) %28)
-  %83 = load i32, ptr %68, align 8, !tbaa !51
-  %84 = zext i32 %83 to i64
-  %85 = load ptr, ptr %82, align 8, !tbaa !1083
-  %86 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %85, i64 %84, i32 2
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %75, %71
+  %80 = phi ptr [ %79, %75 ], [ null, %71 ]
+  store ptr %80, ptr %28, align 8, !tbaa !1081
+  %81 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(8) %28)
+  %82 = load i32, ptr %67, align 8, !tbaa !51
+  %83 = zext i32 %82 to i64
+  %84 = load ptr, ptr %81, align 8, !tbaa !1083
+  %85 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %84, i64 %83, i32 2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26) #28
   store i64 %.sroa.01.0.copyload.i, ptr %26, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %86, ptr noundef nonnull align 4 dereferenceable(9) %26)
+  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %85, ptr noundef nonnull align 4 dereferenceable(9) %26)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %26) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #28
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %65, %67, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %64, %66, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %29) #28
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %29) #28
   br label %1206
 
-_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit: ; preds = %5, %5, %5, %5, %5
+86:                                               ; preds = %5, %5, %5, %5, %5
   %87 = icmp eq i64 %4, 0
   br i1 %87, label %92, label %88
 
-88:                                               ; preds = %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load ptr, ptr %3, align 8, !tbaa !1214
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -7234,7 +7234,7 @@ _ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit: ; preds = %5, %5,
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %30) #28
   br label %1206
 
-92:                                               ; preds = %_ZNK5clang10Declarator30mayHaveDecompositionDeclaratorEv.exit
+92:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %31) #28
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i182 = load i32, ptr %56, align 8, !tbaa !51

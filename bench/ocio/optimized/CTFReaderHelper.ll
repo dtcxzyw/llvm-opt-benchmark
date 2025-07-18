@@ -26052,10 +26052,10 @@ _ZSt11make_sharedIN19OpenColorIO_v2_5dev23CTFReaderGammaParamsEltEJRKNSt7__cxx11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev17CTFReaderGammaElt7isValidENS_11GammaOpData5StyleE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #10 align 2 {
-  %3 = icmp ult i32 %1, 10
-  %switch.cast = trunc i32 %1 to i10
-  %switch.downshift = lshr i10 195, %switch.cast
-  %switch.masked = trunc i10 %switch.downshift to i1
+  %3 = icmp ult i32 %1, 8
+  %switch.cast = trunc i32 %1 to i8
+  %switch.downshift = lshr i8 -61, %switch.cast
+  %switch.masked = trunc i8 %switch.downshift to i1
   %.0 = select i1 %3, i1 %switch.masked, i1 false
   ret i1 %.0
 }

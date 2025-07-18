@@ -2634,8 +2634,8 @@ declare i32 @inStream_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden zeroext range(i16 0, 513) i16 @map2jdwpError(i32 noundef %0) local_unnamed_addr #2 {
-  switch i32 %0, label %58 [
-    i32 0, label %59
+  switch i32 %0, label %57 [
+    i32 0, label %58
     i32 203, label %2
     i32 10, label %2
     i32 11, label %3
@@ -2704,186 +2704,178 @@ define hidden zeroext range(i16 0, 513) i16 @map2jdwpError(i32 noundef %0) local
     i32 198, label %54
     i32 199, label %55
     i32 200, label %56
-    i32 113, label %57
-    i32 116, label %57
-    i32 181, label %57
-    i32 185, label %57
-    i32 186, label %57
   ]
 
 2:                                                ; preds = %1, %1, %1
-  br label %59
+  br label %58
 
 3:                                                ; preds = %1
-  br label %59
+  br label %58
 
 4:                                                ; preds = %1
-  br label %59
+  br label %58
 
 5:                                                ; preds = %1
-  br label %59
+  br label %58
 
 6:                                                ; preds = %1
-  br label %59
+  br label %58
 
 7:                                                ; preds = %1, %1
-  br label %59
+  br label %58
 
 8:                                                ; preds = %1
-  br label %59
+  br label %58
 
 9:                                                ; preds = %1
-  br label %59
+  br label %58
 
 10:                                               ; preds = %1
-  br label %59
+  br label %58
 
 11:                                               ; preds = %1
-  br label %59
+  br label %58
 
 12:                                               ; preds = %1
-  br label %59
+  br label %58
 
 13:                                               ; preds = %1, %1
-  br label %59
+  br label %58
 
 14:                                               ; preds = %1
-  br label %59
+  br label %58
 
 15:                                               ; preds = %1
-  br label %59
+  br label %58
 
 16:                                               ; preds = %1
-  br label %59
+  br label %58
 
 17:                                               ; preds = %1
-  br label %59
+  br label %58
 
 18:                                               ; preds = %1
-  br label %59
+  br label %58
 
 19:                                               ; preds = %1
-  br label %59
+  br label %58
 
 20:                                               ; preds = %1
-  br label %59
+  br label %58
 
 21:                                               ; preds = %1
-  br label %59
+  br label %58
 
 22:                                               ; preds = %1
-  br label %59
+  br label %58
 
 23:                                               ; preds = %1
-  br label %59
+  br label %58
 
 24:                                               ; preds = %1
-  br label %59
+  br label %58
 
 25:                                               ; preds = %1
-  br label %59
+  br label %58
 
 26:                                               ; preds = %1
-  br label %59
+  br label %58
 
 27:                                               ; preds = %1
-  br label %59
+  br label %58
 
 28:                                               ; preds = %1, %1
-  br label %59
+  br label %58
 
 29:                                               ; preds = %1
-  br label %59
+  br label %58
 
 30:                                               ; preds = %1, %1
-  br label %59
+  br label %58
 
 31:                                               ; preds = %1, %1
-  br label %59
+  br label %58
 
 32:                                               ; preds = %1, %1
-  br label %59
+  br label %58
 
 33:                                               ; preds = %1
-  br label %59
+  br label %58
 
 34:                                               ; preds = %1, %1, %1
-  br label %59
+  br label %58
 
 35:                                               ; preds = %1, %1
-  br label %59
+  br label %58
 
 36:                                               ; preds = %1, %1, %1
-  br label %59
+  br label %58
 
 37:                                               ; preds = %1
-  br label %59
+  br label %58
 
 38:                                               ; preds = %1
-  br label %59
+  br label %58
 
 39:                                               ; preds = %1
-  br label %59
+  br label %58
 
 40:                                               ; preds = %1
-  br label %59
+  br label %58
 
 41:                                               ; preds = %1
-  br label %59
+  br label %58
 
 42:                                               ; preds = %1
-  br label %59
+  br label %58
 
 43:                                               ; preds = %1
-  br label %59
+  br label %58
 
 44:                                               ; preds = %1
-  br label %59
+  br label %58
 
 45:                                               ; preds = %1
-  br label %59
+  br label %58
 
 46:                                               ; preds = %1
-  br label %59
+  br label %58
 
 47:                                               ; preds = %1
-  br label %59
+  br label %58
 
 48:                                               ; preds = %1
-  br label %59
+  br label %58
 
 49:                                               ; preds = %1
-  br label %59
+  br label %58
 
 50:                                               ; preds = %1
-  br label %59
+  br label %58
 
 51:                                               ; preds = %1
-  br label %59
+  br label %58
 
 52:                                               ; preds = %1
-  br label %59
+  br label %58
 
 53:                                               ; preds = %1
-  br label %59
+  br label %58
 
 54:                                               ; preds = %1
-  br label %59
+  br label %58
 
 55:                                               ; preds = %1
-  br label %59
+  br label %58
 
 56:                                               ; preds = %1
-  br label %59
+  br label %58
 
-57:                                               ; preds = %1, %1, %1, %1, %1
-  br label %59
+57:                                               ; preds = %1
+  br label %58
 
-58:                                               ; preds = %1
-  br label %59
-
-59:                                               ; preds = %1, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i16 [ 113, %58 ], [ 10, %2 ], [ 11, %3 ], [ 12, %4 ], [ 13, %5 ], [ 14, %6 ], [ 20, %7 ], [ 21, %8 ], [ 22, %9 ], [ 23, %10 ], [ 24, %11 ], [ 25, %12 ], [ 31, %13 ], [ 32, %14 ], [ 34, %15 ], [ 35, %16 ], [ 40, %17 ], [ 41, %18 ], [ 50, %19 ], [ 51, %20 ], [ 52, %21 ], [ 60, %22 ], [ 61, %23 ], [ 62, %24 ], [ 65, %25 ], [ 68, %26 ], [ 69, %27 ], [ 100, %28 ], [ 101, %29 ], [ 102, %30 ], [ 103, %31 ], [ 110, %32 ], [ 111, %33 ], [ 112, %34 ], [ 115, %35 ], [ 99, %36 ], [ 66, %37 ], [ 67, %38 ], [ 63, %39 ], [ 64, %40 ], [ 70, %41 ], [ 71, %42 ], [ 72, %43 ], [ 33, %44 ], [ 500, %45 ], [ 502, %46 ], [ 503, %47 ], [ 504, %48 ], [ 506, %49 ], [ 507, %50 ], [ 508, %51 ], [ 509, %52 ], [ 510, %53 ], [ 511, %54 ], [ 512, %55 ], [ 30, %56 ], [ 113, %57 ], [ 0, %1 ]
+58:                                               ; preds = %1, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i16 [ 113, %57 ], [ 10, %2 ], [ 11, %3 ], [ 12, %4 ], [ 13, %5 ], [ 14, %6 ], [ 20, %7 ], [ 21, %8 ], [ 22, %9 ], [ 23, %10 ], [ 24, %11 ], [ 25, %12 ], [ 31, %13 ], [ 32, %14 ], [ 34, %15 ], [ 35, %16 ], [ 40, %17 ], [ 41, %18 ], [ 50, %19 ], [ 51, %20 ], [ 52, %21 ], [ 60, %22 ], [ 61, %23 ], [ 62, %24 ], [ 65, %25 ], [ 68, %26 ], [ 69, %27 ], [ 100, %28 ], [ 101, %29 ], [ 102, %30 ], [ 103, %31 ], [ 110, %32 ], [ 111, %33 ], [ 112, %34 ], [ 115, %35 ], [ 99, %36 ], [ 66, %37 ], [ 67, %38 ], [ 63, %39 ], [ 64, %40 ], [ 70, %41 ], [ 71, %42 ], [ 72, %43 ], [ 33, %44 ], [ 500, %45 ], [ 502, %46 ], [ 503, %47 ], [ 504, %48 ], [ 506, %49 ], [ 507, %50 ], [ 508, %51 ], [ 509, %52 ], [ 510, %53 ], [ 511, %54 ], [ 512, %55 ], [ 30, %56 ], [ 0, %1 ]
   ret i16 %.0
 }
 

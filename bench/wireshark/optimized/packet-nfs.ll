@@ -15526,9 +15526,9 @@ define internal i32 @dissect_nfs4_cb_compound_call(ptr noundef %0, ptr noundef %
     i32 3, label %62
     i32 5, label %65
     i32 8, label %89
+    i32 11, label %93
     i32 15, label %130
     i32 13, label %122
-    i32 11, label %93
   ]
 
 57:                                               ; preds = %50

@@ -13541,11 +13541,11 @@ define dso_local void @_ZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEv(pt
     i32 2, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EclIPKNS2_16MemoryDepChecker10DependenceEEEbT_.exit38.thread.i.i.i.i"
   ]
 
-41:                                               ; preds = %39
-  unreachable
-
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EclIPKNS2_16MemoryDepChecker10DependenceEEEbT_.exit38.thread.i.i.i.i": ; preds = %39, %39, %39, %39, %39
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplINS_16MemoryDepChecker10DependenceEEEZNS_14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EEDaOT_T0_.exit"
+
+41:                                               ; preds = %39
+  unreachable
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EclIPKNS2_16MemoryDepChecker10DependenceEEEbT_.exit38.loopexit.split.loop.exit44.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EclIPKNS2_16MemoryDepChecker10DependenceEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EclIPKNS2_16MemoryDepChecker10DependenceEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EclIPKNS2_16MemoryDepChecker10DependenceEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EclIPKNS2_16MemoryDepChecker10DependenceEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm14LoopAccessInfo26emitUnsafeDependenceRemarkEvE3$_0EclIPKNS2_16MemoryDepChecker10DependenceEEEbT_.exit.i.i.i.i"
   %42 = getelementptr inbounds nuw i8, ptr %.02953.i.i.i.i, i64 12

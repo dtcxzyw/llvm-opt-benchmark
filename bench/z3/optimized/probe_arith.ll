@@ -9024,7 +9024,7 @@ _Z17is_uninterp_constPK4expr.exit.thread.invoke:  ; preds = %_Z17is_uninterp_con
 _Z17is_uninterp_constPK4expr.exit.thread.cont:    ; preds = %_Z17is_uninterp_constPK4expr.exit.thread.invoke
   unreachable
 
-_Z17is_uninterp_constPK4expr.exit.thread37:       ; preds = %134, %180, %_Z17is_uninterp_constPK4expr.exit, %164, %160, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %156, %_Z9is_groundPK4expr.exit35, %57, %_ZNK10arith_util10is_numeralEPK4expr.exit31, %_ZNK10arith_util10is_numeralEPK4expr.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_family_idEv.exit
+_Z17is_uninterp_constPK4expr.exit.thread37:       ; preds = %134, %180, %_Z17is_uninterp_constPK4expr.exit, %164, %160, %156, %_Z9is_groundPK4expr.exit35, %57, %_ZNK10arith_util10is_numeralEPK4expr.exit31, %_ZNK10arith_util10is_numeralEPK4expr.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_family_idEv.exit
   %183 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !154
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %183, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc.i unwind label %184

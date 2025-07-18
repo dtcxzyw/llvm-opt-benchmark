@@ -285,7 +285,7 @@ define internal i32 @dissect_otrxd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %20 = icmp eq i32 %19, 100
   %..i = select i1 %20, i32 2, i32 0
   %.0.i = select i1 %18, i32 1, i32 %..i
-  switch i32 %.0.i, label %.thread [
+  switch i32 %.0.i, label %.thread74 [
     i32 0, label %21
     i32 1, label %otrxcd_guess_dir.exit.thread69
   ]
@@ -297,30 +297,30 @@ define internal i32 @dissect_otrxd(ptr noundef %0, ptr noundef %1, ptr noundef %
     i32 5702, label %otrxcd_guess_dir.exit.thread69
     i32 5704, label %otrxcd_guess_dir.exit.thread69
     i32 6702, label %otrxcd_guess_dir.exit.thread69
-    i32 5802, label %.thread
-    i32 5804, label %.thread
-    i32 6802, label %.thread
+    i32 5802, label %.thread74
+    i32 5804, label %.thread74
+    i32 6802, label %.thread74
     i32 5701, label %otrxcd_guess_dir.exit.thread69
     i32 5703, label %otrxcd_guess_dir.exit.thread69
     i32 6701, label %otrxcd_guess_dir.exit.thread69
-    i32 5801, label %.thread
-    i32 5803, label %.thread
-    i32 6801, label %.thread
-    i32 5800, label %.thread
-    i32 6800, label %.thread
+    i32 5801, label %.thread74
+    i32 5803, label %.thread74
+    i32 6801, label %.thread74
+    i32 5800, label %.thread74
+    i32 6800, label %.thread74
   ]
 
-.thread:                                          ; preds = %4, %21, %21, %21, %21, %21, %21, %21, %21
+.thread74:                                        ; preds = %4, %21, %21, %21, %21, %21, %21, %21, %21
   br label %otrxcd_guess_dir.exit.thread69
 
 23:                                               ; preds = %21
   br label %otrxcd_guess_dir.exit.thread69
 
-otrxcd_guess_dir.exit.thread69:                   ; preds = %21, %21, %21, %21, %21, %21, %4, %.thread, %23
-  %.str.100.sink = phi ptr [ @.str.100, %.thread ], [ @.str.101, %23 ], [ @.str.99, %4 ], [ @.str.99, %21 ], [ @.str.99, %21 ], [ @.str.99, %21 ], [ @.str.99, %21 ], [ @.str.99, %21 ], [ @.str.99, %21 ]
-  %24 = phi i1 [ false, %.thread ], [ false, %23 ], [ true, %4 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ]
-  %25 = phi i1 [ true, %.thread ], [ false, %23 ], [ false, %4 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ]
-  %.066 = phi i32 [ 2, %.thread ], [ 0, %23 ], [ %.0.i, %4 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ]
+otrxcd_guess_dir.exit.thread69:                   ; preds = %21, %21, %21, %21, %21, %21, %4, %.thread74, %23
+  %.str.100.sink = phi ptr [ @.str.100, %.thread74 ], [ @.str.101, %23 ], [ @.str.99, %4 ], [ @.str.99, %21 ], [ @.str.99, %21 ], [ @.str.99, %21 ], [ @.str.99, %21 ], [ @.str.99, %21 ], [ @.str.99, %21 ]
+  %24 = phi i1 [ false, %.thread74 ], [ false, %23 ], [ true, %4 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ], [ true, %21 ]
+  %25 = phi i1 [ true, %.thread74 ], [ false, %23 ], [ false, %4 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ], [ false, %21 ]
+  %.066 = phi i32 [ 2, %.thread74 ], [ 0, %23 ], [ %.0.i, %4 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ]
   %26 = load ptr, ptr %8, align 8
   tail call void @col_append_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull %.str.100.sink)
   %27 = load i32, ptr @hf_otrxd_burst_dir, align 4
@@ -840,198 +840,195 @@ define internal i32 @dissect_otrxc(ptr noundef %0, ptr noundef %1, ptr noundef %
     i32 5701, label %otrxcd_guess_dir.exit.thread
     i32 5703, label %otrxcd_guess_dir.exit.thread
     i32 6701, label %otrxcd_guess_dir.exit.thread
-    i32 5801, label %29
-    i32 5803, label %29
-    i32 6801, label %29
-    i32 5800, label %29
-    i32 6800, label %29
+    i32 5801, label %28
+    i32 5803, label %28
+    i32 6801, label %28
+    i32 5800, label %28
+    i32 6800, label %28
   ]
 
-28:                                               ; preds = %26, %26, %26
-  br label %otrxcd_guess_dir.exit.thread
-
-29:                                               ; preds = %26, %26, %26, %26, %26
+28:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26
   br label %otrxcd_guess_dir.exit.thread
 
 otrxcd_guess_dir.exit:                            ; preds = %26
-  %30 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_unknown_dir)
+  %29 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_unknown_dir)
   br label %otrxcd_guess_dir.exit.thread
 
-otrxcd_guess_dir.exit.thread:                     ; preds = %26, %26, %26, %26, %26, %26, %29, %28, %otrxcd_guess_dir.exit, %4
-  %.094 = phi i32 [ 0, %otrxcd_guess_dir.exit ], [ %.0.i, %4 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 2, %29 ], [ 2, %28 ]
-  %31 = load i32, ptr @hf_otrxc_msg_dir, align 4
-  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.094)
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %33
+otrxcd_guess_dir.exit.thread:                     ; preds = %26, %26, %26, %26, %26, %26, %28, %otrxcd_guess_dir.exit, %4
+  %.094 = phi i32 [ 0, %otrxcd_guess_dir.exit ], [ %.0.i, %4 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 2, %28 ]
+  %30 = load i32, ptr @hf_otrxc_msg_dir, align 4
+  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.094)
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %32
 
-33:                                               ; preds = %otrxcd_guess_dir.exit.thread
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %.not5.i = icmp eq ptr %35, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %36
+32:                                               ; preds = %otrxcd_guess_dir.exit.thread
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %34 = load ptr, ptr %33, align 8
+  %.not5.i = icmp eq ptr %34, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %35
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %38 = load i32, ptr %37, align 4
-  %39 = or i32 %38, 2
-  store i32 %39, ptr %37, align 4
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
+  %37 = load i32, ptr %36, align 4
+  %38 = or i32 %37, 2
+  store i32 %38, ptr %36, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %otrxcd_guess_dir.exit.thread, %33, %36
-  %40 = load i32, ptr @hf_otrxc_type, align 4
-  %41 = load ptr, ptr %11, align 8
-  %42 = call ptr @proto_tree_add_item_ret_string(ptr noundef %18, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef %41, ptr noundef nonnull %5)
-  %43 = load ptr, ptr %5, align 8
-  %44 = call i32 @str_to_val(ptr noundef %43, ptr noundef nonnull @otrxc_msg_type_enc, i32 noundef 0)
-  %45 = call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull @otrxc_msg_type_desc, ptr noundef nonnull @.str.74)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.117, ptr noundef %45)
-  %46 = icmp eq i32 %44, 0
-  br i1 %46, label %47, label %49
+proto_item_set_generated.exit:                    ; preds = %otrxcd_guess_dir.exit.thread, %32, %35
+  %39 = load i32, ptr @hf_otrxc_type, align 4
+  %40 = load ptr, ptr %11, align 8
+  %41 = call ptr @proto_tree_add_item_ret_string(ptr noundef %18, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef %40, ptr noundef nonnull %5)
+  %42 = load ptr, ptr %5, align 8
+  %43 = call i32 @str_to_val(ptr noundef %42, ptr noundef nonnull @otrxc_msg_type_enc, i32 noundef 0)
+  %44 = call ptr @val_to_str_const(i32 noundef %43, ptr noundef nonnull @otrxc_msg_type_desc, ptr noundef nonnull @.str.74)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.117, ptr noundef %44)
+  %45 = icmp eq i32 %43, 0
+  br i1 %45, label %46, label %48
 
-47:                                               ; preds = %proto_item_set_generated.exit
-  %48 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_unknown_msg_type)
-  br label %124
+46:                                               ; preds = %proto_item_set_generated.exit
+  %47 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_unknown_msg_type)
+  br label %123
 
-49:                                               ; preds = %proto_item_set_generated.exit
-  %50 = load i32, ptr @hf_otrxc_delimiter, align 4
-  %51 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %50, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
-  %.not.i107 = icmp eq ptr %51, null
-  br i1 %.not.i107, label %proto_item_set_hidden.exit, label %52
+48:                                               ; preds = %proto_item_set_generated.exit
+  %49 = load i32, ptr @hf_otrxc_delimiter, align 4
+  %50 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %49, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
+  %.not.i107 = icmp eq ptr %50, null
+  br i1 %.not.i107, label %proto_item_set_hidden.exit, label %51
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %54 = load ptr, ptr %53, align 8
-  %.not5.i108 = icmp eq ptr %54, null
-  br i1 %.not5.i108, label %proto_item_set_hidden.exit, label %55
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %53 = load ptr, ptr %52, align 8
+  %.not5.i108 = icmp eq ptr %53, null
+  br i1 %.not5.i108, label %proto_item_set_hidden.exit, label %54
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 28
-  %57 = load i32, ptr %56, align 4
-  %58 = or i32 %57, 1
-  store i32 %58, ptr %56, align 4
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
+  %56 = load i32, ptr %55, align 4
+  %57 = or i32 %56, 1
+  store i32 %57, ptr %55, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %49, %52, %55
-  %59 = load i32, ptr %6, align 4
-  %.not = icmp eq i32 %59, 32
-  br i1 %.not, label %63, label %60
+proto_item_set_hidden.exit:                       ; preds = %48, %51, %54
+  %58 = load i32, ptr %6, align 4
+  %.not = icmp eq i32 %58, 32
+  br i1 %.not, label %62, label %59
 
-60:                                               ; preds = %proto_item_set_hidden.exit
-  %61 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %51, ptr noundef nonnull @ei_otrxc_bad_delimiter)
+59:                                               ; preds = %proto_item_set_hidden.exit
+  %60 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_otrxc_bad_delimiter)
   %.pre = load i32, ptr %6, align 4
-  %62 = trunc i32 %.pre to i8
-  br label %63
+  %61 = trunc i32 %.pre to i8
+  br label %62
 
-63:                                               ; preds = %60, %proto_item_set_hidden.exit
-  %64 = phi i8 [ %62, %60 ], [ 32, %proto_item_set_hidden.exit ]
-  %65 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef 4, i32 noundef -1, i8 noundef zeroext %64)
-  %66 = icmp slt i32 %65, 0
-  %67 = load i32, ptr @hf_otrxc_verb, align 4
-  br i1 %66, label %68, label %75
+62:                                               ; preds = %59, %proto_item_set_hidden.exit
+  %63 = phi i8 [ %61, %59 ], [ 32, %proto_item_set_hidden.exit ]
+  %64 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef 4, i32 noundef -1, i8 noundef zeroext %63)
+  %65 = icmp slt i32 %64, 0
+  %66 = load i32, ptr @hf_otrxc_verb, align 4
+  br i1 %65, label %67, label %74
 
-68:                                               ; preds = %63
-  %69 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %67, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef 0)
-  %70 = icmp eq i32 %44, 2
-  br i1 %70, label %71, label %73
+67:                                               ; preds = %62
+  %68 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %66, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef 0)
+  %69 = icmp eq i32 %43, 2
+  br i1 %69, label %70, label %72
 
-71:                                               ; preds = %68
-  %72 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_rsp_no_code)
-  br label %73
+70:                                               ; preds = %67
+  %71 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_rsp_no_code)
+  br label %72
 
-73:                                               ; preds = %71, %68
-  %74 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %124
+72:                                               ; preds = %70, %67
+  %73 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %123
 
-75:                                               ; preds = %63
-  %76 = add nsw i32 %65, -4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %67, ptr noundef %0, i32 noundef 4, i32 noundef %76, i32 noundef 0)
-  %78 = load i32, ptr @hf_otrxc_delimiter, align 4
-  %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %78, ptr noundef %0, i32 noundef %65, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
-  %.not.i109 = icmp eq ptr %79, null
-  br i1 %.not.i109, label %proto_item_set_hidden.exit111, label %80
+74:                                               ; preds = %62
+  %75 = add nsw i32 %64, -4
+  %76 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %66, ptr noundef %0, i32 noundef 4, i32 noundef %75, i32 noundef 0)
+  %77 = load i32, ptr @hf_otrxc_delimiter, align 4
+  %78 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %77, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
+  %.not.i109 = icmp eq ptr %78, null
+  br i1 %.not.i109, label %proto_item_set_hidden.exit111, label %79
 
-80:                                               ; preds = %75
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  %82 = load ptr, ptr %81, align 8
-  %.not5.i110 = icmp eq ptr %82, null
-  br i1 %.not5.i110, label %proto_item_set_hidden.exit111, label %83
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %81 = load ptr, ptr %80, align 8
+  %.not5.i110 = icmp eq ptr %81, null
+  br i1 %.not5.i110, label %proto_item_set_hidden.exit111, label %82
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 28
-  %85 = load i32, ptr %84, align 4
-  %86 = or i32 %85, 1
-  store i32 %86, ptr %84, align 4
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 28
+  %84 = load i32, ptr %83, align 4
+  %85 = or i32 %84, 1
+  store i32 %85, ptr %83, align 4
   br label %proto_item_set_hidden.exit111
 
-proto_item_set_hidden.exit111:                    ; preds = %75, %80, %83
-  %87 = add nuw i32 %65, 1
-  %88 = icmp eq i32 %44, 2
-  br i1 %88, label %89, label %117
+proto_item_set_hidden.exit111:                    ; preds = %74, %79, %82
+  %86 = add nuw i32 %64, 1
+  %87 = icmp eq i32 %43, 2
+  br i1 %87, label %88, label %116
 
-89:                                               ; preds = %proto_item_set_hidden.exit111
-  %90 = load i32, ptr %6, align 4
-  %91 = trunc i32 %90 to i8
-  %92 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %87, i32 noundef -1, i8 noundef zeroext %91)
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %94, label %108
+88:                                               ; preds = %proto_item_set_hidden.exit111
+  %89 = load i32, ptr %6, align 4
+  %90 = trunc i32 %89 to i8
+  %91 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %86, i32 noundef -1, i8 noundef zeroext %90)
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %107
 
-94:                                               ; preds = %89
-  %95 = load i32, ptr @hf_otrxc_status, align 4
-  %96 = sub i32 %92, %87
-  %97 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %95, ptr noundef %0, i32 noundef %87, i32 noundef %96, i32 noundef 0)
-  %98 = load i32, ptr @hf_otrxc_delimiter, align 4
-  %99 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %98, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
-  %.not.i112 = icmp eq ptr %99, null
-  br i1 %.not.i112, label %proto_item_set_hidden.exit114, label %100
+93:                                               ; preds = %88
+  %94 = load i32, ptr @hf_otrxc_status, align 4
+  %95 = sub i32 %91, %86
+  %96 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %94, ptr noundef %0, i32 noundef %86, i32 noundef %95, i32 noundef 0)
+  %97 = load i32, ptr @hf_otrxc_delimiter, align 4
+  %98 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %18, i32 noundef %97, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
+  %.not.i112 = icmp eq ptr %98, null
+  br i1 %.not.i112, label %proto_item_set_hidden.exit114, label %99
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %102 = load ptr, ptr %101, align 8
-  %.not5.i113 = icmp eq ptr %102, null
-  br i1 %.not5.i113, label %proto_item_set_hidden.exit114, label %103
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  %101 = load ptr, ptr %100, align 8
+  %.not5.i113 = icmp eq ptr %101, null
+  br i1 %.not5.i113, label %proto_item_set_hidden.exit114, label %102
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 28
-  %105 = load i32, ptr %104, align 4
-  %106 = or i32 %105, 1
-  store i32 %106, ptr %104, align 4
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 28
+  %104 = load i32, ptr %103, align 4
+  %105 = or i32 %104, 1
+  store i32 %105, ptr %103, align 4
   br label %proto_item_set_hidden.exit114
 
-proto_item_set_hidden.exit114:                    ; preds = %94, %100, %103
-  %107 = add nuw i32 %92, 1
-  br label %117
+proto_item_set_hidden.exit114:                    ; preds = %93, %99, %102
+  %106 = add nuw i32 %91, 1
+  br label %116
 
-108:                                              ; preds = %89
-  %109 = icmp slt i32 %87, %10
-  br i1 %109, label %110, label %115
+107:                                              ; preds = %88
+  %108 = icmp slt i32 %86, %10
+  br i1 %108, label %109, label %114
 
-110:                                              ; preds = %108
-  %111 = load i32, ptr @hf_otrxc_status, align 4
-  %112 = sub i32 %10, %87
-  %113 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %111, ptr noundef %0, i32 noundef %87, i32 noundef %112, i32 noundef 0)
-  %114 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %124
+109:                                              ; preds = %107
+  %110 = load i32, ptr @hf_otrxc_status, align 4
+  %111 = sub i32 %10, %86
+  %112 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %110, ptr noundef %0, i32 noundef %86, i32 noundef %111, i32 noundef 0)
+  %113 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %123
 
-115:                                              ; preds = %108
-  %116 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_rsp_no_code)
-  br label %124
+114:                                              ; preds = %107
+  %115 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_rsp_no_code)
+  br label %123
 
-117:                                              ; preds = %proto_item_set_hidden.exit114, %proto_item_set_hidden.exit111
-  %.095 = phi i32 [ %107, %proto_item_set_hidden.exit114 ], [ %87, %proto_item_set_hidden.exit111 ]
-  %118 = icmp slt i32 %.095, %10
-  br i1 %118, label %119, label %122
+116:                                              ; preds = %proto_item_set_hidden.exit114, %proto_item_set_hidden.exit111
+  %.095 = phi i32 [ %106, %proto_item_set_hidden.exit114 ], [ %86, %proto_item_set_hidden.exit111 ]
+  %117 = icmp slt i32 %.095, %10
+  br i1 %117, label %118, label %121
 
-119:                                              ; preds = %117
-  %120 = load i32, ptr @hf_otrxc_params, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %120, ptr noundef %0, i32 noundef %.095, i32 noundef -1, i32 noundef 0)
-  br label %122
+118:                                              ; preds = %116
+  %119 = load i32, ptr @hf_otrxc_params, align 4
+  %120 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %119, ptr noundef %0, i32 noundef %.095, i32 noundef -1, i32 noundef 0)
+  br label %121
 
-122:                                              ; preds = %119, %117
-  %123 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %124
+121:                                              ; preds = %118, %116
+  %122 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %123
 
-124:                                              ; preds = %122, %115, %110, %73, %47
-  %.0 = phi i32 [ 3, %47 ], [ %74, %73 ], [ %123, %122 ], [ %114, %110 ], [ %87, %115 ]
+123:                                              ; preds = %121, %114, %109, %72, %46
+  %.0 = phi i32 [ 3, %46 ], [ %73, %72 ], [ %122, %121 ], [ %113, %109 ], [ %86, %114 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   ret i32 %.0

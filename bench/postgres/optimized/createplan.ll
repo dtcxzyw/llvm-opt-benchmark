@@ -4051,8 +4051,8 @@ define dso_local zeroext i1 @is_projection_capable_plan(ptr noundef readonly cap
 7:                                                ; preds = %1
   br label %8
 
-8:                                                ; preds = %1, %3, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %7
-  %.0 = phi i1 [ true, %7 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %.not, %3 ], [ false, %1 ]
+8:                                                ; preds = %3, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %7
+  %.0 = phi i1 [ true, %7 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %.not, %3 ]
   ret i1 %.0
 }
 
@@ -4431,8 +4431,8 @@ define dso_local zeroext i1 @is_projection_capable_path(ptr noundef readonly cap
 15:                                               ; preds = %1
   br label %16
 
-16:                                               ; preds = %1, %8, %11, %4, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %.not, %4 ], [ false, %8 ], [ %14, %11 ], [ false, %1 ]
+16:                                               ; preds = %8, %11, %4, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %15
+  %.0 = phi i1 [ true, %15 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %.not, %4 ], [ false, %8 ], [ %14, %11 ]
   ret i1 %.0
 }
 

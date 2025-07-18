@@ -12977,13 +12977,13 @@ ncp_requires_subfunc.exit:                        ; preds = %220
     i8 3, label %547
     i8 4, label %571
     i8 5, label %580
+    i8 110, label %699
     i8 57, label %696
     i8 53, label %673
     i8 27, label %667
     i8 22, label %627
     i8 19, label %624
     i8 18, label %612
-    i8 110, label %699
     i8 15, label %595
   ]
 
@@ -16562,26 +16562,26 @@ ncp_hash_lookup.exit1250:                         ; preds = %.lr.ph.i1248, %156,
     i8 9, label %656
     i8 10, label %681
     i8 11, label %704
-    i8 59, label %1192
+    i8 38, label %1044
     i8 13, label %751
-    i8 58, label %1183
+    i8 42, label %1075
     i8 15, label %775
     i8 16, label %806
     i8 17, label %844
     i8 18, label %868
     i8 19, label %877
     i8 110, label %1198
-    i8 57, label %1177
+    i8 59, label %1192
     i8 22, label %930
     i8 23, label %975
     i8 24, label %985
     i8 25, label %995
-    i8 53, label %1161
-    i8 27, label %1020
-    i8 50, label %1148
     i8 43, label %1110
-    i8 42, label %1075
-    i8 38, label %1044
+    i8 27, label %1020
+    i8 58, label %1183
+    i8 57, label %1177
+    i8 53, label %1161
+    i8 50, label %1148
   ]
 
 203:                                              ; preds = %195
@@ -18017,7 +18017,7 @@ ncp_hash_lookup.exit1250:                         ; preds = %.lr.ph.i1248, %156,
   br label %1237
 
 1237:                                             ; preds = %467, %552, %635, %650, %665, %681, %732, %792, %830, %868, %971, %975, %985, %1011, %1032, %1103, %1141, %1148, %1177, %1183, %1192, %1213, %213, %301, %236, %309, %350, %317, %314, %423, %385, %439, %506, %505, %512, %535, %589, %566, %610, %704, %751, %772, %757, %806, %844, %865, %850, %877, %886, %918, %921, %905, %948, %942, %964, %995, %1020, %1058, %1072, %1060, %1075, %1110, %1162, %1175, %1161, %195, %170
-  %.01192 = phi i1 [ false, %170 ], [ false, %195 ], [ false, %213 ], [ false, %236 ], [ false, %301 ], [ false, %309 ], [ false, %314 ], [ true, %317 ], [ true, %350 ], [ true, %385 ], [ true, %423 ], [ true, %439 ], [ true, %467 ], [ false, %506 ], [ false, %505 ], [ false, %512 ], [ false, %535 ], [ false, %552 ], [ false, %589 ], [ false, %566 ], [ false, %610 ], [ false, %635 ], [ true, %650 ], [ true, %665 ], [ true, %681 ], [ false, %704 ], [ false, %732 ], [ true, %1192 ], [ false, %751 ], [ false, %772 ], [ false, %757 ], [ true, %1183 ], [ false, %792 ], [ false, %806 ], [ false, %830 ], [ false, %844 ], [ false, %865 ], [ false, %850 ], [ true, %868 ], [ true, %877 ], [ true, %886 ], [ true, %918 ], [ true, %921 ], [ true, %905 ], [ true, %1213 ], [ true, %1177 ], [ false, %948 ], [ false, %942 ], [ false, %964 ], [ false, %971 ], [ false, %975 ], [ false, %985 ], [ false, %995 ], [ false, %1011 ], [ false, %1175 ], [ false, %1162 ], [ false, %1161 ], [ true, %1020 ], [ true, %1032 ], [ false, %1148 ], [ true, %1110 ], [ true, %1141 ], [ true, %1075 ], [ true, %1103 ], [ false, %1058 ], [ false, %1060 ], [ true, %1072 ]
+  %.01192 = phi i1 [ false, %170 ], [ false, %195 ], [ false, %213 ], [ false, %236 ], [ false, %301 ], [ false, %309 ], [ false, %314 ], [ true, %317 ], [ true, %350 ], [ true, %385 ], [ true, %423 ], [ true, %439 ], [ true, %467 ], [ false, %506 ], [ false, %505 ], [ false, %512 ], [ false, %535 ], [ false, %552 ], [ false, %589 ], [ false, %566 ], [ false, %610 ], [ false, %635 ], [ true, %650 ], [ true, %665 ], [ true, %681 ], [ false, %704 ], [ false, %732 ], [ false, %1058 ], [ false, %1060 ], [ true, %1072 ], [ false, %751 ], [ false, %772 ], [ false, %757 ], [ true, %1075 ], [ true, %1103 ], [ false, %792 ], [ false, %806 ], [ false, %830 ], [ false, %844 ], [ false, %865 ], [ false, %850 ], [ true, %868 ], [ true, %877 ], [ true, %886 ], [ true, %918 ], [ true, %921 ], [ true, %905 ], [ true, %1213 ], [ true, %1192 ], [ false, %948 ], [ false, %942 ], [ false, %964 ], [ false, %971 ], [ false, %975 ], [ false, %985 ], [ false, %995 ], [ false, %1011 ], [ true, %1110 ], [ true, %1141 ], [ true, %1020 ], [ true, %1032 ], [ true, %1183 ], [ true, %1177 ], [ false, %1175 ], [ false, %1162 ], [ false, %1161 ], [ false, %1148 ]
   %1238 = load i32, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
   store i32 %1238, ptr %7, align 4

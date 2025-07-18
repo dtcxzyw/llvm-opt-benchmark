@@ -1315,8 +1315,8 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %163, %158, %155, %1
   %226 = call i64 @zend_string_hash_func(ptr noundef nonnull %222) #20
   br label %zval_ptr_dtor_nogc.exit133
 
-zval_ptr_dtor_nogc.exit133:                       ; preds = %225, %221, %174, %28, %23, %14, %210, %180, %3, %3, %3, %96, %81, %66, %55, %44, %30, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %7
-  %.0117 = phi i1 [ true, %174 ], [ false, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %30 ], [ false, %44 ], [ false, %55 ], [ false, %66 ], [ false, %81 ], [ false, %96 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %180 ], [ true, %210 ], [ true, %14 ], [ true, %23 ], [ true, %28 ], [ true, %221 ], [ true, %225 ]
+zval_ptr_dtor_nogc.exit133:                       ; preds = %225, %221, %174, %28, %23, %14, %210, %180, %96, %81, %66, %55, %44, %30, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %7
+  %.0117 = phi i1 [ true, %174 ], [ false, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %30 ], [ false, %44 ], [ false, %55 ], [ false, %66 ], [ false, %81 ], [ false, %96 ], [ false, %180 ], [ true, %210 ], [ true, %14 ], [ true, %23 ], [ true, %28 ], [ true, %221 ], [ true, %225 ]
   ret i1 %.0117
 }
 

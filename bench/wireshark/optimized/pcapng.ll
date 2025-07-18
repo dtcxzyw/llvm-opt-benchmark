@@ -841,7 +841,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %1, align 4
-  switch i32 %13, label %116 [
+  switch i32 %13, label %117 [
     i32 0, label %14
     i32 -12, label %14
   ]
@@ -851,12 +851,12 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %15 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %15)
   store ptr null, ptr %2, align 8
-  br label %116
+  br label %117
 
 16:                                               ; preds = %3
   %17 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %17, 168627466
-  br i1 %.not, label %18, label %116
+  br i1 %.not, label %18, label %117
 
 18:                                               ; preds = %16
   store i32 168627466, ptr %5, align 8
@@ -876,21 +876,21 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %24 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %24)
   store ptr null, ptr %2, align 8
-  br label %116
+  br label %117
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %19, align 8
   call void @wtap_block_unref(ptr noundef %26)
   %27 = load i32, ptr %1, align 4
   %28 = icmp eq i32 %27, -12
-  br i1 %28, label %29, label %116
+  br i1 %28, label %29, label %117
 
 29:                                               ; preds = %25
   store i32 0, ptr %1, align 4
   %30 = load ptr, ptr %2, align 8
   call void @g_free(ptr noundef %30)
   store ptr null, ptr %2, align 8
-  br label %116
+  br label %117
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr %0, align 8
@@ -928,7 +928,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
   %48 = load ptr, ptr %19, align 8
   call void @wtap_block_unref(ptr noundef %48)
-  br label %116
+  br label %117
 
 49:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
@@ -981,9 +981,9 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %78 = load ptr, ptr %0, align 8
   %79 = call i32 @file_eof(ptr noundef %78)
   %.not8287 = icmp eq i32 %79, 0
-  br i1 %.not8287, label %.lr.ph, label %get_block_type_internal.exit.thread
+  br i1 %.not8287, label %.lr.ph, label %get_block_type_internal.exit
 
-.lr.ph:                                           ; preds = %49, %113
+.lr.ph:                                           ; preds = %49, %114
   %80 = load ptr, ptr %0, align 8
   %81 = call i64 @file_tell(ptr noundef %80)
   store i64 %81, ptr %7, align 8
@@ -994,7 +994,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
 84:                                               ; preds = %.lr.ph
   %85 = load i32, ptr %1, align 4
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %get_block_type_internal.exit.thread, label %116
+  br i1 %86, label %get_block_type_internal.exit, label %117
 
 87:                                               ; preds = %.lr.ph
   %88 = load ptr, ptr %0, align 8
@@ -1017,74 +1017,74 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
 thread-pre-split:                                 ; preds = %87, %98
   %100 = phi i32 [ %99, %98 ], [ %97, %87 ]
   switch i32 %100, label %101 [
-    i32 168627466, label %get_block_type_internal.exit
-    i32 1, label %get_block_type_internal.exit
-    i32 4, label %get_block_type_internal.exit
-    i32 10, label %get_block_type_internal.exit
-    i32 5, label %get_block_type_internal.exit
-    i32 513, label %get_block_type_internal.exit
-    i32 514, label %get_block_type_internal.exit
-    i32 515, label %get_block_type_internal.exit
-    i32 517, label %get_block_type_internal.exit
-    i32 518, label %get_block_type_internal.exit
-    i32 519, label %get_block_type_internal.exit
-    i32 521, label %get_block_type_internal.exit
-    i32 528, label %get_block_type_internal.exit
-    i32 529, label %get_block_type_internal.exit
-    i32 530, label %get_block_type_internal.exit
-    i32 531, label %get_block_type_internal.exit
-    i32 532, label %get_block_type_internal.exit
-    i32 533, label %get_block_type_internal.exit
-    i32 536, label %get_block_type_internal.exit
-    i32 537, label %get_block_type_internal.exit
-    i32 544, label %get_block_type_internal.exit
-    i32 2, label %get_block_type_internal.exit.thread
-    i32 6, label %get_block_type_internal.exit.thread
-    i32 3, label %get_block_type_internal.exit.thread
-    i32 2989, label %get_block_type_internal.exit.thread
-    i32 1073744813, label %get_block_type_internal.exit.thread
-    i32 516, label %get_block_type_internal.exit.thread
-    i32 534, label %get_block_type_internal.exit.thread
-    i32 545, label %get_block_type_internal.exit.thread
-    i32 9, label %get_block_type_internal.exit.thread
+    i32 168627466, label %107
+    i32 1, label %107
+    i32 4, label %107
+    i32 10, label %107
+    i32 5, label %107
+    i32 513, label %107
+    i32 514, label %107
+    i32 515, label %107
+    i32 517, label %107
+    i32 518, label %107
+    i32 519, label %107
+    i32 521, label %107
+    i32 528, label %107
+    i32 529, label %107
+    i32 530, label %107
+    i32 531, label %107
+    i32 532, label %107
+    i32 533, label %107
+    i32 536, label %107
+    i32 537, label %107
+    i32 544, label %107
+    i32 2, label %get_block_type_internal.exit
+    i32 6, label %get_block_type_internal.exit
+    i32 3, label %get_block_type_internal.exit
+    i32 2989, label %get_block_type_internal.exit
+    i32 1073744813, label %get_block_type_internal.exit
+    i32 516, label %get_block_type_internal.exit
+    i32 534, label %get_block_type_internal.exit
+    i32 545, label %get_block_type_internal.exit
+    i32 9, label %get_block_type_internal.exit
   ]
 
 101:                                              ; preds = %thread-pre-split
   %102 = load ptr, ptr @block_handlers, align 8
   %.not.i84 = icmp eq ptr %102, null
-  br i1 %.not.i84, label %get_block_type_internal.exit, label %103
+  br i1 %.not.i84, label %107, label %103
 
 103:                                              ; preds = %101
   %104 = zext i32 %100 to i64
   %105 = inttoptr i64 %104 to ptr
   %106 = call ptr @g_hash_table_lookup(ptr noundef nonnull %102, ptr noundef %105)
   %.not3.i = icmp eq ptr %106, null
-  br i1 %.not3.i, label %get_block_type_internal.exit, label %get_block_type_internal.exit.thread
+  br i1 %.not3.i, label %107, label %get_block_type_internal.exit
 
-get_block_type_internal.exit:                     ; preds = %101, %103, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split
-  %107 = load ptr, ptr %0, align 8
-  %108 = call fastcc zeroext i1 @pcapng_read_block(ptr noundef %0, ptr noundef %107, ptr noundef %94, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
-  br i1 %108, label %113, label %109
+107:                                              ; preds = %101, %103, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split
+  %108 = load ptr, ptr %0, align 8
+  %109 = call fastcc zeroext i1 @pcapng_read_block(ptr noundef %0, ptr noundef %108, ptr noundef %94, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
+  br i1 %109, label %114, label %110
 
-109:                                              ; preds = %get_block_type_internal.exit
-  %110 = load ptr, ptr %19, align 8
-  call void @wtap_block_unref(ptr noundef %110)
-  %111 = load i32, ptr %1, align 4
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %get_block_type_internal.exit.thread, label %116
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %19, align 8
+  call void @wtap_block_unref(ptr noundef %111)
+  %112 = load i32, ptr %1, align 4
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %get_block_type_internal.exit, label %117
 
-113:                                              ; preds = %get_block_type_internal.exit
+114:                                              ; preds = %107
   call fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr noundef %59, ptr noundef %94, ptr noundef nonnull byval(%struct.section_info_t) align 8 %9, ptr noundef nonnull %5, ptr noundef nonnull %7)
-  %114 = load ptr, ptr %0, align 8
-  %115 = call i32 @file_eof(ptr noundef %114)
-  %.not82 = icmp eq i32 %115, 0
-  br i1 %.not82, label %.lr.ph, label %get_block_type_internal.exit.thread, !llvm.loop !24
+  %115 = load ptr, ptr %0, align 8
+  %116 = call i32 @file_eof(ptr noundef %115)
+  %.not82 = icmp eq i32 %116, 0
+  br i1 %.not82, label %.lr.ph, label %get_block_type_internal.exit, !llvm.loop !24
 
-get_block_type_internal.exit.thread:              ; preds = %113, %103, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %49, %109, %84
-  br label %116
+get_block_type_internal.exit:                     ; preds = %114, %103, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %49, %110, %84
+  br label %117
 
-116:                                              ; preds = %109, %84, %25, %16, %12, %get_block_type_internal.exit.thread, %47, %29, %22, %14
-  %.0 = phi i32 [ 1, %get_block_type_internal.exit.thread ], [ -1, %47 ], [ 0, %29 ], [ 0, %22 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %84 ], [ -1, %109 ]
+117:                                              ; preds = %110, %84, %25, %16, %12, %get_block_type_internal.exit, %47, %29, %22, %14
+  %.0 = phi i32 [ 1, %get_block_type_internal.exit ], [ -1, %47 ], [ 0, %29 ], [ 0, %22 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %84 ], [ -1, %110 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
@@ -7370,8 +7370,8 @@ pcapng_write_custom_option.exit:                  ; preds = %65, %67, %31
 define internal noundef range(i32 0, 9) i32 @compute_isb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #13 {
   %.off = add i32 %1, -2
   %switch = icmp ult i32 %.off, 7
-  %spec.select = select i1 %switch, i32 8, i32 0
-  ret i32 %spec.select
+  %. = select i1 %switch, i32 8, i32 0
+  ret i32 %.
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

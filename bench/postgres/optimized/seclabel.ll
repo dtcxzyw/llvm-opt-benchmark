@@ -110,39 +110,39 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   %.0 = phi ptr [ %22, %20 ], [ %32, %30 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4
-  switch i32 %40, label %41 [
-    i32 1, label %SecLabelSupportsObjectType.exit
-    i32 6, label %SecLabelSupportsObjectType.exit
-    i32 9, label %SecLabelSupportsObjectType.exit
-    i32 12, label %SecLabelSupportsObjectType.exit
-    i32 14, label %SecLabelSupportsObjectType.exit
-    i32 18, label %SecLabelSupportsObjectType.exit
-    i32 19, label %SecLabelSupportsObjectType.exit
-    i32 21, label %SecLabelSupportsObjectType.exit
-    i32 22, label %SecLabelSupportsObjectType.exit
-    i32 23, label %SecLabelSupportsObjectType.exit
-    i32 29, label %SecLabelSupportsObjectType.exit
-    i32 30, label %SecLabelSupportsObjectType.exit
-    i32 33, label %SecLabelSupportsObjectType.exit
-    i32 34, label %SecLabelSupportsObjectType.exit
-    i32 36, label %SecLabelSupportsObjectType.exit
-    i32 37, label %SecLabelSupportsObjectType.exit
-    i32 38, label %SecLabelSupportsObjectType.exit
-    i32 41, label %SecLabelSupportsObjectType.exit
-    i32 42, label %SecLabelSupportsObjectType.exit
-    i32 49, label %SecLabelSupportsObjectType.exit
-    i32 51, label %SecLabelSupportsObjectType.exit
+  switch i32 %40, label %SecLabelSupportsObjectType.exit [
+    i32 1, label %44
+    i32 6, label %44
+    i32 9, label %44
+    i32 12, label %44
+    i32 14, label %44
+    i32 18, label %44
+    i32 19, label %44
+    i32 21, label %44
+    i32 22, label %44
+    i32 23, label %44
+    i32 29, label %44
+    i32 30, label %44
+    i32 33, label %44
+    i32 34, label %44
+    i32 36, label %44
+    i32 37, label %44
+    i32 38, label %44
+    i32 41, label %44
+    i32 42, label %44
+    i32 49, label %44
+    i32 51, label %44
   ]
 
-41:                                               ; preds = %.thread
-  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %42)
-  %43 = tail call i32 @errcode(i32 noundef 151027844) #8
-  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #8
+SecLabelSupportsObjectType.exit:                  ; preds = %.thread
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %41)
+  %42 = tail call i32 @errcode(i32 noundef 151027844) #8
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
-SecLabelSupportsObjectType.exit:                  ; preds = %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread
+44:                                               ; preds = %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread, %.thread
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = call { i64, i32 } @get_object_address(i32 noundef %40, ptr noundef %46, ptr noundef nonnull %3, i32 noundef 4, i1 noundef zeroext false) #8
@@ -160,7 +160,7 @@ SecLabelSupportsObjectType.exit:                  ; preds = %.thread, %.thread, 
   %cond = icmp eq i32 %52, 6
   br i1 %cond, label %53, label %73
 
-53:                                               ; preds = %SecLabelSupportsObjectType.exit
+53:                                               ; preds = %44
   %54 = load ptr, ptr %3, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
@@ -193,7 +193,7 @@ SecLabelSupportsObjectType.exit:                  ; preds = %.thread, %.thread, 
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
-73:                                               ; preds = %53, %53, %53, %53, %53, %53, %SecLabelSupportsObjectType.exit
+73:                                               ; preds = %53, %53, %53, %53, %53, %53, %44
   %74 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
