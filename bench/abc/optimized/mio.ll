@@ -153,7 +153,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 n
   %16 = fpext float %15 to double
   %17 = add nsw i32 %9, 1
   store i32 %17, ptr @globalUtilOptind, align 4, !tbaa !3
-  %18 = fcmp ugt float %15, 0.000000e+00
+  %18 = fcmp ugt double %14, 0x3690000000000000
   br i1 %18, label %.outer168, label %.loopexit, !llvm.loop !10
 
 19:                                               ; preds = %6

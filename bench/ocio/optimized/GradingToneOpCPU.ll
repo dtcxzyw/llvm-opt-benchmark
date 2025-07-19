@@ -1984,7 +1984,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   br i1 %4, label %5, label %145
 
 5:                                                ; preds = %2
-  %6 = fcmp ogt float %3, 1.000000e+00
+  %6 = fcmp ogt double %.240.val, 0x3FF0000010000000
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5
@@ -2912,7 +2912,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   br i1 %4, label %5, label %166
 
 5:                                                ; preds = %2
-  %6 = fcmp ogt float %3, 1.000000e+00
+  %6 = fcmp ogt double %.240.val, 0x3FF0000010000000
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5

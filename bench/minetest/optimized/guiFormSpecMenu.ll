@@ -5988,8 +5988,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   %31 = load ptr, ptr %parts, align 8, !tbaa !189
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %32, ptr noundef null) #34
-  %conv.i = fptrunc double %call.i.i to float
-  %cmp21 = fcmp nsz olt float %conv.i, 0.000000e+00
+  %cmp21 = fcmp nsz olt double %call.i.i, 0xB690000000000000
   br i1 %cmp21, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
@@ -6007,8 +6006,7 @@ cond.end:                                         ; preds = %cond.false, %if.end
   %add.ptr.i104 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %36 = load ptr, ptr %add.ptr.i104, align 8, !tbaa !4
   %call.i.i105 = call nsz double @strtod(ptr noundef nonnull captures(none) %36, ptr noundef null) #34
-  %conv.i106 = fptrunc double %call.i.i105 to float
-  %cmp28 = fcmp nsz olt float %conv.i106, 0.000000e+00
+  %cmp28 = fcmp nsz olt double %call.i.i105, 0xB690000000000000
   br i1 %cmp28, label %cond.end34, label %cond.false30
 
 cond.false30:                                     ; preds = %cond.end

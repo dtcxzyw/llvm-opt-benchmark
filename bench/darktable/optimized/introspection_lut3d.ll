@@ -2172,8 +2172,8 @@ parse_cube_line.exit:                             ; preds = %22, %37, %39
   br i1 %107, label %108, label %.thread113
 
 108:                                              ; preds = %.preheader
-  %109 = fcmp reassoc nsz arcp contract afn olt float %102, 0.000000e+00
-  %110 = fcmp reassoc nsz arcp contract afn ogt float %102, 1.000000e+00
+  %109 = fcmp reassoc nsz arcp contract afn olt double %101, 0xB690000000000000
+  %110 = fcmp reassoc nsz arcp contract afn ogt double %101, 0x3FF0000010000000
   %or.cond101 = or i1 %109, %110
   %111 = zext i1 %or.cond101 to i32
   %.475 = add i32 %.374166, %111

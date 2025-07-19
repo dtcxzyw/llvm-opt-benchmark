@@ -99,7 +99,7 @@ if.end:                                           ; preds = %land.lhs.true
   %mul2.i = fmul double %bt.0, %conv1.i
   %11 = tail call double @llvm.fmuladd.f64(double %sub.i, double %conv.i44, double %mul2.i)
   %conv3.i = fptrunc double %11 to float
-  %cmp29 = fcmp ogt float %conv3.i, 5.000000e-01
+  %cmp29 = fcmp ogt double %11, 0x3FE0000010000000
   br i1 %cmp29, label %_ZNKSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE12_M_check_lenEmPKc.exit.i.i, label %if.end33
 
 _ZNKSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.end

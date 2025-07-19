@@ -44013,7 +44013,6 @@ entry:
   %conv2.i.i23.i = fpext float %15 to double
   %16 = tail call double @llvm.fmuladd.f64(double %conv2.i.i23.i, double 3.000000e+00, double %14)
   %sub.i.i27.i = fsub double %16, %div4.i.i.i
-  %conv5.i.i28.i = fptrunc double %sub.i.i27.i to float
   %add.ptr.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %add.ptr.i.i5.i.i5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %add.ptr.i.i7.i.i6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -44083,7 +44082,7 @@ if.then.i.i:                                      ; preds = %entry
   %cmp.i.i18.i.i = fcmp olt float %fneg.i.i30.i, 0.000000e+00
   %.sroa.speculated87.i.i = select i1 %cmp.i.i18.i.i, float 0.000000e+00, float %fneg.i.i30.i
   %mul.i20.i.i = fmul float %.sroa.speculated87.i.i, %.sroa.speculated87.i.i
-  %cmp.i.i21.i.i = fcmp ogt float %conv5.i.i28.i, 0.000000e+00
+  %cmp.i.i21.i.i = fcmp ogt double %sub.i.i27.i, 0x3690000000000000
   br label %_ZN7openvdb5v11_04math16GodunovsNormSqrdIfEET_bRKNS1_4Vec3IS3_EES7_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -44107,13 +44106,14 @@ if.else.i.i:                                      ; preds = %entry
   %cmp.i.i42.i.i = fcmp ogt float %fneg.i.i30.i, 0.000000e+00
   %.sroa.speculated69.i.i = select i1 %cmp.i.i42.i.i, float 0.000000e+00, float %fneg.i.i30.i
   %mul.i44.i.i = fmul float %.sroa.speculated69.i.i, %.sroa.speculated69.i.i
-  %cmp.i.i45.i.i = fcmp olt float %conv5.i.i28.i, 0.000000e+00
+  %cmp.i.i45.i.i = fcmp olt double %sub.i.i27.i, 0xB690000000000000
   br label %_ZN7openvdb5v11_04math16GodunovsNormSqrdIfEET_bRKNS1_4Vec3IS3_EES7_.exit
 
 _ZN7openvdb5v11_04math16GodunovsNormSqrdIfEET_bRKNS1_4Vec3IS3_EES7_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %cmp.i.i45.sink.i.i = phi i1 [ %cmp.i.i45.i.i, %if.else.i.i ], [ %cmp.i.i21.i.i, %if.then.i.i ]
   %mul.i44.sink106.i.i = phi float [ %mul.i44.i.i, %if.else.i.i ], [ %mul.i20.i.i, %if.then.i.i ]
   %add35.sink.i.i = phi float [ %add35.i.i, %if.else.i.i ], [ %add.i.i, %if.then.i.i ]
+  %conv5.i.i28.i = fptrunc double %sub.i.i27.i to float
   %.sroa.speculated66.i.i = select i1 %cmp.i.i45.sink.i.i, float 0.000000e+00, float %conv5.i.i28.i
   %mul.i47.i.i = fmul float %.sroa.speculated66.i.i, %.sroa.speculated66.i.i
   %cmp.i.i48.i.i = fcmp olt float %mul.i44.sink106.i.i, %mul.i47.i.i

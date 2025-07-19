@@ -37,7 +37,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__25GeomUtilConeMeshGen
   %11 = fpext float %3 to double
   %12 = fmul double %11, 0x3F91DF46A2529D39
   %13 = fptrunc double %12 to float
-  %14 = fcmp olt float %13, 0xC01921FB60000000
+  %14 = fcmp olt double %12, 0xC01921FB6FFFFFFF
   %15 = fcmp ogt float %13, 0x401921FB60000000
   %..i = select i1 %15, float 0x401921FB60000000, float %13
   %.0.i = select i1 %14, float 0xC01921FB60000000, float %..i

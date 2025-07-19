@@ -739,7 +739,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %214
   %259 = fpext reassoc nsz arcp contract afn float %.1.i to double
   %260 = fmul reassoc nsz arcp contract afn double %259, 0x3FC5555555555555
   %261 = fptrunc reassoc nsz arcp contract afn double %260 to float
-  %262 = fcmp reassoc nsz arcp contract afn olt float %261, 0.000000e+00
+  %262 = fcmp reassoc nsz arcp contract afn olt double %260, 0xB690000000000000
   br i1 %262, label %263, label %265
 
 263:                                              ; preds = %258
@@ -747,7 +747,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %214
   br label %rgb2hsl.exit
 
 265:                                              ; preds = %258
-  %266 = fcmp reassoc nsz arcp contract afn ogt float %261, 1.000000e+00
+  %266 = fcmp reassoc nsz arcp contract afn ogt double %260, 0x3FF0000010000000
   br i1 %266, label %267, label %rgb2hsl.exit
 
 267:                                              ; preds = %265
@@ -897,7 +897,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 
 21:                                               ; preds = %4
   %22 = fpext reassoc nsz arcp contract afn float %19 to double
-  %23 = fcmp reassoc nsz arcp contract afn olt float %19, 5.000000e-01
+  %23 = fcmp reassoc nsz arcp contract afn olt double %18, 0x3FDFFFFFF0000000
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21

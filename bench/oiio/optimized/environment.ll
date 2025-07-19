@@ -1169,8 +1169,8 @@ _ZN11OpenImageIO6v3_1_03pvt17vector_to_latlongERKN9Imath_3_14Vec3IfEEbRfS7_.exit
   %326 = icmp slt i32 %264, %325
   br i1 %326, label %.lr.ph418, label %.loopexit407.thread
 
-.lr.ph418:                                        ; preds = %_ZN11OpenImageIO6v3_1_03pvt17vector_to_latlongERKN9Imath_3_14Vec3IfEEbRfS7_.exit, %338
-  %indvars.iv = phi i64 [ %indvars.iv.next, %338 ], [ %283, %_ZN11OpenImageIO6v3_1_03pvt17vector_to_latlongERKN9Imath_3_14Vec3IfEEbRfS7_.exit ]
+.lr.ph418:                                        ; preds = %_ZN11OpenImageIO6v3_1_03pvt17vector_to_latlongERKN9Imath_3_14Vec3IfEEbRfS7_.exit, %337
+  %indvars.iv = phi i64 [ %indvars.iv.next, %337 ], [ %283, %_ZN11OpenImageIO6v3_1_03pvt17vector_to_latlongERKN9Imath_3_14Vec3IfEEbRfS7_.exit ]
   %327 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::ImageCacheFile::LevelInfo", ptr %320, i64 %indvars.iv
   %328 = load ptr, ptr %327, align 8, !tbaa !93
   %.not.i.i302 = icmp eq ptr %328, null
@@ -1182,46 +1182,46 @@ _ZN11OpenImageIO6v3_1_03pvt17vector_to_latlongERKN9Imath_3_14Vec3IfEEbRfS7_.exit
   %333 = fmul float %.0251, %332
   %334 = fpext float %333 to double
   %335 = fmul double %334, 0x3FD45F306DC9C883
-  %336 = fptrunc double %335 to float
-  %337 = fcmp ugt float %336, 1.000000e+00
-  br i1 %337, label %338, label %.loopexit407
+  %336 = fcmp ugt double %335, 0x3FF0000010000000
+  br i1 %336, label %337, label %.loopexit407
 
-338:                                              ; preds = %.lr.ph418
+337:                                              ; preds = %.lr.ph418
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %325
   br i1 %exitcond.not, label %.loopexit407.thread, label %.lr.ph418, !llvm.loop !173
 
 .loopexit407:                                     ; preds = %.lr.ph418
-  %339 = trunc nsw i64 %indvars.iv to i32
-  %340 = add nsw i32 %339, -1
-  store i32 %340, ptr %.sroa.0473, align 8, !tbaa !175
-  store i32 %339, ptr %.sroa.7, align 4, !tbaa !175
-  %341 = icmp slt i64 %indvars.iv, 0
-  br i1 %341, label %.loopexit407.thread, label %343
+  %338 = trunc nsw i64 %indvars.iv to i32
+  %339 = add nsw i32 %338, -1
+  store i32 %339, ptr %.sroa.0473, align 8, !tbaa !175
+  store i32 %338, ptr %.sroa.7, align 4, !tbaa !175
+  %340 = icmp slt i64 %indvars.iv, 0
+  br i1 %340, label %.loopexit407.thread, label %342
 
-.loopexit407.thread:                              ; preds = %338, %_ZN11OpenImageIO6v3_1_03pvt17vector_to_latlongERKN9Imath_3_14Vec3IfEEbRfS7_.exit, %.loopexit407
-  %342 = add nsw i32 %325, -1
+.loopexit407.thread:                              ; preds = %337, %_ZN11OpenImageIO6v3_1_03pvt17vector_to_latlongERKN9Imath_3_14Vec3IfEEbRfS7_.exit, %.loopexit407
+  %341 = add nsw i32 %325, -1
   br label %.sink.split
 
-343:                                              ; preds = %.loopexit407
-  %344 = call float @llvm.fmuladd.f32(float %336, float 2.000000e+00, float -1.000000e+00)
+342:                                              ; preds = %.loopexit407
+  %343 = fptrunc double %335 to float
+  %344 = call float @llvm.fmuladd.f32(float %343, float 2.000000e+00, float -1.000000e+00)
   %.inv406 = fcmp oge float %344, 0.000000e+00
   %.0.i287 = select i1 %.inv406, float %344, float 0.000000e+00
   %345 = fcmp ogt float %.0.i287, 1.000000e+00
   %.1.i288 = select i1 %345, float 1.000000e+00, float %.0.i287
-  %.not465 = icmp slt i32 %264, %339
+  %.not465 = icmp slt i32 %264, %338
   br i1 %.not465, label %346, label %.sink.split
 
-.sink.split:                                      ; preds = %343, %.loopexit407.thread
-  %.sink462 = phi i32 [ %342, %.loopexit407.thread ], [ %264, %343 ]
+.sink.split:                                      ; preds = %342, %.loopexit407.thread
+  %.sink462 = phi i32 [ %341, %.loopexit407.thread ], [ %264, %342 ]
   store i32 %.sink462, ptr %.sroa.0473, align 8, !tbaa !175
   store i32 %.sink462, ptr %.sroa.7, align 4, !tbaa !175
   br label %346
 
-346:                                              ; preds = %.sink.split, %343
-  %347 = phi i32 [ %340, %343 ], [ %.sink462, %.sink.split ]
-  %.3235 = phi float [ %.1.i288, %343 ], [ 0.000000e+00, %.sink.split ]
+346:                                              ; preds = %.sink.split, %342
+  %347 = phi i32 [ %339, %342 ], [ %.sink462, %.sink.split ]
+  %.3235 = phi float [ %.1.i288, %342 ], [ 0.000000e+00, %.sink.split ]
   %348 = load i8, ptr %224, align 1, !tbaa !135
   %349 = icmp eq i8 %348, 2
   br i1 %349, label %.sink.split463, label %350

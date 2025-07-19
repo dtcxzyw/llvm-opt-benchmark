@@ -250,7 +250,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %119 = fpext float %118 to double
   %120 = fdiv double %116, %119
   %121 = fptrunc double %120 to float
-  %122 = fcmp ogt float %121, 0.000000e+00
+  %122 = fcmp ogt double %120, 0x3690000000000000
   br i1 %122, label %321, label %.loopexit.i
 
 123:                                              ; preds = %319, %.lr.ph.i

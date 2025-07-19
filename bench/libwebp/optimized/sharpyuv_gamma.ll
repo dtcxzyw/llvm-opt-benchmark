@@ -557,11 +557,11 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   %129 = fpext float %32 to double
   %130 = tail call double @pow(double noundef %129, double noundef 0x3FEAAAAAA0000000) #5, !tbaa !3
   %131 = fptrunc double %130 to float
-  %132 = fcmp olt float %131, 0.000000e+00
+  %132 = fcmp olt double %130, 0xB690000000000000
   br i1 %132, label %FromLinear709.exit, label %133
 
 133:                                              ; preds = %128
-  %134 = fcmp ugt float %131, 0x3FB5555560000000
+  %134 = fcmp ugt double %130, 0x3FB555556FFFFFFF
   br i1 %134, label %138, label %135
 
 135:                                              ; preds = %133

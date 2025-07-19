@@ -1920,20 +1920,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit529: ; preds = %_Z
   %553 = sitofp i32 %552 to double
   %554 = fneg double %553
   %555 = call double @llvm.fmuladd.f64(double %554, double %.0, double %551)
-  %556 = fptrunc double %555 to float
-  %557 = fcmp ugt float %556, 0.000000e+00
-  br i1 %557, label %558, label %563
+  %556 = fcmp ugt double %555, 0x3690000000000000
+  br i1 %556, label %557, label %563
 
-558:                                              ; preds = %545
-  %559 = call float @llvm.floor.f32(float %556)
+557:                                              ; preds = %545
+  %558 = fptrunc double %555 to float
+  %559 = call float @llvm.floor.f32(float %558)
   %560 = fptosi float %559 to i32
   %561 = sitofp i32 %560 to float
-  %562 = fsub float %556, %561
+  %562 = fsub float %558, %561
   br label %563
 
-563:                                              ; preds = %558, %545, %530
-  %.1400 = phi i32 [ %535, %530 ], [ %548, %545 ], [ %548, %558 ]
-  %.0396 = phi float [ %537, %530 ], [ 0.000000e+00, %545 ], [ %562, %558 ]
+563:                                              ; preds = %557, %545, %530
+  %.1400 = phi i32 [ %535, %530 ], [ %548, %545 ], [ %548, %557 ]
+  %.0396 = phi float [ %537, %530 ], [ 0.000000e+00, %545 ], [ %562, %557 ]
   %564 = icmp slt i32 %.1400, %500
   br i1 %564, label %565, label %570
 
@@ -2178,19 +2178,19 @@ _ZN2cvL19interpolateLanczos4EfPf.exit:            ; preds = %634, %638, %585
   %676 = sitofp i32 %675 to double
   %677 = fneg double %676
   %678 = call double @llvm.fmuladd.f64(double %677, double %.0349, double %674)
-  %679 = fptrunc double %678 to float
-  %680 = fcmp ugt float %679, 0.000000e+00
-  br i1 %680, label %681, label %.thread579
+  %679 = fcmp ugt double %678, 0x3690000000000000
+  br i1 %679, label %680, label %.thread579
 
-681:                                              ; preds = %668
-  %682 = call float @llvm.floor.f32(float %679)
+680:                                              ; preds = %668
+  %681 = fptrunc double %678 to float
+  %682 = call float @llvm.floor.f32(float %681)
   %683 = fptosi float %682 to i32
   %684 = sitofp i32 %683 to float
-  %685 = fsub float %679, %684
+  %685 = fsub float %681, %684
   br label %.thread579
 
-.thread579:                                       ; preds = %668, %681
-  %.0395.ph = phi float [ 0.000000e+00, %668 ], [ %685, %681 ]
+.thread579:                                       ; preds = %668, %680
+  %.0395.ph = phi float [ 0.000000e+00, %668 ], [ %685, %680 ]
   %686 = getelementptr inbounds nuw i32, ptr %494, i64 %indvars.iv683
   store i32 %671, ptr %686, align 4, !tbaa !16
   br label %749

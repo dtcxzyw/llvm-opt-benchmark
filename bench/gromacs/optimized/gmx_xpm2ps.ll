@@ -3738,7 +3738,7 @@ define internal fastcc void @_ZL11rainbow_matbN3gmx8ArrayRefI8t_matrixEE(i1 noun
   br i1 %0, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us
-  %.sroa.06.012.us = phi ptr [ %47, %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us ], [ %1, %.lr.ph ]
+  %.sroa.06.012.us = phi ptr [ %48, %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us ], [ %1, %.lr.ph ]
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.us, i64 264
   %5 = load ptr, ptr %4, align 8, !tbaa !51
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.us, i64 272
@@ -3746,8 +3746,8 @@ define internal fastcc void @_ZL11rainbow_matbN3gmx8ArrayRefI8t_matrixEE(i1 noun
   %.not31.i.us = icmp eq ptr %5, %7
   br i1 %.not31.i.us, label %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us, label %.lr.ph.split.us.i.us
 
-.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.split.us, %44
-  %.sroa.0.032.us.i.us = phi ptr [ %46, %44 ], [ %5, %.lr.ph.split.us ]
+.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.split.us, %45
+  %.sroa.0.032.us.i.us = phi ptr [ %47, %45 ], [ %5, %.lr.ph.split.us ]
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.us.i.us, i64 40
   %9 = load double, ptr %8, align 8, !tbaa !55
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.us.i.us, i64 48
@@ -3758,143 +3758,143 @@ define internal fastcc void @_ZL11rainbow_matbN3gmx8ArrayRefI8t_matrixEE(i1 noun
   %15 = fadd double %12, %14
   %16 = fdiv double %15, 3.000000e+00
   %17 = fptrunc double %16 to float
-  %18 = fcmp ogt float %17, 1.000000e+00
-  %.024.us.i.us = select i1 %18, float 1.000000e+00, float %17
-  %19 = fsub float 1.000000e+00, %.024.us.i.us
-  %20 = fpext float %19 to double
-  %21 = fcmp ugt float %19, 2.500000e-01
-  br i1 %21, label %26, label %22
+  %18 = fcmp ogt double %16, 0x3FF0000010000000
+  %19 = fsub float 1.000000e+00, %17
+  %20 = select i1 %18, float 0.000000e+00, float %19
+  %21 = fpext float %20 to double
+  %22 = fcmp ugt float %20, 2.500000e-01
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %.lr.ph.split.us.i.us
-  %23 = fmul double %20, 4.000000e+00
-  %24 = tail call double @pow(double noundef %23, double noundef 0x3FE5555555555555) #28, !tbaa !4
-  %25 = fptrunc double %24 to float
-  br label %44
+23:                                               ; preds = %.lr.ph.split.us.i.us
+  %24 = fmul double %21, 4.000000e+00
+  %25 = tail call double @pow(double noundef %24, double noundef 0x3FE5555555555555) #28, !tbaa !4
+  %26 = fptrunc double %25 to float
+  br label %45
 
-26:                                               ; preds = %.lr.ph.split.us.i.us
-  %27 = fcmp ugt float %19, 5.000000e-01
-  br i1 %27, label %33, label %28
+27:                                               ; preds = %.lr.ph.split.us.i.us
+  %28 = fcmp ugt float %20, 5.000000e-01
+  br i1 %28, label %34, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call double @llvm.fmuladd.f64(double %20, double -4.000000e+00, double 2.000000e+00)
-  %30 = tail call double @pow(double noundef %29, double noundef 0x3FE5555555555555) #28, !tbaa !4
-  %31 = fptrunc double %30 to float
-  %32 = fpext float %31 to double
-  br label %44
+29:                                               ; preds = %27
+  %30 = tail call double @llvm.fmuladd.f64(double %21, double -4.000000e+00, double 2.000000e+00)
+  %31 = tail call double @pow(double noundef %30, double noundef 0x3FE5555555555555) #28, !tbaa !4
+  %32 = fptrunc double %31 to float
+  %33 = fpext float %32 to double
+  br label %45
 
-33:                                               ; preds = %26
-  %34 = fcmp ugt float %19, 7.500000e-01
-  br i1 %34, label %40, label %35
+34:                                               ; preds = %27
+  %35 = fcmp ugt float %20, 7.500000e-01
+  br i1 %35, label %41, label %36
 
-35:                                               ; preds = %33
-  %36 = tail call double @llvm.fmuladd.f64(double %20, double 4.000000e+00, double -2.000000e+00)
-  %37 = tail call double @pow(double noundef %36, double noundef 0x3FE5555555555555) #28, !tbaa !4
-  %38 = fptrunc double %37 to float
-  %39 = fpext float %38 to double
-  br label %44
+36:                                               ; preds = %34
+  %37 = tail call double @llvm.fmuladd.f64(double %21, double 4.000000e+00, double -2.000000e+00)
+  %38 = tail call double @pow(double noundef %37, double noundef 0x3FE5555555555555) #28, !tbaa !4
+  %39 = fptrunc double %38 to float
+  %40 = fpext float %39 to double
+  br label %45
 
-40:                                               ; preds = %33
-  %41 = tail call double @llvm.fmuladd.f64(double %20, double -4.000000e+00, double 4.000000e+00)
-  %42 = tail call double @pow(double noundef %41, double noundef 0x3FE5555555555555) #28, !tbaa !4
-  %43 = fptrunc double %42 to float
-  br label %44
+41:                                               ; preds = %34
+  %42 = tail call double @llvm.fmuladd.f64(double %21, double -4.000000e+00, double 4.000000e+00)
+  %43 = tail call double @pow(double noundef %42, double noundef 0x3FE5555555555555) #28, !tbaa !4
+  %44 = fptrunc double %43 to float
+  br label %45
 
-44:                                               ; preds = %40, %35, %28, %22
-  %.023.us.i.us = phi double [ 0.000000e+00, %22 ], [ 0.000000e+00, %28 ], [ %39, %35 ], [ 1.000000e+00, %40 ]
-  %.022.us.i.us = phi float [ %25, %22 ], [ 1.000000e+00, %28 ], [ 1.000000e+00, %35 ], [ %43, %40 ]
-  %.0.us.i.us = phi double [ 1.000000e+00, %22 ], [ %32, %28 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %40 ]
+45:                                               ; preds = %41, %36, %29, %23
+  %.023.us.i.us = phi double [ 0.000000e+00, %23 ], [ 0.000000e+00, %29 ], [ %40, %36 ], [ 1.000000e+00, %41 ]
+  %.022.us.i.us = phi float [ %26, %23 ], [ 1.000000e+00, %29 ], [ 1.000000e+00, %36 ], [ %44, %41 ]
+  %.0.us.i.us = phi double [ 1.000000e+00, %23 ], [ %33, %29 ], [ 0.000000e+00, %36 ], [ 0.000000e+00, %41 ]
   store double %.023.us.i.us, ptr %8, align 8, !tbaa !55
-  %45 = fpext float %.022.us.i.us to double
-  store double %45, ptr %10, align 8, !tbaa !60
+  %46 = fpext float %.022.us.i.us to double
+  store double %46, ptr %10, align 8, !tbaa !60
   store double %.0.us.i.us, ptr %13, align 8, !tbaa !61
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.us.i.us, i64 64
-  %.not.us.i.us = icmp eq ptr %46, %7
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.us.i.us, i64 64
+  %.not.us.i.us = icmp eq ptr %47, %7
   br i1 %.not.us.i.us, label %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us, label %.lr.ph.split.us.i.us
 
-_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us: ; preds = %44, %.lr.ph.split.us
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.us, i64 288
-  %.not.us = icmp eq ptr %47, %2
+_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us: ; preds = %45, %.lr.ph.split.us
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.us, i64 288
+  %.not.us = icmp eq ptr %48, %2
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit, %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us, %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit
-  %.sroa.06.012 = phi ptr [ %90, %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit ], [ %1, %.lr.ph ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 264
-  %49 = load ptr, ptr %48, align 8, !tbaa !51
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 272
-  %51 = load ptr, ptr %50, align 8, !tbaa !54
-  %.not31.i = icmp eq ptr %49, %51
+  %.sroa.06.012 = phi ptr [ %91, %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit ], [ %1, %.lr.ph ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 264
+  %50 = load ptr, ptr %49, align 8, !tbaa !51
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 272
+  %52 = load ptr, ptr %51, align 8, !tbaa !54
+  %.not31.i = icmp eq ptr %50, %52
   br i1 %.not31.i, label %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.split, %87
-  %.sroa.0.032.i = phi ptr [ %89, %87 ], [ %49, %.lr.ph.split ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 40
-  %53 = load double, ptr %52, align 8, !tbaa !55
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 48
-  %55 = load double, ptr %54, align 8, !tbaa !60
-  %56 = fadd double %53, %55
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 56
-  %58 = load double, ptr %57, align 8, !tbaa !61
-  %59 = fadd double %56, %58
-  %60 = fdiv double %59, 3.000000e+00
-  %61 = fptrunc double %60 to float
-  %62 = fcmp ogt float %61, 1.000000e+00
-  %.024.i = select i1 %62, float 1.000000e+00, float %61
-  %63 = fpext float %.024.i to double
-  %64 = fcmp ugt float %.024.i, 2.500000e-01
-  br i1 %64, label %69, label %65
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split, %88
+  %.sroa.0.032.i = phi ptr [ %90, %88 ], [ %50, %.lr.ph.split ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 40
+  %54 = load double, ptr %53, align 8, !tbaa !55
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 48
+  %56 = load double, ptr %55, align 8, !tbaa !60
+  %57 = fadd double %54, %56
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 56
+  %59 = load double, ptr %58, align 8, !tbaa !61
+  %60 = fadd double %57, %59
+  %61 = fdiv double %60, 3.000000e+00
+  %62 = fptrunc double %61 to float
+  %63 = fcmp ogt double %61, 0x3FF0000010000000
+  %.024.i = select i1 %63, float 1.000000e+00, float %62
+  %64 = fpext float %.024.i to double
+  %65 = fcmp ugt float %.024.i, 2.500000e-01
+  br i1 %65, label %70, label %66
 
-65:                                               ; preds = %.lr.ph.split.i
-  %66 = fmul double %63, 4.000000e+00
-  %67 = tail call double @pow(double noundef %66, double noundef 0x3FE5555555555555) #28, !tbaa !4
-  %68 = fptrunc double %67 to float
-  br label %87
+66:                                               ; preds = %.lr.ph.split.i
+  %67 = fmul double %64, 4.000000e+00
+  %68 = tail call double @pow(double noundef %67, double noundef 0x3FE5555555555555) #28, !tbaa !4
+  %69 = fptrunc double %68 to float
+  br label %88
 
-69:                                               ; preds = %.lr.ph.split.i
-  %70 = fcmp ugt float %.024.i, 5.000000e-01
-  br i1 %70, label %76, label %71
+70:                                               ; preds = %.lr.ph.split.i
+  %71 = fcmp ugt float %.024.i, 5.000000e-01
+  br i1 %71, label %77, label %72
 
-71:                                               ; preds = %69
-  %72 = tail call double @llvm.fmuladd.f64(double %63, double -4.000000e+00, double 2.000000e+00)
-  %73 = tail call double @pow(double noundef %72, double noundef 0x3FE5555555555555) #28, !tbaa !4
-  %74 = fptrunc double %73 to float
-  %75 = fpext float %74 to double
-  br label %87
+72:                                               ; preds = %70
+  %73 = tail call double @llvm.fmuladd.f64(double %64, double -4.000000e+00, double 2.000000e+00)
+  %74 = tail call double @pow(double noundef %73, double noundef 0x3FE5555555555555) #28, !tbaa !4
+  %75 = fptrunc double %74 to float
+  %76 = fpext float %75 to double
+  br label %88
 
-76:                                               ; preds = %69
-  %77 = fcmp ugt float %.024.i, 7.500000e-01
-  br i1 %77, label %83, label %78
+77:                                               ; preds = %70
+  %78 = fcmp ugt float %.024.i, 7.500000e-01
+  br i1 %78, label %84, label %79
 
-78:                                               ; preds = %76
-  %79 = tail call double @llvm.fmuladd.f64(double %63, double 4.000000e+00, double -2.000000e+00)
-  %80 = tail call double @pow(double noundef %79, double noundef 0x3FE5555555555555) #28, !tbaa !4
-  %81 = fptrunc double %80 to float
-  %82 = fpext float %81 to double
-  br label %87
+79:                                               ; preds = %77
+  %80 = tail call double @llvm.fmuladd.f64(double %64, double 4.000000e+00, double -2.000000e+00)
+  %81 = tail call double @pow(double noundef %80, double noundef 0x3FE5555555555555) #28, !tbaa !4
+  %82 = fptrunc double %81 to float
+  %83 = fpext float %82 to double
+  br label %88
 
-83:                                               ; preds = %76
-  %84 = tail call double @llvm.fmuladd.f64(double %63, double -4.000000e+00, double 4.000000e+00)
-  %85 = tail call double @pow(double noundef %84, double noundef 0x3FE5555555555555) #28, !tbaa !4
-  %86 = fptrunc double %85 to float
-  br label %87
+84:                                               ; preds = %77
+  %85 = tail call double @llvm.fmuladd.f64(double %64, double -4.000000e+00, double 4.000000e+00)
+  %86 = tail call double @pow(double noundef %85, double noundef 0x3FE5555555555555) #28, !tbaa !4
+  %87 = fptrunc double %86 to float
+  br label %88
 
-87:                                               ; preds = %83, %78, %71, %65
-  %.023.i = phi double [ 0.000000e+00, %65 ], [ 0.000000e+00, %71 ], [ %82, %78 ], [ 1.000000e+00, %83 ]
-  %.022.i = phi float [ %68, %65 ], [ 1.000000e+00, %71 ], [ 1.000000e+00, %78 ], [ %86, %83 ]
-  %.0.i = phi double [ 1.000000e+00, %65 ], [ %75, %71 ], [ 0.000000e+00, %78 ], [ 0.000000e+00, %83 ]
-  store double %.023.i, ptr %52, align 8, !tbaa !55
-  %88 = fpext float %.022.i to double
-  store double %88, ptr %54, align 8, !tbaa !60
-  store double %.0.i, ptr %57, align 8, !tbaa !61
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 64
-  %.not.i = icmp eq ptr %89, %51
+88:                                               ; preds = %84, %79, %72, %66
+  %.023.i = phi double [ 0.000000e+00, %66 ], [ 0.000000e+00, %72 ], [ %83, %79 ], [ 1.000000e+00, %84 ]
+  %.022.i = phi float [ %69, %66 ], [ 1.000000e+00, %72 ], [ 1.000000e+00, %79 ], [ %87, %84 ]
+  %.0.i = phi double [ 1.000000e+00, %66 ], [ %76, %72 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %84 ]
+  store double %.023.i, ptr %53, align 8, !tbaa !55
+  %89 = fpext float %.022.i to double
+  store double %89, ptr %55, align 8, !tbaa !60
+  store double %.0.i, ptr %58, align 8, !tbaa !61
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.032.i, i64 64
+  %.not.i = icmp eq ptr %90, %52
   br i1 %.not.i, label %_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit, label %.lr.ph.split.i
 
-_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit: ; preds = %87, %.lr.ph.split
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 288
-  %.not = icmp eq ptr %90, %2
+_ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit: ; preds = %88, %.lr.ph.split
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 288
+  %.not = icmp eq ptr %91, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 }
 

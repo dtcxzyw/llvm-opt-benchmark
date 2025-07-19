@@ -3685,8 +3685,8 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %16, ptr noundef null) #26
   %conv.i = fptrunc double %call.i.i to float
   store float %conv.i, ptr %stop, align 4, !tbaa !26
-  %cmp = fcmp nsz uge float %conv.i, 0.000000e+00
-  %cmp37 = fcmp nsz ule float %conv.i, 1.000000e+00
+  %cmp = fcmp nsz uge double %call.i.i, 0xB690000000000000
+  %cmp37 = fcmp nsz ule double %call.i.i, 0x3FF0000010000000
   %or.cond.not = and i1 %cmp, %cmp37
   br i1 %or.cond.not, label %if.end40, label %cleanup68
 

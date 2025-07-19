@@ -5089,7 +5089,7 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
 
 20:                                               ; preds = %15, %12, %9
   tail call void @dt_dev_exposure_handle_event(ptr noundef nonnull %1, i32 noundef 0) #17
-  br label %94
+  br label %92
 
 21:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
@@ -5101,123 +5101,121 @@ define internal noundef i32 @_drawable_motion_notify_callback(ptr noundef %0, pt
   %26 = sitofp i32 %25 to float
   %27 = fpext reassoc nsz arcp contract afn float %26 to double
   %28 = fdiv reassoc nsz arcp contract afn double %23, %27
-  %29 = fptrunc reassoc nsz arcp contract afn double %28 to float
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %31 = load double, ptr %30, align 8, !tbaa !267
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !221
-  %34 = sitofp i32 %33 to float
-  %35 = fpext reassoc nsz arcp contract afn float %34 to double
-  %36 = fdiv reassoc nsz arcp contract afn double %31, %35
-  %37 = fptrunc reassoc nsz arcp contract afn double %36 to float
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 2688
-  %39 = load i32, ptr %38, align 64, !tbaa !218
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %30 = load double, ptr %29, align 8, !tbaa !267
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !221
+  %33 = sitofp i32 %32 to float
+  %34 = fpext reassoc nsz arcp contract afn float %33 to double
+  %35 = fdiv reassoc nsz arcp contract afn double %30, %34
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 2688
+  %37 = load i32, ptr %36, align 64, !tbaa !218
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 2692
-  %41 = load i32, ptr %40, align 4, !tbaa !104
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw [4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !103
-  %45 = call ptr @dcgettext(ptr noundef null, ptr noundef %44, i32 noundef 5) #17
-  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef 5) #17
-  %47 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.98, i32 noundef 5) #17
-  %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.99, i32 noundef 5) #17
-  %49 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.96, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48) #17
-  store ptr %49, ptr %5, align 8, !tbaa !103
-  %50 = load i32, ptr %40, align 4, !tbaa !104
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %64
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 2692
+  %39 = load i32, ptr %38, align 4, !tbaa !104
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw [4 x ptr], ptr @dt_lib_histogram_scope_type_names, i64 0, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !103
+  %43 = call ptr @dcgettext(ptr noundef null, ptr noundef %42, i32 noundef 5) #17
+  %44 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef 5) #17
+  %45 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.98, i32 noundef 5) #17
+  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.99, i32 noundef 5) #17
+  %47 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.96, ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46) #17
+  store ptr %47, ptr %5, align 8, !tbaa !103
+  %48 = load i32, ptr %38, align 4, !tbaa !104
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %62
 
-52:                                               ; preds = %21
-  store i32 0, ptr %38, align 64, !tbaa !218
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 2704
-  %54 = load i32, ptr %53, align 16, !tbaa !107
-  %55 = icmp eq i32 %54, 2
-  br i1 %55, label %56, label %86
+50:                                               ; preds = %21
+  store i32 0, ptr %36, align 64, !tbaa !218
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 2704
+  %52 = load i32, ptr %51, align 16, !tbaa !107
+  %53 = icmp eq i32 %52, 2
+  br i1 %53, label %54, label %84
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 2756
-  %58 = load i32, ptr %57, align 4, !tbaa !84
-  %.not31 = icmp eq i32 %58, 0
-  br i1 %.not31, label %86, label %59
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 2756
+  %56 = load i32, ptr %55, align 4, !tbaa !84
+  %.not31 = icmp eq i32 %56, 0
+  br i1 %.not31, label %84, label %57
 
-59:                                               ; preds = %56
-  %60 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.101, i32 noundef 5) #17
-  %61 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.102, i32 noundef 5) #17
-  %62 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.103, i32 noundef 5) #17
-  %63 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 5) #17
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.100, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63) #17
-  br label %86
+57:                                               ; preds = %54
+  %58 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.101, i32 noundef 5) #17
+  %59 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.102, i32 noundef 5) #17
+  %60 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.103, i32 noundef 5) #17
+  %61 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 5) #17
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.100, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61) #17
+  br label %84
 
-64:                                               ; preds = %21
-  %65 = fcmp reassoc nsz arcp contract afn olt float %29, 0x3FC99999A0000000
-  %66 = icmp eq i32 %50, 3
-  %or.cond = and i1 %65, %66
-  br i1 %or.cond, label %80, label %67
+62:                                               ; preds = %21
+  %63 = fcmp reassoc nsz arcp contract afn olt double %28, 0x3FC9999990000001
+  %64 = icmp eq i32 %48, 3
+  %or.cond = and i1 %63, %64
+  br i1 %or.cond, label %78, label %65
 
-67:                                               ; preds = %64
-  %switch = icmp ult i32 %50, 3
-  br i1 %switch, label %68, label %83
+65:                                               ; preds = %62
+  %switch = icmp ult i32 %48, 3
+  br i1 %switch, label %66, label %81
 
-68:                                               ; preds = %67
-  %69 = fcmp reassoc nsz arcp contract afn ogt float %37, 0x3FE8E38E40000000
-  br i1 %69, label %70, label %74
+66:                                               ; preds = %65
+  %67 = fcmp reassoc nsz arcp contract afn ogt double %35, 0x3FE8E38E50000000
+  br i1 %67, label %68, label %72
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %72 = load i32, ptr %71, align 4, !tbaa !106
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %80, label %74
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 2700
+  %70 = load i32, ptr %69, align 4, !tbaa !106
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %78, label %72
 
-74:                                               ; preds = %70, %68
-  %75 = fcmp reassoc nsz arcp contract afn olt float %29, 0x3FCC71C720000000
-  br i1 %75, label %76, label %83
+72:                                               ; preds = %68, %66
+  %73 = fcmp reassoc nsz arcp contract afn olt double %28, 0x3FCC71C710000001
+  br i1 %73, label %74, label %81
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 2700
-  %78 = load i32, ptr %77, align 4, !tbaa !106
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %83
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 2700
+  %76 = load i32, ptr %75, align 4, !tbaa !106
+  %77 = icmp eq i32 %76, 1
+  br i1 %77, label %78, label %81
 
-80:                                               ; preds = %64, %76, %70
-  store i32 1, ptr %38, align 64, !tbaa !218
-  %81 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.106, i32 noundef 5) #17
-  %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.107, i32 noundef 5) #17
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.105, ptr noundef %81, ptr noundef %82) #17
-  br label %86
+78:                                               ; preds = %62, %74, %68
+  store i32 1, ptr %36, align 64, !tbaa !218
+  %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.106, i32 noundef 5) #17
+  %80 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.107, i32 noundef 5) #17
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.105, ptr noundef %79, ptr noundef %80) #17
+  br label %84
 
-83:                                               ; preds = %67, %76, %74
-  store i32 2, ptr %38, align 64, !tbaa !218
-  %84 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.108, i32 noundef 5) #17
-  %85 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.107, i32 noundef 5) #17
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.105, ptr noundef %84, ptr noundef %85) #17
-  br label %86
+81:                                               ; preds = %65, %74, %72
+  store i32 2, ptr %36, align 64, !tbaa !218
+  %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.108, i32 noundef 5) #17
+  %83 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.107, i32 noundef 5) #17
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %5, ptr noundef nonnull @.str.105, ptr noundef %82, ptr noundef %83) #17
+  br label %84
 
-86:                                               ; preds = %80, %83, %52, %56, %59
-  %87 = load ptr, ptr %5, align 8, !tbaa !103
-  call void @gtk_widget_set_tooltip_text(ptr noundef %0, ptr noundef %87) #17
-  %88 = load ptr, ptr %5, align 8, !tbaa !103
-  call void @g_free(ptr noundef %88) #17
-  %89 = load i32, ptr %38, align 64, !tbaa !218
-  %.not32 = icmp eq i32 %39, %89
-  br i1 %.not32, label %93, label %90
+84:                                               ; preds = %78, %81, %50, %54, %57
+  %85 = load ptr, ptr %5, align 8, !tbaa !103
+  call void @gtk_widget_set_tooltip_text(ptr noundef %0, ptr noundef %85) #17
+  %86 = load ptr, ptr %5, align 8, !tbaa !103
+  call void @g_free(ptr noundef %86) #17
+  %87 = load i32, ptr %36, align 64, !tbaa !218
+  %.not32 = icmp eq i32 %37, %87
+  br i1 %.not32, label %91, label %88
 
-90:                                               ; preds = %86
+88:                                               ; preds = %84
   call void @gtk_widget_queue_draw(ptr noundef %0) #17
-  %91 = load i32, ptr %38, align 64, !tbaa !218
-  %.not33 = icmp eq i32 %91, 0
-  br i1 %.not33, label %93, label %92
+  %89 = load i32, ptr %36, align 64, !tbaa !218
+  %.not33 = icmp eq i32 %89, 0
+  br i1 %.not33, label %91, label %90
 
-92:                                               ; preds = %90
+90:                                               ; preds = %88
   call void @dt_control_change_cursor(i32 noundef 58) #17
-  br label %93
+  br label %91
 
-93:                                               ; preds = %90, %92, %86
+91:                                               ; preds = %88, %90, %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  br label %94
+  br label %92
 
-94:                                               ; preds = %93, %20
+92:                                               ; preds = %91, %20
   ret i32 0
 }
 

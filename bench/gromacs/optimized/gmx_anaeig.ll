@@ -6695,7 +6695,7 @@ _ZL12tick_spacingfi.exit185:                      ; preds = %.lr.ph.i183, %_ZL12
   %183 = fpext float %182 to double
   %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.178, double noundef %183) #22
   %185 = fcmp olt float %.6, 0.000000e+00
-  %186 = fcmp ogt float %77, 0.000000e+00
+  %186 = fcmp ogt double %76, 0x3690000000000000
   %or.cond = select i1 %185, i1 %186, i1 false
   br i1 %or.cond, label %187, label %190
 

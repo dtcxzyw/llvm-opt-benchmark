@@ -66,14 +66,14 @@ define dso_local float @dt_colorspaces_deltaE_2000(ptr noundef readonly captures
   %35 = fpext reassoc nsz arcp contract afn float %34 to double
   %36 = fmul reassoc nsz arcp contract afn double %35, 0x404CA5DC1A63C1F8
   %37 = fptrunc reassoc nsz arcp contract afn double %36 to float
-  %38 = fcmp reassoc nsz arcp contract afn olt float %37, 0.000000e+00
+  %38 = fcmp reassoc nsz arcp contract afn olt double %36, 0xB690000000000000
   %39 = fadd reassoc nsz arcp contract afn float %37, 3.600000e+02
   %.0 = select nsz i1 %38, float %39, float %37
   %40 = tail call reassoc nsz arcp contract afn float @llvm.atan2.f32(float %17, float %33)
   %41 = fpext reassoc nsz arcp contract afn float %40 to double
   %42 = fmul reassoc nsz arcp contract afn double %41, 0x404CA5DC1A63C1F8
   %43 = fptrunc reassoc nsz arcp contract afn double %42 to float
-  %44 = fcmp reassoc nsz arcp contract afn olt float %43, 0.000000e+00
+  %44 = fcmp reassoc nsz arcp contract afn olt double %42, 0xB690000000000000
   %45 = fadd reassoc nsz arcp contract afn float %43, 3.600000e+02
   %.099 = select nsz i1 %44, float %45, float %43
   %46 = fsub reassoc nsz arcp contract afn float %.0, %.099

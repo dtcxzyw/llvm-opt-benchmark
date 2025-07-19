@@ -31536,7 +31536,7 @@ define dso_local noundef zeroext i1 @_ZNK10btSoftBody26checkDeformableFaceContac
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %169 = invoke noundef zeroext i1 @_ZN15btGjkEpaSolver214SignedDistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef %17, ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(56) %10)
-          to label %170 unwind label %185
+          to label %170 unwind label %184
 
 170:                                              ; preds = %129
   %171 = getelementptr inbounds nuw i8, ptr %10, i64 52
@@ -31545,7 +31545,7 @@ define dso_local noundef zeroext i1 @_ZNK10btSoftBody26checkDeformableFaceContac
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 96
   %175 = load ptr, ptr %174, align 8
   %176 = invoke noundef float %175(ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %177 unwind label %185
+          to label %177 unwind label %184
 
 177:                                              ; preds = %170
   %178 = fpext float %172 to double
@@ -31553,413 +31553,412 @@ define dso_local noundef zeroext i1 @_ZNK10btSoftBody26checkDeformableFaceContac
   %180 = call double @llvm.fmuladd.f64(double %179, double -2.000000e+00, double %178)
   %181 = fpext float %5 to double
   %182 = fsub double %180, %181
-  %183 = fptrunc double %182 to float
-  %184 = fcmp ult float %183, 0.000000e+00
-  br i1 %184, label %187, label %439
+  %183 = fcmp ult double %182, 0xB690000000000000
+  br i1 %183, label %186, label %438
 
-185:                                              ; preds = %170, %129
-  %186 = landingpad { ptr, i32 }
+184:                                              ; preds = %170, %129
+  %185 = landingpad { ptr, i32 }
           cleanup
-  br label %440
+  br label %439
 
-187:                                              ; preds = %177
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %189 = load i8, ptr %188, align 8, !tbaa !294, !range !231, !noundef !298
-  %190 = trunc nuw i8 %189 to i1
-  br i1 %190, label %191, label %303
+186:                                              ; preds = %177
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %188 = load i8, ptr %187, align 8, !tbaa !294, !range !231, !noundef !298
+  %189 = trunc nuw i8 %188 to i1
+  br i1 %189, label %190, label %302
 
-191:                                              ; preds = %187
-  %192 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %193 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %194 = load float, ptr %193, align 4, !tbaa !234
-  %195 = fcmp une float %194, 0.000000e+00
-  br i1 %195, label %.preheader, label %303
+190:                                              ; preds = %186
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %192 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %193 = load float, ptr %192, align 4, !tbaa !234
+  %194 = fcmp une float %193, 0.000000e+00
+  br i1 %194, label %.preheader, label %302
 
-.preheader:                                       ; preds = %191, %.preheader
-  %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.preheader ], [ 0, %191 ]
-  %196 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv158
-  %197 = load float, ptr %196, align 4, !tbaa !234
-  %198 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv158
-  store float %197, ptr %198, align 4, !tbaa !234
+.preheader:                                       ; preds = %190, %.preheader
+  %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.preheader ], [ 0, %190 ]
+  %195 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv158
+  %196 = load float, ptr %195, align 4, !tbaa !234
+  %197 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv158
+  store float %196, ptr %197, align 4, !tbaa !234
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 3
-  br i1 %exitcond161.not, label %199, label %.preheader, !llvm.loop !923
+  br i1 %exitcond161.not, label %198, label %.preheader, !llvm.loop !923
 
-199:                                              ; preds = %.preheader
-  %200 = load ptr, ptr %135, align 8, !tbaa !344
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  %202 = load ptr, ptr %139, align 8, !tbaa !344
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %204 = load ptr, ptr %155, align 8, !tbaa !344
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %206 = load float, ptr %201, align 4, !tbaa !234
-  %207 = load float, ptr %4, align 4, !tbaa !234
-  %208 = fmul float %206, %207
-  %209 = getelementptr inbounds nuw i8, ptr %200, i64 20
-  %210 = load float, ptr %209, align 4, !tbaa !234
-  %211 = fmul float %207, %210
-  %212 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  %213 = load float, ptr %212, align 4, !tbaa !234
-  %214 = fmul float %207, %213
-  %215 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %216 = load float, ptr %203, align 4, !tbaa !234
-  %217 = load float, ptr %215, align 4, !tbaa !234
-  %218 = fmul float %216, %217
-  %219 = getelementptr inbounds nuw i8, ptr %202, i64 20
-  %220 = load float, ptr %219, align 4, !tbaa !234
-  %221 = fmul float %217, %220
-  %222 = getelementptr inbounds nuw i8, ptr %202, i64 24
-  %223 = load float, ptr %222, align 4, !tbaa !234
-  %224 = fmul float %217, %223
-  %225 = fadd float %208, %218
-  %226 = fadd float %211, %221
-  %227 = fadd float %214, %224
-  %228 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %229 = load float, ptr %205, align 4, !tbaa !234
-  %230 = load float, ptr %228, align 4, !tbaa !234
-  %231 = fmul float %229, %230
-  %232 = getelementptr inbounds nuw i8, ptr %204, i64 20
-  %233 = load float, ptr %232, align 4, !tbaa !234
-  %234 = fmul float %230, %233
-  %235 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %236 = load float, ptr %235, align 4, !tbaa !234
-  %237 = fmul float %230, %236
-  %238 = fadd float %225, %231
-  %239 = fadd float %226, %234
-  %240 = fadd float %227, %237
-  %.sroa.0.0.vec.insert.i21.i = insertelement <2 x float> poison, float %238, i64 0
-  %.sroa.0.4.vec.insert.i22.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i21.i, float %239, i64 1
-  %.sroa.3.12.vec.insert.i23.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %240, i64 0
+198:                                              ; preds = %.preheader
+  %199 = load ptr, ptr %135, align 8, !tbaa !344
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %201 = load ptr, ptr %139, align 8, !tbaa !344
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  %203 = load ptr, ptr %155, align 8, !tbaa !344
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  %205 = load float, ptr %200, align 4, !tbaa !234
+  %206 = load float, ptr %4, align 4, !tbaa !234
+  %207 = fmul float %205, %206
+  %208 = getelementptr inbounds nuw i8, ptr %199, i64 20
+  %209 = load float, ptr %208, align 4, !tbaa !234
+  %210 = fmul float %206, %209
+  %211 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %212 = load float, ptr %211, align 4, !tbaa !234
+  %213 = fmul float %206, %212
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %215 = load float, ptr %202, align 4, !tbaa !234
+  %216 = load float, ptr %214, align 4, !tbaa !234
+  %217 = fmul float %215, %216
+  %218 = getelementptr inbounds nuw i8, ptr %201, i64 20
+  %219 = load float, ptr %218, align 4, !tbaa !234
+  %220 = fmul float %216, %219
+  %221 = getelementptr inbounds nuw i8, ptr %201, i64 24
+  %222 = load float, ptr %221, align 4, !tbaa !234
+  %223 = fmul float %216, %222
+  %224 = fadd float %207, %217
+  %225 = fadd float %210, %220
+  %226 = fadd float %213, %223
+  %227 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %228 = load float, ptr %204, align 4, !tbaa !234
+  %229 = load float, ptr %227, align 4, !tbaa !234
+  %230 = fmul float %228, %229
+  %231 = getelementptr inbounds nuw i8, ptr %203, i64 20
+  %232 = load float, ptr %231, align 4, !tbaa !234
+  %233 = fmul float %229, %232
+  %234 = getelementptr inbounds nuw i8, ptr %203, i64 24
+  %235 = load float, ptr %234, align 4, !tbaa !234
+  %236 = fmul float %229, %235
+  %237 = fadd float %224, %230
+  %238 = fadd float %225, %233
+  %239 = fadd float %226, %236
+  %.sroa.0.0.vec.insert.i21.i = insertelement <2 x float> poison, float %237, i64 0
+  %.sroa.0.4.vec.insert.i22.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i21.i, float %238, i64 1
+  %.sroa.3.12.vec.insert.i23.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %239, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i22.i, ptr %3, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i23.i, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !228
-  %241 = invoke noundef float @_ZN15btGjkEpaSolver214SignedDistanceERK9btVector3fPK13btConvexShapeRK11btTransformRNS_8sResultsE(ptr noundef nonnull align 4 dereferenceable(16) %3, float noundef %5, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(56) %10)
-          to label %242 unwind label %296
+  %240 = invoke noundef float @_ZN15btGjkEpaSolver214SignedDistanceERK9btVector3fPK13btConvexShapeRK11btTransformRNS_8sResultsE(ptr noundef nonnull align 4 dereferenceable(16) %3, float noundef %5, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(56) %10)
+          to label %241 unwind label %295
 
-242:                                              ; preds = %199
-  %243 = load ptr, ptr %18, align 8, !tbaa !904
-  store ptr %243, ptr %6, align 8, !tbaa !905
-  %244 = load float, ptr %171, align 4, !tbaa !920
-  %245 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  %246 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %246, ptr noundef nonnull align 4 dereferenceable(16) %245, i64 16, i1 false), !tbaa.struct !227
-  %247 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store float %244, ptr %247, align 8, !tbaa !906
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %249 = load ptr, ptr %248, align 8, !tbaa !900
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %249, i64 16, i1 false), !tbaa.struct !227
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
-  %251 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %251, ptr noundef nonnull align 4 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !227
-  %252 = getelementptr inbounds nuw i8, ptr %249, i64 32
-  %253 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %253, ptr noundef nonnull align 4 dereferenceable(16) %252, i64 16, i1 false), !tbaa.struct !227
-  %254 = getelementptr inbounds nuw i8, ptr %249, i64 48
-  %255 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %255, ptr noundef nonnull align 4 dereferenceable(16) %254, i64 16, i1 false), !tbaa.struct !227
+241:                                              ; preds = %198
+  %242 = load ptr, ptr %18, align 8, !tbaa !904
+  store ptr %242, ptr %6, align 8, !tbaa !905
+  %243 = load float, ptr %171, align 4, !tbaa !920
+  %244 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  %245 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull align 4 dereferenceable(16) %244, i64 16, i1 false), !tbaa.struct !227
+  %246 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store float %243, ptr %246, align 8, !tbaa !906
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %248 = load ptr, ptr %247, align 8, !tbaa !900
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %248, i64 16, i1 false), !tbaa.struct !227
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %250, ptr noundef nonnull align 4 dereferenceable(16) %249, i64 16, i1 false), !tbaa.struct !227
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %252, ptr noundef nonnull align 4 dereferenceable(16) %251, i64 16, i1 false), !tbaa.struct !227
+  %253 = getelementptr inbounds nuw i8, ptr %248, i64 48
+  %254 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %254, ptr noundef nonnull align 4 dereferenceable(16) %253, i64 16, i1 false), !tbaa.struct !227
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #45
-  %256 = load ptr, ptr %139, align 8, !tbaa !344
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  %258 = load ptr, ptr %135, align 8, !tbaa !344
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 16
-  %260 = load float, ptr %257, align 4, !tbaa !234
-  %261 = load float, ptr %259, align 4, !tbaa !234
-  %262 = getelementptr inbounds nuw i8, ptr %256, i64 20
-  %263 = load float, ptr %262, align 4, !tbaa !234
-  %264 = getelementptr inbounds nuw i8, ptr %258, i64 20
-  %265 = load float, ptr %264, align 4, !tbaa !234
-  %266 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  %267 = load float, ptr %266, align 4, !tbaa !234
-  %268 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %269 = load float, ptr %268, align 4, !tbaa !234
-  %270 = load ptr, ptr %155, align 8, !tbaa !344
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  %272 = load float, ptr %271, align 4, !tbaa !234
-  %273 = getelementptr inbounds nuw i8, ptr %270, i64 20
-  %274 = load float, ptr %273, align 4, !tbaa !234
-  %275 = getelementptr inbounds nuw i8, ptr %270, i64 24
-  %276 = load float, ptr %275, align 4, !tbaa !234
+  %255 = load ptr, ptr %139, align 8, !tbaa !344
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 16
+  %257 = load ptr, ptr %135, align 8, !tbaa !344
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
+  %259 = load float, ptr %256, align 4, !tbaa !234
+  %260 = load float, ptr %258, align 4, !tbaa !234
+  %261 = getelementptr inbounds nuw i8, ptr %255, i64 20
+  %262 = load float, ptr %261, align 4, !tbaa !234
+  %263 = getelementptr inbounds nuw i8, ptr %257, i64 20
+  %264 = load float, ptr %263, align 4, !tbaa !234
+  %265 = getelementptr inbounds nuw i8, ptr %255, i64 24
+  %266 = load float, ptr %265, align 4, !tbaa !234
+  %267 = getelementptr inbounds nuw i8, ptr %257, i64 24
+  %268 = load float, ptr %267, align 4, !tbaa !234
+  %269 = load ptr, ptr %155, align 8, !tbaa !344
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 16
+  %271 = load float, ptr %270, align 4, !tbaa !234
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 20
+  %273 = load float, ptr %272, align 4, !tbaa !234
+  %274 = getelementptr inbounds nuw i8, ptr %269, i64 24
+  %275 = load float, ptr %274, align 4, !tbaa !234
   invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %14)
-          to label %277 unwind label %298
+          to label %276 unwind label %297
 
-277:                                              ; preds = %242
-  %278 = fsub float %276, %269
-  %.sroa.3.12.vec.insert.i107 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %278, i64 0
-  %279 = fsub float %272, %261
-  %.sroa.0.0.vec.insert.i105 = insertelement <2 x float> poison, float %279, i64 0
-  %280 = fsub float %274, %265
-  %.sroa.0.4.vec.insert.i106 = insertelement <2 x float> %.sroa.0.0.vec.insert.i105, float %280, i64 1
-  %281 = fsub float %267, %269
-  %.sroa.3.12.vec.insert.i102 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %281, i64 0
-  %282 = fsub float %260, %261
-  %.sroa.0.0.vec.insert.i100 = insertelement <2 x float> poison, float %282, i64 0
-  %283 = fsub float %263, %265
-  %.sroa.0.4.vec.insert.i101 = insertelement <2 x float> %.sroa.0.0.vec.insert.i100, float %283, i64 1
+276:                                              ; preds = %241
+  %277 = fsub float %275, %268
+  %.sroa.3.12.vec.insert.i107 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %277, i64 0
+  %278 = fsub float %271, %260
+  %.sroa.0.0.vec.insert.i105 = insertelement <2 x float> poison, float %278, i64 0
+  %279 = fsub float %273, %264
+  %.sroa.0.4.vec.insert.i106 = insertelement <2 x float> %.sroa.0.0.vec.insert.i105, float %279, i64 1
+  %280 = fsub float %266, %268
+  %.sroa.3.12.vec.insert.i102 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %280, i64 0
+  %281 = fsub float %259, %260
+  %.sroa.0.0.vec.insert.i100 = insertelement <2 x float> poison, float %281, i64 0
+  %282 = fsub float %262, %264
+  %.sroa.0.4.vec.insert.i101 = insertelement <2 x float> %.sroa.0.0.vec.insert.i100, float %282, i64 1
   store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %14, align 8, !tbaa !4
   %.ptr5.i110 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %284 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 1, ptr %284, align 8, !tbaa !278
-  %285 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  %283 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 1, ptr %283, align 8, !tbaa !278
+  %284 = getelementptr inbounds nuw i8, ptr %14, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr5.i110, i8 0, i64 16, i1 false)
-  store <2 x float> %.sroa.0.4.vec.insert.i101, ptr %285, align 8
+  store <2 x float> %.sroa.0.4.vec.insert.i101, ptr %284, align 8
   %.sroa.5133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 104
   store <2 x float> %.sroa.3.12.vec.insert.i102, ptr %.sroa.5133.0..sroa_idx, align 8, !tbaa !228
-  %286 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  store <2 x float> %.sroa.0.4.vec.insert.i106, ptr %286, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %14, i64 112
+  store <2 x float> %.sroa.0.4.vec.insert.i106, ptr %285, align 8
   %.sroa.5131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 120
   store <2 x float> %.sroa.3.12.vec.insert.i107, ptr %.sroa.5131.0..sroa_idx, align 8, !tbaa !228
-  %287 = load ptr, ptr %135, align 8, !tbaa !344
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %138, ptr noundef nonnull align 4 dereferenceable(16) %288, i64 16, i1 false), !tbaa.struct !227
-  %289 = invoke noundef zeroext i1 @_ZN15btGjkEpaSolver214SignedDistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef nonnull %14, ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(56) %10)
-          to label %290 unwind label %300
+  %286 = load ptr, ptr %135, align 8, !tbaa !344
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %138, ptr noundef nonnull align 4 dereferenceable(16) %287, i64 16, i1 false), !tbaa.struct !227
+  %288 = invoke noundef zeroext i1 @_ZN15btGjkEpaSolver214SignedDistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef nonnull %14, ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(56) %10)
+          to label %289 unwind label %299
 
-290:                                              ; preds = %277
-  %291 = load ptr, ptr %17, align 8, !tbaa !4
-  %292 = getelementptr inbounds nuw i8, ptr %291, i64 96
-  %293 = load ptr, ptr %292, align 8
-  %294 = invoke noundef float %293(ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %295 unwind label %300
+289:                                              ; preds = %276
+  %290 = load ptr, ptr %17, align 8, !tbaa !4
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 96
+  %292 = load ptr, ptr %291, align 8
+  %293 = invoke noundef float %292(ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %294 unwind label %299
 
-295:                                              ; preds = %290
+294:                                              ; preds = %289
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %14) #45
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #45
+  br label %438
+
+295:                                              ; preds = %198
+  %296 = landingpad { ptr, i32 }
+          cleanup
+  br label %439
+
+297:                                              ; preds = %241
+  %298 = landingpad { ptr, i32 }
+          cleanup
+  br label %301
+
+299:                                              ; preds = %289, %276
+  %300 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %14) #45
+  br label %301
+
+301:                                              ; preds = %297, %299
+  %.pn91 = phi { ptr, i32 } [ %300, %299 ], [ %298, %297 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #45
   br label %439
 
-296:                                              ; preds = %199
-  %297 = landingpad { ptr, i32 }
-          cleanup
-  br label %440
-
-298:                                              ; preds = %242
-  %299 = landingpad { ptr, i32 }
-          cleanup
-  br label %302
-
-300:                                              ; preds = %290, %277
-  %301 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %14) #45
-  br label %302
-
-302:                                              ; preds = %298, %300
-  %.pn91 = phi { ptr, i32 } [ %301, %300 ], [ %299, %298 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #45
-  br label %440
-
-303:                                              ; preds = %191, %187
-  %304 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %305 = load ptr, ptr %304, align 8, !tbaa !900
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %305, i64 16, i1 false), !tbaa.struct !227
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 16
-  %307 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %307, ptr noundef nonnull align 4 dereferenceable(16) %306, i64 16, i1 false), !tbaa.struct !227
-  %308 = getelementptr inbounds nuw i8, ptr %305, i64 32
-  %309 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %309, ptr noundef nonnull align 4 dereferenceable(16) %308, i64 16, i1 false), !tbaa.struct !227
-  %310 = getelementptr inbounds nuw i8, ptr %305, i64 48
-  %311 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %311, ptr noundef nonnull align 4 dereferenceable(16) %310, i64 16, i1 false), !tbaa.struct !227
+302:                                              ; preds = %190, %186
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %304 = load ptr, ptr %303, align 8, !tbaa !900
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %304, i64 16, i1 false), !tbaa.struct !227
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %306, ptr noundef nonnull align 4 dereferenceable(16) %305, i64 16, i1 false), !tbaa.struct !227
+  %307 = getelementptr inbounds nuw i8, ptr %304, i64 32
+  %308 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %308, ptr noundef nonnull align 4 dereferenceable(16) %307, i64 16, i1 false), !tbaa.struct !227
+  %309 = getelementptr inbounds nuw i8, ptr %304, i64 48
+  %310 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %310, ptr noundef nonnull align 4 dereferenceable(16) %309, i64 16, i1 false), !tbaa.struct !227
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15) #45
-  %312 = load ptr, ptr %139, align 8, !tbaa !344
-  %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
-  %314 = load ptr, ptr %135, align 8, !tbaa !344
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
-  %316 = load float, ptr %313, align 4, !tbaa !234
-  %317 = load float, ptr %315, align 4, !tbaa !234
-  %318 = getelementptr inbounds nuw i8, ptr %312, i64 20
-  %319 = load float, ptr %318, align 4, !tbaa !234
-  %320 = getelementptr inbounds nuw i8, ptr %314, i64 20
-  %321 = load float, ptr %320, align 4, !tbaa !234
-  %322 = getelementptr inbounds nuw i8, ptr %312, i64 24
-  %323 = load float, ptr %322, align 4, !tbaa !234
-  %324 = getelementptr inbounds nuw i8, ptr %314, i64 24
-  %325 = load float, ptr %324, align 4, !tbaa !234
-  %326 = load ptr, ptr %155, align 8, !tbaa !344
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  %328 = load float, ptr %327, align 4, !tbaa !234
-  %329 = getelementptr inbounds nuw i8, ptr %326, i64 20
-  %330 = load float, ptr %329, align 4, !tbaa !234
-  %331 = getelementptr inbounds nuw i8, ptr %326, i64 24
-  %332 = load float, ptr %331, align 4, !tbaa !234
+  %311 = load ptr, ptr %139, align 8, !tbaa !344
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 16
+  %313 = load ptr, ptr %135, align 8, !tbaa !344
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
+  %315 = load float, ptr %312, align 4, !tbaa !234
+  %316 = load float, ptr %314, align 4, !tbaa !234
+  %317 = getelementptr inbounds nuw i8, ptr %311, i64 20
+  %318 = load float, ptr %317, align 4, !tbaa !234
+  %319 = getelementptr inbounds nuw i8, ptr %313, i64 20
+  %320 = load float, ptr %319, align 4, !tbaa !234
+  %321 = getelementptr inbounds nuw i8, ptr %311, i64 24
+  %322 = load float, ptr %321, align 4, !tbaa !234
+  %323 = getelementptr inbounds nuw i8, ptr %313, i64 24
+  %324 = load float, ptr %323, align 4, !tbaa !234
+  %325 = load ptr, ptr %155, align 8, !tbaa !344
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
+  %327 = load float, ptr %326, align 4, !tbaa !234
+  %328 = getelementptr inbounds nuw i8, ptr %325, i64 20
+  %329 = load float, ptr %328, align 4, !tbaa !234
+  %330 = getelementptr inbounds nuw i8, ptr %325, i64 24
+  %331 = load float, ptr %330, align 4, !tbaa !234
   invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %15)
-          to label %333 unwind label %423
+          to label %332 unwind label %422
 
-333:                                              ; preds = %303
-  %334 = fsub float %332, %325
-  %.sroa.3.12.vec.insert.i118 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %334, i64 0
-  %335 = fsub float %328, %317
-  %.sroa.0.0.vec.insert.i116 = insertelement <2 x float> poison, float %335, i64 0
-  %336 = fsub float %330, %321
-  %.sroa.0.4.vec.insert.i117 = insertelement <2 x float> %.sroa.0.0.vec.insert.i116, float %336, i64 1
-  %337 = fsub float %323, %325
-  %.sroa.3.12.vec.insert.i113 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %337, i64 0
-  %338 = fsub float %316, %317
-  %.sroa.0.0.vec.insert.i111 = insertelement <2 x float> poison, float %338, i64 0
-  %339 = fsub float %319, %321
-  %.sroa.0.4.vec.insert.i112 = insertelement <2 x float> %.sroa.0.0.vec.insert.i111, float %339, i64 1
+332:                                              ; preds = %302
+  %333 = fsub float %331, %324
+  %.sroa.3.12.vec.insert.i118 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %333, i64 0
+  %334 = fsub float %327, %316
+  %.sroa.0.0.vec.insert.i116 = insertelement <2 x float> poison, float %334, i64 0
+  %335 = fsub float %329, %320
+  %.sroa.0.4.vec.insert.i117 = insertelement <2 x float> %.sroa.0.0.vec.insert.i116, float %335, i64 1
+  %336 = fsub float %322, %324
+  %.sroa.3.12.vec.insert.i113 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %336, i64 0
+  %337 = fsub float %315, %316
+  %.sroa.0.0.vec.insert.i111 = insertelement <2 x float> poison, float %337, i64 0
+  %338 = fsub float %318, %320
+  %.sroa.0.4.vec.insert.i112 = insertelement <2 x float> %.sroa.0.0.vec.insert.i111, float %338, i64 1
   store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %15, align 8, !tbaa !4
   %.ptr5.i121 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %340 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 1, ptr %340, align 8, !tbaa !278
-  %341 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %339 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i32 1, ptr %339, align 8, !tbaa !278
+  %340 = getelementptr inbounds nuw i8, ptr %15, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr5.i121, i8 0, i64 16, i1 false)
-  store <2 x float> %.sroa.0.4.vec.insert.i112, ptr %341, align 8
+  store <2 x float> %.sroa.0.4.vec.insert.i112, ptr %340, align 8
   %.sroa.5125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 104
   store <2 x float> %.sroa.3.12.vec.insert.i113, ptr %.sroa.5125.0..sroa_idx, align 8, !tbaa !228
-  %342 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  store <2 x float> %.sroa.0.4.vec.insert.i117, ptr %342, align 8
+  %341 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  store <2 x float> %.sroa.0.4.vec.insert.i117, ptr %341, align 8
   %.sroa.5.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store <2 x float> %.sroa.3.12.vec.insert.i118, ptr %.sroa.5.0..sroa_idx123, align 8, !tbaa !228
-  %343 = load ptr, ptr %135, align 8, !tbaa !344
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %138, ptr noundef nonnull align 4 dereferenceable(16) %344, i64 16, i1 false), !tbaa.struct !227
-  %345 = invoke noundef zeroext i1 @_ZN15btGjkEpaSolver214SignedDistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(56) %10)
-          to label %346 unwind label %425
+  %342 = load ptr, ptr %135, align 8, !tbaa !344
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %138, ptr noundef nonnull align 4 dereferenceable(16) %343, i64 16, i1 false), !tbaa.struct !227
+  %344 = invoke noundef zeroext i1 @_ZN15btGjkEpaSolver214SignedDistanceEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsE(ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(56) %10)
+          to label %345 unwind label %424
 
-346:                                              ; preds = %333
-  %347 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %347, i64 16, i1 false), !tbaa.struct !227
-  %348 = load ptr, ptr %135, align 8, !tbaa !344
-  %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
-  %350 = load ptr, ptr %139, align 8, !tbaa !344
-  %351 = getelementptr inbounds nuw i8, ptr %350, i64 16
-  %352 = load ptr, ptr %155, align 8, !tbaa !344
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
-  %354 = load float, ptr %351, align 4, !tbaa !234
-  %355 = load float, ptr %349, align 4, !tbaa !234
-  %356 = fsub float %354, %355
-  %357 = getelementptr inbounds nuw i8, ptr %350, i64 20
-  %358 = load float, ptr %357, align 4, !tbaa !234
-  %359 = getelementptr inbounds nuw i8, ptr %348, i64 20
-  %360 = load float, ptr %359, align 4, !tbaa !234
-  %361 = fsub float %358, %360
-  %362 = getelementptr inbounds nuw i8, ptr %350, i64 24
-  %363 = load float, ptr %362, align 4, !tbaa !234
-  %364 = getelementptr inbounds nuw i8, ptr %348, i64 24
-  %365 = load float, ptr %364, align 4, !tbaa !234
-  %366 = fsub float %363, %365
-  %367 = load float, ptr %353, align 4, !tbaa !234
-  %368 = fsub float %367, %355
-  %369 = getelementptr inbounds nuw i8, ptr %352, i64 20
-  %370 = load float, ptr %369, align 4, !tbaa !234
-  %371 = fsub float %370, %360
-  %372 = getelementptr inbounds nuw i8, ptr %352, i64 24
-  %373 = load float, ptr %372, align 4, !tbaa !234
-  %374 = fsub float %373, %365
-  %375 = fmul float %361, %361
-  %376 = call float @llvm.fmuladd.f32(float %356, float %356, float %375)
-  %377 = call noundef float @llvm.fmuladd.f32(float %366, float %366, float %376)
-  %378 = fmul float %361, %371
-  %379 = call float @llvm.fmuladd.f32(float %356, float %368, float %378)
-  %380 = call noundef float @llvm.fmuladd.f32(float %366, float %374, float %379)
-  %381 = fmul float %371, %371
-  %382 = call float @llvm.fmuladd.f32(float %368, float %368, float %381)
-  %383 = call noundef float @llvm.fmuladd.f32(float %374, float %374, float %382)
-  %384 = fneg float %380
-  %385 = fmul float %380, %384
-  %386 = call float @llvm.fmuladd.f32(float %377, float %383, float %385)
-  %387 = call noundef float @llvm.fabs.f32(float %386)
-  %388 = fcmp olt float %387, 0x3E80000000000000
-  br i1 %388, label %_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit, label %389
+345:                                              ; preds = %332
+  %346 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %346, i64 16, i1 false), !tbaa.struct !227
+  %347 = load ptr, ptr %135, align 8, !tbaa !344
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 16
+  %349 = load ptr, ptr %139, align 8, !tbaa !344
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 16
+  %351 = load ptr, ptr %155, align 8, !tbaa !344
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
+  %353 = load float, ptr %350, align 4, !tbaa !234
+  %354 = load float, ptr %348, align 4, !tbaa !234
+  %355 = fsub float %353, %354
+  %356 = getelementptr inbounds nuw i8, ptr %349, i64 20
+  %357 = load float, ptr %356, align 4, !tbaa !234
+  %358 = getelementptr inbounds nuw i8, ptr %347, i64 20
+  %359 = load float, ptr %358, align 4, !tbaa !234
+  %360 = fsub float %357, %359
+  %361 = getelementptr inbounds nuw i8, ptr %349, i64 24
+  %362 = load float, ptr %361, align 4, !tbaa !234
+  %363 = getelementptr inbounds nuw i8, ptr %347, i64 24
+  %364 = load float, ptr %363, align 4, !tbaa !234
+  %365 = fsub float %362, %364
+  %366 = load float, ptr %352, align 4, !tbaa !234
+  %367 = fsub float %366, %354
+  %368 = getelementptr inbounds nuw i8, ptr %351, i64 20
+  %369 = load float, ptr %368, align 4, !tbaa !234
+  %370 = fsub float %369, %359
+  %371 = getelementptr inbounds nuw i8, ptr %351, i64 24
+  %372 = load float, ptr %371, align 4, !tbaa !234
+  %373 = fsub float %372, %364
+  %374 = fmul float %360, %360
+  %375 = call float @llvm.fmuladd.f32(float %355, float %355, float %374)
+  %376 = call noundef float @llvm.fmuladd.f32(float %365, float %365, float %375)
+  %377 = fmul float %360, %370
+  %378 = call float @llvm.fmuladd.f32(float %355, float %367, float %377)
+  %379 = call noundef float @llvm.fmuladd.f32(float %365, float %373, float %378)
+  %380 = fmul float %370, %370
+  %381 = call float @llvm.fmuladd.f32(float %367, float %367, float %380)
+  %382 = call noundef float @llvm.fmuladd.f32(float %373, float %373, float %381)
+  %383 = fneg float %379
+  %384 = fmul float %379, %383
+  %385 = call float @llvm.fmuladd.f32(float %376, float %382, float %384)
+  %386 = call noundef float @llvm.fabs.f32(float %385)
+  %387 = fcmp olt float %386, 0x3E80000000000000
+  br i1 %387, label %_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit, label %388
 
-389:                                              ; preds = %346
-  %390 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %391 = load float, ptr %390, align 4, !tbaa !234
-  %392 = fsub float %391, %365
-  %393 = load float, ptr %3, align 4, !tbaa !234
-  %394 = fsub float %393, %355
-  %395 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %396 = load float, ptr %395, align 4, !tbaa !234
-  %397 = fsub float %396, %360
-  %398 = fmul float %371, %397
-  %399 = call float @llvm.fmuladd.f32(float %394, float %368, float %398)
-  %400 = call noundef float @llvm.fmuladd.f32(float %392, float %374, float %399)
-  %401 = fmul float %361, %397
-  %402 = call float @llvm.fmuladd.f32(float %394, float %356, float %401)
-  %403 = call noundef float @llvm.fmuladd.f32(float %392, float %366, float %402)
-  %404 = fneg float %400
-  %405 = fmul float %380, %404
-  %406 = call float @llvm.fmuladd.f32(float %383, float %403, float %405)
-  %407 = fdiv float %406, %386
-  %408 = fneg float %403
-  %409 = fmul float %380, %408
-  %410 = call float @llvm.fmuladd.f32(float %377, float %400, float %409)
-  %411 = fdiv float %410, %386
+388:                                              ; preds = %345
+  %389 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %390 = load float, ptr %389, align 4, !tbaa !234
+  %391 = fsub float %390, %364
+  %392 = load float, ptr %3, align 4, !tbaa !234
+  %393 = fsub float %392, %354
+  %394 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %395 = load float, ptr %394, align 4, !tbaa !234
+  %396 = fsub float %395, %359
+  %397 = fmul float %370, %396
+  %398 = call float @llvm.fmuladd.f32(float %393, float %367, float %397)
+  %399 = call noundef float @llvm.fmuladd.f32(float %391, float %373, float %398)
+  %400 = fmul float %360, %396
+  %401 = call float @llvm.fmuladd.f32(float %393, float %355, float %400)
+  %402 = call noundef float @llvm.fmuladd.f32(float %391, float %365, float %401)
+  %403 = fneg float %399
+  %404 = fmul float %379, %403
+  %405 = call float @llvm.fmuladd.f32(float %382, float %402, float %404)
+  %406 = fdiv float %405, %385
+  %407 = fneg float %402
+  %408 = fmul float %379, %407
+  %409 = call float @llvm.fmuladd.f32(float %376, float %399, float %408)
+  %410 = fdiv float %409, %385
   br label %_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit
 
-_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit: ; preds = %346, %389
-  %.sink83.i = phi float [ %407, %389 ], [ 0.000000e+00, %346 ]
-  %.sink.i = phi float [ %411, %389 ], [ 0.000000e+00, %346 ]
-  %412 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %.sink83.i, ptr %412, align 4, !tbaa !234
-  %413 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float %.sink.i, ptr %413, align 4, !tbaa !234
-  %414 = fsub float 1.000000e+00, %.sink83.i
-  %415 = fsub float %414, %.sink.i
-  store float %415, ptr %4, align 4, !tbaa !234
-  %416 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  br label %427
+_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit: ; preds = %345, %388
+  %.sink83.i = phi float [ %406, %388 ], [ 0.000000e+00, %345 ]
+  %.sink.i = phi float [ %410, %388 ], [ 0.000000e+00, %345 ]
+  %411 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float %.sink83.i, ptr %411, align 4, !tbaa !234
+  %412 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float %.sink.i, ptr %412, align 4, !tbaa !234
+  %413 = fsub float 1.000000e+00, %.sink83.i
+  %414 = fsub float %413, %.sink.i
+  store float %414, ptr %4, align 4, !tbaa !234
+  %415 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  br label %426
 
-417:                                              ; preds = %427
-  %418 = load float, ptr %171, align 4, !tbaa !920
-  %419 = load ptr, ptr %17, align 8, !tbaa !4
-  %420 = getelementptr inbounds nuw i8, ptr %419, i64 96
-  %421 = load ptr, ptr %420, align 8
-  %422 = invoke noundef float %421(ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %431 unwind label %425
+416:                                              ; preds = %426
+  %417 = load float, ptr %171, align 4, !tbaa !920
+  %418 = load ptr, ptr %17, align 8, !tbaa !4
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 96
+  %420 = load ptr, ptr %419, align 8
+  %421 = invoke noundef float %420(ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %430 unwind label %424
 
-423:                                              ; preds = %303
-  %424 = landingpad { ptr, i32 }
+422:                                              ; preds = %302
+  %423 = landingpad { ptr, i32 }
           cleanup
-  br label %438
+  br label %437
 
-425:                                              ; preds = %417, %333
-  %426 = landingpad { ptr, i32 }
+424:                                              ; preds = %416, %332
+  %425 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %15) #45
-  br label %438
+  br label %437
 
-427:                                              ; preds = %_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit, %427
-  %indvars.iv = phi i64 [ 0, %_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit ], [ %indvars.iv.next, %427 ]
-  %428 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  %429 = load float, ptr %428, align 4, !tbaa !234
-  %430 = getelementptr inbounds nuw float, ptr %416, i64 %indvars.iv
-  store float %429, ptr %430, align 4, !tbaa !234
+426:                                              ; preds = %_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit, %426
+  %indvars.iv = phi i64 [ 0, %_ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit ], [ %indvars.iv.next, %426 ]
+  %427 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %428 = load float, ptr %427, align 4, !tbaa !234
+  %429 = getelementptr inbounds nuw float, ptr %415, i64 %indvars.iv
+  store float %428, ptr %429, align 4, !tbaa !234
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %417, label %427, !llvm.loop !924
+  br i1 %exitcond.not, label %416, label %426, !llvm.loop !924
 
-431:                                              ; preds = %417
-  %432 = fsub float %418, %422
-  %433 = fsub float %432, %5
-  %434 = load ptr, ptr %18, align 8, !tbaa !904
-  store ptr %434, ptr %6, align 8, !tbaa !905
-  %435 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  %436 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %436, ptr noundef nonnull align 4 dereferenceable(16) %435, i64 16, i1 false), !tbaa.struct !227
-  %437 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store float %433, ptr %437, align 8, !tbaa !906
+430:                                              ; preds = %416
+  %431 = fsub float %417, %421
+  %432 = fsub float %431, %5
+  %433 = load ptr, ptr %18, align 8, !tbaa !904
+  store ptr %433, ptr %6, align 8, !tbaa !905
+  %434 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  %435 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %435, ptr noundef nonnull align 4 dereferenceable(16) %434, i64 16, i1 false), !tbaa.struct !227
+  %436 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store float %432, ptr %436, align 8, !tbaa !906
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %15) #45
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #45
+  br label %438
+
+437:                                              ; preds = %422, %424
+  %.pn87 = phi { ptr, i32 } [ %425, %424 ], [ %423, %422 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #45
   br label %439
 
-438:                                              ; preds = %423, %425
-  %.pn87 = phi { ptr, i32 } [ %426, %425 ], [ %424, %423 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #45
-  br label %440
-
-439:                                              ; preds = %177, %431, %295
+438:                                              ; preds = %177, %430, %294
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #45
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %12) #45
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #45
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #45
-  ret i1 %184
+  ret i1 %183
 
-440:                                              ; preds = %296, %302, %438, %185
-  %.pn91.pn.pn = phi { ptr, i32 } [ %.pn87, %438 ], [ %186, %185 ], [ %.pn91, %302 ], [ %297, %296 ]
+439:                                              ; preds = %295, %301, %437, %184
+  %.pn91.pn.pn = phi { ptr, i32 } [ %.pn87, %437 ], [ %185, %184 ], [ %.pn91, %301 ], [ %296, %295 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #45
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %12) #45
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #45

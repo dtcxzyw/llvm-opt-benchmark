@@ -1985,7 +1985,7 @@ ost_iter.exit:                                    ; preds = %41
   br i1 %.not166, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ost_iter.exit
-  %49 = fcmp nsz ogt float %35, 1.000000e+00
+  %49 = fcmp nsz ogt double %34, 0x3FF0000010000000
   br label %51
 
 ._crit_edge:                                      ; preds = %39, %.thread.i, %ost_iter.exit161, %109, %31, %ost_iter.exit
@@ -2043,8 +2043,8 @@ ost_iter.exit:                                    ; preds = %41
   %75 = load atomic i64, ptr %74 seq_cst, align 8
   %76 = uitofp i64 %75 to float
   %77 = fdiv nsz float %76, %35
-  %78 = select nsz i1 %49, float %77, float 0.000000e+00
-  %79 = fpext nsz float %78 to double
+  %78 = fpext nsz float %77 to double
+  %79 = select i1 %49, double %78, double 0.000000e+00
   %80 = fcmp nsz olt double %79, 0x4023E66666666666
   %81 = zext i1 %80 to i32
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.33, i64 noundef %75, i32 noundef %81, double noundef %79, double noundef %61) #17

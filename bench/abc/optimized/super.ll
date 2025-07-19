@@ -163,7 +163,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
   %50 = fptrunc double %49 to float
   %51 = add nsw i32 %45, 1
   store i32 %51, ptr @globalUtilOptind, align 4, !tbaa !3
-  %52 = fcmp ugt float %50, 0.000000e+00
+  %52 = fcmp ugt double %49, 0x3690000000000000
   br i1 %52, label %.backedge, label %.loopexit
 
 53:                                               ; preds = %6
@@ -175,7 +175,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
   %59 = fptrunc double %58 to float
   %60 = add nsw i32 %54, 1
   store i32 %60, ptr @globalUtilOptind, align 4, !tbaa !3
-  %61 = fcmp ugt float %59, 0.000000e+00
+  %61 = fcmp ugt double %58, 0x3690000000000000
   br i1 %61, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %53, %44, %35, %26, %17, %8, %74, %72, %70, %68

@@ -1266,17 +1266,17 @@ _widget_get_quad_width.exit376:                   ; preds = %_widget_get_quad_wi
   %218 = fpext reassoc nsz arcp contract afn float %190 to double
   %219 = fsub reassoc nsz arcp contract afn double -4.000000e+00, %218
   %220 = fadd reassoc nsz arcp contract afn double %219, %217
-  %221 = fptrunc reassoc nsz arcp contract afn double %220 to float
-  %222 = fcmp reassoc nsz arcp contract afn ogt float %221, 0.000000e+00
-  br i1 %222, label %223, label %236
+  %221 = fcmp reassoc nsz arcp contract afn ogt double %220, 0x3690000000000000
+  br i1 %221, label %222, label %236
 
-223:                                              ; preds = %_widget_get_quad_width.exit376
+222:                                              ; preds = %_widget_get_quad_width.exit376
+  %223 = fptrunc reassoc nsz arcp contract afn double %220 to float
   %224 = getelementptr inbounds nuw i8, ptr %12, i64 336
   %225 = load i32, ptr %224, align 8, !tbaa !145
   %.not.i377 = icmp eq i32 %225, 0
   br i1 %.not.i377, label %232, label %226
 
-226:                                              ; preds = %223
+226:                                              ; preds = %222
   %227 = getelementptr inbounds nuw i8, ptr %12, i64 328
   %228 = load ptr, ptr %227, align 8, !tbaa !146
   %.not7.i = icmp eq ptr %228, null
@@ -1287,14 +1287,14 @@ _widget_get_quad_width.exit376:                   ; preds = %_widget_get_quad_wi
   %231 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, ptr noundef nonnull %228, ptr noundef nonnull %230) #20
   br label %_build_label.exit
 
-232:                                              ; preds = %226, %223
+232:                                              ; preds = %226, %222
   %233 = getelementptr inbounds nuw i8, ptr %12, i64 68
   %234 = call noalias ptr @g_strdup(ptr noundef nonnull %233) #20
   br label %_build_label.exit
 
 _build_label.exit:                                ; preds = %229, %232
   %.0.i378 = phi ptr [ %231, %229 ], [ %234, %232 ]
-  %235 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %12, ptr noundef %32, ptr noundef %1, ptr noundef %.0.i378, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %221, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %235 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %12, ptr noundef %32, ptr noundef %1, ptr noundef %.0.i378, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %223, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef null)
   call void @g_free(ptr noundef %.0.i378) #20
   br label %236
 

@@ -4114,7 +4114,6 @@ _ZL8calc_sumiP10enerdata_tii.exit.i:              ; preds = %.preheader.i.i, %._
   %.0267.in.i = select i1 %1484, double %1486, double %1440
   %.0266.in.i = select i1 %1484, double %1487, double %1442
   %.0265.in.i = select i1 %1484, double %1488, double %1444
-  %.0265.i = fptrunc double %.0265.in.i to float
   %.0266.i = fptrunc double %.0266.in.i to float
   %.0267.i = fptrunc double %.0267.in.i to float
   %1489 = load i64, ptr %72, align 8, !tbaa !88
@@ -4126,10 +4125,11 @@ _ZL8calc_sumiP10enerdata_tii.exit.i:              ; preds = %.preheader.i.i, %._
   %1495 = fdiv double %1494, %1434
   %.0275.i = select i1 %1484, double %1495, double %1494
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %39, ptr noundef nonnull align 1 dereferenceable(3) @.str.243, i64 3, i1 false)
-  %1496 = fcmp ult float %.0265.i, 0.000000e+00
+  %1496 = fcmp ult double %.0265.in.i, 0xB690000000000000
   br i1 %1496, label %_ZL5ee_prdiPc.exit.i, label %1497
 
 1497:                                             ; preds = %1481
+  %.0265.i = fptrunc double %.0265.in.i to float
   %1498 = fpext float %.0265.i to double
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %36) #27
   %1499 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %36, i64 noundef 100, ptr noundef nonnull @.str.263, double noundef %1498) #27

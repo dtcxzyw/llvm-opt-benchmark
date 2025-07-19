@@ -5893,7 +5893,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br i1 %84, label %88, label %85
 
 85:                                               ; preds = %62
-  %86 = fcmp reassoc nsz arcp contract afn olt float %73, 0.000000e+00
+  %86 = fcmp reassoc nsz arcp contract afn olt double %72, 0xB690000000000000
   br i1 %86, label %88, label %87
 
 87:                                               ; preds = %85
@@ -5906,7 +5906,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br i1 %90, label %94, label %91
 
 91:                                               ; preds = %88
-  %92 = fcmp reassoc nsz arcp contract afn olt float %81, 0.000000e+00
+  %92 = fcmp reassoc nsz arcp contract afn olt double %80, 0xB690000000000000
   br i1 %92, label %94, label %93
 
 93:                                               ; preds = %91
@@ -6331,7 +6331,7 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   %51 = fpext reassoc nsz arcp contract afn float %38 to double
   %52 = fmul reassoc nsz arcp contract afn double %50, %51
   %53 = fptrunc reassoc nsz arcp contract afn double %52 to float
-  %54 = fcmp reassoc nsz arcp contract afn olt float %53, 1.000000e+00
+  %54 = fcmp reassoc nsz arcp contract afn olt double %52, 0x3FEFFFFFF0000000
   %storemerge = select i1 %54, float 1.000000e+00, float %53
   store float %storemerge, ptr %37, align 4, !tbaa !176
   %55 = fdiv reassoc nsz arcp contract afn float %33, %storemerge

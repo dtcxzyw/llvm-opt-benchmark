@@ -1940,7 +1940,7 @@ float8_div.exit:                                  ; preds = %80, %82
   br i1 %104, label %.critedge, label %120
 
 105:                                              ; preds = %91
-  %.inv.i = fcmp oge float %87, 0.000000e+00
+  %.inv.i = fcmp oge double %75, 0xB690000000000000
   %..i = select i1 %.inv.i, float %87, float 0.000000e+00
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %107 = load float, ptr %106, align 4

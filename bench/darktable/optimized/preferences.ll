@@ -8901,7 +8901,7 @@ define internal void @dpi_scaling_changed_callback(ptr noundef %0, ptr readnone 
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #13
   %5 = tail call reassoc nsz arcp contract afn double @gtk_spin_button_get_value(ptr noundef %4) #13
   %6 = fptrunc reassoc nsz arcp contract afn double %5 to float
-  %7 = fcmp reassoc nsz arcp contract afn ogt float %6, 0.000000e+00
+  %7 = fcmp reassoc nsz arcp contract afn ogt double %5, 0x3690000000000000
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2

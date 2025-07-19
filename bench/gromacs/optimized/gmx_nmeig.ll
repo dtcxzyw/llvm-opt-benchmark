@@ -2275,7 +2275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit363: ; preds = %_Z
   %855 = fmul double %853, 0x3F81072C483AF26D
   %856 = fdiv double %854, %855
   %857 = call double @exp(double noundef %856) #17, !tbaa !4
-  %858 = fcmp ugt float %816, 0.000000e+00
+  %858 = fcmp ugt double %815, 0x3690000000000000
   br i1 %858, label %859, label %_ZL6u_corrdd.exit
 
 859:                                              ; preds = %850

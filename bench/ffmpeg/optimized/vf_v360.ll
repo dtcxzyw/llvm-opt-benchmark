@@ -7552,7 +7552,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   br i1 %.not, label %53, label %50
 
 50:                                               ; preds = %33
-  %51 = fcmp nsz ult float %46, 0.000000e+00
+  %51 = fcmp nsz ult double %45, 0xB690000000000000
   %.in.v = select i1 %51, float 1.000000e+00, float -1.000000e+00
   %.in = fadd nsz float %.in.v, %46
   %52 = frem nsz float %.in, 1.000000e+00

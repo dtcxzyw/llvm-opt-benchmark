@@ -555,7 +555,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %263 = getelementptr inbounds nuw i8, ptr %252, i64 24
   %264 = load double, ptr %263, align 8, !tbaa !53
   %265 = fptrunc nsz double %264 to float
-  %266 = fcmp nsz olt float %256, 0.000000e+00
+  %266 = fcmp nsz olt double %255, 0xB690000000000000
   br i1 %266, label %267, label %.loopexit277
 
 267:                                              ; preds = %251
@@ -596,20 +596,20 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .loopexit277:                                     ; preds = %._crit_edge.us, %251
   %.0219 = phi nsz float [ %256, %251 ], [ %274, %._crit_edge.us ]
-  %278 = fcmp nsz uge float %259, 0.000000e+00
+  %278 = fcmp nsz uge double %258, 0xB690000000000000
   %brmerge438 = select i1 %278, i1 true, i1 %105
   %.mux439 = select i1 %278, float %259, float 0.000000e+00
   br i1 %brmerge438, label %.loopexit276, label %.preheader274.lr.ph
 
 .loopexit277.thread404:                           ; preds = %.preheader275.lr.ph
-  %279 = fcmp nsz olt float %259, 0.000000e+00
+  %279 = fcmp nsz olt double %258, 0xB690000000000000
   br i1 %279, label %.preheader274.lr.ph.thread, label %.loopexit276
 
 .preheader274.lr.ph.thread:                       ; preds = %.loopexit277.thread404
   br label %.loopexit276
 
 .loopexit277.thread:                              ; preds = %267
-  %280 = fcmp nsz olt float %259, 0.000000e+00
+  %280 = fcmp nsz olt double %258, 0xB690000000000000
   br i1 %280, label %.thread402, label %.loopexit276
 
 .thread402:                                       ; preds = %.loopexit277.thread

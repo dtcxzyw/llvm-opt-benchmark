@@ -22083,8 +22083,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit8: ; preds = %_ZStls
   %15 = call double @strtod(ptr noundef nonnull captures(none) %1, ptr noundef null) #20
   %16 = fptrunc double %15 to float
   store float %16, ptr %0, align 4, !tbaa !824
-  %17 = fcmp uge float %16, 2.000000e+00
-  %18 = fcmp ult float %16, 1.000000e+00
+  %17 = fcmp uge double %15, 0x3FFFFFFFF0000000
+  %18 = fcmp ult double %15, 0x3FEFFFFFF0000000
   %19 = or i1 %17, %18
   br i1 %19, label %20, label %29, !prof !232
 

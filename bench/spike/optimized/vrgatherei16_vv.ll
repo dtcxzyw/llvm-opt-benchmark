@@ -81,8 +81,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26fast_rv32i_vrgatherei
   %12 = fpext float %11 to double
   %13 = fmul double %9, %12
   %14 = fptrunc double %13 to float
-  %15 = fcmp ult float %14, 1.250000e-01
-  %16 = fcmp ugt float %14, 8.000000e+00
+  %15 = fcmp ult double %13, 0x3FBFFFFFF0000000
+  %16 = fcmp ugt double %13, 0x4020000010000000
   %.not113 = or i1 %15, %16
   br i1 %.not113, label %17, label %22, !prof !132
 
@@ -576,8 +576,8 @@ define noundef i64 @_Z26fast_rv64i_vrgatherei16_vvP11processor_t6insn_tm(ptr nou
   %12 = fpext float %11 to double
   %13 = fmul double %9, %12
   %14 = fptrunc double %13 to float
-  %15 = fcmp ult float %14, 1.250000e-01
-  %16 = fcmp ugt float %14, 8.000000e+00
+  %15 = fcmp ult double %13, 0x3FBFFFFFF0000000
+  %16 = fcmp ugt double %13, 0x4020000010000000
   %.not113 = or i1 %15, %16
   br i1 %.not113, label %17, label %22, !prof !132
 
@@ -947,8 +947,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z28logged_rv32i_vrgather
   %12 = fpext float %11 to double
   %13 = fmul double %9, %12
   %14 = fptrunc double %13 to float
-  %15 = fcmp ult float %14, 1.250000e-01
-  %16 = fcmp ugt float %14, 8.000000e+00
+  %15 = fcmp ult double %13, 0x3FBFFFFFF0000000
+  %16 = fcmp ugt double %13, 0x4020000010000000
   %.not113 = or i1 %15, %16
   br i1 %.not113, label %17, label %22, !prof !132
 
@@ -1320,8 +1320,8 @@ define noundef i64 @_Z28logged_rv64i_vrgatherei16_vvP11processor_t6insn_tm(ptr n
   %12 = fpext float %11 to double
   %13 = fmul double %9, %12
   %14 = fptrunc double %13 to float
-  %15 = fcmp ult float %14, 1.250000e-01
-  %16 = fcmp ugt float %14, 8.000000e+00
+  %15 = fcmp ult double %13, 0x3FBFFFFFF0000000
+  %16 = fcmp ugt double %13, 0x4020000010000000
   %.not113 = or i1 %15, %16
   br i1 %.not113, label %17, label %22, !prof !132
 
@@ -1691,8 +1691,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26fast_rv32e_vrgatherei
   %12 = fpext float %11 to double
   %13 = fmul double %9, %12
   %14 = fptrunc double %13 to float
-  %15 = fcmp ult float %14, 1.250000e-01
-  %16 = fcmp ugt float %14, 8.000000e+00
+  %15 = fcmp ult double %13, 0x3FBFFFFFF0000000
+  %16 = fcmp ugt double %13, 0x4020000010000000
   %.not113 = or i1 %15, %16
   br i1 %.not113, label %17, label %22, !prof !132
 
@@ -2064,8 +2064,8 @@ define noundef i64 @_Z26fast_rv64e_vrgatherei16_vvP11processor_t6insn_tm(ptr nou
   %12 = fpext float %11 to double
   %13 = fmul double %9, %12
   %14 = fptrunc double %13 to float
-  %15 = fcmp ult float %14, 1.250000e-01
-  %16 = fcmp ugt float %14, 8.000000e+00
+  %15 = fcmp ult double %13, 0x3FBFFFFFF0000000
+  %16 = fcmp ugt double %13, 0x4020000010000000
   %.not113 = or i1 %15, %16
   br i1 %.not113, label %17, label %22, !prof !132
 
@@ -2435,8 +2435,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z28logged_rv32e_vrgather
   %12 = fpext float %11 to double
   %13 = fmul double %9, %12
   %14 = fptrunc double %13 to float
-  %15 = fcmp ult float %14, 1.250000e-01
-  %16 = fcmp ugt float %14, 8.000000e+00
+  %15 = fcmp ult double %13, 0x3FBFFFFFF0000000
+  %16 = fcmp ugt double %13, 0x4020000010000000
   %.not113 = or i1 %15, %16
   br i1 %.not113, label %17, label %22, !prof !132
 
@@ -2808,8 +2808,8 @@ define noundef i64 @_Z28logged_rv64e_vrgatherei16_vvP11processor_t6insn_tm(ptr n
   %12 = fpext float %11 to double
   %13 = fmul double %9, %12
   %14 = fptrunc double %13 to float
-  %15 = fcmp ult float %14, 1.250000e-01
-  %16 = fcmp ugt float %14, 8.000000e+00
+  %15 = fcmp ult double %13, 0x3FBFFFFFF0000000
+  %16 = fcmp ugt double %13, 0x4020000010000000
   %.not113 = or i1 %15, %16
   br i1 %.not113, label %17, label %22, !prof !132
 

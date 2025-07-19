@@ -224,7 +224,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %113 = fpext reassoc nsz arcp contract afn float %.1.i to double
   %114 = fmul reassoc nsz arcp contract afn double %113, 0x3FC5555555555555
   %115 = fptrunc reassoc nsz arcp contract afn double %114 to float
-  %116 = fcmp reassoc nsz arcp contract afn olt float %115, 0.000000e+00
+  %116 = fcmp reassoc nsz arcp contract afn olt double %114, 0xB690000000000000
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %112
@@ -232,7 +232,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %rgb2hsl.exit
 
 119:                                              ; preds = %112
-  %120 = fcmp reassoc nsz arcp contract afn ogt float %115, 1.000000e+00
+  %120 = fcmp reassoc nsz arcp contract afn ogt double %114, 0x3FF0000010000000
   br i1 %120, label %121, label %rgb2hsl.exit
 
 121:                                              ; preds = %119

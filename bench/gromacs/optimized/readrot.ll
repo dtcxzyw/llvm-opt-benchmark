@@ -542,7 +542,7 @@ _ZL11string2dvecPcPd.exit133:                     ; preds = %127, %125
   %149 = fptrunc double %147 to float
   %150 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store float %149, ptr %150, align 8, !tbaa !57
-  %151 = fcmp ugt float %149, 0.000000e+00
+  %151 = fcmp ugt double %147, 0x3690000000000000
   br i1 %151, label %155, label %152
 
 152:                                              ; preds = %148
@@ -564,7 +564,7 @@ _ZL11string2dvecPcPd.exit133:                     ; preds = %127, %125
   %160 = fptrunc double %158 to float
   %161 = getelementptr inbounds nuw i8, ptr %61, i64 92
   store float %160, ptr %161, align 4, !tbaa !58
-  %162 = fcmp ugt float %160, 0.000000e+00
+  %162 = fcmp ugt double %158, 0x3690000000000000
   br i1 %162, label %166, label %163
 
 163:                                              ; preds = %159
@@ -586,7 +586,7 @@ _ZL11string2dvecPcPd.exit133:                     ; preds = %127, %125
   %171 = fptrunc double %169 to float
   %172 = getelementptr inbounds nuw i8, ptr %61, i64 96
   store float %171, ptr %172, align 8, !tbaa !59
-  %173 = fcmp ugt float %171, 0.000000e+00
+  %173 = fcmp ugt double %169, 0x3690000000000000
   br i1 %173, label %177, label %174
 
 174:                                              ; preds = %170
@@ -608,7 +608,7 @@ _ZL11string2dvecPcPd.exit133:                     ; preds = %127, %125
   %182 = fptrunc double %180 to float
   %183 = getelementptr inbounds nuw i8, ptr %61, i64 100
   store float %182, ptr %183, align 4, !tbaa !60
-  %184 = fcmp ugt float %182, 0.000000e+00
+  %184 = fcmp ugt double %180, 0x3690000000000000
   br i1 %184, label %190, label %185
 
 185:                                              ; preds = %181

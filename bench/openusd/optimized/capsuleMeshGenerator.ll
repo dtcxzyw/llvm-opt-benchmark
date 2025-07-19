@@ -40,7 +40,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMesh
   %15 = fpext float %5 to double
   %16 = fmul double %15, 0x3F91DF46A2529D39
   %17 = fptrunc double %16 to float
-  %18 = fcmp olt float %17, 0xC01921FB60000000
+  %18 = fcmp olt double %16, 0xC01921FB6FFFFFFF
   %19 = fcmp ogt float %17, 0x401921FB60000000
   %..i = select i1 %19, float 0x401921FB60000000, float %17
   %.0.i = select i1 %18, float 0xC01921FB60000000, float %..i

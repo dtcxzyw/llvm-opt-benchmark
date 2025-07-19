@@ -241,7 +241,7 @@ define internal void @_image_cache_allocate(ptr readnone captures(none) %0, ptr 
   %109 = fptrunc reassoc nsz arcp contract afn double %108 to float
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store float %109, ptr %110, align 4, !tbaa !90
-  %111 = fcmp reassoc nsz arcp contract afn ult float %109, 0.000000e+00
+  %111 = fcmp reassoc nsz arcp contract afn ult double %108, 0xB690000000000000
   br i1 %111, label %116, label %112
 
 112:                                              ; preds = %76

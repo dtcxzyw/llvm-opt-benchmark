@@ -2416,8 +2416,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i146:            ; preds = %_ZN2cv4Mat_IdE5zero
   %102 = fsub double %95, %100
   %103 = fsub double %100, %95
   %.0.in.in.us = select i1 %101, double %102, double %103
-  %.0.in.us = fptrunc double %.0.in.in.us to float
-  %104 = fcmp olt float %.0.in.us, 1.000000e+01
+  %104 = fcmp olt double %.0.in.in.us, 0x4023FFFFF0000000
   br i1 %104, label %105, label %155
 
 105:                                              ; preds = %92
@@ -2426,6 +2425,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i146:            ; preds = %_ZN2cv4Mat_IdE5zero
   %108 = fmul double %107, %107
   %109 = call double @llvm.fmuladd.f64(double %158, double %158, double %108)
   %sqrt.us = call double @llvm.sqrt.f64(double %109)
+  %.0.in.us = fptrunc double %.0.in.in.us to float
   %.0.us = fpext float %.0.in.us to double
   %110 = fmul double %3, %.0.us
   %111 = fneg double %sqrt.us
@@ -4340,8 +4340,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i146:            ; preds = %_ZN2cv4Mat_IdE5zero
   %102 = fsub double %95, %100
   %103 = fsub double %100, %95
   %.0.in.in.us = select i1 %101, double %102, double %103
-  %.0.in.us = fptrunc double %.0.in.in.us to float
-  %104 = fcmp olt float %.0.in.us, 1.000000e+01
+  %104 = fcmp olt double %.0.in.in.us, 0x4023FFFFF0000000
   br i1 %104, label %105, label %155
 
 105:                                              ; preds = %92
@@ -4350,6 +4349,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i146:            ; preds = %_ZN2cv4Mat_IdE5zero
   %108 = fmul double %107, %107
   %109 = call double @llvm.fmuladd.f64(double %158, double %158, double %108)
   %sqrt.us = call double @llvm.sqrt.f64(double %109)
+  %.0.in.us = fptrunc double %.0.in.in.us to float
   %.0.us = fpext float %.0.in.us to double
   %110 = fmul double %3, %.0.us
   %111 = fneg double %sqrt.us
@@ -5650,8 +5650,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i146:            ; preds = %_ZN2cv4Mat_IdE5zero
   %102 = fsub double %95, %100
   %103 = fsub double %100, %95
   %.0.in.in.us = select i1 %101, double %102, double %103
-  %.0.in.us = fptrunc double %.0.in.in.us to float
-  %104 = fcmp olt float %.0.in.us, 1.000000e+01
+  %104 = fcmp olt double %.0.in.in.us, 0x4023FFFFF0000000
   br i1 %104, label %105, label %155
 
 105:                                              ; preds = %92
@@ -5660,6 +5659,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i146:            ; preds = %_ZN2cv4Mat_IdE5zero
   %108 = fmul double %107, %107
   %109 = call double @llvm.fmuladd.f64(double %158, double %158, double %108)
   %sqrt.us = call double @llvm.sqrt.f64(double %109)
+  %.0.in.us = fptrunc double %.0.in.in.us to float
   %.0.us = fpext float %.0.in.us to double
   %110 = fmul double %3, %.0.us
   %111 = fneg double %sqrt.us

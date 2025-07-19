@@ -1566,7 +1566,7 @@ _ZN3vcg4Ray3IfLb1EEC2ERKNS0_IfLb0EEE.exit:        ; preds = %_ZN3vcg10trackutils
   %54 = fpext float %49 to double
   %55 = call double @modf(double noundef %54, ptr noundef nonnull %5) #36
   %56 = fptrunc double %55 to float
-  %57 = fcmp olt float %56, 0.000000e+00
+  %57 = fcmp olt double %55, 0xB690000000000000
   %58 = fadd float %56, 1.000000e+00
   %.0.i = select i1 %57, float %58, float %56
   br label %_ZN3vcg8PathMode9NormalizeEf.exit
@@ -1637,7 +1637,7 @@ define void @_ZN3vcg8PathMode5ApplyEPNS_9TrackballEf(ptr noundef nonnull align 8
   %27 = fpext float %22 to double
   %28 = call double @modf(double noundef %27, ptr noundef nonnull %4) #36
   %29 = fptrunc double %28 to float
-  %30 = fcmp olt float %29, 0.000000e+00
+  %30 = fcmp olt double %28, 0xB690000000000000
   %31 = fadd float %29, 1.000000e+00
   %.0.i = select i1 %30, float %31, float %29
   br label %_ZN3vcg8PathMode9NormalizeEf.exit
@@ -5074,12 +5074,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg22IntersectionLineSphereIfEEbRKNS
   %68 = fmul float %34, %26
   %69 = fpext float %68 to double
   %70 = fsub double %67, %69
-  %71 = fptrunc double %70 to float
-  %72 = fcmp uge float %71, 0.000000e+00
-  br i1 %72, label %73, label %109
+  %71 = fcmp uge double %70, 0xB690000000000000
+  br i1 %71, label %72, label %109
 
-73:                                               ; preds = %4
-  %74 = tail call noundef float @sqrtf(float noundef %71) #36
+72:                                               ; preds = %4
+  %73 = fptrunc double %70 to float
+  %74 = tail call noundef float @sqrtf(float noundef %73) #36
   %75 = fadd float %20, %23
   %76 = fadd float %75, %26
   %77 = fdiv float 1.000000e+00, %76
@@ -5126,8 +5126,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg22IntersectionLineSphereIfEEbRKNS
   store float %108, ptr %.sroa.22.0..sroa_idx, align 4
   br label %109
 
-109:                                              ; preds = %4, %73
-  ret i1 %72
+109:                                              ; preds = %4, %72
+  ret i1 %71
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -9321,7 +9321,7 @@ define noundef float @_ZN3vcg8PathMode9NormalizeEf(ptr noundef nonnull readonly 
   %8 = fpext float %1 to double
   %9 = call double @modf(double noundef %8, ptr noundef nonnull %3) #36
   %10 = fptrunc double %9 to float
-  %11 = fcmp olt float %10, 0.000000e+00
+  %11 = fcmp olt double %9, 0xB690000000000000
   %12 = fadd float %10, 1.000000e+00
   %.0 = select i1 %11, float %12, float %10
   br label %17

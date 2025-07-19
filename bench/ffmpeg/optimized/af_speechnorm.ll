@@ -600,7 +600,7 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
   %38 = load double, ptr %37, align 8, !tbaa !79
   %39 = fptrunc nsz double %38 to float
   store i32 %27, ptr %1, align 8, !tbaa !69
-  %40 = fcmp nsz ult float %36, 0x3F00000000000000
+  %40 = fcmp nsz ult double %35, 0x3EFFFFFFF0000000
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %._crit_edge143

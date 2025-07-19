@@ -693,7 +693,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %156 = load i32, ptr @globalUtilOptind, align 4, !tbaa !21
   %157 = add nsw i32 %156, 1
   store i32 %157, ptr @globalUtilOptind, align 4, !tbaa !21
-  %158 = fcmp olt float %155, 0.000000e+00
+  %158 = fcmp olt double %154, 0xB690000000000000
   br i1 %158, label %.loopexit, label %.backedge
 
 159:                                              ; preds = %21
@@ -716,7 +716,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %169 = load i32, ptr @globalUtilOptind, align 4, !tbaa !21
   %170 = add nsw i32 %169, 1
   store i32 %170, ptr @globalUtilOptind, align 4, !tbaa !21
-  %171 = fcmp olt float %168, 0.000000e+00
+  %171 = fcmp olt double %167, 0xB690000000000000
   br i1 %171, label %.loopexit, label %.backedge
 
 172:                                              ; preds = %21
@@ -780,7 +780,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   %203 = load i32, ptr @globalUtilOptind, align 4, !tbaa !21
   %204 = add nsw i32 %203, 1
   store i32 %204, ptr @globalUtilOptind, align 4, !tbaa !21
-  %205 = fcmp olt float %202, 0.000000e+00
+  %205 = fcmp olt double %201, 0xB690000000000000
   br i1 %205, label %.loopexit, label %.backedge
 
 206:                                              ; preds = %21

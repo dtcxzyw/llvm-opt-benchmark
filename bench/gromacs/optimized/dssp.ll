@@ -3165,8 +3165,8 @@ _ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData8setBreakEPS2_.ex
   %417 = fmul double %416, 0x404CA5DC1A63C1F8
   %418 = fptrunc double %417 to float
   %419 = fcmp une float %418, 3.600000e+02
-  %420 = fcmp ogt float %418, 7.000000e+01
-  %or.cond.i.i = and i1 %419, %420
+  %420 = fcmp ogt double %417, 0x4051800010000000
+  %or.cond.i.i = and i1 %420, %419
   br i1 %or.cond.i.i, label %421, label %423
 
 421:                                              ; preds = %379
@@ -8957,21 +8957,21 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondarySt
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %10 = load i8, ptr %9, align 8, !tbaa !205, !range !162, !noundef !163
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %119, label %12
+  br i1 %11, label %118, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr i8, ptr %2, i64 48
   %.val50 = load i64, ptr %13, align 8, !tbaa !208
   %14 = and i64 %.val50, 6
   %or.cond = icmp eq i64 %14, 6
-  br i1 %or.cond, label %15, label %119
+  br i1 %or.cond, label %15, label %118
 
 15:                                               ; preds = %12
   %16 = getelementptr i8, ptr %1, i64 48
   %.val48 = load i64, ptr %16, align 8, !tbaa !208
   %17 = and i64 %.val48, 24
   %or.cond67 = icmp eq i64 %17, 24
-  br i1 %or.cond67, label %18, label %119
+  br i1 %or.cond67, label %18, label %118
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #31
@@ -8997,7 +8997,7 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondarySt
   %34 = call noundef float @llvm.fmuladd.f32(float %33, float %33, float %32)
   %sqrt.i = call noundef float @llvm.sqrt.f32(float %34)
   %35 = fcmp ugt float %sqrt.i, 0x3FD6666660000000
-  br i1 %35, label %118, label %36
+  br i1 %35, label %117, label %36
 
 36:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #31
@@ -9083,64 +9083,63 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_119SecondarySt
   %90 = call fastcc noundef float @_ZL9gmx_anglePKfS0_(ptr noundef %6, ptr noundef %8)
   %91 = fpext float %90 to double
   %92 = fmul double %91, 0x404CA5DC1A63C1F8
-  %93 = fptrunc double %92 to float
-  %94 = fcmp ugt float %93, 3.000000e+01
-  br i1 %94, label %117, label %95
+  %93 = fcmp ugt double %92, 0x403E000010000000
+  br i1 %93, label %116, label %94
 
-95:                                               ; preds = %84
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %97 = load ptr, ptr %96, align 8, !tbaa !267
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %.sink.split, label %99
+94:                                               ; preds = %84
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %96 = load ptr, ptr %95, align 8, !tbaa !267
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %.sink.split, label %98
 
-99:                                               ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %101 = load ptr, ptr %100, align 8, !tbaa !267
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %103, label %106
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %100 = load ptr, ptr %99, align 8, !tbaa !267
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %105
 
-103:                                              ; preds = %99
-  store ptr %97, ptr %100, align 8, !tbaa !267
+102:                                              ; preds = %98
+  store ptr %96, ptr %99, align 8, !tbaa !267
   br label %.sink.split
 
-.sink.split:                                      ; preds = %95, %103
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %105 = load ptr, ptr %104, align 8, !tbaa !198
-  store ptr %105, ptr %96, align 8, !tbaa !267
-  br label %106
+.sink.split:                                      ; preds = %94, %102
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %104 = load ptr, ptr %103, align 8, !tbaa !198
+  store ptr %104, ptr %95, align 8, !tbaa !267
+  br label %105
 
-106:                                              ; preds = %.sink.split, %99
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %108 = load ptr, ptr %107, align 8, !tbaa !267
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %.sink.split69, label %110
+105:                                              ; preds = %.sink.split, %98
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %107 = load ptr, ptr %106, align 8, !tbaa !267
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %.sink.split69, label %109
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %112 = load ptr, ptr %111, align 8, !tbaa !267
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %114, label %117
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %111 = load ptr, ptr %110, align 8, !tbaa !267
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %116
 
-114:                                              ; preds = %110
-  store ptr %108, ptr %111, align 8, !tbaa !267
+113:                                              ; preds = %109
+  store ptr %107, ptr %110, align 8, !tbaa !267
   br label %.sink.split69
 
-.sink.split69:                                    ; preds = %106, %114
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %116 = load ptr, ptr %115, align 8, !tbaa !198
-  store ptr %116, ptr %107, align 8, !tbaa !267
-  br label %117
+.sink.split69:                                    ; preds = %105, %113
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %115 = load ptr, ptr %114, align 8, !tbaa !198
+  store ptr %115, ptr %106, align 8, !tbaa !267
+  br label %116
 
-117:                                              ; preds = %.sink.split69, %110, %84
+116:                                              ; preds = %.sink.split69, %109, %84
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #31
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #31
+  br label %117
+
+117:                                              ; preds = %116, %18
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #31
   br label %118
 
-118:                                              ; preds = %117, %18
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #31
-  br label %119
-
-119:                                              ; preds = %118, %15, %12, %5
+118:                                              ; preds = %117, %15, %12, %5
   ret void
 }
 

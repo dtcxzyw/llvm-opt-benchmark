@@ -791,7 +791,7 @@ imc_decode_level_coefficients_raw.exit.i:         ; preds = %203, %238, %262
   %344 = fmul nsz double %343, 1.000000e-02
   %345 = fptrunc nsz double %344 to float
   %346 = getelementptr inbounds nuw [32 x float], ptr %8, i64 0, i64 %indvars.iv.i198.i
-  %347 = fcmp nsz ugt float %345, 0x39B4484C00000000
+  %347 = fcmp nsz ugt double %344, 0x39B4484C10000000
   %storemerge.i.i = select i1 %347, float %345, float 0.000000e+00
   store float %storemerge.i.i, ptr %346, align 4, !tbaa !27
   %indvars.iv.next.i200.i = add nuw nsw i64 %indvars.iv.i198.i, 1

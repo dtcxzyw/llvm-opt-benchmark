@@ -78,7 +78,7 @@ define void @_ZN6LibRaw16Kodak_DCR_WBtagsEiji(ptr noundef nonnull align 8 derefe
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
   %7 = tail call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %2)
   %8 = fptrunc reassoc nsz arcp contract afn double %7 to float
-  %9 = fcmp reassoc nsz arcp contract afn ole float %8, 0x3F50624DE0000000
+  %9 = fcmp reassoc nsz arcp contract afn ole double %7, 0x3F50624DEFFFFFFF
   %10 = select reassoc nsz arcp contract afn i1 %9, float 1.000000e+00, float %8
   %11 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
   store float %10, ptr %11, align 4, !tbaa !12

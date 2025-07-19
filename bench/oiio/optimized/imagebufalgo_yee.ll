@@ -636,7 +636,7 @@ _ZN11OpenImageIO6v3_1_09roi_unionERKNS0_3ROIES3_.exit: ; preds = %53, %76
   %236 = sub i32 %235, %79
   %237 = sitofp i32 %236 to float
   %238 = fdiv float %237, %234
-  %239 = fcmp ult float %234, 1.000000e+00
+  %239 = fcmp ult double %233, 0x3FEFFFFFF0000000
   br i1 %239, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

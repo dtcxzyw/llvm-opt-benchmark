@@ -1893,25 +1893,25 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %71 = fmul double %70, 0x4043BD3CC9BE45DE
   %72 = fmul double %71, 0x40309AFAE1F7C60E
   %73 = fdiv double %72, %37
-  %74 = fptrunc double %73 to float
-  %75 = fcmp ogt float %74, 0.000000e+00
-  br i1 %75, label %76, label %87
+  %74 = fcmp ogt double %73, 0x3690000000000000
+  br i1 %74, label %75, label %87
 
-76:                                               ; preds = %67
+75:                                               ; preds = %67
+  %76 = fptrunc double %73 to float
   %77 = getelementptr inbounds nuw [3 x [3 x float]], ptr %38, i64 0, i64 %indvars.iv36, i64 %indvars.iv
   %78 = load float, ptr %77, align 4, !tbaa !153
   %79 = fpext float %78 to double
   %80 = fmul double %79, 5.000000e-01
   %81 = fmul double %80, %79
-  %82 = fpext float %74 to double
+  %82 = fpext float %76 to double
   %83 = fdiv double %81, %82
   %84 = fpext float %.128 to double
   %85 = fadd double %83, %84
   %86 = fptrunc double %85 to float
   br label %87
 
-87:                                               ; preds = %76, %67
-  %.2 = phi float [ %86, %76 ], [ %.128, %67 ]
+87:                                               ; preds = %75, %67
+  %.2 = phi float [ %86, %75 ], [ %.128, %67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv34
   br i1 %exitcond.not, label %66, label %67, !llvm.loop !224

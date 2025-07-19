@@ -3496,7 +3496,7 @@ entry:
   br i1 %cmp, label %if.end11, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp7 = fcmp nsz ult float %conv4, 1.000000e+00
+  %cmp7 = fcmp nsz ult double %add, 0x3FEFFFFFF0000000
   br i1 %cmp7, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %if.else
@@ -4077,7 +4077,7 @@ if.end:                                           ; preds = %for.body51
   br i1 %cmp63, label %if.end71, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp66 = fcmp nsz ult float %conv61, 1.000000e+00
+  %cmp66 = fcmp nsz ult double %add60, 0x3FEFFFFFF0000000
   br i1 %cmp66, label %if.end71, label %if.then67
 
 if.then67:                                        ; preds = %if.else

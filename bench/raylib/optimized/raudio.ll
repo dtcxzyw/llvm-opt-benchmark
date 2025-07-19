@@ -12333,20 +12333,20 @@ define hidden range(i32 -2, 1) i32 @ma_device_set_master_volume_db(ptr noundef %
   %5 = fdiv float %1, 2.000000e+01
   %6 = fpext float %5 to double
   %7 = tail call double @pow(double noundef 1.000000e+01, double noundef %6) #71
-  %8 = fptrunc double %7 to float
-  %9 = icmp eq ptr %0, null
-  %10 = fcmp olt float %8, 0.000000e+00
-  %or.cond.i = or i1 %9, %10
-  br i1 %or.cond.i, label %ma_device_set_master_volume.exit, label %11
+  %8 = icmp eq ptr %0, null
+  %9 = fcmp olt double %7, 0xB690000000000000
+  %or.cond.i = or i1 %8, %9
+  br i1 %or.cond.i, label %ma_device_set_master_volume.exit, label %10
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
+  %11 = fptrunc double %7 to float
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  %13 = bitcast float %8 to i32
+  %13 = bitcast float %11 to i32
   store atomic volatile i32 %13, ptr %12 seq_cst, align 4
   br label %ma_device_set_master_volume.exit
 
-ma_device_set_master_volume.exit:                 ; preds = %11, %4, %2
-  %.0 = phi i32 [ -2, %2 ], [ 0, %11 ], [ -2, %4 ]
+ma_device_set_master_volume.exit:                 ; preds = %10, %4, %2
+  %.0 = phi i32 [ -2, %2 ], [ 0, %10 ], [ -2, %4 ]
   ret i32 %.0
 }
 

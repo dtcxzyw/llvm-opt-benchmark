@@ -4214,7 +4214,7 @@ define internal fastcc float @_calculate_straightening(ptr noundef readonly capt
   %63 = fpext reassoc nsz arcp contract afn float %.036 to double
   %64 = fmul reassoc nsz arcp contract afn double %63, 0x404CA5DC1A63C1F8
   %65 = fptrunc reassoc nsz arcp contract afn double %64 to float
-  %66 = fcmp reassoc nsz arcp contract afn olt float %65, -1.800000e+02
+  %66 = fcmp reassoc nsz arcp contract afn olt double %64, 0xC066800010000000
   %67 = fadd reassoc nsz arcp contract afn float %65, 3.600000e+02
   %.0 = select nsz i1 %66, float %67, float %65
   %68 = fcmp reassoc nsz arcp contract afn ogt float %.0, 1.800000e+02

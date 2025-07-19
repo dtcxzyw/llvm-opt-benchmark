@@ -63580,7 +63580,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %56 = fpext float %55 to double
   %57 = fdiv double %53, %56
   %58 = fptrunc double %57 to float
-  %59 = fcmp ogt float %58, 0.000000e+00
+  %59 = fcmp ogt double %57, 0x3690000000000000
   br i1 %59, label %60, label %"_ZZZZN6open3d1t8geometry6kernel10voxel_grid13DepthTouchCPUERSt10shared_ptrINS_4core7HashMapEERKNS5_6TensorESB_SB_RS9_iffffiENK3$_0clEvENKUlvE0_clEvENKUliE_clEi.exit"
 
 60:                                               ; preds = %30

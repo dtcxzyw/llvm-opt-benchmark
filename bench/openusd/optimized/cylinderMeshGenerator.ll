@@ -38,7 +38,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMes
   %13 = fpext float %4 to double
   %14 = fmul double %13, 0x3F91DF46A2529D39
   %15 = fptrunc double %14 to float
-  %16 = fcmp olt float %15, 0xC01921FB60000000
+  %16 = fcmp olt double %14, 0xC01921FB6FFFFFFF
   %17 = fcmp ogt float %15, 0x401921FB60000000
   %..i = select i1 %17, float 0x401921FB60000000, float %15
   %.0.i = select i1 %16, float 0xC01921FB60000000, float %..i

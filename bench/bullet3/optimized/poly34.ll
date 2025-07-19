@@ -15,7 +15,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z7SolveP2Pfff(ptr noundef writeon
   %7 = fneg double %6
   %8 = tail call double @llvm.fmuladd.f64(double %5, double %4, double %7)
   %9 = fptrunc double %8 to float
-  %10 = fcmp ult float %9, 0.000000e+00
+  %10 = fcmp ult double %8, 0xB690000000000000
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %3

@@ -25793,7 +25793,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i: ; preds = %.lr.ph.i.i.i, %9
   %102 = fadd nnan ninf nsz arcp contract afn double %101, %99
   %103 = tail call nnan ninf nsz arcp contract afn double @llvm.sqrt.f64(double %102)
   %104 = fptrunc nnan ninf nsz arcp contract afn double %103 to float
-  %105 = fcmp nnan ninf nsz arcp contract afn ogt float %104, 0.000000e+00
+  %105 = fcmp nnan ninf nsz arcp contract afn ogt double %103, 0x3690000000000000
   br i1 %105, label %.preheader.i.i, label %_ZN5Annoy10DotProduct9normalizeIfNS0_4NodeIifEEEEvPT0_i.exit.i
 
 .preheader.i.i:                                   ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i
@@ -25874,7 +25874,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i75.i: ; preds = %.lr.ph.i.i85.i
   %138 = fadd nnan ninf nsz arcp contract afn double %137, %135
   %139 = tail call nnan ninf nsz arcp contract afn double @llvm.sqrt.f64(double %138)
   %140 = fptrunc nnan ninf nsz arcp contract afn double %139 to float
-  %141 = fcmp nnan ninf nsz arcp contract afn ogt float %140, 0.000000e+00
+  %141 = fcmp nnan ninf nsz arcp contract afn ogt double %139, 0x3690000000000000
   br i1 %141, label %.preheader.i77.i, label %_ZN5Annoy10DotProduct9normalizeIfNS0_4NodeIifEEEEvPT0_i.exit94.i
 
 .preheader.i77.i:                                 ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i75.i
@@ -26901,7 +26901,7 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %.lr.ph.i.i24, %.th
   %672 = fadd nnan ninf nsz arcp contract afn double %671, %669
   %673 = tail call nnan ninf nsz arcp contract afn double @llvm.sqrt.f64(double %672)
   %674 = fptrunc nnan ninf nsz arcp contract afn double %673 to float
-  %675 = fcmp nnan ninf nsz arcp contract afn ogt float %674, 0.000000e+00
+  %675 = fcmp nnan ninf nsz arcp contract afn ogt double %673, 0x3690000000000000
   br i1 %675, label %.preheader.i, label %_ZN5Annoy10DotProduct9normalizeIfNS0_4NodeIifEEEEvPT0_i.exit
 
 .preheader.i:                                     ; preds = %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i

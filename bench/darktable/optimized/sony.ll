@@ -374,7 +374,7 @@ define void @_ZN6LibRaw19setSonyBodyFeaturesEy(ptr noundef nonnull align 8 deref
   ]
 
 78:                                               ; preds = %71, %71
-  %79 = fcmp reassoc nsz arcp contract afn olt float %76, 0x3FF3333340000000
+  %79 = fcmp reassoc nsz arcp contract afn olt double %75, 0x3FF3333330000000
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   br i1 %79, label %81, label %82
 
@@ -387,7 +387,7 @@ define void @_ZN6LibRaw19setSonyBodyFeaturesEy(ptr noundef nonnull align 8 deref
   br label %.thread
 
 83:                                               ; preds = %71
-  %84 = fcmp reassoc nsz arcp contract afn olt float %76, 2.000000e+00
+  %84 = fcmp reassoc nsz arcp contract afn olt double %75, 0x3FFFFFFFF0000000
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   br i1 %84, label %86, label %87
 
@@ -400,7 +400,7 @@ define void @_ZN6LibRaw19setSonyBodyFeaturesEy(ptr noundef nonnull align 8 deref
   br label %.thread
 
 88:                                               ; preds = %71, %71
-  %89 = fcmp reassoc nsz arcp contract afn olt float %76, 0x3FF3333340000000
+  %89 = fcmp reassoc nsz arcp contract afn olt double %75, 0x3FF3333330000000
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 3600
   br i1 %89, label %91, label %92
 

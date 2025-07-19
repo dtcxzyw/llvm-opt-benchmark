@@ -110290,7 +110290,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEdddEE9load_argsERN
   store float %42, ptr %44, align 4, !tbaa !341
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store float %43, ptr %45, align 4, !tbaa !342
-  %46 = fcmp olt float %41, 0.000000e+00
+  %46 = fcmp olt double %37, 0xB690000000000000
   br i1 %.not, label %58, label %47
 
 47:                                               ; preds = %31

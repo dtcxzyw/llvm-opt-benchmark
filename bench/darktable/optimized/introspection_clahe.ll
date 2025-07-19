@@ -590,7 +590,7 @@ rgb2hsl.exit.thread:                              ; preds = %.lr.ph277
   %287 = fpext reassoc nsz arcp contract afn float %.1.i to double
   %288 = fmul reassoc nsz arcp contract afn double %287, 0x3FC5555555555555
   %289 = fptrunc reassoc nsz arcp contract afn double %288 to float
-  %290 = fcmp reassoc nsz arcp contract afn olt float %289, 0.000000e+00
+  %290 = fcmp reassoc nsz arcp contract afn olt double %288, 0xB690000000000000
   br i1 %290, label %291, label %293
 
 291:                                              ; preds = %286
@@ -598,7 +598,7 @@ rgb2hsl.exit.thread:                              ; preds = %.lr.ph277
   br label %rgb2hsl.exit
 
 293:                                              ; preds = %286
-  %294 = fcmp reassoc nsz arcp contract afn ogt float %289, 1.000000e+00
+  %294 = fcmp reassoc nsz arcp contract afn ogt double %288, 0x3FF0000010000000
   br i1 %294, label %295, label %rgb2hsl.exit
 
 295:                                              ; preds = %293

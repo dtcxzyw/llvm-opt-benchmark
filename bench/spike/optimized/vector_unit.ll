@@ -1689,8 +1689,8 @@ define noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr noundef nonnull align 8 ca
   %48 = and i64 %47, 1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %48, ptr %49, align 8, !tbaa !88
-  %50 = fcmp ult float %33, 1.250000e-01
-  %51 = fcmp ugt float %33, 8.000000e+00
+  %50 = fcmp ult double %32, 0x3FBFFFFFF0000000
+  %51 = fcmp ugt double %32, 0x4020000010000000
   %or.cond21 = or i1 %50, %51
   br i1 %or.cond21, label %.thread, label %52
 

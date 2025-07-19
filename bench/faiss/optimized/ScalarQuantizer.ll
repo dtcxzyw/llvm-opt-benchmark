@@ -1042,8 +1042,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
   br i1 %exitcond297.not, label %._crit_edge281, label %.lr.ph280, !llvm.loop !45
 
 ._crit_edge275:                                   ; preds = %.lr.ph274, %.preheader
-  %.0175.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %61, %.lr.ph274 ]
-  %.0162.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %58, %.lr.ph274 ]
+  %.0175.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %60, %.lr.ph274 ]
+  %.0162.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %57, %.lr.ph274 ]
   %46 = sitofp i64 %2 to double
   %47 = fdiv double %.0162.lcssa, %46
   %48 = fptrunc double %47 to float
@@ -1051,31 +1051,31 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
   %50 = fmul float %48, %48
   %51 = fpext float %50 to double
   %52 = fsub double %49, %51
-  %53 = fptrunc double %52 to float
-  %54 = fcmp ugt float %53, 0.000000e+00
-  br i1 %54, label %63, label %64
+  %53 = fcmp ugt double %52, 0x3690000000000000
+  br i1 %53, label %62, label %64
 
 .lr.ph274:                                        ; preds = %.preheader, %.lr.ph274
-  %.0162273 = phi double [ %58, %.lr.ph274 ], [ 0.000000e+00, %.preheader ]
-  %.0175272 = phi double [ %61, %.lr.ph274 ], [ 0.000000e+00, %.preheader ]
-  %.0176271 = phi i64 [ %62, %.lr.ph274 ], [ 0, %.preheader ]
-  %55 = getelementptr inbounds nuw float, ptr %4, i64 %.0176271
-  %56 = load float, ptr %55, align 4, !tbaa !23
-  %57 = fpext float %56 to double
-  %58 = fadd double %.0162273, %57
-  %59 = fmul float %56, %56
-  %60 = fpext float %59 to double
-  %61 = fadd double %.0175272, %60
-  %62 = add nuw i64 %.0176271, 1
-  %exitcond296.not = icmp eq i64 %62, %2
+  %.0162273 = phi double [ %57, %.lr.ph274 ], [ 0.000000e+00, %.preheader ]
+  %.0175272 = phi double [ %60, %.lr.ph274 ], [ 0.000000e+00, %.preheader ]
+  %.0176271 = phi i64 [ %61, %.lr.ph274 ], [ 0, %.preheader ]
+  %54 = getelementptr inbounds nuw float, ptr %4, i64 %.0176271
+  %55 = load float, ptr %54, align 4, !tbaa !23
+  %56 = fpext float %55 to double
+  %57 = fadd double %.0162273, %56
+  %58 = fmul float %55, %55
+  %59 = fpext float %58 to double
+  %60 = fadd double %.0175272, %59
+  %61 = add nuw i64 %.0176271, 1
+  %exitcond296.not = icmp eq i64 %61, %2
   br i1 %exitcond296.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !46
 
-63:                                               ; preds = %._crit_edge275
-  %sqrtf = tail call float @sqrtf(float noundef %53) #31
+62:                                               ; preds = %._crit_edge275
+  %63 = fptrunc double %52 to float
+  %sqrtf = tail call float @sqrtf(float noundef %63) #31
   br label %64
 
-64:                                               ; preds = %._crit_edge275, %63
-  %65 = phi float [ %sqrtf, %63 ], [ 1.000000e+00, %._crit_edge275 ]
+64:                                               ; preds = %._crit_edge275, %62
+  %65 = phi float [ %sqrtf, %62 ], [ 1.000000e+00, %._crit_edge275 ]
   %66 = fneg float %65
   %67 = tail call float @llvm.fmuladd.f32(float %66, float %1, float %48)
   store float %67, ptr %23, align 4, !tbaa !23
@@ -1350,7 +1350,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit212:                 ; preds = %_ZNSt6vectorIfSaIfE
   %167 = fadd double %166, 5.000000e-01
   %168 = tail call double @llvm.floor.f64(double %167)
   %169 = fptrunc double %168 to float
-  %170 = fcmp olt float %169, 0.000000e+00
+  %170 = fcmp olt double %168, 0xB690000000000000
   %.0160 = select i1 %170, float 0.000000e+00, float %169
   %171 = fcmp ult float %.0160, %141
   %.1161 = select i1 %171, float %.0160, float %138

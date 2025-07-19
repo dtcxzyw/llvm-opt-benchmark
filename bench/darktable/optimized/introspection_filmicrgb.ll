@@ -10531,7 +10531,7 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8, !tbaa !560
   %18 = fptrunc reassoc nsz arcp contract afn double %17 to float
-  %19 = fcmp reassoc nsz arcp contract afn ogt float %18, 0.000000e+00
+  %19 = fcmp reassoc nsz arcp contract afn ogt double %17, 0x3690000000000000
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %12
@@ -10539,7 +10539,7 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
   %22 = load i32, ptr %21, align 4, !tbaa !527
   %23 = sitofp i32 %22 to float
   %24 = fcmp reassoc nsz arcp contract afn olt float %18, %23
-  %25 = fcmp reassoc nsz arcp contract afn ogt float %15, 0.000000e+00
+  %25 = fcmp reassoc nsz arcp contract afn ogt double %14, 0x3690000000000000
   %or.cond = select i1 %24, i1 %25, i1 false
   br i1 %or.cond, label %26, label %33
 

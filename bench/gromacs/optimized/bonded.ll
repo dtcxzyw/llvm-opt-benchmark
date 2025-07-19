@@ -793,7 +793,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit276: ; preds = %212, %214
   %273 = fpext float %.0250 to double
   %274 = fadd double %273, 0x400921FB54442D18
   %275 = fptrunc double %274 to float
-  %276 = fcmp olt float %183, 0.000000e+00
+  %276 = fcmp olt double %182, 0xB690000000000000
   %277 = fpext float %183 to double
   br i1 %276, label %278, label %281
 
@@ -813,7 +813,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit276: ; preds = %212, %214
 
 286:                                              ; preds = %281, %283, %278
   %.0249 = phi float [ %280, %278 ], [ %285, %283 ], [ %183, %281 ]
-  %287 = fcmp olt float %275, 0.000000e+00
+  %287 = fcmp olt double %274, 0xB690000000000000
   %288 = fpext float %275 to double
   br i1 %287, label %289, label %292
 

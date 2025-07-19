@@ -17869,7 +17869,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5ImGui15SliderBehaviorTIddd
   %28 = fadd float %27, -4.000000e+00
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 3140
   %30 = load float, ptr %29, align 4, !tbaa !225
-  %31 = fcmp ult float %20, 0.000000e+00
+  %31 = fcmp ult double %19, 0xB690000000000000
   %or.cond.not = or i1 %15, %31
   br i1 %or.cond.not, label %37, label %32
 
@@ -18247,10 +18247,10 @@ _Z22ImParseFormatPrecisionPKci.exit287.thread:    ; preds = %176, %202, %206, %1
   br label %219
 
 .critedge:                                        ; preds = %202, %206, %200, %200, %160
-  %211 = tail call float @llvm.fabs.f32(float %20)
-  %or.cond5 = fcmp ole float %211, 1.000000e+02
+  %211 = tail call double @llvm.fabs.f64(double %19)
+  %or.cond5 = fcmp ole double %211, 0x4059000010000000
   %212 = fcmp une float %20, 0.000000e+00
-  %or.cond7 = and i1 %212, %or.cond5
+  %or.cond7 = and i1 %or.cond5, %212
   %or.cond9 = or i1 %or.cond7, %165
   br i1 %or.cond9, label %213, label %217
 

@@ -2011,8 +2011,8 @@ dt_get_debug_wtime.exit:                          ; preds = %63, %65
   %179 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %178, i32 noundef 2) #14
   %180 = fptrunc reassoc nsz arcp contract afn double %179 to float
   %181 = fcmp reassoc nsz arcp contract afn oeq float %180, 0.000000e+00
-  %182 = fcmp reassoc nsz arcp contract afn olt float %180, 0x3F1A36E2E0000000
-  %or.cond.i108 = or i1 %181, %182
+  %182 = fcmp reassoc nsz arcp contract afn olt double %179, 0x3F1A36E2D0000001
+  %or.cond.i108 = or i1 %182, %181
   br i1 %or.cond.i108, label %183, label %188
 
 183:                                              ; preds = %167

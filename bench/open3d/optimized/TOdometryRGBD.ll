@@ -3385,7 +3385,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   store float 0x3FA99999A0000000, ptr %904, align 4, !tbaa !97
   %905 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store float 0x3FB99999A0000000, ptr %905, align 4, !tbaa !98
-  %906 = fcmp olt float %359, 0.000000e+00
+  %906 = fcmp olt double %357, 0xB690000000000000
   br i1 %906, label %907, label %908
 
 907:                                              ; preds = %900

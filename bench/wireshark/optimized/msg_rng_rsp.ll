@@ -380,7 +380,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %38 = load i32, ptr @hf_rng_rsp_timing_adjust, align 4
   %39 = fpext float %37 to double
   %40 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %33, i32 noundef %38, ptr noundef %0, i32 noundef %30, i32 noundef 4, float noundef %37, ptr noundef nonnull @.str.177, double noundef %39)
-  %41 = fcmp ogt float %37, 2.000000e+00
+  %41 = fcmp ogt double %36, 0x4000000010000000
   br i1 %41, label %42, label %.loopexit
 
 42:                                               ; preds = %31

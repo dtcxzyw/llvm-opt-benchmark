@@ -2646,7 +2646,7 @@ if.end45:                                         ; preds = %for.body
   %conv = fpext float %x.0542 to double
   %add = fadd nsz double %conv, 5.000000e-02
   %conv47 = fptrunc double %add to float
-  %cmp = fcmp nsz ugt float %conv47, 7.200000e+02
+  %cmp = fcmp nsz ugt double %add, 0x4086800010000000
   br i1 %cmp, label %if.end75, label %for.body, !llvm.loop !28
 
 if.end75:                                         ; preds = %if.end45, %if.end116
@@ -2706,7 +2706,7 @@ if.end116:                                        ; preds = %if.end75
   %conv119 = fpext float %y.0543 to double
   %add120 = fadd nsz double %conv119, 5.000000e-02
   %conv121 = fptrunc double %add120 to float
-  %cmp50 = fcmp nsz ugt float %conv121, 7.200000e+02
+  %cmp50 = fcmp nsz ugt double %add120, 0x4086800010000000
   br i1 %cmp50, label %for.body127, label %if.end75, !llvm.loop !29
 
 for.body127:                                      ; preds = %if.end116, %if.end191
@@ -2766,7 +2766,7 @@ if.end191:                                        ; preds = %for.body127
   %conv194 = fpext float %z.0544 to double
   %add195 = fadd nsz double %conv194, 5.000000e-02
   %conv196 = fptrunc double %add195 to float
-  %cmp125 = fcmp nsz ugt float %conv196, 7.200000e+02
+  %cmp125 = fcmp nsz ugt double %add195, 0x4086800010000000
   br i1 %cmp125, label %for.cond205.preheader, label %for.body127, !llvm.loop !30
 
 for.cond205.preheader:                            ; preds = %if.end191, %for.cond.cleanup207

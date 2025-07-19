@@ -3692,7 +3692,7 @@ define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %53, label %38
+  br i1 %.not, label %52, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 108
@@ -3700,67 +3700,65 @@ define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(
   %41 = uitofp i32 %40 to double
   %42 = uitofp i32 %37 to double
   %43 = fdiv double %41, %42
-  %44 = fptrunc double %43 to float
-  %45 = fcmp ogt float %44, 5.000000e-01
-  br i1 %45, label %46, label %53
+  %44 = fcmp ogt double %43, 0x3FE0000010000000
+  br i1 %44, label %45, label %52
 
-46:                                               ; preds = %38
+45:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 14130177278493761, ptr %3, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %48 = call i64 @g_strlcpy(ptr noundef nonnull %47, ptr noundef nonnull %3, i64 noundef 8)
-  %49 = load i32, ptr %36, align 8
-  %50 = load i32, ptr %39, align 4
-  %51 = sub i32 %49, %50
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 %51, ptr %52, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %47 = call i64 @g_strlcpy(ptr noundef nonnull %46, ptr noundef nonnull %3, i64 noundef 8)
+  %48 = load i32, ptr %36, align 8
+  %49 = load i32, ptr %39, align 4
+  %50 = sub i32 %48, %49
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store i32 %50, ptr %51, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br label %53
+  br label %52
 
-53:                                               ; preds = %38, %46, %35
-  %.0 = phi i1 [ true, %46 ], [ false, %38 ], [ false, %35 ]
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %55 = load i32, ptr %54, align 8
-  %.not27 = icmp eq i32 %55, 0
-  br i1 %.not27, label %70, label %56
+52:                                               ; preds = %38, %45, %35
+  %.0 = phi i1 [ true, %45 ], [ false, %38 ], [ false, %35 ]
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %54 = load i32, ptr %53, align 8
+  %.not27 = icmp eq i32 %54, 0
+  br i1 %.not27, label %68, label %55
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %58 = load i32, ptr %57, align 4
-  %59 = uitofp i32 %58 to double
-  %60 = uitofp i32 %55 to double
-  %61 = fdiv double %59, %60
-  %62 = fptrunc double %61 to float
-  %63 = fcmp ogt float %62, 5.000000e-01
-  br i1 %63, label %.thread, label %70
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %57 = load i32, ptr %56, align 4
+  %58 = uitofp i32 %57 to double
+  %59 = uitofp i32 %54 to double
+  %60 = fdiv double %58, %59
+  %61 = fcmp ogt double %60, 0x3FE0000010000000
+  br i1 %61, label %.thread, label %68
 
-.thread:                                          ; preds = %56
+.thread:                                          ; preds = %55
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @__const.calc_checksum.str.4, i64 7, i1 false)
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %65 = call i64 @g_strlcpy(ptr noundef nonnull %64, ptr noundef nonnull %4, i64 noundef 8)
-  %66 = load i32, ptr %54, align 8
-  %67 = load i32, ptr %57, align 4
-  %68 = sub i32 %66, %67
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 %68, ptr %69, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %63 = call i64 @g_strlcpy(ptr noundef nonnull %62, ptr noundef nonnull %4, i64 noundef 8)
+  %64 = load i32, ptr %53, align 8
+  %65 = load i32, ptr %56, align 4
+  %66 = sub i32 %64, %65
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store i32 %66, ptr %67, align 8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #9
-  br label %75
+  br label %73
 
-70:                                               ; preds = %56, %53
-  br i1 %.0, label %75, label %71
+68:                                               ; preds = %55, %52
+  br i1 %.0, label %73, label %69
 
-71:                                               ; preds = %70
+69:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store i64 22051046311022165, ptr %5, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %73 = call i64 @g_strlcpy(ptr noundef nonnull %72, ptr noundef nonnull %5, i64 noundef 8)
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 0, ptr %74, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %71 = call i64 @g_strlcpy(ptr noundef nonnull %70, ptr noundef nonnull %5, i64 noundef 8)
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store i32 0, ptr %72, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %75
+  br label %73
 
-75:                                               ; preds = %.thread, %71, %70
+73:                                               ; preds = %.thread, %69, %68
   ret ptr %1
 }
 

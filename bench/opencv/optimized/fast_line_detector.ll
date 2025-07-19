@@ -4494,43 +4494,43 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl13incident
   %64 = load ptr, ptr %54, align 8, !tbaa !65
   %65 = load ptr, ptr %56, align 8, !tbaa !97
   %66 = load double, ptr %64, align 8, !tbaa !141
-  %67 = fptrunc double %66 to float
-  %68 = fcmp olt float %67, 0.000000e+00
-  br i1 %68, label %76, label %69
+  %67 = fcmp olt double %66, 0xB690000000000000
+  br i1 %67, label %76, label %68
 
-69:                                               ; preds = %63
+68:                                               ; preds = %63
+  %69 = fptrunc double %66 to float
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !78
   %72 = sitofp i32 %71 to float
   %73 = fadd float %72, -1.000000e+00
-  %74 = fcmp ugt float %73, %67
+  %74 = fcmp ugt float %73, %69
   br i1 %74, label %75, label %76
 
-75:                                               ; preds = %69
+75:                                               ; preds = %68
   br label %76
 
-76:                                               ; preds = %69, %75, %63
-  %77 = phi float [ 0.000000e+00, %63 ], [ %67, %75 ], [ %73, %69 ]
+76:                                               ; preds = %68, %75, %63
+  %77 = phi float [ 0.000000e+00, %63 ], [ %69, %75 ], [ %73, %68 ]
   %78 = load i64, ptr %65, align 8, !tbaa !64
   %79 = getelementptr inbounds nuw i8, ptr %64, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !141
-  %81 = fptrunc double %80 to float
-  %82 = fcmp olt float %81, 0.000000e+00
-  br i1 %82, label %90, label %83
+  %81 = fcmp olt double %80, 0xB690000000000000
+  br i1 %81, label %90, label %82
 
-83:                                               ; preds = %76
+82:                                               ; preds = %76
+  %83 = fptrunc double %80 to float
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %85 = load i32, ptr %84, align 4, !tbaa !77
   %86 = sitofp i32 %85 to float
   %87 = fadd float %86, -1.000000e+00
-  %88 = fcmp ugt float %87, %81
+  %88 = fcmp ugt float %87, %83
   br i1 %88, label %89, label %90
 
-89:                                               ; preds = %83
+89:                                               ; preds = %82
   br label %90
 
-90:                                               ; preds = %76, %89, %83
-  %91 = phi float [ 0.000000e+00, %76 ], [ %81, %89 ], [ %87, %83 ]
+90:                                               ; preds = %76, %89, %82
+  %91 = phi float [ 0.000000e+00, %76 ], [ %83, %89 ], [ %87, %82 ]
   %92 = insertelement <4 x float> poison, float %77, i64 0
   %93 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %92)
   %94 = insertelement <4 x float> poison, float %91, i64 0
@@ -4794,43 +4794,43 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl13incident
   %64 = load ptr, ptr %54, align 8, !tbaa !65
   %65 = load ptr, ptr %56, align 8, !tbaa !97
   %66 = load double, ptr %64, align 8, !tbaa !141
-  %67 = fptrunc double %66 to float
-  %68 = fcmp olt float %67, 0.000000e+00
-  br i1 %68, label %76, label %69
+  %67 = fcmp olt double %66, 0xB690000000000000
+  br i1 %67, label %76, label %68
 
-69:                                               ; preds = %63
+68:                                               ; preds = %63
+  %69 = fptrunc double %66 to float
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !78
   %72 = sitofp i32 %71 to float
   %73 = fadd float %72, -1.000000e+00
-  %74 = fcmp ugt float %73, %67
+  %74 = fcmp ugt float %73, %69
   br i1 %74, label %75, label %76
 
-75:                                               ; preds = %69
+75:                                               ; preds = %68
   br label %76
 
-76:                                               ; preds = %69, %75, %63
-  %77 = phi float [ 0.000000e+00, %63 ], [ %67, %75 ], [ %73, %69 ]
+76:                                               ; preds = %68, %75, %63
+  %77 = phi float [ 0.000000e+00, %63 ], [ %69, %75 ], [ %73, %68 ]
   %78 = load i64, ptr %65, align 8, !tbaa !64
   %79 = getelementptr inbounds nuw i8, ptr %64, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !141
-  %81 = fptrunc double %80 to float
-  %82 = fcmp olt float %81, 0.000000e+00
-  br i1 %82, label %90, label %83
+  %81 = fcmp olt double %80, 0xB690000000000000
+  br i1 %81, label %90, label %82
 
-83:                                               ; preds = %76
+82:                                               ; preds = %76
+  %83 = fptrunc double %80 to float
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %85 = load i32, ptr %84, align 4, !tbaa !77
   %86 = sitofp i32 %85 to float
   %87 = fadd float %86, -1.000000e+00
-  %88 = fcmp ugt float %87, %81
+  %88 = fcmp ugt float %87, %83
   br i1 %88, label %89, label %90
 
-89:                                               ; preds = %83
+89:                                               ; preds = %82
   br label %90
 
-90:                                               ; preds = %83, %89, %76
-  %91 = phi float [ 0.000000e+00, %76 ], [ %81, %89 ], [ %87, %83 ]
+90:                                               ; preds = %82, %89, %76
+  %91 = phi float [ 0.000000e+00, %76 ], [ %83, %89 ], [ %87, %82 ]
   store float %77, ptr %2, align 4
   store float %91, ptr %21, align 4
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #28

@@ -645,11 +645,11 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %72 = fptrunc double %71 to float
   %73 = fsub float 1.000000e+00, %69
   %74 = fsub float %73, %72
-  %75 = fcmp oge float %69, 0.000000e+00
-  %76 = fcmp ole float %69, 1.000000e+00
+  %75 = fcmp oge double %68, 0xB690000000000000
+  %76 = fcmp ole double %68, 0x3FF0000010000000
   %or.cond4 = and i1 %75, %76
-  %77 = fcmp oge float %72, 0.000000e+00
-  %78 = fcmp ole float %72, 1.000000e+00
+  %77 = fcmp oge double %71, 0xB690000000000000
+  %78 = fcmp ole double %71, 0x3FF0000010000000
   %79 = and i1 %77, %78
   %or.cond10 = select i1 %or.cond4, i1 %79, i1 false
   %80 = fcmp oge float %74, 0.000000e+00

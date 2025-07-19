@@ -1040,7 +1040,7 @@ define internal fastcc range(i64 0, 2) i64 @diff_float16_element(half %.0.val, h
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %6 = load i32, ptr %5, align 4, !tbaa !39
   %.not272 = icmp eq i32 %6, 0
-  br i1 %.not266, label %51, label %7
+  br i1 %.not266, label %57, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -1050,442 +1050,463 @@ define internal fastcc range(i64 0, 2) i64 @diff_float16_element(half %.0.val, h
   %11 = fcmp uno half %.0.val1, 0xH0000
   %12 = select i1 %10, i1 true, i1 %11
   %or.cond = select i1 %.not268, i1 %12, i1 false
-  br i1 %.not272, label %13, label %134
+  br i1 %.not272, label %13, label %147
 
 13:                                               ; preds = %7
-  br i1 %or.cond, label %34, label %14
+  br i1 %or.cond, label %37, label %14
 
 14:                                               ; preds = %13
-  %15 = fsub half %.0.val, %.0.val1
-  %16 = fcmp oge half %15, 0xH0000
-  %17 = fneg half %15
-  %18 = select i1 %16, half %15, half %17
-  %19 = fpext half %18 to double
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %21 = load double, ptr %20, align 8, !tbaa !41
-  %22 = fcmp olt double %21, %19
-  br i1 %22, label %23, label %print_data.exit.thread
+  %15 = fpext half %.0.val to float
+  %16 = fpext half %.0.val1 to float
+  %17 = fsub float %15, %16
+  %18 = fptrunc float %17 to half
+  %19 = fcmp oge float %17, 0xBE60000000000000
+  %20 = fneg half %18
+  %21 = select i1 %19, half %18, half %20
+  %22 = fpext half %21 to double
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %24 = load double, ptr %23, align 8, !tbaa !41
+  %25 = fcmp olt double %24, %22
+  br i1 %25, label %26, label %print_data.exit.thread
 
-23:                                               ; preds = %14
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %24, align 8, !tbaa !42
+26:                                               ; preds = %14
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 0, ptr %27, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !43
-  %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %27, label %print_data.exit
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !43
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %30, label %print_data.exit
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !44
-  %.not3.i = icmp eq i32 %29, 0
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = load i32, ptr %31, align 8, !tbaa !44
+  %.not3.i = icmp eq i32 %32, 0
   br i1 %.not3.i, label %print_data.exit.thread, label %print_data.exit
 
-print_data.exit:                                  ; preds = %23, %27
-  %30 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i.not = icmp eq i32 %30, 0
-  br i1 %.not4.i.not, label %31, label %print_data.exit.thread
+print_data.exit:                                  ; preds = %26, %30
+  %33 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i.not = icmp eq i32 %33, 0
+  br i1 %.not4.i.not, label %34, label %print_data.exit.thread
 
-31:                                               ; preds = %print_data.exit
-  %32 = fpext half %.0.val to double
-  %33 = fpext half %.0.val1 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %32, double noundef %33, double noundef %19) #15
+34:                                               ; preds = %print_data.exit
+  %35 = fpext half %.0.val to double
+  %36 = fpext half %.0.val1 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %35, double noundef %36, double noundef %22) #15
   br label %print_data.exit.thread
 
-34:                                               ; preds = %13
+37:                                               ; preds = %13
   %or.cond286 = xor i1 %10, %11
-  br i1 %or.cond286, label %35, label %print_data.exit.thread
+  br i1 %or.cond286, label %38, label %print_data.exit.thread
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %36, align 8, !tbaa !42
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 0, ptr %39, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !43
-  %.not.i289 = icmp eq i32 %38, 0
-  br i1 %.not.i289, label %39, label %print_data.exit292
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %41 = load i32, ptr %40, align 4, !tbaa !43
+  %.not.i289 = icmp eq i32 %41, 0
+  br i1 %.not.i289, label %42, label %print_data.exit292
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !44
-  %.not3.i291 = icmp eq i32 %41, 0
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %44 = load i32, ptr %43, align 8, !tbaa !44
+  %.not3.i291 = icmp eq i32 %44, 0
   br i1 %.not3.i291, label %print_data.exit.thread, label %print_data.exit292
 
-print_data.exit292:                               ; preds = %35, %39
-  %42 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i290.not = icmp eq i32 %42, 0
-  br i1 %.not4.i290.not, label %43, label %print_data.exit.thread
+print_data.exit292:                               ; preds = %38, %42
+  %45 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i290.not = icmp eq i32 %45, 0
+  br i1 %.not4.i290.not, label %46, label %print_data.exit.thread
 
-43:                                               ; preds = %print_data.exit292
-  %44 = fpext half %.0.val to double
-  %45 = fpext half %.0.val1 to double
-  %46 = fsub half %.0.val, %.0.val1
-  %47 = fcmp ult half %46, 0xH0000
-  %48 = fneg half %46
-  %49 = select i1 %47, half %48, half %46
-  %50 = fpext half %49 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %44, double noundef %45, double noundef %50) #15
+46:                                               ; preds = %print_data.exit292
+  %47 = fpext half %.0.val to double
+  %48 = fpext half %.0.val1 to double
+  %49 = fpext half %.0.val to float
+  %50 = fpext half %.0.val1 to float
+  %51 = fsub float %49, %50
+  %52 = fcmp ult float %51, 0xBE60000000000000
+  %53 = fptrunc float %51 to half
+  %54 = fneg half %53
+  %55 = select i1 %52, half %54, half %53
+  %56 = fpext half %55 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %47, double noundef %48, double noundef %56) #15
   br label %print_data.exit.thread
 
-51:                                               ; preds = %2
-  br i1 %.not272, label %.thread12, label %52
+57:                                               ; preds = %2
+  br i1 %.not272, label %.thread12, label %58
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %54 = load i32, ptr %53, align 4, !tbaa !40
-  %.not273 = icmp ne i32 %54, 0
-  %55 = fcmp uno half %.0.val, 0xH0000
-  %56 = fcmp uno half %.0.val1, 0xH0000
-  %57 = select i1 %55, i1 true, i1 %56
-  %or.cond8 = select i1 %.not273, i1 %57, i1 false
-  br i1 %or.cond8, label %117, label %58
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %60 = load i32, ptr %59, align 4, !tbaa !40
+  %.not273 = icmp ne i32 %60, 0
+  %61 = fcmp uno half %.0.val, 0xH0000
+  %62 = fcmp uno half %.0.val1, 0xH0000
+  %63 = select i1 %61, i1 true, i1 %62
+  %or.cond8 = select i1 %.not273, i1 %63, i1 false
+  br i1 %or.cond8, label %127, label %64
 
-58:                                               ; preds = %52
-  %59 = fpext half %.0.val to double
-  %60 = fsub double 0.000000e+00, %59
-  %61 = tail call double @llvm.fabs.f64(double %60)
-  %62 = fcmp olt double %61, 0x3CB0000000000000
-  br i1 %62, label %69, label %.thread
+64:                                               ; preds = %58
+  %65 = fpext half %.0.val to double
+  %66 = fsub double 0.000000e+00, %65
+  %67 = tail call double @llvm.fabs.f64(double %66)
+  %68 = fcmp olt double %67, 0x3CB0000000000000
+  br i1 %68, label %75, label %.thread
 
-.thread:                                          ; preds = %58
-  %63 = fsub half %.0.val1, %.0.val
-  %64 = fpext half %63 to double
-  %65 = fdiv double %64, %59
-  %66 = fcmp ult double %65, 0.000000e+00
-  %67 = fneg double %65
-  %68 = select i1 %66, double %67, double %65
-  br label %89
+.thread:                                          ; preds = %64
+  %69 = fsub half %.0.val1, %.0.val
+  %70 = fpext half %69 to double
+  %71 = fdiv double %70, %65
+  %72 = fcmp ult double %71, 0.000000e+00
+  %73 = fneg double %71
+  %74 = select i1 %72, double %73, double %71
+  br label %98
 
-69:                                               ; preds = %58
-  %70 = fpext half %.0.val1 to double
-  %71 = fsub double 0.000000e+00, %70
-  %72 = tail call double @llvm.fabs.f64(double %71)
-  %73 = fcmp uge double %72, 0x3CB0000000000000
-  br i1 %73, label %74, label %89
+75:                                               ; preds = %64
+  %76 = fpext half %.0.val1 to double
+  %77 = fsub double 0.000000e+00, %76
+  %78 = tail call double @llvm.fabs.f64(double %77)
+  %79 = fcmp uge double %78, 0x3CB0000000000000
+  br i1 %79, label %80, label %98
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 1, ptr %75, align 8, !tbaa !42
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 1, ptr %81, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !43
-  %.not.i293 = icmp eq i32 %77, 0
-  br i1 %.not.i293, label %78, label %print_data.exit296
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %83 = load i32, ptr %82, align 4, !tbaa !43
+  %.not.i293 = icmp eq i32 %83, 0
+  br i1 %.not.i293, label %84, label %print_data.exit296
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %80 = load i32, ptr %79, align 8, !tbaa !44
-  %.not3.i295 = icmp eq i32 %80, 0
+84:                                               ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %86 = load i32, ptr %85, align 8, !tbaa !44
+  %.not3.i295 = icmp eq i32 %86, 0
   br i1 %.not3.i295, label %print_data.exit.thread, label %print_data.exit296
 
-print_data.exit296:                               ; preds = %74, %78
-  %81 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i294.not = icmp eq i32 %81, 0
-  br i1 %.not4.i294.not, label %82, label %print_data.exit.thread
+print_data.exit296:                               ; preds = %80, %84
+  %87 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i294.not = icmp eq i32 %87, 0
+  br i1 %.not4.i294.not, label %88, label %print_data.exit.thread
 
-82:                                               ; preds = %print_data.exit296
-  %83 = fpext half %.0.val1 to double
-  %84 = fsub half %.0.val, %.0.val1
-  %85 = fcmp ult half %84, 0xH0000
-  %86 = fneg half %84
-  %87 = select i1 %85, half %86, half %84
-  %88 = fpext half %87 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.105, double noundef %59, double noundef %83, double noundef %88) #15
+88:                                               ; preds = %print_data.exit296
+  %89 = fpext half %.0.val1 to double
+  %90 = fpext half %.0.val to float
+  %91 = fpext half %.0.val1 to float
+  %92 = fsub float %90, %91
+  %93 = fcmp ult float %92, 0xBE60000000000000
+  %94 = fptrunc float %92 to half
+  %95 = fneg half %94
+  %96 = select i1 %93, half %95, half %94
+  %97 = fpext half %96 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.105, double noundef %65, double noundef %89, double noundef %97) #15
   br label %print_data.exit.thread
 
-89:                                               ; preds = %.thread, %69
-  %.024531 = phi double [ %68, %.thread ], [ -1.000000e+00, %69 ]
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %91 = load double, ptr %90, align 8, !tbaa !46
-  %92 = fcmp ogt double %.024531, %91
-  br i1 %92, label %93, label %print_data.exit.thread
+98:                                               ; preds = %.thread, %75
+  %.024531 = phi double [ %74, %.thread ], [ -1.000000e+00, %75 ]
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %100 = load double, ptr %99, align 8, !tbaa !46
+  %101 = fcmp ogt double %.024531, %100
+  br i1 %101, label %102, label %print_data.exit.thread
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 1, ptr %94, align 8, !tbaa !42
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 1, ptr %103, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %96 = load i32, ptr %95, align 4, !tbaa !43
-  %.not.i297 = icmp eq i32 %96, 0
-  br i1 %.not.i297, label %97, label %print_data.exit300
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %105 = load i32, ptr %104, align 4, !tbaa !43
+  %.not.i297 = icmp eq i32 %105, 0
+  br i1 %.not.i297, label %106, label %print_data.exit300
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !44
-  %.not3.i299 = icmp eq i32 %99, 0
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %108 = load i32, ptr %107, align 8, !tbaa !44
+  %.not3.i299 = icmp eq i32 %108, 0
   br i1 %.not3.i299, label %print_data.exit.thread, label %print_data.exit300
 
-print_data.exit300:                               ; preds = %93, %97
-  %100 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i298.not = icmp eq i32 %100, 0
-  br i1 %.not4.i298.not, label %101, label %print_data.exit.thread
+print_data.exit300:                               ; preds = %102, %106
+  %109 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i298.not = icmp eq i32 %109, 0
+  br i1 %.not4.i298.not, label %110, label %print_data.exit.thread
 
-101:                                              ; preds = %print_data.exit300
-  %102 = fpext half %.0.val1 to double
-  %103 = fpext half %.0.val to float
-  %104 = fpext half %.0.val1 to float
-  %105 = fsub half %.0.val, %.0.val1
-  %106 = fcmp ult half %105, 0xH0000
-  %107 = fneg half %105
-  %108 = select i1 %106, half %107, half %105
-  %109 = fpext half %108 to double
-  %110 = fdiv float %104, %103
-  %111 = fsub float 1.000000e+00, %110
-  %112 = fptrunc float %111 to half
-  %113 = fcmp ult half %112, 0xH0000
-  %114 = fneg half %112
-  %115 = select i1 %113, half %114, half %112
-  %116 = fpext half %115 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.106, double noundef %59, double noundef %102, double noundef %109, double noundef %116) #15
+110:                                              ; preds = %print_data.exit300
+  %111 = fpext half %.0.val1 to double
+  %112 = fpext half %.0.val to float
+  %113 = fpext half %.0.val1 to float
+  %114 = fsub float %112, %113
+  %115 = fcmp ult float %114, 0xBE60000000000000
+  %116 = fptrunc float %114 to half
+  %117 = fneg half %116
+  %118 = select i1 %115, half %117, half %116
+  %119 = fpext half %118 to double
+  %120 = fdiv float %113, %112
+  %121 = fsub float 1.000000e+00, %120
+  %122 = fcmp ult float %121, 0xBE60000000000000
+  %123 = fptrunc float %121 to half
+  %124 = fneg half %123
+  %125 = select i1 %122, half %124, half %123
+  %126 = fpext half %125 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.106, double noundef %65, double noundef %111, double noundef %119, double noundef %126) #15
   br label %print_data.exit.thread
 
-117:                                              ; preds = %52
-  %or.cond287 = xor i1 %55, %56
-  br i1 %or.cond287, label %118, label %print_data.exit.thread
+127:                                              ; preds = %58
+  %or.cond287 = xor i1 %61, %62
+  br i1 %or.cond287, label %128, label %print_data.exit.thread
 
-118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %119, align 8, !tbaa !42
+128:                                              ; preds = %127
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 0, ptr %129, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %121 = load i32, ptr %120, align 4, !tbaa !43
-  %.not.i301 = icmp eq i32 %121, 0
-  br i1 %.not.i301, label %122, label %print_data.exit304
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %131 = load i32, ptr %130, align 4, !tbaa !43
+  %.not.i301 = icmp eq i32 %131, 0
+  br i1 %.not.i301, label %132, label %print_data.exit304
 
-122:                                              ; preds = %118
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %124 = load i32, ptr %123, align 8, !tbaa !44
-  %.not3.i303 = icmp eq i32 %124, 0
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %134 = load i32, ptr %133, align 8, !tbaa !44
+  %.not3.i303 = icmp eq i32 %134, 0
   br i1 %.not3.i303, label %print_data.exit.thread, label %print_data.exit304
 
-print_data.exit304:                               ; preds = %118, %122
-  %125 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i302.not = icmp eq i32 %125, 0
-  br i1 %.not4.i302.not, label %126, label %print_data.exit.thread
+print_data.exit304:                               ; preds = %128, %132
+  %135 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i302.not = icmp eq i32 %135, 0
+  br i1 %.not4.i302.not, label %136, label %print_data.exit.thread
 
-126:                                              ; preds = %print_data.exit304
-  %127 = fpext half %.0.val to double
-  %128 = fpext half %.0.val1 to double
-  %129 = fsub half %.0.val, %.0.val1
-  %130 = fcmp ult half %129, 0xH0000
-  %131 = fneg half %129
-  %132 = select i1 %130, half %131, half %129
-  %133 = fpext half %132 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %127, double noundef %128, double noundef %133) #15
+136:                                              ; preds = %print_data.exit304
+  %137 = fpext half %.0.val to double
+  %138 = fpext half %.0.val1 to double
+  %139 = fpext half %.0.val to float
+  %140 = fpext half %.0.val1 to float
+  %141 = fsub float %139, %140
+  %142 = fcmp ult float %141, 0xBE60000000000000
+  %143 = fptrunc float %141 to half
+  %144 = fneg half %143
+  %145 = select i1 %142, half %144, half %143
+  %146 = fpext half %145 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %137, double noundef %138, double noundef %146) #15
   br label %print_data.exit.thread
 
-134:                                              ; preds = %7
-  br i1 %or.cond, label %198, label %135
+147:                                              ; preds = %7
+  br i1 %or.cond, label %215, label %148
 
-135:                                              ; preds = %134
-  %136 = fpext half %.0.val to double
-  %137 = fsub double 0.000000e+00, %136
-  %138 = tail call double @llvm.fabs.f64(double %137)
-  %139 = fcmp olt double %138, 0x3CB0000000000000
-  br i1 %139, label %146, label %.thread32
+148:                                              ; preds = %147
+  %149 = fpext half %.0.val to double
+  %150 = fsub double 0.000000e+00, %149
+  %151 = tail call double @llvm.fabs.f64(double %150)
+  %152 = fcmp olt double %151, 0x3CB0000000000000
+  br i1 %152, label %159, label %.thread32
 
-.thread32:                                        ; preds = %135
-  %140 = fsub half %.0.val1, %.0.val
-  %141 = fpext half %140 to double
-  %142 = fdiv double %141, %136
-  %143 = fcmp ult double %142, 0.000000e+00
-  %144 = fneg double %142
-  %145 = select i1 %143, double %144, double %142
-  br label %166
+.thread32:                                        ; preds = %148
+  %153 = fsub half %.0.val1, %.0.val
+  %154 = fpext half %153 to double
+  %155 = fdiv double %154, %149
+  %156 = fcmp ult double %155, 0.000000e+00
+  %157 = fneg double %155
+  %158 = select i1 %156, double %157, double %155
+  br label %182
 
-146:                                              ; preds = %135
-  %147 = fpext half %.0.val1 to double
-  %148 = fsub double 0.000000e+00, %147
-  %149 = tail call double @llvm.fabs.f64(double %148)
-  %150 = fcmp uge double %149, 0x3CB0000000000000
-  br i1 %150, label %151, label %166
+159:                                              ; preds = %148
+  %160 = fpext half %.0.val1 to double
+  %161 = fsub double 0.000000e+00, %160
+  %162 = tail call double @llvm.fabs.f64(double %161)
+  %163 = fcmp uge double %162, 0x3CB0000000000000
+  br i1 %163, label %164, label %182
 
-151:                                              ; preds = %146
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 1, ptr %152, align 8, !tbaa !42
+164:                                              ; preds = %159
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 1, ptr %165, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %154 = load i32, ptr %153, align 4, !tbaa !43
-  %.not.i305 = icmp eq i32 %154, 0
-  br i1 %.not.i305, label %155, label %print_data.exit308
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %167 = load i32, ptr %166, align 4, !tbaa !43
+  %.not.i305 = icmp eq i32 %167, 0
+  br i1 %.not.i305, label %168, label %print_data.exit308
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !44
-  %.not3.i307 = icmp eq i32 %157, 0
+168:                                              ; preds = %164
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %170 = load i32, ptr %169, align 8, !tbaa !44
+  %.not3.i307 = icmp eq i32 %170, 0
   br i1 %.not3.i307, label %print_data.exit.thread, label %print_data.exit308
 
-print_data.exit308:                               ; preds = %151, %155
-  %158 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i306.not = icmp eq i32 %158, 0
-  br i1 %.not4.i306.not, label %159, label %print_data.exit.thread
+print_data.exit308:                               ; preds = %164, %168
+  %171 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i306.not = icmp eq i32 %171, 0
+  br i1 %.not4.i306.not, label %172, label %print_data.exit.thread
 
-159:                                              ; preds = %print_data.exit308
-  %160 = fpext half %.0.val1 to double
-  %161 = fsub half %.0.val, %.0.val1
-  %162 = fcmp ult half %161, 0xH0000
-  %163 = fneg half %161
-  %164 = select i1 %162, half %163, half %161
-  %165 = fpext half %164 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.105, double noundef %136, double noundef %160, double noundef %165) #15
+172:                                              ; preds = %print_data.exit308
+  %173 = fpext half %.0.val1 to double
+  %174 = fpext half %.0.val to float
+  %175 = fpext half %.0.val1 to float
+  %176 = fsub float %174, %175
+  %177 = fcmp ult float %176, 0xBE60000000000000
+  %178 = fptrunc float %176 to half
+  %179 = fneg half %178
+  %180 = select i1 %177, half %179, half %178
+  %181 = fpext half %180 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.105, double noundef %149, double noundef %173, double noundef %181) #15
   br label %print_data.exit.thread
 
-166:                                              ; preds = %.thread32, %146
-  %.124636 = phi double [ %145, %.thread32 ], [ -1.000000e+00, %146 ]
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %168 = load double, ptr %167, align 8, !tbaa !46
-  %169 = fcmp ogt double %.124636, %168
-  br i1 %169, label %170, label %print_data.exit.thread
+182:                                              ; preds = %.thread32, %159
+  %.124636 = phi double [ %158, %.thread32 ], [ -1.000000e+00, %159 ]
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %184 = load double, ptr %183, align 8, !tbaa !46
+  %185 = fcmp ogt double %.124636, %184
+  br i1 %185, label %186, label %print_data.exit.thread
 
-170:                                              ; preds = %166
-  %171 = fpext half %.0.val to float
-  %172 = fpext half %.0.val1 to float
-  %173 = fsub half %.0.val, %.0.val1
-  %174 = fcmp oge half %173, 0xH0000
-  %175 = fneg half %173
-  %176 = select i1 %174, half %173, half %175
-  %177 = fpext half %176 to double
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %179 = load double, ptr %178, align 8, !tbaa !41
-  %180 = fcmp olt double %179, %177
-  br i1 %180, label %181, label %print_data.exit.thread
+186:                                              ; preds = %182
+  %187 = fpext half %.0.val to float
+  %188 = fpext half %.0.val1 to float
+  %189 = fsub float %187, %188
+  %190 = fptrunc float %189 to half
+  %191 = fcmp oge float %189, 0xBE60000000000000
+  %192 = fneg half %190
+  %193 = select i1 %191, half %190, half %192
+  %194 = fpext half %193 to double
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %196 = load double, ptr %195, align 8, !tbaa !41
+  %197 = fcmp olt double %196, %194
+  br i1 %197, label %198, label %print_data.exit.thread
 
-181:                                              ; preds = %170
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 1, ptr %182, align 8, !tbaa !42
+198:                                              ; preds = %186
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 1, ptr %199, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %184 = load i32, ptr %183, align 4, !tbaa !43
-  %.not.i309 = icmp eq i32 %184, 0
-  br i1 %.not.i309, label %185, label %print_data.exit312
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %201 = load i32, ptr %200, align 4, !tbaa !43
+  %.not.i309 = icmp eq i32 %201, 0
+  br i1 %.not.i309, label %202, label %print_data.exit312
 
-185:                                              ; preds = %181
-  %186 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %187 = load i32, ptr %186, align 8, !tbaa !44
-  %.not3.i311 = icmp eq i32 %187, 0
+202:                                              ; preds = %198
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %204 = load i32, ptr %203, align 8, !tbaa !44
+  %.not3.i311 = icmp eq i32 %204, 0
   br i1 %.not3.i311, label %print_data.exit.thread, label %print_data.exit312
 
-print_data.exit312:                               ; preds = %181, %185
-  %188 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i310.not = icmp eq i32 %188, 0
-  br i1 %.not4.i310.not, label %189, label %print_data.exit.thread
+print_data.exit312:                               ; preds = %198, %202
+  %205 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i310.not = icmp eq i32 %205, 0
+  br i1 %.not4.i310.not, label %206, label %print_data.exit.thread
 
-189:                                              ; preds = %print_data.exit312
-  %190 = fpext half %.0.val1 to double
-  %191 = fdiv float %172, %171
-  %192 = fsub float 1.000000e+00, %191
-  %193 = fptrunc float %192 to half
-  %194 = fcmp ult half %193, 0xH0000
-  %195 = fneg half %193
-  %196 = select i1 %194, half %195, half %193
-  %197 = fpext half %196 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.106, double noundef %136, double noundef %190, double noundef %177, double noundef %197) #15
+206:                                              ; preds = %print_data.exit312
+  %207 = fpext half %.0.val1 to double
+  %208 = fdiv float %188, %187
+  %209 = fsub float 1.000000e+00, %208
+  %210 = fcmp ult float %209, 0xBE60000000000000
+  %211 = fptrunc float %209 to half
+  %212 = fneg half %211
+  %213 = select i1 %210, half %212, half %211
+  %214 = fpext half %213 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.106, double noundef %149, double noundef %207, double noundef %194, double noundef %214) #15
   br label %print_data.exit.thread
 
-198:                                              ; preds = %134
+215:                                              ; preds = %147
   %or.cond288 = xor i1 %10, %11
-  br i1 %or.cond288, label %199, label %print_data.exit.thread
+  br i1 %or.cond288, label %216, label %print_data.exit.thread
 
-199:                                              ; preds = %198
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %200, align 8, !tbaa !42
+216:                                              ; preds = %215
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 0, ptr %217, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %201 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %202 = load i32, ptr %201, align 4, !tbaa !43
-  %.not.i313 = icmp eq i32 %202, 0
-  br i1 %.not.i313, label %203, label %print_data.exit316
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %219 = load i32, ptr %218, align 4, !tbaa !43
+  %.not.i313 = icmp eq i32 %219, 0
+  br i1 %.not.i313, label %220, label %print_data.exit316
 
-203:                                              ; preds = %199
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %205 = load i32, ptr %204, align 8, !tbaa !44
-  %.not3.i315 = icmp eq i32 %205, 0
+220:                                              ; preds = %216
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %222 = load i32, ptr %221, align 8, !tbaa !44
+  %.not3.i315 = icmp eq i32 %222, 0
   br i1 %.not3.i315, label %print_data.exit.thread, label %print_data.exit316
 
-print_data.exit316:                               ; preds = %199, %203
-  %206 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i314.not = icmp eq i32 %206, 0
-  br i1 %.not4.i314.not, label %207, label %print_data.exit.thread
+print_data.exit316:                               ; preds = %216, %220
+  %223 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i314.not = icmp eq i32 %223, 0
+  br i1 %.not4.i314.not, label %224, label %print_data.exit.thread
 
-207:                                              ; preds = %print_data.exit316
-  %208 = fpext half %.0.val to double
-  %209 = fpext half %.0.val1 to double
-  %210 = fsub half %.0.val, %.0.val1
-  %211 = fcmp ult half %210, 0xH0000
-  %212 = fneg half %210
-  %213 = select i1 %211, half %212, half %210
-  %214 = fpext half %213 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %208, double noundef %209, double noundef %214) #15
+224:                                              ; preds = %print_data.exit316
+  %225 = fpext half %.0.val to double
+  %226 = fpext half %.0.val1 to double
+  %227 = fpext half %.0.val to float
+  %228 = fpext half %.0.val1 to float
+  %229 = fsub float %227, %228
+  %230 = fcmp ult float %229, 0xBE60000000000000
+  %231 = fptrunc float %229 to half
+  %232 = fneg half %231
+  %233 = select i1 %230, half %232, half %231
+  %234 = fpext half %233 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %225, double noundef %226, double noundef %234) #15
   br label %print_data.exit.thread
 
-.thread12:                                        ; preds = %51
-  %215 = fpext half %.0.val to float
-  %216 = fpext half %.0.val1 to float
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %218 = load i32, ptr %217, align 4, !tbaa !40
-  %.not16.i = icmp eq i32 %218, 0
-  br i1 %.not16.i, label %223, label %219
+.thread12:                                        ; preds = %57
+  %235 = fpext half %.0.val to float
+  %236 = fpext half %.0.val1 to float
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %238 = load i32, ptr %237, align 4, !tbaa !40
+  %.not16.i = icmp eq i32 %238, 0
+  br i1 %.not16.i, label %243, label %239
 
-219:                                              ; preds = %.thread12
-  %220 = fcmp uno half %.0.val, 0xH0000
-  %221 = fcmp uno half %.0.val1, 0xH0000
-  %or.cond.i = and i1 %220, %221
-  br i1 %or.cond.i, label %print_data.exit.thread, label %222
+239:                                              ; preds = %.thread12
+  %240 = fcmp uno half %.0.val, 0xH0000
+  %241 = fcmp uno half %.0.val1, 0xH0000
+  %or.cond.i = and i1 %240, %241
+  br i1 %or.cond.i, label %print_data.exit.thread, label %242
 
-222:                                              ; preds = %219
-  %or.cond19.i = xor i1 %220, %221
-  br i1 %or.cond19.i, label %equal_float.exit, label %223
+242:                                              ; preds = %239
+  %or.cond19.i = xor i1 %240, %241
+  br i1 %or.cond19.i, label %equal_float.exit, label %243
 
-223:                                              ; preds = %222, %.thread12
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %225 = load i32, ptr %224, align 8, !tbaa !47
-  %.not17.i = icmp eq i32 %225, 0
-  br i1 %.not17.i, label %230, label %226
+243:                                              ; preds = %242, %.thread12
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %245 = load i32, ptr %244, align 8, !tbaa !47
+  %.not17.i = icmp eq i32 %245, 0
+  br i1 %.not17.i, label %250, label %246
 
-226:                                              ; preds = %223
-  %227 = fsub float %215, %216
-  %228 = tail call float @llvm.fabs.f32(float %227)
-  %229 = fcmp olt float %228, 0x3E80000000000000
-  br i1 %229, label %print_data.exit.thread, label %equal_float.exit
+246:                                              ; preds = %243
+  %247 = fsub float %235, %236
+  %248 = tail call float @llvm.fabs.f32(float %247)
+  %249 = fcmp olt float %248, 0x3E80000000000000
+  br i1 %249, label %print_data.exit.thread, label %equal_float.exit
 
-230:                                              ; preds = %223
-  %231 = bitcast float %215 to i32
-  %232 = bitcast float %216 to i32
-  %.not18.i = icmp eq i32 %231, %232
+250:                                              ; preds = %243
+  %251 = bitcast float %235 to i32
+  %252 = bitcast float %236 to i32
+  %.not18.i = icmp eq i32 %251, %252
   br i1 %.not18.i, label %print_data.exit.thread, label %equal_float.exit
 
-equal_float.exit:                                 ; preds = %226, %230, %222
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %233, align 8, !tbaa !42
+equal_float.exit:                                 ; preds = %246, %250, %242
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 0, ptr %253, align 8, !tbaa !42
   tail call fastcc void @print_pos(ptr noundef nonnull %1, i64 noundef %0, i64 noundef 0)
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %235 = load i32, ptr %234, align 4, !tbaa !43
-  %.not.i317 = icmp eq i32 %235, 0
-  br i1 %.not.i317, label %236, label %print_data.exit320
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %255 = load i32, ptr %254, align 4, !tbaa !43
+  %.not.i317 = icmp eq i32 %255, 0
+  br i1 %.not.i317, label %256, label %print_data.exit320
 
-236:                                              ; preds = %equal_float.exit
-  %237 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %238 = load i32, ptr %237, align 8, !tbaa !44
-  %.not3.i319 = icmp eq i32 %238, 0
+256:                                              ; preds = %equal_float.exit
+  %257 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %258 = load i32, ptr %257, align 8, !tbaa !44
+  %.not3.i319 = icmp eq i32 %258, 0
   br i1 %.not3.i319, label %print_data.exit.thread, label %print_data.exit320
 
-print_data.exit320:                               ; preds = %equal_float.exit, %236
-  %239 = load i32, ptr %1, align 8, !tbaa !45
-  %.not4.i318.not = icmp eq i32 %239, 0
-  br i1 %.not4.i318.not, label %240, label %print_data.exit.thread
+print_data.exit320:                               ; preds = %equal_float.exit, %256
+  %259 = load i32, ptr %1, align 8, !tbaa !45
+  %.not4.i318.not = icmp eq i32 %259, 0
+  br i1 %.not4.i318.not, label %260, label %print_data.exit.thread
 
-240:                                              ; preds = %print_data.exit320
-  %241 = fpext half %.0.val to double
-  %242 = fpext half %.0.val1 to double
-  %243 = fsub half %.0.val, %.0.val1
-  %244 = fcmp ult half %243, 0xH0000
-  %245 = fneg half %243
-  %246 = select i1 %244, half %245, half %243
-  %247 = fpext half %246 to double
-  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %241, double noundef %242, double noundef %247) #15
+260:                                              ; preds = %print_data.exit320
+  %261 = fpext half %.0.val to double
+  %262 = fpext half %.0.val1 to double
+  %263 = fsub float %235, %236
+  %264 = fcmp ult float %263, 0xBE60000000000000
+  %265 = fptrunc float %263 to half
+  %266 = fneg half %265
+  %267 = select i1 %264, half %266, half %265
+  %268 = fpext half %267 to double
+  tail call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.104, double noundef %261, double noundef %262, double noundef %268) #15
   br label %print_data.exit.thread
 
-print_data.exit.thread:                           ; preds = %236, %219, %230, %226, %203, %185, %155, %122, %97, %78, %39, %27, %print_data.exit320, %240, %print_data.exit316, %207, %198, %print_data.exit312, %189, %print_data.exit308, %159, %print_data.exit304, %126, %117, %print_data.exit300, %101, %print_data.exit296, %82, %print_data.exit292, %43, %34, %print_data.exit, %31, %14, %170, %166, %89
-  %.0247 = phi i64 [ 0, %170 ], [ 0, %166 ], [ 0, %89 ], [ 0, %14 ], [ 1, %31 ], [ 1, %print_data.exit ], [ 0, %34 ], [ 1, %43 ], [ 1, %print_data.exit292 ], [ 1, %82 ], [ 1, %print_data.exit296 ], [ 1, %101 ], [ 1, %print_data.exit300 ], [ 0, %117 ], [ 1, %126 ], [ 1, %print_data.exit304 ], [ 1, %159 ], [ 1, %print_data.exit308 ], [ 1, %189 ], [ 1, %print_data.exit312 ], [ 0, %198 ], [ 1, %207 ], [ 1, %print_data.exit316 ], [ 1, %240 ], [ 1, %print_data.exit320 ], [ 1, %27 ], [ 1, %39 ], [ 1, %78 ], [ 1, %97 ], [ 1, %122 ], [ 1, %155 ], [ 1, %185 ], [ 1, %203 ], [ 0, %226 ], [ 0, %230 ], [ 0, %219 ], [ 1, %236 ]
+print_data.exit.thread:                           ; preds = %256, %239, %250, %246, %220, %202, %168, %132, %106, %84, %42, %30, %print_data.exit320, %260, %print_data.exit316, %224, %215, %print_data.exit312, %206, %print_data.exit308, %172, %print_data.exit304, %136, %127, %print_data.exit300, %110, %print_data.exit296, %88, %print_data.exit292, %46, %37, %print_data.exit, %34, %14, %186, %182, %98
+  %.0247 = phi i64 [ 0, %186 ], [ 0, %182 ], [ 0, %98 ], [ 0, %14 ], [ 1, %34 ], [ 1, %print_data.exit ], [ 0, %37 ], [ 1, %46 ], [ 1, %print_data.exit292 ], [ 1, %88 ], [ 1, %print_data.exit296 ], [ 1, %110 ], [ 1, %print_data.exit300 ], [ 0, %127 ], [ 1, %136 ], [ 1, %print_data.exit304 ], [ 1, %172 ], [ 1, %print_data.exit308 ], [ 1, %206 ], [ 1, %print_data.exit312 ], [ 0, %215 ], [ 1, %224 ], [ 1, %print_data.exit316 ], [ 1, %260 ], [ 1, %print_data.exit320 ], [ 1, %30 ], [ 1, %42 ], [ 1, %84 ], [ 1, %106 ], [ 1, %132 ], [ 1, %168 ], [ 1, %202 ], [ 1, %220 ], [ 0, %246 ], [ 0, %250 ], [ 0, %239 ], [ 1, %256 ]
   ret i64 %.0247
 }
 

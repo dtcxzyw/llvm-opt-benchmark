@@ -331,8 +331,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %59 = fptrunc nsz double %58 to float
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store float %59, ptr %60, align 8, !tbaa !28
-  %61 = tail call nsz float @llvm.fabs.f32(float %59)
-  %or.cond = fcmp nsz ogt float %61, 1.000000e+01
+  %61 = tail call nsz double @llvm.fabs.f64(double %58)
+  %or.cond = fcmp nsz ogt double %61, 0x4024000010000000
   br i1 %or.cond, label %62, label %68
 
 62:                                               ; preds = %55
@@ -358,8 +358,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %74 = tail call nsz double @av_expr_eval(ptr noundef %73, ptr noundef nonnull %37, ptr noundef null) #6
   %75 = fptrunc nsz double %74 to float
   store float %75, ptr %15, align 8, !tbaa !50
-  %76 = tail call nsz float @llvm.fabs.f32(float %75)
-  %or.cond152 = fcmp nsz ogt float %76, 1.000000e+01
+  %76 = tail call nsz double @llvm.fabs.f64(double %74)
+  %or.cond152 = fcmp nsz ogt double %76, 0x4024000010000000
   br i1 %or.cond152, label %77, label %83
 
 77:                                               ; preds = %71
@@ -1105,7 +1105,7 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 declare i16 @llvm.umin.i16(i16, i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #5
+declare double @llvm.fabs.f64(double) #5
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

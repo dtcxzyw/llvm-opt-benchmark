@@ -9105,7 +9105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1839: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %207) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %206) #24
   store float %2588, ptr %205, align 4, !tbaa !125
-  %2595 = fcmp ogt float %2588, 0.000000e+00
+  %2595 = fcmp ogt double %2587, 0x3690000000000000
   br i1 %2595, label %2619, label %2606
 
 2596:                                             ; preds = %2583

@@ -791,7 +791,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   %127 = fpext float %126 to double
   %128 = fadd double %124, %127
   %.038.i = fptrunc double %128 to float
-  %129 = fcmp ult float %.038.i, 0.000000e+00
+  %129 = fcmp ult double %128, 0xB690000000000000
   br i1 %129, label %153, label %130
 
 130:                                              ; preds = %115
@@ -1287,7 +1287,7 @@ define void @_ZN10Parameters6toShotEb(ptr dead_on_unwind noalias writable sret(%
   %72 = load double, ptr %71, align 16
   %73 = fadd double %72, %70
   %74 = fptrunc double %73 to float
-  %75 = fcmp ugt float %74, 1.000000e+00
+  %75 = fcmp ugt double %73, 0x3FF0000010000000
   br i1 %75, label %76, label %.sink.split
 
 .sink.split:                                      ; preds = %69
@@ -2177,7 +2177,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   %51 = fpext float %50 to double
   %52 = fadd double %48, %51
   %.038 = fptrunc double %52 to float
-  %53 = fcmp ult float %.038, 0.000000e+00
+  %53 = fcmp ult double %52, 0xB690000000000000
   br i1 %53, label %77, label %54
 
 54:                                               ; preds = %39

@@ -607,7 +607,7 @@ get_fpsQ.exit.i.._crit_edge.thread.i_crit_edge:   ; preds = %get_fpsQ.exit.i
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 52
   store float %263, ptr %264, align 4, !tbaa !113
   %265 = fpext nsz float %263 to double
-  %266 = fcmp nsz ugt float %263, 0.000000e+00
+  %266 = fcmp nsz ugt double %262, 0x3690000000000000
   br i1 %266, label %qp2bits.exit.us.i, label %267
 
 267:                                              ; preds = %.lr.ph273.us.i
@@ -2249,7 +2249,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   %142 = fsub nsz double %141, %138
   %143 = fdiv nsz double %142, %141
   %144 = fptrunc nsz double %143 to float
-  %145 = fcmp nsz ugt float %144, 0.000000e+00
+  %145 = fcmp nsz ugt double %143, 0x3690000000000000
   %.0166 = select nsz i1 %145, float %144, float 0x3F50624DE0000000
   %146 = icmp eq i32 %10, 1
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8080
@@ -2376,21 +2376,21 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   %226 = fpext nsz float %.0166 to double
   %227 = fmul nsz double %225, %226
   %228 = call nsz fastcc double @get_qscale(ptr noundef nonnull %0, ptr noundef nonnull %.0171, double noundef %227, i32 noundef %8)
-  %229 = fptrunc nsz double %228 to float
-  %230 = fcmp nsz olt float %229, 0.000000e+00
-  br i1 %230, label %581, label %231
+  %229 = fcmp nsz olt double %228, 0xB690000000000000
+  br i1 %229, label %581, label %230
 
-231:                                              ; preds = %193
-  %232 = fcmp nsz ogt float %229, 0.000000e+00
-  br i1 %232, label %234, label %233
+230:                                              ; preds = %193
+  %231 = fcmp nsz ogt double %228, 0x3690000000000000
+  br i1 %231, label %233, label %232
 
-233:                                              ; preds = %231
+232:                                              ; preds = %230
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.28, i32 noundef 1028) #13
   call void @abort() #15
   unreachable
 
-234:                                              ; preds = %231
-  %235 = fpext nsz float %229 to double
+233:                                              ; preds = %230
+  %234 = fptrunc nsz double %228 to float
+  %235 = fpext nsz float %234 to double
   %.0171.val = load i32, ptr %162, align 8, !tbaa !110
   %236 = load ptr, ptr %5, align 8, !tbaa !4
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 7776
@@ -2406,7 +2406,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
     i32 3, label %257
   ]
 
-245:                                              ; preds = %234
+245:                                              ; preds = %233
   %246 = getelementptr inbounds nuw i8, ptr %236, i64 212
   %247 = load float, ptr %246, align 4, !tbaa !137
   %248 = fcmp nsz ogt float %247, 0.000000e+00
@@ -2423,7 +2423,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   %256 = call nsz double @llvm.fmuladd.f64(double %239, double %252, double %255)
   br label %268
 
-257:                                              ; preds = %234
+257:                                              ; preds = %233
   %258 = getelementptr inbounds nuw i8, ptr %236, i64 204
   %259 = load float, ptr %258, align 4, !tbaa !135
   %260 = fcmp nsz ogt float %259, 0.000000e+00
@@ -2443,8 +2443,8 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   %.12.i = select nsz i1 %267, double 1.000000e+00, double %.0.ph.i
   br label %273
 
-268:                                              ; preds = %250, %245, %234
-  %.0.i194 = phi nsz double [ %256, %250 ], [ %235, %234 ], [ %235, %245 ]
+268:                                              ; preds = %250, %245, %233
+  %.0.i194 = phi nsz double [ %256, %250 ], [ %235, %233 ], [ %235, %245 ]
   %269 = fcmp nsz olt double %.0.i194, 1.000000e+00
   %.1.i = select nsz i1 %269, double 1.000000e+00, double %.0.i194
   %270 = icmp ne i32 %.0171.val, 1
@@ -2493,7 +2493,7 @@ get_diff_limited_q.exit:                          ; preds = %287, %288
   %.29.i = phi double [ %.28.i, %288 ], [ %.2.i, %287 ]
   %289 = fptrunc nsz double %.29.i to float
   %290 = fpext nsz float %289 to double
-  %291 = fcmp nsz ogt float %289, 0.000000e+00
+  %291 = fcmp nsz ogt double %.29.i, 0x3690000000000000
   br i1 %291, label %293, label %292
 
 292:                                              ; preds = %get_diff_limited_q.exit
@@ -2543,18 +2543,18 @@ get_diff_limited_q.exit:                          ; preds = %287, %288
 315:                                              ; preds = %312
   %316 = fpext nsz float %.1 to double
   %317 = call nsz fastcc double @modify_qscale(ptr noundef nonnull %0, ptr noundef nonnull %.0171, double noundef %316, i32 noundef %8)
-  %318 = fptrunc nsz double %317 to float
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 7528
-  %320 = load i64, ptr %319, align 8, !tbaa !120
-  %321 = sitofp i64 %320 to double
-  %322 = fdiv nsz double %321, %52
-  %323 = load double, ptr %221, align 8, !tbaa !150
-  %324 = fadd nsz double %323, %322
-  store double %324, ptr %221, align 8, !tbaa !150
-  %325 = fcmp nsz ogt float %318, 0.000000e+00
-  br i1 %325, label %._crit_edge, label %326
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 7528
+  %319 = load i64, ptr %318, align 8, !tbaa !120
+  %320 = sitofp i64 %319 to double
+  %321 = fdiv nsz double %320, %52
+  %322 = load double, ptr %221, align 8, !tbaa !150
+  %323 = fadd nsz double %322, %321
+  store double %323, ptr %221, align 8, !tbaa !150
+  %324 = fcmp nsz ogt double %317, 0x3690000000000000
+  br i1 %324, label %._crit_edge, label %326
 
 ._crit_edge:                                      ; preds = %315
+  %325 = fptrunc nsz double %317 to float
   %.pre209 = load ptr, ptr %5, align 8, !tbaa !4
   br label %327
 
@@ -2566,7 +2566,7 @@ get_diff_limited_q.exit:                          ; preds = %287, %288
 327:                                              ; preds = %._crit_edge, %156
   %328 = phi ptr [ %134, %156 ], [ %.pre209, %._crit_edge ]
   %.0167 = phi nsz double [ 0.000000e+00, %156 ], [ %.1168, %._crit_edge ]
-  %.0165 = phi nsz float [ %159, %156 ], [ %318, %._crit_edge ]
+  %.0165 = phi nsz float [ %159, %156 ], [ %325, %._crit_edge ]
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 524
   %330 = load i32, ptr %329, align 4, !tbaa !131
   %331 = and i32 %330, 2
@@ -2703,7 +2703,7 @@ get_diff_limited_q.exit:                          ; preds = %287, %288
   %427 = zext i8 %426 to i32
   %428 = srem i32 %418, %393
   %429 = sdiv i32 %418, %393
-  %430 = fcmp nsz olt float %424, 4.000000e+00
+  %430 = fcmp nsz olt double %423, 0x400FFFFFF0000000
   %.0172.i = select nsz i1 %430, float 4.000000e+00, float %424
   %431 = getelementptr inbounds i16, ptr %395, i64 %419
   %432 = load i16, ptr %431, align 2, !tbaa !201
@@ -2717,9 +2717,9 @@ get_diff_limited_q.exit:                          ; preds = %287, %288
   %437 = load i16, ptr %436, align 2, !tbaa !201
   %438 = uitofp i16 %437 to double
   %439 = call nsz double @llvm.sqrt.f64(double %438)
-  %440 = fptrunc nsz double %439 to float
-  %441 = fcmp nsz olt float %440, 4.000000e+00
-  %.0167.i = select nsz i1 %441, float 4.000000e+00, float %440
+  %440 = fcmp nsz olt double %439, 0x400FFFFFF0000000
+  %441 = fptrunc nsz double %439 to float
+  %.0167.i = select nsz i1 %440, float 4.000000e+00, float %441
   %442 = fpext nsz float %.0167.i to double
   %443 = call nsz double @llvm.pow.f64(double %442, double %399)
   %444 = fptrunc nsz double %443 to float

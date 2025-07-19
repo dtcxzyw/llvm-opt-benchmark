@@ -34938,7 +34938,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t8geometry6kernel
   %65 = fpext float %64 to double
   %66 = fdiv double %63, %65
   %67 = fptrunc double %66 to float
-  %68 = fcmp ogt float %67, 0.000000e+00
+  %68 = fcmp ogt double %66, 0x3690000000000000
   %69 = load float, ptr %22, align 4
   %70 = fcmp ogt float %69, %67
   %or.cond.i = select i1 %68, i1 %70, i1 false

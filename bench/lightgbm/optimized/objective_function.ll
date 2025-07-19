@@ -1044,8 +1044,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %._c
   %80 = fptrunc double %79 to float
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 60
   store float %80, ptr %81, align 4, !tbaa !65
-  %82 = fcmp ogt float %80, 0.000000e+00
-  %83 = fcmp olt float %80, 1.000000e+00
+  %82 = fcmp ogt double %79, 0x3690000000000000
+  %83 = fcmp olt double %79, 0x3FEFFFFFF0000000
   %or.cond.i = and i1 %82, %83
   br i1 %or.cond.i, label %_ZN8LightGBM22RegressionQuantilelossC2ERKNS_6ConfigE.exit, label %84
 
@@ -13868,7 +13868,7 @@ define internal void @_ZNK8LightGBM22RegressionQuantileloss12GetGradientsEPKdPfS
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !147
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %42
+  br i1 %13, label %14, label %41
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -13908,16 +13908,15 @@ define internal void @_ZNK8LightGBM22RegressionQuantileloss12GetGradientsEPKdPfS
   %32 = load float, ptr %31, align 4, !tbaa !175
   %33 = fpext float %32 to double
   %34 = fsub double %30, %33
-  %35 = fptrunc double %34 to float
-  %36 = fcmp ult float %35, 0.000000e+00
-  %37 = load float, ptr %23, align 4, !tbaa !65
-  %38 = fneg float %37
-  %39 = fsub float 1.000000e+00, %37
-  %.sink = select i1 %36, float %38, float %39
-  %40 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
-  store float %.sink, ptr %40, align 4, !tbaa !175
-  %41 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
-  store float 1.000000e+00, ptr %41, align 4, !tbaa !175
+  %35 = fcmp ult double %34, 0xB690000000000000
+  %36 = load float, ptr %23, align 4, !tbaa !65
+  %37 = fneg float %36
+  %38 = fsub float 1.000000e+00, %36
+  %.sink = select i1 %35, float %37, float %38
+  %39 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  store float %.sink, ptr %39, align 4, !tbaa !175
+  %40 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  store float 1.000000e+00, ptr %40, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %27, %lftr.wideiv
@@ -13929,9 +13928,9 @@ define internal void @_ZNK8LightGBM22RegressionQuantileloss12GetGradientsEPKdPfS
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  br label %42
+  br label %41
 
-42:                                               ; preds = %._crit_edge, %6
+41:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -13944,7 +13943,7 @@ define internal void @_ZNK8LightGBM22RegressionQuantileloss12GetGradientsEPKdPfS
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !147
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %48
+  br i1 %13, label %14, label %47
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -13986,21 +13985,20 @@ define internal void @_ZNK8LightGBM22RegressionQuantileloss12GetGradientsEPKdPfS
   %34 = load float, ptr %33, align 4, !tbaa !175
   %35 = fpext float %34 to double
   %36 = fsub double %32, %35
-  %37 = fptrunc double %36 to float
-  %38 = fcmp ult float %37, 0.000000e+00
-  %39 = load float, ptr %23, align 4, !tbaa !65
-  %40 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
-  %41 = load float, ptr %40, align 4, !tbaa !175
-  %42 = fneg float %39
-  %43 = fsub float 1.000000e+00, %39
-  %.sink.v = select i1 %38, float %42, float %43
-  %.sink = fmul float %41, %.sink.v
-  %44 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
-  store float %.sink, ptr %44, align 4, !tbaa !175
-  %45 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
-  %46 = load float, ptr %45, align 4, !tbaa !175
-  %47 = getelementptr inbounds float, ptr %27, i64 %indvars.iv
-  store float %46, ptr %47, align 4, !tbaa !175
+  %37 = fcmp ult double %36, 0xB690000000000000
+  %38 = load float, ptr %23, align 4, !tbaa !65
+  %39 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  %40 = load float, ptr %39, align 4, !tbaa !175
+  %41 = fneg float %38
+  %42 = fsub float 1.000000e+00, %38
+  %.sink.v = select i1 %37, float %41, float %42
+  %.sink = fmul float %40, %.sink.v
+  %43 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  store float %.sink, ptr %43, align 4, !tbaa !175
+  %44 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  %45 = load float, ptr %44, align 4, !tbaa !175
+  %46 = getelementptr inbounds float, ptr %27, i64 %indvars.iv
+  store float %45, ptr %46, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %29, %lftr.wideiv
@@ -14012,9 +14010,9 @@ define internal void @_ZNK8LightGBM22RegressionQuantileloss12GetGradientsEPKdPfS
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
-  br label %48
+  br label %47
 
-48:                                               ; preds = %._crit_edge, %6
+47:                                               ; preds = %._crit_edge, %6
   ret void
 }
 

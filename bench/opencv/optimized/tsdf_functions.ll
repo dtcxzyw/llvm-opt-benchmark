@@ -2473,7 +2473,7 @@ _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i: ; pr
   %237 = fmul float %236, -1.280000e+02
   %238 = fptosi float %237 to i8
   %.not.i.i.i.i = icmp eq i8 %238, 0
-  %239 = fcmp olt float %236, 0.000000e+00
+  %239 = fcmp olt double %235, 0xB690000000000000
   %240 = select i1 %239, i8 1, i8 -1
   %241 = select i1 %.not.i.i.i.i, i8 %240, i8 %238
   %242 = load ptr, ptr %7, align 8, !tbaa !161
@@ -2995,7 +2995,7 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit.i.i.i:             ; preds = %229
   %271 = fmul float %270, -1.280000e+02
   %272 = fptosi float %271 to i8
   %.not.i.i.i.i = icmp eq i8 %272, 0
-  %273 = fcmp olt float %270, 0.000000e+00
+  %273 = fcmp olt double %269, 0xB690000000000000
   %274 = select i1 %273, i8 1, i8 -1
   %275 = select i1 %.not.i.i.i.i, i8 %274, i8 %272
   %276 = load ptr, ptr %7, align 8, !tbaa !182

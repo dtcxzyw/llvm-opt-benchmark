@@ -109480,7 +109480,7 @@ _ZNSt8_Rb_treeIffSt9_IdentityIfESt4lessIfESaIfEE10_M_insert_IRKfNS5_11_Alloc_nod
   br label %230
 
 .preheader193.i:                                  ; preds = %106, %54
-  %84 = fcmp olt float %56, 0x47DC363CC0000000
+  %84 = fcmp olt double %55, 0x47DC363CB0000000
   br i1 %84, label %.lr.ph207.i, label %.preheader.i
 
 .lr.ph205.i:                                      ; preds = %79, %106
@@ -109557,7 +109557,7 @@ _ZNSt8_Rb_treeIffSt9_IdentityIfESt4lessIfESaIfEE10_M_insert_IRKfNS5_11_Alloc_nod
   br label %230
 
 .preheader.i:                                     ; preds = %133, %.preheader193.i
-  %111 = fcmp olt float %56, 0x47B691CA40000000
+  %111 = fcmp olt double %55, 0x47B691CA30000000
   br i1 %111, label %.lr.ph209.i, label %._crit_edge.i
 
 .lr.ph207.i:                                      ; preds = %.preheader193.i, %133

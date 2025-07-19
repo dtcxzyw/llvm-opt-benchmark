@@ -32977,7 +32977,7 @@ define internal void @_ZN6open3d9pipelines9color_map30CreateVertexAndImageVisibi
   %102 = fptosi float %101 to i32
   %103 = call float @llvm.round.f32(float %99)
   %104 = fptosi float %103 to i32
-  %105 = fcmp olt float %100, 0.000000e+00
+  %105 = fcmp olt double %.sroa.5.16.vec.extract.i, 0xB690000000000000
   br i1 %105, label %192, label %106
 
 106:                                              ; preds = %38

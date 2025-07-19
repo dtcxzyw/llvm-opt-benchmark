@@ -1274,7 +1274,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %50 = fpext reassoc nsz arcp contract afn float %.1.i to double
   %51 = fmul reassoc nsz arcp contract afn double %50, 0x3FC5555555555555
   %52 = fptrunc reassoc nsz arcp contract afn double %51 to float
-  %53 = fcmp reassoc nsz arcp contract afn olt float %52, 0.000000e+00
+  %53 = fcmp reassoc nsz arcp contract afn olt double %51, 0xB690000000000000
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %49
@@ -1282,7 +1282,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   br label %rgb2hsl.exit
 
 56:                                               ; preds = %49
-  %57 = fcmp reassoc nsz arcp contract afn ogt float %52, 1.000000e+00
+  %57 = fcmp reassoc nsz arcp contract afn ogt double %51, 0x3FF0000010000000
   br i1 %57, label %58, label %rgb2hsl.exit
 
 58:                                               ; preds = %56
@@ -2222,7 +2222,7 @@ define internal void @colorpick_callback(ptr noundef %0, ptr noundef %1) #1 {
   %56 = fpext reassoc nsz arcp contract afn float %.1.i to double
   %57 = fmul reassoc nsz arcp contract afn double %56, 0x3FC5555555555555
   %58 = fptrunc reassoc nsz arcp contract afn double %57 to float
-  %59 = fcmp reassoc nsz arcp contract afn olt float %58, 0.000000e+00
+  %59 = fcmp reassoc nsz arcp contract afn olt double %57, 0xB690000000000000
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %55
@@ -2230,7 +2230,7 @@ define internal void @colorpick_callback(ptr noundef %0, ptr noundef %1) #1 {
   br label %rgb2hsl.exit
 
 62:                                               ; preds = %55
-  %63 = fcmp reassoc nsz arcp contract afn ogt float %58, 1.000000e+00
+  %63 = fcmp reassoc nsz arcp contract afn ogt double %57, 0x3FF0000010000000
   br i1 %63, label %64, label %rgb2hsl.exit
 
 64:                                               ; preds = %62

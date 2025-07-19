@@ -282,7 +282,7 @@ _ZL11done_shiftsP11t_shiftdata.exit73:            ; preds = %62, %_ZL11done_shif
   %121 = fpext float %.047.i to double
   %122 = fadd double %121, 0x401921FB54442D18
   %123 = fptrunc double %122 to float
-  %124 = fcmp olt float %123, 0.000000e+00
+  %124 = fcmp olt double %122, 0xB690000000000000
   br i1 %124, label %.lr.ph.i74, label %.preheader.i, !llvm.loop !23
 
 .lr.ph49.i:                                       ; preds = %.preheader.i, %.lr.ph49.i
@@ -290,7 +290,7 @@ _ZL11done_shiftsP11t_shiftdata.exit73:            ; preds = %62, %_ZL11done_shif
   %125 = fpext float %.04648.i to double
   %126 = fadd double %125, 0x401921FB54442D18
   %127 = fptrunc double %126 to float
-  %128 = fcmp olt float %127, 0.000000e+00
+  %128 = fcmp olt double %126, 0xB690000000000000
   br i1 %128, label %.lr.ph49.i, label %_ZL11interpolateffP11t_shiftdata.exit, !llvm.loop !24
 
 _ZL11interpolateffP11t_shiftdata.exit:            ; preds = %.lr.ph49.i, %.preheader.i
@@ -350,7 +350,7 @@ _ZL11interpolateffP11t_shiftdata.exit:            ; preds = %.lr.ph49.i, %.prehe
   %173 = fpext float %.047.i81 to double
   %174 = fadd double %173, 0x401921FB54442D18
   %175 = fptrunc double %174 to float
-  %176 = fcmp olt float %175, 0.000000e+00
+  %176 = fcmp olt double %174, 0xB690000000000000
   br i1 %176, label %.lr.ph.i80, label %.preheader.i75, !llvm.loop !23
 
 .lr.ph49.i78:                                     ; preds = %.preheader.i75, %.lr.ph49.i78
@@ -358,7 +358,7 @@ _ZL11interpolateffP11t_shiftdata.exit:            ; preds = %.lr.ph49.i, %.prehe
   %177 = fpext float %.04648.i79 to double
   %178 = fadd double %177, 0x401921FB54442D18
   %179 = fptrunc double %178 to float
-  %180 = fcmp olt float %179, 0.000000e+00
+  %180 = fcmp olt double %178, 0xB690000000000000
   br i1 %180, label %.lr.ph49.i78, label %_ZL11interpolateffP11t_shiftdata.exit82, !llvm.loop !24
 
 _ZL11interpolateffP11t_shiftdata.exit82:          ; preds = %.lr.ph49.i78, %.preheader.i75
@@ -418,7 +418,7 @@ _ZL11interpolateffP11t_shiftdata.exit82:          ; preds = %.lr.ph49.i78, %.pre
   %225 = fpext float %.047.i89 to double
   %226 = fadd double %225, 0x401921FB54442D18
   %227 = fptrunc double %226 to float
-  %228 = fcmp olt float %227, 0.000000e+00
+  %228 = fcmp olt double %226, 0xB690000000000000
   br i1 %228, label %.lr.ph.i88, label %.preheader.i83, !llvm.loop !23
 
 .lr.ph49.i86:                                     ; preds = %.preheader.i83, %.lr.ph49.i86
@@ -426,7 +426,7 @@ _ZL11interpolateffP11t_shiftdata.exit82:          ; preds = %.lr.ph49.i78, %.pre
   %229 = fpext float %.04648.i87 to double
   %230 = fadd double %229, 0x401921FB54442D18
   %231 = fptrunc double %230 to float
-  %232 = fcmp olt float %231, 0.000000e+00
+  %232 = fcmp olt double %230, 0xB690000000000000
   br i1 %232, label %.lr.ph49.i86, label %_ZL11interpolateffP11t_shiftdata.exit90, !llvm.loop !24
 
 _ZL11interpolateffP11t_shiftdata.exit90:          ; preds = %.lr.ph49.i86, %.preheader.i83
@@ -486,7 +486,7 @@ _ZL11interpolateffP11t_shiftdata.exit90:          ; preds = %.lr.ph49.i86, %.pre
   %277 = fpext float %.047.i97 to double
   %278 = fadd double %277, 0x401921FB54442D18
   %279 = fptrunc double %278 to float
-  %280 = fcmp olt float %279, 0.000000e+00
+  %280 = fcmp olt double %278, 0xB690000000000000
   br i1 %280, label %.lr.ph.i96, label %.preheader.i91, !llvm.loop !23
 
 .lr.ph49.i94:                                     ; preds = %.preheader.i91, %.lr.ph49.i94
@@ -494,7 +494,7 @@ _ZL11interpolateffP11t_shiftdata.exit90:          ; preds = %.lr.ph49.i86, %.pre
   %281 = fpext float %.04648.i95 to double
   %282 = fadd double %281, 0x401921FB54442D18
   %283 = fptrunc double %282 to float
-  %284 = fcmp olt float %283, 0.000000e+00
+  %284 = fcmp olt double %282, 0xB690000000000000
   br i1 %284, label %.lr.ph49.i94, label %_ZL11interpolateffP11t_shiftdata.exit98, !llvm.loop !24
 
 _ZL11interpolateffP11t_shiftdata.exit98:          ; preds = %.lr.ph49.i94, %.preheader.i91
@@ -966,7 +966,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.._crit_edge_crit_edge: ; preds = %_ZL13g
   %170 = getelementptr inbounds nuw float, ptr %142, i64 %indvars.iv144.i
   store float %169, ptr %170, align 4, !tbaa !22
   %171 = icmp eq i64 %indvars.iv144.i, 0
-  %172 = fcmp olt float %166, 0.000000e+00
+  %172 = fcmp olt double %165, 0xB690000000000000
   %173 = load i32, ptr %21, align 8, !tbaa !4
   %174 = load i32, ptr %51, align 4, !tbaa !21
   %175 = load ptr, ptr %60, align 8, !tbaa !13
@@ -997,7 +997,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.._crit_edge_crit_edge: ; preds = %_ZL13g
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %187
   %.0.lcssa.i.i = phi float [ %166, %187 ], [ %191, %.lr.ph.i.i ]
-  %188 = fcmp olt float %181, 0.000000e+00
+  %188 = fcmp olt double %180, 0xB690000000000000
   br i1 %188, label %.lr.ph49.i.i, label %_ZL11interpolateffP11t_shiftdata.exit.i
 
 .lr.ph.i.i:                                       ; preds = %187, %.lr.ph.i.i
@@ -1005,7 +1005,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.._crit_edge_crit_edge: ; preds = %_ZL13g
   %189 = fpext float %.047.i.i to double
   %190 = fadd double %189, 0x401921FB54442D18
   %191 = fptrunc double %190 to float
-  %192 = fcmp olt float %191, 0.000000e+00
+  %192 = fcmp olt double %190, 0xB690000000000000
   br i1 %192, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !23
 
 .lr.ph49.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph49.i.i
@@ -1013,7 +1013,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.._crit_edge_crit_edge: ; preds = %_ZL13g
   %193 = fpext float %.04648.i.i to double
   %194 = fadd double %193, 0x401921FB54442D18
   %195 = fptrunc double %194 to float
-  %196 = fcmp olt float %195, 0.000000e+00
+  %196 = fcmp olt double %194, 0xB690000000000000
   br i1 %196, label %.lr.ph49.i.i, label %_ZL11interpolateffP11t_shiftdata.exit.i, !llvm.loop !24
 
 _ZL11interpolateffP11t_shiftdata.exit.i:          ; preds = %.lr.ph49.i.i, %.preheader.i.i

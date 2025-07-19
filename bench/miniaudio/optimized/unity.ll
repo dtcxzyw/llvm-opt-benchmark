@@ -12689,20 +12689,20 @@ define range(i32 -2, 1) i32 @ma_device_set_master_volume_db(ptr noundef %0, floa
   %5 = fdiv float %1, 2.000000e+01
   %6 = fpext float %5 to double
   %7 = tail call double @pow(double noundef 1.000000e+01, double noundef %6) #66, !tbaa !3
-  %8 = fptrunc double %7 to float
-  %9 = icmp eq ptr %0, null
-  %10 = fcmp olt float %8, 0.000000e+00
-  %or.cond.i = or i1 %9, %10
-  br i1 %or.cond.i, label %ma_device_set_master_volume.exit, label %11
+  %8 = icmp eq ptr %0, null
+  %9 = fcmp olt double %7, 0xB690000000000000
+  %or.cond.i = or i1 %8, %9
+  br i1 %or.cond.i, label %ma_device_set_master_volume.exit, label %10
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
+  %11 = fptrunc double %7 to float
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  %13 = bitcast float %8 to i32
+  %13 = bitcast float %11 to i32
   store atomic volatile i32 %13, ptr %12 seq_cst, align 4
   br label %ma_device_set_master_volume.exit
 
-ma_device_set_master_volume.exit:                 ; preds = %11, %4, %2
-  %.0 = phi i32 [ -2, %2 ], [ 0, %11 ], [ -2, %4 ]
+ma_device_set_master_volume.exit:                 ; preds = %10, %4, %2
+  %.0 = phi i32 [ -2, %2 ], [ 0, %10 ], [ -2, %4 ]
   ret i32 %.0
 }
 
@@ -67546,11 +67546,11 @@ define range(i32 -3, 1) i32 @ma_waveform_read_pcm_frames(ptr noundef captures(ad
 
 .lr.ph78.i:                                       ; preds = %69
   %77 = fmul double %71, %73
-  %.fr128 = freeze double %77
-  %78 = fptrunc double %.fr128 to float
+  %.fr125 = freeze double %77
+  %78 = fptrunc double %.fr125 to float
   %79 = mul i64 %.280.i, %35
   %80 = getelementptr i8, ptr %1, i64 %79
-  %81 = fcmp olt float %78, -1.000000e+00
+  %81 = fcmp olt double %.fr125, 0xBFF0000010000000
   %82 = fpext float %78 to double
   %83 = fcmp ogt double %82, 1.000000e+00
   %84 = select i1 %83, double 1.000000e+00, double %82
@@ -67830,11 +67830,11 @@ ma_pcm_convert.exit.i:                            ; preds = %121, %ma_pcm_conver
   %213 = select i1 %211, double %210, double %212
   %214 = tail call double @llvm.fmuladd.f64(double %213, double 2.000000e+00, double -1.000000e+00)
   %215 = fmul double %203, %214
-  %.fr126 = freeze double %215
-  %216 = fptrunc double %.fr126 to float
+  %.fr = freeze double %215
+  %216 = fptrunc double %.fr to float
   %217 = mul i64 %.277.i, %192
   %218 = getelementptr i8, ptr %1, i64 %217
-  %219 = fcmp olt float %216, -1.000000e+00
+  %219 = fcmp olt double %.fr, 0xBFF0000010000000
   %220 = fpext float %216 to double
   %221 = fcmp ogt double %220, 1.000000e+00
   %222 = select i1 %221, double 1.000000e+00, double %220
@@ -68101,11 +68101,11 @@ ma_pcm_convert.exit.i44:                          ; preds = %259, %ma_pcm_conver
   %339 = fadd double %338, -5.000000e-01
   %340 = fmul double %339, 2.000000e+00
   %341 = fmul double %333, %340
-  %.fr = freeze double %341
-  %342 = fptrunc double %.fr to float
+  %.fr124 = freeze double %341
+  %342 = fptrunc double %.fr124 to float
   %343 = mul i64 %.277.i84, %322
   %344 = getelementptr i8, ptr %1, i64 %343
-  %345 = fcmp olt float %342, -1.000000e+00
+  %345 = fcmp olt double %.fr124, 0xBFF0000010000000
   %346 = fpext float %342 to double
   %347 = fcmp ogt double %346, 1.000000e+00
   %348 = select i1 %347, double 1.000000e+00, double %346
@@ -68402,7 +68402,7 @@ define internal fastcc void @ma_waveform_read_pcm_frames__square(ptr noundef non
 .lr.ph:                                           ; preds = %68
   %80 = mul i64 %.281, %59
   %81 = getelementptr i8, ptr %2, i64 %80
-  %82 = fcmp olt float %77, -1.000000e+00
+  %82 = fcmp olt double %.0.i61, 0xBFF0000010000000
   %83 = fpext float %77 to double
   %84 = fcmp ogt double %83, 1.000000e+00
   %85 = select i1 %84, double 1.000000e+00, double %83

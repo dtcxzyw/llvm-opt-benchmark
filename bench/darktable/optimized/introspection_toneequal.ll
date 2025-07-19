@@ -5501,14 +5501,14 @@ define internal range(i32 0, 2) i32 @area_enter_leave_notify(ptr readnone captur
   store i32 0, ptr %13, align 8, !tbaa !475
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 2968
   store i32 -1, ptr %35, align 8, !tbaa !389
-  %36 = fcmp reassoc nsz arcp contract afn ogt float %28, 0.000000e+00
+  %36 = fcmp reassoc nsz arcp contract afn ogt double %27, 0x3690000000000000
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %19
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 2776
   %39 = load float, ptr %38, align 8, !tbaa !442
   %40 = fcmp reassoc nsz arcp contract afn ogt float %39, %28
-  %41 = fcmp reassoc nsz arcp contract afn ogt float %33, 0.000000e+00
+  %41 = fcmp reassoc nsz arcp contract afn ogt double %32, 0x3690000000000000
   %or.cond = select i1 %40, i1 %41, i1 false
   br i1 %or.cond, label %42, label %47
 
@@ -5608,14 +5608,14 @@ define internal range(i32 0, 2) i32 @area_motion_notify(ptr readnone captures(no
   %58 = fptrunc reassoc nsz arcp contract afn double %57 to float
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 2964
   store float %58, ptr %59, align 4, !tbaa !479
-  %60 = fcmp reassoc nsz arcp contract afn ogt float %54, 0.000000e+00
+  %60 = fcmp reassoc nsz arcp contract afn ogt double %53, 0x3690000000000000
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %45
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 2776
   %63 = load float, ptr %62, align 8, !tbaa !442
   %64 = fcmp reassoc nsz arcp contract afn ogt float %63, %54
-  %65 = fcmp reassoc nsz arcp contract afn ogt float %58, 0.000000e+00
+  %65 = fcmp reassoc nsz arcp contract afn ogt double %57, 0x3690000000000000
   %or.cond = select i1 %64, i1 %65, i1 false
   br i1 %or.cond, label %66, label %71
 

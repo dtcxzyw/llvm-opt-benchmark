@@ -299,11 +299,11 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %_ZNKSt7__cxx1112bas
   %141 = sitofp i32 %.1.i to double
   %142 = fmul double %141, 0x3F81072C483AF26D
   %143 = fdiv double %140, %142
-  %144 = fptrunc double %143 to float
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #21
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #21
-  %145 = fcmp ogt float %144, 0.000000e+00
+  %144 = fptrunc double %143 to float
+  %145 = fcmp ogt double %143, 0x3690000000000000
   br i1 %145, label %354, label %.loopexit.i
 
 .lr.ph:                                           ; preds = %49, %351

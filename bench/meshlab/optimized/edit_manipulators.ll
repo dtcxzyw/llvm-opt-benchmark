@@ -1312,8 +1312,8 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %226
   %255 = tail call double @llvm.fmuladd.f64(double %254, double 3.600000e+02, double %252)
   %256 = fptrunc double %255 to float
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %258 = tail call float @llvm.fabs.f32(float %256)
-  %or.cond = fcmp ogt float %258, 3.600000e+02
+  %258 = tail call double @llvm.fabs.f64(double %255)
+  %or.cond = fcmp ogt double %258, 0x4076800010000000
   %spec.store.select = select i1 %or.cond, float 3.600000e+02, float %256
   store float %spec.store.select, ptr %257, align 4
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 185
@@ -2898,8 +2898,8 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit491:             ; preds = %946
   %977 = tail call double @llvm.fmuladd.f64(double %976, double 3.600000e+02, double %974)
   %978 = fptrunc double %977 to float
   %979 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %980 = tail call float @llvm.fabs.f32(float %978)
-  %or.cond171 = fcmp ogt float %980, 3.600000e+02
+  %980 = tail call double @llvm.fabs.f64(double %977)
+  %or.cond171 = fcmp ogt double %980, 0x4076800010000000
   %spec.store.select172 = select i1 %or.cond171, float 3.600000e+02, float %978
   store float %spec.store.select172, ptr %979, align 4
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 185
@@ -12042,7 +12042,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 declare float @llvm.sqrt.f32(float) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #22
+declare double @llvm.fabs.f64(double) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4354,7 +4354,7 @@ define internal void @tablet_tool_handle_rotation(ptr noundef captures(none) ini
   %6 = bitcast i64 %5 to double
   %7 = fadd double %6, 0xC2B8000000000000
   %8 = fptrunc double %7 to float
-  %9 = fcmp ogt float %8, 1.800000e+02
+  %9 = fcmp ogt double %7, 0x4066800010000000
   %10 = fadd float %8, -3.600000e+02
   %11 = select i1 %9, float %10, float %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 68

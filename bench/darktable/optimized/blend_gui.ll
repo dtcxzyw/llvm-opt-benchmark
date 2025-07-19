@@ -6399,7 +6399,7 @@ define internal float @log10_scale_callback(ptr readnone captures(none) %0, floa
   %.inv = fcmp reassoc nsz arcp contract afn oge double %19, 1.000000e+00
   %20 = select i1 %.inv, double 1.000000e+00, double %19
   %21 = fptrunc double %20 to float
-  %22 = fcmp reassoc nsz arcp contract afn ugt float %21, 0x3F1A36E2E0000000
+  %22 = fcmp reassoc nsz arcp contract afn ugt double %20, 0x3F1A36E2EFFFFFFF
   %.1 = select nsz i1 %22, float %21, float 0.000000e+00
   %23 = fcmp reassoc nsz arcp contract afn ult float %.1, 0x3FEFFF2E40000000
   br i1 %23, label %25, label %24
@@ -6445,7 +6445,7 @@ define internal float @magnifier_scale_callback(ptr readnone captures(none) %0, 
   %18 = fmul reassoc nsz arcp contract afn double %17, %16
   %19 = fadd reassoc nsz arcp contract afn double %18, 5.000000e-01
   %20 = fptrunc reassoc nsz arcp contract afn double %19 to float
-  %21 = fcmp reassoc nsz arcp contract afn ugt float %20, 0x3F1A36E2E0000000
+  %21 = fcmp reassoc nsz arcp contract afn ugt double %19, 0x3F1A36E2EFFFFFFF
   %.0 = select nsz i1 %21, float %20, float 0.000000e+00
   %22 = fcmp reassoc nsz arcp contract afn ult float %.0, 0x3FEFFF2E40000000
   br i1 %22, label %40, label %23
@@ -6466,7 +6466,7 @@ define internal float @magnifier_scale_callback(ptr readnone captures(none) %0, 
   %34 = fmul reassoc nsz arcp contract afn double %33, 0x3FC5555560000000
   %35 = fadd reassoc nsz arcp contract afn double %34, 5.000000e-01
   %36 = fptrunc reassoc nsz arcp contract afn double %35 to float
-  %37 = fcmp reassoc nsz arcp contract afn ugt float %36, 0x3F1A36E2E0000000
+  %37 = fcmp reassoc nsz arcp contract afn ugt double %35, 0x3F1A36E2EFFFFFFF
   %.2 = select nsz i1 %37, float %36, float 0.000000e+00
   %38 = fcmp reassoc nsz arcp contract afn ult float %.2, 0x3FEFFF2E40000000
   br i1 %38, label %40, label %39

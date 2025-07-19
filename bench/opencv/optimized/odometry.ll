@@ -16144,7 +16144,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %131
   %266 = load double, ptr %207, align 8, !tbaa !154
   %267 = fadd double %266, %265
   %268 = fptrunc double %267 to float
-  %269 = fcmp ogt float %268, 0.000000e+00
+  %269 = fcmp ogt double %267, 0x3690000000000000
   br i1 %269, label %270, label %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit.thread
 
 270:                                              ; preds = %259

@@ -2308,7 +2308,7 @@ if.then13:                                        ; preds = %if.then
 
 if.end20:                                         ; preds = %if.then13, %if.end.thread, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %tobool27.not = phi i1 [ false, %if.then13 ], [ true, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ true, %if.end.thread ]
-  %cmp21 = fcmp nsz ogt float %conv2, 0.000000e+00
+  %cmp21 = fcmp nsz ogt double %div, 0x3690000000000000
   br i1 %cmp21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20

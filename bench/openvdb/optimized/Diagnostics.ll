@@ -110052,7 +110052,6 @@ entry:
   %add64.i366 = fadd double %div38.i354, %add63.i365
   %mul65.i367 = fmul double %add64.i366, 6.000000e+00
   %div66.i368 = fdiv double %conv62.i364, %mul65.i367
-  %conv67.i369 = fptrunc double %div66.i368 to float
   %mInvDx2 = getelementptr inbounds nuw i8, ptr %this, i64 148
   %117 = load float, ptr %mInvDx2, align 4
   %118 = load float, ptr %isoValue, align 4
@@ -110080,7 +110079,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i18.i = fcmp olt double %conv111, 0.000000e+00
   %.sroa.speculated87.i = select i1 %cmp.i.i18.i, double 0.000000e+00, double %conv111
   %mul.i20.i = fmul double %.sroa.speculated87.i, %.sroa.speculated87.i
-  %cmp.i.i21.i = fcmp ogt float %conv67.i369, 0.000000e+00
+  %cmp.i.i21.i = fcmp ogt double %div66.i368, 0x3690000000000000
   br label %_ZN7openvdb5v11_04math16GodunovsNormSqrdIdEET_bS3_S3_S3_S3_S3_S3_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -110104,13 +110103,14 @@ if.else.i:                                        ; preds = %entry
   %cmp.i.i42.i = fcmp ogt double %conv111, 0.000000e+00
   %.sroa.speculated69.i = select i1 %cmp.i.i42.i, double 0.000000e+00, double %conv111
   %mul.i44.i = fmul double %.sroa.speculated69.i, %.sroa.speculated69.i
-  %cmp.i.i45.i = fcmp olt float %conv67.i369, 0.000000e+00
+  %cmp.i.i45.i = fcmp olt double %div66.i368, 0xB690000000000000
   br label %_ZN7openvdb5v11_04math16GodunovsNormSqrdIdEET_bS3_S3_S3_S3_S3_S3_.exit
 
 _ZN7openvdb5v11_04math16GodunovsNormSqrdIdEET_bS3_S3_S3_S3_S3_S3_.exit: ; preds = %if.then.i, %if.else.i
   %cmp.i.i45.sink.i = phi i1 [ %cmp.i.i45.i, %if.else.i ], [ %cmp.i.i21.i, %if.then.i ]
   %mul.i44.sink106.i = phi double [ %mul.i44.i, %if.else.i ], [ %mul.i20.i, %if.then.i ]
   %add35.sink.i = phi double [ %add35.i, %if.else.i ], [ %add.i374, %if.then.i ]
+  %conv67.i369 = fptrunc double %div66.i368 to float
   %conv134 = fpext float %conv67.i369 to double
   %conv135 = fpext float %117 to double
   %.sroa.speculated66.i = select i1 %cmp.i.i45.sink.i, double 0.000000e+00, double %conv134

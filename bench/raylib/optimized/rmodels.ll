@@ -28848,7 +28848,7 @@ par__simplex_noise_free.exit:                     ; preds = %._crit_edge, %47
   %72 = fmul double %63, %54
   %73 = fptrunc double %72 to float
   store float %73, ptr %52, align 4
-  %74 = fcmp olt float %71, 0.000000e+00
+  %74 = fcmp olt double %70, 0xB690000000000000
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %.lr.ph
@@ -49220,7 +49220,7 @@ define void @GetRayCollisionBox(ptr dead_on_unwind noalias writable sret(%struct
   %79 = tail call double @llvm.maxnum.f64(double %71, double %72)
   %80 = tail call double @llvm.minnum.f64(double %78, double %79)
   %81 = fptrunc double %80 to float
-  %82 = fcmp uge float %81, 0.000000e+00
+  %82 = fcmp uge double %80, 0xB690000000000000
   %83 = fcmp ule float %75, %81
   %.not111 = and i1 %82, %83
   %84 = zext i1 %.not111 to i8

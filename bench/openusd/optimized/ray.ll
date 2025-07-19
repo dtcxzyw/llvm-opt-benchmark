@@ -559,12 +559,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit: 
 107:                                              ; preds = %103
   %108 = fadd double %spec.store.select, %spec.store.select6
   %109 = fsub double 1.000000e+00, %108
-  %110 = fptrunc double %109 to float
-  %111 = fcmp olt float %110, 0.000000e+00
-  %112 = fpext float %110 to double
+  %110 = fcmp olt double %109, 0xB690000000000000
+  %111 = fptrunc double %109 to float
+  %112 = fpext float %111 to double
   %113 = fcmp ogt double %112, -1.000000e-10
-  %or.cond78 = and i1 %111, %113
-  %.0 = select i1 %or.cond78, float 0.000000e+00, float %110
+  %or.cond78 = and i1 %110, %113
+  %.0 = select i1 %or.cond78, float 0.000000e+00, float %111
   %114 = fpext float %.0 to double
   %115 = fcmp olt float %.0, 0.000000e+00
   br i1 %115, label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfPlaneEPdPb.exit.thread, label %116

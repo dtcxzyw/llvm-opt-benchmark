@@ -3977,32 +3977,32 @@ define internal fastcc { double, double } @_ZN5ZXing10DataMatrixL15CorrectTopRig
   %62 = load i32, ptr %0, align 8, !tbaa !25
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !30
-  %65 = fcmp oge float %33, 0.000000e+00
+  %65 = fcmp oge double %35, 0xB690000000000000
   %66 = sitofp i32 %62 to float
   %67 = fcmp olt float %33, %66
-  %or.cond.i = and i1 %65, %67
-  %68 = fcmp ogt float %34, 0.000000e+00
-  %or.cond = select i1 %or.cond.i, i1 %68, i1 false
+  %or.cond.i = and i1 %67, %65
+  %68 = fcmp ogt double %36, 0x3690000000000000
+  %or.cond2.i = select i1 %or.cond.i, i1 %68, i1 false
   %69 = sitofp i32 %64 to float
   %70 = fcmp olt float %34, %69
-  %or.cond7 = select i1 %or.cond, i1 %70, i1 false
-  %71 = fcmp oge float %57, 0.000000e+00
+  %or.cond = select i1 %or.cond2.i, i1 %70, i1 false
+  %71 = fcmp oge double %59, 0xB690000000000000
   %72 = fcmp olt float %57, %66
-  %or.cond.i85 = and i1 %71, %72
-  %73 = fcmp ogt float %58, 0.000000e+00
-  %or.cond11 = select i1 %or.cond.i85, i1 %73, i1 false
+  %or.cond.i86 = and i1 %72, %71
+  %73 = fcmp ogt double %60, 0x3690000000000000
+  %or.cond2.i87 = select i1 %or.cond.i86, i1 %73, i1 false
   %74 = fcmp olt float %58, %69
-  %or.cond13 = select i1 %or.cond11, i1 %74, i1 false
-  br i1 %or.cond7, label %76, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread
+  %or.cond10 = select i1 %or.cond2.i87, i1 %74, i1 false
+  br i1 %or.cond, label %76, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread
 
 _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread: ; preds = %4
-  br i1 %or.cond13, label %75, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread
+  br i1 %or.cond10, label %75, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit85.thread
 
 75:                                               ; preds = %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread
-  br label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread
+  br label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit85.thread
 
 76:                                               ; preds = %4
-  br i1 %or.cond13, label %77, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread
+  br i1 %or.cond10, label %77, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit85.thread
 
 77:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #23
@@ -4033,12 +4033,12 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread: ; preds 
   %.val = load double, ptr %6, align 8
   %.val73 = load double, ptr %5, align 8
   %.sroa.064.0.copyload67 = select i1 %.not, double %.val, double %.val73
-  %.val14 = load double, ptr %61, align 8
-  %.val15 = load double, ptr %37, align 8
-  %.sroa.5.0.copyload71 = select i1 %.not, double %.val14, double %.val15
-  br label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread
+  %.val11 = load double, ptr %61, align 8
+  %.val12 = load double, ptr %37, align 8
+  %.sroa.5.0.copyload71 = select i1 %.not, double %.val11, double %.val12
+  br label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit85.thread
 
-_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread: ; preds = %76, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread, %77, %75
+_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit85.thread: ; preds = %76, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread, %77, %75
   %.sroa.064.0 = phi double [ %.sroa.064.0.copyload67, %77 ], [ %59, %75 ], [ %.0.val1, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread ], [ %35, %76 ]
   %.sroa.5.0 = phi double [ %.sroa.5.0.copyload71, %77 ], [ %60, %75 ], [ %.8.val3, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread ], [ %36, %76 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
@@ -7071,30 +7071,30 @@ _ZNSt3mapIPKN5ZXing11ResultPointEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit
   %394 = load i32, ptr %.reload412, align 8, !tbaa !25, !noalias !146
   %395 = getelementptr inbounds nuw i8, ptr %.reload412, i64 4
   %396 = load i32, ptr %395, align 4, !tbaa !30, !noalias !146
-  %397 = fcmp oge float %364, 0.000000e+00
+  %397 = fcmp oge double %366, 0xB690000000000000
   %398 = sitofp i32 %394 to float
   %399 = fcmp olt float %364, %398
-  %or.cond.i.i.i = and i1 %397, %399
-  %400 = fcmp ogt float %365, 0.000000e+00
-  %or.cond.i113.i = select i1 %or.cond.i.i.i, i1 %400, i1 false
+  %or.cond.i.i.i = and i1 %399, %397
+  %400 = fcmp ogt double %367, 0x3690000000000000
+  %or.cond2.i.i.i = select i1 %or.cond.i.i.i, i1 %400, i1 false
   %401 = sitofp i32 %396 to float
   %402 = fcmp olt float %365, %401
-  %or.cond6.i.i = select i1 %or.cond.i113.i, i1 %402, i1 false
-  %403 = fcmp oge float %389, 0.000000e+00
+  %or.cond.i113.i = select i1 %or.cond2.i.i.i, i1 %402, i1 false
+  %403 = fcmp oge double %391, 0xB690000000000000
   %404 = fcmp olt float %389, %398
-  %or.cond.i81.i.i = and i1 %403, %404
-  %405 = fcmp ogt float %390, 0.000000e+00
-  %or.cond10.i.i = select i1 %or.cond.i81.i.i, i1 %405, i1 false
+  %or.cond.i82.i.i = and i1 %404, %403
+  %405 = fcmp ogt double %392, 0x3690000000000000
+  %or.cond2.i83.i.i = select i1 %or.cond.i82.i.i, i1 %405, i1 false
   %406 = fcmp olt float %390, %401
-  %or.cond12.i.i = select i1 %or.cond10.i.i, i1 %406, i1 false
-  br i1 %or.cond6.i.i, label %407, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i
+  %or.cond9.i.i = select i1 %or.cond2.i83.i.i, i1 %406, i1 false
+  br i1 %or.cond.i113.i, label %407, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i
 
 _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i: ; preds = %339
-  %spec.select = select i1 %or.cond12.i.i, ptr %.reload.addr452, ptr %.056.i
+  %spec.select = select i1 %or.cond9.i.i, ptr %.reload.addr452, ptr %.056.i
   br label %.thread.i
 
 407:                                              ; preds = %339
-  br i1 %or.cond12.i.i, label %408, label %.thread.i
+  br i1 %or.cond9.i.i, label %408, label %.thread.i
 
 408:                                              ; preds = %407
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #23, !noalias !146

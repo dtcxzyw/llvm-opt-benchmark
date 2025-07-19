@@ -9807,7 +9807,7 @@ define internal fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_
   %7 = fmul double %6, 0x3F50000000000000
   %8 = fptrunc double %7 to float
   store float %8, ptr %3, align 4, !tbaa !67
-  %9 = fcmp olt float %8, 1.024000e+03
+  %9 = fcmp olt double %7, 0x408FFFFFF0000000
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %2

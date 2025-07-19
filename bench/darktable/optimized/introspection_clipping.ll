@@ -5873,7 +5873,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %292 = fpext reassoc nsz arcp contract afn float %291 to double
   %293 = fmul reassoc nsz arcp contract afn double %292, 0x3FD45F306DC9C883
   %294 = fptrunc reassoc nsz arcp contract afn double %293 to float
-  %295 = fcmp reassoc nsz arcp contract afn ogt float %294, 4.500000e+01
+  %295 = fcmp reassoc nsz arcp contract afn ogt double %293, 0x4046800010000000
   %296 = fadd reassoc nsz arcp contract afn float %294, -9.000000e+01
   %.0494 = select nsz i1 %295, float %296, float %294
   %297 = fcmp reassoc nsz arcp contract afn olt float %.0494, -4.500000e+01
@@ -8942,7 +8942,7 @@ define range(i32 0, 2) i32 @button_released(ptr noundef readonly captures(none) 
   %56 = fpext reassoc nsz arcp contract afn float %.036 to double
   %57 = fmul reassoc nsz arcp contract afn double %56, 0x404CA5DC1A63C1F8
   %58 = fptrunc reassoc nsz arcp contract afn double %57 to float
-  %59 = fcmp reassoc nsz arcp contract afn olt float %58, -1.800000e+02
+  %59 = fcmp reassoc nsz arcp contract afn olt double %57, 0xC066800010000000
   %60 = fadd reassoc nsz arcp contract afn float %58, 3.600000e+02
   %.0 = select nsz i1 %59, float %60, float %58
   %61 = fcmp reassoc nsz arcp contract afn ogt float %.0, 1.800000e+02

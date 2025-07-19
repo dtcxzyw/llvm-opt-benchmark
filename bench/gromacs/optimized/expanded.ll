@@ -2688,9 +2688,9 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i: 
   %1151 = getelementptr inbounds nuw double, ptr %801, i64 %.pre-phi.i
   %1152 = load double, ptr %1151, align 8, !tbaa !56
   %1153 = fdiv double %.pre.i, %1152
-  %1154 = fptrunc double %1153 to float
-  %1155 = fcmp olt float %1154, 1.000000e+00
-  %.3207.i = select i1 %1155, float %1154, float 1.000000e+00
+  %1154 = fcmp olt double %1153, 0x3FEFFFFFF0000000
+  %1155 = fptrunc double %1153 to float
+  %.3207.i = select i1 %1154, float %1155, float 1.000000e+00
   %1156 = icmp ugt i32 %1131, 1
   br i1 %1156, label %1158, label %._crit_edge.i.i.i.i265.i
 

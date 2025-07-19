@@ -458,7 +458,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   %68 = fpext float %67 to double
   %69 = tail call double @llvm.fmuladd.f64(double %68, double 6.000000e+01, double 0.000000e+00)
   %70 = fptrunc double %69 to float
-  %71 = fcmp olt float %70, 0.000000e+00
+  %71 = fcmp olt double %69, 0xB690000000000000
   br i1 %71, label %72, label %_ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit
 
 72:                                               ; preds = %66
@@ -563,7 +563,7 @@ define weak_odr dso_local void @_ZN3igl10rgb_to_hsvIN5Eigen6MatrixIfLi64ELi3ELi1
   %51 = fpext float %50 to double
   %52 = tail call double @llvm.fmuladd.f64(double %51, double 6.000000e+01, double 0.000000e+00)
   %53 = fptrunc double %52 to float
-  %54 = fcmp olt float %53, 0.000000e+00
+  %54 = fcmp olt double %52, 0xB690000000000000
   br i1 %54, label %55, label %_ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit
 
 55:                                               ; preds = %49

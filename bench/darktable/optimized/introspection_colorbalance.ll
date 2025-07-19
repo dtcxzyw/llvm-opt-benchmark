@@ -5694,7 +5694,7 @@ define internal fastcc void @set_HSL_sliders(ptr noundef %0, ptr noundef %1, ptr
   %49 = fpext reassoc nsz arcp contract afn float %.1.i to double
   %50 = fmul reassoc nsz arcp contract afn double %49, 0x3FC5555555555555
   %51 = fptrunc reassoc nsz arcp contract afn double %50 to float
-  %52 = fcmp reassoc nsz arcp contract afn olt float %51, 0.000000e+00
+  %52 = fcmp reassoc nsz arcp contract afn olt double %50, 0xB690000000000000
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %48
@@ -5702,7 +5702,7 @@ define internal fastcc void @set_HSL_sliders(ptr noundef %0, ptr noundef %1, ptr
   br label %rgb2hsl.exit
 
 55:                                               ; preds = %48
-  %56 = fcmp reassoc nsz arcp contract afn ogt float %51, 1.000000e+00
+  %56 = fcmp reassoc nsz arcp contract afn ogt double %50, 0x3FF0000010000000
   br i1 %56, label %57, label %rgb2hsl.exit
 
 57:                                               ; preds = %55

@@ -450,14 +450,14 @@ for.cond.cleanup4:                                ; preds = %for.cond.cleanup8
   %conv21 = fpext float %storemerge638 to double
   %add22 = fadd nsz double %conv21, 3.124000e+00
   %conv23 = fptrunc double %add22 to float
-  %cmp = fcmp nsz olt float %conv23, 9.000000e+00
+  %cmp = fcmp nsz olt double %add22, 0x4021FFFFF0000000
   br i1 %cmp, label %for.cond2.preheader, label %for.cond.cleanup, !llvm.loop !28
 
 for.cond.cleanup8:                                ; preds = %invoke.cont
   %conv16 = fpext float %storemerge281634 to double
   %add17 = fadd nsz double %conv16, 3.123000e+00
   %conv18 = fptrunc double %add17 to float
-  %cmp3 = fcmp nsz olt float %conv18, 9.000000e+00
+  %cmp3 = fcmp nsz olt double %add17, 0x4021FFFFF0000000
   br i1 %cmp3, label %for.cond6.preheader, label %for.cond.cleanup4, !llvm.loop !29
 
 for.body9:                                        ; preds = %invoke.cont, %for.cond6.preheader
@@ -556,7 +556,7 @@ invoke.cont:                                      ; preds = %.noexc298, %if.then
   %conv = fpext float %storemerge282630 to double
   %add = fadd nsz double %conv, 3.122000e+00
   %conv14 = fptrunc double %add to float
-  %cmp7 = fcmp nsz olt float %conv14, 9.000000e+00
+  %cmp7 = fcmp nsz olt double %add, 0x4021FFFFF0000000
   br i1 %cmp7, label %for.body9, label %for.cond.cleanup8, !llvm.loop !38
 
 lpad.loopexit:                                    ; preds = %_ZNKSt6vectorIN3irr4core6line3dIfEESaIS3_EE12_M_check_lenEmPKc.exit.i466

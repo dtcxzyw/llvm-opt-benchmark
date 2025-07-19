@@ -242,11 +242,11 @@ init_grays.exit:                                  ; preds = %51
   %115 = fadd float %114, 3.000000e+00
   %116 = fpext float %100 to double
   %117 = tail call double @pow(double noundef %116, double noundef 0x3FD5555555555555) #11
-  %118 = fptrunc double %117 to float
-  %119 = fcmp olt float %118, 0x3FCA7B7840000000
-  %120 = tail call float @llvm.fmuladd.f32(float %118, float 1.160000e+02, float -1.600000e+01)
+  %118 = fcmp olt double %117, 0x3FCA7B7830000000
+  %119 = fptrunc double %117 to float
+  %120 = tail call float @llvm.fmuladd.f32(float %119, float 1.160000e+02, float -1.600000e+01)
   %121 = fmul float %100, 0x408C3A6660000000
-  %storemerge.i.i.i = select i1 %119, float %121, float %120
+  %storemerge.i.i.i = select i1 %118, float %121, float %120
   store float %storemerge.i.i.i, ptr %85, align 4
   %122 = fcmp une float %115, 0.000000e+00
   br i1 %122, label %123, label %133
@@ -581,11 +581,11 @@ init_primaries.exit:                              ; preds = %171
   %295 = fadd float %294, 3.000000e+00
   %296 = fpext float %279 to double
   %297 = tail call double @pow(double noundef %296, double noundef 0x3FD5555555555555) #11
-  %298 = fptrunc double %297 to float
-  %299 = fcmp olt float %298, 0x3FCA7B7840000000
-  %300 = tail call float @llvm.fmuladd.f32(float %298, float 1.160000e+02, float -1.600000e+01)
+  %298 = fcmp olt double %297, 0x3FCA7B7830000000
+  %299 = fptrunc double %297 to float
+  %300 = tail call float @llvm.fmuladd.f32(float %299, float 1.160000e+02, float -1.600000e+01)
   %301 = fmul float %279, 0x408C3A6660000000
-  %storemerge.i.us.us.i = select i1 %299, float %301, float %300
+  %storemerge.i.us.us.i = select i1 %298, float %301, float %300
   store float %storemerge.i.us.us.i, ptr %264, align 4
   %302 = fcmp une float %295, 0.000000e+00
   %.pre.i = load ptr, ptr @virt_cmap, align 8
@@ -1187,11 +1187,11 @@ insert_in_list.exit.i:                            ; preds = %561, %._crit_edge.i
   %630 = fadd float %629, 3.000000e+00
   %631 = fpext float %613 to double
   %632 = tail call double @pow(double noundef %631, double noundef 0x3FD5555555555555) #11
-  %633 = fptrunc double %632 to float
-  %634 = fcmp olt float %633, 0x3FCA7B7840000000
-  %635 = tail call float @llvm.fmuladd.f32(float %633, float 1.160000e+02, float -1.600000e+01)
+  %633 = fcmp olt double %632, 0x3FCA7B7830000000
+  %634 = fptrunc double %632 to float
+  %635 = tail call float @llvm.fmuladd.f32(float %634, float 1.160000e+02, float -1.600000e+01)
   %636 = fmul float %613, 0x408C3A6660000000
-  %storemerge.i.i = select i1 %634, float %636, float %635
+  %storemerge.i.i = select i1 %633, float %636, float %635
   store float %storemerge.i.i, ptr %592, align 4
   %637 = fcmp une float %630, 0.000000e+00
   br i1 %637, label %638, label %648
@@ -1719,11 +1719,11 @@ define internal fastcc void @add_color(i32 noundef range(i32 -2147483648, 256) %
   %56 = fadd float %55, 3.000000e+00
   %57 = fpext float %39 to double
   %58 = tail call double @pow(double noundef %57, double noundef 0x3FD5555555555555) #11
-  %59 = fptrunc double %58 to float
-  %60 = fcmp olt float %59, 0x3FCA7B7840000000
-  %61 = tail call float @llvm.fmuladd.f32(float %59, float 1.160000e+02, float -1.600000e+01)
+  %59 = fcmp olt double %58, 0x3FCA7B7830000000
+  %60 = fptrunc double %58 to float
+  %61 = tail call float @llvm.fmuladd.f32(float %60, float 1.160000e+02, float -1.600000e+01)
   %62 = fmul float %39, 0x408C3A6660000000
-  %storemerge.i = select i1 %60, float %62, float %61
+  %storemerge.i = select i1 %59, float %62, float %61
   store float %storemerge.i, ptr %18, align 4
   %63 = fcmp une float %56, 0.000000e+00
   br i1 %63, label %64, label %74

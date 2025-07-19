@@ -490,7 +490,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   %51 = fpext float %50 to double
   %52 = fadd double %48, %51
   %.038 = fptrunc double %52 to float
-  %53 = fcmp ult float %.038, 0.000000e+00
+  %53 = fcmp ult double %52, 0xB690000000000000
   br i1 %53, label %77, label %54
 
 54:                                               ; preds = %39

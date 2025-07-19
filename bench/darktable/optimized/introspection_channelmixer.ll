@@ -503,7 +503,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %180 = fpext reassoc nsz arcp contract afn float %.1.i.i to double
   %181 = fmul reassoc nsz arcp contract afn double %180, 0x3FC5555555555555
   %182 = fptrunc reassoc nsz arcp contract afn double %181 to float
-  %183 = fcmp reassoc nsz arcp contract afn olt float %182, 0.000000e+00
+  %183 = fcmp reassoc nsz arcp contract afn olt double %181, 0xB690000000000000
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %179
@@ -511,7 +511,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br label %rgb2hsl.exit.i
 
 186:                                              ; preds = %179
-  %187 = fcmp reassoc nsz arcp contract afn ogt float %182, 1.000000e+00
+  %187 = fcmp reassoc nsz arcp contract afn ogt double %181, 0x3FF0000010000000
   br i1 %187, label %188, label %rgb2hsl.exit.i
 
 188:                                              ; preds = %186
@@ -808,7 +808,7 @@ hue2rgb.exit36.i.i:                               ; preds = %236, %234, %230
   %364 = fpext reassoc nsz arcp contract afn float %.1.i.i57 to double
   %365 = fmul reassoc nsz arcp contract afn double %364, 0x3FC5555555555555
   %366 = fptrunc reassoc nsz arcp contract afn double %365 to float
-  %367 = fcmp reassoc nsz arcp contract afn olt float %366, 0.000000e+00
+  %367 = fcmp reassoc nsz arcp contract afn olt double %365, 0xB690000000000000
   br i1 %367, label %368, label %370
 
 368:                                              ; preds = %363
@@ -816,7 +816,7 @@ hue2rgb.exit36.i.i:                               ; preds = %236, %234, %230
   br label %rgb2hsl.exit.i47
 
 370:                                              ; preds = %363
-  %371 = fcmp reassoc nsz arcp contract afn ogt float %366, 1.000000e+00
+  %371 = fcmp reassoc nsz arcp contract afn ogt double %365, 0x3FF0000010000000
   br i1 %371, label %372, label %rgb2hsl.exit.i47
 
 372:                                              ; preds = %370

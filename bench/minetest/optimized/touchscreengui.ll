@@ -8538,7 +8538,7 @@ if.else209:                                       ; preds = %if.then197
   %conv213 = fptrunc double %div212 to float
   %m_joystick_speed214 = getelementptr inbounds nuw i8, ptr %this, i64 240
   store float %conv213, ptr %m_joystick_speed214, align 8, !tbaa !222
-  %cmp216 = fcmp nsz ogt float %conv213, 1.000000e+00
+  %cmp216 = fcmp nsz ogt double %div212, 0x3FF0000010000000
   br i1 %cmp216, label %if.then217, label %if.end220
 
 if.then217:                                       ; preds = %if.else209

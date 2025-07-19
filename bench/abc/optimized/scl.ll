@@ -956,7 +956,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   %17 = fptrunc double %16 to float
   %18 = add nsw i32 %10, 1
   store i32 %18, ptr @globalUtilOptind, align 4, !tbaa !81
-  %19 = fcmp ugt float %17, 0.000000e+00
+  %19 = fcmp ugt double %16, 0x3690000000000000
   br i1 %19, label %.backedge, label %.loopexit
 
 20:                                               ; preds = %7
@@ -976,7 +976,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
   %28 = fptrunc double %27 to float
   %29 = add nsw i32 %21, 1
   store i32 %29, ptr @globalUtilOptind, align 4, !tbaa !81
-  %30 = fcmp ugt float %28, 0.000000e+00
+  %30 = fcmp ugt double %27, 0x3690000000000000
   br i1 %30, label %.backedge, label %.loopexit
 
 31:                                               ; preds = %7
@@ -1476,7 +1476,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   %13 = fptrunc double %12 to float
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !81
-  %15 = fcmp ugt float %13, 0.000000e+00
+  %15 = fcmp ugt double %12, 0x3690000000000000
   br i1 %15, label %.outer, label %.loopexit, !llvm.loop !88
 
 16:                                               ; preds = %4
@@ -1492,7 +1492,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
   %23 = fptrunc double %22 to float
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !81
-  %25 = fcmp ugt float %23, 0.000000e+00
+  %25 = fcmp ugt double %22, 0x3690000000000000
   br i1 %25, label %.outer97, label %.loopexit, !llvm.loop !88
 
 26:                                               ; preds = %4
@@ -1594,7 +1594,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   %13 = fptrunc double %12 to float
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !81
-  %15 = fcmp ugt float %13, 0.000000e+00
+  %15 = fcmp ugt double %12, 0x3690000000000000
   br i1 %15, label %.outer, label %.loopexit, !llvm.loop !89
 
 16:                                               ; preds = %4
@@ -1610,7 +1610,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
   %23 = fptrunc double %22 to float
   %24 = add nsw i32 %17, 1
   store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !81
-  %25 = fcmp ugt float %23, 0.000000e+00
+  %25 = fcmp ugt double %22, 0x3690000000000000
   br i1 %25, label %.outer74, label %.loopexit, !llvm.loop !89
 
 26:                                               ; preds = %4
@@ -1877,7 +1877,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   %14 = fptrunc double %13 to float
   %15 = add nsw i32 %7, 1
   store i32 %15, ptr @globalUtilOptind, align 4, !tbaa !81
-  %16 = fcmp ugt float %14, 0.000000e+00
+  %16 = fcmp ugt double %13, 0x3690000000000000
   br i1 %16, label %.outer, label %.loopexit, !llvm.loop !91
 
 17:                                               ; preds = %4
@@ -1897,7 +1897,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
   %25 = fptrunc double %24 to float
   %26 = add nsw i32 %18, 1
   store i32 %26, ptr @globalUtilOptind, align 4, !tbaa !81
-  %27 = fcmp ugt float %25, 0.000000e+00
+  %27 = fcmp ugt double %24, 0x3690000000000000
   br i1 %27, label %.outer122, label %.loopexit, !llvm.loop !91
 
 28:                                               ; preds = %4

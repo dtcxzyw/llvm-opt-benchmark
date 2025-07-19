@@ -58,144 +58,145 @@ define hidden void @_ZN2cv6dynafu10QuaternionC2ERKNS_7Affine3IfEE(ptr noundef no
   br i1 %exitcond.not.i, label %_ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit, label %3, !llvm.loop !7
 
 _ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %3
-  %8 = fcmp ogt float %7, 0x3E45798EE0000000
-  br i1 %8, label %9, label %31
+  %8 = fpext float %7 to double
+  %9 = fcmp ogt double %8, 0x3E45798EEFFFFFFF
+  br i1 %9, label %10, label %32
 
-9:                                                ; preds = %_ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit
-  %10 = tail call noundef float @sqrtf(float noundef %7) #17, !tbaa !9
-  %11 = fmul float %10, 2.000000e+00
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load float, ptr %12, align 4, !tbaa !3
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %15 = load float, ptr %14, align 4, !tbaa !3
-  %16 = fsub float %13, %15
-  %17 = fdiv float %16, %11
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %19 = load float, ptr %18, align 4, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load float, ptr %20, align 4, !tbaa !3
-  %22 = fsub float %19, %21
-  %23 = fdiv float %22, %11
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %25 = load float, ptr %24, align 4, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load float, ptr %26, align 4, !tbaa !3
-  %28 = fsub float %25, %27
-  %29 = fdiv float %28, %11
-  %30 = fmul float %11, 2.500000e-01
-  br label %115
+10:                                               ; preds = %_ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit
+  %11 = tail call noundef float @sqrtf(float noundef %7) #17, !tbaa !9
+  %12 = fmul float %11, 2.000000e+00
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load float, ptr %13, align 4, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %16 = load float, ptr %15, align 4, !tbaa !3
+  %17 = fsub float %14, %16
+  %18 = fdiv float %17, %12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %20 = load float, ptr %19, align 4, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load float, ptr %21, align 4, !tbaa !3
+  %23 = fsub float %20, %22
+  %24 = fdiv float %23, %12
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %26 = load float, ptr %25, align 4, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = load float, ptr %27, align 4, !tbaa !3
+  %29 = fsub float %26, %28
+  %30 = fdiv float %29, %12
+  %31 = fmul float %12, 2.500000e-01
+  br label %116
 
-31:                                               ; preds = %_ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit
-  %32 = load float, ptr %1, align 4, !tbaa !3
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %34 = load float, ptr %33, align 4, !tbaa !3
-  %35 = fcmp ogt float %32, %34
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %37 = load float, ptr %36, align 4, !tbaa !3
-  %38 = fcmp ogt float %32, %37
-  %or.cond = select i1 %35, i1 %38, i1 false
-  br i1 %or.cond, label %39, label %._crit_edge
+32:                                               ; preds = %_ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit
+  %33 = load float, ptr %1, align 4, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %35 = load float, ptr %34, align 4, !tbaa !3
+  %36 = fcmp ogt float %33, %35
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %38 = load float, ptr %37, align 4, !tbaa !3
+  %39 = fcmp ogt float %33, %38
+  %or.cond = select i1 %36, i1 %39, i1 false
+  br i1 %or.cond, label %40, label %._crit_edge
 
-39:                                               ; preds = %31
-  %40 = fadd float %32, 1.000000e+00
-  %41 = fsub float %40, %34
-  %42 = fsub float %41, %37
-  %43 = tail call noundef float @sqrtf(float noundef %42) #17, !tbaa !9
-  %44 = fmul float %43, 2.000000e+00
-  %45 = fmul float %44, 2.500000e-01
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %47 = load float, ptr %46, align 4, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %49 = load float, ptr %48, align 4, !tbaa !3
-  %50 = fadd float %47, %49
-  %51 = fdiv float %50, %44
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %53 = load float, ptr %52, align 4, !tbaa !3
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %55 = load float, ptr %54, align 4, !tbaa !3
-  %56 = fadd float %53, %55
-  %57 = fdiv float %56, %44
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %59 = load float, ptr %58, align 4, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %61 = load float, ptr %60, align 4, !tbaa !3
-  %62 = fsub float %59, %61
-  %63 = fdiv float %62, %44
-  br label %115
+40:                                               ; preds = %32
+  %41 = fadd float %33, 1.000000e+00
+  %42 = fsub float %41, %35
+  %43 = fsub float %42, %38
+  %44 = tail call noundef float @sqrtf(float noundef %43) #17, !tbaa !9
+  %45 = fmul float %44, 2.000000e+00
+  %46 = fmul float %45, 2.500000e-01
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = load float, ptr %47, align 4, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %50 = load float, ptr %49, align 4, !tbaa !3
+  %51 = fadd float %48, %50
+  %52 = fdiv float %51, %45
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %54 = load float, ptr %53, align 4, !tbaa !3
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %56 = load float, ptr %55, align 4, !tbaa !3
+  %57 = fadd float %54, %56
+  %58 = fdiv float %57, %45
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %60 = load float, ptr %59, align 4, !tbaa !3
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %62 = load float, ptr %61, align 4, !tbaa !3
+  %63 = fsub float %60, %62
+  %64 = fdiv float %63, %45
+  br label %116
 
-._crit_edge:                                      ; preds = %31
-  %64 = fcmp ogt float %34, %37
-  br i1 %64, label %65, label %90
+._crit_edge:                                      ; preds = %32
+  %65 = fcmp ogt float %35, %38
+  br i1 %65, label %66, label %91
 
-65:                                               ; preds = %._crit_edge
-  %66 = fadd float %34, 1.000000e+00
-  %67 = fsub float %66, %32
-  %68 = fsub float %67, %37
-  %69 = tail call noundef float @sqrtf(float noundef %68) #17, !tbaa !9
-  %70 = fmul float %69, 2.000000e+00
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load float, ptr %71, align 4, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %74 = load float, ptr %73, align 4, !tbaa !3
-  %75 = fadd float %72, %74
-  %76 = fdiv float %75, %70
-  %77 = fmul float %70, 2.500000e-01
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %79 = load float, ptr %78, align 4, !tbaa !3
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %81 = load float, ptr %80, align 4, !tbaa !3
-  %82 = fadd float %79, %81
-  %83 = fdiv float %82, %70
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %85 = load float, ptr %84, align 4, !tbaa !3
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %87 = load float, ptr %86, align 4, !tbaa !3
-  %88 = fsub float %85, %87
-  %89 = fdiv float %88, %70
-  br label %115
+66:                                               ; preds = %._crit_edge
+  %67 = fadd float %35, 1.000000e+00
+  %68 = fsub float %67, %33
+  %69 = fsub float %68, %38
+  %70 = tail call noundef float @sqrtf(float noundef %69) #17, !tbaa !9
+  %71 = fmul float %70, 2.000000e+00
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %73 = load float, ptr %72, align 4, !tbaa !3
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %75 = load float, ptr %74, align 4, !tbaa !3
+  %76 = fadd float %73, %75
+  %77 = fdiv float %76, %71
+  %78 = fmul float %71, 2.500000e-01
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %80 = load float, ptr %79, align 4, !tbaa !3
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %82 = load float, ptr %81, align 4, !tbaa !3
+  %83 = fadd float %80, %82
+  %84 = fdiv float %83, %71
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %86 = load float, ptr %85, align 4, !tbaa !3
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %88 = load float, ptr %87, align 4, !tbaa !3
+  %89 = fsub float %86, %88
+  %90 = fdiv float %89, %71
+  br label %116
 
-90:                                               ; preds = %._crit_edge
-  %91 = fadd float %37, 1.000000e+00
-  %92 = fsub float %91, %32
-  %93 = fsub float %92, %34
-  %94 = tail call noundef float @sqrtf(float noundef %93) #17, !tbaa !9
-  %95 = fmul float %94, 2.000000e+00
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %97 = load float, ptr %96, align 4, !tbaa !3
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %99 = load float, ptr %98, align 4, !tbaa !3
-  %100 = fadd float %97, %99
-  %101 = fdiv float %100, %95
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %103 = load float, ptr %102, align 4, !tbaa !3
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %105 = load float, ptr %104, align 4, !tbaa !3
-  %106 = fadd float %103, %105
-  %107 = fdiv float %106, %95
-  %108 = fmul float %95, 2.500000e-01
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %110 = load float, ptr %109, align 4, !tbaa !3
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %112 = load float, ptr %111, align 4, !tbaa !3
-  %113 = fsub float %110, %112
-  %114 = fdiv float %113, %95
-  br label %115
+91:                                               ; preds = %._crit_edge
+  %92 = fadd float %38, 1.000000e+00
+  %93 = fsub float %92, %33
+  %94 = fsub float %93, %35
+  %95 = tail call noundef float @sqrtf(float noundef %94) #17, !tbaa !9
+  %96 = fmul float %95, 2.000000e+00
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %98 = load float, ptr %97, align 4, !tbaa !3
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %100 = load float, ptr %99, align 4, !tbaa !3
+  %101 = fadd float %98, %100
+  %102 = fdiv float %101, %96
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %104 = load float, ptr %103, align 4, !tbaa !3
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %106 = load float, ptr %105, align 4, !tbaa !3
+  %107 = fadd float %104, %106
+  %108 = fdiv float %107, %96
+  %109 = fmul float %96, 2.500000e-01
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %111 = load float, ptr %110, align 4, !tbaa !3
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %113 = load float, ptr %112, align 4, !tbaa !3
+  %114 = fsub float %111, %113
+  %115 = fdiv float %114, %96
+  br label %116
 
-115:                                              ; preds = %39, %90, %65, %9
-  %.065 = phi float [ %17, %9 ], [ %45, %39 ], [ %76, %65 ], [ %101, %90 ]
-  %.064 = phi float [ %23, %9 ], [ %51, %39 ], [ %77, %65 ], [ %107, %90 ]
-  %.063 = phi float [ %29, %9 ], [ %57, %39 ], [ %83, %65 ], [ %108, %90 ]
-  %.0 = phi float [ %30, %9 ], [ %63, %39 ], [ %89, %65 ], [ %114, %90 ]
-  %116 = fneg float %.065
-  %117 = fneg float %.064
-  %118 = fneg float %.063
+116:                                              ; preds = %40, %91, %66, %10
+  %.065 = phi float [ %18, %10 ], [ %46, %40 ], [ %77, %66 ], [ %102, %91 ]
+  %.064 = phi float [ %24, %10 ], [ %52, %40 ], [ %78, %66 ], [ %108, %91 ]
+  %.063 = phi float [ %30, %10 ], [ %58, %40 ], [ %84, %66 ], [ %109, %91 ]
+  %.0 = phi float [ %31, %10 ], [ %64, %40 ], [ %90, %66 ], [ %115, %91 ]
+  %117 = fneg float %.065
+  %118 = fneg float %.064
+  %119 = fneg float %.063
   store float %.0, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %116, ptr %.sroa.4.0..sroa_idx, align 4
+  store float %117, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %117, ptr %.sroa.5.0..sroa_idx, align 4
+  store float %118, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %118, ptr %.sroa.6.0..sroa_idx, align 4
+  store float %119, ptr %.sroa.6.0..sroa_idx, align 4
   ret void
 }
 

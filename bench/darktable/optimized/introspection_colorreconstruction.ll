@@ -376,7 +376,7 @@ hue_conversion.exit:                              ; preds = %113
   %131 = tail call reassoc nsz arcp contract afn float @llvm.atan2.f32(float %128, float %130)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #24
-  %132 = fcmp reassoc nsz arcp contract afn ogt float %33, 1.000000e+02
+  %132 = fcmp reassoc nsz arcp contract afn ogt double %32, 0x4059000010000000
   br i1 %132, label %133, label %.thread
 
 133:                                              ; preds = %hue_conversion.exit

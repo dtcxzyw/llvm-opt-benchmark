@@ -1155,17 +1155,17 @@ switch.lookup:                                    ; preds = %74
   %191 = uitofp i32 %190 to double
   %192 = fmul double %188, %191
   %193 = fdiv double %183, %192
-  %194 = fptrunc double %193 to float
-  %195 = fcmp ogt float %194, 0x41E0000000000000
-  br i1 %195, label %199, label %196
+  %194 = fcmp ogt double %193, 0x41E0000010000000
+  br i1 %194, label %199, label %195
 
-196:                                              ; preds = %167
-  %197 = tail call float @llvm.floor.f32(float %194)
+195:                                              ; preds = %167
+  %196 = fptrunc double %193 to float
+  %197 = tail call float @llvm.floor.f32(float %196)
   %198 = fptosi float %197 to i32
   br label %199
 
-199:                                              ; preds = %167, %196
-  %storemerge = phi i32 [ %198, %196 ], [ 2147483647, %167 ]
+199:                                              ; preds = %167, %195
+  %storemerge = phi i32 [ %198, %195 ], [ 2147483647, %167 ]
   store i32 %storemerge, ptr %157, align 8, !tbaa !63
   br label %._crit_edge.thread
 

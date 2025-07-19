@@ -87097,19 +87097,19 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %395, %444
   %488 = fsub float %487, %482
   %489 = fpext float %488 to double
   %490 = fdiv double %485, %489
-  %491 = fptrunc double %490 to float
-  %492 = fcmp olt float %491, 0.000000e+00
-  br i1 %492, label %_ZN3vcg6Color4IhE9GrayShadeEf.exit, label %493
+  %491 = fcmp olt double %490, 0xB690000000000000
+  br i1 %491, label %_ZN3vcg6Color4IhE9GrayShadeEf.exit, label %492
 
-493:                                              ; preds = %460
-  %494 = fcmp ogt float %491, 1.000000e+00
+492:                                              ; preds = %460
+  %493 = fptrunc double %490 to float
+  %494 = fcmp ogt double %490, 0x3FF0000010000000
   br i1 %494, label %495, label %_ZN3vcg6Color4IhE9GrayShadeEf.exit
 
-495:                                              ; preds = %493
+495:                                              ; preds = %492
   br label %_ZN3vcg6Color4IhE9GrayShadeEf.exit
 
-_ZN3vcg6Color4IhE9GrayShadeEf.exit:               ; preds = %460, %493, %495
-  %.0.i = phi float [ 1.000000e+00, %495 ], [ %491, %493 ], [ 0.000000e+00, %460 ]
+_ZN3vcg6Color4IhE9GrayShadeEf.exit:               ; preds = %460, %492, %495
+  %.0.i = phi float [ 1.000000e+00, %495 ], [ %493, %492 ], [ 0.000000e+00, %460 ]
   %496 = fptoui float %.0.i to i8
   %.sroa.3.0.insert.ext.i = zext i8 %496 to i32
   %.sroa.2.0.insert.insert.i = mul nuw nsw i32 %.sroa.3.0.insert.ext.i, 65793

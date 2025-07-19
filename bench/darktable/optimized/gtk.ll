@@ -3568,7 +3568,7 @@ define double @dt_get_screen_resolution(ptr noundef %0) local_unnamed_addr #0 {
   %11 = tail call reassoc nsz arcp contract afn double @gdk_screen_get_resolution(ptr noundef %5) #18
   %12 = fptrunc reassoc nsz arcp contract afn double %11 to float
   %13 = fpext reassoc nsz arcp contract afn float %12 to double
-  %14 = fcmp reassoc nsz arcp contract afn olt float %12, 0.000000e+00
+  %14 = fcmp reassoc nsz arcp contract afn olt double %11, 0xB690000000000000
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10

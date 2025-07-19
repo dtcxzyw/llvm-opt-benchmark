@@ -17169,228 +17169,227 @@ define i32 @stbtt__compute_crossings_x(float noundef %0, float noundef %1, i32 n
   store i64 1065353216, ptr %6, align 8
   %11 = fpext float %1 to double
   %12 = tail call double @fmod(double noundef %11, double noundef 1.000000e+00) #33, !tbaa !17
-  %13 = fptrunc double %12 to float
-  %14 = fcmp olt float %13, 0x3F847AE140000000
-  br i1 %14, label %15, label %17
+  %13 = fcmp olt double %12, 0x3F847AE130000000
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %4
-  %16 = fadd float %1, 0x3F847AE140000000
-  br label %21
+14:                                               ; preds = %4
+  %15 = fadd float %1, 0x3F847AE140000000
+  br label %20
 
-17:                                               ; preds = %4
-  %18 = fcmp ogt float %13, 0x3FEFAE1480000000
-  br i1 %18, label %19, label %21
+16:                                               ; preds = %4
+  %17 = fcmp ogt double %12, 0x3FEFAE1490000000
+  br i1 %17, label %18, label %20
 
-19:                                               ; preds = %17
-  %20 = fadd float %1, 0xBF847AE140000000
-  br label %21
+18:                                               ; preds = %16
+  %19 = fadd float %1, 0xBF847AE140000000
+  br label %20
 
-21:                                               ; preds = %17, %19, %15
-  %.0 = phi float [ %16, %15 ], [ %20, %19 ], [ %1, %17 ]
+20:                                               ; preds = %16, %18, %14
+  %.0 = phi float [ %15, %14 ], [ %19, %18 ], [ %1, %16 ]
   store float %0, ptr %5, align 4, !tbaa !71
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %.0, ptr %22, align 4, !tbaa !71
-  %23 = icmp sgt i32 %2, 0
-  br i1 %23, label %.lr.ph, label %._crit_edge
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store float %.0, ptr %21, align 4, !tbaa !71
+  %22 = icmp sgt i32 %2, 0
+  br i1 %22, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 12
+.lr.ph:                                           ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %30
+  br label %29
 
-30:                                               ; preds = %.lr.ph, %.thread
+29:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.0150171 = phi i32 [ 0, %.lr.ph ], [ %.9, %.thread ]
-  %31 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %3, i64 %indvars.iv
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %33 = load i8, ptr %32, align 2, !tbaa !45
-  switch i8 %33, label %.thread [
-    i8 2, label %34
-    i8 3, label %71
+  %30 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %3, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
+  %32 = load i8, ptr %31, align 2, !tbaa !45
+  switch i8 %32, label %.thread [
+    i8 2, label %33
+    i8 3, label %70
   ]
 
-34:                                               ; preds = %30
-  %35 = getelementptr i8, ptr %31, i64 -14
-  %36 = load i16, ptr %35, align 2, !tbaa !48
-  %37 = sext i16 %36 to i32
-  %38 = getelementptr i8, ptr %31, i64 -12
-  %39 = load i16, ptr %38, align 2, !tbaa !49
-  %40 = sext i16 %39 to i32
-  %41 = load i16, ptr %31, align 2, !tbaa !48
-  %42 = sext i16 %41 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %31, i64 2
-  %44 = load i16, ptr %43, align 2, !tbaa !49
-  %45 = sext i16 %44 to i32
-  %46 = icmp slt i16 %39, %44
-  %47 = tail call i16 @llvm.smin.i16(i16 %39, i16 %44)
-  %48 = sitofp i16 %47 to float
-  %49 = fcmp ogt float %.0, %48
-  br i1 %49, label %50, label %.thread
+33:                                               ; preds = %29
+  %34 = getelementptr i8, ptr %30, i64 -14
+  %35 = load i16, ptr %34, align 2, !tbaa !48
+  %36 = sext i16 %35 to i32
+  %37 = getelementptr i8, ptr %30, i64 -12
+  %38 = load i16, ptr %37, align 2, !tbaa !49
+  %39 = sext i16 %38 to i32
+  %40 = load i16, ptr %30, align 2, !tbaa !48
+  %41 = sext i16 %40 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  %43 = load i16, ptr %42, align 2, !tbaa !49
+  %44 = sext i16 %43 to i32
+  %45 = icmp slt i16 %38, %43
+  %46 = tail call i16 @llvm.smin.i16(i16 %38, i16 %43)
+  %47 = sitofp i16 %46 to float
+  %48 = fcmp ogt float %.0, %47
+  br i1 %48, label %49, label %.thread
 
-50:                                               ; preds = %34
-  %51 = tail call i16 @llvm.smax.i16(i16 %39, i16 %44)
-  %52 = sitofp i16 %51 to float
-  %53 = fcmp olt float %.0, %52
-  br i1 %53, label %54, label %.thread
+49:                                               ; preds = %33
+  %50 = tail call i16 @llvm.smax.i16(i16 %38, i16 %43)
+  %51 = sitofp i16 %50 to float
+  %52 = fcmp olt float %.0, %51
+  br i1 %52, label %53, label %.thread
 
-54:                                               ; preds = %50
-  %55 = tail call i32 @llvm.smin.i32(i32 %37, i32 %42)
-  %56 = sitofp i32 %55 to float
-  %57 = fcmp ogt float %0, %56
-  br i1 %57, label %58, label %.thread
+53:                                               ; preds = %49
+  %54 = tail call i32 @llvm.smin.i32(i32 %36, i32 %41)
+  %55 = sitofp i32 %54 to float
+  %56 = fcmp ogt float %0, %55
+  br i1 %56, label %57, label %.thread
 
-58:                                               ; preds = %54
-  %59 = sitofp i16 %39 to float
-  %60 = fsub float %.0, %59
-  %61 = sub nsw i32 %45, %40
-  %62 = sitofp i32 %61 to float
-  %63 = fdiv float %60, %62
-  %64 = sub nsw i32 %42, %37
-  %65 = sitofp i32 %64 to float
-  %66 = sitofp i16 %36 to float
-  %67 = tail call float @llvm.fmuladd.f32(float %63, float %65, float %66)
-  %68 = fcmp olt float %67, %0
-  %69 = select i1 %46, i32 1, i32 -1
-  %70 = select i1 %68, i32 %69, i32 0
-  %.3 = add nsw i32 %70, %.0150171
+57:                                               ; preds = %53
+  %58 = sitofp i16 %38 to float
+  %59 = fsub float %.0, %58
+  %60 = sub nsw i32 %44, %39
+  %61 = sitofp i32 %60 to float
+  %62 = fdiv float %59, %61
+  %63 = sub nsw i32 %41, %36
+  %64 = sitofp i32 %63 to float
+  %65 = sitofp i16 %35 to float
+  %66 = tail call float @llvm.fmuladd.f32(float %62, float %64, float %65)
+  %67 = fcmp olt float %66, %0
+  %68 = select i1 %45, i32 1, i32 -1
+  %69 = select i1 %67, i32 %68, i32 0
+  %.3 = add nsw i32 %69, %.0150171
   br label %.thread
 
-71:                                               ; preds = %30
-  %72 = getelementptr i8, ptr %31, i64 -14
-  %73 = load i16, ptr %72, align 2, !tbaa !48
-  %74 = getelementptr i8, ptr %31, i64 -12
-  %75 = load i16, ptr %74, align 2, !tbaa !49
-  %76 = sext i16 %75 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %78 = load i16, ptr %77, align 2, !tbaa !50
-  %79 = getelementptr inbounds nuw i8, ptr %31, i64 6
-  %80 = load i16, ptr %79, align 2, !tbaa !51
-  %81 = load i16, ptr %31, align 2, !tbaa !48
-  %82 = getelementptr inbounds nuw i8, ptr %31, i64 2
-  %83 = load i16, ptr %82, align 2, !tbaa !49
-  %84 = tail call i16 @llvm.smin.i16(i16 %78, i16 %81)
-  %. = tail call i16 @llvm.smin.i16(i16 %84, i16 %73)
-  %85 = tail call i16 @llvm.smin.i16(i16 %80, i16 %83)
-  %86 = tail call i16 @llvm.smin.i16(i16 %75, i16 %85)
-  %87 = tail call i16 @llvm.smax.i16(i16 %80, i16 %83)
-  %88 = tail call i16 @llvm.smax.i16(i16 %75, i16 %87)
-  %89 = sitofp i16 %86 to float
-  %90 = fcmp ogt float %.0, %89
-  %91 = sitofp i16 %88 to float
-  %92 = fcmp olt float %.0, %91
-  %or.cond162 = and i1 %90, %92
-  %93 = sitofp i16 %. to float
-  %94 = fcmp ogt float %0, %93
-  %or.cond164 = select i1 %or.cond162, i1 %94, i1 false
-  br i1 %or.cond164, label %95, label %.thread
+70:                                               ; preds = %29
+  %71 = getelementptr i8, ptr %30, i64 -14
+  %72 = load i16, ptr %71, align 2, !tbaa !48
+  %73 = getelementptr i8, ptr %30, i64 -12
+  %74 = load i16, ptr %73, align 2, !tbaa !49
+  %75 = sext i16 %74 to i32
+  %76 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %77 = load i16, ptr %76, align 2, !tbaa !50
+  %78 = getelementptr inbounds nuw i8, ptr %30, i64 6
+  %79 = load i16, ptr %78, align 2, !tbaa !51
+  %80 = load i16, ptr %30, align 2, !tbaa !48
+  %81 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  %82 = load i16, ptr %81, align 2, !tbaa !49
+  %83 = tail call i16 @llvm.smin.i16(i16 %77, i16 %80)
+  %. = tail call i16 @llvm.smin.i16(i16 %83, i16 %72)
+  %84 = tail call i16 @llvm.smin.i16(i16 %79, i16 %82)
+  %85 = tail call i16 @llvm.smin.i16(i16 %74, i16 %84)
+  %86 = tail call i16 @llvm.smax.i16(i16 %79, i16 %82)
+  %87 = tail call i16 @llvm.smax.i16(i16 %74, i16 %86)
+  %88 = sitofp i16 %85 to float
+  %89 = fcmp ogt float %.0, %88
+  %90 = sitofp i16 %87 to float
+  %91 = fcmp olt float %.0, %90
+  %or.cond162 = and i1 %89, %91
+  %92 = sitofp i16 %. to float
+  %93 = fcmp ogt float %0, %92
+  %or.cond164 = select i1 %or.cond162, i1 %93, i1 false
+  br i1 %or.cond164, label %94, label %.thread
 
-95:                                               ; preds = %71
+94:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #33
-  %96 = sitofp i16 %73 to float
-  store float %96, ptr %7, align 4, !tbaa !71
-  %97 = sitofp i16 %75 to float
-  store float %97, ptr %24, align 4, !tbaa !71
-  %98 = sitofp i16 %78 to float
-  store float %98, ptr %8, align 4, !tbaa !71
+  %95 = sitofp i16 %72 to float
+  store float %95, ptr %7, align 4, !tbaa !71
+  %96 = sitofp i16 %74 to float
+  store float %96, ptr %23, align 4, !tbaa !71
+  %97 = sitofp i16 %77 to float
+  store float %97, ptr %8, align 4, !tbaa !71
+  %98 = sitofp i16 %79 to float
+  store float %98, ptr %24, align 4, !tbaa !71
   %99 = sitofp i16 %80 to float
-  store float %99, ptr %25, align 4, !tbaa !71
-  %100 = sitofp i16 %81 to float
-  store float %100, ptr %9, align 4, !tbaa !71
-  %101 = sitofp i16 %83 to float
-  store float %101, ptr %26, align 4, !tbaa !71
+  store float %99, ptr %9, align 4, !tbaa !71
+  %100 = sitofp i16 %82 to float
+  store float %100, ptr %25, align 4, !tbaa !71
+  %101 = fcmp une float %95, %97
   %102 = fcmp une float %96, %98
+  %or.cond169 = or i1 %101, %102
+  br i1 %or.cond169, label %equal.exit.thread, label %105
+
+equal.exit.thread:                                ; preds = %94
   %103 = fcmp une float %97, %99
-  %or.cond169 = or i1 %102, %103
-  br i1 %or.cond169, label %equal.exit.thread, label %106
-
-equal.exit.thread:                                ; preds = %95
   %104 = fcmp une float %98, %100
-  %105 = fcmp une float %99, %101
-  %or.cond170 = or i1 %104, %105
-  br i1 %or.cond170, label %equal.exit165.thread, label %106
+  %or.cond170 = or i1 %103, %104
+  br i1 %or.cond170, label %equal.exit165.thread, label %105
 
-106:                                              ; preds = %equal.exit.thread, %95
-  %107 = sext i16 %73 to i32
-  %108 = sext i16 %81 to i32
-  %109 = sext i16 %83 to i32
-  %110 = icmp slt i16 %75, %83
-  %111 = tail call i16 @llvm.smin.i16(i16 %75, i16 %83)
-  %112 = sitofp i16 %111 to float
-  %113 = fcmp ogt float %.0, %112
-  br i1 %113, label %114, label %148
+105:                                              ; preds = %equal.exit.thread, %94
+  %106 = sext i16 %72 to i32
+  %107 = sext i16 %80 to i32
+  %108 = sext i16 %82 to i32
+  %109 = icmp slt i16 %74, %82
+  %110 = tail call i16 @llvm.smin.i16(i16 %74, i16 %82)
+  %111 = sitofp i16 %110 to float
+  %112 = fcmp ogt float %.0, %111
+  br i1 %112, label %113, label %147
 
-114:                                              ; preds = %106
-  %115 = tail call i16 @llvm.smax.i16(i16 %75, i16 %83)
-  %116 = sitofp i16 %115 to float
-  %117 = fcmp olt float %.0, %116
-  br i1 %117, label %118, label %148
+113:                                              ; preds = %105
+  %114 = tail call i16 @llvm.smax.i16(i16 %74, i16 %82)
+  %115 = sitofp i16 %114 to float
+  %116 = fcmp olt float %.0, %115
+  br i1 %116, label %117, label %147
 
-118:                                              ; preds = %114
-  %119 = tail call i32 @llvm.smin.i32(i32 %107, i32 %108)
-  %120 = sitofp i32 %119 to float
-  %121 = fcmp ogt float %0, %120
-  br i1 %121, label %122, label %148
+117:                                              ; preds = %113
+  %118 = tail call i32 @llvm.smin.i32(i32 %106, i32 %107)
+  %119 = sitofp i32 %118 to float
+  %120 = fcmp ogt float %0, %119
+  br i1 %120, label %121, label %147
 
-122:                                              ; preds = %118
-  %123 = fsub float %.0, %97
-  %124 = sub nsw i32 %109, %76
-  %125 = sitofp i32 %124 to float
-  %126 = fdiv float %123, %125
-  %127 = sub nsw i32 %108, %107
-  %128 = sitofp i32 %127 to float
-  %129 = tail call float @llvm.fmuladd.f32(float %126, float %128, float %96)
-  %130 = fcmp olt float %129, %0
-  %131 = select i1 %110, i32 1, i32 -1
-  %132 = select i1 %130, i32 %131, i32 0
-  %.5 = add nsw i32 %132, %.0150171
-  br label %148
+121:                                              ; preds = %117
+  %122 = fsub float %.0, %96
+  %123 = sub nsw i32 %108, %75
+  %124 = sitofp i32 %123 to float
+  %125 = fdiv float %122, %124
+  %126 = sub nsw i32 %107, %106
+  %127 = sitofp i32 %126 to float
+  %128 = tail call float @llvm.fmuladd.f32(float %125, float %127, float %95)
+  %129 = fcmp olt float %128, %0
+  %130 = select i1 %109, i32 1, i32 -1
+  %131 = select i1 %129, i32 %130, i32 0
+  %.5 = add nsw i32 %131, %.0150171
+  br label %147
 
 equal.exit165.thread:                             ; preds = %equal.exit.thread
-  %133 = call i32 @stbtt__ray_intersect_bezier(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %134 = icmp ne i32 %133, 0
-  %135 = load float, ptr %10, align 16
-  %136 = fcmp olt float %135, 0.000000e+00
-  %or.cond = select i1 %134, i1 %136, i1 false
-  %137 = load float, ptr %27, align 4
-  %138 = fcmp olt float %137, 0.000000e+00
-  %139 = select i1 %138, i32 -1, i32 1
-  %140 = select i1 %or.cond, i32 %139, i32 0
-  %.7 = add nsw i32 %140, %.0150171
-  %141 = icmp samesign ugt i32 %133, 1
-  %142 = load float, ptr %28, align 8
-  %143 = fcmp olt float %142, 0.000000e+00
-  %or.cond7 = select i1 %141, i1 %143, i1 false
-  %144 = load float, ptr %29, align 4
-  %145 = fcmp olt float %144, 0.000000e+00
-  %146 = select i1 %145, i32 -1, i32 1
-  %147 = select i1 %or.cond7, i32 %146, i32 0
-  %.8 = add nsw i32 %.7, %147
-  br label %148
+  %132 = call i32 @stbtt__ray_intersect_bezier(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %133 = icmp ne i32 %132, 0
+  %134 = load float, ptr %10, align 16
+  %135 = fcmp olt float %134, 0.000000e+00
+  %or.cond = select i1 %133, i1 %135, i1 false
+  %136 = load float, ptr %26, align 4
+  %137 = fcmp olt float %136, 0.000000e+00
+  %138 = select i1 %137, i32 -1, i32 1
+  %139 = select i1 %or.cond, i32 %138, i32 0
+  %.7 = add nsw i32 %139, %.0150171
+  %140 = icmp samesign ugt i32 %132, 1
+  %141 = load float, ptr %27, align 8
+  %142 = fcmp olt float %141, 0.000000e+00
+  %or.cond7 = select i1 %140, i1 %142, i1 false
+  %143 = load float, ptr %28, align 4
+  %144 = fcmp olt float %143, 0.000000e+00
+  %145 = select i1 %144, i32 -1, i32 1
+  %146 = select i1 %or.cond7, i32 %145, i32 0
+  %.8 = add nsw i32 %.7, %146
+  br label %147
 
-148:                                              ; preds = %106, %114, %118, %122, %equal.exit165.thread
-  %.6 = phi i32 [ %.5, %122 ], [ %.0150171, %118 ], [ %.0150171, %114 ], [ %.0150171, %106 ], [ %.8, %equal.exit165.thread ]
+147:                                              ; preds = %105, %113, %117, %121, %equal.exit165.thread
+  %.6 = phi i32 [ %.5, %121 ], [ %.0150171, %117 ], [ %.0150171, %113 ], [ %.0150171, %105 ], [ %.8, %equal.exit165.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
   br label %.thread
 
-.thread:                                          ; preds = %30, %58, %54, %50, %34, %71, %148
-  %.9 = phi i32 [ %.6, %148 ], [ %.0150171, %71 ], [ %.0150171, %34 ], [ %.0150171, %50 ], [ %.0150171, %54 ], [ %.3, %58 ], [ %.0150171, %30 ]
+.thread:                                          ; preds = %29, %57, %53, %49, %33, %70, %147
+  %.9 = phi i32 [ %.6, %147 ], [ %.0150171, %70 ], [ %.0150171, %33 ], [ %.0150171, %49 ], [ %.0150171, %53 ], [ %.3, %57 ], [ %.0150171, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !230
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !230
 
-._crit_edge:                                      ; preds = %.thread, %21
-  %.0150.lcssa = phi i32 [ 0, %21 ], [ %.9, %.thread ]
+._crit_edge:                                      ; preds = %.thread, %20
+  %.0150.lcssa = phi i32 [ 0, %20 ], [ %.9, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
   ret i32 %.0150.lcssa

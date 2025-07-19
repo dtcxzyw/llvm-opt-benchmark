@@ -31216,7 +31216,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMap(ptr noundef %0, i32 noundef 
   %16 = fpext float %15 to double
   %17 = add nsw i32 %9, 1
   store i32 %17, ptr @globalUtilOptind, align 4, !tbaa !43
-  %18 = fcmp ugt float %15, 0.000000e+00
+  %18 = fcmp ugt double %14, 0x3690000000000000
   br i1 %18, label %.backedge, label %.loopexit
 
 19:                                               ; preds = %6
@@ -31264,7 +31264,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMap(ptr noundef %0, i32 noundef 
   %46 = fptrunc double %45 to float
   %47 = add nsw i32 %40, 1
   store i32 %47, ptr @globalUtilOptind, align 4, !tbaa !43
-  %48 = fcmp olt float %46, 0.000000e+00
+  %48 = fcmp olt double %45, 0xB690000000000000
   br i1 %48, label %.loopexit, label %.backedge
 
 49:                                               ; preds = %6
@@ -31280,7 +31280,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMap(ptr noundef %0, i32 noundef 
   %56 = fptrunc double %55 to float
   %57 = add nsw i32 %50, 1
   store i32 %57, ptr @globalUtilOptind, align 4, !tbaa !43
-  %58 = fcmp ugt float %56, 0.000000e+00
+  %58 = fcmp ugt double %55, 0x3690000000000000
   br i1 %58, label %.backedge, label %.loopexit
 
 59:                                               ; preds = %6
@@ -31296,7 +31296,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMap(ptr noundef %0, i32 noundef 
   %66 = fptrunc double %65 to float
   %67 = add nsw i32 %60, 1
   store i32 %67, ptr @globalUtilOptind, align 4, !tbaa !43
-  %68 = fcmp ugt float %66, 0.000000e+00
+  %68 = fcmp ugt double %65, 0x3690000000000000
   br i1 %68, label %.backedge, label %.loopexit
 
 69:                                               ; preds = %6
@@ -31612,8 +31612,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAmap(ptr noundef %0, i32 noundef
   %57 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr @globalUtilOptind, align 4, !tbaa !43
-  %59 = fcmp olt float %56, 0.000000e+00
-  %60 = fcmp ogt float %56, 1.000000e+00
+  %59 = fcmp olt double %55, 0xB690000000000000
+  %60 = fcmp ogt double %55, 0x3FF0000010000000
   %or.cond = or i1 %59, %60
   br i1 %or.cond, label %.loopexit, label %.backedge
 
@@ -31636,7 +31636,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAmap(ptr noundef %0, i32 noundef
   %69 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr @globalUtilOptind, align 4, !tbaa !43
-  %71 = fcmp olt float %68, 0.000000e+00
+  %71 = fcmp olt double %67, 0xB690000000000000
   br i1 %71, label %.loopexit, label %.backedge
 
 72:                                               ; preds = %14
@@ -32148,7 +32148,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTimeScale(ptr noundef %0, i32 no
   %15 = fptrunc double %14 to float
   %16 = add nsw i32 %8, 1
   store i32 %16, ptr @globalUtilOptind, align 4, !tbaa !43
-  %17 = fcmp olt float %15, 0.000000e+00
+  %17 = fcmp olt double %14, 0xB690000000000000
   br i1 %17, label %.loopexit, label %.outer, !llvm.loop !440
 
 18:                                               ; preds = %5
@@ -32543,7 +32543,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   %196 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %197 = add nsw i32 %196, 1
   store i32 %197, ptr @globalUtilOptind, align 4, !tbaa !43
-  %198 = fcmp ugt float %195, 0.000000e+00
+  %198 = fcmp ugt double %194, 0x3690000000000000
   br i1 %198, label %.backedge, label %.loopexit
 
 199:                                              ; preds = %51
@@ -32561,8 +32561,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   %207 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %208 = add nsw i32 %207, 1
   store i32 %208, ptr @globalUtilOptind, align 4, !tbaa !43
-  %209 = fcmp olt float %206, 0.000000e+00
-  %210 = fcmp ogt float %206, 1.000000e+00
+  %209 = fcmp olt double %205, 0xB690000000000000
+  %210 = fcmp ogt double %205, 0x3FF0000010000000
   %or.cond437 = or i1 %209, %210
   br i1 %or.cond437, label %.loopexitthread-pre-split, label %.backedge
 
@@ -32581,7 +32581,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   %219 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %220 = add nsw i32 %219, 1
   store i32 %220, ptr @globalUtilOptind, align 4, !tbaa !43
-  %221 = fcmp olt float %218, 0.000000e+00
+  %221 = fcmp olt double %217, 0xB690000000000000
   br i1 %221, label %.loopexitthread-pre-split, label %.backedge
 
 222:                                              ; preds = %51
@@ -33555,7 +33555,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
   %24 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr @globalUtilOptind, align 4, !tbaa !43
-  %26 = fcmp olt float %23, 0.000000e+00
+  %26 = fcmp olt double %22, 0xB690000000000000
   br i1 %26, label %.loopexit, label %.outer195, !llvm.loop !495
 
 27:                                               ; preds = %13
@@ -64333,7 +64333,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AdvGenSim(ptr noundef captur
   %56 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr @globalUtilOptind, align 4, !tbaa !43
-  %58 = fcmp ugt float %55, 0.000000e+00
+  %58 = fcmp ugt double %54, 0x3690000000000000
   br i1 %58, label %.backedge, label %.loopexit
 
 59:                                               ; preds = %13
@@ -68782,7 +68782,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
   %168 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %169 = add nsw i32 %168, 1
   store i32 %169, ptr @globalUtilOptind, align 4, !tbaa !43
-  %170 = fcmp ugt float %167, 0.000000e+00
+  %170 = fcmp ugt double %166, 0x3690000000000000
   br i1 %170, label %.backedge, label %.loopexit522
 
 171:                                              ; preds = %56
@@ -68800,8 +68800,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
   %179 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %180 = add nsw i32 %179, 1
   store i32 %180, ptr @globalUtilOptind, align 4, !tbaa !43
-  %181 = fcmp olt float %178, 0.000000e+00
-  %182 = fcmp ogt float %178, 1.000000e+00
+  %181 = fcmp olt double %177, 0xB690000000000000
+  %182 = fcmp ogt double %177, 0x3FF0000010000000
   %or.cond479 = or i1 %181, %182
   br i1 %or.cond479, label %.loopexit522thread-pre-split, label %.backedge
 
@@ -68820,7 +68820,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
   %191 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %192 = add nsw i32 %191, 1
   store i32 %192, ptr @globalUtilOptind, align 4, !tbaa !43
-  %193 = fcmp olt float %190, 0.000000e+00
+  %193 = fcmp olt double %189, 0xB690000000000000
   br i1 %193, label %.loopexit522thread-pre-split, label %.backedge
 
 194:                                              ; preds = %56
@@ -89972,7 +89972,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cfs(ptr noundef readonly cap
   %53 = fptrunc double %52 to float
   %54 = add nsw i32 %47, 1
   store i32 %54, ptr @globalUtilOptind, align 4, !tbaa !43
-  %55 = fcmp olt float %53, 0.000000e+00
+  %55 = fcmp olt double %52, 0xB690000000000000
   br i1 %55, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %48, %38, %28, %18, %8, %62, %60, %58, %56

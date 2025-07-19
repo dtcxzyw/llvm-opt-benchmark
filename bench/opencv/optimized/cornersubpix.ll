@@ -696,10 +696,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266: ; preds = %_Z
   %294 = load i32, ptr %95, align 4, !tbaa !30
   %295 = fpext float %283 to double
   %296 = sitofp i32 %294 to double
-  %297 = fcmp ult float %283, 0.000000e+00
+  %297 = fcmp ult double %282, 0xB690000000000000
   %298 = fcmp ule double %296, %295
   %or.cond.i.not4.i267 = select i1 %297, i1 true, i1 %298
-  %299 = fcmp ult float %288, 0.000000e+00
+  %299 = fcmp ult double %287, 0xB690000000000000
   %or.cond.i268 = select i1 %or.cond.i.not4.i267, i1 true, i1 %299
   br i1 %or.cond.i268, label %.thread296, label %_ZNK2cv5Rect_IiE8containsIfEEbRKNS_6Point_IT_EE.exit269
 

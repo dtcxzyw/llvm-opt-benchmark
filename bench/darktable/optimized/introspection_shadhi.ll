@@ -380,7 +380,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %63 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %62, double 0.000000e+00)
   %64 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %63, double 1.000000e+00)
   %65 = fadd reassoc nsz arcp contract afn double %64, -5.000000e-01
-  %66 = fcmp reassoc nsz arcp contract afn olt float %36, 0.000000e+00
+  %66 = fcmp reassoc nsz arcp contract afn olt double %35, 0xB690000000000000
   %67 = select reassoc nsz arcp contract afn i1 %66, float -1.000000e+00, float 1.000000e+00
   %68 = fpext reassoc nsz arcp contract afn float %67 to double
   %69 = fmul reassoc nsz arcp contract afn double %65, %68
@@ -393,7 +393,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %76 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %75, double 0.000000e+00)
   %77 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %76, double 1.000000e+00)
   %78 = fadd reassoc nsz arcp contract afn double %77, -5.000000e-01
-  %79 = fcmp reassoc nsz arcp contract afn ogt float %44, 0.000000e+00
+  %79 = fcmp reassoc nsz arcp contract afn ogt double %43, 0x3690000000000000
   %80 = select reassoc nsz arcp contract afn i1 %79, float -1.000000e+00, float 1.000000e+00
   %81 = fpext reassoc nsz arcp contract afn float %80 to double
   %82 = fmul reassoc nsz arcp contract afn double %78, %81

@@ -3014,13 +3014,13 @@ define internal fastcc range(i32 0, 2) i32 @handle_motion(ptr noundef %0, ptr no
   %5 = load i32, ptr %4, align 8, !tbaa !92
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %155, label %7
+  br i1 %.not, label %154, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !61
   %.not55 = icmp eq ptr %9, null
-  br i1 %.not55, label %155, label %10
+  br i1 %.not55, label %154, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i32 @gtk_widget_get_allocated_width(ptr noundef %0) #24
@@ -3086,7 +3086,7 @@ find_closest_corner.exit:                         ; preds = %36
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %48
-  %53 = fcmp reassoc nsz arcp contract afn olt float %23, 0.000000e+00
+  %53 = fcmp reassoc nsz arcp contract afn olt double %22, 0xB690000000000000
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %52
@@ -3100,14 +3100,14 @@ find_closest_corner.exit:                         ; preds = %36
   br i1 %59, label %update_corner.exit, label %60
 
 60:                                               ; preds = %55
-  %61 = fcmp reassoc nsz arcp contract afn olt float %34, 0.000000e+00
+  %61 = fcmp reassoc nsz arcp contract afn olt double %33, 0xB690000000000000
   br i1 %61, label %update_corner.exit, label %62
 
 62:                                               ; preds = %60
   br label %update_corner.exit
 
 63:                                               ; preds = %find_closest_corner.exit
-  %64 = fcmp reassoc nsz arcp contract afn ogt float %23, 1.000000e+00
+  %64 = fcmp reassoc nsz arcp contract afn ogt double %22, 0x3FF0000010000000
   br i1 %64, label %68, label %65
 
 65:                                               ; preds = %63
@@ -3124,14 +3124,14 @@ find_closest_corner.exit:                         ; preds = %36
   br i1 %72, label %update_corner.exit, label %73
 
 73:                                               ; preds = %68
-  %74 = fcmp reassoc nsz arcp contract afn olt float %34, 0.000000e+00
+  %74 = fcmp reassoc nsz arcp contract afn olt double %33, 0xB690000000000000
   br i1 %74, label %update_corner.exit, label %75
 
 75:                                               ; preds = %73
   br label %update_corner.exit
 
 76:                                               ; preds = %find_closest_corner.exit
-  %77 = fcmp reassoc nsz arcp contract afn ogt float %23, 1.000000e+00
+  %77 = fcmp reassoc nsz arcp contract afn ogt double %22, 0x3FF0000010000000
   br i1 %77, label %82, label %78
 
 78:                                               ; preds = %76
@@ -3143,7 +3143,7 @@ find_closest_corner.exit:                         ; preds = %36
 
 82:                                               ; preds = %78, %76
   %83 = phi float [ %.71.i, %78 ], [ 1.000000e+00, %76 ]
-  %84 = fcmp reassoc nsz arcp contract afn ogt float %34, 1.000000e+00
+  %84 = fcmp reassoc nsz arcp contract afn ogt double %33, 0x3FF0000010000000
   br i1 %84, label %update_corner.exit, label %85
 
 85:                                               ; preds = %82
@@ -3160,7 +3160,7 @@ find_closest_corner.exit:                         ; preds = %36
   br i1 %92, label %96, label %93
 
 93:                                               ; preds = %89
-  %94 = fcmp reassoc nsz arcp contract afn olt float %23, 0.000000e+00
+  %94 = fcmp reassoc nsz arcp contract afn olt double %22, 0xB690000000000000
   br i1 %94, label %96, label %95
 
 95:                                               ; preds = %93
@@ -3168,7 +3168,7 @@ find_closest_corner.exit:                         ; preds = %36
 
 96:                                               ; preds = %95, %93, %89
   %97 = phi float [ %23, %95 ], [ 0.000000e+00, %93 ], [ %91, %89 ]
-  %98 = fcmp reassoc nsz arcp contract afn ogt float %34, 1.000000e+00
+  %98 = fcmp reassoc nsz arcp contract afn ogt double %33, 0x3FF0000010000000
   br i1 %98, label %update_corner.exit, label %99
 
 99:                                               ; preds = %96
@@ -3224,28 +3224,27 @@ update_corner.exit:                               ; preds = %55, %60, %62, %68, 
   %143 = fpext reassoc nsz arcp contract afn float %141 to double
   %144 = fadd reassoc nsz arcp contract afn double %143, %142
   %145 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %144
-  %146 = fptrunc reassoc nsz arcp contract afn double %145 to float
-  %147 = fcmp reassoc nsz arcp contract afn olt float %136, 0.000000e+00
-  %148 = fcmp reassoc nsz arcp contract afn olt float %141, 0.000000e+00
-  %or.cond = select i1 %147, i1 true, i1 %148
-  %149 = fcmp reassoc nsz arcp contract afn olt float %146, 0.000000e+00
-  %or.cond56 = select i1 %or.cond, i1 true, i1 %149
-  br i1 %or.cond56, label %150, label %154
+  %146 = fcmp reassoc nsz arcp contract afn olt float %136, 0.000000e+00
+  %147 = fcmp reassoc nsz arcp contract afn olt float %141, 0.000000e+00
+  %or.cond = select i1 %146, i1 true, i1 %147
+  %148 = fcmp reassoc nsz arcp contract afn olt double %145, 0xB690000000000000
+  %or.cond56 = select i1 %or.cond, i1 true, i1 %148
+  br i1 %or.cond56, label %149, label %153
 
-150:                                              ; preds = %update_corner.exit
-  %151 = sext i32 %.1.i to i64
-  %152 = getelementptr inbounds [4 x %struct.point_t], ptr %35, i64 0, i64 %151
-  store float %.1, ptr %152, align 8, !tbaa !58
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
-  store float %.014, ptr %153, align 4, !tbaa !60
+149:                                              ; preds = %update_corner.exit
+  %150 = sext i32 %.1.i to i64
+  %151 = getelementptr inbounds [4 x %struct.point_t], ptr %35, i64 0, i64 %150
+  store float %.1, ptr %151, align 8, !tbaa !58
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  store float %.014, ptr %152, align 4, !tbaa !60
+  br label %153
+
+153:                                              ; preds = %update_corner.exit, %149
+  tail call void @gtk_widget_queue_draw(ptr noundef %0) #24
   br label %154
 
-154:                                              ; preds = %update_corner.exit, %150
-  tail call void @gtk_widget_queue_draw(ptr noundef %0) #24
-  br label %155
-
-155:                                              ; preds = %3, %7, %154
-  %.0 = phi i32 [ 1, %154 ], [ 0, %7 ], [ 0, %3 ]
+154:                                              ; preds = %3, %7, %153
+  %.0 = phi i32 [ 1, %153 ], [ 0, %7 ], [ 0, %3 ]
   ret i32 %.0
 }
 

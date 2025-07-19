@@ -182131,7 +182131,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry8strategy4side6detail2
   br i1 %67, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread35, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit
 
 _ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread35: ; preds = %65
-  %68 = fcmp ogt float %63, 0.000000e+00
+  %68 = fcmp ogt double %62, 0x3690000000000000
   %69 = select i1 %68, i32 1, i32 -1
   br label %75
 
@@ -182140,7 +182140,7 @@ _ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit: ; preds = %65
   %.sroa.speculated.i.i.i = select i1 %70, float 1.000000e+00, float %66
   %71 = fmul float %.sroa.speculated.i.i.i, 0x3E80000000000000
   %72 = fcmp ole float %66, %71
-  %73 = fcmp ogt float %63, 0.000000e+00
+  %73 = fcmp ogt double %62, 0x3690000000000000
   %74 = select i1 %73, i32 1, i32 -1
   %cond.fr = freeze i1 %72
   br i1 %cond.fr, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread, label %75

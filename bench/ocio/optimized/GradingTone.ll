@@ -3410,7 +3410,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender20scontrast_pr
   br i1 %9, label %10, label %120
 
 10:                                               ; preds = %5
-  %11 = fcmp ogt float %8, 1.000000e+00
+  %11 = fcmp ogt double %7, 0x3FF0000010000000
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10

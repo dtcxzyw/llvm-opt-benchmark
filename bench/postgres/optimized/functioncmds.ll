@@ -1242,7 +1242,7 @@ update_proconfig_value.exit.i:                    ; preds = %update_proconfig_va
 172:                                              ; preds = %update_proconfig_value.exit.i
   %173 = call double @defGetNumeric(ptr noundef nonnull %171) #8
   %174 = fptrunc double %173 to float
-  %175 = fcmp ugt float %174, 0.000000e+00
+  %175 = fcmp ugt double %173, 0x3690000000000000
   br i1 %175, label %180, label %176
 
 176:                                              ; preds = %172
@@ -1262,7 +1262,7 @@ update_proconfig_value.exit.i:                    ; preds = %update_proconfig_va
 182:                                              ; preds = %180
   %183 = call double @defGetNumeric(ptr noundef nonnull %181) #8
   %184 = fptrunc double %183 to float
-  %185 = fcmp ugt float %184, 0.000000e+00
+  %185 = fcmp ugt double %183, 0x3690000000000000
   br i1 %185, label %190, label %186
 
 186:                                              ; preds = %182
@@ -2351,7 +2351,7 @@ interpret_func_volatility.exit:                   ; preds = %77, %82, %85
   %126 = fptrunc double %125 to float
   %127 = getelementptr inbounds nuw i8, ptr %36, i64 80
   store float %126, ptr %127, align 4
-  %128 = fcmp ugt float %126, 0.000000e+00
+  %128 = fcmp ugt double %125, 0x3690000000000000
   br i1 %128, label %133, label %129
 
 129:                                              ; preds = %124
@@ -2372,7 +2372,7 @@ interpret_func_volatility.exit:                   ; preds = %77, %82, %85
   %137 = fptrunc double %136 to float
   %138 = getelementptr inbounds nuw i8, ptr %36, i64 84
   store float %137, ptr %138, align 4
-  %139 = fcmp ugt float %137, 0.000000e+00
+  %139 = fcmp ugt double %136, 0x3690000000000000
   br i1 %139, label %144, label %140
 
 140:                                              ; preds = %135

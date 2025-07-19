@@ -13777,7 +13777,7 @@ define linkonce_odr void @_Z6raster5Brushiif(ptr dead_on_unwind noalias writable
   br i1 %15, label %.preheader.us, label %._crit_edge34
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.033.us = phi float [ %82, %._crit_edge.us ], [ 0.000000e+00, %.preheader.lr.ph ]
+  %.033.us = phi float [ %83, %._crit_edge.us ], [ 0.000000e+00, %.preheader.lr.ph ]
   %20 = fsub float %.033.us, %8
   %21 = fpext float %20 to double
   %22 = fmul double %21, 1.414200e+00
@@ -13793,8 +13793,8 @@ define linkonce_odr void @_Z6raster5Brushiif(ptr dead_on_unwind noalias writable
   %32 = fptosi float %.033.us to i32
   br label %33
 
-33:                                               ; preds = %.preheader.us, %79
-  %.03132.us = phi float [ 0.000000e+00, %.preheader.us ], [ %80, %79 ]
+33:                                               ; preds = %.preheader.us, %80
+  %.03132.us = phi float [ 0.000000e+00, %.preheader.us ], [ %81, %80 ]
   %34 = fsub float %.03132.us, %11
   %35 = fpext float %34 to double
   %36 = fmul double %35, 1.414200e+00
@@ -13802,91 +13802,92 @@ define linkonce_odr void @_Z6raster5Brushiif(ptr dead_on_unwind noalias writable
   %38 = fdiv double %37, %9
   %39 = fptrunc double %38 to float
   switch i32 %1, label %_Z5brush5Brushffff.exit.us [
-    i32 0, label %54
+    i32 0, label %55
     i32 1, label %40
   ]
 
 40:                                               ; preds = %33
   %41 = fpext float %39 to double
   %42 = fmul double %41, 0x4061AD7BBFFF5EF0
-  %43 = fptrunc double %42 to float
-  %44 = tail call float @llvm.fabs.f32(float %43)
-  %45 = fcmp oge float %44, 1.000000e+02
-  %or.cond.i.us = or i1 %30, %45
-  br i1 %or.cond.i.us, label %52, label %46
+  %43 = tail call noundef double @llvm.fabs.f64(double %42)
+  %44 = fptrunc double %42 to float
+  %45 = tail call float @llvm.fabs.f32(float %44)
+  %46 = fcmp oge double %43, 0x4058FFFFF0000000
+  %or.cond.i.us = or i1 %30, %46
+  br i1 %or.cond.i.us, label %53, label %47
 
-46:                                               ; preds = %40
-  %47 = fcmp olt float %4, %44
-  %or.cond19.i.us = or i1 %31, %47
-  br i1 %or.cond19.i.us, label %48, label %52
+47:                                               ; preds = %40
+  %48 = fcmp olt float %4, %45
+  %or.cond19.i.us = or i1 %31, %48
+  br i1 %or.cond19.i.us, label %49, label %53
 
-48:                                               ; preds = %46
-  %49 = fcmp olt float %29, %44
-  %.sroa.speculated.i.us = select i1 %49, float %44, float %29
-  %50 = fsub float %.sroa.speculated.i.us, %4
-  %51 = fdiv float %50, %16
-  br label %52
+49:                                               ; preds = %47
+  %50 = fcmp olt float %29, %45
+  %.sroa.speculated.i.us = select i1 %50, float %45, float %29
+  %51 = fsub float %.sroa.speculated.i.us, %4
+  %52 = fdiv float %51, %16
+  br label %53
 
-52:                                               ; preds = %48, %46, %40
-  %.2.i.us = phi float [ %51, %48 ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %46 ]
-  %53 = fsub float 1.000000e+00, %.2.i.us
+53:                                               ; preds = %49, %47, %40
+  %.2.i.us = phi float [ %52, %49 ], [ 1.000000e+00, %40 ], [ 0.000000e+00, %47 ]
+  %54 = fsub float 1.000000e+00, %.2.i.us
   br label %_Z5brush5Brushffff.exit.us
 
-54:                                               ; preds = %33
-  %55 = fmul float %39, %39
-  %56 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %55)
-  %sqrt.us = tail call float @llvm.sqrt.f32(float %56)
-  %57 = fpext float %sqrt.us to double
-  %58 = fcmp ult float %sqrt.us, 1.000000e+00
-  br i1 %58, label %59, label %66
+55:                                               ; preds = %33
+  %56 = fmul float %39, %39
+  %57 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %56)
+  %sqrt.us = tail call float @llvm.sqrt.f32(float %57)
+  %58 = fpext float %sqrt.us to double
+  %59 = fcmp ult float %sqrt.us, 1.000000e+00
+  br i1 %59, label %60, label %67
 
-59:                                               ; preds = %54
-  %60 = fmul double %57, 1.000000e+02
-  %61 = fcmp ogt double %60, %17
-  br i1 %61, label %62, label %66
+60:                                               ; preds = %55
+  %61 = fmul double %58, 1.000000e+02
+  %62 = fcmp ogt double %61, %17
+  br i1 %62, label %63, label %67
 
-62:                                               ; preds = %59
-  %63 = tail call double @llvm.fmuladd.f64(double %57, double 1.000000e+02, double %18)
-  %64 = fdiv double %63, %19
-  %65 = fptrunc double %64 to float
-  br label %66
+63:                                               ; preds = %60
+  %64 = tail call double @llvm.fmuladd.f64(double %58, double 1.000000e+02, double %18)
+  %65 = fdiv double %64, %19
+  %66 = fptrunc double %65 to float
+  br label %67
 
-66:                                               ; preds = %62, %59, %54
-  %.0.i.us = phi float [ %65, %62 ], [ 0.000000e+00, %59 ], [ 1.000000e+00, %54 ]
-  %67 = fsub float 1.000000e+00, %.0.i.us
+67:                                               ; preds = %63, %60, %55
+  %.0.i.us = phi float [ %66, %63 ], [ 0.000000e+00, %60 ], [ 1.000000e+00, %55 ]
+  %68 = fsub float 1.000000e+00, %.0.i.us
   br label %_Z5brush5Brushffff.exit.us
 
-_Z5brush5Brushffff.exit.us:                       ; preds = %66, %52, %33
-  %.1.i.us = phi float [ 0.000000e+00, %33 ], [ %67, %66 ], [ %53, %52 ]
-  %68 = fsub float 1.000000e+00, %.1.i.us
-  %69 = fmul float %68, 2.550000e+02
-  %70 = fptosi float %69 to i32
-  %71 = fptosi float %.03132.us to i32
-  %72 = shl i32 %70, 16
-  %73 = shl i32 %70, 8
-  %74 = and i32 %73, 65280
-  %75 = or disjoint i32 %74, %72
-  %76 = and i32 %70, 255
-  %77 = or disjoint i32 %75, %76
-  %78 = or i32 %77, -16777216
-  invoke void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %32, i32 noundef %71, i32 noundef %78)
-          to label %79 unwind label %.split.us
+_Z5brush5Brushffff.exit.us:                       ; preds = %67, %53, %33
+  %.1.i.us = phi float [ 0.000000e+00, %33 ], [ %68, %67 ], [ %54, %53 ]
+  %69 = fsub float 1.000000e+00, %.1.i.us
+  %70 = fmul float %69, 2.550000e+02
+  %71 = fptosi float %70 to i32
+  %72 = fptosi float %.03132.us to i32
+  %73 = shl i32 %71, 16
+  %74 = shl i32 %71, 8
+  %75 = and i32 %74, 65280
+  %76 = or disjoint i32 %75, %73
+  %77 = and i32 %71, 255
+  %78 = or disjoint i32 %76, %77
+  %79 = or i32 %78, -16777216
+  invoke void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %32, i32 noundef %72, i32 noundef %79)
+          to label %80 unwind label %.split.us
 
-79:                                               ; preds = %_Z5brush5Brushffff.exit.us
-  %80 = fadd float %.03132.us, 1.000000e+00
-  %81 = fcmp olt float %80, %14
-  br i1 %81, label %33, label %._crit_edge.us, !llvm.loop !16
+80:                                               ; preds = %_Z5brush5Brushffff.exit.us
+  %81 = fadd float %.03132.us, 1.000000e+00
+  %82 = fcmp olt float %81, %14
+  br i1 %82, label %33, label %._crit_edge.us, !llvm.loop !16
 
-._crit_edge.us:                                   ; preds = %79
-  %82 = fadd float %.033.us, 1.000000e+00
-  %83 = fcmp olt float %82, %12
-  br i1 %83, label %.preheader.us, label %._crit_edge34, !llvm.loop !17
+._crit_edge.us:                                   ; preds = %80
+  %83 = fadd float %.033.us, 1.000000e+00
+  %84 = fcmp olt float %83, %12
+  br i1 %84, label %.preheader.us, label %._crit_edge34, !llvm.loop !17
 
 .split.us:                                        ; preds = %_Z5brush5Brushffff.exit.us
-  %84 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
-  resume { ptr, i32 } %84
+  resume { ptr, i32 } %85
 
 ._crit_edge34:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -13907,6 +13908,9 @@ declare void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #12
 
 declare noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 

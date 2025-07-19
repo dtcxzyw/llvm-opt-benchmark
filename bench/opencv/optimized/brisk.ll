@@ -2389,7 +2389,7 @@ _ZNK2cv11_InputArray6getMatEi.exit213:            ; preds = %166, %169
   %228 = fptrunc double %227 to float
   %229 = getelementptr inbounds nuw i8, ptr %201, i64 12
   store float %228, ptr %229, align 4, !tbaa !124
-  %230 = fcmp uge float %228, 0.000000e+00
+  %230 = fcmp uge double %227, 0xB690000000000000
   %or.cond.not = select i1 %5, i1 true, i1 %230
   br i1 %or.cond.not, label %272, label %270
 

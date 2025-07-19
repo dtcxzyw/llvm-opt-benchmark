@@ -4629,7 +4629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
 
 83:                                               ; preds = %81
   %84 = fptrunc double %82 to float
-  %85 = fcmp ogt float %84, 0.000000e+00
+  %85 = fcmp ogt double %82, 0x3690000000000000
   br i1 %85, label %99, label %86
 
 .loopexit:                                        ; preds = %81, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i
@@ -4766,7 +4766,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
 
 129:                                              ; preds = %127
   %130 = fptrunc double %128 to float
-  %131 = fcmp ogt float %130, 0.000000e+00
+  %131 = fcmp ogt double %128, 0x3690000000000000
   br i1 %131, label %147, label %134
 
 132:                                              ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i60, %161, %127

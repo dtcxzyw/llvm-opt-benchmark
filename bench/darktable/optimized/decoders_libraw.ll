@@ -3105,7 +3105,7 @@ define void @_ZN6LibRaw15nikon_load_srawEv(ptr noundef nonnull align 8 dereferen
   %205 = fmul reassoc nsz arcp contract afn double %204, 7.141400e-01
   %206 = fsub reassoc nsz arcp contract afn double %203, %205
   %207 = fptrunc reassoc nsz arcp contract afn double %206 to float
-  %208 = fcmp reassoc nsz arcp contract afn ogt float %207, 1.000000e+00
+  %208 = fcmp reassoc nsz arcp contract afn ogt double %206, 0x3FF0000010000000
   %.097 = select nsz i1 %208, float 1.000000e+00, float %207
   %209 = fcmp reassoc nsz arcp contract afn olt float %.097, 0.000000e+00
   %.198 = select nsz i1 %209, float 0.000000e+00, float %.097
@@ -3114,7 +3114,7 @@ define void @_ZN6LibRaw15nikon_load_srawEv(ptr noundef nonnull align 8 dereferen
   %212 = fmul reassoc nsz arcp contract afn double %211, 1.772000e+00
   %213 = fadd reassoc nsz arcp contract afn double %212, %210
   %214 = fptrunc reassoc nsz arcp contract afn double %213 to float
-  %215 = fcmp reassoc nsz arcp contract afn ogt float %214, 1.000000e+00
+  %215 = fcmp reassoc nsz arcp contract afn ogt double %213, 0x3FF0000010000000
   %.0 = select nsz i1 %215, float 1.000000e+00, float %214
   %216 = fcmp reassoc nsz arcp contract afn olt float %.0, 0.000000e+00
   %.1 = select nsz i1 %216, float 0.000000e+00, float %.0

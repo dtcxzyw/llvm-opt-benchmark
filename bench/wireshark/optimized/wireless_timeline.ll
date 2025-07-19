@@ -2789,7 +2789,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   %384 = uitofp i64 %383 to double
   %385 = fmul double %65, %384
   %386 = fptrunc double %385 to float
-  %387 = fcmp olt float %386, 0.000000e+00
+  %387 = fcmp olt double %385, 0xB690000000000000
   br i1 %387, label %.loopexit, label %388
 
 388:                                              ; preds = %380

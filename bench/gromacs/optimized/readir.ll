@@ -11518,8 +11518,8 @@ _ZL13gmx_snew_implI11t_swapGroupEvPKcS2_iRPT_m.exit: ; preds = %2208
   %2343 = load float, ptr %2341, align 4, !tbaa !138
   %2344 = call float @llvm.fabs.f32(float %2343)
   %or.cond1409 = fcmp olt float %2344, 1.000000e+00
-  %2345 = call float @llvm.fabs.f32(float %2339)
-  %2346 = fcmp olt float %2345, 1.000000e+00
+  %2345 = call double @llvm.fabs.f64(double %2337)
+  %2346 = fcmp olt double %2345, 0x3FEFFFFFF0000000
   %or.cond1411 = and i1 %2346, %or.cond1409
   br i1 %or.cond1411, label %2348, label %2347
 
@@ -32011,7 +32011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i1082: ; preds = 
   %2714 = fptrunc double %2713 to float
   %2715 = load ptr, ptr %442, align 8, !tbaa !666
   %2716 = getelementptr inbounds nuw float, ptr %2715, i64 %indvars.iv439.i
-  %2717 = fcmp olt float %2714, 0.000000e+00
+  %2717 = fcmp olt double %2713, 0xB690000000000000
   %storemerge.i = select i1 %2717, float 0.000000e+00, float %2714
   store float %storemerge.i, ptr %2716, align 4, !tbaa !138
   %2718 = load ptr, ptr @stderr, align 8, !tbaa !492
@@ -36374,22 +36374,22 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %83 = fpext float %.sroa.speculated338 to double
   %84 = fmul double %83, 0x3F91072C483AF26D
   %85 = fdiv double %82, %84
-  %86 = fptrunc double %85 to float
-  %87 = fcmp ogt float %86, 0x3F60624DE0000000
-  br i1 %87, label %88, label %._crit_edge.thread
+  %86 = fcmp ogt double %85, 0x3F60624DEFFFFFFF
+  br i1 %86, label %87, label %._crit_edge.thread
 
-88:                                               ; preds = %79
-  %89 = fmul float %86, 1.000000e+02
+87:                                               ; preds = %79
+  %88 = fptrunc double %85 to float
+  %89 = fmul float %88, 1.000000e+02
   %90 = fpext float %89 to double
   %91 = fmul float %51, 0x3F50624DE0000000
-  %92 = fdiv float %91, %86
+  %92 = fdiv float %91, %88
   %93 = fpext float %92 to double
   %94 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.714, double noundef %81, double noundef %83, double noundef %70, double noundef %90, double noundef 0x3FB99999A0000000, double noundef %93) #27
   %95 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #27
   call void @_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 %95, ptr nonnull %16)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %62, %._crit_edge, %88, %79, %59, %56, %49, %.critedge
+._crit_edge.thread:                               ; preds = %62, %._crit_edge, %87, %79, %59, %56, %49, %.critedge
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %97 = load i32, ptr %96, align 8, !tbaa !140
   %98 = and i32 %97, -2
@@ -38400,6 +38400,9 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24

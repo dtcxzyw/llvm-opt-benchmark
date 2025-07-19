@@ -255,7 +255,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEE
   %58 = fpext float %55 to double
   %59 = tail call double @llvm.fmuladd.f64(double %58, double 7.071000e-01, double %57)
   %60 = fptrunc double %59 to float
-  %61 = fcmp olt float %60, 0.000000e+00
+  %61 = fcmp olt double %59, 0xB690000000000000
   %62 = fpext float %60 to double
   %63 = fmul double %62, -1.000000e-01
   %64 = fptrunc double %63 to float
@@ -838,7 +838,7 @@ define dso_local void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_
   %126 = fpext float %117 to double
   %127 = tail call double @llvm.fmuladd.f64(double %126, double 7.071000e-01, double %125)
   %128 = fptrunc double %127 to float
-  %129 = fcmp olt float %128, 0.000000e+00
+  %129 = fcmp olt double %127, 0xB690000000000000
   %130 = fpext float %128 to double
   %131 = fmul double %130, -1.000000e-01
   %132 = fptrunc double %131 to float

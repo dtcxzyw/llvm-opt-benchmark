@@ -1681,7 +1681,7 @@ _ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.exit:         ; preds = %494
   br label %512
 
 512:                                              ; preds = %501, %508
-  %513 = fcmp olt float %182, 0x3FCC28F4E0000000
+  %513 = fcmp olt double %180, 0x3FCC28F4D0000001
   br i1 %513, label %514, label %517
 
 514:                                              ; preds = %512
@@ -1691,7 +1691,7 @@ _ZL13gmx_snew_implIPcEvPKcS2_iRPT_m.exit:         ; preds = %494
 
 517:                                              ; preds = %514, %512
   %.0152 = phi i32 [ 1, %514 ], [ 0, %512 ]
-  %518 = fcmp olt float %170, 0x3FB99997E0000000
+  %518 = fcmp olt double %168, 0x3FB99997D0000001
   br i1 %518, label %519, label %524
 
 519:                                              ; preds = %517
@@ -2229,7 +2229,7 @@ _ZL13gmx_snew_implI7t_blockEvPKcS2_iRPT_m.exit:   ; preds = %685
 
 .noexc262:                                        ; preds = %._crit_edge.i
   store ptr %739, ptr %687, align 8, !tbaa !26
-  %740 = fcmp ogt float %173, 0x3FF0000100000000
+  %740 = fcmp ogt double %171, 0x3FF0000110000000
   br i1 %740, label %741, label %754
 
 741:                                              ; preds = %.noexc262

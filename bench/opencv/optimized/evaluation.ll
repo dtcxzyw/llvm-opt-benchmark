@@ -3901,7 +3901,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25
-  br label %103
+  br label %101
 
 25:                                               ; preds = %2
   %26 = load float, ptr %0, align 8, !tbaa !91
@@ -3949,7 +3949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
   %.pn46 = phi { ptr, i32 } [ %32, %31 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50 ], [ %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i49 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
-  br label %103
+  br label %101
 
 41:                                               ; preds = %25
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4018,7 +4018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
 
 83:                                               ; preds = %.lr.ph, %83
   %.13854 = phi i32 [ %.03759, %.lr.ph ], [ %.239, %83 ]
-  %.04053 = phi float [ %54, %.lr.ph ], [ %101, %83 ]
+  %.04053 = phi float [ %54, %.lr.ph ], [ %99, %83 ]
   %.14252 = phi i32 [ %.04158, %.lr.ph ], [ %spec.select, %83 ]
   %84 = fsub float %.04053, %58
   %85 = fpext float %.04053 to double
@@ -4026,26 +4026,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
   %87 = tail call double @llvm.fmuladd.f64(double %77, double %76, double %86)
   %88 = fmul double %65, %85
   %89 = tail call double @llvm.fmuladd.f64(double %88, double %85, double %87)
-  %90 = fptrunc double %89 to float
-  %91 = fpext float %84 to double
-  %92 = fmul double %81, %91
-  %93 = tail call double @llvm.fmuladd.f64(double %80, double %79, double %92)
-  %94 = fmul double %72, %91
-  %95 = tail call double @llvm.fmuladd.f64(double %94, double %91, double %93)
-  %96 = fptrunc double %95 to float
-  %97 = fcmp olt float %90, 1.000000e+00
-  %98 = fcmp olt float %96, 1.000000e+00
-  %or.cond = select i1 %97, i1 %98, i1 false
-  %99 = zext i1 %or.cond to i32
-  %spec.select = add nsw i32 %.14252, %99
-  %or.cond3 = select i1 %97, i1 true, i1 %98
-  %100 = zext i1 %or.cond3 to i32
-  %.239 = add nsw i32 %.13854, %100
-  %101 = fadd float %26, %.04053
-  %102 = fcmp ugt float %101, %55
-  br i1 %102, label %._crit_edge, label %83, !llvm.loop !179
+  %90 = fpext float %84 to double
+  %91 = fmul double %81, %90
+  %92 = tail call double @llvm.fmuladd.f64(double %80, double %79, double %91)
+  %93 = fmul double %72, %90
+  %94 = tail call double @llvm.fmuladd.f64(double %93, double %90, double %92)
+  %95 = fcmp olt double %89, 0x3FEFFFFFF0000000
+  %96 = fcmp olt double %94, 0x3FEFFFFFF0000000
+  %or.cond = select i1 %95, i1 %96, i1 false
+  %97 = zext i1 %or.cond to i32
+  %spec.select = add nsw i32 %.14252, %97
+  %or.cond3 = select i1 %95, i1 true, i1 %96
+  %98 = zext i1 %or.cond3 to i32
+  %.239 = add nsw i32 %.13854, %98
+  %99 = fadd float %26, %.04053
+  %100 = fcmp ugt float %99, %55
+  br i1 %100, label %._crit_edge, label %83, !llvm.loop !179
 
-103:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+101:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn46.pn
 }

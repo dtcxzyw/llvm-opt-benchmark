@@ -2530,7 +2530,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %106 = fpext float %4 to double
   %107 = fmul double %106, 0x3F81072C483AF26D
   %108 = fptrunc double %107 to float
-  %109 = fcmp olt float %108, 0.000000e+00
+  %109 = fcmp olt double %107, 0xB690000000000000
   %.091.i.i = select i1 %109, float 0.000000e+00, float %108
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !159

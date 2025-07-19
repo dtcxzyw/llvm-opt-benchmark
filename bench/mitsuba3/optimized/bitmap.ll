@@ -15490,7 +15490,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %102 = load ptr, ptr %76, align 8
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %104 = load i32, ptr %103, align 4
-  %105 = fcmp contract ole float %53, 0.000000e+00
+  %105 = fcmp contract ole double %51, 0x3690000000000000
   %106 = zext i1 %105 to i32
   call void @_ZN7mitsuba6Stream14set_byte_orderENS0_10EByteOrderE(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %106)
   %107 = load i32, ptr %103, align 4

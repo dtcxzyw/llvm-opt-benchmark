@@ -6712,7 +6712,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   %108 = fpext float %107 to double
   %109 = fadd double %105, %108
   %.038.i = fptrunc double %109 to float
-  %110 = fcmp ult float %.038.i, 0.000000e+00
+  %110 = fcmp ult double %109, 0xB690000000000000
   br i1 %110, label %134, label %111
 
 111:                                              ; preds = %96
@@ -7597,7 +7597,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   %51 = fpext float %50 to double
   %52 = fadd double %48, %51
   %.038 = fptrunc double %52 to float
-  %53 = fcmp ult float %.038, 0.000000e+00
+  %53 = fcmp ult double %52, 0xB690000000000000
   br i1 %53, label %77, label %54
 
 54:                                               ; preds = %39

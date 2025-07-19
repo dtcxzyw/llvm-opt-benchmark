@@ -49761,7 +49761,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = load double, ptr %124, align 8, !tbaa !151
   %126 = fmul double %125, 2.550000e+02
   %127 = fptrunc double %126 to float
-  %128 = fcmp olt float %127, 0.000000e+00
+  %128 = fcmp olt double %126, 0xB690000000000000
   %129 = select i1 %128, float -5.000000e-01, float 5.000000e-01
   %130 = fadd float %129, %127
   %.inv.i.i.i.i.i.i.i = fcmp oge float %130, 0.000000e+00
@@ -58062,7 +58062,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = load double, ptr %124, align 8, !tbaa !151
   %126 = fmul double %125, 6.553500e+04
   %127 = fptrunc double %126 to float
-  %128 = fcmp olt float %127, 0.000000e+00
+  %128 = fcmp olt double %126, 0xB690000000000000
   %129 = select i1 %128, float -5.000000e-01, float 5.000000e-01
   %130 = fadd float %129, %127
   %.inv.i.i.i.i.i.i.i = fcmp oge float %130, 0.000000e+00
@@ -61967,7 +61967,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = load double, ptr %124, align 8, !tbaa !151
   %126 = fmul double %125, 1.270000e+02
   %127 = fptrunc double %126 to float
-  %128 = fcmp olt float %127, 0.000000e+00
+  %128 = fcmp olt double %126, 0xB690000000000000
   %129 = select i1 %128, float -5.000000e-01, float 5.000000e-01
   %130 = fadd float %129, %127
   %.inv.i.i.i.i.i.i.i = fcmp oge float %130, -1.280000e+02
@@ -65872,7 +65872,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = load double, ptr %124, align 8, !tbaa !151
   %126 = fmul double %125, 3.276700e+04
   %127 = fptrunc double %126 to float
-  %128 = fcmp olt float %127, 0.000000e+00
+  %128 = fcmp olt double %126, 0xB690000000000000
   %129 = select i1 %128, float -5.000000e-01, float 5.000000e-01
   %130 = fadd float %129, %127
   %.inv.i.i.i.i.i.i.i = fcmp oge float %130, -3.276800e+04

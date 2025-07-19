@@ -9319,7 +9319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %64)
   %65 = fdiv double %60, %sqrt.i
   %66 = fptrunc double %65 to float
-  %67 = fcmp olt float %66, 0.000000e+00
+  %67 = fcmp olt double %65, 0xB690000000000000
   %68 = tail call noundef float @acosf(float noundef %66) #37, !tbaa !20
   br i1 %67, label %69, label %84
 
@@ -9338,7 +9338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   %sqrt.i29 = tail call noundef double @llvm.sqrt.f64(double %78)
   %79 = fdiv double %74, %sqrt.i29
   %80 = fptrunc double %79 to float
-  %81 = fcmp olt float %80, 0.000000e+00
+  %81 = fcmp olt double %79, 0xB690000000000000
   %82 = tail call noundef float @acosf(float noundef %80) #37, !tbaa !20
   %83 = fneg float %82
   %.2.in.in.in = select i1 %81, float %83, float %82
