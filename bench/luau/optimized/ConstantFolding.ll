@@ -3668,11 +3668,11 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %315 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %316 = load float, ptr %315, align 4
   %317 = fcmp une float %316, 0.000000e+00
-  %318 = fdiv float %313, %316
-  %319 = tail call noundef float @llvm.floor.f32(float %318)
-  %320 = fcmp oeq float %319, 0.000000e+00
-  %321 = select i1 %320, i1 true, i1 %314
-  %or.cond13 = select i1 %321, i1 true, i1 %317
+  %318 = or i1 %314, %317
+  %319 = fdiv float %313, %316
+  %320 = tail call noundef float @llvm.floor.f32(float %319)
+  %321 = fcmp oeq float %320, 0.000000e+00
+  %or.cond13 = or i1 %318, %321
   br i1 %or.cond13, label %322, label %522
 
 322:                                              ; preds = %311
@@ -3702,7 +3702,7 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %342, ptr %343, align 8, !tbaa !67
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %319, ptr %344, align 4, !tbaa !67
+  store float %320, ptr %344, align 4, !tbaa !67
   br label %522
 
 345:                                              ; preds = %308

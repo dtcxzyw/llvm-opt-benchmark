@@ -1729,7 +1729,7 @@ define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double nounde
   %47 = tail call double @llvm.fabs.f64(double %46)
   %48 = fcmp ult double %43, %45
   %49 = fcmp ult double %43, %47
-  %or.cond = select i1 %48, i1 true, i1 %49
+  %or.cond = or i1 %48, %49
   br i1 %or.cond, label %52, label %50
 
 50:                                               ; preds = %41
@@ -1739,7 +1739,7 @@ define internal fastcc void @_ZL7hexbin2dddPlS_(double noundef %0, double nounde
 52:                                               ; preds = %41
   %53 = fcmp ult double %45, %43
   %54 = fcmp ult double %45, %47
-  %or.cond55 = select i1 %53, i1 true, i1 %54
+  %or.cond55 = or i1 %53, %54
   %55 = select i1 %or.cond55, i64 0, i64 %40
   %spec.select = sub nsw i64 %22, %55
   br label %56

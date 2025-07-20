@@ -312,7 +312,7 @@ fill_from_cache.exit.i:                           ; preds = %54, %fill_from_cach
   %112 = trunc i64 %111 to i32
   %113 = icmp sgt i32 %112, -1
   %.not.us5.i.i = icmp sgt i32 %107, %112
-  %or.cond.us6.i.i = select i1 %113, i1 %.not.us5.i.i, i1 false
+  %or.cond.us6.i.i = and i1 %113, %.not.us5.i.i
   br i1 %or.cond.us6.i.i, label %114, label %122
 
 114:                                              ; preds = %102
@@ -418,7 +418,7 @@ fill_from_cache.exit427.i:                        ; preds = %fill_from_cache.exi
   %167 = trunc i64 %166 to i32
   %168 = icmp sgt i32 %167, -1
   %.not.us.i.i = icmp sgt i32 %162, %167
-  %or.cond.us.i.i = select i1 %168, i1 %.not.us.i.i, i1 false
+  %or.cond.us.i.i = and i1 %168, %.not.us.i.i
   br i1 %or.cond.us.i.i, label %169, label %174
 
 169:                                              ; preds = %157
@@ -1197,7 +1197,7 @@ interpol.exit.thread.i:                           ; preds = %268, %253, %285, %2
   %642 = trunc i64 %641 to i32
   %643 = icmp sgt i32 %642, -1
   %.not.us5.i435.i = icmp sgt i32 %637, %642
-  %or.cond.us6.i436.i = select i1 %643, i1 %.not.us5.i435.i, i1 false
+  %or.cond.us6.i436.i = and i1 %643, %.not.us5.i435.i
   br i1 %or.cond.us6.i436.i, label %644, label %652
 
 644:                                              ; preds = %632
