@@ -5992,8 +5992,7 @@ define dso_local i32 @xhci_queue_isoc_tx_prepare(ptr noundef %0, i32 noundef %1,
 
 347:                                              ; preds = %343
   %348 = load i32, ptr %156, align 8
-  %.fr27 = freeze i32 %348
-  %349 = urem i32 %216, %.fr27
+  %349 = urem i32 %216, %348
   %.not = icmp eq i32 %349, 0
   br i1 %.not, label %351, label %.thread19
 
