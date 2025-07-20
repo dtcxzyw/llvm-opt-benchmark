@@ -5622,9 +5622,9 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %10 = load i64, ptr %9, align 8, !alias.scope !1017
   br i1 %6, label %.split.us.i.preheader.us, label %.split.i.preheader
 
-.split.us.i.preheader.us:                         ; preds = %4, %30
-  %.sroa.3.0.us = phi i64 [ %35, %30 ], [ %2, %4 ]
-  %.sroa.0.0.us = phi ptr [ %34, %30 ], [ %1, %4 ]
+.split.us.i.preheader.us:                         ; preds = %4, %31
+  %.sroa.3.0.us = phi i64 [ %36, %31 ], [ %2, %4 ]
+  %.sroa.0.0.us = phi ptr [ %35, %31 ], [ %1, %4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us, i64 538
   %12 = load i16, ptr %11, align 2, !noalias !1017, !noundef !7
@@ -5644,98 +5644,100 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1020)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1023)
   %18 = load i64, ptr %.sroa.01.0.us.i.us, align 8, !range !6, !alias.scope !1023, !noalias !1025, !noundef !7
-  %19 = tail call i8 @llvm.scmp.i8.i64(i64 %.fr18.i, i64 %18)
-  %20 = icmp eq i64 %.fr18.i, %18
-  br i1 %20, label %21, label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us"
+  %19 = sub nuw nsw i64 %.fr18.i, %18
+  %20 = trunc nsw i64 %19 to i8
+  %21 = icmp eq i64 %.fr18.i, %18
+  br i1 %21, label %22, label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us"
 
-21:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us"
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.us.i.us, i64 8
+22:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us"
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.us.i.us, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1026)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1029)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %24, %21
-  %.sroa.01.0.i.i.us.i.us = phi i64 [ 0, %21 ], [ %25, %24 ]
+24:                                               ; preds = %25, %22
+  %.sroa.01.0.i.i.us.i.us = phi i64 [ 0, %22 ], [ %26, %25 ]
   %exitcond.not.i.i.us.i.us = icmp eq i64 %.sroa.01.0.i.i.us.i.us, 3
-  br i1 %exitcond.not.i.i.us.i.us, label %.split84.us, label %24
+  br i1 %exitcond.not.i.i.us.i.us, label %.split84.us, label %25
 
-24:                                               ; preds = %23
-  %25 = add nuw nsw i64 %.sroa.01.0.i.i.us.i.us, 1
-  %26 = getelementptr inbounds nuw i64, ptr %7, i64 %.sroa.01.0.i.i.us.i.us
-  %27 = getelementptr inbounds nuw i64, ptr %22, i64 %.sroa.01.0.i.i.us.i.us
-  %.val14.i.i.us.i.us = load i64, ptr %26, align 8, !alias.scope !1031, !noalias !1032, !noundef !7
-  %.val15.i.i.us.i.us = load i64, ptr %27, align 8, !alias.scope !1032, !noalias !1031, !noundef !7
-  %28 = icmp eq i64 %.val14.i.i.us.i.us, %.val15.i.i.us.i.us
-  br i1 %28, label %23, label %.split.loop.exit17.i.i.us.i.us
+25:                                               ; preds = %24
+  %26 = add nuw nsw i64 %.sroa.01.0.i.i.us.i.us, 1
+  %27 = getelementptr inbounds nuw i64, ptr %7, i64 %.sroa.01.0.i.i.us.i.us
+  %28 = getelementptr inbounds nuw i64, ptr %23, i64 %.sroa.01.0.i.i.us.i.us
+  %.val14.i.i.us.i.us = load i64, ptr %27, align 8, !alias.scope !1031, !noalias !1032, !noundef !7
+  %.val15.i.i.us.i.us = load i64, ptr %28, align 8, !alias.scope !1032, !noalias !1031, !noundef !7
+  %29 = icmp eq i64 %.val14.i.i.us.i.us, %.val15.i.i.us.i.us
+  br i1 %29, label %24, label %.split.loop.exit17.i.i.us.i.us
 
-.split.loop.exit17.i.i.us.i.us:                   ; preds = %24
-  %29 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val14.i.i.us.i.us, i64 %.val15.i.i.us.i.us)
+.split.loop.exit17.i.i.us.i.us:                   ; preds = %25
+  %30 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val14.i.i.us.i.us, i64 %.val15.i.i.us.i.us)
   br label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us"
 
 "_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us": ; preds = %.split.loop.exit17.i.i.us.i.us, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us"
-  %.sroa.0.0.i5.us.i.us = phi i8 [ %19, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us" ], [ %29, %.split.loop.exit17.i.i.us.i.us ]
+  %.sroa.0.0.i5.us.i.us = phi i8 [ %20, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us" ], [ %30, %.split.loop.exit17.i.i.us.i.us ]
   switch i8 %.sroa.0.0.i5.us.i.us, label %.split16.us.i [
     i8 -1, label %.loopexit55.us
     i8 0, label %.split84.us
     i8 1, label %.split.us.i.us
   ]
 
-30:                                               ; preds = %.loopexit55.us
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us, i64 544
-  %32 = icmp samesign ult i64 %.sroa.4.0.i.ph.ph.us, 12
-  tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %.sroa.4.0.i.ph.ph.us
-  %34 = load ptr, ptr %33, align 8, !noalias !1033, !nonnull !7, !noundef !7
-  %35 = add i64 %.sroa.3.0.us, -1
+31:                                               ; preds = %.loopexit55.us
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us, i64 544
+  %33 = icmp samesign ult i64 %.sroa.4.0.i.ph.ph.us, 12
+  tail call void @llvm.assume(i1 %33)
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.sroa.4.0.i.ph.ph.us
+  %35 = load ptr, ptr %34, align 8, !noalias !1033, !nonnull !7, !noundef !7
+  %36 = add i64 %.sroa.3.0.us, -1
   br label %.split.us.i.preheader.us
 
 .loopexit55.us:                                   ; preds = %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us", %.split.us.i.us
   %.sroa.4.0.i.ph.ph.us = phi i64 [ %13, %.split.us.i.us ], [ %.sroa.8.0.us.i.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ]
-  %36 = icmp eq i64 %.sroa.3.0.us, 0
-  br i1 %36, label %.split84.us, label %30
+  %37 = icmp eq i64 %.sroa.3.0.us, 0
+  br i1 %37, label %.split84.us, label %31
 
-.split.i.preheader:                               ; preds = %4, %59
-  %.sroa.3.0 = phi i64 [ %64, %59 ], [ %2, %4 ]
-  %.sroa.0.0 = phi ptr [ %63, %59 ], [ %1, %4 ]
+.split.i.preheader:                               ; preds = %4, %61
+  %.sroa.3.0 = phi i64 [ %66, %61 ], [ %2, %4 ]
+  %.sroa.0.0 = phi ptr [ %65, %61 ], [ %1, %4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 538
-  %38 = load i16, ptr %37, align 2, !noalias !1017, !noundef !7
-  %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.sroa.0.0, i64 %39
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 538
+  %39 = load i16, ptr %38, align 2, !noalias !1017, !noundef !7
+  %40 = zext i16 %39 to i64
+  %41 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.sroa.0.0, i64 %40
   br label %.split.i
 
 .split.i:                                         ; preds = %.split.i.preheader, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i"
-  %.sroa.01.0.i = phi ptr [ %42, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.0.0, %.split.i.preheader ]
-  %.sroa.8.0.i = phi i64 [ %43, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 0, %.split.i.preheader ]
-  %41 = icmp eq ptr %.sroa.01.0.i, %40
-  br i1 %41, label %.loopexit57, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
+  %.sroa.01.0.i = phi ptr [ %43, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.0.0, %.split.i.preheader ]
+  %.sroa.8.0.i = phi i64 [ %44, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 0, %.split.i.preheader ]
+  %42 = icmp eq ptr %.sroa.01.0.i, %41
+  br i1 %42, label %.loopexit57, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i": ; preds = %.split.i
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
-  %43 = add nuw nsw i64 %.sroa.8.0.i, 1
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
+  %44 = add nuw nsw i64 %.sroa.8.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1020)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1023)
-  %44 = load i64, ptr %.sroa.01.0.i, align 8, !range !6, !alias.scope !1023, !noalias !1025, !noundef !7
-  %45 = tail call i8 @llvm.scmp.i8.i64(i64 %.fr18.i, i64 %44)
-  %46 = icmp eq i64 %.fr18.i, %44
-  br i1 %46, label %47, label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i"
+  %45 = load i64, ptr %.sroa.01.0.i, align 8, !range !6, !alias.scope !1023, !noalias !1025, !noundef !7
+  %46 = sub nsw i64 %.fr18.i, %45
+  %47 = trunc nsw i64 %46 to i8
+  %48 = icmp eq i64 %.fr18.i, %45
+  br i1 %48, label %49, label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i"
 
-47:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
-  %49 = load ptr, ptr %48, align 8, !alias.scope !1023, !noalias !1025, !nonnull !7, !noundef !7
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
-  %51 = load i64, ptr %50, align 8, !alias.scope !1023, !noalias !1025, !noundef !7
-  %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %51)
-  %52 = tail call i32 @memcmp(ptr nonnull %8, ptr nonnull %49, i64 %spec.store.select.i.i), !noalias !1036
-  %53 = sext i32 %52 to i64
-  %54 = icmp eq i32 %52, 0
-  %55 = sub i64 %10, %51
-  %spec.select.i.i = select i1 %54, i64 %55, i64 %53
-  %56 = tail call i8 @llvm.scmp.i8.i64(i64 %spec.select.i.i, i64 0)
+49:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
+  %51 = load ptr, ptr %50, align 8, !alias.scope !1023, !noalias !1025, !nonnull !7, !noundef !7
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
+  %53 = load i64, ptr %52, align 8, !alias.scope !1023, !noalias !1025, !noundef !7
+  %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %53)
+  %54 = tail call i32 @memcmp(ptr nonnull %8, ptr nonnull %51, i64 %spec.store.select.i.i), !noalias !1036
+  %55 = sext i32 %54 to i64
+  %56 = icmp eq i32 %54, 0
+  %57 = sub i64 %10, %53
+  %spec.select.i.i = select i1 %56, i64 %57, i64 %55
+  %58 = tail call i8 @llvm.scmp.i8.i64(i64 %spec.select.i.i, i64 0)
   br label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i"
 
-"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i": ; preds = %47, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
-  %.sroa.0.0.i5.i = phi i8 [ %56, %47 ], [ %45, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i" ]
+"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i": ; preds = %49, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
+  %.sroa.0.0.i5.i = phi i8 [ %58, %49 ], [ %47, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i" ]
   switch i8 %.sroa.0.0.i5.i, label %.split16.us.i [
     i8 -1, label %.loopexit57
     i8 0, label %.split84.us
@@ -5746,17 +5748,17 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   unreachable
 
 .loopexit57:                                      ; preds = %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i", %.split.i
-  %.sroa.4.0.i.ph.ph58 = phi i64 [ %39, %.split.i ], [ %.sroa.8.0.i, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ]
-  %57 = icmp eq i64 %.sroa.3.0, 0
-  br i1 %57, label %.split84.us, label %59
+  %.sroa.4.0.i.ph.ph58 = phi i64 [ %40, %.split.i ], [ %.sroa.8.0.i, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ]
+  %59 = icmp eq i64 %.sroa.3.0, 0
+  br i1 %59, label %.split84.us, label %61
 
-.split84.us:                                      ; preds = %.loopexit57, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i", %.loopexit55.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us", %23
-  %.us-phi86.sink = phi ptr [ %.sroa.0.0.us, %23 ], [ %.sroa.0.0.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ %.sroa.0.0.us, %.loopexit55.us ], [ %.sroa.0.0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.0.0, %.loopexit57 ]
-  %.sink = phi i64 [ %.sroa.3.0.us, %23 ], [ %.sroa.3.0.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ 0, %.loopexit55.us ], [ %.sroa.3.0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 0, %.loopexit57 ]
-  %.us-phi85.sink = phi i64 [ %.sroa.8.0.us.i.us, %23 ], [ %.sroa.8.0.us.i.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ %.sroa.4.0.i.ph.ph.us, %.loopexit55.us ], [ %.sroa.8.0.i, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.4.0.i.ph.ph58, %.loopexit57 ]
-  %storemerge = phi i64 [ 0, %23 ], [ 0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ 1, %.loopexit55.us ], [ 0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 1, %.loopexit57 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.us-phi86.sink, ptr %58, align 8
+.split84.us:                                      ; preds = %.loopexit57, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i", %.loopexit55.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us", %24
+  %.us-phi86.sink = phi ptr [ %.sroa.0.0.us, %24 ], [ %.sroa.0.0.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ %.sroa.0.0.us, %.loopexit55.us ], [ %.sroa.0.0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.0.0, %.loopexit57 ]
+  %.sink = phi i64 [ %.sroa.3.0.us, %24 ], [ %.sroa.3.0.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ 0, %.loopexit55.us ], [ %.sroa.3.0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 0, %.loopexit57 ]
+  %.us-phi85.sink = phi i64 [ %.sroa.8.0.us.i.us, %24 ], [ %.sroa.8.0.us.i.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ %.sroa.4.0.i.ph.ph.us, %.loopexit55.us ], [ %.sroa.8.0.i, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.4.0.i.ph.ph58, %.loopexit57 ]
+  %storemerge = phi i64 [ 0, %24 ], [ 0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ 1, %.loopexit55.us ], [ 0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 1, %.loopexit57 ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.us-phi86.sink, ptr %60, align 8
   %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.242.0..sroa_idx, align 8
   %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5764,13 +5766,13 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   store i64 %storemerge, ptr %0, align 8
   ret void
 
-59:                                               ; preds = %.loopexit57
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 544
-  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.ph58, 12
-  tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %.sroa.4.0.i.ph.ph58
-  %63 = load ptr, ptr %62, align 8, !noalias !1033, !nonnull !7, !noundef !7
-  %64 = add i64 %.sroa.3.0, -1
+61:                                               ; preds = %.loopexit57
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 544
+  %63 = icmp samesign ult i64 %.sroa.4.0.i.ph.ph58, 12
+  tail call void @llvm.assume(i1 %63)
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %.sroa.4.0.i.ph.ph58
+  %65 = load ptr, ptr %64, align 8, !noalias !1033, !nonnull !7, !noundef !7
+  %66 = add i64 %.sroa.3.0, -1
   br label %.split.i.preheader
 }
 
@@ -5848,9 +5850,9 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %10 = load i64, ptr %9, align 8, !alias.scope !1040
   br i1 %6, label %.split.us.i.preheader.us, label %.split.i.preheader
 
-.split.us.i.preheader.us:                         ; preds = %4, %30
-  %.sroa.3.0.us = phi i64 [ %35, %30 ], [ %2, %4 ]
-  %.sroa.0.0.us = phi ptr [ %34, %30 ], [ %1, %4 ]
+.split.us.i.preheader.us:                         ; preds = %4, %31
+  %.sroa.3.0.us = phi i64 [ %36, %31 ], [ %2, %4 ]
+  %.sroa.0.0.us = phi ptr [ %35, %31 ], [ %1, %4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1040)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us, i64 538
   %12 = load i16, ptr %11, align 2, !noalias !1040, !noundef !7
@@ -5870,98 +5872,100 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1043)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1046)
   %18 = load i64, ptr %.sroa.01.0.us.i.us, align 8, !range !6, !alias.scope !1046, !noalias !1048, !noundef !7
-  %19 = tail call i8 @llvm.scmp.i8.i64(i64 %.fr18.i, i64 %18)
-  %20 = icmp eq i64 %.fr18.i, %18
-  br i1 %20, label %21, label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us"
+  %19 = sub nuw nsw i64 %.fr18.i, %18
+  %20 = trunc nsw i64 %19 to i8
+  %21 = icmp eq i64 %.fr18.i, %18
+  br i1 %21, label %22, label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us"
 
-21:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us"
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.us.i.us, i64 8
+22:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us"
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.us.i.us, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1049)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1052)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %24, %21
-  %.sroa.01.0.i.i.us.i.us = phi i64 [ 0, %21 ], [ %25, %24 ]
+24:                                               ; preds = %25, %22
+  %.sroa.01.0.i.i.us.i.us = phi i64 [ 0, %22 ], [ %26, %25 ]
   %exitcond.not.i.i.us.i.us = icmp eq i64 %.sroa.01.0.i.i.us.i.us, 3
-  br i1 %exitcond.not.i.i.us.i.us, label %.split84.us, label %24
+  br i1 %exitcond.not.i.i.us.i.us, label %.split84.us, label %25
 
-24:                                               ; preds = %23
-  %25 = add nuw nsw i64 %.sroa.01.0.i.i.us.i.us, 1
-  %26 = getelementptr inbounds nuw i64, ptr %7, i64 %.sroa.01.0.i.i.us.i.us
-  %27 = getelementptr inbounds nuw i64, ptr %22, i64 %.sroa.01.0.i.i.us.i.us
-  %.val14.i.i.us.i.us = load i64, ptr %26, align 8, !alias.scope !1054, !noalias !1055, !noundef !7
-  %.val15.i.i.us.i.us = load i64, ptr %27, align 8, !alias.scope !1055, !noalias !1054, !noundef !7
-  %28 = icmp eq i64 %.val14.i.i.us.i.us, %.val15.i.i.us.i.us
-  br i1 %28, label %23, label %.split.loop.exit17.i.i.us.i.us
+25:                                               ; preds = %24
+  %26 = add nuw nsw i64 %.sroa.01.0.i.i.us.i.us, 1
+  %27 = getelementptr inbounds nuw i64, ptr %7, i64 %.sroa.01.0.i.i.us.i.us
+  %28 = getelementptr inbounds nuw i64, ptr %23, i64 %.sroa.01.0.i.i.us.i.us
+  %.val14.i.i.us.i.us = load i64, ptr %27, align 8, !alias.scope !1054, !noalias !1055, !noundef !7
+  %.val15.i.i.us.i.us = load i64, ptr %28, align 8, !alias.scope !1055, !noalias !1054, !noundef !7
+  %29 = icmp eq i64 %.val14.i.i.us.i.us, %.val15.i.i.us.i.us
+  br i1 %29, label %24, label %.split.loop.exit17.i.i.us.i.us
 
-.split.loop.exit17.i.i.us.i.us:                   ; preds = %24
-  %29 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val14.i.i.us.i.us, i64 %.val15.i.i.us.i.us)
+.split.loop.exit17.i.i.us.i.us:                   ; preds = %25
+  %30 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val14.i.i.us.i.us, i64 %.val15.i.i.us.i.us)
   br label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us"
 
 "_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us": ; preds = %.split.loop.exit17.i.i.us.i.us, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us"
-  %.sroa.0.0.i5.us.i.us = phi i8 [ %19, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us" ], [ %29, %.split.loop.exit17.i.i.us.i.us ]
+  %.sroa.0.0.i5.us.i.us = phi i8 [ %20, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.us.i.us" ], [ %30, %.split.loop.exit17.i.i.us.i.us ]
   switch i8 %.sroa.0.0.i5.us.i.us, label %.split16.us.i [
     i8 -1, label %.loopexit55.us
     i8 0, label %.split84.us
     i8 1, label %.split.us.i.us
   ]
 
-30:                                               ; preds = %.loopexit55.us
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us, i64 544
-  %32 = icmp samesign ult i64 %.sroa.4.0.i.ph.ph.us, 12
-  tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %.sroa.4.0.i.ph.ph.us
-  %34 = load ptr, ptr %33, align 8, !noalias !1056, !nonnull !7, !noundef !7
-  %35 = add i64 %.sroa.3.0.us, -1
+31:                                               ; preds = %.loopexit55.us
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.us, i64 544
+  %33 = icmp samesign ult i64 %.sroa.4.0.i.ph.ph.us, 12
+  tail call void @llvm.assume(i1 %33)
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.sroa.4.0.i.ph.ph.us
+  %35 = load ptr, ptr %34, align 8, !noalias !1056, !nonnull !7, !noundef !7
+  %36 = add i64 %.sroa.3.0.us, -1
   br label %.split.us.i.preheader.us
 
 .loopexit55.us:                                   ; preds = %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us", %.split.us.i.us
   %.sroa.4.0.i.ph.ph.us = phi i64 [ %13, %.split.us.i.us ], [ %.sroa.8.0.us.i.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ]
-  %36 = icmp eq i64 %.sroa.3.0.us, 0
-  br i1 %36, label %.split84.us, label %30
+  %37 = icmp eq i64 %.sroa.3.0.us, 0
+  br i1 %37, label %.split84.us, label %31
 
-.split.i.preheader:                               ; preds = %4, %59
-  %.sroa.3.0 = phi i64 [ %64, %59 ], [ %2, %4 ]
-  %.sroa.0.0 = phi ptr [ %63, %59 ], [ %1, %4 ]
+.split.i.preheader:                               ; preds = %4, %61
+  %.sroa.3.0 = phi i64 [ %66, %61 ], [ %2, %4 ]
+  %.sroa.0.0 = phi ptr [ %65, %61 ], [ %1, %4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1040)
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 538
-  %38 = load i16, ptr %37, align 2, !noalias !1040, !noundef !7
-  %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.sroa.0.0, i64 %39
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 538
+  %39 = load i16, ptr %38, align 2, !noalias !1040, !noundef !7
+  %40 = zext i16 %39 to i64
+  %41 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.sroa.0.0, i64 %40
   br label %.split.i
 
 .split.i:                                         ; preds = %.split.i.preheader, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i"
-  %.sroa.01.0.i = phi ptr [ %42, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.0.0, %.split.i.preheader ]
-  %.sroa.8.0.i = phi i64 [ %43, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 0, %.split.i.preheader ]
-  %41 = icmp eq ptr %.sroa.01.0.i, %40
-  br i1 %41, label %.loopexit57, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
+  %.sroa.01.0.i = phi ptr [ %43, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.0.0, %.split.i.preheader ]
+  %.sroa.8.0.i = phi i64 [ %44, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 0, %.split.i.preheader ]
+  %42 = icmp eq ptr %.sroa.01.0.i, %41
+  br i1 %42, label %.loopexit57, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i": ; preds = %.split.i
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
-  %43 = add nuw nsw i64 %.sroa.8.0.i, 1
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
+  %44 = add nuw nsw i64 %.sroa.8.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1043)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1046)
-  %44 = load i64, ptr %.sroa.01.0.i, align 8, !range !6, !alias.scope !1046, !noalias !1048, !noundef !7
-  %45 = tail call i8 @llvm.scmp.i8.i64(i64 %.fr18.i, i64 %44)
-  %46 = icmp eq i64 %.fr18.i, %44
-  br i1 %46, label %47, label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i"
+  %45 = load i64, ptr %.sroa.01.0.i, align 8, !range !6, !alias.scope !1046, !noalias !1048, !noundef !7
+  %46 = sub nsw i64 %.fr18.i, %45
+  %47 = trunc nsw i64 %46 to i8
+  %48 = icmp eq i64 %.fr18.i, %45
+  br i1 %48, label %49, label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i"
 
-47:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
-  %49 = load ptr, ptr %48, align 8, !alias.scope !1046, !noalias !1048, !nonnull !7, !noundef !7
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
-  %51 = load i64, ptr %50, align 8, !alias.scope !1046, !noalias !1048, !noundef !7
-  %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %51)
-  %52 = tail call i32 @memcmp(ptr nonnull %8, ptr nonnull %49, i64 %spec.store.select.i.i), !noalias !1059
-  %53 = sext i32 %52 to i64
-  %54 = icmp eq i32 %52, 0
-  %55 = sub i64 %10, %51
-  %spec.select.i.i = select i1 %54, i64 %55, i64 %53
-  %56 = tail call i8 @llvm.scmp.i8.i64(i64 %spec.select.i.i, i64 0)
+49:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
+  %51 = load ptr, ptr %50, align 8, !alias.scope !1046, !noalias !1048, !nonnull !7, !noundef !7
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
+  %53 = load i64, ptr %52, align 8, !alias.scope !1046, !noalias !1048, !noundef !7
+  %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %53)
+  %54 = tail call i32 @memcmp(ptr nonnull %8, ptr nonnull %51, i64 %spec.store.select.i.i), !noalias !1059
+  %55 = sext i32 %54 to i64
+  %56 = icmp eq i32 %54, 0
+  %57 = sub i64 %10, %53
+  %spec.select.i.i = select i1 %56, i64 %57, i64 %55
+  %58 = tail call i8 @llvm.scmp.i8.i64(i64 %spec.select.i.i, i64 0)
   br label %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i"
 
-"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i": ; preds = %47, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
-  %.sroa.0.0.i5.i = phi i8 [ %56, %47 ], [ %45, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i" ]
+"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i": ; preds = %49, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i"
+  %.sroa.0.0.i5.i = phi i8 [ %58, %49 ], [ %47, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc35aa2d22f2de718E.exit.i" ]
   switch i8 %.sroa.0.0.i5.i, label %.split16.us.i [
     i8 -1, label %.loopexit57
     i8 0, label %.split84.us
@@ -5972,17 +5976,17 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   unreachable
 
 .loopexit57:                                      ; preds = %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i", %.split.i
-  %.sroa.4.0.i.ph.ph58 = phi i64 [ %39, %.split.i ], [ %.sroa.8.0.i, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ]
-  %57 = icmp eq i64 %.sroa.3.0, 0
-  br i1 %57, label %.split84.us, label %59
+  %.sroa.4.0.i.ph.ph58 = phi i64 [ %40, %.split.i ], [ %.sroa.8.0.i, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ]
+  %59 = icmp eq i64 %.sroa.3.0, 0
+  br i1 %59, label %.split84.us, label %61
 
-.split84.us:                                      ; preds = %.loopexit57, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i", %.loopexit55.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us", %23
-  %.us-phi86.sink = phi ptr [ %.sroa.0.0.us, %23 ], [ %.sroa.0.0.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ %.sroa.0.0.us, %.loopexit55.us ], [ %.sroa.0.0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.0.0, %.loopexit57 ]
-  %.sink = phi i64 [ %.sroa.3.0.us, %23 ], [ %.sroa.3.0.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ 0, %.loopexit55.us ], [ %.sroa.3.0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 0, %.loopexit57 ]
-  %.us-phi85.sink = phi i64 [ %.sroa.8.0.us.i.us, %23 ], [ %.sroa.8.0.us.i.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ %.sroa.4.0.i.ph.ph.us, %.loopexit55.us ], [ %.sroa.8.0.i, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.4.0.i.ph.ph58, %.loopexit57 ]
-  %storemerge = phi i64 [ 0, %23 ], [ 0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ 1, %.loopexit55.us ], [ 0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 1, %.loopexit57 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.us-phi86.sink, ptr %58, align 8
+.split84.us:                                      ; preds = %.loopexit57, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i", %.loopexit55.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us", %24
+  %.us-phi86.sink = phi ptr [ %.sroa.0.0.us, %24 ], [ %.sroa.0.0.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ %.sroa.0.0.us, %.loopexit55.us ], [ %.sroa.0.0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.0.0, %.loopexit57 ]
+  %.sink = phi i64 [ %.sroa.3.0.us, %24 ], [ %.sroa.3.0.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ 0, %.loopexit55.us ], [ %.sroa.3.0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 0, %.loopexit57 ]
+  %.us-phi85.sink = phi i64 [ %.sroa.8.0.us.i.us, %24 ], [ %.sroa.8.0.us.i.us, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ %.sroa.4.0.i.ph.ph.us, %.loopexit55.us ], [ %.sroa.8.0.i, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ %.sroa.4.0.i.ph.ph58, %.loopexit57 ]
+  %storemerge = phi i64 [ 0, %24 ], [ 0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.us.i.us" ], [ 1, %.loopexit55.us ], [ 0, %"_ZN80_$LT$tokio_quiche..quic..connection..map..CidOwned$u20$as$u20$core..cmp..Ord$GT$3cmp17hf28e6175d165ddf6E.exit.i" ], [ 1, %.loopexit57 ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.us-phi86.sink, ptr %60, align 8
   %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.242.0..sroa_idx, align 8
   %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5990,13 +5994,13 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   store i64 %storemerge, ptr %0, align 8
   ret void
 
-59:                                               ; preds = %.loopexit57
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 544
-  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.ph58, 12
-  tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %.sroa.4.0.i.ph.ph58
-  %63 = load ptr, ptr %62, align 8, !noalias !1056, !nonnull !7, !noundef !7
-  %64 = add i64 %.sroa.3.0, -1
+61:                                               ; preds = %.loopexit57
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 544
+  %63 = icmp samesign ult i64 %.sroa.4.0.i.ph.ph58, 12
+  tail call void @llvm.assume(i1 %63)
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %.sroa.4.0.i.ph.ph58
+  %65 = load ptr, ptr %64, align 8, !noalias !1056, !nonnull !7, !noundef !7
+  %66 = add i64 %.sroa.3.0, -1
   br label %.split.i.preheader
 }
 

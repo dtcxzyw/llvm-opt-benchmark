@@ -1882,157 +1882,157 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %3 = load i64, ptr %0, align 8, !range !11, !alias.scope !43, !noalias !44, !noundef !4
   %4 = icmp ne i64 %3, -9223372036854775808
-  %5 = zext i1 %4 to i64
+  %5 = zext i1 %4 to i8
   %6 = load i64, ptr %1, align 8, !range !11, !alias.scope !44, !noalias !43, !noundef !4
   %7 = icmp ne i64 %6, -9223372036854775808
-  %8 = zext i1 %7 to i64
-  br i1 %4, label %9, label %10
+  %.neg.i.i = sext i1 %7 to i8
+  br i1 %4, label %8, label %9
+
+8:                                                ; preds = %2
+  br i1 %7, label %32, label %10
 
 9:                                                ; preds = %2
-  br i1 %7, label %33, label %11
+  br i1 %7, label %10, label %12
 
-10:                                               ; preds = %2
-  br i1 %7, label %11, label %13
-
-11:                                               ; preds = %10, %9
-  %12 = tail call i8 @llvm.scmp.i8.i64(i64 %5, i64 %8)
+10:                                               ; preds = %9, %8
+  %11 = add nsw i8 %.neg.i.i, %5
   br label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val9.i.i.i = load ptr, ptr %14, align 8, !alias.scope !50, !noalias !51, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val10.i.i.i = load i64, ptr %15, align 8, !alias.scope !50, !noalias !51, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val11.i.i.i = load ptr, ptr %16, align 8, !alias.scope !51, !noalias !50, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val12.i.i.i = load i64, ptr %17, align 8, !alias.scope !51, !noalias !50, !noundef !4
-  %18 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val9.i.i.i, i64 noundef %.val10.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val11.i.i.i, i64 noundef %.val12.i.i.i), !noalias !52
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val9.i.i.i = load ptr, ptr %13, align 8, !alias.scope !50, !noalias !51, !nonnull !4, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val10.i.i.i = load i64, ptr %14, align 8, !alias.scope !50, !noalias !51, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val11.i.i.i = load ptr, ptr %15, align 8, !alias.scope !51, !noalias !50, !nonnull !4, !noundef !4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val12.i.i.i = load i64, ptr %16, align 8, !alias.scope !51, !noalias !50, !noundef !4
+  %17 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val9.i.i.i, i64 noundef %.val10.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val11.i.i.i, i64 noundef %.val12.i.i.i), !noalias !52
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load i64, ptr %21, align 8, !range !11, !alias.scope !50, !noalias !51, !noundef !4
-  %.not.i.i.i = icmp eq i64 %22, -9223372036854775808
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load i64, ptr %23, align 8, !range !11, !alias.scope !51, !noalias !50, !noundef !4
-  br i1 %.not.i.i.i, label %26, label %25
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = load i64, ptr %20, align 8, !range !11, !alias.scope !50, !noalias !51, !noundef !4
+  %.not.i.i.i = icmp eq i64 %21, -9223372036854775808
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %23 = load i64, ptr %22, align 8, !range !11, !alias.scope !51, !noalias !50, !noundef !4
+  br i1 %.not.i.i.i, label %25, label %24
 
-25:                                               ; preds = %20
-  %.not5.i.i.i = icmp eq i64 %24, -9223372036854775808
-  br i1 %.not5.i.i.i, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit, label %27
+24:                                               ; preds = %19
+  %.not5.i.i.i = icmp eq i64 %23, -9223372036854775808
+  br i1 %.not5.i.i.i, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit, label %26
 
-26:                                               ; preds = %20
-  %.not4.i.i.i = icmp ne i64 %24, -9223372036854775808
+25:                                               ; preds = %19
+  %.not4.i.i.i = icmp ne i64 %23, -9223372036854775808
   %..i.i.i = sext i1 %.not4.i.i.i to i8
   br label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val.i.i.i = load ptr, ptr %28, align 8, !alias.scope !50, !noalias !51, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val6.i.i.i = load i64, ptr %29, align 8, !alias.scope !50, !noalias !51, !noundef !4
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val7.i.i.i = load ptr, ptr %30, align 8, !alias.scope !51, !noalias !50, !nonnull !4, !noundef !4
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val8.i.i.i = load i64, ptr %31, align 8, !alias.scope !51, !noalias !50, !noundef !4
-  %32 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i, i64 noundef %.val6.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val7.i.i.i, i64 noundef %.val8.i.i.i), !noalias !52
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val.i.i.i = load ptr, ptr %27, align 8, !alias.scope !50, !noalias !51, !nonnull !4, !noundef !4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.val6.i.i.i = load i64, ptr %28, align 8, !alias.scope !50, !noalias !51, !noundef !4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val7.i.i.i = load ptr, ptr %29, align 8, !alias.scope !51, !noalias !50, !nonnull !4, !noundef !4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.val8.i.i.i = load i64, ptr %30, align 8, !alias.scope !51, !noalias !50, !noundef !4
+  %31 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i, i64 noundef %.val6.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val7.i.i.i, i64 noundef %.val8.i.i.i), !noalias !52
   br label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
 
-33:                                               ; preds = %9
+32:                                               ; preds = %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load i64, ptr %34, align 8, !range !11, !alias.scope !58, !noalias !59, !noundef !4
-  %.not.i1.i.i = icmp eq i64 %35, -9223372036854775808
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %37 = load i64, ptr %36, align 8, !range !11, !alias.scope !59, !noalias !58, !noundef !4
-  %.not8.i.i.i = icmp eq i64 %37, -9223372036854775808
-  br i1 %.not.i1.i.i, label %39, label %38
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = load i64, ptr %33, align 8, !range !11, !alias.scope !58, !noalias !59, !noundef !4
+  %.not.i1.i.i = icmp eq i64 %34, -9223372036854775808
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %36 = load i64, ptr %35, align 8, !range !11, !alias.scope !59, !noalias !58, !noundef !4
+  %.not8.i.i.i = icmp eq i64 %36, -9223372036854775808
+  br i1 %.not.i1.i.i, label %38, label %37
 
-38:                                               ; preds = %33
-  br i1 %.not8.i.i.i, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit, label %61
+37:                                               ; preds = %32
+  br i1 %.not8.i.i.i, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit, label %60
 
-39:                                               ; preds = %33
-  br i1 %.not8.i.i.i, label %40, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
+38:                                               ; preds = %32
+  br i1 %.not8.i.i.i, label %39, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
 
-40:                                               ; preds = %61, %39
+39:                                               ; preds = %60, %38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val9.i.i.i.i = load ptr, ptr %41, align 8, !alias.scope !65, !noalias !66, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val10.i.i.i.i = load i64, ptr %42, align 8, !alias.scope !65, !noalias !66, !noundef !4
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val11.i.i.i.i = load ptr, ptr %43, align 8, !alias.scope !66, !noalias !65, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val12.i.i.i.i = load i64, ptr %44, align 8, !alias.scope !66, !noalias !65, !noundef !4
-  %45 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val9.i.i.i.i, i64 noundef %.val10.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val11.i.i.i.i, i64 noundef %.val12.i.i.i.i), !noalias !67
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %47, label %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i"
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val9.i.i.i.i = load ptr, ptr %40, align 8, !alias.scope !65, !noalias !66, !nonnull !4, !noundef !4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val10.i.i.i.i = load i64, ptr %41, align 8, !alias.scope !65, !noalias !66, !noundef !4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val11.i.i.i.i = load ptr, ptr %42, align 8, !alias.scope !66, !noalias !65, !nonnull !4, !noundef !4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val12.i.i.i.i = load i64, ptr %43, align 8, !alias.scope !66, !noalias !65, !noundef !4
+  %44 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val9.i.i.i.i, i64 noundef %.val10.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val11.i.i.i.i, i64 noundef %.val12.i.i.i.i), !noalias !67
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %46, label %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i"
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load i64, ptr %48, align 8, !range !11, !alias.scope !65, !noalias !66, !noundef !4
-  %.not.i.i.i.i = icmp eq i64 %49, -9223372036854775808
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load i64, ptr %50, align 8, !range !11, !alias.scope !66, !noalias !65, !noundef !4
-  br i1 %.not.i.i.i.i, label %53, label %52
+46:                                               ; preds = %39
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load i64, ptr %47, align 8, !range !11, !alias.scope !65, !noalias !66, !noundef !4
+  %.not.i.i.i.i = icmp eq i64 %48, -9223372036854775808
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load i64, ptr %49, align 8, !range !11, !alias.scope !66, !noalias !65, !noundef !4
+  br i1 %.not.i.i.i.i, label %52, label %51
 
-52:                                               ; preds = %47
-  %.not5.i.i.i.i = icmp eq i64 %51, -9223372036854775808
-  br i1 %.not5.i.i.i.i, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit, label %54
+51:                                               ; preds = %46
+  %.not5.i.i.i.i = icmp eq i64 %50, -9223372036854775808
+  br i1 %.not5.i.i.i.i, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit, label %53
 
-53:                                               ; preds = %47
-  %.not4.i.i.i.i = icmp ne i64 %51, -9223372036854775808
+52:                                               ; preds = %46
+  %.not4.i.i.i.i = icmp ne i64 %50, -9223372036854775808
   %..i.i.i.i = sext i1 %.not4.i.i.i.i to i8
   br label %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i"
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val.i.i.i.i = load ptr, ptr %55, align 8, !alias.scope !65, !noalias !66, !nonnull !4, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val6.i.i.i.i = load i64, ptr %56, align 8, !alias.scope !65, !noalias !66, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val7.i.i.i.i = load ptr, ptr %57, align 8, !alias.scope !66, !noalias !65, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val8.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !66, !noalias !65, !noundef !4
-  %59 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i, i64 noundef %.val6.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val7.i.i.i.i, i64 noundef %.val8.i.i.i.i), !noalias !67
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val.i.i.i.i = load ptr, ptr %54, align 8, !alias.scope !65, !noalias !66, !nonnull !4, !noundef !4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val6.i.i.i.i = load i64, ptr %55, align 8, !alias.scope !65, !noalias !66, !noundef !4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val7.i.i.i.i = load ptr, ptr %56, align 8, !alias.scope !66, !noalias !65, !nonnull !4, !noundef !4
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val8.i.i.i.i = load i64, ptr %57, align 8, !alias.scope !66, !noalias !65, !noundef !4
+  %58 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i, i64 noundef %.val6.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %.val7.i.i.i.i, i64 noundef %.val8.i.i.i.i), !noalias !67
   br label %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i"
 
-"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i": ; preds = %54, %53, %40
-  %.sroa.0.0.i.i.i.i = phi i8 [ %59, %54 ], [ %45, %40 ], [ %..i.i.i.i, %53 ]
-  %60 = icmp eq i8 %.sroa.0.0.i.i.i.i, 0
-  br i1 %60, label %68, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
+"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i": ; preds = %53, %52, %39
+  %.sroa.0.0.i.i.i.i = phi i8 [ %58, %53 ], [ %44, %39 ], [ %..i.i.i.i, %52 ]
+  %59 = icmp eq i8 %.sroa.0.0.i.i.i.i, 0
+  br i1 %59, label %67, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
 
-61:                                               ; preds = %38
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val.i2.i.i = load ptr, ptr %62, align 8, !alias.scope !58, !noalias !59, !nonnull !4, !noundef !4
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.val10.i3.i.i = load i64, ptr %63, align 8, !alias.scope !58, !noalias !59, !noundef !4
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val11.i4.i.i = load ptr, ptr %64, align 8, !alias.scope !59, !noalias !58, !nonnull !4, !noundef !4
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.val12.i5.i.i = load i64, ptr %65, align 8, !alias.scope !59, !noalias !58, !noundef !4
-  %66 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val.i2.i.i, i64 noundef %.val10.i3.i.i, ptr noalias noundef nonnull readonly align 1 %.val11.i4.i.i, i64 noundef %.val12.i5.i.i), !noalias !68
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %40, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
+60:                                               ; preds = %37
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.val.i2.i.i = load ptr, ptr %61, align 8, !alias.scope !58, !noalias !59, !nonnull !4, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.val10.i3.i.i = load i64, ptr %62, align 8, !alias.scope !58, !noalias !59, !noundef !4
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.val11.i4.i.i = load ptr, ptr %63, align 8, !alias.scope !59, !noalias !58, !nonnull !4, !noundef !4
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %.val12.i5.i.i = load i64, ptr %64, align 8, !alias.scope !59, !noalias !58, !noundef !4
+  %65 = tail call noundef range(i8 -1, 3) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h3f9d375bc5e0b193E"(ptr noalias noundef nonnull readonly align 1 %.val.i2.i.i, i64 noundef %.val10.i3.i.i, ptr noalias noundef nonnull readonly align 1 %.val11.i4.i.i, i64 noundef %.val12.i5.i.i), !noalias !68
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %39, label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
 
-68:                                               ; preds = %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i"
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %70 = load i32, ptr %69, align 8, !alias.scope !58, !noalias !59, !noundef !4
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %72 = load i32, ptr %71, align 8, !alias.scope !59, !noalias !58, !noundef !4
-  %73 = tail call i8 @llvm.ucmp.i8.i32(i32 %70, i32 %72)
+67:                                               ; preds = %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i"
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %69 = load i32, ptr %68, align 8, !alias.scope !58, !noalias !59, !noundef !4
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %71 = load i32, ptr %70, align 8, !alias.scope !59, !noalias !58, !noundef !4
+  %72 = tail call i8 @llvm.ucmp.i8.i32(i32 %69, i32 %71)
   br label %_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit
 
-_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit: ; preds = %11, %13, %25, %26, %27, %38, %39, %52, %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i", %61, %68
-  %.sroa.0.0.i.i = phi i8 [ %12, %11 ], [ %32, %27 ], [ %18, %13 ], [ %..i.i.i, %26 ], [ 1, %25 ], [ %73, %68 ], [ %.sroa.0.0.i.i.i.i, %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i" ], [ %66, %61 ], [ -1, %39 ], [ 1, %38 ], [ 1, %52 ]
-  %74 = icmp slt i8 %.sroa.0.0.i.i, 0
-  ret i1 %74
+_ZN4core3cmp10PartialOrd2lt17h24572b287f700874E.exit: ; preds = %10, %12, %24, %25, %26, %37, %38, %51, %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i", %60, %67
+  %.sroa.0.0.i.i = phi i8 [ %11, %10 ], [ %31, %26 ], [ %17, %12 ], [ %..i.i.i, %25 ], [ 1, %24 ], [ %72, %67 ], [ %.sroa.0.0.i.i.i.i, %"_ZN78_$LT$ruff_python_semantic..imports..Alias$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb5da6b06178dd87dE.exit.i.i.i" ], [ %65, %60 ], [ -1, %38 ], [ 1, %37 ], [ 1, %51 ]
+  %73 = icmp slt i8 %.sroa.0.0.i.i, 0
+  ret i1 %73
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28931,9 +28931,6 @@ declare noundef zeroext i1 @"_ZN211_$LT$ruff_linter..rules..isort..categorize.._
 
 ; Function Attrs: mustprogress nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @memcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #8
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef range(i8 -1, 3) i8 @"_ZN82_$LT$ruff_linter..rule_selector..RuleSelector$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h36ae76aedc930ca8E"(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1

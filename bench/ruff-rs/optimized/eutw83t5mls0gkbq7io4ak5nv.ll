@@ -11811,7 +11811,7 @@ define internal fastcc void @_ZN21ruff_python_formatter7pattern33CanOmitOptional
   %cond = icmp eq i32 %12, 2
   br i1 %cond, label %42, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3
 
-_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3: ; preds = %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit, %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit, %50, %48, %42, %15, %54, %9, %13, %3, %3, %3
+_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3: ; preds = %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit, %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit, %48, %46, %42, %15, %52, %9, %13, %3, %3, %3
   ret void
 
 13:                                               ; preds = %3, %3
@@ -11824,7 +11824,7 @@ _ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_ma
   store i8 1, ptr %16, align 8
   %17 = load i64, ptr %0, align 8, !range !6, !noundef !3
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %54, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3
+  br i1 %18, label %52, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -11870,73 +11870,71 @@ _ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_ma
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %55
+  br label %53
 
 42:                                               ; preds = %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %44 = load i8, ptr %43, align 1, !range !605, !alias.scope !1091, !noundef !3
-  %45 = zext nneg i8 %44 to i64
-  %46 = tail call i8 @llvm.scmp.i8.i64(i64 %45, i64 1)
-  switch i8 %46, label %47 [
-    i8 -1, label %48
-    i8 0, label %50
-    i8 1, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3
+  switch i8 %44, label %45 [
+    i8 0, label %46
+    i8 1, label %48
+    i8 2, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3
   ]
 
-47:                                               ; preds = %42
+45:                                               ; preds = %42
   unreachable
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %49, align 8, !alias.scope !1091
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %47, align 8, !alias.scope !1091
   store i8 1, ptr %43, align 1, !alias.scope !1091
   br label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3
 
-50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load i64, ptr %51, align 8, !alias.scope !1091, !noundef !3
-  %53 = add i64 %52, 1
-  store i64 %53, ptr %51, align 8, !alias.scope !1091
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = load i64, ptr %49, align 8, !alias.scope !1091, !noundef !3
+  %51 = add i64 %50, 1
+  store i64 %51, ptr %49, align 8, !alias.scope !1091
   br label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3
 
-54:                                               ; preds = %15
+52:                                               ; preds = %15
   store i64 1, ptr %0, align 8
   br label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3
 
-55:                                               ; preds = %.lr.ph, %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit
-  %.sroa.01.04 = phi ptr [ %36, %.lr.ph ], [ %56, %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.01.04, i64 88
+53:                                               ; preds = %.lr.ph, %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit
+  %.sroa.01.04 = phi ptr [ %36, %.lr.ph ], [ %54, %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.01.04, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1094)
   store ptr %.sroa.01.04, ptr %39, align 8, !alias.scope !1094, !noalias !1097
-  %57 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !1094
-  %58 = tail call noundef align 8 dereferenceable(24) ptr @_ZN21ruff_python_formatter8comments8Comments6ranges17hf02336a9ad1ac058E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %57), !noalias !1094
-  %59 = tail call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !1094
-  %60 = extractvalue { ptr, i64 } %59, 0
-  %61 = extractvalue { ptr, i64 } %59, 1
-  %62 = tail call fastcc noundef zeroext i1 @_ZN21ruff_python_formatter7pattern24is_pattern_parenthesized17h2732a8a8cb45ef3fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.01.04, ptr noalias noundef readonly align 8 dereferenceable(24) %58, ptr noalias noundef nonnull readonly align 1 %60, i64 noundef %61), !noalias !1094
-  br i1 %62, label %64, label %63
+  %55 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !1094
+  %56 = tail call noundef align 8 dereferenceable(24) ptr @_ZN21ruff_python_formatter8comments8Comments6ranges17hf02336a9ad1ac058E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %55), !noalias !1094
+  %57 = tail call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !1094
+  %58 = extractvalue { ptr, i64 } %57, 0
+  %59 = extractvalue { ptr, i64 } %57, 1
+  %60 = tail call fastcc noundef zeroext i1 @_ZN21ruff_python_formatter7pattern24is_pattern_parenthesized17h2732a8a8cb45ef3fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.01.04, ptr noalias noundef readonly align 8 dereferenceable(24) %56, ptr noalias noundef nonnull readonly align 1 %58, i64 noundef %59), !noalias !1094
+  br i1 %60, label %62, label %61
 
-63:                                               ; preds = %55
+61:                                               ; preds = %53
   tail call fastcc void @_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor13visit_pattern17h0d985656de82884eE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.01.04, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2)
-  br label %65
+  br label %63
 
-64:                                               ; preds = %55
+62:                                               ; preds = %53
   store i8 1, ptr %40, align 8, !alias.scope !1094, !noalias !1097
-  br label %65
+  br label %63
 
-65:                                               ; preds = %64, %63
-  %66 = load i64, ptr %0, align 8, !range !6, !alias.scope !1094, !noalias !1097, !noundef !3
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %68, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit
+63:                                               ; preds = %62, %61
+  %64 = load i64, ptr %0, align 8, !range !6, !alias.scope !1094, !noalias !1097, !noundef !3
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %66, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit
 
-68:                                               ; preds = %65
+66:                                               ; preds = %63
   store i64 2, ptr %0, align 8, !alias.scope !1094, !noalias !1097
   store ptr %.sroa.01.04, ptr %41, align 8, !alias.scope !1094, !noalias !1097
   br label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit
 
-_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit: ; preds = %65, %68
-  %69 = icmp eq ptr %56, %37
-  br i1 %69, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3, label %55
+_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor17visit_sub_pattern17h143e4e94b2e95a3bE.exit: ; preds = %63, %66
+  %67 = icmp eq ptr %54, %37
+  br i1 %67, label %_ZN21ruff_python_formatter7pattern33CanOmitOptionalParenthesesVisitor21update_max_precedence17h49dc27f28e0c9c01E.exit3, label %53
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -1695,10 +1695,8 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h492d437a6fceead0E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %2) unnamed_addr #4 {
   %.val = load i8, ptr %1, align 1, !range !107, !noundef !3
   %.val1 = load i8, ptr %2, align 1, !range !107, !noundef !3
-  %4 = zext nneg i8 %.val to i64
-  %5 = zext nneg i8 %.val1 to i64
-  %6 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %4, i64 %5)
-  ret i8 %6
+  %4 = sub nsw i8 %.val, %.val1
+  ret i8 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11154,9 +11152,6 @@ declare void @_ZN7ruff_db10diagnostic4Span5range17h9c69a3602c5b3c54E(ptr dead_on
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr46drop_in_place$LT$ruff_db..diagnostic..Span$GT$17h651a44a8674b0d43E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
