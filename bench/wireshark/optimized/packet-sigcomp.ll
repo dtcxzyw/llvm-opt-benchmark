@@ -9008,7 +9008,7 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   %27 = add i32 %26, %25
   %28 = zext i16 %7 to i32
   %29 = icmp slt i32 %27, %28
-  br i1 %29, label %116, label %.preheader
+  br i1 %29, label %113, label %.preheader
 
 .preheader:                                       ; preds = %23
   %.not681 = icmp eq i16 %7, 0
@@ -9022,7 +9022,7 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %42
   %.0613.us.us = phi i16 [ %45, %42 ], [ %7, %.lr.ph.split.us ]
-  %.0622.us.us = phi i32 [ %54, %42 ], [ 0, %.lr.ph.split.us ]
+  %.0622.us.us = phi i32 [ %53, %42 ], [ 0, %.lr.ph.split.us ]
   %30 = load i16, ptr %4, align 2
   %31 = icmp eq i16 %30, 0
   br i1 %31, label %32, label %42
@@ -9052,212 +9052,208 @@ define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr nou
   %48 = shl i32 %47, %44
   %49 = trunc i32 %48 to i16
   store i16 %49, ptr %5, align 2
-  %50 = and i32 %.0622.us.us, 65535
-  %51 = shl i32 %50, %44
-  %52 = lshr i32 %48, 8
-  %53 = and i32 %52, 255
-  %54 = or i32 %53, %51
-  %55 = load i16, ptr %4, align 2
-  %56 = sub i16 %55, %.061..us.us
-  store i16 %56, ptr %4, align 2
-  %57 = load i16, ptr %5, align 2
-  %58 = and i16 %57, 255
-  store i16 %58, ptr %5, align 2
+  %50 = shl i32 %.0622.us.us, %44
+  %51 = lshr i32 %48, 8
+  %52 = and i32 %51, 255
+  %53 = or i32 %52, %50
+  %54 = load i16, ptr %4, align 2
+  %55 = sub i16 %54, %.061..us.us
+  store i16 %55, ptr %4, align 2
+  %56 = load i16, ptr %5, align 2
+  %57 = and i16 %56, 255
+  store i16 %57, ptr %5, align 2
   %.not68.us.us = icmp eq i16 %45, 0
   br i1 %.not68.us.us, label %._crit_edge.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !34
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %74
-  %.0613.us = phi i16 [ %77, %74 ], [ %7, %.lr.ph.split.us ]
-  %.0622.us = phi i32 [ %86, %74 ], [ 0, %.lr.ph.split.us ]
-  %59 = load i16, ptr %4, align 2
-  %60 = icmp eq i16 %59, 0
-  br i1 %60, label %61, label %74
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %73
+  %.0613.us = phi i16 [ %76, %73 ], [ %7, %.lr.ph.split.us ]
+  %.0622.us = phi i32 [ %84, %73 ], [ 0, %.lr.ph.split.us ]
+  %58 = load i16, ptr %4, align 2
+  %59 = icmp eq i16 %58, 0
+  br i1 %59, label %60, label %73
 
-61:                                               ; preds = %.lr.ph.split.us.split
-  %62 = load i32, ptr %6, align 4
-  %63 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %62)
-  %64 = load i32, ptr @hf_sigcomp_getting_value, align 4
-  %65 = load i32, ptr %6, align 4
-  %66 = zext i8 %63 to i32
-  %67 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %64, ptr noundef %0, i32 noundef %65, i32 noundef 1, i32 noundef %66, ptr noundef nonnull @.str.539, i32 noundef %66, i32 noundef %66, i32 noundef %65)
-  %68 = load i32, ptr %6, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %6, align 4
-  %70 = zext i8 %63 to i64
-  %71 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i16
-  store i16 %73, ptr %5, align 2
+60:                                               ; preds = %.lr.ph.split.us.split
+  %61 = load i32, ptr %6, align 4
+  %62 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %61)
+  %63 = load i32, ptr @hf_sigcomp_getting_value, align 4
+  %64 = load i32, ptr %6, align 4
+  %65 = zext i8 %62 to i32
+  %66 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.539, i32 noundef %65, i32 noundef %65, i32 noundef %64)
+  %67 = load i32, ptr %6, align 4
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %6, align 4
+  %69 = zext i8 %62 to i64
+  %70 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %69
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i16
+  store i16 %72, ptr %5, align 2
   store i16 8, ptr %4, align 2
-  br label %74
+  br label %73
 
-74:                                               ; preds = %61, %.lr.ph.split.us.split
-  %75 = phi i16 [ 8, %61 ], [ %59, %.lr.ph.split.us.split ]
-  %.061..us = tail call i16 @llvm.umin.i16(i16 %.0613.us, i16 %75)
-  %76 = zext i16 %.061..us to i32
-  %77 = sub i16 %.0613.us, %.061..us
-  %78 = load i16, ptr %5, align 2
-  %79 = zext i16 %78 to i32
-  %80 = shl i32 %79, %76
-  %81 = trunc i32 %80 to i16
-  store i16 %81, ptr %5, align 2
-  %82 = and i32 %.0622.us, 65535
-  %83 = shl i32 %82, %76
-  %84 = lshr i32 %80, 8
-  %85 = and i32 %84, 255
-  %86 = or i32 %85, %83
-  %87 = load i16, ptr %4, align 2
-  %88 = sub i16 %87, %.061..us
-  store i16 %88, ptr %4, align 2
-  %89 = load i16, ptr %5, align 2
-  %90 = and i16 %89, 255
-  store i16 %90, ptr %5, align 2
-  %.not68.us = icmp eq i16 %77, 0
+73:                                               ; preds = %60, %.lr.ph.split.us.split
+  %74 = phi i16 [ 8, %60 ], [ %58, %.lr.ph.split.us.split ]
+  %.061..us = tail call i16 @llvm.umin.i16(i16 %.0613.us, i16 %74)
+  %75 = zext i16 %.061..us to i32
+  %76 = sub i16 %.0613.us, %.061..us
+  %77 = load i16, ptr %5, align 2
+  %78 = zext i16 %77 to i32
+  %79 = shl i32 %78, %75
+  %80 = trunc i32 %79 to i16
+  store i16 %80, ptr %5, align 2
+  %81 = shl i32 %.0622.us, %75
+  %82 = lshr i32 %79, 8
+  %83 = and i32 %82, 255
+  %84 = or i32 %83, %81
+  %85 = load i16, ptr %4, align 2
+  %86 = sub i16 %85, %.061..us
+  store i16 %86, ptr %4, align 2
+  %87 = load i16, ptr %5, align 2
+  %88 = and i16 %87, 255
+  store i16 %88, ptr %5, align 2
+  %.not68.us = icmp eq i16 %76, 0
   br i1 %.not68.us, label %._crit_edge.loopexit13, label %.lr.ph.split.us.split, !llvm.loop !34
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %99
-  %.0613.us4 = phi i16 [ %102, %99 ], [ %7, %.lr.ph.split ]
-  %.0622.us5 = phi i32 [ %111, %99 ], [ 0, %.lr.ph.split ]
-  %91 = load i16, ptr %4, align 2
-  %92 = icmp eq i16 %91, 0
-  br i1 %92, label %93, label %99
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %97
+  %.0613.us4 = phi i16 [ %100, %97 ], [ %7, %.lr.ph.split ]
+  %.0622.us5 = phi i32 [ %108, %97 ], [ 0, %.lr.ph.split ]
+  %89 = load i16, ptr %4, align 2
+  %90 = icmp eq i16 %89, 0
+  br i1 %90, label %91, label %97
 
-93:                                               ; preds = %.lr.ph.split.split.us
+91:                                               ; preds = %.lr.ph.split.split.us
+  %92 = load i32, ptr %6, align 4
+  %93 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %92)
   %94 = load i32, ptr %6, align 4
-  %95 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %94)
-  %96 = load i32, ptr %6, align 4
-  %97 = add i32 %96, 1
-  store i32 %97, ptr %6, align 4
-  %98 = zext i8 %95 to i16
-  store i16 %98, ptr %5, align 2
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %6, align 4
+  %96 = zext i8 %93 to i16
+  store i16 %96, ptr %5, align 2
   store i16 8, ptr %4, align 2
-  br label %99
+  br label %97
 
-99:                                               ; preds = %93, %.lr.ph.split.split.us
-  %100 = phi i16 [ 8, %93 ], [ %91, %.lr.ph.split.split.us ]
-  %.061..us7 = tail call i16 @llvm.umin.i16(i16 %.0613.us4, i16 %100)
-  %101 = zext i16 %.061..us7 to i32
-  %102 = sub i16 %.0613.us4, %.061..us7
-  %103 = load i16, ptr %5, align 2
-  %104 = zext i16 %103 to i32
-  %105 = shl i32 %104, %101
-  %106 = trunc i32 %105 to i16
-  store i16 %106, ptr %5, align 2
-  %107 = and i32 %.0622.us5, 65535
-  %108 = shl i32 %107, %101
-  %109 = lshr i32 %105, 8
-  %110 = and i32 %109, 255
-  %111 = or i32 %110, %108
-  %112 = load i16, ptr %4, align 2
-  %113 = sub i16 %112, %.061..us7
-  store i16 %113, ptr %4, align 2
-  %114 = load i16, ptr %5, align 2
-  %115 = and i16 %114, 255
-  store i16 %115, ptr %5, align 2
-  %.not68.us8 = icmp eq i16 %102, 0
+97:                                               ; preds = %91, %.lr.ph.split.split.us
+  %98 = phi i16 [ 8, %91 ], [ %89, %.lr.ph.split.split.us ]
+  %.061..us7 = tail call i16 @llvm.umin.i16(i16 %.0613.us4, i16 %98)
+  %99 = zext i16 %.061..us7 to i32
+  %100 = sub i16 %.0613.us4, %.061..us7
+  %101 = load i16, ptr %5, align 2
+  %102 = zext i16 %101 to i32
+  %103 = shl i32 %102, %99
+  %104 = trunc i32 %103 to i16
+  store i16 %104, ptr %5, align 2
+  %105 = shl i32 %.0622.us5, %99
+  %106 = lshr i32 %103, 8
+  %107 = and i32 %106, 255
+  %108 = or i32 %107, %105
+  %109 = load i16, ptr %4, align 2
+  %110 = sub i16 %109, %.061..us7
+  store i16 %110, ptr %4, align 2
+  %111 = load i16, ptr %5, align 2
+  %112 = and i16 %111, 255
+  store i16 %112, ptr %5, align 2
+  %.not68.us8 = icmp eq i16 %100, 0
   br i1 %.not68.us8, label %._crit_edge.loopexit14, label %.lr.ph.split.split.us, !llvm.loop !34
 
-116:                                              ; preds = %23
+113:                                              ; preds = %23
   store i16 11, ptr %8, align 2
-  br label %170
+  br label %166
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %128
-  %.0613 = phi i16 [ %131, %128 ], [ %7, %.lr.ph.split ]
-  %.0622 = phi i32 [ %140, %128 ], [ 0, %.lr.ph.split ]
-  %117 = load i16, ptr %4, align 2
-  %118 = icmp eq i16 %117, 0
-  br i1 %118, label %119, label %128
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %125
+  %.0613 = phi i16 [ %128, %125 ], [ %7, %.lr.ph.split ]
+  %.0622 = phi i32 [ %136, %125 ], [ 0, %.lr.ph.split ]
+  %114 = load i16, ptr %4, align 2
+  %115 = icmp eq i16 %114, 0
+  br i1 %115, label %116, label %125
 
-119:                                              ; preds = %.lr.ph.split.split
-  %120 = load i32, ptr %6, align 4
-  %121 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %120)
-  %122 = load i32, ptr %6, align 4
-  %123 = add i32 %122, 1
-  store i32 %123, ptr %6, align 4
-  %124 = zext i8 %121 to i64
-  %125 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %124
-  %126 = load i8, ptr %125, align 1
-  %127 = zext i8 %126 to i16
-  store i16 %127, ptr %5, align 2
+116:                                              ; preds = %.lr.ph.split.split
+  %117 = load i32, ptr %6, align 4
+  %118 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %117)
+  %119 = load i32, ptr %6, align 4
+  %120 = add i32 %119, 1
+  store i32 %120, ptr %6, align 4
+  %121 = zext i8 %118 to i64
+  %122 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %121
+  %123 = load i8, ptr %122, align 1
+  %124 = zext i8 %123 to i16
+  store i16 %124, ptr %5, align 2
   store i16 8, ptr %4, align 2
-  br label %128
+  br label %125
 
-128:                                              ; preds = %119, %.lr.ph.split.split
-  %129 = phi i16 [ 8, %119 ], [ %117, %.lr.ph.split.split ]
-  %.061. = tail call i16 @llvm.umin.i16(i16 %.0613, i16 %129)
-  %130 = zext i16 %.061. to i32
-  %131 = sub i16 %.0613, %.061.
-  %132 = load i16, ptr %5, align 2
-  %133 = zext i16 %132 to i32
-  %134 = shl i32 %133, %130
-  %135 = trunc i32 %134 to i16
-  store i16 %135, ptr %5, align 2
-  %136 = and i32 %.0622, 65535
-  %137 = shl i32 %136, %130
-  %138 = lshr i32 %134, 8
-  %139 = and i32 %138, 255
-  %140 = or i32 %139, %137
-  %141 = load i16, ptr %4, align 2
-  %142 = sub i16 %141, %.061.
-  store i16 %142, ptr %4, align 2
-  %143 = load i16, ptr %5, align 2
-  %144 = and i16 %143, 255
-  store i16 %144, ptr %5, align 2
-  %.not68 = icmp eq i16 %131, 0
+125:                                              ; preds = %116, %.lr.ph.split.split
+  %126 = phi i16 [ 8, %116 ], [ %114, %.lr.ph.split.split ]
+  %.061. = tail call i16 @llvm.umin.i16(i16 %.0613, i16 %126)
+  %127 = zext i16 %.061. to i32
+  %128 = sub i16 %.0613, %.061.
+  %129 = load i16, ptr %5, align 2
+  %130 = zext i16 %129 to i32
+  %131 = shl i32 %130, %127
+  %132 = trunc i32 %131 to i16
+  store i16 %132, ptr %5, align 2
+  %133 = shl i32 %.0622, %127
+  %134 = lshr i32 %131, 8
+  %135 = and i32 %134, 255
+  %136 = or i32 %135, %133
+  %137 = load i16, ptr %4, align 2
+  %138 = sub i16 %137, %.061.
+  store i16 %138, ptr %4, align 2
+  %139 = load i16, ptr %5, align 2
+  %140 = and i16 %139, 255
+  store i16 %140, ptr %5, align 2
+  %.not68 = icmp eq i16 %128, 0
   br i1 %.not68, label %._crit_edge.loopexit15, label %.lr.ph.split.split, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %42
-  %145 = trunc i32 %54 to i16
+  %141 = trunc i32 %53 to i16
   br label %._crit_edge
 
-._crit_edge.loopexit13:                           ; preds = %74
-  %146 = trunc i32 %86 to i16
+._crit_edge.loopexit13:                           ; preds = %73
+  %142 = trunc i32 %84 to i16
   br label %._crit_edge
 
-._crit_edge.loopexit14:                           ; preds = %99
-  %147 = trunc i32 %111 to i16
+._crit_edge.loopexit14:                           ; preds = %97
+  %143 = trunc i32 %108 to i16
   br label %._crit_edge
 
-._crit_edge.loopexit15:                           ; preds = %128
-  %148 = trunc i32 %140 to i16
+._crit_edge.loopexit15:                           ; preds = %125
+  %144 = trunc i32 %136 to i16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit15, %._crit_edge.loopexit14, %._crit_edge.loopexit13, %._crit_edge.loopexit, %.preheader
-  %.062.lcssa = phi i16 [ 0, %.preheader ], [ %145, %._crit_edge.loopexit ], [ %146, %._crit_edge.loopexit13 ], [ %147, %._crit_edge.loopexit14 ], [ %148, %._crit_edge.loopexit15 ]
-  %149 = icmp ne i8 %2, 0
-  %150 = icmp ult i16 %7, 17
-  %or.cond = and i1 %149, %150
-  br i1 %or.cond, label %151, label %168
+  %.062.lcssa = phi i16 [ 0, %.preheader ], [ %141, %._crit_edge.loopexit ], [ %142, %._crit_edge.loopexit13 ], [ %143, %._crit_edge.loopexit14 ], [ %144, %._crit_edge.loopexit15 ]
+  %145 = icmp ne i8 %2, 0
+  %146 = icmp ult i16 %7, 17
+  %or.cond = and i1 %145, %146
+  br i1 %or.cond, label %147, label %164
 
-151:                                              ; preds = %._crit_edge
-  %152 = zext i16 %.062.lcssa to i32
-  %153 = lshr i32 %152, 8
+147:                                              ; preds = %._crit_edge
+  %148 = zext i16 %.062.lcssa to i32
+  %149 = lshr i32 %148, 8
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %150
+  %152 = load i8, ptr %151, align 1
+  %153 = and i32 %148, 255
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %154
   %156 = load i8, ptr %155, align 1
-  %157 = and i32 %152, 255
-  %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr [256 x i8], ptr @reverse, i64 0, i64 %158
-  %160 = load i8, ptr %159, align 1
-  %161 = zext i8 %160 to i32
-  %162 = shl nuw nsw i32 %161, 8
-  %163 = zext i8 %156 to i32
-  %164 = or disjoint i32 %162, %163
-  %165 = sub nuw nsw i32 16, %28
-  %166 = lshr i32 %164, %165
-  %167 = trunc nuw i32 %166 to i16
-  br label %168
+  %157 = zext i8 %156 to i32
+  %158 = shl nuw nsw i32 %157, 8
+  %159 = zext i8 %152 to i32
+  %160 = or disjoint i32 %158, %159
+  %161 = sub nuw nsw i32 16, %28
+  %162 = lshr i32 %160, %161
+  %163 = trunc nuw i32 %162 to i16
+  br label %164
 
-168:                                              ; preds = %151, %._crit_edge
-  %.1 = phi i16 [ %167, %151 ], [ %.062.lcssa, %._crit_edge ]
-  %169 = zext i16 %.1 to i32
-  br label %170
+164:                                              ; preds = %147, %._crit_edge
+  %.1 = phi i16 [ %163, %147 ], [ %.062.lcssa, %._crit_edge ]
+  %165 = zext i16 %.1 to i32
+  br label %166
 
-170:                                              ; preds = %168, %116
-  %.0 = phi i32 [ 64429, %116 ], [ %169, %168 ]
+166:                                              ; preds = %164, %113
+  %.0 = phi i32 [ 64429, %113 ], [ %165, %164 ]
   ret i32 %.0
 }
 

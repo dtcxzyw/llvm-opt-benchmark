@@ -685,7 +685,7 @@ If_Dec6DeriveCount2.exit.i:                       ; preds = %97
   %indvars.iv11.i = phi i64 [ 48, %113 ], [ 52, %121 ]
   %.18.i = phi i64 [ %120, %113 ], [ %126, %121 ]
   %123 = load i32, ptr %indvars.iv11.i.sroa.phi, align 4, !tbaa !3
-  %124 = sext i32 %123 to i64
+  %124 = zext i32 %123 to i64
   %125 = shl i64 %124, %indvars.iv11.i
   %126 = or i64 %125, %.18.i
   br i1 %122, label %121, label %If_Dec6DeriveDisjoint.exit, !llvm.loop !27
@@ -906,7 +906,7 @@ If_Dec6DeriveCount2.exit52.i:                     ; preds = %209
   %indvars.iv72.i = phi i64 [ 48, %231 ], [ 52, %242 ]
   %.14562.i = phi i64 [ %241, %231 ], [ %247, %242 ]
   %244 = load i32, ptr %indvars.iv72.i.sroa.phi, align 4, !tbaa !3
-  %245 = sext i32 %244 to i64
+  %245 = zext i32 %244 to i64
   %246 = shl i64 %245, %indvars.iv72.i
   %247 = or i64 %246, %.14562.i
   br i1 %243, label %242, label %If_Dec6DeriveNonDisjoint.exit, !llvm.loop !30
