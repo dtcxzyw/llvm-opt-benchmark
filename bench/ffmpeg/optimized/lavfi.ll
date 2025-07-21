@@ -494,9 +494,6 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   %.sroa.4.0.extract.shift = lshr i64 %189, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %190 = call i64 @av_buffersink_get_frame_rate(ptr noundef %188) #10
-  %.sroa.026.0.extract.trunc = trunc i64 %190 to i32
-  %.sroa.6.0.extract.shift = lshr i64 %190, 32
-  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %191 = load ptr, ptr %179, align 8, !tbaa !73
   %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv372
   %193 = load ptr, ptr %192, align 8, !tbaa !74
@@ -511,6 +508,9 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
   ]
 
 197:                                              ; preds = %181
+  %.sroa.6.0.extract.shift = lshr i64 %190, 32
+  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.026.0.extract.trunc = trunc i64 %190 to i32
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 4
   store i32 135169, ptr %198, align 4, !tbaa !80
   %199 = call i32 @av_buffersink_get_format(ptr noundef %188) #10
@@ -537,13 +537,9 @@ define internal i32 @lavfi_read_header(ptr noundef %0) #0 {
 
 211:                                              ; preds = %197
   %212 = getelementptr inbounds nuw i8, ptr %193, i64 88
-  store i32 %.sroa.026.0.extract.trunc, ptr %212, align 8, !tbaa !48
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 92
-  store i32 %.sroa.6.0.extract.trunc, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !48
+  store i64 %190, ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %193, i64 204
-  store i32 %.sroa.026.0.extract.trunc, ptr %213, align 4, !tbaa !48
-  %.sroa.6.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %193, i64 208
-  store i32 %.sroa.6.0.extract.trunc, ptr %.sroa.6.0..sroa_idx28, align 4, !tbaa !48
+  store i64 %190, ptr %213, align 4
   br label %229
 
 214:                                              ; preds = %181

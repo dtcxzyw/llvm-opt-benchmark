@@ -863,8 +863,6 @@ _ZN4TypenwEm.exit:                                ; preds = %18, %20
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN4Type18make_from_constantE10ciConstantbibb(i8 %0, i64 %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %.sroa.2.sroa.0.0.extract.trunc = trunc i64 %1 to i32
-  %.sroa.2.sroa.10.0.extract.shift = lshr i64 %1, 32
-  %.sroa.2.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.2.sroa.10.0.extract.shift to i32
   switch i8 %0, label %_ZNK4Type14make_narrowoopEv.exit [
     i8 4, label %7
     i8 5, label %35
@@ -1161,13 +1159,9 @@ _ZN8TypeLong4makeEl.exit:                         ; preds = %163, %165
   store i16 0, ptr %170, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i29, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i29, i64 24
-  store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %171, align 8
-  %.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i29, i64 28
-  store i32 %.sroa.2.sroa.10.0.extract.trunc, ptr %.sroa_idx, align 4
+  store i64 %1, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i29, i64 32
-  store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %172, align 8
-  %.sroa_idx44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i29, i64 36
-  store i32 %.sroa.2.sroa.10.0.extract.trunc, ptr %.sroa_idx44, align 4
+  store i64 %1, ptr %172, align 8
   br label %_ZNK4Type14make_narrowoopEv.exit.sink.split
 
 173:                                              ; preds = %6
@@ -17665,8 +17659,6 @@ define hidden noundef nonnull ptr @_ZNK11TypeInstPtr21get_const_boxed_valueEv(pt
   %7 = extractvalue { i8, i64 } %6, 0
   %8 = extractvalue { i8, i64 } %6, 1
   %.sroa.2.sroa.0.0.extract.trunc = trunc i64 %8 to i32
-  %.sroa.2.sroa.9.0.extract.shift = lshr i64 %8, 32
-  %.sroa.2.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.2.sroa.9.0.extract.shift to i32
   switch i8 %7, label %225 [
     i8 4, label %9
     i8 10, label %37
@@ -18047,13 +18039,9 @@ _ZN8TypeLong4makeEl.exit:                         ; preds = %215, %217
   store i16 0, ptr %222, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i20, align 8
   %223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 24
-  store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %223, align 8
-  %.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 28
-  store i32 %.sroa.2.sroa.9.0.extract.trunc, ptr %.sroa_idx, align 4
+  store i64 %8, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 32
-  store i32 %.sroa.2.sroa.0.0.extract.trunc, ptr %224, align 8
-  %.sroa_idx30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i20, i64 36
-  store i32 %.sroa.2.sroa.9.0.extract.trunc, ptr %.sroa_idx30, align 4
+  store i64 %8, ptr %224, align 8
   br label %228
 
 225:                                              ; preds = %1

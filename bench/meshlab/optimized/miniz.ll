@@ -17114,62 +17114,56 @@ define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef captures(
   store i8 6, ptr %95, align 1
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %spec.select289 = call i32 @llvm.umin.i32(i32 %92, i32 65535)
-  %97 = trunc i32 %spec.select289 to i8
-  store i8 %97, ptr %96, align 8
-  %98 = lshr i32 %spec.select289, 8
-  %99 = trunc nuw i32 %98 to i8
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  store i8 %99, ptr %100, align 1
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 %97, ptr %101, align 2
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  store i8 %99, ptr %102, align 1
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %104 = call i64 @llvm.umin.i64(i64 %.0269, i64 4294967295)
-  %105 = trunc nuw i64 %104 to i32
-  store i32 %105, ptr %103, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %107 = call i64 @llvm.umin.i64(i64 %.0270, i64 4294967295)
-  %108 = trunc nuw i64 %107 to i32
-  store i32 %108, ptr %106, align 16
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %112 = load ptr, ptr %111, align 8
-  %113 = call i64 %110(ptr noundef %112, i64 noundef %91, ptr noundef nonnull %2, i64 noundef 22) #31
-  %.not287 = icmp eq i64 %113, 22
-  br i1 %.not287, label %116, label %114
+  %97 = trunc nuw i32 %spec.select289 to i16
+  store i16 %97, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  store i16 %97, ptr %98, align 2
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %100 = call i64 @llvm.umin.i64(i64 %.0269, i64 4294967295)
+  %101 = trunc nuw i64 %100 to i32
+  store i32 %101, ptr %99, align 4
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %103 = call i64 @llvm.umin.i64(i64 %.0270, i64 4294967295)
+  %104 = trunc nuw i64 %103 to i32
+  store i32 %104, ptr %102, align 16
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %108 = load ptr, ptr %107, align 8
+  %109 = call i64 %106(ptr noundef %108, i64 noundef %91, ptr noundef nonnull %2, i64 noundef 22) #31
+  %.not287 = icmp eq i64 %109, 22
+  br i1 %.not287, label %112, label %110
 
-114:                                              ; preds = %90
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %115, align 4
+110:                                              ; preds = %90
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %111, align 4
   br label %.critedge
 
-116:                                              ; preds = %90
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %118 = load ptr, ptr %117, align 8
-  %.not288 = icmp eq ptr %118, null
-  br i1 %.not288, label %124, label %119
+112:                                              ; preds = %90
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %114 = load ptr, ptr %113, align 8
+  %.not288 = icmp eq ptr %114, null
+  br i1 %.not288, label %120, label %115
 
-119:                                              ; preds = %116
-  %120 = call i32 @fflush(ptr noundef nonnull %118)
-  %121 = icmp eq i32 %120, -1
-  br i1 %121, label %122, label %124
+115:                                              ; preds = %112
+  %116 = call i32 @fflush(ptr noundef nonnull %114)
+  %117 = icmp eq i32 %116, -1
+  br i1 %117, label %118, label %120
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 21, ptr %123, align 4
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 21, ptr %119, align 4
   br label %.critedge
 
-124:                                              ; preds = %119, %116
-  %125 = load i64, ptr %0, align 8
-  %126 = add i64 %125, 22
-  store i64 %126, ptr %0, align 8
+120:                                              ; preds = %115, %112
+  %121 = load i64, ptr %0, align 8
+  %122 = add i64 %121, 22
+  store i64 %122, ptr %0, align 8
   store i32 3, ptr %7, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %9, %1, %124, %122, %114, %85, %74, %45, %31, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %45 ], [ 0, %74 ], [ 0, %85 ], [ 0, %114 ], [ 0, %122 ], [ 1, %124 ], [ 0, %31 ], [ 0, %1 ], [ 0, %9 ]
+.critedge:                                        ; preds = %9, %1, %120, %118, %110, %85, %74, %45, %31, %18
+  %.0 = phi i32 [ 0, %18 ], [ 0, %45 ], [ 0, %74 ], [ 0, %85 ], [ 0, %110 ], [ 0, %118 ], [ 1, %120 ], [ 0, %31 ], [ 0, %1 ], [ 0, %9 ]
   ret i32 %.0
 }
 

@@ -3595,15 +3595,11 @@ define hidden void @"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$C1$GT$$GT$20from_color_unclamped17h8c0b0b48baf33b81E"(ptr noalias noundef writeonly sret({ { float, float, float, {} }, float }) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.03.0.extract.trunc = trunc i64 %1 to i32
-  %.sroa.44.0.extract.shift = lshr i64 %1, 32
-  %.sroa.44.0.extract.trunc = trunc nuw i64 %.sroa.44.0.extract.shift to i32
   store i32 %.sroa.03.0.extract.trunc, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.03.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.03.0.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 4
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.44.0.extract.trunc, ptr %3, align 4
+  store i64 %1, ptr %.sroa.5.0..sroa_idx, align 4
   ret void
 }
 
