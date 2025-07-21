@@ -2682,13 +2682,13 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress4X_usingCTabl
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %14 = ptrtoint ptr %12 to i64
   %gepdiff = add i64 %1, -6
-  %15 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %13, i64 noundef %gepdiff, ptr noundef %2, i64 noundef %8, ptr noundef %4, i32 noundef %5)
-  %16 = icmp ult i64 %15, -119
-  br i1 %16, label %17, label %.thread
+  %13 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %13, i64 noundef %gepdiff, ptr noundef %2, i64 noundef %8, ptr noundef %4, i32 noundef %5)
+  %14 = icmp ult i64 %13, -119
+  br i1 %14, label %15, label %.thread
 
-17:                                               ; preds = %11
-  %18 = add i64 %15, -65536
-  %or.cond = icmp ult i64 %18, -65535
+15:                                               ; preds = %11
+  %16 = add i64 %13, -65536
+  %or.cond = icmp ult i64 %16, -65535
   br i1 %or.cond, label %.thread, label %19
 
 19:                                               ; preds = %17
@@ -2701,56 +2701,56 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress4X_usingCTabl
   %24 = icmp ult i64 %23, -119
   br i1 %24, label %25, label %.thread
 
-25:                                               ; preds = %19
+17:                                               ; preds = %19
   %26 = add i64 %23, -65536
   %or.cond6 = icmp ult i64 %26, -65535
   br i1 %or.cond6, label %.thread, label %27
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %29 = trunc nuw i64 %23 to i16
-  store i16 %29, ptr %28, align 1, !tbaa !16
-  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %23
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 %8
-  %32 = add nuw nsw i64 %15, %23
-  %gepdiff128 = sub i64 %gepdiff, %32
-  %33 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %30, i64 noundef %gepdiff128, ptr noundef %31, i64 noundef %8, ptr noundef %4, i32 noundef %5)
-  %34 = icmp ult i64 %33, -119
-  br i1 %34, label %35, label %.thread
+25:                                               ; preds = %25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %27 = trunc nuw i64 %23 to i16
+  store i16 %27, ptr %26, align 1, !tbaa !16
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %23
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %8
+  %30 = add nuw nsw i64 %13, %23
+  %gepdiff128 = sub i64 %gepdiff, %30
+  %31 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %28, i64 noundef %gepdiff128, ptr noundef %29, i64 noundef %8, ptr noundef %4, i32 noundef %5)
+  %32 = icmp ult i64 %31, -119
+  br i1 %32, label %33, label %.thread
 
-35:                                               ; preds = %27
-  %36 = add i64 %33, -65536
-  %or.cond8 = icmp ult i64 %36, -65535
-  br i1 %or.cond8, label %.thread, label %37
+33:                                               ; preds = %25
+  %34 = add i64 %31, -65536
+  %or.cond8 = icmp ult i64 %34, -65535
+  br i1 %or.cond8, label %.thread, label %35
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %39 = trunc nuw i64 %33 to i16
-  store i16 %39, ptr %38, align 1, !tbaa !16
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %33
-  %41 = getelementptr inbounds nuw i8, ptr %31, i64 %8
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %14, %42
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %37 = trunc nuw i64 %31 to i16
+  store i16 %37, ptr %36, align 1, !tbaa !16
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 %31
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 %8
+  %42 = ptrtoint ptr %38 to i64
+  %gepdiff129 = sub i64 %14, %42
   %.neg = mul i64 %8, -3
   %gepdiff106 = add i64 %.neg, %3
-  %44 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %40, i64 noundef %43, ptr noundef %41, i64 noundef %gepdiff106, ptr noundef %4, i32 noundef %5)
-  %45 = icmp ult i64 %44, -119
-  br i1 %45, label %46, label %.thread
+  %41 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %38, i64 noundef %gepdiff129, ptr noundef %39, i64 noundef %gepdiff106, ptr noundef %4, i32 noundef %5)
+  %42 = icmp ult i64 %41, -119
+  br i1 %42, label %43, label %.thread
 
-46:                                               ; preds = %37
-  %47 = add i64 %44, -65536
-  %or.cond10 = icmp ult i64 %47, -65535
-  br i1 %or.cond10, label %.thread, label %48
+43:                                               ; preds = %35
+  %44 = add i64 %41, -65536
+  %or.cond10 = icmp ult i64 %44, -65535
+  br i1 %or.cond10, label %.thread, label %45
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %40, i64 %44
+45:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 %41
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %0 to i64
   %52 = sub i64 %50, %51
   br label %.thread
 
-.thread:                                          ; preds = %46, %37, %35, %27, %25, %19, %17, %11, %6, %48
-  %.0 = phi i64 [ %52, %48 ], [ 0, %6 ], [ 0, %17 ], [ %15, %11 ], [ 0, %25 ], [ %23, %19 ], [ 0, %35 ], [ %33, %27 ], [ 0, %46 ], [ %44, %37 ]
+.thread:                                          ; preds = %43, %35, %33, %25, %25, %19, %15, %11, %6, %45
+  %.0 = phi i64 [ %52, %48 ], [ 0, %6 ], [ 0, %17 ], [ %13, %11 ], [ 0, %25 ], [ %23, %19 ], [ 0, %35 ], [ %31, %27 ], [ 0, %46 ], [ %41, %37 ]
   ret i64 %.0
 }
 
