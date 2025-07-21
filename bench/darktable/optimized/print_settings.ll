@@ -5582,9 +5582,9 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   %51 = add i32 %50, 1
   %52 = add nsw i32 %51, %48
   %53 = sext i32 %52 to i64
-  %.neg148 = add i64 %2, 8
+  %.neg149 = add i64 %2, 8
   %54 = add nsw i64 %20, %26
-  %55 = sub i64 %.neg148, %54
+  %55 = sub i64 %.neg149, %54
   %56 = add i64 %55, %53
   %57 = tail call noalias ptr @malloc(i64 noundef %56) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr nonnull align 1 %1, i64 %10, i1 false)
@@ -5608,10 +5608,10 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   %69 = sext i32 %51 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr nonnull align 1 %.0130, i64 %69, i1 false)
   %70 = getelementptr i8, ptr %68, i64 %69
-  %.neg151 = add i64 %2, -8
-  %71 = add nsw i64 %59, %20
-  %72 = add nsw i64 %71, %26
-  %73 = sub i64 %.neg151, %72
+  %71 = ptrtoint ptr %27 to i64
+  %72 = ptrtoint ptr %1 to i64
+  %.neg = add i64 %2, %72
+  %73 = sub i64 %.neg, %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull align 1 %27, i64 %73, i1 false)
   br label %.sink.split
 
@@ -5650,10 +5650,10 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %74, %78
-  %.sink154 = phi i64 [ %79, %78 ], [ %75, %74 ], [ %56, %45 ]
+  %.sink151 = phi i64 [ %79, %78 ], [ %75, %74 ], [ %56, %45 ]
   %.sink = phi i32 [ 4, %78 ], [ 3, %74 ], [ 2, %45 ]
   %.0.ph = phi ptr [ %80, %78 ], [ %76, %74 ], [ %57, %45 ]
-  store i64 %.sink154, ptr %5, align 8, !tbaa !226
+  store i64 %.sink151, ptr %5, align 8, !tbaa !226
   store i32 %.sink, ptr %4, align 4, !tbaa !132
   br label %91
 
