@@ -68,7 +68,7 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %39, label %14
+  br i1 %13, label %41, label %14
 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
@@ -77,7 +77,7 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = call ptr %12(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %5, ptr noundef %16) #4
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %38, label %19
+  br i1 %18, label %40, label %19
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #4
@@ -110,16 +110,16 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   store ptr %17, ptr %36, align 8, !tbaa !27
   br label %37
 
-37:                                               ; preds = %19, %21
+37:; preds = %19, %21
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #4
-  br label %38
+  br label %40
 
-38:                                               ; preds = %14, %37
+40:                                               ; preds = %14, %37
   %.1 = phi i1 [ %.not24, %37 ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  br label %39
+  br label %41
 
-39:                                               ; preds = %10, %38
+41:                                               ; preds = %10, %40
   %.0 = phi i1 [ %.1, %38 ], [ false, %10 ]
   ret i1 %.0
 }

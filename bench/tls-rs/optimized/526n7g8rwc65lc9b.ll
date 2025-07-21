@@ -4684,19 +4684,19 @@ _ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit: ; preds = %2
   %18 = icmp eq i64 %17, 10
   br i1 %18, label %21, label %19
 
-19:                                               ; preds = %_ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit
-  %20 = icmp ult i64 %16, %.sroa.838.0.extract.shift
-  br i1 %20, label %30, label %23
+18:                                               ; preds = %_ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit
+  %19 = icmp ult i64 %16, %.sroa.838.0.extract.shift
+  br i1 %19, label %26, label %22
 
-21:                                               ; preds = %_ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit
+20:                                               ; preds = %_ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit
   %.sroa.435.0.extract.shift = lshr i64 %9, 16
   %.sroa.7.sroa.0.0 = trunc i64 %.sroa.435.0.extract.shift to i8
   store i8 %.sroa.7.sroa.0.0, ptr %0, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 10, ptr %22, align 2
-  br label %32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 10, ptr %21, align 2
+  br label %28
 
-23:                                               ; preds = %19
+22:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.838.0.extract.shift
   %25 = sub nuw i64 %16, %.sroa.838.0.extract.shift
   %26 = add i64 %13, %.sroa.838.0.extract.shift
@@ -4707,7 +4707,7 @@ _ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit: ; preds = %2
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.838.0.extract.shift, ptr %.sroa.419.0..sroa_idx, align 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = lshr i64 %9, 32
+  %27 = lshr i64 %9, 28
   %28 = trunc i64 %27 to i16
   store i16 %28, ptr %.sroa.520.0..sroa_idx, align 8
   %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -4715,13 +4715,13 @@ _ZN6rustls4msgs5codec9ReaderMut9as_reader17ha4790e46c52d4285E.exit: ; preds = %2
   store i32 %29, ptr %.sroa.722.0..sroa_idx, align 2
   br label %32
 
-30:                                               ; preds = %19
+26:                                               ; preds = %18
   store i8 1, ptr %0, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 10, ptr %31, align 2
-  br label %32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 10, ptr %27, align 2
+  br label %28
 
-32:                                               ; preds = %30, %23, %21
+28:                                               ; preds = %26, %22, %20
   ret void
 }
 

@@ -1963,7 +1963,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %28
 
 28:                                               ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit"
-  %.sroa.4.025 = phi ptr [ %2, %.lr.ph ], [ %106, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit" ]
+  %.sroa.4.025 = phi ptr [ %2, %.lr.ph ], [ %103, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit" ]
   %29 = phi ptr [ %.promoted, %.lr.ph ], [ %30, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit" ]
   %.sroa.011.0.copyload = load i64, ptr %29, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2123,14 +2123,14 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %84 = icmp eq i64 %.sroa.011.0.copyload, %70
   br i1 %84, label %85, label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-85:                                               ; preds = %"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11yank_motion28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he5040dae3acf27f4E.exit.i.i"
+85:; preds = %"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11yank_motion28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he5040dae3acf27f4E.exit.i.i"
   %86 = icmp eq i32 %.sroa.212.0.copyload, %77
   %87 = icmp eq i32 %.sroa.313.0.copyload, %76
   %.sroa.0.0.i.i.i.i = select i1 %86, i1 %87, i1 false
   br i1 %.sroa.0.0.i.i.i.i, label %88, label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-88:                                               ; preds = %85
-  %89 = icmp eq i32 %.sroa.414.0.copyload, %78
+88:; preds = %85
+  %88 = icmp eq i32 %.sroa.414.0.copyload, %78
   %90 = icmp eq i32 %.sroa.5.0.copyload, %79
   %.sroa.0.0.i8.i.i.i = select i1 %89, i1 %90, i1 false
   %91 = icmp eq i8 %.sroa.918.0.copyload, 0
@@ -2141,40 +2141,40 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 93:                                               ; preds = %88
   switch i32 %.sroa.615.0.copyload, label %default.unreachable.i.i.i [
-    i32 1, label %94
-    i32 2, label %98
-    i32 3, label %103
+    i32 1, label %91
+    i32 2, label %95
+    i32 3, label %100
     i32 0, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit"
   ]
 
 default.unreachable.i.i.i:                        ; preds = %93
   unreachable
 
-94:                                               ; preds = %93
-  %95 = bitcast i32 %.sroa.716.0.copyload to float
-  %96 = bitcast i32 %80 to float
-  %97 = fcmp oeq float %95, %96
-  br i1 %97, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
+91:                                               ; preds = %93
+  %92 = bitcast i32 %.sroa.716.0.copyload to float
+  %93 = bitcast i32 %80 to float
+  %94 = fcmp oeq float %92, %93
+  br i1 %94, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-98:                                               ; preds = %93
-  %99 = bitcast i32 %.sroa.716.0.copyload to float
-  %100 = bitcast i32 %80 to float
-  %101 = fcmp oeq float %99, %100
-  %102 = fcmp oeq float %.sroa.817.0.copyload, %83
-  %or.cond8.i.i = select i1 %101, i1 %102, i1 false
+95:                                               ; preds = %93
+  %96 = bitcast i32 %.sroa.716.0.copyload to float
+  %97 = bitcast i32 %80 to float
+  %98 = fcmp oeq float %96, %97
+  %99 = fcmp oeq float %.sroa.817.0.copyload, %83
+  %or.cond8.i.i = select i1 %98, i1 %99, i1 false
   br i1 %or.cond8.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-103:                                              ; preds = %93
-  %104 = icmp eq i32 %.sroa.716.0.copyload, %80
-  %105 = fcmp oeq float %.sroa.817.0.copyload, %83
-  %or.cond10.i.i = select i1 %104, i1 %105, i1 false
+100:                                              ; preds = %93
+  %101 = icmp eq i32 %.sroa.716.0.copyload, %80
+  %102 = fcmp oeq float %.sroa.817.0.copyload, %83
+  %or.cond10.i.i = select i1 %101, i1 %102, i1 false
   br i1 %or.cond10.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i": ; preds = %103, %98, %94, %88, %85, %"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11yank_motion28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he5040dae3acf27f4E.exit.i.i"
+"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i": ; preds = %100, %95, %91, %88, %85, %"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11yank_motion28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he5040dae3acf27f4E.exit.i.i"
   store i8 1, ptr %27, align 1, !noalias !829
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit"
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit": ; preds = %93, %94, %98, %103, %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit": ; preds = %93, %91, %95, %100, %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !829
   store i64 %70, ptr %.sroa.4.025, align 8, !noalias !840
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 8
@@ -2191,15 +2191,15 @@ default.unreachable.i.i.i:                        ; preds = %93
   store i64 %.sroa.6.sroa.0.0.copyload.i.i.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !840
   %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 36
   store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !840
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 40
   %.not = icmp eq ptr %30, %12
   br i1 %.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit", %5
-  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %106, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit" ]
-  %107 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %108 = insertvalue { ptr, ptr } %107, ptr %.sroa.4.0.lcssa, 1
-  ret { ptr, ptr } %108
+  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %103, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h895eb5ef0db4ada1E.exit" ]
+  %104 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %105 = insertvalue { ptr, ptr } %104, ptr %.sroa.4.0.lcssa, 1
+  ret { ptr, ptr } %105
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4124,7 +4124,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %28
 
 28:                                               ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit"
-  %.sroa.4.025 = phi ptr [ %2, %.lr.ph ], [ %106, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit" ]
+  %.sroa.4.025 = phi ptr [ %2, %.lr.ph ], [ %103, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit" ]
   %29 = phi ptr [ %.promoted, %.lr.ph ], [ %30, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit" ]
   %.sroa.011.0.copyload = load i64, ptr %29, align 8
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -4284,14 +4284,14 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %84 = icmp eq i64 %.sroa.011.0.copyload, %70
   br i1 %84, label %85, label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-85:                                               ; preds = %"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11yank_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h44bc2b5ee4f6df69E.exit.i.i"
+85:; preds = %"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11yank_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h44bc2b5ee4f6df69E.exit.i.i"
   %86 = icmp eq i32 %.sroa.212.0.copyload, %77
   %87 = icmp eq i32 %.sroa.313.0.copyload, %76
   %.sroa.0.0.i.i.i.i = select i1 %86, i1 %87, i1 false
   br i1 %.sroa.0.0.i.i.i.i, label %88, label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-88:                                               ; preds = %85
-  %89 = icmp eq i32 %.sroa.414.0.copyload, %78
+88:; preds = %85
+  %88 = icmp eq i32 %.sroa.414.0.copyload, %78
   %90 = icmp eq i32 %.sroa.5.0.copyload, %79
   %.sroa.0.0.i8.i.i.i = select i1 %89, i1 %90, i1 false
   %91 = icmp eq i8 %.sroa.918.0.copyload, 0
@@ -4302,40 +4302,40 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 93:                                               ; preds = %88
   switch i32 %.sroa.615.0.copyload, label %default.unreachable.i.i.i [
-    i32 1, label %94
-    i32 2, label %98
-    i32 3, label %103
+    i32 1, label %91
+    i32 2, label %95
+    i32 3, label %100
     i32 0, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit"
   ]
 
 default.unreachable.i.i.i:                        ; preds = %93
   unreachable
 
-94:                                               ; preds = %93
-  %95 = bitcast i32 %.sroa.716.0.copyload to float
-  %96 = bitcast i32 %80 to float
-  %97 = fcmp oeq float %95, %96
-  br i1 %97, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
+91:                                               ; preds = %93
+  %92 = bitcast i32 %.sroa.716.0.copyload to float
+  %93 = bitcast i32 %80 to float
+  %94 = fcmp oeq float %92, %93
+  br i1 %94, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-98:                                               ; preds = %93
-  %99 = bitcast i32 %.sroa.716.0.copyload to float
-  %100 = bitcast i32 %80 to float
-  %101 = fcmp oeq float %99, %100
-  %102 = fcmp oeq float %.sroa.817.0.copyload, %83
-  %or.cond8.i.i = select i1 %101, i1 %102, i1 false
+95:                                               ; preds = %93
+  %96 = bitcast i32 %.sroa.716.0.copyload to float
+  %97 = bitcast i32 %80 to float
+  %98 = fcmp oeq float %96, %97
+  %99 = fcmp oeq float %.sroa.817.0.copyload, %83
+  %or.cond8.i.i = select i1 %98, i1 %99, i1 false
   br i1 %or.cond8.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-103:                                              ; preds = %93
-  %104 = icmp eq i32 %.sroa.716.0.copyload, %80
-  %105 = fcmp oeq float %.sroa.817.0.copyload, %83
-  %or.cond10.i.i = select i1 %104, i1 %105, i1 false
+100:                                              ; preds = %93
+  %101 = icmp eq i32 %.sroa.716.0.copyload, %80
+  %102 = fcmp oeq float %.sroa.817.0.copyload, %83
+  %or.cond10.i.i = select i1 %101, i1 %102, i1 false
   br i1 %or.cond10.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i": ; preds = %103, %98, %94, %88, %85, %"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11yank_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h44bc2b5ee4f6df69E.exit.i.i"
+"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i": ; preds = %100, %95, %91, %88, %85, %"_ZN3vim6normal4yank26_$LT$impl$u20$vim..Vim$GT$11yank_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h44bc2b5ee4f6df69E.exit.i.i"
   store i8 1, ptr %27, align 1, !noalias !1289
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit"
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit": ; preds = %93, %94, %98, %103, %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit": ; preds = %93, %91, %95, %100, %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !1289
   store i64 %70, ptr %.sroa.4.025, align 8, !noalias !1300
   %.sroa.4.sroa.4.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 8
@@ -4352,15 +4352,15 @@ default.unreachable.i.i.i:                        ; preds = %93
   store i64 %.sroa.6.sroa.0.0.copyload.i.i.i.i, ptr %.sroa.4.sroa.9.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1300
   %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 36
   store i8 0, ptr %.sroa.4.sroa.11.0..sroa.42.8..sroa_idx.i, align 4, !noalias !1300
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.4.025, i64 40
   %.not = icmp eq ptr %30, %12
   br i1 %.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit", %5
-  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %106, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit" ]
-  %107 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %108 = insertvalue { ptr, ptr } %107, ptr %.sroa.4.0.lcssa, 1
-  ret { ptr, ptr } %108
+  %.sroa.4.0.lcssa = phi ptr [ %2, %5 ], [ %103, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hef0be9c5c8441b24E.exit" ]
+  %104 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %105 = insertvalue { ptr, ptr } %104, ptr %.sroa.4.0.lcssa, 1
+  ret { ptr, ptr } %105
 }
 
 ; Function Attrs: nonlazybind uwtable
